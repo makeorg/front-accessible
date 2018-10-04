@@ -11,6 +11,6 @@
 ### Development
 
 * npm start:dev
-* visit `http://localhost:8080/`
+* visit `http://localhost:3000`
 
 ### Production

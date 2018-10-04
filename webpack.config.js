@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   module: {
     rules: [
       {
@@ -32,8 +33,13 @@ module.exports = {
         NODE_ENV: '"development"'
       }
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'public/index.html'),
+      filename: 'index.html'
+    })
   ],
   devServer: {
+    port: 3000,
     contentBase: './dist',
     hot: true
   }
