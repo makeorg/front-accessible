@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   module: {
     rules: [
       {
@@ -31,7 +31,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: '"development"'
       }
-    }),
+    })
   ],
   devServer: {
     contentBase: './dist',
