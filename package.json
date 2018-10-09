@@ -12,9 +12,12 @@
     "npm": ">=3"
   },
   "dependencies": {
+    "polished": "^2.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "styled-components": "4.0.0-beta.10"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -32,12 +35,14 @@
     "install": "^0.12.1",
     "react-hot-loader": "^4.3.11",
     "uglifyjs-webpack-plugin": "^2.0.1",
+    "file-loader": "^2.0.0",
+    "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development",
+    "start:dev": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development --open --hot",
     "build": "webpack -p --progress --colors --config ./webpack.prod.config.js --mode production"
   }
 }
