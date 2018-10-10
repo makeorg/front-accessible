@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import MainHeaderContainer from '../../containers/MainHeaderContainer';
-import MainFooterContainer from '../../containers/MainFooterContainer';
+import MainHeaderContainer from '../../containers/MainHeader';
+import MainFooterContainer from '../../containers/MainFooter';
 import { AppWrapper, MainContent } from '../Styled/MainElements';
 import ModernNormalize from '../../assets/css-in-js/ModernNormalize';
 import FontFaces from '../../assets/css-in-js/FontFaces';
 import DefaultStyle from '../../assets/css-in-js/DefaultStyle';
 import theme from '../../assets/vars/theme';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <ThemeProvider theme={theme}>

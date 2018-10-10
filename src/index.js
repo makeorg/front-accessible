@@ -3,7 +3,7 @@ import React from 'react';
 import App from './components/App';
 
 ReactDOM.render(
-  <App title="Front accessible" />,
+  <App />,
   document.getElementById('app'),
 );
 
