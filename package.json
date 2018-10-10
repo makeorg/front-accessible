@@ -41,6 +41,7 @@
   },
   "scripts": {
     "start:dev": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development --open --hot",
-    "build": "webpack -p --progress --colors --config ./webpack.prod.config.js --mode production"
+    "build": "webpack -p --progress --colors --config ./webpack.prod.config.js --mode production",
+    "test": "echo 'not implemented yet!'"
   }
 }
