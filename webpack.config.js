@@ -18,25 +18,25 @@ module.exports = {
         // Match woff2 in addition to patterns like .woff?v=1.1.1.
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
             // Limit at 50k. Above that it emits separate files
             limit: 50000,
 
             // url-loader sets mimetype if it's passed.
             // Without this it derives it from the file extension
-            mimetype: "application/font-woff",
+            mimetype: 'application/font-woff',
 
             // Output below fonts directory
-            name: "./fonts/[name].[ext]"
+            name: './fonts/[name].[ext]'
           }
         }
       }, {
         test: /\.(jpg|png|svg)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "[path][name].[hash].[ext]"
+            name: '[path][name].[hash].[ext]'
           }
         }
       }
