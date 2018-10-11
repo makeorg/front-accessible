@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const ModernNormalize = createGlobalStyle`
+const ModernNormalizeStylesheet = createGlobalStyle`
   /*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
 
   /* Document
@@ -276,4 +276,4 @@ const ModernNormalize = createGlobalStyle`
   }
 `;
 
-export default ModernNormalize;
+export default ModernNormalizeStylesheet;

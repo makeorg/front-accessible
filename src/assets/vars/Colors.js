@@ -22,6 +22,7 @@ export const TextColors = {
 };
 
 export const ShadowColors = {
-  BlackHalfOpacity: 'rgba(0, 0, 0, 0.5)',
-  BlackLightOpacity: 'rgba(0, 0, 0, 0.2)'
+  BlackZeroFiveOpacity: 'rgba(0, 0, 0, 0.5)',
+  BlackZeroThreOpacity: 'rgba(0, 0, 0, 0.3)',
+  BlackZeroTwoOpacity: 'rgba(0, 0, 0, 0.2)'
 };

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
 
-const DefaultStyle = createGlobalStyle`
+const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.CircularBook};
     color: ${BasicColors.PureBlack};
@@ -59,4 +59,4 @@ const DefaultStyle = createGlobalStyle`
   }
 `;
 
-export default DefaultStyle;
+export default DefaultStylesheet;

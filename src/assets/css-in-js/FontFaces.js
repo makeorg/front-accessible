@@ -6,7 +6,7 @@ import CircularBoldWoff2 from '../fonts/CircularStd-Bold.woff2';
 import CircularBookWoff from '../fonts/CircularStd-Book.woff';
 import CircularBookWoff2 from '../fonts/CircularStd-Book.woff2';
 
-const FontFaces = createGlobalStyle`
+const FontFacesStylesheet = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Ultra');
 
   @font-face {
@@ -34,4 +34,4 @@ const FontFaces = createGlobalStyle`
   }
 `;
 
-export default FontFaces;
+export default FontFacesStylesheet;

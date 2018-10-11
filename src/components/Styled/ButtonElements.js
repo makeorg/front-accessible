@@ -4,6 +4,16 @@ import Breakpoints from '../../assets/vars/Breakpoints';
 import { BasicColors, MakeThemeColors, BackgroundColors } from '../../assets/vars/Colors';
 import { MakeFonts } from '../../assets/vars/Fonts';
 
+export const UnstyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 0;
+  border: none;
+  background: transparent;
+  background-color: transparent;
+`;
+
 export const BasicButton = styled.button`
   display: flex;
   justify-content: center;
