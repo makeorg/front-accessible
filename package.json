@@ -32,6 +32,8 @@
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
@@ -51,7 +53,8 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --mode development --open --hot",
@@ -59,6 +62,6 @@
     "test:unit": "echo 'not implemented yet!'",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "server": "NODE_ENV=production node server/index.js"
+    "server": "NODE_ENV=production node server/start.js"
   }
 }

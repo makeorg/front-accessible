@@ -23,19 +23,11 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader']
       }, {
-        test: /\.(ttf|eot|woff|woff2)$/,
+        test: /\.(jpg|png|svg|ttf|eot|woff|woff2)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]'
-          }
-        }
-      }, {
-        test: /\.(jpg|png|svg)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[path][name].[hash].[ext]'
+            name: 'assets/[name].[hash].[ext]'
           }
         }
       }
