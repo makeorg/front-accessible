@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import Fonts from '../../../assets/vars/Fonts';
-import { Colors } from '../../../assets/vars/Colors';
+import { ExtraFonts } from '../../../assets/vars/Fonts';
+import { BasicColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
@@ -13,7 +13,7 @@ export const Nav = styled.nav`
 `;
 
 export const Title = styled.h2`
-  color: ${Colors.PureWhite};
+  color: ${BasicColors.PureWhite};
   font-size: ${rem('14px')};
   @media (min-width: ${rem(Breakpoints.mobile)}){
     font-size: ${rem('18px')};
@@ -21,7 +21,7 @@ export const Title = styled.h2`
 `;
 
 export const HighlightedTitle = styled.span`
-  font-family: ${Fonts.Ultra};
+  font-family: ${ExtraFonts.Ultra};
   font-size: ${rem('18px')};
   text-transform: none;
   @media (min-width: ${rem(Breakpoints.mobile)}){
