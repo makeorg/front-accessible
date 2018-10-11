@@ -23,7 +23,7 @@ build:
     - docker
   before_script:
     - export IMAGE_VERSION=`git rev-parse --short=10 HEAD`
-    - export IMAGE=make-widget-runner
+    - export IMAGE=www-accessible
     - mkdir -p /var/lib/docker
     - mount -t tmpfs -o size=12G tmpfs /var/lib/docker
     - if [ ! -e /var/run/docker.sock ]; then DOCKER_DRIVER=overlay2 dockerd & fi
