@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
-import Fonts from '../vars/Fonts';
-import { Colors } from '../vars/Colors';
+import { MakeFonts } from '../vars/Fonts';
+import { BasicColors } from '../vars/Colors';
 
 const DefaultStyle = createGlobalStyle`
   body {
-    font-family: ${Fonts.CircularBook};
-    color: ${Colors.PureBlack};
-    background: ${Colors.PureWhite};
-    background-color: ${Colors.PureWhite};
+    font-family: ${MakeFonts.CircularBook};
+    color: ${BasicColors.PureBlack};
+    background: ${BasicColors.PureWhite};
+    background-color: ${BasicColors.PureWhite};
   }
 
   h1,
@@ -16,7 +16,7 @@ const DefaultStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: ${Fonts.TradeGothic};
+    font-family: ${MakeFonts.TradeGothic};
     text-transform: uppercase;
     font-weight: normal;
     font-style: normal;
@@ -27,20 +27,35 @@ const DefaultStyle = createGlobalStyle`
   }
 
   a {
-    font-family: ${Fonts.CircularBold};
-    color: ${Colors.PureBlack};
+    font-family: ${MakeFonts.CircularBold};
+    color: ${BasicColors.PureBlack};
     text-decoration: underline;
   }
 
+  input,
   a:hover,
   a:focus {
-    color: ${Colors.PureBlack};
+    color: ${BasicColors.PureBlack};
   }
 
   img {
     display: block;
     max-width: 100%;
     height: auto;
+  }
+
+  label {
+    font-family: ${MakeFonts.CircularBold};
+    color: ${BasicColors.PureBlack};
+  }
+
+  label:hover,
+  button:hover {
+    cursor: pointer
+  }
+
+  button:disabled {
+    cursor: not-allowed;
   }
 `;
 

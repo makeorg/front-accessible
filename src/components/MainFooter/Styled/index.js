@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Shadows } from '../../../assets/vars/Colors';
+import { ShadowColors } from '../../../assets/vars/Colors';
 import {
   Nav,
   Title,
@@ -10,7 +10,7 @@ import {
 
 const MainFooter = styled.footer`
   padding: ${rem('15px')} ${rem('20px')};
-  box-shadow: 0 0 16px 6px ${Shadows.BlackLightOpacity};
+  box-shadow: 0 0 16px 6px ${ShadowColors.BlackLightOpacity};
   background: ${props => props.theme.MainColor};
   background-color: ${props => props.theme.MainColor};
 `;
