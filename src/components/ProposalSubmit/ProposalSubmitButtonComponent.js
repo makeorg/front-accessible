@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { RedButton, GreyButton, IconInButton } from '../Styled/ButtonElements';
+import { RedButton, GreyButton, IconInButton } from '../Elements/ButtonElements';
 
 const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit }) => {
   if (canSubmit) {
