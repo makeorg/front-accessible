@@ -14,7 +14,7 @@ module.exports = function reactRender(req, res) {
   const initialState = {
     appConfig: {}
   };
-  
+
   fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
     if (err) {
       console.error('read err', err);

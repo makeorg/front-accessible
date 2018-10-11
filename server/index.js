@@ -1,15 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const serveStatic = require('serve-static')
+const serveStatic = require('serve-static');
 require('./browserPolyfill');
-const reactRender = require('./reactRender')
+const reactRender = require('./reactRender');
 const { BUILD_DIR, PUBLIC_DIR } = require('./paths');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
     // Custom Cache-Control for HTML files
-    res.setHeader('Cache-Control', 'public, max-age=0')
+    res.setHeader('Cache-Control', 'public, max-age=0');
   }
 }
 
@@ -21,7 +21,7 @@ const HOST = process.env.HOST || 'localhost';
 const app = express();
 app.use(compression());
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.get('/', reactRender);
 
