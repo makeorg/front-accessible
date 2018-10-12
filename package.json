@@ -12,19 +12,29 @@
     "npm": ">=3"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "express": "^4.16.3",
     "polished": "^2.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "serve-static": "^1.13.2",
     "styled-components": "4.0.0-beta.10"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.8.0",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.1",
@@ -43,13 +53,16 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server --progress --colors --config ./webpack.config.js --mode development --open --hot",
-    "build": "webpack -p --progress --colors --config ./webpack.prod.config.js --mode production",
-    "test": "echo 'not implemented yet!'",
+    "start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --mode development --open --hot",
+    "build": "webpack -p --progress --colors --config ./webpack/prod.config.js --mode production",
+    "test:unit": "echo 'not implemented yet!'",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "server": "NODE_ENV=production node server/start.js"
   }
 }

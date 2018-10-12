@@ -3,10 +3,12 @@
   "rules": {
     "max-len": [1, 120, 2, {ignoreComments: true}],
     "comma-dangle": ["error", "never"],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "no-underscore-dangle": 0,
+    "import/no-extraneous-dependencies": ["error", {"peerDependencies": true, "devDependencies": true}],
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
     "react/prefer-stateless-function": 0,
+
   },
   "extends": "airbnb",
   "env": {
