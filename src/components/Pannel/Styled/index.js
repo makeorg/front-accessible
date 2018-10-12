@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
-import CloseButton from './Button';
+import { ButtonWrapper, CloseButton } from './Button';
 
-const Pannel = styled.section`
-  position: absolute;;
+const Pannel = styled.div`
+  position: absolute;
+  z-index: 1;
   top: 100%;
   left: 50%;
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: calc( 100% - ${rem('20px')});
@@ -21,12 +21,14 @@ const Pannel = styled.section`
   background-color: ${BasicColors.PureWhite};
   transform: translate(-50%, -${props => props.translate}%);
   transition: transform 0.5s linear;
+  overflow: auto;
   @media (min-width: ${rem(Breakpoints.mobile)}){
     height: calc( 100% - ${rem('40px')});
   }
 `;
 
 /* Button */
+Pannel.ButtonWrapper = ButtonWrapper;
 Pannel.CloseButton = CloseButton;
 
 export default Pannel;

@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { UnstyledButton } from '../../Styled/ButtonElements';
+import { UnstyledButton } from '../../Elements/ButtonElements';
+import { FlexElement } from '../../Elements/FlexElements';
+import Breakpoints from '../../../assets/vars/Breakpoints';
 
-const CloseButton = styled(UnstyledButton)`
-  position: absolute;
-  z-index: 1;
-  top: ${rem('20px')};
-  right: ${rem('20px')};
-  font-size: ${rem('24px')};
+export const ButtonWrapper = styled(FlexElement)`
+  justify-content: flex-end;
+  width: 100%;
+  min-height: ${rem('24px')};
+  margin-bottom: ${rem('10px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    margin-bottom: ${rem('40px')};
+  }
 `;
 
-export default CloseButton;
+export const CloseButton = styled(UnstyledButton)`
+  font-size: ${rem('24px')};
+`;

@@ -7,13 +7,9 @@ class PannelContainer extends React.Component {
     this.state = {
       isPannelOpen: true
     };
-    this.openPannel = this.openPannel.bind(this);
     this.closePannel = this.closePannel.bind(this);
   }
 
-  openPannel() {
-    this.setState({ isPannelOpen: true });
-  }
 
   closePannel() {
     this.setState({ isPannelOpen: false });
@@ -25,7 +21,6 @@ class PannelContainer extends React.Component {
       <PannelComponent
         isPannelOpen={isPannelOpen}
         closePannel={this.closePannel}
-        openPannel={this.openPannel}
       />
     );
   }

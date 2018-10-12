@@ -57,6 +57,10 @@ const DefaultStylesheet = createGlobalStyle`
   button:disabled {
     cursor: not-allowed;
   }
+
+  p {
+    margin: 0;
+  }
 `;
 
 export default DefaultStylesheet;

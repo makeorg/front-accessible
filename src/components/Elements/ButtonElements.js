@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import Breakpoints from '../../assets/vars/Breakpoints';
-import { BasicColors, MakeThemeColors, BackgroundColors } from '../../assets/vars/Colors';
+import {
+  BasicColors,
+  MakeThemeColors,
+  BackgroundColors,
+  ShadowColors
+} from '../../assets/vars/Colors';
 import { MakeFonts } from '../../assets/vars/Fonts';
 
 export const UnstyledButton = styled.button`
@@ -20,23 +25,23 @@ export const BasicButton = styled.button`
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothic};
   font-size: ${rem('14px')};
-  padding: ${rem('9px')} ${rem('20px')} ${rem('7px')};
+  padding: ${rem('12px')} ${rem('20px')} ${rem('9px')};
   border: none;
   border-radius: ${rem('30px')};
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   @media (min-width: ${rem(Breakpoints.mobile)}){
     font-size: ${rem('16px')};
   }
 `;
 
 export const GreyButton = styled(BasicButton)`
-  text-transform: uppercase;
   color: ${BasicColors.PureWhite};
   background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const RedButton = styled(BasicButton)`
-  text-transform: uppercase;
   color: ${BasicColors.PureWhite};
   background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};

@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { BasicColors, BorderColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
-import { Label, Input, CharLimit } from './ProposalField';
+import {
+  Label,
+  Input,
+  CharLimit,
+  ProposalButton,
+  DisabledProposalButton
+} from './ProposalField';
 
 const ProposalSubmitWrapper = styled.form`
   display: flex;
@@ -21,5 +27,7 @@ const ProposalSubmitWrapper = styled.form`
 ProposalSubmitWrapper.Label = Label;
 ProposalSubmitWrapper.Input = Input;
 ProposalSubmitWrapper.CharLimit = CharLimit;
+ProposalSubmitWrapper.ProposalButton = ProposalButton;
+ProposalSubmitWrapper.DisabledProposalButton = DisabledProposalButton;
 
 export default ProposalSubmitWrapper;

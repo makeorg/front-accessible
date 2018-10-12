@@ -4,7 +4,7 @@ import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
 import FontFacesStylesheet from '../../assets/css-in-js/FontFaces';
 import DefaultStylesheet from '../../assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from '../../assets/css-in-js/Animations';
-import { AppWrapper, MainContent } from '../Styled/MainElements';
+import { AppWrapper, MainContent } from '../Elements/MainElements';
 import MainHeaderContainer from '../../containers/MainHeader';
 import MainFooterContainer from '../../containers/MainFooter';
 import ProposalSubmitContainer from '../../containers/ProposalSubmit';
