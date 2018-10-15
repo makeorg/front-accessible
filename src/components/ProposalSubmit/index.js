@@ -1,51 +1,36 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import ProposalSubmitButtonComponent from './ProposalSubmitButtonComponent';
 import ProposalSubmitWrapper from './Styled';
-import { RedButton, GreyButton, IconInButton } from '../Styled/ButtonElements';
-import { PROPOSAL_LABEL } from '../../constants/proposal';
+import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
+/**
+ * ProposalSubmitCmponent render the proposal Submit Component
+ * @extends React
+ */
 class ProposalSubmitComponent extends React.Component {
   render() {
     const {
-      isProposalValidLength,
-      proposalLength,
+      length,
+      canSubmit,
       handleChange,
-      handleFocus,
-      handleBlur
+      handleSubmit
     } = this.props;
     return (
       <ProposalSubmitWrapper>
         <ProposalSubmitWrapper.Label htmlFor="proposal">
-          { PROPOSAL_LABEL }
+          { PROPOSAL_BAIT_TEXT }
         </ProposalSubmitWrapper.Label>
         <ProposalSubmitWrapper.Input
           type="text"
           name="proposal"
           id="proposal"
           onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
         />
         <ProposalSubmitWrapper.CharLimit>
-          <span>{proposalLength}</span>
+          <span>{length}</span>
           / 140
         </ProposalSubmitWrapper.CharLimit>
-        {isProposalValidLength ? (
-          <RedButton type="submit">
-            <IconInButton>
-              <FontAwesomeIcon icon={faPencilAlt} />
-            </IconInButton>
-            Proposer
-          </RedButton>
-        ) : (
-          <GreyButton type="submit" disabled>
-            <IconInButton>
-              <FontAwesomeIcon icon={faPencilAlt} />
-            </IconInButton>
-            Proposer
-          </GreyButton>
-        )}
+        <ProposalSubmitButtonComponent handleSubmit={handleSubmit} canSubmit={canSubmit} />
       </ProposalSubmitWrapper>
     );
   }

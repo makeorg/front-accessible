@@ -36,7 +36,7 @@ module.exports = function reactRender(req, res) {
       .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
       .replace('</head>', `${styles}</head>`)
       .replace('"__REDUX__"', JSON.stringify(initialState))
-      .replace('"__API_URL__"', API_URL);
+      .replace('__API_URL__', API_URL);
 
     return res.send(RenderedApp);
   });

@@ -1,0 +1,33 @@
+import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
+import * as actionTypes from '../../constants/actionTypes';
+import ProposalService from '../../api/ProposalService';
+
+export const typing = (content, length, canSubmit) => ({
+  type: actionTypes.PROPOSE_TYPING,
+  content,
+  length,
+  canSubmit
+});
+export const proposeRequest = (content, operationId) => ({ type: actionTypes.PROPOSE_REQUEST, content, operationId });
+export const proposeSuccess = proposalId => ({ type: actionTypes.PROPOSE_SUCCESS, proposalId });
+export const proposeFailure = error => ({ type: actionTypes.PROPOSE_FAILURE, error });
+
+export const typingProposal = (content, length, canSubmit) => (dispatch) => {
+  dispatch(typing(content, length, canSubmit));
+};
+
+export const submitProposal = (content, operationId) => (dispatch, getState) => {
+  const { isLoggedIn } = getState().authentification;
+  if (isLoggedIn) {
+    const proposalContent = PROPOSAL_BAIT_TEXT + content;
+    ProposalService.propose(proposalContent, operationId)
+      .then((proposalId) => {
+        dispatch(proposeSuccess(proposalId));
+      })
+      .catch((error) => {
+        dispatch(proposeFailure(error));
+      });
+  } else {
+    dispatch(proposeRequest(content, operationId));
+  }
+};
