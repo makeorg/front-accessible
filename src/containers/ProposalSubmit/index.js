@@ -1,69 +1,75 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ProposalSubmitComponent from '../../components/ProposalSubmit';
-import { PROPOSAL_LABEL, MIN_PROPOSAL_LENGTH, MAX_PROPOSAL_LENGTH } from '../../constants/proposal';
+import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
+import { typingProposal, submitProposal } from '../../actions/proposal';
 
-export const doInputBlur = prevState => ({
+export const doInputChange = (prevState, proposalLength, isProposalValidLength) => ({
   ...prevState,
-  isTyping: prevState.proposalLength > 0
-});
-
-export const doInputChange = (prevState, proposalValue) => ({
-  ...prevState,
-  proposalLength: (PROPOSAL_LABEL + proposalValue).length,
+  proposalLength,
+  isProposalValidLength,
   errors: []
 });
 
+/**
+ * ProposalSubmitContainer manage the proposal Submit Component business logic
+ * @extends React
+ */
 class ProposalSubmitContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      proposalLength: PROPOSAL_LABEL.length,
-      isTyping: false,
-      isProposalValidLength: false
-    };
-    this.isProposalValidLength = this.isProposalValidLength.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-  }
 
-  isProposalValidLength() {
-    const { proposalLength } = this.state;
-    if (proposalLength >= MIN_PROPOSAL_LENGTH && proposalLength <= MAX_PROPOSAL_LENGTH) {
-      this.setState({ isProposalValidLength: true });
-    } else {
-      this.setState({ isProposalValidLength: false });
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    const proposalValue = event.target.value;
-    this.setState(prevState => doInputChange(prevState, proposalValue));
+    const content = event.target.value;
+    const length = getProposalLength(content);
+    const canSubmit = getIsProposalValidLength(length);
+
+    const { dispatch } = this.props;
+
+    dispatch(typingProposal(content, length, canSubmit));
   }
 
-  handleFocus() {
-    this.setState({
-      isTyping: true
-    });
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const {
+      content,
+      operationId,
+      dispatch
+    } = this.props;
+
+    dispatch(submitProposal(content, operationId));
   }
 
-  handleBlur() {
-    this.setState(doInputBlur);
-  }
 
   render() {
-    const { isTyping, proposalLength, isProposalValidLength } = this.state;
+    const { content, length, canSubmit } = this.props;
     return (
       <ProposalSubmitComponent
-        proposalLength={proposalLength}
-        isTyping={isTyping}
-        isProposalValidLength={isProposalValidLength}
+        content={content}
+        length={length}
+        canSubmit={canSubmit}
         handleChange={this.handleChange}
-        handleFocus={this.handleFocus}
-        handleBlur={this.handleBlur}
+        handleSubmit={this.handleSubmit}
       />
     );
   }
 }
 
-export default ProposalSubmitContainer;
+const mapStateToProps = (state) => {
+  const { operationId } = state.appConfig;
+  const { content, length, canSubmit } = state.proposal;
+
+  return {
+    operationId,
+    content,
+    length,
+    canSubmit
+  };
+};
+
+export default connect(mapStateToProps)(ProposalSubmitContainer);
