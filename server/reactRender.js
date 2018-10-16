@@ -8,9 +8,10 @@ import App from '../src/components/App';
 const fs = require('fs');
 const path = require('path');
 const { BUILD_DIR } = require('./paths');
+const configuration = require('./configuration.js');
 
 module.exports = function reactRender(req, res) {
-  const { API_URL } = process.env;
+  const { proxyApiUrl } = configuration;
   const initialState = {
     appConfig: {}
   };
@@ -36,7 +37,7 @@ module.exports = function reactRender(req, res) {
       .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
       .replace('</head>', `${styles}</head>`)
       .replace('"__REDUX__"', JSON.stringify(initialState))
-      .replace('__API_URL__', API_URL);
+      .replace('__API_URL__', proxyApiUrl);
 
     return res.send(RenderedApp);
   });
