@@ -1,13 +1,14 @@
 import React from 'react';
-import ProposalSubmitButtonComponent from './ButtonComponent';
-import ProposalSubmitWrapper from './Styled';
+import ProposalSubmitButtonComponent from './Button';
+import ProposalSubmitForm from './Styled';
+import { HiddenSecondLevelTitle, HiddenItem } from '../Elements/HiddenElements';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
 /**
  * ProposalSubmitCmponent render the proposal Submit Component
  * @extends React
  */
-class ProposalSubmitComponent extends React.Component {
+class ProposalSubmitFormComponent extends React.Component {
   render() {
     const {
       length,
@@ -17,25 +18,32 @@ class ProposalSubmitComponent extends React.Component {
       handleSubmit
     } = this.props;
     return (
-      <ProposalSubmitWrapper>
-        <ProposalSubmitWrapper.Label htmlFor="proposal">
+      <ProposalSubmitForm>
+        <HiddenSecondLevelTitle>
+          Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :
+        </HiddenSecondLevelTitle>
+        <ProposalSubmitForm.Label htmlFor="proposal">
           { PROPOSAL_BAIT_TEXT }
-        </ProposalSubmitWrapper.Label>
-        <ProposalSubmitWrapper.Input
+        </ProposalSubmitForm.Label>
+        <ProposalSubmitForm.Input
           type="text"
           name="proposal"
           id="proposal"
           onChange={handleChange}
           onFocus={handleFocus}
         />
-        <ProposalSubmitWrapper.CharLimit>
-          <span>{length}</span>
-          / 140
-        </ProposalSubmitWrapper.CharLimit>
+        <ProposalSubmitForm.CharLimit>
+          <span aria-valuetext={length}>{length}</span>
+          <HiddenItem> caractères entrés </HiddenItem>
+          /
+          <HiddenItem> sur </HiddenItem>
+          <span aria-valuemax="140">140</span>
+          <HiddenItem> caractères disponibles</HiddenItem>
+        </ProposalSubmitForm.CharLimit>
         <ProposalSubmitButtonComponent handleSubmit={handleSubmit} canSubmit={canSubmit} />
-      </ProposalSubmitWrapper>
+      </ProposalSubmitForm>
     );
   }
 }
 
-export default ProposalSubmitComponent;
+export default ProposalSubmitFormComponent;

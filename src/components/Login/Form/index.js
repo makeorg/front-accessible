@@ -2,13 +2,14 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { RedButton, IconInButton } from '../../Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
   Form,
   FakeInputGrey,
   IconLabel,
   BasicTextInput
-} from '../../Elements/FormElements';
+} from '../../Elements/Form';
+import PasswordButton from '../../Elements/Form/PasswordButton';
 
 class LoginFormComponent extends React.Component {
   render() {
@@ -17,7 +18,10 @@ class LoginFormComponent extends React.Component {
       password,
       errors,
       handleChange,
-      handleSubmit
+      handleSubmit,
+      showPassword,
+      hidePassword,
+      passwordIsDisplayed
     } = this.props;
 
     return (
@@ -49,7 +53,7 @@ class LoginFormComponent extends React.Component {
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
           <BasicTextInput
-            type="password"
+            type={passwordIsDisplayed ? 'text' : 'password'}
             name="password"
             id="password"
             value={password}
@@ -58,13 +62,18 @@ class LoginFormComponent extends React.Component {
             required
             onChange={handleChange}
           />
+          <PasswordButton
+            showPassword={showPassword}
+            hidePassword={hidePassword}
+            passwordIsDisplayed={passwordIsDisplayed}
+          />
         </FakeInputGrey>
-        <RedButton type="submit" form="login">
+        <SmallRedButton type="submit" form="login">
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>
           Se connecter
-        </RedButton>
+        </SmallRedButton>
       </Form>
     );
   }

@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
-import ProposalSubmitDescriptionComponent from './DescriptionComponent';
+import ProposalSubmitDescriptionComponent from './';
 
 describe('ProposalSubmitDescriptionComponent', () => {
-  
+
 });

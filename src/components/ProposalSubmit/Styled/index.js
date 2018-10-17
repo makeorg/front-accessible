@@ -12,11 +12,12 @@ import {
 
 export const DescriptionWrapper = styled.div``;
 
-const ProposalSubmitWrapper = styled.form`
+const ProposalSubmitForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  min-height: ${rem('45px')};
   max-width: ${rem(Breakpoints.sequenceWidth)};
   padding: 0 ${rem('8px')};
   border: ${rem('1px')} solid ${BorderColors.LightGrey};
@@ -24,13 +25,16 @@ const ProposalSubmitWrapper = styled.form`
   margin-bottom: ${rem('30px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    min-height: ${rem('50px')};
+  }
 `;
 
 /* Proposal Field */
-ProposalSubmitWrapper.Label = Label;
-ProposalSubmitWrapper.Input = Input;
-ProposalSubmitWrapper.CharLimit = CharLimit;
-ProposalSubmitWrapper.ProposalButton = ProposalButton;
-ProposalSubmitWrapper.DisabledProposalButton = DisabledProposalButton;
+ProposalSubmitForm.Label = Label;
+ProposalSubmitForm.Input = Input;
+ProposalSubmitForm.CharLimit = CharLimit;
+ProposalSubmitForm.ProposalButton = ProposalButton;
+ProposalSubmitForm.DisabledProposalButton = DisabledProposalButton;
 
-export default ProposalSubmitWrapper;
+export default ProposalSubmitForm;

@@ -1,15 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { GoogleLink } from '../Styled/Content';
-import { IconInButton } from '../../Elements/ButtonElements';
-import GoogleAuthentificationComponent from './GoogleAuthentification';
+import { GoogleLink, SocialIcon } from '../../../Styled/Content';
+import GoogleAuthentificationComponent from '..';
 
 const renderGoogleLogin = renderProps => (
   <GoogleLink onClick={renderProps.onClick}>
-    <IconInButton>
+    <SocialIcon>
       <FontAwesomeIcon icon={faGoogle} />
-    </IconInButton>
+    </SocialIcon>
     Google
   </GoogleLink>
 );

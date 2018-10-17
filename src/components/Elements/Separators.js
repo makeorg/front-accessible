@@ -15,14 +15,14 @@ export const Small = styled(SepartorStyle)`
   max-width: ${rem('60px')};
   margin: ${rem('15px')} 0 ${rem('25px')};
   @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin: ${rem('30px')} 0 ${rem('40px')};
+    margin: ${rem('20px')} 0 ${rem('30px')};
   }
 `;
 
 export const Large = styled(SepartorStyle)`
-  margin: ${rem('35px')} 0;
+  margin: ${rem('25px')} 0;
   @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin: ${rem('45px')} 0;
+    margin: ${rem('35px')} 0;
   }
 `;
 

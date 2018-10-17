@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { FACEBOOK_PROVIDER_ENUM } from '../../../api/UserService';
-import { loginSocial } from '../../../actions/authentification';
+import { FACEBOOK_PROVIDER_ENUM } from '../../../../api/UserService';
+import { loginSocial } from '../../../../actions/authentification';
 
 /**
  * FacebookAuthentificationContainer handle facebook authentification

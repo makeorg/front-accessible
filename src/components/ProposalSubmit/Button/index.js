@@ -1,27 +1,27 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { RedButton, GreyButton, IconInButton } from '../Elements/ButtonElements';
+import { SmallRedButton, SmallGreyButton, IconInButton } from '../../Elements/ButtonElements';
 
 const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit }) => {
   if (canSubmit) {
     return (
-      <RedButton type="submit" onClick={handleSubmit}>
+      <SmallRedButton type="submit" onClick={handleSubmit}>
         <IconInButton>
-          <FontAwesomeIcon icon={faPencilAlt} />
+          <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
         </IconInButton>
         Proposer
-      </RedButton>
+      </SmallRedButton>
     );
   }
 
   return (
-    <GreyButton type="submit" disabled>
+    <SmallGreyButton type="submit" disabled>
       <IconInButton>
-        <FontAwesomeIcon icon={faPencilAlt} />
+        <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
       </IconInButton>
       Proposer
-    </GreyButton>
+    </SmallGreyButton>
   );
 };
 

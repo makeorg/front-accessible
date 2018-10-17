@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { register } from '../../actions/registration';
 import RegisterComponent from '../../components/Register';
+import { showLogin } from '../../actions/pannel';
 
 class RegisterContainer extends React.Component {
   constructor(props) {
@@ -14,11 +15,14 @@ class RegisterContainer extends React.Component {
         age: '',
         postalcode: '',
         profession: ''
-      }
+      },
+      passwordIsDisplayed: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showPassword = this.showPassword.bind(this);
+    this.hidePassword = this.hidePassword.bind(this);
   }
 
   handleChange(event) {
@@ -43,9 +47,29 @@ class RegisterContainer extends React.Component {
     }
   }
 
+  showPassword(event) {
+    event.preventDefault();
+    const { passwordIsDisplayed } = this.state;
+
+    this.setState({
+      ...passwordIsDisplayed,
+      passwordIsDisplayed: true
+    });
+  }
+
+  hidePassword(event) {
+    event.preventDefault();
+    const { passwordIsDisplayed } = this.state;
+
+    this.setState({
+      ...passwordIsDisplayed,
+      passwordIsDisplayed: false
+    });
+  }
+
   render() {
-    const { user } = this.state;
-    const { errors } = this.props;
+    const { user, passwordIsDisplayed } = this.state;
+    const { handleLoginPannel, errors } = this.props;
 
     return (
       <RegisterComponent
@@ -53,6 +77,10 @@ class RegisterContainer extends React.Component {
         errors={errors}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        showPassword={this.showPassword}
+        hidePassword={this.hidePassword}
+        passwordIsDisplayed={passwordIsDisplayed}
+        handleLoginPannel={handleLoginPannel}
       />
     );
   }
@@ -69,6 +97,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   handleRegister: (user) => {
     dispatch(register(user));
+  },
+  handleLoginPannel: () => {
+    dispatch(showLogin());
   }
 });
 

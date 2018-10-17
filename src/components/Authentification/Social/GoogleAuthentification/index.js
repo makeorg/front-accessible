@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-import { GOOGLE_PROVIDER_ENUM } from '../../../api/UserService';
-import { loginSocial } from '../../../actions/authentification';
+import { GOOGLE_PROVIDER_ENUM } from '../../../../api/UserService';
+import { loginSocial } from '../../../../actions/authentification';
 
 class GoogleAuthentificationComponent extends React.Component {
   render() {

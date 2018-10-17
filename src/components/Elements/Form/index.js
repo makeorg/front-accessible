@@ -6,8 +6,9 @@ import {
   BorderColors,
   TextColors,
   MakeThemeColors
-} from '../../assets/vars/Colors';
-import Breakpoints from '../../assets/vars/Breakpoints';
+} from '../../../assets/vars/Colors';
+import { UnstyledButton } from '../ButtonElements';
+import Breakpoints from '../../../assets/vars/Breakpoints';
 
 export const NoStyleTextInput = styled.input`
   border: none;
@@ -82,6 +83,10 @@ export const IconLabel = styled.label`
   }
 `;
 
+export const HidePasswordIcon = styled(UnstyledButton)`
+  color: ${TextColors.MediumGrey};
+`;
+
 export const InlineParagraph = styled.p`
   display: inline;
   font-size: ${rem('14px')};
@@ -101,8 +106,7 @@ export const ExtraAltParagraph = styled(InlineParagraph)`
 export const ConditionParagraph = styled(InlineParagraph)`
   color: ${TextColors.MediumGrey};
   font-size: ${rem('12px')};
-  margin-top: ${rem('5px')};
-  margin-bottom: ${rem('5px')};
+  margin-bottom: ${rem('15px')};
   @media (min-width: ${rem(Breakpoints.mobile)}){
     font-size: ${rem('14px')};
   }

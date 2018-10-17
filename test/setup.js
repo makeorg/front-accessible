@@ -8,6 +8,7 @@ import { JSDOM } from 'jsdom';
 Enzyme.configure({ adapter: new Adapter() });
 
 chai.use(sinonChai);
+require.extensions['.svg'] = () => {};
 
 global.document = new JSDOM('');
 global.window = document.defaultView;

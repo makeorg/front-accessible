@@ -10,7 +10,7 @@ export const ButtonWrapper = styled(FlexElement)`
   min-height: ${rem('24px')};
   margin-bottom: ${rem('10px')};
   @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-bottom: ${rem('40px')};
+    margin-bottom: ${rem('20px')};
   }
 `;
 

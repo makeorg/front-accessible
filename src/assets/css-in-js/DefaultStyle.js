@@ -58,7 +58,10 @@ const DefaultStylesheet = createGlobalStyle`
     cursor: not-allowed;
   }
 
-  p {
+  ul,
+  p,
+  form,
+  blockquote {
     margin: 0;
   }
 `;

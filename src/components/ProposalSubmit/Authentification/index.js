@@ -1,13 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { EmailButton, IconInButton, ButtonsWrapper } from '../Elements/ButtonElements';
-import { SecondLevelTitle, ThirdLevelTtitle } from '../Elements/TitleElements';
-import { AltDescription, DescriptionLink } from '../Elements/DescriptionElements';
-import * as Separators from '../Elements/Separators';
-import FacebookAuthentificationButtonComponent from '../Authentification/Social/FacebookAuthentificationButton';
-import GoogleAuthentificationButtonComponent from '../Authentification/Social/GoogleAuthentificationButton';
-import ProposalSubmitAuthentificationWrapper from './Styled/Authentification';
+import {
+  SmallRedButton,
+  EmailButton,
+  IconInButton,
+  ButtonsWrapper,
+  SmallButtonsWrapper
+} from '../../Elements/ButtonElements';
+import { SecondLevelTitle, ThirdLevelTtitle } from '../../Elements/TitleElements';
+import { AltDescription, DescriptionLink } from '../../Elements/DescriptionElements';
+import * as Separators from '../../Elements/Separators';
+import FacebookAuthentificationButtonComponent from '../../Authentification/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from '../../Authentification/Social/GoogleAuthentification/Button';
+import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 class ProposalSubmitAuthentificationComponent extends React.Component {
   render() {
@@ -19,31 +25,31 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
         <ThirdLevelTtitle>
           pour valider votre contribution et être informé(e) des résultats de la consultation.
         </ThirdLevelTtitle>
-        <ButtonsWrapper>
+        <SmallButtonsWrapper>
           <FacebookAuthentificationButtonComponent />
           <GoogleAuthentificationButtonComponent />
           <EmailButton onClick={handleRegisterClick}>
             <IconInButton>
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} />
             </IconInButton>
             Email
           </EmailButton>
-        </ButtonsWrapper>
+        </SmallButtonsWrapper>
         <AltDescription>
-          Make.org s&apos;engage à protéger vos
-          <DescriptionLink>
-            données personnelles &nbsp;
+          {'Make.org s‘engage à protéger vos '}
+          <DescriptionLink href="https://about.make.org/politique-donnees" target="_blank">
+            {'données personnelles '}
             <IconInButton>
-              <FontAwesomeIcon icon={faExternalLinkAlt} />
+              <FontAwesomeIcon aria-label="Ouverture dans un nouvel onglet" icon={faExternalLinkAlt} />
             </IconInButton>
           </DescriptionLink>
         </AltDescription>
-        <Separators.Small />
+        <Separators.Small aria-hidden="true" />
         <SecondLevelTitle>J’ai déjà un compte</SecondLevelTitle>
         <ButtonsWrapper>
-          <EmailButton onClick={handleLoginClick}>
+          <SmallRedButton onClick={handleLoginClick}>
             Je me connecte
-          </EmailButton>
+          </SmallRedButton>
         </ButtonsWrapper>
       </ProposalSubmitAuthentificationWrapper>
     );

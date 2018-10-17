@@ -38,7 +38,6 @@ export const BasicButton = styled.button`
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothic};
   font-size: ${rem('14px')};
-  padding: ${rem('12px')} ${rem('20px')} ${rem('9px')};
   border: none;
   border-radius: ${rem('30px')};
   text-transform: uppercase;
@@ -48,26 +47,55 @@ export const BasicButton = styled.button`
   }
 `;
 
-export const GreyButton = styled(BasicButton)`
+export const SmallBasicButton = styled(BasicButton)`
+  padding: ${rem('8.5px')} ${rem('15px')} ${rem('5.5px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    padding: ${rem('10.5px')} ${rem('20px')} ${rem('7.5px')};
+  }
+`;
+
+export const TallBasicButton = styled(BasicButton)`
+  padding: ${rem('10.5px')} ${rem('15px')} ${rem('7.5px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    padding: ${rem('12.5px')} ${rem('20px')} ${rem('9.5px')};
+  }
+`;
+
+export const SmallGreyButton = styled(SmallBasicButton)`
   color: ${BasicColors.PureWhite};
   background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
-export const RedButton = styled(BasicButton)`
+export const TallGreyButton = styled(TallBasicButton)`
+  color: ${BasicColors.PureWhite};
+  background: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
+`;
+
+export const SmallRedButton = styled(SmallBasicButton)`
+  color: ${BasicColors.PureWhite};
+  background: ${MakeThemeColors.Red};
+  background-color: ${MakeThemeColors.Red};
+`;
+
+export const TallRedButton = styled(TallBasicButton)`
   color: ${BasicColors.PureWhite};
   background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};
 `;
 
 export const IconInButton = styled.span`
-  margin-right: ${rem('5px')}
+  margin-right: ${rem('6.5px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    margin-right: ${rem('10px')};
+  }
 `;
 
-
-export const LargeButton = styled(BasicButton)`
+export const LargeButton = styled(SmallBasicButton)`
   width: 100%;
   max-width: ${rem('230px')};
+  margin: 0 ${rem('5px')};
 `;
 
 export const FacebookButton = styled(LargeButton)`
@@ -101,4 +129,8 @@ export const RedLinkButton = styled(UnstyledButton)`
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
   margin: 0 ${rem('5px')}
+`;
+
+export const SmallButtonsWrapper = styled(ButtonsWrapper)`
+  max-width: ${rem('410px')};
 `;

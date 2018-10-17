@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton, FacebookButton } from '../../Elements/ButtonElements';
-import FacebookAuthentificationComponent from './FacebookAuthentification';
+import { IconInButton, FacebookButton } from '../../../../Elements/ButtonElements';
+import FacebookAuthentificationComponent from '..';
 
 const renderFacebookLogin = renderProps => (
   <FacebookButton onClick={renderProps.onClick}>

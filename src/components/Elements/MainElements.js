@@ -18,11 +18,19 @@ export const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: calc(100vh - ${rem('134px')});
-  padding: ${rem('20px')};
+  height: calc(100vh - ${rem('134px')});
+  min-height: ${rem('645px')};
+  padding: ${rem('20px')} ${rem('20px')} 0;
   overflow: hidden;
   @media (min-width: ${rem(Breakpoints.mobile)}){
-    padding: ${rem('40px')} ${rem('20px')};
-    min-height: calc(100vh - ${rem('153px')});
+    padding: ${rem('40px')} ${rem('20px')} 0;
+    height: calc(100vh - ${rem('153px')});
   }
+`;
+
+export const ProposalSubmitWrapper = styled.aside`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
 `;

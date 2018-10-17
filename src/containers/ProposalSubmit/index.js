@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProposalSubmitComponent from '../../components/ProposalSubmit';
-import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/DescriptionComponent';
-import ProposalSubmitAuthentificationContainer from './AuthentificationContainer';
+import ProposalSubmitFormComponent from '../../components/ProposalSubmit';
+import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/Description';
+import ProposalSubmitAuthentificationContainer from './Authentification';
 import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
 import { typingProposal, submitProposal } from '../../actions/proposal';
+import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
 
 /**
  * ProposalSubmitContainer manage the proposal Submit Component business logic
@@ -65,25 +66,27 @@ export class ProposalSubmit extends React.Component {
     const { isTyping } = this.state;
 
     return (
-      [
-        <ProposalSubmitComponent
-          key="ProposalSubmitComponent"
+      <ProposalSubmitWrapper>
+        <ProposalSubmitFormComponent
+          key="ProposalSubmitFormComponent"
           content={content}
           length={length}
           canSubmit={canSubmit}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleFocus={this.handleFocus}
-        />,
-        (isTyping && !needAuthentification) ? (
+        />
+        {(isTyping && !needAuthentification) ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
-          />) : null,
-        (needAuthentification) ? (
+          />
+        ) : null}
+        {(needAuthentification) ? (
           <ProposalSubmitAuthentificationContainer
             key="ProposalSubmitAuthentificationContainer"
-          />) : null
-      ]
+          />
+        ) : null}
+      </ProposalSubmitWrapper>
     );
   }
 }

@@ -1,15 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton } from '../../Elements/ButtonElements';
-import { FacebookLink } from '../Styled/Content';
-import FacebookAuthentificationComponent from './FacebookAuthentification';
+import { FacebookLink, SocialIcon } from '../../../Styled/Content';
+import FacebookAuthentificationComponent from '..';
 
 const renderFacebookLogin = renderProps => (
   <FacebookLink onClick={renderProps.onClick}>
-    <IconInButton>
+    <SocialIcon>
       <FontAwesomeIcon icon={faFacebook} />
-    </IconInButton>
+    </SocialIcon>
     Facebook
   </FacebookLink>
 );

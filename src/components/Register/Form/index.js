@@ -8,15 +8,16 @@ import {
   faMapMarkerAlt,
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
-import { RedButton, IconInButton } from '../../Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
   FakeInputGrey,
   IconLabel,
   BasicTextInput
-} from '../../Elements/FormElements';
+} from '../../Elements/Form';
 import { fieldErrors } from '../../../helpers/form';
+import PasswordButton from '../../Elements/Form/PasswordButton';
 
 class RegisterFormComponent extends React.Component {
   render() {
@@ -24,7 +25,10 @@ class RegisterFormComponent extends React.Component {
       user,
       errors,
       handleChange,
-      handleSubmit
+      handleSubmit,
+      showPassword,
+      hidePassword,
+      passwordIsDisplayed
     } = this.props;
 
     const emailError = fieldErrors('email', errors);
@@ -53,7 +57,7 @@ class RegisterFormComponent extends React.Component {
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
           <BasicTextInput
-            type="password"
+            type={passwordIsDisplayed ? 'text' : 'password'}
             name="password"
             id="password"
             value={user.password}
@@ -61,6 +65,11 @@ class RegisterFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+          />
+          <PasswordButton
+            showPassword={showPassword}
+            hidePassword={hidePassword}
+            passwordIsDisplayed={passwordIsDisplayed}
           />
         </FakeInputGrey>
         <FakeInputGrey hasError={firstnameError}>
@@ -124,12 +133,12 @@ class RegisterFormComponent extends React.Component {
           {'En vous inscrivant, vous acceptez nos conditions générales d’utilisation '
           + 'et acceptez de recevoir des e-mails (peu nombreux) de Make.org.'}
         </ConditionParagraph>
-        <RedButton type="submit" form="register">
+        <SmallRedButton type="submit" form="register">
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>
           {'S\'inscrire'}
-        </RedButton>
+        </SmallRedButton>
       </Form>
     );
   }

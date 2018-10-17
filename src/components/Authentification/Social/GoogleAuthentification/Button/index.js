@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton, GoogleButton } from '../../Elements/ButtonElements';
-import GoogleAuthentificationComponent from './GoogleAuthentification';
+import { IconInButton, GoogleButton } from '../../../../Elements/ButtonElements';
+import GoogleAuthentificationComponent from '..';
 
 const renderGoogleLogin = renderProps => (
   <GoogleButton onClick={renderProps.onClick}>
