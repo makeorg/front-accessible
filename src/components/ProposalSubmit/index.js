@@ -1,5 +1,5 @@
 import React from 'react';
-import ProposalSubmitButtonComponent from './ProposalSubmitButtonComponent';
+import ProposalSubmitButtonComponent from './ButtonComponent';
 import ProposalSubmitWrapper from './Styled';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
@@ -13,6 +13,7 @@ class ProposalSubmitComponent extends React.Component {
       length,
       canSubmit,
       handleChange,
+      handleFocus,
       handleSubmit
     } = this.props;
     return (
@@ -25,6 +26,7 @@ class ProposalSubmitComponent extends React.Component {
           name="proposal"
           id="proposal"
           onChange={handleChange}
+          onFocus={handleFocus}
         />
         <ProposalSubmitWrapper.CharLimit>
           <span>{length}</span>

@@ -9,7 +9,7 @@ describe('proposal reducer', () => {
       const canSubmit = true;
       const action = actionCreators.typing(content, length, canSubmit);
       const previousState = {
-        isWaiting: false,
+        needAuthentification: false,
         canSubmit: false,
         content: null,
         length: 0,
@@ -18,7 +18,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
-        isWaiting: false,
+        needAuthentification: false,
         canSubmit: true,
         content: content,
         length: length,
@@ -37,7 +37,7 @@ describe('proposal reducer', () => {
 
       const action = actionCreators.proposeRequest(content, operationId);
       const previousState = {
-        isWaiting: false,
+        needAuthentification: false,
         canSubmit: true,
         content: content,
         length: 10,
@@ -46,7 +46,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
-        isWaiting: true,
+        needAuthentification: true,
         canSubmit: true,
         content: content,
         length: 10,
@@ -60,7 +60,7 @@ describe('proposal reducer', () => {
     it('propose success', () => {
       const action = actionCreators.proposeSuccess('foo-proposal-id');
       const previousState = {
-        isWaiting: true,
+        needAuthentification: true,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
@@ -69,7 +69,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
-        isWaiting: false,
+        needAuthentification: false,
         canSubmit: false,
         content: null,
         length: 8,
@@ -83,7 +83,7 @@ describe('proposal reducer', () => {
     it('propose failure', () => {
       const action = actionCreators.proposeFailure('foo-error');
       const previousState = {
-        isWaiting: true,
+        needAuthentification: false,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
@@ -92,7 +92,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
-        isWaiting: true,
+        needAuthentification: false,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,

@@ -1,25 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitComponent from '../../components/ProposalSubmit';
+import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/DescriptionComponent';
+import ProposalSubmitAuthentificationContainer from './AuthentificationContainer';
 import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
 import { typingProposal, submitProposal } from '../../actions/proposal';
-
-export const doInputChange = (prevState, proposalLength, isProposalValidLength) => ({
-  ...prevState,
-  proposalLength,
-  isProposalValidLength,
-  errors: []
-});
 
 /**
  * ProposalSubmitContainer manage the proposal Submit Component business logic
  * @extends React
  */
-class ProposalSubmitContainer extends React.Component {
+export class ProposalSubmit extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isTyping: false
+    };
+
     this.handleChange = this.handleChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,8 +33,18 @@ class ProposalSubmitContainer extends React.Component {
     dispatch(typingProposal(content, length, canSubmit));
   }
 
+  handleFocus() {
+    this.setState({
+      isTyping: true
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
+
+    this.setState({
+      isTyping: false
+    });
 
     const {
       content,
@@ -45,31 +55,55 @@ class ProposalSubmitContainer extends React.Component {
     dispatch(submitProposal(content, operationId));
   }
 
-
   render() {
-    const { content, length, canSubmit } = this.props;
+    const {
+      content,
+      length,
+      canSubmit,
+      needAuthentification
+    } = this.props;
+    const { isTyping } = this.state;
+
     return (
-      <ProposalSubmitComponent
-        content={content}
-        length={length}
-        canSubmit={canSubmit}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      [
+        <ProposalSubmitComponent
+          key="ProposalSubmitComponent"
+          content={content}
+          length={length}
+          canSubmit={canSubmit}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleFocus={this.handleFocus}
+        />,
+        (isTyping && !needAuthentification) ? (
+          <ProposalSubmitDescriptionComponent
+            key="ProposalSubmitDescriptionComponent"
+          />) : null,
+        (needAuthentification) ? (
+          <ProposalSubmitAuthentificationContainer
+            key="ProposalSubmitAuthentificationContainer"
+          />) : null
+      ]
     );
   }
 }
 
 const mapStateToProps = (state) => {
   const { operationId } = state.appConfig;
-  const { content, length, canSubmit } = state.proposal;
+  const {
+    content,
+    length,
+    canSubmit,
+    needAuthentification
+  } = state.proposal;
 
   return {
     operationId,
     content,
     length,
-    canSubmit
+    canSubmit,
+    needAuthentification
   };
 };
 
-export default connect(mapStateToProps)(ProposalSubmitContainer);
+export default connect(mapStateToProps)(ProposalSubmit);

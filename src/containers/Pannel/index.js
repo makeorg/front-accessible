@@ -1,29 +1,46 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import LoginContainer from '../Login';
+import RegisterContainer from '../Register';
+import ForgotPasswordContainer from '../ForgotPassword';
 import PannelComponent from '../../components/Pannel';
+import { closePannel } from '../../actions/pannel';
+import * as pannelContentTypes from '../../constants/pannel';
+
+const pannelContents = {
+  [pannelContentTypes.LOGIN_CONTENT]: <LoginContainer />,
+  [pannelContentTypes.REGISTER_CONTENT]: <RegisterContainer />,
+  [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <ForgotPasswordContainer />
+};
 
 class PannelContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPannelOpen: true
-    };
-    this.closePannel = this.closePannel.bind(this);
-  }
-
-
-  closePannel() {
-    this.setState({ isPannelOpen: false });
-  }
-
   render() {
-    const { isPannelOpen } = this.state;
+    const { isOpen, contentType, handleClose } = this.props;
     return (
       <PannelComponent
-        isPannelOpen={isPannelOpen}
-        closePannel={this.closePannel}
-      />
+        isOpen={isOpen}
+        handleClose={handleClose}
+      >
+        {pannelContents[contentType]}
+      </PannelComponent>
     );
   }
 }
 
-export default PannelContainer;
+
+const mapStateToProps = (state) => {
+  const { isOpen, contentType } = state.pannel;
+
+  return {
+    isOpen,
+    contentType
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  handleClose: () => {
+    dispatch(closePannel());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PannelContainer);

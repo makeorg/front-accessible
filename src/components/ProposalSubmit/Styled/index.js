@@ -10,6 +10,8 @@ import {
   DisabledProposalButton
 } from './ProposalField';
 
+export const DescriptionWrapper = styled.div``;
+
 const ProposalSubmitWrapper = styled.form`
   display: flex;
   justify-content: space-between;
@@ -19,6 +21,7 @@ const ProposalSubmitWrapper = styled.form`
   padding: 0 ${rem('8px')};
   border: ${rem('1px')} solid ${BorderColors.LightGrey};
   border-radius: ${rem('30px')};
+  margin-bottom: ${rem('30px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
 `;

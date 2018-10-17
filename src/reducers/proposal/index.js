@@ -2,8 +2,8 @@ import * as actionTypes from '../../constants/actionTypes';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
 const initialState = {
-  isWaiting: false,
   canSubmit: false,
+  needAuthentification: false,
   content: null,
   length: PROPOSAL_BAIT_TEXT.length,
   operationId: null,
@@ -23,7 +23,7 @@ export default function proposal(state = initialState, action) {
       return {
         ...state,
         operationId: action.operationId,
-        isWaiting: true
+        needAuthentification: true
       };
     case actionTypes.PROPOSE_SUCCESS:
       return {
@@ -33,8 +33,7 @@ export default function proposal(state = initialState, action) {
     case actionTypes.PROPOSE_FAILURE:
       return {
         ...state,
-        error: action.error,
-        isWaiting: true
+        error: action.error
       };
     default:
       return state;

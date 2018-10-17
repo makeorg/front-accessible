@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import ProposalSubmitComponent from './index';
-import ProposalSubmitButtonComponent from './ProposalSubmitButtonComponent';
+import ProposalSubmitButtonComponent from './ButtonComponent';
 import ProposalSubmitWrapper from './Styled';
 
 describe('ProposalSubmitComponent', () => {

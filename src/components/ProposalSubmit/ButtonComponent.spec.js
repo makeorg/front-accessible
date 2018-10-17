@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
-import ProposalSubmitButtonComponent from './ProposalSubmitButtonComponent';
-import { RedButton, GreyButton } from '../Styled/ButtonElements';
+import ProposalSubmitButtonComponent from './ButtonComponent';
+import { RedButton, GreyButton } from '../Elements/ButtonElements';
 
 describe('ProposalSubmitButtonComponent', () => {
   const enabledButtonProps = {
