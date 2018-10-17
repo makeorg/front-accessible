@@ -1,5 +1,6 @@
 # Front accessible
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0d6905329e874f4bbb922aa57f4725ad)](https://www.codacy.com/app/makeorg/front-accessible?utm_source=gitlab.com&utm_medium=referral&utm_content=makeorg/platform/front-accessible&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0d6905329e874f4bbb922aa57f4725ad)](https://www.codacy.com/app/makeorg/front-accessible?utm_source=gitlab.com&amp;utm_medium=referral&amp;utm_content=makeorg/platform/front-accessible&amp;utm_campaign=Badge_Grade)
 ## Features
 *   React 16
 *   Webpack 4

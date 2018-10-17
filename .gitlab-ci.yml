@@ -15,7 +15,7 @@ test:
   image: node:10.9.0-alpine
   script:
     - yarn install
-    - yarn test:unit
+    - yarn test-with-coverage-codacy
 
 build:
   stage: build
