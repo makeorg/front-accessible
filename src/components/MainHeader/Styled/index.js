@@ -9,7 +9,7 @@ const MainHeader = styled.header`
   align-items: center;
   width: 100%;
   padding: ${rem('15px')} ${rem('20px')};
-  box-shadow: 0 2px 4px 0 ${ShadowColors.BlackHalfOpacity};
+  box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
 `;

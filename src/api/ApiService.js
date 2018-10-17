@@ -1,5 +1,9 @@
-const API_URL = 'totot';
-const HOSTNAME = 'tata';
+const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
+const API_URL = (
+  typeof window !== 'undefined'
+  && window
+  && window.API_URL
+  && window.API_URL !== '__API_URL__') || 'https://api.preprod.makeorg.tech';
 
 let instance = null;
 
@@ -92,7 +96,7 @@ class ApiService {
       'x-make-operation': this._operationId
     }, options.headers || {});
 
-    if (this.token !== undefined) {
+    if (this.token !== null) {
       headers = Object.assign({}, headers, {
         Authorization: `${this.token.token_type} ${this.token.access_token}`
       });

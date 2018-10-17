@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
 
-const DefaultStyle = createGlobalStyle`
+const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.CircularBook};
     color: ${BasicColors.PureBlack};
@@ -57,6 +57,10 @@ const DefaultStyle = createGlobalStyle`
   button:disabled {
     cursor: not-allowed;
   }
+
+  p {
+    margin: 0;
+  }
 `;
 
-export default DefaultStyle;
+export default DefaultStylesheet;

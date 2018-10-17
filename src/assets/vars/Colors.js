@@ -8,12 +8,18 @@ export const MakeThemeColors = {
   Red: 'rgb(237, 24, 68)'
 };
 
+export const IconColors = {
+  Facebook: 'rgb(58, 89, 152)',
+  Google: 'rgb(219, 68, 55)'
+};
+
 export const BackgroundColors = {
   LightGrey: 'rgb(242, 242, 242)',
   ExtraLightGrey: 'rgb(228, 228, 228)'
 };
 
 export const BorderColors = {
+  MediumGrey: 'rgba(0, 0, 0, 0.5)',
   LightGrey: 'rgba(0, 0, 0, 0.2)'
 };
 
@@ -22,6 +28,7 @@ export const TextColors = {
 };
 
 export const ShadowColors = {
-  BlackHalfOpacity: 'rgba(0, 0, 0, 0.5)',
-  BlackLightOpacity: 'rgba(0, 0, 0, 0.2)'
+  BlackZeroFiveOpacity: 'rgba(0, 0, 0, 0.5)',
+  BlackZeroThreOpacity: 'rgba(0, 0, 0, 0.3)',
+  BlackZeroTwoOpacity: 'rgba(0, 0, 0, 0.2)'
 };
