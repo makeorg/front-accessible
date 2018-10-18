@@ -1,11 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import Login from '../Styled';
+import { RedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
+  Form,
   FakeInputGrey,
-  LastFakeInputGrey,
   IconLabel,
   BasicTextInput
 } from '../../Elements/FormElements';
@@ -21,7 +21,7 @@ class LoginFormComponent extends React.Component {
     } = this.props;
 
     return (
-      <Login.Form id="login" onSubmit={handleSubmit}>
+      <Form id="login" onSubmit={handleSubmit}>
         {errors.length > 0
           && (
             <ul>
@@ -44,7 +44,7 @@ class LoginFormComponent extends React.Component {
             onChange={handleChange}
           />
         </FakeInputGrey>
-        <LastFakeInputGrey>
+        <FakeInputGrey>
           <IconLabel htmlFor="password" aria-label="Mot de passe (obligatoire)">
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
@@ -58,8 +58,14 @@ class LoginFormComponent extends React.Component {
             required
             onChange={handleChange}
           />
-        </LastFakeInputGrey>
-      </Login.Form>
+        </FakeInputGrey>
+        <RedButton type="submit" form="login">
+          <IconInButton>
+            <FontAwesomeIcon icon={faThumbsUp} />
+          </IconInButton>
+          Se connecter
+        </RedButton>
+      </Form>
     );
   }
 }

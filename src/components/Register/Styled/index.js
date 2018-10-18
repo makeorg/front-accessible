@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 
-const Login = styled.section`
+const Register = styled.section`
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -11,4 +11,5 @@ const Login = styled.section`
   max-width: ${rem('470px')};
 `;
 
-export default Login;
+
+export default Register;

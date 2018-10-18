@@ -10,6 +10,18 @@ import {
 } from '../../assets/vars/Colors';
 import { MakeFonts } from '../../assets/vars/Fonts';
 
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: ${rem('20px')} 0;
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    flex-flow: row;
+  }
+`;
+
 export const UnstyledButton = styled.button`
   display: flex;
   justify-content: center;
@@ -83,14 +95,10 @@ export const EmailButton = styled(LargeButton)`
   }
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: ${rem('20px')} 0;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    flex-flow: row;
-  }
+export const RedLinkButton = styled(UnstyledButton)`
+  display: inline-block;
+  font-family: ${MakeFonts.CircularBold};
+  color: ${MakeThemeColors.Red};
+  text-decoration: underline;
+  margin: 0 ${rem('5px')}
 `;
