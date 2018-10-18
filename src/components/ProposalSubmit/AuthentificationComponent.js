@@ -4,7 +4,7 @@ import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons
 import { EmailButton, IconInButton, ButtonsWrapper } from '../Elements/ButtonElements';
 import { SecondLevelTitle, ThirdLevelTtitle } from '../Elements/TitleElements';
 import { AltDescription, DescriptionLink } from '../Elements/DescriptionElements';
-import { SmallSep } from '../Elements/Separators';
+import * as Separators from '../Elements/Separators';
 import FacebookAuthentificationButtonComponent from '../Authentification/Social/FacebookAuthentificationButton';
 import GoogleAuthentificationButtonComponent from '../Authentification/Social/GoogleAuthentificationButton';
 import ProposalSubmitAuthentificationWrapper from './Styled/Authentification';
@@ -38,7 +38,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
             </IconInButton>
           </DescriptionLink>
         </AltDescription>
-        <SmallSep />
+        <Separators.Small />
         <SecondLevelTitle>J’ai déjà un compte</SecondLevelTitle>
         <ButtonsWrapper>
           <EmailButton onClick={handleLoginClick}>

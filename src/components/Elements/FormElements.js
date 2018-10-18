@@ -23,6 +23,11 @@ export const FormWrapper = styled.form`
   align-items: center;
 `;
 
+export const Form = styled(FormWrapper)`
+  width: 100%;
+  margin: ${rem('10px')} 0 0;
+`;
+
 export const LastFakeInput = styled.div`
   display: flex;
   align-items: center;
@@ -44,6 +49,7 @@ export const FakeInputWhite = styled(ClassicFakeInput)`
 export const FakeInputGrey = styled(ClassicFakeInput)`
   background: ${BackgroundColors.LightGrey};
   background-color: ${BackgroundColors.LightGrey};
+  border-color: ${props => (props.hasError ? BorderColors.ErrorRed : BorderColors.LightGrey)};
 `;
 
 export const LastFakeInputWhite = styled(LastFakeInput)`
@@ -73,5 +79,31 @@ export const IconLabel = styled.label`
   font-size: ${rem('16px')};
   @media (min-width: ${rem(Breakpoints.mobile)}){
     font-size: ${rem('18px')};
+  }
+`;
+
+export const InlineParagraph = styled.p`
+  display: inline;
+  font-size: ${rem('14px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    font-size: ${rem('16px')};
+  }
+`;
+
+export const ExtraParagraph = styled(InlineParagraph)`
+  margin-top: ${rem('15px')};
+`;
+
+export const ExtraAltParagraph = styled(InlineParagraph)`
+  margin-top: ${rem('10px')};
+`;
+
+export const ConditionParagraph = styled(InlineParagraph)`
+  color: ${TextColors.MediumGrey};
+  font-size: ${rem('12px')};
+  margin-top: ${rem('5px')};
+  margin-bottom: ${rem('5px')};
+  @media (min-width: ${rem(Breakpoints.mobile)}){
+    font-size: ${rem('14px')};
   }
 `;

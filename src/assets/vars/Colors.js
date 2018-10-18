@@ -20,7 +20,8 @@ export const BackgroundColors = {
 
 export const BorderColors = {
   MediumGrey: 'rgba(0, 0, 0, 0.5)',
-  LightGrey: 'rgba(0, 0, 0, 0.2)'
+  LightGrey: 'rgba(0, 0, 0, 0.2)',
+  ErrorRed: 'rgb(237, 24, 68)'
 };
 
 export const TextColors = {
