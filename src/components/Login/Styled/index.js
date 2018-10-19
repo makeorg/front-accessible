@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 
 const Login = styled.section`
   display: flex;
@@ -7,8 +7,8 @@ const Login = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: ${rem('490px')};
-  max-width: ${rem('470px')};
+  min-height: ${pxToRem('490px')};
+  max-width: ${pxToRem('470px')};
 `;
 
 export default Login;

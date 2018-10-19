@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../helpers/styled';
 import { TextColors } from '../../assets/vars/Colors';
 
 export const Description = styled.p`
-  font-size: ${rem('16px')};
+  font-size: ${pxToRem('16px')};
   color: ${TextColors.MediumGrey};
   text-align: center;
 `;
 
 export const AltDescription = styled(Description)`
-  font-size: ${rem('14px')};
+  font-size: ${pxToRem('14px')};
 `;
 
 export const DescriptionLink = styled.a`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import {
   BasicColors,
   BackgroundColors,
@@ -14,7 +14,7 @@ export const NoStyleTextInput = styled.input`
   border: none;
   background: transparent;
   background-color: transparent;
-  padding: 0 ${rem('10px')};
+  padding: 0 ${pxToRem('10px')};
 `;
 
 export const FormWrapper = styled.form`
@@ -26,20 +26,20 @@ export const FormWrapper = styled.form`
 
 export const Form = styled(FormWrapper)`
   width: 100%;
-  margin: ${rem('10px')} 0 0;
+  margin: ${pxToRem('10px')} 0 0;
 `;
 
 export const LastFakeInput = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0 ${rem('18px')};
-  border-radius: ${rem('30px')};
-  border: ${rem('1px')} solid ${BorderColors.LightGrey};
+  padding: 0 ${pxToRem('18px')};
+  border-radius: ${pxToRem('30px')};
+  border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
 `;
 
 export const ClassicFakeInput = styled(LastFakeInput)`
-  margin-bottom: ${rem('15px')};
+  margin-bottom: ${pxToRem('15px')};
 `;
 
 export const FakeInputWhite = styled(ClassicFakeInput)`
@@ -66,20 +66,20 @@ export const LastFakeInputGrey = styled(LastFakeInput)`
 export const BasicTextInput = styled(NoStyleTextInput)`
   width: 100%;
   color: ${TextColors.MediumGrey};
-  font-size: ${rem('14px')};
-  line-height: ${rem('35px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    font-size: ${rem('16px')};
-    line-height: ${rem('40px')};
+  font-size: ${pxToRem('14px')};
+  line-height: ${pxToRem('35px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('16px')};
+    line-height: ${pxToRem('40px')};
   }
 `;
 
 export const IconLabel = styled.label`
-  width: ${rem('30px')};
+  width: ${pxToRem('30px')};
   color: ${MakeThemeColors.Red};
-  font-size: ${rem('16px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    font-size: ${rem('18px')};
+  font-size: ${pxToRem('16px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('18px')};
   }
 `;
 
@@ -89,25 +89,25 @@ export const HidePasswordIcon = styled(UnstyledButton)`
 
 export const InlineParagraph = styled.p`
   display: inline;
-  font-size: ${rem('14px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    font-size: ${rem('16px')};
+  font-size: ${pxToRem('14px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('16px')};
   }
 `;
 
 export const ExtraParagraph = styled(InlineParagraph)`
-  margin-top: ${rem('15px')};
+  margin-top: ${pxToRem('15px')};
 `;
 
 export const ExtraAltParagraph = styled(InlineParagraph)`
-  margin-top: ${rem('10px')};
+  margin-top: ${pxToRem('10px')};
 `;
 
 export const ConditionParagraph = styled(InlineParagraph)`
   color: ${TextColors.MediumGrey};
-  font-size: ${rem('12px')};
-  margin-bottom: ${rem('15px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    font-size: ${rem('14px')};
+  font-size: ${pxToRem('12px')};
+  margin-bottom: ${pxToRem('15px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('14px')};
   }
 `;

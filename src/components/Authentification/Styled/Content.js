@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { IconColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 import { IconInButton } from '../../Elements/ButtonElements';
 
 const Link = styled.button`
-  font-size: ${rem('16px')};
+  font-size: ${pxToRem('16px')};
   border: none;
   padding: 0;
   background: none;
   text-transform: uppercase;
-  border-bottom-width: ${rem('1px')};
+  border-bottom-width: ${pxToRem('1px')};
   border-bottom-style: solid;
 `;
 
@@ -25,8 +25,8 @@ export const GoogleLink = styled(Link)`
 `;
 
 export const SocialIcon = styled(IconInButton)`
-  margin-right: ${rem('5px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-right: ${rem('5px')};
+  margin-right: ${pxToRem('5px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin-right: ${pxToRem('5px')};
   }
 `;

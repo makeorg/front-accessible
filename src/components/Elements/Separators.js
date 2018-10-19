@@ -1,28 +1,28 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../helpers/styled';
 import { BackgroundColors } from '../../assets/vars/Colors';
 import Breakpoints from '../../assets/vars/Breakpoints';
 import { MiddleRow } from './FlexElements';
 
 const SepartorStyle = styled.div`
   width: 100%;
-  height: ${rem('2px')};
+  height: ${pxToRem('2px')};
   background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const Small = styled(SepartorStyle)`
-  max-width: ${rem('60px')};
-  margin: ${rem('15px')} 0 ${rem('25px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin: ${rem('20px')} 0 ${rem('30px')};
+  max-width: ${pxToRem('60px')};
+  margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
   }
 `;
 
 export const Large = styled(SepartorStyle)`
-  margin: ${rem('25px')} 0;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin: ${rem('35px')} 0;
+  margin: ${pxToRem('25px')} 0;
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin: ${pxToRem('35px')} 0;
   }
 `;
 
@@ -31,6 +31,6 @@ export const Wrapper = styled(MiddleRow)`
 `;
 
 export const Text = styled(MiddleRow)`
-  width: ${rem('60px')};
-  font-size: ${rem('14px')};
+  width: ${pxToRem('60px')};
+  font-size: ${pxToRem('14px')};
 `;

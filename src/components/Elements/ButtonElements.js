@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../helpers/styled';
 import Breakpoints from '../../assets/vars/Breakpoints';
 import {
   BasicColors,
@@ -16,8 +16,8 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: ${rem('20px')} 0;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  margin: ${pxToRem('20px')} 0;
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     flex-flow: row;
   }
 `;
@@ -37,27 +37,27 @@ export const BasicButton = styled.button`
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothic};
-  font-size: ${rem('14px')};
+  font-size: ${pxToRem('14px')};
   border: none;
-  border-radius: ${rem('30px')};
+  border-radius: ${pxToRem('30px')};
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    font-size: ${rem('16px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('16px')};
   }
 `;
 
 export const SmallBasicButton = styled(BasicButton)`
-  padding: ${rem('8.5px')} ${rem('15px')} ${rem('5.5px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    padding: ${rem('10.5px')} ${rem('20px')} ${rem('7.5px')};
+  padding: ${pxToRem('8.5px')} ${pxToRem('15px')} ${pxToRem('5.5px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    padding: ${pxToRem('10.5px')} ${pxToRem('20px')} ${pxToRem('7.5px')};
   }
 `;
 
 export const TallBasicButton = styled(BasicButton)`
-  padding: ${rem('10.5px')} ${rem('15px')} ${rem('7.5px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    padding: ${rem('12.5px')} ${rem('20px')} ${rem('9.5px')};
+  padding: ${pxToRem('10.5px')} ${pxToRem('15px')} ${pxToRem('7.5px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    padding: ${pxToRem('12.5px')} ${pxToRem('20px')} ${pxToRem('9.5px')};
   }
 `;
 
@@ -86,16 +86,16 @@ export const TallRedButton = styled(TallBasicButton)`
 `;
 
 export const IconInButton = styled.span`
-  margin-right: ${rem('6.5px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-right: ${rem('10px')};
+  margin-right: ${pxToRem('6.5px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin-right: ${pxToRem('10px')};
   }
 `;
 
 export const LargeButton = styled(SmallBasicButton)`
   width: 100%;
-  max-width: ${rem('230px')};
-  margin: 0 ${rem('5px')};
+  max-width: ${pxToRem('230px')};
+  margin: 0 ${pxToRem('5px')};
 `;
 
 export const FacebookButton = styled(LargeButton)`
@@ -105,20 +105,20 @@ export const FacebookButton = styled(LargeButton)`
 `;
 
 export const GoogleButton = styled(LargeButton)`
-  margin-top: ${rem('10px')};
+  margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background: ${IconColors.Google};
   background-color: ${IconColors.Google};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin-top: 0;
   }
 `;
 export const EmailButton = styled(LargeButton)`
-  margin-top: ${rem('10px')};
+  margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin-top: 0;
   }
 `;
@@ -128,9 +128,9 @@ export const RedLinkButton = styled(UnstyledButton)`
   font-family: ${MakeFonts.CircularBold};
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
-  margin: 0 ${rem('5px')}
+  margin: 0 ${pxToRem('5px')}
 `;
 
 export const SmallButtonsWrapper = styled(ButtonsWrapper)`
-  max-width: ${rem('410px')};
+  max-width: ${pxToRem('410px')};
 `;

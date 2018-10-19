@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
 import Logo from './HeaderContent';
 
@@ -8,7 +8,7 @@ const MainHeader = styled.header`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: ${rem('15px')} ${rem('20px')};
+  padding: ${pxToRem('15px')} ${pxToRem('20px')};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};

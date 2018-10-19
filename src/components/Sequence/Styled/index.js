@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 import List from './List';
 
@@ -8,10 +8,10 @@ const Sequence = styled.section`
   z-index: 0;
   width: 100%;
   height: 100%;
-  margin-top: ${rem('40px')};
+  margin-top: ${pxToRem('40px')};
   max-width: ${Breakpoints.sequenceWidth};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-top: ${rem('60px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin-top: ${pxToRem('60px')};
   }
 `;
 

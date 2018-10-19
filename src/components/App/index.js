@@ -9,7 +9,6 @@ import MainHeaderContainer from '../../containers/MainHeader';
 import MainFooterContainer from '../../containers/MainFooter';
 import ProposalSubmitContainer from '../../containers/ProposalSubmit';
 import PannelContainer from '../../containers/Pannel';
-import SequenceContainer from '../../containers/Sequence';
 import theme from '../../assets/vars/theme';
 
 class App extends React.Component {
@@ -25,7 +24,6 @@ class App extends React.Component {
           <MainContent role="main">
             <ProposalSubmitContainer />
             <PannelContainer />
-            <SequenceContainer />
           </MainContent>
           <MainFooterContainer />
         </AppWrapper>

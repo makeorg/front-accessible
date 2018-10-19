@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { BasicColors, BorderColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 import {
@@ -17,16 +17,16 @@ const ProposalSubmitForm = styled.form`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: ${rem('45px')};
-  max-width: ${rem(Breakpoints.sequenceWidth)};
-  padding: 0 ${rem('8px')};
-  border: ${rem('1px')} solid ${BorderColors.LightGrey};
-  border-radius: ${rem('30px')};
-  margin-bottom: ${rem('30px')};
+  min-height: ${pxToRem('45px')};
+  max-width: ${pxToRem(Breakpoints.sequenceWidth)};
+  padding: 0 ${pxToRem('8px')};
+  border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
+  border-radius: ${pxToRem('30px')};
+  margin-bottom: ${pxToRem('30px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    min-height: ${rem('50px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    min-height: ${pxToRem('50px')};
   }
 `;
 

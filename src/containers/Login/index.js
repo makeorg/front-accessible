@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
 import { login } from '../../actions/authentification';
-import { showRegister } from '../../actions/pannel';
+import { pannelShowRegister } from '../../actions/pannel';
 
 class LoginContainer extends React.Component {
   constructor(props) {
@@ -88,7 +88,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(login(email, password));
   },
   handleRegisterPannel: () => {
-    dispatch(showRegister());
+    dispatch(pannelShowRegister());
   }
 });
 

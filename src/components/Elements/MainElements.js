@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../helpers/styled';
 import { SpaceBetweenColumn } from './FlexElements';
 import { BackgroundColors } from '../../assets/vars/Colors';
 import Breakpoints from '../../assets/vars/Breakpoints';
@@ -18,13 +18,13 @@ export const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100vh - ${rem('134px')});
-  min-height: ${rem('645px')};
-  padding: ${rem('20px')} ${rem('20px')} 0;
+  height: calc(100vh - ${pxToRem('134px')});
+  min-height: ${pxToRem('645px')};
+  padding: ${pxToRem('20px')} ${pxToRem('20px')} 0;
   overflow: hidden;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    padding: ${rem('40px')} ${rem('20px')} 0;
-    height: calc(100vh - ${rem('153px')});
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    padding: ${pxToRem('40px')} ${pxToRem('20px')} 0;
+    height: calc(100vh - ${pxToRem('153px')});
   }
 `;
 

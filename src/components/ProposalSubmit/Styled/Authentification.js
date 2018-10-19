@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 
 const ProposalSubmitAuthentificationWrapper = styled.div`
-  max-width: ${rem('620px')};
+  max-width: ${pxToRem('620px')};
   display: flex;
   flex-flow: column;
   justify-content: space-between;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 
@@ -13,12 +13,12 @@ export const IntroProposalCard = styled.li`
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: ${rem('15px')};
+  padding: ${pxToRem('15px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    padding: ${rem('30px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    padding: ${pxToRem('30px')};
   }
 `;
 
@@ -27,8 +27,8 @@ export const FakeNavWrapper = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: ${rem('15px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-bottom: ${rem('30px')};
+  margin-bottom: ${pxToRem('15px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin-bottom: ${pxToRem('30px')};
   }
 `;

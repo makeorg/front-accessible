@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { register } from '../../actions/registration';
 import RegisterComponent from '../../components/Register';
-import { showLogin } from '../../actions/pannel';
+import { pannelShowLogin } from '../../actions/pannel';
 
 class RegisterContainer extends React.Component {
   constructor(props) {
@@ -99,7 +99,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(register(user));
   },
   handleLoginPannel: () => {
-    dispatch(showLogin());
+    dispatch(pannelShowLogin());
   }
 });
 
