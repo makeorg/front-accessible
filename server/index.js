@@ -5,6 +5,8 @@ const serveStatic = require('serve-static');
 require('./browserPolyfill');
 const reactRender = require('./reactRender');
 const { BUILD_DIR, PUBLIC_DIR } = require('./paths');
+const proxy = require('./proxy.js');
+const configuration = require('./configuration.js');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -13,13 +15,10 @@ function setCustomCacheControl(res, path) {
   }
 }
 
-// Constants
-const PORT = process.env.PORT || 9009;
-const HOST = process.env.HOST || 'localhost';
-
 // App
 const app = express();
 app.use(compression());
+app.use('/api', proxy);
 
 app.use(bodyParser.json());
 
@@ -37,5 +36,5 @@ app.use(express.static(PUBLIC_DIR, {
 }));
 
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(configuration.port, configuration.host);
+console.log(`Running on http://${configuration.host}:${configuration.port}`);
