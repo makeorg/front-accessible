@@ -3,16 +3,17 @@ import LoginFormComponent from './Form';
 import Login from './Styled';
 import AuthentificationSocialContainer from '../../containers/Authentification/Social';
 import { SecondLevelTitle, ThirdLevelTtitle } from '../Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from '../Elements/FormElements';
+import { ExtraParagraph, ExtraAltParagraph } from '../Elements/Form';
 import * as Separators from '../Elements/Separators';
 import { RedLinkButton } from '../Elements/ButtonElements';
 
 class LoginComponent extends React.Component {
   render() {
+    const { handleRegisterPannel } = this.props;
     return (
       <Login role="region" aria-labelledby="login_title">
         <SecondLevelTitle id="login_title">
-          J&apos;ai déjà un compte
+          J‘ai déjà un compte
         </SecondLevelTitle>
         <Separators.Small />
         <ThirdLevelTtitle>
@@ -34,7 +35,7 @@ class LoginComponent extends React.Component {
         </ExtraParagraph>
         <ExtraAltParagraph>
           Je n’ai pas de compte,
-          <RedLinkButton>je m’en crée un.</RedLinkButton>
+          <RedLinkButton onClick={handleRegisterPannel}>je m’en crée un.</RedLinkButton>
         </ExtraAltParagraph>
       </Login>
     );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { BasicColors, BorderColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 import {
@@ -12,25 +12,29 @@ import {
 
 export const DescriptionWrapper = styled.div``;
 
-const ProposalSubmitWrapper = styled.form`
+const ProposalSubmitForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: ${rem(Breakpoints.sequenceWidth)};
-  padding: 0 ${rem('8px')};
-  border: ${rem('1px')} solid ${BorderColors.LightGrey};
-  border-radius: ${rem('30px')};
-  margin-bottom: ${rem('30px')};
+  min-height: ${pxToRem('45px')};
+  max-width: ${pxToRem(Breakpoints.sequenceWidth)};
+  padding: 0 ${pxToRem('8px')};
+  border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
+  border-radius: ${pxToRem('30px')};
+  margin-bottom: ${pxToRem('30px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    min-height: ${pxToRem('50px')};
+  }
 `;
 
 /* Proposal Field */
-ProposalSubmitWrapper.Label = Label;
-ProposalSubmitWrapper.Input = Input;
-ProposalSubmitWrapper.CharLimit = CharLimit;
-ProposalSubmitWrapper.ProposalButton = ProposalButton;
-ProposalSubmitWrapper.DisabledProposalButton = DisabledProposalButton;
+ProposalSubmitForm.Label = Label;
+ProposalSubmitForm.Input = Input;
+ProposalSubmitForm.CharLimit = CharLimit;
+ProposalSubmitForm.ProposalButton = ProposalButton;
+ProposalSubmitForm.DisabledProposalButton = DisabledProposalButton;
 
-export default ProposalSubmitWrapper;
+export default ProposalSubmitForm;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import { UnstyledButton } from '../../Elements/ButtonElements';
 import { FlexElement } from '../../Elements/FlexElements';
 import Breakpoints from '../../../assets/vars/Breakpoints';
@@ -7,13 +7,13 @@ import Breakpoints from '../../../assets/vars/Breakpoints';
 export const ButtonWrapper = styled(FlexElement)`
   justify-content: flex-end;
   width: 100%;
-  min-height: ${rem('24px')};
-  margin-bottom: ${rem('10px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    margin-bottom: ${rem('40px')};
+  min-height: ${pxToRem('24px')};
+  margin-bottom: ${pxToRem('10px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin-bottom: ${pxToRem('20px')};
   }
 `;
 
 export const CloseButton = styled(UnstyledButton)`
-  font-size: ${rem('24px')};
+  font-size: ${pxToRem('24px')};
 `;

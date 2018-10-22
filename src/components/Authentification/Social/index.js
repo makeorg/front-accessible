@@ -1,7 +1,7 @@
 import React from 'react';
 import Authentification from '../Styled';
-import FacebookAuthentificationButtonComponent from './FacebookAuthentificationButton';
-import GoogleAuthentificationButtonComponent from './GoogleAuthentificationButton';
+import FacebookAuthentificationButtonComponent from './FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from './GoogleAuthentification/Button';
 
 class AuthentificationSocialComponent extends React.Component {
   render() {

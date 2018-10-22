@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../helpers/styled';
 import Breakpoints from '../../assets/vars/Breakpoints';
 
 export const FlexElement = styled.div`
@@ -8,7 +8,7 @@ export const FlexElement = styled.div`
 
 export const ColumnToRowElement = styled(FlexElement)`
   flex-flow: column;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     flex-flow: row;
   }
 `;
@@ -46,21 +46,21 @@ export const SpaceBetweenColumn = styled(ColumnElement)`
 /* Column To Row Elements */
 export const CenterColumnToRow = styled(ColumnToRowElement)`
   align-items: center;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     justify-content: center;
   }
 `;
 
 export const MiddleColumnToRow = styled(CenterColumnToRow)`
   justify-content: center;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     align-items: center;
   }
 `;
 
 export const SpaceBetweenColumnToRow = styled(ColumnToRowElement)`
   align-items: center;
-  @media (min-width: ${rem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     justify-content: space-between;
   }
 `;

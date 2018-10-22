@@ -2,17 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
 import { login } from '../../actions/authentification';
+import { pannelShowRegister } from '../../actions/pannel';
 
 class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      passwordIsDisplayed: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showPassword = this.showPassword.bind(this);
+    this.hidePassword = this.hidePassword.bind(this);
   }
 
   handleChange(event) {
@@ -32,9 +36,29 @@ class LoginContainer extends React.Component {
     }
   }
 
+  showPassword(event) {
+    event.preventDefault();
+    const { passwordIsDisplayed } = this.state;
+
+    this.setState({
+      ...passwordIsDisplayed,
+      passwordIsDisplayed: true
+    });
+  }
+
+  hidePassword(event) {
+    event.preventDefault();
+    const { passwordIsDisplayed } = this.state;
+
+    this.setState({
+      ...passwordIsDisplayed,
+      passwordIsDisplayed: false
+    });
+  }
+
   render() {
-    const { email, password } = this.state;
-    const { errors } = this.props;
+    const { email, password, passwordIsDisplayed } = this.state;
+    const { handleRegisterPannel, errors } = this.props;
     return (
       <LoginComponent
         email={email}
@@ -42,6 +66,10 @@ class LoginContainer extends React.Component {
         errors={errors}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        handleRegisterPannel={handleRegisterPannel}
+        showPassword={this.showPassword}
+        hidePassword={this.hidePassword}
+        passwordIsDisplayed={passwordIsDisplayed}
       />
     );
   }
@@ -58,6 +86,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
   handleLogin: (email, password) => {
     dispatch(login(email, password));
+  },
+  handleRegisterPannel: () => {
+    dispatch(pannelShowRegister());
   }
 });
 

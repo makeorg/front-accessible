@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { rem } from 'polished';
+import { pxToRem } from '../../../helpers/styled';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 
 const Logo = styled.img`
-  max-width: ${rem('70px')};
-  @media (min-width: ${rem(Breakpoints.mobile)}){
-    max-width: ${rem('85px')};
+  max-width: ${pxToRem('70px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    max-width: ${pxToRem('85px')};
   }
 `;
 

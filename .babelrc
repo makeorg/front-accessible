@@ -4,6 +4,20 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    ["transform-imports", {
+      "@fortawesome/free-solid-svg-icons": {
+        "transform": "@fortawesome/free-solid-svg-icons/${member}",
+        "skipDefaultConversion": true
+      },
+      "@fortawesome/free-brands-svg-icons": {
+        "transform": "@fortawesome/free-brands-svg-icons/${member}",
+        "skipDefaultConversion": true
+      },
+      "@fortawesome/free-regular-svg-icons": {
+        "transform": "@fortawesome/free-regular-svg-icons/${member}",
+        "skipDefaultConversion": true
+      }
+    }],
     ["transform-es2015-modules-commonjs"],
     ["babel-plugin-styled-components", {
       "pure": true
