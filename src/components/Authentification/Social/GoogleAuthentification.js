@@ -11,7 +11,7 @@ class GoogleAuthentificationComponent extends React.Component {
       <GoogleLogin
         {...this.props}
         clientId="810331964280-qtdupbrjusihad3b5da51i5p66qpmhmr.apps.googleusercontent.com"
-        buttonText="Google +"
+        buttonText="Google"
         onSuccess={handleGoogleLoginCallback}
         onFailure={handleGoogleLoginCallback}
       />

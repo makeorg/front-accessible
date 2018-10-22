@@ -4,7 +4,7 @@ import LoginContainer from '../Login';
 import RegisterContainer from '../Register';
 import ForgotPasswordContainer from '../ForgotPassword';
 import PannelComponent from '../../components/Pannel';
-import { closePannel } from '../../actions/pannel';
+import { pannelClose } from '../../actions/pannel';
 import * as pannelContentTypes from '../../constants/pannel';
 
 const pannelContents = {
@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   handleClose: () => {
-    dispatch(closePannel());
+    dispatch(pannelClose());
   }
 });
 

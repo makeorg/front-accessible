@@ -37,4 +37,3 @@ app.use(express.static(PUBLIC_DIR, {
 
 
 app.listen(configuration.port, configuration.host);
-console.log(`Running on http://${configuration.host}:${configuration.port}`);
