@@ -6,7 +6,13 @@ import ProposalCardComponent from './';
 describe('ProposalCardComponent', () => {
 
   it('Check a11y rules', () => {
-    const wrapper = shallow(<ProposalCardComponent />);
+    const proposal = {
+      author: {
+        firstname: 'foo'
+      },
+      content: 'il faut bar'
+    }
+    const wrapper = shallow(<ProposalCardComponent proposal={proposal} />);
 
     expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal('true');
     expect(wrapper.find(ProposalCard.Sep).prop('aria-hidden')).to.equal('true');

@@ -4,11 +4,17 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButton } from '../../Elements/ButtonElements';
 import { Small } from '../../Elements/Separators';
 import ProposalCard from '../Styled';
+import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 class IntroCardComponent extends React.Component {
   render() {
+    const { index } = this.props;
+    const position = getPosition(index);
+    const scale = getScale(index);
+    const zindex = getZIndex(index);
+
     return (
-      <ProposalCard.IntroProposalCard>
+      <ProposalCard.IntroProposalCard position={position} scale={scale} zindex={zindex}>
         <header>
           <ProposalCard.IntroTitle>
             Des milliers de citoyens proposent des solutions.

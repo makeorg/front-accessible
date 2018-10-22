@@ -24,8 +24,8 @@ class App extends React.Component {
           <MainHeaderContainer />
           <MainContent role="main">
             <ProposalSubmitContainer />
-            <PannelContainer />
             <SequenceContainer />
+            <PannelContainer />
           </MainContent>
           <MainFooterContainer />
         </AppWrapper>

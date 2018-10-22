@@ -4,7 +4,7 @@ import ProposalCardComponent from '../../components/ProposalCard';
 class ProposalCardContainer extends React.Component {
   render() {
     return (
-      <ProposalCardComponent />
+      <ProposalCardComponent {...this.props} />
     );
   }
 }

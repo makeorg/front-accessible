@@ -12,7 +12,11 @@ import {
   BackIcon
 } from './Buttons';
 
-const ProposalCard = styled.li`
+const ProposalCard = styled.li.attrs({
+  position: props => props.position || 0,
+  zindex: props => props.zindex || 0,
+  scale: props => props.scale || 0
+})`
   position: absolute;
   top: 0;
   left: 0;
@@ -22,6 +26,8 @@ const ProposalCard = styled.li`
   width: 100%;
   height: 100%;
   padding: ${pxToRem('15px')};
+  z-index: ${props => props.zindex};
+  transform: scaleX(${props => props.scale}) translateY(-${props => props.position}px);
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
