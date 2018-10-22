@@ -1,11 +1,11 @@
 const proxy = require('http-proxy-middleware');
 const configuration = require('./configuration.js');
 
-function relayResponseHeaders(proxyRes) {
+function onProxyRes(proxyRes) {
   if (!configuration.proxyApiUrl.startsWith('https://') && proxyRes.headers['set-cookie']) {
     const cookies = proxyRes.headers['set-cookie']
       .map(cookie => cookie.replace(/; secure/gi, ''));
-    proxyRes.headers['set-cookie'] = cookies;
+    proxyRes.headers['set-cookie'] = cookies; /* eslint no-param-reassign:0 */
   }
 }
 
@@ -17,7 +17,7 @@ const options = {
   },
   secure: false,
   changeOrigin: true,
-  onProxyRes: relayResponseHeaders
+  onProxyRes
 };
 
 module.exports = proxy(options);

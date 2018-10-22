@@ -5,10 +5,18 @@ cache:
   - node_modules/
 
 stages:
+  - lint
   - test
   - build
   - deploy
   - merge
+
+lint:
+  stage: lint
+  image: node:10.9.0-alpine
+  script:
+    - yarn install
+    - yarn lint
 
 test:
   stage: test
