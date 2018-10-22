@@ -5,6 +5,7 @@ import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/
 import ProposalSubmitAuthentificationContainer from './Authentification';
 import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
 import { typingProposal, submitProposal } from '../../actions/proposal';
+import { sequenceCollapse } from '../../actions/sequence';
 import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
 
 /**
@@ -29,15 +30,18 @@ export class ProposalSubmit extends React.Component {
     const length = getProposalLength(content);
     const canSubmit = getIsProposalValidLength(length);
 
-    const { dispatch } = this.props;
+    const { handleTypingProposal } = this.props;
 
-    dispatch(typingProposal(content, length, canSubmit));
+    handleTypingProposal(content, length, canSubmit);
   }
 
   handleFocus() {
     this.setState({
       isTyping: true
     });
+
+    const { handleCollapseSequence } = this.props;
+    handleCollapseSequence();
   }
 
   handleSubmit(event) {
@@ -48,12 +52,10 @@ export class ProposalSubmit extends React.Component {
     });
 
     const {
-      content,
-      operationId,
-      dispatch
+      handleSubmitProposal
     } = this.props;
 
-    dispatch(submitProposal(content, operationId));
+    handleSubmitProposal();
   }
 
   render() {
@@ -61,7 +63,8 @@ export class ProposalSubmit extends React.Component {
       content,
       length,
       canSubmit,
-      needAuthentification
+      needAuthentification,
+      isSequenceCollapsed
     } = this.props;
     const { isTyping } = this.state;
 
@@ -76,12 +79,12 @@ export class ProposalSubmit extends React.Component {
           handleSubmit={this.handleSubmit}
           handleFocus={this.handleFocus}
         />
-        {(isTyping && !needAuthentification) ? (
+        {(isTyping && !needAuthentification && isSequenceCollapsed) ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
           />
         ) : null}
-        {(needAuthentification) ? (
+        {(needAuthentification && isSequenceCollapsed) ? (
           <ProposalSubmitAuthentificationContainer
             key="ProposalSubmitAuthentificationContainer"
           />
@@ -99,14 +102,30 @@ const mapStateToProps = (state) => {
     canSubmit,
     needAuthentification
   } = state.proposal;
+  const {
+    isSequenceCollapsed
+  } = state.sequence;
 
   return {
     operationId,
     content,
     length,
     canSubmit,
-    needAuthentification
+    needAuthentification,
+    isSequenceCollapsed
   };
 };
 
-export default connect(mapStateToProps)(ProposalSubmit);
+const mapDispatchToProps = dispatch => ({
+  handleCollapseSequence: () => {
+    dispatch(sequenceCollapse());
+  },
+  handleTypingProposal: (content, length, canSubmit) => {
+    dispatch(typingProposal(content, length, canSubmit));
+  },
+  handleSubmitProposal: (content, operationId) => {
+    dispatch(submitProposal(content, operationId));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProposalSubmit);

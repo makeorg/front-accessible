@@ -21,8 +21,7 @@ class RegisterContainer extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showPassword = this.showPassword.bind(this);
-    this.hidePassword = this.hidePassword.bind(this);
+    this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
   }
 
   handleChange(event) {
@@ -47,24 +46,10 @@ class RegisterContainer extends React.Component {
     }
   }
 
-  showPassword(event) {
-    event.preventDefault();
-    const { passwordIsDisplayed } = this.state;
-
-    this.setState({
-      ...passwordIsDisplayed,
-      passwordIsDisplayed: true
-    });
-  }
-
-  hidePassword(event) {
-    event.preventDefault();
-    const { passwordIsDisplayed } = this.state;
-
-    this.setState({
-      ...passwordIsDisplayed,
-      passwordIsDisplayed: false
-    });
+  togglePasswordIsDisplayed() {
+    this.setState(prevstate => ({
+      passwordIsDisplayed: !prevstate.passwordIsDisplayed
+    }));
   }
 
   render() {
@@ -77,8 +62,7 @@ class RegisterContainer extends React.Component {
         errors={errors}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        showPassword={this.showPassword}
-        hidePassword={this.hidePassword}
+        togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleLoginPannel={handleLoginPannel}
       />

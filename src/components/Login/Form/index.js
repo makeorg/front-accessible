@@ -19,8 +19,7 @@ class LoginFormComponent extends React.Component {
       errors,
       handleChange,
       handleSubmit,
-      showPassword,
-      hidePassword,
+      togglePasswordIsDisplayed,
       passwordIsDisplayed
     } = this.props;
 
@@ -63,8 +62,7 @@ class LoginFormComponent extends React.Component {
             onChange={handleChange}
           />
           <PasswordButton
-            showPassword={showPassword}
-            hidePassword={hidePassword}
+            togglePasswordIsDisplayed={togglePasswordIsDisplayed}
             passwordIsDisplayed={passwordIsDisplayed}
           />
         </FakeInputGrey>
