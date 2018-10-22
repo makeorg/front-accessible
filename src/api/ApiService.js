@@ -3,7 +3,8 @@ const API_URL = (
   typeof window !== 'undefined'
   && window
   && window.API_URL
-  && window.API_URL !== '__API_URL__') || 'https://api.preprod.makeorg.tech';
+  && window.API_URL !== '__API_URL__'
+) ? window.API_URL : 'https://api.preprod.makeorg.tech';
 
 let instance = null;
 

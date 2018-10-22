@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitAuthentificationComponent from '../../components/ProposalSubmit/AuthentificationComponent';
-import { showRegister, showLogin } from '../../actions/pannel';
+import { pannelShowRegister, pannelShowLogin } from '../../actions/pannel';
 
 export class ProposalSubmitAuthentification extends React.Component {
   render() {
@@ -17,8 +17,8 @@ export class ProposalSubmitAuthentification extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleRegisterClick: () => { dispatch(showRegister()); },
-  handleLoginClick: () => { dispatch(showLogin()); }
+  handleRegisterClick: () => { dispatch(pannelShowRegister()); },
+  handleLoginClick: () => { dispatch(pannelShowLogin()); }
 });
 
 export default connect(null, mapDispatchToProps)(ProposalSubmitAuthentification);

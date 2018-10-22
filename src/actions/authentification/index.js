@@ -1,7 +1,7 @@
 import UserService from '../../api/UserService';
 import * as actionTypes from '../../constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
-import { closePannel } from '../pannel';
+import { pannelClose } from '../pannel';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = error => ({ type: actionTypes.LOGIN_FAILURE, error });
@@ -14,16 +14,17 @@ export const logout = () => ({ type: actionTypes.LOGOUT });
 
 export const login = (email, password) => (dispatch) => {
   dispatch(loginRequest());
-  UserService.login(email, password)
+  return UserService.login(email, password)
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       dispatch(loginSuccess(token));
+
       return UserService.me();
     })
     .then((user) => {
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
       dispatch(getUserInfo(user));
-      dispatch(closePannel());
+      dispatch(pannelClose());
     })
     .catch(() => {
       dispatch(loginFailure('Nous ne trouvons pas de compte associé à cet email.'));
@@ -31,8 +32,8 @@ export const login = (email, password) => (dispatch) => {
 };
 
 export const loginSocial = (provider, token) => (dispatch) => {
-  dispatch(loginSocialRequest());
-  UserService.loginSocial(provider, token)
+  dispatch(loginSocialRequest(provider));
+  return UserService.loginSocial(provider, token)
     .then((accessToken) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(accessToken));
       dispatch(loginSocialSuccess(accessToken));
@@ -42,7 +43,7 @@ export const loginSocial = (provider, token) => (dispatch) => {
     .then((user) => {
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
       dispatch(getUserInfo(user));
-      dispatch(closePannel());
+      dispatch(pannelClose());
     })
     .catch(() => {
       dispatch(loginSocialFailure());

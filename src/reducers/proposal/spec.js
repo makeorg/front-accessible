@@ -7,7 +7,7 @@ describe('proposal reducer', () => {
       const content = 'il faut foo';
       const length = 11;
       const canSubmit = true;
-      const action = actionCreators.typing(content, length, canSubmit);
+      const action = actionCreators.proposeTyping(content, length, canSubmit);
       const previousState = {
         needAuthentification: false,
         canSubmit: false,
