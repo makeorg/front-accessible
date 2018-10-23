@@ -4,6 +4,10 @@ import i18next from 'i18next';
 
 
 export const errorTranslation = (apiError: string) => {
+  if (/Email\s(.+)\salready exist/.test(apiError)) {
+    return i18next.t('common.form.email_already_exist');
+  }
+
   const translatedError = i18next.t(`common.form.${apiError}`);
   if (translatedError === undefined) {
     return apiError;

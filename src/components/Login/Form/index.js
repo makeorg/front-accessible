@@ -29,7 +29,7 @@ class LoginFormComponent extends React.Component {
       <Form id="login" onSubmit={handleSubmit}>
         {errors.length > 0
           && (
-            <FormErrors>
+            <FormErrors id="authentification-login-error">
               {errors.map(error => <FormError key={error}>{error}</FormError>)}
             </FormErrors>
           )
@@ -60,6 +60,7 @@ class LoginFormComponent extends React.Component {
           type="submit"
           form="login"
           tabIndex={isPannelOpen ? 0 : -1}
+          id="authentification-login-submit"
         >
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />

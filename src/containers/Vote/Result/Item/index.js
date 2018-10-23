@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultItemComponent from '../../../../components/Vote/Result/Item';
 import * as VoteResultHelper from '../../../../helpers/voteResult';
-import { getVoteIndex } from '../../../../helpers/vote';
+import { getVoteKey } from '../../../../helpers/vote';
 
 class ResultItemContainer extends React.Component {
   constructor(props) {
@@ -55,8 +55,8 @@ class ResultItemContainer extends React.Component {
     const { isTooltipDisplayed } = this.state;
     return (
       <ResultItemComponent
-        key={getVoteIndex(voteKey, proposalId)}
-        listKey={getVoteIndex(voteKey, proposalId)}
+        key={getVoteKey(voteKey, proposalId)}
+        listKey={getVoteKey(voteKey, proposalId)}
         barKey={VoteResultHelper.getResultBarIndex(voteKey, proposalId)}
         tooltipKey={VoteResultHelper.getTooltipIndex(voteKey, proposalId)}
         index={index}

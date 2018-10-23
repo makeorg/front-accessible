@@ -26,7 +26,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
     } = this.props;
 
     return (
-      <ProposalSubmitAuthentificationWrapper>
+      <ProposalSubmitAuthentificationWrapper id="proposal-submit-authentification">
         <SecondLevelTitle>{i18next.t('authentification.title')}</SecondLevelTitle>
         <ThirdLevelTtitle>
           {i18next.t('authentification.description')}
@@ -41,6 +41,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
           <EmailButton
             onClick={handleRegisterClick}
             tabIndex={isPannelOpen ? -1 : 0}
+            id="authentification-register-button"
           >
             <IconInButton>
               <FontAwesomeIcon aria-hidden icon={faEnvelope} />
@@ -68,6 +69,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
           <SmallRedButton
             onClick={handleLoginClick}
             tabIndex={isPannelOpen ? -1 : 0}
+            id="authentification-login-button"
           >
             {i18next.t('common.i_connect')}
           </SmallRedButton>

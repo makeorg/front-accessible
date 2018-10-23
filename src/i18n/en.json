@@ -10,6 +10,7 @@
       "postalcode_label": "Code postal",
       "profession_label": "Profession",
       "email is not a valid email": "Format d'email non reconnu",
+      "email_already_exist": "Cet email est dèja inscrit.",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères."
     },
     "from": "sur",

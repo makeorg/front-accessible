@@ -22,8 +22,7 @@ describe('VoteContainer', () => {
   it('render VoteComponent and passed props', () => {
     const expectedPassedProps = {
       proposalId: defaultProps.proposalId,
-      hasVoted: false,
-      votedKey: '',
+      index: 1,
       tabIndex: -1
     }
 
@@ -42,6 +41,7 @@ describe('VoteContainer', () => {
     expect(NextButtonWrapper.props()).to.deep.equal({
       tabIndex: -1,
       onClick: defaultProps.goToNextCard,
+      id: "next-button-1",
       children: undefined
     });
 

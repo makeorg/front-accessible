@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import i18next from 'i18next';
 import {
   Button,
@@ -7,28 +7,35 @@ import {
   QualificationCounter
 } from '../Styled/Button';
 
-class QualificationButtonComponent extends React.Component {
-  render() {
-    const {
-      qualificationKey,
-      color,
-      isQualified,
-      qualificationCounter,
-      handleQualification,
-      tabIndex
-    } = this.props;
-    return (
-      <Button
-        tabIndex={tabIndex}
-        as={isQualified ? UnqualifyButton : QualifyButton}
-        color={color}
-        onClick={handleQualification}
-      >
-        {i18next.t(`qualification.${qualificationKey}`)}
-        <QualificationCounter aria-hidden>{isQualified ? qualificationCounter : '+1'}</QualificationCounter>
-      </Button>
-    );
-  }
-}
+type Props = {
+  qualificationKey: string,
+  color: string,
+  isQualified: boolean,
+  qualificationCounter: number,
+  tabIndex: number,
+  handleQualification: Function
+};
+
+const QualificationButtonComponent = (props: Props) => {
+  const {
+    qualificationKey,
+    color,
+    isQualified,
+    qualificationCounter,
+    handleQualification,
+    tabIndex
+  } = props;
+  return (
+    <Button
+      tabIndex={tabIndex}
+      as={isQualified ? UnqualifyButton : QualifyButton}
+      color={color}
+      onClick={handleQualification}
+    >
+      {i18next.t(`qualification.${qualificationKey}`)}
+      <QualificationCounter aria-hidden>{isQualified ? qualificationCounter : '+1'}</QualificationCounter>
+    </Button>
+  );
+};
 
 export default QualificationButtonComponent;

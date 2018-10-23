@@ -19,7 +19,7 @@ class ProposalSubmitDescriptionComponent extends React.Component {
       trackModerationLink
     } = this.props;
     return (
-      <DescriptionWrapper>
+      <DescriptionWrapper id="proposal-submit-description">
         <Description>
           {i18next.t('proposal_submit.description')}
         </Description>

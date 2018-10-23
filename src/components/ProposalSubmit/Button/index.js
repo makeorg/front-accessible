@@ -9,6 +9,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
   if (canSubmit) {
     return (
       <ProposalButton
+        id="proposal-submit-button"
         type="submit"
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
@@ -22,7 +23,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
   }
 
   return (
-    <DisabledProposalButton type="submit" disabled>
+    <DisabledProposalButton id="proposal-submit-button" type="submit" disabled>
       <IconInButton>
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButton>
