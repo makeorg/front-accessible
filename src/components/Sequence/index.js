@@ -13,6 +13,8 @@ class SequenceComponent extends React.Component {
       currentIndex,
       isSequenceCollapsed,
       handleExpandSequence,
+      goToNextCard,
+      goToPreviousCard,
       isPannelOpen
     } = this.props;
     const finalCardIndex = count + 1;
@@ -28,16 +30,33 @@ class SequenceComponent extends React.Component {
           isPannelOpen={isPannelOpen}
         />
         <Sequence.List>
-          <IntroCardComponent index={0} currentIndex={currentIndex} />
+          <IntroCardComponent
+            index={0}
+            currentIndex={currentIndex}
+            isSequenceCollapsed={isSequenceCollapsed}
+            isPannelOpen={isPannelOpen}
+            goToNextCard={goToNextCard}
+          />
           {proposals.map((proposal, key) => (
             <ProposalCardContainer
               key={proposal.id}
               proposal={proposal}
-              currentIndex={currentIndex}
               index={key + 1}
+              currentIndex={currentIndex}
+              totalIndex={count}
+              isSequenceCollapsed={isSequenceCollapsed}
+              isPannelOpen={isPannelOpen}
+              goToNextCard={goToNextCard}
+              goToPreviousCard={goToPreviousCard}
             />
           ))}
-          <FinalCardComponent index={finalCardIndex} currentIndex={currentIndex} />
+          <FinalCardComponent
+            index={finalCardIndex}
+            currentIndex={currentIndex}
+            isSequenceCollapsed={isSequenceCollapsed}
+            isPannelOpen={isPannelOpen}
+            goToPreviousCard={goToPreviousCard}
+          />
         </Sequence.List>
       </Sequence>
     );

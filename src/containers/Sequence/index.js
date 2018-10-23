@@ -4,12 +4,12 @@ import SequenceComponent from '../../components/Sequence';
 import SequenceService from '../../api/SequenceService';
 import { sequenceExpand } from '../../actions/sequence';
 
-export const doDecrementCurrentIndex = prevState => ({
+export const decrementCurrentIndex = prevState => ({
   currentIndex: prevState.currentIndex - 1
 });
 
-export const doIncrementCurrentIndex = prevState => ({
-  counter: prevState.counter + 1
+export const incrementCurrentIndex = prevState => ({
+  currentIndex: prevState.currentIndex + 1
 });
 
 class SequenceContainer extends React.Component {
@@ -21,8 +21,8 @@ class SequenceContainer extends React.Component {
       currentIndex: 0
     };
 
-    this.decrementCurrentIndex = this.decrementCurrentIndex.bind(this);
-    this.incrementCurrentIndex = this.incrementCurrentIndex.bind(this);
+    this.goToNextCard = this.goToNextCard.bind(this);
+    this.goToPreviousCard = this.goToPreviousCard.bind(this);
   }
 
   componentDidMount() {
@@ -39,12 +39,12 @@ class SequenceContainer extends React.Component {
     });
   }
 
-  decrementCurrentIndex() {
-    this.setState(doDecrementCurrentIndex);
+  goToNextCard() {
+    this.setState(incrementCurrentIndex);
   }
 
-  incrementCurrentIndex() {
-    this.setState(doIncrementCurrentIndex);
+  goToPreviousCard() {
+    this.setState(decrementCurrentIndex);
   }
 
 
@@ -60,6 +60,8 @@ class SequenceContainer extends React.Component {
         isSequenceCollapsed={isSequenceCollapsed}
         handleExpandSequence={handleExpandSequence}
         isPannelOpen={isPannelOpen}
+        goToNextCard={this.goToNextCard}
+        goToPreviousCard={this.goToPreviousCard}
       />
     );
   }

@@ -13,6 +13,9 @@ const AnimationsStylesheet = createGlobalStyle`
   .expanded-sequence {
     transform: translateY(0);
   }
+  .collapsed-card {
+    transform: translateY(125%) scaleX(1);
+  }
 `;
 
 export default AnimationsStylesheet;

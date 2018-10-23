@@ -4,13 +4,18 @@ import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 class FinalCardComponent extends React.Component {
   render() {
-    const { index } = this.props;
-    const position = getPosition(index);
-    const scale = getScale(index);
-    const zindex = getZIndex(index);
+    const { index, currentIndex } = this.props;
+    const position = getPosition(index, currentIndex);
+    const scale = getScale(index, currentIndex);
+    const zindex = getZIndex(index, currentIndex);
 
     return (
-      <ProposalCard position={position} scale={scale} zindex={zindex}>
+      <ProposalCard
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        className={index < currentIndex ? 'collpased-card' : ''}
+      >
         FinalCardComponent
       </ProposalCard>
     );

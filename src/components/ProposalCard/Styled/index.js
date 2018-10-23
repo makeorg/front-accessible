@@ -31,6 +31,7 @@ const ProposalCard = styled.li.attrs({
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
+  transition: transform 0.75s ease-in;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding: ${pxToRem('30px')};
   }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import ProgressBarContainer from '../../containers/ProposalCard/ProgressBar';
 import ProposalCard from './Styled';
+import ProgressBarComponent from './ProgressBar';
 import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
 
 class ProposalCardComponent extends React.Component {
@@ -10,23 +10,35 @@ class ProposalCardComponent extends React.Component {
     const {
       proposal,
       index,
+      totalIndex,
+      currentIndex,
       isPannelOpen,
-      isSequenceCollapsed
+      isSequenceCollapsed,
+      goToPreviousCard,
+      goToNextCard
     } = this.props;
-    const position = getPosition(index);
-    const scale = getScale(index);
-    const zindex = getZIndex(index);
+    const position = getPosition(index, currentIndex);
+    const scale = getScale(index, currentIndex);
+    const zindex = getZIndex(index, currentIndex);
 
     return (
-      <ProposalCard position={position} scale={scale} zindex={zindex}>
+      <ProposalCard
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        className={index < currentIndex ? 'collapsed-card' : ''}
+      >
         <ProposalCard.FakeNavWrapper>
-          <ProposalCard.BackButton tabIndex={isPannelOpen || isSequenceCollapsed ? -1 : 0}>
+          <ProposalCard.BackButton
+            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+            onClick={goToPreviousCard}
+          >
             <ProposalCard.BackIcon>
               <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
             </ProposalCard.BackIcon>
             Proposition précédente
           </ProposalCard.BackButton>
-          <ProgressBarContainer />
+          <ProgressBarComponent index={index} totalIndex={totalIndex} />
         </ProposalCard.FakeNavWrapper>
         <ProposalCard.AuthorInfos>
           {proposal.author.firstName}
@@ -39,6 +51,12 @@ class ProposalCardComponent extends React.Component {
         <ProposalCard.Proposal>
           {proposal.content}
         </ProposalCard.Proposal>
+        <ProposalCard.IntroButton
+          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+          onClick={goToNextCard}
+        >
+          Proposition suivante
+        </ProposalCard.IntroButton>
       </ProposalCard>
     );
   }

@@ -8,13 +8,24 @@ import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 class IntroCardComponent extends React.Component {
   render() {
-    const { index } = this.props;
-    const position = getPosition(index);
-    const scale = getScale(index);
-    const zindex = getZIndex(index);
+    const {
+      index,
+      isPannelOpen,
+      isSequenceCollapsed,
+      currentIndex,
+      goToNextCard
+    } = this.props;
+    const position = getPosition(index, currentIndex);
+    const scale = getScale(index, currentIndex);
+    const zindex = getZIndex(index, currentIndex);
 
     return (
-      <ProposalCard.IntroProposalCard position={position} scale={scale} zindex={zindex}>
+      <ProposalCard.IntroProposalCard
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        className={index < currentIndex ? 'collapsed-card' : ''}
+      >
         <header>
           <ProposalCard.IntroTitle>
             Des milliers de citoyens proposent des solutions.
@@ -26,9 +37,15 @@ class IntroCardComponent extends React.Component {
           <br />
           Les meilleures détermineront nos actions.
         </ProposalCard.IntroParagraph>
-        <ProposalCard.IntroButton>
+        <ProposalCard.IntroButton
+          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+          onClick={goToNextCard}
+        >
           <IconInButton>
-            <FontAwesomeIcon aria-hidden="true" icon={faPlay} />
+            <FontAwesomeIcon
+              aria-hidden="true"
+              icon={faPlay}
+            />
           </IconInButton>
           Demarrer
         </ProposalCard.IntroButton>
