@@ -13,7 +13,12 @@ const configuration = require('./configuration.js');
 module.exports = function reactRender(req, res) {
   const { proxyApiUrl } = configuration;
   const initialState = {
-    appConfig: {}
+    appConfig: {
+      operationId: req.query.operationId || '55e4e34c-da29-401e-8858-bbf54f4769e2',
+      source: 'core',
+      language: req.query.language || 'fr',
+      country: req.query.country || 'FR'
+    }
   };
 
   fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
