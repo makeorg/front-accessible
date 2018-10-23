@@ -12,7 +12,8 @@ class SequenceComponent extends React.Component {
       proposals,
       currentIndex,
       isSequenceCollapsed,
-      handleExpandSequence
+      handleExpandSequence,
+      isPannelOpen
     } = this.props;
     const finalCardIndex = count + 1;
     return (
@@ -24,6 +25,7 @@ class SequenceComponent extends React.Component {
         <CollapseToggle
           handleExpandSequence={handleExpandSequence}
           isSequenceCollapsed={isSequenceCollapsed}
+          isPannelOpen={isPannelOpen}
         />
         <Sequence.List>
           <IntroCardComponent index={0} currentIndex={currentIndex} />

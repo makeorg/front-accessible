@@ -50,7 +50,7 @@ class SequenceContainer extends React.Component {
 
   render() {
     const { proposals, count, currentIndex } = this.state;
-    const { isSequenceCollapsed, handleExpandSequence } = this.props;
+    const { isSequenceCollapsed, handleExpandSequence, isPannelOpen } = this.props;
 
     return (
       <SequenceComponent
@@ -59,6 +59,7 @@ class SequenceContainer extends React.Component {
         currentIndex={currentIndex}
         isSequenceCollapsed={isSequenceCollapsed}
         handleExpandSequence={handleExpandSequence}
+        isPannelOpen={isPannelOpen}
       />
     );
   }
@@ -68,11 +69,13 @@ class SequenceContainer extends React.Component {
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
   const { operationId } = state.appConfig;
+  const { isPannelOpen } = state.pannel;
 
 
   return {
     isSequenceCollapsed,
-    operationId
+    operationId,
+    isPannelOpen
   };
 };
 

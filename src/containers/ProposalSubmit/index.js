@@ -64,7 +64,8 @@ export class ProposalSubmit extends React.Component {
       length,
       canSubmit,
       needAuthentification,
-      isSequenceCollapsed
+      isSequenceCollapsed,
+      isPannelOpen
     } = this.props;
     const { isTyping } = this.state;
 
@@ -78,10 +79,12 @@ export class ProposalSubmit extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleFocus={this.handleFocus}
+          isPannelOpen={isPannelOpen}
         />
         {(isTyping && !needAuthentification && isSequenceCollapsed) ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
+            isPannelOpen={isPannelOpen}
           />
         ) : null}
         {(needAuthentification && isSequenceCollapsed) ? (
@@ -105,6 +108,9 @@ const mapStateToProps = (state) => {
   const {
     isSequenceCollapsed
   } = state.sequence;
+  const {
+    isPannelOpen
+  } = state.pannel;
 
   return {
     operationId,
@@ -112,7 +118,8 @@ const mapStateToProps = (state) => {
     length,
     canSubmit,
     needAuthentification,
-    isSequenceCollapsed
+    isSequenceCollapsed,
+    isPannelOpen
   };
 };
 

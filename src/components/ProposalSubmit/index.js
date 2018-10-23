@@ -15,14 +15,17 @@ class ProposalSubmitFormComponent extends React.Component {
       canSubmit,
       handleChange,
       handleFocus,
-      handleSubmit
+      handleSubmit,
+      isPannelOpen
     } = this.props;
     return (
       <ProposalSubmitForm>
         <HiddenSecondLevelTitle>
           Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :
         </HiddenSecondLevelTitle>
-        <ProposalSubmitForm.Label htmlFor="proposal">
+        <ProposalSubmitForm.Label
+          htmlFor="proposal"
+        >
           { PROPOSAL_BAIT_TEXT }
         </ProposalSubmitForm.Label>
         <ProposalSubmitForm.Input
@@ -31,6 +34,7 @@ class ProposalSubmitFormComponent extends React.Component {
           id="proposal"
           onChange={handleChange}
           onFocus={handleFocus}
+          tabIndex={isPannelOpen ? -1 : 0}
         />
         <ProposalSubmitForm.CharLimit>
           <span aria-valuetext={length}>{length}</span>
@@ -40,7 +44,11 @@ class ProposalSubmitFormComponent extends React.Component {
           <span aria-valuemax="140">140</span>
           <HiddenItem> caractères disponibles</HiddenItem>
         </ProposalSubmitForm.CharLimit>
-        <ProposalSubmitButtonComponent handleSubmit={handleSubmit} canSubmit={canSubmit} />
+        <ProposalSubmitButtonComponent
+          handleSubmit={handleSubmit}
+          canSubmit={canSubmit}
+          isPannelOpen={isPannelOpen}
+        />
       </ProposalSubmitForm>
     );
   }

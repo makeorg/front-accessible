@@ -43,7 +43,7 @@ class LoginContainer extends React.Component {
 
   render() {
     const { email, password, passwordIsDisplayed } = this.state;
-    const { handleRegisterPannel, errors } = this.props;
+    const { handleRegisterPannel, errors, isPannelOpen } = this.props;
     return (
       <LoginComponent
         email={email}
@@ -54,6 +54,7 @@ class LoginContainer extends React.Component {
         handleRegisterPannel={handleRegisterPannel}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
+        isPannelOpen={isPannelOpen}
       />
     );
   }
@@ -61,9 +62,11 @@ class LoginContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   const { errors } = state.authentification;
+  const { isPannelOpen } = state.pannel;
 
   return {
-    errors
+    errors,
+    isPannelOpen
   };
 };
 

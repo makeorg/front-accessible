@@ -6,7 +6,7 @@ import { loginSocial } from '../../../../actions/authentification';
 
 class GoogleAuthentificationComponent extends React.Component {
   render() {
-    const { handleGoogleLoginCallback } = this.props;
+    const { handleGoogleLoginCallback, tabIndex } = this.props;
     return (
       <GoogleLogin
         {...this.props}
@@ -14,6 +14,7 @@ class GoogleAuthentificationComponent extends React.Component {
         buttonText="Google"
         onSuccess={handleGoogleLoginCallback}
         onFailure={handleGoogleLoginCallback}
+        tabIndex={tabIndex}
       />
     );
   }

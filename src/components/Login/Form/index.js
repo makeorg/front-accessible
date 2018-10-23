@@ -20,7 +20,8 @@ class LoginFormComponent extends React.Component {
       handleChange,
       handleSubmit,
       togglePasswordIsDisplayed,
-      passwordIsDisplayed
+      passwordIsDisplayed,
+      isPannelOpen
     } = this.props;
 
     return (
@@ -33,7 +34,10 @@ class LoginFormComponent extends React.Component {
           )
         }
         <FakeInputGrey>
-          <IconLabel htmlFor="email" aria-label="E-mail (obligatoire)">
+          <IconLabel
+            htmlFor="email"
+            aria-label="E-mail (obligatoire)"
+          >
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
           </IconLabel>
           <BasicTextInput
@@ -45,10 +49,14 @@ class LoginFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
-          <IconLabel htmlFor="password" aria-label="Mot de passe (obligatoire)">
+          <IconLabel
+            htmlFor="password"
+            aria-label="Mot de passe (obligatoire)"
+          >
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
           <BasicTextInput
@@ -60,13 +68,19 @@ class LoginFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
           <PasswordButton
             togglePasswordIsDisplayed={togglePasswordIsDisplayed}
             passwordIsDisplayed={passwordIsDisplayed}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
-        <SmallRedButton type="submit" form="login">
+        <SmallRedButton
+          type="submit"
+          form="login"
+          tabIndex={isPannelOpen ? 0 : -1}
+        >
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>
@@ -76,6 +90,5 @@ class LoginFormComponent extends React.Component {
     );
   }
 }
-
 
 export default LoginFormComponent;

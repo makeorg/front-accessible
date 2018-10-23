@@ -7,7 +7,12 @@ import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
 
 class ProposalCardComponent extends React.Component {
   render() {
-    const { proposal, index } = this.props;
+    const {
+      proposal,
+      index,
+      isPannelOpen,
+      isSequenceCollapsed
+    } = this.props;
     const position = getPosition(index);
     const scale = getScale(index);
     const zindex = getZIndex(index);
@@ -15,7 +20,7 @@ class ProposalCardComponent extends React.Component {
     return (
       <ProposalCard position={position} scale={scale} zindex={zindex}>
         <ProposalCard.FakeNavWrapper>
-          <ProposalCard.BackButton>
+          <ProposalCard.BackButton tabIndex={isPannelOpen || isSequenceCollapsed ? -1 : 0}>
             <ProposalCard.BackIcon>
               <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
             </ProposalCard.BackIcon>

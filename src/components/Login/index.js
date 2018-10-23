@@ -9,7 +9,7 @@ import { RedLinkButton } from '../Elements/ButtonElements';
 
 class LoginComponent extends React.Component {
   render() {
-    const { handleRegisterPannel } = this.props;
+    const { handleRegisterPannel, isPannelOpen } = this.props;
     return (
       <Login role="region" aria-labelledby="login_title">
         <SecondLevelTitle id="login_title">
@@ -19,7 +19,9 @@ class LoginComponent extends React.Component {
         <ThirdLevelTtitle>
           Je me connecte avec
         </ThirdLevelTtitle>
-        <AuthentificationSocialContainer />
+        <AuthentificationSocialContainer
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
         <Separators.Wrapper>
           <Separators.Large />
           <Separators.Text>ou</Separators.Text>
@@ -31,11 +33,20 @@ class LoginComponent extends React.Component {
         <LoginFormComponent {...this.props} />
         <ExtraParagraph>
           Oups, j’ai
-          <RedLinkButton>oublié mon mot de passe ?</RedLinkButton>
+          <RedLinkButton
+            tabIndex={isPannelOpen ? 0 : -1}
+          >
+            oublié mon mot de passe ?
+          </RedLinkButton>
         </ExtraParagraph>
         <ExtraAltParagraph>
           Je n’ai pas de compte,
-          <RedLinkButton onClick={handleRegisterPannel}>je m’en crée un.</RedLinkButton>
+          <RedLinkButton
+            tabIndex={isPannelOpen ? 0 : -1}
+            onClick={handleRegisterPannel}
+          >
+            je m’en crée un.
+          </RedLinkButton>
         </ExtraAltParagraph>
       </Login>
     );

@@ -27,7 +27,8 @@ class RegisterFormComponent extends React.Component {
       handleChange,
       handleSubmit,
       togglePasswordIsDisplayed,
-      passwordIsDisplayed
+      passwordIsDisplayed,
+      isPannelOpen
     } = this.props;
 
     const emailError = fieldErrors('email', errors);
@@ -49,6 +50,7 @@ class RegisterFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey hasError={passwordError}>
@@ -64,10 +66,12 @@ class RegisterFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
           <PasswordButton
             togglePasswordIsDisplayed={togglePasswordIsDisplayed}
             passwordIsDisplayed={passwordIsDisplayed}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey hasError={firstnameError}>
@@ -83,6 +87,7 @@ class RegisterFormComponent extends React.Component {
             aria-required="true"
             required
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
@@ -97,6 +102,7 @@ class RegisterFormComponent extends React.Component {
             placeholder="Âge"
             aria-required="false"
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
@@ -111,6 +117,7 @@ class RegisterFormComponent extends React.Component {
             placeholder="Code postal"
             aria-required="false"
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
@@ -125,13 +132,18 @@ class RegisterFormComponent extends React.Component {
             placeholder="Profession"
             aria-required="false"
             onChange={handleChange}
+            tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <ConditionParagraph>
           {'En vous inscrivant, vous acceptez nos conditions générales d’utilisation '
           + 'et acceptez de recevoir des e-mails (peu nombreux) de Make.org.'}
         </ConditionParagraph>
-        <SmallRedButton type="submit" form="register">
+        <SmallRedButton
+          type="submit"
+          form="register"
+          tabIndex={isPannelOpen ? 0 : -1}
+        >
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>

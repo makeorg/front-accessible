@@ -54,7 +54,7 @@ class RegisterContainer extends React.Component {
 
   render() {
     const { user, passwordIsDisplayed } = this.state;
-    const { handleLoginPannel, errors } = this.props;
+    const { handleLoginPannel, errors, isPannelOpen } = this.props;
 
     return (
       <RegisterComponent
@@ -65,6 +65,7 @@ class RegisterContainer extends React.Component {
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleLoginPannel={handleLoginPannel}
+        isPannelOpen={isPannelOpen}
       />
     );
   }
@@ -72,9 +73,11 @@ class RegisterContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   const { errors } = state.registration;
+  const { isPannelOpen } = state.pannel;
 
   return {
-    errors
+    errors,
+    isPannelOpen
   };
 };
 
