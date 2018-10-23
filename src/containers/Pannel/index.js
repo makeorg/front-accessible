@@ -15,10 +15,10 @@ const pannelContents = {
 
 class PannelContainer extends React.Component {
   render() {
-    const { isOpen, contentType, handleClose } = this.props;
+    const { isPannelOpen, contentType, handleClose } = this.props;
     return (
       <PannelComponent
-        isOpen={isOpen}
+        isPannelOpen={isPannelOpen}
         handleClose={handleClose}
       >
         {pannelContents[contentType]}
@@ -29,10 +29,10 @@ class PannelContainer extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  const { isOpen, contentType } = state.pannel;
+  const { isPannelOpen, contentType } = state.pannel;
 
   return {
-    isOpen,
+    isPannelOpen,
     contentType
   };
 };

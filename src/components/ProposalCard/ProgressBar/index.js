@@ -44,7 +44,7 @@ class ProgressBarComponent extends Component {
         <ProgressCounter>
           <HiddenItem>Proposition numéro </HiddenItem>
           <ActiveCard aria-valuetext="2">2</ActiveCard>
-          <span aria-hidden="true"> / </span>
+          <span aria-hidden="true">/</span>
           <HiddenItem>sur </HiddenItem>
           <span aria-valuemax="10">10</span>
         </ProgressCounter>

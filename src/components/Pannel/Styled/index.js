@@ -12,7 +12,7 @@ const Pannel = styled.div`
   width: 100%;
   max-width: ${pxToRem(Breakpoints.sequenceWidth)};
   height: calc( 100% - ${pxToRem('20px')});
-  padding: ${pxToRem('50px')} ${pxToRem('20px')} ${pxToRem('20px')};
+  padding: ${pxToRem('50px')} ${pxToRem('20px')} 0};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
