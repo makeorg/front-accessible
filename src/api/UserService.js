@@ -86,6 +86,8 @@ export default class UserService {
         email: user.email,
         password: user.password,
         firstName: user.firstname,
+        postalCode: user.postalcode,
+        profession: user.profession,
         country: ApiService.country,
         language: ApiService.language
       })
