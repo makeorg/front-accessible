@@ -44,7 +44,7 @@ class ProposalCardComponent extends React.Component {
         <ProposalCard.AuthorInfos>
           {proposal.author.firstName}
           &nbsp;-&nbsp;
-          <time dateTime="dateTime">
+          <time dateTime={proposal.createdAt}>
             {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
           </time>
         </ProposalCard.AuthorInfos>
