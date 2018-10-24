@@ -1,6 +1,21 @@
-import moment from 'moment';
-
 let instance = null;
+
+const localeMonths = {
+  fr: [
+    'janvier',
+    'février',
+    'mars',
+    'avril',
+    'mai',
+    'juin',
+    'juillet',
+    'août',
+    'septembre',
+    'octobre',
+    'novembre',
+    'décembre'
+  ]
+};
 
 class DateHelper {
   constructor() {
@@ -20,13 +35,10 @@ class DateHelper {
   }
 
   proposalCreationDateFormat(date) {
-    return this.formatDate(date, 'D MMMM');
-  }
+    const objectDate = new Date(date);
+    const localeMonth = localeMonths[this._language][objectDate.getMonth()];
 
-  formatDate(date, format) {
-    const momentDate = moment(date, 'YYYY-MM-DDTHH:mm:ssZ');
-
-    return momentDate.locale(this._language).format(format);
+    return `${objectDate.getDate()} ${localeMonth}`;
   }
 }
 
