@@ -1,45 +1,35 @@
-export const getIndex = (index, counter) => {
-  if (index === null && counter == null) {
+export const getPosition = (initialIndex, currentIndex = null) => {
+  if (initialIndex === null || currentIndex === null) {
     return 0;
   }
-  return index + counter;
+
+  return (initialIndex - currentIndex) * 2;
 };
 
-export const getCardPosition = (index) => {
-  if (index === null) {
+export const getZIndex = (initialIndex, currentIndex = null) => {
+  if (initialIndex === null || currentIndex === null) {
     return 0;
   }
-  return getIndex(index) * 2;
+  return 50 - (initialIndex - currentIndex);
 };
 
-export const getZIndex = (index) => {
-  if (index === null) {
+export const getScale = (initialIndex, currentIndex = null) => {
+  if (initialIndex === null || currentIndex === null) {
     return 0;
   }
-  return 50 - getIndex(index);
+  return 1 - ((initialIndex - currentIndex) / 75);
 };
 
-export const getScale = (index) => {
-  if (index === null) {
+export const gaugeProgress = (initialIndex, totalIndex = null) => {
+  if (initialIndex === null || totalIndex === null) {
     return 0;
   }
-  return 1 - (getIndex(index) / 75);
+  return Math.floor(initialIndex / totalIndex * 100);
 };
 
-export const doDecrementCounter = (prevState) => {
-  if (prevState === null) {
-    return false;
+export const gaugeRemain = (initialIndex, totalIndex = null) => {
+  if (initialIndex === null || totalIndex === null) {
+    return 0;
   }
-  return {
-    counter: prevState.counter - 1
-  };
-};
-
-export const doIncrementCounter = (prevState) => {
-  if (prevState === null) {
-    return false;
-  }
-  return {
-    counter: prevState.counter + 1
-  };
+  return 100 - Math.floor(initialIndex / totalIndex * 100);
 };

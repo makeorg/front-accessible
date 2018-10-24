@@ -1,30 +1,63 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import ProgressBarContainer from '../../containers/ProposalCard/ProgressBar';
 import ProposalCard from './Styled';
+import ProgressBarComponent from './ProgressBar';
+import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
+import DateHelper from '../../helpers/date';
 
 class ProposalCardComponent extends React.Component {
   render() {
+    const {
+      proposal,
+      index,
+      totalIndex,
+      currentIndex,
+      isPannelOpen,
+      isSequenceCollapsed,
+      goToPreviousCard,
+      goToNextCard
+    } = this.props;
+    const position = getPosition(index, currentIndex);
+    const scale = getScale(index, currentIndex);
+    const zindex = getZIndex(index, currentIndex);
+
     return (
-      <ProposalCard>
+      <ProposalCard
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        className={index < currentIndex ? 'collapsed-card' : ''}
+      >
         <ProposalCard.FakeNavWrapper>
-          <ProposalCard.BackButton>
+          <ProposalCard.BackButton
+            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+            onClick={goToPreviousCard}
+          >
             <ProposalCard.BackIcon>
               <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
             </ProposalCard.BackIcon>
             Proposition précédente
           </ProposalCard.BackButton>
-          <ProgressBarContainer />
+          <ProgressBarComponent index={index} totalIndex={totalIndex} />
         </ProposalCard.FakeNavWrapper>
         <ProposalCard.AuthorInfos>
-          Nom de l‘auteur ·
-          <time dateTime="dateTime"> Date de la propoition</time>
+          {proposal.author.firstName}
+          &nbsp;-&nbsp;
+          <time dateTime="dateTime">
+            {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
+          </time>
         </ProposalCard.AuthorInfos>
-        <ProposalCard.Sep aria-hidden="true" />
+        <ProposalCard.Separator aria-hidden="true" />
         <ProposalCard.Proposal>
-          Il faut écrire une proposition qui soit accessible et qui fasse moins de 140 caractères.
+          {proposal.content}
         </ProposalCard.Proposal>
+        <ProposalCard.IntroButton
+          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+          onClick={goToNextCard}
+        >
+          Proposition suivante
+        </ProposalCard.IntroButton>
       </ProposalCard>
     );
   }

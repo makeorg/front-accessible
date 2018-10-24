@@ -4,8 +4,8 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FacebookLink, SocialIcon } from '../../../Styled/Content';
 import FacebookAuthentificationComponent from '..';
 
-const renderFacebookLogin = renderProps => (
-  <FacebookLink onClick={renderProps.onClick}>
+const renderFacebookLogin = tabIndex => renderProps => (
+  <FacebookLink onClick={renderProps.onClick} tabIndex={tabIndex}>
     <SocialIcon>
       <FontAwesomeIcon icon={faFacebook} />
     </SocialIcon>
@@ -13,8 +13,13 @@ const renderFacebookLogin = renderProps => (
   </FacebookLink>
 );
 
-const FacebookAuthentificationLinkComponent = props => (
-  <FacebookAuthentificationComponent {...props} render={renderFacebookLogin} />
-);
+class FacebookAuthentificationLinkComponent extends React.Component {
+  render() {
+    const { tabIndex } = this.props;
+    return (
+      <FacebookAuthentificationComponent {...this.props} render={renderFacebookLogin(tabIndex)} />
+    );
+  }
+}
 
 export default FacebookAuthentificationLinkComponent;

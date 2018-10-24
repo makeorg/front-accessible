@@ -2,6 +2,7 @@ import * as actionTypes from '../../constants/actionTypes';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
 const initialState = {
+  isTyping: false,
   canSubmit: false,
   needAuthentification: false,
   content: null,
@@ -15,6 +16,7 @@ export default function proposal(state = initialState, action) {
     case actionTypes.PROPOSE_TYPING:
       return {
         ...state,
+        isTyping: true,
         content: action.content,
         length: action.length,
         canSubmit: action.canSubmit
@@ -22,6 +24,7 @@ export default function proposal(state = initialState, action) {
     case actionTypes.PROPOSE_REQUEST:
       return {
         ...state,
+        isTyping: false,
         operationId: action.operationId,
         needAuthentification: true
       };

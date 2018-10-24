@@ -17,7 +17,7 @@ import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 class ProposalSubmitAuthentificationComponent extends React.Component {
   render() {
-    const { handleRegisterClick, handleLoginClick } = this.props;
+    const { handleRegisterClick, handleLoginClick, isPannelOpen } = this.props;
 
     return (
       <ProposalSubmitAuthentificationWrapper>
@@ -26,9 +26,16 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
           pour valider votre contribution et être informé(e) des résultats de la consultation.
         </ThirdLevelTtitle>
         <SmallButtonsWrapper>
-          <FacebookAuthentificationButtonComponent />
-          <GoogleAuthentificationButtonComponent />
-          <EmailButton onClick={handleRegisterClick}>
+          <FacebookAuthentificationButtonComponent
+            tabIndex={isPannelOpen ? -1 : 0}
+          />
+          <GoogleAuthentificationButtonComponent
+            tabIndex={isPannelOpen ? -1 : 0}
+          />
+          <EmailButton
+            onClick={handleRegisterClick}
+            tabIndex={isPannelOpen ? -1 : 0}
+          >
             <IconInButton>
               <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} />
             </IconInButton>
@@ -37,7 +44,11 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
         </SmallButtonsWrapper>
         <AltDescription>
           {'Make.org s‘engage à protéger vos '}
-          <DescriptionLink href="https://about.make.org/politique-donnees" target="_blank">
+          <DescriptionLink
+            href="https://about.make.org/politique-donnees"
+            target="_blank"
+            tabIndex={isPannelOpen ? -1 : 0}
+          >
             {'données personnelles '}
             <IconInButton>
               <FontAwesomeIcon aria-label="Ouverture dans un nouvel onglet" icon={faExternalLinkAlt} />
@@ -47,7 +58,10 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
         <Separators.Small aria-hidden="true" />
         <SecondLevelTitle>J’ai déjà un compte</SecondLevelTitle>
         <ButtonsWrapper>
-          <SmallRedButton onClick={handleLoginClick}>
+          <SmallRedButton
+            onClick={handleLoginClick}
+            tabIndex={isPannelOpen ? -1 : 0}
+          >
             Je me connecte
           </SmallRedButton>
         </ButtonsWrapper>

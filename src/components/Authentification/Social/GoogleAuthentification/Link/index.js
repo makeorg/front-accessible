@@ -4,8 +4,8 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { GoogleLink, SocialIcon } from '../../../Styled/Content';
 import GoogleAuthentificationComponent from '..';
 
-const renderGoogleLogin = renderProps => (
-  <GoogleLink onClick={renderProps.onClick}>
+const renderGoogleLogin = tabIndex => renderProps => (
+  <GoogleLink onClick={renderProps.onClick} tabIndex={tabIndex}>
     <SocialIcon>
       <FontAwesomeIcon icon={faGoogle} />
     </SocialIcon>
@@ -13,8 +13,13 @@ const renderGoogleLogin = renderProps => (
   </GoogleLink>
 );
 
-const GoogleAuthentificationLinkComponent = props => (
-  <GoogleAuthentificationComponent {...props} render={renderGoogleLogin} />
-);
+class GoogleAuthentificationLinkComponent extends React.Component {
+  render() {
+    const { tabIndex } = this.props;
+    return (
+      <GoogleAuthentificationComponent {...this.props} render={renderGoogleLogin(tabIndex)} />
+    );
+  }
+}
 
 export default GoogleAuthentificationLinkComponent;

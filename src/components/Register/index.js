@@ -10,7 +10,7 @@ import { ExtraParagraph } from '../Elements/Form';
 
 class RegisterComponent extends React.Component {
   render() {
-    const { handleLoginPannel } = this.props;
+    const { handleLoginPannel, isPannelOpen } = this.props;
     return (
       <Register role="region" aria-labelledby="register_title">
         <SecondLevelTitle id="register_title">
@@ -19,9 +19,9 @@ class RegisterComponent extends React.Component {
         <Separators.Small />
         <ThirdLevelTtitle>
           {'Je m’inscris avec '}
-          <FacebookAuthentificationLinkComponent />
+          <FacebookAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
           {' ou '}
-          <GoogleAuthentificationLinkComponent />
+          <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
         </ThirdLevelTtitle>
         <Separators.Wrapper>
           <Separators.Large />
@@ -34,7 +34,7 @@ class RegisterComponent extends React.Component {
         <RegisterFormComponent {...this.props} />
         <ExtraParagraph>
           {'J\'ai déja un compte !'}
-          <RedLinkButton onClick={handleLoginPannel}>Connexion</RedLinkButton>
+          <RedLinkButton onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>Connexion</RedLinkButton>
         </ExtraParagraph>
       </Register>
     );

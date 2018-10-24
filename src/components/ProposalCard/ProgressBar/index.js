@@ -14,10 +14,18 @@ import {
   PROGRESS_SVG_CY,
   PROGRESS_SVG_R
 } from '../../../constants/card';
+import {
+  gaugeProgress,
+  gaugeRemain
+} from '../../../helpers/sequence';
 import { HiddenItem } from '../../Elements/HiddenElements';
 
 class ProgressBarComponent extends Component {
   render() {
+    const {
+      index,
+      totalIndex
+    } = this.props;
     return (
       <ProgressWrapper role="progressbar">
         <ProgressSvg viewBox={PROGRESS_SVG_VIEWBOX}>
@@ -31,22 +39,20 @@ class ProgressBarComponent extends Component {
             cy={PROGRESS_SVG_CY}
             r={PROGRESS_SVG_R}
           />
-          {/* TODO Dynamic Progres & Remain */}
           <ProgressBar
-            progress="20"
-            remain="80"
+            progress={gaugeProgress(index, totalIndex)}
+            remain={gaugeRemain(index, totalIndex)}
             cx={PROGRESS_SVG_CX}
             cy={PROGRESS_SVG_CY}
             r={PROGRESS_SVG_R}
           />
         </ProgressSvg>
-        {/* TODO Dynamic Counter for Active & Total Cards */}
         <ProgressCounter>
           <HiddenItem>Proposition numéro </HiddenItem>
-          <ActiveCard aria-valuetext="2">2</ActiveCard>
-          <span aria-hidden="true"> / </span>
+          <ActiveCard aria-valuetext={index}>{index}</ActiveCard>
+          <span aria-hidden="true">/</span>
           <HiddenItem>sur </HiddenItem>
-          <span aria-valuemax="10">10</span>
+          <span aria-valuemax={totalIndex}>{totalIndex}</span>
         </ProgressCounter>
       </ProgressWrapper>
     );

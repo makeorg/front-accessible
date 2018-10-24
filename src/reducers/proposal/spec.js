@@ -9,6 +9,7 @@ describe('proposal reducer', () => {
       const canSubmit = true;
       const action = actionCreators.proposeTyping(content, length, canSubmit);
       const previousState = {
+        isTyping: false,
         needAuthentification: false,
         canSubmit: false,
         content: null,
@@ -18,6 +19,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
+        isTyping: true,
         needAuthentification: false,
         canSubmit: true,
         content: content,
@@ -37,6 +39,7 @@ describe('proposal reducer', () => {
 
       const action = actionCreators.proposeRequest(content, operationId);
       const previousState = {
+        isTyping: false,
         needAuthentification: false,
         canSubmit: true,
         content: content,
@@ -46,6 +49,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
+        isTyping: false,
         needAuthentification: true,
         canSubmit: true,
         content: content,
@@ -60,6 +64,7 @@ describe('proposal reducer', () => {
     it('propose success', () => {
       const action = actionCreators.proposeSuccess('foo-proposal-id');
       const previousState = {
+        isTyping: true,
         needAuthentification: true,
         canSubmit: true,
         content: 'il faut foo',
@@ -69,6 +74,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
+        isTyping: false,
         needAuthentification: false,
         canSubmit: false,
         content: null,
@@ -83,6 +89,7 @@ describe('proposal reducer', () => {
     it('propose failure', () => {
       const action = actionCreators.proposeFailure('foo-error');
       const previousState = {
+        isTyping: false,
         needAuthentification: false,
         canSubmit: true,
         content: 'il faut foo',
@@ -92,6 +99,7 @@ describe('proposal reducer', () => {
       };
 
       const expectedState = {
+        isTyping: false,
         needAuthentification: false,
         canSubmit: true,
         content: 'il faut foo',

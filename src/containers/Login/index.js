@@ -15,8 +15,7 @@ class LoginContainer extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showPassword = this.showPassword.bind(this);
-    this.hidePassword = this.hidePassword.bind(this);
+    this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
   }
 
   handleChange(event) {
@@ -36,29 +35,15 @@ class LoginContainer extends React.Component {
     }
   }
 
-  showPassword(event) {
-    event.preventDefault();
-    const { passwordIsDisplayed } = this.state;
-
-    this.setState({
-      ...passwordIsDisplayed,
-      passwordIsDisplayed: true
-    });
-  }
-
-  hidePassword(event) {
-    event.preventDefault();
-    const { passwordIsDisplayed } = this.state;
-
-    this.setState({
-      ...passwordIsDisplayed,
-      passwordIsDisplayed: false
-    });
+  togglePasswordIsDisplayed() {
+    this.setState(prevstate => ({
+      passwordIsDisplayed: !prevstate.passwordIsDisplayed
+    }));
   }
 
   render() {
     const { email, password, passwordIsDisplayed } = this.state;
-    const { handleRegisterPannel, errors } = this.props;
+    const { handleRegisterPannel, errors, isPannelOpen } = this.props;
     return (
       <LoginComponent
         email={email}
@@ -67,9 +52,9 @@ class LoginContainer extends React.Component {
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         handleRegisterPannel={handleRegisterPannel}
-        showPassword={this.showPassword}
-        hidePassword={this.hidePassword}
+        togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
+        isPannelOpen={isPannelOpen}
       />
     );
   }
@@ -77,9 +62,11 @@ class LoginContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   const { errors } = state.authentification;
+  const { isPannelOpen } = state.pannel;
 
   return {
-    errors
+    errors,
+    isPannelOpen
   };
 };
 

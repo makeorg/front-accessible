@@ -10,7 +10,8 @@ describe('ProposalSubmitContainer', () => {
     content: 'foo',
     length: 10,
     canSubmit: true,
-    needAuthentification: false
+    needAuthentification: false,
+    isSequenceCollapsed: false
   };
 
   it('Renders Initial Props & State', () => {
@@ -27,7 +28,11 @@ describe('ProposalSubmitContainer', () => {
   });
 
   it('Renders the Description', () => {
-    const wrapper = shallow(<ProposalSubmit {...defaultProps} />);
+    const descriptionProps = {
+      ...defaultProps,
+      isSequenceCollapsed: true
+    };
+    const wrapper = shallow(<ProposalSubmit {...descriptionProps} />);
 
     wrapper.setState({ isTyping: true });
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).to.have.length(1);
@@ -37,7 +42,8 @@ describe('ProposalSubmitContainer', () => {
   it('Renders the Authentification', () => {
     const needAuthentificationProps = {
       ...defaultProps,
-      needAuthentification: true
+      needAuthentification: true,
+      isSequenceCollapsed: true
     };
     const wrapper = shallow(<ProposalSubmit {...needAuthentificationProps} />);
 

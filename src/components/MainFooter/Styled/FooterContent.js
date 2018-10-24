@@ -34,4 +34,7 @@ export const Link = styled.a`
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
   }
+  &:focus {
+    outline-color: ${BasicColors.PureBlack};
+  }
 `;
