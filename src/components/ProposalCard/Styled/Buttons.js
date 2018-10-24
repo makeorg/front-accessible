@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
 import { UnstyledButton, TallRedButton, IconInButton } from '../../Elements/ButtonElements';
-import { BackgroundColors, TextColors } from '../../../assets/vars/Colors';
+import { BackgroundColors, BasicColors, TextColors } from '../../../assets/vars/Colors';
 import { MakeFonts } from '../../../assets/vars/Fonts';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 
@@ -26,5 +26,12 @@ export const BackIcon = styled(IconInButton)`
   color: ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('40px')};
+  }
+`;
+
+export const FinalLink = styled(IntroButton)`
+  text-decoration: none;
+  &:hover {
+    color: ${BasicColors.PureWhite};
   }
 `;

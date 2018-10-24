@@ -4,6 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
+import DateHelper from '../../helpers/date';
 
 class ProposalCardComponent extends React.Component {
   render() {
@@ -42,12 +43,12 @@ class ProposalCardComponent extends React.Component {
         </ProposalCard.FakeNavWrapper>
         <ProposalCard.AuthorInfos>
           {proposal.author.firstName}
-          &nbsp;
+          &nbsp;-&nbsp;
           <time dateTime="dateTime">
-            {proposal.createdAt}
+            {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
           </time>
         </ProposalCard.AuthorInfos>
-        <ProposalCard.Sep aria-hidden="true" />
+        <ProposalCard.Separator aria-hidden="true" />
         <ProposalCard.Proposal>
           {proposal.content}
         </ProposalCard.Proposal>

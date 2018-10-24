@@ -4,12 +4,13 @@ import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 import { IntroProposalCard, FakeNavWrapper } from './Cards';
 import { IntroTitle } from './Titles';
-import { IntroParagraph, Sep } from './Content';
+import { IntroParagraph, FinalParagraph, Separator } from './Content';
 import { AuthorInfos, Proposal } from './Proposal';
 import {
   IntroButton,
   BackButton,
-  BackIcon
+  BackIcon,
+  FinalLink
 } from './Buttons';
 
 const ProposalCard = styled.li.attrs({
@@ -46,7 +47,8 @@ ProposalCard.IntroTitle = IntroTitle;
 
 /* Contents */
 ProposalCard.IntroParagraph = IntroParagraph;
-ProposalCard.Sep = Sep;
+ProposalCard.FinalParagraph = FinalParagraph;
+ProposalCard.Separator = Separator;
 
 /* Proposal */
 ProposalCard.AuthorInfos = AuthorInfos;
@@ -56,5 +58,6 @@ ProposalCard.Proposal = Proposal;
 ProposalCard.IntroButton = IntroButton;
 ProposalCard.BackButton = BackButton;
 ProposalCard.BackIcon = BackIcon;
+ProposalCard.FinalLink = FinalLink;
 
 export default ProposalCard;

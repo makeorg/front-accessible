@@ -15,7 +15,7 @@ describe('ProposalCardComponent', () => {
     const wrapper = shallow(<ProposalCardComponent proposal={proposal} />);
 
     expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal('true');
-    expect(wrapper.find(ProposalCard.Sep).prop('aria-hidden')).to.equal('true');
+    expect(wrapper.find(ProposalCard.Separator).prop('aria-hidden')).to.equal('true');
   });
 
 });
