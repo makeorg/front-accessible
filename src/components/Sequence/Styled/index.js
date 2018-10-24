@@ -9,11 +9,11 @@ const Sequence = styled.section`
   z-index: 0;
   width: 100%;
   height: 100%;
-  margin-top: ${pxToRem('40px')};
+  margin-top: ${pxToRem('20px')};
   max-width: ${Breakpoints.sequenceWidth};
   transition: transform 0.5s ease-in;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    margin-top: ${pxToRem('60px')};
+    margin-top: ${pxToRem('40px')};
   }
 `;
 
