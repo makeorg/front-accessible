@@ -24,12 +24,12 @@ export const gaugeProgress = (initialIndex, totalIndex = null) => {
   if (initialIndex === null || totalIndex === null) {
     return 0;
   }
-  return Math.floor(initialIndex / totalIndex * 100);
+  return Math.floor((initialIndex / totalIndex) * 100);
 };
 
 export const gaugeRemain = (initialIndex, totalIndex = null) => {
   if (initialIndex === null || totalIndex === null) {
     return 0;
   }
-  return 100 - Math.floor(initialIndex / totalIndex * 100);
+  return 100 - Math.floor((initialIndex / totalIndex) * 100);
 };
