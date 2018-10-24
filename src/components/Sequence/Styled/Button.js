@@ -13,15 +13,15 @@ export const BackArrow = styled(UnstyledButton)`
   justify-content: center;
   align-items: center;
   color: ${BasicColors.PureWhite};
-  padding: ${pxToRem('15px')};
-  top: ${pxToRem('-75px')};
+  padding: ${pxToRem('20px')};
+  top: ${pxToRem('-85px')};
   left: 50%;
   z-index: 0;
   transform: translate(-50%, 0);
-  font-size: ${pxToRem('40px')};
+  font-size: ${pxToRem('45px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    top: ${pxToRem('-85px')};
-    font-size: ${pxToRem('51px')};
+    top: ${pxToRem('-100px')};
+    font-size: ${pxToRem('50px')};
     padding: ${pxToRem('30px')};
   }
 `;
@@ -32,4 +32,5 @@ export const BackButton = styled(SmallRedButton)`
   left: 50%;
   z-index: 1;
   transform: translate(-50%, 0);
+  min-width: ${pxToRem('210px')};
 `;

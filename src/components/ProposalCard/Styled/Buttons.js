@@ -31,7 +31,8 @@ export const BackIcon = styled(IconInButton)`
 
 export const FinalLink = styled(IntroButton)`
   text-decoration: none;
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${BasicColors.PureWhite};
   }
 `;
