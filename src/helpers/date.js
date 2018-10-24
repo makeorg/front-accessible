@@ -18,10 +18,10 @@ const localeMonths = {
 };
 
 export const getDateOfBirthFromAge = (age = null) => {
-  if (!age || !Number.isInteger(age)) {
+  if (!age || Number.isNaN(Number(age))) {
     return null;
   }
-  const birthYear = (new Date()).getFullYear() - age;
+  const birthYear = (new Date()).getFullYear() - Number(age);
 
   return `${birthYear}-01-01`;
 };

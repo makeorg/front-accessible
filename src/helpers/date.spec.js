@@ -1,8 +1,13 @@
 import DateHelper, { getDateOfBirthFromAge } from './date';
 
 describe('Date Helper', () => {
-  it('getDateOfBirthFromAge with valid age', () => {
+  it('getDateOfBirthFromAge with valid integer age', () => {
     const dateOfBirth = getDateOfBirthFromAge(32);
+    expect(dateOfBirth).to.equal('1986-01-01');
+  });
+
+  it('getDateOfBirthFromAge with valid string age', () => {
+    const dateOfBirth = getDateOfBirthFromAge('32');
     expect(dateOfBirth).to.equal('1986-01-01');
   });
 
