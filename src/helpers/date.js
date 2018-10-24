@@ -17,13 +17,22 @@ const localeMonths = {
   ]
 };
 
+export const getDateOfBirthFromAge = (age = null) => {
+  if (!age || !Number.isInteger(age)) {
+    return null;
+  }
+  const birthYear = (new Date()).getFullYear() - age;
+
+  return `${birthYear}-01-01`;
+};
+
 class DateHelper {
   constructor() {
     if (!instance) {
       instance = this;
     }
 
-    this._language = null;
+    this._language = 'fr';
   }
 
   set language(language) {
@@ -36,6 +45,15 @@ class DateHelper {
 
   proposalCreationDateFormat(date) {
     const objectDate = new Date(date);
+
+    if (Number.isNaN(objectDate.getMonth())) {
+      return null;
+    }
+
+    if (localeMonths[this._language] === undefined) {
+      return null;
+    }
+
     const localeMonth = localeMonths[this._language][objectDate.getMonth()];
 
     return `${objectDate.getDate()} ${localeMonth}`;

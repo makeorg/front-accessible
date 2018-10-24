@@ -10,6 +10,7 @@ describe('ProposalCardComponent', () => {
       author: {
         firstname: 'foo'
       },
+      createdAt: '2018-10-24T12:45:25.752Z',
       content: 'il faut bar'
     }
     const wrapper = shallow(<ProposalCardComponent proposal={proposal} />);
