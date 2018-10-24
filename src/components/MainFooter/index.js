@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import i18next from 'i18next';
 import MainFooter from './Styled';
 import { HiddenItem } from '../Elements/HiddenElements';
 
 export const FooterLink = 'https://make.org/FR#/FR/consultation/aines/consultation';
 
-class MainFooterComponent extends Component {
+class MainFooterComponent extends React.Component {
   render() {
     return (
       <MainFooter role="contentinfo">
         <MainFooter.Nav role="navigation" aria-labelledby="footer_title">
           <MainFooter.Title id="footer_title">
-            <HiddenItem>En savoir plus sur le sujet : </HiddenItem>
+            <HiddenItem>{i18next.t('footer.see_more')}</HiddenItem>
             { 'Comment mieux prendre soin de ' }
             <MainFooter.HighlightedTitle>
-              { ' nos ainés ?' }
+              { 'nos aînés ?' }
             </MainFooter.HighlightedTitle>
           </MainFooter.Title>
-          <MainFooter.Link href={FooterLink}>Accéder à la consultation complète</MainFooter.Link>
+          <MainFooter.Link href={FooterLink}>{i18next.t('footer.link')}</MainFooter.Link>
         </MainFooter.Nav>
       </MainFooter>
     );

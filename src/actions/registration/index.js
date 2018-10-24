@@ -14,7 +14,7 @@ export const register = user => (dispatch) => {
     .then((userResonse) => {
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(userResonse));
       dispatch(registerSuccess(userResonse));
-      dispatch(login(user.email, user.password, true));
+      dispatch(login(user.email, user.password));
       dispatch(pannelClose());
     })
     .catch((errors) => {

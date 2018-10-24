@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from './Styled';
@@ -37,7 +38,7 @@ class ProposalCardComponent extends React.Component {
             <ProposalCard.BackIcon>
               <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
             </ProposalCard.BackIcon>
-            Proposition précédente
+            {i18next.t('proposal_card.previous')}
           </ProposalCard.BackButton>
           <ProgressBarComponent index={index} totalIndex={totalIndex} />
         </ProposalCard.FakeNavWrapper>
@@ -56,7 +57,7 @@ class ProposalCardComponent extends React.Component {
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={goToNextCard}
         >
-          Proposition suivante
+          {i18next.t('proposal_card.next')}
         </ProposalCard.IntroButton>
       </ProposalCard>
     );

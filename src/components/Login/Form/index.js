@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +37,7 @@ class LoginFormComponent extends React.Component {
         <FakeInputGrey>
           <IconLabel
             htmlFor="email"
-            aria-label="E-mail (obligatoire)"
+            aria-label={i18next.t('common.form.email_label')}
           >
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
           </IconLabel>
@@ -45,7 +46,7 @@ class LoginFormComponent extends React.Component {
             name="email"
             id="email"
             value={email}
-            placeholder="E-mail (obligatoire)"
+            placeholder={i18next.t('common.form.email_label')}
             aria-required="true"
             required
             onChange={handleChange}
@@ -55,7 +56,7 @@ class LoginFormComponent extends React.Component {
         <FakeInputGrey>
           <IconLabel
             htmlFor="password"
-            aria-label="Mot de passe (obligatoire)"
+            aria-label={i18next.t('common.form.password_label')}
           >
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
@@ -64,7 +65,7 @@ class LoginFormComponent extends React.Component {
             name="password"
             id="password"
             value={password}
-            placeholder="Mot de passe (obligatoire)"
+            placeholder={i18next.t('common.form.password_label')}
             aria-required="true"
             required
             onChange={handleChange}
@@ -84,7 +85,7 @@ class LoginFormComponent extends React.Component {
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>
-          Se connecter
+          {i18next.t('common.connexion_label')}
         </SmallRedButton>
       </Form>
     );

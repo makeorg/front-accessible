@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
-import {
-  ProgressWrapper,
-  ProgressSvg,
-  ProgressBackground,
-  ProgressRing,
-  ProgressBar,
-  ProgressCounter,
-  ActiveCard
-} from '../Styled/Progress';
-import {
-  PROGRESS_SVG_VIEWBOX,
-  PROGRESS_SVG_CX,
-  PROGRESS_SVG_CY,
-  PROGRESS_SVG_R
-} from '../../../constants/card';
-import {
-  gaugeProgress,
-  gaugeRemain
-} from '../../../helpers/sequence';
+import i18next from 'i18next';
+import * as Progress from '../Styled/Progress';
+import * as CardConstant from '../../../constants/card';
+import { gaugeProgress, gaugeRemain } from '../../../helpers/sequence';
 import { HiddenItem } from '../../Elements/HiddenElements';
 
 class ProgressBarComponent extends Component {
@@ -27,34 +12,38 @@ class ProgressBarComponent extends Component {
       totalIndex
     } = this.props;
     return (
-      <ProgressWrapper role="progressbar">
-        <ProgressSvg viewBox={PROGRESS_SVG_VIEWBOX}>
-          <ProgressBackground
-            cx={PROGRESS_SVG_CX}
-            cy={PROGRESS_SVG_CY}
-            r={PROGRESS_SVG_R}
+      <Progress.ProgressWrapper role="progressbar">
+        <Progress.ProgressSvg viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
+          <Progress.ProgressBackground
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
-          <ProgressRing
-            cx={PROGRESS_SVG_CX}
-            cy={PROGRESS_SVG_CY}
-            r={PROGRESS_SVG_R}
+          <Progress.ProgressRing
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
-          <ProgressBar
+          <Progress.ProgressBar
             progress={gaugeProgress(index, totalIndex)}
             remain={gaugeRemain(index, totalIndex)}
-            cx={PROGRESS_SVG_CX}
-            cy={PROGRESS_SVG_CY}
-            r={PROGRESS_SVG_R}
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
-        </ProgressSvg>
-        <ProgressCounter>
-          <HiddenItem>Proposition numéro </HiddenItem>
-          <ActiveCard aria-valuetext={index}>{index}</ActiveCard>
+        </Progress.ProgressSvg>
+        <Progress.ProgressCounter>
+          <HiddenItem>
+            {i18next.t('proposal_card.number')}
+          </HiddenItem>
+          &nbsp;
+          <Progress.ActiveCard aria-valuetext={index}>{index}</Progress.ActiveCard>
           <span aria-hidden="true">/</span>
-          <HiddenItem>sur </HiddenItem>
+          <HiddenItem>{i18next.t('common.from')}</HiddenItem>
+          &nbsp;
           <span aria-valuemax={totalIndex}>{totalIndex}</span>
-        </ProgressCounter>
-      </ProgressWrapper>
+        </Progress.ProgressCounter>
+      </Progress.ProgressWrapper>
     );
   }
 }

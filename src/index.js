@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import configureStore from './store';
-
+import './i18n';
 
 let initialState = window.INITIAL_STATE;
 

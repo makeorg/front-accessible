@@ -1,0 +1,64 @@
+{
+  "common": {
+    "connexion_label": "Se connecter",
+    "register_label": "S'inscrire",
+    "form": {
+      "email_label": "E-mail (obligatoire)",
+      "password_label": "Mot de passe (obligatoire)",
+      "firstname_label": "Prénom (obligatoire)",
+      "age_label": "Âge",
+      "postalcode_label": "Code postal",
+      "profession_label": "Profession",
+      "email_error": "Format d'email non reconnu",
+      "password_length_error": "Votre mot de passe doit contenir au moins 8 caractères."
+    },
+    "from": "sur"
+  },
+  "header": {
+    "logo_alt": "Aller sur le site Make.org"
+  },
+  "proposal_card": {
+    "previous": "Proposition précédente",
+    "next": "Proposition suivante",
+    "number": "Proposition numéro",
+    "intro_title": "Des milliers de citoyens proposent des solutions.",
+    "intro_text": "Prenez position sur ces solutions & proposez les vôtres.<br />Les meilleures détermineront nos actions.",
+    "intro_start": "Demarrer",
+    "final_text": "Merci de votre participation, <br/> vous pouvez maintenant accéder à la consultation complète.",
+    "final_see_all": "Voir toutes les propositions"
+  },
+  "proposal_submit": {
+    "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
+    "entred_chars": "caractères entrés",
+    "available_chars": "caractères disponibles"
+  },
+  "sequence": {
+    "return": "Revenir aux propositions"
+  },
+  "login": {
+    "title": "J‘ai déjà un compte",
+    "social_connect": "Je me connecte avec",
+    "email_connect": "Je me connecte avec mon adresse e-mail",
+    "forgot_password_title": "Oups, j’ai",
+    "forgot_password_link": "oublié mon mot de passe ?",
+    "registration_title": "Je n’ai pas de compte,",
+    "registration_link": "je m’en crée un.",
+    "email_doesnot_exist": "Nous ne trouvons pas de compte associé à cet email."
+  },
+  "register": {
+    "title": "Créer un compte",
+    "or": "ou",
+    "social_connect": "Je m’inscris avec",
+    "subtitle": "Je m'inscris avec ce formulaire",
+    "login_title": "J‘ai déjà un compte",
+    "login_link": "Connexion",
+    "cgu": "En vous inscrivant, vous acceptez nos conditions générales d’utilisation et acceptez de recevoir des e-mails (peu nombreux) de Make.org."
+  },
+  "footer": {
+    "see_more": "En savoir plus sur le sujet :",
+    "link": "Accéder à la consultation complète"
+  },
+  "pannel": {
+    "close": "Fermer le panneau déroulant"
+  }
+}

@@ -1,6 +1,8 @@
+import i18next from 'i18next';
+
 const readableError = {
-  'email is not a valid email': 'Format d\'email non reconnu',
-  'Password must be at least 8 characters': 'Votre mot de passe doit contenir au moins 8 caractères.'
+  'email is not a valid email': i18next.t('common.form.email_error'),
+  'Password must be at least 8 characters': i18next.t('common.form.password_length_error')
 };
 
 export const errorTranslation = (apiError) => {

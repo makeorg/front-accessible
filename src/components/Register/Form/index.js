@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -38,7 +39,7 @@ class RegisterFormComponent extends React.Component {
     return (
       <Form id="register" onSubmit={handleSubmit}>
         <FakeInputGrey hasError={emailError}>
-          <IconLabel htmlFor="email" aria-label="E-mail (obligatoire)">
+          <IconLabel htmlFor="email" aria-label={i18next.t('common.form.email_label')}>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
           </IconLabel>
           <BasicTextInput
@@ -46,7 +47,7 @@ class RegisterFormComponent extends React.Component {
             name="email"
             id="email"
             value={user.email}
-            placeholder="E-mail (obligatoire)"
+            placeholder={i18next.t('common.form.email_label')}
             aria-required="true"
             required
             onChange={handleChange}
@@ -54,7 +55,7 @@ class RegisterFormComponent extends React.Component {
           />
         </FakeInputGrey>
         <FakeInputGrey hasError={passwordError}>
-          <IconLabel htmlFor="password" aria-label="Mot de passe (obligatoire)">
+          <IconLabel htmlFor="password" aria-label={i18next.t('common.form.password_label')}>
             <FontAwesomeIcon aria-hidden icon={faLock} />
           </IconLabel>
           <BasicTextInput
@@ -62,7 +63,7 @@ class RegisterFormComponent extends React.Component {
             name="password"
             id="password"
             value={user.password}
-            placeholder="Mot de passe (obligatoire)"
+            placeholder={i18next.t('common.form.password_label')}
             aria-required="true"
             required
             onChange={handleChange}
@@ -75,7 +76,7 @@ class RegisterFormComponent extends React.Component {
           />
         </FakeInputGrey>
         <FakeInputGrey hasError={firstnameError}>
-          <IconLabel htmlFor="firstname" aria-label="Prénom (obligatoire)">
+          <IconLabel htmlFor="firstname" aria-label={i18next.t('common.form.firstname_label')}>
             <FontAwesomeIcon aria-hidden icon={faUser} />
           </IconLabel>
           <BasicTextInput
@@ -83,7 +84,7 @@ class RegisterFormComponent extends React.Component {
             name="firstname"
             id="firstname"
             value={user.firstname}
-            placeholder="Prénom (obligatoire)"
+            placeholder={i18next.t('common.form.firstname_label')}
             aria-required="true"
             required
             onChange={handleChange}
@@ -91,7 +92,7 @@ class RegisterFormComponent extends React.Component {
           />
         </FakeInputGrey>
         <FakeInputGrey>
-          <IconLabel htmlFor="age" aria-label="Âge">
+          <IconLabel htmlFor="age" aria-label={i18next.t('common.form.age_label')}>
             <FontAwesomeIcon aria-hidden icon={faChild} />
           </IconLabel>
           <BasicTextInput
@@ -99,14 +100,14 @@ class RegisterFormComponent extends React.Component {
             name="age"
             id="age"
             value={user.age}
-            placeholder="Âge"
+            placeholder={i18next.t('common.form.age_label')}
             aria-required="false"
             onChange={handleChange}
             tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
-          <IconLabel htmlFor="postalcode" aria-label="Code postal">
+          <IconLabel htmlFor="postalcode" aria-label={i18next.t('common.form.postalcode_label')}>
             <FontAwesomeIcon aria-hidden icon={faMapMarkerAlt} />
           </IconLabel>
           <BasicTextInput
@@ -114,14 +115,14 @@ class RegisterFormComponent extends React.Component {
             name="postalcode"
             id="postalcode"
             value={user.postalcode}
-            placeholder="Code postal"
+            placeholder={i18next.t('common.form.postalcode_label')}
             aria-required="false"
             onChange={handleChange}
             tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <FakeInputGrey>
-          <IconLabel htmlFor="profession" aria-label="Profession">
+          <IconLabel htmlFor="profession" aria-label={i18next.t('common.form.profession_label')}>
             <FontAwesomeIcon aria-hidden icon={faSuitcase} />
           </IconLabel>
           <BasicTextInput
@@ -129,15 +130,14 @@ class RegisterFormComponent extends React.Component {
             name="profession"
             id="profession"
             value={user.profession}
-            placeholder="Profession"
+            placeholder={i18next.t('common.form.profession_label')}
             aria-required="false"
             onChange={handleChange}
             tabIndex={isPannelOpen ? 0 : -1}
           />
         </FakeInputGrey>
         <ConditionParagraph>
-          {'En vous inscrivant, vous acceptez nos conditions générales d’utilisation '
-          + 'et acceptez de recevoir des e-mails (peu nombreux) de Make.org.'}
+          {i18next.t('register.cgu')}
         </ConditionParagraph>
         <SmallRedButton
           type="submit"
@@ -147,7 +147,7 @@ class RegisterFormComponent extends React.Component {
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />
           </IconInButton>
-          {'S\'inscrire'}
+          {i18next.t('common.register_label')}
         </SmallRedButton>
       </Form>
     );

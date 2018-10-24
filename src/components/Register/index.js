@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import RegisterFormComponent from './Form';
 import Register from './Styled';
 import FacebookAuthentificationLinkComponent from '../Authentification/Social/FacebookAuthentification/Link';
@@ -14,13 +15,13 @@ class RegisterComponent extends React.Component {
     return (
       <Register role="region" aria-labelledby="register_title">
         <SecondLevelTitle id="register_title">
-          Créer un compte
+          {i18next.t('register.title')}
         </SecondLevelTitle>
         <Separators.Small />
         <ThirdLevelTtitle>
-          {'Je m’inscris avec '}
+          {i18next.t('register.social_connect')}
           <FacebookAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
-          {' ou '}
+          {i18next.t('register.or')}
           <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
         </ThirdLevelTtitle>
         <Separators.Wrapper>
@@ -29,12 +30,14 @@ class RegisterComponent extends React.Component {
           <Separators.Large />
         </Separators.Wrapper>
         <ThirdLevelTtitle>
-          {'Je m\'inscris avec ce formulaire'}
+          {i18next.t('register.subtitle')}
         </ThirdLevelTtitle>
         <RegisterFormComponent {...this.props} />
         <ExtraParagraph>
-          {'J\'ai déja un compte !'}
-          <RedLinkButton onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>Connexion</RedLinkButton>
+          {i18next.t('register.login_title')}
+          <RedLinkButton onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>
+            {i18next.t('register.login_link')}
+          </RedLinkButton>
         </ExtraParagraph>
       </Register>
     );
