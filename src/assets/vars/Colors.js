@@ -33,3 +33,9 @@ export const ShadowColors = {
   BlackZeroThreOpacity: 'rgba(0, 0, 0, 0.3)',
   BlackZeroTwoOpacity: 'rgba(0, 0, 0, 0.2)'
 };
+
+export const VoteColors = {
+  Agree: 'rgb(110, 182, 32)',
+  Disagree: 'rgb(218, 0, 27)',
+  Neutral: 'rgb(126,126,126)'
+};

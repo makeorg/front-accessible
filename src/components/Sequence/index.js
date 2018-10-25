@@ -1,6 +1,6 @@
 import React from 'react';
-import IntroCardComponent from '../ProposalCard/IntroCard';
 import FinalCardComponent from '../ProposalCard/FinalCard';
+import IntroCardComponent from '../ProposalCard/IntroCard';
 import ProposalCardContainer from '../../containers/ProposalCard';
 import CollapseToggle from './Button';
 import Sequence from './Styled';

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
+import VoteContainer from '../../containers/Vote';
+import { SmallRedButton } from '../Elements/ButtonElements';
 import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
 import DateHelper from '../../helpers/date';
 
@@ -53,12 +55,13 @@ class ProposalCardComponent extends React.Component {
         <ProposalCard.Proposal>
           {proposal.content}
         </ProposalCard.Proposal>
-        <ProposalCard.IntroButton
+        <VoteContainer proposalIndex={index} />
+        <SmallRedButton
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={goToNextCard}
         >
           {i18next.t('proposal_card.next')}
-        </ProposalCard.IntroButton>
+        </SmallRedButton>
       </ProposalCard>
     );
   }

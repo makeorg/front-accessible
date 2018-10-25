@@ -2,7 +2,7 @@ import React from 'react';
 import i18next from 'i18next';
 import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitForm from './Styled';
-import { HiddenSecondLevelTitle, HiddenItem } from '../Elements/HiddenElements';
+import { HiddenItem } from '../Elements/HiddenElements';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
 /**
@@ -21,9 +21,9 @@ class ProposalSubmitFormComponent extends React.Component {
     } = this.props;
     return (
       <ProposalSubmitForm>
-        <HiddenSecondLevelTitle>
+        <HiddenItem as="h2">
           {i18next.t('proposal_submit.title')}
-        </HiddenSecondLevelTitle>
+        </HiddenItem>
         <ProposalSubmitForm.Label
           htmlFor="proposal"
         >
