@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { VoteColors } from '../assets/vars/Colors';
 
@@ -7,19 +8,19 @@ const VOTE_NEUTRAL_KEY = 'neutral';
 
 const voteStaticParams = {
   [VOTE_AGREE_KEY]: {
-    label: "d'accord",
+    label: i18next.t('proposal_vote.agree'),
     color: VoteColors.Agree,
     icon: faThumbsUp,
     rotate: 0
   },
   [VOTE_DISAGREE_KEY]: {
-    label: "pas d'accord",
+    label: i18next.t('proposal_vote.disagree'),
     color: VoteColors.Disagree,
     icon: faThumbsDown,
     rotate: 0
   },
   [VOTE_NEUTRAL_KEY]: {
-    label: 'neutre',
+    label: i18next.t('proposal_vote.neutral'),
     color: VoteColors.Neutral,
     icon: faThumbsUp,
     rotate: -90

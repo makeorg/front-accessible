@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import Vote from './Styled';
 import { HiddenItem } from '../Elements/HiddenElements';
 import { SpaceBetweenRow } from '../Elements/FlexElements';
@@ -7,14 +8,14 @@ import VoteButtonComponent from './Button';
 
 const VoteButtons = ({
   voteKeys,
-  proposalIndex,
+  proposalId,
   voteStaticParams,
   handleVote
 }) => (
   voteKeys.map(voteKey => (
     <VoteButtonComponent
-      key={getVoteIndex(voteKey, proposalIndex)}
-      name={getVoteIndex(voteKey, proposalIndex)}
+      key={getVoteIndex(voteKey, proposalId)}
+      name={getVoteIndex(voteKey, proposalId)}
       color={voteStaticParams[voteKey].color}
       label={voteStaticParams[voteKey].label}
       icon={voteStaticParams[voteKey].icon}
@@ -39,8 +40,8 @@ class VoteComponent extends React.Component {
       <Vote>
         <Vote.Fieldset as="fieldset">
           <legend>
-            <HiddenItem as="h3">Je donne mon avis sur cette proposition. </HiddenItem>
-            <HiddenItem>Je suis : </HiddenItem>
+            <HiddenItem as="h3">{i18next.t('proposal_vote.intro_title')}</HiddenItem>
+            <HiddenItem>{i18next.t('proposal_vote.intro_text')}</HiddenItem>
           </legend>
           <SpaceBetweenRow>
             <VoteButtons

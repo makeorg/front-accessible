@@ -40,6 +40,13 @@
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
+  "proposal_vote": {
+    "intro_title": "Je donne mon avis sur cette proposition. ",
+    "intro_text": "Je suis :",
+    "agree": "d'accord",
+    "disagree": "pas d'accord",
+    "neutral": "neutre"
+  },
   "sequence": {
     "return": "Revenir aux propositions"
   },
