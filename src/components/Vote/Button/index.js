@@ -10,12 +10,13 @@ class VoteButtonComponent extends React.Component {
       color,
       label,
       icon,
-      rotate
+      rotate,
+      handleVote
     } = this.props;
     return (
       <div>
         <HiddenItem as="input" type="radio" id={name} />
-        <Button htmlFor={name} color={color} rotate={rotate} as={VoteButton}>
+        <Button htmlFor={name} color={color} rotate={rotate} as={VoteButton} onClick={handleVote}>
           <FontAwesomeIcon arira-label={label} icon={icon} />
         </Button>
       </div>

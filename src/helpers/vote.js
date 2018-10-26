@@ -1,5 +1,5 @@
-export const setVoteIndex = (voteKey, proposalIndex) => {
-  if (proposalIndex === null || proposalIndex === null) {
+export const getVoteIndex = (voteKey, proposalIndex) => {
+  if (proposalIndex === null) {
     return null;
   }
 
