@@ -65,7 +65,7 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login when failure', () => {
-      const error = 'Nous ne trouvons pas de compte associé à cet email.';
+      const error = undefined;
 
       fetchMock
         .post('path:/oauth/make_access_token', 401)

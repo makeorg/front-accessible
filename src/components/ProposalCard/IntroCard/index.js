@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButton } from '../../Elements/ButtonElements';
@@ -28,15 +29,14 @@ class IntroCardComponent extends React.Component {
       >
         <header>
           <ProposalCard.IntroTitle>
-            Des milliers de citoyens proposent des solutions.
+            {i18next.t('proposal_card.intro_title')}
           </ProposalCard.IntroTitle>
         </header>
         <Small aria-hidden="true" />
-        <ProposalCard.IntroParagraph id="introduction">
-          Prenez position sur ces solutions & proposez les vôtres.
-          <br />
-          Les meilleures détermineront nos actions.
-        </ProposalCard.IntroParagraph>
+        <ProposalCard.IntroParagraph
+          id="introduction"
+          dangerouslySetInnerHTML={{ __html: i18next.t('proposal_card.intro_text') }}
+        />
         <ProposalCard.IntroButton
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={goToNextCard}
@@ -47,7 +47,7 @@ class IntroCardComponent extends React.Component {
               icon={faPlay}
             />
           </IconInButton>
-          Demarrer
+          {i18next.t('proposal_card.intro_start')}
         </ProposalCard.IntroButton>
       </ProposalCard.IntroProposalCard>
     );

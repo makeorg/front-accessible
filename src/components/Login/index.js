@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import LoginFormComponent from './Form';
 import Login from './Styled';
 import AuthentificationSocialContainer from '../../containers/Authentification/Social';
@@ -13,11 +14,11 @@ class LoginComponent extends React.Component {
     return (
       <Login role="region" aria-labelledby="login_title">
         <SecondLevelTitle id="login_title">
-          J‘ai déjà un compte
+          {i18next.t('login.title')}
         </SecondLevelTitle>
         <Separators.Small />
         <ThirdLevelTtitle>
-          Je me connecte avec
+          {i18next.t('login.social_connect')}
         </ThirdLevelTtitle>
         <AuthentificationSocialContainer
           tabIndex={isPannelOpen ? 0 : -1}
@@ -28,24 +29,24 @@ class LoginComponent extends React.Component {
           <Separators.Large />
         </Separators.Wrapper>
         <ThirdLevelTtitle>
-          Je me connecte avec mon adresse e-mail
+          {i18next.t('login.email_connect')}
         </ThirdLevelTtitle>
         <LoginFormComponent {...this.props} />
         <ExtraParagraph>
-          Oups, j’ai
+          {i18next.t('login.forgot_password_title')}
           <RedLinkButton
             tabIndex={isPannelOpen ? 0 : -1}
           >
-            oublié mon mot de passe ?
+            {i18next.t('login.forgot_password_link')}
           </RedLinkButton>
         </ExtraParagraph>
         <ExtraAltParagraph>
-          Je n’ai pas de compte,
+          {i18next.t('login.registration_title')}
           <RedLinkButton
             tabIndex={isPannelOpen ? 0 : -1}
             onClick={handleRegisterPannel}
           >
-            je m’en crée un.
+            {i18next.t('login.registration_link')}
           </RedLinkButton>
         </ExtraAltParagraph>
       </Login>

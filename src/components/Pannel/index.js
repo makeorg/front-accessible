@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Pannel from './Styled';
@@ -10,7 +11,7 @@ class PannelComponent extends Component {
     return (
       <Pannel translate={isPannelOpen ? 100 : 0} aria-hidden={isPannelOpen ? 'false' : 'true'}>
         <Pannel.CloseButton
-          aria-label="Fermer le panneau déroulant"
+          aria-label={i18next.t('pannel.close')}
           aria-expanded="false"
           onClick={handleClose}
           tabIndex={isPannelOpen ? 0 : -1}

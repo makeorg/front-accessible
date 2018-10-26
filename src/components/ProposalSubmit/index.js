@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitForm from './Styled';
 import { HiddenSecondLevelTitle, HiddenItem } from '../Elements/HiddenElements';
@@ -21,7 +22,7 @@ class ProposalSubmitFormComponent extends React.Component {
     return (
       <ProposalSubmitForm>
         <HiddenSecondLevelTitle>
-          Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :
+          {i18next.t('proposal_submit.title')}
         </HiddenSecondLevelTitle>
         <ProposalSubmitForm.Label
           htmlFor="proposal"
@@ -38,11 +39,17 @@ class ProposalSubmitFormComponent extends React.Component {
         />
         <ProposalSubmitForm.CharLimit>
           <span aria-valuetext={length}>{length}</span>
-          <HiddenItem> caractères entrés </HiddenItem>
+          <HiddenItem>
+            {i18next.t('proposal_submit.entred_chars')}
+          </HiddenItem>
           /
-          <HiddenItem> sur </HiddenItem>
+          <HiddenItem>
+            {i18next.t('common.from')}
+          </HiddenItem>
           <span aria-valuemax="140">140</span>
-          <HiddenItem> caractères disponibles</HiddenItem>
+          <HiddenItem>
+            {i18next.t('proposal_submit.available_chars')}
+          </HiddenItem>
         </ProposalSubmitForm.CharLimit>
         <ProposalSubmitButtonComponent
           handleSubmit={handleSubmit}

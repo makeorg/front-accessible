@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import UserService from '../../api/UserService';
 import * as actionTypes from '../../constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
@@ -27,7 +28,7 @@ export const login = (email, password) => (dispatch) => {
       dispatch(pannelClose());
     })
     .catch(() => {
-      dispatch(loginFailure('Nous ne trouvons pas de compte associé à cet email.'));
+      dispatch(loginFailure(i18next.t('login.email_doesnot_exist')));
     });
 };
 

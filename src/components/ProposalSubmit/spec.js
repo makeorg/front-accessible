@@ -20,7 +20,7 @@ describe('ProposalSubmitFormComponent', () => {
     expect(wrapper.find(ProposalSubmitWrapper.Input).prop('onChange')).to.instanceof(Function);
     expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).to.equal('proposal');
     expect(wrapper.find(ProposalSubmitWrapper.CharLimit)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitWrapper.CharLimit).first().text()).to.equal('15 caractères entrés / sur 140 caractères disponibles');
+    expect(wrapper.find(ProposalSubmitWrapper.CharLimit).first().text()).to.equal('15/140');
     expect(wrapper.find(ProposalSubmitButtonComponent)).to.have.length(1);
     expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).to.equal(true);
   });
