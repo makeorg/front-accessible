@@ -4,7 +4,11 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { UnstyledButton } from '../../ButtonElements';
 import { HidePasswordIcon } from '..';
 
-const PasswordButton = ({ passwordIsDisplayed, togglePasswordIsDisplayed, tabIndex }) => {
+const PasswordButton = ({
+  passwordIsDisplayed,
+  togglePasswordIsDisplayed,
+  tabIndex
+}) => {
   if (passwordIsDisplayed) {
     return (
       <HidePasswordIcon onClick={togglePasswordIsDisplayed} aria-hidden="true" tabIndex={tabIndex}>
@@ -12,7 +16,6 @@ const PasswordButton = ({ passwordIsDisplayed, togglePasswordIsDisplayed, tabInd
       </HidePasswordIcon>
     );
   }
-
   return (
     <UnstyledButton onClick={togglePasswordIsDisplayed} aria-hidden="true" tabIndex={tabIndex}>
       <FontAwesomeIcon aria-hidden icon={faEye} />
