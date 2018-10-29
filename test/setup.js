@@ -14,7 +14,7 @@ require.extensions['.svg'] = () => {};
 global.document = new JSDOM('');
 global.window = document.defaultView;
 global.navigator = { userAgent: 'browser' };
-
+global.sinon = sinon;
 global.React = React;
 global.expect = expect;
 global.sinon = sinon;

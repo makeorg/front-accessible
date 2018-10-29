@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { SmallRedButton, SmallGreyButton, IconInButton } from '../../Elements/ButtonElements';
@@ -14,7 +15,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
         <IconInButton>
           <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
         </IconInButton>
-        Proposer
+        {i18next.t('common.propose')}
       </SmallRedButton>
     );
   }
@@ -24,7 +25,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
       <IconInButton>
         <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
       </IconInButton>
-      Proposer
+      {i18next.t('common.propose')}
     </SmallGreyButton>
   );
 };

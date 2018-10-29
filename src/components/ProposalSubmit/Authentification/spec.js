@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmailButton } from '../../Elements/ButtonElements';
 import { DescriptionLink } from '../../Elements/DescriptionElements';
@@ -6,11 +7,22 @@ import { Small } from '../../Elements/Separators';
 import ProposalSubmitAuthentificationComponent from './';
 
 describe('ProposalSubmitAuthentificationComponent', () => {
+  let sandbox;
+  beforeEach(function () {
+    sandbox = sinon.createSandbox();
+  });
+
+  afterEach(function () {
+      sandbox.restore();
+  });
 
   it('Check a11y rules', () => {
+    const i18nextStub = sandbox.stub(i18next, 't');
+    i18nextStub.withArgs('common.open_new_window').returns('Ouverture dans un nouvel onglet');
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
     const DescriptionLinkIcon = wrapper.find(DescriptionLink).find(FontAwesomeIcon);
     const EmailButtonIcon = wrapper.find(EmailButton).find(FontAwesomeIcon);
+
 
     expect(wrapper.find(Small).prop('aria-hidden')).to.equal('true');
     expect(EmailButtonIcon.prop('aria-hidden')).to.equal('true');

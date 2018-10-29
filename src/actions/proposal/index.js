@@ -23,6 +23,10 @@ export const submitProposal = (content, operationId) => (dispatch, getState) => 
     return Promise.resolve();
   }
 
+  if (!content || !operationId) {
+    return Promise.resolve();
+  }
+
   const proposalContent = PROPOSAL_BAIT_TEXT + content;
   return ProposalService.propose(proposalContent, operationId)
     .then((proposalId) => {

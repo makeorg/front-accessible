@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ProposalSubmitAuthentificationContainer from './Authentification';
 import ProposalSubmitFormComponent from '../../components/ProposalSubmit';
 import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/Description';
-import ProposalSubmitAuthentificationContainer from './Authentification';
+import ProposalSubmitSuccessComponent from '../../components/ProposalSubmit/Success';
 import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
 import { typingProposal, submitProposal } from '../../actions/proposal';
 import { sequenceCollapse } from '../../actions/sequence';
@@ -51,11 +52,9 @@ export class ProposalSubmit extends React.Component {
       isTyping: false
     });
 
-    const {
-      handleSubmitProposal
-    } = this.props;
+    const { handleSubmitProposal, operationId, content } = this.props;
 
-    handleSubmitProposal();
+    handleSubmitProposal(content, operationId);
   }
 
   render() {
@@ -92,6 +91,11 @@ export class ProposalSubmit extends React.Component {
             key="ProposalSubmitAuthentificationContainer"
           />
         ) : null}
+        {(isSequenceCollapsed && !isTyping && !needAuthentification) ? (
+          <ProposalSubmitSuccessComponent
+            key="ProposalSubmitSuccessComponent"
+          />
+        ) : null}
       </ProposalSubmitWrapper>
     );
   }
@@ -99,18 +103,14 @@ export class ProposalSubmit extends React.Component {
 
 const mapStateToProps = (state) => {
   const { operationId } = state.appConfig;
+  const { isSequenceCollapsed } = state.sequence;
+  const { isPannelOpen } = state.pannel;
   const {
     content,
     length,
     canSubmit,
     needAuthentification
   } = state.proposal;
-  const {
-    isSequenceCollapsed
-  } = state.sequence;
-  const {
-    isPannelOpen
-  } = state.pannel;
 
   return {
     operationId,

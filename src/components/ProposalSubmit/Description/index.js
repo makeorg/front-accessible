@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { DescriptionWrapper } from '../Styled';
@@ -8,18 +9,20 @@ import { IconInButton } from '../../Elements/ButtonElements';
 const ProposalSubmitDescriptionComponent = ({ isPannelOpen }) => (
   <DescriptionWrapper>
     <Description>
-      Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d&apos;orthographe.
+      {i18next.t('proposal_submit.description')}
     </Description>
     <AltDescription>
-      {' Pour en savoir plus sur notre charte de modération, '}
+      {i18next.t('proposal_submit.moderation_charter')}
+      &nbsp;
       <DescriptionLink
         target="_blank"
         href="https://about.make.org/moderation"
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        {' cliquez ici '}
+        {i18next.t('common.click_there')}
+        &nbsp;
         <IconInButton>
-          <FontAwesomeIcon aria-label="Ouverture dans un nouvel onglet" icon={faExternalLinkAlt} />
+          <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
         </IconInButton>
       </DescriptionLink>
     </AltDescription>
