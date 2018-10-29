@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
 import Unstyledlist from '../../Elements/ListElements';
-import { SpaceBetweenRow } from '../../Elements/FlexElements';
 import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
-
-export const ButtonWrapper = styled(SpaceBetweenRow)`
-  width: 100%;
-`;
 
 export const ButtonList = styled(Unstyledlist)`
   display: flex;
@@ -16,8 +11,6 @@ export const ButtonList = styled(Unstyledlist)`
 `;
 
 export const Button = styled.button`
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

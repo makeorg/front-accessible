@@ -1,16 +1,22 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
-import { ButtonList, ButtonWrapper } from './Form';
+import { SpaceBetweenRow } from '../../Elements/FlexElements';
+import { ButtonList } from './Button';
 
 const Vote = styled.form`
-    display: flex;
-    width: 100%;
-    max-width: ${pxToRem('250px')};
-    margin: ${pxToRem('30px')} 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: ${pxToRem('285px')};
+  margin: ${pxToRem('30px')} 0;
 `;
 
+export const Wrapper = styled(SpaceBetweenRow)`
+  width: 100%;
+`;
+
+Vote.Wrapper = Wrapper;
 /* Buttons */
 Vote.ButtonList = ButtonList;
-Vote.ButtonWrapper = ButtonWrapper;
 
 export default Vote;

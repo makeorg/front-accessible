@@ -40,6 +40,24 @@
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
+  "vote": {
+    "intro_title": "Je donne mon avis sur cette proposition. ",
+    "intro_text": "Je suis :",
+    "agree": "d'accord",
+    "disagree": "pas d'accord",
+    "neutral": "neutre"
+  },
+  "qualification": {
+    "doable": "Coup de coeur",
+    "likeIt": "Réaliste",
+    "platitudeAgree": "Banalité",
+    "noWay": "Surtout pas !",
+    "impossible": "Infaisable",
+    "platitudeDisagree": "Banalité",
+    "doNotUnderstand": "Pas compris",
+    "noOpinion": "Pas d'avis",
+    "doNotCare": "Indifférent"
+  },
   "sequence": {
     "return": "Revenir aux propositions"
   },

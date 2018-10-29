@@ -1,22 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  Button,
-  VoteButton
-} from '../Styled/Form';
+import { Button } from '../Styled/Button';
 
 class VoteButtonComponent extends React.Component {
   render() {
     const {
-      name,
       color,
       label,
       icon,
       rotate,
-      handleVote
+      handleVote,
+      buttonType
     } = this.props;
     return (
-      <Button htmlFor={name} color={color} rotate={rotate} as={VoteButton} onClick={handleVote}>
+      <Button color={color} rotate={rotate} as={buttonType} onClick={handleVote}>
         <FontAwesomeIcon arira-label={label} icon={icon} />
       </Button>
     );

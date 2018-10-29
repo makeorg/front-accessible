@@ -8,19 +8,19 @@ const VOTE_NEUTRAL_KEY = 'neutral';
 
 const voteStaticParams = {
   [VOTE_AGREE_KEY]: {
-    label: i18next.t('proposal_vote.agree'),
+    label: i18next.t('vote.agree'),
     color: VoteColors.Agree,
     icon: faThumbsUp,
     rotate: 0
   },
   [VOTE_DISAGREE_KEY]: {
-    label: i18next.t('proposal_vote.disagree'),
+    label: i18next.t('vote.disagree'),
     color: VoteColors.Disagree,
     icon: faThumbsDown,
     rotate: 0
   },
   [VOTE_NEUTRAL_KEY]: {
-    label: i18next.t('proposal_vote.neutral'),
+    label: i18next.t('vote.neutral'),
     color: VoteColors.Neutral,
     icon: faThumbsUp,
     rotate: -90

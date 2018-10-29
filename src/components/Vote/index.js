@@ -1,6 +1,7 @@
 import React from 'react';
 import i18next from 'i18next';
 import Vote from './Styled';
+import { VoteButton } from './Styled/Button';
 import { HiddenItem } from '../Elements/HiddenElements';
 import { getVoteIndex } from '../../helpers/vote';
 import VoteButtonComponent from './Button';
@@ -14,12 +15,12 @@ const VoteButtons = ({
   voteKeys.map(voteKey => (
     <VoteButtonComponent
       key={getVoteIndex(voteKey, proposalId)}
-      name={getVoteIndex(voteKey, proposalId)}
       color={voteStaticParams[voteKey].color}
       label={voteStaticParams[voteKey].label}
       icon={voteStaticParams[voteKey].icon}
       rotate={voteStaticParams[voteKey].rotate}
-      handleVote={() => handleVote(voteKey)}
+      handleVote={event => handleVote(event, voteKey)}
+      buttonType={VoteButton}
     />
   ))
 );
@@ -37,9 +38,9 @@ class VoteComponent extends React.Component {
 
     return (
       <Vote>
-        <HiddenItem as="h3">{i18next.t('proposal_vote.intro_title')}</HiddenItem>
-        <HiddenItem>{i18next.t('proposal_vote.intro_text')}</HiddenItem>
-        <Vote.ButtonWrapper>
+        <HiddenItem as="h3">{i18next.t('vote.intro_title')}</HiddenItem>
+        <HiddenItem>{i18next.t('vote.intro_text')}</HiddenItem>
+        <Vote.Wrapper>
           <VoteButtons
             voteKeys={voteKeys}
             proposalId={proposalId}
@@ -48,7 +49,7 @@ class VoteComponent extends React.Component {
             voteStaticParams={voteStaticParams}
             handleVote={handleVote}
           />
-        </Vote.ButtonWrapper>
+        </Vote.Wrapper>
       </Vote>
     );
   }
