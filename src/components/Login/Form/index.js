@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
-import { Form } from '../../Elements/Form';
+import {
+  Form,
+  FormErrors,
+  FormError
+} from '../../Elements/Form';
 import UntypedInput from '../../Elements/Form/UntypedInput';
 import PasswordInput from '../../Elements/Form/PasswordInput';
 
@@ -25,9 +29,9 @@ class LoginFormComponent extends React.Component {
       <Form id="login" onSubmit={handleSubmit}>
         {errors.length > 0
           && (
-            <ul>
-              {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
+            <FormErrors>
+              {errors.map(error => <FormError key={error}>{error}</FormError>)}
+            </FormErrors>
           )
         }
         <UntypedInput

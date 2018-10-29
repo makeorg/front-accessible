@@ -9,8 +9,8 @@
       "age_label": "Âge",
       "postalcode_label": "Code postal",
       "profession_label": "Profession",
-      "email_error": "Format d'email non reconnu",
-      "password_length_error": "Votre mot de passe doit contenir au moins 8 caractères."
+      "email is not a valid email": "Format d'email non reconnu",
+      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères."
     },
     "from": "sur"
   },

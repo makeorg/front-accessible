@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import configureStore from '../src/store';
 import App from '../src/components/App';
-
+import i18next from '../src/i18n';
 const fs = require('fs');
 const path = require('path');
 const { BUILD_DIR } = require('./paths');
@@ -20,6 +20,7 @@ module.exports = function reactRender(req, res) {
       country: req.query.country || 'FR'
     }
   };
+  i18next.changeLanguage(initialState.appConfig.language);
 
   fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
     if (err) {
