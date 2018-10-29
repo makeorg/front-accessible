@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
 import Unstyledlist from '../../Elements/ListElements';
+import { SpaceBetweenRow } from '../../Elements/FlexElements';
 import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
 
-export const Fieldset = styled.fieldset`
+export const ButtonWrapper = styled(SpaceBetweenRow)`
   width: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
 `;
 
 export const ButtonList = styled(Unstyledlist)`
@@ -17,11 +15,9 @@ export const ButtonList = styled(Unstyledlist)`
   width: 100%;
 `;
 
-export const ButtonItem = styled.div`
-  overflow: hidden;
-`;
-
-export const Button = styled.label`
+export const Button = styled.button`
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

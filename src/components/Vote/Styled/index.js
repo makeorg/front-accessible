@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
-import { ButtonList, Fieldset } from './Form';
+import { ButtonList, ButtonWrapper } from './Form';
 
 const Vote = styled.form`
     display: flex;
@@ -11,6 +11,6 @@ const Vote = styled.form`
 
 /* Buttons */
 Vote.ButtonList = ButtonList;
-Vote.Fieldset = Fieldset;
+Vote.ButtonWrapper = ButtonWrapper;
 
 export default Vote;
