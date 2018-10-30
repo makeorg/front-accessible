@@ -4,13 +4,21 @@ import voteStaticParams from '../../../constants/vote';
 
 class VoteResultContainer extends React.Component {
   render() {
-    const { proposalId, votedKey, handleVote } = this.props;
+    const {
+      proposalVotes,
+      proposalId,
+      votedKey,
+      handleVote,
+      tabIndex
+    } = this.props;
     return (
       <VoteResultComponent
+        proposalVotes={proposalVotes}
         voteStaticParams={voteStaticParams}
         proposalId={proposalId}
         votedKey={votedKey}
         handleVote={event => handleVote(event, votedKey)}
+        tabIndex={tabIndex}
       />
     );
   }

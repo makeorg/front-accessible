@@ -14,10 +14,16 @@ class QualificationButtonComponent extends React.Component {
       color,
       isQualified,
       qualificationCounter,
-      handleQualification
+      handleQualification,
+      tabIndex
     } = this.props;
     return (
-      <Button as={isQualified ? UnqualifyButton : QualifyButton} color={color} onClick={handleQualification}>
+      <Button
+        tabIndex={tabIndex}
+        as={isQualified ? UnqualifyButton : QualifyButton}
+        color={color}
+        onClick={handleQualification}
+      >
         {i18next.t(`qualification.${qualificationKey}`)}
         <QualificationCounter>{isQualified ? qualificationCounter : '+1'}</QualificationCounter>
       </Button>

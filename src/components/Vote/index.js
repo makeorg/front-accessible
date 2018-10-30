@@ -10,7 +10,8 @@ const VoteButtons = ({
   voteKeys,
   proposalId,
   voteStaticParams,
-  handleVote
+  handleVote,
+  tabIndex
 }) => (
   voteKeys.map(voteKey => (
     <VoteButtonComponent
@@ -21,6 +22,7 @@ const VoteButtons = ({
       rotate={voteStaticParams[voteKey].rotate}
       handleVote={event => handleVote(event, voteKey)}
       buttonType={VoteButton}
+      tabIndex={tabIndex}
     />
   ))
 );
@@ -32,7 +34,8 @@ class VoteComponent extends React.Component {
       proposalId,
       hasVoted,
       votedKey,
-      handleVote
+      handleVote,
+      tabIndex
     } = this.props;
     const voteKeys = Object.keys(voteStaticParams);
 
@@ -42,6 +45,7 @@ class VoteComponent extends React.Component {
         <HiddenItem>{i18next.t('vote.intro_text')}</HiddenItem>
         <Vote.Wrapper>
           <VoteButtons
+            tabIndex={tabIndex}
             voteKeys={voteKeys}
             proposalId={proposalId}
             hasVoted={hasVoted}

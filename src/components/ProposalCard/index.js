@@ -55,7 +55,14 @@ class ProposalCardComponent extends React.Component {
         <ProposalCard.Proposal>
           {proposal.content}
         </ProposalCard.Proposal>
-        <VoteContainer proposalId={proposal.id} proposalVotes={proposal.votes} />
+        <VoteContainer
+          proposalId={proposal.id}
+          proposalVotes={proposal.votes}
+          isPannelOpen={isPannelOpen}
+          isSequenceCollapsed={isSequenceCollapsed}
+          index={index}
+          currentIndex={currentIndex}
+        />
         <SmallRedButton
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={goToNextCard}

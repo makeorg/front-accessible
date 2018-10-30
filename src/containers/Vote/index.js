@@ -45,7 +45,14 @@ class VoteContainer extends React.Component {
   }
 
   render() {
-    const { proposalId } = this.props;
+    const {
+      proposalId,
+      proposalVotes,
+      isPannelOpen,
+      isSequenceCollapsed,
+      index,
+      currentIndex
+    } = this.props;
     const { hasVoted, votedKey, qualifications } = this.state;
     if (hasVoted) {
       return (
@@ -54,11 +61,15 @@ class VoteContainer extends React.Component {
             proposalId={proposalId}
             votedKey={votedKey}
             handleVote={this.handleVote}
+            voteStaticParams={voteStaticParams}
+            proposalVotes={proposalVotes}
+            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           />
           <QualificationContainer
             qualifications={qualifications}
             proposalId={proposalId}
             votedKey={votedKey}
+            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           />
         </Vote>
       );
@@ -71,9 +82,21 @@ class VoteContainer extends React.Component {
         hasVoted={hasVoted}
         votedKey={votedKey}
         handleVote={this.handleVote}
+        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
       />
     );
   }
 }
 
-export default connect()(VoteContainer);
+const mapStateToProps = (state) => {
+  const { isSequenceCollapsed } = state.sequence;
+  const { isPannelOpen } = state.pannel;
+
+
+  return {
+    isSequenceCollapsed,
+    isPannelOpen
+  };
+};
+
+export default connect(mapStateToProps)(VoteContainer);

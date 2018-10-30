@@ -10,7 +10,8 @@ class QualificationComponent extends React.Component {
       qualifications,
       proposalId,
       votedKey,
-      handleQualification
+      handleQualification,
+      tabIndex
     } = this.props;
     return (
       <Qualification>
@@ -23,6 +24,7 @@ class QualificationComponent extends React.Component {
               qualificationCounter={qualification.count}
               isQualified={qualification.hasQualified}
               handleQualification={event => handleQualification(event, qualification, votedKey)}
+              tabIndex={tabIndex}
             />
           ))}
       </Qualification>

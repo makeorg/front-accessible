@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../../helpers/styled';
 import { SpaceBetweenColumn } from '../../../Elements/FlexElements';
-import Graph from './Graph';
+import {
+  Graph,
+  Bar,
+  Tooltip,
+  TotalLabel
+} from './Graph';
 
 const VoteResults = styled(SpaceBetweenColumn)`
     width: 100%;
@@ -10,5 +15,8 @@ const VoteResults = styled(SpaceBetweenColumn)`
 
 /* Buttons */
 VoteResults.Graph = Graph;
+VoteResults.Bar = Bar;
+VoteResults.Tooltip = Tooltip;
+VoteResults.TotalLabel = TotalLabel;
 
 export default VoteResults;

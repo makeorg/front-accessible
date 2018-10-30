@@ -33,7 +33,7 @@ class QualificationContainer extends React.Component {
   }
 
   render() {
-    const { proposalId, votedKey } = this.props;
+    const { tabIndex, proposalId, votedKey } = this.props;
     const { qualifications } = this.state;
 
     return (
@@ -42,6 +42,7 @@ class QualificationContainer extends React.Component {
         votedKey={votedKey}
         qualifications={qualifications}
         handleQualification={this.handleQualification}
+        tabIndex={tabIndex}
       />
     );
   }

@@ -10,10 +10,11 @@ class VoteButtonComponent extends React.Component {
       icon,
       rotate,
       handleVote,
-      buttonType
+      buttonType,
+      tabIndex
     } = this.props;
     return (
-      <Button color={color} rotate={rotate} as={buttonType} onClick={handleVote}>
+      <Button tabIndex={tabIndex} color={color} rotate={rotate} as={buttonType} onClick={handleVote}>
         <FontAwesomeIcon arira-label={label} icon={icon} />
       </Button>
     );

@@ -43,9 +43,9 @@
   "vote": {
     "intro_title": "Je donne mon avis sur cette proposition. ",
     "intro_text": "Je suis :",
-    "agree": "d'accord",
-    "disagree": "pas d'accord",
-    "neutral": "neutre"
+    "agree": "D'accord",
+    "disagree": "Pas d'accord",
+    "neutral": "Neutre"
   },
   "qualification": {
     "doable": "Coup de coeur",
