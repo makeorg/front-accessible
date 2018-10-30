@@ -17,7 +17,7 @@ const VoteButtons = ({
     <VoteButtonComponent
       key={getVoteIndex(voteKey, proposalId)}
       color={voteStaticParams[voteKey].color}
-      label={voteStaticParams[voteKey].label}
+      label={i18next.t(`vote.${voteKey}`)}
       icon={voteStaticParams[voteKey].icon}
       rotate={voteStaticParams[voteKey].rotate}
       handleVote={event => handleVote(event, voteKey)}
@@ -41,8 +41,8 @@ class VoteComponent extends React.Component {
 
     return (
       <Vote>
-        <HiddenItem as="h3">{i18next.t('vote.intro_title')}</HiddenItem>
-        <HiddenItem>{i18next.t('vote.intro_text')}</HiddenItem>
+        <HiddenItem aria-hidden as="h3">{i18next.t('vote.intro_title')}</HiddenItem>
+        <HiddenItem aria-hidden>{i18next.t('vote.intro_text')}</HiddenItem>
         <Vote.Wrapper>
           <VoteButtons
             tabIndex={tabIndex}

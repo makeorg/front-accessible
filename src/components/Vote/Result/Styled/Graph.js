@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../../helpers/styled';
 import { UnstyledButton } from '../../../Elements/ButtonElements';
+import UnstyledList from '../../../Elements/ListElements';
 import { BasicColors, BackgroundColors, TextColors } from '../../../../assets/vars/Colors';
 
-export const Graph = styled.div`
+export const Graph = styled(UnstyledList)`
   position: relative;
   display: flex;
   width: 100%;

@@ -1,6 +1,8 @@
 import React from 'react';
+import i18next from 'i18next';
 import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
+import { HiddenItem } from '../Elements/HiddenElements';
 import { getQualificationIndex } from '../../helpers/qualification';
 import voteStaticParams from '../../constants/vote';
 
@@ -15,6 +17,7 @@ class QualificationComponent extends React.Component {
     } = this.props;
     return (
       <Qualification>
+        <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
         {
           qualifications.map(qualification => (
             <QualificationButtonComponent

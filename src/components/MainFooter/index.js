@@ -11,7 +11,7 @@ class MainFooterComponent extends React.Component {
       <MainFooter role="contentinfo">
         <MainFooter.Nav role="navigation" aria-labelledby="footer_title">
           <MainFooter.Title id="footer_title">
-            <HiddenItem>{i18next.t('footer.see_more')}</HiddenItem>
+            <HiddenItem aria-hidden>{i18next.t('footer.see_more')}</HiddenItem>
             { 'Comment mieux prendre soin de ' }
             <MainFooter.HighlightedTitle>
               { 'nos aînés ?' }

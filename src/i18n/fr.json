@@ -47,7 +47,16 @@
     "disagree": "Pas d'accord",
     "neutral": "Neutre"
   },
+  "unvote": {
+    "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",
+    "button": "je retire mon avis"
+  },
+  "results": {
+    "title": "Les avis des autres participants sur cette proposition sont :",
+    "total_text": "Le nombre d'avis total est de : "
+  },
   "qualification": {
+    "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
     "doable": "Coup de coeur",
     "likeIt": "Réaliste",
     "platitudeAgree": "Banalité",

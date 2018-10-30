@@ -25,7 +25,7 @@ class QualificationButtonComponent extends React.Component {
         onClick={handleQualification}
       >
         {i18next.t(`qualification.${qualificationKey}`)}
-        <QualificationCounter>{isQualified ? qualificationCounter : '+1'}</QualificationCounter>
+        <QualificationCounter aria-hidden>{isQualified ? qualificationCounter : '+1'}</QualificationCounter>
       </Button>
     );
   }

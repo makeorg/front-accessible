@@ -3,6 +3,7 @@ import i18next from 'i18next';
 import VoteResults from './Styled';
 import VoteButtonComponent from '../Button';
 import { UnvoteButton } from '../Styled/Button';
+import { HiddenItem } from '../../Elements/HiddenElements';
 import { getResultBarIndex, getTooltipIndex } from '../../../helpers/voteresults';
 import { getVoteIndex } from '../../../helpers/vote';
 
@@ -18,9 +19,10 @@ class VoteResultComponent extends React.Component {
     } = this.props;
     return (
       <VoteResults>
+        <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
         <VoteButtonComponent
           color={voteStaticParams[votedKey].color}
-          label={voteStaticParams[votedKey].label}
+          label={i18next.t('unvote.button')}
           icon={voteStaticParams[votedKey].icon}
           rotate={voteStaticParams[votedKey].rotate}
           handleVote={event => handleVote(event, votedKey)}
@@ -28,16 +30,18 @@ class VoteResultComponent extends React.Component {
           tabIndex={tabIndex}
         />
         <aside>
+          <HiddenItem aria-hidden as="h3">{i18next.t('results.title')}</HiddenItem>
           <VoteResults.Graph>
             {
               proposalVotes.map(
                 proposalVote => (
-                  <React.Fragment key={getVoteIndex(proposalVote.voteKey, proposalId)}>
+                  <li key={getVoteIndex(proposalVote.voteKey, proposalId)}>
                     <VoteResults.Bar
                       key={getResultBarIndex(proposalVote.voteKey, proposalId)}
                       color={voteStaticParams[proposalVote.voteKey].color}
                       percent={50}
                       tabIndex={tabIndex}
+                      aria-hidden
                     />
                     <VoteResults.Tooltip
                       key={getTooltipIndex(proposalVote.voteKey, proposalId)}
@@ -46,12 +50,13 @@ class VoteResultComponent extends React.Component {
                       <p>{i18next.t(`vote.${proposalVote.voteKey}`)}</p>
                       <p>Votes %</p>
                     </VoteResults.Tooltip>
-                  </React.Fragment>
+                  </li>
                 )
               )
             }
           </VoteResults.Graph>
           <VoteResults.TotalLabel>
+            <HiddenItem aria-hidden as="h3">{i18next.t('results.total_text')}</HiddenItem>
             Nb votes
           </VoteResults.TotalLabel>
         </aside>

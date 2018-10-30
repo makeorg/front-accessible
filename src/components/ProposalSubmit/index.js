@@ -21,7 +21,7 @@ class ProposalSubmitFormComponent extends React.Component {
     } = this.props;
     return (
       <ProposalSubmitForm>
-        <HiddenItem as="h2">
+        <HiddenItem aria-hidden as="h2">
           {i18next.t('proposal_submit.title')}
         </HiddenItem>
         <ProposalSubmitForm.Label
@@ -39,15 +39,15 @@ class ProposalSubmitFormComponent extends React.Component {
         />
         <ProposalSubmitForm.CharLimit>
           <span aria-valuetext={length}>{length}</span>
-          <HiddenItem>
+          <HiddenItem aria-hidden>
             {i18next.t('proposal_submit.entred_chars')}
           </HiddenItem>
           /
-          <HiddenItem>
+          <HiddenItem aria-hidden>
             {i18next.t('common.from')}
           </HiddenItem>
           <span aria-valuemax="140">140</span>
-          <HiddenItem>
+          <HiddenItem aria-hidden>
             {i18next.t('proposal_submit.available_chars')}
           </HiddenItem>
         </ProposalSubmitForm.CharLimit>
