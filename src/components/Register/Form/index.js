@@ -12,13 +12,11 @@ import {
 import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
   Form,
-  ConditionParagraph,
-  FakeInputGrey,
-  IconLabel,
-  BasicTextInput
+  ConditionParagraph
 } from '../../Elements/Form';
 import { fieldErrors } from '../../../helpers/form';
-import PasswordButton from '../../Elements/Form/PasswordButton';
+import UntypedInput from '../../Elements/Form/UntypedInput';
+import PasswordInput from '../../Elements/Form/PasswordInput';
 
 class RegisterFormComponent extends React.Component {
   render() {
@@ -38,104 +36,71 @@ class RegisterFormComponent extends React.Component {
 
     return (
       <Form id="register" onSubmit={handleSubmit}>
-        <FakeInputGrey hasError={emailError}>
-          <IconLabel htmlFor="email" aria-label={i18next.t('common.form.email_label')}>
-            <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconLabel>
-          <BasicTextInput
-            type="email"
-            name="email"
-            id="email"
-            value={user.email}
-            placeholder={i18next.t('common.form.email_label')}
-            aria-required="true"
-            required
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey hasError={passwordError}>
-          <IconLabel htmlFor="password" aria-label={i18next.t('common.form.password_label')}>
-            <FontAwesomeIcon aria-hidden icon={faLock} />
-          </IconLabel>
-          <BasicTextInput
-            type={passwordIsDisplayed ? 'text' : 'password'}
-            name="password"
-            id="password"
-            value={user.password}
-            placeholder={i18next.t('common.form.password_label')}
-            aria-required="true"
-            required
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-          <PasswordButton
-            togglePasswordIsDisplayed={togglePasswordIsDisplayed}
-            passwordIsDisplayed={passwordIsDisplayed}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey hasError={firstnameError}>
-          <IconLabel htmlFor="firstname" aria-label={i18next.t('common.form.firstname_label')}>
-            <FontAwesomeIcon aria-hidden icon={faUser} />
-          </IconLabel>
-          <BasicTextInput
-            type="text"
-            name="firstname"
-            id="firstname"
-            value={user.firstname}
-            placeholder={i18next.t('common.form.firstname_label')}
-            aria-required="true"
-            required
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey>
-          <IconLabel htmlFor="age" aria-label={i18next.t('common.form.age_label')}>
-            <FontAwesomeIcon aria-hidden icon={faChild} />
-          </IconLabel>
-          <BasicTextInput
-            type="number"
-            name="age"
-            id="age"
-            value={user.age}
-            placeholder={i18next.t('common.form.age_label')}
-            aria-required="false"
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey>
-          <IconLabel htmlFor="postalcode" aria-label={i18next.t('common.form.postalcode_label')}>
-            <FontAwesomeIcon aria-hidden icon={faMapMarkerAlt} />
-          </IconLabel>
-          <BasicTextInput
-            type="number"
-            name="postalcode"
-            id="postalcode"
-            value={user.postalcode}
-            placeholder={i18next.t('common.form.postalcode_label')}
-            aria-required="false"
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey>
-          <IconLabel htmlFor="profession" aria-label={i18next.t('common.form.profession_label')}>
-            <FontAwesomeIcon aria-hidden icon={faSuitcase} />
-          </IconLabel>
-          <BasicTextInput
-            type="text"
-            name="profession"
-            id="profession"
-            value={user.profession}
-            placeholder={i18next.t('common.form.profession_label')}
-            aria-required="false"
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
+        <UntypedInput
+          type="email"
+          name="email"
+          icon={faEnvelope}
+          errors={emailError}
+          value={user.email}
+          label={i18next.t('common.form.email_label')}
+          required
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
+        <PasswordInput
+          type="password"
+          name="password"
+          icon={faLock}
+          errors={passwordError}
+          value={user.password}
+          label={i18next.t('common.form.password_label')}
+          required
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+          passwordIsDisplayed={passwordIsDisplayed}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+        />
+        <UntypedInput
+          type="text"
+          name="firstname"
+          icon={faUser}
+          errors={firstnameError}
+          value={user.firstname}
+          label={i18next.t('common.form.firstname_label')}
+          required
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
+        <UntypedInput
+          type="number"
+          name="age"
+          icon={faChild}
+          value={user.age}
+          label={i18next.t('common.form.age_label')}
+          required={false}
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
+        <UntypedInput
+          type="number"
+          name="postalcode"
+          icon={faMapMarkerAlt}
+          value={user.postalcode}
+          label={i18next.t('common.form.postalcode_label')}
+          required={false}
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
+        <UntypedInput
+          type="text"
+          name="profession"
+          icon={faSuitcase}
+          value={user.profession}
+          label={i18next.t('common.form.profession_label')}
+          required={false}
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
         <ConditionParagraph>
           {i18next.t('register.cgu')}
         </ConditionParagraph>

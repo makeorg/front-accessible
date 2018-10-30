@@ -29,7 +29,7 @@ class SequenceComponent extends React.Component {
           isSequenceCollapsed={isSequenceCollapsed}
           isPannelOpen={isPannelOpen}
         />
-        <Sequence.List>
+        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'}>
           <IntroCardComponent
             index={0}
             currentIndex={currentIndex}

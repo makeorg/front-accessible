@@ -63,7 +63,7 @@ export const LastFakeInputGrey = styled(LastFakeInput)`
   background-color: ${BackgroundColors.LightGrey};
 `;
 
-export const BasicTextInput = styled(NoStyleTextInput)`
+export const BasicInput = styled(NoStyleTextInput)`
   width: 100%;
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('14px')};

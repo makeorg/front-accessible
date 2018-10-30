@@ -8,6 +8,7 @@ const List = styled(Unstyledlist)`
   z-index: 0;
   width: 100%;
   height: 100%;
+  transition: transform 0.25s ease-in;
 `;
 
 export default List;

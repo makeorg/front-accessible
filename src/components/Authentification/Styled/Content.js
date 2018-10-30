@@ -8,6 +8,7 @@ const Link = styled.button`
   font-size: ${pxToRem('16px')};
   border: none;
   padding: 0;
+  margin: 0 ${pxToRem('5px')};
   background: none;
   text-transform: uppercase;
   border-bottom-width: ${pxToRem('1px')};

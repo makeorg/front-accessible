@@ -1,16 +1,12 @@
 import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
-import {
-  Form,
-  FakeInputGrey,
-  IconLabel,
-  BasicTextInput
-} from '../../Elements/Form';
-import PasswordButton from '../../Elements/Form/PasswordButton';
+import { Form } from '../../Elements/Form';
+import UntypedInput from '../../Elements/Form/UntypedInput';
+import PasswordInput from '../../Elements/Form/PasswordInput';
 
 class LoginFormComponent extends React.Component {
   render() {
@@ -20,8 +16,8 @@ class LoginFormComponent extends React.Component {
       errors,
       handleChange,
       handleSubmit,
-      togglePasswordIsDisplayed,
       passwordIsDisplayed,
+      togglePasswordIsDisplayed,
       isPannelOpen
     } = this.props;
 
@@ -34,49 +30,28 @@ class LoginFormComponent extends React.Component {
             </ul>
           )
         }
-        <FakeInputGrey>
-          <IconLabel
-            htmlFor="email"
-            aria-label={i18next.t('common.form.email_label')}
-          >
-            <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconLabel>
-          <BasicTextInput
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            placeholder={i18next.t('common.form.email_label')}
-            aria-required="true"
-            required
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
-        <FakeInputGrey>
-          <IconLabel
-            htmlFor="password"
-            aria-label={i18next.t('common.form.password_label')}
-          >
-            <FontAwesomeIcon aria-hidden icon={faLock} />
-          </IconLabel>
-          <BasicTextInput
-            type={passwordIsDisplayed ? 'text' : 'password'}
-            name="password"
-            id="password"
-            value={password}
-            placeholder={i18next.t('common.form.password_label')}
-            aria-required="true"
-            required
-            onChange={handleChange}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-          <PasswordButton
-            togglePasswordIsDisplayed={togglePasswordIsDisplayed}
-            passwordIsDisplayed={passwordIsDisplayed}
-            tabIndex={isPannelOpen ? 0 : -1}
-          />
-        </FakeInputGrey>
+        <UntypedInput
+          type="email"
+          name="email"
+          icon={faEnvelope}
+          value={email}
+          label={i18next.t('common.form.email_label')}
+          required
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+        />
+        <PasswordInput
+          type="password"
+          name="password"
+          icon={faLock}
+          value={password}
+          label={i18next.t('common.form.password_label')}
+          required
+          handleChange={handleChange}
+          tabIndex={isPannelOpen ? 0 : -1}
+          passwordIsDisplayed={passwordIsDisplayed}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+        />
         <SmallRedButton
           type="submit"
           form="login"

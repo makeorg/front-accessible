@@ -14,7 +14,13 @@ const AnimationsStylesheet = createGlobalStyle`
     transform: translateY(0);
   }
   .collapsed-card {
-    transform: translateY(125%) scaleX(1);
+    transform: translateY(125%);
+  }
+  .scaled-list {
+    transform: scale(0.95);
+  }
+  .unscaled-list {
+    transform: scale(1);
   }
 `;
 
