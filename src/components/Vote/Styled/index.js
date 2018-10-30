@@ -13,6 +13,7 @@ const Vote = styled.form`
 
 export const Wrapper = styled(SpaceBetweenRow)`
   width: 100%;
+  justify-content: space-around;
 `;
 
 Vote.Wrapper = Wrapper;

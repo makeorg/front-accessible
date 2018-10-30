@@ -5,7 +5,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 import VoteContainer from '../../containers/Vote';
-import { SmallRedButton } from '../Elements/ButtonElements';
 import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
 import DateHelper from '../../helpers/date';
 
@@ -62,13 +61,8 @@ class ProposalCardComponent extends React.Component {
           isSequenceCollapsed={isSequenceCollapsed}
           index={index}
           currentIndex={currentIndex}
+          goToNextCard={goToNextCard}
         />
-        <SmallRedButton
-          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-          onClick={goToNextCard}
-        >
-          {i18next.t('proposal_card.next')}
-        </SmallRedButton>
       </ProposalCard>
     );
   }

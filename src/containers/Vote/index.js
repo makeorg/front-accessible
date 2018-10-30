@@ -1,6 +1,8 @@
 import React from 'react';
+import i18next from 'i18next';
 import { connect } from 'react-redux';
 import VoteService from '../../api/VoteService';
+import { NextButton } from '../../components/ProposalCard/Styled/Buttons';
 import Vote from '../../components/Vote/Styled';
 import VoteComponent from '../../components/Vote';
 import VoteResultsContainer from './Result';
@@ -51,27 +53,36 @@ class VoteContainer extends React.Component {
       isPannelOpen,
       isSequenceCollapsed,
       index,
-      currentIndex
+      currentIndex,
+      goToNextCard
     } = this.props;
     const { hasVoted, votedKey, qualifications } = this.state;
     if (hasVoted) {
       return (
-        <Vote>
-          <VoteResultsContainer
-            proposalId={proposalId}
-            votedKey={votedKey}
-            handleVote={this.handleVote}
-            voteStaticParams={voteStaticParams}
-            proposalVotes={proposalVotes}
+        <React.Fragment>
+          <Vote>
+            <VoteResultsContainer
+              proposalId={proposalId}
+              votedKey={votedKey}
+              handleVote={this.handleVote}
+              voteStaticParams={voteStaticParams}
+              proposalVotes={proposalVotes}
+              tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+            />
+            <QualificationContainer
+              qualifications={qualifications}
+              proposalId={proposalId}
+              votedKey={votedKey}
+              tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+            />
+          </Vote>
+          <NextButton
             tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-          />
-          <QualificationContainer
-            qualifications={qualifications}
-            proposalId={proposalId}
-            votedKey={votedKey}
-            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-          />
-        </Vote>
+            onClick={goToNextCard}
+          >
+            {i18next.t('proposal_card.next')}
+          </NextButton>
+        </React.Fragment>
       );
     }
 
