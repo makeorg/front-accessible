@@ -5,6 +5,7 @@ import { ServerStyleSheet } from 'styled-components';
 import configureStore from '../src/store';
 import App from '../src/components/App';
 import i18next from '../src/i18n';
+
 const fs = require('fs');
 const path = require('path');
 const { BUILD_DIR } = require('./paths');

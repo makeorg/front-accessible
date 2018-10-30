@@ -23,6 +23,10 @@ function handleErrors(response) {
     }
   }
 
+  if (response.status === 204) {
+    return {};
+  }
+
   return response.text().then((text) => {
     if (text) { return JSON.parse(text); }
 

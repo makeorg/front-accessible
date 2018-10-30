@@ -96,6 +96,11 @@ export default class UserService {
     });
   }
 
+  /**
+   * Request a forgot password link
+   * @param  {String}  email
+   * @return {Promise}
+   */
   static forgotPassword(email) {
     return ApiService.callApi(PATH_USER_FORGOT_PASSWORD, {
       method: 'POST',

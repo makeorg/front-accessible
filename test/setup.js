@@ -1,6 +1,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import chai, { expect } from 'chai';
 import sinonChai from 'sinon-chai';
+import sinon from 'sinon';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
@@ -16,6 +17,7 @@ global.navigator = { userAgent: 'browser' };
 
 global.React = React;
 global.expect = expect;
+global.sinon = sinon;
 
 function storageMock() {
   const storage = {};

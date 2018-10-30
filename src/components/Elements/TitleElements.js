@@ -15,3 +15,11 @@ export const ThirdLevelTtitle = styled.h3`
     font-size: ${pxToRem('18px')};
   }
 `;
+
+export const FourthLevelTtitle = styled.h4`
+  font-size: ${pxToRem('14px')};
+  margin-bottom: ${pxToRem('20px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('16px')};
+  }
+`;

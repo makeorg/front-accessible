@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
 import { login } from '../../actions/authentification';
-import { pannelShowRegister } from '../../actions/pannel';
+import { pannelShowRegister, pannelShowForgotPassword } from '../../actions/pannel';
 
 class LoginContainer extends React.Component {
   constructor(props) {
@@ -43,7 +43,13 @@ class LoginContainer extends React.Component {
 
   render() {
     const { email, password, passwordIsDisplayed } = this.state;
-    const { handleRegisterPannel, errors, isPannelOpen } = this.props;
+    const {
+      handleRegisterPannel,
+      handleForgotPasswordPannel,
+      errors,
+      isPannelOpen
+    } = this.props;
+
     return (
       <LoginComponent
         email={email}
@@ -52,6 +58,7 @@ class LoginContainer extends React.Component {
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         handleRegisterPannel={handleRegisterPannel}
+        handleForgotPasswordPannel={handleForgotPasswordPannel}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         isPannelOpen={isPannelOpen}
@@ -76,6 +83,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleRegisterPannel: () => {
     dispatch(pannelShowRegister());
+  },
+  handleForgotPasswordPannel: () => {
+    dispatch(pannelShowForgotPassword());
   }
 });
 

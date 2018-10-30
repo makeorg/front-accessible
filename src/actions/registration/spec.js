@@ -60,14 +60,15 @@ describe('Registration Actions', () => {
       { type: actionTypes.REGISTER_REQUEST },
       { type: actionTypes.REGISTER_SUCCESS, user },
       { type: actionTypes.LOGIN_REQUEST },
-      { type: actionTypes.PANNEL_CLOSE }
+      { type: actionTypes.PANNEL_CLOSE },
+      { type: actionTypes.FORGOT_PASSWORD_INIT }
     ];
 
     return store.dispatch(actions.register(user)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });
-  
+
   it('creates an action to register when failure', () => {
     const user = {
       email: 'foo@example.com',
