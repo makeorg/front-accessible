@@ -1,7 +1,7 @@
 import React from 'react';
 import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
-import { getQualificationIndex, getQualifiedKey, getQualificationCount } from '../../helpers/qualification';
+import { getQualificationIndex } from '../../helpers/qualification';
 import voteStaticParams from '../../constants/vote';
 
 class QualificationComponent extends React.Component {
@@ -10,8 +10,7 @@ class QualificationComponent extends React.Component {
       qualifications,
       proposalId,
       votedKey,
-      handleQualification,
-      userQualifications
+      handleQualification
     } = this.props;
     return (
       <Qualification>
@@ -21,14 +20,9 @@ class QualificationComponent extends React.Component {
               key={getQualificationIndex(qualification.qualificationKey, proposalId)}
               color={voteStaticParams[votedKey].color}
               qualificationKey={qualification.qualificationKey}
-              qualificationCounter={getQualificationCount(userQualifications, qualification.qualificationKey)}
-              isQualified={getQualifiedKey(userQualifications, qualification.qualificationKey)}
-              handleQualification={
-                event => handleQualification(
-                  event,
-                  getQualifiedKey(userQualifications, qualification.qualificationKey),
-                  votedKey, qualification.qualificationKey
-                )}
+              qualificationCounter={qualification.count}
+              isQualified={qualification.hasQualified}
+              handleQualification={event => handleQualification(event, qualification, votedKey)}
             />
           ))}
       </Qualification>

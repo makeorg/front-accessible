@@ -1,53 +1,46 @@
 import React from 'react';
-import { doUnqualifying, doQualifying } from '../../helpers/qualification';
+import { doUpdateState } from '../../helpers/qualification';
 import QualificationService from '../../api/QualificationService';
 import QualificationComponent from '../../components/Qualification';
 
 class QualificationContainer extends React.Component {
   constructor(props) {
-    const userQualifications = props.qualifications.filter(qualification => qualification.hasQualified === true);
     super(props);
     this.state = {
-      userQualifications
+      qualifications: props.qualifications
     };
     this.handleQualification = this.handleQualification.bind(this);
   }
 
-  handleQualification(event, isQualified, voteKey, qualificationKey) {
+  handleQualification(event, qualification, voteKey) {
     event.preventDefault();
     const { proposalId } = this.props;
-    if (isQualified) {
-      QualificationService.unqualify(proposalId, voteKey, qualificationKey)
-        .then(() => {
+    if (qualification.hasQualified) {
+      QualificationService.unqualify(proposalId, voteKey, qualification.qualificationKey)
+        .then((qualificationResult) => {
           this.setState(
-            prevState => doUnqualifying(prevState, qualificationKey)
+            prevState => doUpdateState(prevState, qualificationResult)
           );
         });
     } else {
-      QualificationService.qualify(proposalId, voteKey, qualificationKey)
+      QualificationService.qualify(proposalId, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
           this.setState(
-            prevState => doQualifying(prevState, qualificationResult)
+            prevState => doUpdateState(prevState, qualificationResult)
           );
         });
     }
   }
 
   render() {
-    const {
-      qualifications,
-      proposalId,
-      votedKey
-    } = this.props;
-    const {
-      userQualifications
-    } = this.state;
+    const { proposalId, votedKey } = this.props;
+    const { qualifications } = this.state;
+
     return (
       <QualificationComponent
-        qualifications={qualifications}
         proposalId={proposalId}
         votedKey={votedKey}
-        userQualifications={userQualifications}
+        qualifications={qualifications}
         handleQualification={this.handleQualification}
       />
     );
