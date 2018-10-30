@@ -13,9 +13,10 @@ describe('Pannel Actions', () => {
   });
 
   it('creates PANNEL_CLOSE when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.PANNEL_CLOSE,
-    }];
+    const expectedActions = [
+      { type: actionTypes.PANNEL_CLOSE },
+      { type: actionTypes.FORGOT_PASSWORD_INIT }
+    ];
 
     store.dispatch(actions.pannelClose());
     expect(store.getActions()).to.deep.equal(expectedActions)

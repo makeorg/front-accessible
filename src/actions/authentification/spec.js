@@ -56,7 +56,8 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS, token },
         { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PANNEL_CLOSE }
+        { type: actionTypes.PANNEL_CLOSE },
+        { type: actionTypes.FORGOT_PASSWORD_INIT }
       ];
 
       return store.dispatch(actions.login()).then(() => {
@@ -123,7 +124,8 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: fooProvider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS, token },
         { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PANNEL_CLOSE }
+        { type: actionTypes.PANNEL_CLOSE },
+        { type: actionTypes.FORGOT_PASSWORD_INIT }
       ];
 
       return store.dispatch(actions.loginSocial(fooProvider)).then(() => {

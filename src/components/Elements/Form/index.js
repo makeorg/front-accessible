@@ -29,6 +29,10 @@ export const Form = styled(FormWrapper)`
   margin: ${pxToRem('10px')} 0 0;
 `;
 
+export const InputError = styled.span`
+  color: ${BorderColors.ErrorRed};
+`;
+
 export const LastFakeInput = styled.div`
   display: flex;
   align-items: center;
@@ -110,4 +114,15 @@ export const ConditionParagraph = styled(InlineParagraph)`
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
   }
+`;
+
+export const FormErrors = styled.ul`
+  font-size: ${pxToRem('12px')};
+  margin-top: ${pxToRem('10px')};
+  margin-bottom: ${pxToRem('10px')};
+  color: ${BorderColors.ErrorRed};
+`;
+
+export const FormError = styled.li`
+  list-style: none;
 `;

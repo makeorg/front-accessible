@@ -20,8 +20,11 @@ class RegisterComponent extends React.Component {
         <Separators.Small />
         <ThirdLevelTtitle>
           {i18next.t('register.social_connect')}
+          &nbsp;
           <FacebookAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
+          &nbsp;
           {i18next.t('register.or')}
+          &nbsp;
           <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
         </ThirdLevelTtitle>
         <Separators.Wrapper>

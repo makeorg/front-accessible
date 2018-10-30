@@ -1,32 +1,27 @@
 import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
-  Form,
   FormErrors,
   FormError
 } from '../../Elements/Form';
 import UntypedInput from '../../Elements/Form/UntypedInput';
-import PasswordInput from '../../Elements/Form/PasswordInput';
+import ForgotPassword from '../Styled';
 
-class LoginFormComponent extends React.Component {
+class ForgotPasswordFormComponent extends React.Component {
   render() {
     const {
       email,
-      password,
       errors,
       handleChange,
       handleSubmit,
-      passwordIsDisplayed,
-      togglePasswordIsDisplayed,
       isPannelOpen
     } = this.props;
 
     return (
-      <Form id="login" onSubmit={handleSubmit}>
+      <ForgotPassword.Form id="forgot_password" onSubmit={handleSubmit}>
         {errors.length > 0
           && (
             <FormErrors>
@@ -44,31 +39,19 @@ class LoginFormComponent extends React.Component {
           handleChange={handleChange}
           tabIndex={isPannelOpen ? 0 : -1}
         />
-        <PasswordInput
-          type="password"
-          name="password"
-          icon={faLock}
-          value={password}
-          label={i18next.t('common.form.password_label')}
-          required
-          handleChange={handleChange}
-          tabIndex={isPannelOpen ? 0 : -1}
-          passwordIsDisplayed={passwordIsDisplayed}
-          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
-        />
         <SmallRedButton
           type="submit"
-          form="login"
+          form="forgot_password"
           tabIndex={isPannelOpen ? 0 : -1}
         >
           <IconInButton>
-            <FontAwesomeIcon icon={faThumbsUp} />
+            <FontAwesomeIcon icon={faPaperPlane} />
           </IconInButton>
-          {i18next.t('common.connexion_label')}
+          {i18next.t('forgot_password.send_link')}
         </SmallRedButton>
-      </Form>
+      </ForgotPassword.Form>
     );
   }
 }
 
-export default LoginFormComponent;
+export default ForgotPasswordFormComponent;

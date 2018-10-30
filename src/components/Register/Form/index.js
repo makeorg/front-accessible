@@ -12,7 +12,8 @@ import {
 import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
   Form,
-  ConditionParagraph
+  ConditionParagraph,
+  InputError
 } from '../../Elements/Form';
 import { fieldErrors } from '../../../helpers/form';
 import UntypedInput from '../../Elements/Form/UntypedInput';
@@ -47,6 +48,7 @@ class RegisterFormComponent extends React.Component {
           handleChange={handleChange}
           tabIndex={isPannelOpen ? 0 : -1}
         />
+        {emailError && <InputError>{emailError}</InputError>}
         <PasswordInput
           type="password"
           name="password"
@@ -60,6 +62,7 @@ class RegisterFormComponent extends React.Component {
           passwordIsDisplayed={passwordIsDisplayed}
           togglePasswordIsDisplayed={togglePasswordIsDisplayed}
         />
+        {passwordError && <InputError>{passwordError}</InputError>}
         <UntypedInput
           type="text"
           name="firstname"

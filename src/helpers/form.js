@@ -1,16 +1,13 @@
 import i18next from 'i18next';
 
-const readableError = {
-  'email is not a valid email': i18next.t('common.form.email_error'),
-  'Password must be at least 8 characters': i18next.t('common.form.password_length_error')
-};
 
 export const errorTranslation = (apiError) => {
-  if (readableError[apiError] === undefined) {
+  const translatedError = i18next.t(`common.form.${apiError}`);
+  if (translatedError === undefined) {
     return apiError;
   }
 
-  return readableError[apiError];
+  return translatedError;
 };
 
 export const fieldErrors = (field, errors) => {

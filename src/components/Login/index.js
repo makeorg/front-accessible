@@ -10,7 +10,7 @@ import { RedLinkButton } from '../Elements/ButtonElements';
 
 class LoginComponent extends React.Component {
   render() {
-    const { handleRegisterPannel, isPannelOpen } = this.props;
+    const { handleRegisterPannel, handleForgotPasswordPannel, isPannelOpen } = this.props;
     return (
       <Login role="region" aria-labelledby="login_title">
         <SecondLevelTitle id="login_title">
@@ -36,6 +36,7 @@ class LoginComponent extends React.Component {
           {i18next.t('login.forgot_password_title')}
           <RedLinkButton
             tabIndex={isPannelOpen ? 0 : -1}
+            onClick={handleForgotPasswordPannel}
           >
             {i18next.t('login.forgot_password_link')}
           </RedLinkButton>
