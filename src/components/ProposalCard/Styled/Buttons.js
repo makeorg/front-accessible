@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
-import { UnstyledButton, TallRedButton, IconInButton } from '../../Elements/ButtonElements';
+import {
+  UnstyledButton,
+  TallRedButton,
+  IconInButton,
+  SmallRedButton
+} from '../../Elements/ButtonElements';
 import { BackgroundColors, BasicColors, TextColors } from '../../../assets/vars/Colors';
 import { MakeFonts } from '../../../assets/vars/Fonts';
 import Breakpoints from '../../../assets/vars/Breakpoints';
@@ -27,6 +32,11 @@ export const BackIcon = styled(IconInButton)`
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('40px')};
   }
+`;
+
+export const NextButton = styled(SmallRedButton)`
+  width: 100%;
+  max-width: ${pxToRem('285px')};
 `;
 
 export const FinalLink = styled(IntroButton)`

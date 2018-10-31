@@ -33,13 +33,13 @@ class ProgressBarComponent extends Component {
           />
         </Progress.ProgressSvg>
         <Progress.ProgressCounter>
-          <HiddenItem>
+          <HiddenItem aria-hidden>
             {i18next.t('proposal_card.number')}
           </HiddenItem>
           &nbsp;
           <Progress.ActiveCard aria-valuetext={index}>{index}</Progress.ActiveCard>
           <span aria-hidden="true">/</span>
-          <HiddenItem>{i18next.t('common.from')}</HiddenItem>
+          <HiddenItem aria-hidden>{i18next.t('common.from')}</HiddenItem>
           &nbsp;
           <span aria-valuemax={totalIndex}>{totalIndex}</span>
         </Progress.ProgressCounter>

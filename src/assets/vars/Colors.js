@@ -14,6 +14,7 @@ export const IconColors = {
 };
 
 export const BackgroundColors = {
+  LightBlack: 'rgb(51, 51, 51)',
   LightGrey: 'rgb(242, 242, 242)',
   ExtraLightGrey: 'rgb(228, 228, 228)'
 };
@@ -32,4 +33,10 @@ export const ShadowColors = {
   BlackZeroFiveOpacity: 'rgba(0, 0, 0, 0.5)',
   BlackZeroThreOpacity: 'rgba(0, 0, 0, 0.3)',
   BlackZeroTwoOpacity: 'rgba(0, 0, 0, 0.2)'
+};
+
+export const VoteColors = {
+  Agree: 'rgb(110, 182, 32)',
+  Disagree: 'rgb(218, 0, 27)',
+  Neutral: 'rgb(126,126,126)'
 };

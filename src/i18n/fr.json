@@ -40,6 +40,40 @@
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
+  "vote": {
+    "intro_title": "Je donne mon avis sur cette proposition. ",
+    "intro_text": "Je suis :",
+    "agree": "D'accord",
+    "disagree": "Pas d'accord",
+    "neutral": "Neutre",
+    "label": "{{count}} vote",
+    "label_plural": "{{count}} votes"
+  },
+  "unvote": {
+    "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",
+    "button": "je retire mon avis"
+  },
+  "results": {
+    "title": "Les avis des autres participants sur cette proposition sont :",
+    "total_text": "Le nombre d'avis total est de : ",
+    "tooltipbutton": {
+      "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
+      "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
+      "neutral": "Afficher les résultats pour l'avis : 'je suis neutre'"
+    }
+  },
+  "qualification": {
+    "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
+    "doable": "Coup de coeur",
+    "likeIt": "Réaliste",
+    "platitudeAgree": "Banalité",
+    "noWay": "Surtout pas !",
+    "impossible": "Infaisable",
+    "platitudeDisagree": "Banalité",
+    "doNotUnderstand": "Pas compris",
+    "noOpinion": "Pas d'avis",
+    "doNotCare": "Indifférent"
+  },
   "sequence": {
     "return": "Revenir aux propositions"
   },
