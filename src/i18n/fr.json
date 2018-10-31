@@ -53,7 +53,12 @@
   },
   "results": {
     "title": "Les avis des autres participants sur cette proposition sont :",
-    "total_text": "Le nombre d'avis total est de : "
+    "total_text": "Le nombre d'avis total est de : ",
+    "tooltipbutton": {
+      "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
+      "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
+      "neutral": "Afficher les résultats pour l'avis : 'je suis neutre'"
+    }
   },
   "qualification": {
     "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",

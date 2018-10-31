@@ -70,11 +70,15 @@ class ResultItemComponent extends React.Component {
           onMouseLeave={this.hideTooltip}
           onFocus={this.displayTooltip}
           onBlur={this.hideTooltip}
+          aria-controls={tooltipKey}
+          aria-label={i18next.t(`results.tooltipbutton.${voteKey}`)}
         />
         <Tooltip
           key={tooltipKey}
+          id={tooltipKey}
           as={isTooltipDisplayed ? DisplayedTooltip : HiddenTooltip}
-          aria-hidden
+          aria-hidden={!isTooltipDisplayed}
+          role="tooltip"
         >
           <p>{i18next.t(`vote.${voteKey}`)}</p>
           <p>Votes %</p>
