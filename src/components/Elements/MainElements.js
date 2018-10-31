@@ -19,12 +19,13 @@ export const MainContent = styled.main`
   justify-content: center;
   width: 100%;
   height: calc(100vh - ${pxToRem('134px')});
-  min-height: ${pxToRem('645px')};
+  min-height: ${pxToRem('615px')};
   padding: ${pxToRem('20px')} ${pxToRem('20px')} 0;
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding: ${pxToRem('40px')} ${pxToRem('20px')} 0;
     height: calc(100vh - ${pxToRem('153px')});
+    min-height: ${pxToRem('725px')};
   }
 `;
 

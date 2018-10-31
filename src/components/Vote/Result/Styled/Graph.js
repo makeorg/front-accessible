@@ -49,6 +49,15 @@ export const Tooltip = styled.div`
   }
 `;
 
+export const HiddenTooltip = styled(Tooltip)`
+  display: none;
+`;
+
+
+export const DisplayedTooltip = styled(Tooltip)`
+  display: block;
+`;
+
 export const TotalLabel = styled.p`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};

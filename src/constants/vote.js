@@ -2,9 +2,9 @@ import i18next from 'i18next';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { VoteColors } from '../assets/vars/Colors';
 
-const VOTE_AGREE_KEY = 'agree';
-const VOTE_DISAGREE_KEY = 'disagree';
-const VOTE_NEUTRAL_KEY = 'neutral';
+export const VOTE_AGREE_KEY = 'agree';
+export const VOTE_DISAGREE_KEY = 'disagree';
+export const VOTE_NEUTRAL_KEY = 'neutral';
 
 const voteStaticParams = {
   [VOTE_AGREE_KEY]: {

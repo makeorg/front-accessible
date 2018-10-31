@@ -5,18 +5,21 @@ import VoteButtonComponent from '../Button';
 import { UnvoteButton } from '../Styled/Button';
 import { HiddenItem } from '../../Elements/HiddenElements';
 import { getResultBarIndex, getTooltipIndex } from '../../../helpers/voteresults';
+import ResultItemComponent from './Item';
 import { getVoteIndex } from '../../../helpers/vote';
 
 class VoteResultComponent extends React.Component {
   render() {
     const {
-      proposalVotes,
+      votesPercent,
       voteStaticParams,
       votedKey,
       proposalId,
       handleVote,
       tabIndex
     } = this.props;
+    const voteKeys = Object.keys(voteStaticParams);
+
     return (
       <VoteResults>
         <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
@@ -33,30 +36,24 @@ class VoteResultComponent extends React.Component {
           <HiddenItem aria-hidden as="h3">{i18next.t('results.title')}</HiddenItem>
           <VoteResults.Graph>
             {
-              proposalVotes.map(
-                proposalVote => (
-                  <li key={getVoteIndex(proposalVote.voteKey, proposalId)}>
-                    <VoteResults.Bar
-                      key={getResultBarIndex(proposalVote.voteKey, proposalId)}
-                      color={voteStaticParams[proposalVote.voteKey].color}
-                      percent={50}
-                      tabIndex={tabIndex}
-                      aria-hidden
-                    />
-                    <VoteResults.Tooltip
-                      key={getTooltipIndex(proposalVote.voteKey, proposalId)}
-                      voteKey={proposalVote.voteKey}
-                    >
-                      <p>{i18next.t(`vote.${proposalVote.voteKey}`)}</p>
-                      <p>Votes %</p>
-                    </VoteResults.Tooltip>
-                  </li>
+              voteKeys.map(
+                voteKey => (
+                  <ResultItemComponent
+                    key={getVoteIndex(voteKey, proposalId)}
+                    listKey={getVoteIndex(voteKey, proposalId)}
+                    barKey={getResultBarIndex(voteKey, proposalId)}
+                    tooltipKey={getTooltipIndex(voteKey, proposalId)}
+                    voteColor={voteStaticParams[voteKey].color}
+                    votePercent={votesPercent[voteKey].percent}
+                    tabIndex={tabIndex}
+                    voteKey={voteKey}
+                  />
                 )
               )
             }
           </VoteResults.Graph>
           <VoteResults.TotalLabel>
-            <HiddenItem aria-hidden as="h3">{i18next.t('results.total_text')}</HiddenItem>
+            <HiddenItem aria-hidden>{i18next.t('results.total_text')}</HiddenItem>
             Nb votes
           </VoteResults.TotalLabel>
         </aside>

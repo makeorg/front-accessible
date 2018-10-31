@@ -49,7 +49,6 @@ class VoteContainer extends React.Component {
   render() {
     const {
       proposalId,
-      proposalVotes,
       isPannelOpen,
       isSequenceCollapsed,
       index,
@@ -65,8 +64,6 @@ class VoteContainer extends React.Component {
               proposalId={proposalId}
               votedKey={votedKey}
               handleVote={this.handleVote}
-              voteStaticParams={voteStaticParams}
-              proposalVotes={proposalVotes}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
             <QualificationContainer
