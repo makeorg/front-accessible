@@ -10,7 +10,7 @@ let initialState = window.INITIAL_STATE;
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   initialState = {
     appConfig: {
-      operationId: '0117d90e-a986-4de9-9bbf-a1bb7a4f55a9',
+      operationId: 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
       source: 'core',
       language: 'fr',
       country: 'FR'
