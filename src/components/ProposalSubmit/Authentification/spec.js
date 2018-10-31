@@ -24,8 +24,8 @@ describe('ProposalSubmitAuthentificationComponent', () => {
     const EmailButtonIcon = wrapper.find(EmailButton).find(FontAwesomeIcon);
 
 
-    expect(wrapper.find(Small).prop('aria-hidden')).to.equal('true');
-    expect(EmailButtonIcon.prop('aria-hidden')).to.equal('true');
+    expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);
+    expect(EmailButtonIcon.prop('aria-hidden')).to.equal(true);
     expect(DescriptionLinkIcon.prop('aria-label')).to.equal('Ouverture dans un nouvel onglet');
   });
 

@@ -11,10 +11,10 @@ const CollapseToggle = ({ isSequenceCollapsed, handleExpandSequence, isPannelOpe
 
   return (
     <div>
-      <BackArrow aria-hidden="true" onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
+      <BackArrow aria-hidden onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrow>
-      <BackButton aria-hidden="true" onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
+      <BackButton aria-hidden onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
         {i18next.t('sequence.return')}
       </BackButton>
     </div>

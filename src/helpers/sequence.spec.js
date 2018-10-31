@@ -1,6 +1,6 @@
 import * as helpers from './sequence';
 
-describe('sequence Helper', () => {
+describe('Sequence Helper', () => {
   it('getPosition without currentIndex', () => {
     const position = helpers.getPosition();
     expect(position).to.equal(0);

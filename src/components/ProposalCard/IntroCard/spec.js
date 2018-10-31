@@ -9,8 +9,8 @@ describe('IntroCardComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<IntroCardComponent />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal('true');
-    expect(wrapper.find(Small).prop('aria-hidden')).to.equal('true');
+    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
+    expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);
   });
 
 });

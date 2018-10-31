@@ -1,7 +1,7 @@
 import { getProposalLength, getIsProposalValidLength } from './proposal';
 import { PROPOSAL_BAIT_TEXT } from '../constants/proposal';
 
-describe('proposal Helper', () => {
+describe('Proposal Helper', () => {
   const validProposalContent = "foobar";
   it('getProposalLength with content', () => {
     const proposalLength = getProposalLength(validProposalContent);

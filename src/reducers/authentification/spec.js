@@ -1,7 +1,7 @@
 import * as actionCreators from '../../actions/authentification';
 import authentification from './index';
 
-describe('authentification reducer', () => {
+describe('Authentification reducer', () => {
   describe('Login action reducers', () => {
     it('Login Request', () => {
       const action = actionCreators.loginRequest();

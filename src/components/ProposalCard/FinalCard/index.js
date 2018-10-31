@@ -30,7 +30,7 @@ class FinalCardComponent extends React.Component {
             onClick={goToPreviousCard}
           >
             <ProposalCard.BackIcon>
-              <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
+              <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
             </ProposalCard.BackIcon>
             {i18next.t('proposal_card.previous')}
           </ProposalCard.BackButton>

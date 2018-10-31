@@ -32,7 +32,7 @@ class IntroCardComponent extends React.Component {
             {i18next.t('proposal_card.intro_title')}
           </ProposalCard.IntroTitle>
         </header>
-        <Small aria-hidden="true" />
+        <Small aria-hidden />
         <ProposalCard.IntroParagraph
           id="introduction"
           dangerouslySetInnerHTML={{ __html: i18next.t('proposal_card.intro_text') }}
@@ -43,7 +43,7 @@ class IntroCardComponent extends React.Component {
         >
           <IconInButton>
             <FontAwesomeIcon
-              aria-hidden="true"
+              aria-hidden
               icon={faPlay}
             />
           </IconInButton>

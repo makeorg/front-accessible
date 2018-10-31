@@ -15,7 +15,7 @@ describe('Proposal Actions', () => {
     fetchMock.restore();
   });
 
-  it('creates PROPOSE_TYPING when calling action', () => {
+  it('Creates PROPOSE_TYPING when calling action', () => {
     const proposalContent = 'foo';
     const proposalLength = 3;
     const proposalCanBeSubmitted = false;
@@ -31,7 +31,7 @@ describe('Proposal Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates PROPOSE_REQUEST when calling action', () => {
+  it('Creates PROPOSE_REQUEST when calling action', () => {
     const proposalContent = 'foo';
     const proposalOperationId = 'bar';
 
@@ -67,7 +67,7 @@ describe('Proposal Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates an action to proposal Typing', () => {
+  it('Creates an action to proposal Typing', () => {
     const proposalContent = 'foo';
     const proposalLength = 3;
     const proposalCanBeSubmitted = false;
@@ -85,7 +85,7 @@ describe('Proposal Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions);
   });
 
-  it('creates an action to proposal Submit when use is not logged in', () => {
+  it('Creates an action to proposal Submit when use is not logged in', () => {
     const store = mockStore({ authentification: {isLoggedIn: false }});
 
     const proposalContent = 'foo';
@@ -104,7 +104,7 @@ describe('Proposal Actions', () => {
     });
   });
 
-  it('creates an action to proposal Submit when use is logged in', () => {
+  it('Creates an action to proposal Submit when use is logged in', () => {
     const store = mockStore({ authentification: {isLoggedIn: true }});
     const proposalContent = 'foo';
     const proposalOperationId = 'bar';
@@ -125,7 +125,7 @@ describe('Proposal Actions', () => {
     });
   });
 
-  it('creates an action to proposal Submit failure', () => {
+  it('Creates an action to proposal Submit failure', () => {
     const store = mockStore({ authentification: {isLoggedIn: true }});
     const proposalContent = 'foo';
     const proposalOperationId = 'bar';

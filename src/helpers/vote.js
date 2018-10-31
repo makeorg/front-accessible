@@ -7,15 +7,13 @@ export const getVoteIndex = (voteKey, proposalIndex) => {
 };
 
 const getNewVoteState = (prevState, vote) => {
-  const newVotes = prevState.votes.map(
-    (oldVote) => {
-      if (oldVote.voteKey === vote.voteKey) {
-        return vote;
-      }
-
-      return oldVote;
+  const newVotes = prevState.votes.map((oldVote) => {
+    if (oldVote.voteKey === vote.voteKey) {
+      return vote;
     }
-  );
+
+    return oldVote;
+  });
 
   return newVotes;
 };

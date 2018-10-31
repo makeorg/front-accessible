@@ -1,7 +1,7 @@
 import * as actionCreators from '../../actions/registration';
 import registration from './index';
 
-describe('registration reducer', () => {
+describe('Registration reducer', () => {
   describe('Register action reducers', () => {
     it('Register Request', () => {
       const action = actionCreators.registerRequest();

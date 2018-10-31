@@ -15,7 +15,7 @@ describe('Authentification Actions', () => {
     fetchMock.restore();
   });
 
-  describe('login Actions', () => {
+  describe('Login Actions', () => {
     it('creates an action loginRequest', () => {
       const expectedAction = {
         type: actionTypes.LOGIN_REQUEST,
@@ -24,7 +24,7 @@ describe('Authentification Actions', () => {
       expect(actions.loginRequest()).to.eql(expectedAction);
     });
 
-    it('creates an action loginFailure', () => {
+    it('Creates an action loginFailure', () => {
       const error = 'fooError';
       const expectedAction = {
         type: actionTypes.LOGIN_FAILURE,
@@ -34,7 +34,7 @@ describe('Authentification Actions', () => {
       expect(actions.loginFailure(error)).to.eql(expectedAction);
     });
 
-    it('creates an action loginSuccess', () => {
+    it('Creates an action loginSuccess', () => {
       const token = 'fooToken';
       const expectedAction = {
         type: actionTypes.LOGIN_SUCCESS,

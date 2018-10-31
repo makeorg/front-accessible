@@ -38,8 +38,8 @@ class ProgressBarComponent extends Component {
           </HiddenItem>
           &nbsp;
           <Progress.ActiveCard aria-valuetext={index}>{index}</Progress.ActiveCard>
-          <span aria-hidden="true">/</span>
-          <HiddenItem aria-hidden>{i18next.t('common.from')}</HiddenItem>
+          <span aria-hidden>/</span>
+          <HiddenItem>{i18next.t('common.from')}</HiddenItem>
           &nbsp;
           <span aria-valuemax={totalIndex}>{totalIndex}</span>
         </Progress.ProgressCounter>

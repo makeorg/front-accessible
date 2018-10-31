@@ -1,9 +1,9 @@
 import * as actionCreators from '../../actions/proposal';
 import proposal from './index';
 
-describe('proposal reducer', () => {
-  describe('typing action reducers', () => {
-    it('typing a proposal', () => {
+describe('Proposal reducer', () => {
+  describe('Typing action reducers', () => {
+    it('Typing a proposal', () => {
       const content = 'il faut foo';
       const length = 11;
       const canSubmit = true;
@@ -32,7 +32,7 @@ describe('proposal reducer', () => {
     });
   });
 
-  describe('proposal submit action reducers', () => {
+  describe('Proposal submit action reducers', () => {
     it('propose request', () => {
       const content = 'il faut foo';
       const operationId = 'foo-bar';
@@ -61,7 +61,7 @@ describe('proposal reducer', () => {
       expect(proposal(previousState, action)).to.eql(expectedState);
     });
 
-    it('propose success', () => {
+    it('Propose success', () => {
       const action = actionCreators.proposeSuccess('foo-proposal-id');
       const previousState = {
         isTyping: true,

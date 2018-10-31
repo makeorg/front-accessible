@@ -35,21 +35,17 @@ class VoteResultComponent extends React.Component {
         <aside>
           <HiddenItem aria-hidden as="h3">{i18next.t('results.title')}</HiddenItem>
           <VoteResults.Graph>
-            {
-              voteKeys.map(
-                voteKey => (
-                  <ResultItemContainer
-                    key={`${voteKey}_item_${proposalId}`}
-                    index={index}
-                    proposalId={proposalId}
-                    tabIndex={tabIndex}
-                    voteKey={voteKey}
-                    voteStaticParams={voteStaticParams}
-                    votesPercent={votesPercent}
-                  />
-                )
-              )
-            }
+            {voteKeys.map(voteKey => (
+              <ResultItemContainer
+                key={`${voteKey}_item_${proposalId}`}
+                index={index}
+                proposalId={proposalId}
+                tabIndex={tabIndex}
+                voteKey={voteKey}
+                voteStaticParams={voteStaticParams}
+                votesPercent={votesPercent}
+              />
+            ))}
           </VoteResults.Graph>
           <VoteResults.TotalLabel>
             <HiddenItem aria-hidden>{i18next.t('results.total_text')}</HiddenItem>
