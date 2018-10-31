@@ -12,6 +12,7 @@ class VoteResultComponent extends React.Component {
   render() {
     const {
       votesPercent,
+      votesCount,
       voteStaticParams,
       votedKey,
       proposalId,
@@ -44,7 +45,7 @@ class VoteResultComponent extends React.Component {
                     barKey={getResultBarIndex(voteKey, proposalId)}
                     tooltipKey={getTooltipIndex(voteKey, proposalId)}
                     voteColor={voteStaticParams[voteKey].color}
-                    votePercent={votesPercent[voteKey].percent}
+                    votePercent={votesPercent[voteKey]}
                     tabIndex={tabIndex}
                     voteKey={voteKey}
                   />
@@ -54,7 +55,7 @@ class VoteResultComponent extends React.Component {
           </VoteResults.Graph>
           <VoteResults.TotalLabel>
             <HiddenItem aria-hidden>{i18next.t('results.total_text')}</HiddenItem>
-            Nb votes
+            {i18next.t('vote.label', { count: votesCount })}
           </VoteResults.TotalLabel>
         </aside>
       </VoteResults>

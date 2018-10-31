@@ -45,7 +45,9 @@
     "intro_text": "Je suis :",
     "agree": "D'accord",
     "disagree": "Pas d'accord",
-    "neutral": "Neutre"
+    "neutral": "Neutre",
+    "label": "{{count}} vote",
+    "label_plural": "{{count}} votes"
   },
   "unvote": {
     "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",

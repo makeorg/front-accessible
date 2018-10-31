@@ -56,7 +56,7 @@ class ProposalCardComponent extends React.Component {
         </ProposalCard.Proposal>
         <VoteContainer
           proposalId={proposal.id}
-          proposalVotes={proposal.votes}
+          votes={proposal.votes}
           isPannelOpen={isPannelOpen}
           isSequenceCollapsed={isSequenceCollapsed}
           index={index}

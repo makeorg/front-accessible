@@ -1,26 +1,22 @@
 import React from 'react';
 import VoteResultComponent from '../../../components/Vote/Result';
-import voteStaticParams, { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from '../../../constants/vote';
-
-const votesPercent = {
-  [VOTE_AGREE_KEY]: 30,
-  [VOTE_DISAGREE_KEY]: 30,
-  [VOTE_NEUTRAL_KEY]: 30
-};
-
-const votesCount = 100;
+import voteStaticParams from '../../../constants/vote';
+import { getVotesCount, getVotesPercent } from '../../../helpers/voteresults';
 
 class VoteResultContainer extends React.Component {
   render() {
     const {
       proposalId,
+      votes,
       votedKey,
       handleVote,
       tabIndex
     } = this.props;
+    const votesCount = getVotesCount(votes);
+
     return (
       <VoteResultComponent
-        votesPercent={votesPercent}
+        votesPercent={getVotesPercent(votes, votesCount)}
         votesCount={votesCount}
         voteStaticParams={voteStaticParams}
         proposalId={proposalId}

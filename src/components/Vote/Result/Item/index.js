@@ -81,7 +81,7 @@ class ResultItemComponent extends React.Component {
           role="tooltip"
         >
           <p>{i18next.t(`vote.${voteKey}`)}</p>
-          <p>Votes %</p>
+          <p>{`${votePercent} %`}</p>
         </Tooltip>
       </li>
     );

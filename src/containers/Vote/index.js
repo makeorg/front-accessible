@@ -8,6 +8,7 @@ import VoteComponent from '../../components/Vote';
 import VoteResultsContainer from './Result';
 import QualificationContainer from '../Qualification';
 import voteStaticParams from '../../constants/vote';
+import { doVote, doUnvote } from '../../helpers/vote';
 
 class VoteContainer extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class VoteContainer extends React.Component {
     this.state = {
       hasVoted: false,
       votedKey: null,
+      votes: props.votes,
       qualifications: null
     };
 
@@ -27,21 +29,17 @@ class VoteContainer extends React.Component {
     const { hasVoted } = this.state;
     if (hasVoted) {
       VoteService.unvote(proposalId, voteKey)
-        .then(() => {
-          this.setState({
-            hasVoted: false,
-            votedKey: null,
-            qualifications: null
-          });
+        .then((vote) => {
+          this.setState(
+            prevState => doUnvote(prevState, vote)
+          );
         });
     } else {
       VoteService.vote(proposalId, voteKey)
-        .then((result) => {
-          this.setState({
-            hasVoted: true,
-            votedKey: result.voteKey,
-            qualifications: result.qualifications
-          });
+        .then((vote) => {
+          this.setState(
+            prevState => doVote(prevState, vote)
+          );
         });
     }
   }
@@ -55,20 +53,26 @@ class VoteContainer extends React.Component {
       currentIndex,
       goToNextCard
     } = this.props;
-    const { hasVoted, votedKey, qualifications } = this.state;
+    const {
+      hasVoted,
+      votedKey,
+      votes,
+      qualifications
+    } = this.state;
     if (hasVoted) {
       return (
         <React.Fragment>
           <Vote>
             <VoteResultsContainer
               proposalId={proposalId}
+              votes={votes}
               votedKey={votedKey}
               handleVote={this.handleVote}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
             <QualificationContainer
-              qualifications={qualifications}
               proposalId={proposalId}
+              qualifications={qualifications}
               votedKey={votedKey}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
