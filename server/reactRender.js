@@ -15,7 +15,7 @@ module.exports = function reactRender(req, res) {
   const { proxyApiUrl } = configuration;
   const initialState = {
     appConfig: {
-      operationId: req.query.operationId || '04ab6466-981a-4de9-90bf-1e39ed263de0',
+      operationId: req.query.operationId || 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
       source: 'core',
       language: req.query.language || 'fr',
       country: req.query.country || 'FR'
