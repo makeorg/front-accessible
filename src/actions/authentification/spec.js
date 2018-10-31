@@ -47,26 +47,43 @@ describe('Authentification Actions', () => {
     it('creates an action to login when success', () => {
       const token = { foo: 'bar' };
       const user = { firstname: 'baz' };
+      const proposalIdResponse = { proposalId: 'baz' };
+      const proposalContent = 'foo';
+      const operationId = 'bar';
+      const store = mockStore({
+        proposal: {
+          content: proposalContent,
+          operationId
+        },
+        authentification: {
+          isLoggedIn: false
+        }
+      });
 
       fetchMock
         .post('path:/oauth/make_access_token', token)
+        .post('path:/proposals', proposalIdResponse)
         .get('path:/user/me', user);
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS, token },
+        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.PANNEL_CLOSE },
         { type: actionTypes.FORGOT_PASSWORD_INIT }
       ];
 
-      return store.dispatch(actions.login()).then(() => {
+      return store.dispatch(actions.login('foo', 'bar')).then(() => {
         expect(store.getActions()).to.deep.equal(expectedActions)
       });
     });
 
     it('creates an action to login when failure', () => {
       const error = undefined;
+      const proposalContent = 'foo';
+      const operationId = 'bar';
+      const store = mockStore({ proposal: {content: proposalContent, operationId }});
 
       fetchMock
         .post('path:/oauth/make_access_token', 401)
@@ -112,6 +129,12 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login social when success', () => {
+      const proposalContent = 'foo';
+      const operationId = 'bar';
+      const store = mockStore({
+        proposal: { content: proposalContent, operationId },
+        authentification: { isLoggedIn: false }
+      });
       const token = { foo: 'bar' };
       const user = { firstname: 'baz' };
       const fooProvider = 'fooProvider';
@@ -123,6 +146,7 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: fooProvider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS, token },
+        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.PANNEL_CLOSE },
         { type: actionTypes.FORGOT_PASSWORD_INIT }
@@ -134,6 +158,9 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login social when failure', () => {
+      const proposalContent = 'foo';
+      const operationId = 'bar';
+      const store = mockStore({ proposal: {content: proposalContent, operationId }});
       const barProvider = 'barProvider';
 
       fetchMock

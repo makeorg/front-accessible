@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -21,9 +22,9 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
 
     return (
       <ProposalSubmitAuthentificationWrapper>
-        <SecondLevelTitle>Créez un compte Make.org</SecondLevelTitle>
+        <SecondLevelTitle>{i18next.t('authentification.title')}</SecondLevelTitle>
         <ThirdLevelTtitle>
-          pour valider votre contribution et être informé(e) des résultats de la consultation.
+          {i18next.t('authentification.description')}
         </ThirdLevelTtitle>
         <SmallButtonsWrapper>
           <FacebookAuthentificationButtonComponent
@@ -39,30 +40,30 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
             <IconInButton>
               <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} />
             </IconInButton>
-            Email
+            {i18next.t('common.email')}
           </EmailButton>
         </SmallButtonsWrapper>
         <AltDescription>
-          {'Make.org s‘engage à protéger vos '}
+          {i18next.t('authentification.commitment')}
           <DescriptionLink
             href="https://about.make.org/politique-donnees"
             target="_blank"
             tabIndex={isPannelOpen ? -1 : 0}
           >
-            {'données personnelles '}
+            {i18next.t('authentification.personal_data')}
             <IconInButton>
-              <FontAwesomeIcon aria-label="Ouverture dans un nouvel onglet" icon={faExternalLinkAlt} />
+              <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
             </IconInButton>
           </DescriptionLink>
         </AltDescription>
         <Separators.Small aria-hidden="true" />
-        <SecondLevelTitle>J’ai déjà un compte</SecondLevelTitle>
+        <SecondLevelTitle>{i18next.t('login.title')}</SecondLevelTitle>
         <ButtonsWrapper>
           <SmallRedButton
             onClick={handleLoginClick}
             tabIndex={isPannelOpen ? -1 : 0}
           >
-            Je me connecte
+            {i18next.t('common.i_connect')}
           </SmallRedButton>
         </ButtonsWrapper>
       </ProposalSubmitAuthentificationWrapper>

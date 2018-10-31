@@ -47,6 +47,10 @@ describe('Registration Actions', () => {
   });
 
   it('creates an action to register when success', () => {
+    const proposalContent = 'foo';
+    const operationId = 'bar';
+    const store = mockStore({ proposal: {content: proposalContent, operationId }});
+
     const user = {
       email: 'foo@example.com',
       password: 'baz'
