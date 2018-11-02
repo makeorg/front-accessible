@@ -77,6 +77,12 @@
   "sequence": {
     "return": "Revenir aux propositions"
   },
+  "authentification": {
+   "title": "Créez un compte Make.org",
+   "description": "pour valider votre contribution et être informé(e) des résultats de la consultation.",
+   "commitment": "Make.org s‘engage à protéger vos ",
+   "personal_data": "données personnelles "
+ },
   "login": {
     "title": "J‘ai déjà un compte",
     "social_connect": "Je me connecte avec",
