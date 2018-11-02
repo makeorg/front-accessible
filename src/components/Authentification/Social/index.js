@@ -5,11 +5,11 @@ import GoogleAuthentificationButtonComponent from './GoogleAuthentification/Butt
 
 class AuthentificationSocialComponent extends React.Component {
   render() {
-    const { tabIndex } = this.props;
+    const { tabIndex, trackFacebookLogin, trackGoogleLogin } = this.props;
     return (
       <Authentification>
-        <FacebookAuthentificationButtonComponent tabIndex={tabIndex} />
-        <GoogleAuthentificationButtonComponent tabIndex={tabIndex} />
+        <FacebookAuthentificationButtonComponent tabIndex={tabIndex} handleTracking={trackFacebookLogin} />
+        <GoogleAuthentificationButtonComponent tabIndex={tabIndex} handleTracking={trackGoogleLogin} />
       </Authentification>
     );
   }

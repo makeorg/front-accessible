@@ -10,7 +10,11 @@ import { loginSocial } from '../../../../actions/authentification';
  */
 class FacebookAuthentificationComponent extends React.Component {
   render() {
-    const { onClick, handleFacebookLoginCallback, tabIndex } = this.props;
+    const {
+      handleTracking,
+      handleFacebookLoginCallback,
+      tabIndex
+    } = this.props;
 
     return (
       <FacebookLogin
@@ -19,7 +23,7 @@ class FacebookAuthentificationComponent extends React.Component {
         version="2.8"
         fields="name,email,picture"
         callback={handleFacebookLoginCallback}
-        onClick={onClick}
+        onClick={handleTracking}
         disableMobileRedirect
         tabIndex={tabIndex}
       />

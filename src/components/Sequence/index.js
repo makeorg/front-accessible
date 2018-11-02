@@ -1,5 +1,5 @@
 import React from 'react';
-import FinalCardComponent from '../ProposalCard/FinalCard';
+import FinalCardContainer from '../../containers/ProposalCard/FinalCard';
 import IntroCardComponent from '../ProposalCard/IntroCard';
 import ProposalCardContainer from '../../containers/ProposalCard';
 import CollapseToggle from './Button';
@@ -15,7 +15,9 @@ class SequenceComponent extends React.Component {
       handleExpandSequence,
       goToNextCard,
       goToPreviousCard,
-      isPannelOpen
+      isPannelOpen,
+      handleStartSequence,
+      handleEndSequence
     } = this.props;
     const finalCardIndex = count + 1;
     return (
@@ -35,7 +37,7 @@ class SequenceComponent extends React.Component {
             currentIndex={currentIndex}
             isSequenceCollapsed={isSequenceCollapsed}
             isPannelOpen={isPannelOpen}
-            goToNextCard={goToNextCard}
+            handleStartSequence={handleStartSequence}
           />
           {proposals.map((proposal, key) => (
             <ProposalCardContainer
@@ -50,12 +52,11 @@ class SequenceComponent extends React.Component {
               goToPreviousCard={goToPreviousCard}
             />
           ))}
-          <FinalCardComponent
+          <FinalCardContainer
             index={finalCardIndex}
             currentIndex={currentIndex}
-            isSequenceCollapsed={isSequenceCollapsed}
-            isPannelOpen={isPannelOpen}
             goToPreviousCard={goToPreviousCard}
+            handleEndSequence={handleEndSequence}
           />
         </Sequence.List>
       </Sequence>

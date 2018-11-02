@@ -7,6 +7,7 @@ export const FooterLink = 'https://make.org/FR#/FR/consultation/aines/consultati
 
 class MainFooterComponent extends React.Component {
   render() {
+    const { handleTracking } = this.props;
     return (
       <MainFooter role="contentinfo">
         <MainFooter.Nav role="navigation" aria-labelledby="footer_title">
@@ -14,7 +15,12 @@ class MainFooterComponent extends React.Component {
             <HiddenItem aria-hidden>{i18next.t('footer.see_more')}</HiddenItem>
             { 'Comment mieux prendre soin de nos aînés ?' }
           </MainFooter.Title>
-          <MainFooter.Link href={FooterLink}>{i18next.t('footer.link')}</MainFooter.Link>
+          <MainFooter.Link
+            href={FooterLink}
+            onClick={handleTracking}
+          >
+            {i18next.t('footer.link')}
+          </MainFooter.Link>
         </MainFooter.Nav>
       </MainFooter>
     );

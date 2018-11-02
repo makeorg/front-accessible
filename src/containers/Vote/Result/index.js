@@ -10,7 +10,8 @@ class VoteResultContainer extends React.Component {
       votes,
       votedKey,
       handleVote,
-      tabIndex
+      tabIndex,
+      index
     } = this.props;
     const votesCount = getVotesCount(votes);
 
@@ -21,6 +22,7 @@ class VoteResultContainer extends React.Component {
         voteStaticParams={voteStaticParams}
         proposalId={proposalId}
         votedKey={votedKey}
+        index={index}
         handleVote={event => handleVote(event, votedKey)}
         tabIndex={tabIndex}
       />

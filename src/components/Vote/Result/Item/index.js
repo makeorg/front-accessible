@@ -8,45 +8,6 @@ import {
 } from '../Styled/Graph';
 
 class ResultItemComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isTooltipDisplayed: false
-    };
-
-    this.toggleTooltip = this.toggleTooltip.bind(this);
-    this.displayTooltip = this.displayTooltip.bind(this);
-    this.hideTooltip = this.hideTooltip.bind(this);
-  }
-
-  toggleTooltip(event) {
-    event.preventDefault();
-    const { isTooltipDisplayed } = this.state;
-    if (isTooltipDisplayed) {
-      this.setState({
-        isTooltipDisplayed: false
-      });
-    } else {
-      this.setState({
-        isTooltipDisplayed: true
-      });
-    }
-  }
-
-  displayTooltip(event) {
-    event.preventDefault();
-    this.setState({
-      isTooltipDisplayed: true
-    });
-  }
-
-  hideTooltip(event) {
-    event.preventDefault();
-    this.setState({
-      isTooltipDisplayed: false
-    });
-  }
-
   render() {
     const {
       listKey,
@@ -55,9 +16,12 @@ class ResultItemComponent extends React.Component {
       voteColor,
       votePercent,
       tabIndex,
-      voteKey
+      voteKey,
+      toggleTooltip,
+      displayTooltip,
+      hideTooltip,
+      isTooltipDisplayed
     } = this.props;
-    const { isTooltipDisplayed } = this.state;
     return (
       <li key={listKey}>
         <Bar
@@ -65,11 +29,11 @@ class ResultItemComponent extends React.Component {
           color={voteColor}
           percent={votePercent}
           tabIndex={tabIndex}
-          onClick={this.toggleTooltip}
-          onMouseEnter={this.displayTooltip}
-          onMouseLeave={this.hideTooltip}
-          onFocus={this.displayTooltip}
-          onBlur={this.hideTooltip}
+          onClick={toggleTooltip}
+          onMouseEnter={displayTooltip}
+          onMouseLeave={hideTooltip}
+          onFocus={displayTooltip}
+          onBlur={hideTooltip}
           aria-controls={tooltipKey}
           aria-label={i18next.t(`results.tooltipbutton.${voteKey}`)}
         />

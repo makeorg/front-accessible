@@ -7,8 +7,6 @@ import CircularBookWoff from '../fonts/CircularStd-Book.woff';
 import CircularBookWoff2 from '../fonts/CircularStd-Book.woff2';
 
 const FontFacesStylesheet = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Ultra');
-
   @font-face {
       font-family: "Trade Gothic";
       src: url(${TradeGothicWoff}) format("woff"),

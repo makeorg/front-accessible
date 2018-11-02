@@ -15,7 +15,7 @@ const pannelContents = {
 
 class PannelContainer extends React.Component {
   render() {
-    const { isPannelOpen, contentType, handleClose } = this.props;
+    const { handleClose, isPannelOpen, contentType } = this.props;
     return (
       <PannelComponent
         isPannelOpen={isPannelOpen}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { register } from '../../actions/registration';
 import RegisterComponent from '../../components/Register';
 import { pannelShowLogin } from '../../actions/pannel';
+import Tracking from '../../services/Tracking';
 
 class RegisterContainer extends React.Component {
   constructor(props) {
@@ -21,6 +22,8 @@ class RegisterContainer extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.trackFacebookSignUpLink = this.trackFacebookSignUpLink.bind(this);
+    this.trackGoogleSignUpLink = this.trackGoogleSignUpLink.bind(this);
     this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
   }
 
@@ -43,18 +46,35 @@ class RegisterContainer extends React.Component {
 
     if (user.email && user.password && user.firstname) {
       handleRegister(user);
+      Tracking.trackClickFormRegister();
     }
   }
 
   togglePasswordIsDisplayed() {
+    const { passwordIsDisplayed } = this.state;
     this.setState(prevstate => ({
       passwordIsDisplayed: !prevstate.passwordIsDisplayed
     }));
+    if (!passwordIsDisplayed) {
+      Tracking.trackDisplayPassword();
+    } else {
+      Tracking.trackHidePassword();
+    }
+  }
+
+  trackFacebookSignUpLink() {
+    Tracking.trackFacebookSignUpLink();
+    return this;
+  }
+
+  trackGoogleSignUpLink() {
+    Tracking.trackGoogleSignUpLink();
+    return this;
   }
 
   render() {
     const { user, passwordIsDisplayed } = this.state;
-    const { handleLoginPannel, errors, isPannelOpen } = this.props;
+    const { errors, isPannelOpen, handleLoginPannel } = this.props;
 
     return (
       <RegisterComponent
@@ -65,6 +85,8 @@ class RegisterContainer extends React.Component {
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleLoginPannel={handleLoginPannel}
+        trackFacebookSignUpLink={this.trackFacebookSignUpLink}
+        trackGoogleSignUpLink={this.trackGoogleSignUpLink}
         isPannelOpen={isPannelOpen}
       />
     );

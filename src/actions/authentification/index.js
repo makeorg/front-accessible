@@ -4,6 +4,7 @@ import * as actionTypes from '../../constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
 import { pannelClose } from '../pannel';
 import { submitProposal } from '../proposal';
+import Tracking from '../../services/Tracking';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = error => ({ type: actionTypes.LOGIN_FAILURE, error });
@@ -14,7 +15,7 @@ export const loginSocialSuccess = token => ({ type: actionTypes.LOGIN_SOCIAL_SUC
 export const getUserInfo = user => ({ type: actionTypes.GET_INFO, user });
 export const logout = () => ({ type: actionTypes.LOGOUT });
 
-export const login = (email, password) => (dispatch, getState) => {
+export const login = (email, password, afterRegistration = false) => (dispatch, getState) => {
   const { content, operationId } = getState().proposal;
 
   dispatch(loginRequest());
@@ -23,6 +24,12 @@ export const login = (email, password) => (dispatch, getState) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       dispatch(loginSuccess(token));
       dispatch(submitProposal(content, operationId));
+
+      // Dont track signin after a registration
+      if (!afterRegistration) {
+        Tracking.trackLoginEmailSuccess();
+      }
+
       return UserService.me();
     })
     .then((user) => {
@@ -32,6 +39,7 @@ export const login = (email, password) => (dispatch, getState) => {
     })
     .catch(() => {
       dispatch(loginFailure(i18next.t('login.email_doesnot_exist')));
+      Tracking.trackLoginEmailFailure();
     });
 };
 
@@ -44,6 +52,7 @@ export const loginSocial = (provider, token) => (dispatch, getState) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(accessToken));
       dispatch(loginSocialSuccess(accessToken));
       dispatch(submitProposal(content, operationId));
+      Tracking.trackAuthentificationSocialSuccess(provider);
 
       return UserService.me();
     })
@@ -54,5 +63,6 @@ export const loginSocial = (provider, token) => (dispatch, getState) => {
     })
     .catch(() => {
       dispatch(loginSocialFailure());
+      Tracking.trackAuthentificationSocialFailure(provider);
     });
 };

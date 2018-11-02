@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import SequenceComponent from '../../components/Sequence';
 import SequenceService from '../../api/SequenceService';
 import { sequenceExpand } from '../../actions/sequence';
+import Tracking from '../../services/Tracking';
+
 
 export const decrementCurrentIndex = prevState => ({
   currentIndex: prevState.currentIndex - 1
@@ -23,6 +25,9 @@ class SequenceContainer extends React.Component {
 
     this.goToNextCard = this.goToNextCard.bind(this);
     this.goToPreviousCard = this.goToPreviousCard.bind(this);
+    this.handleStartSequence = this.handleStartSequence.bind(this);
+    this.handleEndSequence = this.handleEndSequence.bind(this);
+    this.expandSequence = this.expandSequence.bind(this);
   }
 
   componentDidMount() {
@@ -39,18 +44,36 @@ class SequenceContainer extends React.Component {
     });
   }
 
+  handleStartSequence() {
+    this.setState(incrementCurrentIndex);
+    Tracking.trackClickStartSequence();
+  }
+
+  handleEndSequence() {
+    Tracking.trackClickEndSequence();
+    return this;
+  }
+
   goToNextCard() {
     this.setState(incrementCurrentIndex);
+    Tracking.trackClickNextCard();
   }
 
   goToPreviousCard() {
     this.setState(decrementCurrentIndex);
+    Tracking.trackClickPreviousCard();
+  }
+
+  expandSequence() {
+    const { handleExpandSequence } = this.props;
+    handleExpandSequence();
+    Tracking.trackExpandSequence();
   }
 
 
   render() {
     const { proposals, count, currentIndex } = this.state;
-    const { isSequenceCollapsed, handleExpandSequence, isPannelOpen } = this.props;
+    const { isSequenceCollapsed, isPannelOpen } = this.props;
 
     return (
       <SequenceComponent
@@ -58,10 +81,13 @@ class SequenceContainer extends React.Component {
         count={count}
         currentIndex={currentIndex}
         isSequenceCollapsed={isSequenceCollapsed}
-        handleExpandSequence={handleExpandSequence}
+        handleExpandSequence={this.expandSequence}
         isPannelOpen={isPannelOpen}
+        handleStartSequence={this.handleStartSequence}
+        handleEndSequence={this.handleEndSequence}
         goToNextCard={this.goToNextCard}
         goToPreviousCard={this.goToPreviousCard}
+        trackStartSequence={this.trackStartSequence}
       />
     );
   }
