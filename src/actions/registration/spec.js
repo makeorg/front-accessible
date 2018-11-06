@@ -15,7 +15,7 @@ describe('Registration Actions', () => {
     fetchMock.restore();
   });
 
-  it('creates PROPOSE_TYPING when calling action', () => {
+  it('Creates PROPOSE_TYPING when calling action', () => {
     const expectedActions = [{
       type: actionTypes.REGISTER_REQUEST
     }];
@@ -24,7 +24,7 @@ describe('Registration Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates REGISTER_SUCCESS when calling action', () => {
+  it('Creates REGISTER_SUCCESS when calling action', () => {
     const user = { firstname: 'foo' };
     const expectedActions = [{
       type: actionTypes.REGISTER_SUCCESS,
@@ -35,7 +35,7 @@ describe('Registration Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates REGISTER_FAILURE when calling action', () => {
+  it('Creates REGISTER_FAILURE when calling action', () => {
     const errors = ['fooError'];
     const expectedActions = [{
       type: actionTypes.REGISTER_FAILURE,

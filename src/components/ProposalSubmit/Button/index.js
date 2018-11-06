@@ -13,7 +13,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
         tabIndex={isPannelOpen ? -1 : 0}
       >
         <IconInButton>
-          <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
+          <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButton>
         {i18next.t('common.propose')}
       </SmallRedButton>
@@ -23,7 +23,7 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
   return (
     <SmallGreyButton type="submit" disabled>
       <IconInButton>
-        <FontAwesomeIcon aria-hidden="true" icon={faPencilAlt} />
+        <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButton>
       {i18next.t('common.propose')}
     </SmallGreyButton>

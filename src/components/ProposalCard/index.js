@@ -37,7 +37,7 @@ class ProposalCardComponent extends React.Component {
             onClick={goToPreviousCard}
           >
             <ProposalCard.BackIcon>
-              <FontAwesomeIcon aria-hidden="true" icon={faArrowLeft} />
+              <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
             </ProposalCard.BackIcon>
             {i18next.t('proposal_card.previous')}
           </ProposalCard.BackButton>
@@ -50,7 +50,7 @@ class ProposalCardComponent extends React.Component {
             {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
           </time>
         </ProposalCard.AuthorInfos>
-        <ProposalCard.Separator aria-hidden="true" />
+        <ProposalCard.Separator aria-hidden />
         <ProposalCard.Proposal>
           {proposal.content}
         </ProposalCard.Proposal>

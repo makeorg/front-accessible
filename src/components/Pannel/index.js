@@ -16,7 +16,7 @@ class PannelComponent extends Component {
           onClick={handleClose}
           tabIndex={isPannelOpen ? 0 : -1}
         >
-          <FontAwesomeIcon aria-hidden="true" icon={faTimes} />
+          <FontAwesomeIcon aria-hidden icon={faTimes} />
         </Pannel.CloseButton>
         <Pannel.Content>
           {children}

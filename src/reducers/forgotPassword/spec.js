@@ -1,9 +1,9 @@
 import * as actionCreators from '../../actions/forgotPassword';
 import forgotPassword from './index';
 
-describe('forgotPassword reducer', () => {
+describe('ForgotPassword reducer', () => {
   describe('forgotPassword action reducers', () => {
-    it('forgotPassword Request', () => {
+    it('ForgotPassword Request', () => {
       const action = actionCreators.forgotPasswordRequest('foo@example.com');
       const previousState = {
         errors: ['foo', 'bar'],
@@ -18,7 +18,7 @@ describe('forgotPassword reducer', () => {
       expect(forgotPassword(previousState, action)).to.eql(expectedState);
     });
 
-    it('forgotPassword Success', () => {
+    it('ForgotPassword Success', () => {
       const action = actionCreators.forgotPasswordSuccess();
       const previousState = {
         errors: ['foo', 'bar'],

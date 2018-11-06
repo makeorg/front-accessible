@@ -15,7 +15,7 @@ describe('Pannel Actions', () => {
     fetchMock.restore();
   });
 
-  it('creates PANNEL_CLOSE when calling action', () => {
+  it('Creates PANNEL_CLOSE when calling action', () => {
     const expectedActions = [
       { type: actionTypes.PANNEL_CLOSE },
       { type: actionTypes.FORGOT_PASSWORD_INIT }
@@ -27,7 +27,7 @@ describe('Pannel Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates PANNEL_SHOW_LOGIN when calling action', () => {
+  it('Creates PANNEL_SHOW_LOGIN when calling action', () => {
     const expectedActions = [{
       type: actionTypes.PANNEL_SHOW_LOGIN,
     }];
@@ -38,7 +38,7 @@ describe('Pannel Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates PANNEL_SHOW_REGISTER when calling action', () => {
+  it('Creates PANNEL_SHOW_REGISTER when calling action', () => {
     const expectedActions = [{
       type: actionTypes.PANNEL_SHOW_REGISTER,
     }];
@@ -49,7 +49,7 @@ describe('Pannel Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
-  it('creates PANNEL_SHOW_FORGOT_PASSWORD when calling action', () => {
+  it('Creates PANNEL_SHOW_FORGOT_PASSWORD when calling action', () => {
     const expectedActions = [{
       type: actionTypes.PANNEL_SHOW_FORGOT_PASSWORD,
     }];

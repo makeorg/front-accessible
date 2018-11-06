@@ -47,7 +47,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
             tabIndex={isPannelOpen ? -1 : 0}
           >
             <IconInButton>
-              <FontAwesomeIcon aria-hidden="true" icon={faEnvelope} />
+              <FontAwesomeIcon aria-hidden icon={faEnvelope} />
             </IconInButton>
             {i18next.t('common.email')}
           </EmailButton>
@@ -66,7 +66,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
             </IconInButton>
           </DescriptionLink>
         </AltDescription>
-        <Separators.Small aria-hidden="true" />
+        <Separators.Small aria-hidden />
         <SecondLevelTitle>{i18next.t('login.title')}</SecondLevelTitle>
         <ButtonsWrapper>
           <SmallRedButton

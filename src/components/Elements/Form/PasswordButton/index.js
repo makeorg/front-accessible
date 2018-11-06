@@ -11,13 +11,13 @@ const PasswordButton = ({
 }) => {
   if (passwordIsDisplayed) {
     return (
-      <HidePasswordIcon onClick={togglePasswordIsDisplayed} aria-hidden="true" tabIndex={tabIndex}>
+      <HidePasswordIcon onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
         <FontAwesomeIcon aria-hidden icon={faEyeSlash} />
       </HidePasswordIcon>
     );
   }
   return (
-    <UnstyledButton onClick={togglePasswordIsDisplayed} aria-hidden="true" tabIndex={tabIndex}>
+    <UnstyledButton onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
       <FontAwesomeIcon aria-hidden icon={faEye} />
     </UnstyledButton>
   );

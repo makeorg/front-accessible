@@ -31,17 +31,13 @@ class VoteContainer extends React.Component {
     if (hasVoted) {
       VoteService.unvote(proposalId, voteKey)
         .then((vote) => {
-          this.setState(
-            prevState => doUnvote(prevState, vote)
-          );
+          this.setState(prevState => doUnvote(prevState, vote));
         });
       Tracking.trackUnvote(proposalId, voteKey, index);
     } else {
       VoteService.vote(proposalId, voteKey)
         .then((vote) => {
-          this.setState(
-            prevState => doVote(prevState, vote)
-          );
+          this.setState(prevState => doVote(prevState, vote));
         });
       Tracking.trackVote(proposalId, voteKey, index);
     }

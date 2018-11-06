@@ -1,16 +1,63 @@
-import * as actionCreators from '../../actions/proposal';
-import proposal from './index';
+import * as actionCreators from '../../actions/pannel';
+import * as pannelContentTypes from '../../constants/pannel';
+import pannel from './index';
 
-describe('pannel reducer', () => {
-  describe('show login action reducers', () => {
+describe('Pannel reducer', () => {
+  it('Show login action reducers', () => {
+    const action = { type: 'PANNEL_SHOW_LOGIN' };
+    const previousState = {
+      isPannelOpen: false,
+      contentType: null
+    };
 
+    const expectedState = {
+      isPannelOpen: true,
+      contentType: pannelContentTypes.LOGIN_CONTENT
+    };
+
+    expect(pannel(previousState, action)).to.eql(expectedState);
   });
 
-  describe('show register action reducers', () => {
+  it('Show register action reducers', () => {
+    const action = { type: 'PANNEL_SHOW_REGISTER' };
+    const previousState = {
+      isPannelOpen: false,
+      contentType: null
+    };
 
+    const expectedState = {
+      isPannelOpen: true,
+      contentType: pannelContentTypes.REGISTER_CONTENT
+    };
+
+    expect(pannel(previousState, action)).to.eql(expectedState);
   });
-  
-  describe('show forgot password action reducers', () => {
 
+  it('Show forgot password action reducers', () => {
+    const action = { type: 'PANNEL_SHOW_FORGOT_PASSWORD' };
+    const previousState = {
+      isPannelOpen: false,
+      contentType: null
+    };
+
+    const expectedState = {
+      isPannelOpen: true,
+      contentType: pannelContentTypes.FORGOT_PASSWORD_CONTENT
+    };
+
+    expect(pannel(previousState, action)).to.eql(expectedState);
+  });
+
+  it('Close Login action reducers', () => {
+    const action = { type: 'PANNEL_CLOSE' };
+    const previousState = {
+      isPannelOpen: true
+    };
+
+    const expectedState = {
+      isPannelOpen: false
+    };
+
+    expect(pannel(previousState, action)).to.eql(expectedState);
   });
 });

@@ -9,7 +9,7 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 
-describe('forgotPassword Actions', () => {
+describe('ForgotPassword Actions', () => {
   let sandbox;
 
   beforeEach(() => {
@@ -23,8 +23,8 @@ describe('forgotPassword Actions', () => {
     sandbox.restore();
   });
 
-  describe('forgot password Actions', () => {
-    it('creates an action forgotPasswordRequest', () => {
+  describe('Forgot password Actions', () => {
+    it('Creates an action forgotPasswordRequest', () => {
       const email = 'foo@example.com';
       const expectedAction = {
         type: actionTypes.FORGOT_PASSWORD_REQUEST,
@@ -34,7 +34,7 @@ describe('forgotPassword Actions', () => {
       expect(actions.forgotPasswordRequest(email)).to.eql(expectedAction);
     });
 
-    it('creates an action forgotPasswordSuccess', () => {
+    it('Creates an action forgotPasswordSuccess', () => {
       const expectedAction = {
         type: actionTypes.FORGOT_PASSWORD_SUCCESS
       };
@@ -42,7 +42,7 @@ describe('forgotPassword Actions', () => {
       expect(actions.forgotPasswordSuccess()).to.eql(expectedAction);
     });
 
-    it('creates an action forgotPasswordFailure', () => {
+    it('Creates an action forgotPasswordFailure', () => {
       const errors = ['fooError'];
       const expectedAction = {
         type: actionTypes.FORGOT_PASSWORD_FAILURE,
@@ -52,7 +52,7 @@ describe('forgotPassword Actions', () => {
       expect(actions.forgotPasswordFailure(errors)).to.eql(expectedAction);
     });
 
-    it('creates an action forgotPasswordInit', () => {
+    it('Creates an action forgotPasswordInit', () => {
       const expectedAction = {
         type: actionTypes.FORGOT_PASSWORD_INIT
       };
@@ -60,7 +60,7 @@ describe('forgotPassword Actions', () => {
       expect(actions.forgotPasswordInit()).to.eql(expectedAction);
     });
 
-    it('creates an action to forgot password when success', () => {
+    it('Creates an action to forgot password when success', () => {
       const email = 'foo@example.com';
 
       fetchMock
@@ -76,7 +76,7 @@ describe('forgotPassword Actions', () => {
       });
     });
 
-    it('creates an action to forgot password when failure', () => {
+    it('Creates an action to forgot password when failure', () => {
       const errorMessage = 'account does not exist';
       const i18nextStub = sandbox.stub(i18next, 't');
       i18nextStub.withArgs('login.email_doesnot_exist').returns(errorMessage);

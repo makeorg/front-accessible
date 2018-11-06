@@ -28,6 +28,6 @@ describe('ProposalSubmitButtonComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal('true');
+    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
   });
 });

@@ -7,15 +7,13 @@ export const getQualificationIndex = (qualificationKey, proposalId) => {
 };
 
 export const doUpdateState = (prevState, qualification) => {
-  const newQualifications = prevState.qualifications.map(
-    (oldQualification) => {
-      if (oldQualification.qualificationKey === qualification.qualificationKey) {
-        return qualification;
-      }
-
-      return oldQualification;
+  const newQualifications = prevState.qualifications.map((oldQualification) => {
+    if (oldQualification.qualificationKey === qualification.qualificationKey) {
+      return qualification;
     }
-  );
+
+    return oldQualification;
+  });
 
   return {
     ...prevState,

@@ -19,17 +19,13 @@ class QualificationContainer extends React.Component {
     if (qualification.hasQualified) {
       QualificationService.unqualify(proposalId, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
-          this.setState(
-            prevState => doUpdateState(prevState, qualificationResult)
-          );
+          this.setState(prevState => doUpdateState(prevState, qualificationResult));
         });
       Tracking.trackUnqualify(proposalId, qualification.qualificationKey, voteKey, index);
     } else {
       QualificationService.qualify(proposalId, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
-          this.setState(
-            prevState => doUpdateState(prevState, qualificationResult)
-          );
+          this.setState(prevState => doUpdateState(prevState, qualificationResult));
         });
       Tracking.trackQualify(proposalId, qualification.qualificationKey, voteKey, index);
     }
