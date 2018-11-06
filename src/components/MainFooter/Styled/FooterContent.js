@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { pxToRem } from '../../../helpers/styled';
-import { ExtraFonts } from '../../../assets/vars/Fonts';
 import { BasicColors } from '../../../assets/vars/Colors';
 import Breakpoints from '../../../assets/vars/Breakpoints';
 
@@ -15,17 +14,10 @@ export const Nav = styled.nav`
 export const Title = styled.h2`
   color: ${BasicColors.PureWhite};
   font-size: ${pxToRem('14px')};
+  line-height: ${pxToRem('24px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('18px')};
-  }
-`;
-
-export const HighlightedTitle = styled.span`
-  font-family: ${ExtraFonts.Ultra};
-  font-size: ${pxToRem('18px')};
-  text-transform: none;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('25px')};
+    line-height: ${pxToRem('32px')};
   }
 `;
 
