@@ -3,20 +3,19 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from '../Styled';
-import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 class FinalCardComponent extends React.Component {
   render() {
     const {
       index,
       currentIndex,
-      isPannelOpen,
-      isSequenceCollapsed,
-      goToPreviousCard
+      goToPreviousCard,
+      handleEndSequence,
+      position,
+      scale,
+      zindex,
+      tabIndex
     } = this.props;
-    const position = getPosition(index, currentIndex);
-    const scale = getScale(index, currentIndex);
-    const zindex = getZIndex(index, currentIndex);
 
     return (
       <ProposalCard
@@ -27,7 +26,7 @@ class FinalCardComponent extends React.Component {
       >
         <ProposalCard.FakeNavWrapper>
           <ProposalCard.BackButton
-            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+            tabIndex={tabIndex}
             onClick={goToPreviousCard}
           >
             <ProposalCard.BackIcon>
@@ -39,9 +38,10 @@ class FinalCardComponent extends React.Component {
         <ProposalCard.FinalParagraph dangerouslySetInnerHTML={{ __html: i18next.t('proposal_card.final_text') }} />
         <ProposalCard.FinalLink
           as="a"
-          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+          tabIndex={tabIndex}
           href="#"
           target="_blank"
+          onClick={handleEndSequence}
         >
           {i18next.t('proposal_card.final_see_all')}
         </ProposalCard.FinalLink>

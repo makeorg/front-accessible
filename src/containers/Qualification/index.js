@@ -2,6 +2,7 @@ import React from 'react';
 import { doUpdateState } from '../../helpers/qualification';
 import QualificationService from '../../api/QualificationService';
 import QualificationComponent from '../../components/Qualification';
+import Tracking from '../../services/Tracking';
 
 class QualificationContainer extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class QualificationContainer extends React.Component {
 
   handleQualification(event, qualification, voteKey) {
     event.preventDefault();
-    const { proposalId } = this.props;
+    const { proposalId, index } = this.props;
     if (qualification.hasQualified) {
       QualificationService.unqualify(proposalId, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
@@ -22,6 +23,7 @@ class QualificationContainer extends React.Component {
             prevState => doUpdateState(prevState, qualificationResult)
           );
         });
+      Tracking.trackUnqualify(proposalId, qualification.qualificationKey, voteKey, index);
     } else {
       QualificationService.qualify(proposalId, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
@@ -29,6 +31,7 @@ class QualificationContainer extends React.Component {
             prevState => doUpdateState(prevState, qualificationResult)
           );
         });
+      Tracking.trackQualify(proposalId, qualification.qualificationKey, voteKey, index);
     }
   }
 

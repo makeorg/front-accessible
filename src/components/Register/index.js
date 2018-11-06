@@ -11,7 +11,12 @@ import { ExtraParagraph } from '../Elements/Form';
 
 class RegisterComponent extends React.Component {
   render() {
-    const { handleLoginPannel, isPannelOpen } = this.props;
+    const {
+      handleLoginPannel,
+      isPannelOpen,
+      trackFacebookSignUpLink,
+      trackGoogleSignUpLink
+    } = this.props;
     return (
       <Register role="region" aria-labelledby="register_title">
         <SecondLevelTitle id="register_title">
@@ -21,11 +26,17 @@ class RegisterComponent extends React.Component {
         <ThirdLevelTtitle>
           {i18next.t('register.social_connect')}
           &nbsp;
-          <FacebookAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
+          <FacebookAuthentificationLinkComponent
+            tabIndex={isPannelOpen ? 0 : -1}
+            handleTracking={trackFacebookSignUpLink}
+          />
           &nbsp;
           {i18next.t('register.or')}
           &nbsp;
-          <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
+          <GoogleAuthentificationLinkComponent
+            tabIndex={isPannelOpen ? 0 : -1}
+            handleTracking={trackGoogleSignUpLink}
+          />
         </ThirdLevelTtitle>
         <Separators.Wrapper>
           <Separators.Large />

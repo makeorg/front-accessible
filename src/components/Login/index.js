@@ -10,7 +10,13 @@ import { RedLinkButton } from '../Elements/ButtonElements';
 
 class LoginComponent extends React.Component {
   render() {
-    const { handleRegisterPannel, handleForgotPasswordPannel, isPannelOpen } = this.props;
+    const {
+      trackFacebookLogin,
+      trackGoogleLogin,
+      handleRegisterPannel,
+      handleForgotPasswordPannel,
+      isPannelOpen
+    } = this.props;
     return (
       <Login role="region" aria-labelledby="login_title">
         <SecondLevelTitle id="login_title">
@@ -22,6 +28,8 @@ class LoginComponent extends React.Component {
         </ThirdLevelTtitle>
         <AuthentificationSocialContainer
           tabIndex={isPannelOpen ? 0 : -1}
+          trackFacebookLogin={trackFacebookLogin}
+          trackGoogleLogin={trackGoogleLogin}
         />
         <Separators.Wrapper>
           <Separators.Large />

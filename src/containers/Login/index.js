@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
 import { login } from '../../actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from '../../actions/pannel';
+import Tracking from '../../services/Tracking';
 
 class LoginContainer extends React.Component {
   constructor(props) {
@@ -16,6 +17,8 @@ class LoginContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
+    this.trackFacebookLogin = this.trackFacebookLogin.bind(this);
+    this.trackGoogleLogin = this.trackGoogleLogin.bind(this);
   }
 
   handleChange(event) {
@@ -32,13 +35,30 @@ class LoginContainer extends React.Component {
     const { handleLogin } = this.props;
     if (email && password) {
       handleLogin(email, password);
+      Tracking.trackClickFormLogin();
     }
   }
 
   togglePasswordIsDisplayed() {
+    const { passwordIsDisplayed } = this.state;
     this.setState(prevstate => ({
       passwordIsDisplayed: !prevstate.passwordIsDisplayed
     }));
+    if (!passwordIsDisplayed) {
+      Tracking.trackDisplayPassword();
+    } else {
+      Tracking.trackHidePassword();
+    }
+  }
+
+  trackFacebookLogin() {
+    Tracking.trackFacebookLogin();
+    return this;
+  }
+
+  trackGoogleLogin() {
+    Tracking.trackGoogleLogin();
+    return this;
   }
 
   render() {
@@ -57,11 +77,13 @@ class LoginContainer extends React.Component {
         errors={errors}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        handleRegisterPannel={handleRegisterPannel}
-        handleForgotPasswordPannel={handleForgotPasswordPannel}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
+        handleRegisterPannel={handleRegisterPannel}
+        handleForgotPasswordPannel={handleForgotPasswordPannel}
         isPannelOpen={isPannelOpen}
+        trackFacebookLogin={this.trackFacebookLogin}
+        trackGoogleLogin={this.trackGoogleLogin}
       />
     );
   }

@@ -9,6 +9,7 @@ import VoteResultsContainer from './Result';
 import QualificationContainer from '../Qualification';
 import voteStaticParams from '../../constants/vote';
 import { doVote, doUnvote } from '../../helpers/vote';
+import Tracking from '../../services/Tracking';
 
 class VoteContainer extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class VoteContainer extends React.Component {
 
   handleVote(event, voteKey) {
     event.preventDefault();
-    const { proposalId } = this.props;
+    const { proposalId, index } = this.props;
     const { hasVoted } = this.state;
     if (hasVoted) {
       VoteService.unvote(proposalId, voteKey)
@@ -34,6 +35,7 @@ class VoteContainer extends React.Component {
             prevState => doUnvote(prevState, vote)
           );
         });
+      Tracking.trackUnvote(proposalId, voteKey, index);
     } else {
       VoteService.vote(proposalId, voteKey)
         .then((vote) => {
@@ -41,6 +43,7 @@ class VoteContainer extends React.Component {
             prevState => doVote(prevState, vote)
           );
         });
+      Tracking.trackVote(proposalId, voteKey, index);
     }
   }
 
@@ -67,6 +70,7 @@ class VoteContainer extends React.Component {
               proposalId={proposalId}
               votes={votes}
               votedKey={votedKey}
+              index={index}
               handleVote={this.handleVote}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
@@ -74,6 +78,7 @@ class VoteContainer extends React.Component {
               proposalId={proposalId}
               qualifications={qualifications}
               votedKey={votedKey}
+              index={index}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
           </Vote>

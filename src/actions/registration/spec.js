@@ -58,6 +58,7 @@ describe('Registration Actions', () => {
 
      fetchMock
        .post('path:/user',  user)
+       .post('path:/tracking/front', 204)
        .post('path:/oauth/make_access_token', 401);
 
     const expectedActions = [
@@ -82,6 +83,7 @@ describe('Registration Actions', () => {
 
      fetchMock
        .post('path:/user',  { body: errors, status: 400 })
+       .post('path:/tracking/front', 204)
        .post('path:/oauth/make_access_token', 401);
 
     const expectedActions = [

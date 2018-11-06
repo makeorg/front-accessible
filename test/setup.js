@@ -13,6 +13,7 @@ require.extensions['.svg'] = () => {};
 
 global.document = new JSDOM('');
 global.window = document.defaultView;
+document.location = 'http://localhost:3000';
 global.navigator = { userAgent: 'browser' };
 global.sinon = sinon;
 global.React = React;

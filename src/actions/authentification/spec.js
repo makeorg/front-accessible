@@ -63,6 +63,7 @@ describe('Authentification Actions', () => {
       fetchMock
         .post('path:/oauth/make_access_token', token)
         .post('path:/proposals', proposalIdResponse)
+        .post('path:/tracking/front', 204)
         .get('path:/user/me', user);
 
       const expectedActions = [
@@ -86,6 +87,7 @@ describe('Authentification Actions', () => {
       const store = mockStore({ proposal: {content: proposalContent, operationId }});
 
       fetchMock
+        .post('path:/tracking/front', 204)
         .post('path:/oauth/make_access_token', 401)
 
       const expectedActions = [
@@ -141,6 +143,7 @@ describe('Authentification Actions', () => {
 
       fetchMock
         .post('path:/user/login/social', token)
+        .post('path:/tracking/front', 204)
         .get('path:/user/me', user);
 
       const expectedActions = [
@@ -165,6 +168,7 @@ describe('Authentification Actions', () => {
 
       fetchMock
         .post('path:/user/login/social', 401)
+        .post('path:/tracking/front', 204)
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: barProvider },

@@ -18,7 +18,14 @@ import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 class ProposalSubmitAuthentificationComponent extends React.Component {
   render() {
-    const { handleRegisterClick, handleLoginClick, isPannelOpen } = this.props;
+    const {
+      handleRegisterClick,
+      handleLoginClick,
+      isPannelOpen,
+      trackFacebookSignUpButton,
+      trackGoogleSignUpButton,
+      trackPersonnalDataLink
+    } = this.props;
 
     return (
       <ProposalSubmitAuthentificationWrapper>
@@ -29,9 +36,11 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
         <SmallButtonsWrapper>
           <FacebookAuthentificationButtonComponent
             tabIndex={isPannelOpen ? -1 : 0}
+            handleTracking={trackFacebookSignUpButton}
           />
           <GoogleAuthentificationButtonComponent
             tabIndex={isPannelOpen ? -1 : 0}
+            handleTracking={trackGoogleSignUpButton}
           />
           <EmailButton
             onClick={handleRegisterClick}
@@ -49,6 +58,7 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
             href="https://about.make.org/politique-donnees"
             target="_blank"
             tabIndex={isPannelOpen ? -1 : 0}
+            onClick={trackPersonnalDataLink}
           >
             {i18next.t('authentification.personal_data')}
             <IconInButton>

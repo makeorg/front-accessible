@@ -6,27 +6,42 @@ import { DescriptionWrapper } from '../Styled';
 import { Description, AltDescription, DescriptionLink } from '../../Elements/DescriptionElements';
 import { IconInButton } from '../../Elements/ButtonElements';
 
-const ProposalSubmitDescriptionComponent = ({ isPannelOpen }) => (
-  <DescriptionWrapper>
-    <Description>
-      {i18next.t('proposal_submit.description')}
-    </Description>
-    <AltDescription>
-      {i18next.t('proposal_submit.moderation_charter')}
-      &nbsp;
-      <DescriptionLink
-        target="_blank"
-        href="https://about.make.org/moderation"
-        tabIndex={isPannelOpen ? -1 : 0}
-      >
-        {i18next.t('common.click_there')}
-        &nbsp;
-        <IconInButton>
-          <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
-        </IconInButton>
-      </DescriptionLink>
-    </AltDescription>
-  </DescriptionWrapper>
-);
+
+class ProposalSubmitDescriptionComponent extends React.Component {
+  componentDidMount() {
+    const { trackModerationText } = this.props;
+    trackModerationText();
+  }
+
+  render() {
+    const {
+      isPannelOpen,
+      trackModerationLink
+    } = this.props;
+    return (
+      <DescriptionWrapper>
+        <Description>
+          {i18next.t('proposal_submit.description')}
+        </Description>
+        <AltDescription>
+          {i18next.t('proposal_submit.moderation_charter')}
+          &nbsp;
+          <DescriptionLink
+            target="_blank"
+            href="https://about.make.org/moderation"
+            onClick={trackModerationLink}
+            tabIndex={isPannelOpen ? -1 : 0}
+          >
+            {i18next.t('common.click_there')}
+            &nbsp;
+            <IconInButton>
+              <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
+            </IconInButton>
+          </DescriptionLink>
+        </AltDescription>
+      </DescriptionWrapper>
+    );
+  }
+}
 
 export default ProposalSubmitDescriptionComponent;

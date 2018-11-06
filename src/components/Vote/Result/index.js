@@ -4,9 +4,7 @@ import VoteResults from './Styled';
 import VoteButtonComponent from '../Button';
 import { UnvoteButton } from '../Styled/Button';
 import { HiddenItem } from '../../Elements/HiddenElements';
-import { getResultBarIndex, getTooltipIndex } from '../../../helpers/voteresults';
-import ResultItemComponent from './Item';
-import { getVoteIndex } from '../../../helpers/vote';
+import ResultItemContainer from '../../../containers/Vote/Result/Item';
 
 class VoteResultComponent extends React.Component {
   render() {
@@ -17,7 +15,8 @@ class VoteResultComponent extends React.Component {
       votedKey,
       proposalId,
       handleVote,
-      tabIndex
+      tabIndex,
+      index
     } = this.props;
     const voteKeys = Object.keys(voteStaticParams);
 
@@ -39,15 +38,14 @@ class VoteResultComponent extends React.Component {
             {
               voteKeys.map(
                 voteKey => (
-                  <ResultItemComponent
-                    key={getVoteIndex(voteKey, proposalId)}
-                    listKey={getVoteIndex(voteKey, proposalId)}
-                    barKey={getResultBarIndex(voteKey, proposalId)}
-                    tooltipKey={getTooltipIndex(voteKey, proposalId)}
-                    voteColor={voteStaticParams[voteKey].color}
-                    votePercent={votesPercent[voteKey]}
+                  <ResultItemContainer
+                    key={`${voteKey}_item_${proposalId}`}
+                    index={index}
+                    proposalId={proposalId}
                     tabIndex={tabIndex}
                     voteKey={voteKey}
+                    voteStaticParams={voteStaticParams}
+                    votesPercent={votesPercent}
                   />
                 )
               )

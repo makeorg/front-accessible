@@ -4,13 +4,16 @@ import AuthentificationSocialComponent from '../../../components/Authentificatio
 
 class AuthentificationSocialContainer extends React.Component {
   render() {
-    const { isPannelOpen } = this.props;
+    const { isPannelOpen, trackFacebookLogin, trackGoogleLogin } = this.props;
     return (
-      <AuthentificationSocialComponent tabIndex={isPannelOpen ? 0 : -1} />
+      <AuthentificationSocialComponent
+        tabIndex={isPannelOpen ? 0 : -1}
+        trackFacebookLogin={trackFacebookLogin}
+        trackGoogleLogin={trackGoogleLogin}
+      />
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   const { isPannelOpen } = state.pannel;

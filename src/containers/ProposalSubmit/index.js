@@ -8,6 +8,7 @@ import { getProposalLength, getIsProposalValidLength } from '../../helpers/propo
 import { typingProposal, submitProposal } from '../../actions/proposal';
 import { sequenceCollapse } from '../../actions/sequence';
 import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
+import Tracking from '../../services/Tracking';
 
 /**
  * ProposalSubmitContainer manage the proposal Submit Component business logic
@@ -24,6 +25,8 @@ export class ProposalSubmit extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.trackModerationText = this.trackModerationText.bind(this);
+    this.trackModerationLink = this.trackModerationLink.bind(this);
   }
 
   handleChange(event) {
@@ -55,6 +58,18 @@ export class ProposalSubmit extends React.Component {
     const { handleSubmitProposal, operationId, content } = this.props;
 
     handleSubmitProposal(content, operationId);
+
+    Tracking.trackClickProposalSubmit();
+  }
+
+  trackModerationText() {
+    Tracking.trackDisplayModerationText();
+    return this;
+  }
+
+  trackModerationLink() {
+    Tracking.trackClickModerationLink();
+    return this;
   }
 
   render() {
@@ -84,6 +99,8 @@ export class ProposalSubmit extends React.Component {
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
             isPannelOpen={isPannelOpen}
+            trackModerationText={this.trackModerationText}
+            trackModerationLink={this.trackModerationLink}
           />
         ) : null}
         {(needAuthentification && isSequenceCollapsed) ? (

@@ -14,7 +14,7 @@ class IntroCardComponent extends React.Component {
       isPannelOpen,
       isSequenceCollapsed,
       currentIndex,
-      goToNextCard
+      handleStartSequence
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -39,7 +39,7 @@ class IntroCardComponent extends React.Component {
         />
         <ProposalCard.IntroButton
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-          onClick={goToNextCard}
+          onClick={handleStartSequence}
         >
           <IconInButton>
             <FontAwesomeIcon
