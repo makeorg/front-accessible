@@ -4,7 +4,6 @@ import { ShadowColors } from '../../../assets/vars/Colors';
 import {
   Nav,
   Title,
-  HighlightedTitle,
   Link
 } from './FooterContent';
 
@@ -18,7 +17,6 @@ const MainFooter = styled.footer`
 /* FooterContent */
 MainFooter.Nav = Nav;
 MainFooter.Title = Title;
-MainFooter.HighlightedTitle = HighlightedTitle;
 MainFooter.Link = Link;
 
 export default MainFooter;
