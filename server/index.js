@@ -5,7 +5,6 @@ const serveStatic = require('serve-static');
 require('./browserPolyfill');
 const reactRender = require('./reactRender');
 const { BUILD_DIR, PUBLIC_DIR } = require('./paths');
-const proxy = require('./proxy.js');
 const configuration = require('./configuration.js');
 
 function setCustomCacheControl(res, path) {
@@ -18,7 +17,6 @@ function setCustomCacheControl(res, path) {
 // App
 const app = express();
 app.use(compression());
-app.use('/api', proxy);
 
 app.use(bodyParser.json());
 
