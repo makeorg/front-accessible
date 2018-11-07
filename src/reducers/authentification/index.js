@@ -4,11 +4,12 @@ import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants
 
 const user = (typeof localStorage !== 'undefined') ? JSON.parse(localStorage.getItem(USER_LOCAL_STORAGE_KEY)) : null;
 const token = (typeof localStorage !== 'undefined') ? JSON.parse(localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY)) : null;
+
 const initialState = {
-  isLoggedIn: (token && user),
+  isLoggedIn: (token !== null && user !== null),
   errors: [],
-  user,
-  token
+  token,
+  user
 };
 ApiService.token = initialState.token;
 
@@ -35,7 +36,15 @@ export default function authentification(state = initialState, action) {
     case actionTypes.GET_INFO:
       return {
         ...state,
+        isLoggedIn: true,
         user: action.user
+      };
+    case actionTypes.GET_TOKEN:
+      ApiService.token = action.token;
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.token
       };
     case actionTypes.LOGIN_SOCIAL_REQUEST:
       return {
@@ -59,8 +68,8 @@ export default function authentification(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: false,
-        token: null,
         user: null,
+        token: null,
         errors: []
       };
     default:

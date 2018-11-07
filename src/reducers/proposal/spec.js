@@ -10,9 +10,9 @@ describe('Proposal reducer', () => {
       const action = actionCreators.proposeTyping(content, length, canSubmit);
       const previousState = {
         isTyping: false,
-        needAuthentification: false,
+        isSubmitSuccess: false,
         canSubmit: false,
-        content: null,
+        content: '',
         length: 0,
         operationId: null,
         error: null
@@ -20,7 +20,7 @@ describe('Proposal reducer', () => {
 
       const expectedState = {
         isTyping: true,
-        needAuthentification: false,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: content,
         length: length,
@@ -40,7 +40,7 @@ describe('Proposal reducer', () => {
       const action = actionCreators.proposeRequest(content, operationId);
       const previousState = {
         isTyping: false,
-        needAuthentification: false,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: content,
         length: 10,
@@ -50,7 +50,7 @@ describe('Proposal reducer', () => {
 
       const expectedState = {
         isTyping: false,
-        needAuthentification: true,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: content,
         length: 10,
@@ -65,7 +65,7 @@ describe('Proposal reducer', () => {
       const action = actionCreators.proposeSuccess('foo-proposal-id');
       const previousState = {
         isTyping: true,
-        needAuthentification: true,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
@@ -75,9 +75,9 @@ describe('Proposal reducer', () => {
 
       const expectedState = {
         isTyping: false,
-        needAuthentification: false,
+        isSubmitSuccess: true,
         canSubmit: false,
-        content: null,
+        content: '',
         length: 8,
         operationId: null,
         error: null
@@ -90,7 +90,7 @@ describe('Proposal reducer', () => {
       const action = actionCreators.proposeFailure('foo-error');
       const previousState = {
         isTyping: false,
-        needAuthentification: false,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
@@ -100,7 +100,7 @@ describe('Proposal reducer', () => {
 
       const expectedState = {
         isTyping: false,
-        needAuthentification: false,
+        isSubmitSuccess: false,
         canSubmit: true,
         content: 'il faut foo',
         length: 10,

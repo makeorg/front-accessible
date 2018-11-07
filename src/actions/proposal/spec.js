@@ -85,29 +85,34 @@ describe('Proposal Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions);
   });
 
-  it('Creates an action to proposal Submit when use is not logged in', () => {
-    const store = mockStore({ authentification: {isLoggedIn: false }});
-
+  it('creates an action to proposal Submit when use is not logged in', () => {
+    const operationId = 123;
+    const store = mockStore({
+      authentification: {isLoggedIn: false },
+      appConfig: {operationId}
+    });
     const proposalContent = 'foo';
-    const proposalOperationId = 123;
 
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_REQUEST,
         content: proposalContent,
-        operationId: proposalOperationId
+        operationId: operationId
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, proposalOperationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });
 
-  it('Creates an action to proposal Submit when use is logged in', () => {
-    const store = mockStore({ authentification: {isLoggedIn: true }});
+  it('creates an action to proposal Submit when use is logged in', () => {
+    const operationId = 'bar';
+    const store = mockStore({
+      authentification: {isLoggedIn: true },
+      appConfig: {operationId}
+    });
     const proposalContent = 'foo';
-    const proposalOperationId = 'bar';
     const proposalIdResponse = { proposalId: 'baz' };
 
     fetchMock
@@ -120,15 +125,18 @@ describe('Proposal Actions', () => {
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, proposalOperationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });
 
-  it('Creates an action to proposal Submit failure', () => {
-    const store = mockStore({ authentification: {isLoggedIn: true }});
+  it('creates an action to proposal Submit failure', () => {
+    const operationId = 'bar';
+    const store = mockStore({
+      authentification: {isLoggedIn: true },
+      appConfig: {operationId}
+    });
     const proposalContent = 'foo';
-    const proposalOperationId = 'bar';
     const proposalIdResponse = { proposalId: 'baz' };
 
     fetchMock
@@ -141,7 +149,7 @@ describe('Proposal Actions', () => {
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, proposalOperationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });

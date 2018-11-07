@@ -34,8 +34,8 @@ describe('Authentification Actions', () => {
       expect(actions.loginFailure(error)).to.eql(expectedAction);
     });
 
-    it('Creates an action loginSuccess', () => {
-      const token = 'fooToken';
+    it('creates an action loginSuccess', () => {
+      const token = { foo: 'bar' };
       const expectedAction = {
         type: actionTypes.LOGIN_SUCCESS,
         token
@@ -51,13 +51,9 @@ describe('Authentification Actions', () => {
       const proposalContent = 'foo';
       const operationId = 'bar';
       const store = mockStore({
-        proposal: {
-          content: proposalContent,
-          operationId
-        },
-        authentification: {
-          isLoggedIn: false
-        }
+        proposal: {canSubmit: false},
+        pannel: {isPannelOpen: false},
+        authentification: {isLoggedIn: false}
       });
 
       fetchMock
@@ -68,9 +64,7 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS, token },
-        { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PANNEL_CLOSE },
-        { type: actionTypes.FORGOT_PASSWORD_INIT }
+        { type: actionTypes.GET_INFO, user }
       ];
 
       return store.dispatch(actions.login('foo', 'bar')).then(() => {
@@ -82,7 +76,10 @@ describe('Authentification Actions', () => {
       const error = undefined;
       const proposalContent = 'foo';
       const operationId = 'bar';
-      const store = mockStore({ proposal: {content: proposalContent, operationId }});
+      const store = mockStore({
+        proposal: {content: proposalContent},
+        appConfig: {operationId}
+      });
 
       fetchMock
         .post('path:/tracking/front', 204)
@@ -131,26 +128,27 @@ describe('Authentification Actions', () => {
     it('creates an action to login social when success', () => {
       const store = mockStore({
         proposal: { canSubmit: false },
-        authentification: { isLoggedIn: false }
+        authentification: { isLoggedIn: false },
+        pannel: {isPannelOpen: false}
       });
       const token = { foo: 'bar' };
       const user = { firstname: 'baz' };
-      const fooProvider = 'fooProvider';
+      const provider = 'fooProvider';
+      const socialToken = 'fooToken';
 
       fetchMock
         .post('path:/user/login/social', token)
+        .get('path:/user/me', user)
         .post('path:/tracking/front', 204)
-        .get('path:/user/me', user);
+      ;
 
       const expectedActions = [
-        { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: fooProvider },
+        { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: provider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS, token },
-        { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PANNEL_CLOSE },
-        { type: actionTypes.FORGOT_PASSWORD_INIT }
+        { type: actionTypes.GET_INFO, user }
       ];
 
-      return store.dispatch(actions.loginSocial(fooProvider)).then(() => {
+      return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
         expect(store.getActions()).to.deep.equal(expectedActions)
       });
     });
@@ -158,7 +156,10 @@ describe('Authentification Actions', () => {
     it('creates an action to login social when failure', () => {
       const proposalContent = 'foo';
       const operationId = 'bar';
-      const store = mockStore({ proposal: {content: proposalContent, operationId }});
+      const store = mockStore({
+        proposal: {content: proposalContent },
+        appConfig: { operationId }
+      });
       const barProvider = 'barProvider';
 
       fetchMock
@@ -177,6 +178,19 @@ describe('Authentification Actions', () => {
   });
 
   describe('user info and logout Actions', () => {
+    it('creates an action to get token information', () => {
+      const token = {
+        foo: 'abc',
+        bar: 'dar'
+      };
+      const expectedAction = {
+        type: actionTypes.GET_TOKEN,
+        token
+      };
+
+      expect(actions.setUserToken(token)).to.eql(expectedAction);
+    });
+
     it('creates an action to get user informations', () => {
       const user = {
         firstname: 'foo',
@@ -187,7 +201,7 @@ describe('Authentification Actions', () => {
         user
       };
 
-      expect(actions.getUserInfo(user)).to.eql(expectedAction);
+      expect(actions.setUserInfo(user)).to.eql(expectedAction);
     });
 
     it('creates an action to logout a user', () => {
@@ -196,6 +210,77 @@ describe('Authentification Actions', () => {
       };
 
       expect(actions.logout()).to.eql(expectedAction);
+    });
+
+    it('creates an action to getUser when pannel is open', () => {
+      const user = { firstname: 'baz' };
+      const store = mockStore({
+        pannel: {
+          isPannelOpen: true
+        }
+      });
+
+      fetchMock
+        .get('path:/user/me', user)
+        .post('path:/tracking/front', 204);
+
+      const expectedActions = [
+        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.PANNEL_CLOSE },
+        { type: actionTypes.FORGOT_PASSWORD_INIT }
+      ];
+
+      return store.dispatch(actions.getUser()).then(() => {
+        expect(store.getActions()).to.deep.equal(expectedActions)
+      });
+    });
+
+    it('creates an action to getUser when pannel is closed', () => {
+      const user = { firstname: 'baz' };
+      const store = mockStore({
+        pannel: {
+          isPannelOpen: false
+        }
+      });
+
+      fetchMock
+        .get('path:/user/me', user);
+
+      const expectedActions = [
+        { type: actionTypes.GET_INFO, user }
+      ];
+
+      return store.dispatch(actions.getUser()).then(() => {
+        expect(store.getActions()).to.deep.equal(expectedActions)
+      });
+    });
+
+    it('creates an action to getToken', () => {
+      const token = {foo: 'Bar'};
+      const user = { firstname: 'bazaaaa' };
+      const proposalContent = 'il faut blabla';
+      const operationId = 'fooOperationId'
+      const store = mockStore({
+        appConfig: {operationId},
+        proposal: {content: proposalContent},
+        pannel: {isPannelOpen: false},
+        authentification: {isLoggedIn: false}
+      });
+
+      fetchMock
+        .get('path:/oauth/access_token', token)
+        .get('path:/user/me', user)
+        .post('path:/tracking/front', 204);
+
+      const expectedActions = [
+        { type: actionTypes.GET_TOKEN, token },
+        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
+      ];
+
+      return store.dispatch(actions.getToken()).then(() => {
+        expect(store.getActions()).to.deep.equal(expectedActions)
+      });
     });
   });
 });

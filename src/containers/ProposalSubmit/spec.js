@@ -10,7 +10,7 @@ describe('ProposalSubmitContainer', () => {
     content: 'foo',
     length: 10,
     canSubmit: true,
-    needAuthentification: false,
+    isLoggedIn: true,
     isSequenceCollapsed: false
   };
 
@@ -40,12 +40,12 @@ describe('ProposalSubmitContainer', () => {
   });
 
   it('Renders the Authentification', () => {
-    const needAuthentificationProps = {
+    const notLoggedInProps = {
       ...defaultProps,
-      needAuthentification: true,
+      isLoggedIn: false,
       isSequenceCollapsed: true
     };
-    const wrapper = shallow(<ProposalSubmit {...needAuthentificationProps} />);
+    const wrapper = shallow(<ProposalSubmit {...notLoggedInProps} />);
 
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).to.have.length(0);
     expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(1);

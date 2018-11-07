@@ -16,8 +16,9 @@ export const typingProposal = (content, length, canSubmit) => (dispatch) => {
   dispatch(proposeTyping(content, length, canSubmit));
 };
 
-export const submitProposal = (content, operationId) => (dispatch, getState) => {
+export const submitProposal = content => (dispatch, getState) => {
   const { isLoggedIn } = getState().authentification;
+  const { operationId } = getState().appConfig;
   if (!isLoggedIn) {
     dispatch(proposeRequest(content, operationId));
     return Promise.resolve();
