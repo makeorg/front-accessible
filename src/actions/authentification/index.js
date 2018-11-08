@@ -15,20 +15,17 @@ export const loginSocialSuccess = token => ({ type: actionTypes.LOGIN_SOCIAL_SUC
 export const getUserInfo = user => ({ type: actionTypes.GET_INFO, user });
 export const logout = () => ({ type: actionTypes.LOGOUT });
 
-export const login = (email, password, afterRegistration = false) => (dispatch, getState) => {
-  const { content, operationId } = getState().proposal;
+export const login = (email, password) => (dispatch, getState) => {
+  const { content, canSubmit, operationId } = getState().proposal;
 
   dispatch(loginRequest());
   return UserService.login(email, password)
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       dispatch(loginSuccess(token));
-      dispatch(submitProposal(content, operationId));
+      if (canSubmit) dispatch(submitProposal(content, operationId));
 
-      // Dont track signin after a registration
-      if (!afterRegistration) {
-        Tracking.trackLoginEmailSuccess();
-      }
+      Tracking.trackLoginEmailSuccess();
 
       return UserService.me();
     })
@@ -44,15 +41,16 @@ export const login = (email, password, afterRegistration = false) => (dispatch, 
 };
 
 export const loginSocial = (provider, token) => (dispatch, getState) => {
-  const { content, operationId } = getState().proposal;
+  const { content, canSubmit, operationId } = getState().proposal;
 
   dispatch(loginSocialRequest(provider));
   return UserService.loginSocial(provider, token)
     .then((accessToken) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(accessToken));
       dispatch(loginSocialSuccess(accessToken));
-      dispatch(submitProposal(content, operationId));
       Tracking.trackAuthentificationSocialSuccess(provider);
+
+      if (canSubmit) dispatch(submitProposal(content, operationId));
 
       return UserService.me();
     })

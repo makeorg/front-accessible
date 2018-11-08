@@ -47,10 +47,12 @@ describe('Registration Actions', () => {
   });
 
   it('creates an action to register when success', () => {
-    const proposalContent = 'foo';
-    const operationId = 'bar';
-    const store = mockStore({ proposal: {content: proposalContent, operationId }});
+    const store = mockStore({
+      proposal: {canSubmit: false},
+      authentification: {isLoggedIn: false }
+    });
 
+    const token = {foo: 'bar'};
     const user = {
       email: 'foo@example.com',
       password: 'baz'
@@ -59,12 +61,14 @@ describe('Registration Actions', () => {
      fetchMock
        .post('path:/user',  user)
        .post('path:/tracking/front', 204)
-       .post('path:/oauth/make_access_token', 401);
+       .post('path:/oauth/make_access_token', token)
+       .get('path:/user/me', user)
+    ;
 
     const expectedActions = [
       { type: actionTypes.REGISTER_REQUEST },
       { type: actionTypes.REGISTER_SUCCESS, user },
-      { type: actionTypes.LOGIN_REQUEST },
+      { type: actionTypes.LOGIN_SUCCESS, token },
       { type: actionTypes.PANNEL_CLOSE },
       { type: actionTypes.FORGOT_PASSWORD_INIT }
     ];

@@ -41,7 +41,7 @@ export default class UserService {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: Object.keys(data)
-        .map(key => `${encodeURIComponent(key)} = ${encodeURIComponent(data[key])}`)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
         .join('&')
     });
   }

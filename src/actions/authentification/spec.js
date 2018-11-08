@@ -62,14 +62,12 @@ describe('Authentification Actions', () => {
 
       fetchMock
         .post('path:/oauth/make_access_token', token)
-        .post('path:/proposals', proposalIdResponse)
         .post('path:/tracking/front', 204)
         .get('path:/user/me', user);
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS, token },
-        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.PANNEL_CLOSE },
         { type: actionTypes.FORGOT_PASSWORD_INIT }
@@ -131,10 +129,8 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login social when success', () => {
-      const proposalContent = 'foo';
-      const operationId = 'bar';
       const store = mockStore({
-        proposal: { content: proposalContent, operationId },
+        proposal: { canSubmit: false },
         authentification: { isLoggedIn: false }
       });
       const token = { foo: 'bar' };
@@ -149,7 +145,6 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: fooProvider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS, token },
-        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.PANNEL_CLOSE },
         { type: actionTypes.FORGOT_PASSWORD_INIT }
