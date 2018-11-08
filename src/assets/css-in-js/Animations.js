@@ -8,7 +8,7 @@ const AnimationsStylesheet = createGlobalStyle`
     transform: translate(50%,-100%);
   }
   .collapsed-sequence {
-    transform: translateY(80%);
+    transform: translateY(90%);
   }
   .expanded-sequence {
     transform: translateY(0);
