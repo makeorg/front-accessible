@@ -105,6 +105,7 @@ export class ProposalSubmit extends React.Component {
     const { isTyping } = this.state;
     const isDescriptionShown = isTyping && !isSubmitSuccess && isSequenceCollapsed;
     const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
+    const isSuccessShown = !isTyping && isSubmitSuccess && isSequenceCollapsed;
     return (
       <ProposalSubmitWrapper>
         <ProposalSubmitFormComponent
@@ -125,7 +126,7 @@ export class ProposalSubmit extends React.Component {
             trackModerationLink={this.trackModerationLink}
           />
         ) : null}
-        {(isSubmitSuccess) ? (
+        {(isSuccessShown) ? (
           <ProposalSubmitSuccessComponent
             key="ProposalSubmitSuccessComponent"
           />
