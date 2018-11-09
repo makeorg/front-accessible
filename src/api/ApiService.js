@@ -6,14 +6,35 @@ const API_URL = (
   && window.API_URL !== '__API_URL__'
 ) ? window.API_URL : 'https://api.preprod.makeorg.tech';
 
-let instance = null;
+/**
+ * fetch with retry and timeout function
+ * @param  {String} url
+ * @param  {Object} options
+ * @param  {Number} retry
+ * @param  {Number} timeout
+ *
+ * @return Promise
+ */
+
+const fetchRetry = (url, options = {}, retry = 5, timeout = 9000) => (
+  new Promise((resolve, reject) => {
+    fetch(url, options).then(resolve)
+      .catch((error) => {
+        if (retry === 1) return reject(error);
+        return resolve(fetchRetry(url, options, retry - 1));
+      });
+
+    setTimeout(() => reject(new TypeError('Client timed out')), timeout);
+  })
+);
+
 
 /**
  * handle error for http response
  * @param  {Object} response
- * @return {String}
+ * @return {String|Object}
  */
-function handleErrors(response) {
+const handleErrors = (response) => {
   if (!response.ok) {
     switch (response.status) {
       case 400:
@@ -32,7 +53,9 @@ function handleErrors(response) {
 
     return {};
   });
-}
+};
+
+let instance = null;
 
 class ApiService {
   constructor() {
@@ -107,7 +130,7 @@ class ApiService {
       });
     }
 
-    return fetch(`${API_URL}${url}`, {
+    return fetchRetry(`${API_URL}${url}`, {
       method: options.method,
       headers,
       body: options.body,

@@ -13,7 +13,9 @@ import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
-  InputError
+  InputError,
+  FormErrors,
+  FormError
 } from '../../Elements/Form';
 import { fieldErrors } from '../../../helpers/form';
 import UntypedInput from '../../Elements/Form/UntypedInput';
@@ -34,9 +36,17 @@ class RegisterFormComponent extends React.Component {
     const emailError = fieldErrors('email', errors);
     const passwordError = fieldErrors('password', errors);
     const firstnameError = fieldErrors('firstname', errors);
+    const globalError = fieldErrors('global', errors);
 
     return (
       <Form id="register" onSubmit={handleSubmit}>
+        {globalError
+          && (
+            <FormErrors>
+              <FormError key={globalError}>{globalError}</FormError>
+            </FormErrors>
+          )
+        }
         <UntypedInput
           type="email"
           name="email"

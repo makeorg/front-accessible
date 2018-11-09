@@ -10,7 +10,8 @@
       "postalcode_label": "Code postal",
       "profession_label": "Profession",
       "email is not a valid email": "Format d'email non reconnu",
-      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères."
+      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
+      "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement."
     },
     "from": "sur",
     "i_connect": "Je me connecte",

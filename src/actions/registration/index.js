@@ -32,7 +32,9 @@ export const register = user => (dispatch, getState) => {
         })
     ))
     .catch((errors) => {
-      dispatch(registerFailure(errors));
+      dispatch(
+        registerFailure(Array.isArray(errors) ? errors : [{ field: 'global', message: 'api_error' }])
+      );
       Tracking.trackSignupEmailFailure();
     });
 };
