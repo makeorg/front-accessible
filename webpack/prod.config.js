@@ -42,7 +42,8 @@ module.exports = merge(baseConfig, {
           test: /node_modules/
         }
       }
-    }
+    },
+    concatenateModules: true
   },
   plugins: [
     new webpack.DefinePlugin({
