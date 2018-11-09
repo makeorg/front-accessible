@@ -35,13 +35,36 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader']
       }, {
-        test: /\.(jpg|png|svg|ttf|eot|woff|woff2)$/,
+        test: /\.(ttf|eot|woff|woff2)$/,
         use: {
           loader: 'file-loader',
           options: {
             name: 'assets/[name].[hash].[ext]'
           }
         }
+      }, {
+        test: /\.(jpe?g|png|gif)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10 * 1024,
+            name: 'assets/[name].[hash].[ext]'
+          }
+        }
+      }, {
+        test: /\.svg$/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {
+            limit: 10 * 1024,
+            noquotes: true,
+            name: 'assets/[name].[hash].[ext]'
+          }
+        }
+      }, {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: 'image-webpack-loader',
+        enforce: 'pre'
       }
     ]
   },
