@@ -45,15 +45,12 @@ export class ProposalSubmit extends React.Component {
       isTyping: true
     });
 
-    const { handleCollapseSequence } = this.props;
-    handleCollapseSequence();
+    const { handleCollapseSequence, isSequenceCollapsed } = this.props;
+    if (!isSequenceCollapsed) handleCollapseSequence();
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      isTyping: false
-    });
 
     Tracking.trackClickProposalSubmit();
 
@@ -65,9 +62,23 @@ export class ProposalSubmit extends React.Component {
     } = this.props;
 
     if (isLoggedIn) {
-      handleSubmitProposal(content);
+      handleSubmitProposal(content).then(() => {
+        this.setState({
+          isTyping: false
+        });
+      });
     } else {
-      handleGetUserToken();
+      handleGetUserToken()
+        .then(() => {
+          this.setState({
+            isTyping: false
+          });
+        })
+        .catch(() => {
+          this.setState({
+            isTyping: false
+          });
+        });
     }
   }
 
@@ -152,18 +163,18 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleCollapseSequence: () => {
-    dispatch(sequenceCollapse());
-  },
-  handleTypingProposal: (content, length, canSubmit) => {
-    dispatch(typingProposal(content, length, canSubmit));
-  },
-  handleSubmitProposal: (content, operationId) => {
-    dispatch(submitProposal(content, operationId));
-  },
-  handleGetUserToken: () => {
-    dispatch(getToken());
-  }
+  handleCollapseSequence: () => (
+    dispatch(sequenceCollapse())
+  ),
+  handleTypingProposal: (content, length, canSubmit) => (
+    dispatch(typingProposal(content, length, canSubmit))
+  ),
+  handleSubmitProposal: (content, operationId) => (
+    dispatch(submitProposal(content, operationId))
+  ),
+  handleGetUserToken: () => (
+    dispatch(getToken())
+  )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProposalSubmit);
