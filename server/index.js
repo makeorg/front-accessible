@@ -24,12 +24,12 @@ app.get('/', reactRender);
 
 // Static files
 app.use(express.static(BUILD_DIR, {
-  maxAge: '1d',
+  maxAge: '1y',
   setHeaders: setCustomCacheControl
 }));
 
 app.use(express.static(PUBLIC_DIR, {
-  maxAge: '1d',
+  maxAge: '1y',
   setHeaders: setCustomCacheControl
 }));
 

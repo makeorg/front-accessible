@@ -4,8 +4,8 @@ import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 const initialState = {
   isTyping: false,
   canSubmit: false,
-  needAuthentification: false,
-  content: null,
+  isSubmitSuccess: false,
+  content: '',
   length: PROPOSAL_BAIT_TEXT.length,
   operationId: null,
   error: null
@@ -17,6 +17,7 @@ export default function proposal(state = initialState, action) {
       return {
         ...state,
         isTyping: true,
+        isSubmitSuccess: false,
         content: action.content,
         length: action.length,
         canSubmit: action.canSubmit
@@ -25,13 +26,13 @@ export default function proposal(state = initialState, action) {
       return {
         ...state,
         isTyping: false,
-        operationId: action.operationId,
-        needAuthentification: true
+        operationId: action.operationId
       };
     case actionTypes.PROPOSE_SUCCESS:
       return {
         ...state,
-        ...initialState
+        ...initialState,
+        isSubmitSuccess: true
       };
     case actionTypes.PROPOSE_FAILURE:
       return {

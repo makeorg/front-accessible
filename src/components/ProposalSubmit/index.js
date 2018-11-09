@@ -12,6 +12,7 @@ import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 class ProposalSubmitFormComponent extends React.Component {
   render() {
     const {
+      content,
       length,
       canSubmit,
       handleChange,
@@ -33,6 +34,7 @@ class ProposalSubmitFormComponent extends React.Component {
           type="text"
           name="proposal"
           id="proposal"
+          value={content}
           onChange={handleChange}
           onFocus={handleFocus}
           tabIndex={isPannelOpen ? -1 : 0}

@@ -4,13 +4,13 @@ import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitWrapper from './Styled';
 
 describe('ProposalSubmitFormComponent', () => {
-  const props = {
-    canSubmit: true,
-    length: 15,
-    handleChange: () => {}
-  };
 
   it('Renders and Props', () => {
+    const props = {
+      canSubmit: true,
+      length: 15,
+      handleChange: () => {}
+    };
     const wrapper = shallow(<ProposalSubmitFormComponent {...props} />);
 
     expect(wrapper.find(ProposalSubmitWrapper)).to.have.length(1);

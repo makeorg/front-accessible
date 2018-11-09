@@ -3,6 +3,7 @@ import { getDateOfBirthFromAge } from '../helpers/date';
 
 const PATH_USER_ME = '/user/me';
 const PATH_USER_LOGIN = '/oauth/make_access_token';
+const PATH_USER_GET_TOKEN = '/oauth/access_token';
 const PATH_USER_LOGOUT = '/logout';
 const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
 const PATH_USER_REGISTER = '/user';
@@ -18,6 +19,16 @@ export default class UserService {
    */
   static me() {
     return ApiService.callApi(PATH_USER_ME, {
+      method: 'GET'
+    });
+  }
+
+  /**
+   * Get user token
+   * @return {Promise}
+   */
+  static getUserToken() {
+    return ApiService.callApi(PATH_USER_GET_TOKEN, {
       method: 'GET'
     });
   }

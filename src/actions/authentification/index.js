@@ -12,27 +12,54 @@ export const loginSuccess = token => ({ type: actionTypes.LOGIN_SUCCESS, token }
 export const loginSocialRequest = provider => ({ type: actionTypes.LOGIN_SOCIAL_REQUEST, provider });
 export const loginSocialFailure = () => ({ type: actionTypes.LOGIN_SOCIAL_FAILURE });
 export const loginSocialSuccess = token => ({ type: actionTypes.LOGIN_SOCIAL_SUCCESS, token });
-export const getUserInfo = user => ({ type: actionTypes.GET_INFO, user });
+export const setUserInfo = user => ({ type: actionTypes.GET_INFO, user });
+export const setUserToken = token => ({ type: actionTypes.GET_TOKEN, token });
 export const logout = () => ({ type: actionTypes.LOGOUT });
 
+export const getUser = () => (dispatch, getState) => {
+  const { isPannelOpen } = getState().pannel;
+  return UserService.me()
+    .then((user) => {
+      localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
+      dispatch(setUserInfo(user));
+      if (isPannelOpen) {
+        dispatch(pannelClose());
+      }
+
+      Promise.resolve();
+    });
+};
+
+export const getToken = () => (dispatch, getState) => {
+  const { content } = getState().proposal;
+  const { operationId } = getState().appConfig;
+
+  return UserService.getUserToken()
+    .then((token) => {
+      localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
+      dispatch(setUserToken(token));
+      return dispatch(getUser()).then(() => dispatch(submitProposal(content, operationId)));
+    });
+};
+
 export const login = (email, password) => (dispatch, getState) => {
-  const { content, canSubmit, operationId } = getState().proposal;
+  const { canSubmit } = getState().proposal;
 
   dispatch(loginRequest());
   return UserService.login(email, password)
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       dispatch(loginSuccess(token));
-      if (canSubmit) dispatch(submitProposal(content, operationId));
-
       Tracking.trackLoginEmailSuccess();
 
-      return UserService.me();
-    })
-    .then((user) => {
-      localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
-      dispatch(getUserInfo(user));
-      dispatch(pannelClose());
+      return dispatch(getUser()).then(() => {
+        if (canSubmit) {
+          const { content } = getState().proposal;
+          const { operationId } = getState().appConfig;
+
+          dispatch(submitProposal(content, operationId));
+        }
+      });
     })
     .catch(() => {
       dispatch(loginFailure(i18next.t('login.email_doesnot_exist')));
@@ -40,24 +67,23 @@ export const login = (email, password) => (dispatch, getState) => {
     });
 };
 
-export const loginSocial = (provider, token) => (dispatch, getState) => {
-  const { content, canSubmit, operationId } = getState().proposal;
+export const loginSocial = (provider, socialToken) => (dispatch, getState) => {
+  const { canSubmit } = getState().proposal;
 
   dispatch(loginSocialRequest(provider));
-  return UserService.loginSocial(provider, token)
-    .then((accessToken) => {
-      localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(accessToken));
-      dispatch(loginSocialSuccess(accessToken));
+  return UserService.loginSocial(provider, socialToken)
+    .then((token) => {
+      dispatch(loginSocialSuccess(token));
+      localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       Tracking.trackAuthentificationSocialSuccess(provider);
 
-      if (canSubmit) dispatch(submitProposal(content, operationId));
-
-      return UserService.me();
-    })
-    .then((user) => {
-      localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
-      dispatch(getUserInfo(user));
-      dispatch(pannelClose());
+      return dispatch(getUser()).then(() => {
+        if (canSubmit) {
+          const { content } = getState().proposal;
+          const { operationId } = getState().appConfig;
+          dispatch(submitProposal(content, operationId));
+        }
+      });
     })
     .catch(() => {
       dispatch(loginSocialFailure());

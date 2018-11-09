@@ -126,7 +126,7 @@ describe('Authentification reducer', () => {
         firstname: 'foo',
         lastname: 'bar'
       }
-      const action = actionCreators.getUserInfo(user);
+      const action = actionCreators.setUserInfo(user);
       const previousState = {
         isLoggedIn: false,
         errors: ['bazError', 'barError'],
@@ -135,10 +135,34 @@ describe('Authentification reducer', () => {
       };
 
       const expectedState = {
-        isLoggedIn: false,
+        isLoggedIn: true,
         errors: ['bazError', 'barError'],
         user: user,
         token: null
+      };
+
+      expect(authentification(previousState, action)).to.eql(expectedState);
+    });
+  });
+
+  describe('Get token info action reducers', () => {
+    it('Get token Info', () => {
+      const token = {
+        foo: 'bar'
+      }
+      const action = actionCreators.setUserToken(token);
+      const previousState = {
+        isLoggedIn: false,
+        errors: ['bazError', 'barError'],
+        user: null,
+        token: null
+      };
+
+      const expectedState = {
+        isLoggedIn: true,
+        errors: ['bazError', 'barError'],
+        token,
+        user: null
       };
 
       expect(authentification(previousState, action)).to.eql(expectedState);

@@ -7,6 +7,7 @@ import ProposalSubmitSuccessComponent from '../../components/ProposalSubmit/Succ
 import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
 import { typingProposal, submitProposal } from '../../actions/proposal';
 import { sequenceCollapse } from '../../actions/sequence';
+import { getToken } from '../../actions/authentification';
 import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
 import Tracking from '../../services/Tracking';
 
@@ -50,16 +51,24 @@ export class ProposalSubmit extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     this.setState({
       isTyping: false
     });
 
-    const { handleSubmitProposal, operationId, content } = this.props;
-
-    handleSubmitProposal(content, operationId);
-
     Tracking.trackClickProposalSubmit();
+
+    const {
+      content,
+      isLoggedIn,
+      handleSubmitProposal,
+      handleGetUserToken
+    } = this.props;
+
+    if (isLoggedIn) {
+      handleSubmitProposal(content);
+    } else {
+      handleGetUserToken();
+    }
   }
 
   trackModerationText() {
@@ -77,12 +86,14 @@ export class ProposalSubmit extends React.Component {
       content,
       length,
       canSubmit,
-      needAuthentification,
+      isSubmitSuccess,
+      isLoggedIn,
       isSequenceCollapsed,
       isPannelOpen
     } = this.props;
     const { isTyping } = this.state;
-
+    const isDescriptionShown = isTyping && !isSubmitSuccess && isSequenceCollapsed;
+    const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
     return (
       <ProposalSubmitWrapper>
         <ProposalSubmitFormComponent
@@ -95,7 +106,7 @@ export class ProposalSubmit extends React.Component {
           handleFocus={this.handleFocus}
           isPannelOpen={isPannelOpen}
         />
-        {(isTyping && !needAuthentification && isSequenceCollapsed) ? (
+        {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
             isPannelOpen={isPannelOpen}
@@ -103,14 +114,14 @@ export class ProposalSubmit extends React.Component {
             trackModerationLink={this.trackModerationLink}
           />
         ) : null}
-        {(needAuthentification && isSequenceCollapsed) ? (
-          <ProposalSubmitAuthentificationContainer
-            key="ProposalSubmitAuthentificationContainer"
-          />
-        ) : null}
-        {(isSequenceCollapsed && !isTyping && !needAuthentification) ? (
+        {(isSubmitSuccess) ? (
           <ProposalSubmitSuccessComponent
             key="ProposalSubmitSuccessComponent"
+          />
+        ) : null}
+        {isAuthentificationShown ? (
+          <ProposalSubmitAuthentificationContainer
+            key="ProposalSubmitAuthentificationContainer"
           />
         ) : null}
       </ProposalSubmitWrapper>
@@ -119,24 +130,24 @@ export class ProposalSubmit extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { operationId } = state.appConfig;
+  const { isLoggedIn } = state.authentification;
   const { isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
   const {
     content,
     length,
     canSubmit,
-    needAuthentification
+    isSubmitSuccess
   } = state.proposal;
 
   return {
-    operationId,
+    isLoggedIn,
+    isSequenceCollapsed,
+    isPannelOpen,
     content,
     length,
     canSubmit,
-    needAuthentification,
-    isSequenceCollapsed,
-    isPannelOpen
+    isSubmitSuccess
   };
 };
 
@@ -149,6 +160,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleSubmitProposal: (content, operationId) => {
     dispatch(submitProposal(content, operationId));
+  },
+  handleGetUserToken: () => {
+    dispatch(getToken());
   }
 });
 
