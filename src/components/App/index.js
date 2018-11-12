@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
-import FontFacesStylesheet from '../../assets/css-in-js/FontFaces';
+import FontLoaderContainer from '../../containers/Elements/FontLoader';
 import DefaultStylesheet from '../../assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from '../../assets/css-in-js/Animations';
 import { AppWrapper, MainContent } from '../Elements/MainElements';
@@ -18,7 +18,7 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <AppWrapper>
           <ModernNormalizeStylesheet />
-          <FontFacesStylesheet />
+          <FontLoaderContainer />
           <DefaultStylesheet />
           <AnimationsStylesheet />
           <MainHeaderContainer />
