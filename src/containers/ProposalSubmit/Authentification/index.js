@@ -42,7 +42,6 @@ export class ProposalSubmitAuthentification extends React.Component {
         trackPersonnalDataLink={this.trackPersonnalDataLink}
         handleRegisterClick={handleRegisterClick}
         handleLoginClick={handleLoginClick}
-
       />
     );
   }

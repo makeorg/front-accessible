@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/App';
 import configureStore from './store';
 import './i18n';
@@ -19,10 +21,13 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 }
 
 const store = configureStore(initialState);
+export const history = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('app'),
 );
