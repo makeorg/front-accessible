@@ -12,7 +12,7 @@ const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
 module.exports = function reactRender(req, res) {
-  const { apiUrl } = configuration;
+  const { apiUrl, frontUrl } = configuration;
   const initialState = {
     appConfig: {
       operationId: req.query.operationId || 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
@@ -43,7 +43,8 @@ module.exports = function reactRender(req, res) {
       .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
       .replace('</head>', `${styles}</head>`)
       .replace('"__REDUX__"', JSON.stringify(initialState))
-      .replace('__API_URL__', apiUrl);
+      .replace('__API_URL__', apiUrl)
+      .replace('__FRONT_URL__', frontUrl);
 
     return res.send(RenderedApp);
   });
