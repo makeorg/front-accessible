@@ -31,34 +31,36 @@ class SequenceComponent extends React.Component {
           isSequenceCollapsed={isSequenceCollapsed}
           isPannelOpen={isPannelOpen}
         />
-        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'}>
-          <IntroCardComponent
-            index={0}
-            currentIndex={currentIndex}
-            isSequenceCollapsed={isSequenceCollapsed}
-            isPannelOpen={isPannelOpen}
-            handleStartSequence={handleStartSequence}
-          />
-          {proposals.map((proposal, key) => (
-            <ProposalCardContainer
-              key={proposal.id}
-              proposal={proposal}
-              index={key + 1}
+        <Sequence.Wrapper>
+          <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'}>
+            <IntroCardComponent
+              index={0}
               currentIndex={currentIndex}
-              totalIndex={count}
               isSequenceCollapsed={isSequenceCollapsed}
               isPannelOpen={isPannelOpen}
-              goToNextCard={goToNextCard}
-              goToPreviousCard={goToPreviousCard}
+              handleStartSequence={handleStartSequence}
             />
-          ))}
-          <FinalCardContainer
-            index={finalCardIndex}
-            currentIndex={currentIndex}
-            goToPreviousCard={goToPreviousCard}
-            handleEndSequence={handleEndSequence}
-          />
-        </Sequence.List>
+            {proposals.map((proposal, key) => (
+              <ProposalCardContainer
+                key={proposal.id}
+                proposal={proposal}
+                index={key + 1}
+                currentIndex={currentIndex}
+                totalIndex={count}
+                isSequenceCollapsed={isSequenceCollapsed}
+                isPannelOpen={isPannelOpen}
+                goToNextCard={goToNextCard}
+                goToPreviousCard={goToPreviousCard}
+              />
+            ))}
+            <FinalCardContainer
+              index={finalCardIndex}
+              currentIndex={currentIndex}
+              goToPreviousCard={goToPreviousCard}
+              handleEndSequence={handleEndSequence}
+            />
+          </Sequence.List>
+        </Sequence.Wrapper>
       </Sequence>
     );
   }

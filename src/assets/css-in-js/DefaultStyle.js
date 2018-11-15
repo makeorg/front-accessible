@@ -16,7 +16,7 @@ const DefaultStylesheet = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: ${MakeFonts.TradeGothic};
+    font-family: ${MakeFonts.TradeGothic}, Arial;
     text-transform: uppercase;
     font-weight: normal;
     font-style: normal;
@@ -27,7 +27,7 @@ const DefaultStylesheet = createGlobalStyle`
   }
 
   a {
-    font-family: ${MakeFonts.CircularBold};
+    font-family: ${MakeFonts.CircularBold}, Arial;
     color: ${BasicColors.PureBlack};
     text-decoration: underline;
   }
@@ -45,7 +45,7 @@ const DefaultStylesheet = createGlobalStyle`
   }
 
   label {
-    font-family: ${MakeFonts.CircularBold};
+    font-family: ${MakeFonts.CircularBold}, Arial;
     color: ${BasicColors.PureBlack};
   }
 

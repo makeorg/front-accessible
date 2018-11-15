@@ -5,12 +5,24 @@ import { BackgroundColors } from '../../assets/vars/Colors';
 import Breakpoints from '../../assets/vars/Breakpoints';
 
 export const AppWrapper = styled(SpaceBetweenColumn)`
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   background: ${BackgroundColors.LightGrey};
   background-color: ${BackgroundColors.LightGrey};
 `;
 
 export const MainContent = styled.main`
+  width: 100%;
+  height: calc(100vh - ${pxToRem('134px')});
+  overflow: auto;
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    height: calc(100vh - ${pxToRem('153px')});
+  }
+`;
+
+
+export const InnerContent = styled.div`
   position: relative;
   z-index: 0;
   display: flex;
@@ -18,13 +30,9 @@ export const MainContent = styled.main`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100vh - ${pxToRem('134px')});
+  height: 100%;
   min-height: ${pxToRem('615px')};
-  padding: ${pxToRem('20px')} ${pxToRem('20px')} 0;
-  overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    padding: ${pxToRem('40px')} ${pxToRem('20px')} 0;
-    height: calc(100vh - ${pxToRem('153px')});
     min-height: ${pxToRem('725px')};
   }
 `;
@@ -34,4 +42,5 @@ export const ProposalSubmitWrapper = styled.aside`
   flex-flow: column;
   align-items: center;
   width: 100%;
+  padding: 0 ${pxToRem('20px')};
 `;

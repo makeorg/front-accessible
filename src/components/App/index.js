@@ -1,37 +1,36 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
-import FontFacesStylesheet from '../../assets/css-in-js/FontFaces';
+import FontLoaderContainer from '../../containers/Elements/FontLoader';
 import DefaultStylesheet from '../../assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from '../../assets/css-in-js/Animations';
-import { AppWrapper, MainContent } from '../Elements/MainElements';
+import { AppWrapper, MainContent, InnerContent } from '../Elements/MainElements';
 import MainHeaderContainer from '../../containers/MainHeader';
 import MainFooterContainer from '../../containers/MainFooter';
 import ProposalSubmitContainer from '../../containers/ProposalSubmit';
 import PannelContainer from '../../containers/Pannel';
 import SequenceContainer from '../../containers/Sequence';
-import theme from '../../assets/vars/theme';
 
-class App extends React.Component {
+class AppComponent extends React.Component {
   render() {
+    const { isSequenceCollapsed } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <AppWrapper>
-          <ModernNormalizeStylesheet />
-          <FontFacesStylesheet />
-          <DefaultStylesheet />
-          <AnimationsStylesheet />
-          <MainHeaderContainer />
-          <MainContent role="main">
+      <AppWrapper>
+        <ModernNormalizeStylesheet />
+        <FontLoaderContainer />
+        <DefaultStylesheet />
+        <AnimationsStylesheet />
+        <MainHeaderContainer />
+        <MainContent role="main">
+          <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
             <ProposalSubmitContainer />
             <SequenceContainer />
-            <PannelContainer />
-          </MainContent>
-          <MainFooterContainer />
-        </AppWrapper>
-      </ThemeProvider>
+          </InnerContent>
+        </MainContent>
+        <PannelContainer />
+        <MainFooterContainer />
+      </AppWrapper>
     );
   }
 }
 
-export default App;
+export default AppComponent;

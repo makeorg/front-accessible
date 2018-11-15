@@ -22,6 +22,9 @@ const AnimationsStylesheet = createGlobalStyle`
   .unscaled-list {
     transform: scale(1);
   }
+  .locked-content {
+    overflow: hidden !important;
+  }
 `;
 
 export default AnimationsStylesheet;
