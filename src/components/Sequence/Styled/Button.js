@@ -14,13 +14,13 @@ export const BackArrow = styled(UnstyledButton)`
   align-items: center;
   color: ${BasicColors.PureWhite};
   padding: ${pxToRem('20px')};
-  top: ${pxToRem('-85px')};
+  top: ${pxToRem('-65px')};
   left: 50%;
   z-index: 0;
   transform: translate(-50%, 0);
   font-size: ${pxToRem('45px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    top: ${pxToRem('-100px')};
+    top: ${pxToRem('-85px')};
     font-size: ${pxToRem('50px')};
     padding: ${pxToRem('30px')};
   }
@@ -28,7 +28,7 @@ export const BackArrow = styled(UnstyledButton)`
 
 export const BackButton = styled(SmallRedButton)`
   position: absolute;
-  top: ${pxToRem('-17.5px')};
+  top: 0;
   left: 50%;
   z-index: 1;
   transform: translate(-50%, 0);

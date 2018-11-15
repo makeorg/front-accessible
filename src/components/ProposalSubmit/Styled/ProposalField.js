@@ -5,7 +5,7 @@ import { NoStyleTextInput } from '../../Elements/Form';
 import { MiddleRow } from '../../Elements/FlexElements';
 import { SmallGreyButton, SmallRedButton } from '../../Elements/ButtonElements';
 import { MakeFonts } from '../../../assets/vars/Fonts';
-import { TextColors } from '../../../assets/vars/Colors';
+import { TextColors, ShadowColors } from '../../../assets/vars/Colors';
 
 export const Label = styled.label`
   font-size: ${pxToRem('14px')};
@@ -25,7 +25,7 @@ export const Input = styled(NoStyleTextInput)`
   font-family: ${MakeFonts.CircularBold};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('40px')};
-  padding-right: 0;
+  padding: 0;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('50px')};
@@ -44,11 +44,9 @@ export const CharLimit = styled(MiddleRow)`
 `;
 
 export const DisabledProposalButton = styled(SmallGreyButton)`
-  padding: ${pxToRem('9px')} ${pxToRem('20px')} ${pxToRem('7px')};
-  box-shadow: none;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroTwoOpacity};
 `;
 
 export const ProposalButton = styled(SmallRedButton)`
-  padding: ${pxToRem('9px')} ${pxToRem('20px')} ${pxToRem('7px')};
-  box-shadow: none;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;

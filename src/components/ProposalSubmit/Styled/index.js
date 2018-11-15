@@ -22,7 +22,7 @@ const ProposalSubmitForm = styled.form`
   padding: 0 ${pxToRem('8px')};
   border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
   border-radius: ${pxToRem('30px')};
-  margin-bottom: ${pxToRem('30px')};
+  margin: ${pxToRem('30px')} 0;
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){

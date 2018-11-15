@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import App from './components/App';
+import AppContainer from './containers/App';
 import configureStore from './store';
 import './i18n';
 
@@ -26,7 +26,7 @@ export const history = createBrowserHistory();
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <AppContainer />
     </Router>
   </Provider>,
   document.getElementById('app'),

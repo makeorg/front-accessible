@@ -22,8 +22,8 @@ export const IntroProposalCard = styled.li.attrs({
   transform: scaleX(${props => props.scale}) translateY(-${props => props.position}px);
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
   transition: transform 0.75s ease-in;
+  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding: ${pxToRem('30px')};

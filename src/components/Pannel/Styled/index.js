@@ -11,15 +11,16 @@ const Pannel = styled.div`
   left: 50%;
   width: 100%;
   max-width: ${pxToRem(Breakpoints.sequenceWidth)};
-  height: calc( 100% - ${pxToRem('20px')});
-  padding: ${pxToRem('50px')} ${pxToRem('20px')} 0};
+  height: calc( 100% - ${pxToRem('87px')});
+  padding: ${pxToRem('50px')} ${pxToRem('20px')}  ${pxToRem('67px')}};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   transform: translate(-50%, -${props => props.translate}%);
   transition: transform 0.5s linear;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    height: calc( 100% - ${pxToRem('40px')});
+    height: calc( 100% - ${pxToRem('104px')});
+    padding: ${pxToRem('50px')} ${pxToRem('20px')} ${pxToRem('78px')}};
   }
 `;
 
