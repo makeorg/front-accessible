@@ -2,8 +2,7 @@ import React from 'react';
 import i18next from 'i18next';
 import MainFooter from './Styled';
 import { HiddenItem } from '../Elements/HiddenElements';
-
-export const FooterLink = 'https://make.org/FR#/FR/consultation/aines/consultation';
+import { consultationLink } from '../../constants/config';
 
 class MainFooterComponent extends React.Component {
   render() {
@@ -16,7 +15,8 @@ class MainFooterComponent extends React.Component {
             { 'Comment mieux prendre soin de nos aînés ?' }
           </MainFooter.Title>
           <MainFooter.Link
-            href={FooterLink}
+            target="_blank"
+            href={consultationLink}
             onClick={handleTracking}
           >
             {i18next.t('footer.link')}

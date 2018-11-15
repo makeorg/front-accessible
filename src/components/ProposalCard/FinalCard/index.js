@@ -3,6 +3,7 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProposalCard from '../Styled';
+import { consultationLink } from '../../../constants/config';
 
 class FinalCardComponent extends React.Component {
   render() {
@@ -39,7 +40,7 @@ class FinalCardComponent extends React.Component {
         <ProposalCard.FinalLink
           as="a"
           tabIndex={tabIndex}
-          href="#"
+          href={consultationLink}
           target="_blank"
           onClick={handleEndSequence}
         >
