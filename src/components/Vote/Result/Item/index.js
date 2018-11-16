@@ -2,6 +2,7 @@ import React from 'react';
 import i18next from 'i18next';
 import {
   Bar,
+  GraphItem,
   Tooltip,
   DisplayedTooltip,
   HiddenTooltip
@@ -23,7 +24,7 @@ class ResultItemComponent extends React.Component {
       isTooltipDisplayed
     } = this.props;
     return (
-      <li key={listKey}>
+      <GraphItem key={listKey}>
         <Bar
           key={barKey}
           color={voteColor}
@@ -47,7 +48,7 @@ class ResultItemComponent extends React.Component {
           <p>{i18next.t(`vote.${voteKey}`)}</p>
           <p>{`${votePercent} %`}</p>
         </Tooltip>
-      </li>
+      </GraphItem>
     );
   }
 }
