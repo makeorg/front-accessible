@@ -8,8 +8,15 @@ export const Graph = styled(UnstyledList)`
   position: relative;
   display: flex;
   width: 100%;
-  height: ${pxToRem('40px')};
+  height: ${pxToRem('30px')};
   justify-content: center;
+  align-items: flex-end;
+  margin-top: ${pxToRem('10px')};
+`;
+
+export const GraphItem = styled.li`
+  display: flex;
+  height: 100%;
   align-items: flex-end;
 `;
 
