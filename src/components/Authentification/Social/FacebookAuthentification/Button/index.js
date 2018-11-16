@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { IconInButton, FacebookButton } from '../../../../Elements/ButtonElements';
@@ -13,13 +14,17 @@ const renderFacebookLogin = tabIndex => renderProps => (
   </FacebookButton>
 );
 
-class FacebookAuthentificationButtonComponent extends React.Component {
-  render() {
-    const { tabIndex } = this.props;
-    return (
-      <FacebookAuthentificationComponent {...this.props} render={renderFacebookLogin(tabIndex)} />
-    );
-  }
-}
+type Props = {
+  tabIndex: number,
+  handleTracking: Function
+};
+
+
+const FacebookAuthentificationButtonComponent = (props: Props) => {
+  const { tabIndex } = props;
+  return (
+    <FacebookAuthentificationComponent {...props} render={renderFacebookLogin(tabIndex)} />
+  );
+};
 
 export default FacebookAuthentificationButtonComponent;

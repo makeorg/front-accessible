@@ -1,3 +1,5 @@
+/* @flow */
+
 import { createGlobalStyle } from 'styled-components';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';

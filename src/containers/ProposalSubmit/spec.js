@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import { ProposalSubmit } from './index';
 import { ProposalSubmitAuthentification } from './';

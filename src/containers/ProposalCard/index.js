@@ -1,14 +1,21 @@
+/* @flow */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import ProposalCardComponent from '../../components/ProposalCard';
 
-class ProposalCardContainer extends React.Component {
-  render() {
-    return (
-      <ProposalCardComponent {...this.props} />
-    );
-  }
+type Props = {
+  proposal: Object,
+  index: number,
+  currentIndex: number,
+  totalIndex: number,
+  isPannelOpen: boolean,
+  isSequenceCollapsed: boolean,
+  goToPreviousCard: Function,
+  goToNextCard: Function
 }
+
+const ProposalCardContainer = (props: Props) => <ProposalCardComponent {...props} />;
 
 const mapStateToProps = (state) => {
   const { isPannelOpen } = state.pannel;

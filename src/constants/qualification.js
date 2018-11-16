@@ -1,11 +1,10 @@
+// @flow
 import i18next from 'i18next';
 import { VoteColors } from '../assets/vars/Colors';
+import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from './vote';
 
-const VOTE_AGREE_KEY = 'agree';
-const VOTE_DISAGREE_KEY = 'disagree';
-const VOTE_NEUTRAL_KEY = 'neutral';
 
-const qualificationStaticParams = {
+const qualificationStaticParams: Object = {
   [VOTE_AGREE_KEY]: {
     color: VoteColors.Agree,
     labels: {

@@ -1,3 +1,5 @@
+/* @flow */
+
 /** Proposal Action */
 export const PROPOSE_TYPING = 'PROPOSAL_PROPOSE_TYPING';
 export const PROPOSE_REQUEST = 'PROPOSAL_PROPOSE_REQUEST';

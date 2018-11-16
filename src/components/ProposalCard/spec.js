@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProposalCard from './Styled';

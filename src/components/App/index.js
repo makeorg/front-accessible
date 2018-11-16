@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
 import { FontFacesStylesheet } from '../../assets/css-in-js/FontFaces';
@@ -10,27 +12,30 @@ import ProposalSubmitContainer from '../../containers/ProposalSubmit';
 import PannelContainer from '../../containers/Pannel';
 import SequenceContainer from '../../containers/Sequence';
 
-class AppComponent extends React.Component {
-  render() {
-    const { isSequenceCollapsed } = this.props;
-    return (
-      <AppWrapper>
-        <ModernNormalizeStylesheet />
-        <FontFacesStylesheet />
-        <DefaultStylesheet />
-        <AnimationsStylesheet />
-        <MainHeaderContainer />
-        <MainContent role="main">
-          <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
-            <ProposalSubmitContainer />
-            <SequenceContainer />
-          </InnerContent>
-        </MainContent>
-        <PannelContainer />
-        <MainFooterContainer />
-      </AppWrapper>
-    );
-  }
-}
+type Props = {
+  isSequenceCollapsed: boolean
+};
+
+const AppComponent = (props: Props) => {
+  const { isSequenceCollapsed } = props;
+
+  return (
+    <AppWrapper>
+      <ModernNormalizeStylesheet />
+      <FontFacesStylesheet />
+      <DefaultStylesheet />
+      <AnimationsStylesheet />
+      <MainHeaderContainer />
+      <MainContent role="main">
+        <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
+          <ProposalSubmitContainer />
+          <SequenceContainer />
+        </InnerContent>
+      </MainContent>
+      <PannelContainer />
+      <MainFooterContainer />
+    </AppWrapper>
+  );
+};
 
 export default AppComponent;

@@ -1,4 +1,6 @@
-import React from 'react';
+/* @flow */
+
+import * as React from 'react';
 import { connect } from 'react-redux';
 import LoginContainer from '../Login';
 import RegisterContainer from '../Register';
@@ -13,19 +15,23 @@ const pannelContents = {
   [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <ForgotPasswordContainer />
 };
 
-class PannelContainer extends React.Component {
-  render() {
-    const { handleClose, isPannelOpen, contentType } = this.props;
-    return (
-      <PannelComponent
-        isPannelOpen={isPannelOpen}
-        handleClose={handleClose}
-      >
-        {pannelContents[contentType]}
-      </PannelComponent>
-    );
-  }
-}
+type Props = {
+  isPannelOpen: boolean,
+  contentType: string,
+  handleClose: Function
+};
+
+const PannelContainer = (props: Props) => {
+  const { handleClose, isPannelOpen, contentType } = props;
+  return (
+    <PannelComponent
+      isPannelOpen={isPannelOpen}
+      handleClose={handleClose}
+    >
+      {pannelContents[contentType]}
+    </PannelComponent>
+  );
+};
 
 
 const mapStateToProps = (state) => {

@@ -1,3 +1,5 @@
+/* @flow */
+
 import ApiService from '../api/ApiService';
 import * as trackingConstants from '../constants/tracking';
 
@@ -11,7 +13,7 @@ const PATH_POST_TRACKING = '/tracking/front';
 
 let instance = null;
 
-const track = (eventName, parameters = {}) => {
+const track = (eventName: string, parameters: Object = {}) => {
   const eventParameters = Object.assign({}, {
     location: 'front-accessible',
     source: ApiService.source,
@@ -40,180 +42,180 @@ class Tracking {
   }
 
   /* Header Tracking */
-  trackClickMakeLogo() {
+  trackClickMakeLogo = () => {
     track(trackingConstants.CLICK_MAKEORG_LOGO);
     return this;
   }
 
   /* Moderation Text Tracking */
-  trackDisplayModerationText() {
+  trackDisplayModerationText = () => {
     track(trackingConstants.DISPLAY_MODERATION_TEXT);
     return this;
   }
 
-  trackClickModerationLink() {
+  trackClickModerationLink = () => {
     track(trackingConstants.CLICK_MODERATION_LINK);
     return this;
   }
 
   /* Proposal Submit */
-  trackClickProposalSubmit() {
+  trackClickProposalSubmit = () => {
     track(trackingConstants.CLICK_PROPOSAL_SUBMIT_BUTTON);
     return this;
   }
 
-  trackDisplayProposalSubmitAuthentification() {
+  trackDisplayProposalSubmitAuthentification = () => {
     track(trackingConstants.DISPLAY_PROPOSAL_SUBMIT_AUTHENTIFICATION);
     return this;
   }
 
   /* Pannel */
-  trackDisplayLoginPannel() {
+  trackDisplayLoginPannel = () => {
     track(trackingConstants.DISPLAY_LOGIN_PANNEL);
     return this;
   }
 
-  trackDisplaySignupPannel() {
-    track(trackingConstants.DISPLAY_SIGNUP_PANNEL);
-    return this;
-  }
-
-  trackDisplayForgotPasswordPannel() {
+  trackDisplayForgotPasswordPannel = () => {
     track(trackingConstants.DISPLAY_FORGOTPASSWORD_PANNEL);
     return this;
   }
 
-  trackClickClosePannel() {
+  trackClickClosePannel = () => {
     track(trackingConstants.CLICK_CLOSE_PANNEL);
     return this;
   }
 
   /* Sign Up Pannel */
-  trackFacebookSignUpButton() {
+  trackDisplaySignupPannel = () => {
+    track(trackingConstants.DISPLAY_SIGNUP_PANNEL);
+    return this;
+  }
+
+  trackFacebookSignUpButton = () => {
     track(trackingConstants.CLICK_FACEBOOK_SIGNUP_BUTTON);
     return this;
   }
 
-  trackGoogleSignUpButton() {
+  trackGoogleSignUpButton = () => {
     track(trackingConstants.CLICK_GOOGLE_SIGNUP_BUTTON);
     return this;
   }
 
-  trackFacebookSignUpLink() {
+  trackFacebookSignUpLink = () => {
     track(trackingConstants.CLICK_FACEBOOK_SIGNUP_LINK);
     return this;
   }
 
-  trackGoogleSignUpLink() {
+  trackGoogleSignUpLink = () => {
     track(trackingConstants.CLICK_GOOGLE_SIGNUP_LINK);
     return this;
   }
 
-  trackEmailSignUp() {
+  trackEmailSignUp = () => {
     track(trackingConstants.CLICK_EMAIL_SIGNUP_BUTTON);
     return this;
   }
 
-  trackClickPersonnalDataLink() {
+  trackClickPersonnalDataLink = () => {
     track(trackingConstants.CLICK_PERSONNAL_DATA_LINK);
     return this;
   }
 
-  trackClickFormRegister() {
+  trackClickFormRegister = () => {
     track(trackingConstants.CLICK_FORM_REGISTER_SUBMIT_BUTTON);
     return this;
   }
 
-  trackSignupEmailSuccess() {
+  trackSignupEmailSuccess = () => {
     track(trackingConstants.SIGN_UP_EMAIL_SUCCESS);
     return this;
   }
 
-  trackSignupEmailFailure() {
+  trackSignupEmailFailure = () => {
     track(trackingConstants.SIGN_UP_EMAIL_FAILURE);
     return this;
   }
 
   /* Login */
-  trackFacebookLogin() {
+  trackFacebookLogin = () => {
     track(trackingConstants.CLICK_FACEBOOK_LOGIN_BUTTON);
     return this;
   }
 
-  trackGoogleLogin() {
+  trackGoogleLogin = () => {
     track(trackingConstants.CLICK_GOOGLE_LOGIN_BUTTON);
     return this;
   }
 
-  trackClickFormLogin() {
+  trackClickFormLogin = () => {
     track(trackingConstants.CLICK_FORM_LOGIN_SUBMIT_BUTTON);
     return this;
   }
 
-  trackAuthentificationSocialSuccess(socialNetwork) {
+  trackAuthentificationSocialSuccess = (socialNetwork: string) => {
     track(trackingConstants.AUTHENTIFICATION_SOCIAL_SUCCESS, { 'social-network': socialNetwork });
     return this;
   }
 
-  trackAuthentificationSocialFailure(socialNetwork) {
+  trackAuthentificationSocialFailure = (socialNetwork: string) => {
     track(trackingConstants.AUTHENTIFICATION_SOCIAL_FAILURE, { 'social-network': socialNetwork });
     return this;
   }
 
-  trackLoginEmailSuccess() {
+  trackLoginEmailSuccess = () => {
     track(trackingConstants.LOGIN_EMAIL_SUCCESS);
     return this;
   }
 
-  trackLoginEmailFailure() {
+  trackLoginEmailFailure = () => {
     track(trackingConstants.LOGIN_EMAIL_FAILURE);
     return this;
   }
 
   /* Form */
-  trackDisplayPassword() {
+  trackDisplayPassword = () => {
     track(trackingConstants.CLICK_DISPLAY_PASSWORD);
     return this;
   }
 
-  trackHidePassword() {
+  trackHidePassword = () => {
     track(trackingConstants.CLICK_HIDE_PASSWORD);
     return this;
   }
 
   /* Sequence */
-  trackExpandSequence() {
+  trackExpandSequence = () => {
     track(trackingConstants.CLICK_EXPAND_SEQUENCE);
     return this;
   }
 
-  trackClickStartSequence() {
+  trackClickStartSequence = () => {
     track(trackingConstants.CLICK_START_SEQUENCE);
     return this;
   }
 
-  trackClickEndSequence() {
+  trackClickEndSequence = () => {
     track(trackingConstants.CLICK_END_SEQUENCE);
     return this;
   }
 
-  trackClickNextCard() {
+  trackClickNextCard = () => {
     track(trackingConstants.CLICK_NEXT_CARD);
     return this;
   }
 
-  trackClickPreviousCard() {
+  trackClickPreviousCard = () => {
     track(trackingConstants.CLICK_PREVIOUS_CARD);
     return this;
   }
 
-  trackDisplayFinalCard() {
+  trackDisplayFinalCard = () => {
     track(trackingConstants.DISPLAY_FINAL_CARD);
     return this;
   }
 
   /* Votes */
-  trackVote(proposalId, nature, cardPosition) {
+  trackVote = (proposalId: string, nature: string, cardPosition: number) => {
     track(trackingConstants.CLICK_PROPOSAL_VOTE, {
       proposalId,
       nature,
@@ -222,7 +224,7 @@ class Tracking {
     return this;
   }
 
-  trackUnvote(proposalId, nature, cardPosition) {
+  trackUnvote = (proposalId: string, nature: string, cardPosition: number) => {
     track(trackingConstants.CLICK_PROPOSAL_UNVOTE, {
       proposalId,
       nature,
@@ -232,7 +234,7 @@ class Tracking {
   }
 
   /* Qualifications */
-  trackQualify(proposalId, type, nature, cardPosition) {
+  trackQualify = (proposalId: string, type: string, nature: string, cardPosition: number) => {
     track(trackingConstants.CLICK_PROPOSAL_QUALIFY, {
       proposalId,
       type,
@@ -242,7 +244,7 @@ class Tracking {
     return this;
   }
 
-  trackUnqualify(proposalId, type, nature, cardPosition) {
+  trackUnqualify = (proposalId: string, type: string, nature: string, cardPosition: number) => {
     track(trackingConstants.CLICK_PROPOSAL_UNQUALIFY, {
       proposalId,
       type,
@@ -253,7 +255,7 @@ class Tracking {
   }
 
   /* Results */
-  trackDisplayResults(proposalId, nature, cardPosition) {
+  trackDisplayResults = (proposalId: string, nature: string, cardPosition: number) => {
     track(trackingConstants.DISPLAY_RESULTS, {
       proposalId,
       nature,
@@ -262,7 +264,7 @@ class Tracking {
     return this;
   }
 
-  trackHideResults(proposalId, nature, cardPosition) {
+  trackHideResults = (proposalId: string, nature: string, cardPosition: number) => {
     track(trackingConstants.HIDE_RESULTS, {
       proposalId,
       nature,
@@ -272,7 +274,7 @@ class Tracking {
   }
 
   /* Footer */
-  trackClickConsultation() {
+  trackClickConsultation = () => {
     track(trackingConstants.CLICK_CONSULTATION_LINK);
     return this;
   }

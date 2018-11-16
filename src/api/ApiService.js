@@ -1,3 +1,5 @@
+/* @flow */
+
 const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
 const API_URL = (
   typeof window !== 'undefined'
@@ -16,7 +18,7 @@ const API_URL = (
  * @return Promise
  */
 
-const fetchRetry = (url, options = {}, retry = 5, timeout = 9000) => (
+const fetchRetry = (url: string, options: Object = {}, retry: number = 5, timeout:number = 9000): Promise<any> => (
   new Promise((resolve, reject) => {
     fetch(url, options).then(resolve)
       .catch((error) => {
@@ -34,7 +36,7 @@ const fetchRetry = (url, options = {}, retry = 5, timeout = 9000) => (
  * @param  {Object} response
  * @return {String|Object}
  */
-const handleErrors = (response) => {
+const handleErrors = (response: Object) => {
   if (!response.ok) {
     switch (response.status) {
       case 400:
@@ -58,61 +60,67 @@ const handleErrors = (response) => {
 let instance = null;
 
 class ApiService {
+  _language: string;
+
+  _country: string;
+
+  _operationId: string;
+
+  _source: string;
+
+  _token: ?Object;
+
   constructor() {
     if (!instance) {
       instance = this;
     }
 
-    this._language = null;
-    this._country = null;
-    this._operationId = null;
-    this._source = null;
     this._token = null;
 
     return instance;
   }
 
-  set language(language) {
+  set language(language: string) {
     this._language = language;
   }
 
-  get language() {
+  get language(): string {
     return this._language;
   }
 
-  set country(country) {
+  set country(country: string) {
     this._country = country;
   }
 
-  get country() {
+  get country(): string {
     return this._country;
   }
 
-  set operationId(operationId) {
+  set operationId(operationId: string) {
     this._operationId = operationId;
   }
 
-  get operationId() {
+  get operationId(): string {
     return this._operationId;
   }
 
-  set source(source) {
+  set source(source: string) {
     this._source = source;
   }
 
-  get source() {
+  get source(): string {
     return this._source;
   }
 
-  set token(token) {
+  set token(token: Object) {
     this._token = token;
   }
 
-  get token() {
+  get token(): ?Object {
     return this._token;
   }
 
-  callApi(url, options = {}) {
+  callApi(url: string, options: Object = {}): Promise<any> {
     let headers = Object.assign({}, {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
@@ -124,7 +132,7 @@ class ApiService {
       'x-make-operation': this._operationId
     }, options.headers || {});
 
-    if (this.token !== null) {
+    if (this.token) {
       headers = Object.assign({}, headers, {
         Authorization: `${this.token.token_type} ${this.token.access_token}`
       });

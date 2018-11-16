@@ -1,10 +1,17 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import { GOOGLE_PROVIDER_ENUM } from '../../../../api/UserService';
 import { loginSocial } from '../../../../actions/authentification';
 
-class GoogleAuthentificationComponent extends React.Component {
+type Props = {
+  tabIndex: number,
+  handleGoogleLoginCallback: Function,
+  handleTracking: Function
+}
+
+class GoogleAuthentificationComponent extends React.Component<Props> {
   render() {
     const { handleGoogleLoginCallback, tabIndex, handleTracking } = this.props;
     return (
@@ -20,6 +27,7 @@ class GoogleAuthentificationComponent extends React.Component {
     );
   }
 }
+
 const mapDispatchToProps = {
   handleGoogleLoginCallback: response => loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId)
 };

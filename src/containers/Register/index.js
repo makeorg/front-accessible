@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { register } from '../../actions/registration';
@@ -5,7 +7,19 @@ import RegisterComponent from '../../components/Register';
 import { pannelShowLogin } from '../../actions/pannel';
 import Tracking from '../../services/Tracking';
 
-class RegisterContainer extends React.Component {
+type Props = {
+  errors: Array<string>,
+  isPannelOpen: boolean,
+  handleLoginPannel: Function,
+  handleRegister: Function
+};
+
+type State = {
+  user: Object,
+  passwordIsDisplayed: boolean
+};
+
+class RegisterContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,15 +33,9 @@ class RegisterContainer extends React.Component {
       },
       passwordIsDisplayed: false
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.trackFacebookSignUpLink = this.trackFacebookSignUpLink.bind(this);
-    this.trackGoogleSignUpLink = this.trackGoogleSignUpLink.bind(this);
-    this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const { id, value } = event.target;
     const { user } = this.state;
     this.setState({
@@ -38,7 +46,7 @@ class RegisterContainer extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { user } = this.state;
@@ -50,7 +58,7 @@ class RegisterContainer extends React.Component {
     }
   }
 
-  togglePasswordIsDisplayed() {
+  togglePasswordIsDisplayed = () => {
     const { passwordIsDisplayed } = this.state;
     this.setState(prevstate => ({
       passwordIsDisplayed: !prevstate.passwordIsDisplayed
@@ -62,12 +70,12 @@ class RegisterContainer extends React.Component {
     }
   }
 
-  trackFacebookSignUpLink() {
+  trackFacebookSignUpLink = () => {
     Tracking.trackFacebookSignUpLink();
     return this;
   }
 
-  trackGoogleSignUpLink() {
+  trackGoogleSignUpLink = () => {
     Tracking.trackGoogleSignUpLink();
     return this;
   }

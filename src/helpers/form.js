@@ -1,7 +1,9 @@
+/* @flow */
+
 import i18next from 'i18next';
 
 
-export const errorTranslation = (apiError) => {
+export const errorTranslation = (apiError: string) => {
   const translatedError = i18next.t(`common.form.${apiError}`);
   if (translatedError === undefined) {
     return apiError;
@@ -10,7 +12,7 @@ export const errorTranslation = (apiError) => {
   return translatedError;
 };
 
-export const fieldErrors = (field, errors) => {
+export const fieldErrors = (field: string, errors: Array<Object>) => {
   if (errors.length === 0) {
     return null;
   }

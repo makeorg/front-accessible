@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as actionCreators from '../../actions/authentification';
 import authentification from './index';
 

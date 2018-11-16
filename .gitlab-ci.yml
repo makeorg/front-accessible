@@ -6,6 +6,7 @@ cache:
 
 stages:
   - lint
+  - flow-static
   - test
   - build
   - deploy
@@ -17,6 +18,13 @@ lint:
   script:
     - yarn install
     - yarn lint
+
+flow-static:
+  stage: flow-static
+  image: node:10.9.0
+  script:
+    - yarn install
+    - yarn flow
 
 test:
   stage: test

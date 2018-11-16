@@ -1,7 +1,9 @@
+/* @flow */
+
 import * as actionTypes from '../../constants/actionTypes';
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
-const initialState = {
+const initialState: Object = {
   isTyping: false,
   canSubmit: false,
   isSubmitSuccess: false,
@@ -11,7 +13,7 @@ const initialState = {
   error: null
 };
 
-export default function proposal(state = initialState, action) {
+export default function proposal(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.PROPOSE_TYPING:
       return {

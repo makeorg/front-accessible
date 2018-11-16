@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { IconInButton, GoogleButton } from '../../../../Elements/ButtonElements';
@@ -14,14 +15,18 @@ const renderGoogleLogin = tabIndex => renderProps => (
 
 );
 
-class GoogleAuthentificationButtonComponent extends React.Component {
-  render() {
-    const { tabIndex } = this.props;
-    return (
-      <GoogleAuthentificationComponent {...this.props} render={renderGoogleLogin(tabIndex)} />
-    );
-  }
-}
+type Props = {
+  tabIndex: number;
+  handleTracking: Function;
+};
+
+const GoogleAuthentificationButtonComponent = (props: Props) => {
+  const { tabIndex } = props;
+
+  return (
+    <GoogleAuthentificationComponent {...props} render={renderGoogleLogin(tabIndex)} />
+  );
+};
 
 
 export default GoogleAuthentificationButtonComponent;

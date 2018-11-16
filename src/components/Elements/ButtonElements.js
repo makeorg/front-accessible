@@ -1,3 +1,5 @@
+/* @flow */
+
 import styled from 'styled-components';
 import { pxToRem } from '../../helpers/styled';
 import Breakpoints from '../../assets/vars/Breakpoints';

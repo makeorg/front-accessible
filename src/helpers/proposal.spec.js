@@ -1,3 +1,5 @@
+/* @flow */
+
 import { getProposalLength, getIsProposalValidLength } from './proposal';
 import { PROPOSAL_BAIT_TEXT } from '../constants/proposal';
 

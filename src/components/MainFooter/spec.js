@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import MainFooterComponent from './';
 import MainFooter from './Styled';

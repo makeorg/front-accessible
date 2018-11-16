@@ -9,11 +9,14 @@
     "react/prop-types": 0,
     "react/no-danger": 0,
     "react/jsx-filename-extension": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1
   },
   "extends": "airbnb",
   "plugins": [
-    "jsx-a11y"
+    "jsx-a11y",
+    "flowtype"
   ],
   "env": {
     "browser": true,
