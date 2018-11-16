@@ -17,18 +17,14 @@ export const Button = styled.button`
   border-color: ${props => props.color};
 `;
 
-export const UnqualifyButton = styled(Button).attrs({
-  color: props => props.color
-})`
+export const UnqualifyButton = styled(Button)`
   color: ${BasicColors.PureWhite};
   background: ${props => props.color};
   background-color: : ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const QualifyButton = styled(Button).attrs({
-  color: props => props.color
-})`
+export const QualifyButton = styled(Button)`
   color: ${props => props.color};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};

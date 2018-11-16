@@ -36,14 +36,11 @@ export const ProgressRing = styled.circle`
   stroke-width: ${pxToRem('3px')};
 `;
 
-export const ProgressBar = styled.circle.attrs({
-  progress: props => props.progress || 0,
-  remain: props => props.remain || 0
-})`
+export const ProgressBar = styled.circle`
   fill: transparent;
   stroke: ${props => props.theme.MainColor};
   stroke-width: ${pxToRem('3px')};
-  stroke-dasharray: ${props => props.progress} ${props => props.remain};
+  stroke-dasharray: ${props => props.progress || 0} ${props => props.remain || 0};
   stroke-dashoffset: 25;
 `;
 

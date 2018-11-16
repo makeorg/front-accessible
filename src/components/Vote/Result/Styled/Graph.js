@@ -13,10 +13,7 @@ export const Graph = styled(UnstyledList)`
   align-items: flex-end;
 `;
 
-export const Bar = styled(UnstyledButton).attrs({
-  color: props => props.color,
-  percent: props => props.percent
-})`
+export const Bar = styled(UnstyledButton)`
   display: flex;
   width: ${pxToRem('6px')};
   min-height: ${pxToRem('5px')};

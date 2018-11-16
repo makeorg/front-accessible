@@ -1,6 +1,6 @@
 import React from 'react';
 import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
-import FontLoaderContainer from '../../containers/Elements/FontLoader';
+import { FontFacesStylesheet } from '../../assets/css-in-js/FontFaces';
 import DefaultStylesheet from '../../assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from '../../assets/css-in-js/Animations';
 import { AppWrapper, MainContent, InnerContent } from '../Elements/MainElements';
@@ -16,7 +16,7 @@ class AppComponent extends React.Component {
     return (
       <AppWrapper>
         <ModernNormalizeStylesheet />
-        <FontLoaderContainer />
+        <FontFacesStylesheet />
         <DefaultStylesheet />
         <AnimationsStylesheet />
         <MainHeaderContainer />

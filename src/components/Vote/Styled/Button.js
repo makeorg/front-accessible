@@ -25,18 +25,14 @@ export const Button = styled.button`
   overflow: hidden;
 `;
 
-export const UnvoteButton = styled(Button).attrs({
-  color: props => props.color
-})`
+export const UnvoteButton = styled(Button)`
   color: ${BasicColors.PureWhite};
   background: ${props => props.color};
   background-color: : ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const VoteButton = styled(Button).attrs({
-  color: props => props.color
-})`
+export const VoteButton = styled(Button)`
   color: ${props => props.color};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};

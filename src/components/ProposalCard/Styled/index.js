@@ -13,11 +13,7 @@ import {
   FinalLink
 } from './Buttons';
 
-const ProposalCard = styled.li.attrs({
-  position: props => props.position || 0,
-  zindex: props => props.zindex || 0,
-  scale: props => props.scale || 0
-})`
+const ProposalCard = styled.li`
   position: absolute;
   top: 0;
   left: 0;
@@ -27,8 +23,8 @@ const ProposalCard = styled.li.attrs({
   width: 100%;
   height: 100%;
   padding: ${pxToRem('15px')};
-  z-index: ${props => props.zindex};
-  transform: scaleX(${props => props.scale}) translateY(-${props => props.position}px);
+  z-index: ${props => props.zindex || 0};
+  transform: scaleX(${props => props.scale || 0}) translateY(-${props => props.position || 0}px);
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   transition: transform 0.75s ease-in;
