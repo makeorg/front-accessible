@@ -1,6 +1,8 @@
+/* @flow */
+
 import * as actionTypes from '../../constants/actionTypes';
 
-export default function registration(state = { user: null, errors: [] }, action) {
+export default function registration(state: Object = { user: null, errors: [] }, action: Object) {
   switch (action.type) {
     case actionTypes.REGISTER_REQUEST:
       return {

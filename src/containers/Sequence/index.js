@@ -1,20 +1,34 @@
-import React from 'react';
+/* @flow */
+
+import * as React from 'react';
 import { connect } from 'react-redux';
 import SequenceComponent from '../../components/Sequence';
 import SequenceService from '../../api/SequenceService';
 import { sequenceExpand } from '../../actions/sequence';
 import Tracking from '../../services/Tracking';
 
-
-export const decrementCurrentIndex = prevState => ({
+export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
 });
 
-export const incrementCurrentIndex = prevState => ({
+export const incrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex + 1
 });
 
-class SequenceContainer extends React.Component {
+type Props = {
+  operationId: string,
+  isSequenceCollapsed: boolean,
+  isPannelOpen: boolean,
+  handleExpandSequence: Function,
+};
+
+type State = {
+  proposals: Array<Object>,
+  count: number,
+  currentIndex: number
+};
+
+class SequenceContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,41 +44,41 @@ class SequenceContainer extends React.Component {
     this.expandSequence = this.expandSequence.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     const { operationId } = this.props;
     SequenceService.startSequence(operationId)
       .then(sequence => this.setProposals(sequence))
       .catch(error => error);
   }
 
-  setProposals(sequence) {
+  setProposals = (sequence) => {
     this.setState({
       proposals: sequence.proposals,
       count: sequence.proposals.length
     });
   }
 
-  handleStartSequence() {
+  handleStartSequence = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackClickStartSequence();
   }
 
-  handleEndSequence() {
+  handleEndSequence = () => {
     Tracking.trackClickEndSequence();
     return this;
   }
 
-  goToNextCard() {
+  goToNextCard = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackClickNextCard();
   }
 
-  goToPreviousCard() {
+  goToPreviousCard = () => {
     this.setState(decrementCurrentIndex);
     Tracking.trackClickPreviousCard();
   }
 
-  expandSequence() {
+  expandSequence = () => {
     const { handleExpandSequence } = this.props;
     handleExpandSequence();
     Tracking.trackExpandSequence();
@@ -87,7 +101,6 @@ class SequenceContainer extends React.Component {
         handleEndSequence={this.handleEndSequence}
         goToNextCard={this.goToNextCard}
         goToPreviousCard={this.goToPreviousCard}
-        trackStartSequence={this.trackStartSequence}
       />
     );
   }

@@ -1,4 +1,6 @@
-import React from 'react';
+/* @flow */
+
+import * as React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 import ProposalSubmitFormComponent from '../../components/ProposalSubmit';
@@ -11,27 +13,38 @@ import { getToken } from '../../actions/authentification';
 import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
 import Tracking from '../../services/Tracking';
 
+type Props = {
+  content: string,
+  length: number,
+  canSubmit: boolean,
+  isSubmitSuccess: boolean,
+  isLoggedIn: boolean,
+  isSequenceCollapsed: boolean,
+  isPannelOpen: boolean,
+  handleCollapseSequence: Function,
+  handleTypingProposal: Function,
+  handleSubmitProposal: Function,
+  handleGetUserToken: Function
+};
+
+type State = {
+  isTyping: boolean
+}
 /**
  * ProposalSubmitContainer manage the proposal Submit Component business logic
  * @extends React
  */
-export class ProposalSubmit extends React.Component {
-  constructor(props) {
+export class ProposalSubmit extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
       isTyping: false
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.trackModerationText = this.trackModerationText.bind(this);
-    this.trackModerationLink = this.trackModerationLink.bind(this);
   }
 
-  handleChange(event) {
-    const content = event.target.value;
+  handleChange = (event: SyntheticEvent<*>) => {
+    const content = event.currentTarget.value;
     const length = getProposalLength(content);
     const canSubmit = getIsProposalValidLength(length);
 
@@ -40,7 +53,7 @@ export class ProposalSubmit extends React.Component {
     handleTypingProposal(content, length, canSubmit);
   }
 
-  handleFocus() {
+  handleFocus = () => {
     this.setState({
       isTyping: true
     });
@@ -49,7 +62,7 @@ export class ProposalSubmit extends React.Component {
     if (!isSequenceCollapsed) handleCollapseSequence();
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     Tracking.trackClickProposalSubmit();
@@ -82,12 +95,12 @@ export class ProposalSubmit extends React.Component {
     }
   }
 
-  trackModerationText() {
+  trackModerationText = () => {
     Tracking.trackDisplayModerationText();
     return this;
   }
 
-  trackModerationLink() {
+  trackModerationLink = () => {
     Tracking.trackClickModerationLink();
     return this;
   }
@@ -167,11 +180,11 @@ const mapDispatchToProps = dispatch => ({
   handleCollapseSequence: () => (
     dispatch(sequenceCollapse())
   ),
-  handleTypingProposal: (content, length, canSubmit) => (
+  handleTypingProposal: (content: string, length: number, canSubmit: boolean) => (
     dispatch(typingProposal(content, length, canSubmit))
   ),
-  handleSubmitProposal: (content, operationId) => (
-    dispatch(submitProposal(content, operationId))
+  handleSubmitProposal: (content: string) => (
+    dispatch(submitProposal(content))
   ),
   handleGetUserToken: () => (
     dispatch(getToken())

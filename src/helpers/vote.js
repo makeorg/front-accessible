@@ -1,12 +1,10 @@
-export const getVoteIndex = (voteKey, proposalIndex) => {
-  if (proposalIndex === null) {
-    return null;
-  }
+/* @flow */
 
-  return `${voteKey}_${proposalIndex}`;
-};
+export const getVoteIndex = (voteKey: string, proposalId: string) => (
+  `${voteKey}_${proposalId}`
+);
 
-const getNewVoteState = (prevState, vote) => {
+const getNewVoteState = (prevState: Object, vote: Object) => {
   const newVotes = prevState.votes.map((oldVote) => {
     if (oldVote.voteKey === vote.voteKey) {
       return vote;
@@ -18,16 +16,16 @@ const getNewVoteState = (prevState, vote) => {
   return newVotes;
 };
 
-export const doVote = (prevState, vote) => ({
+export const doVote = (prevState: Object, vote: Object) => ({
   hasVoted: true,
   votedKey: vote.voteKey,
   votes: getNewVoteState(prevState, vote),
   qualifications: vote.qualifications
 });
 
-export const doUnvote = (prevState, vote) => ({
+export const doUnvote = (prevState: Object, vote: Object) => ({
   hasVoted: false,
-  votedKey: null,
+  votedKey: '',
   votes: getNewVoteState(prevState, vote),
-  qualifications: null
+  qualifications: []
 });

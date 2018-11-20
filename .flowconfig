@@ -1,0 +1,13 @@
+[ignore]
+.*/node_modules/findup
+.*/spec.js
+.*/*.spec.js
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

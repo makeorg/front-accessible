@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FacebookLink, SocialIcon } from '../../../Styled/Content';
@@ -13,13 +14,17 @@ const renderFacebookLogin = tabIndex => renderProps => (
   </FacebookLink>
 );
 
-class FacebookAuthentificationLinkComponent extends React.Component {
-  render() {
-    const { tabIndex } = this.props;
-    return (
-      <FacebookAuthentificationComponent {...this.props} render={renderFacebookLogin(tabIndex)} />
-    );
-  }
-}
+type Props = {
+  tabIndex: number,
+  handleTracking: Function
+};
+
+const FacebookAuthentificationLinkComponent = (props: Props) => {
+  const { tabIndex } = props;
+
+  return (
+    <FacebookAuthentificationComponent {...props} render={renderFacebookLogin(tabIndex)} />
+  );
+};
 
 export default FacebookAuthentificationLinkComponent;

@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as actionCreators from '../../actions/pannel';
 import * as pannelContentTypes from '../../constants/pannel';
 import pannel from './index';

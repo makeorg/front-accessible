@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as actionCreators from '../../actions/proposal';
 import proposal from './index';
 

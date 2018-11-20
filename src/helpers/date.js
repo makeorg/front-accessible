@@ -1,3 +1,5 @@
+/* @flow */
+
 let instance = null;
 
 const localeMonths = {
@@ -17,8 +19,8 @@ const localeMonths = {
   ]
 };
 
-export const getDateOfBirthFromAge = (age = null) => {
-  if (!age || Number.isNaN(Number(age))) {
+export const getDateOfBirthFromAge = (age: number = 0) => {
+  if (!age) {
     return null;
   }
   const birthYear = (new Date()).getFullYear() - Number(age);
@@ -27,6 +29,8 @@ export const getDateOfBirthFromAge = (age = null) => {
 };
 
 class DateHelper {
+  _language: string
+
   constructor() {
     if (!instance) {
       instance = this;
@@ -35,7 +39,7 @@ class DateHelper {
     this._language = 'fr';
   }
 
-  set language(language) {
+  set language(language: string) {
     this._language = language;
   }
 
@@ -43,7 +47,7 @@ class DateHelper {
     return this._language;
   }
 
-  proposalCreationDateFormat(date) {
+  proposalCreationDateFormat(date: string) {
     const objectDate = new Date(date);
 
     if (Number.isNaN(objectDate.getMonth())) {

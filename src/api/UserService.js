@@ -1,3 +1,5 @@
+/* @flow */
+
 import ApiService from './ApiService';
 import { getDateOfBirthFromAge } from '../helpers/date';
 
@@ -17,7 +19,7 @@ export default class UserService {
    * Get user info
    * @return {Promise}
    */
-  static me() {
+  static me(): Promise<Object> {
     return ApiService.callApi(PATH_USER_ME, {
       method: 'GET'
     });
@@ -27,7 +29,7 @@ export default class UserService {
    * Get user token
    * @return {Promise}
    */
-  static getUserToken() {
+  static getUserToken(): Promise<Object> {
     return ApiService.callApi(PATH_USER_GET_TOKEN, {
       method: 'GET'
     });
@@ -39,7 +41,7 @@ export default class UserService {
    * @param  {String} password
    * @return {Promise}
    */
-  static login(email, password) {
+  static login(email: string, password: string): Promise<Object> {
     const data = {
       username: email,
       password,
@@ -62,7 +64,7 @@ export default class UserService {
    *
    * @return {Promise}
    */
-  static logout() {
+  static logout(): Promise<Object> {
     return ApiService.callApi(PATH_USER_LOGOUT, {
       method: 'POST'
     });
@@ -74,7 +76,7 @@ export default class UserService {
    * @param  {String} token
    * @return {Promise}
    */
-  static loginSocial(provider, token) {
+  static loginSocial(provider: string, token: string): Promise<Object> {
     return ApiService.callApi(PATH_USER_LOGIN_SOCIAL, {
       method: 'POST',
       body: JSON.stringify({
@@ -91,7 +93,7 @@ export default class UserService {
    * @param  {Object}  user
    * @return {Promise}
    */
-  static register(user) {
+  static register(user: Object): Promise<Object> {
     return ApiService.callApi(PATH_USER_REGISTER, {
       method: 'POST',
       body: JSON.stringify({
@@ -112,7 +114,7 @@ export default class UserService {
    * @param  {String}  email
    * @return {Promise}
    */
-  static forgotPassword(email) {
+  static forgotPassword(email: string): Promise<Object> {
     return ApiService.callApi(PATH_USER_FORGOT_PASSWORD, {
       method: 'POST',
       body: JSON.stringify({ email })

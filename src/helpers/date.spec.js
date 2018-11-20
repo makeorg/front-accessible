@@ -1,3 +1,5 @@
+/* @flow */
+
 import DateHelper, { getDateOfBirthFromAge } from './date';
 
 describe('Date Helper', () => {
@@ -9,11 +11,6 @@ describe('Date Helper', () => {
   it('getDateOfBirthFromAge with valid string age', () => {
     const dateOfBirth = getDateOfBirthFromAge('32');
     expect(dateOfBirth).to.equal('1986-01-01');
-  });
-
-  it('getDateOfBirthFromAge with invalid age', () => {
-    const dateOfBirth = getDateOfBirthFromAge('foo');
-    expect(dateOfBirth).to.equal(null);
   });
 
   it('getDateOfBirthFromAge without age', () => {

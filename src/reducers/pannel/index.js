@@ -1,12 +1,14 @@
+/* @flow */
+
 import * as actionTypes from '../../constants/actionTypes';
 import * as pannelContentTypes from '../../constants/pannel';
 
-const initialState = {
+const initialState: Object = {
   isPannelOpen: false,
   contentType: null
 };
 
-export default function pannel(state = initialState, action) {
+export default function pannel(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.PANNEL_SHOW_LOGIN:
       return {

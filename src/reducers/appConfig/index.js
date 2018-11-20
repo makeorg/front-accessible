@@ -1,5 +1,7 @@
+/* @flow */
 
-export default function appConfig(state = {}, action) {
+
+export default function appConfig(state: Object = {}, action: Object) {
   switch (action.type) {
     default:
       return state;

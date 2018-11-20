@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import MainHeaderComponent from './';
 import MainHeader from './Styled';

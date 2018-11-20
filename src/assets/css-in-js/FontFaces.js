@@ -1,3 +1,5 @@
+/* @flow */
+
 import { createGlobalStyle } from 'styled-components';
 import TradeGothicWoff from '../fonts/TradeGothicLTStd-BdCn20.woff';
 import TradeGothicWoff2 from '../fonts/TradeGothicLTStd-BdCn20.woff2';

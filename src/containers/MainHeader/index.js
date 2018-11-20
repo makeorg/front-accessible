@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+/* @flow */
+
+import * as React from 'react';
 import MainHeaderComponent from '../../components/MainHeader';
 import Tracking from '../../services/Tracking';
 
-class MainHeaderContainer extends Component {
+class MainHeaderContainer extends React.Component<{}> {
   constructor() {
     super();
     this.trackMakeLogo = this.trackMakeLogo.bind(this);
   }
 
-  trackMakeLogo() {
+  trackMakeLogo = () => {
     Tracking.trackClickMakeLogo();
     return this;
   }

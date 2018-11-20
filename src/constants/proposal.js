@@ -1,3 +1,4 @@
-export const MIN_PROPOSAL_LENGTH = 12;
-export const MAX_PROPOSAL_LENGTH = 140;
-export const PROPOSAL_BAIT_TEXT = 'Il faut ';
+// @flow
+export const MIN_PROPOSAL_LENGTH: number = 12;
+export const MAX_PROPOSAL_LENGTH: number = 140;
+export const PROPOSAL_BAIT_TEXT: string = 'Il faut ';

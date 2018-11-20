@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import ProposalSubmitFormComponent from './index';
 import ProposalSubmitButtonComponent from './Button';

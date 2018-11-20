@@ -1,6 +1,8 @@
+/* @flow */
+
 import * as actionTypes from '../../constants/actionTypes';
 
-export default function forgotPassword(state = { isSuccess: false, errors: [] }, action) {
+export default function forgotPassword(state: Object = { isSuccess: false, errors: [] }, action: Object) {
   switch (action.type) {
     case actionTypes.FORGOT_PASSWORD_REQUEST:
       return {

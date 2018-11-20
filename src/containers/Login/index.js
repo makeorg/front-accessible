@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
@@ -5,30 +7,38 @@ import { login } from '../../actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from '../../actions/pannel';
 import Tracking from '../../services/Tracking';
 
-class LoginContainer extends React.Component {
-  constructor(props) {
+type Props = {
+  errors: Array<string>,
+  isPannelOpen: boolean,
+  handleRegisterPannel: Function,
+  handleForgotPasswordPannel: Function,
+  handleLogin: Function
+}
+
+type State = {
+  email: string,
+  password: string,
+  passwordIsDisplayed: boolean
+}
+
+class LoginContainer extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       email: '',
       password: '',
       passwordIsDisplayed: false
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.togglePasswordIsDisplayed = this.togglePasswordIsDisplayed.bind(this);
-    this.trackFacebookLogin = this.trackFacebookLogin.bind(this);
-    this.trackGoogleLogin = this.trackGoogleLogin.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const { id, value } = event.target;
     this.setState({
       [id]: value
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { email, password } = this.state;
@@ -39,7 +49,7 @@ class LoginContainer extends React.Component {
     }
   }
 
-  togglePasswordIsDisplayed() {
+  togglePasswordIsDisplayed = () => {
     const { passwordIsDisplayed } = this.state;
     this.setState(prevstate => ({
       passwordIsDisplayed: !prevstate.passwordIsDisplayed
@@ -51,12 +61,12 @@ class LoginContainer extends React.Component {
     }
   }
 
-  trackFacebookLogin() {
+  trackFacebookLogin = () => {
     Tracking.trackFacebookLogin();
     return this;
   }
 
-  trackGoogleLogin() {
+  trackGoogleLogin = () => {
     Tracking.trackGoogleLogin();
     return this;
   }
@@ -64,10 +74,10 @@ class LoginContainer extends React.Component {
   render() {
     const { email, password, passwordIsDisplayed } = this.state;
     const {
-      handleRegisterPannel,
-      handleForgotPasswordPannel,
       errors,
-      isPannelOpen
+      isPannelOpen,
+      handleRegisterPannel,
+      handleForgotPasswordPannel
     } = this.props;
 
     return (

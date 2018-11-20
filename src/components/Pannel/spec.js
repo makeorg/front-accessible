@@ -1,3 +1,5 @@
+/* @flow */
+
 import { shallow } from 'enzyme';
 import PannelComponent from './';
 import Pannel from './Styled';

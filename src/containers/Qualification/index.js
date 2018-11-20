@@ -1,11 +1,24 @@
+/* @flow */
 import React from 'react';
 import { doUpdateState } from '../../helpers/qualification';
 import QualificationService from '../../api/QualificationService';
 import QualificationComponent from '../../components/Qualification';
 import Tracking from '../../services/Tracking';
 
-class QualificationContainer extends React.Component {
-  constructor(props) {
+type Props = {
+  qualifications: Array<Object>,
+  proposalId: string,
+  index: number,
+  tabIndex: number,
+  votedKey: string
+};
+
+type State = {
+  qualifications: Array<Object>
+};
+
+class QualificationContainer extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       qualifications: props.qualifications
@@ -13,7 +26,7 @@ class QualificationContainer extends React.Component {
     this.handleQualification = this.handleQualification.bind(this);
   }
 
-  handleQualification(event, qualification, voteKey) {
+  handleQualification = (event: SyntheticEvent<*>, qualification: Object, voteKey: string) => {
     event.preventDefault();
     const { proposalId, index } = this.props;
     if (qualification.hasQualified) {

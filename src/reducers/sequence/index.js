@@ -1,10 +1,12 @@
+/* @flow */
+
 import * as actionTypes from '../../constants/actionTypes';
 
-const initialState = {
+const initialState: Object = {
   isSequenceCollapsed: false
 };
 
-export default function sequence(state = initialState, action) {
+export default function sequence(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.SEQUENCE_COLLAPSE:
       return {

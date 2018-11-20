@@ -1,3 +1,5 @@
+/* @flow */
+
 import { combineReducers } from 'redux';
 import appConfig from './appConfig';
 import authentification from './authentification';

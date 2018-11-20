@@ -1,3 +1,5 @@
+/* @flow */
+
 export const BasicColors = {
   PureWhite: 'rgb(255, 255, 255)',
   PureBlack: 'rgb(0, 0, 0)'

@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+/* @flow */
+
+import * as React from 'react';
 import MainFooterComponent from '../../components/MainFooter';
 import Tracking from '../../services/Tracking';
 
-class MainFooterContainer extends Component {
+class MainFooterContainer extends React.Component<{}> {
   constructor() {
     super();
     this.trackClickConsultation = this.trackClickConsultation.bind(this);
   }
 
-  trackClickConsultation() {
+  trackClickConsultation = () => {
     Tracking.trackClickConsultation();
     return this;
   }

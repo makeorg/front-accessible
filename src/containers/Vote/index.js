@@ -1,4 +1,6 @@
-import React from 'react';
+/* @flow */
+
+import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
 import VoteService from '../../api/VoteService';
@@ -11,20 +13,34 @@ import voteStaticParams from '../../constants/vote';
 import { doVote, doUnvote } from '../../helpers/vote';
 import Tracking from '../../services/Tracking';
 
-class VoteContainer extends React.Component {
+type Props = {
+  proposalId: string,
+  isPannelOpen: boolean,
+  isSequenceCollapsed: boolean,
+  index: number,
+  currentIndex: number,
+  goToNextCard: Function
+};
+
+type State = {
+  hasVoted: boolean,
+  votedKey: string,
+  votes: Array<Object>,
+  qualifications: Array<Object>
+};
+
+class VoteContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
       hasVoted: false,
-      votedKey: null,
+      votedKey: '',
       votes: props.votes,
-      qualifications: null
+      qualifications: []
     };
-
-    this.handleVote = this.handleVote.bind(this);
   }
 
-  handleVote(event, voteKey) {
+  handleVote = (event, voteKey) => {
     event.preventDefault();
     const { proposalId, index } = this.props;
     const { hasVoted } = this.state;

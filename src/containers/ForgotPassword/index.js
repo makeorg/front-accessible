@@ -1,10 +1,24 @@
-import React from 'react';
+/* @flow */
+
+import * as React from 'react';
 import { connect } from 'react-redux';
 import ForgotPasswordComponent from '../../components/ForgotPassword';
 import { forgotPassword } from '../../actions/forgotPassword';
 import { pannelShowLogin } from '../../actions/pannel';
 
-class ForgotPasswordContainer extends React.Component {
+type Props = {
+  errors: Array<string>,
+  isSuccess: boolean,
+  isPannelOpen: boolean,
+  handleLoginPannel: Function,
+  handleForgotpassword: Function
+};
+
+type State = {
+  email: string
+}
+
+class ForgotPasswordContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,14 +29,14 @@ class ForgotPasswordContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const email = event.target.value;
     this.setState({
       email
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { email } = this.state;

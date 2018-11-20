@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as actionCreators from '../../actions/forgotPassword';
 import forgotPassword from './index';
 

@@ -1,11 +1,16 @@
+/* @flow */
+
 import ApiService from '../../api/ApiService';
 import * as actionTypes from '../../constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
 
-const user = (typeof localStorage !== 'undefined') ? JSON.parse(localStorage.getItem(USER_LOCAL_STORAGE_KEY)) : null;
-const token = (typeof localStorage !== 'undefined') ? JSON.parse(localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY)) : null;
+const savedUser: ?string = localStorage.getItem(USER_LOCAL_STORAGE_KEY) || null;
+const savedToken: ?string = localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) || null;
 
-const initialState = {
+const user: ?Object = savedUser ? JSON.parse(savedUser) : null;
+const token: ?Object = savedToken ? JSON.parse(savedToken) : null;
+
+const initialState: Object = {
   isLoggedIn: (token !== null && user !== null),
   errors: [],
   token,
@@ -13,7 +18,7 @@ const initialState = {
 };
 ApiService.token = initialState.token;
 
-export default function authentification(state = initialState, action) {
+export default function authentification(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.LOGIN_REQUEST:
       return {

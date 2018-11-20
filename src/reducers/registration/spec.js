@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as actionCreators from '../../actions/registration';
 import registration from './index';
 

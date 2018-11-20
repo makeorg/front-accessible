@@ -1,3 +1,5 @@
+/* @flow */
+
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
@@ -121,7 +123,7 @@ describe('Proposal Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_SUCCESS,
-        proposalId: proposalIdResponse
+        proposalId: 'baz'
       }
     ];
 
