@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -89,7 +90,8 @@
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.4",
     "webpack-node-externals": "^1.7.2",
-    "webpack-pwa-manifest": "^3.7.1"
+    "webpack-pwa-manifest": "^3.7.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --hot",
