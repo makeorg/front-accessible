@@ -4,7 +4,7 @@ const compression = require('compression');
 const serveStatic = require('serve-static');
 require('./browserPolyfill');
 const reactRender = require('./reactRender');
-const { BUILD_DIR, PUBLIC_DIR } = require('./paths');
+const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
 function setCustomCacheControl(res, path) {
@@ -20,18 +20,13 @@ app.use(compression());
 
 app.use(bodyParser.json());
 
-app.get('/', reactRender);
-
 // Static files
-app.use(express.static(BUILD_DIR, {
+app.use('/assets', express.static(BUILD_DIR, {
   maxAge: '1y',
   setHeaders: setCustomCacheControl
 }));
 
-app.use(express.static(PUBLIC_DIR, {
-  maxAge: '1y',
-  setHeaders: setCustomCacheControl
-}));
 
+app.get('/:country?', reactRender);
 
 app.listen(configuration.port, configuration.host);

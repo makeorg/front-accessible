@@ -4,8 +4,10 @@ import ApiService from '../../api/ApiService';
 import * as actionTypes from '../../constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
 
-const savedUser: ?string = (typeof localStorage !== 'undefined') ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;
-const savedToken: ?string = (typeof localStorage !== 'undefined') ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) : null;
+const savedUser: ?string = (typeof localStorage !== 'undefined')
+  ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;
+const savedToken: ?string = (typeof localStorage !== 'undefined')
+  ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) : null;
 
 const user: ?Object = savedUser ? JSON.parse(savedUser) : null;
 const token: ?Object = savedToken ? JSON.parse(savedToken) : null;
