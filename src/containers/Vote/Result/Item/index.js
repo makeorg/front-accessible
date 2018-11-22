@@ -1,6 +1,6 @@
 import React from 'react';
-import { getResultBarIndex, getTooltipIndex } from '../../../../helpers/voteresults';
 import ResultItemComponent from '../../../../components/Vote/Result/Item';
+import * as VoteResultHelper from '../../../../helpers/voteResult';
 import { getVoteIndex } from '../../../../helpers/vote';
 import Tracking from '../../../../services/Tracking';
 
@@ -65,8 +65,8 @@ class ResultItemContainer extends React.Component {
       <ResultItemComponent
         key={getVoteIndex(voteKey, proposalId)}
         listKey={getVoteIndex(voteKey, proposalId)}
-        barKey={getResultBarIndex(voteKey, proposalId)}
-        tooltipKey={getTooltipIndex(voteKey, proposalId)}
+        barKey={VoteResultHelper.getResultBarIndex(voteKey, proposalId)}
+        tooltipKey={VoteResultHelper.getTooltipIndex(voteKey, proposalId)}
         index={index}
         votedKey={voteKey}
         proposalId={proposalId}

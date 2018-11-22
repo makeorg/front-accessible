@@ -21,7 +21,7 @@ describe('ForgotPassword Actions', () => {
     sandbox = sinon.createSandbox();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 

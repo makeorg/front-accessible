@@ -1,17 +1,17 @@
 import React from 'react';
 import i18next from 'i18next';
-import VoteResults from './Styled';
+import VoteResult from './Styled';
 import VoteButtonComponent from '../Button';
 import { UnvoteButton } from '../Styled/Button';
 import { HiddenItem } from '../../Elements/HiddenElements';
 import ResultItemContainer from '../../../containers/Vote/Result/Item';
+import voteStaticParams from '../../../constants/vote';
 
 class VoteResultComponent extends React.Component {
   render() {
     const {
       votesPercent,
       votesCount,
-      voteStaticParams,
       votedKey,
       proposalId,
       handleVote,
@@ -21,7 +21,7 @@ class VoteResultComponent extends React.Component {
     const voteKeys = Object.keys(voteStaticParams);
 
     return (
-      <VoteResults>
+      <VoteResult>
         <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
         <VoteButtonComponent
           color={voteStaticParams[votedKey].color}
@@ -34,7 +34,7 @@ class VoteResultComponent extends React.Component {
         />
         <aside>
           <HiddenItem aria-hidden as="h3">{i18next.t('results.title')}</HiddenItem>
-          <VoteResults.Graph>
+          <VoteResult.Graph>
             {voteKeys.map(voteKey => (
               <ResultItemContainer
                 key={`${voteKey}_item_${proposalId}`}
@@ -46,13 +46,13 @@ class VoteResultComponent extends React.Component {
                 votesPercent={votesPercent}
               />
             ))}
-          </VoteResults.Graph>
-          <VoteResults.TotalLabel>
+          </VoteResult.Graph>
+          <VoteResult.TotalLabel>
             <HiddenItem aria-hidden>{i18next.t('results.total_text')}</HiddenItem>
             {i18next.t('vote.label', { count: votesCount })}
-          </VoteResults.TotalLabel>
+          </VoteResult.TotalLabel>
         </aside>
-      </VoteResults>
+      </VoteResult>
     );
   }
 }
