@@ -7,7 +7,7 @@ const baseConfig = require('./base.config.js');
 module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
-    filename: 'main.[hash].js',
+    filename: '[name].[hash].js',
     chunkFilename: '[name].[hash].js',
     path: path.resolve(__dirname, '..', 'dist'),
     publicPath: '/assets/'
@@ -32,7 +32,7 @@ module.exports = merge(baseConfig, {
         }
       })
     ],
-    runtimeChunk: false,
+    runtimeChunk: true,
     splitChunks: {
       cacheGroups: {
         default: false,

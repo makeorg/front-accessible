@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', 'src', 'index.js'),
@@ -28,7 +30,8 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
-      }
+      },
+      inlineSource: 'runtime~.+\\.js'
     }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, '../src/assets/images/favicon.png'),
@@ -48,7 +51,9 @@ module.exports = {
           destination: path.join('favicon')
         }
       ]
-    })
+    }),
+    new InlineSourcePlugin(),
+    new ManifestPlugin()
   ],
   module: {
     rules: [
@@ -61,13 +66,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader']
       }, {
-        test: /\.(jpg|png|svg|ttf|eot|woff|woff2)$/,
-        use: {
+        test: /\.(jpe?g|png|gif|svg|ttf|eot|woff|woff2)$/,
+        use: [{
           loader: 'file-loader',
           options: {
             name: '[name].[hash].[ext]'
           }
-        }
+        }]
       }
     ]
   },
