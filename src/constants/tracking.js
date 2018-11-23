@@ -1,4 +1,6 @@
 // @flow
+/* On load */
+export const DISPLAY_SEQUENCE: string = 'display-sequence';
 /* Header */
 export const CLICK_MAKEORG_LOGO: string = 'click-makeorg-logo';
 
