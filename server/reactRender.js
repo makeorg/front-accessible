@@ -18,9 +18,10 @@ module.exports = function reactRender(req, res) {
       operationId: req.query.operationId || 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
       source: 'core',
       language: req.query.language || 'fr',
-      country: req.query.country || 'FR'
+      country: req.query.country || req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR'
     }
   };
+
   i18next.changeLanguage(initialState.appConfig.language);
 
   fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
