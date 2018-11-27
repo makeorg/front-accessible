@@ -11,6 +11,7 @@ import CircularBookWoff2 from '../fonts/CircularStd-Book.woff2';
 export const FontFacesStylesheet = createGlobalStyle`
   @font-face {
       font-family: 'Trade Gothic';
+      font-display: swap;
       src: url(${TradeGothicWoff}) format("woff"),
            url(${TradeGothicWoff2}) format("woff2");
       font-weight: normal;
@@ -19,6 +20,7 @@ export const FontFacesStylesheet = createGlobalStyle`
 
   @font-face {
       font-family: 'Circular Bold';
+      font-display: swap;
       src: url(${CircularBoldWoff}) format("woff"),
            url(${CircularBoldWoff2}) format("woff2");
       font-weight: normal;
@@ -27,6 +29,7 @@ export const FontFacesStylesheet = createGlobalStyle`
 
   @font-face {
       font-family: 'Circular Book';
+      font-display: swap;
       src: url(${CircularBookWoff}) format("woff"),
            url(${CircularBookWoff2}) format("woff2");
       font-weight: normal;
