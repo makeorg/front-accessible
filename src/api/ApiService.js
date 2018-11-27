@@ -1,6 +1,8 @@
 /* @flow */
+import * as UrlHelper from '../helpers/url';
 
 const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
+const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
 const API_URL = (
   typeof window !== 'undefined'
   && window
@@ -121,6 +123,7 @@ class ApiService {
   }
 
   callApi(url: string, options: Object = {}): Promise<any> {
+    const paramsQuery = UrlHelper.getParamsQuery(LOCATION_PARAMS);
     let headers = Object.assign({}, {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
@@ -131,6 +134,12 @@ class ApiService {
       'x-make-question': '',
       'x-make-operation': this._operationId
     }, options.headers || {});
+
+    if (paramsQuery) {
+      headers = Object.assign({}, headers, {
+        'x-get-parameters': paramsQuery
+      });
+    }
 
     if (this.token) {
       headers = Object.assign({}, headers, {
