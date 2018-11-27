@@ -6,13 +6,13 @@ import {
   TotalLabel
 } from './Graph';
 
-const VoteResults = styled(SpaceBetweenColumn)`
+const VoteResult = styled(SpaceBetweenColumn)`
     width: 100%;
     max-width: ${pxToRem('62px')};
 `;
 
 /* Buttons */
-VoteResults.Graph = Graph;
-VoteResults.TotalLabel = TotalLabel;
+VoteResult.Graph = Graph;
+VoteResult.TotalLabel = TotalLabel;
 
-export default VoteResults;
+export default VoteResult;

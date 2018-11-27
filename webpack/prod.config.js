@@ -5,6 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
+  entry: ['whatwg-fetch', path.resolve(__dirname, '..', 'src', 'index.js')],
   mode: 'production',
   output: {
     filename: '[name].[hash].js',

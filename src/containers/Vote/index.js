@@ -5,16 +5,16 @@ import i18next from 'i18next';
 import { connect } from 'react-redux';
 import VoteService from '../../api/VoteService';
 import { NextButton } from '../../components/ProposalCard/Styled/Buttons';
-import Vote from '../../components/Vote/Styled';
+import VoteStyled from '../../components/Vote/Styled';
 import VoteComponent from '../../components/Vote';
 import VoteResultsContainer from './Result';
 import QualificationContainer from '../Qualification';
-import voteStaticParams from '../../constants/vote';
 import { doVote, doUnvote } from '../../helpers/vote';
 import Tracking from '../../services/Tracking';
 
 type Props = {
   proposalId: string,
+  votes: Array<Object>,
   isPannelOpen: boolean,
   isSequenceCollapsed: boolean,
   index: number,
@@ -29,8 +29,8 @@ type State = {
   qualifications: Array<Object>
 };
 
-class VoteContainer extends React.Component<Props, State> {
-  constructor(props) {
+export class Vote extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       hasVoted: false,
@@ -40,7 +40,7 @@ class VoteContainer extends React.Component<Props, State> {
     };
   }
 
-  handleVote = (event, voteKey) => {
+  handleVote = (event: SyntheticEvent<*>, voteKey: string) => {
     event.preventDefault();
     const { proposalId, index } = this.props;
     const { hasVoted } = this.state;
@@ -77,7 +77,7 @@ class VoteContainer extends React.Component<Props, State> {
     if (hasVoted) {
       return (
         <React.Fragment>
-          <Vote>
+          <VoteStyled>
             <VoteResultsContainer
               proposalId={proposalId}
               votes={votes}
@@ -93,7 +93,7 @@ class VoteContainer extends React.Component<Props, State> {
               index={index}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
-          </Vote>
+          </VoteStyled>
           <NextButton
             tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             onClick={goToNextCard}
@@ -106,7 +106,6 @@ class VoteContainer extends React.Component<Props, State> {
 
     return (
       <VoteComponent
-        voteStaticParams={voteStaticParams}
         proposalId={proposalId}
         hasVoted={hasVoted}
         votedKey={votedKey}
@@ -128,4 +127,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(VoteContainer);
+export default connect(mapStateToProps)(Vote);
