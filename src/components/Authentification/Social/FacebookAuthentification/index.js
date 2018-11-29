@@ -6,7 +6,6 @@ import { loginSocial } from '../../../../actions/authentification';
 
 type Props = {
   tabIndex: number,
-  handleTracking: Function,
   handleFacebookLoginCallback: Function
 };
 
@@ -17,7 +16,6 @@ type Props = {
 class FacebookAuthentificationComponent extends React.Component<Props> {
   render() {
     const {
-      handleTracking,
       handleFacebookLoginCallback,
       tabIndex
     } = this.props;
@@ -29,7 +27,6 @@ class FacebookAuthentificationComponent extends React.Component<Props> {
         version="2.8"
         fields="name,email,picture"
         callback={handleFacebookLoginCallback}
-        onClick={handleTracking}
         disableMobileRedirect
         tabIndex={tabIndex}
       />

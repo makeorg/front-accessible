@@ -87,7 +87,7 @@ describe('Proposal Actions', () => {
     expect(store.getActions()).to.deep.equal(expectedActions);
   });
 
-  it('creates an action to proposal Submit when use is not logged in', () => {
+  it('creates an action to proposal Submit when user is not logged in', () => {
     const operationId = 123;
     const store = mockStore({
       authentification: {isLoggedIn: false },
@@ -108,7 +108,7 @@ describe('Proposal Actions', () => {
     });
   });
 
-  it('creates an action to proposal Submit when use is logged in', () => {
+  it('creates an action to proposal Submit when user is logged in', () => {
     const operationId = 'bar';
     const store = mockStore({
       authentification: {isLoggedIn: true },
@@ -118,7 +118,9 @@ describe('Proposal Actions', () => {
     const proposalIdResponse = { proposalId: 'baz' };
 
     fetchMock
-      .post('path:/proposals',  proposalIdResponse);
+      .post('path:/proposals', proposalIdResponse)
+      .post('path:/tracking/front', 204)
+    ;
 
     const expectedActions = [
       {

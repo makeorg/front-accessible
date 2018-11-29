@@ -15,8 +15,7 @@ const renderFacebookLogin = tabIndex => renderProps => (
 );
 
 type Props = {
-  tabIndex: number,
-  handleTracking: Function
+  tabIndex: number
 };
 
 const FacebookAuthentificationLinkComponent = (props: Props) => {

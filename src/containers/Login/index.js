@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import LoginComponent from '../../components/Login';
 import { login } from '../../actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from '../../actions/pannel';
-import Tracking from '../../services/Tracking';
 
 type Props = {
   errors: Array<string>,
@@ -45,30 +44,13 @@ class LoginContainer extends React.Component<Props, State> {
     const { handleLogin } = this.props;
     if (email && password) {
       handleLogin(email, password);
-      Tracking.trackClickFormLogin();
     }
   }
 
   togglePasswordIsDisplayed = () => {
-    const { passwordIsDisplayed } = this.state;
     this.setState(prevstate => ({
       passwordIsDisplayed: !prevstate.passwordIsDisplayed
     }));
-    if (!passwordIsDisplayed) {
-      Tracking.trackDisplayPassword();
-    } else {
-      Tracking.trackHidePassword();
-    }
-  }
-
-  trackFacebookLogin = () => {
-    Tracking.trackFacebookLogin();
-    return this;
-  }
-
-  trackGoogleLogin = () => {
-    Tracking.trackGoogleLogin();
-    return this;
   }
 
   render() {
@@ -92,8 +74,6 @@ class LoginContainer extends React.Component<Props, State> {
         handleRegisterPannel={handleRegisterPannel}
         handleForgotPasswordPannel={handleForgotPasswordPannel}
         isPannelOpen={isPannelOpen}
-        trackFacebookLogin={this.trackFacebookLogin}
-        trackGoogleLogin={this.trackGoogleLogin}
       />
     );
   }

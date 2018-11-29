@@ -13,8 +13,6 @@ import { RedLinkButton } from '../Elements/ButtonElements';
 
 type Props = {
   isPannelOpen: boolean,
-  trackFacebookLogin: Function,
-  trackGoogleLogin: Function,
   handleRegisterPannel: Function,
   handleForgotPasswordPannel: Function
 };
@@ -22,8 +20,6 @@ type Props = {
 const LoginComponent = (props: Props) => {
   const {
     isPannelOpen,
-    trackFacebookLogin,
-    trackGoogleLogin,
     handleRegisterPannel,
     handleForgotPasswordPannel
   } = props;
@@ -39,8 +35,6 @@ const LoginComponent = (props: Props) => {
       </ThirdLevelTtitle>
       <AuthentificationSocialContainer
         tabIndex={isPannelOpen ? 0 : -1}
-        trackFacebookLogin={trackFacebookLogin}
-        trackGoogleLogin={trackGoogleLogin}
       />
       <Separators.Wrapper>
         <Separators.Large />

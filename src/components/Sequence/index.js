@@ -15,7 +15,6 @@ type Props = {
   isPannelOpen: boolean,
   handleExpandSequence: Function,
   handleStartSequence: Function,
-  handleEndSequence: Function,
   goToNextCard: Function,
   goToPreviousCard: Function
 };
@@ -29,7 +28,6 @@ const SequenceComponent = (props: Props) => {
     isPannelOpen,
     handleExpandSequence,
     handleStartSequence,
-    handleEndSequence,
     goToNextCard,
     goToPreviousCard
   } = props;
@@ -72,7 +70,6 @@ const SequenceComponent = (props: Props) => {
             index={finalCardIndex}
             currentIndex={currentIndex}
             goToPreviousCard={goToPreviousCard}
-            handleEndSequence={handleEndSequence}
           />
         </Sequence.List>
       </Sequence.Wrapper>
