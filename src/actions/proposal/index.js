@@ -3,6 +3,7 @@
 import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 import * as actionTypes from '../../constants/actionTypes';
 import ProposalService from '../../api/ProposalService';
+import Tracking from '../../services/Tracking';
 
 export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
   type: actionTypes.PROPOSE_TYPING,
@@ -36,6 +37,8 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
   return ProposalService.propose(proposalContent, operationId)
     .then(({ proposalId }) => {
       dispatch(proposeSuccess(proposalId));
+
+      Tracking.trackDisplayProposalSubmitValidation();
     })
     .catch((error) => {
       dispatch(proposeFailure(error));

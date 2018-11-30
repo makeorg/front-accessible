@@ -7,13 +7,12 @@ import { loginSocial } from '../../../../actions/authentification';
 
 type Props = {
   tabIndex: number,
-  handleGoogleLoginCallback: Function,
-  handleTracking: Function
+  handleGoogleLoginCallback: Function
 }
 
 class GoogleAuthentificationComponent extends React.Component<Props> {
   render() {
-    const { handleGoogleLoginCallback, tabIndex, handleTracking } = this.props;
+    const { handleGoogleLoginCallback, tabIndex } = this.props;
     return (
       <GoogleLogin
         {...this.props}
@@ -22,7 +21,6 @@ class GoogleAuthentificationComponent extends React.Component<Props> {
         onSuccess={handleGoogleLoginCallback}
         onFailure={handleGoogleLoginCallback}
         tabIndex={tabIndex}
-        onRequest={handleTracking}
       />
     );
   }

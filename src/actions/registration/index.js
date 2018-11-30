@@ -16,9 +16,9 @@ export const register = (user: Object) => (dispatch: Function, getState: Functio
   dispatch(registerRequest());
   return UserService.register(user)
     .then((userResonse) => {
+      dispatch(registerSuccess(userResonse));
       localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(userResonse));
       Tracking.trackSignupEmailSuccess();
-      dispatch(registerSuccess(userResonse));
 
       return userResonse;
     })
@@ -26,9 +26,8 @@ export const register = (user: Object) => (dispatch: Function, getState: Functio
       UserService.login(user.email, user.password)
         .then((token) => {
           const { content, canSubmit } = getState().proposal;
-
-          localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
           dispatch(loginSuccess(token));
+          localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
           if (canSubmit) dispatch(submitProposal(content));
           dispatch(pannelClose());
         })

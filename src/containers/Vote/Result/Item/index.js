@@ -2,7 +2,6 @@ import React from 'react';
 import ResultItemComponent from '../../../../components/Vote/Result/Item';
 import * as VoteResultHelper from '../../../../helpers/voteResult';
 import { getVoteIndex } from '../../../../helpers/vote';
-import Tracking from '../../../../services/Tracking';
 
 class ResultItemContainer extends React.Component {
   constructor(props) {
@@ -17,38 +16,31 @@ class ResultItemContainer extends React.Component {
   }
 
   toggleTooltip(event) {
-    const { proposalId, voteKey, index } = this.props;
     const { isTooltipDisplayed } = this.state;
     event.preventDefault();
     if (isTooltipDisplayed) {
       this.setState({
         isTooltipDisplayed: false
       });
-      Tracking.trackHideResults(proposalId, voteKey, index);
     } else {
       this.setState({
         isTooltipDisplayed: true
       });
-      Tracking.trackDisplayResults(proposalId, voteKey, index);
     }
   }
 
   displayTooltip(event) {
-    const { proposalId, voteKey, index } = this.props;
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: true
     });
-    Tracking.trackDisplayResults(proposalId, voteKey, index);
   }
 
   hideTooltip(event) {
-    const { proposalId, voteKey, index } = this.props;
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: false
     });
-    Tracking.trackHideResults(proposalId, voteKey, index);
   }
 
   render() {

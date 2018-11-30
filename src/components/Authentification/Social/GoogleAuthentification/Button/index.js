@@ -16,8 +16,7 @@ const renderGoogleLogin = tabIndex => renderProps => (
 );
 
 type Props = {
-  tabIndex: number;
-  handleTracking: Function;
+  tabIndex: number
 };
 
 const GoogleAuthentificationButtonComponent = (props: Props) => {

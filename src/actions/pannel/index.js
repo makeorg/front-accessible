@@ -11,15 +11,15 @@ export const pannelClose = () => (dispatch: Function) => {
 };
 export const pannelShowLogin = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.PANNEL_SHOW_LOGIN });
-  Tracking.trackDisplayLoginPannel();
+  Tracking.trackDisplaySigninForm();
 };
 
 export const pannelShowRegister = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.PANNEL_SHOW_REGISTER });
-  Tracking.trackDisplaySignupPannel();
+  Tracking.trackDisplaySignupForm();
 };
 
 export const pannelShowForgotPassword = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.PANNEL_SHOW_FORGOT_PASSWORD });
-  Tracking.trackDisplayForgotPasswordPannel();
+  Tracking.trackDisplayForgotPasswordForm();
 };

@@ -7,23 +7,11 @@ import Tracking from '../../../services/Tracking';
 export class ProposalSubmitAuthentification extends React.Component {
   constructor(props) {
     super(props);
-    this.trackFacebookSignUpButton = this.trackFacebookSignUpButton.bind(this);
-    this.trackGoogleSignUpButton = this.trackGoogleSignUpButton.bind(this);
     this.trackPersonnalDataLink = this.trackPersonnalDataLink.bind(this);
   }
 
   componentDidMount() {
-    Tracking.trackDisplayProposalSubmitAuthentification();
-  }
-
-  trackFacebookSignUpButton() {
-    Tracking.trackFacebookSignUpButton();
-    return this;
-  }
-
-  trackGoogleSignUpButton() {
-    Tracking.trackGoogleSignUpButton();
-    return this;
+    Tracking.trackDisplayAuthentificationForm();
   }
 
   trackPersonnalDataLink() {
@@ -37,8 +25,6 @@ export class ProposalSubmitAuthentification extends React.Component {
     return (
       <ProposalSubmitAuthentificationComponent
         isPannelOpen={isPannelOpen}
-        trackFacebookSignUpButton={this.trackFacebookSignUpButton}
-        trackGoogleSignUpButton={this.trackGoogleSignUpButton}
         trackPersonnalDataLink={this.trackPersonnalDataLink}
         handleRegisterClick={handleRegisterClick}
         handleLoginClick={handleLoginClick}

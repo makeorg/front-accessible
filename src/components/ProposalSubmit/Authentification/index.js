@@ -22,8 +22,6 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
       handleRegisterClick,
       handleLoginClick,
       isPannelOpen,
-      trackFacebookSignUpButton,
-      trackGoogleSignUpButton,
       trackPersonnalDataLink
     } = this.props;
 
@@ -36,11 +34,9 @@ class ProposalSubmitAuthentificationComponent extends React.Component {
         <SmallButtonsWrapper>
           <FacebookAuthentificationButtonComponent
             tabIndex={isPannelOpen ? -1 : 0}
-            handleTracking={trackFacebookSignUpButton}
           />
           <GoogleAuthentificationButtonComponent
             tabIndex={isPannelOpen ? -1 : 0}
-            handleTracking={trackGoogleSignUpButton}
           />
           <EmailButton
             onClick={handleRegisterClick}

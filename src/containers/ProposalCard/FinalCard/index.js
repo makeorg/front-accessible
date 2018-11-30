@@ -17,7 +17,6 @@ class FinalCardContainer extends React.Component {
       index,
       currentIndex,
       goToPreviousCard,
-      handleEndSequence,
       isPannelOpen,
       isSequenceCollapsed
     } = this.props;
@@ -33,7 +32,6 @@ class FinalCardContainer extends React.Component {
         zindex={zindex}
         tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
         goToPreviousCard={goToPreviousCard}
-        handleEndSequence={handleEndSequence}
         isPannelOpen={isPannelOpen}
         isSequenceCollapsed={isSequenceCollapsed}
       />

@@ -40,7 +40,6 @@ class SequenceContainer extends React.Component<Props, State> {
     this.goToNextCard = this.goToNextCard.bind(this);
     this.goToPreviousCard = this.goToPreviousCard.bind(this);
     this.handleStartSequence = this.handleStartSequence.bind(this);
-    this.handleEndSequence = this.handleEndSequence.bind(this);
     this.expandSequence = this.expandSequence.bind(this);
   }
 
@@ -63,11 +62,6 @@ class SequenceContainer extends React.Component<Props, State> {
     Tracking.trackClickStartSequence();
   }
 
-  handleEndSequence = () => {
-    Tracking.trackClickEndSequence();
-    return this;
-  }
-
   goToNextCard = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackClickNextCard();
@@ -81,7 +75,6 @@ class SequenceContainer extends React.Component<Props, State> {
   expandSequence = () => {
     const { handleExpandSequence } = this.props;
     handleExpandSequence();
-    Tracking.trackExpandSequence();
   }
 
 
@@ -98,7 +91,6 @@ class SequenceContainer extends React.Component<Props, State> {
         handleExpandSequence={this.expandSequence}
         isPannelOpen={isPannelOpen}
         handleStartSequence={this.handleStartSequence}
-        handleEndSequence={this.handleEndSequence}
         goToNextCard={this.goToNextCard}
         goToPreviousCard={this.goToPreviousCard}
       />

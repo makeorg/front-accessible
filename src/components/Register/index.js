@@ -13,17 +13,13 @@ import { ExtraParagraph } from '../Elements/Form';
 
 type Props = {
   isPannelOpen: boolean,
-  handleLoginPannel: Function,
-  trackFacebookSignUpLink: Function,
-  trackGoogleSignUpLink: Function
+  handleLoginPannel: Function
 }
 
 const RegisterComponent = (props: Props) => {
   const {
     isPannelOpen,
-    handleLoginPannel,
-    trackFacebookSignUpLink,
-    trackGoogleSignUpLink
+    handleLoginPannel
   } = props;
 
   return (
@@ -37,14 +33,12 @@ const RegisterComponent = (props: Props) => {
         &nbsp;
         <FacebookAuthentificationLinkComponent
           tabIndex={isPannelOpen ? 0 : -1}
-          handleTracking={trackFacebookSignUpLink}
         />
         &nbsp;
         {i18next.t('register.or')}
         &nbsp;
         <GoogleAuthentificationLinkComponent
           tabIndex={isPannelOpen ? 0 : -1}
-          handleTracking={trackGoogleSignUpLink}
         />
       </ThirdLevelTtitle>
       <Separators.Wrapper>

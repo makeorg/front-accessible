@@ -60,22 +60,26 @@ class Tracking {
     track(trackingConstants.CLICK_MODERATION_LINK);
   }
 
+  trackDisplayAuthentificationForm = () => {
+    track(trackingConstants.DISPLAY_AUTHENTIFICATION_FORM);
+  }
+
+  trackClickPersonnalDataLink = () => {
+    track(trackingConstants.CLICK_PERSONNAL_DATA_LINK);
+  }
+
   /* Proposal Submit */
   trackClickProposalSubmit = () => {
-    track(trackingConstants.CLICK_PROPOSAL_SUBMIT_BUTTON);
+    track(trackingConstants.CLICK_PROPOSAL_SUBMIT);
   }
 
-  trackDisplayProposalSubmitAuthentification = () => {
-    track(trackingConstants.DISPLAY_PROPOSAL_SUBMIT_AUTHENTIFICATION);
+  trackDisplayProposalSubmitValidation = () => {
+    track(trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION);
   }
 
-  /* Pannel */
-  trackDisplayLoginPannel = () => {
-    track(trackingConstants.DISPLAY_LOGIN_PANNEL);
-  }
 
-  trackDisplayForgotPasswordPannel = () => {
-    track(trackingConstants.DISPLAY_FORGOTPASSWORD_PANNEL);
+  trackDisplayForgotPasswordForm = () => {
+    track(trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
   }
 
   trackClickClosePannel = () => {
@@ -83,36 +87,8 @@ class Tracking {
   }
 
   /* Sign Up Pannel */
-  trackDisplaySignupPannel = () => {
-    track(trackingConstants.DISPLAY_SIGNUP_PANNEL);
-  }
-
-  trackFacebookSignUpButton = () => {
-    track(trackingConstants.CLICK_FACEBOOK_SIGNUP_BUTTON);
-  }
-
-  trackGoogleSignUpButton = () => {
-    track(trackingConstants.CLICK_GOOGLE_SIGNUP_BUTTON);
-  }
-
-  trackFacebookSignUpLink = () => {
-    track(trackingConstants.CLICK_FACEBOOK_SIGNUP_LINK);
-  }
-
-  trackGoogleSignUpLink = () => {
-    track(trackingConstants.CLICK_GOOGLE_SIGNUP_LINK);
-  }
-
-  trackEmailSignUp = () => {
-    track(trackingConstants.CLICK_EMAIL_SIGNUP_BUTTON);
-  }
-
-  trackClickPersonnalDataLink = () => {
-    track(trackingConstants.CLICK_PERSONNAL_DATA_LINK);
-  }
-
-  trackClickFormRegister = () => {
-    track(trackingConstants.CLICK_FORM_REGISTER_SUBMIT_BUTTON);
+  trackDisplaySignupForm = () => {
+    track(trackingConstants.DISPLAY_SIGN_UP_FORM);
   }
 
   trackSignupEmailSuccess = () => {
@@ -123,63 +99,39 @@ class Tracking {
     track(trackingConstants.SIGN_UP_EMAIL_FAILURE);
   }
 
-  /* Login */
-  trackFacebookLogin = () => {
-    track(trackingConstants.CLICK_FACEBOOK_LOGIN_BUTTON);
-  }
-
-  trackGoogleLogin = () => {
-    track(trackingConstants.CLICK_GOOGLE_LOGIN_BUTTON);
-  }
-
-  trackClickFormLogin = () => {
-    track(trackingConstants.CLICK_FORM_LOGIN_SUBMIT_BUTTON);
+  /* Signin */
+  trackDisplaySigninForm = () => {
+    track(trackingConstants.DISPLAY_SIGN_IN_FORM);
   }
 
   trackAuthentificationSocialSuccess = (socialNetwork: string) => {
-    track(trackingConstants.AUTHENTIFICATION_SOCIAL_SUCCESS, { 'social-network': socialNetwork });
+    track(trackingConstants.AUTHEN_SOCIAL_SUCCESS, { 'social-network': socialNetwork });
   }
 
   trackAuthentificationSocialFailure = (socialNetwork: string) => {
-    track(trackingConstants.AUTHENTIFICATION_SOCIAL_FAILURE, { 'social-network': socialNetwork });
+    track(trackingConstants.AUTHEN_SOCIAL_FAILURE, { 'social-network': socialNetwork });
   }
 
   trackLoginEmailSuccess = () => {
-    track(trackingConstants.LOGIN_EMAIL_SUCCESS);
+    track(trackingConstants.SIGN_IN_EMAIL_SUCCESS);
   }
 
   trackLoginEmailFailure = () => {
-    track(trackingConstants.LOGIN_EMAIL_FAILURE);
+    track(trackingConstants.SIGN_IN_EMAIL_FAILURE);
   }
 
-  /* Form */
-  trackDisplayPassword = () => {
-    track(trackingConstants.CLICK_DISPLAY_PASSWORD);
-  }
-
-  trackHidePassword = () => {
-    track(trackingConstants.CLICK_HIDE_PASSWORD);
-  }
 
   /* Sequence */
-  trackExpandSequence = () => {
-    track(trackingConstants.CLICK_EXPAND_SEQUENCE);
-  }
-
   trackClickStartSequence = () => {
     track(trackingConstants.CLICK_START_SEQUENCE);
   }
 
-  trackClickEndSequence = () => {
-    track(trackingConstants.CLICK_END_SEQUENCE);
-  }
-
   trackClickNextCard = () => {
-    track(trackingConstants.CLICK_NEXT_CARD);
+    track(trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
   }
 
   trackClickPreviousCard = () => {
-    track(trackingConstants.CLICK_PREVIOUS_CARD);
+    track(trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
   }
 
   trackDisplayFinalCard = () => {
@@ -222,22 +174,6 @@ class Tracking {
     });
   }
 
-  /* Results */
-  trackDisplayResults = (proposalId: string, nature: string, cardPosition: number) => {
-    track(trackingConstants.DISPLAY_RESULTS, {
-      proposalId,
-      nature,
-      'card-position': cardPosition.toString()
-    });
-  }
-
-  trackHideResults = (proposalId: string, nature: string, cardPosition: number) => {
-    track(trackingConstants.HIDE_RESULTS, {
-      proposalId,
-      nature,
-      'card-position': cardPosition.toString()
-    });
-  }
 
   /* Footer */
   trackClickConsultation = () => {
