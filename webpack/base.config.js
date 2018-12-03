@@ -66,6 +66,8 @@ module.exports = {
       'connect-src': ["'self'", '*.makeorg.tech', '*.make.org'],
       'form-action': ["'self'", '*.facebook.com'],
       'child-src': ["'self'", '*.facebook.com', '*.google.com']
+    }, {
+      enabled: false
     })
   ],
   module: {
