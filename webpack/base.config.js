@@ -57,7 +57,7 @@ module.exports = {
     new ManifestPlugin(),
     new CspHtmlWebpackPlugin({
       'base-uri': "'self'",
-      'script-src': ["'self'", '*.facebook.net', '*.facebook.com', '*.google.com'],
+      'script-src': ["'self'", '*.facebook.net', '*.facebook.com', '*.google.com', "'unsafe-inline'"],
       'img-src': ["'self'", '*.facebook.com'],
       'style-src': ["'unsafe-inline'"],
       'font-src': "'self'",
