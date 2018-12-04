@@ -44,6 +44,7 @@ export class Vote extends React.Component<Props, State> {
     event.preventDefault();
     const { proposalId, index } = this.props;
     const { hasVoted } = this.state;
+
     if (hasVoted) {
       VoteService.unvote(proposalId, voteKey)
         .then((vote) => {

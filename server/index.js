@@ -1,4 +1,5 @@
 import questionApi from './questionApi';
+import { logger } from './logger';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ const serveStatic = require('serve-static');
 require('./browserPolyfill');
 const reactRender = require('./reactRender');
 const { BUILD_DIR } = require('./paths');
-const configuration = require('./configuration.js');
+const configuration = require('./configuration');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -31,5 +32,15 @@ app.use('/assets', express.static(BUILD_DIR, {
 // Routes
 app.get('/:country?', reactRender);
 app.get('/api/questions/:questionSlug', questionApi);
+
+
+app.post('/api/logger', (req, res) => {
+  logger.log(
+    req.body.level,
+    req.body.data
+  );
+
+  return res.sendStatus(204);
+});
 
 app.listen(configuration.port, configuration.host);
