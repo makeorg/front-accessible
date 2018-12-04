@@ -1,7 +1,11 @@
 /* @flow */
 
-export const getVoteIndex = (voteKey: string, proposalId: string) => (
+export const getVoteKey = (voteKey: string, proposalId: string) => (
   `${voteKey}_${proposalId}`
+);
+
+export const getVoteButtonId = (voteKey: string, id: number) => (
+  `${voteKey}-${id}`
 );
 
 const getNewVoteState = (prevState: Object, vote: Object) => {

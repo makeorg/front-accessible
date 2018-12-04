@@ -5,7 +5,7 @@ import { Description } from '../../Elements/DescriptionElements';
 
 const ProposalSubmitSuccessComponent = () => (
   <DescriptionWrapper>
-    <Description>
+    <Description id="proposal-submit-success">
       {i18next.t('proposal_submit.success')}
     </Description>
   </DescriptionWrapper>

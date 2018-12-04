@@ -38,6 +38,7 @@ class IntroCardComponent extends React.Component {
           dangerouslySetInnerHTML={{ __html: i18next.t('proposal_card.intro_text') }}
         />
         <ProposalCard.IntroButton
+          id="sequence-start-sequence-button"
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={handleStartSequence}
         >

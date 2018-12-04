@@ -41,6 +41,7 @@ const ProposalCardComponent = (props: Props) => {
       scale={scale}
       zindex={zindex}
       className={index < currentIndex ? 'collapsed-card' : ''}
+      id={`proposal-card-${index}`}
     >
       <ProposalCard.FakeNavWrapper>
         <ProposalCard.BackButton

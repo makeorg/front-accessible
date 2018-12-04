@@ -2,16 +2,16 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import { getVoteIndex } from '../../helpers/vote';
+import { getVoteKey, getVoteButtonId } from '../../helpers/vote';
 import Vote from './Styled';
 import { VoteButton } from './Styled/Button';
 import VoteButtonComponent from './Button';
 import { HiddenItem } from '../Elements/HiddenElements';
 import voteStaticParams from '../../constants/vote';
 
-
 type VoteButtonsProps = {
   proposalId: string,
+  index: number,
   tabIndex: number,
   handleVote: Function
 };
@@ -19,6 +19,7 @@ type VoteButtonsProps = {
 const VoteButtonsComponent = (props: VoteButtonsProps) => {
   const {
     proposalId,
+    index,
     tabIndex,
     handleVote
   } = props;
@@ -27,14 +28,15 @@ const VoteButtonsComponent = (props: VoteButtonsProps) => {
   return (
     voteKeys.map<React.Node>((voteKey: string) => (
       <VoteButtonComponent
-        key={getVoteIndex(voteKey, proposalId)}
+        key={getVoteKey(voteKey, proposalId)}
         color={voteStaticParams[voteKey].color}
         label={i18next.t(`vote.${voteKey}`)}
         icon={voteStaticParams[voteKey].icon}
         rotate={voteStaticParams[voteKey].rotate}
-        handleVote={event => handleVote(event, voteKey)}
         buttonType={VoteButton}
         tabIndex={tabIndex}
+        id={getVoteButtonId(voteKey, index)}
+        handleVote={event => handleVote(event, voteKey)}
       />
     ))
   );
@@ -42,8 +44,7 @@ const VoteButtonsComponent = (props: VoteButtonsProps) => {
 
 type VoteProps = {
   proposalId: string,
-  hasVoted: boolean,
-  votedKey: string,
+  index: number,
   tabIndex: number,
   handleVote: Function
 };
@@ -51,9 +52,8 @@ type VoteProps = {
 const VoteComponent = (props: VoteProps) => {
   const {
     proposalId,
+    index,
     tabIndex,
-    hasVoted,
-    votedKey,
     handleVote
   } = props;
 
@@ -63,10 +63,9 @@ const VoteComponent = (props: VoteProps) => {
       <HiddenItem aria-hidden>{i18next.t('vote.intro_text')}</HiddenItem>
       <Vote.Wrapper>
         <VoteButtonsComponent
-          tabIndex={tabIndex}
           proposalId={proposalId}
-          hasVoted={hasVoted}
-          votedKey={votedKey}
+          index={index}
+          tabIndex={tabIndex}
           handleVote={handleVote}
         />
       </Vote.Wrapper>

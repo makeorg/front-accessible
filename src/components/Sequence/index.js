@@ -45,7 +45,7 @@ const SequenceComponent = (props: Props) => {
         isPannelOpen={isPannelOpen}
       />
       <Sequence.Wrapper>
-        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'}>
+        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'} id="sequence">
           <IntroCardComponent
             index={0}
             currentIndex={currentIndex}

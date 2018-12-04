@@ -42,7 +42,7 @@ class RegisterFormComponent extends React.Component {
       <Form id="register" onSubmit={handleSubmit}>
         {globalError
           && (
-            <FormErrors>
+            <FormErrors id="authentification-register-error">
               <FormError key={globalError}>{globalError}</FormError>
             </FormErrors>
           )
@@ -58,7 +58,7 @@ class RegisterFormComponent extends React.Component {
           handleChange={handleChange}
           tabIndex={isPannelOpen ? 0 : -1}
         />
-        {emailError && <InputError>{emailError}</InputError>}
+        {emailError && <InputError id="authentification-email-error">{emailError}</InputError>}
         <PasswordInput
           type="password"
           name="password"
@@ -72,7 +72,7 @@ class RegisterFormComponent extends React.Component {
           passwordIsDisplayed={passwordIsDisplayed}
           togglePasswordIsDisplayed={togglePasswordIsDisplayed}
         />
-        {passwordError && <InputError>{passwordError}</InputError>}
+        {passwordError && <InputError id="authentification-password-error">{passwordError}</InputError>}
         <UntypedInput
           type="text"
           name="firstname"
@@ -121,6 +121,7 @@ class RegisterFormComponent extends React.Component {
           type="submit"
           form="register"
           tabIndex={isPannelOpen ? 0 : -1}
+          id="authentification-register-submit"
         >
           <IconInButton>
             <FontAwesomeIcon icon={faThumbsUp} />

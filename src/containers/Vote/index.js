@@ -97,6 +97,7 @@ export class Vote extends React.Component<Props, State> {
           <NextButton
             tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             onClick={goToNextCard}
+            id={`next-button-${index}`}
           >
             {i18next.t('proposal_card.next')}
           </NextButton>
@@ -107,10 +108,9 @@ export class Vote extends React.Component<Props, State> {
     return (
       <VoteComponent
         proposalId={proposalId}
-        hasVoted={hasVoted}
-        votedKey={votedKey}
-        handleVote={this.handleVote}
+        index={index}
         tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        handleVote={this.handleVote}
       />
     );
   }

@@ -2,6 +2,7 @@
 .*/node_modules/findup
 .*/spec.js
 .*/*.spec.js
+.*/node_modules/module-deps/.*
 [include]
 
 [libs]

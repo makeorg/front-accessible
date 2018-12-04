@@ -3,3 +3,5 @@
 /.nyc_output
 /coverage
 yarn-error.log
+/cypress/screenshots
+/cypress/videos
