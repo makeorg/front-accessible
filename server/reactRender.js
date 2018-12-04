@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import configureStore from '../src/store';
-import App from '../src/components/App';
+import AppContainer from '../src/containers/App';
 import i18next from '../src/i18n';
 
 const fs = require('fs');
@@ -32,7 +32,7 @@ module.exports = function reactRender(req, res) {
 
     const ReactApp = (
       <Provider store={store}>
-        <App />
+        <AppContainer />
       </Provider>
     );
 
