@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import ApiService from './api/ApiService';
 import DateHelper from './helpers/date';
+import { uuid } from './helpers/uuid';
 
 export default function configureStore(initialState: Object = {}) {
   const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -13,6 +14,7 @@ export default function configureStore(initialState: Object = {}) {
   ApiService.source = initialState.appConfig.source;
   ApiService.country = initialState.appConfig.country;
   ApiService.language = initialState.appConfig.language;
+  ApiService.sessionId = uuid();
   DateHelper.language = initialState.appConfig.language;
 
   return createStore(

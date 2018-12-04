@@ -70,6 +70,8 @@ class ApiService {
 
   _source: string;
 
+  _sessionId: string;
+
   _token: ?Object;
 
   constructor() {
@@ -114,6 +116,14 @@ class ApiService {
     return this._source;
   }
 
+  set sessionId(sessionId: string) {
+    this._sessionId = sessionId;
+  }
+
+  get sessionId(): string {
+    return this._sessionId;
+  }
+
   set token(token: Object) {
     this._token = token;
   }
@@ -127,6 +137,7 @@ class ApiService {
     let headers = Object.assign({}, {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
+      'x-session-id': this._sessionId,
       'x-make-country': this._country,
       'x-make-language': this._language,
       'x-make-location': 'core',
