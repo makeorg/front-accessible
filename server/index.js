@@ -30,7 +30,12 @@ app.use('/assets', express.static(BUILD_DIR, {
 }));
 
 // Routes
-app.get('/:country?', reactRender);
+app.get('/', (req, res) => {
+  const detectedCountry = req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR';
+  res.redirect(`/${detectedCountry}`);
+});
+
+app.get('/:country*', reactRender);
 app.get('/api/questions/:questionSlug', questionApi);
 
 

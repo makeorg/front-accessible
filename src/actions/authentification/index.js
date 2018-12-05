@@ -34,7 +34,6 @@ export const getUser = () => (dispatch: Function, getState: Function) => {
 
 export const getToken = () => (dispatch: Function, getState: Function) => {
   const { content } = getState().proposal;
-
   return UserService.getUserToken()
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));

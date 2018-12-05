@@ -2,19 +2,30 @@
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import * as actions from './index';
 import * as actionTypes from '../../constants/actionTypes';
+import UserService from '../../api/UserService';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const axiosMock = new MockAdapter(axios);
 
 describe('Authentification Actions', () => {
-  beforeEach(() => { // Runs before each test in the suite
+  let sandbox;
+
+  beforeEach(() => {
     store.clearActions();
-    fetchMock.reset();
-    fetchMock.restore();
+    sandbox = sinon.createSandbox();
+
+    axiosMock.restore();
+    axiosMock.onPost('/tracking/front').reply(204);
+  });
+
+  afterEach(() => {
+    sandbox.restore();
   });
 
   describe('Login Actions', () => {
@@ -47,21 +58,23 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login when success', () => {
-      const token = { foo: 'bar' };
-      const user = { firstname: 'baz' };
       const proposalIdResponse = { proposalId: 'baz' };
       const proposalContent = 'foo';
       const operationId = 'bar';
+      const token = { foo: 'bar' };
+      const user = { email: 'baz@make.org', password: 'foo' };
+
       const store = mockStore({
         proposal: {canSubmit: false},
         pannel: {isPannelOpen: false},
         authentification: {isLoggedIn: false}
       });
 
-      fetchMock
-        .post('path:/oauth/make_access_token', token)
-        .post('path:/tracking/front', 204)
-        .get('path:/user/me', user);
+      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'login');
+      userServiceGetUserTokenMock.withArgs(user.email, user.password).returns(Promise.resolve(token));
+
+      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
+      userServiceGetUserMock.returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
@@ -69,7 +82,8 @@ describe('Authentification Actions', () => {
         { type: actionTypes.GET_INFO, user }
       ];
 
-      return store.dispatch(actions.login('foo', 'bar')).then(() => {
+      ;
+      return store.dispatch(actions.login(user.email, user.password)).then(() => {
         expect(store.getActions()).to.deep.equal(expectedActions)
       });
     });
@@ -83,9 +97,7 @@ describe('Authentification Actions', () => {
         appConfig: {operationId}
       });
 
-      fetchMock
-        .post('path:/tracking/front', 204)
-        .post('path:/oauth/make_access_token', 401)
+      axiosMock.onPost('/oauth/make_access_token').reply(401);
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
@@ -138,11 +150,12 @@ describe('Authentification Actions', () => {
       const provider = 'fooProvider';
       const socialToken = 'fooToken';
 
-      fetchMock
-        .post('path:/user/login/social', token)
-        .get('path:/user/me', user)
-        .post('path:/tracking/front', 204)
-      ;
+      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'loginSocial');
+      userServiceGetUserTokenMock.withArgs(provider, socialToken).returns(Promise.resolve(token));
+
+      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
+      userServiceGetUserMock.returns(Promise.resolve(user));
+
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: provider },
@@ -164,9 +177,7 @@ describe('Authentification Actions', () => {
       });
       const barProvider = 'barProvider';
 
-      fetchMock
-        .post('path:/user/login/social', 401)
-        .post('path:/tracking/front', 204)
+      axiosMock.onPost('/user/login/social').reply(401);
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: barProvider },
@@ -217,14 +228,11 @@ describe('Authentification Actions', () => {
     it('creates an action to getUser when pannel is open', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        pannel: {
-          isPannelOpen: true
-        }
+        pannel: { isPannelOpen: true }
       });
 
-      fetchMock
-        .get('path:/user/me', user)
-        .post('path:/tracking/front', 204);
+      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
+      userServiceGetUserMock.returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
@@ -240,13 +248,11 @@ describe('Authentification Actions', () => {
     it('creates an action to getUser when pannel is closed', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        pannel: {
-          isPannelOpen: false
-        }
+        pannel: { isPannelOpen: false }
       });
 
-      fetchMock
-        .get('path:/user/me', user);
+      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
+      userServiceGetUserMock.returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user }
@@ -258,26 +264,28 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to getToken', () => {
-      const token = {foo: 'Bar'};
-      const user = { firstname: 'bazaaaa' };
-      const proposalContent = 'il faut blabla';
+      const token = { foo: 'Bar' };
+      const user = { firstname: 'baz' };
+      const content = 'il faut blabla';
       const operationId = 'fooOperationId'
       const store = mockStore({
-        appConfig: {operationId},
-        proposal: {content: proposalContent},
-        pannel: {isPannelOpen: false},
-        authentification: {isLoggedIn: false}
+        appConfig: { operationId },
+        proposal: { content },
+        pannel: { isPannelOpen: false },
+        authentification: { isLoggedIn: false }
       });
 
-      fetchMock
-        .get('path:/oauth/access_token', token)
-        .get('path:/user/me', user)
-        .post('path:/tracking/front', 204);
+      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'getUserToken');
+      userServiceGetUserTokenMock.returns(Promise.resolve(token));
+
+      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
+      userServiceGetUserMock.returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.GET_TOKEN, token },
         { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PROPOSE_REQUEST, content: proposalContent, operationId},
+        { type: actionTypes.PROPOSE_REQUEST, content, operationId },
+
       ];
 
       return store.dispatch(actions.getToken()).then(() => {

@@ -16,7 +16,7 @@ export const incrementCurrentIndex = (prevState: Object) => ({
 });
 
 type Props = {
-  operationId: string,
+  question: Object,
   isSequenceCollapsed: boolean,
   isPannelOpen: boolean,
   handleExpandSequence: Function,
@@ -44,10 +44,12 @@ class SequenceContainer extends React.Component<Props, State> {
   }
 
   componentDidMount = () => {
-    const { operationId } = this.props;
-    SequenceService.startSequence(operationId)
-      .then(sequence => this.setProposals(sequence))
-      .catch(error => error);
+    const { question } = this.props;
+    if (question) {
+      SequenceService.startSequence(question.landingSequenceId)
+        .then(sequence => this.setProposals(sequence))
+        .catch(error => error);
+    }
   }
 
   setProposals = (sequence) => {
@@ -101,13 +103,11 @@ class SequenceContainer extends React.Component<Props, State> {
 
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
-  const { operationId } = state.appConfig;
   const { isPannelOpen } = state.pannel;
 
 
   return {
     isSequenceCollapsed,
-    operationId,
     isPannelOpen
   };
 };

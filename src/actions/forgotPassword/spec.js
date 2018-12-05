@@ -2,23 +2,25 @@
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
 import i18next from 'i18next';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import * as actions from './index';
 import * as actionTypes from '../../constants/actionTypes';
+import UserService from '../../api/UserService';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const axiosMock = new MockAdapter(axios);
 
 describe('ForgotPassword Actions', () => {
   let sandbox;
-
   beforeEach(() => {
     store.clearActions();
-    fetchMock.reset();
-    fetchMock.restore();
     sandbox = sinon.createSandbox();
+    axiosMock.restore();
+    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   afterEach(() => {
@@ -65,8 +67,8 @@ describe('ForgotPassword Actions', () => {
     it('Creates an action to forgot password when success', () => {
       const email = 'foo@example.com';
 
-      fetchMock
-        .post('path:/user/reset-password/request-reset', 204);
+      const userServiceForgotPasswordMock = sandbox.stub(UserService, 'forgotPassword');
+      userServiceForgotPasswordMock.withArgs(email).returns(Promise.resolve());
 
       const expectedActions = [
         { type: actionTypes.FORGOT_PASSWORD_REQUEST, email },
@@ -86,8 +88,8 @@ describe('ForgotPassword Actions', () => {
       const errors = [errorMessage];
       const email = 'foo@example.com';
 
-      fetchMock
-        .post('path:/user/reset-password/request-reset', 404)
+      const userServiceForgotPasswordMock = sandbox.stub(UserService, 'forgotPassword');
+      userServiceForgotPasswordMock.withArgs(email).returns(Promise.reject(errors));
 
       const expectedActions = [
         { type: actionTypes.FORGOT_PASSWORD_REQUEST, email },

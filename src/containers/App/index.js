@@ -12,14 +12,12 @@ class AppContainer extends React.Component {
   }
 
   render() {
-    const {
-      isSequenceCollapsed
-    } = this.props;
+    const { isSequenceCollapsed, country } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
         <ErrorBoundary>
-          <AppComponent isSequenceCollapsed={isSequenceCollapsed} />
+          <AppComponent isSequenceCollapsed={isSequenceCollapsed} country={country} />
         </ErrorBoundary>
       </ThemeProvider>
     );
@@ -28,9 +26,11 @@ class AppContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
+  const { country } = state.appConfig;
 
   return {
-    isSequenceCollapsed
+    isSequenceCollapsed,
+    country
   };
 };
 

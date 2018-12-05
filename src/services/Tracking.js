@@ -1,6 +1,7 @@
 /* @flow */
 
 import ApiService from '../api/ApiService';
+import Logger from './Logger';
 import * as trackingConstants from '../constants/tracking';
 
 const
@@ -29,7 +30,7 @@ const track = (eventName: string, parameters: Object = {}) => {
       eventParameters,
       eventType: 'trackCustom'
     })
-  });
+  }).catch(error => Logger.logError(error));
 };
 
 class Tracking {

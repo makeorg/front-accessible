@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import configureStore from '../src/store';
@@ -13,28 +14,40 @@ const configuration = require('./configuration.js');
 
 module.exports = function reactRender(req, res) {
   const { apiUrl, frontUrl } = configuration;
+  const { country } = req.params;
+
+  if (!country || !(/^[A-Z]{2,3}$/.test(country))) {
+    const detectedCountry = req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR';
+    const url = (req.url !== '/') ? req.url : '';
+    res.redirect(`/${detectedCountry}${url}`);
+    return;
+  }
+
   const initialState = {
     appConfig: {
-      operationId: req.query.operationId || 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
       source: 'core',
       language: req.query.language || 'fr',
-      country: req.query.country || req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR'
+      country
     }
   };
 
   i18next.changeLanguage(initialState.appConfig.language);
 
+  const store = configureStore(initialState);
+  const context = {};
+
+  const ReactApp = (
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
+        <AppContainer />
+      </StaticRouter>
+    </Provider>
+  );
+
   fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
     if (err) {
       return res.status(404).end();
     }
-    const store = configureStore(initialState);
-
-    const ReactApp = (
-      <Provider store={store}>
-        <AppContainer />
-      </Provider>
-    );
 
     const sheet = new ServerStyleSheet();
     const body = renderToString(sheet.collectStyles(ReactApp));
