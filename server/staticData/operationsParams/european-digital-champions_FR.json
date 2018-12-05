@@ -1,0 +1,84 @@
+{
+  "country": "FR",
+  "slug": "european-digital-champions",
+  "language": "fr",
+  "title": "Comment faire émerger des champions européens du numérique ?",
+  "question": "Comment faire émerger des champions européens du numérique ?",
+  "learnMoreUrl": "https://about.make.org/about-european-digital-champions",
+  "presentation": "Les élections européennes offrent une formidable opportunité d’un grand réveil numérique européen. <br/>Comment faire émerger les champions européens du numérique ? Pour la première fois, l’Institut G9+, <br/>Roland Berger, Croissance+ et Make.org vont massivement mobiliser citoyens français et allemands sur <br/>cette question, pour écrire un Livre blanc inédit, première véritable feuille de route citoyenne sur le sujet.",
+  "legalNote": false,
+  "color": "#5DA113",
+  "gradient-start": "#7DB7E3",
+  "gradient-end": "#5DA113",
+  "useBrightFont": true,
+  "logoUrl": "Todo",
+  "whiteLogoUrl": "Todo",
+  "logoWidth": 375,
+  "startDateActions": false,
+  "operationTypeRibbon": false,
+  "partners": [],
+  "actions": false,
+  "share": true,
+  "initiators":[
+    {
+      "name": "G9+",
+      "imageUrl": "Todo"
+    },
+    {
+      "name": "Roland Berger",
+      "imageUrl": "Todo"
+    },
+    {
+      "name": "Croissance Plus",
+      "imageUrl": "Todo"
+    },
+    {
+      "name": "Bpifrance",
+      "imageUrl": "Todo"
+    }
+  ],
+  "sequenceExtraSlides": {
+    "introCard":  {
+      "title": "#entrepreneuriat  #europe  #investissement  #fiscalité",
+      "explanation1": "Aidez nous à faire émerger des champions européens du numérique.",
+      "explanation2": false,
+      "partners": [
+        {
+          "name": "G9+",
+          "imageUrl": "Todo"
+        },
+        {
+          "name": "Roland Berger",
+          "imageUrl": "Todo"
+        },
+        {
+          "name": "Croissance Plus",
+          "imageUrl": "Todo"
+        },
+        {
+          "name": "Bpifrance",
+          "imageUrl": "Todo"
+        }
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation",
+      "nextCTA": false
+    },
+    "pushProposal": true
+  },
+  "sequenceSignUpForm": {
+    "firstName": false,
+    "age": false,
+    "job": false,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  },
+  "sequenceSignUpModal": {
+    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
+  },
+  "displayInShowcases": false
+}

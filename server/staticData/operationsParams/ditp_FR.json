@@ -1,0 +1,57 @@
+ {
+  "country": "FR",
+  "slug": "ditp",
+  "language": "fr",
+  "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
+  "question": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
+  "learnMoreUrl": "https://about.make.org/about-ditp",
+  "presentation": "Le Gouvernement a décidé de revoir en profondeur le mode de fonctionnement de l’État <br/>pour vous redonner la liberté d’action qui vous est nécessaire. C’est pourquoi <br/>cette question simple, ouverte, « Comment lever les blocages que vous rencontrez au quotidien ? » <br/>vous sera soumise pendant deux mois. Pour la première fois à cette échelle, <br/>vous allez pouvoir vous exprimer sur votre quotidien, pointer les freins <br/>qui vous bloquent et proposer vos solutions qui demain transformeront l’action publique.",
+  "legalNote": false,
+  "color": "#ED2939",
+  "gradient-start": "#8ADCD7",
+  "gradient-end": "#367ABC",
+  "useBrightFont": true,
+  "logoUrl": "Todo",
+  "whiteLogoUrl": "Todo",
+  "logoWidth": 322,
+  "startDateActions": false,
+  "operationTypeRibbon": false,
+  "partners": [],
+  "actions": false,
+  "share": false,
+  "initiators":[
+    {
+      "name": "Direction Interministérielle de la Transformation Publique",
+      "imageUrl": "Todo"
+    }
+  ],
+  "sequenceExtraSlides": {
+    "introCard":  {
+      "title": "Des milliers d'agents publics proposent des solutions.",
+      "explanation1": "Prenez position sur ces solutions ou proposez les vôtres.",
+      "explanation2": "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme.",
+      "partners": [
+          {
+            "name": "DITP",
+            "imageUrl": "Todo"
+          }
+      ]
+    },
+    "signUpCard": {
+      "title": "Inscrivez vous pour enregistrer vos contributions",
+      "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
+    },
+    "pushProposal": true
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": true,
+    "hiddenOptOut": true
+  },
+  "sequenceSignUpModal": {
+    "title": "J' m'inscris avec mon email"
+  },
+  "displayInShowcases": false
+}

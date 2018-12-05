@@ -1,0 +1,76 @@
+{
+  "country": "FR",
+  "slug": "plan-climat",
+  "language": "fr",
+  "title": "#MaSolutionPourLeClimat",
+  "question": "Comment lutter ensemble contre le réchauffement climatique ?",
+  "learnMoreUrl": "https://about.make.org/about-paln-climat",
+  "presentation": "La Métropole Nice Côte d'Azur, Nice-Matin et Make.org lançent une vaste consultation citoyenne en ligne autour <br/>de la question “Comment lutter ensemble contre le réchauffement climatique ?”. Citoyens et associations, <br/>bienvenue sur la plateforme collaborative du Plan Climat air-énergie territorial. Face aux enjeux climatiques, <br/>la Métropole Nice Côte d’Azur, accompagné de Nice-Matin et Make.org, s’engage avec vous pour réduire collectivement <br/>nos émissions de <br/>gaz à effet de serre.",
+  "legalNote": false,
+  "color": "#00B1BA",
+  "gradient-start": "#00B1BA",
+  "gradient-end": "#00B1BA",
+  "useBrightFont": true,
+  "logoUrl": "Todo",
+  "whiteLogoUrl": "Todo",
+  "logoWidth": 364,
+  "startDateActions": false,
+  "operationTypeRibbon": false,
+  "partners": [],
+  "actions": false,
+  "share": true,
+  "initiators":[
+    {
+      "name": "Plan climat air énergie territorial",
+      "imageUrl": "Todo"
+    },
+    {
+      "name": "Plan climat air énergie territorial",
+      "imageUrl": "Todo"
+    },
+    {
+      "name": "Métropole Nice Côte D'Azur",
+      "imageUrl": "Todo"
+    }
+  ],
+  "sequenceExtraSlides": {
+    "introCard":  {
+      "title": false,
+      "explanation1": false,
+      "explanation2": "Les + soutenues seront reprises dans le Plan Climat.",
+      "partners": [
+        {
+          "name": "Plan climat air énergie territorial",
+          "imageUrl": "Todo"
+        },
+        {
+          "name": "Plan climat air énergie territorial",
+          "imageUrl": "Todo"
+        },
+        {
+          "name": "Métropole Nice Côte D'Azur",
+          "imageUrl": "Todo"
+        }
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation",
+      "nextCTA": false
+    },
+    "pushProposal": true
+  },
+  "sequenceSignUpForm": {
+    "firstName": false,
+    "age": false,
+    "job": false,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  },
+  "sequenceSignUpModal": {
+    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
+  },
+  "displayInShowcases": false
+}

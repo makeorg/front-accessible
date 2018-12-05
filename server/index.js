@@ -1,3 +1,5 @@
+import questionApi from './questionApi';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
@@ -26,7 +28,8 @@ app.use('/assets', express.static(BUILD_DIR, {
   setHeaders: setCustomCacheControl
 }));
 
-
+// Routes
 app.get('/:country?', reactRender);
+app.get('/api/questions/:questionSlug', questionApi);
 
 app.listen(configuration.port, configuration.host);

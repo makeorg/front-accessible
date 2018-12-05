@@ -1,0 +1,64 @@
+{
+  "country": "FR",
+  "slug": "jeunesse-hautsdefrance",
+  "language": "fr",
+  "title": "Construire l’avenir des jeunes en Hauts-de-France",
+  "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
+  "learnMoreUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
+  "presentation": "15/30 ans, vous habitez en #HDF, faites entendre votre voix ! <br/>Les Hauts-de-France vont initier avec Make.org une consultation totalement inédite : plusieurs dizaines de <br/>milliers de jeunes vont en effet pouvoir répondre très librement à la question <br/>« Comment vous aider à construire votre avenir en Hauts-de-France ? ». <br/>Les résultats de la consultation seront le point de départ d’une mobilisation <br/>plus ample de toutes les forces vives de la région, <br/>débouchant sur un plan d’actions concrètes que vous pourrez retrouver sur <br/><a href=\\\"http://www.generation.hautsdefrance.fr\\\">www.generation.hautsdefrance.fr</a>.",
+  "legalNote": false,
+  "color": "#3dbfff",
+  "gradient-start": "#fea8fe",
+  "gradient-end": "#35bfff",
+  "useBrightFont": false,
+  "logoUrl": "Todo",
+  "whiteLogoUrl": "Todo",
+  "logoWidth": 463,
+  "startDateActions": false,
+  "operationTypeRibbon": false,
+  "partners":[],
+  "actions": false,
+  "share": true,
+  "initiators": [
+    {
+      "name": "Région Hauts-de-France",
+      "imageUrl": "Todo",
+      "isFounder": true
+    }
+  ],
+  "sequenceExtraSlides": {
+    "introCard": {
+      "title": "Les jeunes des Hauts-de-France proposent des solutions.",
+      "explanation1": false,
+      "explanation2": "Les plus soutenues seront mises en oeuvre par la Région.",
+      "partners": [
+        {
+          "name": "Région Hauts-de-France+",
+          "imageUrl": "Todo"
+        }
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation",
+      "nextCTA": "Non merci, je ne souhaite pas être informé des résultats"
+    },
+    "pushProposal": true
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": true,
+    "csp": true,
+    "gender": true,
+    "hiddenOptOut": true,
+    "partnerOptin": {
+      "language": "fr",
+      "label": "J'autorise la région Hauts-de-France à me recontacter dans le cadre de cette opération."
+    }
+  },
+  "sequenceSignUpModal": {
+    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
+  },
+  "displayInShowcases": true
+}
