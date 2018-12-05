@@ -1,5 +1,6 @@
 /* @flow */
 import * as UrlHelper from '../helpers/url';
+import Logger from '../services/Logger';
 
 const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
@@ -20,7 +21,12 @@ const API_URL = (
  * @return Promise
  */
 
-const fetchRetry = (url: string, options: Object = {}, retry: number = 5, timeout:number = 9000): Promise<any> => (
+export const fetchRetry = (
+  url: string,
+  options: Object = {},
+  retry: number = 5,
+  timeout:number = 9000
+): Promise<any> => (
   new Promise((resolve, reject) => {
     fetch(url, options).then(resolve)
       .catch((error) => {
@@ -38,11 +44,14 @@ const fetchRetry = (url: string, options: Object = {}, retry: number = 5, timeou
  * @param  {Object} response
  * @return {String|Object}
  */
-const handleErrors = (response: Object) => {
+export const handleErrors = (response: Object) => {
   if (!response.ok) {
     switch (response.status) {
       case 400:
         return response.json().then((errors) => { throw errors; });
+      case 500:
+        Logger.logError('Api Response');
+        throw response.status;
       default:
         throw response.status;
     }

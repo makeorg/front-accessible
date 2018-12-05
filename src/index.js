@@ -6,6 +6,23 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import AppContainer from './containers/App';
 import configureStore from './store';
 import './i18n';
+import Logger from './services/Logger';
+
+window.onerror = (message, source, lineNumber, columnNumber, error) => {
+  if (error && error.stack) {
+    const { stack } = error;
+    Logger.log({
+      message,
+      source,
+      lineNumber,
+      columnNumber,
+      stack
+    });
+  }
+
+
+  return false;
+};
 
 let initialState = window.INITIAL_STATE;
 
