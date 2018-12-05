@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
 import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';

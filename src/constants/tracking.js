@@ -15,7 +15,9 @@ export const CLICK_PROPOSAL_QUALIFY: string = 'click-proposal-qualify';
 export const CLICK_PROPOSAL_UNQUALIFY: string = 'click-proposal-unqualify';
 export const CLICK_SEQUENCE_NEXT_CARD: string = 'click-sequence-next-card';
 export const CLICK_SEQUENCE_PREVIOUS_CARD: string = 'click-sequence-previous-card';
-export const DISPLAY_FINAL_CARD: string = 'display-finale-card';
+export const CLICK_PROPOSAL_PUSH_CARD_IGNORE:string = 'click-proposal-push-card-ignore';
+export const SKIP_SIGNUP_CARD: string = 'skip-sign-up-card';
+export const DISPLAY_FINAL_CARD: string = 'display-final-card';
 
 /* Sign up journey */
 export const DISPLAY_AUTHENTIFICATION_FORM: string = 'display-authentification-form';

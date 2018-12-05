@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import { BasicColors } from 'Assets/vars/Colors';
 import Breakpoints from 'Assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
@@ -12,7 +11,7 @@ export const Nav = styled.nav`
 `;
 
 export const Title = styled.h2`
-  color: ${BasicColors.PureWhite};
+  color: ${props => props.color};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('24px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
@@ -22,11 +21,12 @@ export const Title = styled.h2`
 `;
 
 export const Link = styled.a`
+  color: ${props => props.color};
   font-size: ${pxToRem('12px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
   }
   &:focus {
-    outline-color: ${BasicColors.PureBlack};
+    outline-color: ${props => props.color};
   }
 `;

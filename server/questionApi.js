@@ -28,7 +28,6 @@ export default function questionApi(req, res) {
     if (err) {
       return res.status(404).end();
     }
-
     return res.send(content);
   });
 }

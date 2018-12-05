@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';

@@ -1,5 +1,3 @@
-/* @flow */
-
 import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +11,7 @@ import ProgressBarComponent from './ProgressBar';
 type Props = {
   proposal: Object,
   index: number,
-  totalIndex: number,
+  cardsCount: number,
   currentIndex: number,
   isPannelOpen: boolean,
   isSequenceCollapsed: boolean,
@@ -24,7 +22,7 @@ const ProposalCardComponent = (props: Props) => {
   const {
     proposal,
     index,
-    totalIndex,
+    cardsCount,
     currentIndex,
     isPannelOpen,
     isSequenceCollapsed,
@@ -43,7 +41,7 @@ const ProposalCardComponent = (props: Props) => {
       className={index < currentIndex ? 'collapsed-card' : ''}
       id={`proposal-card-${index}`}
     >
-      <ProposalCard.FakeNavWrapper>
+      <ProposalCard.BackButtonWrapper>
         <ProposalCard.BackButton
           tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
           onClick={goToPreviousCard}
@@ -53,28 +51,30 @@ const ProposalCardComponent = (props: Props) => {
           </ProposalCard.BackIcon>
           {i18next.t('proposal_card.previous')}
         </ProposalCard.BackButton>
-        <ProgressBarComponent index={index} totalIndex={totalIndex} />
-      </ProposalCard.FakeNavWrapper>
-      <ProposalCard.AuthorInfos>
-        {proposal.author.firstName}
-        &nbsp;-&nbsp;
-        <time dateTime={proposal.createdAt}>
-          {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
-        </time>
-      </ProposalCard.AuthorInfos>
-      <ProposalCard.Separator aria-hidden />
-      <ProposalCard.Proposal>
-        {proposal.content}
-      </ProposalCard.Proposal>
-      <VoteContainer
-        proposalId={proposal.id}
-        votes={proposal.votes}
-        isPannelOpen={isPannelOpen}
-        isSequenceCollapsed={isSequenceCollapsed}
-        index={index}
-        currentIndex={currentIndex}
-        goToNextCard={goToNextCard}
-      />
+        <ProgressBarComponent index={index} cardsCount={cardsCount} />
+      </ProposalCard.BackButtonWrapper>
+      <ProposalCard.InnerContent as="section">
+        <ProposalCard.AuthorInfos>
+          {proposal.author.firstName}
+          &nbsp;-&nbsp;
+          <time dateTime={proposal.createdAt}>
+            {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
+          </time>
+        </ProposalCard.AuthorInfos>
+        <ProposalCard.Separator aria-hidden />
+        <ProposalCard.Proposal>
+          {proposal.content}
+        </ProposalCard.Proposal>
+        <VoteContainer
+          proposalId={proposal.id}
+          votes={proposal.votes}
+          isPannelOpen={isPannelOpen}
+          isSequenceCollapsed={isSequenceCollapsed}
+          index={index}
+          currentIndex={currentIndex}
+          goToNextCard={goToNextCard}
+        />
+      </ProposalCard.InnerContent>
     </ProposalCard>
   );
 };

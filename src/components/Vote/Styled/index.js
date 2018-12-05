@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { SpaceBetweenRow } from 'Components/Elements/FlexElements';
+import Breakpoints from 'Assets/vars/Breakpoints';
 import { ButtonList } from './Button';
 
 const Vote = styled.form`
@@ -8,7 +9,10 @@ const Vote = styled.form`
   justify-content: space-between;
   width: 100%;
   max-width: ${pxToRem('285px')};
-  margin: ${pxToRem('30px')} 0;
+  margin: ${pxToRem('15px')} 0;
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    margin: ${pxToRem('30px')} 0;
+  }
 `;
 
 export const Wrapper = styled(SpaceBetweenRow)`

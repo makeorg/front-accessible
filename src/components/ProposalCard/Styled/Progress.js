@@ -9,11 +9,11 @@ export const ProgressWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${pxToRem('72px')};
-  height: ${pxToRem('72px')};
+  width: ${pxToRem('52px')};
+  height: ${pxToRem('52px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    width: ${pxToRem('92px')};
-    height: ${pxToRem('92px')};
+    width: ${pxToRem('82px')};
+    height: ${pxToRem('82px')};
   }
 `;
 
@@ -47,18 +47,18 @@ export const ProgressBar = styled.circle`
 export const ProgressCounter = styled.h2`
   position: relative;
   z-index: 1;
-  font-size: ${pxToRem('14px')};
+  font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.CircularBook};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('18px')};
+    font-size: ${pxToRem('16px')};
   }
 `;
 
 export const ActiveCard = styled.span`
-  font-size: ${pxToRem('18px')};
+  font-size: ${pxToRem('14px')};
   color: ${BasicColors.PureBlack};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('24px')};
+    font-size: ${pxToRem('20px')};
   }
 `;

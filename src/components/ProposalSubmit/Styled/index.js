@@ -22,11 +22,12 @@ const ProposalSubmitForm = styled.form`
   padding: 0 ${pxToRem('8px')};
   border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
   border-radius: ${pxToRem('30px')};
-  margin: ${pxToRem('30px')} 0;
+  margin: ${pxToRem('15px')} 0 ${pxToRem('5px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     min-height: ${pxToRem('50px')};
+    margin: ${pxToRem('30px')} 0 ${pxToRem('15px')};
   }
 `;
 

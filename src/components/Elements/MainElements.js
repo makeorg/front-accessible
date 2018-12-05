@@ -35,10 +35,11 @@ export const InnerContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  min-height: ${pxToRem('615px')};
+  height: calc(100% - ${pxToRem('67px')});
+  min-height: ${pxToRem('510px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    min-height: ${pxToRem('725px')};
+    min-height: ${pxToRem('660px')};
+    height: calc(100% - ${pxToRem('78px')});
   }
 `;
 

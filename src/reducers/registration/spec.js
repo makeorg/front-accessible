@@ -4,6 +4,15 @@ import * as actionCreators from 'Actions/registration';
 import registration from './index';
 
 describe('Registration reducer', () => {
+  it('Return the initial state', () => {
+    const expectedState = {
+      errors: [],
+      user: null,
+    };
+
+    expect(registration(undefined, {})).to.eql(expectedState);
+  });
+
   describe('Register action reducers', () => {
     it('Register Request', () => {
       const action = actionCreators.registerRequest();

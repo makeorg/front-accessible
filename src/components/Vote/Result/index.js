@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
 import ResultItemContainer from 'Containers/Vote/Result/Item';

@@ -11,7 +11,7 @@
     "color": "#c42a3c",
     "gradient-start": "#000000",
     "gradient-end": "#000000",
-    "useBrightFont": true
+    "footerFontColor": "white"
   },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
@@ -30,20 +30,31 @@
   "sequenceExtraSlides": {
     "introCard":  {
       "title": false,
-      "explanation1": false,
-      "explanation2": "Les + soutenues seront transformées en projets d'action lors du MIPIM 2019.",
+      "description": [
+        {
+          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
+        },
+        {
+          "paragraph": "Les + soutenues seront transformées en projets d'action lors du MIPIM 2019."
+        }
+      ],
       "partners": [
         {
           "name": "MIPIM",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/villededemain/sequence/mipim.jpg"
         }
-      ]
+      ],
+      "inPartnershipWith": true,
+      "extraLogo": false
     },
     "signUpCard": {
       "title": "Soyez informés des résultats de la consultation",
       "nextCTA": false
     },
-    "pushProposal": true
+    "pushProposal": true,
+    "finalCard": {
+      "linkUrl": "https://make.org/#/FR/consultation/villededemain/consultation"
+    }
   },
   "sequenceSignUpForm": {
     "firstName": false,

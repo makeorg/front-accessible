@@ -1,59 +1,75 @@
-import React from 'react';
+/* @flow */
+import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButton } from 'Components/Elements/ButtonElements';
 import { Small } from 'Components/Elements/Separators';
-import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
+import ExtraLogo from './ExtraLogo';
+import IntroTitle from './Title';
+import IntroDescription from './Description';
+import Partners from './Partners';
 import ProposalCard from '../Styled';
 
-class IntroCardComponent extends React.Component {
-  render() {
-    const {
-      questionConfiguration,
-      index,
-      isPannelOpen,
-      isSequenceCollapsed,
-      currentIndex,
-      handleStartSequence
-    } = this.props;
-    const position = getPosition(index, currentIndex);
-    const scale = getScale(index, currentIndex);
-    const zindex = getZIndex(index, currentIndex);
-
-    return (
-      <ProposalCard.IntroProposalCard
-        position={position}
-        scale={scale}
-        zindex={zindex}
-        className={index < currentIndex ? 'collapsed-card' : ''}
-      >
-        <header>
-          <ProposalCard.IntroTitle color={questionConfiguration.color}>
-            {i18next.t('proposal_card.intro_title')}
-          </ProposalCard.IntroTitle>
-        </header>
-        <Small aria-hidden />
-        <ProposalCard.IntroParagraph
-          id="introduction"
-          dangerouslySetInnerHTML={{ __html: i18next.t('proposal_card.intro_text') }}
-        />
-        <ProposalCard.IntroButton
-          id="sequence-start-sequence-button"
-          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-          onClick={handleStartSequence}
-        >
-          <IconInButton>
-            <FontAwesomeIcon
-              aria-hidden
-              icon={faPlay}
-            />
-          </IconInButton>
-          {i18next.t('proposal_card.intro_start')}
-        </ProposalCard.IntroButton>
-      </ProposalCard.IntroProposalCard>
-    );
-  }
+type Props = {
+  introCardParams: Object,
+  index: number,
+  currentIndex: number,
+  tabIndex: number,
+  handleStartSequence: Function,
+  position: number,
+  scale: number,
+  zindex: number
 }
+
+const IntroCardComponent = (props: Props) => {
+  const {
+    introCardParams,
+    index,
+    currentIndex,
+    tabIndex,
+    handleStartSequence,
+    position,
+    scale,
+    zindex
+  } = props;
+
+  return (
+    <ProposalCard.ProposalCardCentered
+      position={position}
+      scale={scale}
+      zindex={zindex}
+      className={index < currentIndex ? 'collapsed-card' : ''}
+    >
+      <header>
+        <ExtraLogo extraLogo={introCardParams && introCardParams.extraLogo} />
+        <IntroTitle titleParams={introCardParams && introCardParams.title} />
+      </header>
+      <Small aria-hidden />
+      <IntroDescription description={introCardParams && introCardParams.description} />
+      <ProposalCard.IntroButton
+        id="sequence-start-sequence-button"
+        tabIndex={tabIndex}
+        onClick={handleStartSequence}
+      >
+        <IconInButton>
+          <FontAwesomeIcon
+            aria-hidden
+            icon={faPlay}
+          />
+        </IconInButton>
+        {i18next.t('intro_card.button')}
+      </ProposalCard.IntroButton>
+      {introCardParams
+        && (
+          <Partners
+            partners={introCardParams.partners}
+            wording={introCardParams.inPartnershipWith}
+          />
+        )
+      }
+    </ProposalCard.ProposalCardCentered>
+  );
+};
 
 export default IntroCardComponent;

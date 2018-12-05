@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
+import Breakpoints from 'Assets/vars/Breakpoints';
 
 export const Button = styled.button`
   display: flex;
@@ -9,12 +10,17 @@ export const Button = styled.button`
   align-items: baseline;
   width: 100%;
   border-width: ${pxToRem('2px')};
-  font-size: ${pxToRem('16px')};
-  line-height: ${pxToRem('33px')};
+  font-size: ${pxToRem('12px')};
+  line-height: ${pxToRem('26px')};
   border-style: solid;
-  padding: 0 ${pxToRem('15px')};
+  padding: 0 ${pxToRem('10px')};
   border-radius: ${pxToRem('36px')};
   border-color: ${props => props.color};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('16px')};
+    line-height: ${pxToRem('33px')};
+    padding: 0 ${pxToRem('15px')};
+  }
 `;
 
 export const UnqualifyButton = styled(Button)`
@@ -32,5 +38,8 @@ export const QualifyButton = styled(Button)`
 
 export const QualificationCounter = styled.span`
   font-family: ${MakeFonts.CircularBold};
-  font-size: ${pxToRem('22px')};
+  font-size: ${pxToRem('18px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('22px')};
+  }
 `;

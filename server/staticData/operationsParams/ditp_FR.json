@@ -11,7 +11,7 @@
     "color": "#ED2939",
     "gradient-start": "#8ADCD7",
     "gradient-end": "#367ABC",
-    "useBrightFont": true
+    "footerFontColor": "black"
   },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
@@ -30,20 +30,33 @@
   "sequenceExtraSlides": {
     "introCard":  {
       "title": "Des milliers d'agents publics proposent des solutions.",
-      "explanation1": "Prenez position sur ces solutions ou proposez les vôtres.",
-      "explanation2": "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme.",
+      "description": [
+        {
+          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
+        },
+        {
+          "paragraph": "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme."
+        }
+      ],
       "partners": [
           {
             "name": "DITP",
-            "imageUrl": "Todo"
+            "imageUrl": "/images/operations/ditp/sequence/ditp.png"
           }
-      ]
+      ],
+      "inPartnershipWith": false,
+      "extraLogo": "/images/operations/ditp/sequence/sequence-intro-icon.png"
     },
     "signUpCard": {
       "title": "Inscrivez vous pour enregistrer vos contributions",
       "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
     },
-    "pushProposal": true
+    "pushProposal": {
+      "extraLogo": "/images/operations/ditp/sequence/sequence-proposal-icon.png"
+    },
+    "finalCard": {
+      "linkUrl": "https://make.org/#/FR/consultation/ditp/consultation"
+    }
   },
   "sequenceSignUpForm": {
     "firstName": true,

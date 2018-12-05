@@ -17,11 +17,15 @@ const MainFooterComponent = (props: Props) => {
   return (
     <MainFooter role="contentinfo">
       <MainFooter.Nav role="navigation" aria-labelledby="footer_title">
-        <MainFooter.Title id="footer_title">
+        <MainFooter.Title
+          color={questionConfiguration.theme.footerFontColor}
+          id="footer_title"
+        >
           <HiddenItem aria-hidden>{i18next.t('footer.see_more')}</HiddenItem>
           {questionConfiguration.question}
         </MainFooter.Title>
         <MainFooter.Link
+          color={questionConfiguration.theme.footerFontColor}
           target="_blank"
           href={consultationLink}
           onClick={handleTracking}

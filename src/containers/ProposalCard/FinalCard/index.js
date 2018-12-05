@@ -1,10 +1,21 @@
-import React from 'react';
+/* @flow */
+import * as React from 'react';
 import { connect } from 'react-redux';
 import FinalCardComponent from 'Components/ProposalCard/FinalCard';
 import Tracking from 'Services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
-class FinalCardContainer extends React.Component {
+type Props = {
+  configuration: Object,
+  index: number,
+  currentIndex: number,
+  cardsCount: number,
+  goToPreviousCard: Function,
+  isPannelOpen: boolean,
+  isSequenceCollapsed: boolean
+}
+
+class FinalCardContainer extends React.Component<Props> {
   componentDidUpdate() {
     const { index, currentIndex } = this.props;
     if (index === currentIndex) {
@@ -14,8 +25,10 @@ class FinalCardContainer extends React.Component {
 
   render() {
     const {
+      configuration,
       index,
       currentIndex,
+      cardsCount,
       goToPreviousCard,
       isPannelOpen,
       isSequenceCollapsed
@@ -23,17 +36,18 @@ class FinalCardContainer extends React.Component {
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
+
     return (
       <FinalCardComponent
         index={index}
         currentIndex={currentIndex}
+        cardsCount={cardsCount}
         position={position}
         scale={scale}
         zindex={zindex}
         tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
         goToPreviousCard={goToPreviousCard}
-        isPannelOpen={isPannelOpen}
-        isSequenceCollapsed={isSequenceCollapsed}
+        linkUrl={configuration.linkUrl}
       />
     );
   }

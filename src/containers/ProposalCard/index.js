@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import ProposalCardComponent from 'Components/ProposalCard';
 
@@ -8,7 +8,7 @@ type Props = {
   proposal: Object,
   index: number,
   currentIndex: number,
-  totalIndex: number,
+  cardsCount: number,
   isPannelOpen: boolean,
   isSequenceCollapsed: boolean,
   goToPreviousCard: Function,

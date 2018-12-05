@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { register } from 'Actions/registration';
 import RegisterComponent from 'Components/Register';

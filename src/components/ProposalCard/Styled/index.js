@@ -2,15 +2,39 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
 import Breakpoints from 'Assets/vars/Breakpoints';
-import { IntroProposalCard, FakeNavWrapper } from './Cards';
-import { IntroTitle } from './Titles';
-import { IntroParagraph, FinalParagraph, Separator } from './Content';
+import { ProposalCardCentered } from './Cards';
+import {
+  IntroTitle,
+  SecondaryTitle,
+  AltMainTitle,
+  ExtraLogo
+} from './Titles';
+import {
+  PlaceholderWrapper,
+  PlaceholderTitle,
+  PlaceholderSeparator,
+  PlaceholderDescription,
+  PlaceholderButton
+} from './Placeholder';
+import {
+  IntroParagraph,
+  FinalParagraph,
+  Separator,
+  InnerContent,
+  PartnerFooter,
+  PartnerList,
+  PartnerAvatar
+} from './Content';
 import { AuthorInfos, Proposal } from './Proposal';
 import {
+  BackButtonWrapper,
   IntroButton,
   BackButton,
   BackIcon,
-  FinalLink
+  FinalLink,
+  AltNextButton,
+  PushProposalButton,
+  PushProposalNextButton
 } from './Buttons';
 
 const ProposalCard = styled.li`
@@ -36,25 +60,42 @@ const ProposalCard = styled.li`
 `;
 
 /* Card */
-ProposalCard.IntroProposalCard = IntroProposalCard;
-ProposalCard.FakeNavWrapper = FakeNavWrapper;
+ProposalCard.ProposalCardCentered = ProposalCardCentered;
 
 /* Titles */
 ProposalCard.IntroTitle = IntroTitle;
+ProposalCard.AltMainTitle = AltMainTitle;
+ProposalCard.SecondaryTitle = SecondaryTitle;
+ProposalCard.ExtraLogo = ExtraLogo;
 
 /* Contents */
+ProposalCard.InnerContent = InnerContent;
 ProposalCard.IntroParagraph = IntroParagraph;
 ProposalCard.FinalParagraph = FinalParagraph;
 ProposalCard.Separator = Separator;
+ProposalCard.PartnerFooter = PartnerFooter;
+ProposalCard.PartnerList = PartnerList;
+ProposalCard.PartnerAvatar = PartnerAvatar;
 
 /* Proposal */
 ProposalCard.AuthorInfos = AuthorInfos;
 ProposalCard.Proposal = Proposal;
 
+/* Placeholder */
+ProposalCard.PlaceholderWrapper = PlaceholderWrapper;
+ProposalCard.PlaceholderTitle = PlaceholderTitle;
+ProposalCard.PlaceholderSeparator = PlaceholderSeparator;
+ProposalCard.PlaceholderDescription = PlaceholderDescription;
+ProposalCard.PlaceholderButton = PlaceholderButton;
+
 /* Button */
+ProposalCard.BackButtonWrapper = BackButtonWrapper;
 ProposalCard.IntroButton = IntroButton;
 ProposalCard.BackButton = BackButton;
 ProposalCard.BackIcon = BackIcon;
 ProposalCard.FinalLink = FinalLink;
+ProposalCard.AltNextButton = AltNextButton;
+ProposalCard.PushProposalButton = PushProposalButton;
+ProposalCard.PushProposalNextButton = PushProposalNextButton;
 
 export default ProposalCard;

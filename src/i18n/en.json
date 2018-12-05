@@ -10,8 +10,9 @@
       "postalcode_label": "Code postal",
       "profession_label": "Profession",
       "email is not a valid email": "Format d'email non reconnu",
+      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email est dèja inscrit.",
-      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères."
+      "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement."
     },
     "from": "sur",
     "i_connect": "Je me connecte",
@@ -26,12 +27,27 @@
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
-    "number": "Proposition numéro",
-    "intro_title": "Des milliers de citoyens proposent des solutions.",
-    "intro_text": "Prenez position sur ces solutions & proposez les vôtres.<br />Les meilleures détermineront nos actions.",
-    "intro_start": "Demarrer",
-    "final_text": "Merci de votre participation, <br/> vous pouvez maintenant accéder à la consultation complète.",
-    "final_see_all": "Voir toutes les propositions"
+    "number": "Proposition numéro"
+  },
+  "intro_card": {
+    "title": "Des milliers de citoyens proposent des solutions.",
+    "description_1": "Prenez position sur ces solutions & proposez les vôtres.",
+    "description_2": "Les meilleures détermineront nos actions.",
+    "button": "Démarrer",
+    "partnership" : "en partenariat avec"
+  },
+  "final_card": {
+    "title": "Merci de votre participation, <br/> vous pouvez maintenant accéder à la consultation complète.",
+    "button": "Voir toutes les propositions"
+  },
+  "sign_up_card": {
+    "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+    "authentification-text": "Je m'identifie avec",
+    "next-cta": "Non merci, je ne souhaite pas être informé(e) des résultats"
+  },
+  "push_proposal_card": {
+    "title": "Et vous, avez vous une solution à proposer sur ce sujet ?",
+    "next-cta": "Pas encore, je continue à voter"
   },
   "proposal_submit": {
     "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
@@ -99,15 +115,17 @@
     "or": "ou",
     "social_connect": "Je m’inscris avec",
     "subtitle": "Je m'inscris avec ce formulaire",
-    "login_title": "J‘ai déjà un compte",
+    "login_title": "J‘ai déjà un compte.",
     "login_link": "Connexion",
     "cgu": "En vous inscrivant, vous acceptez nos conditions générales d’utilisation et acceptez de recevoir des e-mails (peu nombreux) de Make.org."
   },
-  "authentification": {
-    "title": "Créez un compte Make.org",
-    "description": "pour valider votre contribution et être informé(e) des résultats de la consultation.",
-    "commitment": "Make.org s‘engage à protéger vos ",
-    "personal_data": "données personnelles "
+  "forgot_password": {
+    "title": "je réinitialise mon mot de passe",
+    "description": "Merci de renseigner l'adresse email liée à votre compte Make.org pour recevoir le lien de réinitialisation.",
+    "success": "Merci, un email vient de vous être envoyé pour vous permettre de mettre à jour votre mot de passe.",
+    "return": "Revenir à ",
+    "login_link": "l’écran de connexion",
+    "send_link": "recevoir l'e-mail"
   },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",

@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainHeaderContainer from 'Containers/MainHeader';
 import PannelContainer from 'Containers/Pannel';

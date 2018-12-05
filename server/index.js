@@ -5,10 +5,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
+const csp = require('express-csp');
 require('./browserPolyfill');
 const reactRender = require('./reactRender');
-const { BUILD_DIR } = require('./paths');
+const { BUILD_DIR, IMAGES_DIR } = require('./paths');
 const configuration = require('./configuration');
+
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -29,6 +31,11 @@ app.use('/assets', express.static(BUILD_DIR, {
   setHeaders: setCustomCacheControl
 }));
 
+app.use('/images', express.static(IMAGES_DIR, {
+  maxAge: '1y',
+  setHeaders: setCustomCacheControl
+}));
+
 // Routes
 app.get('/api/questions/:questionSlug', questionApi);
 
@@ -39,6 +46,23 @@ app.get('/', (req, res) => {
 
 app.get('/:country*', reactRender);
 
+// CSP
+csp.extend(app, {
+  policy: {
+    directives: {
+      'base-uri': 'self',
+      'script-src': ['self', '*.facebook.net', '*.facebook.com', '*.google.com', 'unsafe-inline'],
+      'img-src': ['self', '*.facebook.com'],
+      'style-src': ['unsafe-inline'],
+      'font-src': 'self',
+      'object-src': 'none',
+      'media-src': 'none',
+      'connect-src': ['self', '*.makeorg.tech', '*.make.org'],
+      'form-action': ['self', '*.facebook.com'],
+      'child-src': ['self', '*.facebook.com', '*.google.com']
+    }
+  }
+});
 
 app.post('/api/logger', (req, res) => {
   logger.log(

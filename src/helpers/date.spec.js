@@ -30,4 +30,9 @@ describe('Date Helper', () => {
     DateHelper.language = 'de';
     expect(DateHelper.proposalCreationDateFormat('2018-10-24T12:45:25.752Z')).to.equal(null);
   });
+
+  it('getLanguage', () => {
+    const language = DateHelper.language;
+    expect(language).to.equal('de');
+  });
 });

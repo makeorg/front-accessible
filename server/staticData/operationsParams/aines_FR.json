@@ -11,7 +11,7 @@
     "color": "#9C6BDA",
     "gradient-start": "#9C6BDA",
     "gradient-end": "#8DDCF6",
-    "useBrightFont": false
+    "footerFontColor": "black"
   },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
@@ -69,9 +69,18 @@
   "share": true,
   "initiators": [],
   "sequenceExtraSlides": {
-    "introCard":  true,
+    "introCard":  {
+      "title": false,
+      "description": false,
+      "partners": false,
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
     "signUpCard": true,
-    "pushProposal": false
+    "pushProposal": false,
+    "finalCard": {
+      "linkUrl": "https://make.org/#/FR/consultation/aines/consultation"
+    }
   },
   "sequenceSignUpForm": {
     "firstName": false,

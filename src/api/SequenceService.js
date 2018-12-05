@@ -6,7 +6,7 @@ import ApiService from './ApiService';
 // todo: remmove it when question api is ready
 const PROXY_URL = (process.env.NODE_ENV === 'development')
   ? 'http://localhost:9009'
-  : 'https://accessible.preprod.makeorg.tech';
+  : '';
 
 const PATH_START_SEQUENCE = '/sequences/start/:sequenceId';
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug?country=:country';

@@ -3,7 +3,7 @@ import { pxToRem } from 'Helpers/styled';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
 import Breakpoints from 'Assets/vars/Breakpoints';
 
-export const IntroProposalCard = styled.li`
+export const ProposalCardCentered = styled.li`
   position: absolute;
   top: 0;
   left: 0;
@@ -23,16 +23,5 @@ export const IntroProposalCard = styled.li`
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding: ${pxToRem('30px')};
-  }
-`;
-
-export const FakeNavWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    margin-bottom: ${pxToRem('30px')};
   }
 `;

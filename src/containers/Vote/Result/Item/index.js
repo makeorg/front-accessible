@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ResultItemComponent from 'Components/Vote/Result/Item';
 import * as VoteResultHelper from 'Helpers/voteResult';
 import { getVoteKey } from 'Helpers/vote';
