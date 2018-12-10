@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { SpaceBetweenColumn } from '../../Elements/FlexElements';
-import { pxToRem } from '../../../helpers/styled';
+import { SpaceBetweenColumn } from 'Components/Elements/FlexElements';
+import { pxToRem } from 'Helpers/styled';
 
 const Qualification = styled(SpaceBetweenColumn)`
   width: 100%;

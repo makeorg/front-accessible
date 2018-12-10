@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
+import { pxToRem } from 'Helpers/styled';
 
 const Login = styled.section`
   display: flex;

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
+import { pxToRem } from 'Helpers/styled';
+import Breakpoints from 'Assets/vars/Breakpoints';
 import {
   BasicColors,
   BackgroundColors,
   BorderColors,
   TextColors,
   MakeThemeColors
-} from '../../../assets/vars/Colors';
-import { UnstyledButton } from '../ButtonElements';
-import Breakpoints from '../../../assets/vars/Breakpoints';
+} from 'Assets/vars/Colors';
+import { UnstyledButton } from 'Components/Elements/ButtonElements';
 
 export const NoStyleTextInput = styled.input`
   border: none;

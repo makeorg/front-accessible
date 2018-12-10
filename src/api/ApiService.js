@@ -1,7 +1,7 @@
 /* @flow */
 import axios from 'axios';
-import * as UrlHelper from '../helpers/url';
-import Logger from '../services/Logger';
+import * as UrlHelper from 'Helpers/url';
+import Logger from 'Services/Logger';
 
 const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;

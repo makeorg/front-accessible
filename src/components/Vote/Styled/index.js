@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { SpaceBetweenRow } from '../../Elements/FlexElements';
+import { pxToRem } from 'Helpers/styled';
+import { SpaceBetweenRow } from 'Components/Elements/FlexElements';
 import { ButtonList } from './Button';
 
 const Vote = styled.form`

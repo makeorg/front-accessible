@@ -13,17 +13,29 @@
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
     "security/detect-object-injection": 0,
-    "security/detect-non-literal-fs-filename": 0
+    "security/detect-non-literal-fs-filename": 0,
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
   },
   "extends": [
     "plugin:security/recommended",
-    "airbnb"
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "plugins": [
     "jsx-a11y",
     "flowtype",
-    "security"
+    "security",
+    "import"
   ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "env": {
     "browser": true,
     "node": true,

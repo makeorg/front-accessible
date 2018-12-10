@@ -35,6 +35,19 @@
     ["transform-es2015-modules-commonjs"],
     ["babel-plugin-styled-components", {
       "pure": true
+    }],
+    ["module-resolver", {
+      "alias": {
+        "Actions": "./src/actions",
+        "Api": "./src/api",
+        "Assets": "./src/assets",
+        "Components": "./src/components",
+        "Containers": "./src/containers",
+        "Constants": "./src/constants",
+        "Helpers": "./src/helpers",
+        "Pages": "./src/pages",
+        "Services": "./src/services",
+      }
     }]
   ]
 }

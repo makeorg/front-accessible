@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from '../../actions/forgotPassword';
+import * as actionCreators from 'Actions/forgotPassword';
 import forgotPassword from './index';
 
 describe('ForgotPassword reducer', () => {

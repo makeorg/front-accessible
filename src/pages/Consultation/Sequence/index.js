@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { InnerContent } from '../../../components/Elements/MainElements';
-import ProposalSubmitContainer from '../../../containers/ProposalSubmit';
-import SequenceContainer from '../../../containers/Sequence';
-import Logger from '../../../services/Logger';
-import OperationService from '../../../api/OperationService';
+import OperationService from 'Api/OperationService';
+import { InnerContent } from 'Components/Elements/MainElements';
+import ProposalSubmitContainer from 'Containers/ProposalSubmit';
+import SequenceContainer from 'Containers/Sequence';
+import Logger from 'Services/Logger';
 
 class SequencePage extends React.Component {
   constructor(props) {

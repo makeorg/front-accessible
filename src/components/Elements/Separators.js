@@ -1,9 +1,9 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from '../../helpers/styled';
-import { BackgroundColors } from '../../assets/vars/Colors';
-import Breakpoints from '../../assets/vars/Breakpoints';
+import { pxToRem } from 'Helpers/styled';
+import { BackgroundColors } from 'Assets/vars/Colors';
+import Breakpoints from 'Assets/vars/Breakpoints';
 import { MiddleRow } from './FlexElements';
 
 const SepartorStyle = styled.div`

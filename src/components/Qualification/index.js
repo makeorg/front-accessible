@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
+import { getQualificationIndex } from 'Helpers/qualification';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
+import voteStaticParams from 'Constants/vote';
 import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
-import { HiddenItem } from '../Elements/HiddenElements';
-import { getQualificationIndex } from '../../helpers/qualification';
-import voteStaticParams from '../../constants/vote';
 
 type Props = {
   qualifications: Array<Object>,

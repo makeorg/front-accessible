@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ForgotPasswordComponent from '../../components/ForgotPassword';
-import { forgotPassword } from '../../actions/forgotPassword';
-import { pannelShowLogin } from '../../actions/pannel';
+import ForgotPasswordComponent from 'Components/ForgotPassword';
+import { forgotPassword } from 'Actions/forgotPassword';
+import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
   errors: Array<string>,

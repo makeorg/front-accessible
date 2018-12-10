@@ -1,11 +1,11 @@
 import React from 'react';
 import i18next from 'i18next';
-import VoteResult from './Styled';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
+import ResultItemContainer from 'Containers/Vote/Result/Item';
+import voteStaticParams from 'Constants/vote';
 import VoteButtonComponent from '../Button';
+import VoteResult from './Styled';
 import { UnvoteButton } from '../Styled/Button';
-import { HiddenItem } from '../../Elements/HiddenElements';
-import ResultItemContainer from '../../../containers/Vote/Result/Item';
-import voteStaticParams from '../../../constants/vote';
 
 class VoteResultComponent extends React.Component {
   render() {

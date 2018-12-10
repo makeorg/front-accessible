@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { MakeFonts } from '../../../assets/vars/Fonts';
-import Breakpoints from '../../../assets/vars/Breakpoints';
+import { pxToRem } from 'Helpers/styled';
+import { MakeFonts } from 'Assets/vars/Fonts';
+import Breakpoints from 'Assets/vars/Breakpoints';
 
 export const IntroTitle = styled.h2`
   font-family: ${MakeFonts.CircularBold};

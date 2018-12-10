@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
+import { pxToRem } from 'Helpers/styled';
 import {
   UnstyledButton,
   TallRedButton,
   IconInButton,
   SmallRedButton
-} from '../../Elements/ButtonElements';
-import { BackgroundColors, BasicColors, TextColors } from '../../../assets/vars/Colors';
-import { MakeFonts } from '../../../assets/vars/Fonts';
-import Breakpoints from '../../../assets/vars/Breakpoints';
+} from 'Components/Elements/ButtonElements';
+import { BackgroundColors, BasicColors, TextColors } from 'Assets/vars/Colors';
+import { MakeFonts } from 'Assets/vars/Fonts';
+import Breakpoints from 'Assets/vars/Breakpoints';
 
 export const IntroButton = styled(TallRedButton)`
   margin-top: ${pxToRem('15px')};

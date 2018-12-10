@@ -1,8 +1,8 @@
 /* @flow */
 
-import * as actionTypes from '../../constants/actionTypes';
-import { forgotPasswordInit } from '../forgotPassword';
-import Tracking from '../../services/Tracking';
+import * as actionTypes from 'Constants/actionTypes';
+import Tracking from 'Services/Tracking';
+import { forgotPasswordInit } from 'Actions/forgotPassword';
 
 export const pannelClose = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.PANNEL_CLOSE });

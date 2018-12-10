@@ -2,21 +2,17 @@
 
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ModernNormalizeStylesheet from '../../assets/css-in-js/ModernNormalize';
-import { FontFacesStylesheet } from '../../assets/css-in-js/FontFaces';
-import DefaultStylesheet from '../../assets/css-in-js/DefaultStyle';
-import AnimationsStylesheet from '../../assets/css-in-js/Animations';
-import { AppWrapper, MainContent } from '../Elements/MainElements';
-import MainHeaderContainer from '../../containers/MainHeader';
-import MainFooterContainer from '../../containers/MainFooter';
-import PannelContainer from '../../containers/Pannel';
-import SequencePage from '../../pages/Consultation/Sequence';
-import NotFoundPage from '../../pages/NotFound';
-import HomePage from '../../pages/Home';
-
-/* type Props = {
-  isSequenceCollapsed: boolean
-}; */
+import MainHeaderContainer from 'Containers/MainHeader';
+import MainFooterContainer from 'Containers/MainFooter';
+import PannelContainer from 'Containers/Pannel';
+import SequencePage from 'Pages/Consultation/Sequence';
+import NotFoundPage from 'Pages/NotFound';
+import HomePage from 'Pages/Home';
+import ModernNormalizeStylesheet from 'Assets/css-in-js/ModernNormalize';
+import { FontFacesStylesheet } from 'Assets/css-in-js/FontFaces';
+import DefaultStylesheet from 'Assets/css-in-js/DefaultStyle';
+import AnimationsStylesheet from 'Assets/css-in-js/Animations';
+import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
 
 const AppComponent = () => (
   <AppWrapper>

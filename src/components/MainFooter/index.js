@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
+import { consultationLink } from 'Constants/config';
 import MainFooter from './Styled';
-import { HiddenItem } from '../Elements/HiddenElements';
-import { consultationLink } from '../../constants/config';
 
 type Props = {
   handleTracking: Function

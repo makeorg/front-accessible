@@ -1,8 +1,8 @@
 /* @flow */
 
-import ApiService from '../api/ApiService';
-import Logger from './Logger';
-import * as trackingConstants from '../constants/tracking';
+import ApiService from 'Api/ApiService';
+import * as trackingConstants from 'Constants/tracking';
+import Logger from 'Services/Logger';
 
 const
   PARENT_URL = typeof window

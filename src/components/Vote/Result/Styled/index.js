@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../../helpers/styled';
-import { SpaceBetweenColumn } from '../../../Elements/FlexElements';
+import { pxToRem } from 'Helpers/styled';
+import { SpaceBetweenColumn } from 'Components/Elements/FlexElements';
 import {
   Graph,
   TotalLabel

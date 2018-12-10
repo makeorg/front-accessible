@@ -1,8 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import MainFooterComponent from '../../components/MainFooter';
-import Tracking from '../../services/Tracking';
+import MainFooterComponent from 'Components/MainFooter';
+import Tracking from 'Services/Tracking';
 
 class MainFooterContainer extends React.Component<{}> {
   constructor() {

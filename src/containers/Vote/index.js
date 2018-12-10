@@ -3,14 +3,14 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
-import VoteService from '../../api/VoteService';
-import { NextButton } from '../../components/ProposalCard/Styled/Buttons';
-import VoteStyled from '../../components/Vote/Styled';
-import VoteComponent from '../../components/Vote';
+import { doVote, doUnvote } from 'Helpers/vote';
+import Tracking from 'Services/Tracking';
+import VoteService from 'Api/VoteService';
+import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
+import VoteStyled from 'Components/Vote/Styled';
+import VoteComponent from 'Components/Vote';
+import QualificationContainer from 'Containers/Qualification';
 import VoteResultsContainer from './Result';
-import QualificationContainer from '../Qualification';
-import { doVote, doUnvote } from '../../helpers/vote';
-import Tracking from '../../services/Tracking';
 
 type Props = {
   proposalId: string,

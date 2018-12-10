@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import Breakpoints from '../../../assets/vars/Breakpoints';
-import { SpaceBetweenColumnToRow } from '../../Elements/FlexElements';
+import { pxToRem } from 'Helpers/styled';
+import Breakpoints from 'Assets/vars/Breakpoints';
+import { SpaceBetweenColumnToRow } from 'Components/Elements/FlexElements';
 
 const Authentification = styled(SpaceBetweenColumnToRow)`
   width: 100%;

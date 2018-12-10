@@ -2,16 +2,16 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
+import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
+import ProposalSubmitSuccessComponent from 'Components/ProposalSubmit/Success';
+import { getProposalLength, getIsProposalValidLength } from 'Helpers/proposal';
+import { typingProposal, submitProposal } from 'Actions/proposal';
+import { sequenceCollapse } from 'Actions/sequence';
+import { getToken } from 'Actions/authentification';
+import { ProposalSubmitWrapper } from 'Components/Elements/MainElements';
+import Tracking from 'Services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
-import ProposalSubmitFormComponent from '../../components/ProposalSubmit';
-import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/Description';
-import ProposalSubmitSuccessComponent from '../../components/ProposalSubmit/Success';
-import { getProposalLength, getIsProposalValidLength } from '../../helpers/proposal';
-import { typingProposal, submitProposal } from '../../actions/proposal';
-import { sequenceCollapse } from '../../actions/sequence';
-import { getToken } from '../../actions/authentification';
-import { ProposalSubmitWrapper } from '../../components/Elements/MainElements';
-import Tracking from '../../services/Tracking';
 
 type Props = {
   content: string,

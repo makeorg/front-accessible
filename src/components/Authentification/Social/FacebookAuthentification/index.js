@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { FACEBOOK_PROVIDER_ENUM } from '../../../../api/UserService';
-import { loginSocial } from '../../../../actions/authentification';
+import { loginSocial } from 'Actions/authentification';
+import { FACEBOOK_PROVIDER_ENUM } from 'Api/UserService';
 
 type Props = {
   tabIndex: number,

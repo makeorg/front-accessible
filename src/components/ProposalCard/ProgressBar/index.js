@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import i18next from 'i18next';
+import * as CardConstant from 'Constants/card';
+import { gaugeProgress, gaugeRemain } from 'Helpers/sequence';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
 import * as Progress from '../Styled/Progress';
-import * as CardConstant from '../../../constants/card';
-import { gaugeProgress, gaugeRemain } from '../../../helpers/sequence';
-import { HiddenItem } from '../../Elements/HiddenElements';
 
 class ProgressBarComponent extends Component {
   render() {

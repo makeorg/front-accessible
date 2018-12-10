@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Small } from 'Components/Elements/Separators';
+import IntroCardComponent from './index';
 import ProposalCard from '../Styled';
-import { Small } from '../../Elements/Separators';
-import IntroCardComponent from './';
 
 describe('IntroCardComponent', () => {
 

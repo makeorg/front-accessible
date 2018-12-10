@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import SequenceComponent from '../../components/Sequence';
-import SequenceService from '../../api/SequenceService';
-import { sequenceExpand } from '../../actions/sequence';
-import Tracking from '../../services/Tracking';
+import SequenceComponent from 'Components/Sequence';
+import SequenceService from 'Api/SequenceService';
+import { sequenceExpand } from 'Actions/sequence';
+import Tracking from 'Services/Tracking';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1

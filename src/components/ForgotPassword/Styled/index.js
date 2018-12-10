@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { Form } from '../../Elements/Form';
+import { pxToRem } from 'Helpers/styled';
+import { Form } from 'Components/Elements/Form';
 
 const ForgotPassword = styled.section`
   display: flex;

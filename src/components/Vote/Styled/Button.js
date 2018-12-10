@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import Unstyledlist from '../../Elements/ListElements';
-import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import Unstyledlist from 'Components/Elements/ListElements';
+import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
 
 export const ButtonList = styled(Unstyledlist)`
   display: flex;

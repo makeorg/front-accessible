@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import VoteResult from './index';
-import VoteResultComponent from '../../../components/Vote/Result';
-import * as VoteResultHelper from '../../../helpers/voteResult';
-import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from '../../../constants/vote';
+import VoteResultComponent from 'Components/Vote/Result';
+import * as VoteResultHelper from 'Helpers/voteResult';
+import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Constants/vote';
 
 describe('VoteResultContainer', () => {
   const defaultProps = {

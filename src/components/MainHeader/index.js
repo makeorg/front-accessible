@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import i18n from 'i18next';
+import Logo from 'Assets/images/logo.svg';
 import MainHeader from './Styled';
-import Logo from '../../assets/images/logo.svg';
 
 type Props = {
   handleTracking: Function

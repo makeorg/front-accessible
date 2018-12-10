@@ -4,11 +4,11 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import VoteContainer from 'Containers/Vote';
+import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
+import DateHelper from 'Helpers/date';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
-import VoteContainer from '../../containers/Vote';
-import { getPosition, getScale, getZIndex } from '../../helpers/sequence';
-import DateHelper from '../../helpers/date';
 
 type Props = {
   proposal: Object,

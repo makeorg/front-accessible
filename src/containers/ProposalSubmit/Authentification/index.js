@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProposalSubmitAuthentificationComponent from '../../../components/ProposalSubmit/Authentification';
-import { pannelShowRegister, pannelShowLogin } from '../../../actions/pannel';
-import Tracking from '../../../services/Tracking';
+import ProposalSubmitAuthentificationComponent from 'Components/ProposalSubmit/Authentification';
+import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';
+import Tracking from 'Services/Tracking';
 
 export class ProposalSubmitAuthentification extends React.Component {
   constructor(props) {

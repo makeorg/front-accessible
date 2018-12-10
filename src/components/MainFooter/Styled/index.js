@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { ShadowColors } from '../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import { ShadowColors } from 'Assets/vars/Colors';
 import {
   Nav,
   Title,

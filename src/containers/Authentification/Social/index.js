@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AuthentificationSocialComponent from '../../../components/Authentification/Social';
+import AuthentificationSocialComponent from 'Components/Authentification/Social';
 
 class AuthentificationSocialContainer extends React.Component {
   render() {

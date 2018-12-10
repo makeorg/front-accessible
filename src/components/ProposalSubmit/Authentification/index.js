@@ -8,12 +8,13 @@ import {
   IconInButton,
   ButtonsWrapper,
   SmallButtonsWrapper
-} from '../../Elements/ButtonElements';
-import { SecondLevelTitle, ThirdLevelTtitle } from '../../Elements/TitleElements';
-import { AltDescription, DescriptionLink } from '../../Elements/DescriptionElements';
-import * as Separators from '../../Elements/Separators';
-import FacebookAuthentificationButtonComponent from '../../Authentification/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from '../../Authentification/Social/GoogleAuthentification/Button';
+} from 'Components/Elements/ButtonElements';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
+import { AltDescription, DescriptionLink } from 'Components/Elements/DescriptionElements';
+import * as Separators from 'Components/Elements/Separators';
+import FacebookAuthentificationButtonComponent
+  from 'Components/Authentification/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from 'Components/Authentification/Social/GoogleAuthentification/Button';
 import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 class ProposalSubmitAuthentificationComponent extends React.Component {

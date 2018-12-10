@@ -2,10 +2,10 @@ import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from '../../Elements/ButtonElements';
-import { Small } from '../../Elements/Separators';
+import { IconInButton } from 'Components/Elements/ButtonElements';
+import { Small } from 'Components/Elements/Separators';
+import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 import ProposalCard from '../Styled';
-import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 class IntroCardComponent extends React.Component {
   render() {

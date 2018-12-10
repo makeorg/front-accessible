@@ -1,9 +1,9 @@
 /* @flow */
 
 import * as React from 'react';
-import FinalCardContainer from '../../containers/ProposalCard/FinalCard';
+import FinalCardContainer from 'Containers/ProposalCard/FinalCard';
+import ProposalCardContainer from 'Containers/ProposalCard';
 import IntroCardComponent from '../ProposalCard/IntroCard';
-import ProposalCardContainer from '../../containers/ProposalCard';
 import CollapseToggle from './Button';
 import Sequence from './Styled';
 
