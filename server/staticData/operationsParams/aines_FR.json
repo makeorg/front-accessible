@@ -7,10 +7,12 @@
   "learnMoreUrl": "https://about.make.org/about-aines",
   "presentation": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question Comment mieux prendre soin de nos aînés ?<br/>Grâce au soutien des partenaires fondateurs Klesia, la fondation Korian, La Poste, l'OCIRP, Primonial REIM, CAREIT, la Croix-Rouge française, les milliers de propositions citoyennes<br/>recueillies vont nous permettre de bâtir, aux côtés de l’État, le 1er grand Plan d'actions citoyen en faveur des Aînés. Entreprises, associations,<br/>pouvoirs publics, citoyens, nous nous donnons trois ans pour concrétiser les actions de ce Plan et réussir ainsi à mieux prendre soin de nos aînés.",
   "legalNote": "En vous inscrivant, vous acceptez nos <br/><a href:\\\"https://about.make.org/conditions-dutilisation\\\" target:\\\"_blank\\\">conditions générales d'utilisation</a> <br/>ainsi que de recevoir ponctuellement des emails de&nbsp;Make.org ou de nos partenaires associatifs.",
-  "color": "#9C6BDA",
-  "gradient-start": "#9C6BDA",
-  "gradient-end": "#8DDCF6",
-  "useBrightFont": false,
+  "theme": {
+    "color": "#9C6BDA",
+    "gradient-start": "#9C6BDA",
+    "gradient-end": "#8DDCF6",
+    "useBrightFont": false
+  },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
   "logoWidth": 295,

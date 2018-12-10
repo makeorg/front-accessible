@@ -12,8 +12,8 @@ const MainFooter = styled.footer`
   z-index: 2;
   padding: ${pxToRem('15px')} ${pxToRem('20px')};
   box-shadow: 0 0 16px 6px ${ShadowColors.BlackZeroTwoOpacity};
-  background: ${props => props.theme.MainColor};
-  background-color: ${props => props.theme.MainColor};
+  background: ${props => props.theme.color};
+  background-color: ${props => props.theme.color};
 `;
 
 /* FooterContent */

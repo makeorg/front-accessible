@@ -4,9 +4,14 @@ import * as React from 'react';
 import MainFooterComponent from 'Components/MainFooter';
 import Tracking from 'Services/Tracking';
 
-class MainFooterContainer extends React.Component<{}> {
-  constructor() {
-    super();
+type Props = {
+  operationTranslation: Object,
+  questionConfiguration: Object
+};
+
+class MainFooterContainer extends React.Component<Props> {
+  constructor(props) {
+    super(props);
     this.trackClickConsultation = this.trackClickConsultation.bind(this);
   }
 
@@ -17,7 +22,7 @@ class MainFooterContainer extends React.Component<{}> {
 
   render() {
     return (
-      <MainFooterComponent handleTracking={this.trackClickConsultation} />
+      <MainFooterComponent handleTracking={this.trackClickConsultation} {...this.props} />
     );
   }
 }

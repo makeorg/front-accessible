@@ -7,18 +7,19 @@ import { consultationLink } from 'Constants/config';
 import MainFooter from './Styled';
 
 type Props = {
+  questionConfiguration: Object,
   handleTracking: Function
 };
 
 const MainFooterComponent = (props: Props) => {
-  const { handleTracking } = props;
+  const { questionConfiguration, handleTracking } = props;
 
   return (
     <MainFooter role="contentinfo">
       <MainFooter.Nav role="navigation" aria-labelledby="footer_title">
         <MainFooter.Title id="footer_title">
           <HiddenItem aria-hidden>{i18next.t('footer.see_more')}</HiddenItem>
-          { 'Comment mieux prendre soin de nos aînés ?' }
+          {questionConfiguration.question}
         </MainFooter.Title>
         <MainFooter.Link
           target="_blank"

@@ -10,6 +10,7 @@ import ProposalCard from '../Styled';
 class IntroCardComponent extends React.Component {
   render() {
     const {
+      questionConfiguration,
       index,
       isPannelOpen,
       isSequenceCollapsed,
@@ -28,7 +29,7 @@ class IntroCardComponent extends React.Component {
         className={index < currentIndex ? 'collapsed-card' : ''}
       >
         <header>
-          <ProposalCard.IntroTitle>
+          <ProposalCard.IntroTitle color={questionConfiguration.color}>
             {i18next.t('proposal_card.intro_title')}
           </ProposalCard.IntroTitle>
         </header>

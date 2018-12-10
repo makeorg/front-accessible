@@ -7,7 +7,10 @@ import ProposalCard from '../Styled';
 describe('IntroCardComponent', () => {
 
   it('Check a11y rules', () => {
-    const wrapper = shallow(<IntroCardComponent />);
+    const props = {
+      questionConfiguration: { color: 'foo'}
+    };
+    const wrapper = shallow(<IntroCardComponent {...props} />);
 
     expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
     expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);

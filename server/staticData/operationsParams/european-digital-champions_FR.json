@@ -7,10 +7,12 @@
   "learnMoreUrl": "https://about.make.org/about-european-digital-champions",
   "presentation": "Les élections européennes offrent une formidable opportunité d’un grand réveil numérique européen. <br/>Comment faire émerger les champions européens du numérique ? Pour la première fois, l’Institut G9+, <br/>Roland Berger, Croissance+ et Make.org vont massivement mobiliser citoyens français et allemands sur <br/>cette question, pour écrire un Livre blanc inédit, première véritable feuille de route citoyenne sur le sujet.",
   "legalNote": false,
-  "color": "#5DA113",
-  "gradient-start": "#7DB7E3",
-  "gradient-end": "#5DA113",
-  "useBrightFont": true,
+  "theme": {
+    "color": "#5DA113",
+    "gradient-start": "#7DB7E3",
+    "gradient-end": "#5DA113",
+    "useBrightFont": true
+  },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
   "logoWidth": 375,

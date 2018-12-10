@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
-import theme from 'Assets/vars/theme';
 import AppComponent from 'Components/App';
 import Tracking from 'Services/Tracking';
 import ErrorBoundary from './Error';
@@ -12,27 +9,13 @@ class AppContainer extends React.Component {
   }
 
   render() {
-    const { isSequenceCollapsed, country } = this.props;
-
     return (
-      <ThemeProvider theme={theme}>
-        <ErrorBoundary>
-          <AppComponent isSequenceCollapsed={isSequenceCollapsed} country={country} />
-        </ErrorBoundary>
-      </ThemeProvider>
+      <ErrorBoundary>
+        <AppComponent />
+      </ErrorBoundary>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  const { isSequenceCollapsed } = state.sequence;
-  const { country } = state.appConfig;
 
-  return {
-    isSequenceCollapsed,
-    country
-  };
-};
-
-
-export default connect(mapStateToProps)(AppContainer);
+export default AppContainer;

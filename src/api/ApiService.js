@@ -69,16 +69,6 @@ export const handleErrors = (response: Object) => {
     default:
       throw response.status;
   }
-
-  /* if (response.status === 204) {
-    return {};
-  }
-
-  return response.data.then((text) => {
-    if (text) { return JSON.parse(text); }
-
-    return {};
-  }); */
 };
 
 let instance = null;

@@ -15,11 +15,14 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 `;
 
 export const MainContent = styled.main`
+`;
+
+export const SequenceContent = styled.div`
   width: 100%;
-  height: calc(100vh - ${pxToRem('134px')});
+  height: calc(100vh - ${pxToRem('67px')});
   overflow: auto;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    height: calc(100vh - ${pxToRem('153px')});
+    height: calc(100vh - ${pxToRem('75px')});
   }
 `;
 

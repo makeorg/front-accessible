@@ -38,7 +38,7 @@ export const ProgressRing = styled.circle`
 
 export const ProgressBar = styled.circle`
   fill: transparent;
-  stroke: ${props => props.theme.MainColor};
+  stroke: ${props => props.theme.color};
   stroke-width: ${pxToRem('3px')};
   stroke-dasharray: ${props => props.progress || 0} ${props => props.remain || 0};
   stroke-dashoffset: 25;

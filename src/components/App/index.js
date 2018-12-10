@@ -3,7 +3,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainHeaderContainer from 'Containers/MainHeader';
-import MainFooterContainer from 'Containers/MainFooter';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
 import NotFoundPage from 'Pages/NotFound';
@@ -29,7 +28,6 @@ const AppComponent = () => (
       </Switch>
     </MainContent>
     <PannelContainer />
-    <MainFooterContainer />
   </AppWrapper>
 );
 

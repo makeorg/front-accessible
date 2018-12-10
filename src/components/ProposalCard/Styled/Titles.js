@@ -7,7 +7,7 @@ export const IntroTitle = styled.h2`
   font-family: ${MakeFonts.CircularBold};
   font-size: ${pxToRem('26px')};
   line-height: ${pxToRem('30px')};
-  color: ${props => props.theme.MainColor};
+  color: ${props => props.theme.color};
   text-transform: none;
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){

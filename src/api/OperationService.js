@@ -12,8 +12,8 @@ export default class OperationService {
       })
       .then((operations) => {
         if (operations.length > 0) {
-          const questions = operations[0].countriesConfiguration;
-          const question = questions
+          const operation = operations[0];
+          const question = operation.countriesConfiguration
             .find(countryConfiguration => countryConfiguration.countryCode === country);
 
           return question;
