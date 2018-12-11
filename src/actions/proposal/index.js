@@ -1,9 +1,9 @@
 /* @flow */
 
-import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
-import * as actionTypes from '../../constants/actionTypes';
-import ProposalService from '../../api/ProposalService';
-import Tracking from '../../services/Tracking';
+import ProposalService from 'Api/ProposalService';
+import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
+import * as actionTypes from 'Constants/actionTypes';
+import Tracking from 'Services/Tracking';
 
 export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
   type: actionTypes.PROPOSE_TYPING,

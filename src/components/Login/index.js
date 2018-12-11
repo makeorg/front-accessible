@@ -2,14 +2,13 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
+import AuthentificationSocialContainer from 'Containers/Authentification/Social';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
+import { ExtraParagraph, ExtraAltParagraph } from 'Components/Elements/Form';
+import * as Separators from 'Components/Elements/Separators';
+import { RedLinkButton } from 'Components/Elements/ButtonElements';
 import LoginFormComponent from './Form';
 import Login from './Styled';
-import AuthentificationSocialContainer from '../../containers/Authentification/Social';
-import { SecondLevelTitle, ThirdLevelTtitle } from '../Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from '../Elements/Form';
-import * as Separators from '../Elements/Separators';
-import { RedLinkButton } from '../Elements/ButtonElements';
-
 
 type Props = {
   isPannelOpen: boolean,

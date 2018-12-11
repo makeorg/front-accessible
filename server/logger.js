@@ -9,7 +9,8 @@ const {
 } = winston.format;
 
 const logFormat = printf(info => (
-  `${info.timestamp} [${info.label}] ${info.level}: ${info.message} - sessionId: ${info.sessionId} stack: ${info.stack || 'noStack'}`
+  `${info.timestamp} [${info.label}] ${info.level}: ${info.message} - sessionId: ${info.sessionId} stack: ${info.stack
+    || 'noStack'}`
 ));
 
 /**

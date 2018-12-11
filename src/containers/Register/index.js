@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { register } from '../../actions/registration';
-import RegisterComponent from '../../components/Register';
-import { pannelShowLogin } from '../../actions/pannel';
+import { register } from 'Actions/registration';
+import RegisterComponent from 'Components/Register';
+import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
   errors: Array<string>,

@@ -2,7 +2,7 @@ import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from '../../Elements/ButtonElements';
+import { IconInButton } from 'Components/Elements/ButtonElements';
 import { ProposalButton, DisabledProposalButton } from '../Styled/ProposalField';
 
 const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }) => {

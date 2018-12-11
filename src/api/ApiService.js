@@ -1,10 +1,11 @@
 /* @flow */
-import * as UrlHelper from '../helpers/url';
-import Logger from '../services/Logger';
+import axios from 'axios';
+import * as UrlHelper from 'Helpers/url';
+import Logger from 'Services/Logger';
 
 const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
-const API_URL = (
+export const API_URL = (
   typeof window !== 'undefined'
   && window
   && window.API_URL
@@ -28,8 +29,18 @@ export const fetchRetry = (
   timeout:number = 9000
 ): Promise<any> => (
   new Promise((resolve, reject) => {
-    fetch(url, options).then(resolve)
+    axios({
+      method: options.method,
+      url,
+      headers: options.headers,
+      data: options.data,
+      withCredentials: true
+    }).then(resolve)
       .catch((error) => {
+        const { response } = error;
+        const { status } = response;
+        if (status === 400) return reject(error.response.data);
+        if (status === 401) return reject(error);
         if (retry === 1) return reject(error);
         return resolve(fetchRetry(url, options, retry - 1));
       });
@@ -45,27 +56,19 @@ export const fetchRetry = (
  * @return {String|Object}
  */
 export const handleErrors = (response: Object) => {
-  if (!response.ok) {
-    switch (response.status) {
-      case 400:
-        return response.json().then((errors) => { throw errors; });
-      case 500:
-        Logger.logError('Api Response');
-        throw response.status;
-      default:
-        throw response.status;
-    }
+  if (response.status >= 200 && response.status < 300) {
+    return response.data;
   }
 
-  if (response.status === 204) {
-    return {};
+  switch (response.status) {
+    case 400:
+      return response.json().then((errors) => { throw errors; });
+    case 500:
+      Logger.logError('Api Response');
+      throw response.status;
+    default:
+      throw response.status;
   }
-
-  return response.text().then((text) => {
-    if (text) { return JSON.parse(text); }
-
-    return {};
-  });
 };
 
 let instance = null;
@@ -170,8 +173,7 @@ class ApiService {
     return fetchRetry(`${API_URL}${url}`, {
       method: options.method,
       headers,
-      body: options.body,
-      credentials: 'include'
+      data: options.body
     })
       .then(handleErrors);
   }

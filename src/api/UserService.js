@@ -1,7 +1,7 @@
 /* @flow */
 
+import { getDateOfBirthFromAge } from 'Helpers/date';
 import ApiService from './ApiService';
-import { getDateOfBirthFromAge } from '../helpers/date';
 
 const PATH_USER_ME = '/user/me';
 const PATH_USER_LOGIN = '/oauth/make_access_token';

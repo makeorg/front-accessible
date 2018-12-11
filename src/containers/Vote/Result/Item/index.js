@@ -1,7 +1,7 @@
 import React from 'react';
-import ResultItemComponent from '../../../../components/Vote/Result/Item';
-import * as VoteResultHelper from '../../../../helpers/voteResult';
-import { getVoteKey } from '../../../../helpers/vote';
+import ResultItemComponent from 'Components/Vote/Result/Item';
+import * as VoteResultHelper from 'Helpers/voteResult';
+import { getVoteKey } from 'Helpers/vote';
 
 class ResultItemContainer extends React.Component {
   constructor(props) {

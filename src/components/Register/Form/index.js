@@ -9,17 +9,17 @@ import {
   faMapMarkerAlt,
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
   InputError,
   FormErrors,
   FormError
-} from '../../Elements/Form';
-import { fieldErrors } from '../../../helpers/form';
-import UntypedInput from '../../Elements/Form/UntypedInput';
-import PasswordInput from '../../Elements/Form/PasswordInput';
+} from 'Components/Elements/Form';
+import { fieldErrors } from 'Helpers/form';
+import UntypedInput from 'Components/Elements/Form/UntypedInput';
+import PasswordInput from 'Components/Elements/Form/PasswordInput';
 
 class RegisterFormComponent extends React.Component {
   render() {

@@ -1,13 +1,16 @@
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Small } from 'Components/Elements/Separators';
+import IntroCardComponent from './index';
 import ProposalCard from '../Styled';
-import { Small } from '../../Elements/Separators';
-import IntroCardComponent from './';
 
 describe('IntroCardComponent', () => {
 
   it('Check a11y rules', () => {
-    const wrapper = shallow(<IntroCardComponent />);
+    const props = {
+      questionConfiguration: { color: 'foo'}
+    };
+    const wrapper = shallow(<IntroCardComponent {...props} />);
 
     expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
     expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);

@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from '../../actions/registration';
+import * as actionCreators from 'Actions/registration';
 import registration from './index';
 
 describe('Registration reducer', () => {

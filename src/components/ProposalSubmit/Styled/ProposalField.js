@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import Breakpoints from '../../../assets/vars/Breakpoints';
-import { NoStyleTextInput } from '../../Elements/Form';
-import { MiddleRow } from '../../Elements/FlexElements';
-import { SmallGreyButton, SmallRedButton } from '../../Elements/ButtonElements';
-import { MakeFonts } from '../../../assets/vars/Fonts';
-import { TextColors, ShadowColors } from '../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import Breakpoints from 'Assets/vars/Breakpoints';
+import { NoStyleTextInput } from 'Components/Elements/Form';
+import { MiddleRow } from 'Components/Elements/FlexElements';
+import { SmallGreyButton, SmallRedButton } from 'Components/Elements/ButtonElements';
+import { MakeFonts } from 'Assets/vars/Fonts';
+import { TextColors, ShadowColors } from 'Assets/vars/Colors';
 
 export const Label = styled.label`
   font-size: ${pxToRem('14px')};

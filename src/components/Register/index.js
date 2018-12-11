@@ -2,14 +2,14 @@
 
 import React from 'react';
 import i18next from 'i18next';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
+import * as Separators from 'Components/Elements/Separators';
+import { RedLinkButton } from 'Components/Elements/ButtonElements';
+import { ExtraParagraph } from 'Components/Elements/Form';
+import FacebookAuthentificationLinkComponent from 'Components/Authentification/Social/FacebookAuthentification/Link';
+import GoogleAuthentificationLinkComponent from 'Components/Authentification/Social/GoogleAuthentification/Link';
 import RegisterFormComponent from './Form';
 import Register from './Styled';
-import FacebookAuthentificationLinkComponent from '../Authentification/Social/FacebookAuthentification/Link';
-import GoogleAuthentificationLinkComponent from '../Authentification/Social/GoogleAuthentification/Link';
-import { SecondLevelTitle, ThirdLevelTtitle } from '../Elements/TitleElements';
-import * as Separators from '../Elements/Separators';
-import { RedLinkButton } from '../Elements/ButtonElements';
-import { ExtraParagraph } from '../Elements/Form';
 
 type Props = {
   isPannelOpen: boolean,

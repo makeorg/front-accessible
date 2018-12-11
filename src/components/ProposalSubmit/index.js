@@ -2,10 +2,10 @@
 
 import React from 'react';
 import i18next from 'i18next';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
+import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
 import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitForm from './Styled';
-import { HiddenItem } from '../Elements/HiddenElements';
-import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
 
 type Props = {
   content: string,

@@ -7,10 +7,12 @@
   "learnMoreUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
   "presentation": "15/30 ans, vous habitez en #HDF, faites entendre votre voix ! <br/>Les Hauts-de-France vont initier avec Make.org une consultation totalement inédite : plusieurs dizaines de <br/>milliers de jeunes vont en effet pouvoir répondre très librement à la question <br/>« Comment vous aider à construire votre avenir en Hauts-de-France ? ». <br/>Les résultats de la consultation seront le point de départ d’une mobilisation <br/>plus ample de toutes les forces vives de la région, <br/>débouchant sur un plan d’actions concrètes que vous pourrez retrouver sur <br/><a href=\\\"http://www.generation.hautsdefrance.fr\\\">www.generation.hautsdefrance.fr</a>.",
   "legalNote": false,
-  "color": "#3dbfff",
-  "gradient-start": "#fea8fe",
-  "gradient-end": "#35bfff",
-  "useBrightFont": false,
+  "theme": {
+    "color": "#3dbfff",
+    "gradient-start": "#fea8fe",
+    "gradient-end": "#35bfff",
+    "useBrightFont": false
+  },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
   "logoWidth": 463,

@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import LoginContainer from '../Login';
-import RegisterContainer from '../Register';
-import ForgotPasswordContainer from '../ForgotPassword';
-import PannelComponent from '../../components/Pannel';
-import { pannelClose } from '../../actions/pannel';
-import * as pannelContentTypes from '../../constants/pannel';
+import PannelComponent from 'Components/Pannel';
+import { pannelClose } from 'Actions/pannel';
+import * as pannelContentTypes from 'Constants/pannel';
+import LoginContainer from 'Containers/Login';
+import RegisterContainer from 'Containers/Register';
+import ForgotPasswordContainer from 'Containers/ForgotPassword';
 
 const pannelContents = {
   [pannelContentTypes.LOGIN_CONTENT]: <LoginContainer />,

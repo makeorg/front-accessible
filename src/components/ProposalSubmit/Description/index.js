@@ -2,9 +2,9 @@ import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { Description, AltDescription, DescriptionLink } from 'Components/Elements/DescriptionElements';
+import { IconInButton } from 'Components/Elements/ButtonElements';
 import { DescriptionWrapper } from '../Styled';
-import { Description, AltDescription, DescriptionLink } from '../../Elements/DescriptionElements';
-import { IconInButton } from '../../Elements/ButtonElements';
 
 
 class ProposalSubmitDescriptionComponent extends React.Component {

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../../helpers/styled';
-import { UnstyledButton } from '../../../Elements/ButtonElements';
-import UnstyledList from '../../../Elements/ListElements';
-import { BasicColors, BackgroundColors, TextColors } from '../../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import { UnstyledButton } from 'Components/Elements/ButtonElements';
+import UnstyledList from 'Components/Elements/ListElements';
+import { BasicColors, BackgroundColors, TextColors } from 'Assets/vars/Colors';
 
 export const Graph = styled(UnstyledList)`
   position: relative;

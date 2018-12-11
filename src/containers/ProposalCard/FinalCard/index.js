@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FinalCardComponent from '../../../components/ProposalCard/FinalCard';
-import Tracking from '../../../services/Tracking';
-import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
+import FinalCardComponent from 'Components/ProposalCard/FinalCard';
+import Tracking from 'Services/Tracking';
+import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
 class FinalCardContainer extends React.Component {
   componentDidUpdate() {

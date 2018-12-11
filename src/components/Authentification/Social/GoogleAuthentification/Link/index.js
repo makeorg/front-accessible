@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { GoogleLink, SocialIcon } from '../../../Styled/Content';
+import { GoogleLink, SocialIcon } from 'Components/Authentification/Styled/Content';
 import GoogleAuthentificationComponent from '..';
 
 const renderGoogleLogin = tabIndex => renderProps => (

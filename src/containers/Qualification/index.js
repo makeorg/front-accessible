@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
-import { doUpdateState } from '../../helpers/qualification';
-import QualificationService from '../../api/QualificationService';
-import QualificationComponent from '../../components/Qualification';
-import Tracking from '../../services/Tracking';
+import { doUpdateState } from 'Helpers/qualification';
+import QualificationService from 'Api/QualificationService';
+import QualificationComponent from 'Components/Qualification';
+import Tracking from 'Services/Tracking';
 
 type Props = {
   qualifications: Array<Object>,

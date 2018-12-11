@@ -1,12 +1,12 @@
 /* @flow */
 
 import i18next from 'i18next';
-import UserService from '../../api/UserService';
-import * as actionTypes from '../../constants/actionTypes';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from '../../constants/user';
-import { pannelClose } from '../pannel';
-import { submitProposal } from '../proposal';
-import Tracking from '../../services/Tracking';
+import UserService from 'Api/UserService';
+import * as actionTypes from 'Constants/actionTypes';
+import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Constants/user';
+import { pannelClose } from 'Actions/pannel';
+import { submitProposal } from 'Actions/proposal';
+import Tracking from 'Services/Tracking';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: string) => ({ type: actionTypes.LOGIN_FAILURE, error });
@@ -34,7 +34,6 @@ export const getUser = () => (dispatch: Function, getState: Function) => {
 
 export const getToken = () => (dispatch: Function, getState: Function) => {
   const { content } = getState().proposal;
-
   return UserService.getUserToken()
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));

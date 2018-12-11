@@ -2,19 +2,28 @@
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import ProposalService from 'Api/ProposalService';
+import * as actionTypes from 'Constants/actionTypes';
 import * as actions from './index';
-import * as actionTypes from '../../constants/actionTypes';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const axiosMock = new MockAdapter(axios);
 
 describe('Proposal Actions', () => {
-  beforeEach(() => {
+  let sandbox;
+  beforeEach(function () {
+    sandbox = sinon.createSandbox();
     store.clearActions();
-    fetchMock.reset();
-    fetchMock.restore();
+    axiosMock.restore();
+    axiosMock.onPost('/tracking/front').reply(204);
+  });
+
+  afterEach(function () {
+      sandbox.restore();
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {
@@ -117,10 +126,8 @@ describe('Proposal Actions', () => {
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
 
-    fetchMock
-      .post('path:/proposals', proposalIdResponse)
-      .post('path:/tracking/front', 204)
-    ;
+    const proposalServiceRegisterMock = sandbox.stub(ProposalService, 'propose');
+    proposalServiceRegisterMock.returns(Promise.resolve(proposalIdResponse));
 
     const expectedActions = [
       {
@@ -143,13 +150,13 @@ describe('Proposal Actions', () => {
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
 
-    fetchMock
-      .post('path:/proposals',  401);
+    const proposalServiceRegisterMock = sandbox.stub(ProposalService, 'propose');
+    proposalServiceRegisterMock.returns(Promise.reject('fooError'));
 
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_FAILURE,
-        error: 401
+        error: 'fooError'
       }
     ];
 

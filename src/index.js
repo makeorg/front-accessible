@@ -1,8 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { BrowserRouter } from 'react-router-dom';
 import AppContainer from './containers/App';
 import configureStore from './store';
 import './i18n';
@@ -25,6 +24,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 };
 
 let initialState = window.INITIAL_STATE;
+delete window.INITIAL_STATE;
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   initialState = {
@@ -38,13 +38,12 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 }
 
 const store = configureStore(initialState);
-export const history = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <BrowserRouter>
       <AppContainer />
-    </Router>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('app'),
 );

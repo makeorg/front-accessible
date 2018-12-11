@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -20,8 +21,8 @@ module.exports = merge(baseConfig, {
   devServer: {
     port: 3000,
     contentBase: './dist',
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
-  devtool: 'inline-source-map',
-  mode: 'development'
+  devtool: 'inline-source-map'
 });

@@ -1,13 +1,14 @@
 /* @flow */
 
 import * as React from 'react';
-import FinalCardContainer from '../../containers/ProposalCard/FinalCard';
+import FinalCardContainer from 'Containers/ProposalCard/FinalCard';
+import ProposalCardContainer from 'Containers/ProposalCard';
 import IntroCardComponent from '../ProposalCard/IntroCard';
-import ProposalCardContainer from '../../containers/ProposalCard';
 import CollapseToggle from './Button';
 import Sequence from './Styled';
 
 type Props = {
+  questionConfiguration: Object,
   count: number,
   proposals: Array<Object>,
   currentIndex: number,
@@ -21,6 +22,7 @@ type Props = {
 
 const SequenceComponent = (props: Props) => {
   const {
+    questionConfiguration,
     count,
     proposals,
     currentIndex,
@@ -47,6 +49,7 @@ const SequenceComponent = (props: Props) => {
       <Sequence.Wrapper>
         <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'} id="sequence">
           <IntroCardComponent
+            questionConfiguration={questionConfiguration}
             index={0}
             currentIndex={currentIndex}
             isSequenceCollapsed={isSequenceCollapsed}

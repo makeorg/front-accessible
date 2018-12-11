@@ -2,12 +2,12 @@ import React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { SmallRedButton, IconInButton } from '../../Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
 import {
   FormErrors,
   FormError
-} from '../../Elements/Form';
-import UntypedInput from '../../Elements/Form/UntypedInput';
+} from 'Components/Elements/Form';
+import UntypedInput from 'Components/Elements/Form/UntypedInput';
 import ForgotPassword from '../Styled';
 
 class ForgotPasswordFormComponent extends React.Component {

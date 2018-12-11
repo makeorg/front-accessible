@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import { getVoteKey, getVoteButtonId } from '../../helpers/vote';
+import voteStaticParams from 'Constants/vote';
+import { getVoteKey, getVoteButtonId } from 'Helpers/vote';
+import { HiddenItem } from 'Components/Elements/HiddenElements';
 import Vote from './Styled';
 import { VoteButton } from './Styled/Button';
 import VoteButtonComponent from './Button';
-import { HiddenItem } from '../Elements/HiddenElements';
-import voteStaticParams from '../../constants/vote';
 
 type VoteButtonsProps = {
   proposalId: string,

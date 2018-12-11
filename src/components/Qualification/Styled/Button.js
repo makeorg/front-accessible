@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { MakeFonts } from '../../../assets/vars/Fonts';
-import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import { MakeFonts } from 'Assets/vars/Fonts';
+import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
 
 export const Button = styled.button`
   display: flex;

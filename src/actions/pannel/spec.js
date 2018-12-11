@@ -1,20 +1,22 @@
 /* @flow */
 
 import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock';
+import thunk from 'redux-thunk';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import * as actionTypes from 'Constants/actionTypes';
 import * as actions from './index';
-import * as actionTypes from '../../constants/actionTypes';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const axiosMock = new MockAdapter(axios);
 
 describe('Pannel Actions', () => {
   beforeEach(() => {
     store.clearActions();
-    fetchMock.reset();
-    fetchMock.restore();
+    axiosMock.restore();
+    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   it('Creates PANNEL_CLOSE when calling action', () => {
@@ -23,7 +25,7 @@ describe('Pannel Actions', () => {
       { type: actionTypes.FORGOT_PASSWORD_INIT }
     ];
 
-    fetchMock.post('path:/tracking/front', 204);
+    axiosMock.onPost(`/tracking/front`).reply(204);
     store.dispatch(actions.pannelClose());
 
     expect(store.getActions()).to.deep.equal(expectedActions)
@@ -34,7 +36,6 @@ describe('Pannel Actions', () => {
       type: actionTypes.PANNEL_SHOW_LOGIN,
     }];
 
-    fetchMock.post('path:/tracking/front', 204);
     store.dispatch(actions.pannelShowLogin());
 
     expect(store.getActions()).to.deep.equal(expectedActions)
@@ -45,7 +46,6 @@ describe('Pannel Actions', () => {
       type: actionTypes.PANNEL_SHOW_REGISTER,
     }];
 
-    fetchMock.post('path:/tracking/front', 204);
     store.dispatch(actions.pannelShowRegister());
 
     expect(store.getActions()).to.deep.equal(expectedActions)
@@ -56,7 +56,6 @@ describe('Pannel Actions', () => {
       type: actionTypes.PANNEL_SHOW_FORGOT_PASSWORD,
     }];
 
-    fetchMock.post('path:/tracking/front', 204);
     store.dispatch(actions.pannelShowForgotPassword());
 
     expect(store.getActions()).to.deep.equal(expectedActions)

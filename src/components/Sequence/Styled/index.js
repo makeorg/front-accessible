@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Breakpoints from '../../../assets/vars/Breakpoints';
+import Breakpoints from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Helpers/styled';
 import { Wrapper, List } from './List';
 import { BackArrow, BackButton } from './Button';
-import { pxToRem } from '../../../helpers/styled';
 
 const Sequence = styled.section`
   position: relative;
@@ -13,7 +13,7 @@ const Sequence = styled.section`
   max-width: ${Breakpoints.specialSequenceWidth};
   transition: transform 0.5s ease-in;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-  height: calc(100% - ${pxToRem('97px')});
+    height: calc(100% - ${pxToRem('97px')});
   }
 `;
 

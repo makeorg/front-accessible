@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { BasicColors } from '../../../assets/vars/Colors';
-import Breakpoints from '../../../assets/vars/Breakpoints';
+import { pxToRem } from 'Helpers/styled';
+import { BasicColors } from 'Assets/vars/Colors';
+import Breakpoints from 'Assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
   display: flex;

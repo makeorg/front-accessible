@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { TextColors, BasicColors } from '../../../assets/vars/Colors';
-import Breakpoints from '../../../assets/vars/Breakpoints';
-import { Small } from '../../Elements/Separators';
+import { pxToRem } from 'Helpers/styled';
+import { TextColors, BasicColors } from 'Assets/vars/Colors';
+import Breakpoints from 'Assets/vars/Breakpoints';
+import { Small } from 'Components/Elements/Separators';
 
 
 export const IntroParagraph = styled.p`

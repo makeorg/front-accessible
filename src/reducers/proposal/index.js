@@ -1,7 +1,7 @@
 /* @flow */
 
-import * as actionTypes from '../../constants/actionTypes';
-import { PROPOSAL_BAIT_TEXT } from '../../constants/proposal';
+import * as actionTypes from 'Constants/actionTypes';
+import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
 
 const initialState: Object = {
   isTyping: false,

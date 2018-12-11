@@ -2,19 +2,28 @@
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import * as actionTypes from 'Constants/actionTypes';
+import UserService from 'Api/UserService';
 import * as actions from './index';
-import * as actionTypes from '../../constants/actionTypes';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const axiosMock = new MockAdapter(axios);
 
 describe('Registration Actions', () => {
-  beforeEach(() => {
+  let sandbox;
+  beforeEach(function () {
+    sandbox = sinon.createSandbox();
     store.clearActions();
-    fetchMock.reset();
-    fetchMock.restore();
+    axiosMock.restore();
+    axiosMock.onPost('/tracking/front').reply(204);
+  });
+
+  afterEach(function () {
+      sandbox.restore();
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {
@@ -58,14 +67,12 @@ describe('Registration Actions', () => {
     const user = {
       email: 'foo@example.com',
       password: 'baz'
-     };
+    };
 
-     fetchMock
-       .post('path:/user',  user)
-       .post('path:/tracking/front', 204)
-       .post('path:/oauth/make_access_token', token)
-       .get('path:/user/me', user)
-    ;
+    const userServiceRegisterMock = sandbox.stub(UserService, 'register');
+    userServiceRegisterMock.withArgs(user).returns(Promise.resolve(user));
+    const userServiceLoginMock = sandbox.stub(UserService, 'login');
+    userServiceLoginMock.withArgs(user.email, user.password).returns(Promise.resolve(token));
 
     const expectedActions = [
       { type: actionTypes.REGISTER_REQUEST },
@@ -87,10 +94,8 @@ describe('Registration Actions', () => {
      };
      const errors = ['fooError'];
 
-     fetchMock
-       .post('path:/user',  { body: errors, status: 400 })
-       .post('path:/tracking/front', 204)
-       .post('path:/oauth/make_access_token', 401);
+     const userServiceRegisterMock = sandbox.stub(UserService, 'register');
+     userServiceRegisterMock.withArgs(user).returns(Promise.reject(['fooError']));
 
     const expectedActions = [
       { type: actionTypes.REGISTER_REQUEST },

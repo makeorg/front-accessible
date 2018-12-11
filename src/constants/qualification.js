@@ -1,6 +1,6 @@
 // @flow
 import i18next from 'i18next';
-import { VoteColors } from '../assets/vars/Colors';
+import { VoteColors } from 'Assets/vars/Colors';
 import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from './vote';
 
 

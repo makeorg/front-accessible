@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton, GoogleButton } from '../../../../Elements/ButtonElements';
-import GoogleAuthentificationComponent from '..';
+import { IconInButton, GoogleButton } from 'Components/Elements/ButtonElements';
+import GoogleAuthentificationComponent from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
   <GoogleButton onClick={renderProps.onClick} tabIndex={tabIndex}>

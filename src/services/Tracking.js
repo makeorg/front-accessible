@@ -1,7 +1,8 @@
 /* @flow */
 
-import ApiService from '../api/ApiService';
-import * as trackingConstants from '../constants/tracking';
+import ApiService from 'Api/ApiService';
+import * as trackingConstants from 'Constants/tracking';
+import Logger from 'Services/Logger';
 
 const
   PARENT_URL = typeof window
@@ -29,7 +30,7 @@ const track = (eventName: string, parameters: Object = {}) => {
       eventParameters,
       eventType: 'trackCustom'
     })
-  });
+  }).catch(error => Logger.logError(error));
 };
 
 class Tracking {

@@ -1,7 +1,7 @@
 /* @flow */
 
+import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
 import { getProposalLength, getIsProposalValidLength } from './proposal';
-import { PROPOSAL_BAIT_TEXT } from '../constants/proposal';
 
 describe('Proposal Helper', () => {
   const validProposalContent = "foobar";

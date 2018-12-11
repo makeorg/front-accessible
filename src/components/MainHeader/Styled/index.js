@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from '../../../helpers/styled';
-import { BasicColors, ShadowColors } from '../../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
 import Logo from './HeaderContent';
 
 const MainHeader = styled.header`

@@ -1,8 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import MainHeaderComponent from '../../components/MainHeader';
-import Tracking from '../../services/Tracking';
+import MainHeaderComponent from 'Components/MainHeader';
+import Tracking from 'Services/Tracking';
 
 class MainHeaderContainer extends React.Component<{}> {
   constructor() {

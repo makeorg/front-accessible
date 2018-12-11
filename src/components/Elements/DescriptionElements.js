@@ -1,8 +1,8 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from '../../helpers/styled';
-import { TextColors } from '../../assets/vars/Colors';
+import { pxToRem } from 'Helpers/styled';
+import { TextColors } from 'Assets/vars/Colors';
 
 export const Description = styled.p`
   font-size: ${pxToRem('16px')};

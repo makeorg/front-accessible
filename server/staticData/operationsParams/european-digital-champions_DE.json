@@ -7,10 +7,12 @@
   "learnMoreUrl": "https://about.make.org/about-digital-champions-de",
   "presentation": "Die Europawahlen bieten eine enorme Chance für ein großes europäisches digitales Erwachen. <br/>Wie kann man die europäischen Digitalmeister hervorbringen? Zum ersten Mal werden das G9+ Institut, <br/>Roland Berger, Croissance+ und Make.org die französischen und deutschen Bürgerinnen <br/>zu diesem Thema in großem Umfang befragen, um ein Weißbuch zu schreiben, <br/>die erste echte Bürgerinnen-Roadmap zu diesem Thema.",
   "legalNote": false,
-  "color": "#5DA113",
-  "gradient-start": "#7DB7E3",
-  "gradient-end": "#5DA113",
-  "useBrightFont": true,
+  "theme": {
+    "color": "#5DA113",
+    "gradient-start": "#7DB7E3",
+    "gradient-end": "#5DA113",
+    "useBrightFont": true
+  },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
   "logoWidth": 375,

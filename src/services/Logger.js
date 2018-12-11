@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ApiService from '../api/ApiService';
+import ApiService from 'Api/ApiService';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';
@@ -16,8 +16,22 @@ class Logger {
     return instance;
   }
 
-  logError = (data) => {
-    this.log({ message: data }, LOG_ERROR);
+  logError = (error) => {
+    let data = {};
+    if (error instanceof Error) {
+      data = {
+        message: error.message,
+        name: error.name,
+        fileName: error.fileName,
+        lineNumber: error.lineNumber,
+        columnNumber: error.columnNumber,
+        stack: error.stack
+      };
+    } else {
+      data = error;
+    }
+
+    this.log(data, LOG_ERROR);
   }
 
   logInfo = (data) => {

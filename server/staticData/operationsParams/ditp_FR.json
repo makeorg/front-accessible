@@ -7,10 +7,12 @@
   "learnMoreUrl": "https://about.make.org/about-ditp",
   "presentation": "Le Gouvernement a décidé de revoir en profondeur le mode de fonctionnement de l’État <br/>pour vous redonner la liberté d’action qui vous est nécessaire. C’est pourquoi <br/>cette question simple, ouverte, « Comment lever les blocages que vous rencontrez au quotidien ? » <br/>vous sera soumise pendant deux mois. Pour la première fois à cette échelle, <br/>vous allez pouvoir vous exprimer sur votre quotidien, pointer les freins <br/>qui vous bloquent et proposer vos solutions qui demain transformeront l’action publique.",
   "legalNote": false,
-  "color": "#ED2939",
-  "gradient-start": "#8ADCD7",
-  "gradient-end": "#367ABC",
-  "useBrightFont": true,
+  "theme": {
+    "color": "#ED2939",
+    "gradient-start": "#8ADCD7",
+    "gradient-end": "#367ABC",
+    "useBrightFont": true
+  },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
   "logoWidth": 322,

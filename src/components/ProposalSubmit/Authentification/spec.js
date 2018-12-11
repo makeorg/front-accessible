@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { EmailButton } from '../../Elements/ButtonElements';
-import { DescriptionLink } from '../../Elements/DescriptionElements';
-import { Small } from '../../Elements/Separators';
-import ProposalSubmitAuthentificationComponent from './';
+import { EmailButton } from 'Components/Elements/ButtonElements';
+import { DescriptionLink } from 'Components/Elements/DescriptionElements';
+import { Small } from 'Components/Elements/Separators';
+import ProposalSubmitAuthentificationComponent from './index';
 
 describe('ProposalSubmitAuthentificationComponent', () => {
   let sandbox;

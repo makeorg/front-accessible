@@ -1,10 +1,10 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from '../../helpers/styled';
+import { pxToRem } from 'Helpers/styled';
+import { BackgroundColors } from 'Assets/vars/Colors';
+import Breakpoints from 'Assets/vars/Breakpoints';
 import { SpaceBetweenColumn } from './FlexElements';
-import { BackgroundColors } from '../../assets/vars/Colors';
-import Breakpoints from '../../assets/vars/Breakpoints';
 
 export const AppWrapper = styled(SpaceBetweenColumn)`
   position: relative;
@@ -15,11 +15,14 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 `;
 
 export const MainContent = styled.main`
+`;
+
+export const SequenceContent = styled.div`
   width: 100%;
-  height: calc(100vh - ${pxToRem('134px')});
+  height: calc(100vh - ${pxToRem('67px')});
   overflow: auto;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    height: calc(100vh - ${pxToRem('153px')});
+    height: calc(100vh - ${pxToRem('75px')});
   }
 `;
 

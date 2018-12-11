@@ -5,6 +5,7 @@ import sinon from 'sinon';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
+import ApiService from '../src/api/ApiService';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -19,6 +20,12 @@ global.sinon = sinon;
 global.React = React;
 global.expect = expect;
 global.sinon = sinon;
+
+ApiService.sessionId = 'foo-session';
+ApiService.country = 'foo';
+ApiService.language = 'foo';
+ApiService.source = 'foo';
+ApiService.operationId = 'foo';
 
 function storageMock() {
   const storage = {};

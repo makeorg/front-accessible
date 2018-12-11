@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
+import { ExtraAltParagraph } from 'Components/Elements/Form';
+import { SecondLevelTitle, FourthLevelTtitle } from 'Components/Elements/TitleElements';
+import * as Separators from 'Components/Elements/Separators';
+import { RedLinkButton } from 'Components/Elements/ButtonElements';
 import ForgotPasswordFormComponent from './Form';
 import ForgotPassword from './Styled';
-import { ExtraAltParagraph } from '../Elements/Form';
-import { SecondLevelTitle, FourthLevelTtitle } from '../Elements/TitleElements';
-import * as Separators from '../Elements/Separators';
-import { RedLinkButton } from '../Elements/ButtonElements';
 
 type Props = {
   isSuccess: boolean,

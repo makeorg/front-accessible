@@ -5,6 +5,9 @@ const path = require('path');
 const { SERVER_DIR } = require('./paths');
 
 export default function questionApi(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('Content-Type', 'application/json');
+
   if (
     typeof req.query.country !== 'string'
     || !req.query.country.match(/^[A-Z]{2,3}$/)
@@ -25,6 +28,7 @@ export default function questionApi(req, res) {
     if (err) {
       return res.status(404).end();
     }
+
     return res.send(content);
   });
 }

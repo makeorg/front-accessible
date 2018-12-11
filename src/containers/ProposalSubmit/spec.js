@@ -1,12 +1,13 @@
 /* @flow */
 
 import { shallow } from 'enzyme';
+import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
+import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import ProposalSubmitWrapper from 'Components/ProposalSubmit/Styled';
+import ProposalSubmitAuthentificationContainer from './Authentification';
 import { ProposalSubmit } from './index';
 import { ProposalSubmitAuthentification } from './';
-import ProposalSubmitFormComponent from '../../components/ProposalSubmit';
-import ProposalSubmitDescriptionComponent from '../../components/ProposalSubmit/Description';
-import ProposalSubmitAuthentificationContainer from './Authentification';
-import ProposalSubmitWrapper from '../../components/ProposalSubmit/Styled';
+
 describe('ProposalSubmitContainer', () => {
   const defaultProps = {
     content: 'foo',
