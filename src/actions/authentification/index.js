@@ -55,7 +55,6 @@ export const login = (email: string, password: string) => (dispatch: Function, g
       return dispatch(getUser()).then(() => {
         if (canSubmit) {
           const { content } = getState().proposal;
-
           dispatch(submitProposal(content));
         }
       });

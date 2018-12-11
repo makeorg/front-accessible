@@ -6,6 +6,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Constants/actionTypes';
 import UserService from 'Api/UserService';
+import Tracking from 'Services/Tracking';
 import * as actions from './index';
 
 const middlewares = [thunk]
@@ -65,16 +66,22 @@ describe('Authentification Actions', () => {
       const user = { email: 'baz@make.org', password: 'foo' };
 
       const store = mockStore({
-        proposal: {canSubmit: false},
-        pannel: {isPannelOpen: false},
-        authentification: {isLoggedIn: false}
+        proposal: { canSubmit: false },
+        pannel: { isPannelOpen: false },
+        authentification: { isLoggedIn: false }
       });
 
-      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'login');
-      userServiceGetUserTokenMock.withArgs(user.email, user.password).returns(Promise.resolve(token));
+      sandbox
+        .stub(UserService, 'login')
+        .withArgs(user.email, user.password).returns(Promise.resolve(token));
 
-      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
-      userServiceGetUserMock.returns(Promise.resolve(user));
+      sandbox
+        .stub(UserService, 'me')
+        .returns(Promise.resolve(user));
+
+      sandbox
+        .stub(Tracking, 'trackLoginEmailSuccess')
+        .returns(Promise.resolve());
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
@@ -89,6 +96,8 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login when failure', () => {
+      const user = { email: 'baz@make.org', password: 'foo' };
+
       const error = undefined;
       const proposalContent = 'foo';
       const operationId = 'bar';
@@ -97,14 +106,22 @@ describe('Authentification Actions', () => {
         appConfig: {operationId}
       });
 
-      axiosMock.onPost('/oauth/make_access_token').reply(401);
+      sandbox
+        .stub(UserService, 'login')
+        .withArgs(user.email, user.password)
+        .returns(Promise.reject('fooError'));
+
+      sandbox
+        .stub(Tracking, 'trackLoginEmailFailure')
+        .returns(Promise.resolve());
+
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_FAILURE, error }
       ];
 
-      return store.dispatch(actions.login()).then(() => {
+      return store.dispatch(actions.login(user.email, user.password)).then(() => {
         expect(store.getActions()).to.deep.equal(expectedActions)
       });
     });
@@ -150,11 +167,18 @@ describe('Authentification Actions', () => {
       const provider = 'fooProvider';
       const socialToken = 'fooToken';
 
-      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'loginSocial');
-      userServiceGetUserTokenMock.withArgs(provider, socialToken).returns(Promise.resolve(token));
+      sandbox
+        .stub(UserService, 'loginSocial')
+        .withArgs(provider, socialToken)
+        .returns(Promise.resolve(token));
 
-      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
-      userServiceGetUserMock.returns(Promise.resolve(user));
+      sandbox
+        .stub(UserService, 'me')
+        .returns(Promise.resolve(user));
+
+      sandbox
+        .stub(Tracking, 'trackAuthentificationSocialSuccess')
+        .returns(Promise.resolve());
 
 
       const expectedActions = [
@@ -175,16 +199,22 @@ describe('Authentification Actions', () => {
         proposal: {content: proposalContent },
         appConfig: { operationId }
       });
-      const barProvider = 'barProvider';
+      const socialToken = 'fooToken';
+      const provider = 'barProvider';
 
-      axiosMock.onPost('/user/login/social').reply(401);
+      sandbox.stub(UserService, 'loginSocial')
+        .withArgs(provider, socialToken).returns(Promise.reject('fooError'));
+
+
+      sandbox.stub(Tracking, 'trackAuthentificationSocialFailure')
+        .returns(Promise.resolve());
 
       const expectedActions = [
-        { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: barProvider },
+        { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
         { type: actionTypes.LOGIN_SOCIAL_FAILURE }
       ];
 
-      return store.dispatch(actions.loginSocial(barProvider)).then(() => {
+      return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
         expect(store.getActions()).to.deep.equal(expectedActions)
       });
     });
@@ -231,8 +261,12 @@ describe('Authentification Actions', () => {
         pannel: { isPannelOpen: true }
       });
 
-      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
-      userServiceGetUserMock.returns(Promise.resolve(user));
+      sandbox
+        .stub(UserService, 'me')
+        .returns(Promise.resolve(user));
+      sandbox
+        .stub(Tracking, 'trackClickClosePannel')
+        .returns(Promise.resolve());
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
@@ -251,8 +285,9 @@ describe('Authentification Actions', () => {
         pannel: { isPannelOpen: false }
       });
 
-      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
-      userServiceGetUserMock.returns(Promise.resolve(user));
+      sandbox
+        .stub(UserService, 'me')
+        .returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user }
@@ -275,11 +310,13 @@ describe('Authentification Actions', () => {
         authentification: { isLoggedIn: false }
       });
 
-      const userServiceGetUserTokenMock = sandbox.stub(UserService, 'getUserToken');
-      userServiceGetUserTokenMock.returns(Promise.resolve(token));
+      sandbox
+        .stub(UserService, 'getUserToken')
+        .returns(Promise.resolve(token));
 
-      const userServiceGetUserMock = sandbox.stub(UserService, 'me');
-      userServiceGetUserMock.returns(Promise.resolve(user));
+      sandbox
+        .stub(UserService, 'me')
+        .returns(Promise.resolve(user));
 
       const expectedActions = [
         { type: actionTypes.GET_TOKEN, token },
