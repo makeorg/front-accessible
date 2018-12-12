@@ -4,6 +4,11 @@
   "language": "fr",
   "title": "Construire l’avenir des jeunes en Hauts-de-France",
   "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
+  "metas": {
+    "title": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
+    "description": "Vous avez une idée sur le sujet ? Participez à la consultation initiée par la Région Hauts-de-France avec Make.org",
+    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd073e6ae57fd558cc90165_meta%20hdf.jpg"
+  },
   "learnMoreUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
   "presentation": "15/30 ans, vous habitez en #HDF, faites entendre votre voix ! <br/>Les Hauts-de-France vont initier avec Make.org une consultation totalement inédite : plusieurs dizaines de <br/>milliers de jeunes vont en effet pouvoir répondre très librement à la question <br/>« Comment vous aider à construire votre avenir en Hauts-de-France ? ». <br/>Les résultats de la consultation seront le point de départ d’une mobilisation <br/>plus ample de toutes les forces vives de la région, <br/>débouchant sur un plan d’actions concrètes que vous pourrez retrouver sur <br/><a href=\\\"http://www.generation.hautsdefrance.fr\\\">www.generation.hautsdefrance.fr</a>.",
   "legalNote": false,

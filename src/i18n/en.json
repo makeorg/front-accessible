@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "home": {
+      "title": "Make.org, accélérateur d'intérêt général"
+    }
+  },
   "common": {
     "connexion_label": "Se connecter",
     "register_label": "S'inscrire",

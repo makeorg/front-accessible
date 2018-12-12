@@ -44,6 +44,7 @@ app.get('/', (req, res) => {
   res.redirect(`/${detectedCountry}`);
 });
 
+app.get('/:country/consultation/:questionSlug/selection', reactRender);
 app.get('/:country*', reactRender);
 
 // CSP

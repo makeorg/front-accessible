@@ -3,7 +3,9 @@
 import * as actionTypes from 'Constants/actionTypes';
 
 const initialState: Object = {
-  isSequenceCollapsed: false
+  isSequenceCollapsed: false,
+  question: null,
+  questionConfiguration: null
 };
 
 export default function sequence(state: Object = initialState, action: Object) {
@@ -17,6 +19,16 @@ export default function sequence(state: Object = initialState, action: Object) {
       return {
         ...state,
         isSequenceCollapsed: false
+      };
+    case actionTypes.QUESTION_LOAD:
+      return {
+        ...state,
+        question: action.question
+      };
+    case actionTypes.QUESTION_CONFIGURATION_LOAD:
+      return {
+        ...state,
+        questionConfiguration: action.questionConfiguration
       };
     default:
       return state;

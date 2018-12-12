@@ -4,6 +4,11 @@
   "language": "fr",
   "title": "#MaSolutionPourLeClimat",
   "question": "Comment lutter ensemble contre le réchauffement climatique ?",
+  "metas": {
+    "title": "#MaSolutionPourLeClimat",
+    "description": "Vous avez une idée sur le sujet ? Alors comme des milliers de citoyens participez à la consultation Plan Climat de Make.org en partenariat avec Nice Matin et la Métropole Nice Côte d'Azur",
+    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bc700fec88c3a984341ad23_meta%20plan%20climat.jpg"
+  },
   "learnMoreUrl": "https://about.make.org/about-paln-climat",
   "presentation": "La Métropole Nice Côte d'Azur, Nice-Matin et Make.org lançent une vaste consultation citoyenne en ligne autour <br/>de la question “Comment lutter ensemble contre le réchauffement climatique ?”. Citoyens et associations, <br/>bienvenue sur la plateforme collaborative du Plan Climat air-énergie territorial. Face aux enjeux climatiques, <br/>la Métropole Nice Côte d’Azur, accompagné de Nice-Matin et Make.org, s’engage avec vous pour réduire collectivement <br/>nos émissions de <br/>gaz à effet de serre.",
   "legalNote": false,

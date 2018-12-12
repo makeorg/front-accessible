@@ -3,65 +3,62 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import OperationService from 'Api/OperationService';
+import MetaTags from 'Components/MetaTags';
 import { InnerContent, SequenceContent } from 'Components/Elements/MainElements';
 import ProposalSubmitContainer from 'Containers/ProposalSubmit';
 import SequenceContainer from 'Containers/Sequence';
 import MainFooterContainer from 'Containers/MainFooter';
-import Logger from 'Services/Logger';
-import SequenceService from 'Api/SequenceService';
+import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
 
 class SequencePage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      question: null,
-      questionConfiguration: null
-    };
-
-    this.getQuestion = this.getQuestion.bind(this);
-  }
-
   componentDidMount() {
-    const { match, country, language } = this.props;
-    this.getQuestion(match.params.questionSlug, country, language);
-  }
+    const {
+      match,
+      country,
+      language,
+      question,
+      fetchQuestion,
+      questionConfiguration,
+      fetchQuestionConfiguration
+    } = this.props;
 
-  getQuestion = (questionSlug: string, country: string, language: string) => {
-    OperationService
-      .getOperation(questionSlug, country, language)
-      .then((question) => {
-        this.setState({ question });
-      })
-      .catch((error) => {
-        Logger.logError(error);
-      });
+    if (!question) {
+      fetchQuestion(match.params.questionSlug, country, language);
+    }
 
-
-    SequenceService.fetchConfiguration(questionSlug, country)
-      .then(questionConfiguration => this.setState({ questionConfiguration }))
-      .catch(error => error);
+    if (!questionConfiguration) {
+      fetchQuestionConfiguration(match.params.questionSlug, country);
+    }
   }
 
   render() {
-    const { isSequenceCollapsed } = this.props;
-    const { question, questionConfiguration } = this.state;
+    const { isSequenceCollapsed, question, questionConfiguration } = this.props;
 
-    if (!question || !questionConfiguration) {
+    if (!questionConfiguration) {
       return null;
     }
+
+    const { metas } = questionConfiguration;
 
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <SequenceContent>
-          <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
-            <ProposalSubmitContainer question={question} />
-            <SequenceContainer
-              question={question}
-              questionConfiguration={questionConfiguration}
-            />
-          </InnerContent>
+          <MetaTags
+            title={metas.title}
+            description={metas.description}
+            picture={metas.picture}
+          />
+          {question
+            && (
+              <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
+                <ProposalSubmitContainer question={question} />
+                <SequenceContainer
+                  question={question}
+                  questionConfiguration={questionConfiguration}
+                />
+              </InnerContent>
+            )
+          }
           <MainFooterContainer
             questionConfiguration={questionConfiguration}
           />
@@ -74,12 +71,24 @@ class SequencePage extends React.Component {
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
   const { country, language } = state.appConfig;
+  const { question, questionConfiguration } = state.sequence;
 
   return {
     isSequenceCollapsed,
     country,
-    language
+    language,
+    question,
+    questionConfiguration
   };
 };
 
-export default connect(mapStateToProps)(SequencePage);
+const mapDispatchToProps = dispatch => ({
+  fetchQuestionConfiguration: (questionSlug: String, country: String) => {
+    dispatch(fetchQuestionConfigurationData(questionSlug, country));
+  },
+  fetchQuestion: (questionSlug: String, country: String, language: String) => {
+    dispatch(fetchQuestionData(questionSlug, country, language));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SequencePage);

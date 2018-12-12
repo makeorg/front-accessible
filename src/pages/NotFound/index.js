@@ -1,7 +1,13 @@
 /* @flow */
 
-import * as React from 'react';
+import React from 'react';
+import MetaTags from 'Components/MetaTags';
 
-const NotFoundPage = () => <div>Not found !</div>;
+const NotFoundPage = () => (
+  <div>
+    <MetaTags />
+    Not found !
+  </div>
+);
 
 export default NotFoundPage;
