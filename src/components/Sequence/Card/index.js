@@ -15,15 +15,27 @@ import {
 
 type Props = {
   card: Object,
+  /** Index of the card */
   index: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Method called when next card button is clicked  */
   goToNextCard: Function,
+  /** Method called when next card button in Sign Up Card is clicked  */
   skipSignUpCard: Function,
+  /** Method called when next card button in Push Proposal Card is clicked  */
   skipProposalPushCard: Function,
+  /** Method called when next card button in Intro Card is clicked  */
   handleStartSequence: Function
 };
+
+/**
+ * Renders Card
+ */
 const Card = (props: Props) => {
   const {
     card,

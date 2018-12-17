@@ -1,9 +1,31 @@
+/* @flow */
 import * as React from 'react';
 import ResultItemComponent from 'Components/Vote/Result/Item';
 import * as VoteResultHelper from 'Helpers/voteResult';
 import { getVoteKey } from 'Helpers/vote';
 
-class ResultItemContainer extends React.Component {
+type Props = {
+  /** Object with votes percentage results */
+  votesPercent: Object,
+  /** Object with static vote properties (color, label, ...) */
+  voteStaticParams: Object,
+  /** Proposal Id */
+  proposalId: string,
+  /** Tabindex for interactive items */
+  tabIndex: number,
+  /** Vote key */
+  voteKey: string
+}
+
+type State = {
+  /** Boolean toggled when tooltip is shown / hidden */
+  isTooltipDisplayed: boolean
+}
+
+/**
+ * Handles Result Item Business Logic
+ */
+class ResultItemContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,8 +71,7 @@ class ResultItemContainer extends React.Component {
       voteStaticParams,
       proposalId,
       tabIndex,
-      voteKey,
-      index
+      voteKey
     } = this.props;
     const { isTooltipDisplayed } = this.state;
     return (
@@ -59,7 +80,6 @@ class ResultItemContainer extends React.Component {
         listKey={getVoteKey(voteKey, proposalId)}
         barKey={VoteResultHelper.getResultBarIndex(voteKey, proposalId)}
         tooltipKey={VoteResultHelper.getTooltipIndex(voteKey, proposalId)}
-        index={index}
         votedKey={voteKey}
         proposalId={proposalId}
         voteColor={voteStaticParams[voteKey].color}

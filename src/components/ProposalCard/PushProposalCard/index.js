@@ -10,19 +10,33 @@ import ProgressBarComponent from '../ProgressBar';
 import ProposalCard from '../Styled';
 
 type Props = {
+  /** Object with Static properties used to configure the Push Proposal Card */
   proposalCardParams: Object,
+  /** Index of the card */
   index: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Position of the card */
   position: number,
+  /** Scale property used by Styled Component */
   scale: number,
+  /** Zindex property used by Styled Component */
   zindex: number,
+  /** Method called when next card button is clicked */
   skipProposalPushCard: Function,
+  /** Method called when proposal button is clicked  */
   focusProposalField: Function
 }
 
+/**
+ * Renders Push Proposal Card
+ */
 const PushProposalCardComponent = (props: Props) => {
   const {
     proposalCardParams,

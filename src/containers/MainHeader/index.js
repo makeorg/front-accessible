@@ -1,9 +1,11 @@
 /* @flow */
-
 import * as React from 'react';
 import MainHeaderComponent from 'Components/MainHeader';
 import Tracking from 'Services/Tracking';
 
+/**
+ * Handles Main Header Business Logic
+ */
 class MainHeaderContainer extends React.Component<{}> {
   constructor() {
     super();

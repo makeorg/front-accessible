@@ -1,6 +1,9 @@
 import * as React from 'react';
 import Logger from 'Services/Logger';
 
+/**
+ * Handles Error Logger Business Logic
+ */
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);

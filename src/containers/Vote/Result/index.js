@@ -3,22 +3,28 @@ import VoteResultComponent from 'Components/Vote/Result';
 import * as VoteResultHelper from 'Helpers/voteResult';
 
 type Props = {
+  /** Proposal's Id */
   proposalId: string,
+  /** Array with votes received from Api */
   votes: Array<Object>,
+  /** Voted key property */
   votedKey: string,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Index of the card */
   index: number,
+  /** Method called when vote button is clicked */
   handleVote: Function
 };
 
+/**
+ * Handles Vote Result Business Logic
+ */
 const VoteResult = (props: Props) => {
   const {
-    proposalId,
     votes,
     votedKey,
-    handleVote,
-    tabIndex,
-    index
+    handleVote
   } = props;
 
   const votesCount = VoteResultHelper.getVotesCount(votes);
@@ -27,11 +33,8 @@ const VoteResult = (props: Props) => {
     <VoteResultComponent
       votesPercent={VoteResultHelper.getVotesPercent(votes, votesCount)}
       votesCount={votesCount}
-      proposalId={proposalId}
-      votedKey={votedKey}
-      index={index}
       handleVote={event => handleVote(event, votedKey)}
-      tabIndex={tabIndex}
+      {...props}
     />
   );
 };

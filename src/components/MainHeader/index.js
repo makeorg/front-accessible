@@ -6,9 +6,13 @@ import Logo from 'Assets/images/logo.svg';
 import MainHeader from './Styled';
 
 type Props = {
+  /** Method called to track Header */
   handleTracking: Function
 };
 
+/**
+ * Renders Main Header
+ */
 const MainHeaderComponent = (props: Props) => {
   const { handleTracking } = props;
 

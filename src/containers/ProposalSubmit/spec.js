@@ -30,7 +30,7 @@ describe('ProposalSubmitContainer', () => {
     expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(0);
   });
 
-  it('Renders the Description', () => {
+  it('Renders Description', () => {
     const descriptionProps = {
       ...defaultProps,
       isSequenceCollapsed: true
@@ -42,7 +42,7 @@ describe('ProposalSubmitContainer', () => {
     expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(0);
   });
 
-  it('Renders the Authentification', () => {
+  it('Renders Authentification', () => {
     const notLoggedInProps = {
       ...defaultProps,
       isLoggedIn: false,

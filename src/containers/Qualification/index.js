@@ -6,17 +6,26 @@ import QualificationComponent from 'Components/Qualification';
 import Tracking from 'Services/Tracking';
 
 type Props = {
+  /** Array with qualifications received from Api */
   qualifications: Array<Object>,
+  /** Proposal's Id */
   proposalId: string,
+  /** Index of the card */
   index: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Voted key property */
   votedKey: string
 };
 
 type State = {
+  /** Array with qualifications received from Api */
   qualifications: Array<Object>
 };
 
+/**
+ * Handles Qualification Business Logic
+ */
 class QualificationContainer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

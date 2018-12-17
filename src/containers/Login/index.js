@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import { connect } from 'react-redux';
 import LoginComponent from 'Components/Login';
@@ -7,19 +6,28 @@ import { login } from 'Actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from 'Actions/pannel';
 
 type Props = {
+  /** Array with form errors */
   errors: Array<string>,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Register Component in Sliding Pannel */
   handleRegisterPannel: Function,
+  /** Method called to render ForgotPassword Component in Sliding Pannel */
   handleForgotPasswordPannel: Function,
+  /** Method called to submit Login Form */
   handleLogin: Function
 }
 
 type State = {
   email: string,
   password: string,
+  /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean
 }
 
+/**
+ * Handles Login Business Logic
+ */
 class LoginContainer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

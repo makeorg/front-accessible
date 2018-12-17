@@ -10,11 +10,31 @@ import LoginFormComponent from './Form';
 import Login from './Styled';
 
 type Props = {
+  /** User's email */
+  email: string,
+  /** User's password */
+  password: string,
+  /** Array with form errors */
+  errors: Array<string>,
+  /** Method called when field's value changes */
+  handleChange: Function,
+  /** Method called when field's value is submitted */
+  handleSubmit: Function,
+  /** Boolean toggled when password shown / hidden */
+  passwordIsDisplayed: boolean,
+  /** Method called to show / encrypt password */
+  togglePasswordIsDisplayed: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Register Component in Sliding Pannel */
   handleRegisterPannel: Function,
+  /** Method called to render ForgotPassword Component in Sliding Pannel */
   handleForgotPasswordPannel: Function
 };
 
+/**
+ * Renders Login component
+ */
 const LoginComponent = (props: Props) => {
   const {
     isPannelOpen,

@@ -14,26 +14,38 @@ import Tracking from 'Services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 
 type Props = {
+  /** Content of the proposal */
   content: string,
+  /** Length of the proposal */
   length: number,
+  /** Boolean toggled when proposal can be submitted */
   canSubmit: boolean,
+  /** Boolean toggled when proposal is succesfully submitted */
   isSubmitSuccess: boolean,
+  /** Boolean toggled when user is connected */
   isLoggedIn: boolean,
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to collapse Sequence */
   handleCollapseSequence: Function,
+  /** Method called when user is typing a proposal */
   handleTypingProposal: Function,
+  /** Method called to submit proposal */
   handleSubmitProposal: Function,
+  /** Method called to get user token */
   handleGetUserToken: Function
 };
 
 type State = {
+/** Boolean toggled when user is typing a proposal */
   isTyping: boolean
 }
+
 /**
- * ProposalSubmitContainer manage the proposal Submit Component business logic
- * @extends React
- */
+* Handles Proposal Submit Business Logic
+*/
 export class ProposalSubmit extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

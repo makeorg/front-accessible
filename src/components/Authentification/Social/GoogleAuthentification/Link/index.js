@@ -15,9 +15,13 @@ const renderGoogleLogin = tabIndex => renderProps => (
 );
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number
 };
 
+/**
+ * Renders Google authentification link
+ */
 const GoogleAuthentificationLinkComponent = (props: Props) => {
   const { tabIndex } = props;
   return (

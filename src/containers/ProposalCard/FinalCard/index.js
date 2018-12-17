@@ -1,4 +1,3 @@
-/* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
 import FinalCardComponent from 'Components/ProposalCard/FinalCard';
@@ -6,15 +5,25 @@ import Tracking from 'Services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
 type Props = {
+  /** Object with Static properties used to configure the Final Card */
   configuration: Object,
+  /** Index of the card */
   index: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean
 }
 
+/**
+ * Handles Final Card Business Logic
+ */
 class FinalCardContainer extends React.Component<Props> {
   componentDidUpdate() {
     const { index, currentIndex } = this.props;

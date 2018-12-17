@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import i18next from 'i18next';
 import { getQualificationIndex } from 'Helpers/qualification';
@@ -9,13 +8,21 @@ import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
 
 type Props = {
+  /** Array with qualifications received from Api */
   qualifications: Array<Object>,
+  /** Proposal's Id */
   proposalId: string,
+  /** Voted key property */
   votedKey: string,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Method called when qualification button is clicked */
   handleQualification: Function
 }
 
+/**
+ * Renders Qualification component
+ */
 const QualificationComponent = (props: Props) => {
   const {
     qualifications,

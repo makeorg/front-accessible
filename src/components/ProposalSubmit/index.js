@@ -8,16 +8,23 @@ import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitForm from './Styled';
 
 type Props = {
+  /** Value's content */
   content: string,
+  /** Value's lentgh */
   length: number,
+  /** Can user submit value */
   canSubmit: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called when field's value changes */
   handleChange: Function,
+  /** Method called when field is focused */
   handleFocus: Function,
+  /** Method called when field's value is submitted */
   handleSubmit: Function
 }
 /**
- * ProposalSubmitCmponent render the proposal Submit Component
+ * Render the Proposal Field
  */
 const ProposalSubmitFormComponent = (props: Props) => {
   const {

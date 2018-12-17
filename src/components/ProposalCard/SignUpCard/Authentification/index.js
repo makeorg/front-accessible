@@ -16,11 +16,17 @@ import FacebookAuthentificationButtonComponent
 import GoogleAuthentificationButtonComponent from 'Components/Authentification/Social/GoogleAuthentification/Button';
 
 type Props = {
+  /** Method called to render Register Pannel */
   handleRegisterClick: Function,
+  /** Method called to render Login Pannel */
   handleLoginClick: Function,
+  /** Tabindex for interactive items */
   tabIndex: number
 }
 
+/**
+ * Renders Authentification in Sign Up Card
+ */
 const SignUpCardAuthentificationComponent = (props: Props) => {
   const {
     handleRegisterClick,

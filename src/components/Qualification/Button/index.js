@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import i18next from 'i18next';
 import {
@@ -8,14 +9,23 @@ import {
 } from '../Styled/Button';
 
 type Props = {
+  /** Qualification key */
   qualificationKey: string,
+  /** Color used by Styled Component */
   color: string,
+  /** Tabindex for interactive items */
   isQualified: boolean,
+  /** Number of qualifications */
   qualificationCounter: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Method called when qualification button is clicked */
   handleQualification: Function
 };
 
+/**
+ * Renders Qualification button element
+ */
 const QualificationButtonComponent = (props: Props) => {
   const {
     qualificationKey,

@@ -5,11 +5,17 @@ import CollapseToggle from '../Button';
 import Sequence from '../Styled';
 
 type Props = {
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
+  /** Boolean toggled when Sliding Pannel is collapsed / expanded */
   isPannelOpen: boolean,
+  /** Method called when "Return to proposal" button is clicked */
   handleExpandSequence: Function
 };
 
+/**
+ * Renders Sequence with PlaceholderCard
+ */
 const SequencePlaceholderComponent = (props: Props) => {
   const {
     isSequenceCollapsed,

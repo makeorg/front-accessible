@@ -7,17 +7,26 @@ import { forgotPassword } from 'Actions/forgotPassword';
 import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
+  /** Array with form errors */
   errors: Array<string>,
+  /** Boolean toggled when Form is succesfully submitted */
   isSuccess: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function,
+  /** Method called to render ForgotPassword Component in Sliding Pannel */
   handleForgotpassword: Function
 };
 
 type State = {
+  /** User's email */
   email: string
 }
 
+/**
+ * Handles Forgot Password Business Logic
+ */
 class ForgotPasswordContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);

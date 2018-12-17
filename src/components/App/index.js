@@ -13,6 +13,9 @@ import DefaultStylesheet from 'Assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from 'Assets/css-in-js/Animations';
 import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
 
+/**
+ * Renders App component
+ */
 const AppComponent = () => (
   <AppWrapper>
     <ModernNormalizeStylesheet />

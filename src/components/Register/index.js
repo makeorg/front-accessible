@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import i18next from 'i18next';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
@@ -12,10 +11,21 @@ import RegisterFormComponent from './Form';
 import Register from './Styled';
 
 type Props = {
+  /** Array with form errors */
+  errors: Array<string>,
+  /** Method called when field's value changes */
+  handleChange: Function,
+  /** Method called when field's value is submitted */
+  handleSubmit: Function,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function
 }
 
+/**
+ * Renders Register component
+ */
 const RegisterComponent = (props: Props) => {
   const {
     isPannelOpen,

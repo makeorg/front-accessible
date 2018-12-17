@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
@@ -13,22 +12,36 @@ import QualificationContainer from 'Containers/Qualification';
 import VoteResultsContainer from './Result';
 
 type Props = {
+  /** Proposal's Id */
   proposalId: string,
+  /** Array with votes received from Api */
   votes: Array<Object>,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
+  /** Index of the card */
   index: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard: Function
 };
 
 type State = {
+  /** Tabindex for interactive items */
   hasVoted: boolean,
+  /** Voted key property */
   votedKey: string,
+  /** Array with votes received from Api */
   votes: Array<Object>,
+  /** Array with qualifications received from Api */
   qualifications: Array<Object>
 };
 
+/**
+ * Handles Vote Business Logic
+ */
 export class Vote extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);

@@ -10,13 +10,31 @@ import ForgotPasswordFormComponent from './Form';
 import ForgotPassword from './Styled';
 
 type Props = {
+  /** User's email */
+  email: string,
+  /** Array with form errors */
+  errors: Array<string>,
+  /** Method called when field's value changes */
+  handleChange: Function,
+  /** Method called when field's value is submitted */
+  handleSubmit: Function,
+  /** Boolean toggled when form is successfully submitted */
   isSuccess: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function
 };
 
+/**
+ * Renders Forgot Password component
+ */
 const ForgotPasswordComponent = (props: Props) => {
-  const { handleLoginPannel, isSuccess, isPannelOpen } = props;
+  const {
+    isSuccess,
+    isPannelOpen,
+    handleLoginPannel
+  } = props;
 
   return (
     <ForgotPassword role="region" aria-labelledby="forgot_password_title">

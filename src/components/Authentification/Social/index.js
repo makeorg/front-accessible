@@ -5,11 +5,17 @@ import FacebookAuthentificationButtonComponent from './FacebookAuthentification/
 import GoogleAuthentificationButtonComponent from './GoogleAuthentification/Button';
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number;
+  /** Tacking method for Facebook Login */
   trackFacebookLogin: Function;
+  /** Tacking method for Google Login */
   trackGoogleLogin: Function;
 };
 
+/**
+ * Render the Facebook & Google Authentification components
+ */
 const AuthentificationSocialComponent = (props: Props) => {
   const {
     tabIndex,

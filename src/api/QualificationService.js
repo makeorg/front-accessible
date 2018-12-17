@@ -1,5 +1,4 @@
 /* @flow */
-
 import ApiService from './ApiService';
 
 const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
