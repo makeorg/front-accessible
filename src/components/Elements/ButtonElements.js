@@ -65,14 +65,14 @@ export const TallBasicButton = styled(BasicButton)`
 
 export const SmallGreyButton = styled(SmallBasicButton)`
   color: ${BasicColors.PureWhite};
-  background: ${BackgroundColors.ExtraLightGrey};
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background: ${BackgroundColors.Grey};
+  background-color: ${BackgroundColors.Grey};
 `;
 
 export const TallGreyButton = styled(TallBasicButton)`
   color: ${BasicColors.PureWhite};
-  background: ${BackgroundColors.ExtraLightGrey};
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background: ${BackgroundColors.Grey};
+  background-color: ${BackgroundColors.Grey};
 `;
 
 export const SmallRedButton = styled(SmallBasicButton)`

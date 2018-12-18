@@ -131,6 +131,14 @@ class Tracking {
     track(trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
   }
 
+  trackClickProposalPushCardIgnore = () => {
+    track(trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE);
+  }
+
+  trackSkipSignUpCard = () => {
+    track(trackingConstants.SKIP_SIGNUP_CARD);
+  }
+
   trackClickPreviousCard = () => {
     track(trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
   }

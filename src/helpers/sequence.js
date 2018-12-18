@@ -25,3 +25,5 @@ export const gaugeRemain = (initialIndex: number = 0, totalIndex: number = 0) =>
   }
   return 100 - Math.floor((initialIndex / totalIndex) * 100);
 };
+
+export const getCardIndex = (index: number = 0) => `cardKey_${index}`;

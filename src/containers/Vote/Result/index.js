@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import VoteResultComponent from 'Components/Vote/Result';
 import * as VoteResultHelper from 'Helpers/voteResult';
 

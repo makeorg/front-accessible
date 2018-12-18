@@ -11,7 +11,7 @@
     "color": "#00B1BA",
     "gradient-start": "#00B1BA",
     "gradient-end": "#00B1BA",
-    "useBrightFont": true
+    "footerFontColor": "black"
   },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
@@ -38,28 +38,39 @@
   "sequenceExtraSlides": {
     "introCard":  {
       "title": false,
-      "explanation1": false,
-      "explanation2": "Les + soutenues seront reprises dans le Plan Climat.",
+      "description": [
+        {
+          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
+        },
+        {
+          "paragraph": "Les + soutenues seront reprises dans le Plan Climat."
+        }
+      ],
       "partners": [
         {
-          "name": "Plan climat air énergie territorial",
-          "imageUrl": "Todo"
+          "name": "Nice Matin",
+          "imageUrl": "/images/operations/plan-climat/sequence/nice-matin.png"
         },
         {
           "name": "Plan climat air énergie territorial",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/plan-climat/sequence/plan-climat.png"
         },
         {
           "name": "Métropole Nice Côte D'Azur",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/plan-climat/sequence/metropole.jpg"
         }
-      ]
+      ],
+      "inPartnershipWith": true,
+      "extraLogo": false
     },
     "signUpCard": {
       "title": "Soyez informés des résultats de la consultation",
       "nextCTA": false
     },
-    "pushProposal": true
+    "pushProposal": true,
+    "finalCard": {
+      "linkUrl": "https://make.org/#/FR/consultation/plan-climat/consultation"
+    }
   },
   "sequenceSignUpForm": {
     "firstName": false,

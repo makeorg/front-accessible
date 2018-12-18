@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Logger from 'Services/Logger';
 
 export default class ErrorBoundary extends React.Component {

@@ -11,7 +11,7 @@
     "color": "#5DA113",
     "gradient-start": "#7DB7E3",
     "gradient-end": "#5DA113",
-    "useBrightFont": true
+    "footerFontColor": "black"
   },
   "logoUrl": "Todo",
   "whiteLogoUrl": "Todo",
@@ -42,32 +42,40 @@
   "sequenceExtraSlides": {
     "introCard":  {
       "title": "Tausende Europäer schlagen Lösungen vor.",
-      "explanation1": "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor.",
-      "explanation2": false,
+      "description": [
+        {
+          "paragraph": "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor."
+        }
+      ],
       "partners": [
         {
           "name": "G9+",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/european-digital-champions/sequence/g9.png"
         },
         {
           "name": "Roland Berger",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/european-digital-champions/sequence/roland-berger.png"
         },
         {
           "name": "Croissance Plus",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/european-digital-champions/sequence/croissance-plus.svg"
         },
         {
           "name": "Bpifrance",
-          "imageUrl": "Todo"
+          "imageUrl": "/images/operations/european-digital-champions/sequence/bpi-france.png"
         }
-      ]
+      ],
+      "inPartnershipWith": true,
+      "extraLogo": false
     },
     "signUpCard": {
       "title": "Lassen Sie sich über die Ergebnisse der Konsultation informieren.",
       "nextCTA": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
     },
-    "pushProposal": true
+    "pushProposal": true,
+    "finalCard": {
+      "linkUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation"
+    }
   },
   "sequenceSignUpForm": {
     "firstName": false,

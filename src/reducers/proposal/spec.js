@@ -4,6 +4,20 @@ import * as actionCreators from 'Actions/proposal';
 import proposal from './index';
 
 describe('Proposal reducer', () => {
+  it('Return the initial state', () => {
+    const expectedState = {
+      isTyping: false,
+      isSubmitSuccess: false,
+      canSubmit: false,
+      content: '',
+      length: 8,
+      operationId: null,
+      error: null
+    };
+
+    expect(proposal(undefined, {})).to.eql(expectedState);
+  });
+
   describe('Typing action reducers', () => {
     it('Typing a proposal', () => {
       const content = 'il faut foo';

@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { doUpdateState } from 'Helpers/qualification';
 import QualificationService from 'Api/QualificationService';
 import QualificationComponent from 'Components/Qualification';

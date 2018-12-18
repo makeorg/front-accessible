@@ -4,6 +4,16 @@ import * as actionCreators from 'Actions/forgotPassword';
 import forgotPassword from './index';
 
 describe('ForgotPassword reducer', () => {
+  it('Return the initial state', () => {
+    const expectedState = {
+      errors: [],
+      isSuccess: false
+    };
+
+    expect(forgotPassword(undefined, {})).to.eql(expectedState);
+  });
+
+
   describe('forgotPassword action reducers', () => {
     it('ForgotPassword Request', () => {
       const action = actionCreators.forgotPasswordRequest('foo@example.com');
@@ -44,6 +54,21 @@ describe('ForgotPassword reducer', () => {
 
       const expectedState = {
         errors: ['fooError'],
+        isSuccess: false
+      };
+
+      expect(forgotPassword(previousState, action)).to.eql(expectedState);
+    });
+
+    it('Login Init', () => {
+      const action = actionCreators.forgotPasswordInit();
+      const previousState = {
+        errors: [],
+        isSuccess: false
+      };
+
+      const expectedState = {
+        errors: [],
         isSuccess: false
       };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import AppComponent from 'Components/App';
 import Tracking from 'Services/Tracking';
 import ErrorBoundary from './Error';

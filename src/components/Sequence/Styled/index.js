@@ -8,12 +8,11 @@ const Sequence = styled.section`
   position: relative;
   z-index: 0;
   width: 100%;
-  height: 100%;
-  height: calc(100% - ${pxToRem('92px')});
+  height: calc(100% - ${pxToRem('72px')});
   max-width: ${Breakpoints.specialSequenceWidth};
   transition: transform 0.5s ease-in;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    height: calc(100% - ${pxToRem('97px')});
+    height: calc(100% - ${pxToRem('93px')});
   }
 `;
 

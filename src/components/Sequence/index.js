@@ -1,39 +1,42 @@
 /* @flow */
-
 import * as React from 'react';
-import FinalCardContainer from 'Containers/ProposalCard/FinalCard';
-import ProposalCardContainer from 'Containers/ProposalCard';
-import IntroCardComponent from '../ProposalCard/IntroCard';
+import * as sequenceHelper from 'Helpers/sequence';
 import CollapseToggle from './Button';
+import Card from './Card';
 import Sequence from './Styled';
 
 type Props = {
-  questionConfiguration: Object,
-  count: number,
-  proposals: Array<Object>,
+  cardsCount: number,
+  cards: Array<mixed>,
   currentIndex: number,
   isSequenceCollapsed: boolean,
   isPannelOpen: boolean,
   handleExpandSequence: Function,
   handleStartSequence: Function,
   goToNextCard: Function,
-  goToPreviousCard: Function
+  goToPreviousCard: Function,
+  skipSignUpCard: Function,
+  skipProposalPushCard: Function
 };
 
 const SequenceComponent = (props: Props) => {
   const {
-    questionConfiguration,
-    count,
-    proposals,
+    cardsCount,
+    cards,
     currentIndex,
     isSequenceCollapsed,
     isPannelOpen,
     handleExpandSequence,
     handleStartSequence,
+    goToPreviousCard,
     goToNextCard,
-    goToPreviousCard
+    skipSignUpCard,
+    skipProposalPushCard
   } = props;
-  const finalCardIndex = count + 1;
+
+  if (!cards) {
+    return null;
+  }
 
   return (
     <Sequence
@@ -48,32 +51,20 @@ const SequenceComponent = (props: Props) => {
       />
       <Sequence.Wrapper>
         <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'} id="sequence">
-          <IntroCardComponent
-            questionConfiguration={questionConfiguration}
-            index={0}
-            currentIndex={currentIndex}
-            isSequenceCollapsed={isSequenceCollapsed}
-            isPannelOpen={isPannelOpen}
-            handleStartSequence={handleStartSequence}
-          />
-          {proposals.map((proposal, key) => (
-            <ProposalCardContainer
-              key={proposal.id}
-              proposal={proposal}
-              index={key + 1}
+          {cards.map((card, index) => (
+            <Card
+              key={sequenceHelper.getCardIndex(index)}
+              card={card}
+              index={index}
+              cardsCount={cardsCount}
               currentIndex={currentIndex}
-              totalIndex={count}
-              isSequenceCollapsed={isSequenceCollapsed}
-              isPannelOpen={isPannelOpen}
-              goToNextCard={goToNextCard}
               goToPreviousCard={goToPreviousCard}
+              goToNextCard={goToNextCard}
+              skipSignUpCard={skipSignUpCard}
+              skipProposalPushCard={skipProposalPushCard}
+              handleStartSequence={handleStartSequence}
             />
           ))}
-          <FinalCardContainer
-            index={finalCardIndex}
-            currentIndex={currentIndex}
-            goToPreviousCard={goToPreviousCard}
-          />
         </Sequence.List>
       </Sequence.Wrapper>
     </Sequence>

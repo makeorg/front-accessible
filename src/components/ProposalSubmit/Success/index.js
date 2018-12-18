@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import i18next from 'i18next';
 import { Description } from 'Components/Elements/DescriptionElements';
 import { DescriptionWrapper } from '../Styled';

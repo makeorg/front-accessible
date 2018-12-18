@@ -10,6 +10,6 @@ export const Wrapper = styled.div`
 export const List = styled(Unstyledlist)`
   margin: ${pxToRem('30px')} ${pxToRem('20px')} 0;
   width: calc(100% - ${pxToRem('40px')});
-  height: 100%;
+  height: calc(100% - ${pxToRem('30px')});
   transition: transform 0.25s ease-in;
 `;

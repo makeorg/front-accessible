@@ -4,7 +4,6 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', 'src', 'index.js'),
@@ -54,21 +53,7 @@ module.exports = {
       ]
     }),
     new InlineSourcePlugin(),
-    new ManifestPlugin(),
-    new CspHtmlWebpackPlugin({
-      'base-uri': "'self'",
-      'script-src': ["'self'", '*.facebook.net', '*.facebook.com', '*.google.com', "'unsafe-inline'"],
-      'img-src': ["'self'", '*.facebook.com'],
-      'style-src': ["'unsafe-inline'"],
-      'font-src': "'self'",
-      'object-src': "'none'",
-      'media-src': "'none'",
-      'connect-src': ["'self'", '*.makeorg.tech', '*.make.org'],
-      'form-action': ["'self'", '*.facebook.com'],
-      'child-src': ["'self'", '*.facebook.com', '*.google.com']
-    }, {
-      enabled: false
-    })
+    new ManifestPlugin()
   ],
   module: {
     rules: [

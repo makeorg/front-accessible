@@ -5,6 +5,15 @@ import * as pannelContentTypes from 'Constants/pannel';
 import pannel from './index';
 
 describe('Pannel reducer', () => {
+  it('Return the initial state', () => {
+    const expectedState = {
+      isPannelOpen: false,
+      contentType: null
+    };
+
+    expect(pannel(undefined, {})).to.eql(expectedState);
+  });
+
   it('Show login action reducers', () => {
     const action = { type: 'PANNEL_SHOW_LOGIN' };
     const previousState = {

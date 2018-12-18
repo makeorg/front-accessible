@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import OperationService from 'Api/OperationService';
@@ -72,9 +72,11 @@ class SequencePage extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const { isSequenceCollapsed } = state.sequence;
   const { country, language } = state.appConfig;
 
   return {
+    isSequenceCollapsed,
     country,
     language
   };

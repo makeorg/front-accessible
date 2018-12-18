@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitAuthentificationComponent from 'Components/ProposalSubmit/Authentification';
 import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';

@@ -7,7 +7,7 @@ export const BasicColors = {
 
 export const MakeThemeColors = {
   Blue: 'rgb(37, 49, 134)',
-  Red: 'rgb(237, 24, 68)'
+  Red: 'rgb(232, 24, 68)'
 };
 
 export const IconColors = {
@@ -17,6 +17,7 @@ export const IconColors = {
 
 export const BackgroundColors = {
   LightBlack: 'rgb(51, 51, 51)',
+  Grey: 'rgb(118,118,118)',
   LightGrey: 'rgb(242, 242, 242)',
   ExtraLightGrey: 'rgb(228, 228, 228)'
 };
@@ -28,7 +29,7 @@ export const BorderColors = {
 };
 
 export const TextColors = {
-  MediumGrey: 'rgba(0, 0, 0, 0.5)'
+  MediumGrey: 'rgba(0, 0, 0, 0.55)'
 };
 
 export const ShadowColors = {

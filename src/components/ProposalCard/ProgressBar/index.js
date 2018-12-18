@@ -9,7 +9,7 @@ class ProgressBarComponent extends Component {
   render() {
     const {
       index,
-      totalIndex
+      cardsCount
     } = this.props;
     return (
       <Progress.ProgressWrapper role="progressbar">
@@ -25,8 +25,8 @@ class ProgressBarComponent extends Component {
             r={CardConstant.PROGRESS_SVG_R}
           />
           <Progress.ProgressBar
-            progress={gaugeProgress(index, totalIndex)}
-            remain={gaugeRemain(index, totalIndex)}
+            progress={gaugeProgress(index, cardsCount)}
+            remain={gaugeRemain(index, cardsCount)}
             cx={CardConstant.PROGRESS_SVG_CX}
             cy={CardConstant.PROGRESS_SVG_CY}
             r={CardConstant.PROGRESS_SVG_R}
@@ -41,7 +41,7 @@ class ProgressBarComponent extends Component {
           <span aria-hidden>/</span>
           <HiddenItem>{i18next.t('common.from')}</HiddenItem>
           &nbsp;
-          <span aria-valuemax={totalIndex}>{totalIndex}</span>
+          <span aria-valuemax={cardsCount}>{cardsCount}</span>
         </Progress.ProgressCounter>
       </Progress.ProgressWrapper>
     );

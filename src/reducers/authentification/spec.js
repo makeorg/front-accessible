@@ -4,6 +4,17 @@ import * as actionCreators from 'Actions/authentification';
 import authentification from './index';
 
 describe('Authentification reducer', () => {
+  it('Return the initial state', () => {
+    const expectedState = {
+      isLoggedIn: false,
+      errors: [],
+      user: null,
+      token: null
+    };
+
+    expect(authentification(undefined, {})).to.eql(expectedState);
+  });
+
   describe('Login action reducers', () => {
     it('Login Request', () => {
       const action = actionCreators.loginRequest();
