@@ -7782,6 +7782,14 @@ react-group@^1.0.6:
   dependencies:
     prop-types "^15.6.0"
 
+react-head@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-head/-/react-head-3.0.2.tgz#efe79b1e5805a18a5ffc58e6a810eeeb609d82bd"
+  integrity sha512-+wtK+pbxl17GfiBgqaSMrRob2rQZ0UJnRb1iEVzWQPUGC/TNMUTmpIzKx55xVKXbfsNTk8QAq0p3139YEnisUA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    tiny-invariant "^1.0.0"
+
 react-hot-loader@~4.3.11:
   version "4.3.12"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.3.12.tgz#0d56688884e7330c63a00a17217866280616b07a"
@@ -9314,6 +9322,11 @@ timers-browserify@^2.0.4:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.10.tgz#1d28e3d2aadf1d5a5996c4e9f95601cd053480ae"
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-invariant@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.0.3.tgz#91efaaa0269ccb6271f0296aeedb05fc3e067b7a"
+  integrity sha512-ytQx8T4DL8PjlX53yYzcIC0WhIZbpR0p1qcYjw2pHu3w6UtgWwFJQ/02cnhOnBBhlFx/edUIfcagCaQSe3KMWg==
 
 tinycolor2@^1.1.2:
   version "1.4.1"

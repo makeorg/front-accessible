@@ -36,6 +36,7 @@
     "react-dom": "~16.6.3",
     "react-facebook-login": "~4.1.1",
     "react-google-login": "~4.0.0",
+    "react-head": "^3.0.2",
     "react-redux": "~5.1.1",
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.1",

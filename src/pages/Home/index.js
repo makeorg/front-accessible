@@ -1,7 +1,13 @@
 /* @flow */
 
-import * as React from 'react';
+import React from 'react';
+import MetaTags from 'Components/MetaTags';
 
-const HomePage = () => <div>Homepage</div>;
+const HomePage = () => (
+  <div>
+    <MetaTags />
+    <h1>Homepage</h1>
+  </div>
+);
 
 export default HomePage;

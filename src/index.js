@@ -2,7 +2,8 @@ import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import AppContainer from './containers/App';
+import { HeadProvider } from 'react-head';
+import AppContainer from 'Containers/App';
 import configureStore from './store';
 import './i18n';
 import Logger from './services/Logger';
@@ -18,7 +19,6 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
       stack
     });
   }
-
 
   return false;
 };
@@ -39,12 +39,14 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 
 const store = configureStore(initialState);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <AppContainer />
-    </BrowserRouter>
-  </Provider>,
+ReactDOM.hydrate(
+  <HeadProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppContainer />
+      </BrowserRouter>
+    </Provider>
+  </HeadProvider>,
   document.getElementById('app'),
 );
 

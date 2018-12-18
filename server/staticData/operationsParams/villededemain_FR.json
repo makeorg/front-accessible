@@ -4,6 +4,11 @@
   "language": "fr",
   "title": "La ville de demain",
   "question": "Comment imaginer la ville de demain ?",
+  "metas": {
+    "title": "La ville de demain",
+    "description": "Vous avez une idée sur le sujet ? Participez à la consultation organisée à l'occasion du MIPIM 2019",
+    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd18472f5c68034b6b5fcf3_meta%20mipim.jpg"
+  },
   "learnMoreUrl": "https://about.make.org/about-villededemain",
   "presentation": "Comment imaginer la ville de demain en vous incluant dans la démarche ? C’est le grand défi citoyen auquel <br/>nous vous invitons à l’occasion du MIPIM 2019. Nous allons vous proposer de vous engager massivement en <br/>amont de l’édition 2019 du salon, grâce à une consultation citoyenne ouverte, puis nous transformerons vos <br/>meilleures idées en projets d’actions concrets.",
   "legalNote": false,
