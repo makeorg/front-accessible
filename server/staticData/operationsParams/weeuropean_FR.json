@@ -1,0 +1,65 @@
+{
+  "slug": "weeuropean",
+  "country": "FR",
+  "language": "fr",
+  "wording": {
+    "title": "",
+    "question": "",
+    "metas": {
+      "title": "",
+      "description": "",
+      "picture": ""
+    }
+  },
+  "theme": {
+    "color": "#9C6BDA",
+    "gradient-start": "#9C6BDA",
+    "gradient-end": "#8DDCF6",
+    "footerFontColor": "black"
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard":  {
+      "title": "",
+      "description": [
+        "Vous aller adorer cette expérience.",
+        "Votez votez votez"
+      ]
+    },
+    "signUpCard": {
+      "title": "Lorem ipsum bla bla bla wé",
+      "nextCTA": "Lorem ipsum bla bla bla wé"
+    },
+    "finalCard": {
+      "title": "Merci pour votre participation",
+      "share": [
+        "Vous avez apprécié cette expérience ?",
+        "Invitez vos amis à participer"
+      ],
+      "learn_more_title": "Découvrez tout du projet We Europeans",
+      "learn_more_button": "En savoir +"
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": {
+      "extraLogo": "/images/operations/ditp/sequence/sequence-proposal-icon.png"
+    },
+    "finalCard": true,
+    "signUpCard": true,
+    "pushProposal":  true
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}

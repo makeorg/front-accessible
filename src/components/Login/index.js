@@ -36,7 +36,7 @@ const LoginComponent = (props: Props) => {
       />
       <Separators.Wrapper>
         <Separators.Large />
-        <Separators.Text>ou</Separators.Text>
+        <Separators.Text>{i18next.t('login.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
       <ThirdLevelTtitle>

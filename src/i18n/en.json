@@ -1,26 +1,28 @@
 {
   "meta": {
     "home": {
-      "title": "Make.org, accélérateur d'intérêt général"
+      "title": "Make.org, accélérateur d'intérêt général",
+      "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
     }
   },
   "common": {
     "connexion_label": "Se connecter",
     "register_label": "S'inscrire",
     "form": {
-      "email_label": "E-mail (obligatoire)",
-      "password_label": "Mot de passe (obligatoire)",
-      "firstname_label": "Prénom (obligatoire)",
-      "age_label": "Âge",
-      "postalcode_label": "Code postal",
-      "profession_label": "Profession",
+      "email_label": "E-mail",
+      "password_label": "Mot de passe",
+      "firstname_label": "Prénom",
+      "age_label": "Âge (optionnel)",
+      "postalcode_label": "Code postal (optionnel)",
+      "profession_label": "Profession (optionnel)",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email est dèja inscrit.",
-      "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement."
+      "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
+      "required_field": "Veuillez renseigner ce champ."
     },
     "from": "sur",
-    "i_connect": "Je me connecte",
     "email": "Email",
     "propose": "Proposer",
     "click_there": "cliquez ici",
@@ -67,7 +69,7 @@
     "intro_text": "Je suis :",
     "agree": "D'accord",
     "disagree": "Pas d'accord",
-    "neutral": "Neutre",
+    "neutral": "Vote blanc",
     "label": "{{count}} vote",
     "label_plural": "{{count}} votes"
   },
@@ -79,9 +81,9 @@
     "title": "Les avis des autres participants sur cette proposition sont :",
     "total_text": "Le nombre d'avis total est de : ",
     "tooltipbutton": {
-      "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
-      "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
-      "neutral": "Afficher les résultats pour l'avis : 'je suis neutre'"
+      "agree": "Afficher les résultats pour l'avis : 'd'accord'",
+      "disagree": "Afficher les résultats pour l'avis : 'pas d'accord'",
+      "neutral": "Afficher les résultats pour l'avis : 'vote blanc'"
     }
   },
   "qualification": {
@@ -100,14 +102,16 @@
     "return": "Revenir aux propositions"
   },
   "authentification": {
-   "title": "Créez un compte Make.org",
-   "description": "pour valider votre contribution et être informé(e) des résultats de la consultation.",
+   "title": "Inscrivez-vous pour valider votre proposition",
+   "description": "avec",
    "commitment": "Make.org s‘engage à protéger vos ",
    "personal_data": "données personnelles "
- },
+  },
   "login": {
     "title": "J‘ai déjà un compte",
     "social_connect": "Je me connecte avec",
+    "or": "ou",
+    "button_connect": "Je me connecte",
     "email_connect": "Je me connecte avec mon adresse e-mail",
     "forgot_password_title": "Oups, j’ai",
     "forgot_password_link": "oublié mon mot de passe ?",
@@ -117,8 +121,8 @@
   },
   "register": {
     "title": "Créer un compte",
-    "or": "ou",
     "social_connect": "Je m’inscris avec",
+    "or": "ou",
     "subtitle": "Je m'inscris avec ce formulaire",
     "login_title": "J‘ai déjà un compte.",
     "login_link": "Connexion",
@@ -132,17 +136,26 @@
     "login_link": "l’écran de connexion",
     "send_link": "recevoir l'e-mail"
   },
-  "forgot_password": {
-    "title": "je réinitialise mon mot de passe",
-    "description": "Merci de renseigner l'adresse email liée à votre compte Make.org pour recevoir le lien de réinitialisation.",
-    "success": "Merci, un email vient de vous être envoyé pour vous permettre de mettre à jour votre mot de passe.",
-    "return": "Revenir à ",
-    "login_link": "l’écran de connexion",
-    "send_link": "recevoir l'e-mail"
-  },
-  "footer": {
+  "footer_sequence": {
+    "with": "avec",
     "see_more": "En savoir plus sur le sujet :",
-    "link": "Accéder à la consultation complète"
+    "link": "En savoir + sur cette consultation"
+  },
+  "main-footer": {
+   "menu": {
+     "item-1": {
+       "label": "Mentions légales"
+     },
+     "item-2": {
+       "label": "Conditions d'utilisation"
+     },
+     "item-3": {
+       "label": "Politique de données"
+     },
+     "item-4": {
+       "label": "Contact"
+     }
+    }
   },
   "pannel": {
     "close": "Fermer le panneau déroulant"
