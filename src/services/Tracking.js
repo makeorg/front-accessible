@@ -130,11 +130,11 @@ class Tracking {
   }
 
   trackClickProposalPushCardIgnore = () => {
-    track(trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE);
+    this.track(trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE);
   }
 
   trackSkipSignUpCard = () => {
-    track(trackingConstants.SKIP_SIGNUP_CARD);
+    this.track(trackingConstants.SKIP_SIGNUP_CARD);
   }
 
   trackClickPreviousCard = () => {

@@ -9,8 +9,7 @@ const {
 } = winston.format;
 
 const logFormat = printf(info => (
-  `${info.timestamp} [${info.label}] ${info.level}: ${info.message} - sessionId: ${info.sessionId} stack: ${info.stack
-    || 'noStack'}`
+  `${info.timestamp} ${info.label} ${info.sessionId} ${info.level}: ${info.message} stackTrace: ${info.stack}`
 ));
 
 /**
@@ -23,12 +22,10 @@ export const logger = winston.createLogger({
     simple(),
     logFormat
   ),
-  transports: [
-    new winston.transports.Console()
-  ]
+  transports: [new winston.transports.Console()]
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   logger.add(new winston.transports.Console({
     format: winston.format.simple()
   }));
