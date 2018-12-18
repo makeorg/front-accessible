@@ -37,10 +37,15 @@ export const fetchRetry = (
       withCredentials: true
     }).then(resolve)
       .catch((error) => {
-        const { response } = error;
-        const { status } = response;
-        if (status === 400) return reject(error.response.data);
-        if (status === 401) return reject(error);
+        if (error.response) {
+          const { response } = error;
+          const { status } = response;
+          if (status === 400) return reject(error.response.data);
+          if (status === 401) return reject(error);
+        } else {
+          reject(error);
+        }
+
         if (retry === 1) return reject(error);
         return resolve(fetchRetry(url, options, retry - 1));
       });
