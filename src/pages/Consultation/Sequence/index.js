@@ -10,7 +10,16 @@ import SequenceContainer from 'Containers/Sequence';
 import MainFooterContainer from 'Containers/MainFooter';
 import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
 
-class SequencePage extends React.Component {
+type Props = {
+  country: String,
+  language: String,
+  question: Object,
+  questionConfiguration: Object,
+  fetchQuestion: Function,
+  fetchQuestionConfiguration: Function
+};
+
+class SequencePage extends React.Component<Props> {
   componentDidMount() {
     const {
       match,

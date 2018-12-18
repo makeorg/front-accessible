@@ -5,7 +5,9 @@ import * as actionCreators from 'Actions/sequence';
 describe('Sequence reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
-      isSequenceCollapsed: false
+      isSequenceCollapsed: false,
+      question: null,
+      questionConfiguration: null
     };
 
     expect(sequence(undefined, {})).to.eql(expectedState);
