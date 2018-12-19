@@ -44,15 +44,15 @@ describe('Proposal Actions', () => {
 
   it('Creates PROPOSE_REQUEST when calling action', () => {
     const proposalContent = 'foo';
-    const proposalOperationId = 'bar';
+    const proposalQuestionId = 'bar';
 
     const expectedActions = [{
       type: actionTypes.PROPOSE_REQUEST,
       content: proposalContent,
-      operationId: proposalOperationId
+      questionId: proposalQuestionId
     }];
 
-    store.dispatch(actions.proposeRequest(proposalContent, proposalOperationId));
+    store.dispatch(actions.proposeRequest(proposalContent, proposalQuestionId));
     expect(store.getActions()).to.deep.equal(expectedActions)
   });
 
@@ -97,10 +97,10 @@ describe('Proposal Actions', () => {
   });
 
   it('creates an action to proposal Submit when user is not logged in', () => {
-    const operationId = 123;
+    const questionId = 123;
     const store = mockStore({
-      authentification: {isLoggedIn: false },
-      appConfig: {operationId}
+      authentification: { isLoggedIn: false },
+      sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
 
@@ -108,20 +108,20 @@ describe('Proposal Actions', () => {
       {
         type: actionTypes.PROPOSE_REQUEST,
         content: proposalContent,
-        operationId: operationId
+        questionId
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });
 
   it('creates an action to proposal Submit when user is logged in', () => {
-    const operationId = 'bar';
+    const questionId = 'bar';
     const store = mockStore({
       authentification: {isLoggedIn: true },
-      appConfig: {operationId}
+      sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
@@ -136,16 +136,16 @@ describe('Proposal Actions', () => {
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });
 
   it('creates an action to proposal Submit failure', () => {
-    const operationId = 'bar';
+    const questionId = 'bar';
     const store = mockStore({
       authentification: {isLoggedIn: true },
-      appConfig: {operationId}
+      sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
@@ -160,7 +160,7 @@ describe('Proposal Actions', () => {
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, operationId)).then(() => {
+    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
       expect(store.getActions()).to.deep.equal(expectedActions)
     });
   });

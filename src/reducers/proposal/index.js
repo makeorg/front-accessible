@@ -9,7 +9,7 @@ const initialState: Object = {
   isSubmitSuccess: false,
   content: '',
   length: PROPOSAL_BAIT_TEXT.length,
-  operationId: null,
+  questionId: null,
   error: null
 };
 
@@ -28,7 +28,7 @@ export default function proposal(state: Object = initialState, action: Object) {
       return {
         ...state,
         isTyping: false,
-        operationId: action.operationId
+        questionId: action.questionId
       };
     case actionTypes.PROPOSE_SUCCESS:
       return {

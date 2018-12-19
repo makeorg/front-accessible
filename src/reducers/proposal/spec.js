@@ -11,7 +11,7 @@ describe('Proposal reducer', () => {
       canSubmit: false,
       content: '',
       length: 8,
-      operationId: null,
+      questionId: null,
       error: null
     };
 
@@ -30,7 +30,7 @@ describe('Proposal reducer', () => {
         canSubmit: false,
         content: '',
         length: 0,
-        operationId: null,
+        questionId: null,
         error: null
       };
 
@@ -40,7 +40,7 @@ describe('Proposal reducer', () => {
         canSubmit: true,
         content: content,
         length: length,
-        operationId: null,
+        questionId: null,
         error: null
       };
 
@@ -51,16 +51,16 @@ describe('Proposal reducer', () => {
   describe('Proposal submit action reducers', () => {
     it('propose request', () => {
       const content = 'il faut foo';
-      const operationId = 'foo-bar';
+      const questionId = 'foo-bar';
 
-      const action = actionCreators.proposeRequest(content, operationId);
+      const action = actionCreators.proposeRequest(content, questionId);
       const previousState = {
         isTyping: false,
         isSubmitSuccess: false,
         canSubmit: true,
         content: content,
         length: 10,
-        operationId: null,
+        questionId: null,
         error: null
       };
 
@@ -70,7 +70,7 @@ describe('Proposal reducer', () => {
         canSubmit: true,
         content: content,
         length: 10,
-        operationId: operationId,
+        questionId,
         error: null
       };
 
@@ -85,7 +85,7 @@ describe('Proposal reducer', () => {
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
-        operationId: 'bar-operation-id',
+        questionId: 'bar-operation-id',
         error: null
       };
 
@@ -95,7 +95,7 @@ describe('Proposal reducer', () => {
         canSubmit: false,
         content: '',
         length: 8,
-        operationId: null,
+        questionId: null,
         error: null
       };
 
@@ -110,7 +110,7 @@ describe('Proposal reducer', () => {
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
-        operationId: 'bar-operation-id',
+        questionId: 'bar-question-id',
         error: null
       };
 
@@ -120,7 +120,7 @@ describe('Proposal reducer', () => {
         canSubmit: true,
         content: 'il faut foo',
         length: 10,
-        operationId: 'bar-operation-id',
+        questionId: 'bar-question-id',
         error: 'foo-error'
       };
 

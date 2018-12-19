@@ -32,19 +32,21 @@ export const getUser = () => (dispatch: Function, getState: Function) => {
     });
 };
 
-export const getToken = () => (dispatch: Function, getState: Function) => {
-  const { content } = getState().proposal;
-  return UserService.getUserToken()
+export const getToken = () => (dispatch: Function, getState: Function) => (
+  UserService.getUserToken()
     .then((token) => {
       localStorage.setItem(TOKEN_LOCAL_STORAGE_KEY, JSON.stringify(token));
       dispatch(setUserToken(token));
-      return dispatch(getUser()).then(() => dispatch(submitProposal(content)));
-    });
-};
+      return dispatch(getUser()).then(() => {
+        const { canSubmit, content } = getState().proposal;
+        if (canSubmit) {
+          dispatch(submitProposal(content));
+        }
+      });
+    })
+);
 
 export const login = (email: string, password: string) => (dispatch: Function, getState: Function) => {
-  const { canSubmit } = getState().proposal;
-
   dispatch(loginRequest());
   return UserService.login(email, password)
     .then((token) => {
@@ -53,8 +55,8 @@ export const login = (email: string, password: string) => (dispatch: Function, g
       Tracking.trackLoginEmailSuccess();
 
       return dispatch(getUser()).then(() => {
+        const { canSubmit, content } = getState().proposal;
         if (canSubmit) {
-          const { content } = getState().proposal;
           dispatch(submitProposal(content));
         }
       });
@@ -66,8 +68,6 @@ export const login = (email: string, password: string) => (dispatch: Function, g
 };
 
 export const loginSocial = (provider: string, socialToken: string) => (dispatch: Function, getState: Function) => {
-  const { canSubmit } = getState().proposal;
-
   dispatch(loginSocialRequest(provider));
   return UserService.loginSocial(provider, socialToken)
     .then((token) => {
@@ -76,8 +76,9 @@ export const loginSocial = (provider: string, socialToken: string) => (dispatch:
       Tracking.trackAuthentificationSocialSuccess(provider);
 
       return dispatch(getUser()).then(() => {
+        const { canSubmit, content } = getState().proposal;
+
         if (canSubmit) {
-          const { content } = getState().proposal;
           dispatch(submitProposal(content));
         }
       });

@@ -61,7 +61,7 @@ describe('Authentification Actions', () => {
     it('creates an action to login when success', () => {
       const proposalIdResponse = { proposalId: 'baz' };
       const proposalContent = 'foo';
-      const operationId = 'bar';
+      const questionId = 'bar';
       const token = { foo: 'bar' };
       const user = { email: 'baz@make.org', password: 'foo' };
 
@@ -100,10 +100,10 @@ describe('Authentification Actions', () => {
 
       const error = undefined;
       const proposalContent = 'foo';
-      const operationId = 'bar';
+      const questionId = 'bar';
       const store = mockStore({
         proposal: {content: proposalContent},
-        appConfig: {operationId}
+        sequence: {question: {questionId}}
       });
 
       sandbox
@@ -194,10 +194,10 @@ describe('Authentification Actions', () => {
 
     it('creates an action to login social when failure', () => {
       const proposalContent = 'foo';
-      const operationId = 'bar';
+      const questionId = 'bar';
       const store = mockStore({
         proposal: {content: proposalContent },
-        appConfig: { operationId }
+        sequence: {question: {questionId}}
       });
       const socialToken = 'fooToken';
       const provider = 'barProvider';
@@ -302,12 +302,12 @@ describe('Authentification Actions', () => {
       const token = { foo: 'Bar' };
       const user = { firstname: 'baz' };
       const content = 'il faut blabla';
-      const operationId = 'fooOperationId'
+      const questionId = 'fooQuestionId'
       const store = mockStore({
-        appConfig: { operationId },
         proposal: { content },
         pannel: { isPannelOpen: false },
-        authentification: { isLoggedIn: false }
+        authentification: { isLoggedIn: false },
+        sequence: {question: {questionId}}
       });
 
       sandbox
@@ -320,9 +320,7 @@ describe('Authentification Actions', () => {
 
       const expectedActions = [
         { type: actionTypes.GET_TOKEN, token },
-        { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PROPOSE_REQUEST, content, operationId },
-
+        { type: actionTypes.GET_INFO, user }
       ];
 
       return store.dispatch(actions.getToken()).then(() => {
