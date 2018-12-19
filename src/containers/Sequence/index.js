@@ -147,9 +147,9 @@ class SequenceContainer extends React.Component<Props, State> {
   }
 
   componentDidMount = () => {
-    const { question } = this.props;
+    const { question, firstProposal } = this.props;
     if (question) {
-      SequenceService.startSequence(question.landingSequenceId)
+      SequenceService.startSequence(question.landingSequenceId, firstProposal)
         .then(sequence => this.setProposals(sequence))
         .then(() => this.setState({ isSequenceLoaded: true }))
         .catch(error => error);
@@ -216,10 +216,11 @@ class SequenceContainer extends React.Component<Props, State> {
 
 
 const mapStateToProps = (state) => {
-  const { isSequenceCollapsed } = state.sequence;
+  const { firstProposal, isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
 
   return {
+    firstProposal,
     isSequenceCollapsed,
     isPannelOpen
   };

@@ -4,6 +4,7 @@ import * as actionTypes from 'Constants/actionTypes';
 
 const initialState: Object = {
   isSequenceCollapsed: false,
+  firstProposal: null,
   question: null,
   questionConfiguration: null
 };

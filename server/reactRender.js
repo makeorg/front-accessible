@@ -14,28 +14,47 @@ const path = require('path');
 const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
-module.exports = function reactRender(req, res) {
-  const { apiUrl, frontUrl } = configuration;
-  const { country } = req.params;
-
-  if (!country || !(/^[A-Z]{2,3}$/.test(country))) {
-    const detectedCountry = req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR';
-    const url = (req.url !== '/') ? req.url : '';
-    res.redirect(`/${detectedCountry}${url}`);
-    return;
+const renderHtml = (reactApp, reduxStore, metaTags) => {
+  const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
+  if (!htmlContent) {
+    return false;
   }
 
-  const initialState = {
-    appConfig: {
-      source: 'core',
-      language: req.query.language || 'fr',
-      country
-    }
+  const { apiUrl, frontUrl } = configuration;
+  const sheet = new ServerStyleSheet();
+  const body = ReactDOMServer.renderToString(sheet.collectStyles(reactApp));
+  const styles = sheet.getStyleTags();
+  const reduxState = reduxStore.getState();
+
+  const reactHtml = htmlContent
+    .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
+    .replace('<head>', `<head>${ReactDOMServer.renderToString(metaTags)}`)
+    .replace('</head>', `${styles}</head>`)
+    .replace('"__REDUX__"', JSON.stringify(reduxState))
+    .replace('__API_URL__', apiUrl)
+    .replace('__FRONT_URL__', frontUrl);
+
+  return reactHtml;
+};
+
+
+module.exports = function reactRender(req, res, initialState = {}) {
+  const { country } = req.params;
+
+  const state = {
+    ...{
+      appConfig: {
+        source: 'core',
+        language: req.query.language || 'fr',
+        country
+      }
+    },
+    ...initialState
   };
 
-  i18next.changeLanguage(initialState.appConfig.language);
+  i18next.changeLanguage(state.appConfig.language);
 
-  const store = configureStore(initialState);
+  const store = configureStore(state);
   const context = {};
   const headTags = [];
 
@@ -55,25 +74,12 @@ module.exports = function reactRender(req, res) {
       </HeadProvider>
     );
 
-    fs.readFile(path.join(BUILD_DIR, 'index.html'), 'utf8', (err, htmlData) => {
-      if (err) {
-        return res.status(404).end();
-      }
+    const reactHtml = renderHtml(ReactApp, store, headTags);
 
-      const sheet = new ServerStyleSheet();
-      const body = ReactDOMServer.renderToString(sheet.collectStyles(ReactApp));
-      const styles = sheet.getStyleTags();
-      const reduxState = store.getState();
+    if (!reactHtml) {
+      return res.status(404).end();
+    }
 
-      const RenderedApp = htmlData
-        .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
-        .replace('<head>', `<head>${ReactDOMServer.renderToString(headTags)}`)
-        .replace('</head>', `${styles}</head>`)
-        .replace('"__REDUX__"', JSON.stringify(reduxState))
-        .replace('__API_URL__', apiUrl)
-        .replace('__FRONT_URL__', frontUrl);
-
-      return res.send(RenderedApp);
-    });
+    return res.send(reactHtml);
   });
 };
