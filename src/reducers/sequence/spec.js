@@ -6,6 +6,7 @@ describe('Sequence reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       isSequenceCollapsed: false,
+      firstProposal: null,
       question: null,
       questionConfiguration: null
     };
