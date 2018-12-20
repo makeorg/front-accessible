@@ -15,14 +15,18 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 `;
 
 export const MainContent = styled.main`
+  height: calc(100vh - ${pxToRem('67px')});
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    height: calc(100vh - ${pxToRem('75px')});
+  }
 `;
 
 export const SequenceContent = styled.div`
   width: 100%;
-  height: calc(100vh - ${pxToRem('67px')});
+  height: calc(100% - ${pxToRem('91px')});
   overflow: auto;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    height: calc(100vh - ${pxToRem('75px')});
+    height: calc(100% - ${pxToRem('78px')});
   }
 `;
 
@@ -35,11 +39,10 @@ export const InnerContent = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100% - ${pxToRem('67px')});
+  height: 100%;
   min-height: ${pxToRem('510px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     min-height: ${pxToRem('660px')};
-    height: calc(100% - ${pxToRem('78px')});
   }
 `;
 

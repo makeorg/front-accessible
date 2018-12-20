@@ -9,7 +9,7 @@ const csp = require('express-csp');
 require('./browserPolyfill');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
-const { BUILD_DIR, IMAGES_DIR } = require('./paths');
+const { BUILD_DIR, IMAGES_DIR, DOC_DIR } = require('./paths');
 const configuration = require('./configuration');
 
 
@@ -37,6 +37,8 @@ app.use('/images', express.static(IMAGES_DIR, {
   maxAge: '1y',
   setHeaders: setCustomCacheControl
 }));
+
+app.use('/doc', express.static(DOC_DIR));
 
 // API Routes
 app.get('/api/questions/:questionSlug', questionApi);
