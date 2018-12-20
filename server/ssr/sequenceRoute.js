@@ -1,15 +1,13 @@
 const reactRender = require('../reactRender');
 
 module.exports = function SequenceRoute(req, res) {
-  let initialState = {};
+  let sequenceState = {};
   const { firstProposal } = req.query;
   if (firstProposal) {
-    initialState = {
-      sequence: {
-        firstProposal
-      }
+    sequenceState = {
+      sequence: { firstProposal }
     };
   }
 
-  return reactRender(req, res, initialState);
+  return reactRender(req, res, sequenceState);
 };

@@ -59,7 +59,7 @@ module.exports = function reactRender(req, res, initialState = {}) {
   const headTags = [];
 
   const dataRequirements = routes
-    .filter(route => matchPath(req.url, route))
+    .filter(route => matchPath(req.path, route))
     .filter(route => route.dataFetch instanceof Function)
     .map(route => store.dispatch(route.dataFetch(req.params)));
 
