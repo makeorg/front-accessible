@@ -3,6 +3,9 @@ import i18next from 'i18next';
 import { Description } from 'Components/Elements/DescriptionElements';
 import { DescriptionWrapper } from '../Styled';
 
+/**
+ * Renders succes message after proposal is submitted
+ */
 const ProposalSubmitSuccessComponent = () => (
   <DescriptionWrapper>
     <Description id="proposal-submit-success">

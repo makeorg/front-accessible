@@ -1,9 +1,22 @@
+// @flow
 import * as React from 'react';
 import i18next from 'i18next';
 import { MiddleRow } from 'Components/Elements/FlexElements';
 import ProposalCard from '../../Styled';
 
-const PartnersList = ({ partners }) => {
+type ListProps = {
+  /** Array with partners propeties */
+  partners: Array<Object>
+}
+
+/**
+ * Renders PartnersList component
+ */
+const PartnersList = (props: ListProps) => {
+  const {
+    partners
+  } = props;
+
   if (partners.length > 1) {
     return (
       <ProposalCard.PartnerList>
@@ -35,7 +48,22 @@ const PartnersList = ({ partners }) => {
   );
 };
 
-const Partners = ({ partners, wording }) => {
+type Props = {
+  /** Array with partners propeties */
+  partners: Array<Object>,
+  /** Boolean used to return wording */
+  wording: boolean
+}
+
+/**
+ * Renders Partners component
+ */
+const Partners = (props: Props) => {
+  const {
+    partners,
+    wording
+  } = props;
+
   if (!partners) {
     return null;
   }

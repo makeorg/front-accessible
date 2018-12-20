@@ -9,23 +9,32 @@ import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 
 type Props = {
+  /** Object with all proposal's properties */
   proposal: Object,
+  /** Index of the card */
   index: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
-  isPannelOpen: boolean,
-  isSequenceCollapsed: boolean,
+  /** Tabindex for interactive items */
+  tabIndex: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard: Function
 }
+
+/**
+ * Renders Proposal Card
+ */
 const ProposalCardComponent = (props: Props) => {
   const {
     proposal,
     index,
     cardsCount,
     currentIndex,
-    isPannelOpen,
-    isSequenceCollapsed,
+    tabIndex,
     goToPreviousCard,
     goToNextCard
   } = props;
@@ -43,7 +52,7 @@ const ProposalCardComponent = (props: Props) => {
     >
       <ProposalCard.BackButtonWrapper>
         <ProposalCard.BackButton
-          tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+          tabIndex={tabIndex}
           onClick={goToPreviousCard}
         >
           <ProposalCard.BackIcon>
@@ -68,8 +77,6 @@ const ProposalCardComponent = (props: Props) => {
         <VoteContainer
           proposalId={proposal.id}
           votes={proposal.votes}
-          isPannelOpen={isPannelOpen}
-          isSequenceCollapsed={isSequenceCollapsed}
           index={index}
           currentIndex={currentIndex}
           goToNextCard={goToNextCard}

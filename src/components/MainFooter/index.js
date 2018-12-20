@@ -7,10 +7,15 @@ import { consultationLink } from 'Constants/config';
 import MainFooter from './Styled';
 
 type Props = {
+  /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: Object,
+  /** Method called to track Footer */
   handleTracking: Function
 };
 
+/**
+ * Renders Main Footer
+ */
 const MainFooterComponent = (props: Props) => {
   const { questionConfiguration, handleTracking } = props;
 

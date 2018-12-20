@@ -5,16 +5,27 @@ import PushProposalCardComponent from '../../../components/ProposalCard/PushProp
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
+  /** Object with Static properties used to configure the Final Card */
   configuration: Object,
+  /** Index of the card */
   index: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Method called when next card button is clicked  */
+  skipProposalPushCard: Function,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
-  isSequenceCollapsed: boolean,
-  skipProposalPushCard: Function
+  /** Boolean toggled when Sequence is collapsed / expanded */
+  isSequenceCollapsed: boolean
 }
 
+/**
+ * Handles Push Proposal Card Business Logic
+ */
 class PushProposalCardContainer extends React.Component<Props> {
   constructor() {
     super();

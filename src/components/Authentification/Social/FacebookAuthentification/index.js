@@ -5,13 +5,14 @@ import { loginSocial } from 'Actions/authentification';
 import { FACEBOOK_PROVIDER_ENUM } from 'Api/UserService';
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Facebook login method callback */
   handleFacebookLoginCallback: Function
 };
 
 /**
- * FacebookAuthentificationContainer handle facebook authentification
- * @extends React
+ * Handles Facebook authentification
  */
 class FacebookAuthentificationComponent extends React.Component<Props> {
   render() {

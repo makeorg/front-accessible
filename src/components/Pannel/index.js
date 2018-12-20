@@ -7,11 +7,17 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Pannel from './Styled';
 
 type Props = {
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to close Sliding Pannel */
   handleClose: Function,
+  /** React elements rendered as children */
   children: React.Node
 };
 
+/**
+ * Renders Sliding Pannel
+ */
 const PannelComponent = (props: Props) => {
   const { isPannelOpen, handleClose, children } = props;
   return (

@@ -67,16 +67,24 @@ const buildCard = (proposals: Array<Object>, extraSlides: ExtraSlides) => {
 };
 
 type Props = {
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: Object,
+  /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: Object,
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called when "Return to proposal" button is clicked */
   handleExpandSequence: Function,
 };
 
 type State = {
+  /** Array with proposals received from Api */
   cards: Array<mixed>,
+  /** Number of proposals */
   cardsCount: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
   isSequenceLoaded: boolean
 };
@@ -128,6 +136,9 @@ const Sequence = ({
   );
 };
 
+/**
+ * Handles Sequence Business Logic
+ */
 class SequenceContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);

@@ -4,6 +4,9 @@ import ProposalSubmitAuthentificationComponent from 'Components/ProposalSubmit/A
 import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';
 import Tracking from 'Services/Tracking';
 
+/**
+ * Handles Authentification Business Logic after Proposal Submit
+ */
 export class ProposalSubmitAuthentification extends React.Component {
   constructor(props) {
     super(props);

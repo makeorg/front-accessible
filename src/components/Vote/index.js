@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import i18next from 'i18next';
 import voteStaticParams from 'Constants/vote';
@@ -10,9 +9,13 @@ import { VoteButton } from './Styled/Button';
 import VoteButtonComponent from './Button';
 
 type VoteButtonsProps = {
+  /** Proposal's Id */
   proposalId: string,
+  /** Index of the card */
   index: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Method called when vote button is clicked */
   handleVote: Function
 };
 
@@ -43,12 +46,20 @@ const VoteButtonsComponent = (props: VoteButtonsProps) => {
 };
 
 type VoteProps = {
+  /** Proposal's Id */
   proposalId: string,
+  /** Index of the card */
   index: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Method called when vote button is clicked */
   handleVote: Function
 };
 
+
+/**
+ * Renders Vote component
+ */
 const VoteComponent = (props: VoteProps) => {
   const {
     proposalId,

@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,16 +12,21 @@ import Partners from './Partners';
 import ProposalCard from '../Styled';
 
 type Props = {
+  /** Object with Static properties used to configure the Intro Card */
   introCardParams: Object,
+  /** Index of the card */
   index: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
-  handleStartSequence: Function,
-  position: number,
-  scale: number,
-  zindex: number
+  /** Method called when button is clicked */
+  handleStartSequence: Function
 }
 
+/**
+ * Renders Intro Card
+ */
 const IntroCardComponent = (props: Props) => {
   const {
     introCardParams,

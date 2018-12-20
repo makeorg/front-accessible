@@ -6,10 +6,15 @@ import { GOOGLE_PROVIDER_ENUM } from 'Api/UserService';
 import { loginSocial } from 'Actions/authentification';
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Google login method callback */
   handleGoogleLoginCallback: Function
 }
 
+/**
+ * Handles Google authentification
+ */
 class GoogleAuthentificationComponent extends React.Component<Props> {
   render() {
     const { handleGoogleLoginCallback, tabIndex } = this.props;

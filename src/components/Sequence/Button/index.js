@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { BackArrow, BackButton } from '../Styled/Button';
 
+/**
+ * Renders button used to expand the Sequence
+ */
 const CollapseToggle = ({ isSequenceCollapsed, handleExpandSequence, isPannelOpen }) => {
   if (!isSequenceCollapsed) {
     return null;

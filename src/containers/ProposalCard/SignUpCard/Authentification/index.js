@@ -5,11 +5,17 @@ import SignUpCardAuthentificationComponent from 'Components/ProposalCard/SignUpC
 import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: Function,
+  /** Method called to render Login Component in Sliding Pannel */
   handleLoginClick: Function
 }
 
+/**
+ * Handles Authentification Business Logic in Sign Up Card
+ */
 const SignUpCardAuthentification = (props: Props) => (
   <SignUpCardAuthentificationComponent {...props} />
 );

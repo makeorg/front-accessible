@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,8 +7,17 @@ import { Description, AltDescription, DescriptionLink } from 'Components/Element
 import { IconInButton } from 'Components/Elements/ButtonElements';
 import { DescriptionWrapper } from '../Styled';
 
+type Props = {
+  /** Boolean toggled when Sliding pannel is opened / closed */
+  isPannelOpen: boolean,
+  /** Method called to track DescriptionLink */
+  trackModerationLink: Function
+}
 
-class ProposalSubmitDescriptionComponent extends React.Component {
+/**
+ * Renders description component after proposal submit button is clicked
+ */
+class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   componentDidMount() {
     const { trackModerationText } = this.props;
     trackModerationText();

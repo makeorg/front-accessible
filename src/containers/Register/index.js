@@ -7,17 +7,25 @@ import RegisterComponent from 'Components/Register';
 import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
+  /** Array with form errors */
   errors: Array<string>,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function,
+  /** Method called to render Register Component in Sliding Pannel */
   handleRegister: Function
 };
 
 type State = {
   user: Object,
+  /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean
 };
 
+/**
+ * Handles Register Business Logic
+ */
 class RegisterContainer extends React.Component<Props, State> {
   constructor(props) {
     super(props);

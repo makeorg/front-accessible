@@ -5,6 +5,9 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconInButton } from 'Components/Elements/ButtonElements';
 import { ProposalButton, DisabledProposalButton } from '../Styled/ProposalField';
 
+/**
+ * Renders submit button in proposal's field
+ */
 const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }) => {
   if (canSubmit) {
     return (

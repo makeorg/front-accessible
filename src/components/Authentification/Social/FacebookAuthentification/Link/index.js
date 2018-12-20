@@ -15,9 +15,13 @@ const renderFacebookLogin = tabIndex => renderProps => (
 );
 
 type Props = {
+  /** Tabindex for interactive items */
   tabIndex: number
 };
 
+/**
+ * Renders Facebook authentification link
+ */
 const FacebookAuthentificationLinkComponent = (props: Props) => {
   const { tabIndex } = props;
 

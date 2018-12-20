@@ -4,16 +4,27 @@ import SignUpCardComponent from '../../../components/ProposalCard/SignUpCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
+  /** Object with Static properties used to configure the Final Card */
   configuration: Object,
+  /** Index of the card */
   index: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
   cardsCount: number,
+  /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
+  /** Method called when next card button is clicked  */
   skipSignUpCard: Function,
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean
 }
 
+/**
+ * Handles Sign Up Card Business Logic
+ */
 const SignUpCardContainer = (props: Props) => {
   const {
     configuration,

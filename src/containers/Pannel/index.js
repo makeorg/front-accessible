@@ -16,11 +16,17 @@ const pannelContents = {
 };
 
 type Props = {
+  /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Content to render in Sliding pannel */
   contentType: string,
+  /** Method called to close Sliding pannel */
   handleClose: Function
 };
 
+/**
+ * Handles Sliding Pannel Business Logic
+ */
 const PannelContainer = (props: Props) => {
   const { handleClose, isPannelOpen, contentType } = props;
   return (

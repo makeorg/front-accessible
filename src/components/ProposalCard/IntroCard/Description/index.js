@@ -1,8 +1,20 @@
+// @flow
 import * as React from 'react';
 import i18next from 'i18next';
 import ProposalCard from '../../Styled';
 
-const IntroDescription = ({ description }) => {
+type Props = {
+  /** Object with description paragraphs */
+  description: Object
+}
+
+/**
+ * Renders Intro Description component
+ */
+const IntroDescription = (props: Props) => {
+  const {
+    description
+  } = props;
   if (!description) {
     return (
       <React.Fragment>
