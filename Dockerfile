@@ -6,6 +6,7 @@ COPY yarn.lock ./
 RUN yarn install -qy
 COPY . ./
 RUN yarn build
+RUN yarn styleguidist build
 
 ENV PORT 8000
 ENV API_URL https://api.prod.makeorg.tech

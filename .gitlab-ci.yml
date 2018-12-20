@@ -8,7 +8,6 @@ stages:
   - lint
   - flow-static
   - test
-  - documentation
   - build
   - deploy
   - merge
@@ -33,13 +32,6 @@ test:
   script:
     - yarn install
     - yarn test-with-coverage-codacy
-
-documentation:
-  stage: documentation
-  image: node:10.9.0-alpine
-  script:
-    - yarn install
-    - npx styleguidist build
 
 build:
   stage: build
