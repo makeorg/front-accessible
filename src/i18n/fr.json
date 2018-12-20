@@ -26,7 +26,8 @@
     "email": "Email",
     "propose": "Proposer",
     "click_there": "cliquez ici",
-    "open_new_window": "Ouverture dans un nouvel onglet"
+    "open_new_window": "Ouverture dans un nouvel onglet",
+    "loading": "Merci de patienter pendant le chargement."
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"

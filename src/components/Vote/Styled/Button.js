@@ -42,4 +42,9 @@ export const VoteButton = styled(Button)`
   color: ${props => props.color};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
+  &:hover {
+    color: ${BasicColors.PureWhite};
+    background: ${props => props.color};
+    background-color: ${props => props.color};
+  }
 `;

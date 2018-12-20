@@ -3,12 +3,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import MetaTags from 'Components/MetaTags';
-import { InnerContent, SequenceContent } from 'Components/Elements/MainElements';
-import ProposalSubmitContainer from 'Containers/ProposalSubmit';
-import SequenceContainer from 'Containers/Sequence';
-import MainFooterContainer from 'Containers/MainFooter';
 import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
+import MetaTags from 'Components/MetaTags';
+import { SequenceContent } from 'Components/Elements/MainElements';
+import MainFooterContainer from 'Containers/MainFooter';
+import SequenceContentLoader from './ContentLoader';
 
 type Props = {
   country: String,
@@ -51,27 +50,23 @@ class SequencePage extends React.Component<Props> {
 
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
-        <SequenceContent>
-          <MetaTags
-            title={metas.title}
-            description={metas.description}
-            picture={metas.picture}
-          />
-          {question
-            && (
-              <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
-                <ProposalSubmitContainer question={question} />
-                <SequenceContainer
-                  question={question}
-                  questionConfiguration={questionConfiguration}
-                />
-              </InnerContent>
-            )
-          }
+        <React.Fragment>
+          <SequenceContent>
+            <MetaTags
+              title={metas.title}
+              description={metas.description}
+              picture={metas.picture}
+            />
+            <SequenceContentLoader
+              question={question}
+              questionConfiguration={questionConfiguration}
+              isSequenceCollapsed={isSequenceCollapsed}
+            />
+          </SequenceContent>
           <MainFooterContainer
             questionConfiguration={questionConfiguration}
           />
-        </SequenceContent>
+        </React.Fragment>
       </ThemeProvider>
     );
   }
