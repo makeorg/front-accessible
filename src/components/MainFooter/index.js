@@ -3,7 +3,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
-import { consultationLink } from 'Constants/config';
 import MainFooter from './Styled';
 
 type Props = {
@@ -32,7 +31,7 @@ const MainFooterComponent = (props: Props) => {
         <MainFooter.Link
           color={questionConfiguration.theme.footerFontColor}
           target="_blank"
-          href={consultationLink}
+          href={questionConfiguration.learnMoreUrl}
           onClick={handleTracking}
         >
           {i18next.t('footer.link')}

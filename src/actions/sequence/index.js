@@ -25,6 +25,7 @@ export const fetchQuestionConfigurationData = (questionSlug: String, country: St
       dispatch({ type: actionTypes.QUESTION_CONFIGURATION_LOAD, questionConfiguration });
     })
     .catch((error) => {
+      console.log(error);
       Logger.logError(error);
     })
 );
