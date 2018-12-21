@@ -11,6 +11,11 @@ export const ButtonList = styled(Unstyledlist)`
   width: 100%;
 `;
 
+export const ButtonWrapper = styled.div`
+  position: relative;
+  z-index: 0;
+`;
+
 export const Button = styled.button`
   display: flex;
   justify-content: center;

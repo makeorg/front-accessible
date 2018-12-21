@@ -1,13 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import {
-  Bar,
-  GraphItem,
-  Tooltip,
-  DisplayedTooltip,
-  HiddenTooltip
-} from '../Styled/Graph';
+import { LeftTooltip, DisplayedTooltip } from 'Components/Elements/TooltipElments';
+import { Bar, GraphItem } from '../Styled/Graph';
 
 type Props = {
   /** Method to set key for list element */
@@ -68,16 +63,16 @@ const ResultItemComponent = (props: Props) => {
         aria-controls={tooltipKey}
         aria-label={i18next.t(`results.tooltipbutton.${voteKey}`)}
       />
-      <Tooltip
+      <LeftTooltip
         key={tooltipKey}
         id={tooltipKey}
-        as={isTooltipDisplayed ? DisplayedTooltip : HiddenTooltip}
+        as={isTooltipDisplayed ? DisplayedTooltip : ''}
         aria-hidden={!isTooltipDisplayed}
         role="tooltip"
       >
         <p>{i18next.t(`vote.${voteKey}`)}</p>
         <p>{`${votePercent} %`}</p>
-      </Tooltip>
+      </LeftTooltip>
     </GraphItem>
   );
 };

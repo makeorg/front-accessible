@@ -9,6 +9,7 @@ const Vote = styled.form`
   justify-content: space-between;
   width: 100%;
   max-width: ${pxToRem('285px')};
+  min-width: ${pxToRem('275px')};
   margin: ${pxToRem('15px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin: ${pxToRem('30px')} 0;

@@ -26,7 +26,22 @@ type Props = {
 /**
  * Handles Proposal Card Business Logic
  */
-const ProposalCardContainer = (props: Props) => <ProposalCardComponent {...props} />;
+const ProposalCardContainer = (props: Props) => {
+  const {
+    index,
+    currentIndex,
+    isPannelOpen,
+    isSequenceCollapsed
+  } = props;
+
+  return (
+    <ProposalCardComponent
+      tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+      {...props}
+    />
+  );
+};
+
 
 const mapStateToProps = (state) => {
   const { isPannelOpen } = state.pannel;
