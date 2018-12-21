@@ -8,6 +8,7 @@ describe('VoteContainer', () => {
   let wrapper;
   const defaultProps = {
     proposalId: 'fooId',
+    votes: [],
     isPannelOpen: true,
     isSequenceCollapsed: true,
     index: 1,
@@ -45,5 +46,33 @@ describe('VoteContainer', () => {
       children: undefined
     });
 
+  });
+
+  it('render initialise state from props', () => {
+    const props = {
+      ...defaultProps,
+      ...{
+        votes: [{
+          voteKey: "agree",
+          count: 12,
+          hasVoted: true,
+          qualifications: ['foo', 'bar']
+        }, {
+          voteKey: "disagree",
+          count: 6,
+          hasVoted: false,
+          qualifications: ['foo', 'bar']
+        },{
+          voteKey: "neutral",
+          count: 6,
+          hasVoted: false,
+          qualifications: ['foo', 'bar']
+        }]
+      }
+    }
+
+    const voteWrapper = shallow(<Vote {...props}/>);
+    expect(voteWrapper.state().hasVoted).to.equal(true);
+    expect(voteWrapper.state().votedKey).to.equal("agree");
   });
 });
