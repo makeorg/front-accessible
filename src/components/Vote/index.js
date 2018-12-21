@@ -4,9 +4,9 @@ import i18next from 'i18next';
 import voteStaticParams from 'Constants/vote';
 import { getVoteKey, getVoteButtonId } from 'Helpers/vote';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
+import VoteButtonContainer from 'Containers/Vote/Button';
 import Vote from './Styled';
 import { VoteButton } from './Styled/Button';
-import VoteButtonComponent from './Button';
 
 type VoteButtonsProps = {
   /** Proposal's Id */
@@ -30,7 +30,7 @@ const VoteButtonsComponent = (props: VoteButtonsProps) => {
 
   return (
     voteKeys.map<React.Node>((voteKey: string) => (
-      <VoteButtonComponent
+      <VoteButtonContainer
         key={getVoteKey(voteKey, proposalId)}
         color={voteStaticParams[voteKey].color}
         label={i18next.t(`vote.${voteKey}`)}

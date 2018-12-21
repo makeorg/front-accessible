@@ -1,8 +1,8 @@
 /* @flow */
-
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from '../Styled/Button';
+import { BottomTooltip, DisplayedTooltip } from 'Components/Elements/TooltipElments';
+import { ButtonWrapper, Button } from '../Styled/Button';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -35,21 +35,39 @@ const VoteButtonComponent = (props: Props) => {
     tabIndex,
     id,
     buttonType,
-    handleVote
+    handleVote,
+    tooltipKey,
+    displayTooltip,
+    hideTooltip,
+    isTooltipDisplayed
   } = props;
 
   return (
-    <Button
-      aria-label={label}
-      id={id}
-      tabIndex={tabIndex}
-      color={color}
-      rotate={rotate}
-      as={buttonType}
-      onClick={handleVote}
-    >
-      <FontAwesomeIcon icon={icon} />
-    </Button>
+    <ButtonWrapper>
+      <Button
+        aria-label={label}
+        id={id}
+        tabIndex={tabIndex}
+        color={color}
+        rotate={rotate}
+        as={buttonType}
+        onClick={handleVote}
+        onMouseEnter={displayTooltip}
+        onMouseLeave={hideTooltip}
+        onFocus={displayTooltip}
+        onBlur={hideTooltip}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </Button>
+      <BottomTooltip
+        id={tooltipKey}
+        as={isTooltipDisplayed ? DisplayedTooltip : ''}
+        aria-hidden={!isTooltipDisplayed}
+        role="tooltip"
+      >
+        <p>{label}</p>
+      </BottomTooltip>
+    </ButtonWrapper>
   );
 };
 

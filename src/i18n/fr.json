@@ -70,7 +70,7 @@
     "intro_text": "Je suis :",
     "agree": "D'accord",
     "disagree": "Pas d'accord",
-    "neutral": "Neutre",
+    "neutral": "Vote blanc",
     "label": "{{count}} vote",
     "label_plural": "{{count}} votes"
   },
@@ -84,7 +84,7 @@
     "tooltipbutton": {
       "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
       "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
-      "neutral": "Afficher les résultats pour l'avis : 'je suis neutre'"
+      "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
     }
   },
   "qualification": {
