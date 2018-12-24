@@ -6,14 +6,10 @@ import SequenceComponent from 'Components/Sequence';
 import SequencePlaceholderComponent from 'Components/Sequence/SequencePlaceholder';
 import SequenceService from 'Api/SequenceService';
 import { sequenceExpand } from 'Actions/sequence';
+import * as ProposalHelper from 'Helpers/proposal';
+import * as SequenceHelper from 'Helpers/sequence';
 import Tracking from 'Services/Tracking';
-import {
-  CARD_TYPE_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_INTRO,
-  CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-  CARD_TYPE_EXTRASLIDE_FINAL_CARD
-} from 'Constants/card';
+import type { ExtraSlidesConfig } from 'Types/sequence';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
@@ -22,49 +18,6 @@ export const decrementCurrentIndex = (prevState: Object) => ({
 export const incrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex + 1
 });
-
-type ExtraSlides = {
-  introCard: mixed,
-  pushProposal: mixed,
-  signUpCard: mixed
-};
-
-const buildCard = (proposals: Array<Object>, extraSlides: ExtraSlides) => {
-  const cards = proposals.map(proposal => ({
-    type: CARD_TYPE_PROPOSAL,
-    configuration: proposal
-  }));
-
-  if (extraSlides.pushProposal === true || extraSlides.pushProposal instanceof Object) {
-    cards.splice(cards.length / 2, 0, {
-      type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-      configuration: extraSlides.pushProposal
-    });
-  }
-
-  if (extraSlides.introCard === true || extraSlides.introCard instanceof Object) {
-    cards.splice(0, 0, {
-      type: CARD_TYPE_EXTRASLIDE_INTRO,
-      configuration: extraSlides.introCard
-    });
-  }
-
-  if (extraSlides.signUpCard === true || extraSlides.signUpCard instanceof Object) {
-    cards.splice(cards.length, 0, {
-      type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-      configuration: extraSlides.signUpCard
-    });
-  }
-
-  if (extraSlides.finalCard === true || extraSlides.finalCard instanceof Object) {
-    cards.splice(cards.length, 0, {
-      type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
-      configuration: extraSlides.finalCard
-    });
-  }
-
-  return cards;
-};
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -80,8 +33,10 @@ type Props = {
 };
 
 type State = {
-  /** Array with proposals received from Api */
+  /** Array with cards of the sequence */
   cards: Array<mixed>,
+  /** Array with proposals received from Api */
+  proposals: Array<mixed>,
   /** Number of proposals */
   cardsCount: number,
   /** Incremented / Decremented Index */
@@ -145,6 +100,7 @@ class SequenceContainer extends React.Component<Props, State> {
     super(props);
     this.state = {
       cards: [],
+      proposals: [],
       cardsCount: 0,
       currentIndex: 0,
       isSequenceLoaded: false
@@ -158,10 +114,27 @@ class SequenceContainer extends React.Component<Props, State> {
     this.expandSequence = this.expandSequence.bind(this);
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    const { isLoggedIn } = this.props;
+    if (isLoggedIn !== prevProps.isLoggedIn) {
+      const { proposals } = prevState;
+      const { question, firstProposal } = prevProps;
+      const proposalIds = proposals.map(proposal => proposal.id);
+
+      if (question) {
+        SequenceService.startSequence(question.landingSequenceId, [...[firstProposal], ...proposalIds])
+          .then(sequence => this.setProposals(sequence))
+          .then(() => this.setState({ isSequenceLoaded: true }))
+          .catch(error => error);
+      }
+    }
+  }
+
   componentDidMount = () => {
     const { question, firstProposal } = this.props;
+
     if (question) {
-      SequenceService.startSequence(question.landingSequenceId, firstProposal)
+      SequenceService.startSequence(question.landingSequenceId, [firstProposal])
         .then(sequence => this.setProposals(sequence))
         .then(() => this.setState({ isSequenceLoaded: true }))
         .catch(error => error);
@@ -170,18 +143,16 @@ class SequenceContainer extends React.Component<Props, State> {
 
   setProposals = (sequence) => {
     const { questionConfiguration } = this.props;
-    const extraSlides: ExtraSlides = questionConfiguration.sequenceExtraSlides;
-    const cards: Array<mixed> = buildCard(sequence.proposals, extraSlides);
-    const firstNoVotedProposal = sequence.proposals.find(proposal => (
-      proposal.votes.some(vote => vote.hasVoted === false)
-    ));
-    const indexOfNoVotedCard = cards.findIndex(card => (
-      card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstNoVotedProposal.id
-    ));
+    const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlides;
+    const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(sequence.proposals);
+    const cards: Array<mixed> = SequenceHelper.buildCards(votedFirstProposals, extraSlidesConfig);
+    const firstNoVotedProposal: ?Objet = ProposalHelper.searchFirstNoVotedProposal(votedFirstProposals);
+    const currentIndex: number = SequenceHelper.findIndexOfFirstNoVotedCard(firstNoVotedProposal, cards);
 
     this.setState({
+      proposals: votedFirstProposals,
       cards,
-      currentIndex: indexOfNoVotedCard + 1,
+      currentIndex,
       cardsCount: cards.length - 1,
       isSequenceLoaded: false
     });
@@ -237,11 +208,13 @@ class SequenceContainer extends React.Component<Props, State> {
 const mapStateToProps = (state) => {
   const { firstProposal, isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
+  const { isLoggedIn } = state.authentification;
 
   return {
     firstProposal,
     isSequenceCollapsed,
-    isPannelOpen
+    isPannelOpen,
+    isLoggedIn
   };
 };
 

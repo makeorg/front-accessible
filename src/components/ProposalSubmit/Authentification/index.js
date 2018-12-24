@@ -86,7 +86,7 @@ const ProposalSubmitAuthentificationComponent = (props: Props) => {
           tabIndex={isPannelOpen ? -1 : 0}
           id="authentification-login-button"
         >
-          {i18next.t('common.i_connect')}
+          {i18next.t('login.button_connect')}
         </SmallRedButton>
       </ButtonsWrapper>
     </ProposalSubmitAuthentificationWrapper>

@@ -17,3 +17,25 @@ export const getIsProposalValidLength = (length: number = 0) => {
 
   return (length >= MIN_PROPOSAL_LENGTH && length <= MAX_PROPOSAL_LENGTH);
 };
+
+/**
+ * Sort proposal by voted first
+ * @param  {Array<Object>} proposals
+ * @return {Array<Object>}
+ */
+export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> => (
+  proposals.sort((first, second) => {
+    const firstHasVoted = first.votes.some(vote => vote.hasVoted);
+    const secondHasVoted = second.votes.some(vote => vote.hasVoted);
+
+    return Number(secondHasVoted) - Number(firstHasVoted);
+  })
+);
+
+/**
+ * Search the first no voted proposal
+ * @type {Object|null}
+ */
+export const searchFirstNoVotedProposal = (proposals: Array<Object>): Array<Object> => (
+  proposals.find(proposal => proposal.votes.every(vote => vote.hasVoted === false))
+);

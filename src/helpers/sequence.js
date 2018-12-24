@@ -1,4 +1,13 @@
-/* @flow */
+// @flow
+
+import type { ExtraSlidesConfig, Card } from 'Types/sequence';
+import {
+  CARD_TYPE_PROPOSAL,
+  CARD_TYPE_EXTRASLIDE_INTRO,
+  CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
+  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
+  CARD_TYPE_EXTRASLIDE_FINAL_CARD
+} from 'Constants/card';
 
 export const getPosition = (index: number = 0, currentIndex: number = 0) => (
   (index - currentIndex) * 2
@@ -27,3 +36,61 @@ export const gaugeRemain = (initialIndex: number = 0, totalIndex: number = 0) =>
 };
 
 export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
+
+/**
+ * Find the index of first no voted card
+ * @param  {Object} firstNoVotedProposal
+ * @param  {Array<Card>} cards
+ * @return {number}
+ */
+export const findIndexOfFirstNoVotedCard = (firstNoVotedProposal: Object, cards: Array<Card>): number => {
+  const indexOfFirstNoVotedCard = cards.findIndex(card => (
+    card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstNoVotedProposal.id
+  ));
+
+  // if no proposal is voted we return the index of intro cards
+  return (indexOfFirstNoVotedCard === 1) ? 0 : indexOfFirstNoVotedCard;
+};
+
+/**
+ * Build cards array
+ * @param  {Array<Object>} proposals
+ * @param  {ExtraSlidesConfig} extraSlides
+ * @return {Array<Card>}
+ */
+export const buildCards = (proposals: Array<Object>, extraSlides: ExtraSlidesConfig): Array<Card> => {
+  const cards: Array<Card> = proposals.map(proposal => ({
+    type: CARD_TYPE_PROPOSAL,
+    configuration: proposal
+  }));
+
+  if (extraSlides.pushProposal === true || extraSlides.pushProposal instanceof Object) {
+    cards.splice(cards.length / 2, 0, {
+      type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
+      configuration: extraSlides.pushProposal
+    });
+  }
+
+  if (extraSlides.introCard === true || extraSlides.introCard instanceof Object) {
+    cards.splice(0, 0, {
+      type: CARD_TYPE_EXTRASLIDE_INTRO,
+      configuration: extraSlides.introCard
+    });
+  }
+
+  if (extraSlides.signUpCard === true || extraSlides.signUpCard instanceof Object) {
+    cards.splice(cards.length, 0, {
+      type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
+      configuration: extraSlides.signUpCard
+    });
+  }
+
+  if (extraSlides.finalCard === true || extraSlides.finalCard instanceof Object) {
+    cards.splice(cards.length, 0, {
+      type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
+      configuration: extraSlides.finalCard
+    });
+  }
+
+  return cards;
+};

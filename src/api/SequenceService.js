@@ -13,10 +13,14 @@ const PATH_START_SEQUENCE = '/sequences/start/:sequenceId';
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug?country=:country';
 
 export default class SequenceService {
-  static startSequence(sequenceId: string, firstProposal: ?String = null): Promise<Object> {
+  static startSequence(sequenceId: string, includedProposalIds: ?Array = []): Promise<Object> {
     let startSequenceUrl = PATH_START_SEQUENCE.replace(':sequenceId', sequenceId);
-    if (firstProposal) {
-      startSequenceUrl += `?include=${firstProposal}`;
+    if (includedProposalIds.length) {
+      const includeParams = includedProposalIds.map(proposalId => (
+        proposalId !== null ? `include=${proposalId}` : ''
+      )).join('&');
+
+      startSequenceUrl += includeParams ? `?${includeParams}` : '';
     }
 
     return ApiService
