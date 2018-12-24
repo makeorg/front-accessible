@@ -86,6 +86,7 @@ type State = {
   cardsCount: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Check if sequence is loaded */
   isSequenceLoaded: boolean
 };
 
@@ -170,10 +171,17 @@ class SequenceContainer extends React.Component<Props, State> {
   setProposals = (sequence) => {
     const { questionConfiguration } = this.props;
     const extraSlides: ExtraSlides = questionConfiguration.sequenceExtraSlides;
-    const cards = buildCard(sequence.proposals, extraSlides);
+    const cards: Array<mixed> = buildCard(sequence.proposals, extraSlides);
+    const firstNoVotedProposal = sequence.proposals.find(proposal => (
+      proposal.votes.some(vote => vote.hasVoted === false)
+    ));
+    const indexOfNoVotedCard = cards.findIndex(card => (
+      card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstNoVotedProposal.id
+    ));
 
     this.setState({
       cards,
+      currentIndex: indexOfNoVotedCard + 1,
       cardsCount: cards.length - 1,
       isSequenceLoaded: false
     });
