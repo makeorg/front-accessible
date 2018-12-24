@@ -24,7 +24,7 @@ const MainFooterComponent = (props: Props) => {
           color={questionConfiguration.theme.footerFontColor}
           id="footer_title"
         >
-          <HiddenItem aria-hidden>{i18next.t('footer.see_more')}</HiddenItem>
+          <HiddenItem aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItem>
           {questionConfiguration.question}
         </MainFooter.Title>
         <MainFooter.Link
@@ -33,7 +33,7 @@ const MainFooterComponent = (props: Props) => {
           href={questionConfiguration.learnMoreUrl}
           onClick={handleTracking}
         >
-          {i18next.t('footer.link')}
+          {i18next.t('footer_sequence.link')}
         </MainFooter.Link>
       </MainFooter.Nav>
     </MainFooter>
