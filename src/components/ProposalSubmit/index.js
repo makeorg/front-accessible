@@ -3,7 +3,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
-import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
+import { getBaitText } from 'Constants/proposal';
 import ProposalSubmitButtonComponent from './Button';
 import ProposalSubmitForm from './Styled';
 
@@ -45,7 +45,7 @@ const ProposalSubmitFormComponent = (props: Props) => {
       <ProposalSubmitForm.Label
         htmlFor="proposal"
       >
-        { PROPOSAL_BAIT_TEXT }
+        {getBaitText()}
       </ProposalSubmitForm.Label>
       <ProposalSubmitForm.Input
         type="text"

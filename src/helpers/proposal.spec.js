@@ -1,6 +1,6 @@
 /* @flow */
 
-import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
+import { getBaitText } from 'Constants/proposal';
 import { getProposalLength, getIsProposalValidLength } from './proposal';
 
 describe('Proposal Helper', () => {
@@ -12,7 +12,7 @@ describe('Proposal Helper', () => {
 
   it('getProposalLength with empty content', () => {
     const proposalLength = getProposalLength();
-    expect(proposalLength).to.equal(PROPOSAL_BAIT_TEXT.length);
+    expect(proposalLength).to.equal(getBaitText().length);
   });
 
   it('getIsProposalValidLength with content with valid length', () => {

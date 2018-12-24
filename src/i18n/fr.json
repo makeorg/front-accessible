@@ -58,6 +58,7 @@
     "next-cta": "Pas encore, je continue à voter"
   },
   "proposal_submit": {
+    "bait": "Il faut ",
     "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
     "entred_chars": "caractères entrés",
     "available_chars": "caractères disponibles",

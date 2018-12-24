@@ -1,7 +1,7 @@
 /* @flow */
 
 import ProposalService from 'Api/ProposalService';
-import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
+import { getBaitText } from 'Constants/proposal';
 import * as actionTypes from 'Constants/actionTypes';
 import Tracking from 'Services/Tracking';
 
@@ -33,7 +33,7 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
     return Promise.resolve();
   }
 
-  const proposalContent = PROPOSAL_BAIT_TEXT + content;
+  const proposalContent = getBaitText() + content;
   return ProposalService.propose(proposalContent, questionId)
     .then(({ proposalId }) => {
       dispatch(proposeSuccess(proposalId));

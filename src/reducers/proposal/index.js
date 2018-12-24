@@ -1,14 +1,14 @@
 /* @flow */
 
 import * as actionTypes from 'Constants/actionTypes';
-import { PROPOSAL_BAIT_TEXT } from 'Constants/proposal';
+import { getBaitText } from 'Constants/proposal';
 
 const initialState: Object = {
   isTyping: false,
   canSubmit: false,
   isSubmitSuccess: false,
   content: '',
-  length: PROPOSAL_BAIT_TEXT.length,
+  length: getBaitText().length,
   questionId: null,
   error: null
 };
