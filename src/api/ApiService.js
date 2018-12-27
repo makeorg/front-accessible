@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as UrlHelper from 'Helpers/url';
 import Logger from 'Services/Logger';
 
-const HOSTNAME = typeof window !== 'undefined' && window && window.location && window.location.hostname;
+const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
 export const API_URL = (
   typeof window !== 'undefined'
@@ -79,17 +79,19 @@ export const handleErrors = (response: Object) => {
 let instance = null;
 
 class ApiService {
-  _language: string;
+  _language: ?string = '';
 
-  _country: string;
+  _country: ?string = '';
 
-  _operationId: string;
+  _operationId: ?string = '';
 
-  _source: string;
+  _questionId: ?string = '';
 
-  _sessionId: string;
+  _source: ?string = '';
 
-  _token: ?Object;
+  _sessionId: ?string = '';
+
+  _token: ?Object = '';
 
   constructor() {
     if (!instance) {
@@ -123,6 +125,14 @@ class ApiService {
 
   get operationId(): string {
     return this._operationId;
+  }
+
+  set questionId(questionId) {
+    this._questionId = questionId;
+  }
+
+  get questionId() {
+    return this._questionId;
   }
 
   set source(source: string) {
@@ -159,7 +169,7 @@ class ApiService {
       'x-make-language': this._language,
       'x-make-location': 'core',
       'x-make-source': this._source,
-      'x-make-question': '',
+      'x-make-question': this._questionId,
       'x-make-operation': this._operationId
     }, options.headers || {});
 

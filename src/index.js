@@ -29,10 +29,15 @@ delete window.INITIAL_STATE;
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   initialState = {
     appConfig: {
-      operationId: 'a8d4deab-5b67-4e05-835a-a49e3ae40a81',
       source: 'core',
       language: 'fr',
       country: 'FR'
+    },
+    sequence: {
+      question: {
+        questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',
+        operationId: '65dfe694-2ea9-486b-8bc5-3107316fa6ff'
+      }
     }
   };
 }

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import SequenceComponent from 'Components/Sequence';
 import SequencePlaceholderComponent from 'Components/Sequence/SequencePlaceholder';
-import SequenceService from 'Api/SequenceService';
+import QuestionService from 'Api/QuestionService';
 import { sequenceExpand } from 'Actions/sequence';
 import * as ProposalHelper from 'Helpers/proposal';
 import * as SequenceHelper from 'Helpers/sequence';
@@ -118,11 +118,13 @@ class SequenceContainer extends React.Component<Props, State> {
     const { isLoggedIn } = this.props;
     if (isLoggedIn !== prevProps.isLoggedIn) {
       const { proposals } = prevState;
-      const { question, firstProposal } = prevProps;
       const proposalIds = proposals.map(proposal => proposal.id);
+      const { question, firstProposal } = prevProps;
 
       if (question) {
-        SequenceService.startSequence(question.landingSequenceId, [...[firstProposal], ...proposalIds])
+        const includedProposalIds = [...proposalIds, ...[firstProposal]];
+
+        QuestionService.startSequence(question.questionId, includedProposalIds)
           .then(sequence => this.setProposals(sequence))
           .then(() => this.setState({ isSequenceLoaded: true }))
           .catch(error => error);
@@ -132,9 +134,8 @@ class SequenceContainer extends React.Component<Props, State> {
 
   componentDidMount = () => {
     const { question, firstProposal } = this.props;
-
     if (question) {
-      SequenceService.startSequence(question.landingSequenceId, [firstProposal])
+      QuestionService.startSequence(question.questionId, [firstProposal])
         .then(sequence => this.setProposals(sequence))
         .then(() => this.setState({ isSequenceLoaded: true }))
         .catch(error => error);
@@ -143,8 +144,9 @@ class SequenceContainer extends React.Component<Props, State> {
 
   setProposals = (sequence) => {
     const { questionConfiguration } = this.props;
+    const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlides;
-    const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(sequence.proposals);
+    const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(proposals);
     const cards: Array<mixed> = SequenceHelper.buildCards(votedFirstProposals, extraSlidesConfig);
     const firstNoVotedProposal: ?Objet = ProposalHelper.searchFirstNoVotedProposal(votedFirstProposals);
     const currentIndex: number = SequenceHelper.findIndexOfFirstNoVotedCard(firstNoVotedProposal, cards);
