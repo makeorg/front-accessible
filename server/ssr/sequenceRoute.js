@@ -18,8 +18,10 @@ module.exports = async function SequenceRoute(req, res) {
 
   if (firstProposal) {
     sequenceState = {
-      ...sequenceState,
-      firstProposal
+      sequence: {
+        ...sequenceState.sequence,
+        ...{ firstProposal }
+      }
     };
   }
 
