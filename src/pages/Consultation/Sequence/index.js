@@ -11,7 +11,6 @@ import SequenceContentLoader from './ContentLoader';
 
 type Props = {
   country: String,
-  language: String,
   question: Object,
   questionConfiguration: Object,
   fetchQuestion: Function,
@@ -23,7 +22,6 @@ class SequencePage extends React.Component<Props> {
     const {
       match,
       country,
-      language,
       question,
       fetchQuestion,
       questionConfiguration,
@@ -31,7 +29,7 @@ class SequencePage extends React.Component<Props> {
     } = this.props;
 
     if (!question) {
-      fetchQuestion(match.params.questionSlug, country, language);
+      fetchQuestion(match.params.questionSlug);
     }
 
     if (!questionConfiguration) {
@@ -74,13 +72,12 @@ class SequencePage extends React.Component<Props> {
 
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
-  const { country, language } = state.appConfig;
+  const { country } = state.appConfig;
   const { question, questionConfiguration } = state.sequence;
 
   return {
     isSequenceCollapsed,
     country,
-    language,
     question,
     questionConfiguration
   };
@@ -90,8 +87,8 @@ const mapDispatchToProps = dispatch => ({
   fetchQuestionConfiguration: (questionSlug: String, country: String) => {
     dispatch(fetchQuestionConfigurationData(questionSlug, country));
   },
-  fetchQuestion: (questionSlug: String, country: String, language: String) => {
-    dispatch(fetchQuestionData(questionSlug, country, language));
+  fetchQuestion: (questionSlug: String) => {
+    dispatch(fetchQuestionData(questionSlug));
   }
 });
 

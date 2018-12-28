@@ -39,13 +39,12 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
 
 
 module.exports = function reactRender(req, res, initialState = {}) {
-  const { country } = req.params;
-
+  const { country, language } = req.params;
   const state = {
     ...{
       appConfig: {
         source: 'core',
-        language: req.query.language || 'fr',
+        language,
         country
       }
     },

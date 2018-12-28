@@ -67,6 +67,21 @@ function countryDetectMiddelware(req, res, next) {
   return next();
 }
 
+function countryLanguageDetectMiddelware(req, res, next) {
+  const { countryLanguage } = req.params;
+  if (!countryLanguage || !(/^[A-Z]{2,3}-[a-z]{2,3}$/.test(countryLanguage))) {
+    return res.status(404).send(`${countryLanguage} is not a  valid country-language!`);
+  }
+
+  const countryLanguageArray = countryLanguage.split('-');
+  const [country, language] = countryLanguageArray;
+
+  req.params.language = language;
+  req.params.country = country;
+
+  return next();
+}
+
 function renderVersion(req, res) {
   try {
     const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
@@ -80,7 +95,7 @@ function renderVersion(req, res) {
 app.get('/', countryDetectMiddelware);
 app.get('/version', renderVersion);
 app.get('/:country', countryDetectMiddelware, homeRoute);
-app.get('/:country/consultation/:questionSlug/selection', countryDetectMiddelware, sequenceRoute);
+app.get('/:countryLanguage/consultation/:questionSlug/selection', countryLanguageDetectMiddelware, sequenceRoute);
 
 // CSP
 csp.extend(app, {

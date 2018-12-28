@@ -1,6 +1,7 @@
 import QuestionService from '../../src/api/QuestionService';
 import SequenceService from '../../src/api/SequenceService';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
+import { logger } from '../logger';
 
 const reactRender = require('../reactRender');
 
@@ -43,7 +44,7 @@ module.exports = async function SequenceRoute(req, res) {
 
     return reactRender(req, res, sequenceState);
   } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
+    logger.log('error', error.stack);
+    res.sendStatus(500).send({ error: error.message });
   }
 };
