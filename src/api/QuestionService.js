@@ -13,15 +13,14 @@ export default class QuestionService {
   }
 
   static startSequence(questionId: string, includedProposalIds: ?Array = []): Promise<Object> {
+    let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(':questionId', questionId);
     // remove null value
-    const include = includedProposalIds.filter(proposalId => proposalId);
+    const includeParams = includedProposalIds.map(proposalId => (
+      proposalId ? `include=${proposalId}` : ''
+    )).join('&');
 
-    return ApiService
-      .callApi(PATH_QUESTION_START_SEQUENCE.replace(':questionId', questionId), {
-        method: 'POST',
-        body: JSON.stringify({
-          include
-        })
-      });
+    startSequenceUrl += includeParams ? `?${includeParams}` : '';
+
+    return ApiService.callApi(startSequenceUrl, { method: 'GET' });
   }
 }
