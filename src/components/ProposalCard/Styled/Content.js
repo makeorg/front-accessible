@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import { TextColors, BasicColors } from 'Assets/vars/Colors';
+import { BackgroundColors, TextColors, BasicColors } from 'Assets/vars/Colors';
 import Breakpoints from 'Assets/vars/Breakpoints';
 import { Small } from 'Components/Elements/Separators';
 import Unstyledlist from 'Components/Elements/ListElements';
-import { MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
+import { CenterColumn, MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
 
-export const InnerContent = styled(MiddleColumn)`
+export const ContentWrapper = styled(MiddleColumn)`
+  width: 100%;
   height: 100%;
   padding-top: ${pxToRem('52px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding-top: ${pxToRem('82px')};
   }
+`;
+
+export const InnerContent = styled(CenterColumn)`
+  width: 100%;
 `;
 
 export const IntroParagraph = styled.p`
@@ -39,6 +44,32 @@ export const Separator = styled(Small)`
   margin: ${pxToRem('10px')} 0 ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
+  }
+`;
+
+export const FinalCardContentWrapper = styled(MiddleColumnToRow)`
+  width: 100%;
+`;
+
+export const SharingWrapper = styled(CenterColumn)`
+  width: 100%;
+  border-bottom: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
+  padding: 0 0 ${pxToRem('10px')} 0;
+  margin-bottom: ${pxToRem('10px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    width: 50%;
+    border-bottom: none;
+    border-right: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
+    padding: ${pxToRem('50px')} ${pxToRem('25px')} ${pxToRem('50px')} 0;
+    margin-bottom: 0;
+  }
+`;
+
+export const MoreWrapper = styled(CenterColumn)`
+  width: 100%;
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    width: 50%;
+    padding-left: ${pxToRem('25px')};
   }
 `;
 

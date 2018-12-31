@@ -5,7 +5,7 @@ import ProposalCard from '../../Styled';
 
 type Props = {
   /** Object with description paragraphs */
-  description: Object
+  description: Array<string>
 }
 
 /**
@@ -32,8 +32,8 @@ const IntroDescription = (props: Props) => {
     <React.Fragment>
       {description.map(
         introDescription => (
-          <ProposalCard.IntroParagraph key={introDescription.paragraph}>
-            {introDescription.paragraph}
+          <ProposalCard.IntroParagraph key={introDescription}>
+            {introDescription}
           </ProposalCard.IntroParagraph>
         )
       )}

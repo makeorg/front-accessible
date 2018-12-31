@@ -1,90 +1,38 @@
 {
-  "country": "FR",
   "slug": "aines",
+  "country": "FR",
   "language": "fr",
-  "title": "Mieux prendre soin de nos aînés",
-  "question": "Comment mieux prendre soin de nos aînés ?",
-  "metas": {
-    "title": "Comment mieux prendre soin de nos aînés ?",
-    "description": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question :'Comment mieux prendre soin de nos aînés ?'. Les milliers de propositions citoyennes recueillies vont nous permettre de bâtir le 1er grand Plan d'actions citoyen en faveur des Aînés.",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5ba39fc6fafb147685dd9b4c_meta%20aines.jpg"
+  "wording": {
+    "title": "Mieux prendre soin de nos aînés",
+    "question": "Comment mieux prendre soin de nos aînés ?",
+    "metas": {
+      "title": "Comment mieux prendre soin de nos aînés ?",
+      "description": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question :'Comment mieux prendre soin de nos aînés ?'. Les milliers de propositions citoyennes recueillies vont nous permettre de bâtir le 1er grand Plan d'actions citoyen en faveur des Aînés.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5ba39fc6fafb147685dd9b4c_meta%20aines.jpg"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-aines",
-  "presentation": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question Comment mieux prendre soin de nos aînés ?<br/>Grâce au soutien des partenaires fondateurs Klesia, la fondation Korian, La Poste, l'OCIRP, Primonial REIM, CAREIT, la Croix-Rouge française, les milliers de propositions citoyennes<br/>recueillies vont nous permettre de bâtir, aux côtés de l’État, le 1er grand Plan d'actions citoyen en faveur des Aînés. Entreprises, associations,<br/>pouvoirs publics, citoyens, nous nous donnons trois ans pour concrétiser les actions de ce Plan et réussir ainsi à mieux prendre soin de nos aînés.",
-  "legalNote": "En vous inscrivant, vous acceptez nos <br/><a href:\\\"https://about.make.org/conditions-dutilisation\\\" target:\\\"_blank\\\">conditions générales d'utilisation</a> <br/>ainsi que de recevoir ponctuellement des emails de&nbsp;Make.org ou de nos partenaires associatifs.",
   "theme": {
     "color": "#9C6BDA",
     "gradient-start": "#9C6BDA",
     "gradient-end": "#8DDCF6",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 295,
-  "startDateActions": false,
-  "operationTypeRibbon": true,
-  "partners":[
-    {
-      "name": "Klesia",
-      "imageUrl": "Todo",
-      "isFounder": true
-    },
-    {
-      "name": "Fondation Korian pour le Bien-vieillir",
-      "imageUrl": "Todo",
-      "isFounder": true
-    },
-    {
-      "name": "La Poste",
-      "imageUrl": "Todo",
-      "isFounder": true
-    },
-    {
-      "name": "OCIRP",
-      "imageUrl": "Todo",
-      "isFounder": true
-    },
-    {
-      "name": "CAREIT",
-      "imageUrl": "Todo",
-      "isFounder": true
-    },
-    {
-      "name": "Les Talents d'Alphonse",
-      "imageUrl": "Todo",
-      "isFounder": false
-    },
-    {
-      "name": "Fondation de l'Armée du Salut",
-      "imageUrl": "Todo",
-      "isFounder": false
-    },
-    {
-      "name": "Croix-Rouge",
-      "imageUrl": "Todo",
-      "isFounder": false
-    },
-    {
-      "name": "Association France Dépendance",
-      "imageUrl": "Todo",
-      "isFounder": false
-    }
-  ],
-  "actions": true,
-  "share": true,
-  "initiators": [],
-  "sequenceExtraSlides": {
+  "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
+  "sequenceExtraSlidesWording": {},
+  "sequenceExtraSlidesConfig": {
     "introCard":  {
-      "title": false,
-      "description": false,
+      "customTitle": false,
+      "customDescription": false,
       "partners": false,
       "inPartnershipWith": false,
       "extraLogo": false
     },
-    "signUpCard": true,
+    "signUpCard": false,
     "pushProposal": false,
     "finalCard": {
-      "linkUrl": "https://make.org/#/FR/consultation/aines/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/FR/consultation/aines/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {

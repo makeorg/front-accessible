@@ -10,7 +10,7 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when next card button is clicked */
-  skipSignUpCard: Function,
+  skipSignUpCard: () => void,
   /** Special wording for next card button */
   wording: string
 }

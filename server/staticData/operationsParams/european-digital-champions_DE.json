@@ -1,57 +1,39 @@
 {
-  "country": "DE",
   "slug": "european-digital-champions",
+  "country": "DE",
   "language": "de",
-  "title": "Wie kann man europäische digitale Champions hervorbringen ?",
-  "question": "Wie kann man europäische digitale Champions hervorbringen ?",
-  "metas": {
-    "title": "Wie kann man europäische digitale Champions hervorbringen?",
-    "description": "Sie haben irgendwelche Ideen zu diesem Thema? Nehmen Sie an der von den G9+ & Roland Berger initiierten Konsultation mit Make.org teil.",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd6e1a25d02ac436404deca_meta%20g9%2B%20de.jpg"
+  "wording": {
+    "title": "Wie kann man europäische digitale Champions hervorbringen ?",
+    "question": "Wie kann man europäische digitale Champions hervorbringen ?",
+    "metas": {
+      "title": "Wie kann man europäische digitale Champions hervorbringen?",
+      "description": "Sie haben irgendwelche Ideen zu diesem Thema? Nehmen Sie an der von den G9+ & Roland Berger initiierten Konsultation mit Make.org teil.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd6e1a25d02ac436404deca_meta%20g9%2B%20de.jpg"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-digital-champions-de",
-  "presentation": "Die Europawahlen bieten eine enorme Chance für ein großes europäisches digitales Erwachen. <br/>Wie kann man die europäischen Digitalmeister hervorbringen? Zum ersten Mal werden das G9+ Institut, <br/>Roland Berger, Croissance+ und Make.org die französischen und deutschen Bürgerinnen <br/>zu diesem Thema in großem Umfang befragen, um ein Weißbuch zu schreiben, <br/>die erste echte Bürgerinnen-Roadmap zu diesem Thema.",
-  "legalNote": false,
   "theme": {
     "color": "#5DA113",
     "gradient-start": "#7DB7E3",
     "gradient-end": "#5DA113",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 375,
-  "startDateActions": false,
-  "operationTypeRibbon": false,
-  "partners": [],
-  "actions": false,
-  "share": true,
-  "initiators":[
-    {
-      "name": "G9+",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Roland Berger",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Croissance Plus",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Bpifrance",
-      "imageUrl": "Todo"
-    }
-  ],
-  "sequenceExtraSlides": {
-    "introCard":  {
+  "consultationUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation",
+  "sequenceExtraSlidesWording": {
+    "introCard": {
       "title": "Tausende Europäer schlagen Lösungen vor.",
       "description": [
-        {
-          "paragraph": "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor."
-        }
-      ],
+        "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor."
+      ]
+    },
+    "signUpCard": {
+      "title": "Lassen Sie sich über die Ergebnisse der Konsultation informieren.",
+      "nextCTA": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": true,
+      "customDescription": true,
       "partners": [
         {
           "name": "G9+",
@@ -74,12 +56,14 @@
       "extraLogo": false
     },
     "signUpCard": {
-      "title": "Lassen Sie sich über die Ergebnisse der Konsultation informieren.",
-      "nextCTA": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
+      "customTitle": true,
+      "customNextCTA": true
     },
     "pushProposal": true,
     "finalCard": {
-      "linkUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {
@@ -91,9 +75,5 @@
     "gender": false,
     "hiddenOptOut": false,
     "partnerOptin": false
-  },
-  "sequenceSignUpModal": {
-    "title": "Ich melde mich mit meiner E-Mail Adresse an."
-  },
-  "displayInShowcases": false
+  }
 }

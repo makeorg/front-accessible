@@ -5,8 +5,11 @@ import i18next from 'i18next';
 import { Title, Meta } from 'react-head';
 
 type Props = {
+  /** String used for title tag in header */
   title: ?String,
+  /** String used for description tag in header */
   description: ?String,
+  /** String used for image itemprop meta tag in header */
   picture: ?String,
 };
 

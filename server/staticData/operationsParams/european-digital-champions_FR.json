@@ -2,56 +2,37 @@
   "country": "FR",
   "slug": "european-digital-champions",
   "language": "fr",
-  "title": "Comment faire émerger des champions européens du numérique ?",
-  "question": "Comment faire émerger des champions européens du numérique ?",
-  "metas": {
+  "wording": {
     "title": "Comment faire émerger des champions européens du numérique ?",
-    "description": "Vous avez une idée sur le sujet ? Participez à la consultation initiée par le G9+ & Roland Berger avec Make.org",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bc88fc5e1f404acc8042ac1_meta%20g9%2B.jpg"
+    "question": "Comment faire émerger des champions européens du numérique ?",
+    "metas": {
+      "title": "Comment faire émerger des champions européens du numérique ?",
+      "description": "Vous avez une idée sur le sujet ? Participez à la consultation initiée par le G9+ & Roland Berger avec Make.org",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bc88fc5e1f404acc8042ac1_meta%20g9%2B.jpg"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-european-digital-champions",
-  "presentation": "Les élections européennes offrent une formidable opportunité d’un grand réveil numérique européen. <br/>Comment faire émerger les champions européens du numérique ? Pour la première fois, l’Institut G9+, <br/>Roland Berger, Croissance+ et Make.org vont massivement mobiliser citoyens français et allemands sur <br/>cette question, pour écrire un Livre blanc inédit, première véritable feuille de route citoyenne sur le sujet.",
-  "legalNote": false,
   "theme": {
     "color": "#5DA113",
     "gradient-start": "#7DB7E3",
     "gradient-end": "#5DA113",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 375,
-  "startDateActions": false,
-  "operationTypeRibbon": false,
-  "partners": [],
-  "actions": false,
-  "share": true,
-  "initiators":[
-    {
-      "name": "G9+",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Roland Berger",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Croissance Plus",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Bpifrance",
-      "imageUrl": "Todo"
-    }
-  ],
-  "sequenceExtraSlides": {
-    "introCard":  {
+  "consultationUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
+  "sequenceExtraSlidesWording": {
+    "introCard": {
       "title": "#entrepreneuriat  #europe  #investissement  #fiscalité",
       "description": [
-        {
-          "paragraph": "Aidez nous à faire émerger des champions européens du numérique."
-        }
-      ],
+        "Aidez nous à faire émerger des champions européens du numérique."
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation"
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": true,
+      "customDescription": true,
       "partners": [
         {
           "name": "G9+",
@@ -74,12 +55,14 @@
       "extraLogo": false
     },
     "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation",
-      "nextCTA": false
+      "customTitle": true,
+      "customNextCTA": false
     },
     "pushProposal": true,
     "finalCard": {
-      "linkUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {
@@ -91,9 +74,5 @@
     "gender": false,
     "hiddenOptOut": false,
     "partnerOptin": false
-  },
-  "sequenceSignUpModal": {
-    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
-  },
-  "displayInShowcases": false
+  }
 }

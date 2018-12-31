@@ -9,7 +9,7 @@ import { sequenceExpand } from 'Actions/sequence';
 import * as ProposalHelper from 'Helpers/proposal';
 import * as SequenceHelper from 'Helpers/sequence';
 import Tracking from 'Services/Tracking';
-import type { ExtraSlidesConfig } from 'Types/sequence';
+import type { ExtraSlidesConfig, ExtraSlidesWording } from 'Types/sequence';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
@@ -29,7 +29,15 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleExpandSequence: Function,
+  handleExpandSequence: () => void,
+  /** Boolean toggled when User is Logged in */
+  isLoggedIn: boolean,
+  /** Boolean toggled when User has submitted a proposal */
+  hasProposed: boolean,
+  /** Id of the first proposal to display */
+  firstProposal: string,
+  /** Array with the voted proposals' ids */
+  votedProposalIds: Array<string>
 };
 
 type State = {
@@ -89,6 +97,7 @@ const Sequence = ({
   return (
     <SequencePlaceholderComponent
       handleExpandSequence={expandSequence}
+      isSequenceCollapsed={isSequenceCollapsed}
       isPannelOpen={isPannelOpen}
     />
   );
@@ -98,23 +107,13 @@ const Sequence = ({
  * Handles Sequence Business Logic
  */
 class SequenceContainer extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cards: [],
-      proposals: [],
-      cardsCount: 0,
-      currentIndex: 0,
-      hasStarted: false,
-      isSequenceLoaded: false
-    };
-
-    this.goToNextCard = this.goToNextCard.bind(this);
-    this.skipSignUpCard = this.skipSignUpCard.bind(this);
-    this.skipProposalPushCard = this.skipProposalPushCard.bind(this);
-    this.goToPreviousCard = this.goToPreviousCard.bind(this);
-    this.handleStartSequence = this.handleStartSequence.bind(this);
-    this.expandSequence = this.expandSequence.bind(this);
+  state = {
+    cards: [],
+    proposals: [],
+    cardsCount: 0,
+    currentIndex: 0,
+    hasStarted: false,
+    isSequenceLoaded: false
   }
 
   componentDidUpdate = (prevProps) => {
@@ -154,11 +153,13 @@ class SequenceContainer extends React.Component<Props, State> {
     const { questionConfiguration } = this.props;
     const { hasStarted } = this.state;
     const { proposals } = sequence;
-    const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlides;
+    const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlidesConfig;
+    const extraSlidesWording: ExtraSlidesWording = questionConfiguration.sequenceExtraSlidesWording;
     const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(proposals);
     const cards: Array<mixed> = SequenceHelper.buildCards(
       votedFirstProposals,
       extraSlidesConfig,
+      extraSlidesWording,
       isLoggedIn,
       hasProposed
     );

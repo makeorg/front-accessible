@@ -1,17 +1,18 @@
 /* @flow */
 import * as React from 'react';
+import type { pushProposalCardConfig } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconInButton } from '../../Elements/ButtonElements';
-import { CenterColumn, MiddleColumnToRow } from '../../Elements/FlexElements';
+import { MiddleColumnToRow } from '../../Elements/FlexElements';
 import ExtraLogo from './ExtraLogo';
 import ProgressBarComponent from '../ProgressBar';
 import ProposalCard from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
-  proposalCardParams: Object,
+  proposalCardConfig: pushProposalCardConfig,
   /** Index of the card */
   index: number,
   /** Tabindex for interactive items */
@@ -39,7 +40,7 @@ type Props = {
  */
 const PushProposalCardComponent = (props: Props) => {
   const {
-    proposalCardParams,
+    proposalCardConfig,
     index,
     tabIndex,
     currentIndex,
@@ -71,10 +72,10 @@ const PushProposalCardComponent = (props: Props) => {
         </ProposalCard.BackButton>
         <ProgressBarComponent index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
-      <ProposalCard.InnerContent>
-        <CenterColumn as="section">
+      <ProposalCard.ContentWrapper>
+        <ProposalCard.InnerContent as="section">
           <header>
-            {proposalCardParams && <ExtraLogo extraLogo={proposalCardParams.extraLogo} />}
+            {proposalCardConfig && <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />}
             <ProposalCard.AltMainTitle>
               {i18next.t('push_proposal_card.title')}
             </ProposalCard.AltMainTitle>
@@ -103,8 +104,8 @@ const PushProposalCardComponent = (props: Props) => {
               {i18next.t('push_proposal_card.next-cta')}
             </ProposalCard.PushProposalNextButton>
           </MiddleColumnToRow>
-        </CenterColumn>
-      </ProposalCard.InnerContent>
+        </ProposalCard.InnerContent>
+      </ProposalCard.ContentWrapper>
     </ProposalCard>
   );
 };

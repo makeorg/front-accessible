@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import type { signUpCardConfig, signUpCardWording } from 'Types/card';
 import SignUpCardComponent from '../../../components/ProposalCard/SignUpCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
-  /** Object with Static properties used to configure the Final Card */
-  configuration: Object,
+  /** Object with Static properties used to configure the Sign Up Card */
+  configuration: signUpCardConfig,
+  /** Object with Static properties used to customise the wording of the Sign Up Card */
+  wording: signUpCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -28,6 +31,7 @@ type Props = {
 const SignUpCardContainer = (props: Props) => {
   const {
     configuration,
+    wording,
     index,
     currentIndex,
     isPannelOpen,
@@ -39,7 +43,8 @@ const SignUpCardContainer = (props: Props) => {
 
   return (
     <SignUpCardComponent
-      signUpParams={configuration}
+      signUpConfig={configuration}
+      signUpWording={wording}
       position={position}
       scale={scale}
       zindex={zindex}

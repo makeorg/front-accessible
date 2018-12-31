@@ -1,5 +1,4 @@
 /* @flow */
-
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BackgroundColors } from 'Assets/vars/Colors';

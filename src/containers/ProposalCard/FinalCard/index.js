@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { finalCardConfig, finalCardWording } from 'Types/card';
 import { connect } from 'react-redux';
 import FinalCardComponent from 'Components/ProposalCard/FinalCard';
 import Tracking from 'Services/Tracking';
@@ -6,7 +7,9 @@ import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
-  configuration: Object,
+  configuration: finalCardConfig,
+  /** Object with Static properties used to customise the wording of the Final Card */
+  wording: finalCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -35,6 +38,7 @@ class FinalCardContainer extends React.Component<Props> {
   render() {
     const {
       configuration,
+      wording,
       index,
       currentIndex,
       cardsCount,
@@ -48,6 +52,8 @@ class FinalCardContainer extends React.Component<Props> {
 
     return (
       <FinalCardComponent
+        finalCardConfig={configuration}
+        finalCardWording={wording}
         index={index}
         currentIndex={currentIndex}
         cardsCount={cardsCount}
@@ -56,7 +62,6 @@ class FinalCardContainer extends React.Component<Props> {
         zindex={zindex}
         tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
         goToPreviousCard={goToPreviousCard}
-        linkUrl={configuration.linkUrl}
       />
     );
   }

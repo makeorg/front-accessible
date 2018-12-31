@@ -17,6 +17,7 @@
     "gradient-end": "#8DDCF6",
     "footerFontColor": "black"
   },
+  "consultationUrl": "#",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
@@ -30,7 +31,7 @@
       "nextCTA": "Non merci, je ne souhaite pas être informé(e) des résultats."
     },
     "finalCard": {
-      "title": "Merci pour votre participation",
+      "title": "Merci pour votre participation !",
       "share": [
         "Vous souhaitez aller plus loin pour réinventer l'Europe ?",
         "Invitez vos proches et/ou votre communauté à participer"
@@ -41,13 +42,19 @@
   },
   "sequenceExtraSlidesConfig": {
     "introCard": {
+      "title": true,
+      "description": true,
       "partners": [],
       "inPartnershipWith": false,
       "extraLogo": false
     },
     "pushProposal": true,
-    "finalCard": true,
-    "signUpCard": true
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
   },
   "sequenceSignUpForm": {
     "firstName": true,

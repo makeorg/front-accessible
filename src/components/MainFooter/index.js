@@ -25,12 +25,12 @@ const MainFooterComponent = (props: Props) => {
           id="footer_title"
         >
           <HiddenItem aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItem>
-          {questionConfiguration.question}
+          {questionConfiguration.wording.question}
         </MainFooter.Title>
         <MainFooter.Link
           color={questionConfiguration.theme.footerFontColor}
           target="_blank"
-          href={questionConfiguration.learnMoreUrl}
+          href={questionConfiguration.consultationUrl}
           onClick={handleTracking}
         >
           {i18next.t('footer_sequence.link')}

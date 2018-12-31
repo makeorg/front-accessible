@@ -1,12 +1,13 @@
 // @flow
 import * as React from 'react';
+import type { PartnerItem } from 'Types/card';
 import i18next from 'i18next';
 import { MiddleRow } from 'Components/Elements/FlexElements';
 import ProposalCard from '../../Styled';
 
 type ListProps = {
   /** Array with partners propeties */
-  partners: Array<Object>
+  partners: Array<PartnerItem>
 }
 
 /**
@@ -51,8 +52,8 @@ const PartnersList = (props: ListProps) => {
 type Props = {
   /** Array with partners propeties */
   partners: Array<Object>,
-  /** Boolean used to return wording */
-  wording: boolean
+  /** Boolean used to return configuration for partnership label display */
+  configuration: boolean
 }
 
 /**
@@ -61,7 +62,7 @@ type Props = {
 const Partners = (props: Props) => {
   const {
     partners,
-    wording
+    configuration
   } = props;
 
   if (!partners) {
@@ -70,7 +71,7 @@ const Partners = (props: Props) => {
 
   return (
     <ProposalCard.PartnerFooter as="footer">
-      {wording
+      {configuration
         ? i18next.t('intro_card.partnership')
         : ''
       }

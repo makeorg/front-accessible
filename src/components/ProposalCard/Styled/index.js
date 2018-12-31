@@ -20,7 +20,11 @@ import {
   IntroParagraph,
   FinalParagraph,
   Separator,
+  ContentWrapper,
   InnerContent,
+  FinalCardContentWrapper,
+  SharingWrapper,
+  MoreWrapper,
   PartnerFooter,
   PartnerList,
   PartnerAvatar
@@ -69,10 +73,14 @@ ProposalCard.SecondaryTitle = SecondaryTitle;
 ProposalCard.ExtraLogo = ExtraLogo;
 
 /* Contents */
+ProposalCard.ContentWrapper = ContentWrapper;
 ProposalCard.InnerContent = InnerContent;
 ProposalCard.IntroParagraph = IntroParagraph;
 ProposalCard.FinalParagraph = FinalParagraph;
 ProposalCard.Separator = Separator;
+ProposalCard.FinalCardContentWrapper = FinalCardContentWrapper;
+ProposalCard.SharingWrapper = SharingWrapper;
+ProposalCard.MoreWrapper = MoreWrapper;
 ProposalCard.PartnerFooter = PartnerFooter;
 ProposalCard.PartnerList = PartnerList;
 ProposalCard.PartnerAvatar = PartnerAvatar;

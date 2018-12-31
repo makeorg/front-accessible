@@ -3,13 +3,13 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { CenterColumn } from 'Components/Elements/FlexElements';
 import ProgressBarComponent from '../ProgressBar';
+import FinalTitle from './Title';
+import Sharing from './Sharing';
+import { More } from './More';
 import ProposalCard from '../Styled';
 
 type Props = {
-  /** Link of the consultation */
-  linkUrl: string,
   /** Total of cards */
   cardsCount: number,
   /** Index of the card */
@@ -25,9 +25,9 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
+  goToPreviousCard: () => void,
   /** Method called when button is clicked */
-  handleEndSequence: Function
+  handleEndSequence: () => void
 }
 
 /**
@@ -35,7 +35,8 @@ type Props = {
  */
 const FinalCardComponent = (props: Props) => {
   const {
-    linkUrl,
+    finalCardConfig,
+    finalCardWording,
     cardsCount,
     index,
     currentIndex,
@@ -66,20 +67,20 @@ const FinalCardComponent = (props: Props) => {
         </ProposalCard.BackButton>
         <ProgressBarComponent index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
-      <ProposalCard.InnerContent>
-        <CenterColumn as="section">
-          <ProposalCard.FinalParagraph dangerouslySetInnerHTML={{ __html: i18next.t('final_card.title') }} />
-          <ProposalCard.FinalLink
-            as="a"
-            tabIndex={tabIndex}
-            href={linkUrl}
-            target="_blank"
-            onClick={handleEndSequence}
-          >
-            {i18next.t('final_card.button')}
-          </ProposalCard.FinalLink>
-        </CenterColumn>
-      </ProposalCard.InnerContent>
+      <ProposalCard.ContentWrapper>
+        <ProposalCard.InnerContent as="section">
+          <FinalTitle title={finalCardConfig.customTitle && finalCardWording.title} />
+          <ProposalCard.FinalCardContentWrapper>
+            <Sharing wording={finalCardConfig.withSharing && finalCardWording.share} />
+            <More
+              configuration={finalCardConfig.withSharing && finalCardConfig}
+              wording={finalCardConfig.withSharing && finalCardWording}
+              tabIndex={tabIndex}
+              handleEndSequence={handleEndSequence}
+            />
+          </ProposalCard.FinalCardContentWrapper>
+        </ProposalCard.InnerContent>
+      </ProposalCard.ContentWrapper>
     </ProposalCard>
   );
 };

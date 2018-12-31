@@ -46,7 +46,7 @@ class SequencePage extends React.Component<Props> {
       return null;
     }
 
-    const { metas } = questionConfiguration;
+    const { metas } = questionConfiguration.wording;
 
     return (
       <ThemeProvider theme={questionConfiguration.theme}>

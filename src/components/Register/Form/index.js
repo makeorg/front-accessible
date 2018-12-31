@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
+import type { userObject } from 'Types/register';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -23,7 +24,15 @@ import UntypedInput from 'Components/Elements/Form/UntypedInput';
 import PasswordInput from 'Components/Elements/Form/PasswordInput';
 
 type Props = {
-  user: Object,
+  /** type userObject = {
+    email: string,
+    password: string,
+    firstname: string,
+    age: string,
+    postalcode: string,
+    profession: string
+  } */
+  user: userObject,
   /** Array with form errors */
   errors: Array<string>,
   /** Boolean toggled when Sliding pannel is opened / closed */

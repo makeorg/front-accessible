@@ -8,6 +8,7 @@ describe('IntroCardComponent', () => {
 
   it('Check a11y rules', () => {
     const props = {
+      configuration: { extraLogo: 'foo' },
       questionConfiguration: { color: 'foo'}
     };
     const wrapper = shallow(<IntroCardComponent {...props} />);

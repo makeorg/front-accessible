@@ -1,16 +1,21 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { introCardConfig, introCardWording } from 'Types/card';
 import IntroCardComponent from 'Components/ProposalCard/IntroCard';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
-  configuration: Object,
+  configuration: introCardConfig,
+  /** Object with Static properties used to customise the wording of the Intro Card */
+  wording: introCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Zindex property used by Styled Component */
+  zindex: number,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -25,6 +30,7 @@ type Props = {
 const IntroCardContainer = (props: Props) => {
   const {
     configuration,
+    wording,
     index,
     currentIndex,
     isPannelOpen,
@@ -35,7 +41,8 @@ const IntroCardContainer = (props: Props) => {
   const zindex = getZIndex(index, currentIndex);
   return (
     <IntroCardComponent
-      introCardParams={configuration}
+      introCardConfig={configuration}
+      introCardWording={wording}
       position={position}
       scale={scale}
       zindex={zindex}
