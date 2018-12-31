@@ -110,7 +110,7 @@
   "scripts": {
     "start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --hot",
     "build": "webpack -p --progress --colors --config ./webpack/prod.config.js",
-    "server": "node server/start.js",
+    "server": "node bin/start",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "lint": "eslint src server",

@@ -18,8 +18,10 @@ export default function configureStore(initialState: Object = {}) {
     Cookies.set(SESSION_ID_COOKIE_KEY, sessionId);
   }
 
-  ApiService.questionId = initialState.sequence.question.questionId;
-  ApiService.operationId = initialState.sequence.question.operationId;
+  if (initialState.sequence && initialState.sequence.question) {
+    ApiService.questionId = initialState.sequence.question.questionId;
+    ApiService.operationId = initialState.sequence.question.operationId;
+  }
   ApiService.source = initialState.appConfig.source;
   ApiService.country = initialState.appConfig.country;
   ApiService.language = initialState.appConfig.language;

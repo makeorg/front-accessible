@@ -10,8 +10,6 @@ require('./browserPolyfill');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const { BUILD_DIR, IMAGES_DIR, DOC_DIR } = require('./paths');
-const configuration = require('./configuration');
-
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -87,4 +85,4 @@ csp.extend(app, {
   }
 });
 
-app.listen(configuration.port, configuration.host);
+module.exports = app;

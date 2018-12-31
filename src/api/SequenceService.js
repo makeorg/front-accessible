@@ -16,6 +16,8 @@ export default class SequenceService {
       method: 'GET',
       url: `${PROXY_URL}${PATH_QUESTION_CONFIGURATION
         .replace(':questionSlug', questionSlug).replace(':country', country)}`
-    }).then(response => response.data);
+    })
+      .then(response => response.data)
+      .catch(error => console.log(error));
   }
 }
