@@ -8,4 +8,5 @@ require('@babel/register')({
     }]
   ]
 });
-require('./index.js');
+
+module.exports = require('./index.js');

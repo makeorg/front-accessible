@@ -7,23 +7,28 @@ async function getQuestion(questionSlug) {
 }
 
 module.exports = async function SequenceRoute(req, res) {
-  const question = await getQuestion(req.params.questionSlug);
-  const { firstProposal } = req.query;
+  try {
+    const question = await getQuestion(req.params.questionSlug);
+    const { firstProposal } = req.query;
 
-  let sequenceState = {
-    sequence: {
-      question
-    }
-  };
-
-  if (firstProposal) {
-    sequenceState = {
+    let sequenceState = {
       sequence: {
-        ...sequenceState.sequence,
-        ...{ firstProposal }
+        question
       }
     };
-  }
 
-  return reactRender(req, res, sequenceState);
+    if (firstProposal) {
+      sequenceState = {
+        sequence: {
+          ...sequenceState.sequence,
+          ...{ firstProposal }
+        }
+      };
+    }
+
+    return reactRender(req, res, sequenceState);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 };
