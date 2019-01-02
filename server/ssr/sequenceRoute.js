@@ -13,7 +13,8 @@ module.exports = async function SequenceRoute(req, res) {
 
     let sequenceState = {
       sequence: {
-        question
+        question,
+        votedProposalIds: []
       }
     };
 

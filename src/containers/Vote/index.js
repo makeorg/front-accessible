@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { doVote, doUnvote } from 'Helpers/vote';
 import Tracking from 'Services/Tracking';
 import VoteService from 'Api/VoteService';
+import { sequenceVote, sequenceUnvote } from 'Actions/sequence';
 import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
 import VoteStyled from 'Components/Vote/Styled';
 import VoteComponent from 'Components/Vote';
@@ -60,19 +61,26 @@ export class Vote extends React.Component<Props, State> {
 
   handleVote = (event: SyntheticEvent<*>, voteKey: string) => {
     event.preventDefault();
-    const { proposalId, index } = this.props;
+    const {
+      proposalId,
+      index,
+      handleVoteOnSequence,
+      handleUnvoteOnSequence
+    } = this.props;
     const { hasVoted } = this.state;
 
     if (hasVoted) {
       VoteService.unvote(proposalId, voteKey)
         .then((vote) => {
           this.setState(prevState => doUnvote(prevState, vote));
+          handleUnvoteOnSequence(proposalId);
         });
       Tracking.trackUnvote(proposalId, voteKey, index);
     } else {
       VoteService.vote(proposalId, voteKey)
         .then((vote) => {
           this.setState(prevState => doVote(prevState, vote));
+          handleVoteOnSequence(proposalId);
         });
       Tracking.trackVote(proposalId, voteKey, index);
     }
@@ -146,4 +154,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Vote);
+const mapDispatchToProps = dispatch => ({
+  handleVoteOnSequence: (proposalId: string) => {
+    dispatch(sequenceVote(proposalId));
+  },
+  handleUnvoteOnSequence: (proposalId: string) => {
+    dispatch(sequenceUnvote(proposalId));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Vote);
