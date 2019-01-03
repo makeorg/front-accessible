@@ -126,7 +126,6 @@ class SequenceContainer extends React.Component<Props, State> {
 
       QuestionService.startSequence(question.questionId, includedProposalIds)
         .then(sequence => this.setProposals(sequence))
-        .then(() => this.setState({ isSequenceLoaded: true }))
         .catch(error => error);
     }
   }
@@ -136,7 +135,6 @@ class SequenceContainer extends React.Component<Props, State> {
     if (question) {
       QuestionService.startSequence(question.questionId, [firstProposal])
         .then(sequence => this.setProposals(sequence))
-        .then(() => this.setState({ isSequenceLoaded: true }))
         .catch(error => error);
     }
   }
@@ -155,7 +153,7 @@ class SequenceContainer extends React.Component<Props, State> {
       cards,
       currentIndex,
       cardsCount: cards.length - 1,
-      isSequenceLoaded: false
+      isSequenceLoaded: true
     });
   }
 
