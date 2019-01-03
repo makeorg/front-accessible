@@ -38,7 +38,7 @@ class Tracking {
         eventParameters,
         eventType: 'trackCustom'
       })
-    }).catch(error => Logger.logError(error));
+    }).catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...error }));
   };
 
   /* On Load Tracking */

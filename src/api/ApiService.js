@@ -44,8 +44,7 @@ export const fetchRetry = (
           const { status } = response;
           if (status === 400) return reject(error.response.data);
           if (status === 401) return reject(error);
-        } else {
-          reject(error);
+          if (status === 404) return reject(error);
         }
 
         if (retry === 1) return reject(error);

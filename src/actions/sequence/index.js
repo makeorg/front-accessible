@@ -22,16 +22,16 @@ export const fetchQuestionData = (questionSlug: string, country: string, languag
       dispatch({ type: actionTypes.QUESTION_LOAD, question });
     })
     .catch((error) => {
-      Logger.logError(error);
+      Logger.logError({ ...{ source: 'fetchQuestionData api call error' }, ...error });
     })
 );
 
-export const fetchQuestionConfigurationData = (questionSlug: String, country: String) => (dispatch: Function) => (
+export const fetchQuestionConfigurationData = (questionSlug: string, country: string) => (dispatch: Function) => (
   SequenceService.fetchConfiguration(questionSlug, country)
     .then((questionConfiguration) => {
       dispatch({ type: actionTypes.QUESTION_CONFIGURATION_LOAD, questionConfiguration });
     })
     .catch((error) => {
-      Logger.logError(error);
+      Logger.logError({ ...{ source: 'fetchQuestionConfigurationData api call error' }, ...error });
     })
 );
