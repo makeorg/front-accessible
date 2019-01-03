@@ -1,5 +1,6 @@
 /* @flow */
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Helpers/url';
 import Logger from 'Services/Logger';
 
@@ -14,67 +15,30 @@ const BROWSER_API_URL = (
 
 export const API_URL = BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';
 
-/**
- * fetch with retry and timeout function
- * @param  {String} url
- * @param  {Object} options
- * @param  {Number} retry
- * @param  {Number} timeout
- *
- * @return Promise
- */
-
-export const fetchRetry = (
-  url: string,
-  options: Object = {},
-  retry: number = 5,
-  timeout:number = 9000
-): Promise<any> => (
-  new Promise((resolve, reject) => {
-    axios({
-      method: options.method,
-      url,
-      headers: options.headers,
-      data: options.data,
-      withCredentials: true
-    }).then(resolve)
-      .catch((error) => {
-        if (error.response) {
-          const { response } = error;
-          const { status } = response;
-          if (status === 400) return reject(error.response.data);
-          if (status === 401) return reject(error);
-          if (status === 404) return reject(error);
-        }
-
-        if (retry === 1) return reject(error);
-        return resolve(fetchRetry(url, options, retry - 1));
-      });
-
-    setTimeout(() => reject(new TypeError('Client timed out')), timeout);
-  })
-);
-
+axiosRetry(axios, {
+  retries: 5,
+  retryDelay: retryCount => retryCount * 100
+});
 
 /**
  * handle error for http response
  * @param  {Object} response
  * @return {String|Object}
  */
-export const handleErrors = (response: Object) => {
-  if (response.status >= 200 && response.status < 300) {
-    return response.data;
+export const handleErrors = (error: Object) => {
+  if (error.response) {
+    switch (error.response.status) {
+      case 400:
+        throw error.response.data;
+      case 500:
+        Logger.logError('Api Response');
+        throw error.response.status;
+      default:
+        throw error.response.status;
+    }
   }
 
-  switch (response.status) {
-    case 400:
-      return response.json().then((errors) => { throw errors; });
-    case 500:
-      Logger.logError('Api Response');
-      throw response.status;
-    default:
-      throw response.status;
-  }
+  throw error.message;
 };
 
 let instance = null;
@@ -186,12 +150,19 @@ class ApiService {
       });
     }
 
-    return fetchRetry(`${API_URL}${url}`, {
+    return axios(`${API_URL}${url}`, {
       method: options.method,
       headers,
       data: options.body
     })
-      .then(handleErrors);
+      .then((response) => {
+        if (response.status >= 200 && response.status < 300) {
+          return response.data;
+        }
+
+        return null;
+      })
+      .catch(handleErrors);
   }
 }
 
