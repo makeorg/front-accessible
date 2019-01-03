@@ -2,6 +2,7 @@ import questionApi from './questionApi';
 import { logger } from './logger';
 
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
@@ -9,7 +10,12 @@ const csp = require('express-csp');
 require('./browserPolyfill');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
-const { BUILD_DIR, IMAGES_DIR, DOC_DIR } = require('./paths');
+const {
+  BUILD_DIR,
+  IMAGES_DIR,
+  DOC_DIR,
+  VERSION_PATH
+} = require('./paths');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -17,7 +23,6 @@ function setCustomCacheControl(res, path) {
     res.setHeader('Cache-Control', 'public, max-age=0');
   }
 }
-
 
 // App
 const app = express();
@@ -62,8 +67,18 @@ function countryDetectMiddelware(req, res, next) {
   return next();
 }
 
+function renderVersion(req, res) {
+  try {
+    const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
+    res.json(JSON.parse(versionData));
+  } catch (error) {
+    res.status(404).send('Version file not found');
+  }
+}
+
 // Front Routes
 app.get('/', countryDetectMiddelware);
+app.get('/version', renderVersion);
 app.get('/:country', countryDetectMiddelware, homeRoute);
 app.get('/:country/consultation/:questionSlug/selection', countryDetectMiddelware, sequenceRoute);
 

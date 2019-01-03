@@ -4,13 +4,24 @@ import DateHelper, { getDateOfBirthFromAge } from './date';
 
 describe('Date Helper', () => {
   it('getDateOfBirthFromAge with valid integer age', () => {
+    const clock = sinon.useFakeTimers(new Date(2019,1,1).getTime());
     const dateOfBirth = getDateOfBirthFromAge(32);
-    expect(dateOfBirth).to.equal('1986-01-01');
+    expect(dateOfBirth).to.equal('1987-01-01');
+    clock.restore();
+  });
+
+  it('getDateOfBirthFromAge with valid integer age and changing current date', () => {
+    const clock = sinon.useFakeTimers(new Date(2018,1,1).getTime());
+    const dateOfBirth = getDateOfBirthFromAge(35);
+    expect(dateOfBirth).to.equal('1983-01-01');
+    clock.restore();
   });
 
   it('getDateOfBirthFromAge with valid string age', () => {
+    const clock = sinon.useFakeTimers(new Date(2019,1,1).getTime());
     const dateOfBirth = getDateOfBirthFromAge('32');
-    expect(dateOfBirth).to.equal('1986-01-01');
+    expect(dateOfBirth).to.equal('1987-01-01');
+    clock.restore();
   });
 
   it('getDateOfBirthFromAge without age', () => {
