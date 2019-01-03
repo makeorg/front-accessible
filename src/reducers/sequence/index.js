@@ -6,7 +6,8 @@ const initialState: Object = {
   isSequenceCollapsed: false,
   firstProposal: null,
   question: null,
-  questionConfiguration: null
+  questionConfiguration: null,
+  votedProposalIds: []
 };
 
 export default function sequence(state: Object = initialState, action: Object) {
@@ -30,6 +31,16 @@ export default function sequence(state: Object = initialState, action: Object) {
       return {
         ...state,
         questionConfiguration: action.questionConfiguration
+      };
+    case actionTypes.SEQUENCE_PROPOSAL_VOTE:
+      return {
+        ...state,
+        votedProposalIds: [...state.votedProposalIds, ...[action.proposalId]]
+      };
+    case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
+      return {
+        ...state,
+        votedProposalIds: state.votedProposalIds.filter(item => item !== action.proposalId)
       };
     default:
       return state;

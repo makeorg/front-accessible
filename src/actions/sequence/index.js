@@ -8,6 +8,13 @@ import Logger from 'Services/Logger';
 export const sequenceCollapse = () => (dispatch: Function) => dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
 export const sequenceExpand = () => (dispatch: Function) => dispatch({ type: actionTypes.SEQUENCE_EXPAND });
 
+export const sequenceVote = (proposalId: string) => (dispatch: Function) => (
+  dispatch({ type: actionTypes.SEQUENCE_PROPOSAL_VOTE, proposalId })
+);
+export const sequenceUnvote = (proposalId: string) => (dispatch: Function) => (
+  dispatch({ type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE, proposalId })
+);
+
 export const fetchQuestionData = (questionSlug: string, country: string, language: string) => (dispatch: Function) => (
   OperationService
     .getOperation(questionSlug, country, language)

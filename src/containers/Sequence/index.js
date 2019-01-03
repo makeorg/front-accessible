@@ -114,21 +114,20 @@ class SequenceContainer extends React.Component<Props, State> {
     this.expandSequence = this.expandSequence.bind(this);
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    const { isLoggedIn } = this.props;
-    if (isLoggedIn !== prevProps.isLoggedIn) {
-      const { proposals } = prevState;
-      const proposalIds = proposals.map(proposal => proposal.id);
-      const { question, firstProposal } = prevProps;
+  componentDidUpdate = (prevProps) => {
+    const {
+      isLoggedIn,
+      question,
+      firstProposal,
+      votedProposalIds
+    } = this.props;
+    if (question && isLoggedIn !== prevProps.isLoggedIn) {
+      const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
 
-      if (question) {
-        const includedProposalIds = [...proposalIds, ...[firstProposal]];
-
-        QuestionService.startSequence(question.questionId, includedProposalIds)
-          .then(sequence => this.setProposals(sequence))
-          .then(() => this.setState({ isSequenceLoaded: true }))
-          .catch(error => error);
-      }
+      QuestionService.startSequence(question.questionId, includedProposalIds)
+        .then(sequence => this.setProposals(sequence))
+        .then(() => this.setState({ isSequenceLoaded: true }))
+        .catch(error => error);
     }
   }
 
@@ -208,12 +207,13 @@ class SequenceContainer extends React.Component<Props, State> {
 
 
 const mapStateToProps = (state) => {
-  const { firstProposal, isSequenceCollapsed } = state.sequence;
+  const { firstProposal, votedProposalIds, isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
   const { isLoggedIn } = state.authentification;
 
   return {
     firstProposal,
+    votedProposalIds,
     isSequenceCollapsed,
     isPannelOpen,
     isLoggedIn
