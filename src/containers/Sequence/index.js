@@ -121,7 +121,9 @@ class SequenceContainer extends React.Component<Props, State> {
       firstProposal,
       votedProposalIds
     } = this.props;
-    if (question && isLoggedIn !== prevProps.isLoggedIn) {
+    const hasVoted = votedProposalIds.length > 0;
+
+    if (question && hasVoted && isLoggedIn !== prevProps.isLoggedIn) {
       const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
 
       QuestionService.startSequence(question.questionId, includedProposalIds)
