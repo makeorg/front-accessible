@@ -22,6 +22,7 @@ module.exports = merge(baseConfig, {
     port: 3000,
     contentBase: './dist',
     hot: true,
+    host: process.env.HOST || '0.0.0.0',
     historyApiFallback: true
   },
   devtool: 'inline-source-map'
