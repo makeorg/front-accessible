@@ -5,29 +5,27 @@ cache:
   - node_modules/
 
 stages:
-  - lint
-  - flow-static
-  - test
+  - check
   - build
   - deploy
   - merge
 
 lint:
-  stage: lint
+  stage: check
   image: node:10.9.0-alpine
   script:
     - yarn install
     - yarn lint
 
 flow-static:
-  stage: flow-static
+  stage: check
   image: node:10.9.0
   script:
     - yarn install
     - yarn flow
 
 test:
-  stage: test
+  stage: check
   image: node:10.9.0-alpine
   script:
     - yarn install
