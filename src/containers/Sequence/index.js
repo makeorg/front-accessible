@@ -41,6 +41,8 @@ type State = {
   cardsCount: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Sequence has started yet */
+  hasStarted: boolean,
   /** Check if sequence is loaded */
   isSequenceLoaded: boolean
 };
@@ -103,6 +105,7 @@ class SequenceContainer extends React.Component<Props, State> {
       proposals: [],
       cardsCount: 0,
       currentIndex: 0,
+      hasStarted: false,
       isSequenceLoaded: false
     };
 
@@ -122,9 +125,8 @@ class SequenceContainer extends React.Component<Props, State> {
       firstProposal,
       votedProposalIds
     } = this.props;
-    const hasVoted = votedProposalIds.length > 0;
 
-    if (question && hasVoted && (isLoggedIn !== prevProps.isLoggedIn || hasProposed !== prevProps.hasProposed)) {
+    if (question && (isLoggedIn !== prevProps.isLoggedIn || hasProposed !== prevProps.hasProposed)) {
       const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
 
       QuestionService.startSequence(question.questionId, includedProposalIds)
@@ -150,6 +152,7 @@ class SequenceContainer extends React.Component<Props, State> {
 
   setProposals = (sequence: Object, isLoggedIn: boolean, hasProposed: boolean) => {
     const { questionConfiguration } = this.props;
+    const { hasStarted } = this.state;
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlides;
     const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(proposals);
@@ -160,8 +163,9 @@ class SequenceContainer extends React.Component<Props, State> {
       hasProposed
     );
 
-    const firstNoVotedProposal: ?Objet = ProposalHelper.searchFirstNoVotedProposal(votedFirstProposals);
-    const currentIndex: number = SequenceHelper.findIndexOfFirstNoVotedCard(firstNoVotedProposal, cards);
+    const firstUnvotedProposal: ?Objet = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
+    const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(firstUnvotedProposal, cards);
+    const currentIndex: number = (indexOfFirstUnvotedCard === 0 && hasStarted) ? 1 : indexOfFirstUnvotedCard;
 
     this.setState({
       proposals: votedFirstProposals,
@@ -173,7 +177,10 @@ class SequenceContainer extends React.Component<Props, State> {
   }
 
   handleStartSequence = () => {
-    this.setState(incrementCurrentIndex);
+    this.setState(prevState => ({
+      ...incrementCurrentIndex(prevState),
+      hasStarted: true
+    }));
     Tracking.trackClickStartSequence();
   }
 

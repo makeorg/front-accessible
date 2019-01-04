@@ -36,6 +36,6 @@ export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> =>
  * Search the first no voted proposal
  * @type {Object|null}
  */
-export const searchFirstNoVotedProposal = (proposals: Array<Object>): ?Object => (
+export const searchFirstUnvotedProposal = (proposals: Array<Object>): ?Object => (
   proposals.find(proposal => proposal.votes.every(vote => vote.hasVoted === false))
 );

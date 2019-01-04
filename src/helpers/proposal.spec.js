@@ -53,18 +53,18 @@ describe('Proposal Helper', () => {
     expect(sortedProposals[0].id).to.equal('baz');
   });
 
-  it('searchFirstNoVotedProposal with empty array', () => {
-    const firstNoVotedProposal = ProposalHelper.searchFirstNoVotedProposal([]);
-    expect(firstNoVotedProposal).to.be.undefined;
+  it('searchFirstUnvotedProposal with empty array', () => {
+    const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal([]);
+    expect(firstUnvotedProposal).to.be.undefined;
   });
 
-  it('searchFirstNoVotedProposal with proposals', () => {
+  it('searchFirstUnvotedProposal with proposals', () => {
     const fooProposal = {id: 'foo', votes: [{hasVoted: true}, {hasVoted: false}, {hasVoted: false}]};
     const barProposal = {id: 'bar', votes: [{hasVoted: false}, {hasVoted: false}, {hasVoted: false}]};
     const bazProposal = {id: 'baz', votes: [{hasVoted: true}, {hasVoted: false}, {hasVoted: false}]};
     const proposals = [fooProposal, barProposal, bazProposal];
 
-    const firstNoVotedProposal = ProposalHelper.searchFirstNoVotedProposal(proposals);
-    expect(firstNoVotedProposal.id).to.equal('bar');
+    const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal(proposals);
+    expect(firstUnvotedProposal.id).to.equal('bar');
   });
 });

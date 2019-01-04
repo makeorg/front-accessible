@@ -43,17 +43,17 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  * @param  {Array<Card>} cards
  * @return {number}
  */
-export const findIndexOfFirstNoVotedCard = (firstNoVotedProposal: ?Object, cards: Array<Card>): number => {
-  if (!firstNoVotedProposal) {
+export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal: ?Object, cards: Array<Card>): number => {
+  if (!firstUnvotedProposal) {
     return cards.length - 1;
   }
 
-  const indexOfFirstNoVotedCard = cards.findIndex(card => (
-    card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstNoVotedProposal.id
+  const indexOfFirstUnvotedCard = cards.findIndex(card => (
+    card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstUnvotedProposal.id
   ));
 
   // if no proposal is voted we return the index of intro cards
-  return (indexOfFirstNoVotedCard === 1) ? 0 : indexOfFirstNoVotedCard;
+  return (indexOfFirstUnvotedCard === 1) ? 0 : indexOfFirstUnvotedCard;
 };
 
 /**
