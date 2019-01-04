@@ -6,7 +6,8 @@ import { getBaitText } from 'Constants/proposal';
 const initialState: Object = {
   isTyping: false,
   canSubmit: false,
-  isSubmitSuccess: false,
+  hasProposed: false,
+  isCurrentSubmitSuccess: false,
   content: '',
   length: getBaitText().length,
   questionId: null,
@@ -19,7 +20,7 @@ export default function proposal(state: Object = initialState, action: Object) {
       return {
         ...state,
         isTyping: true,
-        isSubmitSuccess: false,
+        isCurrentSubmitSuccess: false,
         content: action.content,
         length: action.length,
         canSubmit: action.canSubmit
@@ -33,8 +34,14 @@ export default function proposal(state: Object = initialState, action: Object) {
     case actionTypes.PROPOSE_SUCCESS:
       return {
         ...state,
-        ...initialState,
-        isSubmitSuccess: true
+        isTyping: false,
+        canSubmit: false,
+        isCurrentSubmitSuccess: true,
+        content: '',
+        length: getBaitText().length,
+        hasProposed: true,
+        questionId: null,
+        error: null
       };
     case actionTypes.PROPOSE_FAILURE:
       return {

@@ -117,36 +117,49 @@ class SequenceContainer extends React.Component<Props, State> {
   componentDidUpdate = (prevProps) => {
     const {
       isLoggedIn,
+      hasProposed,
       question,
       firstProposal,
       votedProposalIds
     } = this.props;
     const hasVoted = votedProposalIds.length > 0;
 
-    if (question && hasVoted && isLoggedIn !== prevProps.isLoggedIn) {
+    if (question && hasVoted && (isLoggedIn !== prevProps.isLoggedIn || hasProposed !== prevProps.hasProposed)) {
       const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
 
       QuestionService.startSequence(question.questionId, includedProposalIds)
-        .then(sequence => this.setProposals(sequence))
+        .then(sequence => this.setProposals(sequence, isLoggedIn, hasProposed))
         .catch(error => error);
     }
   }
 
   componentDidMount = () => {
-    const { question, firstProposal } = this.props;
+    const {
+      question,
+      firstProposal,
+      isLoggedIn,
+      hasProposed
+    } = this.props;
+
     if (question) {
       QuestionService.startSequence(question.questionId, [firstProposal])
-        .then(sequence => this.setProposals(sequence))
+        .then(sequence => this.setProposals(sequence, isLoggedIn, hasProposed))
         .catch(error => error);
     }
   }
 
-  setProposals = (sequence) => {
+  setProposals = (sequence: Object, isLoggedIn: boolean, hasProposed: boolean) => {
     const { questionConfiguration } = this.props;
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlides;
     const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(proposals);
-    const cards: Array<mixed> = SequenceHelper.buildCards(votedFirstProposals, extraSlidesConfig);
+    const cards: Array<mixed> = SequenceHelper.buildCards(
+      votedFirstProposals,
+      extraSlidesConfig,
+      isLoggedIn,
+      hasProposed
+    );
+
     const firstNoVotedProposal: ?Objet = ProposalHelper.searchFirstNoVotedProposal(votedFirstProposals);
     const currentIndex: number = SequenceHelper.findIndexOfFirstNoVotedCard(firstNoVotedProposal, cards);
 
@@ -208,6 +221,7 @@ class SequenceContainer extends React.Component<Props, State> {
 
 const mapStateToProps = (state) => {
   const { firstProposal, votedProposalIds, isSequenceCollapsed } = state.sequence;
+  const { hasProposed } = state.proposal;
   const { isPannelOpen } = state.pannel;
   const { isLoggedIn } = state.authentification;
 
@@ -215,6 +229,7 @@ const mapStateToProps = (state) => {
     firstProposal,
     votedProposalIds,
     isSequenceCollapsed,
+    hasProposed,
     isPannelOpen,
     isLoggedIn
   };
