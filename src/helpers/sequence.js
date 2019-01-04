@@ -43,7 +43,11 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  * @param  {Array<Card>} cards
  * @return {number}
  */
-export const findIndexOfFirstNoVotedCard = (firstNoVotedProposal: Object, cards: Array<Card>): number => {
+export const findIndexOfFirstNoVotedCard = (firstNoVotedProposal: ?Object, cards: Array<Card>): number => {
+  if (!firstNoVotedProposal) {
+    return cards.length - 1;
+  }
+
   const indexOfFirstNoVotedCard = cards.findIndex(card => (
     card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstNoVotedProposal.id
   ));
@@ -58,13 +62,18 @@ export const findIndexOfFirstNoVotedCard = (firstNoVotedProposal: Object, cards:
  * @param  {ExtraSlidesConfig} extraSlides
  * @return {Array<Card>}
  */
-export const buildCards = (proposals: Array<Object>, extraSlides: ExtraSlidesConfig): Array<Card> => {
+export const buildCards = (
+  proposals: Array<Object>,
+  extraSlides: ExtraSlidesConfig,
+  isLoggedIn: boolean,
+  hasProposed: boolean
+): Array<Card> => {
   const cards: Array<Card> = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
     configuration: proposal
   }));
 
-  if (extraSlides.pushProposal === true || extraSlides.pushProposal instanceof Object) {
+  if ((extraSlides.pushProposal === true || extraSlides.pushProposal instanceof Object) && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlides.pushProposal
@@ -78,7 +87,7 @@ export const buildCards = (proposals: Array<Object>, extraSlides: ExtraSlidesCon
     });
   }
 
-  if (extraSlides.signUpCard === true || extraSlides.signUpCard instanceof Object) {
+  if ((extraSlides.signUpCard === true || extraSlides.signUpCard instanceof Object) && !isLoggedIn) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlides.signUpCard

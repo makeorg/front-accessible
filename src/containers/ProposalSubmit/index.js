@@ -21,7 +21,7 @@ type Props = {
   /** Boolean toggled when proposal can be submitted */
   canSubmit: boolean,
   /** Boolean toggled when proposal is succesfully submitted */
-  isSubmitSuccess: boolean,
+  isCurrentSubmitSuccess: boolean,
   /** Boolean toggled when user is connected */
   isLoggedIn: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -122,15 +122,15 @@ export class ProposalSubmit extends React.Component<Props, State> {
       content,
       length,
       canSubmit,
-      isSubmitSuccess,
+      isCurrentSubmitSuccess,
       isLoggedIn,
       isSequenceCollapsed,
       isPannelOpen
     } = this.props;
     const { isTyping } = this.state;
-    const isDescriptionShown = isTyping && !isSubmitSuccess && isSequenceCollapsed;
+    const isDescriptionShown = isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
     const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
-    const isSuccessShown = !isTyping && isSubmitSuccess && isSequenceCollapsed;
+    const isSuccessShown = !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
       <ProposalSubmitWrapper>
         <ProposalSubmitFormComponent
@@ -174,7 +174,7 @@ const mapStateToProps = (state) => {
     content,
     length,
     canSubmit,
-    isSubmitSuccess
+    isCurrentSubmitSuccess
   } = state.proposal;
 
   return {
@@ -184,7 +184,7 @@ const mapStateToProps = (state) => {
     content,
     length,
     canSubmit,
-    isSubmitSuccess
+    isCurrentSubmitSuccess
   };
 };
 
