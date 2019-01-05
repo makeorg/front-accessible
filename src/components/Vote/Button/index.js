@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BottomTooltip, DisplayedTooltip } from 'Components/Elements/TooltipElments';
+import { HiddenOnMobile } from 'Components/Elements/HiddenElements';
 import { ButtonWrapper, Button } from '../Styled/Button';
 
 type Props = {
@@ -54,19 +55,19 @@ const VoteButtonComponent = (props: Props) => {
         onClick={handleVote}
         onMouseEnter={displayTooltip}
         onMouseLeave={hideTooltip}
-        onFocus={displayTooltip}
-        onBlur={hideTooltip}
       >
         <FontAwesomeIcon icon={icon} />
       </Button>
-      <BottomTooltip
-        id={tooltipKey}
-        as={isTooltipDisplayed ? DisplayedTooltip : ''}
-        aria-hidden={!isTooltipDisplayed}
-        role="tooltip"
-      >
-        <p>{label}</p>
-      </BottomTooltip>
+      <HiddenOnMobile>
+        <BottomTooltip
+          id={tooltipKey}
+          as={isTooltipDisplayed ? DisplayedTooltip : ''}
+          aria-hidden={!isTooltipDisplayed}
+          role="tooltip"
+        >
+          <p>{label}</p>
+        </BottomTooltip>
+      </HiddenOnMobile>
     </ButtonWrapper>
   );
 };

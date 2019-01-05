@@ -1,5 +1,5 @@
+/* eslint no-console: ["error", { allow: ["log"] }] */
 /* @flow */
-
 import axios from 'axios';
 import { FRONT_URL } from 'Constants/config';
 

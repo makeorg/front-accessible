@@ -30,24 +30,18 @@ type State = {
  * Handles Vote Button Business Logic
  */
 class VoteButtonContainer extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isTooltipDisplayed: false
-    };
-
-    this.displayTooltip = this.displayTooltip.bind(this);
-    this.hideTooltip = this.hideTooltip.bind(this);
+  state = {
+    isTooltipDisplayed: false
   }
 
-  displayTooltip(event) {
+  displayTooltip = (event) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: true
     });
   }
 
-  hideTooltip(event) {
+  hideTooltip = (event) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: false
