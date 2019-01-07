@@ -9,7 +9,7 @@ export default [
     dataFetch: null
   },
   {
-    path: '/:country/consultation/:questionSlug/selection',
+    path: '/:countryLanguage/consultation/:questionSlug/selection',
     component: SequencePage
   }
 ];
