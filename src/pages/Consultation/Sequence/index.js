@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
 import MetaTags from 'Components/MetaTags';
 import { SequenceContent } from 'Components/Elements/MainElements';
-import MainFooterContainer from 'Containers/MainFooter';
+import { SequenceFooterContainer } from 'Containers/Sequence/Footer';
 import SequenceContentLoader from './ContentLoader';
 
 type Props = {
@@ -59,7 +59,7 @@ class SequencePage extends React.Component<Props> {
               isSequenceCollapsed={isSequenceCollapsed}
             />
           </SequenceContent>
-          <MainFooterContainer
+          <SequenceFooterContainer
             questionConfiguration={questionConfiguration}
           />
         </React.Fragment>

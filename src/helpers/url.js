@@ -5,3 +5,6 @@ export const getParamsQuery = (searchParams: string) => {
 
   return params.toString();
 };
+
+export const
+  setCountryLanguageLink = (link: string, country: string, language: string) => `${link}${country}-${language}`;

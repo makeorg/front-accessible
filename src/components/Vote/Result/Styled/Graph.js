@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { UnstyledButton } from 'Components/Elements/ButtonElements';
-import UnstyledList from 'Components/Elements/ListElements';
+import { UnstyledList } from 'Components/Elements/ListElements';
 import { TextColors } from 'Assets/vars/Colors';
 
 export const Graph = styled(UnstyledList)`

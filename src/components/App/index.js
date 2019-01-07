@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainHeaderContainer from 'Containers/MainHeader';
+import { MainFooterComponent } from 'Components/MainFooter';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
 import NotFoundPage from 'Pages/NotFound';
@@ -30,6 +31,7 @@ const AppComponent = () => (
         <Route component={NotFoundPage} />
       </Switch>
     </MainContent>
+    <MainFooterComponent />
     <PannelContainer />
   </AppWrapper>
 );
