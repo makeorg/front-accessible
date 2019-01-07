@@ -1,10 +1,26 @@
 {
   parser: "babel-eslint",
   "rules": {
-    "max-len": [1, 120, 2, {ignoreComments: true}],
-    "comma-dangle": ["error", "never"],
+    "max-len": [
+      1,
+      120,
+      2,
+      {
+        "ignoreComments": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
     "no-underscore-dangle": 0,
-    "import/no-extraneous-dependencies": ["error", {"peerDependencies": true, "devDependencies": true}],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "peerDependencies": true,
+        "devDependencies": true
+      }
+    ],
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/no-danger": 0,
@@ -37,8 +53,12 @@
     }
   },
   "env": {
+    "mocha": true,
     "browser": true,
     "node": true,
     "es6": true
+  },
+  "globals": {
+    "expect": true
   }
 }
