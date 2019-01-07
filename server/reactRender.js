@@ -15,16 +15,16 @@ const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
 const renderHtml = (reactApp, reduxStore, metaTags) => {
-  const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
-  if (!htmlContent) {
-    return false;
-  }
-
   const { apiUrl, frontUrl } = configuration;
   const sheet = new ServerStyleSheet();
   const body = ReactDOMServer.renderToString(sheet.collectStyles(reactApp));
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
+
+  const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
+  if (!htmlContent) {
+    return false;
+  }
 
   const reactHtml = htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
