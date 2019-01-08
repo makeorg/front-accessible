@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import ProposalCard from '../../Styled';
 
 type Props = {
-  titleParams: string
+  title: string
 }
 
 /**
@@ -12,12 +12,12 @@ type Props = {
  */
 const IntroTitle = (props: Props) => {
   const {
-    titleParams
+    title
   } = props;
 
   return (
     <ProposalCard.IntroTitle>
-      {titleParams || i18next.t('intro_card.title')}
+      {title || i18next.t('intro_card.title')}
     </ProposalCard.IntroTitle>
   );
 };

@@ -17,9 +17,9 @@ import GoogleAuthentificationButtonComponent from 'Components/Authentification/S
 
 type Props = {
   /** Method called to render Register Pannel */
-  handleRegisterClick: Function,
+  handleRegisterClick: () => void,
   /** Method called to render Login Pannel */
-  handleLoginClick: Function,
+  handleLoginClick: () => void,
   /** Tabindex for interactive items */
   tabIndex: number
 }

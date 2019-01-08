@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn", "error", "info"] }] */
 /**
  * This script utility is needed to merge global translation
  * into App translations and Weeuropean translations.
@@ -43,7 +44,7 @@ const mergeAppTrads = (language, newTrads) => {
 };
 
 const mergeQuestionTrads = (language, newTrads) => {
-  const questionTradFilePath = `${QUESTION_TRAD_DIR}/weeuropean_${language}.json`;
+  const questionTradFilePath = `${QUESTION_TRAD_DIR}/weeuropeans_${language}.json`;
   let questionTradData;
 
   try {

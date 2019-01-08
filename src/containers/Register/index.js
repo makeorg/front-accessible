@@ -1,6 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
+import type { UserObject } from 'Types/register';
 import { connect } from 'react-redux';
 import { register } from 'Actions/registration';
 import RegisterComponent from 'Components/Register';
@@ -18,7 +19,15 @@ type Props = {
 };
 
 type State = {
-  user: Object,
+  /** type UserObject = {
+    email: string,
+    password: string,
+    firstname: string,
+    age: string,
+    postalcode: string,
+    profession: string
+  } */
+  user: UserObject,
   /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean
 };
@@ -27,22 +36,19 @@ type State = {
  * Handles Register Business Logic
  */
 class RegisterContainer extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {
-        email: '',
-        password: '',
-        firstname: '',
-        age: '',
-        postalcode: '',
-        profession: ''
-      },
-      passwordIsDisplayed: false
-    };
+  state = {
+    user: {
+      email: '',
+      password: '',
+      firstname: '',
+      age: '',
+      postalcode: '',
+      profession: ''
+    },
+    passwordIsDisplayed: false
   }
 
-  handleChange = (event) => {
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     const { user } = this.state;
     this.setState({
@@ -53,7 +59,7 @@ class RegisterContainer extends React.Component<Props, State> {
     });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     const { user } = this.state;

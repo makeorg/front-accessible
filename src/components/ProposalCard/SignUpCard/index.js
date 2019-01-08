@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
+import type { SignUpCardConfig, SignUpCardWording } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { CenterColumn } from 'Components/Elements/FlexElements';
 import SignUpCardAuthentification from 'Containers/ProposalCard/SignUpCard/Authentification';
 import SignUpTitle from './Title';
 import SkipSignUpButton from './Button';
@@ -11,21 +11,37 @@ import ProgressBarComponent from '../ProgressBar';
 import ProposalCard from '../Styled';
 
 type Props = {
-  signUpParams: Object,
+  /** Object with Static properties used to configure the Sign Up Card */
+  configuration: SignUpCardConfig,
+  /** Object with Static properties used to customise the wording of the Sign Up Card */
+  wording: SignUpCardWording,
+  /** Index of the card */
   index: number,
+  /** Tabindex for interactive items */
   tabIndex: number,
+  /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
   cardsCount: number,
-  goToPreviousCard: Function,
-  skipSignUpCard: Function,
+  /** Method called when previous card button is clicked  */
+  goToPreviousCard: () => void,
+  /** Position of the card */
   position: number,
+  /** Scale property used by Styled Component */
   scale: number,
-  zindex: number
+  /** Zindex property used by Styled Component */
+  zindex: number,
+  /** Method called when next card button is clicked */
+  skipSignUpCard: () => void
 }
 
+/**
+ * Renders Sign Up Card
+ */
 const SignUpCardComponent = (props: Props) => {
   const {
-    signUpParams,
+    configuration,
+    wording,
     index,
     tabIndex,
     currentIndex,
@@ -56,10 +72,10 @@ const SignUpCardComponent = (props: Props) => {
         </ProposalCard.BackButton>
         <ProgressBarComponent index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
-      <ProposalCard.InnerContent>
-        <CenterColumn as="section">
+      <ProposalCard.ContentWrapper>
+        <ProposalCard.InnerContent as="section">
           <header>
-            <SignUpTitle titleParams={signUpParams && signUpParams.title} />
+            <SignUpTitle title={configuration.customTitle && wording.title} />
           </header>
           <ProposalCard.SecondaryTitle>
             {i18next.t('sign_up_card.authentification-text')}
@@ -70,10 +86,10 @@ const SignUpCardComponent = (props: Props) => {
           <SkipSignUpButton
             tabIndex={tabIndex}
             skipSignUpCard={skipSignUpCard}
-            wording={signUpParams && signUpParams.nextCTA}
+            wording={configuration.customNextCTA && wording.nextCTA}
           />
-        </CenterColumn>
-      </ProposalCard.InnerContent>
+        </ProposalCard.InnerContent>
+      </ProposalCard.ContentWrapper>
     </ProposalCard>
   );
 };

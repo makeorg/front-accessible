@@ -65,6 +65,7 @@ const Card = (props: Props) => {
       return (
         <IntroCardContainer
           configuration={card.configuration}
+          wording={card.wording}
           index={index}
           currentIndex={currentIndex}
           handleStartSequence={handleStartSequence}
@@ -74,6 +75,7 @@ const Card = (props: Props) => {
       return (
         <SignUpCardContainer
           configuration={card.configuration}
+          wording={card.wording}
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
@@ -97,6 +99,7 @@ const Card = (props: Props) => {
         <FinalCardContainer
           configuration={card.configuration}
           index={index}
+          wording={card.wording}
           cardsCount={cardsCount}
           currentIndex={currentIndex}
           goToPreviousCard={goToPreviousCard}

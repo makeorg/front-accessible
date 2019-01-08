@@ -167,5 +167,38 @@
   },
   "pannel": {
     "close": "Fermer le panneau déroulant"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "We Europeans",
+      "question": "Comment réinventer l'Europe, concrètement ?",
+      "metas": {
+        "title": "Comment réinventer l'Europe, concrètement ?",
+        "description": "Vous avez une idée sur le sujet ? Participez à la grande consultation citoyenne  Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard": {
+        "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
+        "description": [
+          "Prenez position sur ces solutions ou proposez les vôtres.",
+          "Les idées les plus massivement soutenues devront être défendues par les candidats aux élections européennes."
+        ]
+      },
+      "signUpCard": {
+        "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+        "nextCTA": "Non merci, je ne souhaite pas être informé(e) des résultats."
+      },
+      "finalCard": {
+        "title": "Merci pour votre participation !",
+        "share": [
+          "Vous souhaitez aller plus loin pour réinventer l'Europe ?",
+          "Invitez vos proches et/ou votre communauté à participer"
+        ],
+        "learn_more_title": "Découvrez tout du projet We Europeans",
+        "learn_more_button": "En savoir +"
+      }
+    }
   }
 }

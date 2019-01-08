@@ -62,7 +62,7 @@ const ProposalCardComponent = (props: Props) => {
         </ProposalCard.BackButton>
         <ProgressBarComponent index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
-      <ProposalCard.InnerContent as="section">
+      <ProposalCard.ContentWrapper as="section">
         <ProposalCard.AuthorInfos>
           {proposal.author.firstName}
           &nbsp;-&nbsp;
@@ -81,7 +81,7 @@ const ProposalCardComponent = (props: Props) => {
           currentIndex={currentIndex}
           goToNextCard={goToNextCard}
         />
-      </ProposalCard.InnerContent>
+      </ProposalCard.ContentWrapper>
     </ProposalCard>
   );
 };

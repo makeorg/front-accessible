@@ -1,6 +1,5 @@
 // @flow
-
-import type { ExtraSlidesConfig, Card } from 'Types/sequence';
+import type { ExtraSlidesConfig, ExtraSlidesWording, Card } from 'Types/sequence';
 import {
   CARD_TYPE_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -59,45 +58,51 @@ export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal: ?Object, cards
 /**
  * Build cards array
  * @param  {Array<Object>} proposals
- * @param  {ExtraSlidesConfig} extraSlides
+ * @param  {ExtraSlidesConfig} extraSlidesConfig
+ * @param  {ExtraSlidesWording} extraSlidesWording
  * @return {Array<Card>}
  */
 export const buildCards = (
   proposals: Array<Object>,
-  extraSlides: ExtraSlidesConfig,
+  extraSlidesConfig: ExtraSlidesConfig,
+  extraSlidesWording: ExtraSlidesWording,
   isLoggedIn: boolean,
   hasProposed: boolean
 ): Array<Card> => {
   const cards: Array<Card> = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
-    configuration: proposal
+    configuration: proposal,
+    wording: proposal
   }));
 
-  if ((extraSlides.pushProposal === true || extraSlides.pushProposal instanceof Object) && !hasProposed) {
+  if ((extraSlidesConfig.pushProposal === true || extraSlidesConfig.pushProposal instanceof Object) && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-      configuration: extraSlides.pushProposal
+      configuration: extraSlidesConfig.pushProposal
     });
   }
 
-  if (extraSlides.introCard === true || extraSlides.introCard instanceof Object) {
+  if (extraSlidesConfig.introCard === true || extraSlidesConfig.introCard instanceof Object) {
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
-      configuration: extraSlides.introCard
+      configuration: extraSlidesConfig.introCard,
+      wording: extraSlidesWording.introCard
     });
   }
 
-  if ((extraSlides.signUpCard === true || extraSlides.signUpCard instanceof Object) && !isLoggedIn) {
+  if ((extraSlidesConfig.signUpCard === true || extraSlidesConfig.signUpCard instanceof Object) && !isLoggedIn) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-      configuration: extraSlides.signUpCard
+      configuration: extraSlidesConfig.signUpCard,
+      wording: extraSlidesWording.signUpCard
     });
   }
 
-  if (extraSlides.finalCard === true || extraSlides.finalCard instanceof Object) {
+  if (extraSlidesConfig.finalCard === true || extraSlidesConfig.finalCard instanceof Object) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
-      configuration: extraSlides.finalCard
+      configuration: extraSlidesConfig.finalCard,
+      wording: extraSlidesWording.finalCard
     });
   }
 

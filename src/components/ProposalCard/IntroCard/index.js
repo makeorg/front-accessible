@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import type { IntroCardConfig, introCardWording } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -13,15 +14,19 @@ import ProposalCard from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
-  introCardParams: Object,
+  configuration: IntroCardConfig,
+  /** Object with Static properties used to customise the wording of the Intro Card */
+  wording: introCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Tabindex for interactive items */
   tabIndex: number,
+  /** Zindex property used by Styled Component */
+  zindex: number,
   /** Method called when button is clicked */
-  handleStartSequence: Function
+  handleStartSequence: () => void
 }
 
 /**
@@ -29,7 +34,8 @@ type Props = {
  */
 const IntroCardComponent = (props: Props) => {
   const {
-    introCardParams,
+    configuration,
+    wording,
     index,
     currentIndex,
     tabIndex,
@@ -47,11 +53,11 @@ const IntroCardComponent = (props: Props) => {
       className={index < currentIndex ? 'collapsed-card' : ''}
     >
       <header>
-        <ExtraLogo extraLogo={introCardParams && introCardParams.extraLogo} />
-        <IntroTitle titleParams={introCardParams && introCardParams.title} />
+        <ExtraLogo extraLogo={configuration.extraLogo && configuration.extraLogo} />
+        <IntroTitle title={configuration.customTitle && wording.title} />
       </header>
       <Small aria-hidden />
-      <IntroDescription description={introCardParams && introCardParams.description} />
+      <IntroDescription description={configuration.customDescription && wording.description} />
       <ProposalCard.IntroButton
         id="sequence-start-sequence-button"
         tabIndex={tabIndex}
@@ -65,11 +71,11 @@ const IntroCardComponent = (props: Props) => {
         </IconInButton>
         {i18next.t('intro_card.button')}
       </ProposalCard.IntroButton>
-      {introCardParams
+      {configuration
         && (
           <Partners
-            partners={introCardParams.partners}
-            wording={introCardParams.inPartnershipWith}
+            partners={configuration.partners}
+            configuration={configuration.inPartnershipWith}
           />
         )
       }

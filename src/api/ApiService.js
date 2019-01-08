@@ -56,7 +56,7 @@ class ApiService {
 
   _sessionId: ?string = '';
 
-  _token: ?Object = '';
+  _token: ?string = '';
 
   constructor() {
     if (!instance) {

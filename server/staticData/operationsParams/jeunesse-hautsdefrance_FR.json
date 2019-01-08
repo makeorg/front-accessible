@@ -1,49 +1,40 @@
 {
-  "country": "FR",
   "slug": "jeunesse-hautsdefrance",
+  "country": "FR",
   "language": "fr",
-  "title": "Construire l’avenir des jeunes en Hauts-de-France",
-  "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
-  "metas": {
-    "title": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
-    "description": "Vous avez une idée sur le sujet ? Participez à la consultation initiée par la Région Hauts-de-France avec Make.org",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd073e6ae57fd558cc90165_meta%20hdf.jpg"
+  "wording": {
+    "title": "Construire l’avenir des jeunes en Hauts-de-France",
+    "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
+    "metas": {
+      "title": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
+      "description": "Vous avez une idée sur le sujet ? Participez à la consultation initiée par la Région Hauts-de-France avec Make.org",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bd073e6ae57fd558cc90165_meta%20hdf.jpg"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
-  "presentation": "15/30 ans, vous habitez en #HDF, faites entendre votre voix ! <br/>Les Hauts-de-France vont initier avec Make.org une consultation totalement inédite : plusieurs dizaines de <br/>milliers de jeunes vont en effet pouvoir répondre très librement à la question <br/>« Comment vous aider à construire votre avenir en Hauts-de-France ? ». <br/>Les résultats de la consultation seront le point de départ d’une mobilisation <br/>plus ample de toutes les forces vives de la région, <br/>débouchant sur un plan d’actions concrètes que vous pourrez retrouver sur <br/><a href=\\\"http://www.generation.hautsdefrance.fr\\\">www.generation.hautsdefrance.fr</a>.",
-  "legalNote": false,
   "theme": {
     "color": "#3dbfff",
     "gradient-start": "#fea8fe",
     "gradient-end": "#35bfff",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 463,
-  "startDateActions": false,
-  "operationTypeRibbon": false,
-  "partners":[],
-  "actions": false,
-  "share": true,
-  "initiators": [
-    {
-      "name": "Région Hauts-de-France",
-      "imageUrl": "Todo",
-      "isFounder": true
-    }
-  ],
-  "sequenceExtraSlides": {
+  "consultationUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
+  "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Les jeunes des Hauts-de-France proposent des solutions.",
       "description": [
-        {
-          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
-        },
-        {
-          "paragraph": "Les plus soutenues seront mises en oeuvre par la Région."
-        }
-      ],
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les plus soutenues seront mises en oeuvre par la Région."
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation",
+      "nextCTA": "Non merci, je ne souhaite pas être informé des résultats"
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "customTitle": true,
+      "customDescription": true,
       "partners": [
         {
           "name": "Région Hauts-de-France+",
@@ -54,12 +45,14 @@
       "extraLogo": false
     },
     "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation",
-      "nextCTA": "Non merci, je ne souhaite pas être informé des résultats"
+      "customTitle": true,
+      "customNextCTA": true
     },
     "pushProposal": true,
     "finalCard": {
-      "linkUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {
@@ -74,9 +67,5 @@
       "language": "fr",
       "label": "J'autorise la région Hauts-de-France à me recontacter dans le cadre de cette opération."
     }
-  },
-  "sequenceSignUpModal": {
-    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
-  },
-  "displayInShowcases": true
+  }
 }

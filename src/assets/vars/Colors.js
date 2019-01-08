@@ -43,3 +43,9 @@ export const VoteColors = {
   Disagree: 'rgb(218, 0, 27)',
   Neutral: 'rgb(126,126,126)'
 };
+
+export const SocialNetworksColors = {
+  Facebook: 'rgb(58, 89, 152)',
+  Twitter: 'rgb(26, 145, 218)',
+  LinkedIn: 'rgb(0, 119, 181)'
+};

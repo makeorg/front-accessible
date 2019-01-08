@@ -1,12 +1,13 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+import type { pushProposalCardConfig } from 'Types/card';
 import PushProposalCardComponent from '../../../components/ProposalCard/PushProposalCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
-  /** Object with Static properties used to configure the Final Card */
-  configuration: Object,
+  /** Object with Static properties used to configure the Push Proposal Card */
+  configuration: pushProposalCardConfig,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -53,7 +54,7 @@ class PushProposalCardContainer extends React.Component<Props> {
     const zindex = getZIndex(index, currentIndex);
     return (
       <PushProposalCardComponent
-        proposalCardParams={configuration}
+        proposalCardConfig={configuration}
         position={position}
         scale={scale}
         zindex={zindex}

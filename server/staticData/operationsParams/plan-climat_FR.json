@@ -1,56 +1,38 @@
 {
-  "country": "FR",
   "slug": "plan-climat",
+  "country": "FR",
   "language": "fr",
-  "title": "#MaSolutionPourLeClimat",
-  "question": "Comment lutter ensemble contre le réchauffement climatique ?",
-  "metas": {
+  "wording": {
     "title": "#MaSolutionPourLeClimat",
-    "description": "Vous avez une idée sur le sujet ? Alors comme des milliers de citoyens participez à la consultation Plan Climat de Make.org en partenariat avec Nice Matin et la Métropole Nice Côte d'Azur",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bc700fec88c3a984341ad23_meta%20plan%20climat.jpg"
+    "question": "Comment lutter ensemble contre le réchauffement climatique ?",
+    "metas": {
+      "title": "#MaSolutionPourLeClimat",
+      "description": "Vous avez une idée sur le sujet ? Alors comme des milliers de citoyens participez à la consultation Plan Climat de Make.org en partenariat avec Nice Matin et la Métropole Nice Côte d'Azur",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5bc700fec88c3a984341ad23_meta%20plan%20climat.jpg"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-paln-climat",
-  "presentation": "La Métropole Nice Côte d'Azur, Nice-Matin et Make.org lançent une vaste consultation citoyenne en ligne autour <br/>de la question “Comment lutter ensemble contre le réchauffement climatique ?”. Citoyens et associations, <br/>bienvenue sur la plateforme collaborative du Plan Climat air-énergie territorial. Face aux enjeux climatiques, <br/>la Métropole Nice Côte d’Azur, accompagné de Nice-Matin et Make.org, s’engage avec vous pour réduire collectivement <br/>nos émissions de <br/>gaz à effet de serre.",
-  "legalNote": false,
   "theme": {
     "color": "#00B1BA",
     "gradient-start": "#00B1BA",
     "gradient-end": "#00B1BA",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 364,
-  "startDateActions": false,
-  "operationTypeRibbon": false,
-  "partners": [],
-  "actions": false,
-  "share": true,
-  "initiators":[
-    {
-      "name": "Plan climat air énergie territorial",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Plan climat air énergie territorial",
-      "imageUrl": "Todo"
-    },
-    {
-      "name": "Métropole Nice Côte D'Azur",
-      "imageUrl": "Todo"
-    }
-  ],
-  "sequenceExtraSlides": {
+  "consultationUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
+  "sequenceExtraSlidesWording": {
     "introCard":  {
-      "title": false,
       "description": [
-        {
-          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
-        },
-        {
-          "paragraph": "Les + soutenues seront reprises dans le Plan Climat."
-        }
-      ],
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les + soutenues seront reprises dans le Plan Climat."
+      ]
+    },
+    "signUpCard": {
+      "title": "Soyez informés des résultats de la consultation"
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": false,
+      "customDescription": true,
       "partners": [
         {
           "name": "Nice Matin",
@@ -69,12 +51,14 @@
       "extraLogo": false
     },
     "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation",
-      "nextCTA": false
+      "customTitle": true,
+      "customNextCTA": false
     },
     "pushProposal": true,
     "finalCard": {
-      "linkUrl": "https://make.org/#/FR/consultation/plan-climat/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {
@@ -86,9 +70,5 @@
     "gender": false,
     "hiddenOptOut": false,
     "partnerOptin": false
-  },
-  "sequenceSignUpModal": {
-    "title": "Je m'inscris pour être informé(e) des résultats de la consultation."
-  },
-  "displayInShowcases": false
+  }
 }

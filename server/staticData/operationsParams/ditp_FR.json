@@ -1,48 +1,40 @@
  {
-  "country": "FR",
   "slug": "ditp",
+  "country": "FR",
   "language": "fr",
-  "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
-  "question": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
-  "metas": {
+  "wording": {
     "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
-    "description": "Vous avez un avis sur le sujet ? Alors comme des milliers de citoyens participez à la consultation nationale Make.org : proposez vos idées, réagissez à celles des autres ! Les meilleures seront transformées en actions.",
-    "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    "question": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
+    "metas": {
+      "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
+      "description": "Vous avez un avis sur le sujet ? Alors comme des milliers de citoyens participez à la consultation nationale Make.org : proposez vos idées, réagissez à celles des autres ! Les meilleures seront transformées en actions.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
   },
-  "learnMoreUrl": "https://about.make.org/about-ditp",
-  "presentation": "Le Gouvernement a décidé de revoir en profondeur le mode de fonctionnement de l’État <br/>pour vous redonner la liberté d’action qui vous est nécessaire. C’est pourquoi <br/>cette question simple, ouverte, « Comment lever les blocages que vous rencontrez au quotidien ? » <br/>vous sera soumise pendant deux mois. Pour la première fois à cette échelle, <br/>vous allez pouvoir vous exprimer sur votre quotidien, pointer les freins <br/>qui vous bloquent et proposer vos solutions qui demain transformeront l’action publique.",
-  "legalNote": false,
   "theme": {
     "color": "#ED2939",
     "gradient-start": "#8ADCD7",
     "gradient-end": "#367ABC",
     "footerFontColor": "black"
   },
-  "logoUrl": "Todo",
-  "whiteLogoUrl": "Todo",
-  "logoWidth": 322,
-  "startDateActions": false,
-  "operationTypeRibbon": false,
-  "partners": [],
-  "actions": false,
-  "share": false,
-  "initiators":[
-    {
-      "name": "Direction Interministérielle de la Transformation Publique",
-      "imageUrl": "Todo"
-    }
-  ],
-  "sequenceExtraSlides": {
-    "introCard":  {
+  "consultationUrl": "https://make.org/#/FR/consultation/ditp/consultation",
+  "sequenceExtraSlidesWording": {
+    "introCard": {
       "title": "Des milliers d'agents publics proposent des solutions.",
       "description": [
-        {
-          "paragraph": "Prenez position sur ces solutions ou proposez les vôtres."
-        },
-        {
-          "paragraph": "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme."
-        }
-      ],
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme."
+      ]
+    },
+    "signUpCard": {
+      "title": "Inscrivez vous pour enregistrer vos contributions",
+      "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
+    }
+  },
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": true,
+      "customDescription": true,
       "partners": [
           {
             "name": "DITP",
@@ -52,15 +44,17 @@
       "inPartnershipWith": false,
       "extraLogo": "/images/operations/ditp/sequence/sequence-intro-icon.png"
     },
-    "signUpCard": {
-      "title": "Inscrivez vous pour enregistrer vos contributions",
-      "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
-    },
     "pushProposal": {
       "extraLogo": "/images/operations/ditp/sequence/sequence-proposal-icon.png"
     },
+    "signUpCard": {
+      "customTitle": true,
+      "customNextCTA": true
+    },
     "finalCard": {
-      "linkUrl": "https://make.org/#/FR/consultation/ditp/consultation"
+      "customTitle": false,
+      "linkUrl": "https://make.org/#/FR/consultation/ditp/consultation",
+      "withSharing": false
     }
   },
   "sequenceSignUpForm": {
@@ -69,9 +63,5 @@
     "job": true,
     "postalCode": true,
     "hiddenOptOut": true
-  },
-  "sequenceSignUpModal": {
-    "title": "J' m'inscris avec mon email"
-  },
-  "displayInShowcases": false
+  }
 }

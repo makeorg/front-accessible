@@ -11,16 +11,27 @@ import RegisterFormComponent from './Form';
 import Register from './Styled';
 
 type Props = {
+  /** type userObject = {
+    email: string,
+    password: string,
+    firstname: string,
+    age: string,
+    postalcode: string,
+    profession: string
+  } */
+  user: userObject,
   /** Array with form errors */
   errors: Array<string>,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
+  handleSubmit: () => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: Function
+  handleLoginPannel: () => void,
+  /** Boolean toggled when password shown / hidden */
+  passwordIsDisplayed: boolean
 }
 
 /**
