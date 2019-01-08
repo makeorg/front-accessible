@@ -51,9 +51,15 @@ class LoggingButton extends React.Component {
   - :warning: componentWillReceiveProps
   - :warning: componentWillUpdate
 
+
 ## Typing (Flow)
 ___ 
-- [Use union types](https://flow.org/en/docs/types/utilities/#toc-keys) it's like enums
+- [Use union types](https://flow.org/en/docs/types/utilities/#toc-keys) instead of const (it's like enums)
+- Some types are **unsafe and should be avoided :** 
+    - [Function](https://flow.org/en/docs/types/functions/) use `() => void` instead
+    - [Object](https://flow.org/en/docs/types/objects/) use [Type Aliases](https://flow.org/en/docs/types/aliases/) or [typeof](https://flow.org/en/docs/types/typeof/) instead
+    - [Array](https://flow.org/en/docs/types/arrays/) without inside types  `number[]` `string[]`
+    `Array<OtherType>` etc..
 
 ## Redux
 ___ 
@@ -78,6 +84,20 @@ https://github.com/redux-utilities/flux-standard-action#design-goals
         error: true
     }
     ```
+
+## CSS:
+___
+- Use a MOBILE-FIRST approach is better for performance:
+
+Good: 
+```
+@media (max-width: ${pxToRem(Breakpoints.desktop)})
+```
+
+Bad: 
+```
+@media (max-width: ${pxToRem(Breakpoints.mobile)})
+```
 
 ## TODO:
 - [ ] remove all export default
