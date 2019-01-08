@@ -3,14 +3,14 @@
 import axios from 'axios';
 import { NODE_API_BASE } from './ApiService';
 
-const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug?country=:country';
+const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug';
 
 export default class SequenceService {
-  static fetchConfiguration(questionSlug: string, country: string): Promose<Object> {
+  static fetchConfiguration(questionSlug: string): Promose<Object> {
     return axios({
       method: 'GET',
       url: `${NODE_API_BASE}${PATH_QUESTION_CONFIGURATION
-        .replace(':questionSlug', questionSlug).replace(':country', country)}`,
+        .replace(':questionSlug', questionSlug)}`,
       proxy: {
         port: process.env.PORT
       }

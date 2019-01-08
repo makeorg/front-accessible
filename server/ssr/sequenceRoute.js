@@ -9,15 +9,15 @@ async function getQuestion(questionSlug) {
   return QuestionService.getDetail(questionSlug);
 }
 
-async function getQuestionConfiguration(questionSlug, country) {
-  return SequenceService.fetchConfiguration(questionSlug, country);
+async function getQuestionConfiguration(questionSlug) {
+  return SequenceService.fetchConfiguration(questionSlug);
 }
 
 module.exports = async function SequenceRoute(req, res) {
   try {
     const { questionSlug } = req.params;
     const question = await getQuestion(questionSlug);
-    const questionConfiguration = await getQuestionConfiguration(questionSlug, question.country);
+    const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
       const { sequenceExtraSlides } = questionConfiguration;
       questionConfiguration.sequenceExtraSlides = disableExtraSlidesByQuery(sequenceExtraSlides, req.query);
