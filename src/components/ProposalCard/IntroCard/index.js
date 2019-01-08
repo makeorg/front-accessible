@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { introCardConfig, introCardWording } from 'Types/card';
+import type { IntroCardConfig, introCardWording } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,7 @@ import ProposalCard from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
-  configuration: introCardConfig,
+  configuration: IntroCardConfig,
   /** Object with Static properties used to customise the wording of the Intro Card */
   wording: introCardWording,
   /** Index of the card */

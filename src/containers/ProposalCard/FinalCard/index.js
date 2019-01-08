@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { finalCardConfig, finalCardWording } from 'Types/card';
+import type { FinalCardConfig, FinalCardWording } from 'Types/card';
 import { connect } from 'react-redux';
 import FinalCardComponent from 'Components/ProposalCard/FinalCard';
 import Tracking from 'Services/Tracking';
@@ -7,9 +7,9 @@ import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
-  configuration: finalCardConfig,
+  configuration: FinalCardConfig,
   /** Object with Static properties used to customise the wording of the Final Card */
-  wording: finalCardWording,
+  wording: FinalCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */

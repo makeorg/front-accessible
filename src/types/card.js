@@ -5,7 +5,7 @@ export type PartnerItem = {
   imageUrl: string
 }
 
-export type introCardConfig = {
+export type IntroCardConfig = {
   title: boolean,
   description: boolean,
   partners: Array<PartnerItem>,
@@ -13,32 +13,32 @@ export type introCardConfig = {
   extraLogo: boolean
 }
 
-export type introCardWording = {
+export type IntroCardWording = {
   title: string,
   description: Array<string>
 }
 
-export type pushProposalCardConfig = {
+export type PushProposalCardConfig = {
   extraLogo: string
 }
 
-export type signUpCardConfig = {
+export type SignUpCardConfig = {
   customTitle: boolean,
   customNextCTA: boolean
 }
 
-export type signUpCardWording = {
+export type SignUpCardWording = {
   title: string,
   nextCTA: string
 }
 
-export type finalCardConfig = {
+export type FinalCardConfig = {
   customTitle: boolean,
   linkUrl: string,
   withSharing: boolean
 }
 
-export type finalCardWording = {
+export type FinalCardWording = {
   title: string,
   share: Array<string>,
   learn_more_title: string,

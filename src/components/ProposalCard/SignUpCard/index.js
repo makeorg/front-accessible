@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { signUpCardConfig, signUpCardWording } from 'Types/card';
+import type { SignUpCardConfig, SignUpCardWording } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -12,9 +12,9 @@ import ProposalCard from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
-  configuration: signUpCardConfig,
+  configuration: SignUpCardConfig,
   /** Object with Static properties used to customise the wording of the Sign Up Card */
-  wording: signUpCardWording,
+  wording: SignUpCardWording,
   /** Index of the card */
   index: number,
   /** Tabindex for interactive items */

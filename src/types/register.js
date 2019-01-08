@@ -1,6 +1,6 @@
 // @flow
 
-export type userObject = {
+export type UserObject = {
   email: string,
   password: string,
   firstname: string,

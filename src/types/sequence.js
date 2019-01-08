@@ -1,29 +1,29 @@
 // @flow
 import type {
-  introCardConfig,
-  introCardWording,
-  pushProposalCardConfig,
-  signUpCardConfig,
-  signUpCardWording,
-  finalCardConfig,
-  finalCardWording
+  IntroCardConfig,
+  IntroCardWording,
+  PushProposalCardConfig,
+  SignUpCardConfig,
+  SignUpCardWording,
+  FinalCardConfig,
+  FinalCardWording
 } from 'Types/card';
 
 export type ExtraSlidesConfig = {
-  introCard: introCardConfig,
-  pushProposal: pushProposalCardConfig,
-  signUpCard: signUpCardConfig,
-  finalCard: finalCardConfig
+  introCard: IntroCardConfig,
+  pushProposal: PushProposalCardConfig,
+  signUpCard: SignUpCardConfig,
+  finalCard: FinalCardConfig
 };
 
 export type ExtraSlidesWording = {
-  introCard: introCardWording,
-  signUpCard: signUpCardWording,
-  finalCard: finalCardWording
+  introCard: IntroCardWording,
+  signUpCard: SignUpCardWording,
+  finalCard: FinalCardWording
 };
 
 
 export type Card = {
-  type: String,
+  type: string,
   configuration: mixed
 }

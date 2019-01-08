@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import type { userObject } from 'Types/register';
+import type { UserObject } from 'Types/register';
 import { connect } from 'react-redux';
 import { register } from 'Actions/registration';
 import RegisterComponent from 'Components/Register';
@@ -19,7 +19,7 @@ type Props = {
 };
 
 type State = {
-  /** type userObject = {
+  /** type UserObject = {
     email: string,
     password: string,
     firstname: string,
@@ -27,7 +27,7 @@ type State = {
     postalcode: string,
     profession: string
   } */
-  user: userObject,
+  user: UserObject,
   /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean
 };
