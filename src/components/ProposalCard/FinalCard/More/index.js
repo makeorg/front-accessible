@@ -25,7 +25,7 @@ export const More = (props: Props) => {
     handleEndSequence
   } = props;
 
-  if (configuration) {
+  if (wording && wording.learn_more_title && wording.learn_more_button) {
     return (
       <ProposalCard.MoreWrapper>
         <ProposalCard.IntroParagraph>

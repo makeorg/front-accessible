@@ -73,8 +73,8 @@ const FinalCardComponent = (props: Props) => {
           <ProposalCard.FinalCardContentWrapper>
             <Sharing wording={finalCardConfig.withSharing && finalCardWording.share} />
             <More
-              configuration={finalCardConfig.withSharing && finalCardConfig}
-              wording={finalCardConfig.withSharing && finalCardWording}
+              configuration={finalCardConfig}
+              wording={finalCardWording}
               tabIndex={tabIndex}
               handleEndSequence={handleEndSequence}
             />
