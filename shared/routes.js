@@ -1,6 +1,5 @@
 import HomePage from 'Pages/Home';
 import SequencePage from 'Pages/Consultation/Sequence';
-import { fetchQuestionConfigurationData } from 'Actions/sequence';
 
 export default [
   {
@@ -11,7 +10,6 @@ export default [
   },
   {
     path: '/:country/consultation/:questionSlug/selection',
-    component: SequencePage,
-    dataFetch: params => fetchQuestionConfigurationData(params.questionSlug, params.country)
+    component: SequencePage
   }
 ];

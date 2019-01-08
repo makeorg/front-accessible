@@ -116,6 +116,8 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "lint": "eslint src server",
+    "test:server:unit": "mocha --require @babel/register --require ./test/setup.js 'server/**/*.test.js'",
+    "test:server:unit:watch": "npm run test:server:unit -- --watch",
     "test:unit": "mocha --require @babel/register --require ./test/setup.js 'src/**/*.spec.js' 'src/**/spec.js'",
     "test:unit:watch": "npm run test:unit -- --watch",
     "test-with-coverage": "nyc mocha --require @babel/register --require ./test/setup.js 'src/**/*.spec.js' 'src/**/spec.js'",
