@@ -7,6 +7,12 @@ describe('Country Language middelware', () => {
     it('return false when params is an invalid string', () => (
       Assert.equal(isCountryLanguage('foo'), false)
     ));
+    it('return false when params is FR-fr', () => (
+      Assert.equal(isCountryLanguage('FR-fr'), true)
+    ));
+    it('return false when params is fr-fr', () => (
+      Assert.equal(isCountryLanguage('fr-fr'), true)
+    ));
     it('return false when params is null', () => (
       Assert.equal(isCountryLanguage(), false)
     ));
