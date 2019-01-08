@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "home": {
+      "title": "Make.org, pokretač općeg zanimanja",
+      "description": "Predložite, glasujte, djelujmo: zajedno pronađimo rješenja za trenutačne velike probleme. Make.org i partneri provode najbolje prijedloge u djelo.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Prijava",
+    "register_label": "Registracija",
+    "form": {
+      "email_label": "Adresa elektroničke pošte",
+      "password_label": "Lozinka",
+      "firstname_label": "Ime",
+      "age_label": "Starosna dob (neobavezno)",
+      "postalcode_label": "Poštanski broj (neobavezno)",
+      "profession_label": "Zanimanje (neobavezno)",
+      "email is not a valid email": "Nepodržan oblik adrese elektroničke pošte",
+      "Password must be at least 8 characters": "Vaša lozinka mora sadržavati najmanje osam znakova.",
+      "email_already_exist": "Ovaj je adresa elektroničke pošte već registrirana.",
+      "api_error": "Ups! Imamo poteškoća s učitavanjem ove stranice. Pokušajte ponovno kasnije.",
+      "required_field": "Ovo se polje mora ispuniti."
+    },
+    "from": "o",
+    "email": "Adresa elektroničke pošte",
+    "propose": "Pošalji prijedlog",
+    "click_there": "kliknite ovdje",
+    "open_new_window": "Otvori u novoj kartici",
+    "loading": "Pričekajte prilikom učitavanja."
+  },
+  "header": {
+    "logo_alt": "Idi na mrežno mjesto Make.org"
+  },
+  "proposal_page": {
+    "button_1": "sudjelovanje",
+    "button_2": "saznati više",
+    "share_text": "Podržite ovaj prijedlog tako da ga podijelite na:",
+    "footer_text": "Ovaj je prijedlog poslan u okviru akcije {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Prethodni prijedlog",
+    "next": "Sljedeći prijedlog",
+    "number": "Broj prijedloga"
+  },
+  "intro_card": {
+    "title": "Tisuće građana predlaže rješenja.",
+    "description_1": "Zauzmite svoj stav o navedenim rješenjima i predložite vlastita rješenja.",
+    "description_2": "Najboljim se rješenjima određuje naše djelovanje.",
+    "button": "Pokreni",
+    "partnership": "u suradnji s"
+  },
+  "final_card": {
+    "title": "Zahvaljujemo vam na sudjelovanju, <br/> sada možete pristupiti cjelovitoj raspravi.",
+    "button": "Prikaži sve prijedloge"
+  },
+  "sign_up_card": {
+    "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
+    "authentification-text": "Prijavljujem se uporabom",
+    "next-cta": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima"
+  },
+  "push_proposal_card": {
+    "title": "A vi, imate li svoj prijedlog vezano uz ovu temu?",
+    "next-cta": "Ne još uvijek, ali nastavljam glasovati"
+  },
+  "proposal_submit": {
+    "bait": "Potrebno je ",
+    "title": "Ispunite ovaj obrazac upisivanjem teksta čija je duljina manja od 140 znakova kako biste poslali svoj prijedlog:",
+    "entred_chars": ": broj upisanih znakova",
+    "available_chars": ": broj dostupnih znakova",
+    "description": "Ne brinite se. Mi ispravljamo pravopisne greške.",
+    "moderation_charter": "Kako biste saznali više o našem pravilniku za moderiranje,",
+    "success": "Vaš je prijedlog uspješno zaprimljen te će ga osoblje našeg odjela za moderiranje pročitati. Nakon završene provjere prijedloga šalje vam se elektronička poruka."
+  },
+  "vote": {
+    "intro_title": "Želim izraziti moje mišljenje o ovom prijedlogu. ",
+    "intro_text": "Ja se:",
+    "agree": "Slažem",
+    "disagree": "Ne slažem se",
+    "neutral": "Bez glasa",
+    "label": "{{count}} glas",
+    "label_plural": "Broj glasova: {{count}}"
+  },
+  "unvote": {
+    "title": "Klikom na gumb u nastavku brišem moje mišljenje o ovom prijedlogu:",
+    "button": "brišem moje mišljenje"
+  },
+  "results": {
+    "title": "Mišljenja drugih sudionika o ovom prijedlogu:",
+    "total_text": "Ukupan je broj mišljenja: ",
+    "tooltipbutton": {
+      "agree": "Prikaži rezultate za mišljenje: „slažem se”",
+      "disagree": "Prikaži rezultate za mišljenje: „ne slažem se”",
+      "neutral": "Prikaži rezultate za mišljenje: „bez glasa”"
+    }
+  },
+  "qualification": {
+    "title": "Klikom na gumb u nastavku konkretiziram moje mišljenje:",
+    "doable": "Slažem se u cijelosti",
+    "likeIt": "Realistično",
+    "platitudeAgree": "Banalno",
+    "noWay": "Ne slažem se nikako!",
+    "impossible": "Neizvedivo",
+    "platitudeDisagree": "Banalno",
+    "doNotUnderstand": "Neshvatljivo",
+    "noOpinion": "Bez mišljenja",
+    "doNotCare": "Nevažno"
+  },
+  "sequence": {
+    "return": "Povratak na prijedloge"
+  },
+  "authentification": {
+    "title": "Prijavite se kako biste potvrdili vlastiti prijedlog",
+    "description": "s",
+    "commitment": "Make. org obvezuje se štititi vaše ",
+    "personal_data": "osobne podatke "
+  },
+  "login": {
+    "title": "Već imam račun",
+    "social_connect": "Prijavljujem se uporabom",
+    "or": "ili",
+    "button_connect": "Prijavljujem se",
+    "email_connect": "Prijavljujem se uporabom vlastite adrese elektroničke pošte",
+    "forgot_password_title": "Ups,",
+    "forgot_password_link": "zaboravljena lozinka?",
+    "registration_title": "Nemam račun,",
+    "registration_link": "račun je stvoren.",
+    "email_doesnot_exist": "Ne pronalazimo račun pridružen ovoj adresi elektroničke pošte."
+  },
+  "register": {
+    "title": "Stvori račun",
+    "social_connect": "Registriram se uporabom",
+    "or": "ili",
+    "subtitle": "Registriram se uporabom ovog obrasca",
+    "login_title": "Već imam račun.",
+    "login_link": "Prijavi se",
+    "cgu": "Registriranjem prihvaćate naše opće uvjete uporabe i primanje elektroničkih poruka (maleni broj) s platforme Make.org."
+  },
+  "forgot_password": {
+    "title": "ponovno postavljanje lozinke",
+    "description": "Upišite adresu elektroničke pošte pridruženu vašem računu za Make.org kako biste primili poveznicu za ponovno postavljanje.",
+    "success": "Zahvaljujemo vam. Poslanom vam se elektroničkom poštom omogućava ažuriranje vaše lozinke.",
+    "return": "Vrati se na ",
+    "login_link": "zaslon za prijavu",
+    "send_link": "primi elektroničku poruku"
+  },
+  "footer_sequence": {
+    "with": "s",
+    "see_more": "Saznajte više o temi:",
+    "link": "Saznajte više o ovoj raspravi"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Pravne odredbe"
+      },
+      "item-2": {
+        "label": "Odredbe uporabe"
+      },
+      "item-3": {
+        "label": "Pravilnik o osobnim podatcima"
+      },
+      "item-4": {
+        "label": "Kontakt"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Zatvori pokretnu oglasnu ploču"
+  }
+}

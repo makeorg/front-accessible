@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, akcelerator zaangażowania",
+      "description": "Proponujmy, głosujmy, działajmy: znajdźmy wspólnie rozwiązania największych wyzwań, przed jakimi stoi współczesna Europa. Najbardziej popularne pomysły zostaną wcielone w życie przez Make.org i partnerów.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Zaloguj się",
+    "register_label": "Zarejestruj się",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Hasło",
+      "firstname_label": "Imię",
+      "age_label": "Wiek (opcjonalnie)",
+      "postalcode_label": "Kod pocztowy (opcjonalnie)",
+      "profession_label": "Zawód (opcjonalnie)",
+      "email is not a valid email": "Nieznany format e-mail",
+      "Password must be at least 8 characters": "Twoje hasło musi zawierać co najmniej 8 znaków.",
+      "email_already_exist": "Dokonano już rejestracji z użyciem tego adresu e-mail.",
+      "api_error": "Ups! Mamy pewne problemy z załadowaniem tej strony. Prosimy spróbować ponownie później.",
+      "required_field": "Wypełnij to pole."
+    },
+    "from": "na",
+    "email": "E-mail",
+    "propose": "Przedstaw propozycję",
+    "click_there": "kliknij tutaj",
+    "open_new_window": "Otwieranie w nowej karcie",
+    "loading": "Zaczekaj na załadowanie strony."
+  },
+  "header": {
+    "logo_alt": "Przejdź do strony Make.org"
+  },
+  "proposal_page": {
+    "button_1": "dołącz",
+    "button_2": "dowiedz się więcej",
+    "share_text": "Wesprzyj tę propozycję, udostępniając ją:",
+    "footer_text": "Ta propozycja została złożona w ramach działania {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Poprzednia propozycja",
+    "next": "Następna propozycja",
+    "number": "Propozycja numer"
+  },
+  "intro_card": {
+    "title": "Tysiące obywateli proponuje swoje rozwiązania.",
+    "description_1": "Wyraź opinię na temat tych rozwiązań i zaproponuj własne.",
+    "description_2": "Najlepsze pomysły przekujemy w działania.",
+    "button": "Start",
+    "partnership": "we współpracy z"
+  },
+  "final_card": {
+    "title": "Dziękujemy za udział, <br/> możesz teraz przejść do całej konsultacji.",
+    "button": "Pokaż wszystkie propozycje"
+  },
+  "sign_up_card": {
+    "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
+    "authentification-text": "Chcę się zalogować za pomocą",
+    "next-cta": "Nie, dziękuję, nie chcę być informowany(a) o wynikach"
+  },
+  "push_proposal_card": {
+    "title": "Może chcesz zaproponować własne rozwiązanie tej kwestii?",
+    "next-cta": "Jeszcze nie, chcę kontynuować głosowanie"
+  },
+  "proposal_submit": {
+    "bait": "Należy ",
+    "title": "Prześlij swoje propozycje, wypełniając ten formularz tekstem o długości co najmniej 140 znaków:",
+    "entred_chars": ": liczba wprowadzonych znaków",
+    "available_chars": ": pozostało znaków",
+    "description": "Nie martw się, poprawimy ewentualne błędy ortograficzne.",
+    "moderation_charter": "Aby dowiedzieć się więcej na temat naszych zasad moderacji,",
+    "success": "Otrzymaliśmy Twoją propozycję, przekażemy ją do sprawdzenia przez nasz dział moderacji. Otrzymasz e-mail informujący o zatwierdzeniu Twojej propozycji."
+  },
+  "vote": {
+    "intro_title": "Chcę wyrazić opinię na temat tej propozycji. ",
+    "intro_text": "Jestem:",
+    "agree": "Za",
+    "disagree": "Przeciw",
+    "neutral": "Pusty głos",
+    "label": "{{count}} głos",
+    "label_plural": "{{count}} głosy(ów)"
+  },
+  "unvote": {
+    "title": "Klikając poniższy przycisk, wycofuję swoją opinię na temat tej propozycji:",
+    "button": "wycofuję swoją opinię"
+  },
+  "results": {
+    "title": "Opinie innych uczestników na temat tej propozycji:",
+    "total_text": "Łączna liczba opinii: ",
+    "tooltipbutton": {
+      "agree": "Wyświetl wyniki dla opinii: „zgadzam się”",
+      "disagree": "Wyświetl wyniki dla opinii: „nie zgadzam się”",
+      "neutral": "Wyświetl wyniki dla opinii: „oddaję pusty głos”"
+    }
+  },
+  "qualification": {
+    "title": "Klikając poniższe przyciski, precyzuję swoją opinię:",
+    "doable": "Naprawdę warto",
+    "likeIt": "Realistyczne",
+    "platitudeAgree": "Banalne",
+    "noWay": "Absolutnie nie!",
+    "impossible": "Niewykonalne",
+    "platitudeDisagree": "Banalne",
+    "doNotUnderstand": "Nie rozumiem",
+    "noOpinion": "Brak opinii",
+    "doNotCare": "Obojętnie"
+  },
+  "sequence": {
+    "return": "Wróć do propozycji"
+  },
+  "authentification": {
+    "title": "Zarejestruj się, by zatwierdzić swoją propozycję",
+    "description": "za pomocą",
+    "commitment": "Make.org dba o bezpieczeństwo ",
+    "personal_data": "Twoich danych osobowych "
+  },
+  "login": {
+    "title": "Mam już konto",
+    "social_connect": "Logowanie za pomocą",
+    "or": "lub",
+    "button_connect": "Logowanie",
+    "email_connect": "Logowanie za pomocą adresu e-mail",
+    "forgot_password_title": "Ups,",
+    "forgot_password_link": "nie pamiętam hasła.",
+    "registration_title": "Nie mam konta,",
+    "registration_link": "chcę je założyć.",
+    "email_doesnot_exist": "Nie znaleźliśmy konta powiązanego z tym adresem e-mail."
+  },
+  "register": {
+    "title": "Załóż konto",
+    "social_connect": "Chcę się zarejestrować za pomocą",
+    "or": "lub",
+    "subtitle": "Chcę się zarejestrować za pomocą tego formularza",
+    "login_title": "Mam już konto.",
+    "login_link": "Logowanie",
+    "cgu": "Rejestrując się, akceptujesz nasz regulamin użytkowania oraz wyrażasz zgodę na otrzymywanie (rozsądnej ilości) e-maili od Make.org."
+  },
+  "forgot_password": {
+    "title": "chcę zresetować hasło",
+    "description": "Podaj adres e-mail powiązany z Twoim kontem Make.org, aby otrzymać wiadomość z linkiem umożliwiającym zresetowanie hasła.",
+    "success": "Dziękujemy, wysłaliśmy Ci e-mail z instrukcjami zmiany hasła.",
+    "return": "Wróć do ",
+    "login_link": "ekranu logowania",
+    "send_link": "odbierz e-mail"
+  },
+  "footer_sequence": {
+    "with": "za pomocą",
+    "see_more": "Dowiedz się więcej na ten temat:",
+    "link": "Dowiedz się więcej na temat tej konsultacji"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Informacje prawne"
+      },
+      "item-2": {
+        "label": "Warunki użytkowania"
+      },
+      "item-3": {
+        "label": "Zasady ochrony danych"
+      },
+      "item-4": {
+        "label": "Kontakt"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Zamknij rozwijane menu"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Jak – konkretnie – zmienić Europę?",
+      "metas": {
+        "title": "Jak – konkretnie – zmienić Europę?",
+        "description": "Masz pomysł? Weź udział w wielkiej konsultacji obywatelskiej na platformie Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tysiące obywateli proponuje swoje rozwiązania, by wspólnie zmienić Europę.",
+        "description": [
+          "Wyraź swoją opinię na temat tych rozwiązań i zaproponuj własne.",
+          "Najczęściej popierane pomysły będą bronione przez kandydatów do wyborów europejskich."
+        ]
+      },
+      "signUpCard": {
+        "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
+        "nextCTA": "Nie, dziękuję, nie chcę być informowany(a) o wynikach."
+      },
+      "finalCard": {
+        "title": "Dziękujemy za udział",
+        "share": [
+          "Chcesz zrobić więcej na rzecz odnowy Europy?",
+          "Zachęć bliskich oraz/lub swoją społeczność do udziału w akcji"
+        ],
+        "learn_more_title": "Poznaj szczegóły projektu WeEuropeans",
+        "learn_more_button": "Dowiedz się więcej"
+      }
+    }
+  }
+}

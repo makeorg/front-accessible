@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "home": {
+      "title": "Make.org, acelerador de interesses globais",
+      "description": "Proponha, vote, ajamos: juntos encontraremos as soluções para os grandes problemas da atualidade. As mais votadas serão postas em prática pela Make.org e os seus parceiros.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Iniciar sessão",
+    "register_label": "Registar-se",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Palavra-passe",
+      "firstname_label": "Nome",
+      "age_label": "Idade (opcional)",
+      "postalcode_label": "Código postal (opcional)",
+      "profession_label": "Profissão (opcional)",
+      "email is not a valid email": "Formato de e-mail desconhecido",
+      "Password must be at least 8 characters": "A palavra-passe deve ter, pelo menos, 8 caracteres.",
+      "email_already_exist": "Este e-mail já se encontra registado.",
+      "api_error": "Ups! Estamos com dificuldades em carregar esta página. Tente novamente mais tarde.",
+      "required_field": "Preencha este campo."
+    },
+    "from": "sobre",
+    "email": "E-mail",
+    "propose": "Propor",
+    "click_there": "clique aqui",
+    "open_new_window": "Abrir num novo separador",
+    "loading": "Obrigado por aguardar que a página carregue."
+  },
+  "header": {
+    "logo_alt": "Ir para o site Make.org"
+  },
+  "proposal_page": {
+    "button_1": "participar",
+    "button_2": "saber mais",
+    "share_text": "Partilhe esta proposta para a apoiar:",
+    "footer_text": "Esta proposta foi submetida no âmbito da operação {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Proposta anterior",
+    "next": "Proposta seguinte",
+    "number": "Número da proposta"
+  },
+  "intro_card": {
+    "title": "Milhares de cidadãos propõem soluções.",
+    "description_1": "Tome uma posição sobre estas soluções e apresente as suas.",
+    "description_2": "As melhores definirão as nossas ações futuras.",
+    "button": "Iniciar",
+    "partnership": "em parceria com"
+  },
+  "final_card": {
+    "title": "Obrigado pela sua participação. <br/> Agora já pode aceder à consulta completa.",
+    "button": "Ver todas as propostas"
+  },
+  "sign_up_card": {
+    "title": "Receba os resultados da consulta e mantenha-se informado(a) sobre ações futuras",
+    "authentification-text": "Identifico-me com",
+    "next-cta": "Não, obrigado(a). Não quero ser informado(a) dos resultados"
+  },
+  "push_proposal_card": {
+    "title": "Tem alguma solução a propor sobre este assunto?",
+    "next-cta": "Ainda não, vou continuar a votar"
+  },
+  "proposal_submit": {
+    "bait": "É necessário ",
+    "title": "Submeta as suas propostas, preenchendo este formulário com menos de 140 caracteres:",
+    "entred_chars": "caracteres usados",
+    "available_chars": "caracteres disponíveis",
+    "description": "Não se preocupe. Corrigiremos eventuais erros ortográficos.",
+    "moderation_charter": "Para saber mais sobre a nossa carta de moderação,",
+    "success": "A sua proposta foi recebida com êxito. Será agora revista pela nossa equipa de moderação. Receberá um e-mail assim que for validada."
+  },
+  "vote": {
+    "intro_title": "Dou a minha opinião sobre esta proposta. ",
+    "intro_text": "Eu:",
+    "agree": "Concordo",
+    "disagree": "Discordo",
+    "neutral": "Voto em branco",
+    "label": "{{count}} voto",
+    "label_plural": "{{count}} votos"
+  },
+  "unvote": {
+    "title": "Ao clicar no botão abaixo, retiro a minha opinião sobre esta proposta:",
+    "button": "retiro a minha opinião"
+  },
+  "results": {
+    "title": "As opiniões dos outros participantes sobre esta proposta são as seguintes:",
+    "total_text": "Número total de opiniões: ",
+    "tooltipbutton": {
+      "agree": "Mostrar os resultados da opinião: \"concordo\"",
+      "disagree": "Mostrar os resultados da opinião: \"discordo\"",
+      "neutral": "Mostrar os resultados da opinião: \"voto em branco\""
+    }
+  },
+  "qualification": {
+    "title": "Ao clicar nos botões abaixo, defino a minha opinião como:",
+    "doable": "Favorita",
+    "likeIt": "Realista",
+    "platitudeAgree": "Banal",
+    "noWay": "De forma nenhuma",
+    "impossible": "Impraticável",
+    "platitudeDisagree": "Banal",
+    "doNotUnderstand": "Não percebi",
+    "noOpinion": "Sem opinião",
+    "doNotCare": "Indiferente"
+  },
+  "sequence": {
+    "return": "Voltar às propostas"
+  },
+  "authentification": {
+    "title": "Registe-se para validar a sua proposta",
+    "description": "com",
+    "commitment": "A Make.org compromete-se a proteger os seus ",
+    "personal_data": "dados pessoais "
+  },
+  "login": {
+    "title": "Já tenho uma conta",
+    "social_connect": "Iniciar sessão com",
+    "or": "ou",
+    "button_connect": "Iniciar sessão",
+    "email_connect": "Iniciar sessão com o meu e-mail",
+    "forgot_password_title": "Ups,",
+    "forgot_password_link": "esqueci-me da palavra-passe.",
+    "registration_title": "Não tenho conta,",
+    "registration_link": "mas vou criar uma.",
+    "email_doesnot_exist": "Não existe nenhuma conta associada a este e-mail."
+  },
+  "register": {
+    "title": "Criar conta",
+    "social_connect": "Registar-me com",
+    "or": "ou",
+    "subtitle": "Registar-me através deste formulário",
+    "login_title": "Já tenho uma conta.",
+    "login_link": "Autenticação",
+    "cgu": "Ao efetuar o seu registo, aceita as nossas condições gerais de utilização e aceita receber e-mails (que serão poucos) da Make.org."
+  },
+  "forgot_password": {
+    "title": "recuperar a minha palavra-passe",
+    "description": "Obrigado por indicar o e-mail associado à sua conta Make.org para efetuar a recuperação da sua palavra-passe.",
+    "success": "Obrigado. Vai receber um email para poder atualizar a sua palavra-passe.",
+    "return": "Voltar ao ",
+    "login_link": "ecrã de autenticação",
+    "send_link": "receber o e-mail"
+  },
+  "footer_sequence": {
+    "with": "com",
+    "see_more": "Saber mais sobre o tema:",
+    "link": "Saber mais sobre esta proposta"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Avisos legais"
+      },
+      "item-2": {
+        "label": "Condições de utilização"
+      },
+      "item-3": {
+        "label": "Políticas de dados"
+      },
+      "item-4": {
+        "label": "Contactos"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Fechar o menu pendente"
+  }
+}

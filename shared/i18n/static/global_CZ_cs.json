@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, akcelerátor obecného zájmu",
+      "description": "Navrhněte, hlasujte a jednejme - hledejme společně řešení nejzávažnějších problémů dneška. Make.org se svými partnery budou prosazovat realizaci návrhů majících největší podporu.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Připojte se",
+    "register_label": "Zaregistrujte se",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Heslo",
+      "firstname_label": "Křestní jméno",
+      "age_label": "Věk (volitelné)",
+      "postalcode_label": "PSČ (volitelné)",
+      "profession_label": "Zaměstnání (volitelné)",
+      "email is not a valid email": "Neplatný formát e-mailu",
+      "Password must be at least 8 characters": "Heslo musí mít minimálně 8 znaků.",
+      "email_already_exist": "Tento e-mail už je zaregistrován.",
+      "api_error": "Jejda! Při nahrávání této stránky se objevily potíže. Zkuste to prosím později.",
+      "required_field": "Vyplňte prosím toto políčko."
+    },
+    "from": "na",
+    "email": "E-mail",
+    "propose": "Podat návrh",
+    "click_there": "klikněte sem",
+    "open_new_window": "Otevře se v nové záložce",
+    "loading": "Počkejte prosím, načítá se."
+  },
+  "header": {
+    "logo_alt": "Jít na stránky Make.org"
+  },
+  "proposal_page": {
+    "button_1": "zúčastnit se",
+    "button_2": "dozvědět se víc",
+    "share_text": "Podpořte tento návrh tak, že jej budete sdílet:",
+    "footer_text": "Tento návrh byl předložen v rámci akce {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Předchozí návrh",
+    "next": "Následující návrh",
+    "number": "Návrh číslo"
+  },
+  "intro_card": {
+    "title": "Tisíce občanů navrhují řešení.",
+    "description_1": "Zaujměte stanovisko k těmto řešením a navrhněte své vlastní řešení.",
+    "description_2": "Nejlepší řešení se stanou podkladem pro naše aktivity.",
+    "button": "Spustit",
+    "partnership": "ve spolupráci s"
+  },
+  "final_card": {
+    "title": "Děkujeme za vaši spolupráci, <br/> nyní máte přístup k anketě v plném rozsahu.",
+    "button": "Prohlédnout si všechny návrhy"
+  },
+  "sign_up_card": {
+    "title": "Chci dostávat výsledky ankety a být informován/a o příštích akcích",
+    "authentification-text": "Přihlašuji se pomocí",
+    "next-cta": "Ne, děkuji, nechci být informován/a o výsledcích."
+  },
+  "push_proposal_card": {
+    "title": "A co Vy, mátě nějaký návrh na řešení tohoto problému?",
+    "next-cta": "Ještě ne, pokračuji v hlasování"
+  },
+  "proposal_submit": {
+    "bait": "Je třeba ",
+    "title": "Předložte své návrhy tak, že vyplníte formulář za použití maximálně 140 znaků:",
+    "entred_chars": "vložené znaky",
+    "available_chars": "dostupné znaky",
+    "description": "Nemějte obavy, případné pravopisné chyby opravíme.",
+    "moderation_charter": "Další informace o našich pravidlech moderování ",
+    "success": "Váš návrh jsme zohlednili, teď se jím bude zabývat naše oddělení pro moderování. Po jeho schválení dostanete potvrzující mail."
+  },
+  "vote": {
+    "intro_title": "Vyjadřuji svůj názor na tento návrh. ",
+    "intro_text": "Můj názor:",
+    "agree": "Souhlasím",
+    "disagree": "Nesouhlasím",
+    "neutral": "Zdržuji se hlasování",
+    "label": "{{count}} hlas",
+    "label_plural": "{{count}} hlasy"
+  },
+  "unvote": {
+    "title": "Kliknutím na dolní tlačítko svoje stanovisko k tomuto návrhu odvolávám",
+    "button": "odvolávám svoje stanovisko"
+  },
+  "results": {
+    "title": "Stanoviska ostatních účastníků k tomuto návrhu jsou:",
+    "total_text": "Celkový počet stanovisek: ",
+    "tooltipbutton": {
+      "agree": "Zobrazit výsledky pro stanovisko: souhlasím",
+      "disagree": "Zobrazit výsledky pro stanovisko: nesouhlasím",
+      "neutral": "Zobrazit výsledky pro stanovisko: zdržuji se hlasování"
+    }
+  },
+  "qualification": {
+    "title": "Kliknutím na dolní tlačítka lze upřesnit svoje stanovisko k tomuto návrhu:",
+    "doable": "Vynikající",
+    "likeIt": "Reálné",
+    "platitudeAgree": "Triviální",
+    "noWay": "Hlavně to ne!",
+    "impossible": "Neproveditelné",
+    "platitudeDisagree": "Triviální",
+    "doNotUnderstand": "Nechápu",
+    "noOpinion": "Nemám žádný názor",
+    "doNotCare": "Je mi to jedno"
+  },
+  "sequence": {
+    "return": "Zpět k návrhům"
+  },
+  "authentification": {
+    "title": "Zaregistrujte se abyste mohl/a potvrdit svůj návrh",
+    "description": "s",
+    "commitment": "Make.org se zavazuje, že bude chránit vaše  ",
+    "personal_data": "osobní údaje "
+  },
+  "login": {
+    "title": "Už mám účet",
+    "social_connect": "Připojuji se pomocí",
+    "or": "nebo",
+    "button_connect": "Připojuji se",
+    "email_connect": "Připojuji se pomocí e-mailové adresy",
+    "forgot_password_title": "Jéje,",
+    "forgot_password_link": "zapomněl/a jste heslo? ",
+    "registration_title": "Nemám účet,",
+    "registration_link": "vytvořím si ho.",
+    "email_doesnot_exist": "S tímto e-mailem není propojen žádný účet"
+  },
+  "register": {
+    "title": "Vytvořit účet",
+    "social_connect": "Registruji se pomocí",
+    "or": "nebo",
+    "subtitle": "Registruji se pomocí tohoto formuláře",
+    "login_title": "Už mám účet",
+    "login_link": "Připojení",
+    "cgu": "Registrací souhlasíte s našimi všeobecnými podmínkami používání a se zasíláním (ne příliš početných) e-mailů od Make.org."
+  },
+  "forgot_password": {
+    "title": "obnovuji své heslo",
+    "description": "Zadejte prosím e-mailovou adresu spojenou s vaším účtem na Make.org, a dostanete odkaz na obnovu hesla",
+    "success": "Děkujeme právě jsme vám zaslali e-mail pro aktualizaci vašeho hesla.",
+    "return": "Jít zpět na ",
+    "login_link": "obrazovku připojení",
+    "send_link": "dostat e-mail"
+  },
+  "footer_sequence": {
+    "with": "s",
+    "see_more": "Chci se dozvědět víc o této problematice/",
+    "link": "Chci se dozvědět víc o této anketě"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Právní informace"
+      },
+      "item-2": {
+        "label": "Podmínky používání"
+      },
+      "item-3": {
+        "label": "Zásady ochrany údajů"
+      },
+      "item-4": {
+        "label": "Kontakt"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Zavřít rozbalovací menu"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Jak konkrétně dát Evropě nový smysl?",
+      "metas": {
+        "title": "Jak konkrétně dát Evropě nový smysl?",
+        "description": "Máte nějaký nápad na toto téma?  Zúčastněte se rozsáhlé občanské ankety na Make.org.",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tisíce občanů navrhují řešení, jak dát Evropě nový smysl.",
+        "description": [
+          "Zaujměte stanovisko k těmto řešením nebo navrhněte svá vlastní řešení.",
+          "Nejvíce podporované nápady budou muset kandidáti v evropských volbách obhájit."
+        ]
+      },
+      "signUpCard": {
+        "title": "Chci dostávat výsledky ankety a být informován/a o příštích akcích",
+        "nextCTA": "Ne, děkuji, nechci být informován/a o výsledcích."
+      },
+      "finalCard": {
+        "title": "Děkujeme za vaši účast.",
+        "share": [
+          "Chcete pokračovat v hledání nového smyslu pro Evropu? ",
+          "Pozvěte k účasti své blízké a/ nebo své známé"
+        ],
+        "learn_more_title": "Seznamte se s celým projektem WeEuropeans",
+        "learn_more_button": "Dozvědět se víc"
+      }
+    }
+  }
+}

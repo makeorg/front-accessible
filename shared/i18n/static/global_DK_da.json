@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, en accelerator af almen interesse",
+      "description": "Vi skal foreslå, stemme, handle: Sammen kan vi finde løsninger på de store aktuelle problemstillinger. Dem med størst tilslutning vil blive omsat til handling af Make.org og partnere.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Log på",
+    "register_label": "Tilmeld dig",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Adgangskode",
+      "firstname_label": "Fornavn",
+      "age_label": "Alder (valgfrit)",
+      "postalcode_label": "Postnummer (valgfrit)",
+      "profession_label": "Erhverv (valgfrit)",
+      "email is not a valid email": "Ikke genkendt e-mail format",
+      "Password must be at least 8 characters": "Din adgangskode skal indeholde mindst 8 tegn.",
+      "email_already_exist": "Denne e-mail er allerede tilmeldt.",
+      "api_error": "Ups! Vi har problemer med at hente denne side. Prøv venligst igen senere.",
+      "required_field": "Oplys venligst dette felt."
+    },
+    "from": "på",
+    "email": "E-mail",
+    "propose": "Foreslå",
+    "click_there": "klik her",
+    "open_new_window": "Åbning i en ny fane",
+    "loading": "Vent venligst under hentning."
+  },
+  "header": {
+    "logo_alt": "Gå til sitet Make.org"
+  },
+  "proposal_page": {
+    "button_1": "deltag",
+    "button_2": "få mere at vide",
+    "share_text": "Støt dette forslag ved at dele det:",
+    "footer_text": "Dette forslag er blevet fremlagt inden for rammerne af tiltaget {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Forrige forslag",
+    "next": "Næste forslag",
+    "number": "Forslag nummer"
+  },
+  "intro_card": {
+    "title": "Tusindvis af borgere foreslår løsninger.",
+    "description_1": "Tag stilling til disse løsninger & foreslå dine egne løsninger.",
+    "description_2": "De bedste vil bestemme vores handlinger.",
+    "button": "Start",
+    "partnership": "i partnerskab med"
+  },
+  "final_card": {
+    "title": "Tak for din deltagelse, <br/> nu kan du få adgang til hele konsultationen.",
+    "button": "Se alle forslag"
+  },
+  "sign_up_card": {
+    "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
+    "authentification-text": "Jeg identificerer mig med",
+    "next-cta": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet"
+  },
+  "push_proposal_card": {
+    "title": "Hvad med dig, har du en løsning at foreslå i forbindelse med dette emne?",
+    "next-cta": "Ikke endnu, jeg bliver ved med at stemme"
+  },
+  "proposal_submit": {
+    "bait": "Det er nødvendigt ",
+    "title": "Fremlæg dine forslag ved at udfylde denne formular med mindre end 140 tegn:",
+    "entred_chars": "indtastede tegn",
+    "available_chars": "disponible tegn",
+    "description": "Du kan være ganske rolig, vi retter eventuelle stavefejl.",
+    "moderation_charter": "For at få mere at vide om vort moderations-charter,",
+    "success": "Dit forslag er modtaget, nu vil det blive læst af vores moderations-afdeling. Du vil modtage en e-mail, når den er blevet godkendt."
+  },
+  "vote": {
+    "intro_title": "Jeg giver min mening om dette forslag. ",
+    "intro_text": "Jeg er:",
+    "agree": "Enig",
+    "disagree": "Uenig",
+    "neutral": "Blank stemme",
+    "label": "{{count}} stemme",
+    "label_plural": "{{count}} stemmer"
+  },
+  "unvote": {
+    "title": "Når jeg klikker på knappen nedenfor, trækker jeg min mening om dette forslag tilbage:",
+    "button": "jeg trækker min mening tilbage"
+  },
+  "results": {
+    "title": "De andre deltageres mening om dette forslag er:",
+    "total_text": "Det samlede antal meninger er: ",
+    "tooltipbutton": {
+      "agree": "Vis resultater for denne mening: 'jeg er enig'",
+      "disagree": "Vis resultater for denne mening: 'jeg er uenig'",
+      "neutral": "Vis resultater for denne mening: 'jeg stemmer blank'"
+    }
+  },
+  "qualification": {
+    "title": "Når jeg klikker på knapperne nedenfor, præciserer jeg min mening:",
+    "doable": "Virkelig godt",
+    "likeIt": "Realistisk",
+    "platitudeAgree": "Banalitet",
+    "noWay": "Overhovedet ikke!",
+    "impossible": "Umuligt",
+    "platitudeDisagree": "Banalitet",
+    "doNotUnderstand": "Forstår ikke",
+    "noOpinion": "Ved ikke",
+    "doNotCare": "Ligeglad"
+  },
+  "sequence": {
+    "return": "Vend tilbage til forslag"
+  },
+  "authentification": {
+    "title": "Tilmeld dig for at godkende dit forslag",
+    "description": "med",
+    "commitment": "Make.org forpligter sig til at beskytte dine ",
+    "personal_data": "personoplysninger "
+  },
+  "login": {
+    "title": "Jeg har allerede en konto",
+    "social_connect": "Jeg logger på med",
+    "or": "eller",
+    "button_connect": "Jeg logger på",
+    "email_connect": "Jeg logger på med min e-mailadresse",
+    "forgot_password_title": "Ups, jeg har",
+    "forgot_password_link": "glemt min adgangskode?",
+    "registration_title": "Jeg har ingen konto,",
+    "registration_link": "jeg opretter én.",
+    "email_doesnot_exist": "Vi kan ikke finde en konto forbundet med denne e-mail."
+  },
+  "register": {
+    "title": "Opret en konto",
+    "social_connect": "Jeg tilmelder mig med",
+    "or": "eller",
+    "subtitle": "Jeg tilmelder mig med denne formular",
+    "login_title": "Jeg har allerede en konto.",
+    "login_link": "Tilslutning",
+    "cgu": "Når du tilmelder dig, accepterer du vores generelle brugsbetingelser og du accepterer at modtage e-mails (ganske få) fra Make.org."
+  },
+  "forgot_password": {
+    "title": "jeg nulstiller min adgangskode",
+    "description": "Oplys venligst e-mailadressen forbundet med din Make.org-konto for at modtage et nulstillingslink.",
+    "success": "Tak, du vil modtage en e-mail, som giver dig mulighed for at opdatere din adgangskode.",
+    "return": "Vend tilbage til ",
+    "login_link": "startskærmen",
+    "send_link": "modtag e-mailen"
+  },
+  "footer_sequence": {
+    "with": "med",
+    "see_more": "Få mere at vide om dette emne:",
+    "link": "Få mere at vide om denne konsultation"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Juridiske oplysninger"
+      },
+      "item-2": {
+        "label": "Brugsbetingelser"
+      },
+      "item-3": {
+        "label": "Datapolitik"
+      },
+      "item-4": {
+        "label": "Kontakt"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Luk rullepanelet"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hvordan kan vi genopfinde Europa, helt konkret?",
+      "metas": {
+        "title": "Hvordan kan vi genopfinde Europa, helt konkret?",
+        "description": "Har du en idé om det? Deltag i den store borgerkonsultation Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tusindvis af borgere foreslår løsninger.for at genopfinde Europa.",
+        "description": [
+          "Tag stilling til disse løsninger eller foreslå dine egne løsninger.",
+          "De idéer, der får størst tilslutning, vil blive forsvaret af kandidater til Europa-parlamentet."
+        ]
+      },
+      "signUpCard": {
+        "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
+        "nextCTA": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet."
+      },
+      "finalCard": {
+        "title": "Tak for din deltagelse",
+        "share": [
+          "Ønsker du at gå et skridt videre for at genopfinde Europa?",
+          "Foreslå dine nærmeste eller dit fællesskab at deltage"
+        ],
+        "learn_more_title": "Opdag hele projektet WeEuropeans",
+        "learn_more_button": "Få mere at vide"
+      }
+    }
+  }
+}

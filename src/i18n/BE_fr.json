@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "home": {
+      "title": "Make.org, accélérateur d'intérêt général",
+      "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Se connecter",
+    "register_label": "S'inscrire",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Mot de passe",
+      "firstname_label": "Prénom",
+      "age_label": "Âge (optionnel)",
+      "postalcode_label": "Code postal (optionnel)",
+      "profession_label": "Profession (optionnel)",
+      "email is not a valid email": "Format d'email non reconnu",
+      "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
+      "email_already_exist": "Cet email est dèja inscrit.",
+      "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
+      "required_field": "Veuillez renseigner ce champ."
+    },
+    "from": "sur",
+    "email": "Email",
+    "propose": "Proposer",
+    "click_there": "cliquez ici",
+    "open_new_window": "Ouverture dans un nouvel onglet",
+    "loading": "Merci de patienter pendant le chargement."
+  },
+  "header": {
+    "logo_alt": "Aller sur le site Make.org"
+  },
+  "proposal_page": {
+    "button_1": "participer",
+    "button_2": "en savoir +",
+    "share_text": "Soutenez cette proposition en la partageant :",
+    "footer_text": "Cette proposition a été soumise dans le cadre de l'opération {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Proposition précédente",
+    "next": "Proposition suivante",
+    "number": "Proposition numéro"
+  },
+  "intro_card": {
+    "title": "Des milliers de citoyens proposent des solutions.",
+    "description_1": "Prenez position sur ces solutions & proposez les vôtres.",
+    "description_2": "Les meilleures détermineront nos actions.",
+    "button": "Démarrer",
+    "partnership": "en partenariat avec"
+  },
+  "final_card": {
+    "title": "Merci de votre participation, <br/> vous pouvez maintenant accéder à la consultation complète.",
+    "button": "Voir toutes les propositions"
+  },
+  "sign_up_card": {
+    "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+    "authentification-text": "Je m'identifie avec",
+    "next-cta": "Non merci, je ne souhaite pas être informé(e) des résultats"
+  },
+  "push_proposal_card": {
+    "title": "Et vous, avez vous une solution à proposer sur ce sujet ?",
+    "next-cta": "Pas encore, je continue à voter"
+  },
+  "proposal_submit": {
+    "bait": "Il faut ",
+    "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
+    "entred_chars": "caractères entrés",
+    "available_chars": "caractères disponibles",
+    "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
+    "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
+    "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
+  },
+  "vote": {
+    "intro_title": "Je donne mon avis sur cette proposition. ",
+    "intro_text": "Je suis :",
+    "agree": "D'accord",
+    "disagree": "Pas d'accord",
+    "neutral": "Vote blanc",
+    "label": "{{count}} vote",
+    "label_plural": "{{count}} votes"
+  },
+  "unvote": {
+    "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",
+    "button": "je retire mon avis"
+  },
+  "results": {
+    "title": "Les avis des autres participants sur cette proposition sont :",
+    "total_text": "Le nombre d'avis total est de : ",
+    "tooltipbutton": {
+      "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
+      "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
+      "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
+    }
+  },
+  "qualification": {
+    "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
+    "doable": "Coup de coeur",
+    "likeIt": "Réaliste",
+    "platitudeAgree": "Banalité",
+    "noWay": "Surtout pas !",
+    "impossible": "Infaisable",
+    "platitudeDisagree": "Banalité",
+    "doNotUnderstand": "Pas compris",
+    "noOpinion": "Pas d'avis",
+    "doNotCare": "Indifférent"
+  },
+  "sequence": {
+    "return": "Revenir aux propositions"
+  },
+  "authentification": {
+    "title": "Inscrivez-vous pour valider votre proposition",
+    "description": "avec",
+    "commitment": "Make.org s‘engage à protéger vos ",
+    "personal_data": "données personnelles "
+  },
+  "login": {
+    "title": "J‘ai déjà un compte",
+    "social_connect": "Je me connecte avec",
+    "or": "ou",
+    "button_connect": "Je me connecte",
+    "email_connect": "Je me connecte avec mon adresse e-mail",
+    "forgot_password_title": "Oups, j’ai",
+    "forgot_password_link": "oublié mon mot de passe ?",
+    "registration_title": "Je n’ai pas de compte,",
+    "registration_link": "je m’en crée un.",
+    "email_doesnot_exist": "Nous ne trouvons pas de compte associé à cet email."
+  },
+  "register": {
+    "title": "Créer un compte",
+    "social_connect": "Je m’inscris avec",
+    "or": "ou",
+    "subtitle": "Je m'inscris avec ce formulaire",
+    "login_title": "J‘ai déjà un compte.",
+    "login_link": "Connexion",
+    "cgu": "En vous inscrivant, vous acceptez nos conditions générales d’utilisation et acceptez de recevoir des e-mails (peu nombreux) de Make.org."
+  },
+  "forgot_password": {
+    "title": "je réinitialise mon mot de passe",
+    "description": "Merci de renseigner l'adresse email liée à votre compte Make.org pour recevoir le lien de réinitialisation.",
+    "success": "Merci, un email vient de vous être envoyé pour vous permettre de mettre à jour votre mot de passe.",
+    "return": "Revenir à ",
+    "login_link": "l’écran de connexion",
+    "send_link": "recevoir l'e-mail"
+  },
+  "footer_sequence": {
+    "with": "avec",
+    "see_more": "En savoir plus sur le sujet :",
+    "link": "En savoir + sur cette consultation"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Mentions légales"
+      },
+      "item-2": {
+        "label": "Conditions d'utilisation"
+      },
+      "item-3": {
+        "label": "Politique de données"
+      },
+      "item-4": {
+        "label": "Contact"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Fermer le panneau déroulant"
+  }
+}

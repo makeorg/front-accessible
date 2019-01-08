@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, pospeševalnik splošnega interesa",
+      "description": "Predlagajte, glasujte, ukrepajte: skupaj, poiščite rešitve za sedanja pomembna vprašanja. Najboljše bodo podprli Make.org in njegovi partnerji.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Prijava",
+    "register_label": "Prijavite se",
+    "form": {
+      "email_label": "Elektronska pošta",
+      "password_label": "Geslo",
+      "firstname_label": "Ime",
+      "age_label": "Starost (neobvezno)",
+      "postalcode_label": "Poštna številka (neobvezno)",
+      "profession_label": "Poklic (neobvezno)",
+      "email is not a valid email": "Neprepoznana oblika e-pošte",
+      "Password must be at least 8 characters": "Vaše geslo mora vsebovati vsaj 8 znakov.",
+      "email_already_exist": "To e-poštno sporočilo je že registrirano.",
+      "api_error": "UPS! Pri nalaganju te strani imamo nekaj težav. Poskusite znova pozneje.",
+      "required_field": "Izpolnite to polje."
+    },
+    "from": "na",
+    "email": "Elektronska pošta",
+    "propose": "Predlog",
+    "click_there": "Kliknite tukaj",
+    "open_new_window": "Odpiranje v novem zavihku",
+    "loading": "Počakajte, da se naloži."
+  },
+  "header": {
+    "logo_alt": "Pojdite na spletno mesto Make.org"
+  },
+  "proposal_page": {
+    "button_1": "sodelovati",
+    "button_2": "Več o tem",
+    "share_text": "Podprite ta predlog in ga delite:",
+    "footer_text": "Ta predlog je bil predložen v okviru operacije {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Prejšnji predlog",
+    "next": "Naslednji predlog",
+    "number": "Številka predloga"
+  },
+  "intro_card": {
+    "title": "Na tisoče državljanov predlaga rešitve.",
+    "description_1": "Zavzemite se za te rešitve in predlagajte svoje.",
+    "description_2": "Najboljše bo določilo naša dejanja.",
+    "button": "začetek",
+    "partnership": "v partnerstvu z"
+  },
+  "final_card": {
+    "title": "Zahvaljujemo se vam za sodelovanje, <br/> zdaj lahko dostopate do celotnega posvetovanja.",
+    "button": "Glej vse predloge"
+  },
+  "sign_up_card": {
+    "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
+    "authentification-text": "Sem se poistovetil/a z",
+    "next-cta": "Ne, hvala, ne želim biti obveščen(a) o rezultatih"
+  },
+  "push_proposal_card": {
+    "title": "In vi, ali imate rešitev za predlaganje na to temo?",
+    "next-cta": "Še ne, še naprej glasujem"
+  },
+  "proposal_submit": {
+    "bait": "Moramo ",
+    "title": "Predložite svoje predloge tako, da izpolnite ta obrazec z manj kot 140 znaki:",
+    "entred_chars": "vneseni znaki",
+    "available_chars": "znakov na voljo",
+    "description": "Ne skrbite, popravili bomo pravopisne napake.",
+    "moderation_charter": "Če želite izvedeti več o naši moderaciji,",
+    "success": "Vaš predlog je bil upoštevan, zdaj pa ga bo prebrala naša storitev za moderiranje. Ko bo potrjen, boste prejeli e-poštno sporočilo."
+  },
+  "vote": {
+    "intro_title": "O tem predlogu dajem svoje mnenje. ",
+    "intro_text": "jaz:",
+    "agree": "se strinjam",
+    "disagree": "se ne strinjam",
+    "neutral": "neveljaven glas",
+    "label": "{{count}} glas",
+    "label_plural": "{{count}} glasovi"
+  },
+  "unvote": {
+    "title": "S klikom na spodnji gumb umaknem svoje mnenje o tem predlogu:",
+    "button": "Umaknem svoje mnenje"
+  },
+  "results": {
+    "title": "Mnenja drugih udeležencev o tem predlogu so:",
+    "total_text": "Skupno število pregledov je: ",
+    "tooltipbutton": {
+      "agree": "Pokaži rezultate pregleda za mnenje: \"strinjam se\"",
+      "disagree": "Pokaži rezultate pregleda za mnenje: \"ne strinjam se\"",
+      "neutral": "Pokaži rezultate pregleda za mnenje: Moj glas je neveljaven glas"
+    }
+  },
+  "qualification": {
+    "title": "S klikom na spodnja gumba navedem svoje mnenje:",
+    "doable": "Najljubše",
+    "likeIt": "Realistično",
+    "platitudeAgree": "Banalnost",
+    "noWay": "Še posebej ne!",
+    "impossible": "Ni izvedljivo",
+    "platitudeDisagree": "Banalnost",
+    "doNotUnderstand": "Ne razumem",
+    "noOpinion": "Brez mnenja",
+    "doNotCare": "Ni pomembno"
+  },
+  "sequence": {
+    "return": "Nazaj na predloge"
+  },
+  "authentification": {
+    "title": "Registrirajte se, da potrdite svoj predlog",
+    "description": "z",
+    "commitment": "Make.org se zavzema za zaščito ",
+    "personal_data": "osebnih podatkov "
+  },
+  "login": {
+    "title": "Že imam račun.",
+    "social_connect": "Povezujem se z",
+    "or": "ali",
+    "button_connect": "Prijavim se",
+    "email_connect": "Povezujem se z e-poštnim naslovom",
+    "forgot_password_title": "Ups,",
+    "forgot_password_link": "pozabil sem geslo?",
+    "registration_title": "Nimam računa,",
+    "registration_link": "Ustvarjam eno zase.",
+    "email_doesnot_exist": "Ne moremo najti računa, povezanega s tem e-poštnim sporočilom"
+  },
+  "register": {
+    "title": "Kreiraj račun",
+    "social_connect": "Registriram se z",
+    "or": "ali",
+    "subtitle": "Prijavim se s tem obrazcem",
+    "login_title": ".Že imam račun.",
+    "login_link": "Povezava",
+    "cgu": "Z registracijo se strinjate z našimi pogoji storitve in se strinjate, da boste prejeli e-pošto (nekaj) Make.org."
+  },
+  "forgot_password": {
+    "title": "Ponastavim geslo",
+    "description": "Vnesite e-poštni naslov, povezan z vašim računom Make.org, da boste prejeli povezavo za ponastavitev.",
+    "success": "Hvala, poslano vam je e-poštno sporočilo za ponastavitev gesla.",
+    "return": "Nazaj ",
+    "login_link": "zaslon za prijavo",
+    "send_link": "prejemanje e-pošte"
+  },
+  "footer_sequence": {
+    "with": "z",
+    "see_more": "Več o tVeč o temi:emi:",
+    "link": "Več o tem posvetovanju"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Pravne opombe"
+      },
+      "item-2": {
+        "label": "Pogoji za uporabo"
+      },
+      "item-3": {
+        "label": "Podatkovna politika"
+      },
+      "item-4": {
+        "label": "Kontakt"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Zaprite spustni meni"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Kako preoblikovati Europo, konkretno?",
+      "metas": {
+        "title": "Kako preoblikovati Europo, konkretno?",
+        "description": "Imate idejo o tem? Pridružite se odličnemu državljanskemu posvetovanju Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Na tisoče državljanov predlaga rešitve za ponovno odkrivanje Evrope.",
+        "description": [
+          "Zavzemite se za te rešitve ali predlagajte svoje.",
+          "Kandidate morajo na evropskih volitvah braniti najbolj množično podprte ideje."
+        ]
+      },
+      "signUpCard": {
+        "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
+        "nextCTA": "Ne, hvala, ne želim biti obveščen o rezultatih."
+      },
+      "finalCard": {
+        "title": "Hvala za sodelovanje",
+        "share": [
+          "Ali želite iti še dlje, da bi ponovno odkrili Evropo?",
+          "Povabite svojo družino in / ali skupnost k sodelovanju"
+        ],
+        "learn_more_title": "Odkrijte vse o projektu WeEuropeans",
+        "learn_more_button": "Več o tem"
+      }
+    }
+  }
+}

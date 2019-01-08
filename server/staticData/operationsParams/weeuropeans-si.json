@@ -1,0 +1,33 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Kako preoblikovati Europo, konkretno?",
+    "metas": {
+      "title": "Kako preoblikovati Europo, konkretno?",
+      "description": "Imate idejo o tem? Pridružite se odličnemu državljanskemu posvetovanju Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Na tisoče državljanov predlaga rešitve za ponovno odkrivanje Evrope.",
+      "description": [
+        "Zavzemite se za te rešitve ali predlagajte svoje.",
+        "Kandidate morajo na evropskih volitvah braniti najbolj množično podprte ideje."
+      ]
+    },
+    "signUpCard": {
+      "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
+      "nextCTA": "Ne, hvala, ne želim biti obveščen o rezultatih."
+    },
+    "finalCard": {
+      "title": "Hvala za sodelovanje",
+      "share": [
+        "Ali želite iti še dlje, da bi ponovno odkrili Evropo?",
+        "Povabite svojo družino in / ali skupnost k sodelovanju"
+      ],
+      "learn_more_title": "Odkrijte vse o projektu WeEuropeans",
+      "learn_more_button": "Več o tem"
+    }
+  }
+}
