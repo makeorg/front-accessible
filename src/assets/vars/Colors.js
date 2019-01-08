@@ -29,7 +29,8 @@ export const BorderColors = {
 };
 
 export const TextColors = {
-  MediumGrey: 'rgba(0, 0, 0, 0.55)'
+  MediumGrey: 'rgba(0, 0, 0, 0.55)',
+  LightGrey: 'rgb(242, 242, 242)'
 };
 
 export const ShadowColors = {

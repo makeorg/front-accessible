@@ -13,7 +13,8 @@ import {
   Footer,
   FooterNav,
   FooterTitle,
-  FooterLink
+  FooterLink,
+  InPartnershipWith
 } from './Footer';
 
 const Sequence = styled.section`
@@ -39,6 +40,7 @@ Sequence.Footer = Footer;
 Sequence.FooterNav = FooterNav;
 Sequence.FooterTitle = FooterTitle;
 Sequence.FooterLink = FooterLink;
+Sequence.InPartnershipWith = InPartnershipWith;
 
 
 export default Sequence;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ShadowColors } from 'Assets/vars/Colors';
+import { ShadowColors, TextColors } from 'Assets/vars/Colors';
 import { pxToRem } from 'Helpers/styled';
 import Breakpoints from 'Assets/vars/Breakpoints';
 
@@ -29,6 +29,7 @@ export const FooterNav = styled.nav`
 `;
 
 export const FooterTitle = styled.h2`
+  display: inline-block;
   color: ${props => props.color};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('24px')};
@@ -44,7 +45,19 @@ export const FooterLink = styled.a`
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
   }
+  &:hover{
+    color: ${props => props.color};
+  }
   &:focus {
     outline-color: ${props => props.color};
+  }
+`;
+
+export const InPartnershipWith = styled.span`
+  color: ${TextColors.LightGrey};
+  font-size: ${pxToRem('12px')};
+  padding: 0 ${pxToRem('20px')};
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    font-size: ${pxToRem('14px')};
   }
 `;

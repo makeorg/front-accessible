@@ -26,7 +26,7 @@ export const FooterLinkComponent = (props: Props) => {
     <UnstyledList>
       {Items.map(Item => (
         <MainFooter.Item key={i18next.t(Item.label)}>
-          <MainFooter.ItemLink href={Helpers.setCountryLanguageLink(Item.linkUrl, country, language)}>
+          <MainFooter.ItemLink href={Helpers.getCountryLanguageLink(Item.linkUrl, country, language)}>
             {i18next.t(Item.label)}
           </MainFooter.ItemLink>
         </MainFooter.Item>
