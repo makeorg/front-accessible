@@ -5,14 +5,15 @@ import Breakpoints from 'Assets/vars/Breakpoints';
 
 
 export const MainTitle = styled.h2`
-  font-family: ${MakeFonts.CircularBold};
-  font-size: ${pxToRem('22px')};
+  font-family: ${MakeFonts.RobotoBold};
+  font-weight: bold;
+  font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('26px')};
   text-transform: none;
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('38px')};
-    line-height: ${pxToRem('50px')};
+    font-size: ${pxToRem('42px')};
+    line-height: ${pxToRem('54px')};
   }
 `;
 

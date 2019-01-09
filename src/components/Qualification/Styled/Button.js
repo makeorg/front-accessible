@@ -42,7 +42,8 @@ export const QualifyButton = styled(Button)`
 `;
 
 export const QualificationCounter = styled.span`
-  font-family: ${MakeFonts.CircularBold};
+  font-family: ${MakeFonts.RobotoBold};
+  font-weight: bold;
   font-size: ${pxToRem('18px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('22px')};

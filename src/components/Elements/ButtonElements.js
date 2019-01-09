@@ -40,7 +40,8 @@ export const BasicButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  font-family: ${MakeFonts.TradeGothic};
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-weight: bold;
   font-size: ${pxToRem('14px')};
   border: none;
   border-radius: ${pxToRem('30px')};
@@ -52,16 +53,16 @@ export const BasicButton = styled.button`
 `;
 
 export const SmallBasicButton = styled(BasicButton)`
-  padding: ${pxToRem('8.5px')} ${pxToRem('15px')} ${pxToRem('5.5px')};
+  padding: ${pxToRem('5px')} ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    padding: ${pxToRem('10.5px')} ${pxToRem('20px')} ${pxToRem('7.5px')};
+    padding: ${pxToRem('9px')} ${pxToRem('20px')};
   }
 `;
 
 export const TallBasicButton = styled(BasicButton)`
-  padding: ${pxToRem('10.5px')} ${pxToRem('15px')} ${pxToRem('7.5px')};
+  padding: ${pxToRem('8px')} ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    padding: ${pxToRem('12.5px')} ${pxToRem('20px')} ${pxToRem('9.5px')};
+    padding: ${pxToRem('10px')} ${pxToRem('20px')};
   }
 `;
 
@@ -129,7 +130,8 @@ export const EmailButton = styled(LargeButton)`
 
 export const RedLinkButton = styled(UnstyledButton)`
   display: inline-block;
-  font-family: ${MakeFonts.CircularBold};
+  font-family: ${MakeFonts.RobotoBold};
+  font-weight: bold;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
   margin: 0 ${pxToRem('5px')}

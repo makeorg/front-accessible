@@ -21,7 +21,8 @@ export const Label = styled.label`
 
 export const Input = styled(NoStyleTextInput)`
   width: 100%;
-  font-family: ${MakeFonts.CircularBold};
+  font-family: ${MakeFonts.RobotoBold};
+  font-weight: bold;
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('40px')};
   padding: 0 0 0 ${pxToRem('2.5px')};
@@ -32,13 +33,13 @@ export const Input = styled(NoStyleTextInput)`
 `;
 
 export const CharLimit = styled(MiddleRow)`
-  font-family: ${MakeFonts.CircularBook};
+  font-family: ${MakeFonts.RobotoRegular};
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
   padding: 0 ${pxToRem('2.5px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('14px')};
-    padding: 0 ${pxToRem('5px')};
+    font-size: ${pxToRem('16px')};
+    padding: 0 ${pxToRem('16px')};
   }
 `;
 

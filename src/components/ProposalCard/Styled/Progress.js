@@ -9,8 +9,8 @@ export const ProgressWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${pxToRem('52px')};
-  height: ${pxToRem('52px')};
+  width: ${pxToRem('58px')};
+  height: ${pxToRem('58px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     width: ${pxToRem('82px')};
     height: ${pxToRem('82px')};
@@ -49,16 +49,16 @@ export const ProgressCounter = styled.h2`
   z-index: 1;
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
-  font-family: ${MakeFonts.CircularBook};
+  font-family: ${MakeFonts.RobotoRegular};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('16px')};
+    font-size: ${pxToRem('14px')};
   }
 `;
 
 export const ActiveCard = styled.span`
-  font-size: ${pxToRem('14px')};
+  font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('20px')};
+    font-size: ${pxToRem('18px')};
   }
 `;

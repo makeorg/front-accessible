@@ -17,7 +17,7 @@ export const Item = styled.li`
 `;
 
 export const ItemLink = styled.a`
-  font-family: ${MakeFonts.CircularBook};
+  font-family: ${MakeFonts.RobotoRegular};
   text-decoration: none;
   font-size: ${pxToRem('12px')};
   &:hover,

@@ -32,10 +32,8 @@ export const FooterTitle = styled.h2`
   display: inline-block;
   color: ${props => props.color};
   font-size: ${pxToRem('14px')};
-  line-height: ${pxToRem('24px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('18px')};
-    line-height: ${pxToRem('32px')};
+    font-size: ${pxToRem('20px')};
   }
 `;
 
@@ -45,7 +43,8 @@ export const FooterLink = styled.a`
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
   }
-  &:hover{
+  &:hover,
+  &:focus {
     color: ${props => props.color};
   }
   &:focus {

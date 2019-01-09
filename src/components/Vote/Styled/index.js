@@ -8,9 +8,10 @@ const Vote = styled.form`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: ${pxToRem('285px')};
+  max-width: ${pxToRem('300px')};
   min-width: ${pxToRem('275px')};
   margin: ${pxToRem('15px')} 0;
+  padding: 0 ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin: ${pxToRem('30px')} 0;
   }

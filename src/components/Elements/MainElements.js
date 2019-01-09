@@ -40,7 +40,7 @@ export const InnerContent = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-height: ${pxToRem('510px')};
+  min-height: ${pxToRem('545px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     min-height: ${pxToRem('660px')};
   }

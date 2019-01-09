@@ -54,7 +54,6 @@ const ProgressBarComponent = (props: Props) => {
         <Progress.ActiveCard aria-valuetext={index}>{index + cardOffset}</Progress.ActiveCard>
         <span aria-hidden>/</span>
         <HiddenItem>{i18next.t('common.from')}</HiddenItem>
-        &nbsp;
         <span aria-valuemax={cardsCount}>{cardsCount + cardOffset}</span>
       </Progress.ProgressCounter>
     </Progress.ProgressWrapper>

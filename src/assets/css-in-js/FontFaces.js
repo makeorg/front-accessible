@@ -1,37 +1,37 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
-import TradeGothicWoff from '../fonts/TradeGothicLTStd-BdCn20.woff';
-import TradeGothicWoff2 from '../fonts/TradeGothicLTStd-BdCn20.woff2';
-import CircularBoldWoff from '../fonts/CircularStd-Bold.woff';
-import CircularBoldWoff2 from '../fonts/CircularStd-Bold.woff2';
-import CircularBookWoff from '../fonts/CircularStd-Book.woff';
-import CircularBookWoff2 from '../fonts/CircularStd-Book.woff2';
+import RobotoCondensedBoldWoff from '../fonts/RobotoCondensed-Bold.woff';
+import RobotoCondensedBoldWoff2 from '../fonts/RobotoCondensed-Bold.woff2';
+import RobotoBoldWoff from '../fonts/Roboto-Bold.woff';
+import RobotoBoldWoff2 from '../fonts/Roboto-Bold.woff2';
+import RobotoRegularWoff from '../fonts/Roboto-Regular.woff';
+import RobotoRegularWoff2 from '../fonts/Roboto-Regular.woff2';
 
 export const FontFacesStylesheet = createGlobalStyle`
   @font-face {
-      font-family: 'Trade Gothic';
+      font-family: 'Roboto Condensed Bold';
       font-display: swap;
-      src: url(${TradeGothicWoff}) format("woff"),
-           url(${TradeGothicWoff2}) format("woff2");
+      src: url(${RobotoCondensedBoldWoff}) format("woff"),
+           url(${RobotoCondensedBoldWoff2}) format("woff2");
       font-weight: normal;
       font-style: normal;
   }
 
   @font-face {
-      font-family: 'Circular Bold';
+      font-family: 'Roboto Bold';
       font-display: swap;
-      src: url(${CircularBoldWoff}) format("woff"),
-           url(${CircularBoldWoff2}) format("woff2");
-      font-weight: normal;
+      src: url(${RobotoBoldWoff}) format("woff"),
+           url(${RobotoBoldWoff2}) format("woff2");
+      font-weight: bold;
       font-style: normal;
   }
 
   @font-face {
-      font-family: 'Circular Book';
+      font-family: 'Roboto Regular';
       font-display: swap;
-      src: url(${CircularBookWoff}) format("woff"),
-           url(${CircularBookWoff2}) format("woff2");
+      src: url(${RobotoRegularWoff}) format("woff"),
+           url(${RobotoRegularWoff2}) format("woff2");
       font-weight: normal;
       font-style: normal;
   }
