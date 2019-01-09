@@ -10,7 +10,9 @@ type Props = {
   /** Index of the card */
   index: number,
   /** Total of cards */
-  cardsCount: number
+  cardsCount: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number
 }
 
 /**
@@ -19,7 +21,8 @@ type Props = {
 const ProgressBarComponent = (props: Props) => {
   const {
     index,
-    cardsCount
+    cardsCount,
+    cardOffset
   } = props;
 
   return (
@@ -48,11 +51,11 @@ const ProgressBarComponent = (props: Props) => {
           {i18next.t('proposal_card.number')}
         </HiddenItem>
         &nbsp;
-        <Progress.ActiveCard aria-valuetext={index}>{index}</Progress.ActiveCard>
+        <Progress.ActiveCard aria-valuetext={index}>{index + cardOffset}</Progress.ActiveCard>
         <span aria-hidden>/</span>
         <HiddenItem>{i18next.t('common.from')}</HiddenItem>
         &nbsp;
-        <span aria-valuemax={cardsCount}>{cardsCount}</span>
+        <span aria-valuemax={cardsCount}>{cardsCount + cardOffset}</span>
       </Progress.ProgressCounter>
     </Progress.ProgressWrapper>
   );

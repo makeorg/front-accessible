@@ -19,8 +19,8 @@ module.exports = async function SequenceRoute(req, res) {
     const question = await getQuestion(questionSlug);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
-      const { sequenceExtraSlides } = questionConfiguration;
-      questionConfiguration.sequenceExtraSlides = disableExtraSlidesByQuery(sequenceExtraSlides, req.query);
+      const { sequenceExtraSlidesConfig } = questionConfiguration;
+      questionConfiguration.sequenceExtraSlidesConfig = disableExtraSlidesByQuery(sequenceExtraSlidesConfig, req.query);
     }
 
     const { firstProposal } = req.query;

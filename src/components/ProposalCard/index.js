@@ -15,6 +15,8 @@ type Props = {
   index: number,
   /** Total of cards */
   cardsCount: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Tabindex for interactive items */
@@ -34,6 +36,7 @@ const ProposalCardComponent = (props: Props) => {
     index,
     cardsCount,
     currentIndex,
+    cardOffset,
     tabIndex,
     goToPreviousCard,
     goToNextCard
@@ -60,7 +63,7 @@ const ProposalCardComponent = (props: Props) => {
           </ProposalCard.BackIcon>
           {i18next.t('proposal_card.previous')}
         </ProposalCard.BackButton>
-        <ProgressBarComponent index={index} cardsCount={cardsCount} />
+        <ProgressBarComponent index={index} cardOffset={cardOffset} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
       <ProposalCard.ContentWrapper as="section">
         <ProposalCard.AuthorInfos>

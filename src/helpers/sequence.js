@@ -69,11 +69,12 @@ export const buildCards = (
   isLoggedIn: boolean,
   hasProposed: boolean
 ): Array<Card> => {
-  const cards: Array<Card> = proposals.map(proposal => ({
+  let cards: Array<Card> = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
     configuration: proposal,
     wording: proposal
   }));
+  let cardOffset = 0;
 
   if ((extraSlidesConfig.pushProposal === true || extraSlidesConfig.pushProposal instanceof Object) && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
@@ -88,6 +89,8 @@ export const buildCards = (
       configuration: extraSlidesConfig.introCard,
       wording: extraSlidesWording.introCard
     });
+  } else {
+    cardOffset = 1;
   }
 
   if ((extraSlidesConfig.signUpCard === true || extraSlidesConfig.signUpCard instanceof Object) && !isLoggedIn) {
@@ -106,5 +109,9 @@ export const buildCards = (
     });
   }
 
+  cards = cards.map(card => ({
+    ...card,
+    cardOffset
+  }));
   return cards;
 };
