@@ -1,0 +1,67 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Jak – konkretnie – zmienić Europę?",
+    "metas": {
+      "title": "Jak – konkretnie – zmienić Europę?",
+      "description": "Masz pomysł? Weź udział w wielkiej konsultacji obywatelskiej na platformie Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Tysiące obywateli proponuje swoje rozwiązania, by wspólnie zmienić Europę.",
+      "description": [
+        "Wyraź swoją opinię na temat tych rozwiązań i zaproponuj własne.",
+        "Najczęściej popierane pomysły będą bronione przez kandydatów do wyborów europejskich."
+      ]
+    },
+    "signUpCard": {
+      "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
+      "nextCTA": "Nie, dziękuję, nie chcę być informowany(a) o wynikach."
+    },
+    "finalCard": {
+      "title": "Dziękujemy za udział",
+      "share": [
+        "Chcesz zrobić więcej na rzecz odnowy Europy?",
+        "Zachęć bliskich oraz/lub swoją społeczność do udziału w akcji"
+      ],
+      "learn_more_title": "Poznaj szczegóły projektu WeEuropeans",
+      "learn_more_button": "Dowiedz się więcej"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": true,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}

@@ -10,20 +10,47 @@ const GLOBAL_TRAD_DIR = path.resolve(__dirname, 'static');
 const APP_TRAD_DIR = path.resolve(__dirname, '..', '..', 'src', 'i18n');
 const QUESTION_TRAD_DIR = path.resolve(__dirname, '..', '..', 'server', 'staticData', 'operationsParams');
 
-const languages = [
-  'FR'
-];
+const countriesLanguages = {
+  AT: ['de'],
+  BE: ['nl', 'fr'],
+  BG: ['bg'],
+  CY: ['el'],
+  CZ: ['cs'],
+  DE: ['de'],
+  DK: ['da'],
+  EE: ['et'],
+  ES: ['es'],
+  FI: ['fi'],
+  FR: ['fr'],
+  GB: ['en'],
+  GR: ['el'],
+  HR: ['hr'],
+  HU: ['hu'],
+  IE: ['en'],
+  IT: ['it'],
+  LT: ['lt'],
+  LU: ['fr'],
+  LV: ['lv'],
+  MT: ['mt'],
+  NL: ['nl'],
+  PL: ['pl'],
+  PT: ['pt'],
+  RO: ['ro'],
+  SE: ['sv'],
+  SI: ['sl'],
+  SK: ['sk']
+};
 
 const writeJson = object => JSON.stringify(object, null, 2);
 
-const mergeAppTrads = (language, newTrads) => {
-  const appTradFilePath = `${APP_TRAD_DIR}/${language.toLowerCase()}.json`;
+const mergeAppTrads = (filePath, newTrads) => {
   let appTradData;
 
   try {
-    appTradData = fs.readFileSync(appTradFilePath, 'utf8');
+    appTradData = fs.readFileSync(filePath, 'utf8');
   } catch (error) {
-    console.error(`error when reading ${appTradFilePath} file => ${error}`);
+    console.error(`error when reading ${filePath} file => ${error}`);
+
     return false;
   }
 
@@ -34,60 +61,78 @@ const mergeAppTrads = (language, newTrads) => {
   };
 
   try {
-    fs.writeFileSync(appTradFilePath, writeJson(updatedTrads), 'utf8');
+    fs.writeFileSync(filePath, writeJson(updatedTrads), 'utf8');
   } catch (error) {
-    console.error(`error when writing ${appTradFilePath} file => ${error}`);
+    console.error(`error when writing ${filePath} file => ${error}`);
     return false;
   }
 
   return true;
 };
 
-const mergeQuestionTrads = (language, newTrads) => {
-  const questionTradFilePath = `${QUESTION_TRAD_DIR}/weeuropeans_${language}.json`;
+const mergeQuestionTrads = (filePath, newTrads) => {
   let questionTradData;
-
   try {
-    questionTradData = fs.readFileSync(questionTradFilePath, 'utf8');
+    questionTradData = fs.readFileSync(filePath, 'utf8');
   } catch (error) {
-    console.error(`error when reading ${questionTradFilePath} file => ${error}`);
+    console.error(`error when reading ${filePath} file => ${error}`);
+
     return false;
   }
 
-  const appTrads = JSON.parse(questionTradData);
+  const questionTrads = JSON.parse(questionTradData);
+
+
   const updatedTrads = {
-    ...appTrads,
+    ...questionTrads,
     ...newTrads
   };
 
   try {
-    fs.writeFileSync(questionTradFilePath, writeJson(updatedTrads), 'utf8');
+    fs.writeFileSync(filePath, writeJson(updatedTrads), 'utf8');
   } catch (error) {
-    console.error(`error when writing ${questionTradFilePath} file => ${error}`);
+    console.error(`error when writing ${filePath} file => ${error}`);
     return false;
   }
 
   return true;
 };
 
-languages.forEach((language) => {
-  fs.readFile(`${GLOBAL_TRAD_DIR}/global_${language.toLowerCase()}.json`, 'utf8', (readError, data) => {
-    if (readError) console.error(`error when reading ${GLOBAL_TRAD_DIR}/global_${language}.json => ${readError}`);
+const countries = Object.keys(countriesLanguages);
+countries.forEach((country) => {
+  countriesLanguages[country].forEach((language) => {
+    const globalFilePath = `${GLOBAL_TRAD_DIR}/global_${country}_${language}.json`;
+    const appTradFilePath = `${APP_TRAD_DIR}/${country}_${language}.json`;
+    const weeuropeanFileName = (countriesLanguages[country].length > 1) ? `weeuropeans-${country.toLowerCase()}-${language}.json` : `weeuropeans-${country.toLowerCase()}.json`;
+    const questionTradFilePath = `${QUESTION_TRAD_DIR}/${weeuropeanFileName}`;
+    console.log(weeuropeanFileName);
+    fs.readFile(globalFilePath, 'utf8', (readError, data) => {
+      if (readError) {
+        console.error(`error when reading ${globalFilePath}.json => ${readError}`);
+      }
 
-    const trads = JSON.parse(data);
-    const { weeuropean } = trads;
-    if (!weeuropean) {
-      console.error(`The file for ${language} miss weeuropean trads`);
-    }
+      try {
+        const trads = JSON.parse(data.trim());
+        const { weeuropean } = trads;
+        if (!weeuropean) {
+          console.error(`The file for ${language}-${country} miss weeuropean trads`);
+        }
 
-    const appTrads = trads;
-    delete appTrads.weeuropean;
+        weeuropean.wording.metas.picture = 'https://assets.make.org/assets/images/meta-we-europeans-no-copy.png';
 
-    if (mergeAppTrads(language, appTrads)) {
-      console.info(`App Trad merged for ${language} language`);
-    }
-    if (mergeQuestionTrads(language, weeuropean)) {
-      console.info(`App Weeuropean merged for ${language} language`);
-    }
+        const appTrads = trads;
+        delete appTrads.weeuropean;
+
+        if (mergeAppTrads(appTradFilePath, appTrads)) {
+          console.info(`App Trad merged for ${appTradFilePath} language`);
+        }
+     
+        if (mergeQuestionTrads(questionTradFilePath, weeuropean)) {
+          console.info(`App Weeuropean merged for ${language} language`);
+        }
+      } catch (error) {
+        console.log(`error in content of ${globalFilePath} => ${error}`);
+      }
+    });
   });
 });

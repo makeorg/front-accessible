@@ -1,0 +1,67 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Kif nistgħu noħolqu l-Ewropa mill-ġdid, b’mod konkret?",
+    "metas": {
+      "title": "Kif nistgħu noħolqu l-Ewropa mill-ġdid, b’mod konkret?",
+      "description": "Għandek xi idea dwar dan is-suġġett? Ipparteċipa fil-konsultazzjoni wiesgħa maċ-ċittadini Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
+      "description": [
+        "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet jew ipproponi tiegħek.",
+        "L-ideat li jgawdu l-akbar appoġġ jenħtieġ jiġu difiżi mill-kandidati fl-elezzjonijiet Ewropej."
+      ]
+    },
+    "signUpCard": {
+      "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
+      "nextCTA": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
+    },
+    "finalCard": {
+      "title": "Ħajr tal-parteċipazzjoni tiegħek",
+      "share": [
+        "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
+        "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
+      ],
+      "learn_more_title": "Skopri kollox dwar il-proġett WeEuropeans",
+      "learn_more_button": "Sir af aktar"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": true,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}

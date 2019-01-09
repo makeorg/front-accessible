@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, accelerator van algemeen belang",
+      "description": "Voorstellen maken, stemmen en handelen om samen oplossingen te vinden voor de huidige grote probleemstellingen. De voorstellen met de meeste stemmen worden in werking gesteld door Make.org en zijn partners.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Aanmelden",
+    "register_label": "Inschrijven",
+    "form": {
+      "email_label": "E-mailadres",
+      "password_label": "Wachtwoord",
+      "firstname_label": "Voornaam",
+      "age_label": "Leeftijd (optioneel)",
+      "postalcode_label": "Postcode (optioneel)",
+      "profession_label": "Beroep (optioneel)",
+      "email is not a valid email": "Het e-mailadresformaat is ongeldig",
+      "Password must be at least 8 characters": "Uw wachtwoord moet minstens 8 tekens bevatten.",
+      "email_already_exist": "Dit e-mailadres is al ingeschreven.",
+      "api_error": "Oeps! We ondervinden wat problemen om deze pagina te laden. Gelieve het later opnieuw te proberen.",
+      "required_field": "Gelieve dit veld in te vullen."
+    },
+    "from": "op",
+    "email": "E-mailadres",
+    "propose": "Voorstellen",
+    "click_there": "klik hier",
+    "open_new_window": "Openen in een nieuw tabblad",
+    "loading": "Even geduld tijdens het laden."
+  },
+  "header": {
+    "logo_alt": "Ga naar de website van Make.org"
+  },
+  "proposal_page": {
+    "button_1": "deelnemen",
+    "button_2": "meer informatie",
+    "share_text": "Ondersteun dit voorstel door het te delen:",
+    "footer_text": "Dit voorstel werd ingediend voor de operatie {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Vorig voorstel",
+    "next": "Volgend voorstel",
+    "number": "Voorstel nummer"
+  },
+  "intro_card": {
+    "title": "Duizenden burgers stellen oplossingen voor.",
+    "description_1": "Neem een standpunt in over deze oplossingen en stel zelf oplossingen voor.",
+    "description_2": "De beste voorstellen zullen onze acties bepalen.",
+    "button": "Starten",
+    "partnership": "in partnerschap met"
+  },
+  "final_card": {
+    "title": "Bedankt voor uw deelname, <br/> u heeft nu toegang tot de volledige raadpleging.",
+    "button": "Alle voorstellen bekijken"
+  },
+  "sign_up_card": {
+    "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
+    "authentification-text": "Ik meld me aan met",
+    "next-cta": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
+  },
+  "push_proposal_card": {
+    "title": "Heeft u zelf ook een voorstel over dit onderwerp?",
+    "next-cta": "Nog niet, ik blijf stemmen"
+  },
+  "proposal_submit": {
+    "bait": "Er moet ",
+    "title": "Dien uw voorstellen in door dit formulier in te vullen (maximaal 140 tekens):",
+    "entred_chars": "tekens ingevoerd",
+    "available_chars": "tekens over",
+    "description": "Maak u geen zorgen, we zullen eventuele spelfouten verbeteren.",
+    "moderation_charter": "Voor meer informatie over ons moderatiehandvest,",
+    "success": "Uw voorstel werd geregistreerd en wordt nu nagelezen door onze moderatordienst. U ontvangt een e-mailbericht zodra het werd goedgekeurd."
+  },
+  "vote": {
+    "intro_title": "Ik geef mijn mening over dit voorstel. ",
+    "intro_text": "Ik ben:",
+    "agree": "Akkoord",
+    "disagree": "Niet akkoord",
+    "neutral": "Blanco stem",
+    "label": "{{count}} stem",
+    "label_plural": "{{count}} stemmen"
+  },
+  "unvote": {
+    "title": "Door op deze knop te klikken trek ik mijn mening over dit voorstel in:",
+    "button": "ik trek mijn mening in"
+  },
+  "results": {
+    "title": "De andere deelnemers gaven de volgende meningen over dit voorstel:",
+    "total_text": "Het totale aantal meningen bedraagt: ",
+    "tooltipbutton": {
+      "agree": "De resultaten weergeven voor de mening: ‘Ik ben akkoord’",
+      "disagree": "De resultaten weergeven voor de mening: ‘Ik ben niet akkoord’",
+      "neutral": "De resultaten weergeven voor de mening: ‘Ik stem blanco’"
+    }
+  },
+  "qualification": {
+    "title": "Door op de knoppen hieronder te klikken, licht ik mijn mening toe:",
+    "doable": "Topvoorstel",
+    "likeIt": "Realistisch",
+    "platitudeAgree": "Banaal",
+    "noWay": "Echt niet!",
+    "impossible": "Onuitvoerbaar",
+    "platitudeDisagree": "Banaal",
+    "doNotUnderstand": "Ik heb het niet begrepen",
+    "noOpinion": "Geen mening",
+    "doNotCare": "Onverschillig"
+  },
+  "sequence": {
+    "return": "Terug naar de voorstellen"
+  },
+  "authentification": {
+    "title": "Schrijf u in om uw voorstel te bevestigen",
+    "description": "met",
+    "commitment": "Make.org verbindt zich ertoe om ",
+    "personal_data": "uw persoonsgegevens te beschermen "
+  },
+  "login": {
+    "title": "Ik heb al een account",
+    "social_connect": "Ik meld me aan met",
+    "or": "of",
+    "button_connect": "Ik meld me aan",
+    "email_connect": "Ik meld me aan met mijn e-mailadres",
+    "forgot_password_title": "Oeps, ik ben",
+    "forgot_password_link": "mijn wachtwoord vergeten?",
+    "registration_title": "Ik heb geen account,",
+    "registration_link": "ik maak er een aan.",
+    "email_doesnot_exist": "We vinden geen account gekoppeld aan dit e-mailadres."
+  },
+  "register": {
+    "title": "Een account aanmaken",
+    "social_connect": "Ik schrijf me in met",
+    "or": "of",
+    "subtitle": "Ik schrijf me in met dit formulier",
+    "login_title": "Ik heb al een account.",
+    "login_link": "Aanmelden",
+    "cgu": "Door u in te schrijven, stemt u in met onze algemene gebruiksvoorwaarden en accepteert u om (af en toe) e-mailberichten te ontvangen van Make.org."
+  },
+  "forgot_password": {
+    "title": "Ik reset mijn wachtwoord",
+    "description": "Gelieve het e-mailadres in te voeren dat gekoppeld is aan uw Make.org-account om de resetlink te ontvangen.",
+    "success": "Dank u, we hebben een e-mailbericht verzonden om uw wachtwoord bij te werken.",
+    "return": "Terugkeren naar ",
+    "login_link": "het aanmeldingsscherm",
+    "send_link": "het e-mailbericht ontvangen"
+  },
+  "footer_sequence": {
+    "with": "met",
+    "see_more": "Meer informatie over dit onderwerp:",
+    "link": "Meer informatie over deze raadpleging"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Wettelijke vermeldingen"
+      },
+      "item-2": {
+        "label": "Gebruiksvoorwaarden"
+      },
+      "item-3": {
+        "label": "Gegevensbeleid"
+      },
+      "item-4": {
+        "label": "Contact"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Vervolgkeuzelijst sluiten"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hoe kunnen we Europa concreet vernieuwen?",
+      "metas": {
+        "title": "Hoe kunnen we Europa concreet vernieuwen?",
+        "description": "Heeft u een idee over dit onderwerp? Neem deel aan de grote burgerraadpleging van Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Duizenden burgers stellen oplossingen voor om Europa te vernieuwen.",
+        "description": [
+          "Neem een standpunt in over deze oplossingen of stel zelf oplossingen voor.",
+          "De ideeën met de grootste aanhang moeten worden verdedigd door de kandidaten voor de Europese verkiezingen."
+        ]
+      },
+      "signUpCard": {
+        "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
+        "nextCTA": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
+      },
+      "finalCard": {
+        "title": "Bedankt voor uw deelname",
+        "share": [
+          "Wilt u meer doen om Europa te vernieuwen?",
+          "Nodig uw familie, vrienden en/of gemeenschap uit om deel te nemen"
+        ],
+        "learn_more_title": "Ontdek alles over het project WeEuropeans",
+        "learn_more_button": "Meer informatie"
+      }
+    }
+  }
+}

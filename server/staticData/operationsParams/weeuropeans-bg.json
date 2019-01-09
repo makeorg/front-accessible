@@ -1,0 +1,67 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Как конкретно да преоткрием Европа?",
+    "metas": {
+      "title": "Как конкретно да преоткрием Европа?",
+      "description": "Имате ли идеи по темата? Участвайте в голямото гражданско допитване на Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Хиляди граждани предлагат решения за преоткриването на Европа.",
+      "description": [
+        "Вземете отношение по тези решения или предложете Вашите.",
+        "Идеите, намерили най-широка подкрепа, трябва да бъдат защитавани от кандидатите на европейските избори."
+      ]
+    },
+    "signUpCard": {
+      "title": "Получете резултатите от допитването и се информирайте за бъдещи акции",
+      "nextCTA": "Не, благодаря, не желая да се информирам за резултатите."
+    },
+    "finalCard": {
+      "title": "Благодарим Ви за участието",
+      "share": [
+        "Желаете ли да продължите към преоткриването на Европа?",
+        "Поканете Вашите близки и/или общност да участват"
+      ],
+      "learn_more_title": "Открийте всичко за проекта WeEuropeans",
+      "learn_more_button": "Научете повече"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": true,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}

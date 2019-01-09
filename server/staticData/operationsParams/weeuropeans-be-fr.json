@@ -1,23 +1,13 @@
 {
-  "slug": "weeuropeans-fr",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "We Europeans",
     "question": "Comment réinventer l'Europe, concrètement ?",
     "metas": {
       "title": "Comment réinventer l'Europe, concrètement ?",
       "description": "Vous avez une idée sur le sujet ? Participez à la grande consultation citoyenne  Make.org",
-      "picture": ""
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
     }
   },
-  "theme": {
-    "color": "#9C6BDA",
-    "gradient-start": "#9C6BDA",
-    "gradient-end": "#8DDCF6",
-    "footerFontColor": "black"
-  },
-  "consultationUrl": "#",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
@@ -40,6 +30,14 @@
       "learn_more_button": "En savoir +"
     }
   },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
   "sequenceExtraSlidesConfig": {
     "introCard": {
       "title": true,

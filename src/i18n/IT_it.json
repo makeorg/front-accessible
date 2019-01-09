@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "home": {
+      "title": "Make.org, acceleratore di interesse generale",
+      "description": "Proponi, vota, agiamo: insieme possiamo trovare le soluzioni alle grandi questioni attuali. Make.org e i suoi partner si attiveranno per attuare le proposte che riscuotono maggior consenso.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Login",
+    "register_label": "Iscrizione",
+    "form": {
+      "email_label": "E-mail",
+      "password_label": "Password",
+      "firstname_label": "Nome",
+      "age_label": "Età (facoltativo)",
+      "postalcode_label": "Codice postale (facoltativo)",
+      "profession_label": "Professione (facoltativo)",
+      "email is not a valid email": "Formato e-mail non valido",
+      "Password must be at least 8 characters": "La password deve contenere almeno 8 caratteri.",
+      "email_already_exist": "Questa e-mail è già associata a un account.",
+      "api_error": "Ops! Stiamo riscontrando delle difficoltà con il caricamento di questa pagina. Riprova più tardi.",
+      "required_field": "Compila questo campo."
+    },
+    "from": "su",
+    "email": "E-mail",
+    "propose": "Proponi",
+    "click_there": "clicca qui",
+    "open_new_window": "Apri in una nuova finestra",
+    "loading": "Ti preghiamo di attendere durante il caricamento."
+  },
+  "header": {
+    "logo_alt": "Vai sul sito Make.org"
+  },
+  "proposal_page": {
+    "button_1": "partecipa",
+    "button_2": "Più informazioni",
+    "share_text": "Sostieni questa proposta condividendola:",
+    "footer_text": "Questa proposta è stata presentata nell’ambito dell’operazione {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Proposta precedente",
+    "next": "Proposta seguente",
+    "number": "Proposta numero"
+  },
+  "intro_card": {
+    "title": "Migliaia di cittadini propongono soluzioni.",
+    "description_1": "Valuta le proposte e proponi le tue soluzioni.",
+    "description_2": "Le migliori proposte determineranno le nostre azioni.",
+    "button": "Inizia",
+    "partnership": "in partenariato con"
+  },
+  "final_card": {
+    "title": "Grazie per la partecipazione, <br/> puoi ora accedere alla consultazione completa.",
+    "button": "Vedi tutte le proposte"
+  },
+  "sign_up_card": {
+    "title": "Ricevi i risultati della consultazione e gli aggiornamenti sulle azioni future",
+    "authentification-text": "Accedi con",
+    "next-cta": "No grazie, non desidero ricevere informazioni sui risultati"
+  },
+  "push_proposal_card": {
+    "title": "E tu che ne pensi? Hai una soluzione da proporre?",
+    "next-cta": "Non ancora, continuo a votare"
+  },
+  "proposal_submit": {
+    "bait": "Propongo ",
+    "title": "Invia la tua proposta compilando questo modulo (limite di 140 caratteri):",
+    "entred_chars": "caratteri inseriti",
+    "available_chars": "caratteri disponibili",
+    "description": "Non preoccuparti: correggeremo noi gli eventuali errori di scrittura.",
+    "moderation_charter": "Per maggiori informazioni sulla nostra politica di moderazione,",
+    "success": "La tua proposta è stata ricevuta, sarà ora riletta dal nostro servizio di moderazione. Riceverai un’e-mail quando sarà stata approvata."
+  },
+  "vote": {
+    "intro_title": "Dico la mia su questa proposta. ",
+    "intro_text": "La mia opinione:",
+    "agree": "Sono d’accordo",
+    "disagree": "Non sono d’accordo",
+    "neutral": "Voto bianco",
+    "label": "{{count}} voto",
+    "label_plural": "{{count}} voti"
+  },
+  "unvote": {
+    "title": "Cliccando sul pulsante qui sotto, ritiro la mia opinione su questa proposta:",
+    "button": "ritiro la mia opinione"
+  },
+  "results": {
+    "title": "Le opinioni degli altri partecipanti su questa proposta sono:",
+    "total_text": "Il numero totale di opinioni è: ",
+    "tooltipbutton": {
+      "agree": "Mostra i risultati per: “sono d’accordo”",
+      "disagree": "Mostra i risultati per: “non sono d’accordo”",
+      "neutral": "Mostra i risultati per: “voto bianco”"
+    }
+  },
+  "qualification": {
+    "title": "Cliccando sul pulsante qui sotto, specifico la mia opinione:",
+    "doable": "Proposta del cuore",
+    "likeIt": "Realista",
+    "platitudeAgree": "Banale",
+    "noWay": "Assolutamente no!",
+    "impossible": "Irrealizzabile",
+    "platitudeDisagree": "Banale",
+    "doNotUnderstand": "Non ho capito",
+    "noOpinion": "Non ho un’opinione",
+    "doNotCare": "Indifferente"
+  },
+  "sequence": {
+    "return": "Torna alle proposte"
+  },
+  "authentification": {
+    "title": "Iscriviti per confermare la tua proposta",
+    "description": "con",
+    "commitment": "Make.org s’impegna a proteggere i tuoi ",
+    "personal_data": "dati personali "
+  },
+  "login": {
+    "title": "Ho già un account",
+    "social_connect": "Login tramite",
+    "or": "o",
+    "button_connect": "Login",
+    "email_connect": "Login tramite e-mail",
+    "forgot_password_title": "Ops! Ho",
+    "forgot_password_link": "dimenticato la password!",
+    "registration_title": "Non ho un account,",
+    "registration_link": "ne creo uno.",
+    "email_doesnot_exist": "Questa e-mail non è associata a nessun account."
+  },
+  "register": {
+    "title": "Crea un account",
+    "social_connect": "Iscrizione tramite",
+    "or": "o",
+    "subtitle": "Iscrizione tramite modulo",
+    "login_title": "Ho già un account.",
+    "login_link": "Login",
+    "cgu": "Iscrivendoti, accetti le nostre condizioni generali di utilizzo e accetti di ricevere le (sporadiche) e-mail di Make.org."
+  },
+  "forgot_password": {
+    "title": "ripristina la password",
+    "description": "Inserisci l’indirizzo e-mail associato al tuo account Make.org per ricevere il link di ripristino.",
+    "success": "Grazie! Ti abbiamo inviato un’e-mail per ripristinare la password.",
+    "return": "Torna alla ",
+    "login_link": "pagina di connessione",
+    "send_link": "ricevere l’e-mail"
+  },
+  "footer_sequence": {
+    "with": "con",
+    "see_more": "Più informazioni sulla questione:",
+    "link": "Più informazioni su questa consultazione"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Note legali"
+      },
+      "item-2": {
+        "label": "Condizioni di utilizzo"
+      },
+      "item-3": {
+        "label": "Politica sui dati personali"
+      },
+      "item-4": {
+        "label": "Contatti"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Chiudi il menu scorrevole"
+  }
+}

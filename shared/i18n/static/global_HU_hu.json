@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, általános érdekű gyorsító",
+      "description": "Javasoljon, szavazzon, cselekedjen: közösen találjunk megoldást a jelenlegi legfontosabb kérdésekre. A legtámogatottabb megoldásokat a Make.org és partnerei fogják végrehajtani.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Jelentkezzen be",
+    "register_label": "Regisztráljon",
+    "form": {
+      "email_label": "E-mai-cím",
+      "password_label": "Jelszó",
+      "firstname_label": "Keresztnév",
+      "age_label": "Kor (opcionális)",
+      "postalcode_label": "Irányítószám (opcionális)",
+      "profession_label": "Foglalkozás (opcionális)",
+      "email is not a valid email": "Ismeretlen e-mail-címformátum",
+      "Password must be at least 8 characters": "A jelszónak legalább 8 karakterből kell állnia.",
+      "email_already_exist": "Ezzel az e-mail-címmel már regisztráltak.",
+      "api_error": "Hoppá! Probléma történt az oldal betöltése közben. Kérjük, próbálja újra később.",
+      "required_field": "Kérjük, töltse ki ezt a mezőt."
+    },
+    "from": "a",
+    "email": "E-mail-cím",
+    "propose": "Jelentkezés",
+    "click_there": "kattintson ide",
+    "open_new_window": "Új lap megnyitása",
+    "loading": "Kérjük, várjon amíg betölt."
+  },
+  "header": {
+    "logo_alt": "Menjen a Make.org oldalra"
+  },
+  "proposal_page": {
+    "button_1": "részvétel",
+    "button_2": "Tudjon meg többet",
+    "share_text": "A javaslat megosztása:",
+    "footer_text": "Ezt a javaslatot a művelet részeként nyújtották be {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Előző javaslat",
+    "next": "Következő javaslat",
+    "number": "Javaslat száma"
+  },
+  "intro_card": {
+    "title": "Több ezer polgár javasol megoldásokat.",
+    "description_1": "Foglaljon álláspontot ezekben a megoldásokban és nyújtson be javaslatot Ön is.",
+    "description_2": "A legjobb javaslatok alkotják majd az intézkedéseink alapját.",
+    "button": "Kezdje el",
+    "partnership": "az együttműködést"
+  },
+  "final_card": {
+    "title": "Köszönjük a részvételét, <br/> most már hozzáférhet a teljes konzultációhoz.",
+    "button": "Tekintse meg az összes javaslatot"
+  },
+  "sign_up_card": {
+    "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
+    "authentification-text": "Az alábbival szeretném azonosítani magamat",
+    "next-cta": "Köszönöm, de nem szeretnék értesülni az eredményekről"
+  },
+  "push_proposal_card": {
+    "title": "És Önnek van az üggyel kapcsolatban ötlete a megoldásra?",
+    "next-cta": "Még nincs, továbbra is szavazok"
+  },
+  "proposal_submit": {
+    "bait": "A ",
+    "title": "javaslatokat az alábbi űrlap kitöltésével tudja benyújtani, a javaslatnak kevesebb, mint 140 karakternek kell lennie:",
+    "entred_chars": "begépelt karakterek",
+    "available_chars": "fennmaradó karakterek",
+    "description": "Ne aggódjon, helyesbítjük a helyesírási hibákat.",
+    "moderation_charter": "Ha többet szeretne megtudni moderációs chartánkról,",
+    "success": "Az Ön javaslatát figyelembe vették, jelenleg a moderációs szolgáltatásunkban olvassák. A javaslata érvényesítésekor e-mail értesítést fog kapni."
+  },
+  "vote": {
+    "intro_title": "Megosztom a véleményemet a javaslatról. ",
+    "intro_text": "Én:",
+    "agree": "Egyetértek",
+    "disagree": "Nem értek egyet",
+    "neutral": "Üres szavazólap",
+    "label": "{{count}} szavazat",
+    "label_plural": "{{count}} szavazat"
+  },
+  "unvote": {
+    "title": "Az alábbi gombra kattintva megosztom a véleményemet a javaslatról:",
+    "button": "visszavonom a véleményemet"
+  },
+  "results": {
+    "title": "A további résztvevők véleménye a javaslatról:",
+    "total_text": "A beküldött vélemények teljes száma: ",
+    "tooltipbutton": {
+      "agree": "A véleményekkel kapcsolatos eredmények megjelenítése: „egyetértek”",
+      "disagree": "A véleményekkel kapcsolatos eredmények megjelenítése: „nem értek egyet”",
+      "neutral": "A véleményekkel kapcsolatos eredmények megjelenítése: „tartózkodom”"
+    }
+  },
+  "qualification": {
+    "title": "Az alábbi gombokra kattintva pontosítom a véleményemet:",
+    "doable": "Kedvenc",
+    "likeIt": "Realista",
+    "platitudeAgree": "Elcsépelt dolog",
+    "noWay": "Semmi esetre sem!",
+    "impossible": "Megvalósíthatatlan",
+    "platitudeDisagree": "Elcsépelt dolog",
+    "doNotUnderstand": "Nem értem",
+    "noOpinion": "Nincs véleményem",
+    "doNotCare": "Közönyös"
+  },
+  "sequence": {
+    "return": "Vissza a javaslatokhoz"
+  },
+  "authentification": {
+    "title": "Regisztráljon, hogy érvényesíthesse a javaslatot",
+    "description": "a",
+    "commitment": "Make.org elkötelezetten védi az Ön ",
+    "personal_data": "személyes adatait "
+  },
+  "login": {
+    "title": "Már van fiókom",
+    "social_connect": "Az alábbival jelentkezek be",
+    "or": "vagy",
+    "button_connect": "Az alábbival jelentkezek be",
+    "email_connect": "Az e-mai-címemmel jelentkezek be",
+    "forgot_password_title": "Jaj,",
+    "forgot_password_link": "elfelejtettem a jelszavamat",
+    "registration_title": "Nincsen fiókom,",
+    "registration_link": "úgyhogy szeretnék létrehozni egyet.",
+    "email_doesnot_exist": "Nem találjuk a jelen e-mail-címhez tartozó fiókot."
+  },
+  "register": {
+    "title": "Hozzon létre egy fiókot",
+    "social_connect": "Az alábbival szeretnék regisztrálni",
+    "or": "vagy",
+    "subtitle": "Az űrlappal szeretnék regisztrálni",
+    "login_title": "Már van fiókom.",
+    "login_link": "Bejelentkezés",
+    "cgu": "A regisztrációval elfogadja az általános felhasználási feltételeinket, és beleegyezik abba, hogy e-maileket küldhet Önnek (néhányat) a Make.org."
+  },
+  "forgot_password": {
+    "title": "visszaállítom a jelszavamat",
+    "description": "Kérjük, adja meg a Make.org fiókhoz kapcsolódó e-mail címét, hogy megkaphassa a visszaállítási linket.",
+    "success": "Köszönjük, elküldtünk egy e-mailt a jelszó frissítéséhez.",
+    "return": "Visszatérés ",
+    "login_link": "a bejelentkezési képernyőre",
+    "send_link": "e-mail fogadása"
+  },
+  "footer_sequence": {
+    "with": "a",
+    "see_more": "További információ a témával kapcsolatban:",
+    "link": "További információ a jelen konzultációval kapcsolatban"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Jogi nyilatkozatok"
+      },
+      "item-2": {
+        "label": "Használati feltételek"
+      },
+      "item-3": {
+        "label": "Adatpolitika"
+      },
+      "item-4": {
+        "label": "Kapcsolat"
+      }
+    }
+  },
+  "pannel": {
+    "close": "A legördülő lista bezárása"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Pontosan hogyan kellene újragondolni Európát?",
+      "metas": {
+        "title": "Pontosan hogyan kellene újragondolni Európát?",
+        "description": "Van ötlete a témával kapcsolatban? Vegyen részt a nagy polgári konzultációban  Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Több ezer polgár javasol megoldásokat Európa újragondolásával kapcsolatban.",
+        "description": [
+          "Foglaljon álláspontot ezekben a megoldásokban vagy nyújtson be javaslatot Ön is.",
+          "A leginkább támogatott ötleteket az európai választásokon a jelölteknek kell megvédeniük."
+        ]
+      },
+      "signUpCard": {
+        "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
+        "nextCTA": "Köszönöm, de nem szeretnék értesülni az eredményekről."
+      },
+      "finalCard": {
+        "title": "Köszönjük a részvételét!",
+        "share": [
+          "Szeretne többet tenni Európa újragondolásával kapcsolatban?",
+          "Hívja meg családját és/vagy közösségét, hogy ők is vegyenek részt"
+        ],
+        "learn_more_title": "Fedezze fel az összes WeEuropeans projektet",
+        "learn_more_button": "Tudjon meg többet"
+      }
+    }
+  }
+}

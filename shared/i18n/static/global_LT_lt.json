@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org – visuomenei naudingas greitintuvas",
+      "description": "Siūlykite, balsuokite, veikime – kartu raskime esminių aktualių problemų sprendimus. Populiariausių sprendimų įgyvendinimo imsis Make.org su savo partneriais.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Prisijungti",
+    "register_label": "Registruotis",
+    "form": {
+      "email_label": "El. paštas",
+      "password_label": "Slaptažodis",
+      "firstname_label": "Vardas",
+      "age_label": "Amžius (nurodyti neprivaloma)",
+      "postalcode_label": "Pašto kodas (nurodyti neprivaloma)",
+      "profession_label": "Profesija (nurodyti neprivaloma)",
+      "email is not a valid email": "Neatpažintas el. laiško formatas",
+      "Password must be at least 8 characters": "Jūsų slaptažodyje turi būti bent 8 simboliai.",
+      "email_already_exist": "Šis el. pašto adresas jau įregistruotas.",
+      "api_error": "Oi! Siunčiant šį puslapį iškilo sunkumų. Prašome bandyti vėliau.",
+      "required_field": "Prašome užpildyti šį laukelį."
+    },
+    "from": "",
+    "email": "El. pašto adresas",
+    "propose": "Pateikti pasiūlymą",
+    "click_there": "spauskite čia",
+    "open_new_window": "Atidaryti naujame skirtuke",
+    "loading": "Prašome palaukti kol baigsis siuntimas."
+  },
+  "header": {
+    "logo_alt": "Eiti į Make.org tinklapį"
+  },
+  "proposal_page": {
+    "button_1": "dalyvauti",
+    "button_2": "daugiau informacijos",
+    "share_text": "Pritarkite šiam pasiūlymui juo pasidalindami:",
+    "footer_text": "Pasiūlymas buvo pateiktas {{operation_name}} rėmuose"
+  },
+  "proposal_card": {
+    "previous": "Ankstesnis pasiūlymas",
+    "next": "Kitas pasiūlymas",
+    "number": "Pasiūlymas Nr.:"
+  },
+  "intro_card": {
+    "title": "Sprendimus siūlo tūkstančiai piliečių.",
+    "description_1": "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savus sprendimus.",
+    "description_2": "Geriausi sprendimai nulems mūsų veiksmus.",
+    "button": "Pradėti",
+    "partnership": "bendradarbiaujant su"
+  },
+  "final_card": {
+    "title": "Dėkojame, kad dalyvaujate. <br/> Dabar galite peržvelgti visą informaciją.",
+    "button": "Žiūrėti visus pasiūlymus"
+  },
+  "sign_up_card": {
+    "title": "Gaukite rezultatus ir informaciją apie būsimas veiklas",
+    "authentification-text": "Prisijungiu naudodamas",
+    "next-cta": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus"
+  },
+  "push_proposal_card": {
+    "title": "Gal ir Jūs turite pasiūlymų šioje srityje?",
+    "next-cta": "Dar ne. Tęsiu balsavimą"
+  },
+  "proposal_submit": {
+    "bait": "Būtina ",
+    "title": "Pateikite ne ilgesnį kaip 140 simbolių pasiūlymą, užpildydami šią formą:",
+    "entred_chars": "– įrašyta simbolių",
+    "available_chars": "– liko simbolių",
+    "description": "Nesijaudinkite – ištaisysime galimas Jūsų rašybos klaidas.",
+    "moderation_charter": "Daugiau informacijos apie mūsų Moderavimo chartiją:",
+    "success": "Jūsų pasiūlymą gavome. Dabar jį perskaitys mūsų moderavimo skyriaus darbuotojai. Kai Jūsų pasiūlymas bus patvirtintas, gausite elektroninį laišką."
+  },
+  "vote": {
+    "intro_title": "Pateikiu savo nuomonę apie šį pasiūlymą. ",
+    "intro_text": "Aš:",
+    "agree": "sutinku",
+    "disagree": "nesutinku",
+    "neutral": "susilaikau",
+    "label": "{{count}} balsas",
+    "label_plural": "{{count}} balsai"
+  },
+  "unvote": {
+    "title": "Spausdamas žemiau esantį mygtuką atšaukiu savo nuomonę apie šį pasiūlymą:",
+    "button": "atšaukiu savo nuomonę"
+  },
+  "results": {
+    "title": "Kitų dalyvių nuomonės apie šį pasiūlymą:",
+    "total_text": "Bendras nuomonių skaičius: ",
+    "tooltipbutton": {
+      "agree": "Rodyti rezultatus: „sutinku“",
+      "disagree": "Rodyti rezultatus: „nesutinku“",
+      "neutral": "Rodyti rezultatus: „susilaikau“"
+    }
+  },
+  "qualification": {
+    "title": "Spausdamas žemiau esantį mygtuką patikslinu savo nuomonę apie šį pasiūlymą:",
+    "doable": "Nuostabu",
+    "likeIt": "Realu",
+    "platitudeAgree": "Banalu",
+    "noWay": "Jokiu būdu!",
+    "impossible": "Neįgyvendinama",
+    "platitudeDisagree": "Banalu",
+    "doNotUnderstand": "Nesupratau",
+    "noOpinion": "Neturiu nuomonės",
+    "doNotCare": "Neįdomu"
+  },
+  "sequence": {
+    "return": "Grįžti į pasiūlymų skiltį"
+  },
+  "authentification": {
+    "title": "Jei norite patvirtinti savo pasiūlymą, prisiregistruokite",
+    "description": "naudodami",
+    "commitment": "Make.org įsipareigoja saugoti Jūsų ",
+    "personal_data": "asmens duomenis "
+  },
+  "login": {
+    "title": "Jau turiu paskyrą",
+    "social_connect": "Prisijungiu naudodamas",
+    "or": "arba",
+    "button_connect": "Prisijungiu",
+    "email_connect": "Prisijungiu naudodamas savo el. pašto adresą",
+    "forgot_password_title": "Oi, aš",
+    "forgot_password_link": "pamiršau slaptažodį!",
+    "registration_title": "Neturiu paskyros,",
+    "registration_link": "noriu ją sukurti.",
+    "email_doesnot_exist": "Neradome su šiuo el. pašto adresu susietos paskyros."
+  },
+  "register": {
+    "title": "Sukurti paskyrą",
+    "social_connect": "Registruojuosi naudodamas",
+    "or": "arba",
+    "subtitle": "Registruojuosi užpildydamas šią formą",
+    "login_title": "Jau turiu paskyrą.",
+    "login_link": "Prisijungti",
+    "cgu": "Registruodamiesi sutinkate su mūsų bendrosiomis naudojimo sąlygomis ir sutinkate gauti Make.org el. laiškus (siunčiami retai)."
+  },
+  "forgot_password": {
+    "title": "sukuriu naują slaptažodį",
+    "description": "Jei norite gauti atnaujinimo nuorodą, įrašykite su Jūsų Make.org paskyra susietą el. pašto adresą.",
+    "success": "Dėkojame. Jums išsiųstas slaptažodžio atnaujinimo el. laiškas.",
+    "return": "Grįžti į ",
+    "login_link": "prisijungimo langą",
+    "send_link": "gauti el. laišką"
+  },
+  "footer_sequence": {
+    "with": "naudojant",
+    "see_more": "Daugiau informacijos šiuo klausimu:",
+    "link": "Daugiau informacijos apie šią apklausą:"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Teisinė informacija"
+      },
+      "item-2": {
+        "label": "Naudojimo sąlygos"
+      },
+      "item-3": {
+        "label": "Duomenų politika"
+      },
+      "item-4": {
+        "label": "Kontaktai"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Uždaryti išskleidžiamąjį meniu"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Kaip iš naujo atrasti Europą? Konkrečiai.",
+      "metas": {
+        "title": "Kaip iš naujo atrasti Europą? Konkrečiai.",
+        "description": "Turite pasiūlymų šiuo klausimu? Dalyvaukite didžiojoje piliečių apklausoje  Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
+        "description": [
+          "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savo sprendimus.",
+          "Daugiausiai palaikymo susilaukusias idėjas turės palaikyti kandidatai Europos Parlamento rinkimuose."
+        ]
+      },
+      "signUpCard": {
+        "title": "Gaukite apklausos rezultatus ir informaciją apie būsimas veiklas",
+        "nextCTA": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus."
+      },
+      "finalCard": {
+        "title": "Dėkojame, kad dalyvavote",
+        "share": [
+          "Norite nuveikti dar daugiau, kad iš naujo atrastume Europą?",
+          "Paraginkite dalyvauti Jums artimus žmones ir (arba) Jūsų bendruomenės narius"
+        ],
+        "learn_more_title": "Sužinokite viską apie „WeEuropeans“ projektą",
+        "learn_more_button": "Daugiau informacijos"
+      }
+    }
+  }
+}

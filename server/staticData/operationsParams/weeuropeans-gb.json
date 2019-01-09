@@ -1,0 +1,67 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "What are the concrete steps we can take to reinvent Europe?",
+    "metas": {
+      "title": "What are the concrete steps we can take to reinvent Europe?",
+      "description": "Do you have any ideas on this? Participate in the biggest public consultation by Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Thousands of citizens are proposing solutions to reinvent Europe.",
+      "description": [
+        "Give your opinion of these solutions or propose your own.",
+        "The ideas that receive the most support are those that should be promoted by candidates in the European elections."
+      ]
+    },
+    "signUpCard": {
+      "title": "Receive the results of the consultation and be informed about upcoming actions",
+      "nextCTA": "No thanks, I don’t wish to be informed of the results."
+    },
+    "finalCard": {
+      "title": "Thank you for your participation",
+      "share": [
+        "Would you like to go further in reinventing Europe?",
+        "Invite your friends/family/community to participate"
+      ],
+      "learn_more_title": "Find out all about the WeEuropeans project",
+      "learn_more_button": "Find out more"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": true,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}

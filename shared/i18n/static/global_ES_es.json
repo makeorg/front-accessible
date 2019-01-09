@@ -1,0 +1,204 @@
+﻿{
+  "meta": {
+    "home": {
+      "title": "Make.org, acelerador de interés general",
+      "description": "Proponga, vote, actuemos: juntos encontraremos la solución a los grandes problemas actuales. Las soluciones más apoyadas serán llevadas a cabo por Make.org y sus colaboradores.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    }
+  },
+  "common": {
+    "connexion_label": "Conectarse",
+    "register_label": "Registrarse",
+    "form": {
+      "email_label": "Correo electrónico",
+      "password_label": "Contraseña",
+      "firstname_label": "Nombre",
+      "age_label": "Edad (opcional)",
+      "postalcode_label": "Código postal (opcional)",
+      "profession_label": "Profesión (opcional)",
+      "email is not a valid email": "Formato de correo electrónico no válido",
+      "Password must be at least 8 characters": "Su contraseña debe contener al menos 8 caracteres.",
+      "email_already_exist": "Este correo electrónico ya está registrado.",
+      "api_error": "¡Ups! Estamos teniendo problemas para cargar esta página. Por favor, inténtelo de nuevo más tarde.",
+      "required_field": "Rellene este campo."
+    },
+    "from": "sobre",
+    "email": "Correo electrónico",
+    "propose": "Proponer",
+    "click_there": "haga clic aquí",
+    "open_new_window": "Abrir en una nueva pestaña",
+    "loading": "Por favor, espere mientras se carga la página."
+  },
+  "header": {
+    "logo_alt": "Diríjase a Make.org"
+  },
+  "proposal_page": {
+    "button_1": "participar",
+    "button_2": "obtener más información",
+    "share_text": "Apoye esta propuesta compartiéndola:",
+    "footer_text": "Esta propuesta se ha sometido al marco de la operación {{operation_name}}"
+  },
+  "proposal_card": {
+    "previous": "Propuesta anterior",
+    "next": "Propuesta siguiente",
+    "number": "Propuesta número"
+  },
+  "intro_card": {
+    "title": "Miles de ciudadanos proponen soluciones.",
+    "description_1": "Vote las soluciones propuestas y proponga las suyas.",
+    "description_2": "Las mejores determinarán nuestras acciones.",
+    "button": "Comenzar",
+    "partnership": "en asociación con"
+  },
+  "final_card": {
+    "title": "Gracias por participar. <br/>Ahora puede acceder a la consulta completa.",
+    "button": "Ver todas las propuestas."
+  },
+  "sign_up_card": {
+    "title": "Reciba los resultados de la consulta y manténgase al corriente de las acciones venideras",
+    "authentification-text": "Me identifico con",
+    "next-cta": "No, gracias, no deseo estar al corriente de los resultados"
+  },
+  "push_proposal_card": {
+    "title": "Y usted, ¿desea proponer una solución para este tema?",
+    "next-cta": "Aún no, voy a continuar votando"
+  },
+  "proposal_submit": {
+    "bait": "Haría falta ",
+    "title": "Envíe sus propuestas rellenando este formulario en menos de 140 caracteres:",
+    "entred_chars": "caracteres introducidos",
+    "available_chars": "caracteres disponibles",
+    "description": "No se preocupe, corregiremos las posibles faltas de ortografía.",
+    "moderation_charter": "Para obtener más información sobre nuestro reglamento de moderación,",
+    "success": "Su propuesta se ha registrado. Nuestro equipo de moderación procederá a su lectura. Recibirá un correo electrónico cuando se haya validado."
+  },
+  "vote": {
+    "intro_title": "Mi opinión sobre esta propuesta. ",
+    "intro_text": "Estoy:",
+    "agree": "De acuerdo",
+    "disagree": "En desacuerdo",
+    "neutral": "Voto en blanco",
+    "label": "{{count}} voto",
+    "label_plural": "{{count}} votos"
+  },
+  "unvote": {
+    "title": "Al hacer clic en el siguiente botón, retiro mi opinión sobre esta propuesta:",
+    "button": "retiro mi opinión"
+  },
+  "results": {
+    "title": "Las opiniones de otros participantes sobre esta propuesta son:",
+    "total_text": "El número total de opiniones es de: ",
+    "tooltipbutton": {
+      "agree": "Ordenar los resultados para la opinión: «estoy de acuerdo»",
+      "disagree": "Ordenar los resultados para la opinión: «no estoy de acuerdo»",
+      "neutral": "Ordenar los resultados para la opinión: «voto en blanco»"
+    }
+  },
+  "qualification": {
+    "title": "Al hacer clic en los siguientes botones, especifico mi opinión:",
+    "doable": "Genial",
+    "likeIt": "Realista",
+    "platitudeAgree": "Banalidad",
+    "noWay": "¡En absoluto!",
+    "impossible": "Inviable",
+    "platitudeDisagree": "Banalidad",
+    "doNotUnderstand": "No lo he entendido",
+    "noOpinion": "No tengo opinión",
+    "doNotCare": "Indiferente"
+  },
+  "sequence": {
+    "return": "Volver a las propuestas"
+  },
+  "authentification": {
+    "title": "Regístrese para validar su propuesta",
+    "description": "con",
+    "commitment": "Make.org se compromete a proteger sus ",
+    "personal_data": "datos personales "
+  },
+  "login": {
+    "title": "Ya dispongo de una cuenta",
+    "social_connect": "Me conecto con",
+    "or": "o",
+    "button_connect": "Me conecto",
+    "email_connect": "Me conecto con mi dirección de correo electrónico",
+    "forgot_password_title": "¡Ups!, ¿ha",
+    "forgot_password_link": "olvidado su contraseña?",
+    "registration_title": "No dispongo de una cuenta,",
+    "registration_link": "quiero crear una.",
+    "email_doesnot_exist": "No encontramos ninguna cuenta asociada a este correo electrónico."
+  },
+  "register": {
+    "title": "Crear una cuenta",
+    "social_connect": "Me registro con",
+    "or": "o",
+    "subtitle": "Me registro con este formulario",
+    "login_title": "Ya dispongo de una cuenta.",
+    "login_link": "Conexión",
+    "cgu": "Al registrarse, acepta nuestras condiciones generales de uso, así como recibir correos electrónicos (poco frecuentes) de Make.org."
+  },
+  "forgot_password": {
+    "title": "restablezco mi contraseña",
+    "description": "Indique la dirección de correo electrónico asociada a su cuenta de Make.org para recibir el enlace para restablecer la contraseña.",
+    "success": "Gracias, acabamos de enviarle un correo electrónico que le permitirá actualizar su contraseña.",
+    "return": "Volver a ",
+    "login_link": "la pantalla de conexión",
+    "send_link": "recibir el correo electrónico"
+  },
+  "footer_sequence": {
+    "with": "con",
+    "see_more": "Obtener más información sobre el tema:",
+    "link": "Obtener más información sobre esta consulta"
+  },
+  "main-footer": {
+    "menu": {
+      "item-1": {
+        "label": "Menciones legales"
+      },
+      "item-2": {
+        "label": "Condiciones de uso"
+      },
+      "item-3": {
+        "label": "Política de datos"
+      },
+      "item-4": {
+        "label": "Contacto"
+      }
+    }
+  },
+  "pannel": {
+    "close": "Cerrar el panel desplegable"
+  },
+  "weeuropean": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "¿Cómo podemos exactamente reinventar Europa?",
+      "metas": {
+        "title": "¿Cómo podemos exactamente reinventar Europa?",
+        "description": "¿Tiene alguna idea al respecto? Participe en esta gran consulta ciudadana de Make.org",
+        "picture": ""
+      }
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Miles de ciudadanos proponen soluciones para reinventar Europa.",
+        "description": [
+          "Vote las soluciones propuestas o proponga las suyas.",
+          "Los candidatos a las elecciones europeas defenderán las ideas más secundadas."
+        ]
+      },
+      "signUpCard": {
+        "title": "Reciba los resultados de la consulta y manténgase al corriente de las acciones venideras",
+        "nextCTA": "No, gracias, no deseo estar al corriente de los resultados."
+      },
+      "finalCard": {
+        "title": "Gracias por su participación",
+        "share": [
+          "¿Desea ir más lejos para reinventar Europa?",
+          "Invite a sus allegados y/o su comunidad a participar"
+        ],
+        "learn_more_title": "Descubrir todo lo relacionado con el proyecto WeEuropeans",
+        "learn_more_button": "Obtener más información"
+      }
+    }
+  }
+}

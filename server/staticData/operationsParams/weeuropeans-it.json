@@ -1,0 +1,67 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Come reinventare l’Europa, in concreto?",
+    "metas": {
+      "title": "Come reinventare l’Europa, in concreto?",
+      "description": "Hai un’idea a riguardo? Partecipa alla grande consultazione cittadina su Make.org",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Migliaia di cittadini propongono soluzioni per reinventare l’Europa.",
+      "description": [
+        "Valuta le proposte o proponi le tue soluzioni.",
+        "Le idee che avranno riscosso maggior consenso dovranno essere difese dai candidati alle elezioni europee."
+      ]
+    },
+    "signUpCard": {
+      "title": "Ricevi i risultati della consultazione e gli aggiornamenti sulle azioni future",
+      "nextCTA": "No grazie, non desidero ricevere informazioni sui risultati."
+    },
+    "finalCard": {
+      "title": "Grazie per la partecipazione",
+      "share": [
+        "Vuoi fare di più per reinventare l’Europa?",
+        "Invita i tuoi amici e la tua community a partecipare"
+      ],
+      "learn_more_title": "Scopri tutto sul progetto WeEuropeans",
+      "learn_more_button": "Più informazioni"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white",
+    "weEuropeansTheme": true
+  },
+  "consultationUrl": "#",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": true,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "#",
+      "withSharing": true
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": true,
+    "age": true,
+    "job": true,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  }
+}
