@@ -3,7 +3,7 @@ import { pxToRem } from 'Helpers/styled';
 import { BackgroundColors, TextColors, BasicColors } from 'Assets/vars/Colors';
 import Breakpoints from 'Assets/vars/Breakpoints';
 import { Small } from 'Components/Elements/Separators';
-import Unstyledlist from 'Components/Elements/ListElements';
+import { UnstyledList } from 'Components/Elements/ListElements';
 import { CenterColumn, MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
 
 export const ContentWrapper = styled(MiddleColumn)`
@@ -86,6 +86,6 @@ export const PartnerAvatar = styled.img`
   margin: ${pxToRem('7.5px')};
 `;
 
-export const PartnerList = styled(Unstyledlist)`
+export const PartnerList = styled(UnstyledList)`
   display: flex;
 `;

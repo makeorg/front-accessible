@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Unstyledlist from 'Components/Elements/ListElements';
+import { UnstyledList } from 'Components/Elements/ListElements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
@@ -12,7 +12,7 @@ import Sharing from './Styled';
  * Renders Sharing
  */
 const SharingComponent = () => (
-  <Sharing as={Unstyledlist}>
+  <Sharing as={UnstyledList}>
     <li>
       <Sharing.Facebook>
         <FontAwesomeIcon icon={faFacebookF} />

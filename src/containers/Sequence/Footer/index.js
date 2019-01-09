@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import MainFooterComponent from 'Components/MainFooter';
+import { SequenceFooterComponent } from 'Components/Sequence/Footer';
 import Tracking from 'Services/Tracking';
 
 type Props = {
@@ -14,12 +14,7 @@ type Props = {
 /**
  * Handles Main Footer Business Logic
  */
-class MainFooterContainer extends React.Component<Props> {
-  constructor(props) {
-    super(props);
-    this.trackClickConsultation = this.trackClickConsultation.bind(this);
-  }
-
+export class SequenceFooterContainer extends React.Component<Props> {
   trackClickConsultation = () => {
     Tracking.trackClickConsultation();
     return this;
@@ -27,9 +22,7 @@ class MainFooterContainer extends React.Component<Props> {
 
   render() {
     return (
-      <MainFooterComponent handleTracking={this.trackClickConsultation} {...this.props} />
+      <SequenceFooterComponent handleTracking={this.trackClickConsultation} {...this.props} />
     );
   }
 }
-
-export default MainFooterContainer;

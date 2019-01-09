@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MakeFonts } from 'Assets/vars/Fonts';
 import { pxToRem } from 'Helpers/styled';
 import Breakpoints from 'Assets/vars/Breakpoints';
 
@@ -10,23 +11,20 @@ export const Nav = styled.nav`
   width: 100%;
 `;
 
-export const Title = styled.h2`
-  color: ${props => props.color};
-  font-size: ${pxToRem('14px')};
-  line-height: ${pxToRem('24px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    font-size: ${pxToRem('18px')};
-    line-height: ${pxToRem('32px')};
-  }
+export const Item = styled.li`
+  display: inline-block;
+  padding: ${pxToRem('15px')};
 `;
 
-export const Link = styled.a`
-  color: ${props => props.color};
+export const ItemLink = styled.a`
+  font-family: ${MakeFonts.CircularBook};
+  text-decoration: none;
   font-size: ${pxToRem('12px')};
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
-  }
-  &:focus {
-    outline-color: ${props => props.color};
   }
 `;
