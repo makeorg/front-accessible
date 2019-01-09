@@ -1,4 +1,5 @@
 import winston from 'winston';
+import { env } from '../shared/env';
 
 const {
   combine,
@@ -25,7 +26,7 @@ export const logger = winston.createLogger({
   transports: [new winston.transports.Console()]
 });
 
-if (process.env.NODE_ENV === 'development') {
+if (env.isDev()) {
   logger.add(new winston.transports.Console({
     format: winston.format.simple()
   }));

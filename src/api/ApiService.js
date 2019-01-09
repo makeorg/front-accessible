@@ -3,6 +3,7 @@ import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Helpers/url';
 import Logger from 'Services/Logger';
+import { env } from '../../shared/env';
 
 const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
@@ -14,6 +15,7 @@ const BROWSER_API_URL = (
 ) ? window.API_URL : null;
 
 export const API_URL = BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';
+export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
 
 axiosRetry(axios, {
   retries: 5,

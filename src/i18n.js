@@ -3,6 +3,7 @@
 import i18next from 'i18next';
 import fr from './i18n/fr.json';
 import en from './i18n/en.json';
+import { env } from '../shared/env';
 
 i18next
   .init({
@@ -10,7 +11,7 @@ i18next
       escapeValue: false
     },
     fallbackLng: 'fr',
-    debug: process.env.NODE_ENV === 'development',
+    debug: env.isDev(),
     resources: {
       fr: {
         translation: fr
