@@ -61,11 +61,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
-      }, {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
-      }, {
+      },
+      {
         test: /\.(jpe?g|png|gif|svg|ttf|eot|woff|woff2)$/,
         use: [{
           loader: 'file-loader',

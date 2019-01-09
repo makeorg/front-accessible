@@ -7,6 +7,7 @@ import AppContainer from 'Containers/App';
 import configureStore from './store';
 import './i18n';
 import Logger from './services/Logger';
+import { env } from '../shared/env';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -26,7 +27,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+if (!process.env.NODE_ENV || env.isDev()) {
   initialState = {
     appConfig: {
       source: 'core',
