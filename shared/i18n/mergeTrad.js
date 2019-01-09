@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const GLOBAL_TRAD_DIR = path.resolve(__dirname, 'static');
-const APP_TRAD_DIR = path.resolve(__dirname, '..', '..', 'src', 'i18n');
+const APP_TRAD_DIR = path.resolve(__dirname, '..', '..', 'server', 'staticData', 'i18n');
 const QUESTION_TRAD_DIR = path.resolve(__dirname, '..', '..', 'server', 'staticData', 'operationsParams');
 
 const countriesLanguages = {
@@ -124,11 +124,11 @@ countries.forEach((country) => {
         delete appTrads.weeuropean;
 
         if (mergeAppTrads(appTradFilePath, appTrads)) {
-          console.info(`App Trad merged for ${appTradFilePath} language`);
+          console.info(`App Trad merged for ${language}-${country} language`);
         }
      
         if (mergeQuestionTrads(questionTradFilePath, weeuropean)) {
-          console.info(`App Weeuropean merged for ${language} language`);
+          console.info(`App Weeuropean merged for ${language}-${country} language`);
         }
       } catch (error) {
         console.log(`error in content of ${globalFilePath} => ${error}`);

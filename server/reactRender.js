@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
 import configureStore from '../src/store';
-import i18next from '../src/i18n';
+import i18next from './i18n';
+import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
 import AppContainer from '../src/containers/App';
 import routes from '../shared/routes';
 
@@ -38,19 +39,21 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
 
 module.exports = function reactRender(req, res, initialState = {}) {
   const { country, language } = req.params;
+
+  const tradLanguage = `${country}_${language}`;
+  i18next.changeLanguage(tradLanguage);
+
   const state = {
     ...{
       appConfig: {
         source: 'core',
         language,
-        country
+        country,
+        translations: i18next.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
       }
     },
     ...initialState
   };
-
-  const tradLanguage = `${country}_${language}`;
-  i18next.changeLanguage(tradLanguage);
 
   const store = configureStore(state);
   const context = {};
