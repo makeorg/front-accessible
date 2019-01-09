@@ -14,7 +14,7 @@ const SepartorStyle = styled.div`
 
 export const Small = styled(SepartorStyle)`
   max-width: ${pxToRem('60px')};
-  margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
+  margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
   }

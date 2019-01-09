@@ -10,8 +10,6 @@ import MainFooterContainer from 'Containers/MainFooter';
 import SequenceContentLoader from './ContentLoader';
 
 type Props = {
-  country: String,
-  language: String,
   question: Object,
   questionConfiguration: Object,
   fetchQuestion: Function,
@@ -22,8 +20,6 @@ class SequencePage extends React.Component<Props> {
   componentDidMount() {
     const {
       match,
-      country,
-      language,
       question,
       fetchQuestion,
       questionConfiguration,
@@ -31,11 +27,11 @@ class SequencePage extends React.Component<Props> {
     } = this.props;
 
     if (!question) {
-      fetchQuestion(match.params.questionSlug, country, language);
+      fetchQuestion(match.params.questionSlug);
     }
 
     if (!questionConfiguration) {
-      fetchQuestionConfiguration(match.params.questionSlug, country);
+      fetchQuestionConfiguration(match.params.questionSlug);
     }
   }
 
@@ -74,24 +70,21 @@ class SequencePage extends React.Component<Props> {
 
 const mapStateToProps = (state) => {
   const { isSequenceCollapsed } = state.sequence;
-  const { country, language } = state.appConfig;
   const { question, questionConfiguration } = state.sequence;
 
   return {
     isSequenceCollapsed,
-    country,
-    language,
     question,
     questionConfiguration
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuestionConfiguration: (questionSlug: String, country: String) => {
-    dispatch(fetchQuestionConfigurationData(questionSlug, country));
+  fetchQuestionConfiguration: (questionSlug: String) => {
+    dispatch(fetchQuestionConfigurationData(questionSlug));
   },
-  fetchQuestion: (questionSlug: String, country: String, language: String) => {
-    dispatch(fetchQuestionData(questionSlug, country, language));
+  fetchQuestion: (questionSlug: String) => {
+    dispatch(fetchQuestionData(questionSlug));
   }
 });
 

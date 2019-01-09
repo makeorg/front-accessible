@@ -12,17 +12,20 @@
 ## Installation:
 ### Development Mode
 *   npm start:dev
-*   visit `http://localhost:8080`
+*   visit `http://localhost:3000`
 
 ### Production
+*   Build command : `yarn build`
+*   Start server : `env API_URL=https://api.preprod.makeorg.tech yarn server`
 
-## Style Guide
-*   To start development Server : `npx styleguidist server`
-*   visit `http://localhost:6060`
-*   Build command : `npx styleguidist build`
 
 ## Tests
 To launch test `yarn test:unit` or `npm run test:unit`
 
 ## Linter
 To launch linter `yarn lint` or `npm run lint`
+
+## Style Guide
+*   To start development Server : `npx styleguidist server`
+*   visit `http://localhost:6060`
+*   Build command : `yarn styleguidist build`

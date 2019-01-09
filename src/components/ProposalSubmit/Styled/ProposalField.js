@@ -10,13 +10,12 @@ import { TextColors, ShadowColors } from 'Assets/vars/Colors';
 export const Label = styled.label`
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('40px')};
-  margin-left:  ${pxToRem('12px')};
-  min-width: ${pxToRem('42px')};
+  margin-right:  ${pxToRem('2.5px')};
+  white-space: nowrap;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('50px')};
     margin-left: ${pxToRem('22px')};
-    min-width: ${pxToRem('52px')};
   }
 `;
 
@@ -25,7 +24,7 @@ export const Input = styled(NoStyleTextInput)`
   font-family: ${MakeFonts.CircularBold};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('40px')};
-  padding: 0;
+  padding: 0 0 0 ${pxToRem('2.5px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('50px')};
@@ -36,10 +35,10 @@ export const CharLimit = styled(MiddleRow)`
   font-family: ${MakeFonts.CircularBook};
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
-  min-width: ${pxToRem('55px')};
+  padding: 0 ${pxToRem('2.5px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     font-size: ${pxToRem('14px')};
-    min-width: ${pxToRem('70px')};
+    padding: 0 ${pxToRem('5px')};
   }
 `;
 

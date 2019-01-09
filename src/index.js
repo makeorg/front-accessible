@@ -1,13 +1,14 @@
 import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { Provider } from 'react-redux';
+import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import AppContainer from 'Containers/App';
 import configureStore from './store';
-import './i18n';
 import Logger from './services/Logger';
 import { env } from '../shared/env';
+import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -31,8 +32,8 @@ if (!process.env.NODE_ENV || env.isDev()) {
   initialState = {
     appConfig: {
       source: 'core',
-      language: 'fr',
-      country: 'FR'
+      language: 'en',
+      country: 'GB'
     },
     sequence: {
       question: {
@@ -43,6 +44,12 @@ if (!process.env.NODE_ENV || env.isDev()) {
     }
   };
 }
+
+const tradLanguage = `${initialState.appConfig.country}_${initialState.appConfig.language}`;
+
+i18next.init();
+i18next.addResourceBundle(tradLanguage, TRANSLATION_NAMESPACE, initialState.appConfig.translations);
+i18next.changeLanguage(tradLanguage);
 
 const store = configureStore(initialState);
 

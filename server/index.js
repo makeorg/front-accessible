@@ -1,13 +1,14 @@
+import { countryLanguageMiddelware } from './middelware/countryLanguage';
 import questionApi from './questionApi';
 import { logger } from './logger';
 
+require('./browserPolyfill');
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
 const csp = require('express-csp');
-require('./browserPolyfill');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const {
@@ -80,7 +81,7 @@ function renderVersion(req, res) {
 app.get('/', countryDetectMiddelware);
 app.get('/version', renderVersion);
 app.get('/:country', countryDetectMiddelware, homeRoute);
-app.get('/:country/consultation/:questionSlug/selection', countryDetectMiddelware, sequenceRoute);
+app.get('/:countryLanguage/consultation/:questionSlug/selection', countryLanguageMiddelware, sequenceRoute);
 
 // CSP
 csp.extend(app, {

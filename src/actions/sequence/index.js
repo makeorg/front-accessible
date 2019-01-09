@@ -2,7 +2,7 @@
 
 import * as actionTypes from 'Constants/actionTypes';
 import SequenceService from 'Api/SequenceService';
-import OperationService from 'Api/OperationService';
+import QuestionService from 'Api/OperationService';
 import Logger from 'Services/Logger';
 
 export const sequenceCollapse = () => (dispatch: Function) => dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
@@ -11,13 +11,14 @@ export const sequenceExpand = () => (dispatch: Function) => dispatch({ type: act
 export const sequenceVote = (proposalId: string) => (dispatch: Function) => (
   dispatch({ type: actionTypes.SEQUENCE_PROPOSAL_VOTE, proposalId })
 );
+
 export const sequenceUnvote = (proposalId: string) => (dispatch: Function) => (
   dispatch({ type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE, proposalId })
 );
 
-export const fetchQuestionData = (questionSlug: string, country: string, language: string) => (dispatch: Function) => (
-  OperationService
-    .getOperation(questionSlug, country, language)
+export const fetchQuestionData = (questionSlug: string) => (dispatch: Function) => (
+  QuestionService
+    .getDetail(questionSlug)
     .then((question) => {
       dispatch({ type: actionTypes.QUESTION_LOAD, question });
     })
