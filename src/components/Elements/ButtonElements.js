@@ -18,9 +18,10 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: ${pxToRem('20px')} 0;
+  margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     flex-flow: row;
+    margin: ${pxToRem('20px')} 0;
   }
 `;
 
@@ -35,6 +36,7 @@ export const UnstyledButton = styled.button`
 `;
 
 export const BasicButton = styled.button`
+  white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: baseline;
