@@ -112,6 +112,7 @@
   "scripts": {
     "start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --hot",
     "build": "webpack -p --progress --colors --config ./webpack/prod.config.js",
+    "server:dev": "env NODE_ENV=development PORT=9009 node bin/start",
     "server": "env PORT=9009 pm2-runtime start ecosystem.config.js",
     "version:build": "node server/versionBuild.js",
     "styleguide": "styleguidist server",

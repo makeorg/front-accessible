@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
 import configureStore from '../src/store';
-import AppContainer from '../src/containers/App';
 import i18next from '../src/i18n';
+import AppContainer from '../src/containers/App';
 import routes from '../shared/routes';
 
 const fs = require('fs');
@@ -26,15 +26,13 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     return false;
   }
 
-  const reactHtml = htmlContent
+  return htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
     .replace('<head>', `<head>${ReactDOMServer.renderToString(metaTags)}`)
     .replace('</head>', `${styles}</head>`)
     .replace('"__REDUX__"', JSON.stringify(reduxState))
     .replace('__API_URL__', apiUrl)
     .replace('__FRONT_URL__', frontUrl);
-
-  return reactHtml;
 };
 
 
@@ -51,7 +49,8 @@ module.exports = function reactRender(req, res, initialState = {}) {
     ...initialState
   };
 
-  i18next.changeLanguage(state.appConfig.language);
+  const tradLanguage = `${country}_${language}`;
+  i18next.changeLanguage(tradLanguage);
 
   const store = configureStore(state);
   const context = {};

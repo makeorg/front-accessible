@@ -1,8 +1,8 @@
 /* @flow */
 
 import i18next from 'i18next';
-import fr from './i18n/fr.json';
-import en from './i18n/en.json';
+import FRfr from './i18n/FR_fr.json';
+import GBen from './i18n/GB_en.json';
 import { env } from '../shared/env';
 
 i18next
@@ -10,14 +10,14 @@ i18next
     interpolation: {
       escapeValue: false
     },
-    fallbackLng: 'fr',
+    lng: 'FR_fr',
     debug: env.isDev(),
     resources: {
-      fr: {
-        translation: fr
+      FR_fr: {
+        translation: FRfr
       },
-      en: {
-        translation: en
+      GB_en: {
+        translation: GBen
       }
     }
   });

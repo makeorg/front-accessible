@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import AppContainer from 'Containers/App';
 import configureStore from './store';
-import './i18n';
+import i18next from './i18n';
 import Logger from './services/Logger';
 import { env } from '../shared/env';
 
@@ -31,8 +31,8 @@ if (!process.env.NODE_ENV || env.isDev()) {
   initialState = {
     appConfig: {
       source: 'core',
-      language: 'fr',
-      country: 'FR'
+      language: 'en',
+      country: 'GB'
     },
     sequence: {
       question: {
@@ -43,6 +43,9 @@ if (!process.env.NODE_ENV || env.isDev()) {
     }
   };
 }
+
+const tradLanguage = `${initialState.appConfig.country}_${initialState.appConfig.language}`;
+i18next.changeLanguage(tradLanguage);
 
 const store = configureStore(initialState);
 

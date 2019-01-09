@@ -6,7 +6,7 @@ import { NODE_API_BASE } from './ApiService';
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug';
 
 export default class SequenceService {
-  static fetchConfiguration(questionSlug: string): Promose<Object> {
+  static fetchConfiguration(questionSlug: string): Promise<Object> {
     return axios({
       method: 'GET',
       url: `${NODE_API_BASE}${PATH_QUESTION_CONFIGURATION
