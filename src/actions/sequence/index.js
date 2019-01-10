@@ -2,7 +2,7 @@
 
 import * as actionTypes from 'Constants/actionTypes';
 import SequenceService from 'Api/SequenceService';
-import QuestionService from 'Api/OperationService';
+import QuestionService from 'Api/QuestionService';
 import Logger from 'Services/Logger';
 
 export const sequenceCollapse = () => (dispatch: Function) => dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
