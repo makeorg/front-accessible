@@ -3,7 +3,7 @@ import SequencePage from 'Pages/Consultation/Sequence';
 
 export default [
   {
-    path: '/:country',
+    path: '/:countryLanguage',
     component: HomePage,
     exact: true,
     dataFetch: null

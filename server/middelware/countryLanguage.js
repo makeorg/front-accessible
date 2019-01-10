@@ -6,7 +6,7 @@ export const countryLanguageMiddelware = (req, res, next) => {
   const { countryLanguage } = req.params;
 
   if (!isCountryLanguage(countryLanguage)) {
-    return res.status(404).send(`${countryLanguage} is an ivalid country-language!`);
+    return res.redirect('/FR-fr');
   }
 
   const [country, language] = countryLanguage.split('-');

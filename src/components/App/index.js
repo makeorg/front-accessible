@@ -25,7 +25,7 @@ const AppComponent = () => (
     <MainHeaderContainer />
     <MainContent role="main">
       <Switch>
-        <Route exact path="/:country" component={HomePage} />
+        <Route exact path="/:countryLanguage" component={HomePage} />
         <Route path="/:countryLanguage/consultation/:questionSlug/selection" component={SequencePage} />
         <Route component={NotFoundPage} />
       </Switch>
