@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const Button = styled.button`
   display: flex;
@@ -16,7 +16,7 @@ export const Button = styled.button`
   padding: 0 ${pxToRem('10px')};
   border-radius: ${pxToRem('36px')};
   border-color: ${props => props.color};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
     line-height: ${pxToRem('33px')};
     padding: 0 ${pxToRem('15px')};
@@ -45,7 +45,7 @@ export const QualificationCounter = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   font-size: ${pxToRem('18px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};
   }
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { NoStyleTextInput } from 'Components/Elements/Form';
 import { MiddleRow } from 'Components/Elements/FlexElements';
 import { SmallGreyButton, SmallRedButton } from 'Components/Elements/ButtonElements';
@@ -12,7 +12,7 @@ export const Label = styled.label`
   line-height: ${pxToRem('40px')};
   margin-right:  ${pxToRem('2.5px')};
   white-space: nowrap;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('50px')};
     margin-left: ${pxToRem('22px')};
@@ -26,7 +26,7 @@ export const Input = styled(NoStyleTextInput)`
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('40px')};
   padding: 0 0 0 ${pxToRem('2.5px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('50px')};
   }
@@ -37,7 +37,7 @@ export const CharLimit = styled(MiddleRow)`
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
   padding: 0 ${pxToRem('2.5px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
     padding: 0 ${pxToRem('16px')};
   }

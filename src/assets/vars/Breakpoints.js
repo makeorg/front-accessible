@@ -1,9 +1,10 @@
 /* @flow */
 
-const Breakpoints = {
-  mobile: '767px',
-  sequenceWidth: '1140px',
-  specialSequenceWidth: '1180px'
+export const Breakpoints = {
+  Desktop: '767px'
 };
 
-export default Breakpoints;
+export const Layouts = {
+  ContainerWidth: '1140px',
+  SpecialContainerWidth: '1180px'
+};

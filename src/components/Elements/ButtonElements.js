@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import {
   BasicColors,
   IconColors,
@@ -19,7 +19,7 @@ export const ButtonsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     flex-flow: row;
     margin: ${pxToRem('20px')} 0;
   }
@@ -47,21 +47,21 @@ export const BasicButton = styled.button`
   border-radius: ${pxToRem('30px')};
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
   }
 `;
 
 export const SmallBasicButton = styled(BasicButton)`
   padding: ${pxToRem('5px')} ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem('9px')} ${pxToRem('20px')};
   }
 `;
 
 export const TallBasicButton = styled(BasicButton)`
   padding: ${pxToRem('8px')} ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem('10px')} ${pxToRem('20px')};
   }
 `;
@@ -92,7 +92,7 @@ export const TallRedButton = styled(TallBasicButton)`
 
 export const IconInButton = styled.span`
   margin-right: ${pxToRem('6.5px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-right: ${pxToRem('10px')};
   }
 `;
@@ -114,7 +114,7 @@ export const GoogleButton = styled(LargeButton)`
   color: ${BasicColors.PureWhite};
   background: ${IconColors.Google};
   background-color: ${IconColors.Google};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-top: 0;
   }
 `;
@@ -123,7 +123,7 @@ export const EmailButton = styled(LargeButton)`
   color: ${BasicColors.PureWhite};
   background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-top: 0;
   }
 `;

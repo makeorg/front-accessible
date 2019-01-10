@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { UnstyledList } from 'Components/Elements/ListElements';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const ButtonList = styled(UnstyledList)`
   display: flex;
@@ -29,7 +29,7 @@ export const Button = styled.button`
   border-color: ${props => props.color};
   transform: rotate(${props => props.rotate}deg);
   overflow: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: ${pxToRem('60px')};
     height: ${pxToRem('60px')};
     font-size: ${pxToRem('30px')};

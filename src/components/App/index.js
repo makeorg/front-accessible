@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { CookieBannerComponent } from 'Components/Cookie';
 import MainHeaderContainer from 'Containers/MainHeader';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
@@ -11,6 +12,7 @@ import ModernNormalizeStylesheet from 'Assets/css-in-js/ModernNormalize';
 import { FontFacesStylesheet } from 'Assets/css-in-js/FontFaces';
 import DefaultStylesheet from 'Assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from 'Assets/css-in-js/Animations';
+import { UIThemeStylesheet } from 'Assets/css-in-js/UITheme';
 import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
 
 /**
@@ -22,6 +24,8 @@ const AppComponent = () => (
     <FontFacesStylesheet />
     <DefaultStylesheet />
     <AnimationsStylesheet />
+    <UIThemeStylesheet />
+    <CookieBannerComponent />
     <MainHeaderContainer />
     <MainContent role="main">
       <Switch>

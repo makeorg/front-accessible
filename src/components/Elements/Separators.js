@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BackgroundColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { MiddleRow } from './FlexElements';
 
 const SepartorStyle = styled.div`
@@ -15,14 +15,14 @@ const SepartorStyle = styled.div`
 export const Small = styled(SepartorStyle)`
   max-width: ${pxToRem('60px')};
   margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
   }
 `;
 
 export const Large = styled(SepartorStyle)`
   margin: ${pxToRem('25px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('35px')} 0;
   }
 `;

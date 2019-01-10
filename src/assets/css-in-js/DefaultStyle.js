@@ -1,8 +1,8 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
-import { MakeFonts } from '../vars/Fonts';
-import { BasicColors } from '../vars/Colors';
+import { MakeFonts } from 'Assets/vars/Fonts';
+import { BasicColors } from 'Assets/vars/Colors';
 
 const DefaultStylesheet = createGlobalStyle`
   body {

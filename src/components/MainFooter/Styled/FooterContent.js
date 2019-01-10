@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { pxToRem } from 'Helpers/styled';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
   display: flex;
@@ -24,7 +24,7 @@ export const ItemLink = styled.a`
   &:focus {
     text-decoration: underline;
   }
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('14px')};
   }
 `;
