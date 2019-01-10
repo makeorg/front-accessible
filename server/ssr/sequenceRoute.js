@@ -44,7 +44,11 @@ module.exports = async function SequenceRoute(req, res) {
 
     return reactRender(req, res, sequenceState);
   } catch (error) {
-    logger.log('error', error.stack);
-    res.sendStatus(500).send({ error: error.message });
+    if (error && error.stack) {
+      const { stack } = error;
+      logger.log('error', stack);
+    }
+
+    res.send(error);
   }
 };

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter, matchPath } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
@@ -8,7 +8,6 @@ import configureStore from '../src/store';
 import i18next from './i18n';
 import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
 import AppContainer from '../src/containers/App';
-import routes from '../shared/routes';
 
 const fs = require('fs');
 const path = require('path');
@@ -59,28 +58,21 @@ module.exports = function reactRender(req, res, initialState = {}) {
   const context = {};
   const headTags = [];
 
-  const dataRequirements = routes
-    .filter(route => matchPath(req.path, route))
-    .filter(route => route.dataFetch instanceof Function)
-    .map(route => store.dispatch(route.dataFetch(req.params)));
+  const ReactApp = (
+    <HeadProvider headTags={headTags}>
+      <Provider store={store}>
+        <StaticRouter location={req.url} context={context}>
+          <AppContainer />
+        </StaticRouter>
+      </Provider>
+    </HeadProvider>
+  );
 
-  Promise.all(dataRequirements).then(() => {
-    const ReactApp = (
-      <HeadProvider headTags={headTags}>
-        <Provider store={store}>
-          <StaticRouter location={req.url} context={context}>
-            <AppContainer />
-          </StaticRouter>
-        </Provider>
-      </HeadProvider>
-    );
+  const reactHtml = renderHtml(ReactApp, store, headTags);
 
-    const reactHtml = renderHtml(ReactApp, store, headTags);
+  if (!reactHtml) {
+    return res.status(404).end();
+  }
 
-    if (!reactHtml) {
-      return res.status(404).end();
-    }
-
-    return res.send(reactHtml);
-  });
+  return res.send(reactHtml);
 };
