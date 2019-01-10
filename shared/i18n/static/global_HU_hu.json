@@ -64,7 +64,7 @@
     "next-cta": "Még nincs, továbbra is szavazok"
   },
   "proposal_submit": {
-    "bait": "A ",
+    "bait": "Muszáj",
     "title": "javaslatokat az alábbi űrlap kitöltésével tudja benyújtani, a javaslatnak kevesebb, mint 140 karakternek kell lennie:",
     "entred_chars": "begépelt karakterek",
     "available_chars": "fennmaradó karakterek",
