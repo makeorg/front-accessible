@@ -55,19 +55,6 @@ app.post('/api/logger', (req, res) => {
   return res.sendStatus(204);
 });
 
-
-// Front middelware
-function countryDetectMiddelware(req, res, next) {
-  const { country } = req.params;
-  if (!country || !(/^[A-Z]{2,3}$/.test(country))) {
-    const detectedCountry = req.headers['x-forced-country'] || req.headers['x-detected-country'] || 'FR';
-    const url = (req.url !== '/') ? req.url : '';
-    return res.redirect(`/${detectedCountry}${url}`);
-  }
-
-  return next();
-}
-
 function renderVersion(req, res) {
   try {
     const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
@@ -78,9 +65,9 @@ function renderVersion(req, res) {
 }
 
 // Front Routes
-app.get('/', countryDetectMiddelware);
+app.get('/', countryLanguageMiddelware);
 app.get('/version', renderVersion);
-app.get('/:country', countryDetectMiddelware, homeRoute);
+app.get('/:countryLanguage', countryLanguageMiddelware, homeRoute);
 app.get('/:countryLanguage/consultation/:questionSlug/selection', countryLanguageMiddelware, sequenceRoute);
 
 // CSP
