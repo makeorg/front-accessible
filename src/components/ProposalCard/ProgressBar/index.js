@@ -25,6 +25,9 @@ const ProgressBarComponent = (props: Props) => {
     cardOffset
   } = props;
 
+  const activeGaugeIndex = index + cardOffset;
+  const maxGaugeIndex = cardsCount + cardOffset;
+
   return (
     <Progress.ProgressWrapper role="progressbar">
       <Progress.ProgressSvg viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
@@ -39,8 +42,8 @@ const ProgressBarComponent = (props: Props) => {
           r={CardConstant.PROGRESS_SVG_R}
         />
         <Progress.ProgressBar
-          progress={gaugeProgress(index, cardsCount)}
-          remain={gaugeRemain(index, cardsCount)}
+          progress={gaugeProgress(activeGaugeIndex, maxGaugeIndex)}
+          remain={gaugeRemain(activeGaugeIndex, maxGaugeIndex)}
           cx={CardConstant.PROGRESS_SVG_CX}
           cy={CardConstant.PROGRESS_SVG_CY}
           r={CardConstant.PROGRESS_SVG_R}
@@ -50,11 +53,10 @@ const ProgressBarComponent = (props: Props) => {
         <HiddenItem aria-hidden>
           {i18next.t('proposal_card.number')}
         </HiddenItem>
-        &nbsp;
-        <Progress.ActiveCard aria-valuetext={index}>{index + cardOffset}</Progress.ActiveCard>
+        <Progress.ActiveCard aria-valuetext={activeGaugeIndex}>{activeGaugeIndex}</Progress.ActiveCard>
         <span aria-hidden>/</span>
         <HiddenItem>{i18next.t('common.from')}</HiddenItem>
-        <span aria-valuemax={cardsCount}>{cardsCount + cardOffset}</span>
+        <span aria-valuemax={maxGaugeIndex}>{maxGaugeIndex}</span>
       </Progress.ProgressCounter>
     </Progress.ProgressWrapper>
   );
