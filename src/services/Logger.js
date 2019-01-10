@@ -28,7 +28,10 @@ class Logger {
         stack: error.stack
       };
     } else {
-      data = error;
+      data = {
+        message: error,
+        stack: 'no-stack'
+      };
     }
 
     this.log(data, LOG_ERROR);

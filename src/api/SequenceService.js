@@ -1,6 +1,7 @@
 /* eslint no-console: ["error", { allow: ["log"] }] */
 /* @flow */
 import axios from 'axios';
+import Logger from 'Services/Logger';
 import { NODE_API_BASE } from './ApiService';
 
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug';
@@ -16,6 +17,8 @@ export default class SequenceService {
       }
     })
       .then(response => response.data)
-      .catch(error => console.log(error));
+      .catch((error) => {
+        Logger.logError(`Error in fetchConfiguration for ${questionSlug} : ${error}`);
+      });
   }
 }
