@@ -6,7 +6,7 @@ import { BasicColors } from '../vars/Colors';
 
 const DefaultStylesheet = createGlobalStyle`
   body {
-    font-family: ${MakeFonts.CircularBook};
+    font-family: ${MakeFonts.RobotoRegular};
     color: ${BasicColors.PureBlack};
     background: ${BasicColors.PureWhite};
     background-color: ${BasicColors.PureWhite};
@@ -18,9 +18,9 @@ const DefaultStylesheet = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: ${MakeFonts.TradeGothic}, Arial;
+    font-family: ${MakeFonts.RobotoCondensedBold}, Arial;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
@@ -29,7 +29,8 @@ const DefaultStylesheet = createGlobalStyle`
   }
 
   a {
-    font-family: ${MakeFonts.CircularBold}, Arial;
+    font-family: ${MakeFonts.RobotoBold}, Arial;
+    font-weight: bold;
     color: ${BasicColors.PureBlack};
     text-decoration: underline;
   }
@@ -47,7 +48,8 @@ const DefaultStylesheet = createGlobalStyle`
   }
 
   label {
-    font-family: ${MakeFonts.CircularBold}, Arial;
+    font-family: ${MakeFonts.RobotoBold}, Arial;
+    font-weight: bold;
     color: ${BasicColors.PureBlack};
   }
 

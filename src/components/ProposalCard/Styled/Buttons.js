@@ -19,7 +19,7 @@ export const BackButtonWrapper = styled.div`
   width: calc(100% - ${pxToRem('30px')});
   justify-content: space-between;
   align-items: center;
-  min-height: ${pxToRem('52px')};
+  min-height: ${pxToRem('58px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     top: ${pxToRem('30px')};
     left: ${pxToRem('30px')};
@@ -39,7 +39,8 @@ export const IntroButton = styled(TallRedButton)`
 
 export const BackButton = styled(UnstyledButton)`
   align-items: center;
-  font-family: ${MakeFonts.CircularBold};
+  font-family: ${MakeFonts.RobotoBold};
+  font-weight: bold;
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){

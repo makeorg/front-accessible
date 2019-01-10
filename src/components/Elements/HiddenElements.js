@@ -14,10 +14,17 @@ export const HiddenItem = styled.span`
 `;
 
 export const HiddenOnMobile = styled.div`
-  display: none !important;
+  display: none;
   visibility: hidden;
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
-    display: block !important;
+    display: block;
     visibility: visible;
+  }
+`;
+
+export const HiddenOnDesktop = styled.div`
+  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+    display: none;
+    visibility: hidden;
   }
 `;

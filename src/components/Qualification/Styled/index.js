@@ -6,7 +6,7 @@ import Breakpoints from 'Assets/vars/Breakpoints';
 const Qualification = styled(SpaceBetweenColumn)`
   width: 100%;
   min-height: ${pxToRem('110px')};
-  max-width: ${pxToRem('200px')};
+  max-width: ${pxToRem('210px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     min-height: ${pxToRem('130px')};
   }

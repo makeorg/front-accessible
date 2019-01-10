@@ -1,7 +1,7 @@
 /* @flow */
 
 export const MakeFonts = {
-  TradeGothic: "'Trade Gothic', Arial, serif",
-  CircularBold: "'Circular Bold', Arial, sans-serif",
-  CircularBook: "'Circular Book', Arial, sans-serif"
+  RobotoCondensedBold: "'Roboto Condensed Bold', Arial, serif",
+  RobotoBold: "'Roboto Bold', Arial, sans-serif",
+  RobotoRegular: "'Roboto Regular', Arial, sans-serif"
 };

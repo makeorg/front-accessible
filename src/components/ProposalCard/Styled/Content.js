@@ -9,7 +9,7 @@ import { CenterColumn, MiddleColumn, MiddleColumnToRow } from 'Components/Elemen
 export const ContentWrapper = styled(MiddleColumn)`
   width: 100%;
   height: 100%;
-  padding-top: ${pxToRem('52px')};
+  padding-top: ${pxToRem('58px')};
   @media (min-width: ${pxToRem(Breakpoints.mobile)}){
     padding-top: ${pxToRem('82px')};
   }
