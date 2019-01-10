@@ -16,6 +16,8 @@ type Props = {
   currentIndex: number,
   /** Total of cards */
   cardsCount: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -44,7 +46,8 @@ class FinalCardContainer extends React.Component<Props> {
       cardsCount,
       goToPreviousCard,
       isPannelOpen,
-      isSequenceCollapsed
+      isSequenceCollapsed,
+      cardOffset
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -55,6 +58,7 @@ class FinalCardContainer extends React.Component<Props> {
         finalCardConfig={configuration}
         finalCardWording={wording}
         index={index}
+        cardOffset={cardOffset}
         currentIndex={currentIndex}
         cardsCount={cardsCount}
         position={position}

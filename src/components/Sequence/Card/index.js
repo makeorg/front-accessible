@@ -19,6 +19,8 @@ type Props = {
   index: number,
   /** Total of cards */
   cardsCount: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Method called when previous card button is clicked  */
@@ -54,6 +56,7 @@ const Card = (props: Props) => {
       return (
         <ProposalCardContainer
           proposal={card.configuration}
+          cardOffset={card.cardOffset}
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
@@ -65,6 +68,7 @@ const Card = (props: Props) => {
       return (
         <IntroCardContainer
           configuration={card.configuration}
+          cardOffset={card.cardOffset}
           wording={card.wording}
           index={index}
           currentIndex={currentIndex}
@@ -75,6 +79,7 @@ const Card = (props: Props) => {
       return (
         <SignUpCardContainer
           configuration={card.configuration}
+          cardOffset={card.cardOffset}
           wording={card.wording}
           index={index}
           currentIndex={currentIndex}
@@ -87,6 +92,7 @@ const Card = (props: Props) => {
       return (
         <PushProposalCardContainer
           configuration={card.configuration}
+          cardOffset={card.cardOffset}
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
@@ -98,6 +104,7 @@ const Card = (props: Props) => {
       return (
         <FinalCardContainer
           configuration={card.configuration}
+          cardOffset={card.cardOffset}
           index={index}
           wording={card.wording}
           cardsCount={cardsCount}
