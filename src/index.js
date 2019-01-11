@@ -33,7 +33,8 @@ if (!process.env.NODE_ENV || env.isDev()) {
     appConfig: {
       source: 'core',
       language: 'en',
-      country: 'GB'
+      country: 'IE',
+      translations: require('../server/staticData/i18n/en-IE.json')
     },
     sequence: {
       question: {
@@ -45,11 +46,19 @@ if (!process.env.NODE_ENV || env.isDev()) {
   };
 }
 
-const tradLanguage = `${initialState.appConfig.country}_${initialState.appConfig.language}`;
+const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
 
-i18next.init();
-i18next.addResourceBundle(tradLanguage, TRANSLATION_NAMESPACE, initialState.appConfig.translations);
-i18next.changeLanguage(tradLanguage);
+i18next.init({
+  interpolation: {
+    escapeValue: false
+  },
+  debug: env.isDev(),
+  lng: tradLanguage,
+  resources: {
+    [tradLanguage]: { [TRANSLATION_NAMESPACE]: initialState.appConfig.translations }
+  }
+});
+
 
 const store = configureStore(initialState);
 
