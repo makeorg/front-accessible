@@ -175,5 +175,9 @@
     "text": "En poursuivant votre navigation vous consentez à nos {{cgu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
     "cgu": "conditions d’utilisation",
     "policy": "charte de données personnelles"
+  },
+  "activate_account": {
+    "success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
+    "bad_link": "Ce lien n'est plus valable."
   }
 }
