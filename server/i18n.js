@@ -37,7 +37,7 @@ i18next
     interpolation: {
       escapeValue: false
     },
-    lng: 'FR_fr',
+    lng: 'fr-FR',
     debug: env.isDev(),
     resources: {
       'de-AT': { translation: deAT },

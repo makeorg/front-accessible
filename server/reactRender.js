@@ -39,7 +39,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
 module.exports = function reactRender(req, res, initialState = {}) {
   const { country, language } = req.params;
 
-  const tradLanguage = `${country}_${language}`;
+  const tradLanguage = `${language}-${country}`;
   i18next.changeLanguage(tradLanguage);
 
   const state = {
