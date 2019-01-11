@@ -127,6 +127,7 @@ export class Vote extends React.Component<Props, State> {
             id={`next-button-${index}`}
           >
             {i18next.t('proposal_card.next')}
+            {' >'}
           </NextButton>
         </React.Fragment>
       );

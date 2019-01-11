@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import VoteContainer from 'Containers/Vote';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
-import DateHelper from 'Helpers/date';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 
@@ -27,6 +26,25 @@ type Props = {
   goToNextCard: Function
 }
 
+const ProposalAuthorAge = ({ age }) => {
+  if (!age) {
+    return null;
+  }
+
+  return (
+    <span>
+      {', '}
+      {i18next.t('proposal_card.author.age', { age })}
+    </span>
+  );
+};
+
+const ProposalAuthor = ({ author }) => (
+  <ProposalCard.AuthorInfos>
+    {author.firstName}
+    <ProposalAuthorAge age={author.age} />
+  </ProposalCard.AuthorInfos>
+);
 /**
  * Renders Proposal Card
  */
@@ -66,13 +84,7 @@ const ProposalCardComponent = (props: Props) => {
         <ProgressBarComponent index={index} cardOffset={cardOffset} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
       <ProposalCard.ContentWrapper as="section">
-        <ProposalCard.AuthorInfos>
-          {proposal.author.firstName}
-          &nbsp;-&nbsp;
-          <time dateTime={proposal.createdAt}>
-            {DateHelper.proposalCreationDateFormat(proposal.createdAt)}
-          </time>
-        </ProposalCard.AuthorInfos>
+        <ProposalAuthor author={proposal.author} />
         <ProposalCard.Separator aria-hidden />
         <ProposalCard.Proposal>
           {proposal.content}
