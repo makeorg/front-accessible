@@ -9,6 +9,10 @@ export const SharingButton = styled(UnstyledButton)`
   font-size: ${pxToRem('18px')};
   color: ${BasicColors.PureWhite};
   border-radius: 50%;
+  align-items: center;
+  &:hover,&:focus {
+    color: ${BasicColors.PureWhite};
+  }
 `;
 
 export const Facebook = styled(SharingButton)`
