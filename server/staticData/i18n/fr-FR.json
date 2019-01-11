@@ -167,5 +167,10 @@
   },
   "pannel": {
     "close": "Fermer le panneau déroulant"
+  },
+  "cookie_alert": {
+    "text": "En poursuivant votre navigation vous consentez à nos {{cgu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
+    "cgu": "conditions d’utilisation",
+    "policy": "charte de données personnelles"
   }
 }

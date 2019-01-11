@@ -2,6 +2,7 @@ import * as React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
 import configureStore from '../src/store';
@@ -59,13 +60,15 @@ module.exports = function reactRender(req, res, initialState = {}) {
   const headTags = [];
 
   const ReactApp = (
-    <HeadProvider headTags={headTags}>
-      <Provider store={store}>
-        <StaticRouter location={req.url} context={context}>
-          <AppContainer />
-        </StaticRouter>
-      </Provider>
-    </HeadProvider>
+    <CookiesProvider cookies={req.universalCookies}>
+      <HeadProvider headTags={headTags}>
+        <Provider store={store}>
+          <StaticRouter location={req.url} context={context}>
+            <AppContainer />
+          </StaticRouter>
+        </Provider>
+      </HeadProvider>
+    </CookiesProvider>
   );
 
   const reactHtml = renderHtml(ReactApp, store, headTags);

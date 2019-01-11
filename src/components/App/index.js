@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { CookieBannerComponent } from 'Components/Cookie';
+import { CookieBannerContainer } from 'Containers/Cookie';
 import MainHeaderContainer from 'Containers/MainHeader';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
@@ -25,7 +25,7 @@ const AppComponent = () => (
     <DefaultStylesheet />
     <AnimationsStylesheet />
     <UIThemeStylesheet />
-    <CookieBannerComponent />
+    <CookieBannerContainer />
     <MainHeaderContainer />
     <MainContent role="main">
       <Switch>

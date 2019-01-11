@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(FooterLinkContainer);
+export default connect(mapStateToProps)(FooterLinkContainer);
