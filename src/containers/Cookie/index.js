@@ -28,7 +28,7 @@ export class CookieBanner extends React.Component<Props> {
 
   handleClose = () => {
     const { cookies } = this.props;
-    cookies.set(acceptCookieName, true);
+    cookies.set(acceptCookieName, true, { path: '/' });
     this.setState({ hasAccespted: true });
   }
 

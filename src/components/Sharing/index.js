@@ -11,20 +11,38 @@ import Sharing from './Styled';
 /**
  * Renders Sharing
  */
-const SharingComponent = () => (
+const SharingComponent = ({ twitterShareUrl, facebookShareUrl, linkedinShareUrl }) => (
   <Sharing as={UnstyledList}>
     <li>
-      <Sharing.Facebook>
+      <Sharing.Facebook
+        rel="noreferrer noopener"
+        aria-label="Facebook share"
+        as="a"
+        href={facebookShareUrl}
+        target="_blank"
+      >
         <FontAwesomeIcon icon={faFacebookF} />
       </Sharing.Facebook>
     </li>
     <li>
-      <Sharing.Twitter>
+      <Sharing.Twitter
+        rel="noreferrer noopener"
+        aria-label="Twitter share"
+        as="a"
+        href={twitterShareUrl}
+        target="_blank"
+      >
         <FontAwesomeIcon icon={faTwitter} />
       </Sharing.Twitter>
     </li>
     <li>
-      <Sharing.LinkedIn>
+      <Sharing.LinkedIn
+        rel="noreferrer noopener"
+        aria-label="Linkedin share"
+        as="a"
+        href={linkedinShareUrl}
+        target="_blank"
+      >
         <FontAwesomeIcon icon={faLinkedinIn} />
       </Sharing.LinkedIn>
     </li>
