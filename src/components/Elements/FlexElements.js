@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const FlexElement = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const FlexElement = styled.div`
 
 export const ColumnToRowElement = styled(FlexElement)`
   flex-flow: column;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     flex-flow: row;
   }
 `;
@@ -48,21 +48,21 @@ export const SpaceBetweenColumn = styled(ColumnElement)`
 /* Column To Row Elements */
 export const CenterColumnToRow = styled(ColumnToRowElement)`
   align-items: center;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     justify-content: center;
   }
 `;
 
 export const MiddleColumnToRow = styled(CenterColumnToRow)`
   justify-content: center;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     align-items: center;
   }
 `;
 
 export const SpaceBetweenColumnToRow = styled(ColumnToRowElement)`
   align-items: center;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     justify-content: space-between;
   }
 `;

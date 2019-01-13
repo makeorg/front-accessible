@@ -9,7 +9,7 @@ import {
 } from 'Components/Elements/ButtonElements';
 import { BackgroundColors, BasicColors, TextColors } from 'Assets/vars/Colors';
 import { MakeFonts } from 'Assets/vars/Fonts';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const BackButtonWrapper = styled.div`
   position: absolute;
@@ -20,7 +20,7 @@ export const BackButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   min-height: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     top: ${pxToRem('30px')};
     left: ${pxToRem('30px')};
     width: calc(100% - ${pxToRem('60px')});
@@ -31,7 +31,7 @@ export const BackButtonWrapper = styled.div`
 export const IntroButton = styled(TallRedButton)`
   margin-top: ${pxToRem('15px')};
   min-width: ${pxToRem('125px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     min-width: ${pxToRem('150px')};
     margin-top: ${pxToRem('30px')};
   }
@@ -43,7 +43,7 @@ export const BackButton = styled(UnstyledButton)`
   font-weight: bold;
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('14px')};
   }
 `;
@@ -51,7 +51,7 @@ export const BackButton = styled(UnstyledButton)`
 export const BackIcon = styled(IconInButton)`
   font-size: ${pxToRem('25px')};
   color: ${BackgroundColors.ExtraLightGrey};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('40px')};
   }
 `;
@@ -59,7 +59,7 @@ export const BackIcon = styled(IconInButton)`
 export const PushProposalButton = styled(SmallRedButton)`
   width: 100%;
   margin: 0 0 ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: auto;
     margin: 0 ${pxToRem('10px')};
   }
@@ -67,7 +67,7 @@ export const PushProposalButton = styled(SmallRedButton)`
 
 export const PushProposalNextButton = styled(SmallGreyButton)`
   width: 100%;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: auto;
     margin: 0 ${pxToRem('10px')};
   }

@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import * as React from 'react';
+import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
@@ -28,6 +29,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
+console.log('index', !process.env.NODE_ENV, env.isDev());
 if (!process.env.NODE_ENV || env.isDev()) {
   initialState = {
     appConfig: {
@@ -63,13 +65,15 @@ i18next.init({
 const store = configureStore(initialState);
 
 ReactDOM.hydrate(
-  <HeadProvider>
-    <Provider store={store}>
-      <BrowserRouter>
-        <AppContainer />
-      </BrowserRouter>
-    </Provider>
-  </HeadProvider>,
+  <CookiesProvider>
+    <HeadProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <AppContainer />
+        </BrowserRouter>
+      </Provider>
+    </HeadProvider>
+  </CookiesProvider>,
   document.getElementById('app'),
 );
 

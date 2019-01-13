@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { IconInButton } from 'Components/Elements/ButtonElements';
 import { IconColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 const Link = styled.button`
   font-size: ${pxToRem('16px')};
@@ -27,7 +27,7 @@ export const GoogleLink = styled(Link)`
 
 export const SocialIcon = styled(IconInButton)`
   margin-right: ${pxToRem('5px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-right: ${pxToRem('5px')};
   }
 `;

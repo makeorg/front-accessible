@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { UnstyledButton, SmallRedButton } from 'Components/Elements/ButtonElements';
 import { BackgroundColors, BasicColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const BackArrow = styled(UnstyledButton)`
   position: absolute;
@@ -19,7 +19,7 @@ export const BackArrow = styled(UnstyledButton)`
   z-index: 0;
   transform: translate(-50%, 0);
   font-size: ${pxToRem('45px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     top: ${pxToRem('-85px')};
     font-size: ${pxToRem('50px')};
     padding: ${pxToRem('30px')};

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { TextColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { MakeFonts } from 'Assets/vars/Fonts';
 
 export const AuthorInfos = styled.cite`
@@ -9,7 +9,7 @@ export const AuthorInfos = styled.cite`
   color: ${TextColors.MediumGrey};
   font-style: normal;
   overflow: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
   }
 `;
@@ -20,7 +20,7 @@ export const Proposal = styled.blockquote`
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};
     line-height: ${pxToRem('30px')};
   }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, BorderColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
 import {
   Label,
   Input,
@@ -18,14 +18,14 @@ const ProposalSubmitForm = styled.form`
   align-items: center;
   width: 100%;
   min-height: ${pxToRem('45px')};
-  max-width: ${pxToRem(Breakpoints.sequenceWidth)};
+  max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: 0 ${pxToRem('8px')};
   border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
   border-radius: ${pxToRem('30px')};
   margin: ${pxToRem('15px')} 0 ${pxToRem('5px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     min-height: ${pxToRem('50px')};
     margin: ${pxToRem('30px')} 0 ${pxToRem('15px')};
   }

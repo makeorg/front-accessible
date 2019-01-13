@@ -1,4 +1,5 @@
 import { countryLanguageMiddelware } from './middelware/countryLanguage';
+import { cookiesMiddelware } from './middelware/cookies';
 import questionApi from './questionApi';
 import { logger } from './logger';
 
@@ -9,6 +10,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
 const csp = require('express-csp');
+const cookiesMiddleware = require('universal-cookie-express');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const {
@@ -30,6 +32,7 @@ const app = express();
 
 app.use(compression());
 app.use(bodyParser.json());
+app.use(cookiesMiddleware());
 
 // Static files
 app.use('/assets', express.static(BUILD_DIR, {
@@ -67,8 +70,13 @@ function renderVersion(req, res) {
 // Front Routes
 app.get('/', countryLanguageMiddelware);
 app.get('/version', renderVersion);
-app.get('/:countryLanguage', countryLanguageMiddelware, homeRoute);
-app.get('/:countryLanguage/consultation/:questionSlug/selection', countryLanguageMiddelware, sequenceRoute);
+app.get('/:countryLanguage', countryLanguageMiddelware, cookiesMiddelware, homeRoute);
+app.get(
+  '/:countryLanguage/consultation/:questionSlug/selection',
+  countryLanguageMiddelware,
+  cookiesMiddelware,
+  sequenceRoute
+);
 
 // CSP
 csp.extend(app, {

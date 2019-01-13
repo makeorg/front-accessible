@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
 import CloseButton from './Button';
 
 const Pannel = styled.div`
@@ -10,7 +10,7 @@ const Pannel = styled.div`
   top: 100%;
   left: 50%;
   width: 100%;
-  max-width: ${pxToRem(Breakpoints.sequenceWidth)};
+  max-width: ${pxToRem(Layouts.ContainerWidth)};
   height: calc( 100% - ${pxToRem('87px')});
   padding: ${pxToRem('50px')} ${pxToRem('20px')}  ${pxToRem('67px')}};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
@@ -18,7 +18,7 @@ const Pannel = styled.div`
   background-color: ${BasicColors.PureWhite};
   transform: translate(-50%, -${props => props.translate}%);
   transition: transform 0.5s linear;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     height: calc( 100% - ${pxToRem('104px')});
     padding: ${pxToRem('50px')} ${pxToRem('20px')} ${pxToRem('78px')}};
   }

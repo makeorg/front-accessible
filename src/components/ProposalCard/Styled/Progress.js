@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, TextColors, BackgroundColors } from 'Assets/vars/Colors';
 import { MakeFonts } from 'Assets/vars/Fonts';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const ProgressWrapper = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const ProgressWrapper = styled.div`
   align-items: center;
   width: ${pxToRem('58px')};
   height: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: ${pxToRem('82px')};
     height: ${pxToRem('82px')};
   }
@@ -50,7 +50,7 @@ export const ProgressCounter = styled.h2`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.RobotoRegular};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('14px')};
   }
 `;
@@ -58,7 +58,7 @@ export const ProgressCounter = styled.h2`
 export const ActiveCard = styled.span`
   font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
   }
 `;

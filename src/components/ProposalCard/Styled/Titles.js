@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { MakeFonts } from 'Assets/vars/Fonts';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 
 export const MainTitle = styled.h2`
@@ -11,7 +11,7 @@ export const MainTitle = styled.h2`
   line-height: ${pxToRem('26px')};
   text-transform: none;
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('42px')};
     line-height: ${pxToRem('54px')};
   }
@@ -29,7 +29,7 @@ export const AltMainTitle = styled(MainTitle)`
   font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('28px')};
   margin-bottom: ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('28px')};
     line-height: ${pxToRem('38px')};
     margin-bottom: ${pxToRem('30px')};
@@ -38,7 +38,7 @@ export const AltMainTitle = styled(MainTitle)`
 
 export const SecondaryTitle = styled.h3`
   font-size: ${pxToRem('16px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};
   }
 `;

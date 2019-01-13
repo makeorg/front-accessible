@@ -2,21 +2,25 @@
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import Cookies from 'js-cookie';
-import ApiService from 'Api/ApiService';
+import Cookies from 'universal-cookie';
 import { SESSION_ID_COOKIE_KEY } from 'Constants/config';
-import DateHelper from 'Helpers/date';
 import { uuid } from 'Helpers/uuid';
+import ApiService from 'Api/ApiService';
+import DateHelper from 'Helpers/date';
 import rootReducer from './reducers';
 
 export default function configureStore(initialState: Object = {}) {
   const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-  let sessionId = Cookies.get(SESSION_ID_COOKIE_KEY);
+
+  const cookies = new Cookies();
+  let sessionId = cookies.get(SESSION_ID_COOKIE_KEY);
 
   if (!sessionId) {
     sessionId = uuid();
-    Cookies.set(SESSION_ID_COOKIE_KEY, sessionId);
+    cookies.set(SESSION_ID_COOKIE_KEY, sessionId);
   }
+
+  ApiService.sessionId = sessionId;
 
   if (initialState.sequence && initialState.sequence.question) {
     ApiService.questionId = initialState.sequence.question.questionId;
@@ -25,7 +29,6 @@ export default function configureStore(initialState: Object = {}) {
   ApiService.source = initialState.appConfig.source;
   ApiService.country = initialState.appConfig.country;
   ApiService.language = initialState.appConfig.language;
-  ApiService.sessionId = sessionId;
   DateHelper.language = initialState.appConfig.language;
 
   return createStore(

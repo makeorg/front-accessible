@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { ProposalCardCentered } from './Cards';
 import {
   IntroTitle,
@@ -58,7 +58,7 @@ const ProposalCard = styled.li`
   transition: transform 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem('30px')};
   }
 `;

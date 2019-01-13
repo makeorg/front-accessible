@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 import {
   BasicColors,
   BackgroundColors,
@@ -72,7 +72,7 @@ export const BasicInput = styled(NoStyleTextInput)`
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('35px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
     line-height: ${pxToRem('40px')};
   }
@@ -82,7 +82,7 @@ export const IconLabel = styled.label`
   width: ${pxToRem('30px')};
   color: ${MakeThemeColors.Red};
   font-size: ${pxToRem('16px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
   }
 `;
@@ -94,7 +94,7 @@ export const HidePasswordIcon = styled(UnstyledButton)`
 export const InlineParagraph = styled.p`
   display: inline;
   font-size: ${pxToRem('14px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
   }
 `;
@@ -111,7 +111,7 @@ export const ConditionParagraph = styled(InlineParagraph)`
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
   margin-bottom: ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('14px')};
   }
 `;

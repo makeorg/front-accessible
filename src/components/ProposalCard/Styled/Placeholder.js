@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { MiddleColumn } from 'Components/Elements/FlexElements';
 import { BasicColors } from 'Assets/vars/Colors';
-import Breakpoints from 'Assets/vars/Breakpoints';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 export const PlaceholderWrapper = styled(MiddleColumn)`
   width: 100%;
@@ -35,7 +35,7 @@ export const PlaceholderSeparator = styled(Placeholder)`
   max-width: ${pxToRem('58px')};
   height: ${pxToRem('2px')};
   margin: ${pxToRem('20px')} auto;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('40px')} auto;
   }
 `;
@@ -50,7 +50,7 @@ export const PlaceholderButton = styled(Placeholder)`
   max-width: ${pxToRem('150px')};
   height: ${pxToRem('40px')};
   margin: ${pxToRem('10px')} auto;
-  @media (min-width: ${pxToRem(Breakpoints.mobile)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('30px')} auto;
   }
 `;
