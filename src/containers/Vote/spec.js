@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import i18next from 'i18next';
 import { Vote } from './index';
 import VoteComponent from 'Components/Vote';
 import VoteStyled from 'Components/Vote/Styled';
@@ -6,6 +7,15 @@ import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
 
 describe('VoteContainer', () => {
   let wrapper;
+  let sandbox;
+  beforeEach(() => {
+    sandbox = sinon.createSandbox();
+  });
+
+  afterEach(() => {
+    sandbox.restore();
+  });
+
   const defaultProps = {
     proposalId: 'fooId',
     votes: [],
@@ -32,7 +42,17 @@ describe('VoteContainer', () => {
     expect(voteComponentWrapper.props()).to.include(expectedPassedProps);
   });
 
+  it('NextButton should not be rendered', () => {
+    // check next button is not visible
+    const NextButtonWrapper = wrapper.find(NextButton);
+    expect(NextButtonWrapper).to.have.length(0);
+  });
+
   it('render VoteComponent and change state', () => {
+    const nextTrad = 'next';
+    const i18nextStub = sandbox.stub(i18next, 't');
+    i18nextStub.withArgs('proposal_card.next').returns(nextTrad);
+
     wrapper.setState({ hasVoted: true });
     expect(wrapper.find(VoteComponent)).to.have.length(0);
     expect(wrapper.find(VoteStyled)).to.have.length(1);
@@ -43,7 +63,10 @@ describe('VoteContainer', () => {
       tabIndex: -1,
       onClick: defaultProps.goToNextCard,
       id: "next-button-1",
-      children: undefined
+      children: [
+        nextTrad,
+        ' >'
+      ]
     });
 
   });

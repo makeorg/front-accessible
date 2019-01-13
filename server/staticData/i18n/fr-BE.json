@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
-    "number": "Proposition numéro"
+    "number": "Proposition numéro",
+    "author": {
+      "age": "{{age}} ans"
+    }
   },
   "intro_card": {
     "title": "Des milliers de citoyens proposent des solutions.",
@@ -96,7 +99,7 @@
   },
   "qualification": {
     "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
-    "doable": "Coup de coeur",
+    "doable": "Coup de cœur",
     "likeIt": "Réaliste",
     "platitudeAgree": "Banalité",
     "noWay": "Surtout pas !",
