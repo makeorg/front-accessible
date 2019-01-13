@@ -7,6 +7,7 @@ import MainHeaderContainer from 'Containers/MainHeader';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
 import ProposalPage from 'Pages/Proposal';
+import { PasswordRecoveryPage } from 'Pages/PasswordRecovery';
 import NotFoundPage from 'Pages/NotFound';
 import HomePage from 'Pages/Home';
 import ModernNormalizeStylesheet from 'Assets/css-in-js/ModernNormalize';
@@ -51,8 +52,10 @@ const AppComponent = () => (
           component={ProposalPage}
         />
         <Route
-          component={NotFoundPage}
+          path="/:countryLanguage/password-recovery/:userId/:resetToken"
+          component={PasswordRecoveryPage}
         />
+        <Route component={NotFoundPage} />
       </Switch>
     </MainContent>
     <PannelContainer />

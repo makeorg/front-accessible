@@ -4,6 +4,7 @@ import * as React from 'react';
 import { notificationConstants } from 'Shared/constants/notification';
 import { AccountActivationSuccessComponent } from 'Components/UserAccount/Activation/Success';
 import { AccountActivationFailureComponent } from 'Components/UserAccount/Activation/Failure';
+import { PasswordRecoveryFailureComponent } from 'Components/UserAccount/PasswordRecovery/Failure';
 import { NotificationComponent } from 'Components/Notification';
 import { connect } from 'react-redux';
 import { clearNotification } from 'Actions/notification';
@@ -11,7 +12,8 @@ import { selectNotificationContent } from './notification.selector';
 
 const notifcationContent = {
   [notificationConstants.ACTIVATION_SUCCESS_CONTENT]: <AccountActivationSuccessComponent />,
-  [notificationConstants.ACTIVATION_FAILURE_CONTENT]: <AccountActivationFailureComponent />
+  [notificationConstants.ACTIVATION_FAILURE_CONTENT]: <AccountActivationFailureComponent />,
+  [notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT]: <PasswordRecoveryFailureComponent />
 };
 
 type Props = {

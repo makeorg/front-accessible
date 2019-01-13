@@ -15,6 +15,7 @@ const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const accountActivationRoute = require('./ssr/accountActivationRoute');
 const proposalRoute = require('./ssr/proposalRoute');
+const passwordRecoveryRoute = require('./ssr/passwordRecoveryRoute');
 const {
   BUILD_DIR,
   IMAGES_DIR,
@@ -69,24 +70,30 @@ function renderVersion(req, res) {
   }
 }
 
+// define front middelware
+const frontMiddelwares = [countryLanguageMiddelware, cookiesMiddelware];
+
 // Front Routes
 app.get('/', countryLanguageMiddelware);
 app.get('/version', renderVersion);
-app.get('/:countryLanguage', countryLanguageMiddelware, cookiesMiddelware, homeRoute);
+app.get('/:countryLanguage', frontMiddelwares, homeRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
-  countryLanguageMiddelware,
-  cookiesMiddelware,
+  frontMiddelwares,
   sequenceRoute
 );
 app.get('/:countryLanguage/account-activation/:userId/:verificationToken',
-  countryLanguageMiddelware,
+  frontMiddelwares,
   accountActivationRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug',
-  countryLanguageMiddelware,
-  cookiesMiddelware,
+  frontMiddelwares,
   proposalRoute
+);
+app.get(
+  '/:countryLanguage/password-recovery/:userId/:resetToken',
+  frontMiddelwares,
+  passwordRecoveryRoute
 );
 
 // CSP
