@@ -4,7 +4,9 @@ import { BackgroundColors, TextColors, BasicColors } from 'Assets/vars/Colors';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { Small } from 'Components/Elements/Separators';
 import { UnstyledList } from 'Components/Elements/ListElements';
-import { CenterColumn, MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
+import {
+  MiddleRow, CenterColumn, MiddleColumn, MiddleColumnToRow
+} from 'Components/Elements/FlexElements';
 
 export const ContentWrapper = styled(MiddleColumn)`
   width: 100%;
@@ -51,7 +53,7 @@ export const FinalCardContentWrapper = styled(MiddleColumnToRow)`
   width: 100%;
 `;
 
-export const SharingWrapper = styled(CenterColumn)`
+export const SharingInner = styled(CenterColumn)`
   width: 100%;
   border-bottom: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
   padding: 0 0 ${pxToRem('10px')} 0;
@@ -63,6 +65,11 @@ export const SharingWrapper = styled(CenterColumn)`
     padding: ${pxToRem('50px')} ${pxToRem('25px')} ${pxToRem('50px')} 0;
     margin-bottom: 0;
   }
+`;
+
+export const SharingWrapper = styled(MiddleRow)`
+  width: 100%;
+  margin-top: ${pxToRem('10px')};
 `;
 
 export const MoreWrapper = styled(CenterColumn)`

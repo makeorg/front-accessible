@@ -38,6 +38,7 @@
     "weEuropeansTheme": true
   },
   "consultationUrl": "https://weeuropeans.eu/cy/el/about",
+  "aboutUrl": "https://weeuropeans.eu/cy/el/about",
   "sequenceExtraSlidesConfig": {
     "introCard": {
       "title": true,

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BackgroundColors } from 'Assets/vars/Colors';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
-import { SpaceBetweenColumn } from './FlexElements';
+import { MiddleColumn, SpaceBetweenColumn } from './FlexElements';
 
 export const AppWrapper = styled(SpaceBetweenColumn)`
   position: relative;
@@ -22,29 +22,9 @@ export const MainContent = styled.main`
   }
 `;
 
-export const SequenceContent = styled.div`
-  width: 100%;
-  height: calc(100% - ${pxToRem('91px')});
-  overflow: auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(100% - ${pxToRem('78px')});
-  }
-`;
-
-
-export const InnerContent = styled.div`
-  position: relative;
-  z-index: 0;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
+export const InnerContent = styled(MiddleColumn)`
   width: 100%;
   height: 100%;
-  min-height: ${pxToRem('545px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    min-height: ${pxToRem('660px')};
-  }
 `;
 
 export const ProposalSubmitWrapper = styled.aside`

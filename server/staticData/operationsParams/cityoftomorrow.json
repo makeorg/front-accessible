@@ -1,7 +1,4 @@
 {
-  "slug": "villededemain",
-  "country": "GB",
-  "language": "en",
   "wording": {
     "title":"How can we plan the city of tomorrow ?",
     "question": "How can we plan the city of tomorrow ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "white"
   },
   "consultationUrl": "https://make.org/#/GB/consultation/cityoftomorrow/consultation",
+  "aboutUrl": "https://about.make.org/about-cityoftomorrow",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Thousands of citizens are submitting solution.",

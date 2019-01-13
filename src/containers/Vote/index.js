@@ -18,15 +18,15 @@ type Props = {
   /** Array with votes received from Api */
   votes: Array<Object>,
   /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
+  isPannelOpen?: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  isSequenceCollapsed?: boolean,
   /** Index of the card */
-  index: number,
+  index?: number,
   /** Incremented / Decremented Index */
-  currentIndex: number,
+  currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: Function
+  goToNextCard?: () => void
 };
 
 type State = {
@@ -44,6 +44,14 @@ type State = {
  * Handles Vote Business Logic
  */
 export class Vote extends React.Component<Props, State> {
+  static defaultProps = {
+    isPannelOpen: false,
+    isSequenceCollapsed: false,
+    index: undefined,
+    currentIndex: undefined,
+    goToNextCard: undefined
+  }
+
   constructor(props: Props) {
     super(props);
     const userVote = props.votes.find(vote => vote.hasVoted === true);
@@ -121,14 +129,18 @@ export class Vote extends React.Component<Props, State> {
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
           </VoteStyled>
-          <NextButton
-            tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-            onClick={goToNextCard}
-            id={`next-button-${index}`}
-          >
-            {i18next.t('proposal_card.next')}
-            {' >'}
-          </NextButton>
+          { index !== undefined
+            && (
+              <NextButton
+                tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+                onClick={goToNextCard}
+                id={`next-button-${index}`}
+              >
+                {i18next.t('proposal_card.next')}
+                {' >'}
+              </NextButton>
+            )
+          }
         </React.Fragment>
       );
     }

@@ -19,7 +19,7 @@ const Sharing = (props: Props) => {
   if (!wording) { return null; }
 
   return (
-    <ProposalCard.SharingWrapper>
+    <ProposalCard.SharingInner>
       {wording.map(
         paragraph => (
           <ProposalCard.IntroParagraph key={paragraph}>
@@ -27,8 +27,10 @@ const Sharing = (props: Props) => {
           </ProposalCard.IntroParagraph>
         )
       )}
-      <SharingContainer />
-    </ProposalCard.SharingWrapper>
+      <ProposalCard.SharingWrapper>
+        <SharingContainer />
+      </ProposalCard.SharingWrapper>
+    </ProposalCard.SharingInner>
   );
 };
 

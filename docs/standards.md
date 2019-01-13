@@ -91,12 +91,12 @@ ___
 
 Good: 
 ```
-@media (max-width: ${pxToRem(Breakpoints.desktop)})
+@media (min-width: ${pxToRem(Breakpoints.Desktop)})
 ```
 
 Bad: 
 ```
-@media (max-width: ${pxToRem(Breakpoints.mobile)})
+@media (max-width: ${pxToRem(Breakpoints.Desktop)})
 ```
 
 ## TODO:

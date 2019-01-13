@@ -6,6 +6,7 @@ import { CookieBannerContainer } from 'Containers/Cookie';
 import MainHeaderContainer from 'Containers/MainHeader';
 import PannelContainer from 'Containers/Pannel';
 import SequencePage from 'Pages/Consultation/Sequence';
+import ProposalPage from 'Pages/Proposal';
 import NotFoundPage from 'Pages/NotFound';
 import HomePage from 'Pages/Home';
 import ModernNormalizeStylesheet from 'Assets/css-in-js/ModernNormalize';
@@ -32,13 +33,26 @@ const AppComponent = () => (
     <MainContent role="main">
       <NotificationContainer />
       <Switch>
-        <Route exact path="/:countryLanguage" component={HomePage} />
-        <Route path="/:countryLanguage/consultation/:questionSlug/selection" component={SequencePage} />
+        <Route
+          exact
+          path="/:countryLanguage"
+          component={HomePage}
+        />
+        <Route
+          path="/:countryLanguage/consultation/:questionSlug/selection"
+          component={SequencePage}
+        />
         <Route
           path="/:countryLanguage/account-activation/:userId/:verificationToken"
           component={AccountActivationPage}
         />
-        <Route component={NotFoundPage} />
+        <Route
+          path="/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug"
+          component={ProposalPage}
+        />
+        <Route
+          component={NotFoundPage}
+        />
       </Switch>
     </MainContent>
     <PannelContainer />

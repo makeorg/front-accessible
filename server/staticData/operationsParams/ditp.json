@@ -1,7 +1,4 @@
  {
-  "slug": "ditp",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
     "question": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/ditp/consultation",
+  "aboutUrl": "https://about.make.org/about-ditp",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Des milliers d'agents publics proposent des solutions.",

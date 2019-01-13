@@ -1,7 +1,4 @@
 {
-  "slug": "aines",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "Mieux prendre soin de nos aînés",
     "question": "Comment mieux prendre soin de nos aînés ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
+  "aboutUrl": "https://about.make.org/about-aines",
   "sequenceExtraSlidesWording": {},
   "sequenceExtraSlidesConfig": {
     "introCard":  {
