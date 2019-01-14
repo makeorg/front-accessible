@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Previous proposal",
     "next": "Next proposal",
-    "number": "Proposal number"
+    "number": "Proposal number",
+    "author": {
+      "age": "{{age}} years"
+    }
   },
   "intro_card": {
     "title": "Thousands of citizens are proposing solutions.",
