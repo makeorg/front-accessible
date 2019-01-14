@@ -47,7 +47,8 @@
         "Helpers": "./src/helpers",
         "Pages": "./src/pages",
         "Services": "./src/services",
-        "Types": "./src/types"
+        "Types": "./src/types",
+        "Shared": "./shared",
       }
     }]
   ]

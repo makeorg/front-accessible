@@ -12,14 +12,14 @@ export const Wrapper = styled.section`
   width: calc(100% - ${pxToRem('30px')});
   min-height: ${pxToRem('20px')};
   padding: ${pxToRem('15px')};
-  top: ${pxToRem('80px')};
+  top: ${pxToRem('18px')};
   left: ${pxToRem('15px')};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   border-radius: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    top: ${pxToRem('100px')};
+    top: ${pxToRem('30px')};
   }
   @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
     width: calc(100% - ${pxToRem('60px')});

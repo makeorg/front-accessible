@@ -14,6 +14,8 @@ import DefaultStylesheet from 'Assets/css-in-js/DefaultStyle';
 import AnimationsStylesheet from 'Assets/css-in-js/Animations';
 import { UIThemeStylesheet } from 'Assets/css-in-js/UITheme';
 import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
+import { AccountActivationPage } from 'Pages/AccountActivation';
+import { NotificationContainer } from 'Containers/Notification';
 
 /**
  * Renders App component
@@ -28,9 +30,14 @@ const AppComponent = () => (
     <CookieBannerContainer />
     <MainHeaderContainer />
     <MainContent role="main">
+      <NotificationContainer />
       <Switch>
         <Route exact path="/:countryLanguage" component={HomePage} />
         <Route path="/:countryLanguage/consultation/:questionSlug/selection" component={SequencePage} />
+        <Route
+          path="/:countryLanguage/account-activation/:userId/:verificationToken"
+          component={AccountActivationPage}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </MainContent>

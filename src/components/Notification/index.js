@@ -8,11 +8,12 @@ import * as Notification from './Styled';
 
 type Props = {
   /** React elements rendered as children */
-  children: React.Node
+  children: React.Node,
+  onClose: () => void
 }
 
 export const NotificationComponent = (props: Props) => {
-  const { children } = props;
+  const { children, onClose } = props;
   return (
     <Notification.Wrapper role="banner">
       <Notification.Content>
@@ -21,6 +22,7 @@ export const NotificationComponent = (props: Props) => {
       <Notification.CloseButton
         aria-label={i18next.t('pannel.close')}
         aria-expanded="false"
+        onClick={onClose}
       >
         <FontAwesomeIcon aria-hidden icon={faTimes} />
       </Notification.CloseButton>

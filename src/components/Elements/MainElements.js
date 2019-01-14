@@ -15,6 +15,7 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 `;
 
 export const MainContent = styled.main`
+  position: relative;
   height: calc(100vh - ${pxToRem('67px')});
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     height: calc(100vh - ${pxToRem('75px')});
