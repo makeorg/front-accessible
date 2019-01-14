@@ -1,6 +1,7 @@
 import 'url-search-params-polyfill';
 import { FRONT_URL } from 'Constants/config';
-import { CGU_LINK, POLICY_LINK } from 'Constants/url';
+import * as URL from 'Constants/url';
+import ApiService from 'Api/ApiService';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -16,12 +17,16 @@ export const localizeLink = (link: string, country: string, language: string) =>
   return `${link}/${country.toLowerCase()}-${language.toLowerCase()}`;
 };
 
-export const localizeCguLink = (country: string, language: string) => (
-  localizeLink(CGU_LINK, country, language)
+export const localizeCguLink = () => (
+  localizeLink(URL.CGU_LINK, ApiService.country, ApiService.language)
 );
 
-export const localizePolicyLink = (country: string, language: string) => (
-  localizeLink(POLICY_LINK, country, language)
+export const localizeDataPolicyLink = () => (
+  localizeLink(URL.DATA_POLICY_LINK, ApiService.country, ApiService.language)
+);
+
+export const localizeModerationCharterLink = () => (
+  localizeLink(URL.MODERATION_CHARTER_LINK, ApiService.country, ApiService.language)
 );
 
 const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;

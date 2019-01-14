@@ -16,6 +16,7 @@ import * as Separators from 'Components/Elements/Separators';
 import FacebookAuthentificationButtonComponent
   from 'Components/Authentification/Social/FacebookAuthentification/Button';
 import GoogleAuthentificationButtonComponent from 'Components/Authentification/Social/GoogleAuthentification/Button';
+import { localizeDataPolicyLink } from 'Helpers/url';
 import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 type Props = {
@@ -67,7 +68,7 @@ const ProposalSubmitAuthentificationComponent = (props: Props) => {
       <AltDescription>
         {i18next.t('authentification.commitment')}
         <DescriptionLink
-          href="https://about.make.org/politique-donnees"
+          href={localizeDataPolicyLink()}
           target="_blank"
           tabIndex={isPannelOpen ? -1 : 0}
           onClick={trackPersonnalDataLink}
