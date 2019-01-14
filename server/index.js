@@ -58,9 +58,9 @@ app.post('/api/logger', (req, res) => {
   return res.sendStatus(204);
 });
 
+const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
 function renderVersion(req, res) {
   try {
-    const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
     res.json(JSON.parse(versionData));
   } catch (error) {
     res.status(404).send('Version file not found');

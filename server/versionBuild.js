@@ -30,7 +30,7 @@ try {
   fs.writeFileSync(versionPathFile, JSON.stringify(version, null, 2), 'utf8');
 } catch (error) {
   console.error(`error when writing version file => ${error}`);
-  return;
+  process.exit(1);
 }
 
 console.info('Version file created successfully!');

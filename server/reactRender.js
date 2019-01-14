@@ -15,6 +15,8 @@ const path = require('path');
 const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
+const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
+
 const renderHtml = (reactApp, reduxStore, metaTags) => {
   const { apiUrl, frontUrl } = configuration;
   const sheet = new ServerStyleSheet();
@@ -22,7 +24,6 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
 
-  const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
   if (!htmlContent) {
     return false;
   }
