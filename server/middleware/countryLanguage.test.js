@@ -1,7 +1,7 @@
 import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
 import sinon from 'sinon';
-import { isCountryLanguage, countryLanguageMiddelware } from './countryLanguage';
+import { isCountryLanguage, countryLanguageMiddleware } from './countryLanguage';
 
 describe('Country Language middelware', () => {
   describe('isCountryLanguage country-language (FR-fr)', () => {
@@ -19,7 +19,7 @@ describe('Country Language middelware', () => {
     ));
   });
 
-  describe('countryLanguageMiddelware function', () => {
+  describe('countryLanguageMiddleware function', () => {
     let sandbox;
     beforeEach(() => {
       sandbox = sinon.createSandbox();
@@ -33,7 +33,7 @@ describe('Country Language middelware', () => {
         params: { countryLanguage: 'FR-fr' }
       });
       const response = httpMocks.createResponse();
-      countryLanguageMiddelware(request, response, () => { });
+      countryLanguageMiddleware(request, response, () => { });
       expect(request.params.country).to.equal('FR');
       expect(request.params.language).to.equal('fr');
     });
@@ -43,7 +43,7 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       sandbox.spy(response, 'redirect');
-      countryLanguageMiddelware(request, response, () => { });
+      countryLanguageMiddleware(request, response, () => { });
       expect(response.redirect).to.have.been.calledWith('/FR-fr');
     });
   });

@@ -4,7 +4,7 @@ export const isCountryLanguage = (countryLanguage = null) => (
   countryLanguage !== null && (/^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase()))
 );
 
-export const countryLanguageMiddelware = (req, res, next) => {
+export const countryLanguageMiddleware = (req, res, next) => {
   const { countryLanguage } = req.params;
 
   if (!isCountryLanguage(countryLanguage)) {
