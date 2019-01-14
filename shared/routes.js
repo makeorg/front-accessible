@@ -11,5 +11,10 @@ export default [
   {
     path: '/:countryLanguage/consultation/:questionSlug/selection',
     component: SequencePage
+  },
+  {
+    path: '/:country/account-activation/:userId/:verificationToken',
+    component: SequencePage,
+    exact: true
   }
 ];

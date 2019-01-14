@@ -1,6 +1,7 @@
 /* @flow */
 
 import { getDateOfBirthFromAge } from 'Helpers/date';
+import Logger from 'Services/Logger';
 import ApiService from './ApiService';
 
 const PATH_USER_ME = '/user/me';
@@ -10,6 +11,7 @@ const PATH_USER_LOGOUT = '/logout';
 const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
 const PATH_USER_REGISTER = '/user';
 const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
+const PATH_USER_VERIFICATION = '/user/:userId/validate/:verificationToken';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
@@ -118,6 +120,26 @@ export default class UserService {
     return ApiService.callApi(PATH_USER_FORGOT_PASSWORD, {
       method: 'POST',
       body: JSON.stringify({ email })
+    });
+  }
+
+  /**
+   * Request a verification user
+   * @param  {String}  userId
+   * @param  {String}  verificationToken
+   * @return {Promise}
+   */
+  static verifyUser(userId: string, verificationToken: string): Promise<Object> {
+    const newPath = PATH_USER_VERIFICATION
+      .replace(':userId', userId)
+      .replace(':verificationToken', verificationToken);
+
+    return ApiService.callApi(newPath, {
+      method: 'POST'
+    }).catch((error) => {
+      Logger.logError(`Error in verifyUser for 
+      userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
+      return error;
     });
   }
 }

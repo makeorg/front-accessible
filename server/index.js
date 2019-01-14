@@ -13,6 +13,7 @@ const csp = require('express-csp');
 const cookiesMiddleware = require('universal-cookie-express');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
+const accountActivationRoute = require('./ssr/accountActivationRoute');
 const {
   BUILD_DIR,
   IMAGES_DIR,
@@ -77,6 +78,9 @@ app.get(
   cookiesMiddelware,
   sequenceRoute
 );
+app.get('/:countryLanguage/account-activation/:userId/:verificationToken',
+  countryLanguageMiddelware,
+  accountActivationRoute);
 
 // CSP
 csp.extend(app, {
