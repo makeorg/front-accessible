@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Zaprite spustni meni"
   },
+  "cookie_alert": {
+    "text": "Z nadaljevanjem navigacije soglašate z našimi{{cgu_link}}, našimi{{policy_link}} in uporabo piškotkov na naši spletni strani, da bi izboljšali naše storitve.",
+    "cgu": "pogoji za uporabo",
+    "policy": "listino o osebnih podatkih "
+  },
+  "activate_account": {
+    "success": "Vaš račun je pravkar aktiviran. Zdaj se lahko prijavite.",
+    "bad_link": "Ta povezava ni več veljavna."
+  },
+  "reset_password":{
+    "title": "Ustvarim novo geslo",
+    "info": "Izberete lahko novo geslo.",
+    "send_cta": "Potrditi",
+    "success": {
+      "title": "Hvala, vaše geslo je bilo posodobljeno.",
+      "info": "Zdaj se lahko prijavite."
+    },
+    "failure" : {
+      "bad_link": "Ta povezava ni več veljavna.",
+      "error_message": "Gesla ni bilo mogoče zamenjati."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

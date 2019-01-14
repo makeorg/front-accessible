@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Fechar o menu pendente"
+  },
+  "cookie_alert": {
+    "text": "Ao continuar a navegação, está a aceitar as nossas {{cgu_link}}, a nossa {{policy_link}}, bem como a utilização de cookies no nosso site com o objetivo de melhorar o nosso serviço.",
+    "cgu": "condições de utilização",
+    "policy": "política de dados pessoais"
+  },
+  "activate_account": {
+    "success": "A sua conta foi ativada. Já pode iniciar sessão",
+    "bad_link": "Esta ligação já não é válida."
+  },
+  "reset_password": {
+    "title": "Criar uma nova palavra-passe",
+    "info": "Pode escolher uma nova palavra-passe.",
+    "send_cta": "Validar",
+    "success": {
+      "title": "Obrigado, a sua palavra-passe foi atualizada com êxito.",
+      "info": "Já pode iniciar sessão."
+    },
+    "failure": {
+      "bad_link": "Esta ligação já não é válida.",
+      "error_message": "Não foi possível substituir a sua palavra-passe."
+    }
   }
 }

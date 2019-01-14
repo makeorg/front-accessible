@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Agħlaq il-menu drop-down"
   },
+  "cookie_alert": {
+    "text": "Billi qed tkompli n-navigazzjoni tiegħek taqbel mal-{{cgu_link}}, mal-{{policy_link}} tagħna, u mal-użu tal-cookies fuq is-sit web tagħna sabiex jittejjeb is-servizz tagħna.",
+    "cgu": "kundizzjonijiet tal-użu",
+    "policy": "karta dwar id-data personali"
+  },
+  "activate_account": {
+    "success": "Il-kont tiegħek għadu kif ġie attivat. Issa tista’ taqbad mas-sit",
+    "bad_link": "Din il-ħolqa m’għadhiex valida."
+  },
+  "reset_password":{
+    "title": "Qed noħloq password ġdida",
+    "info": "Tista’ tagħżel password ġdida.",
+    "send_cta": "Ivvalida",
+    "success": {
+      "title": "Grazzi, il-password tiegħek ġiet aġġornata.",
+      "info": "Issa tista’ taqbad mas-sit."
+    },
+    "failure" : {
+      "bad_link": "Din il-ħolqa m’għadhiex valida.",
+      "error_message": "Il-password tiegħek ma setgħetx tiġi sostitwita."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

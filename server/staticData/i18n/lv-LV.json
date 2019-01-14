@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Aizvērt nolaižamo izvēlni"
+  },
+  "cookie_alert": {
+    "text": "Turpinot pārlūkošanu, jūs piekrītat mūsu {{cgu_link}}, mūsu {{policy_link}}, kā arī sīkdatņu izmantošanai mūsu vietnē pakalpojuma uzlabošanas nolūkā.",
+    "cgu": "lietošanas noteikumi",
+    "policy": "personas datu noteikumi"
+  },
+  "activate_account": {
+    "success": "Jūsu konts ir aktivizēts. Tagad jūs varat pieslēgties",
+    "bad_link": "Šī saite vairs nav derīga."
+  },
+  "reset_password": {
+    "title": "Es izveidoju jaunu paroli",
+    "info": "Jūs varat izvēlēties jaunu paroli.",
+    "send_cta": "Apstiprināt",
+    "success": {
+      "title": "Paldies, jūsu parole ir atjaunota.",
+      "info": "Tagad jūs varat pieslēgties."
+    },
+    "failure": {
+      "bad_link": "Šī saite vairs nav derīga.",
+      "error_message": "Jūsu paroli nebija iespējams nomainīt."
+    }
   }
 }

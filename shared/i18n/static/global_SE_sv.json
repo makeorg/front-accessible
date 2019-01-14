@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Stäng rullgardinsmenyn"
   },
+  "cookie_alert": {
+    "text": "Genom att fortsätta navigera på webbplatsen godkänner du våra {{cgu_link}}, vår {{policy_link}}, samt användningen av kakor på vår webbplats i syfte att förbättra vår service.",
+    "cgu": "användarvillkor",
+    "policy": "personuppgiftspolicy"
+  },
+  "activate_account": {
+    "success": "Ditt konto har precis aktiverats. Du kan logga in nu",
+    "bad_link": "Denna länk är inte giltig."
+  },
+  "reset_password":{
+    "title": "Jag skapar ett nytt lösenord",
+    "info": "Du kan välja ett nytt lösenord.",
+    "send_cta": "Bekräfta",
+    "success": {
+      "title": "Tack, ditt lösenord har uppdaterats.",
+      "info": "Du kan logga in nu."
+    },
+    "failure" : {
+      "bad_link": "Denna länk är inte giltig.",
+      "error_message": "Det gick inte att byta ditt lösenord."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

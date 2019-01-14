@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Vervolgkeuzelijst sluiten"
   },
+  "cookie_alert": {
+    "text": "Als u verder surft, gaat u akkoord met onze {{cgu_link}}, en ons {{policy_link}}, evenals met het gebruik van cookies op onze website om onze dienstverlening te verbeteren.",
+    "cgu": "gebruiksvoorwaarden",
+    "policy": "Handvest voor persoonsgegevens"
+  },
+  "activate_account": {
+    "success": "Uw account werd geactiveerd. Vanaf nu kunt u inloggen",
+    "bad_link": "Deze link is niet meer geldig."
+  },
+  "reset_password":{
+    "title": "Ik heb een nieuw wachtwoord gemaakt",
+    "info": "U kunt een nieuw wachtwoord kiezen.",
+    "send_cta": "Bevestigen",
+    "success": {
+      "title": "Dank u, uw wachtwoord werd bijgewerkt.",
+      "info": "Vanaf nu kunt u inloggen"
+    },
+    "failure" : {
+      "bad_link": "Deze link is niet meer geldig.",
+      "error_message": "Uw wachtwoord werd niet vervangen."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

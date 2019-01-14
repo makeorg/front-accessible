@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Zatvoriť rozbaľovacie menu"
+  },
+  "cookie_alert": {
+    "text": "Pokračovaním v navigácii súhlasíte s našimi podmienkami {{cgu_link}}a s našimi pravidlami {{policy_link}}, ako aj s používaním cookies na našej stránke s cieľom zlepšiť našu službu. ",
+    "cgu": "podmienky používania",
+    "policy": "pravidlá ochrany osobných údajov"
+  },
+  "activate_account": {
+    "success": "Váš účet bol práve aktivovaný.  Hneď sa môžete pripojiť. ",
+    "bad_link": "Tento link už nie je platný."
+  },
+  "reset_password": {
+    "title": "Vytváram si nové heslo.",
+    "info": "Môžete si vybrať nové heslo.",
+    "send_cta": "Potvrdiť",
+    "success": {
+      "title": "Ďakujeme, vaše heslo bolo riadne aktualizované. ",
+      "info": "Hneď teraz sa môžete pripojiť."
+    },
+    "failure": {
+      "bad_link": "Tento link už nie je platný.",
+      "error_message": "Vaše heslo nebolo možné nahradiť."
+    }
   }
 }

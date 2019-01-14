@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Previous proposal",
     "next": "Next proposal",
-    "number": "Proposal number"
+    "number": "Proposal number",
+    "author": {
+      "age": "{{age}} years"
+    }
   },
   "intro_card": {
     "title": "Thousands of citizens are proposing solutions.",
@@ -167,6 +170,28 @@
   },
   "pannel": {
     "close": "Close the drop-down panel"
+  },
+  "cookie_alert": {
+    "text": "By continuing to browse this site, you agree to our {{cgu_link}}, our {{policy_link}}, as well as to the use of cookies on our site in order to improve our service.",
+    "cgu": "terms of service",
+    "policy": "privacy policy"
+  },
+  "activate_account": {
+    "success": "Your account has been activated. You can now sign in",
+    "bad_link": "This link is no longer valid."
+  },
+  "reset_password":{
+    "title": "Create a new password",
+    "info": "You may choose a new password.",
+    "send_cta": "Confirm",
+    "success": {
+      "title": "Thanks! Your password has been updated.",
+      "info": "You can now sign in."
+    },
+    "failure" : {
+      "bad_link": "This link is no longer valid.",
+      "error_message": "Your password could not be changed."
+    }
   },
   "weeuropean": {
     "wording": {

@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Zamknij rozwijane menu"
+  },
+  "cookie_alert": {
+    "text": "Kontynuując przeglądanie tej strony, akceptujesz nasze {{cgu_link}}, {{policy_link}} oraz wyrażasz zgodę na wykorzystywanie plików cookie przez naszą witrynę w celu optymalizacji świadczonych usług.",
+    "cgu": "warunki użytkowania",
+    "policy": "karta danych osobowych"
+  },
+  "activate_account": {
+    "success": "Twoje konto zostało aktywowane. Możesz się zalogować",
+    "bad_link": "Ten link nie jest już prawidłowy."
+  },
+  "reset_password": {
+    "title": "Utworzyłem nowe hasło",
+    "info": "Możesz wybrać nowe hasło.",
+    "send_cta": "Zatwierdź",
+    "success": {
+      "title": "Dziękujemy, Twoje hasło zostało zmienione.",
+      "info": "Możesz się zalogować."
+    },
+    "failure": {
+      "bad_link": "Ten link nie jest już prawidłowy.",
+      "error_message": "Nie mogliśmy zastąpić Twojego hasła."
+    }
   }
 }
