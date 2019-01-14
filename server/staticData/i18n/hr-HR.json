@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Zatvori pokretnu oglasnu ploču"
+  },
+  "cookie_alert": {
+    "text": "Nastavkom pregledavanja slažete se s {{cgu_link}} i {{policy_link}} te uporabom kolačića na našem mrežnom mjestu radi poboljšavanja naše usluge.",
+    "cgu": "uvjeti uporabe",
+    "policy": "pravilnik za osobne podatke"
+  },
+  "activate_account": {
+    "success": "Vaš je račun aktiviran. Sada se možete prijaviti",
+    "bad_link": "Ova poveznica više nije valjana."
+  },
+  "reset_password": {
+    "title": "Stvaram novu lozinku",
+    "info": "Možete odabrati novu lozinku.",
+    "send_cta": "Potvrdi",
+    "success": {
+      "title": "Hvala, vaša je lozinka ažurirana.",
+      "info": "Sada se možete prijaviti."
+    },
+    "failure": {
+      "bad_link": "Ova poveznica više nije valjana.",
+      "error_message": "Vaša se lozinka nije mogla zamijeniti."
+    }
   }
 }

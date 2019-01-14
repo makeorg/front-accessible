@@ -168,6 +168,28 @@
   "pannel": {
     "close": "A legördülő lista bezárása"
   },
+  "cookie_alert": {
+    "text": "Az oldal további használatával elfogadja a {{cgu_link}} és {{policy_link}} szabályzatot, illetve a sütik használatát az oldalon.",
+    "cgu": "felhasználási feltételek",
+    "policy": "személyes adatkezelési szabályzat"
+  },
+  "activate_account": {
+    "success": "A fiókját aktiváltuk. Most már beléphet a fiókba",
+    "bad_link": "Ez a link nem érvényes."
+  },
+  "reset_password":{
+    "title": "Új jelszó létrehozása",
+    "info": "Adja meg az új jelszót.",
+    "send_cta": "Jóváhagyás",
+    "success": {
+      "title": "Köszönjük, jelszó frissítve.",
+      "info": "Most már beléphet a fiókba."
+    },
+    "failure" : {
+      "bad_link": "Ez a link nem érvényes.",
+      "error_message": "A jelszó cseréje sikertelen."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Chiudi il menu scorrevole"
   },
+  "cookie_alert": {
+    "text": "Continuando la navigazione, accetti le {{cgu_link}}, la {{policy_link}} e l’uso dei cookie sul nostro sito al fine di migliorare il servizio.",
+    "cgu": "condizioni di utilizzo",
+    "policy": "politica sui dati personali"
+  },
+  "activate_account": {
+    "success": "L’account è stato attivato. Ora puoi effettuare il login.",
+    "bad_link": "Questo link non è più valido. "
+  },
+  "reset_password":{
+    "title": "Creo una nuova password",
+    "info": "Scegli una nuova password.",
+    "send_cta": "Conferma",
+    "success": {
+      "title": "Grazie, la tua password è stata aggiornata.",
+      "info": "Ora puoi effettuare il login."
+    },
+    "failure" : {
+      "bad_link": "Questo link non è più valido.",
+      "error_message": "La password non è stata aggiornata."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

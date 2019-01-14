@@ -29,7 +29,6 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
-console.log('index', !process.env.NODE_ENV, env.isDev());
 if (!process.env.NODE_ENV || env.isDev()) {
   initialState = {
     appConfig: {

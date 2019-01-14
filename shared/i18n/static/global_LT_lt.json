@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Uždaryti išskleidžiamąjį meniu"
   },
+  "cookie_alert": {
+    "text": "Tęsdami naršymą sutinkate su mūsų {{cgu_link}}, mūsų {{policy_link}} bei su slapukų naudojimu mūsų svetainėje, kuriuo siekiama pagerinti mūsų teikiamų paslaugų kokybę.",
+    "cgu": "Naudojimo sąlygomis",
+    "policy": "Asmens duomenų chartija"
+  },
+  "activate_account": {
+    "success": "Jūsų paskyra aktyvuota. Prisijungti galite jau dabar",
+    "bad_link": "Ši nuoroda nebeveikia."
+  },
+  "reset_password":{
+    "title": "Sukurti naują slaptažodį",
+    "info": "Galite pasirinkti naują slaptažodį.",
+    "send_cta": "Patvirtinti",
+    "success": {
+      "title": "Dėkojame. Naujas slaptažodis sukurtas.",
+      "info": "Prisijungti galite jau dabar."
+    },
+    "failure" : {
+      "bad_link": "Ši nuoroda nebeveikia.",
+      "error_message": "Pakeisti slaptažodžio nepavyko."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

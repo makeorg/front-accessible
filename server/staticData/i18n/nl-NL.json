@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Het dropdownmenu sluiten"
+  },
+  "cookie_alert": {
+    "text": "Als u doorgaat met surfen op deze site, gaat u akkoord met onze {{cgu_link}}, onze {{policy_link}} en met het gebruik van cookies op onze site die dienen om onze dienstverlening te verbeteren.",
+    "cgu": "gebruiksvoorwaarden",
+    "policy": "richtlijnen voor persoonsgegevens"
+  },
+  "activate_account": {
+    "success": "Uw account is nu actief. U kunt nu inloggen.",
+    "bad_link": "Deze link is niet langer actief."
+  },
+  "reset_password": {
+    "title": "Ik maak een nieuw wachtwoord aan.",
+    "info": "U kunt nu een nieuw wachtwoord kiezen.",
+    "send_cta": "Bevestigen",
+    "success": {
+      "title": "Bedankt. Uw wachtwoord is bijgewerkt.",
+      "info": "U kunt nu inloggen."
+    },
+    "failure": {
+      "bad_link": "Deze link is niet langer actief.",
+      "error_message": "Uw wachtwoord kon niet worden gewijzigd."
+    }
   }
 }

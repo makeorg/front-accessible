@@ -180,6 +180,19 @@
     "success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
     "bad_link": "Ce lien n'est plus valable."
   },
+  "reset_password":{
+    "title": "Je crée un nouveau mot de passe",
+    "info": "Vous pouvez choisir un nouveau mot de passe.",
+    "send_cta": "Valider",
+    "success": {
+      "title": "Merci, votre mot de passe a bien été mis à jour.",
+      "info": "Vous pouvez vous connecter dès maintenant."
+    },
+    "failure" : {
+      "bad_link": "Ce lien n'est plus valable.",
+      "error_message": "Votre mot de passe n'a pas pu être remplacé."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "We Europeans",

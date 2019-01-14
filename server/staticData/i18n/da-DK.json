@@ -167,5 +167,27 @@
   },
   "pannel": {
     "close": "Luk rullepanelet"
+  },
+  "cookie_alert": {
+    "text": "Når du fortsætter din navigation, samtykker du i vores {{cgu_link}}, vores {{policy_link}}, samt i brugen af cookies på webstedet i den hensigt at forbedre vores tjeneste.",
+    "cgu": "brugsbetingelser",
+    "policy": "charter om personoplysninger"
+  },
+  "activate_account": {
+    "success": "Din konto er netop blevet aktiveret. Nu kan du logge på",
+    "bad_link": "Dette link er ikke gyldigt mere."
+  },
+  "reset_password": {
+    "title": "Jeg opretter en ny adgangskode",
+    "info": "Du kan vælge en ny adgangskode.",
+    "send_cta": "Godkend",
+    "success": {
+      "title": "Tak, din adgangskode er blevet opdateret.",
+      "info": "Nu kan du logge på."
+    },
+    "failure": {
+      "bad_link": "Dette link er ikke gyldigt mere.",
+      "error_message": "Det var ikke muligt at ændre din adgangskode."
+    }
   }
 }

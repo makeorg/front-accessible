@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Rippmenüü sulgemine"
   },
+  "cookie_alert": {
+    "text": "Jätkates surfamist, nõustute meie järgmiste tingimuste ja eeskirjadega: {{cgu_link}} ja {{policy_link}}, samuti küpsiste kasutamisega meie saidil, mille eesmärk on parandada meie teenuse kvaliteeti.",
+    "cgu": "kasutamistingimused",
+    "policy": "isikuandmete kaitse eeskirjad"
+  },
+  "activate_account": {
+    "success": "Teie konto aktiveeriti. Te saate nüüd sisse logida",
+    "bad_link": "See link ei ole enam kehtiv."
+  },
+  "reset_password":{
+    "title": "Loon uue salasõna",
+    "info": "Te saate luua uue salasõna.",
+    "send_cta": "Kinnitamine",
+    "success": {
+      "title": "Täname, teie salasõna on uuendatud.",
+      "info": "Te saate nüüd sisse logida."
+    },
+    "failure" : {
+      "bad_link": "See link ei ole enam kehtiv.",
+      "error_message": "Teie salasõna ei olnud võimalik vahetada."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

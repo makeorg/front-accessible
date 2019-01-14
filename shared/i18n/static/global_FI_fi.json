@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Sulje avattava valikko"
   },
+  "cookie_alert": {
+    "text": "Jatkamalla tämän sivuston käyttöä hyväksyt {{cgu_link}} ja {{policy_link}} sekä sivustolla käytettävät evästeet, joiden avulla voimme kehittää palveluamme.",
+    "cgu": "palveluehdot",
+    "policy": "tietosuojakäytännön"
+  },
+  "activate_account": {
+    "success": "Tilisi on aktivoitu. Voit nyt kirjautua sisään",
+    "bad_link": "Tämä linkki ei ole enää voimassa."
+  },
+  "reset_password": {
+    "title": "Luo uusi salasana",
+    "info": "Voit valita uuden salasanan.",
+    "send_cta": "Vahvista",
+    "success": {
+      "title": "Kiitos! Salasanasi on päivitetty.",
+      "info": "Voit nyt kirjautua sisään."
+    },
+    "failure": {
+      "bad_link": "Tämä linkki ei ole enää voimassa.",
+      "error_message": "Salasanaasi ei voitu vaihtaa."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

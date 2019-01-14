@@ -168,6 +168,28 @@
   "pannel": {
     "close": "Închidere panou derulant"
   },
+  "cookie_alert": {
+    "text": "Continuând navigarea, sunteți de acord cu {{cgu_link}}, {{policy_link}}, precum și cu utilizarea cookie-urilor pe site-ul nostru în scopul îmbunătățirii serviciului nostru.",
+    "cgu": "condiții de utilizare",
+    "policy": "carta datelor personale"
+  },
+  "activate_account": {
+    "success": "Contul dvs. a fost activat. De acum vă puteți conecta ",
+    "bad_link": "Acest link nu mai este valabil."
+  },
+  "reset_password":{
+    "title": "Creez o parolă nouă",
+    "info": "Puteți alege o parolă nouă.",
+    "send_cta": "Validare ",
+    "success": {
+      "title": "Vă mulțumim, parola dvs. a fost actualizată.",
+      "info": "De acum vă puteți conecta."
+    },
+    "failure" : {
+      "bad_link": "Acest link nu mai este valabil.",
+      "error_message": "Parola dvs. nu a putut fi înlocuită."
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
