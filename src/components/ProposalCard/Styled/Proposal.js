@@ -15,6 +15,7 @@ export const AuthorInfos = styled.cite`
 `;
 
 export const Proposal = styled.blockquote`
+  max-width: 100%;
   font-size: ${pxToRem('16px')};
   line-height: ${pxToRem('22px')};
   font-family: ${MakeFonts.RobotoBold};

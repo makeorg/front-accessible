@@ -13,7 +13,12 @@ export const Nav = styled.nav`
 
 export const Item = styled.li`
   display: inline-block;
+  width: 50%;
   padding: ${pxToRem('15px')};
+  text-align: center;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    width: auto;
+  }
 `;
 
 export const ItemLink = styled.a`
@@ -23,8 +28,5 @@ export const ItemLink = styled.a`
   &:hover,
   &:focus {
     text-decoration: underline;
-  }
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    font-size: ${pxToRem('14px')};
   }
 `;

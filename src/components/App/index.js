@@ -18,6 +18,7 @@ import { UIThemeStylesheet } from 'Assets/css-in-js/UITheme';
 import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
 import { AccountActivationPage } from 'Pages/AccountActivation';
 import { NotificationContainer } from 'Containers/Notification';
+import { MainFooterComponent } from 'Components/MainFooter';
 
 /**
  * Renders App component
@@ -59,6 +60,7 @@ const AppComponent = () => (
       </Switch>
     </MainContent>
     <PannelContainer />
+    <MainFooterComponent />
   </AppWrapper>
 );
 
