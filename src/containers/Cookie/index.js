@@ -1,15 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
-import { connect } from 'react-redux';
 import { CookieBannerComponent } from 'Components/Cookie';
 import * as Helpers from 'Helpers/url';
 
 type Props = {
-  /** String with Language value */
-  language: String,
-  /** String with Country value */
-  country: String,
   /** Cookies object */
   cookies: Cookies
 };
@@ -38,9 +33,8 @@ export class CookieBanner extends React.Component<Props> {
       return null;
     }
 
-    const { country, language } = this.props;
-    const cguLink = Helpers.localizeCguLink(country, language);
-    const policyLink = Helpers.localizePolicyLink(country, language);
+    const cguLink = Helpers.localizeCguLink();
+    const policyLink = Helpers.localizeDataPolicyLink();
 
     return (
       <CookieBannerComponent
@@ -52,13 +46,4 @@ export class CookieBanner extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { language, country } = state.appConfig;
-
-  return {
-    language,
-    country
-  };
-};
-
-export const CookieBannerContainer = withCookies(connect(mapStateToProps)(CookieBanner));
+export const CookieBannerContainer = withCookies(CookieBanner);

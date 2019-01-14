@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { Description, AltDescription, DescriptionLink } from 'Components/Elements/DescriptionElements';
 import { IconInButton } from 'Components/Elements/ButtonElements';
+import { localizeModerationCharterLink } from 'Helpers/url';
 import { DescriptionWrapper } from '../Styled';
 
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Method called to track moderation text show */
+  trackModerationText: () => {},
   /** Method called to track DescriptionLink */
   trackModerationLink: Function
 }
@@ -38,7 +41,7 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
           &nbsp;
           <DescriptionLink
             target="_blank"
-            href="https://about.make.org/moderation"
+            href={localizeModerationCharterLink()}
             onClick={trackModerationLink}
             tabIndex={isPannelOpen ? -1 : 0}
           >
