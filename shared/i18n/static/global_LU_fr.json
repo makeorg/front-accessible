@@ -176,6 +176,10 @@
     "cgu": "conditions d’utilisation",
     "policy": "charte de données personnelles"
   },
+  "activate_account": {
+    "success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
+    "bad_link": "Ce lien n'est plus valable."
+  },
   "weeuropean": {
     "wording": {
       "title": "We Europeans",
