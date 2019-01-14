@@ -3,6 +3,7 @@ import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Helpers/url';
 import Logger from 'Services/Logger';
+import { APP_NAME } from 'Constants/config';
 import { env } from '../../shared/env';
 
 const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
@@ -137,7 +138,8 @@ class ApiService {
       'x-make-location': 'core',
       'x-make-source': this._source,
       'x-make-question': this._questionId,
-      'x-make-operation': this._operationId
+      'x-make-operation': this._operationId,
+      'x-make-app-name': APP_NAME
     }, options.headers || {});
 
     if (paramsQuery) {
