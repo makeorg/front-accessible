@@ -1,7 +1,4 @@
 {
-  "slug": "plan-climat",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "#MaSolutionPourLeClimat",
     "question": "Comment lutter ensemble contre le réchauffement climatique ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
+  "aboutUrl": "https://about.make.org/about-plan-climat",
   "sequenceExtraSlidesWording": {
     "introCard":  {
       "description": [

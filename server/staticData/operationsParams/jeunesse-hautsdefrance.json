@@ -1,7 +1,4 @@
 {
-  "slug": "jeunesse-hautsdefrance",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "Construire l’avenir des jeunes en Hauts-de-France",
     "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
+  "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Les jeunes des Hauts-de-France proposent des solutions.",

@@ -23,6 +23,7 @@ import {
   ContentWrapper,
   InnerContent,
   FinalCardContentWrapper,
+  SharingInner,
   SharingWrapper,
   MoreWrapper,
   PartnerFooter,
@@ -79,6 +80,7 @@ ProposalCard.IntroParagraph = IntroParagraph;
 ProposalCard.FinalParagraph = FinalParagraph;
 ProposalCard.Separator = Separator;
 ProposalCard.FinalCardContentWrapper = FinalCardContentWrapper;
+ProposalCard.SharingInner = SharingInner;
 ProposalCard.SharingWrapper = SharingWrapper;
 ProposalCard.MoreWrapper = MoreWrapper;
 ProposalCard.PartnerFooter = PartnerFooter;

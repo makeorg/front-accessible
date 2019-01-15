@@ -14,6 +14,7 @@ const cookiesMiddleware = require('universal-cookie-express');
 const homeRoute = require('./ssr/homeRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const accountActivationRoute = require('./ssr/accountActivationRoute');
+const proposalRoute = require('./ssr/proposalRoute');
 const {
   BUILD_DIR,
   IMAGES_DIR,
@@ -81,6 +82,12 @@ app.get(
 app.get('/:countryLanguage/account-activation/:userId/:verificationToken',
   countryLanguageMiddelware,
   accountActivationRoute);
+app.get(
+  '/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug',
+  countryLanguageMiddelware,
+  cookiesMiddelware,
+  proposalRoute
+);
 
 // CSP
 csp.extend(app, {

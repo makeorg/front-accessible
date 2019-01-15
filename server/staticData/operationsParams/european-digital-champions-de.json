@@ -1,7 +1,4 @@
 {
-  "slug": "european-digital-champions",
-  "country": "DE",
-  "language": "de",
   "wording": {
     "title": "Wie kann man europäische digitale Champions hervorbringen ?",
     "question": "Wie kann man europäische digitale Champions hervorbringen ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation",
+  "aboutUrl": "https://about.make.org/about-digital-champions-de",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Tausende Europäer schlagen Lösungen vor.",

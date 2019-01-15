@@ -10,7 +10,6 @@ import {
 const Sharing = styled(SpaceBetweenRow)`
   width: 100%;
   max-width: ${pxToRem('150px')};
-  margin-top: ${pxToRem('10px')};
 `;
 
 /* BackButton */

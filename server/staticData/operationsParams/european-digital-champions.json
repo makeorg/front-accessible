@@ -1,7 +1,4 @@
 {
-  "country": "FR",
-  "slug": "european-digital-champions",
-  "language": "fr",
   "wording": {
     "title": "Comment faire émerger des champions européens du numérique ?",
     "question": "Comment faire émerger des champions européens du numérique ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "black"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
+  "aboutUrl": "https://about.make.org/about-digital-champions",
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "#entrepreneuriat  #europe  #investissement  #fiscalité",

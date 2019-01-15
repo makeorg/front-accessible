@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import { InnerContent } from 'Components/Elements/MainElements';
 import ProposalSubmitContainer from 'Containers/ProposalSubmit';
 import SequenceContainer from 'Containers/Sequence';
 import SpinnerComponent from 'Components/Spinner';
+import { SequencePageInnerContent } from '../Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -17,7 +17,7 @@ type Props = {
 /**
  * Renders SequenceContainerLoader
  */
-const SequenceContentLoader = (props:Props) => {
+export const SequencePageContentLoader = (props:Props) => {
   const {
     question,
     questionConfiguration,
@@ -31,15 +31,13 @@ const SequenceContentLoader = (props:Props) => {
   }
 
   return (
-    <InnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
+    <SequencePageInnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
       <ProposalSubmitContainer question={question} />
       <SequenceContainer
         question={question}
         questionConfiguration={questionConfiguration}
       />
-    </InnerContent>
+    </SequencePageInnerContent>
 
   );
 };
-
-export default SequenceContentLoader;

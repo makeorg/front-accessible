@@ -1,7 +1,4 @@
 {
-  "slug": "villededemain",
-  "country": "FR",
-  "language": "fr",
   "wording": {
     "title": "La ville de demain",
     "question": "Comment imaginer la ville de demain ?",
@@ -18,6 +15,7 @@
     "footerFontColor": "white"
   },
   "consultationUrl": "https://make.org/#/FR/consultation/villededemain/consultation",
+  "aboutUrl": "https://about.make.org/about-villededemain",
   "sequenceExtraSlidesWording": {
     "introCard":  {
       "description": [

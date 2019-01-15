@@ -48,3 +48,13 @@ export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
     message
   )}&source=${encodeURIComponent(currentUrl(pathName))}`
 );
+
+/**
+ * Get the sequence link
+ * @param  {string} questionSlug
+ * @return {string}
+ */
+
+export const getSequenceLink = (
+  questionSlug: string
+) => `${FRONT_URL}/${ApiService.country}-${ApiService.language}/consultation/${questionSlug}/selection`;

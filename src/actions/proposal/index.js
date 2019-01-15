@@ -4,6 +4,7 @@ import ProposalService from 'Api/ProposalService';
 import { getBaitText } from 'Constants/proposal';
 import * as actionTypes from 'Constants/actionTypes';
 import Tracking from 'Services/Tracking';
+import Logger from 'Services/Logger';
 
 export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
   type: actionTypes.PROPOSE_TYPING,
@@ -11,9 +12,11 @@ export const proposeTyping = (content: string, length: number, canSubmit: boolea
   length,
   canSubmit
 });
+
 export const proposeRequest = (content: string, questionId: string) => (
   { type: actionTypes.PROPOSE_REQUEST, content, questionId }
 );
+
 export const proposeSuccess = (proposalId: string) => ({ type: actionTypes.PROPOSE_SUCCESS, proposalId });
 export const proposeFailure = (error: string) => ({ type: actionTypes.PROPOSE_FAILURE, error });
 
@@ -44,3 +47,14 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
       dispatch(proposeFailure(error));
     });
 };
+
+export const fetchProposalData = (proposalId: string) => (dispatch: Function) => (
+  ProposalService
+    .getProposal(proposalId)
+    .then((proposal) => {
+      dispatch({ type: actionTypes.PROPOSAL_LOAD, proposal });
+    })
+    .catch((error) => {
+      Logger.logError({ ...{ source: 'fetchProposalData api call error' }, ...error });
+    })
+);

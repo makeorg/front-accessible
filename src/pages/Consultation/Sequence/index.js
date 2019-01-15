@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
 import MetaTags from 'Components/MetaTags';
-import { SequenceContent } from 'Components/Elements/MainElements';
 import { SequenceFooterContainer } from 'Containers/Sequence/Footer';
-import SequenceContentLoader from './ContentLoader';
+import { SequencePageContent } from './Styled';
+import { SequencePageContentLoader } from './ContentLoader';
 
 type Props = {
   question: Object,
@@ -47,18 +47,18 @@ class SequencePage extends React.Component<Props> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <React.Fragment>
-          <SequenceContent>
+          <SequencePageContent>
             <MetaTags
               title={metas.title}
               description={metas.description}
               picture={metas.picture}
             />
-            <SequenceContentLoader
+            <SequencePageContentLoader
               question={question}
               questionConfiguration={questionConfiguration}
               isSequenceCollapsed={isSequenceCollapsed}
             />
-          </SequenceContent>
+          </SequencePageContent>
           <SequenceFooterContainer
             questionConfiguration={questionConfiguration}
           />

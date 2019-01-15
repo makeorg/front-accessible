@@ -2,14 +2,16 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import type { Proposal } from 'Types/proposal';
 import VoteContainer from 'Containers/Vote';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
+import { ProposalAuthor } from 'Components/ProposalCard/ProposalAuthor';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: Object,
+  proposal: Proposal,
   /** Index of the card */
   index: number,
   /** Total of cards */
@@ -26,25 +28,6 @@ type Props = {
   goToNextCard: Function
 }
 
-const ProposalAuthorAge = ({ age }) => {
-  if (!age) {
-    return null;
-  }
-
-  return (
-    <span>
-      {', '}
-      {i18next.t('proposal_card.author.age', { age })}
-    </span>
-  );
-};
-
-const ProposalAuthor = ({ author }) => (
-  <ProposalCard.AuthorInfos>
-    {author.firstName}
-    <ProposalAuthorAge age={author.age} />
-  </ProposalCard.AuthorInfos>
-);
 /**
  * Renders Proposal Card
  */

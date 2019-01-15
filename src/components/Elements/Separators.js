@@ -5,14 +5,14 @@ import { BackgroundColors } from 'Assets/vars/Colors';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { MiddleRow } from './FlexElements';
 
-const SepartorStyle = styled.div`
+export const SeparatorStyle = styled.div`
   width: 100%;
   height: ${pxToRem('2px')};
   background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
-export const Small = styled(SepartorStyle)`
+export const Small = styled(SeparatorStyle)`
   max-width: ${pxToRem('60px')};
   margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -20,7 +20,7 @@ export const Small = styled(SepartorStyle)`
   }
 `;
 
-export const Large = styled(SepartorStyle)`
+export const Large = styled(SeparatorStyle)`
   margin: ${pxToRem('25px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('35px')} 0;

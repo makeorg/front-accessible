@@ -48,6 +48,11 @@ export default function proposal(state: Object = initialState, action: Object) {
         ...state,
         error: action.error
       };
+    case actionTypes.PROPOSAL_LOAD:
+      return {
+        ...state,
+        proposal: action.proposal
+      };
     default:
       return state;
   }
