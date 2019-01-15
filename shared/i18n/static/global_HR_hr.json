@@ -134,7 +134,8 @@
     "subtitle": "Registriram se uporabom ovog obrasca",
     "login_title": "Već imam račun.",
     "login_link": "Prijavi se",
-    "cgu": "Registriranjem prihvaćate naše opće uvjete uporabe i primanje elektroničkih poruka (maleni broj) s platforme Make.org."
+    "cgu_text": "Registriranjem prihvaćate naše {{cgu_link}} i primanje elektroničkih poruka (maleni broj) s platforme Make.org.",
+    "cgu": "opće uvjete uporabe"
   },
   "forgot_password": {
     "title": "ponovno postavljanje lozinke",

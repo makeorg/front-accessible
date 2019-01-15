@@ -134,7 +134,8 @@
     "subtitle": "Registruji se pomocí tohoto formuláře",
     "login_title": "Už mám účet",
     "login_link": "Připojení",
-    "cgu": "Registrací souhlasíte s našimi všeobecnými podmínkami používání a se zasíláním (ne příliš početných) e-mailů od Make.org."
+    "cgu_text": "Registrací souhlasíte s našimi {{cgu_link}} a se zasíláním (ne příliš častých) e-mailů od Make.org.",
+    "cgu": "všeobecnými podmínkami používání"
   },
   "forgot_password": {
     "title": "obnovuji své heslo",

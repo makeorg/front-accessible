@@ -134,7 +134,8 @@
     "subtitle": "Jeg tilmelder mig med denne formular",
     "login_title": "Jeg har allerede en konto.",
     "login_link": "Tilslutning",
-    "cgu": "Når du tilmelder dig, accepterer du vores generelle brugsbetingelser og du accepterer at modtage e-mails (ganske få) fra Make.org."
+    "cgu_text": "Når du tilmelder dig, accepterer du vores {{cgu_link}} og du accepterer at modtage e-mails (ganske få) fra Make.org.",
+    "cgu": "generelle brugsbetingelser"
   },
   "forgot_password": {
     "title": "jeg nulstiller min adgangskode",

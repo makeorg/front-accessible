@@ -134,7 +134,8 @@
     "subtitle": "Az űrlappal szeretnék regisztrálni",
     "login_title": "Már van fiókom.",
     "login_link": "Bejelentkezés",
-    "cgu": "A regisztrációval elfogadja az általános felhasználási feltételeinket, és beleegyezik abba, hogy e-maileket küldhet Önnek (néhányat) a Make.org."
+    "cgu_text": "A regisztrációval elfogadja az {{cgu_link}}, és beleegyezik abba, hogy e-maileket küldhet Önnek (néhányat) a Make.org.",
+    "cgu": "általános felhasználási feltételeinket"
   },
   "forgot_password": {
     "title": "visszaállítom a jelszavamat",

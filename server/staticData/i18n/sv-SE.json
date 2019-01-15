@@ -134,7 +134,8 @@
     "subtitle": "Jag registrerar mig med detta formulär",
     "login_title": "Jag har redan ett konto.",
     "login_link": "Inloggning",
-    "cgu": "När du registrerar dig, innebär det att du godkänner våra allmänna användarvillkor, och du accepterar att få e-post (ytterst få) från Make.org."
+    "cgu_text": "När du registrerar dig, innebär det att du godkänner våra {{cgu_link}}, och du accepterar att få e-post (ytterst få) från Make.org.",
+    "cgu": "allmänna användarvillkor"
   },
   "forgot_password": {
     "title": "jag återställer mitt lösenord",

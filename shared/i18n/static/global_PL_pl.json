@@ -134,7 +134,8 @@
     "subtitle": "Chcę się zarejestrować za pomocą tego formularza",
     "login_title": "Mam już konto.",
     "login_link": "Logowanie",
-    "cgu": "Rejestrując się, akceptujesz nasz regulamin użytkowania oraz wyrażasz zgodę na otrzymywanie (rozsądnej ilości) e-maili od Make.org."
+    "cgu_text": "Rejestrując się, akceptujesz nasz {{cgu_link}} oraz wyrażasz zgodę na otrzymywanie (rozsądnej ilości) e-maili od Make.org.",
+    "cgu": "regulamin użytkowania"
   },
   "forgot_password": {
     "title": "chcę zresetować hasło",
