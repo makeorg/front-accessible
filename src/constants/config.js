@@ -8,3 +8,4 @@ const BROWSER_FRONT_URL = (
 export const FRONT_URL = BROWSER_FRONT_URL || process.env.FRONT_URL || 'https://accessible.preprod.makeorg.tech';
 
 export const SESSION_ID_COOKIE_KEY = 'x-session-id';
+export const APP_NAME = 'main-front';
