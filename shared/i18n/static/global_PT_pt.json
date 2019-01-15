@@ -134,7 +134,8 @@
     "subtitle": "Registar-me através deste formulário",
     "login_title": "Já tenho uma conta.",
     "login_link": "Autenticação",
-    "cgu": "Ao efetuar o seu registo, aceita as nossas condições gerais de utilização e aceita receber e-mails (que serão poucos) da Make.org."
+    "cgu_link": "Ao efetuar o seu registo, aceita as nossas {{cgu_link}} e aceita receber e-mails (que serão poucos) da Make.org.",
+    "cgu": "condições gerais de utilização"
   },
   "forgot_password": {
     "title": "recuperar a minha palavra-passe",

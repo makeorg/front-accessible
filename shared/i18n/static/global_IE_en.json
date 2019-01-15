@@ -137,7 +137,8 @@
     "subtitle": "Sign up using this form",
     "login_title": "I already have an account.",
     "login_link": "Log in",
-    "cgu": "By signing up, you are agreeing to our terms of service and consent to receive e-mails (not too many!) from Make.org."
+    "cgu_text": "By signing up, you are agreeing to our {{cgu_link}} and consent to receive e-mails (not too many!) from Make.org.",
+    "cgu": "terms of service"
   },
   "forgot_password": {
     "title": "Reset my password",
