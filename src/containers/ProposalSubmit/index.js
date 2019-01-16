@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import { ProposalSubmitFormWrapper } from 'Components/ProposalSubmit/Styled';
 import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
 import ProposalSubmitSuccessComponent from 'Components/ProposalSubmit/Success';
 import { getProposalLength, getIsProposalValidLength } from 'Helpers/proposal';
 import { typingProposal, submitProposal } from 'Actions/proposal';
 import { sequenceCollapse } from 'Actions/sequence';
 import { getToken } from 'Actions/authentification';
-import { ProposalSubmitWrapper } from 'Components/Elements/MainElements';
 import Tracking from 'Services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 
@@ -132,7 +132,7 @@ export class ProposalSubmit extends React.Component<Props, State> {
     const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
     const isSuccessShown = !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
-      <ProposalSubmitWrapper>
+      <ProposalSubmitFormWrapper>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
@@ -161,7 +161,7 @@ export class ProposalSubmit extends React.Component<Props, State> {
             key="ProposalSubmitAuthentificationContainer"
           />
         ) : null}
-      </ProposalSubmitWrapper>
+      </ProposalSubmitFormWrapper>
     );
   }
 }

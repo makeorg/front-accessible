@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
 
 export const ProposalCardCentered = styled.li`
   position: absolute;
@@ -13,7 +13,7 @@ export const ProposalCardCentered = styled.li`
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: ${pxToRem('15px')};
+  padding: ${pxToRem(DefaultPadding.Mobile)};
   z-index: ${props => props.zindex || 0};
   transform: scaleX(${props => props.scale || 0}) translateY(-${props => props.position || 0}px);
   background: ${BasicColors.PureWhite};
@@ -22,6 +22,6 @@ export const ProposalCardCentered = styled.li`
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    padding: ${pxToRem('30px')};
+    padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BasicColors, TextColors, ShadowColors } from 'Assets/vars/Colors';
-import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
+import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { MiddleColumn, ColumnElement, MiddleColumnToRow } from 'Components/Elements/FlexElements';
 import { Large, SeparatorStyle } from 'Components/Elements/Separators';
@@ -14,17 +14,16 @@ export const Card = styled.section`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
-  max-width: ${Layouts.ContainerWidth};
-  max-height: ${pxToRem('440px')};
-  padding: ${pxToRem('15px')};
+  height: ${pxToRem('440px')};
+  max-width: ${pxToRem(Layouts.ContainerWidth)};
+  padding: ${pxToRem(DefaultPadding.Mobile)};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 13px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    max-height: ${pxToRem('550px')};
-    padding: ${pxToRem('30px')};
+    height: ${pxToRem('550px')};
+    padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;
 
@@ -59,12 +58,14 @@ export const Description = styled(ColumnElement)`
   max-width: ${pxToRem('650px')};
   align-items: flex-start;
   color: ${TextColors.MediumGrey};
+  font-size: ${pxToRem('13px;')};
   > span {
     font-family: ${MakeFonts.RobotoBold};
     color: ${props => props.theme.color};
   }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     align-items: flex-end;
+    font-size: ${pxToRem('16px;')};
   }
 `;
 

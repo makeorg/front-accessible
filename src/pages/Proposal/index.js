@@ -8,7 +8,7 @@ import type { QuestionConfiguration } from 'Types/sequence';
 import { fetchProposalData } from 'Actions/proposal';
 import { fetchQuestionConfigurationData } from 'Actions/sequence';
 import MetaTags from 'Components/MetaTags';
-import { ProposalPageContent } from './Styled';
+import { MiddlePageWrapper } from 'Components/Elements/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
@@ -50,14 +50,14 @@ class ProposalPage extends React.Component<Props> {
 
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
-        <ProposalPageContent>
+        <MiddlePageWrapper>
           <MetaTags />
           <ProposalPageContentLoader
             proposal={proposal}
             questionConfiguration={questionConfiguration}
             questionSlug={match.params.questionSlug}
           />
-        </ProposalPageContent>
+        </MiddlePageWrapper>
       </ThemeProvider>
     );
   }

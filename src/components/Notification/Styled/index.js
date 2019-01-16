@@ -1,29 +1,30 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { UnstyledButton } from 'Components/Elements/ButtonElements';
-import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
+import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
 import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
+import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Constants/elements';
 
 export const Wrapper = styled.section`
   position: absolute;
   z-index: 2;
   display: flex;
   justify-content: center;
-  width: calc(100% - ${pxToRem('30px')});
+  width: calc(100% - ${pxToRem(CALC_WIDTH_MOBILE)});
   min-height: ${pxToRem('20px')};
-  padding: ${pxToRem('15px')};
-  top: ${pxToRem('18px')};
-  left: ${pxToRem('15px')};
+  padding: ${pxToRem(DefaultPadding.Mobile)};
+  top: ${pxToRem(DefaultPadding.Mobile)};
+  left: ${pxToRem(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   border-radius: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    top: ${pxToRem('30px')};
+    top: ${pxToRem(DefaultPadding.Desktop)};
   }
   @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
-    width: calc(100% - ${pxToRem('60px')});
-    left: ${pxToRem('30px')};
+    width: calc(100% - ${pxToRem(CALC_WIDTH_DESKTOP)});
+    left: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;
 
@@ -32,18 +33,18 @@ export const Content = styled.div`
   flex-flow: column;
   align-items: center;
   width: 100%;
-  max-width: ${Layouts.ContainerWidth};
-  padding-right: ${pxToRem('30px')};
+  max-width: ${pxToRem(Layouts.ContainerWidth)};
+  padding-right: ${pxToRem(DefaultPadding.Desktop)};
   @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
-    padding-right: ${pxToRem('15px')};
+    padding-right: ${pxToRem(DefaultPadding.Mobile)};
   }
 `;
 
 
 export const CloseButton = styled(UnstyledButton)`
   position: absolute;
-  top: ${pxToRem('15px')};
-  right: ${pxToRem('15px')};
+  top: ${pxToRem(DefaultPadding.Mobile)};
+  right: ${pxToRem(DefaultPadding.Mobile)};
   z-index: 1;
   font-size: ${pxToRem('20px')};
 `;

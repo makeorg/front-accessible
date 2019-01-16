@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { pxToRem } from 'Helpers/styled';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
   display: flex;
@@ -14,7 +14,7 @@ export const Nav = styled.nav`
 export const Item = styled.li`
   display: inline-block;
   width: 50%;
-  padding: ${pxToRem('15px')};
+  padding: ${pxToRem(DefaultPadding.Mobile)};
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: auto;

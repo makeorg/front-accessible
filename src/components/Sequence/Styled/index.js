@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
+import { Elements } from 'Assets/vars/Elements';
 import { pxToRem } from 'Helpers/styled';
 import {
   Wrapper,
@@ -21,11 +22,11 @@ const Sequence = styled.section`
   position: relative;
   z-index: 0;
   width: 100%;
-  height: calc(100% - ${pxToRem('72px')});
-  max-width: ${Layouts.SpecialContainerWidth};
+  height: calc(100% - ${pxToRem(Elements.SequenceFooterHeightMobile)});
+  max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(100% - ${pxToRem('93px')});
+    height: calc(100% - ${pxToRem(Elements.SequenceFooterHeightDesktop)});
   }
 `;
 

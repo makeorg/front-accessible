@@ -3,7 +3,6 @@ import * as React from 'react';
 import SpinnerComponent from 'Components/Spinner';
 import type { Proposal } from 'Types/proposal';
 import type { QuestionConfiguration } from 'Types/sequence';
-import { InnerContent } from 'Components/Elements/MainElements';
 import { SingleProposalCardComponent } from 'Components/ProposalCard/SingleProposalCard';
 import { SingleProposalSharingComponent } from 'Components/ProposalCard/SingleProposalCard/Sharing';
 
@@ -28,9 +27,9 @@ export const ProposalPageContentLoader = (props: Props) => {
   }
 
   return (
-    <InnerContent>
+    <React.Fragment>
       <SingleProposalCardComponent {...props} />
       <SingleProposalSharingComponent />
-    </InnerContent>
+    </React.Fragment>
   );
 };
