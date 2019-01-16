@@ -2,7 +2,7 @@ import { SESSION_ID_COOKIE_KEY } from 'Constants/config';
 import { uuid } from 'Helpers/uuid';
 import ApiService from 'Api/ApiService';
 
-export const cookiesMiddelware = (req, res, next) => {
+export const cookiesHandlerMiddleware = (req, res, next) => {
   const cookies = req.universalCookies;
   let sessionId = cookies.get(SESSION_ID_COOKIE_KEY);
 

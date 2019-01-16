@@ -1,5 +1,6 @@
-import { countryLanguageMiddelware } from './middelware/countryLanguage';
-import { cookiesMiddelware } from './middelware/cookies';
+import { countryLanguageMiddleware } from './middleware/countryLanguage';
+import { cookiesHandlerMiddleware } from './middleware/cookies';
+import { headersResponseMiddleware } from './middleware/headers';
 import questionApi from './questionApi';
 import { logger } from './logger';
 
@@ -36,6 +37,7 @@ const app = express();
 app.use(compression());
 app.use(bodyParser.json());
 app.use(cookiesMiddleware());
+app.use(headersResponseMiddleware);
 
 // Static files
 app.use('/assets', express.static(BUILD_DIR, {
@@ -71,28 +73,28 @@ function renderVersion(req, res) {
 }
 
 // define front middelware
-const frontMiddelwares = [countryLanguageMiddelware, cookiesMiddelware];
+const frontMiddlewares = [countryLanguageMiddleware, cookiesHandlerMiddleware];
 
 // Front Routes
-app.get('/', countryLanguageMiddelware);
+app.get('/', countryLanguageMiddleware);
 app.get('/version', renderVersion);
-app.get('/:countryLanguage', frontMiddelwares, homeRoute);
+app.get('/:countryLanguage', frontMiddlewares, homeRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
-  frontMiddelwares,
+  frontMiddlewares,
   sequenceRoute
 );
 app.get('/:countryLanguage/account-activation/:userId/:verificationToken',
-  frontMiddelwares,
+  frontMiddlewares,
   accountActivationRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug',
-  frontMiddelwares,
+  frontMiddlewares,
   proposalRoute
 );
 app.get(
   '/:countryLanguage/password-recovery/:userId/:resetToken',
-  frontMiddelwares,
+  frontMiddlewares,
   passwordRecoveryRoute
 );
 
