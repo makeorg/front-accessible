@@ -1,17 +1,25 @@
 /* @flow */
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import 'url-search-params-polyfill';
 
-export const AccountActivationPage = (props) => {
-  const { location, match } = props;
-  const params = new URLSearchParams(location.search);
-  const questionSlug = params.get('questionSlug');
-  const redirectPath = !questionSlug
+const AccountActivation = (props) => {
+  const { question, match } = props;
+
+  const redirectPath = !question
     ? `/${match.params.countryLanguage}`
-    : `/${match.params.countryLanguage}/consultation/${questionSlug}/selection`;
+    : `/${match.params.countryLanguage}/consultation/${question.slug}/selection`;
+
   return (
     <Redirect path="/:countryLanguage/account-activation/:userId/:verificationToken" to={redirectPath} />
   );
 };
+
+const mapStateToProps = (state) => {
+  const { question } = state.sequence;
+
+  return { question };
+};
+
+export const AccountActivationPage = connect(mapStateToProps)(AccountActivation);
