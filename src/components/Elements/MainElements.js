@@ -3,8 +3,9 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { BackgroundColors, BasicColors, BorderColors } from 'Assets/vars/Colors';
-import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
-import { MiddleColumn, SpaceBetweenColumn, CenterColumn } from './FlexElements';
+import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
+import { CALC_HEIGHT_MOBILE, CALC_HEIGHT_DESKTOP } from 'Constants/elements';
+import { SpaceBetweenColumn, CenterColumn } from './FlexElements';
 
 export const AppWrapper = styled(SpaceBetweenColumn)`
   position: relative;
@@ -16,51 +17,32 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 
 export const MainContent = styled.main`
   position: relative;
-  height: calc(100vh - ${pxToRem('67px')});
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(100vh - ${pxToRem('75px')});
-  }
-`;
-
-export const SequenceContent = styled.div`
-  width: 100%;
-  height: calc(100% - ${pxToRem('91px')});
-  overflow: auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(100% - ${pxToRem('78px')});
-  }
+  z-index: 0;
 `;
 
 export const PageWrapper = styled(CenterColumn)`
+  min-height: calc(100vh - ${pxToRem(CALC_HEIGHT_MOBILE)});
   width: 100%;
   height: 100%;
-  padding: ${pxToRem('20px')} ${pxToRem('20px')} 0;
+  padding: ${pxToRem(DefaultPadding.Mobile)};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    padding: ${pxToRem(DefaultPadding.Desktop)};  
+    min-height: calc(100vh - ${pxToRem(CALC_HEIGHT_DESKTOP)});
+  }
 `;
 
-export const PageContent = styled(CenterColumn)`
+export const MiddlePageWrapper = styled(PageWrapper)`
+  justify-content: center;
+`;
+
+export const PageContainer = styled(CenterColumn)`
   width: 100%;
   height: 100%;
-  max-width: ${Layouts.ContainerWidth};
+  max-width: ${pxToRem(Layouts.ContainerWidth)};
   background-color: ${BasicColors.PureWhite};
   border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
-  padding: ${pxToRem('20px')};
-`;
-
-export const InnerContent = styled(MiddleColumn)`
-  position: relative;
-  z-index: 0;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-`;
-
-export const ProposalSubmitWrapper = styled.aside`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
-  padding: 0 ${pxToRem('20px')};
+  padding: ${pxToRem(DefaultPadding.Mobile)};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    padding: ${pxToRem(DefaultPadding.Desktop)};  
+  }
 `;

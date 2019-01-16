@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ShadowColors, TextColors } from 'Assets/vars/Colors';
 import { pxToRem } from 'Helpers/styled';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
 
 export const Footer = styled.footer`
   display: flex;
@@ -11,7 +11,7 @@ export const Footer = styled.footer`
   z-index: 2;
   width: 100%;
   min-height: ${pxToRem('91px')};
-  padding: ${pxToRem('15px')} ${pxToRem('20px')};
+  padding: ${pxToRem(DefaultPadding.Mobile)} ${pxToRem('20px')};
   box-shadow: 0 0 16px 6px ${ShadowColors.BlackZeroTwoOpacity};
   background: ${props => props.theme.color};
   background-color: ${props => props.theme.color};

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import 'url-search-params-polyfill';
 import { PasswordRecoveryContainer } from 'Containers/UserAccount/PasswordRecovery';
-import { PageWrapper, PageContent } from 'Components/Elements/MainElements';
+import { PasswordRecoveryWrapper, PasswordRecoveryContent } from './Styled';
 
 type Props = {
   passwordRecovery: Object,
@@ -32,11 +32,11 @@ export class PasswordRecovery extends React.Component<Props> {
     }
 
     return (
-      <PageWrapper>
-        <PageContent>
+      <PasswordRecoveryWrapper>
+        <PasswordRecoveryContent>
           <PasswordRecoveryContainer />
-        </PageContent>
-      </PageWrapper>
+        </PasswordRecoveryContent>
+      </PasswordRecoveryWrapper>
     );
   }
 }

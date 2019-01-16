@@ -31,6 +31,14 @@ const ProposalSubmitForm = styled.form`
   }
 `;
 
+export const ProposalSubmitFormWrapper = styled.aside`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 ${pxToRem('20px')};
+`;
+
 /* Proposal Field */
 ProposalSubmitForm.Label = Label;
 ProposalSubmitForm.Input = Input;
