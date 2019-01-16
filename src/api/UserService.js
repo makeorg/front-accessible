@@ -139,11 +139,13 @@ export default class UserService {
 
     return ApiService.callApi(newPath, {
       method: 'POST'
-    }).catch((error) => {
-      Logger.logError(`Error in verifyUser for 
+    })
+      .then(() => HttpStatus.HTTP_NO_CONTENT)
+      .catch((error) => {
+        Logger.logError(`Error in verifyUser for 
       userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
-      return error;
-    });
+        return error;
+      });
   }
 
   /*
