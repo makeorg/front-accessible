@@ -134,7 +134,8 @@
     "subtitle": "Mă înscriu cu acest formular",
     "login_title": "Am deja cont.",
     "login_link": "Conectare ",
-    "cgu": "Prin înscriere, acceptați condițiile generale de utilizare și acceptați să primiți e-mailuri (puține) din partea Make.org."
+    "cgu_text": "Prin înscriere, acceptați {{cgu_link}} și acceptați să primiți e-mailuri (puține) din partea Make.org.",
+    "cgu": "condițiile generale de utilizare"
   },
   "forgot_password": {
     "title": "reinițializez parola mea",

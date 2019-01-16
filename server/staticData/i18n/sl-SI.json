@@ -134,7 +134,8 @@
     "subtitle": "Prijavim se s tem obrazcem",
     "login_title": ".Že imam račun.",
     "login_link": "Povezava",
-    "cgu": "Z registracijo se strinjate z našimi pogoji storitve in se strinjate, da boste prejeli e-pošto (nekaj) Make.org."
+    "cgu_text": "Z registracijo se strinjate z našimi {{cgu_link}} in se strinjate, da boste prejeli e-pošto (nekaj) Make.org.",
+    "cgu": "pogoji storitve"
   },
   "forgot_password": {
     "title": "Ponastavim geslo",

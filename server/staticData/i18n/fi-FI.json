@@ -134,7 +134,8 @@
     "subtitle": "Rekisteröidy tällä lomakkeella",
     "login_title": "Minulla on jo tili.",
     "login_link": "Kirjaudu sisään",
-    "cgu": "Rekisteröityessäsi hyväksyt palveluehtomme ja suostut vastaanottamaan sähköpostiviestejä (kohtuullisuuden rajoissa) Make.orgilta."
+    "cgu_text": "Rekisteröityessäsi hyväksyt {{cgu_link}} ja suostut vastaanottamaan sähköpostiviestejä (kohtuullisuuden rajoissa) Make.orgilta.",
+    "cgu": "palveluehtomme"
   },
   "forgot_password": {
     "title": "Palauta salasana",

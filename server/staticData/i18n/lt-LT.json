@@ -134,7 +134,8 @@
     "subtitle": "Registruojuosi užpildydamas šią formą",
     "login_title": "Jau turiu paskyrą.",
     "login_link": "Prisijungti",
-    "cgu": "Registruodamiesi sutinkate su mūsų bendrosiomis naudojimo sąlygomis ir sutinkate gauti Make.org el. laiškus (siunčiami retai)."
+    "cgu_text": "Registruodamiesi sutinkate su mūsų {{cgu_link}} ir sutinkate gauti Make.org el. laiškus (siunčiami retai).",
+    "cgu": "bendrosiomis naudojimo sąlygomis"
   },
   "forgot_password": {
     "title": "sukuriu naują slaptažodį",

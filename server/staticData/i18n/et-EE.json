@@ -134,7 +134,8 @@
     "subtitle": "Registreerun selle vormiga",
     "login_title": "Mul on juba konto.",
     "login_link": "Ühendamine",
-    "cgu": "Registreerudes te nõustute meie kasutamise üldtingimustega ja (väheste) e-kirjade saamisega Make orgilt."
+    "cgu_text": "Registreerudes te nõustute meie {{cgu_link}} ja (väheste) e-kirjade saamisega Make orgilt.",
+    "cgu": "kasutamise üldtingimustega"
   },
   "forgot_password": {
     "title": "lähtestan oma salasõna",
