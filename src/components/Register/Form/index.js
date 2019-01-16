@@ -22,6 +22,7 @@ import {
 import { fieldErrors } from 'Helpers/form';
 import UntypedInput from 'Components/Elements/Form/UntypedInput';
 import PasswordInput from 'Components/Elements/Form/PasswordInput';
+import * as Helpers from 'Helpers/url';
 
 type Props = {
   /** type UserObject = {
@@ -65,6 +66,7 @@ const RegisterFormComponent = (props: Props) => {
   const passwordError = fieldErrors('password', errors);
   const firstnameError = fieldErrors('firstname', errors);
   const globalError = fieldErrors('global', errors);
+  const cguLink = Helpers.localizeCguLink();
 
   return (
     <Form id="register" onSubmit={handleSubmit}>
@@ -142,9 +144,19 @@ const RegisterFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      <ConditionParagraph>
-        {i18next.t('register.cgu')}
-      </ConditionParagraph>
+      <ConditionParagraph
+        dangerouslySetInnerHTML={
+          {
+            __html: i18next.t(
+              'register.cgu_text',
+              {
+                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}">$t(register.cgu)</a>`,
+                interpolation: { escapeValue: false }
+              }
+            )
+          }
+        }
+      />
       <SmallRedButton
         type="submit"
         form="register"

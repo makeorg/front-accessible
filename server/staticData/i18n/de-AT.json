@@ -134,7 +134,8 @@
     "subtitle": "Ich registriere mich mit diesem Formular",
     "login_title": "Ich habe bereits ein Konto.",
     "login_link": "Anmelden",
-    "cgu": "Mit Ihrer Registrierung stimmen Sie unseren Nutzungsbedingungen zu und erklären sich damit einverstanden, E-Mails (nicht viele) von Make.org zu erhalten."
+    "cgu_text": "Mit Ihrer Registrierung stimmen Sie unseren {{cgu_link}} zu und erklären sich damit einverstanden, E-Mails (nicht viele) von Make.org zu erhalten.",
+    "cgu": "Nutzungsbedingungen"
   },
   "forgot_password": {
     "title": "Ich setze mein Passwort zurück",

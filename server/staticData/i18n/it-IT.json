@@ -134,7 +134,8 @@
     "subtitle": "Iscrizione tramite modulo",
     "login_title": "Ho già un account.",
     "login_link": "Login",
-    "cgu": "Iscrivendoti, accetti le nostre condizioni generali di utilizzo e accetti di ricevere le (sporadiche) e-mail di Make.org."
+    "cgu_text": "Iscrivendoti, accetti le nostre {{cgu_link}} e accetti di ricevere le (sporadiche) e-mail di Make.org.",
+    "cgu": "condizioni generali di utilizzo"
   },
   "forgot_password": {
     "title": "ripristina la password",

@@ -137,7 +137,8 @@
     "subtitle": "Je m'inscris avec ce formulaire",
     "login_title": "J‘ai déjà un compte.",
     "login_link": "Connexion",
-    "cgu": "En vous inscrivant, vous acceptez nos conditions générales d’utilisation et acceptez de recevoir des e-mails (peu nombreux) de Make.org."
+    "cgu_text": "En vous inscrivant, vous acceptez nos {{cgu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
+    "cgu": "conditions générales d’utilisation"
   },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",
