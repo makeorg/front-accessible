@@ -2,12 +2,13 @@
 
 import React from 'react';
 import MetaTags from 'Components/MetaTags';
+import { PageWrapper } from 'Components/Elements/MainElements';
 
 const HomePage = () => (
-  <div>
+  <PageWrapper>
     <MetaTags />
     <h1>Homepage</h1>
-  </div>
+  </PageWrapper>
 );
 
 export default HomePage;

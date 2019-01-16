@@ -2,12 +2,13 @@
 
 import React from 'react';
 import MetaTags from 'Components/MetaTags';
+import { PageWrapper } from 'Components/Elements/MainElements';
 
 const NotFoundPage = () => (
-  <div>
+  <PageWrapper>
     <MetaTags />
     Not found !
-  </div>
+  </PageWrapper>
 );
 
 export default NotFoundPage;

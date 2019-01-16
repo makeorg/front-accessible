@@ -3,7 +3,7 @@ import * as React from 'react';
 import ProposalSubmitContainer from 'Containers/ProposalSubmit';
 import SequenceContainer from 'Containers/Sequence';
 import SpinnerComponent from 'Components/Spinner';
-import { SequencePageInnerContent } from '../Styled';
+import { SequencePageContent, SequencePageInnerContent } from '../Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -26,7 +26,9 @@ export const SequencePageContentLoader = (props:Props) => {
 
   if (!question) {
     return (
-      <SpinnerComponent />
+      <SequencePageContent>
+        <SpinnerComponent />
+      </SequencePageContent>
     );
   }
 
