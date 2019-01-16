@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ApiService from 'Api/ApiService';
+import ApiService, { NODE_API_BASE } from 'Api/ApiService';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';
@@ -46,11 +46,18 @@ class Logger {
   }
 
   log = (data, level) => (
-    axios.post('/api/logger', {
-      level: level || 'error',
-      data: { ...data, ...{ sessionId: ApiService.sessionId } }
+    axios({
+      method: 'POST',
+      url: `${NODE_API_BASE}/api/logger`,
+      proxy: {
+        port: process.env.PORT
+      },
+      data: {
+        level: level || 'error',
+        data: { ...data, ...{ sessionId: ApiService.sessionId } }
+      }
     }).then(() => {})
-      .catch(() => {})
+      .catch((e) => { console.log('Error on logger', e); })
   )
 }
 

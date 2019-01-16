@@ -3,7 +3,7 @@
 
 ## Development Mode
 *   yarn start:dev
-*   visit `http://localhost:8080`
+*   visit `http://localhost:3000`
 
 ## Style Guide
 *   To start development Server : `npx styleguidist server`

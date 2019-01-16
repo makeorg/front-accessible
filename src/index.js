@@ -43,6 +43,13 @@ if (!process.env.NODE_ENV || env.isDev()) {
         operationId: '65dfe694-2ea9-486b-8bc5-3107316fa6ff'
       },
       votedProposalIds: []
+    },
+    user: {
+      passwordRecovery: {
+        validToken: true,
+        resetToken: 'A888FA89B99A6A42DE1566940C4154B26CBEEF82',
+        userId: 'f05665a2-b36b-42c3-89a9-344e8f41fe19'
+      }
     }
   };
 }

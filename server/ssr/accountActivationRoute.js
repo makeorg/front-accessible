@@ -1,5 +1,6 @@
 import UserService from 'Api/UserService';
 import { notificationConstants } from 'Shared/constants/notification';
+import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { logger } from '../logger';
 
 const reactRender = require('../reactRender');
@@ -13,18 +14,22 @@ module.exports = async function AccountActivationRoute(req, res) {
   try {
     const { verificationToken, userId } = req.params;
     const status = await postAccountActivation(userId, verificationToken);
-    if (status === 404 || status === 500) {
-      initialState.notification.contentType = notificationConstants.ACTIVATION_FAILURE_CONTENT;
-      initialState.notification.status = status;
-    } else {
+    if (status === HTTP_NO_CONTENT) {
       initialState.notification.contentType = notificationConstants.ACTIVATION_SUCCESS_CONTENT;
     }
+
+    if (status === HTTP_NOT_FOUND) {
+      initialState.notification.contentType = notificationConstants.ACTIVATION_FAILURE_CONTENT;
+      initialState.notification.status = status;
+    }
+
     return reactRender(req, res, initialState);
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;
       logger.log('error', stack);
     }
+
     res.send(error);
   }
 };

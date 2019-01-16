@@ -159,13 +159,7 @@ class ApiService {
       headers,
       data: options.body
     })
-      .then((response) => {
-        if (response.status >= 200 && response.status < 300) {
-          return response.data;
-        }
-
-        return null;
-      })
+      .then(response => response.data)
       .catch(handleErrors);
   }
 }

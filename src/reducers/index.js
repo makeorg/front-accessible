@@ -9,6 +9,7 @@ import proposal from './proposal';
 import pannel from './pannel';
 import sequence from './sequence';
 import { notificationReducer } from './notification';
+import user from './user';
 
 export default combineReducers({
   appConfig,
@@ -18,5 +19,6 @@ export default combineReducers({
   proposal,
   pannel,
   sequence,
-  notification: notificationReducer
+  notification: notificationReducer,
+  user
 });

@@ -2,6 +2,7 @@
 
 import { getDateOfBirthFromAge } from 'Helpers/date';
 import Logger from 'Services/Logger';
+import * as HttpStatus from 'Shared/constants/httpStatus';
 import ApiService from './ApiService';
 
 const PATH_USER_ME = '/user/me';
@@ -12,6 +13,8 @@ const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
 const PATH_USER_REGISTER = '/user';
 const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
 const PATH_USER_VERIFICATION = '/user/:userId/validate/:verificationToken';
+const PATH_USER_RESET_TOKEN_CHECK = '/user/reset-password/check-validity/:userId/:resetToken';
+const PATH_USER_CHANGE_PASSWORD = '/user/reset-password/change-password/:userId';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
@@ -141,5 +144,45 @@ export default class UserService {
       userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
       return error;
     });
+  }
+
+  /*
+   * Check forgot password token validity
+   * @param  {String}  userId
+   * @param  {String}  resetToken
+   * @return {Promise}
+   */
+  static resetPasswordTokenCheck(userId: string, resetToken: string): Promise<Object> {
+    return ApiService.callApi(
+      PATH_USER_RESET_TOKEN_CHECK
+        .replace(':userId', userId)
+        .replace(':resetToken', resetToken), { method: 'POST' }
+    )
+      .then(() => HttpStatus.HTTP_NO_CONTENT)
+      .catch((error) => {
+        Logger.logError(`Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`);
+
+        return error;
+      });
+  }
+
+  /**
+   * change password
+   * @param  {String}  userId
+   * @param  {String}  resetToken
+   */
+  static changePassword(newPassword: string, resetToken: string, userId: string): Promise<Object> {
+    return ApiService.callApi(
+      PATH_USER_CHANGE_PASSWORD.replace(':userId', userId), {
+        method: 'POST',
+        body: JSON.stringify({ password: newPassword, resetToken })
+      }
+    )
+      .then(() => HttpStatus.HTTP_NO_CONTENT)
+      .catch((error) => {
+        Logger.logError(`Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`);
+
+        return error;
+      });
   }
 }
