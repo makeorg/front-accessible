@@ -137,6 +137,7 @@ class ApiService {
       'x-make-language': this._language,
       'x-make-location': 'core',
       'x-make-source': this._source,
+      'x-make-question-id': this._questionId,
       'x-make-question': this._questionId,
       'x-make-operation': this._operationId,
       'x-make-app-name': APP_NAME
