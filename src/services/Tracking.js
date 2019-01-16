@@ -11,6 +11,14 @@ const
   && document.location && (window.location !== window.parent.location)
     ? document.referrer : document.location.href;
 
+
+const getPosition = (cardPosition: number) => {
+  if (cardPosition !== undefined) {
+    return cardPosition.toString();
+  }
+  return 'single-proposal';
+};
+
 let instance = null;
 
 class Tracking {
@@ -146,19 +154,19 @@ class Tracking {
   }
 
   /* Votes */
-  trackVote = (proposalId: string, nature: string, cardPosition: number) => {
+  trackVote = (proposalId: string, nature: string, cardPosition?: number) => {
     this.track(trackingConstants.CLICK_PROPOSAL_VOTE, {
       proposalId,
       nature,
-      'card-position': cardPosition.toString()
+      'card-position': getPosition(cardPosition)
     });
   }
 
-  trackUnvote = (proposalId: string, nature: string, cardPosition: number) => {
+  trackUnvote = (proposalId: string, nature: string, cardPosition?: number) => {
     this.track(trackingConstants.CLICK_PROPOSAL_UNVOTE, {
       proposalId,
       nature,
-      'card-position': cardPosition.toString()
+      'card-position': getPosition(cardPosition)
     });
   }
 
@@ -168,7 +176,7 @@ class Tracking {
       proposalId,
       type,
       nature,
-      'card-position': cardPosition.toString()
+      'card-position': getPosition(cardPosition)
     });
   }
 
@@ -177,7 +185,7 @@ class Tracking {
       proposalId,
       type,
       nature,
-      'card-position': cardPosition.toString()
+      'card-position': getPosition(cardPosition)
     });
   }
 
