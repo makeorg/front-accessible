@@ -10,6 +10,7 @@ import configureStore from './store';
 import Logger from './services/Logger';
 import { env } from '../shared/env';
 import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
+import { initialStateDebug } from './initialState.debug';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -30,28 +31,7 @@ let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
 if (!process.env.NODE_ENV || env.isDev()) {
-  initialState = {
-    appConfig: {
-      source: 'core',
-      language: 'fr',
-      country: 'FR',
-      translations: require('../server/staticData/i18n/fr-FR.json')
-    },
-    sequence: {
-      question: {
-        questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',
-        operationId: '65dfe694-2ea9-486b-8bc5-3107316fa6ff'
-      },
-      votedProposalIds: []
-    },
-    user: {
-      passwordRecovery: {
-        validToken: true,
-        resetToken: 'A888FA89B99A6A42DE1566940C4154B26CBEEF82',
-        userId: 'f05665a2-b36b-42c3-89a9-344e8f41fe19'
-      }
-    }
-  };
+  initialState = initialStateDebug;
 }
 
 const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
