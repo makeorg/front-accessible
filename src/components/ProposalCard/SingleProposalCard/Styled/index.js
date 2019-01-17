@@ -3,7 +3,7 @@ import { pxToRem } from 'Helpers/styled';
 import { BasicColors, TextColors, ShadowColors } from 'Assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
 import { MakeFonts } from 'Assets/vars/Fonts';
-import { MiddleColumn, ColumnElement, MiddleColumnToRow } from 'Components/Elements/FlexElements';
+import { MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
 import { Large, SeparatorStyle } from 'Components/Elements/Separators';
 import { SmallRedButton } from 'Components/Elements/ButtonElements';
 import { Proposal } from 'Components/ProposalCard/Styled/Proposal';
@@ -53,10 +53,9 @@ export const FooterContent = styled(MiddleColumnToRow)`
   width: 100%;
 `;
 
-export const Description = styled(ColumnElement)`
+export const Description = styled.p`
   width: 100%;
   max-width: ${pxToRem('650px')};
-  align-items: flex-start;
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('13px;')};
   > span {
@@ -64,7 +63,7 @@ export const Description = styled(ColumnElement)`
     color: ${props => props.theme.color};
   }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    align-items: flex-end;
+    text-align: right;
     font-size: ${pxToRem('16px;')};
   }
 `;

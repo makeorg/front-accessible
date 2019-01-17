@@ -44,7 +44,6 @@ export const SingleProposalCardComponent = (props: Props) => {
         <SingleProposal.ContentSeparator />
         <SingleProposal.FooterContent>
           <SingleProposal.Description
-            as="p"
             dangerouslySetInnerHTML={
               {
                 __html: i18next.t(
