@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
+import type { FinalCardConfig, FinalCardWording } from 'Types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarComponent from '../ProgressBar';
@@ -10,6 +11,10 @@ import { More } from './More';
 import ProposalCard from '../Styled';
 
 type Props = {
+  /** Object with Static properties used to configure the Final Card */
+  finalCardConfig: FinalCardConfig,
+  /** Object with Static properties used to customise the wording of the Final Card */
+  finalCardWording: FinalCardWording,
   /** Total of cards */
   cardsCount: number,
   /** Index of the card */
@@ -72,9 +77,9 @@ const FinalCardComponent = (props: Props) => {
       </ProposalCard.BackButtonWrapper>
       <ProposalCard.ContentWrapper>
         <ProposalCard.InnerContent as="section">
-          <FinalTitle title={finalCardConfig.customTitle && finalCardWording.title} />
+          {finalCardConfig.customTitle ? <FinalTitle title={finalCardWording.title} /> : <FinalTitle />}
           <ProposalCard.FinalCardContentWrapper>
-            <Sharing wording={finalCardConfig.withSharing && finalCardWording.share} />
+            {finalCardConfig.withSharing && <Sharing wording={finalCardWording.share} />}
             <More
               configuration={finalCardConfig}
               wording={finalCardWording}

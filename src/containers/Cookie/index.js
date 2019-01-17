@@ -9,12 +9,16 @@ type Props = {
   cookies: Cookies
 };
 
+type State = {
+  hasAccespted: boolean
+};
+
 const acceptCookieName: string = 'make-cookie';
 /**
  * Renders Cookie Banner container
  */
-export class CookieBanner extends React.Component<Props> {
-  constructor(props) {
+export class CookieBanner extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     const { cookies } = props;
 

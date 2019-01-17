@@ -8,7 +8,7 @@ import * as CookieBanner from './Styled';
 /**
  * Renders Cookie Banner component
  */
-export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }) => (
+export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }: { cguLink: string, policyLink: string, handleClose: () => void }) => (
   <CookieBanner.Wrapper role="banner" aria-describedby="content_info">
     <CookieBanner.Content
       id="content_info"

@@ -4,8 +4,8 @@ export const getVoteKey = (voteKey: string, proposalId: string) => (
   `${voteKey}_${proposalId}`
 );
 
-export const getVoteButtonId = (voteKey: string, id: number) => (
-  `${voteKey}-${id}`
+export const getVoteButtonId = (voteKey: string, id?: number) => (
+  id ? `${voteKey}-${id}` : voteKey
 );
 
 const getNewVoteState = (prevState: Object, vote: Object) => {

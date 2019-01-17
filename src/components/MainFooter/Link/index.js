@@ -21,7 +21,8 @@ export const FooterLinkComponent = (props: Props) => {
     language,
     country
   } = props;
-  const Items = Object.values(Constants.footerItems);
+  // avoid any -> https://github.com/facebook/flow/issues/2221
+  const Items: Array<Constants.TypeFooterLink> = (Object.values(Constants.footerItems): any);
   return (
     <UnstyledList>
       {Items.map(Item => (

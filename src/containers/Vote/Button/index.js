@@ -13,12 +13,12 @@ type Props = {
   rotate: string,
   /** Tabindex for interactive items */
   tabIndex: number,
-  /** Method called when vote button is clicked */
+  /** Id of vote button */
   id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** Method called when vote button is clicked */
-  handleVote: Function
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
 }
 
 type State = {
@@ -34,14 +34,14 @@ class VoteButtonContainer extends React.Component<Props, State> {
     isTooltipDisplayed: false
   }
 
-  displayTooltip = (event) => {
+  displayTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: true
     });
   }
 
-  hideTooltip = (event) => {
+  hideTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: false
@@ -53,8 +53,8 @@ class VoteButtonContainer extends React.Component<Props, State> {
       <VoteButtonComponent
         {...this.props}
         {...this.state}
-        displayTooltip={this.displayTooltip}
-        hideTooltip={this.hideTooltip}
+        displayTooltip={event => this.displayTooltip(event)}
+        hideTooltip={event => this.hideTooltip(event)}
       />
     );
   }

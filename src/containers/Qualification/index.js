@@ -11,7 +11,7 @@ type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Index of the card */
-  index: number,
+  index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Voted key property */
@@ -27,6 +27,10 @@ type State = {
  * Handles Qualification Business Logic
  */
 class QualificationContainer extends React.Component<Props, State> {
+  static defaultProps = {
+    index: undefined
+  };
+
   constructor(props: Props) {
     super(props);
     this.state = {

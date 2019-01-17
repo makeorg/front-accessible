@@ -5,7 +5,7 @@ import ProposalCard from '../../Styled';
 
 type Props = {
   /** Object with description paragraphs */
-  description: Array<string>
+  description?: Array<string>
 }
 
 /**
@@ -39,6 +39,10 @@ const IntroDescription = (props: Props) => {
       )}
     </React.Fragment>
   );
+};
+
+IntroDescription.defaultProps = {
+  description: undefined
 };
 
 export default IntroDescription;

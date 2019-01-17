@@ -9,12 +9,17 @@ import type {
   FinalCardWording
 } from 'Types/card';
 
+import type {
+  Proposal
+} from 'Types/proposal';
+
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,
   pushProposal: PushProposalCardConfig,
   signUpCard: SignUpCardConfig,
   finalCard: FinalCardConfig
 }
+
 
 export type ExtraSlidesWording = {
   introCard: IntroCardWording,
@@ -55,7 +60,22 @@ export type QuestionConfiguration = {
   sequenceSignUpForm: any,
 }
 
-export type Card = {
+export type ConfigurationTypes =
+  | IntroCardConfig
+  | PushProposalCardConfig
+  | SignUpCardConfig
+  | FinalCardConfig
+  | Proposal
+
+
+export type WordingTypes =
+  | IntroCardWording
+  | SignUpCardWording
+  | FinalCardWording
+
+export type CardType = {
   type: string,
-  configuration: mixed
+  configuration: ConfigurationTypes,
+  wording?: WordingTypes,
+  cardOffset?: number,
 }

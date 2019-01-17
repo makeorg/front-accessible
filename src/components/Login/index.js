@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
+import type { ErrorObject } from 'Types/form';
 import AuthentificationSocialContainer from 'Containers/Authentification/Social';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
 import { ExtraParagraph, ExtraAltParagraph } from 'Components/Elements/Form';
@@ -15,7 +16,7 @@ type Props = {
   /** User's password */
   password: string,
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Method called when field's value changes */
   handleChange: Function,
   /** Method called when field's value is submitted */
@@ -23,7 +24,7 @@ type Props = {
   /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean,
   /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: boolean,
+  togglePasswordIsDisplayed: () => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Register Component in Sliding Pannel */

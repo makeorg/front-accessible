@@ -1,5 +1,18 @@
 // @flow
-export const footerItems: Object = {
+
+export type TypeFooterLink = {
+  label: string;
+  linkUrl: string;
+}
+
+export type TypeFooterItems = {
+  gtu: TypeFooterLink;
+  contact: TypeFooterLink;
+  datapolicy: TypeFooterLink;
+  legal: TypeFooterLink;
+}
+
+export const footerItems: TypeFooterItems = {
   gtu: {
     label: 'main-footer.menu.item-2.label',
     linkUrl: 'https://about.make.org/terms-of-use'

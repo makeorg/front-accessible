@@ -2,13 +2,14 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
+import type { ErrorObject } from 'Types/form';
 import ForgotPasswordComponent from 'Components/ForgotPassword';
 import { forgotPassword } from 'Actions/forgotPassword';
 import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Boolean toggled when Form is succesfully submitted */
   isSuccess: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */

@@ -14,7 +14,9 @@ type Props = {
   /** Method called to track moderation text show */
   trackModerationText: () => {},
   /** Method called to track DescriptionLink */
-  trackModerationLink: Function
+  trackModerationLink: () => void,
+  /** Method called to track DescriptionText */
+  trackModerationText: () => void
 }
 
 /**

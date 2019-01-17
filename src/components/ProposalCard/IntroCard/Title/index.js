@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import ProposalCard from '../../Styled';
 
 type Props = {
-  title: string
+  title: boolean | string
 }
 
 /**

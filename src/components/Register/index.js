@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
+import type { UserObject, ErrorObject } from 'Types/form';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
 import * as Separators from 'Components/Elements/Separators';
 import { RedLinkButton } from 'Components/Elements/ButtonElements';
@@ -19,19 +20,21 @@ type Props = {
     postalcode: string,
     profession: string
   } */
-  user: userObject,
+  user: UserObject,
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Method called when field's value changes */
-  handleChange: () => void,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: () => void,
+  handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: () => void,
   /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean
+  passwordIsDisplayed: boolean,
+  /** Method called to show / encrypt password */
+  togglePasswordIsDisplayed: () => void
 }
 
 /**

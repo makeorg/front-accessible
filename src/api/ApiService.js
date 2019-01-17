@@ -23,6 +23,11 @@ axiosRetry(axios, {
   retryDelay: retryCount => retryCount * 100
 });
 
+type TypeToken = {
+  token_type: string;
+  access_token: string;
+}
+
 /**
  * handle error for http response
  * @param  {Object} response
@@ -47,26 +52,24 @@ export const handleErrors = (error: Object) => {
 let instance = null;
 
 class ApiService {
-  _language: ?string = '';
+  _language: string = '';
 
-  _country: ?string = '';
+  _country: string = '';
 
-  _operationId: ?string = '';
+  _operationId: string = '';
 
-  _questionId: ?string = '';
+  _questionId: string = '';
 
-  _source: ?string = '';
+  _source: string = '';
 
-  _sessionId: ?string = '';
+  _sessionId: string = '';
 
-  _token: ?string = '';
+  _token: TypeToken;
 
   constructor() {
     if (!instance) {
       instance = this;
     }
-
-    this._token = null;
 
     return instance;
   }
@@ -95,7 +98,7 @@ class ApiService {
     return this._operationId;
   }
 
-  set questionId(questionId) {
+  set questionId(questionId: string) {
     this._questionId = questionId;
   }
 
@@ -119,11 +122,11 @@ class ApiService {
     return this._sessionId;
   }
 
-  set token(token: Object) {
+  set token(token: TypeToken) {
     this._token = token;
   }
 
-  get token(): ?Object {
+  get token(): ?TypeToken {
     return this._token;
   }
 

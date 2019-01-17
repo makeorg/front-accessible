@@ -1,5 +1,12 @@
 // @flow
-import type { ExtraSlidesConfig, ExtraSlidesWording, Card } from 'Types/sequence';
+import type {
+  ExtraSlidesConfig,
+  ExtraSlidesWording,
+  CardType
+} from 'Types/sequence';
+import type {
+  Proposal
+} from 'Types/proposal';
 import {
   CARD_TYPE_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -39,16 +46,16 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
 /**
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
- * @param  {Array<Card>} cards
+ * @param  {Array<CardType>} cards
  * @return {number}
  */
-export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal: ?Object, cards: Array<Card>): number => {
+export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal?: Proposal, cards: Array<CardType>): number => {
   if (!firstUnvotedProposal) {
     return cards.length - 1;
   }
 
   const indexOfFirstUnvotedCard = cards.findIndex(card => (
-    card.type === CARD_TYPE_PROPOSAL && card.configuration.id === firstUnvotedProposal.id
+    card.type === CARD_TYPE_PROPOSAL && card.configuration.id === (firstUnvotedProposal && firstUnvotedProposal.id)
   ));
 
   // if no proposal is voted we return the index of intro cards
@@ -60,30 +67,29 @@ export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal: ?Object, cards
  * @param  {Array<Object>} proposals
  * @param  {ExtraSlidesConfig} extraSlidesConfig
  * @param  {ExtraSlidesWording} extraSlidesWording
- * @return {Array<Card>}
+ * @return {Array<CardType>}
  */
 export const buildCards = (
-  proposals: Array<Object>,
+  proposals: Array<Proposal>,
   extraSlidesConfig: ExtraSlidesConfig,
   extraSlidesWording: ExtraSlidesWording,
   isLoggedIn: boolean,
   hasProposed: boolean
-): Array<Card> => {
-  let cards: Array<Card> = proposals.map(proposal => ({
+): Array<CardType> => {
+  let cards: Array<CardType> = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
-    configuration: proposal,
-    wording: proposal
+    configuration: proposal
   }));
   let cardOffset = 0;
 
-  if ((extraSlidesConfig.pushProposal === true || extraSlidesConfig.pushProposal instanceof Object) && !hasProposed) {
+  if (extraSlidesConfig.pushProposal instanceof Object && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposal
     });
   }
 
-  if (extraSlidesConfig.introCard === true || extraSlidesConfig.introCard instanceof Object) {
+  if (extraSlidesConfig.introCard instanceof Object) {
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
@@ -93,7 +99,7 @@ export const buildCards = (
     cardOffset = 1;
   }
 
-  if ((extraSlidesConfig.signUpCard === true || extraSlidesConfig.signUpCard instanceof Object) && !isLoggedIn) {
+  if (extraSlidesConfig.signUpCard instanceof Object && !isLoggedIn) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
@@ -101,7 +107,7 @@ export const buildCards = (
     });
   }
 
-  if (extraSlidesConfig.finalCard === true || extraSlidesConfig.finalCard instanceof Object) {
+  if (extraSlidesConfig.finalCard instanceof Object) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,

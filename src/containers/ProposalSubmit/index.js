@@ -109,12 +109,10 @@ export class ProposalSubmit extends React.Component<Props, State> {
 
   trackModerationText = () => {
     Tracking.trackDisplayModerationText();
-    return this;
   }
 
   trackModerationLink = () => {
     Tracking.trackClickModerationLink();
-    return this;
   }
 
   render() {

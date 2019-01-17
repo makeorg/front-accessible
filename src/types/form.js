@@ -8,3 +8,8 @@ export type UserObject = {
   postalcode: string,
   profession: string
 }
+
+export type ErrorObject = {
+  field: string,
+  message: string
+}

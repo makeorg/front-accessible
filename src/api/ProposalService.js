@@ -18,7 +18,7 @@ export default class ProposalService {
     });
   }
 
-  static getProposal(proposalId) {
+  static getProposal(proposalId: string) {
     return ApiService.callApi(PATH_PROPOSAL_GET.replace(':proposalId', proposalId), {
       method: 'GET'
     });

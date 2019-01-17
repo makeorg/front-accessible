@@ -1,21 +1,22 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+import type { ErrorObject } from 'Types/form';
 import LoginComponent from 'Components/Login';
 import { login } from 'Actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from 'Actions/pannel';
 
 type Props = {
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Register Component in Sliding Pannel */
-  handleRegisterPannel: Function,
+  handleRegisterPannel: () => void,
   /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotPasswordPannel: Function,
+  handleForgotPasswordPannel: () => void,
   /** Method called to submit Login Form */
-  handleLogin: Function
+  handleLogin: (string, string) => void
 }
 
 type State = {

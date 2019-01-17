@@ -3,6 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import type { ErrorObject } from 'Types/form';
 import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
 import {
   FormErrors,
@@ -15,7 +16,7 @@ type Props = {
   /** User email value */
   email: string,
   /** Array with form errors */
-  errors: Array<string>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: Function,
   /** Method called when field's value is submitted */
@@ -41,7 +42,7 @@ const ForgotPasswordFormComponent = (props: Props) => {
       {errors.length > 0
         && (
           <FormErrors>
-            {errors.map(error => <FormError key={error}>{error}</FormError>)}
+            {errors.map((error: ErrorObject) => <FormError key={error.field}>{error}</FormError>)}
           </FormErrors>
         )
       }

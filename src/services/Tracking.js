@@ -7,12 +7,12 @@ import { PATH_POST_TRACKING } from 'Constants/paths';
 
 const
   PARENT_URL = typeof window
-  !== 'undefined' && window && window.parent && document
-  && document.location && (window.location !== window.parent.location)
+    !== 'undefined' && window && window.parent && document
+    && document.location && (window.location !== window.parent.location)
     ? document.referrer : document.location.href;
 
 
-const getPosition = (cardPosition: number) => {
+const getPosition = (cardPosition?: number) => {
   if (cardPosition !== undefined) {
     return cardPosition.toString();
   }
@@ -171,7 +171,7 @@ class Tracking {
   }
 
   /* Qualifications */
-  trackQualify = (proposalId: string, type: string, nature: string, cardPosition: number) => {
+  trackQualify = (proposalId: string, type: string, nature: string, cardPosition?: number) => {
     this.track(trackingConstants.CLICK_PROPOSAL_QUALIFY, {
       proposalId,
       type,
@@ -180,7 +180,7 @@ class Tracking {
     });
   }
 
-  trackUnqualify = (proposalId: string, type: string, nature: string, cardPosition: number) => {
+  trackUnqualify = (proposalId: string, type: string, nature: string, cardPosition?: number) => {
     this.track(trackingConstants.CLICK_PROPOSAL_UNQUALIFY, {
       proposalId,
       type,

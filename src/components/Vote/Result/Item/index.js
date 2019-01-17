@@ -6,16 +6,16 @@ import { HiddenOnMobile, HiddenOnDesktop } from 'Components/Elements/HiddenEleme
 import { Bar, GraphItem } from '../Styled/Graph';
 
 type Props = {
-  /** Method to set key for list element */
-  listKey: Function,
+  /** id to set key for list element */
+  listKey: string,
   /** Method to set key for bar element */
-  barKey: Function,
+  barKey: string,
   /** Method to set key for tooltip element */
-  tooltipKey: Function,
+  tooltipKey: string,
   /** Vote key's color */
   voteColor: string,
   /** Vote key's percentage */
-  votePercent: Object,
+  votePercent: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Vote key */
