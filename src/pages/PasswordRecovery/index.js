@@ -8,7 +8,7 @@ import { PasswordRecoveryWrapper, PasswordRecoveryContent } from './Styled';
 
 type Props = {
   passwordRecovery: Object,
-  location: Object,
+  question: Object,
   match: Object
 };
 
@@ -19,12 +19,10 @@ export class PasswordRecovery extends React.Component<Props> {
 
 
     if (!validToken) {
-      const { location, match } = this.props;
-      const params = new URLSearchParams(location.search);
-      const questionSlug = params.get('questionSlug');
-      const redirectPath = !questionSlug
+      const { question, match } = this.props;
+      const redirectPath = !question
         ? `/${match.params.countryLanguage}`
-        : `/${match.params.countryLanguage}/consultation/${questionSlug}/selection`;
+        : `/${match.params.countryLanguage}/consultation/${question.slug}/selection`;
 
       return (
         <Redirect path="/:countryLanguage/password-recovery/:userId/:resetToken" to={redirectPath} />
@@ -44,7 +42,8 @@ export class PasswordRecovery extends React.Component<Props> {
 
 const mapStateToProps = (state) => {
   const { passwordRecovery } = state.user;
-  return { passwordRecovery };
+  const { question } = state.sequence;
+  return { passwordRecovery, question };
 };
 
 export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecovery));
