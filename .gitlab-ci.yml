@@ -17,6 +17,13 @@ lint:
     - yarn install
     - yarn lint
 
+flow-static:
+  stage: check
+  image: node:10.9.0
+  script:
+    - yarn install
+    - yarn flow
+
 test:
   stage: check
   image: node:10.9.0-alpine

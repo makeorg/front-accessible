@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { IntroCardConfig, introCardWording } from 'Types/card';
+import type { IntroCardConfig, IntroCardWording } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -16,13 +16,17 @@ type Props = {
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
   /** Object with Static properties used to customise the wording of the Intro Card */
-  wording: introCardWording,
+  wording: IntroCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Tabindex for interactive items */
   tabIndex: number,
+  /** Position of the card */
+  position: number,
+  /** Scale property used by Styled Component */
+  scale: number,
   /** Zindex property used by Styled Component */
   zindex: number,
   /** Method called when button is clicked */
@@ -57,7 +61,7 @@ const IntroCardComponent = (props: Props) => {
         <IntroTitle title={configuration.customTitle && wording.title} />
       </header>
       <Small aria-hidden />
-      <IntroDescription description={configuration.customDescription && wording.description} />
+      {configuration.customDescription ? <IntroDescription description={wording.description} /> : <IntroDescription />}
       <ProposalCard.IntroButton
         id="sequence-start-sequence-button"
         tabIndex={tabIndex}

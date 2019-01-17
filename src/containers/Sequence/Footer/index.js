@@ -5,8 +5,6 @@ import { SequenceFooterComponent } from 'Components/Sequence/Footer';
 import Tracking from 'Services/Tracking';
 
 type Props = {
-  /** Object with Translations */
-  operationTranslation: Object,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: Object
 };

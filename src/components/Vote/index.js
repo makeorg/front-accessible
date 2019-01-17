@@ -12,7 +12,7 @@ type VoteButtonsProps = {
   /** Proposal's Id */
   proposalId: string,
   /** Index of the card */
-  index: number,
+  index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when vote button is clicked */
@@ -49,7 +49,7 @@ type VoteProps = {
   /** Proposal's Id */
   proposalId: string,
   /** Index of the card */
-  index: number,
+  index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when vote button is clicked */
@@ -82,6 +82,10 @@ const VoteComponent = (props: VoteProps) => {
       </Vote.Wrapper>
     </Vote>
   );
+};
+
+VoteComponent.defaultProps = {
+  index: undefined
 };
 
 export default VoteComponent;

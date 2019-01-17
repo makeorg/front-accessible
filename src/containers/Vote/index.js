@@ -26,7 +26,11 @@ type Props = {
   /** Incremented / Decremented Index */
   currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard?: () => void
+  goToNextCard?: () => void,
+  /** Method called on vote */
+  handleVoteOnSequence: (string) => void,
+  /** Method called on unvote */
+  handleUnvoteOnSequence: (string) => void,
 };
 
 type State = {
@@ -129,7 +133,7 @@ export class Vote extends React.Component<Props, State> {
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
           </VoteStyled>
-          { index !== undefined
+          {index !== undefined
             && (
               <NextButton
                 tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}

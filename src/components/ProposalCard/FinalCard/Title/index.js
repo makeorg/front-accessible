@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import ProposalCard from '../../Styled';
 
 type Props = {
-  title: string
+  title?: string
 }
 
 /**
@@ -28,4 +28,7 @@ const FinalTitle = (props: Props) => {
   );
 };
 
+FinalTitle.defaultProps = {
+  title: undefined
+};
 export default FinalTitle;

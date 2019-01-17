@@ -4,7 +4,7 @@ import ProposalCard from '../../Styled';
 
 type Props = {
   /** String with extraLogo image path */
-  extraLogo: string
+  extraLogo: boolean | string
 }
 
 /**

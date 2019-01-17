@@ -12,7 +12,7 @@ type Props = {
   /** Method called when next card button is clicked */
   skipSignUpCard: () => void,
   /** Special wording for next card button */
-  wording: string
+  wording: boolean | string
 }
 
 /**

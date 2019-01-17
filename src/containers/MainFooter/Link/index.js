@@ -5,9 +5,9 @@ import { FooterLinkComponent } from 'Components/MainFooter/Link';
 
 type Props = {
   /** String with Language value */
-  language: String,
+  language: string,
   /** String with Country value */
-  country: String
+  country: string
 };
 
 /**

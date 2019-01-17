@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import type { UserObject } from 'Types/register';
+import type { UserObject, ErrorObject } from 'Types/form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -35,16 +35,16 @@ type Props = {
   } */
   user: UserObject,
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
-  /** Boolean toggled when password shown / hidden */
-  togglePasswordIsDisplayed: boolean,
+  handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called to show / encrypt password */
+  togglePasswordIsDisplayed: () => void,
+  /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean
 }
 

@@ -27,8 +27,8 @@ export const fetchQuestionData = (questionSlug: string) => (dispatch: Function) 
     })
 );
 
-export const fetchQuestionConfigurationData = (questionSlug: string, country: string) => (dispatch: Function) => (
-  SequenceService.fetchConfiguration(questionSlug, country)
+export const fetchQuestionConfigurationData = (questionSlug: string) => (dispatch: Function) => (
+  SequenceService.fetchConfiguration(questionSlug)
     .then((questionConfiguration) => {
       dispatch({ type: actionTypes.QUESTION_CONFIGURATION_LOAD, questionConfiguration });
     })

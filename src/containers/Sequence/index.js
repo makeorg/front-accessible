@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import type { Props as SequenceProps } from 'Components/Sequence';
 import SequenceComponent from 'Components/Sequence';
 import SequencePlaceholderComponent from 'Components/Sequence/SequencePlaceholder';
 import QuestionService from 'Api/QuestionService';
@@ -9,7 +10,8 @@ import { sequenceExpand } from 'Actions/sequence';
 import * as ProposalHelper from 'Helpers/proposal';
 import * as SequenceHelper from 'Helpers/sequence';
 import Tracking from 'Services/Tracking';
-import type { ExtraSlidesConfig, ExtraSlidesWording } from 'Types/sequence';
+import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Types/sequence';
+import type { Proposal } from 'Types/proposal';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
@@ -20,6 +22,8 @@ export const incrementCurrentIndex = (prevState: Object) => ({
 });
 
 type Props = {
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: Object,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
@@ -42,7 +46,7 @@ type Props = {
 
 type State = {
   /** Array with cards of the sequence */
-  cards: Array<mixed>,
+  cards: Array<CardType>,
   /** Array with proposals received from Api */
   proposals: Array<mixed>,
   /** Number of proposals */
@@ -55,20 +59,27 @@ type State = {
   isSequenceLoaded: boolean
 };
 
+type ContainerProps = {
+  isSequenceLoaded: boolean,
+  isSequenceCollapsed: boolean,
+  expandSequence: () => void
+}
+
 const Sequence = ({
   cards,
   cardsCount,
+  cardOffset,
   currentIndex,
   isSequenceCollapsed,
-  expandSequence,
   isPannelOpen,
   handleStartSequence,
   goToNextCard,
   skipSignUpCard,
   skipProposalPushCard,
   goToPreviousCard,
+  expandSequence,
   isSequenceLoaded
-}) => {
+}: SequenceProps & ContainerProps) => {
   if (isSequenceLoaded) {
     return (
       <CSSTransition
@@ -81,6 +92,7 @@ const Sequence = ({
           cards={cards}
           cardsCount={cardsCount}
           currentIndex={currentIndex}
+          cardOffset={cardOffset}
           isSequenceCollapsed={isSequenceCollapsed}
           handleExpandSequence={expandSequence}
           isPannelOpen={isPannelOpen}
@@ -155,8 +167,8 @@ class SequenceContainer extends React.Component<Props, State> {
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlidesConfig;
     const extraSlidesWording: ExtraSlidesWording = questionConfiguration.sequenceExtraSlidesWording;
-    const votedFirstProposals: Array<Object> = ProposalHelper.sortProposalsByVoted(proposals);
-    const cards: Array<mixed> = SequenceHelper.buildCards(
+    const votedFirstProposals: Array<Proposal> = ProposalHelper.sortProposalsByVoted(proposals);
+    const cards: Array<CardType> = SequenceHelper.buildCards(
       votedFirstProposals,
       extraSlidesConfig,
       extraSlidesWording,
@@ -164,12 +176,12 @@ class SequenceContainer extends React.Component<Props, State> {
       hasProposed
     );
 
-    const firstUnvotedProposal: ?Objet = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
+    const firstUnvotedProposal: void | Proposal = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
     const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(firstUnvotedProposal, cards);
     const currentIndex: number = (indexOfFirstUnvotedCard === 0 && hasStarted) ? 1 : indexOfFirstUnvotedCard;
 
     this.setState({
-      proposals: votedFirstProposals,
+      proposals,
       cards,
       currentIndex,
       cardsCount: cards.length - 1,
@@ -211,6 +223,7 @@ class SequenceContainer extends React.Component<Props, State> {
   }
 
   render() {
+    const { cardOffset } = this.props;
     return (
       <Sequence
         expandSequence={this.expandSequence}
@@ -219,6 +232,7 @@ class SequenceContainer extends React.Component<Props, State> {
         skipSignUpCard={this.skipSignUpCard}
         skipProposalPushCard={this.skipProposalPushCard}
         goToPreviousCard={this.goToPreviousCard}
+        cardOffset={cardOffset}
         {...this.state}
         {...this.props}
       />

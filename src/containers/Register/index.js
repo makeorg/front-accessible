@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import type { UserObject } from 'Types/register';
+import type { UserObject, ErrorObject } from 'Types/form';
 import { connect } from 'react-redux';
 import { register } from 'Actions/registration';
 import RegisterComponent from 'Components/Register';
@@ -9,7 +9,7 @@ import { pannelShowLogin } from 'Actions/pannel';
 
 type Props = {
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
@@ -84,8 +84,8 @@ class RegisterContainer extends React.Component<Props, State> {
       <RegisterComponent
         user={user}
         errors={errors}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
+        handleChange={event => this.handleChange(event)}
+        handleSubmit={event => this.handleSubmit(event)}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleLoginPannel={handleLoginPannel}

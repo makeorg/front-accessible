@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { IntroCardConfig, introCardWording } from 'Types/card';
+import type { IntroCardConfig, IntroCardWording } from 'Types/card';
 import IntroCardComponent from 'Components/ProposalCard/IntroCard';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
 
@@ -9,7 +9,7 @@ type Props = {
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
   /** Object with Static properties used to customise the wording of the Intro Card */
-  wording: introCardWording,
+  wording: IntroCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */

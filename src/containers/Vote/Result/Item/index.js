@@ -1,12 +1,13 @@
 /* @flow */
 import * as React from 'react';
+import type { VotesPercentObject } from 'Types/proposal';
 import ResultItemComponent from 'Components/Vote/Result/Item';
 import * as VoteResultHelper from 'Helpers/voteResult';
 import { getVoteKey } from 'Helpers/vote';
 
 type Props = {
   /** Object with votes percentage results */
-  votesPercent: Object,
+  votesPercent: VotesPercentObject,
   /** Object with static vote properties (color, label, ...) */
   voteStaticParams: Object,
   /** Proposal Id */
@@ -26,18 +27,14 @@ type State = {
  * Handles Result Item Business Logic
  */
 class ResultItemContainer extends React.Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       isTooltipDisplayed: false
     };
-
-    this.toggleTooltip = this.toggleTooltip.bind(this);
-    this.displayTooltip = this.displayTooltip.bind(this);
-    this.hideTooltip = this.hideTooltip.bind(this);
   }
 
-  toggleTooltip(event) {
+  toggleTooltip = (event: SyntheticEvent<>) => {
     const { isTooltipDisplayed } = this.state;
     event.preventDefault();
     if (isTooltipDisplayed) {
@@ -51,14 +48,14 @@ class ResultItemContainer extends React.Component<Props, State> {
     }
   }
 
-  displayTooltip(event) {
+  displayTooltip = (event: SyntheticEvent<>) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: true
     });
   }
 
-  hideTooltip(event) {
+  hideTooltip = (event: SyntheticEvent<>) => {
     event.preventDefault();
     this.setState({
       isTooltipDisplayed: false

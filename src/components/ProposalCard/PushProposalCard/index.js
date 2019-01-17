@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { pushProposalCardConfig } from 'Types/card';
+import type { PushProposalCardConfig } from 'Types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ import ProposalCard from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
-  proposalCardConfig: pushProposalCardConfig,
+  proposalCardConfig: PushProposalCardConfig,
   /** Index of the card */
   index: number,
   /** Tabindex for interactive items */

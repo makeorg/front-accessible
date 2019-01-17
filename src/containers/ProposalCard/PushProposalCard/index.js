@@ -1,19 +1,21 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { pushProposalCardConfig } from 'Types/card';
+import type { PushProposalCardConfig } from 'Types/card';
 import PushProposalCardComponent from '../../../components/ProposalCard/PushProposalCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
-  configuration: pushProposalCardConfig,
+  configuration: PushProposalCardConfig,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Total of cards */
   cardsCount: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
   /** Method called when next card button is clicked  */
@@ -28,12 +30,7 @@ type Props = {
  * Handles Push Proposal Card Business Logic
  */
 class PushProposalCardContainer extends React.Component<Props> {
-  constructor() {
-    super();
-    this.focusProposalField = this.focusProposalField.bind(this);
-  }
-
-  focusProposalField() {
+  focusProposalField = () => {
     const proposalInput = document.getElementById('proposal');
     if (proposalInput !== null) {
       proposalInput.focus();

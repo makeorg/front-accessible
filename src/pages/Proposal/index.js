@@ -8,14 +8,16 @@ import type { QuestionConfiguration } from 'Types/sequence';
 import { fetchProposalData } from 'Actions/proposal';
 import { fetchQuestionConfigurationData } from 'Actions/sequence';
 import MetaTags from 'Components/MetaTags';
+import { match as TypeMatch } from 'react-router';
 import { MiddlePageWrapper } from 'Components/Elements/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
   proposal: Proposal,
   questionConfiguration: QuestionConfiguration,
-  fetchProposal: () => void,
-  fetchQuestionConfiguration: () => void
+  fetchProposal: (proposalId: string) => void,
+  fetchQuestionConfiguration: (questionSlug: string) => void,
+  match: TypeMatch
 };
 
 class ProposalPage extends React.Component<Props> {
@@ -74,10 +76,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchProposal: (proposalId: String) => {
+  fetchProposal: (proposalId: string) => {
     dispatch(fetchProposalData(proposalId));
   },
-  fetchQuestionConfiguration: (questionSlug: String) => {
+  fetchQuestionConfiguration: (questionSlug: string) => {
     dispatch(fetchQuestionConfigurationData(questionSlug));
   }
 });

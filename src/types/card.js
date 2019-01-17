@@ -6,11 +6,12 @@ export type PartnerItem = {
 }
 
 export type IntroCardConfig = {
-  title: boolean,
-  description: boolean,
+  customTitle: boolean,
+  customDescription: boolean,
   partners: Array<PartnerItem>,
   inPartnershipWith: boolean,
-  extraLogo: boolean
+  extraLogo: boolean,
+  id?: ?string
 }
 
 export type IntroCardWording = {
@@ -19,12 +20,14 @@ export type IntroCardWording = {
 }
 
 export type PushProposalCardConfig = {
-  extraLogo: string
+  extraLogo: string,
+  id?: ?string
 }
 
 export type SignUpCardConfig = {
   customTitle: boolean,
-  customNextCTA: boolean
+  customNextCTA: boolean,
+  id?: ?string
 }
 
 export type SignUpCardWording = {
@@ -35,7 +38,8 @@ export type SignUpCardWording = {
 export type FinalCardConfig = {
   customTitle: boolean,
   linkUrl: string,
-  withSharing: boolean
+  withSharing: boolean,
+  id?: ?string
 }
 
 export type FinalCardWording = {

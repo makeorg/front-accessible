@@ -1,33 +1,36 @@
 /* @flow */
 import * as React from 'react';
 import * as sequenceHelper from 'Helpers/sequence';
+import type { CardType } from 'Types/sequence';
 import CollapseToggle from './Button';
 import Card from './Card';
 import Sequence from './Styled';
 
-type Props = {
+export type Props = {
   /** Number of cards */
   cardsCount: number,
   /** Array with cards */
-  cards: Array<mixed>,
+  cards: Array<CardType>,
   /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Offset of cards without pagination (introCard) */
+  cardOffset: number,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleExpandSequence: Function,
+  handleExpandSequence: () => void,
   /** Method called when "Stard Sequence" button is clicked */
-  handleStartSequence: Function,
+  handleStartSequence: () => void,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: Function,
+  goToNextCard: () => void,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
+  goToPreviousCard: () => void,
   /** Method called when next button in Sign Up Card is clicked  */
-  skipSignUpCard: Function,
+  skipSignUpCard: () => void,
   /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: Function
+  skipProposalPushCard: () => void
 };
 
 /**
@@ -45,7 +48,8 @@ const SequenceComponent = (props: Props) => {
     goToPreviousCard,
     goToNextCard,
     skipSignUpCard,
-    skipProposalPushCard
+    skipProposalPushCard,
+    cardOffset
   } = props;
 
   if (!cards) {
@@ -71,6 +75,7 @@ const SequenceComponent = (props: Props) => {
               card={card}
               index={index}
               cardsCount={cardsCount}
+              cardOffset={cardOffset}
               currentIndex={currentIndex}
               goToPreviousCard={goToPreviousCard}
               goToNextCard={goToNextCard}

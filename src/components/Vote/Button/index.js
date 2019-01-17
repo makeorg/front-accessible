@@ -16,12 +16,18 @@ type Props = {
   rotate: string,
   /** Tabindex for interactive items */
   tabIndex: number,
-  /** Method called when vote button is clicked */
+  /** Id of vote button */
   id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
+  /** Boolean Toggle when Tooltip is shown / hidden */
+  isTooltipDisplayed?: boolean,
+  /** Method called onMouseLeave to hide Tooltip */
+  hideTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
+  /** Method called onMouseEnter to  show Tooltip */
+  displayTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
-  handleVote: Function
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
 }
 
 /**
@@ -37,7 +43,6 @@ const VoteButtonComponent = (props: Props) => {
     id,
     buttonType,
     handleVote,
-    tooltipKey,
     displayTooltip,
     hideTooltip,
     isTooltipDisplayed
@@ -60,7 +65,6 @@ const VoteButtonComponent = (props: Props) => {
       </Button>
       <HiddenOnMobile>
         <BottomTooltip
-          id={tooltipKey}
           as={isTooltipDisplayed ? DisplayedTooltip : ''}
           aria-hidden={!isTooltipDisplayed}
           role="tooltip"
@@ -70,6 +74,12 @@ const VoteButtonComponent = (props: Props) => {
       </HiddenOnMobile>
     </ButtonWrapper>
   );
+};
+
+VoteButtonComponent.defaultProps = {
+  isTooltipDisplayed: false,
+  hideTooltip: undefined,
+  displayTooltip: undefined
 };
 
 export default VoteButtonComponent;

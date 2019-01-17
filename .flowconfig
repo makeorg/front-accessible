@@ -22,5 +22,6 @@ module.name_mapper='^Helpers' ->'<PROJECT_ROOT>/src/helpers'
 module.name_mapper='^Pages' ->'<PROJECT_ROOT>/src/pages'
 module.name_mapper='^Services' ->'<PROJECT_ROOT>/src/services'
 module.name_mapper='^Types' ->'<PROJECT_ROOT>/src/types'
+module.name_mapper='^Shared' ->'<PROJECT_ROOT>/shared'
 
 [strict]

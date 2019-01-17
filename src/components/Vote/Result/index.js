@@ -1,6 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
+import type { VotesPercentObject } from 'Types/proposal';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
 import ResultItemContainer from 'Containers/Vote/Result/Item';
 import voteStaticParams from 'Constants/vote';
@@ -9,8 +10,8 @@ import VoteResult from './Styled';
 import { UnvoteButton } from '../Styled/Button';
 
 type Props = {
-  /** Method used to calculate percentage of votes */
-  votesPercent: Function,
+  /** Object with votes percentage results */
+  votesPercent: VotesPercentObject,
   /** Number of votes */
   votesCount: number,
   /** Voted key property */
@@ -18,9 +19,11 @@ type Props = {
   /** Proposal's ID */
   proposalId: string,
   /** Method called when vote button is clicked */
-  handleVote: Function,
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
   /** Tabindex for interactive items */
-  tabIndex: number
+  tabIndex: number,
+  /** Id of vote button */
+  id: string
 }
 
 /**
@@ -33,7 +36,8 @@ const VoteResultComponent = (props: Props) => {
     votedKey,
     proposalId,
     handleVote,
-    tabIndex
+    tabIndex,
+    id
   } = props;
   const voteKeys = Object.keys(voteStaticParams);
 
@@ -41,6 +45,7 @@ const VoteResultComponent = (props: Props) => {
     <VoteResult>
       <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
       <VoteButtonComponent
+        id={id}
         color={voteStaticParams[votedKey].color}
         label={i18next.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}

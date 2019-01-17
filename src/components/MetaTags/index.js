@@ -6,11 +6,11 @@ import { Title, Meta } from 'react-head';
 
 type Props = {
   /** String used for title tag in header */
-  title: ?String,
+  title?: string,
   /** String used for description tag in header */
-  description: ?String,
+  description?: string,
   /** String used for image itemprop meta tag in header */
-  picture: ?String,
+  picture?: string,
 };
 
 const MetaTags = (props: Props) => {
@@ -33,6 +33,12 @@ const MetaTags = (props: Props) => {
       <Meta property="twitter:image" content={picture || i18next.t('meta.home.picture')} />
     </React.Fragment>
   );
+};
+
+MetaTags.defaultProps = {
+  title: undefined,
+  description: undefined,
+  picture: undefined
 };
 
 export default MetaTags;

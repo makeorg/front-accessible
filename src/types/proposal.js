@@ -1,20 +1,36 @@
+
 // @flow
+export type Qualifications = {
+};
 
 export type Author = {
-  age: number,
-  avatarUrl: string,
   firstName: string,
   organisationName: string,
   organisationSlug: string,
-  postalCode: number
-}
-
-type Context = {
-  location: string,
-  operation: string,
-  question: string,
-  source: string,
+  postalCode: string,
+  age: number,
+  avatarUrl: string
 };
+
+export type Context = {
+  operation: string,
+  source: string,
+  location: string,
+  question: string
+};
+
+export type Votes = {
+  voteKey: string,
+  count: number,
+  qualifications: Qualifications[],
+  hasVoted: boolean
+};
+
+export type VotesPercentObject = {
+  agree: number,
+  disagree: number,
+  neutral: number
+}
 
 export type Proposal = {
   id: string,
@@ -24,18 +40,18 @@ export type Proposal = {
   status: string,
   createdAt: string,
   updatedAt: string,
-  votes: any,
+  votes: Votes[],
   context: Context,
   trending: string,
-  labels: any,
+  labels: any[],
   author: Author,
-  organisations: any,
+  organisations: any[],
   country: string,
   language: string,
   themeId: string,
-  tags: any,
+  tags: any[],
   myProposal: boolean,
   idea: string,
   questionId: string,
-  operationId: string,
+  operationId: string
 };

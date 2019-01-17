@@ -42,14 +42,14 @@ class PasswordRecovery extends React.Component<Props, State> {
     }));
   }
 
-  handleChange = (event) => {
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const password = event.target.value;
     this.setState({
       password
     });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const { password } = this.state;

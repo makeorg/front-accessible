@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
+import type { ErrorObject } from 'Types/form';
 import { ExtraAltParagraph } from 'Components/Elements/Form';
 import { SecondLevelTitle, FourthLevelTtitle } from 'Components/Elements/TitleElements';
 import * as Separators from 'Components/Elements/Separators';
@@ -13,7 +14,7 @@ type Props = {
   /** User's email */
   email: string,
   /** Array with form errors */
-  errors: Array<string>,
+  errors: Array<ErrorObject>,
   /** Method called when field's value changes */
   handleChange: Function,
   /** Method called when field's value is submitted */

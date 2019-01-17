@@ -32,9 +32,9 @@ type Props = {
   /** Method called to show / encrypt password */
   togglePasswordIsDisplayed: () => void,
   /** Method called when field's value changes */
-  handleChange: () => void,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: () => void
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void
 };
 
 /**

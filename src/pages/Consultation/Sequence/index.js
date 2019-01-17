@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
 import MetaTags from 'Components/MetaTags';
 import { SequenceFooterContainer } from 'Containers/Sequence/Footer';
+import { match as TypeMatch } from 'react-router';
 import { SequencePageContent } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 
@@ -13,7 +14,9 @@ type Props = {
   question: Object,
   questionConfiguration: Object,
   fetchQuestion: Function,
-  fetchQuestionConfiguration: Function
+  fetchQuestionConfiguration: Function,
+  match: TypeMatch,
+  isSequenceCollapsed: boolean
 };
 
 class SequencePage extends React.Component<Props> {
@@ -80,10 +83,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuestionConfiguration: (questionSlug: String) => {
+  fetchQuestionConfiguration: (questionSlug: string) => {
     dispatch(fetchQuestionConfigurationData(questionSlug));
   },
-  fetchQuestion: (questionSlug: String) => {
+  fetchQuestion: (questionSlug: string) => {
     dispatch(fetchQuestionData(questionSlug));
   }
 });

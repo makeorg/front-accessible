@@ -1,6 +1,7 @@
 /* @flow */
 
 import i18next from 'i18next';
+import type { ErrorObject } from 'Types/form';
 
 
 export const errorTranslation = (apiError: string) => {
@@ -16,7 +17,7 @@ export const errorTranslation = (apiError: string) => {
   return translatedError;
 };
 
-export const fieldErrors = (field: string, errors: Array<Object>) => {
+export const fieldErrors = (field: string, errors: Array<ErrorObject>) => {
   if (errors.length === 0) {
     return null;
   }
