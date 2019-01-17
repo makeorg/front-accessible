@@ -12,12 +12,6 @@ export const PasswordRecoverySuccess = () => (
     <SecondLevelTitle id="password_recovery_title">
       {i18next.t('reset_password.success.title')}
     </SecondLevelTitle>
-    <Separators.Small />
-    <React.Fragment>
-      <FourthLevelTtitle>
-        {i18next.t('reset_password.success.info')}
-      </FourthLevelTtitle>
-    </React.Fragment>
   </React.Fragment>
 );
 
