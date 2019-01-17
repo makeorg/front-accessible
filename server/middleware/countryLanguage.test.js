@@ -8,7 +8,7 @@ describe('Country Language middelware', () => {
     it('return false when params is an invalid string', () => (
       Assert.equal(isCountryLanguage('foo'), false)
     ));
-    it('return false when params is FR-fr', () => (
+    it('return true when params is FR-fr', () => (
       Assert.equal(isCountryLanguage('FR-fr'), true)
     ));
     it('return false when params is fr-fr', () => (
@@ -28,9 +28,27 @@ describe('Country Language middelware', () => {
     afterEach(() => {
       sandbox.restore();
     });
-    it('add country and language into Request params', () => {
+    it('country Uppercase and language Lowercase into Request params', () => {
       const request = httpMocks.createRequest({
         params: { countryLanguage: 'FR-fr' }
+      });
+      const response = httpMocks.createResponse();
+      countryLanguageMiddleware(request, response, () => { });
+      expect(request.params.country).to.equal('FR');
+      expect(request.params.language).to.equal('fr');
+    });
+    it('country Lowercase and language Uppercase into Request params', () => {
+      const request = httpMocks.createRequest({
+        params: { countryLanguage: 'fr-FR' }
+      });
+      const response = httpMocks.createResponse();
+      countryLanguageMiddleware(request, response, () => { });
+      expect(request.params.country).to.equal('FR');
+      expect(request.params.language).to.equal('fr');
+    });
+    it('country Capitalize and language Capitalize into Request params', () => {
+      const request = httpMocks.createRequest({
+        params: { countryLanguage: 'Fr-Fr' }
       });
       const response = httpMocks.createResponse();
       countryLanguageMiddleware(request, response, () => { });

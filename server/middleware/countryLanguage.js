@@ -11,9 +11,12 @@ export const countryLanguageMiddleware = (req, res, next) => {
     return res.redirect('/FR-fr');
   }
 
-  const [country, language] = countryLanguage.split('-');
-  req.params.language = language;
+  const [countryRaw, languageRaw] = countryLanguage.split('-');
+  const language = languageRaw.toLowerCase();
+  const country = countryRaw.toUpperCase();
+
   req.params.country = country;
+  req.params.language = language;
 
   ApiService.country = country;
   ApiService.language = language;
