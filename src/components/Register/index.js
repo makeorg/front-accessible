@@ -64,7 +64,7 @@ const RegisterComponent = (props: Props) => {
       </ThirdLevelTtitle>
       <Separators.Wrapper>
         <Separators.Large />
-        <Separators.Text>ou</Separators.Text>
+        <Separators.Text>{i18next.t('register.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
       <ThirdLevelTtitle>
