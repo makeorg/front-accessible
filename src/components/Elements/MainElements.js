@@ -18,6 +18,7 @@ export const AppWrapper = styled(SpaceBetweenColumn)`
 export const MainContent = styled.main`
   position: relative;
   z-index: 0;
+  overflow: hidden;
 `;
 
 export const PageWrapper = styled(CenterColumn)`

@@ -58,8 +58,8 @@ const AppComponent = () => (
         />
         <Route component={NotFoundPage} />
       </Switch>
+      <PannelContainer />
     </MainContent>
-    <PannelContainer />
     <MainFooterComponent />
   </AppWrapper>
 );
