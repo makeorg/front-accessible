@@ -33,7 +33,7 @@ module.exports = async function passwordRecoveryRoute(req, res) {
       initialState.notification.status = status;
     }
 
-    if (!req.query.question) {
+    if (req.query.question) {
       const question = await getQuestion(req.query.question);
       if (question) {
         initialState.sequence.question = question;
