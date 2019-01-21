@@ -7,8 +7,7 @@ import {
 } from './Graph';
 
 const VoteResult = styled(CenterColumn)`
-    width: 100%;
-    max-width: ${pxToRem('62px')};
+    margin-right: ${pxToRem('10px')};
 `;
 
 /* Buttons */

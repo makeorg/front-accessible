@@ -4,9 +4,8 @@ import { pxToRem } from 'Helpers/styled';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 const Qualification = styled(SpaceBetweenColumn)`
-  width: 100%;
   min-height: ${pxToRem('110px')};
-  max-width: ${pxToRem('210px')};
+  min-width: ${pxToRem('185px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     min-height: ${pxToRem('130px')};
   }
