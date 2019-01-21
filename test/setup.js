@@ -7,6 +7,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import ApiService from '../src/api/ApiService';
 
+import jestexpect from 'expect'
+import toMatchSnapshot from "expect-mocha-snapshot";
+jestexpect.extend({ toMatchSnapshot });
+
 Enzyme.configure({ adapter: new Adapter() });
 
 chai.use(sinonChai);

@@ -42,7 +42,7 @@ const ForgotPasswordFormComponent = (props: Props) => {
       {errors.length > 0
         && (
           <FormErrors>
-            {errors.map((error: ErrorObject) => <FormError key={error.field}>{error}</FormError>)}
+            {errors.map((error: ErrorObject) => <FormError key={error.field}>{error.message}</FormError>)}
           </FormErrors>
         )
       }

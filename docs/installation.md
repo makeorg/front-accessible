@@ -11,7 +11,9 @@
 *   Build command : `npx styleguidist build`
 
 ## Tests
-To launch test `yarn test:unit` or `npm run test:unit`
+- To launch test `yarn test:unit` or `npm run test:unit`
+
+- Update snapshot: `yarn test:unit:u`
 
 ## Linter
 To launch linter `yarn lint` or `npm run lint`
