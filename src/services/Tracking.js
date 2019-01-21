@@ -162,6 +162,14 @@ class Tracking {
     });
   }
 
+  trackFirstVote = (proposalId: string, nature: string, cardPosition?: number) => {
+    this.track(trackingConstants.CLICK_SEQUENCE_FIRST_VOTE, {
+      proposalId,
+      nature,
+      'card-position': getPosition(cardPosition)
+    });
+  }
+
   trackUnvote = (proposalId: string, nature: string, cardPosition?: number) => {
     this.track(trackingConstants.CLICK_PROPOSAL_UNVOTE, {
       proposalId,

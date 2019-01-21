@@ -218,6 +218,19 @@ describe('Tracking Service', () => {
     expect(Tracking.track.getCall(0).args[0]).to.equal(trackingConstants.DISPLAY_FINAL_CARD);
   });
 
+  it('track First Vote', () => {
+    sandbox.spy(Tracking, 'track');
+
+    Tracking.trackFirstVote('foo', 'bar', 999);
+    expect(Tracking.track.calledOnce).to.equal(true);
+    expect(Tracking.track.getCall(0).args[0]).to.equal(trackingConstants.CLICK_SEQUENCE_FIRST_VOTE);
+    expect(Tracking.track.getCall(0).args[1]).to.deep.equal({
+      'proposalId': 'foo',
+      'nature': 'bar',
+      'card-position': '999'
+    });
+  });
+
   it('track Vote', () => {
     sandbox.spy(Tracking, 'track');
 
@@ -241,6 +254,32 @@ describe('Tracking Service', () => {
       'proposalId': 'foo',
       'nature': 'bar',
       'card-position': '999'
+    });
+  });
+
+  it('track Vote on Single Proposal Card', () => {
+    sandbox.spy(Tracking, 'track');
+
+    Tracking.trackVote('foo', 'bar', undefined);
+    expect(Tracking.track.calledOnce).to.equal(true);
+    expect(Tracking.track.getCall(0).args[0]).to.equal(trackingConstants.CLICK_PROPOSAL_VOTE);
+    expect(Tracking.track.getCall(0).args[1]).to.deep.equal({
+      'proposalId': 'foo',
+      'nature': 'bar',
+      'card-position': 'single-proposal'
+    });
+  });
+
+  it('track Unvote on Single Proposal Card', () => {
+    sandbox.spy(Tracking, 'track');
+
+    Tracking.trackUnvote('foo', 'bar', undefined);
+    expect(Tracking.track.calledOnce).to.equal(true);
+    expect(Tracking.track.getCall(0).args[0]).to.equal(trackingConstants.CLICK_PROPOSAL_UNVOTE);
+    expect(Tracking.track.getCall(0).args[1]).to.deep.equal({
+      'proposalId': 'foo',
+      'nature': 'bar',
+      'card-position': 'single-proposal'
     });
   });
 

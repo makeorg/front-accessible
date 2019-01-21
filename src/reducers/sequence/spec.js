@@ -42,7 +42,7 @@ describe('Sequence reducer', () => {
   });
 
   it('Vote into Sequence reducer', () => {
-    const action = { type: actionTypes.SEQUENCE_PROPOSAL_VOTE, proposalId: 'fooId' };
+    const action = { type: actionTypes.SEQUENCE_PROPOSAL_VOTE, payload: { proposalId: 'fooId' } };
     const previousState = {
       votedProposalIds: []
     };
@@ -55,7 +55,7 @@ describe('Sequence reducer', () => {
   });
 
   it('Unvote into Sequence reducer', () => {
-    const action = { type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE, proposalId: 'fooId' };
+    const action = { type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE, payload: { proposalId: 'fooId' } };
     const previousState = {
       votedProposalIds: ['barId', 'fooId', 'bazId']
     };
