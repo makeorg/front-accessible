@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
-import { SpaceBetweenRow } from 'Components/Elements/FlexElements';
+import { CenterRow } from 'Components/Elements/FlexElements';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { ButtonList } from './Button';
 
 const Vote = styled.form`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  max-width: ${pxToRem('300px')};
   min-width: ${pxToRem('275px')};
   margin: ${pxToRem('15px')} 0;
   padding: 0 ${pxToRem('10px')};
@@ -17,9 +16,10 @@ const Vote = styled.form`
   }
 `;
 
-export const Wrapper = styled(SpaceBetweenRow)`
+export const Wrapper = styled(CenterRow)`
   width: 100%;
   justify-content: space-around;
+  max-width: ${pxToRem('300px')};
 `;
 
 Vote.Wrapper = Wrapper;
