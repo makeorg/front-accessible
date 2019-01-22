@@ -8,11 +8,11 @@ import type {
   Proposal
 } from 'Types/proposal';
 import {
-  CARD_TYPE_PROPOSAL,
+  CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-  CARD_TYPE_EXTRASLIDE_FINAL_CARD
+  CARD_TYPE_PROPOSAL
 } from 'Constants/card';
 
 export const getPosition = (index: number = 0, currentIndex: number = 0) => (
@@ -82,14 +82,14 @@ export const buildCards = (
   }));
   let cardOffset = 0;
 
-  if (extraSlidesConfig.pushProposal instanceof Object && !hasProposed) {
+  if (extraSlidesConfig.pushProposal && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposal
     });
   }
 
-  if (extraSlidesConfig.introCard instanceof Object) {
+  if (extraSlidesConfig.introCard) {
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
@@ -99,7 +99,7 @@ export const buildCards = (
     cardOffset = 1;
   }
 
-  if (extraSlidesConfig.signUpCard instanceof Object && !isLoggedIn) {
+  if (extraSlidesConfig.signUpCard && !isLoggedIn) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
@@ -107,7 +107,7 @@ export const buildCards = (
     });
   }
 
-  if (extraSlidesConfig.finalCard instanceof Object) {
+  if (extraSlidesConfig.finalCard) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,
