@@ -39,7 +39,7 @@ type Props = {
 };
 
 type State = {
-/** Boolean toggled when user is typing a proposal */
+  /** Boolean toggled when user is typing a proposal */
   isTyping: boolean
 }
 
@@ -47,12 +47,8 @@ type State = {
 * Handles Proposal Submit Business Logic
 */
 export class ProposalSubmit extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      isTyping: false
-    };
+  state = {
+    isTyping: false
   }
 
   handleChange = (event: SyntheticEvent<*>) => {
@@ -140,6 +136,8 @@ export class ProposalSubmit extends React.Component<Props, State> {
           handleSubmit={this.handleSubmit}
           handleFocus={this.handleFocus}
           isPannelOpen={isPannelOpen}
+          isSequenceCollapsed={isSequenceCollapsed}
+          isTyping={isTyping}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent

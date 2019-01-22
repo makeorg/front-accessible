@@ -16,6 +16,10 @@ type Props = {
   canSubmit: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Boolean toggled when Sequence is collapsed / expanded */
+  isSequenceCollapsed: boolean,
+  /** Boolean toggled when User is typing a proposal */
+  isTyping: boolean,
   /** Method called when field's value changes */
   handleChange: Function,
   /** Method called when field is focused */
@@ -32,49 +36,61 @@ const ProposalSubmitFormComponent = (props: Props) => {
     length,
     canSubmit,
     isPannelOpen,
+    isSequenceCollapsed,
+    isTyping,
     handleChange,
     handleFocus,
     handleSubmit
   } = props;
 
   return (
-    <ProposalSubmitForm>
+    <ProposalSubmitForm className={isSequenceCollapsed && isTyping ? 'expanded-form' : ''}>
       <HiddenItem aria-hidden as="h2">
         {i18next.t('proposal_submit.title')}
       </HiddenItem>
-      <ProposalSubmitForm.Label
-        htmlFor="proposal"
-      >
-        {getBaitText()}
-      </ProposalSubmitForm.Label>
-      <ProposalSubmitForm.Input
-        type="text"
-        name="proposal"
-        id="proposal"
-        value={content}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        tabIndex={isPannelOpen ? -1 : 0}
-      />
-      <ProposalSubmitForm.CharLimit>
-        <span aria-valuetext={length}>{length}</span>
-        <HiddenItem aria-hidden>
-          {i18next.t('proposal_submit.entred_chars')}
-        </HiddenItem>
-        /
-        <HiddenItem aria-hidden>
-          {i18next.t('common.from')}
-        </HiddenItem>
-        <span aria-valuemax="140">140</span>
-        <HiddenItem aria-hidden>
-          {i18next.t('proposal_submit.available_chars')}
-        </HiddenItem>
-      </ProposalSubmitForm.CharLimit>
-      <ProposalSubmitButtonComponent
-        handleSubmit={handleSubmit}
-        canSubmit={canSubmit}
-        isPannelOpen={isPannelOpen}
-      />
+      <ProposalSubmitForm.InputWrapper>
+        <ProposalSubmitForm.Label
+          htmlFor="proposal"
+        >
+          {getBaitText()}
+        </ProposalSubmitForm.Label>
+        <ProposalSubmitForm.Input
+          as="textarea"
+          name="proposal"
+          id="proposal"
+          value={content}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          autoComplete="off"
+          spellCheck="true"
+          maxLength="140"
+          tabIndex={isPannelOpen ? -1 : 0}
+          className={isSequenceCollapsed && isTyping ? 'expanded-textarea' : ''}
+        />
+      </ProposalSubmitForm.InputWrapper>
+      <ProposalSubmitForm.ButtonWrapper className={isSequenceCollapsed && isTyping ? 'expanded-form-button-wrapper' : ''}>
+        <ProposalSubmitForm.CharLimit>
+          <span aria-valuetext={length}>{length}</span>
+          <HiddenItem aria-hidden>
+            {i18next.t('proposal_submit.entred_chars')}
+          </HiddenItem>
+          /
+          <HiddenItem aria-hidden>
+            {i18next.t('common.from')}
+          </HiddenItem>
+          <span aria-valuemax="140">140</span>
+          <HiddenItem aria-hidden>
+            {i18next.t('proposal_submit.available_chars')}
+          </HiddenItem>
+        </ProposalSubmitForm.CharLimit>
+        <ProposalSubmitButtonComponent
+          handleSubmit={handleSubmit}
+          canSubmit={canSubmit}
+          isPannelOpen={isPannelOpen}
+          isSequenceCollapsed={isSequenceCollapsed}
+          isTyping={isTyping}
+        />
+      </ProposalSubmitForm.ButtonWrapper>
     </ProposalSubmitForm>
   );
 };

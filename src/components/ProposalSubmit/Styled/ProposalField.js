@@ -2,10 +2,22 @@ import styled from 'styled-components';
 import { pxToRem } from 'Helpers/styled';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { NoStyleTextInput } from 'Components/Elements/Form';
-import { MiddleRow } from 'Components/Elements/FlexElements';
-import { SmallGreyButton, SmallRedButton } from 'Components/Elements/ButtonElements';
+import { MiddleRow, FlexElement } from 'Components/Elements/FlexElements';
+import { SmallGreyButton, SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
 import { MakeFonts } from 'Assets/vars/Fonts';
 import { TextColors, ShadowColors } from 'Assets/vars/Colors';
+
+export const InputWrapper = styled(FlexElement)`
+  width: 100%;
+`;
+
+export const ButtonWrapper = styled(FlexElement)`
+  justify-content: flex-end;
+  padding: ${pxToRem('7px')} 0;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    min-width: ${pxToRem('230px')};
+  }
+`;
 
 export const Label = styled.label`
   font-size: ${pxToRem('14px')};
@@ -21,14 +33,16 @@ export const Label = styled.label`
 
 export const Input = styled(NoStyleTextInput)`
   width: 100%;
+  max-width: ${pxToRem('780px')};
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
-  font-size: ${pxToRem('14px')};
-  line-height: ${pxToRem('40px')};
-  padding: 0 0 0 ${pxToRem('2.5px')};
+  font-size: ${pxToRem('16px')};
+  max-height: ${pxToRem('40px')};
+  padding: ${pxToRem('10px')} 0 0 ${pxToRem('5px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
-    line-height: ${pxToRem('50px')};
+    max-height: ${pxToRem('50px')};
+    padding: ${pxToRem('15px')} 0 0 ${pxToRem('5px')};
   }
 `;
 
@@ -36,17 +50,30 @@ export const CharLimit = styled(MiddleRow)`
   font-family: ${MakeFonts.RobotoRegular};
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
+  line-height: ${pxToRem('30px')};
   padding: 0 ${pxToRem('2.5px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('16px')};
+    line-height: ${pxToRem('30px')};
     padding: 0 ${pxToRem('16px')};
   }
 `;
 
 export const DisabledProposalButton = styled(SmallGreyButton)`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroTwoOpacity};
+  padding: ${pxToRem('5px')} ${pxToRem('10px')};
 `;
 
 export const ProposalButton = styled(SmallRedButton)`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  padding: ${pxToRem('5px')} ${pxToRem('10px')};
+`;
+
+export const ProposalIcon = styled(IconInButton)`
+  margin: 0;
+`;
+
+export const ProposalButtonLabel = styled.span`
+  display: inline;
+  visibility: visible;
 `;

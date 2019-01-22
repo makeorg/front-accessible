@@ -59,6 +59,7 @@ export const BackIcon = styled(IconInButton)`
 export const PushProposalButton = styled(SmallRedButton)`
   width: 100%;
   margin: 0 0 ${pxToRem('10px')};
+  white-space: normal;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: auto;
     margin: 0 ${pxToRem('10px')};
@@ -67,6 +68,7 @@ export const PushProposalButton = styled(SmallRedButton)`
 
 export const PushProposalNextButton = styled(SmallGreyButton)`
   width: 100%;
+  white-space: normal;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: auto;
     margin: 0 ${pxToRem('10px')};
@@ -76,10 +78,12 @@ export const PushProposalNextButton = styled(SmallGreyButton)`
 export const NextButton = styled(SmallRedButton)`
   width: 100%;
   max-width: ${pxToRem('285px')};
+  white-space: normal;
 `;
 
 export const AltNextButton = styled(SmallGreyButton)`
   margin-top: ${pxToRem('20px')};
+  white-space: normal;
 `;
 
 export const FinalLink = styled(IntroButton)`

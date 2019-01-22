@@ -1,6 +1,8 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
+import { pxToRem } from 'Helpers/styled';
+import { Breakpoints } from 'Assets/vars/Breakpoints';
 
 const AnimationsStylesheet = createGlobalStyle`
   .closed-pannel {
@@ -41,6 +43,28 @@ const AnimationsStylesheet = createGlobalStyle`
   .fadein-appear
   .fadein-appear-active {
     opacity: 0
+  }
+
+  .expanded-form {
+    flex-flow: column;
+    @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+      flex-flow: row;
+    }
+  }
+
+  .expanded-form-button-wrapper {
+    width: 100%;
+    @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+      width: auto;
+    }
+  }
+
+  .expanded-textarea {
+    height: ${pxToRem('125px')};
+    max-height: 100%;
+    @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+      max-height: ${pxToRem('50px')};
+    }
   }
 
   @keyframes FadeIn {

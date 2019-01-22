@@ -2,13 +2,25 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { HiddenOnMobile } from 'Components/Elements/HiddenElements';
 import { IconInButton } from 'Components/Elements/ButtonElements';
-import { ProposalButton, DisabledProposalButton } from '../Styled/ProposalField';
+import {
+  ProposalButton,
+  DisabledProposalButton,
+  ProposalIcon,
+  ProposalButtonLabel
+} from '../Styled/ProposalField';
 
 /**
  * Renders submit button in proposal's field
  */
-const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }) => {
+const ProposalSubmitButtonComponent = ({
+  canSubmit,
+  handleSubmit,
+  isPannelOpen,
+  isSequenceCollapsed,
+  isTyping
+}) => {
   if (canSubmit) {
     return (
       <ProposalButton
@@ -17,20 +29,24 @@ const ProposalSubmitButtonComponent = ({ canSubmit, handleSubmit, isPannelOpen }
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButton>
+        <IconInButton as={isSequenceCollapsed && isTyping ? IconInButton : ProposalIcon}>
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButton>
-        {i18next.t('common.propose')}
+        <HiddenOnMobile as={isSequenceCollapsed && isTyping ? ProposalButtonLabel : HiddenOnMobile}>
+          {i18next.t('common.propose')}
+        </HiddenOnMobile>
       </ProposalButton>
     );
   }
 
   return (
     <DisabledProposalButton id="proposal-submit-button" type="submit" disabled>
-      <IconInButton>
+      <IconInButton as={isSequenceCollapsed && isTyping ? IconInButton : ProposalIcon}>
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButton>
-      {i18next.t('common.propose')}
+      <HiddenOnMobile as={isSequenceCollapsed && isTyping ? ProposalButtonLabel : HiddenOnMobile}>
+        {i18next.t('common.propose')}
+      </HiddenOnMobile>
     </DisabledProposalButton>
   );
 };
