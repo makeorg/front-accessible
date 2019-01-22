@@ -9,6 +9,7 @@ export const CLICK_CLOSE_PANNEL: string = 'click-close-pannel';
 
 /* Sequence */
 export const CLICK_START_SEQUENCE: string = 'click-start-sequence';
+export const CLICK_SEQUENCE_FIRST_VOTE: string = 'click-sequence-first-vote';
 export const CLICK_PROPOSAL_VOTE: string = 'click-proposal-vote';
 export const CLICK_PROPOSAL_UNVOTE: string = 'click-proposal-unvote';
 export const CLICK_PROPOSAL_QUALIFY: string = 'click-proposal-qualify';

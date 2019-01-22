@@ -25,22 +25,22 @@ export default function sequence(state: Object = initialState, action: Object) {
     case actionTypes.QUESTION_LOAD:
       return {
         ...state,
-        question: action.question
+        question: action.payload.question
       };
     case actionTypes.QUESTION_CONFIGURATION_LOAD:
       return {
         ...state,
-        questionConfiguration: action.questionConfiguration
+        questionConfiguration: action.payload.questionConfiguration
       };
     case actionTypes.SEQUENCE_PROPOSAL_VOTE:
       return {
         ...state,
-        votedProposalIds: [...state.votedProposalIds, ...[action.proposalId]]
+        votedProposalIds: [...state.votedProposalIds, ...[action.payload.proposalId]]
       };
     case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
       return {
         ...state,
-        votedProposalIds: state.votedProposalIds.filter(item => item !== action.proposalId)
+        votedProposalIds: state.votedProposalIds.filter(item => item !== action.payload.proposalId)
       };
     default:
       return state;

@@ -3,7 +3,6 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
 import { doVote, doUnvote } from 'Helpers/vote';
-import Tracking from 'Services/Tracking';
 import VoteService from 'Api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Actions/sequence';
 import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
@@ -28,9 +27,9 @@ type Props = {
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: () => void,
   /** Method called on vote */
-  handleVoteOnSequence: (string) => void,
+  handleVoteOnSequence: (string, string, ?number) => void,
   /** Method called on unvote */
-  handleUnvoteOnSequence: (string) => void,
+  handleUnvoteOnSequence: (string, string, ?number) => void,
 };
 
 type State = {
@@ -85,16 +84,14 @@ export class Vote extends React.Component<Props, State> {
       VoteService.unvote(proposalId, voteKey)
         .then((vote) => {
           this.setState(prevState => doUnvote(prevState, vote));
-          handleUnvoteOnSequence(proposalId);
+          handleUnvoteOnSequence(proposalId, voteKey, index);
         });
-      Tracking.trackUnvote(proposalId, voteKey, index);
     } else {
       VoteService.vote(proposalId, voteKey)
         .then((vote) => {
           this.setState(prevState => doVote(prevState, vote));
-          handleVoteOnSequence(proposalId);
+          handleVoteOnSequence(proposalId, voteKey, index);
         });
-      Tracking.trackVote(proposalId, voteKey, index);
     }
   }
 
@@ -172,11 +169,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleVoteOnSequence: (proposalId: string) => {
-    dispatch(sequenceVote(proposalId));
+  handleVoteOnSequence: (proposalId: string, voteKey: string, index: number) => {
+    dispatch(sequenceVote(proposalId, voteKey, index));
   },
-  handleUnvoteOnSequence: (proposalId: string) => {
-    dispatch(sequenceUnvote(proposalId));
+  handleUnvoteOnSequence: (proposalId: string, voteKey: string, index: number) => {
+    dispatch(sequenceUnvote(proposalId, voteKey, index));
   }
 });
 
