@@ -19,7 +19,15 @@ type Props = {
   isSequenceCollapsed: boolean
 };
 
-class SequencePage extends React.Component<Props> {
+type State = {
+  windowHeight: string
+}
+
+class SequencePage extends React.Component<Props, State> {
+  state = {
+    windowHeight: '100vh'
+  }
+
   componentDidMount() {
     const {
       match,
@@ -36,10 +44,22 @@ class SequencePage extends React.Component<Props> {
     if (!questionConfiguration) {
       fetchQuestionConfiguration(match.params.questionSlug);
     }
+
+    this.getWindowHeight();
+    window.addEventListener('resize', this.getWindowHeight);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.getWindowHeight);
+  }
+
+  getWindowHeight = () => {
+    this.setState({ windowHeight: `${window.innerHeight}px` });
+  };
 
   render() {
     const { isSequenceCollapsed, question, questionConfiguration } = this.props;
+    const { windowHeight } = this.state;
 
     if (!questionConfiguration) {
       return null;
@@ -50,7 +70,7 @@ class SequencePage extends React.Component<Props> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <React.Fragment>
-          <SequencePageContent>
+          <SequencePageContent height={windowHeight}>
             <MetaTags
               title={metas.title}
               description={metas.description}
