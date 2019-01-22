@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { Breakpoints } from 'Assets/vars/Breakpoints';
 import { pxToRem } from 'Helpers/styled';
+import { CALC_SEQUENCE_HEIGHT_MOBILE, CALC_SEQUENCE_HEIGHT_DESKTOP } from 'Constants/elements';
 import { MiddleColumn } from 'Components/Elements/FlexElements';
 
 export const SequencePageContent = styled.div`
   width: 100%;
-  height: calc(100vh - ${pxToRem('158px')});
+  height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_MOBILE)});
   overflow: auto;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(100vh - ${pxToRem('153px')});
+    height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_DESKTOP)});
   }
 `;
 

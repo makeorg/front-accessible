@@ -12,6 +12,14 @@ export const
   + Elements.FooterHeightDesktop;
 
 export const
+  CALC_SEQUENCE_HEIGHT_MOBILE: number = Elements.HeaderHeightMobile
+  + Elements.SequenceFooterHeightMobile;
+
+export const
+  CALC_SEQUENCE_HEIGHT_DESKTOP: number = Elements.HeaderHeightDesktop
+  + Elements.SequenceFooterHeightDesktop;
+
+export const
   CALC_WIDTH_MOBILE: number = DefaultPadding.Mobile * 2;
 
 export const
