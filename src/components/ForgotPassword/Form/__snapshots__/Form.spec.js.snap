@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
+<form
+  className="Form__FormWrapper-sc-1rkcens-1 Form-sc-1rkcens-2 Styled__ForgotPasswordForm-sc-17gmo83-1 kRecfp"
+  id="forgot_password"
+  onSubmit={undefined}
+>
+  <div
+    className="Form__LastFakeInput-sc-1rkcens-4 Form__ClassicFakeInput-sc-1rkcens-5 Form__FakeInputGrey-sc-1rkcens-7 jESdTF"
+  >
+    <label
+      aria-label={undefined}
+      className="Form__IconLabel-sc-1rkcens-11 dhFewW"
+      htmlFor="email"
+    >
+      <svg
+        aria-hidden={true}
+        className="svg-inline--fa fa-envelope fa-w-16 "
+        data-icon="envelope"
+        data-prefix="far"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </label>
+    <input
+      aria-required={true}
+      className="Form__NoStyleTextInput-sc-1rkcens-0 Form__BasicInput-sc-1rkcens-10 gyVpZV"
+      id="email"
+      name="email"
+      onChange={undefined}
+      placeholder={undefined}
+      required={true}
+      tabIndex={-1}
+      type="email"
+      value={undefined}
+    />
+  </div>
+  <button
+    className="ButtonElements__BasicButton-sc-13hw5ul-2 ButtonElements__SmallBasicButton-sc-13hw5ul-3 ButtonElements__SmallRedButton-sc-13hw5ul-7 iiTrvg"
+    form="forgot_password"
+    tabIndex={-1}
+    type="submit"
+  >
+    <span
+      className="ButtonElements__IconInButton-sc-13hw5ul-9 fjDpRr"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-paper-plane fa-w-16 "
+        data-icon="paper-plane"
+        data-prefix="far"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </span>
+  </button>
+</form>
+`;
+
+exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
+<form
+  className="Form__FormWrapper-sc-1rkcens-1 Form-sc-1rkcens-2 Styled__ForgotPasswordForm-sc-17gmo83-1 kRecfp"
+  id="forgot_password"
+  onSubmit={undefined}
+>
+  <ul
+    className="Form__FormErrors-sc-1rkcens-17 fsDqNq"
+  >
+    <li
+      className="Form__FormError-sc-1rkcens-18 canxor"
+    >
+      Error message 1
+    </li>
+    <li
+      className="Form__FormError-sc-1rkcens-18 canxor"
+    >
+      Error message 2
+    </li>
+  </ul>
+  <div
+    className="Form__LastFakeInput-sc-1rkcens-4 Form__ClassicFakeInput-sc-1rkcens-5 Form__FakeInputGrey-sc-1rkcens-7 jESdTF"
+  >
+    <label
+      aria-label={undefined}
+      className="Form__IconLabel-sc-1rkcens-11 dhFewW"
+      htmlFor="email"
+    >
+      <svg
+        aria-hidden={true}
+        className="svg-inline--fa fa-envelope fa-w-16 "
+        data-icon="envelope"
+        data-prefix="far"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </label>
+    <input
+      aria-required={true}
+      className="Form__NoStyleTextInput-sc-1rkcens-0 Form__BasicInput-sc-1rkcens-10 gyVpZV"
+      id="email"
+      name="email"
+      onChange={undefined}
+      placeholder={undefined}
+      required={true}
+      tabIndex={-1}
+      type="email"
+      value={undefined}
+    />
+  </div>
+  <button
+    className="ButtonElements__BasicButton-sc-13hw5ul-2 ButtonElements__SmallBasicButton-sc-13hw5ul-3 ButtonElements__SmallRedButton-sc-13hw5ul-7 iiTrvg"
+    form="forgot_password"
+    tabIndex={-1}
+    type="submit"
+  >
+    <span
+      className="ButtonElements__IconInButton-sc-13hw5ul-9 fjDpRr"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-paper-plane fa-w-16 "
+        data-icon="paper-plane"
+        data-prefix="far"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </span>
+  </button>
+</form>
+`;

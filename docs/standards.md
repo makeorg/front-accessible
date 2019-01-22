@@ -134,3 +134,46 @@ Bad:
 - [ ] update all redux Action with FSA standard
 - [ ] remove all .bind in constructor
 - [ ] activate [React.StrictMode](https://reactjs.org/docs/strict-mode.html) on App
+
+## TESTS: `
+
+### UI test strategy
+
+- An UI component (dumb) should be tested using snapshot
+- [TODO] Add [styled-component](https://github.com/styled-components/jest-styled-components) support
+- [TODO] Manage shallow snapshot to avoid BIG snapshot
+
+Default case
+```js
+import jestExpect from 'expect';
+import toMatchSnapshot from "expect-mocha-snapshot";
+import renderer from 'react-test-renderer';
+import ForgotPasswordFormComponent from './index';
+
+describe("ForgotPasswordFormComponent", function () {
+  it("must match the snapshot by default", function () {
+    // TODO need to use shallow with jest for better testing
+    const component = renderer.create(
+      <ForgotPasswordFormComponent errors={[]} />
+    );
+    jestExpect(component).toMatchSnapshot(this);
+  });
+});
+```
+
+Error case 
+```js
+it("must match the snapshot with errors", function () {
+  // TODO need to use shallow with jest for better testing
+  const component = renderer.create(
+    <ForgotPasswordFormComponent errors={[{
+      field: 'field',
+      message: 'Error message 1'
+    }, {
+      field: 'field',
+      message: 'Error message 2'
+    }]} />
+  );
+  jestExpect(component).toMatchSnapshot(this);
+});
+```
