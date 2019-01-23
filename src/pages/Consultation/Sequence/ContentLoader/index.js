@@ -33,7 +33,7 @@ export const SequencePageContentLoader = (props:Props) => {
   }
 
   return (
-    <SequencePageInnerContent className={isSequenceCollapsed ? 'locked-content' : ''}>
+    <SequencePageInnerContent isSequenceCollapsed={isSequenceCollapsed}>
       <ProposalSubmitContainer question={question} />
       <SequenceContainer
         question={question}

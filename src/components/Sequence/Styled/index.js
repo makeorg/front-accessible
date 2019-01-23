@@ -25,6 +25,7 @@ const Sequence = styled.section`
   height: calc(100% - ${pxToRem(Elements.SequenceFooterHeightMobile)});
   max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
+  ${props => (props.isSequenceCollapsed ? 'transform: translateY(90%)' : 'transform: translateY(0)')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     height: calc(100% - ${pxToRem(Elements.SequenceFooterHeightDesktop)});
   }

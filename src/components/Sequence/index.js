@@ -60,7 +60,7 @@ const SequenceComponent = (props: Props) => {
     <Sequence
       role="region"
       aria-describedby="introduction"
-      className={isSequenceCollapsed ? 'collapsed-sequence' : 'expanded-sequence'}
+      isSequenceCollapsed={isSequenceCollapsed}
     >
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}
@@ -68,7 +68,7 @@ const SequenceComponent = (props: Props) => {
         isPannelOpen={isPannelOpen}
       />
       <Sequence.Wrapper>
-        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'} id="sequence">
+        <Sequence.List isSequenceCollapsed={isSequenceCollapsed} id="sequence">
           {cards.map((card, index) => (
             <Card
               key={sequenceHelper.getCardIndex(index)}

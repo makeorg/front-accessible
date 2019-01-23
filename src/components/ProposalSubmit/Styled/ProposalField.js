@@ -14,9 +14,12 @@ export const InputWrapper = styled(FlexElement)`
 export const ButtonWrapper = styled(FlexElement)`
   justify-content: flex-end;
   padding: ${pxToRem('7px')} 0;
+  ${props => (props.isFieldExpanded ? 'width: 100%;' : '')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     min-width: ${pxToRem('230px')};
+    ${props => (props.isFieldExpanded ? 'width: auto;' : '')};
   }
+  
 `;
 
 export const Label = styled.label`
@@ -39,10 +42,16 @@ export const Input = styled(NoStyleTextInput)`
   font-size: ${pxToRem('16px')};
   max-height: ${pxToRem('40px')};
   padding: ${pxToRem('10px')} 0 0 ${pxToRem('5px')};
+  ${props => (props.isFieldExpanded ? `
+    height: ${pxToRem('125px')};
+    max-height: 100%;`
+    : ''
+  )};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('18px')};
     max-height: ${pxToRem('50px')};
     padding: ${pxToRem('15px')} 0 0 ${pxToRem('5px')};
+    ${props => (props.isFieldExpanded ? `max-height: ${pxToRem('50px')};` : '')};
   }
 `;
 

@@ -5,7 +5,7 @@ import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
 import { getBaitText } from 'Constants/proposal';
 import ProposalSubmitButtonComponent from './Button';
-import ProposalSubmitForm from './Styled';
+import ProposalSubmitForm, { ExpandedForm } from './Styled';
 
 type Props = {
   /** Value's content */
@@ -44,7 +44,7 @@ const ProposalSubmitFormComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalSubmitForm className={isSequenceCollapsed && isTyping ? 'expanded-form' : ''}>
+    <ProposalSubmitForm isFieldExpanded={isSequenceCollapsed && isTyping}>
       <HiddenItem aria-hidden as="h2">
         {i18next.t('proposal_submit.title')}
       </HiddenItem>
@@ -65,10 +65,10 @@ const ProposalSubmitFormComponent = (props: Props) => {
           spellCheck="true"
           maxLength="140"
           tabIndex={isPannelOpen ? -1 : 0}
-          className={isSequenceCollapsed && isTyping ? 'expanded-textarea' : ''}
+          isFieldExpanded={isSequenceCollapsed && isTyping}
         />
       </ProposalSubmitForm.InputWrapper>
-      <ProposalSubmitForm.ButtonWrapper className={isSequenceCollapsed && isTyping ? 'expanded-form-button-wrapper' : ''}>
+      <ProposalSubmitForm.ButtonWrapper isFieldExpanded={isSequenceCollapsed && isTyping}>
         <ProposalSubmitForm.CharLimit>
           <span aria-valuetext={length}>{length}</span>
           <HiddenItem aria-hidden>
@@ -87,8 +87,7 @@ const ProposalSubmitFormComponent = (props: Props) => {
           handleSubmit={handleSubmit}
           canSubmit={canSubmit}
           isPannelOpen={isPannelOpen}
-          isSequenceCollapsed={isSequenceCollapsed}
-          isTyping={isTyping}
+          isFieldExpanded={isSequenceCollapsed && isTyping}
         />
       </ProposalSubmitForm.ButtonWrapper>
     </ProposalSubmitForm>

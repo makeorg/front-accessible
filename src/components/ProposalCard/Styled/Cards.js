@@ -21,6 +21,7 @@ export const ProposalCardCentered = styled.li`
   transition: transform 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
+  ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }

@@ -18,8 +18,7 @@ const ProposalSubmitButtonComponent = ({
   canSubmit,
   handleSubmit,
   isPannelOpen,
-  isSequenceCollapsed,
-  isTyping
+  isFieldExpanded
 }) => {
   if (canSubmit) {
     return (
@@ -29,10 +28,10 @@ const ProposalSubmitButtonComponent = ({
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButton as={isSequenceCollapsed && isTyping ? IconInButton : ProposalIcon}>
+        <IconInButton as={isFieldExpanded ? IconInButton : ProposalIcon}>
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButton>
-        <HiddenOnMobile as={isSequenceCollapsed && isTyping ? ProposalButtonLabel : HiddenOnMobile}>
+        <HiddenOnMobile as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobile}>
           {i18next.t('common.propose')}
         </HiddenOnMobile>
       </ProposalButton>
@@ -41,10 +40,10 @@ const ProposalSubmitButtonComponent = ({
 
   return (
     <DisabledProposalButton id="proposal-submit-button" type="submit" disabled>
-      <IconInButton as={isSequenceCollapsed && isTyping ? IconInButton : ProposalIcon}>
+      <IconInButton as={isFieldExpanded ? IconInButton : ProposalIcon}>
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButton>
-      <HiddenOnMobile as={isSequenceCollapsed && isTyping ? ProposalButtonLabel : HiddenOnMobile}>
+      <HiddenOnMobile as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobile}>
         {i18next.t('common.propose')}
       </HiddenOnMobile>
     </DisabledProposalButton>

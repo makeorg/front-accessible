@@ -25,6 +25,13 @@ const ProposalSubmitForm = styled.form`
   border-radius: ${pxToRem('30px')};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
+  ${props => (props.isFieldExpanded ? `
+    flex-flow: column;
+    @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+      flex-flow: row;
+    }`
+    : ''
+  )};
 `;
 
 export const ProposalSubmitFormWrapper = styled.aside`
