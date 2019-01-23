@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
 import { ProposalSubmitFormWrapper } from 'Components/ProposalSubmit/Styled';
 import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
 import ProposalSubmitSuccessComponent from 'Components/ProposalSubmit/Success';
@@ -39,7 +39,7 @@ type Props = {
 };
 
 type State = {
-/** Boolean toggled when user is typing a proposal */
+  /** Boolean toggled when user is typing a proposal */
   isTyping: boolean
 }
 
@@ -47,12 +47,8 @@ type State = {
 * Handles Proposal Submit Business Logic
 */
 export class ProposalSubmit extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      isTyping: false
-    };
+  state = {
+    isTyping: false
   }
 
   handleChange = (event: SyntheticEvent<*>) => {
@@ -136,10 +132,12 @@ export class ProposalSubmit extends React.Component<Props, State> {
           content={content}
           length={length}
           canSubmit={canSubmit}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          handleChange={event => this.handleChange(event)}
+          handleSubmit={event => this.handleSubmit(event)}
           handleFocus={this.handleFocus}
           isPannelOpen={isPannelOpen}
+          isSequenceCollapsed={isSequenceCollapsed}
+          isTyping={isTyping}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent

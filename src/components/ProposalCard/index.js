@@ -51,7 +51,7 @@ const ProposalCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      className={index < currentIndex ? 'collapsed-card' : ''}
+      isCardCollapsed={index < currentIndex}
       id={`proposal-card-${index}`}
     >
       <ProposalCard.BackButtonWrapper>

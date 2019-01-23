@@ -19,6 +19,7 @@ export const SequencePageInnerContent = styled(MiddleColumn)`
   position: relative;
   z-index: 0;
   min-height: ${pxToRem('545px')};
+  ${props => (props.isSequenceCollapsed ? 'overflow: hidden' : '')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     min-height: ${pxToRem('660px')};
   }

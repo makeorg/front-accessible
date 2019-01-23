@@ -54,7 +54,7 @@ const IntroCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      className={index < currentIndex ? 'collapsed-card' : ''}
+      isCardCollapsed={index < currentIndex}
     >
       <header>
         <ExtraLogo extraLogo={configuration.extraLogo && configuration.extraLogo} />

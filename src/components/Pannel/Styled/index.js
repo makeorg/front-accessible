@@ -11,7 +11,7 @@ const Pannel = styled.div`
   left: 50%;
   width: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
-  height: calc( 100% - ${pxToRem('87px')});
+  height: calc( 100% - ${pxToRem('15px')});
   padding: ${pxToRem('50px')} ${pxToRem('20px')}  ${pxToRem('67px')}};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   background: ${BasicColors.PureWhite};
@@ -19,7 +19,7 @@ const Pannel = styled.div`
   transform: translate(-50%, -${props => props.translate}%);
   transition: transform 0.5s linear;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc( 100% - ${pxToRem('104px')});
+    height: calc( 100% - ${pxToRem('25px')});
     padding: ${pxToRem('50px')} ${pxToRem('20px')} ${pxToRem('78px')}};
   }
 `;

@@ -2,7 +2,7 @@
 
 import { shallow } from 'enzyme';
 import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
-import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
 import ProposalSubmitWrapper from 'Components/ProposalSubmit/Styled';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 import { ProposalSubmit } from './index';

@@ -27,7 +27,7 @@ const SequencePlaceholderComponent = (props: Props) => {
     <Sequence
       role="region"
       aria-describedby="introduction"
-      className={isSequenceCollapsed ? 'collapsed-sequence' : 'expanded-sequence'}
+      isSequenceCollapsed={isSequenceCollapsed}
     >
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}
@@ -35,7 +35,7 @@ const SequencePlaceholderComponent = (props: Props) => {
         isPannelOpen={isPannelOpen}
       />
       <Sequence.Wrapper>
-        <Sequence.List className={isSequenceCollapsed ? 'scaled-list' : 'unscaled-list'} as="div" id="sequence">
+        <Sequence.List isSequenceCollapsed={isSequenceCollapsed} as="div" id="sequence">
           <PlaceholderCardComponent />
         </Sequence.List>
       </Sequence.Wrapper>
