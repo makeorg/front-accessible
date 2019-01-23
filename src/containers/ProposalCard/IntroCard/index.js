@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import type { IntroCardConfig, IntroCardWording } from 'Types/card';
 import IntroCardComponent from 'Components/ProposalCard/IntroCard';
 import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
+import Tracking from 'Services/Tracking';
 
 type Props = {
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: Object,
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
   /** Object with Static properties used to customise the wording of the Intro Card */
@@ -27,38 +30,49 @@ type Props = {
 /**
  * Handles Intro Card Business Logic
  */
-const IntroCardContainer = (props: Props) => {
-  const {
-    configuration,
-    wording,
-    index,
-    currentIndex,
-    isPannelOpen,
-    isSequenceCollapsed
-  } = props;
-  const position = getPosition(index, currentIndex);
-  const scale = getScale(index, currentIndex);
-  const zindex = getZIndex(index, currentIndex);
-  return (
-    <IntroCardComponent
-      introCardConfig={configuration}
-      introCardWording={wording}
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-      {...props}
-    />
-  );
-};
+class IntroCardContainer extends React.Component <Props> {
+  componentDidUpdate = () => {
+    const { question, index, currentIndex } = this.props;
+    if (index === currentIndex) {
+      Tracking.trackDisplayIntroCard(question.slug);
+    }
+  }
+
+
+  render() {
+    const {
+      configuration,
+      wording,
+      index,
+      currentIndex,
+      isPannelOpen,
+      isSequenceCollapsed
+    } = this.props;
+    const position = getPosition(index, currentIndex);
+    const scale = getScale(index, currentIndex);
+    const zindex = getZIndex(index, currentIndex);
+    return (
+      <IntroCardComponent
+        introCardConfig={configuration}
+        introCardWording={wording}
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        {...this.props}
+      />
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed } = state.sequence;
+  const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed
+    isSequenceCollapsed,
+    question
   };
 };
 

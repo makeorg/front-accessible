@@ -7,6 +7,7 @@ import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/seque
 import MetaTags from 'Components/MetaTags';
 import { SequenceFooterContainer } from 'Containers/Sequence/Footer';
 import { match as TypeMatch } from 'react-router';
+import Tracking from 'Services/Tracking';
 import { SequencePageContent } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 
@@ -44,6 +45,8 @@ class SequencePage extends React.Component<Props, State> {
     if (!questionConfiguration) {
       fetchQuestionConfiguration(match.params.questionSlug);
     }
+
+    Tracking.trackDisplaySequence(match.params.questionSlug);
 
     this.getWindowHeight();
     window.addEventListener('resize', this.getWindowHeight);

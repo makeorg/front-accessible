@@ -70,12 +70,13 @@ describe('Sequence Actions', () => {
   });
 
   it('Track sequence vote when first vote', () => {
-    const store = mockStore({
-      sequence: { votedProposalIds: [] }
-    });
+    const questionSlug = 'baz';
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
+    const store = mockStore({
+      sequence: { votedProposalIds: [], question: { slug: questionSlug } }
+    });
 
     const expectedActions = [{
       type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
@@ -85,24 +86,25 @@ describe('Sequence Actions', () => {
     trackingService
       .expects('trackVote')
       .once()
-      .withArgs(proposalId, voteKey, index);
+      .withArgs(questionSlug, proposalId, voteKey, index);
 
     trackingService
       .expects('trackFirstVote')
       .once()
-      .withArgs(proposalId, voteKey, index);
+      .withArgs(questionSlug, proposalId, voteKey, index);
 
     store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Track sequence vote when second vote', () => {
-    const store = mockStore({
-      sequence: { votedProposalIds: ['fooId'] }
-    });
+    const questionSlug = 'baz';
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
+    const store = mockStore({
+      sequence: { question: { slug: questionSlug }, votedProposalIds: ['fooId'] }
+    });
 
     const expectedActions = [{
       type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
@@ -112,7 +114,7 @@ describe('Sequence Actions', () => {
     trackingService
       .expects('trackVote')
       .once()
-      .withArgs(proposalId, voteKey, index);
+      .withArgs(questionSlug, proposalId, voteKey, index);
 
     trackingService
       .expects('trackFirstVote')

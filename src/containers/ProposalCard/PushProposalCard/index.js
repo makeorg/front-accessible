@@ -2,10 +2,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import type { PushProposalCardConfig } from 'Types/card';
+import Tracking from 'Services/Tracking';
 import PushProposalCardComponent from '../../../components/ProposalCard/PushProposalCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 
 type Props = {
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: Object,
   /** Object with Static properties used to configure the Push Proposal Card */
   configuration: PushProposalCardConfig,
   /** Index of the card */
@@ -30,12 +33,18 @@ type Props = {
  * Handles Push Proposal Card Business Logic
  */
 class PushProposalCardContainer extends React.Component<Props> {
-  focusProposalField = () => {
+  componentDidUpdate = () => {
+    const { question, index, currentIndex } = this.props;
+    if (index === currentIndex) {
+      Tracking.trackDisplayProposalPushCard(question.slug);
+    }
+  }
+
+  focusProposalField = (): void => {
     const proposalInput = document.getElementById('proposal');
     if (proposalInput !== null) {
       proposalInput.focus();
     }
-    return this;
   }
 
   render() {
@@ -65,11 +74,12 @@ class PushProposalCardContainer extends React.Component<Props> {
 
 const mapStateToProps = (state) => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed } = state.sequence;
+  const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed
+    isSequenceCollapsed,
+    question
   };
 };
 

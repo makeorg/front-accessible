@@ -222,26 +222,28 @@ describe('Tracking Service', () => {
   it('track First Vote', () => {
     sandbox.spy(Tracking, 'track');
 
-    Tracking.trackFirstVote('foo', 'bar', 999);
+    Tracking.trackFirstVote('bazSlug', 'foo', 'bar', 999);
     expect(Tracking.track.calledOnce).toBe(true);
     expect(Tracking.track.getCall(0).args[0]).toBe(trackingConstants.CLICK_SEQUENCE_FIRST_VOTE);
     expect(Tracking.track.getCall(0).args[1]).toEqual({
-      'proposalId': 'foo',
-      'nature': 'bar',
-      'card-position': '999'
+      question: 'bazSlug',
+      proposalId: 'foo',
+      nature: 'bar',
+      cardPosition: '999'
     });
   });
 
   it('track Vote', () => {
     sandbox.spy(Tracking, 'track');
 
-    Tracking.trackVote('foo', 'bar', 999);
+    Tracking.trackVote('bazSlug', 'foo', 'bar', 999);
     expect(Tracking.track.calledOnce).toBe(true);
     expect(Tracking.track.getCall(0).args[0]).toBe(trackingConstants.CLICK_PROPOSAL_VOTE);
     expect(Tracking.track.getCall(0).args[1]).toEqual({
-      'proposalId': 'foo',
-      'nature': 'bar',
-      'card-position': '999'
+      question: 'bazSlug',
+      proposalId: 'foo',
+      nature: 'bar',
+      cardPosition: '999'
     });
   });
 
@@ -252,8 +254,8 @@ describe('Tracking Service', () => {
     expect(Tracking.track.calledOnce).toBe(true);
     expect(Tracking.track.getCall(0).args[0]).toBe(trackingConstants.CLICK_PROPOSAL_UNVOTE);
     expect(Tracking.track.getCall(0).args[1]).toEqual({
-      'proposalId': 'foo',
-      'nature': 'bar',
+      proposalId: 'foo',
+      nature: 'bar',
       'card-position': '999'
     });
   });
@@ -261,13 +263,14 @@ describe('Tracking Service', () => {
   it('track Vote on Single Proposal Card', () => {
     sandbox.spy(Tracking, 'track');
 
-    Tracking.trackVote('foo', 'bar', undefined);
+    Tracking.trackVote('bazSlug', 'foo', 'bar', undefined);
     expect(Tracking.track.calledOnce).toBe(true);
     expect(Tracking.track.getCall(0).args[0]).toBe(trackingConstants.CLICK_PROPOSAL_VOTE);
     expect(Tracking.track.getCall(0).args[1]).toEqual({
-      'proposalId': 'foo',
-      'nature': 'bar',
-      'card-position': 'single-proposal'
+      question: 'bazSlug',
+      proposalId: 'foo',
+      nature: 'bar',
+      cardPosition: 'single-proposal'
     });
   });
 

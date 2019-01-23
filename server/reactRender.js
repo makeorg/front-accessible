@@ -8,7 +8,7 @@ import { HeadProvider } from 'react-head';
 import configureStore from '../src/store';
 import i18next from './i18n';
 import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
-import AppContainer from '../src/containers/App';
+import { AppContainer } from '../src/containers/App';
 
 const fs = require('fs');
 const path = require('path');

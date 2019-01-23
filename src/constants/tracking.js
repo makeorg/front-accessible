@@ -9,15 +9,18 @@ export const CLICK_CLOSE_PANNEL: string = 'click-close-pannel';
 
 /* Sequence */
 export const CLICK_START_SEQUENCE: string = 'click-start-sequence';
-export const CLICK_SEQUENCE_FIRST_VOTE: string = 'click-sequence-first-vote';
 export const CLICK_PROPOSAL_VOTE: string = 'click-proposal-vote';
 export const CLICK_PROPOSAL_UNVOTE: string = 'click-proposal-unvote';
+export const CLICK_SEQUENCE_FIRST_VOTE: string = 'click-sequence-first-vote';
 export const CLICK_PROPOSAL_QUALIFY: string = 'click-proposal-qualify';
 export const CLICK_PROPOSAL_UNQUALIFY: string = 'click-proposal-unqualify';
 export const CLICK_SEQUENCE_NEXT_CARD: string = 'click-sequence-next-card';
 export const CLICK_SEQUENCE_PREVIOUS_CARD: string = 'click-sequence-previous-card';
-export const CLICK_PROPOSAL_PUSH_CARD_IGNORE:string = 'click-proposal-push-card-ignore';
 export const SKIP_SIGNUP_CARD: string = 'skip-sign-up-card';
+export const CLICK_PROPOSAL_PUSH_CARD_IGNORE:string = 'click-proposal-push-card-ignore';
+export const DISPLAY_INTRO_CARD: string = 'display-intro-card';
+export const DISPLAY_PROPOSAL_PUSH_CARD:string = 'display-proposal-push-card';
+export const DISPLAY_SIGN_UP_CARD:string = 'display-sign-up-card';
 export const DISPLAY_FINAL_CARD: string = 'display-final-card';
 
 /* Sign up journey */
@@ -44,3 +47,6 @@ export const CLICK_SIGN_UP_CARD_SIGN_IN: string = 'click-sign-up-card-sign-in';
 /* Moderation Text */
 export const DISPLAY_MODERATION_TEXT: string = 'display-moderation-text';
 export const CLICK_MODERATION_LINK: string = 'click-moderation-link';
+
+/** Locations */
+export const LOCATION_SEQUENCE = 'sequence';
