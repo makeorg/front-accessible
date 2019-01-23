@@ -39,7 +39,7 @@ describe('Proposal Actions', () => {
     }];
 
     store.dispatch(actions.proposeTyping(proposalContent, proposalLength, proposalCanBeSubmitted));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates PROPOSE_REQUEST when calling action', () => {
@@ -53,7 +53,7 @@ describe('Proposal Actions', () => {
     }];
 
     store.dispatch(actions.proposeRequest(proposalContent, proposalQuestionId));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('creates PROPOSE_SUCCESS when calling action', () => {
@@ -64,7 +64,7 @@ describe('Proposal Actions', () => {
     }];
 
     store.dispatch(actions.proposeSuccess(proposalId));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('creates PROPOSE_FAILURE when calling action', () => {
@@ -75,7 +75,7 @@ describe('Proposal Actions', () => {
     }];
 
     store.dispatch(actions.proposeFailure(error));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates an action to proposal Typing', () => {
@@ -93,7 +93,7 @@ describe('Proposal Actions', () => {
     ];
 
     store.dispatch(actions.typingProposal(proposalContent, proposalLength, proposalCanBeSubmitted));
-    expect(store.getActions()).to.deep.equal(expectedActions);
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('creates an action to proposal Submit when user is not logged in', () => {
@@ -113,7 +113,7 @@ describe('Proposal Actions', () => {
     ];
 
     return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).to.deep.equal(expectedActions)
+      expect(store.getActions()).toEqual(expectedActions)
     });
   });
 
@@ -137,7 +137,7 @@ describe('Proposal Actions', () => {
     ];
 
     return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).to.deep.equal(expectedActions)
+      expect(store.getActions()).toEqual(expectedActions)
     });
   });
 
@@ -161,7 +161,7 @@ describe('Proposal Actions', () => {
     ];
 
     return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).to.deep.equal(expectedActions)
+      expect(store.getActions()).toEqual(expectedActions)
     });
   });
 });

@@ -13,8 +13,8 @@ describe('IntroCardComponent', () => {
     };
     const wrapper = shallow(<IntroCardComponent {...props} />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
-    expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);
+    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).toBe(true);
+    expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
   });
 
 });

@@ -28,7 +28,7 @@ describe('Pannel Actions', () => {
     axiosMock.onPost(`/tracking/front`).reply(204);
     store.dispatch(actions.pannelClose());
 
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates PANNEL_SHOW_LOGIN when calling action', () => {
@@ -38,7 +38,7 @@ describe('Pannel Actions', () => {
 
     store.dispatch(actions.pannelShowLogin());
 
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates PANNEL_SHOW_REGISTER when calling action', () => {
@@ -48,7 +48,7 @@ describe('Pannel Actions', () => {
 
     store.dispatch(actions.pannelShowRegister());
 
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates PANNEL_SHOW_FORGOT_PASSWORD when calling action', () => {
@@ -58,6 +58,6 @@ describe('Pannel Actions', () => {
 
     store.dispatch(actions.pannelShowForgotPassword());
 
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 });

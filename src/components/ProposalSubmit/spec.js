@@ -15,15 +15,15 @@ describe('ProposalSubmitFormComponent', () => {
     };
     const wrapper = shallow(<ProposalSubmitFormComponent {...props} />);
 
-    expect(wrapper.find(ProposalSubmitWrapper)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitWrapper.Label)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).to.equal('proposal');
-    expect(wrapper.find(ProposalSubmitWrapper.Input)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('onChange')).to.instanceof(Function);
-    expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).to.equal('proposal');
-    expect(wrapper.find(ProposalSubmitWrapper.CharLimit)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitWrapper.CharLimit).first().text()).to.equal('15/140');
-    expect(wrapper.find(ProposalSubmitButtonComponent)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).to.equal(true);
+    expect(wrapper.find(ProposalSubmitWrapper)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitWrapper.Label)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).toBe('proposal');
+    expect(wrapper.find(ProposalSubmitWrapper.Input)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('onChange')).toBeInstanceOf(Function);
+    expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).toBe('proposal');
+    expect(wrapper.find(ProposalSubmitWrapper.CharLimit)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitWrapper.CharLimit).first().text()).toBe('15/140');
+    expect(wrapper.find(ProposalSubmitButtonComponent)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).toBe(true);
   });
 });

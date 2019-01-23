@@ -19,12 +19,12 @@ describe('QualificationContainer', () => {
       handleQualification: () => {}
     };
 
-    expect(wrapper.find(QualificationComponent)).to.have.length(1);
+    expect(wrapper.find(QualificationComponent)).toHaveLength(1);
     const QualificationComponentProps = wrapper.find(QualificationComponent).first().props();
-    expect(QualificationComponentProps.proposalId).to.be.equal(expectedProps.proposalId);
-    expect(QualificationComponentProps.votedKey).to.be.equal(expectedProps.votedKey);
-    expect(QualificationComponentProps.qualifications).to.be.equal(expectedProps.qualifications);
-    expect(QualificationComponentProps.handleQualification).to.be.a('function');
-    expect(QualificationComponentProps.tabIndex).to.be.equal(expectedProps.tabIndex);
+    expect(QualificationComponentProps.proposalId).toBe(expectedProps.proposalId);
+    expect(QualificationComponentProps.votedKey).toBe(expectedProps.votedKey);
+    expect(QualificationComponentProps.qualifications).toBe(expectedProps.qualifications);
+    expect(typeof QualificationComponentProps.handleQualification).toBe('function');
+    expect(QualificationComponentProps.tabIndex).toBe(expectedProps.tabIndex);
   });
 });

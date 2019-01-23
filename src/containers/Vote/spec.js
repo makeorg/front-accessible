@@ -23,11 +23,11 @@ describe('VoteContainer', () => {
     isSequenceCollapsed: true,
     index: 1,
     currentIndex: 1,
-    goToNextCard: () => {}
+    goToNextCard: () => { }
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Vote {...defaultProps}/>);
+    wrapper = shallow(<Vote {...defaultProps} />);
   });
 
   it('render VoteComponent and passed props', () => {
@@ -38,14 +38,14 @@ describe('VoteContainer', () => {
     }
 
     const voteComponentWrapper = wrapper.find(VoteComponent);
-    expect(voteComponentWrapper).to.have.length(1);
-    expect(voteComponentWrapper.props()).to.include(expectedPassedProps);
+    expect(voteComponentWrapper).toHaveLength(1);
+    expect(voteComponentWrapper.props()).toEqual(expect.objectContaining(expectedPassedProps));
   });
 
   it('NextButton should not be rendered', () => {
     // check next button is not visible
     const NextButtonWrapper = wrapper.find(NextButton);
-    expect(NextButtonWrapper).to.have.length(0);
+    expect(NextButtonWrapper).toHaveLength(0);
   });
 
   it('render VoteComponent and change state', () => {
@@ -54,12 +54,12 @@ describe('VoteContainer', () => {
     i18nextStub.withArgs('proposal_card.next').returns(nextTrad);
 
     wrapper.setState({ hasVoted: true });
-    expect(wrapper.find(VoteComponent)).to.have.length(0);
-    expect(wrapper.find(VoteStyled)).to.have.length(1);
+    expect(wrapper.find(VoteComponent)).toHaveLength(0);
+    expect(wrapper.find(VoteStyled)).toHaveLength(1);
     const NextButtonWrapper = wrapper.find(NextButton);
-    expect(NextButtonWrapper).to.have.length(1);
+    expect(NextButtonWrapper).toHaveLength(1);
 
-    expect(NextButtonWrapper.props()).to.deep.equal({
+    expect(NextButtonWrapper.props()).toEqual({
       tabIndex: -1,
       onClick: defaultProps.goToNextCard,
       id: "next-button-1",
@@ -85,7 +85,7 @@ describe('VoteContainer', () => {
           count: 6,
           hasVoted: false,
           qualifications: ['foo', 'bar']
-        },{
+        }, {
           voteKey: "neutral",
           count: 6,
           hasVoted: false,
@@ -94,8 +94,8 @@ describe('VoteContainer', () => {
       }
     }
 
-    const voteWrapper = shallow(<Vote {...props}/>);
-    expect(voteWrapper.state().hasVoted).to.equal(true);
-    expect(voteWrapper.state().votedKey).to.equal("agree");
+    const voteWrapper = shallow(<Vote {...props} />);
+    expect(voteWrapper.state().hasVoted).toBe(true);
+    expect(voteWrapper.state().votedKey).toBe("agree");
   });
 });

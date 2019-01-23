@@ -16,7 +16,7 @@ describe('Proposal reducer', () => {
       error: null
     };
 
-    expect(proposal(undefined, {})).to.eql(expectedState);
+    expect(proposal(undefined, {})).toEqual(expectedState);
   });
 
   describe('Typing action reducers', () => {
@@ -45,7 +45,7 @@ describe('Proposal reducer', () => {
         error: null
       };
 
-      expect(proposal(previousState, action)).to.eql(expectedState);
+      expect(proposal(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -75,7 +75,7 @@ describe('Proposal reducer', () => {
         error: null
       };
 
-      expect(proposal(previousState, action)).to.eql(expectedState);
+      expect(proposal(previousState, action)).toEqual(expectedState);
     });
 
     it('Propose success', () => {
@@ -101,7 +101,7 @@ describe('Proposal reducer', () => {
         error: null
       };
 
-      expect(proposal(previousState, action)).to.eql(expectedState);
+      expect(proposal(previousState, action)).toEqual(expectedState);
     });
 
     it('propose failure', () => {
@@ -126,7 +126,7 @@ describe('Proposal reducer', () => {
         error: 'foo-error'
       };
 
-      expect(proposal(previousState, action)).to.eql(expectedState);
+      expect(proposal(previousState, action)).toEqual(expectedState);
     });
   });
 });

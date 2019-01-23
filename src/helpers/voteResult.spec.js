@@ -6,17 +6,17 @@ import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Constants/v
 describe('VoteResult Helper', () => {
   it('test getResultBarIndex', () => {
     const resultBarIndex = VoteResultHelper.getResultBarIndex('foo', 'bar');
-    expect(resultBarIndex).to.equal('ResultBar_foo_bar');
+    expect(resultBarIndex).toBe('ResultBar_foo_bar');
   });
 
   it('test getTooltipIndex', () => {
     const tooltipIndex = VoteResultHelper.getTooltipIndex('foo', 'bar');
-    expect(tooltipIndex).to.equal('Tooltip_foo_bar');
+    expect(tooltipIndex).toBe('Tooltip_foo_bar');
   });
 
   it('test getVotesCount', () => {
     const votesCount = VoteResultHelper.getVotesCount([{count: 1}, {count: 2}, {count: 3}]);
-    expect(votesCount).to.equal(6);
+    expect(votesCount).toBe(6);
   });
 
   it('test getVotesPercent', () => {
@@ -32,8 +32,8 @@ describe('VoteResult Helper', () => {
     }];
 
     const votesPercent = VoteResultHelper.getVotesPercent(votes, 10);
-    expect(votesPercent[VOTE_AGREE_KEY]).to.equal(30);
-    expect(votesPercent[VOTE_DISAGREE_KEY]).to.equal(30);
-    expect(votesPercent[VOTE_NEUTRAL_KEY]).to.equal(40);
+    expect(votesPercent[VOTE_AGREE_KEY]).toBe(30);
+    expect(votesPercent[VOTE_DISAGREE_KEY]).toBe(30);
+    expect(votesPercent[VOTE_NEUTRAL_KEY]).toBe(40);
   });
 });

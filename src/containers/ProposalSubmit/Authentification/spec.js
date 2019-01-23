@@ -10,9 +10,9 @@ describe('ProposalSubmitAuthentificationContainer', () => {
     }
     const wrapper = shallow(<ProposalSubmitAuthentification {...props} />);
 
-    expect(wrapper.find(ProposalSubmitAuthentificationComponent)).to.have.length(1);
+    expect(wrapper.find(ProposalSubmitAuthentificationComponent)).toHaveLength(1);
     const ProposalSubmitAuthentificationProps = wrapper.find(ProposalSubmitAuthentificationComponent).first().props();
-    expect(ProposalSubmitAuthentificationProps.handleRegisterClick).to.be.equal(props.handleRegisterClick);
-    expect(ProposalSubmitAuthentificationProps.handleLoginClick).to.be.equal(props.handleLoginClick);
+    expect(ProposalSubmitAuthentificationProps.handleRegisterClick).toBe(props.handleRegisterClick);
+    expect(ProposalSubmitAuthentificationProps.handleLoginClick).toBe(props.handleLoginClick);
   });
 });

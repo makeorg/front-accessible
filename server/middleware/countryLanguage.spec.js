@@ -1,6 +1,5 @@
 import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
-import sinon from 'sinon';
 import { isCountryLanguage, countryLanguageMiddleware } from './countryLanguage';
 
 describe('Country Language middelware', () => {
@@ -20,22 +19,14 @@ describe('Country Language middelware', () => {
   });
 
   describe('countryLanguageMiddleware function', () => {
-    let sandbox;
-    beforeEach(() => {
-      sandbox = sinon.createSandbox();
-    });
-
-    afterEach(() => {
-      sandbox.restore();
-    });
     it('country Uppercase and language Lowercase into Request params', () => {
       const request = httpMocks.createRequest({
         params: { countryLanguage: 'FR-fr' }
       });
       const response = httpMocks.createResponse();
       countryLanguageMiddleware(request, response, () => { });
-      expect(request.params.country).to.equal('FR');
-      expect(request.params.language).to.equal('fr');
+      expect(request.params.country).toBe('FR');
+      expect(request.params.language).toBe('fr');
     });
     it('country Lowercase and language Uppercase into Request params', () => {
       const request = httpMocks.createRequest({
@@ -43,8 +34,8 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       countryLanguageMiddleware(request, response, () => { });
-      expect(request.params.country).to.equal('FR');
-      expect(request.params.language).to.equal('fr');
+      expect(request.params.country).toBe('FR');
+      expect(request.params.language).toBe('fr');
     });
     it('country Capitalize and language Capitalize into Request params', () => {
       const request = httpMocks.createRequest({
@@ -52,17 +43,17 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       countryLanguageMiddleware(request, response, () => { });
-      expect(request.params.country).to.equal('FR');
-      expect(request.params.language).to.equal('fr');
+      expect(request.params.country).toBe('FR');
+      expect(request.params.language).toBe('fr');
     });
     it('redirect to FR-fr on unknow country', () => {
       const request = httpMocks.createRequest({
         params: { countryLanguage: 'FR' }
       });
       const response = httpMocks.createResponse();
-      sandbox.spy(response, 'redirect');
+      jest.spyOn(response, 'redirect');
       countryLanguageMiddleware(request, response, () => { });
-      expect(response.redirect).to.have.been.calledWith('/FR-fr');
+      expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
     });
   });
 });

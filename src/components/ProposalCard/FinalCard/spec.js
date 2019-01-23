@@ -12,6 +12,6 @@ describe('FinalCardComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<FinalCardComponent {...props} />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
+    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).toBe(true);
   });
 });

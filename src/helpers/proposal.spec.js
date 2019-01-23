@@ -7,37 +7,37 @@ describe('Proposal Helper', () => {
   const validProposalContent = "foobar";
   it('getProposalLength with content', () => {
     const proposalLength = ProposalHelper.getProposalLength(validProposalContent);
-    expect(proposalLength).to.equal(14);
+    expect(proposalLength).toBe(14);
   });
 
   it('getProposalLength with empty content', () => {
     const proposalLength = ProposalHelper.getProposalLength();
-    expect(proposalLength).to.equal(getBaitText().length);
+    expect(proposalLength).toBe(getBaitText().length);
   });
 
   it('getIsProposalValidLength with content with valid length', () => {
     const isProposalValidLength = ProposalHelper.getIsProposalValidLength(15);
-    expect(isProposalValidLength).to.be.true;
+    expect(isProposalValidLength).toBe(true);
   });
 
   it('getIsProposalValidLength with content with length more than Max', () => {
     const isProposalValidLength = ProposalHelper.getIsProposalValidLength(141);
-    expect(isProposalValidLength).to.be.false;
+    expect(isProposalValidLength).toBe(false);
   });
 
   it('getIsProposalValidLength with content with length minus than Min', () => {
     const isProposalValidLength = ProposalHelper.getIsProposalValidLength(2);
-    expect(isProposalValidLength).to.be.false;
+    expect(isProposalValidLength).toBe(false);
   });
 
   it('getIsProposalValidLength without content', () => {
     const isProposalValidLength = ProposalHelper.getIsProposalValidLength();
-    expect(isProposalValidLength).to.be.false;
+    expect(isProposalValidLength).toBe(false);
   });
 
   it('sortProposalsByVoted with empty array', () => {
     const sortedProposals = ProposalHelper.sortProposalsByVoted([]);
-    expect(sortedProposals).to.be.an('array').that.is.empty;
+    expect(sortedProposals).toEqual([]);
   });
 
   it('sortProposalsByVoted with proposals', () => {
@@ -48,14 +48,14 @@ describe('Proposal Helper', () => {
     ];
 
     const sortedProposals = ProposalHelper.sortProposalsByVoted(proposals);
-    expect(sortedProposals).to.be.an('array');
-    expect(sortedProposals).to.have.lengthOf(3);
-    expect(sortedProposals[0].id).to.equal('baz');
+    expect(Array.isArray(sortedProposals)).toBe(true);
+    expect(sortedProposals).toHaveLength(3);
+    expect(sortedProposals[0].id).toBe('baz');
   });
 
   it('searchFirstUnvotedProposal with empty array', () => {
     const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal([]);
-    expect(firstUnvotedProposal).to.be.undefined;
+    expect(firstUnvotedProposal).toBeUndefined();
   });
 
   it('searchFirstUnvotedProposal with proposals', () => {
@@ -65,6 +65,6 @@ describe('Proposal Helper', () => {
     const proposals = [fooProposal, barProposal, bazProposal];
 
     const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal(proposals);
-    expect(firstUnvotedProposal.id).to.equal('bar');
+    expect(firstUnvotedProposal.id).toBe('bar');
   });
 });

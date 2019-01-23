@@ -11,7 +11,7 @@ describe('Pannel reducer', () => {
       contentType: null
     };
 
-    expect(pannel(undefined, {})).to.eql(expectedState);
+    expect(pannel(undefined, {})).toEqual(expectedState);
   });
 
   it('Show login action reducers', () => {
@@ -26,7 +26,7 @@ describe('Pannel reducer', () => {
       contentType: pannelContentTypes.LOGIN_CONTENT
     };
 
-    expect(pannel(previousState, action)).to.eql(expectedState);
+    expect(pannel(previousState, action)).toEqual(expectedState);
   });
 
   it('Show register action reducers', () => {
@@ -41,7 +41,7 @@ describe('Pannel reducer', () => {
       contentType: pannelContentTypes.REGISTER_CONTENT
     };
 
-    expect(pannel(previousState, action)).to.eql(expectedState);
+    expect(pannel(previousState, action)).toEqual(expectedState);
   });
 
   it('Show forgot password action reducers', () => {
@@ -56,7 +56,7 @@ describe('Pannel reducer', () => {
       contentType: pannelContentTypes.FORGOT_PASSWORD_CONTENT
     };
 
-    expect(pannel(previousState, action)).to.eql(expectedState);
+    expect(pannel(previousState, action)).toEqual(expectedState);
   });
 
   it('Close Login action reducers', () => {
@@ -69,6 +69,6 @@ describe('Pannel reducer', () => {
       isPannelOpen: false
     };
 
-    expect(pannel(previousState, action)).to.eql(expectedState);
+    expect(pannel(previousState, action)).toEqual(expectedState);
   });
 });

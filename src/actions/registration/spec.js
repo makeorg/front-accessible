@@ -32,7 +32,7 @@ describe('Registration Actions', () => {
     }];
 
     store.dispatch(actions.registerRequest());
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates REGISTER_SUCCESS when calling action', () => {
@@ -43,7 +43,7 @@ describe('Registration Actions', () => {
     }];
 
     store.dispatch(actions.registerSuccess(user));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates REGISTER_FAILURE when calling action', () => {
@@ -54,7 +54,7 @@ describe('Registration Actions', () => {
     }];
 
     store.dispatch(actions.registerFailure(errors));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('creates an action to register when success', () => {
@@ -83,7 +83,7 @@ describe('Registration Actions', () => {
     ];
 
     return store.dispatch(actions.register(user)).then(() => {
-      expect(store.getActions()).to.deep.equal(expectedActions)
+      expect(store.getActions()).toEqual(expectedActions)
     });
   });
 
@@ -103,7 +103,7 @@ describe('Registration Actions', () => {
     ];
 
     return store.dispatch(actions.register(user)).then(() => {
-      expect(store.getActions()).to.deep.equal(expectedActions)
+      expect(store.getActions()).toEqual(expectedActions)
     });
   });
 });

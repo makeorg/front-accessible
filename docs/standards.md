@@ -145,8 +145,6 @@ Bad:
 
 Default case
 ```js
-import jestExpect from 'expect';
-import toMatchSnapshot from "expect-mocha-snapshot";
 import renderer from 'react-test-renderer';
 import ForgotPasswordFormComponent from './index';
 
@@ -156,7 +154,7 @@ describe("ForgotPasswordFormComponent", function () {
     const component = renderer.create(
       <ForgotPasswordFormComponent errors={[]} />
     );
-    jestExpect(component).toMatchSnapshot(this);
+    expect(component).toMatchSnapshot();
   });
 });
 ```
@@ -174,6 +172,6 @@ it("must match the snapshot with errors", function () {
       message: 'Error message 2'
     }]} />
   );
-  jestExpect(component).toMatchSnapshot(this);
+  expect(component).toMatchSnapshot();
 });
 ```

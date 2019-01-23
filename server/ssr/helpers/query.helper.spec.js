@@ -8,7 +8,7 @@ describe('query helper', () => {
       // when
       const isDisable = queryParamIsDisable(query, 'introCard');
       // then
-      expect(isDisable).to.equal(false);
+      expect(isDisable).toBe(false);
     });
 
     it('introCard query must be disabled', () => {
@@ -17,7 +17,7 @@ describe('query helper', () => {
       // when
       const isDisable = queryParamIsDisable(query, 'introCard');
       // then
-      expect(isDisable).to.equal(true);
+      expect(isDisable).toBe(true);
     });
 
     it('introCard query must be enabled', () => {
@@ -26,7 +26,7 @@ describe('query helper', () => {
       // when
       const isDisable = queryParamIsDisable(query, 'introCard');
       // then
-      expect(isDisable).to.equal(false);
+      expect(isDisable).toBe(false);
     });
   });
 
@@ -41,7 +41,7 @@ describe('query helper', () => {
       // when
       const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
       // then
-      expect(extraSlides).to.deep.equal(extraSlidesConfig);
+      expect(extraSlides).toEqual(extraSlidesConfig);
     });
 
     it('introCard query must be enabled', () => {
@@ -50,7 +50,7 @@ describe('query helper', () => {
       // when
       const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
       // then
-      expect(extraSlides).to.deep.equal(extraSlidesConfig);
+      expect(extraSlides).toEqual(extraSlidesConfig);
     });
 
     it('introCard query must be disabled', () => {
@@ -59,7 +59,7 @@ describe('query helper', () => {
       // when
       const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
       // then
-      expect(extraSlides).to.deep.equal({ signUpCard: { param: 'active' } });
+      expect(extraSlides).toEqual({ signUpCard: { param: 'active' } });
     });
   });
 });

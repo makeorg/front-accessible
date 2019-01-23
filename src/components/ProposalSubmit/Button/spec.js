@@ -14,20 +14,20 @@ describe('ProposalSubmitButtonComponent', () => {
   it('Renders enabled button', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent {...enabledButtonProps} />);
 
-    expect(wrapper.find(ProposalButton)).to.have.length(1);
-    expect(wrapper.find(ProposalButton).prop('disabled')).to.be.undefined;
+    expect(wrapper.find(ProposalButton)).toHaveLength(1);
+    expect(wrapper.find(ProposalButton).prop('disabled')).toBeUndefined();
   });
 
   it('Renders disabled button', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent {...disabledButtonProps} />);
 
-    expect(wrapper.find(DisabledProposalButton)).to.have.length(1);
-    expect(wrapper.find(DisabledProposalButton).prop('disabled')).to.equal(true);
+    expect(wrapper.find(DisabledProposalButton)).toHaveLength(1);
+    expect(wrapper.find(DisabledProposalButton).prop('disabled')).toBe(true);
   });
 
   it('Check a11y rules', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).to.equal(true);
+    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).toBe(true);
   });
 });

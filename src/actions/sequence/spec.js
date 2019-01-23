@@ -1,7 +1,5 @@
 /* @flow */
 
-/* @flow */
-
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
 import axios from 'axios';
@@ -37,7 +35,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.sequenceCollapse());
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates SEQUENCE_EXPAND when calling action', () => {
@@ -46,7 +44,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.sequenceExpand());
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
@@ -57,7 +55,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.voteProposal(proposalId));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Creates SEQUENCE_PROPOSAL_UNVOTE when calling action', () => {
@@ -68,7 +66,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.unvoteProposal(proposalId));
-    expect(store.getActions()).to.deep.equal(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions)
   });
 
   it('Track sequence vote when first vote', () => {
@@ -95,7 +93,7 @@ describe('Sequence Actions', () => {
       .withArgs(proposalId, voteKey, index);
 
     store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
-    expect(store.getActions()).to.deep.equal(expectedActions);
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Track sequence vote when second vote', () => {
@@ -121,6 +119,6 @@ describe('Sequence Actions', () => {
       .never();
 
     store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
-    expect(store.getActions()).to.deep.equal(expectedActions);
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
