@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ProposalSubmitFormComponent from 'Components/ProposalSubmit';
+import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
 import { ProposalSubmitFormWrapper } from 'Components/ProposalSubmit/Styled';
 import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
 import ProposalSubmitSuccessComponent from 'Components/ProposalSubmit/Success';

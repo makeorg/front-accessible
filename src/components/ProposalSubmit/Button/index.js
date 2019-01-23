@@ -11,15 +11,28 @@ import {
   ProposalButtonLabel
 } from '../Styled/ProposalField';
 
+type Props = {
+  /** Method called when field's value is submitted */
+  handleSubmit: () => void,
+  /** Can user submit value */
+  canSubmit: boolean,
+  /** Boolean toggled when Sliding pannel is opened / closed */
+  isPannelOpen: boolean,
+  /** Boolean toggled when Proposal Fieldis expanded / collapsed */
+  isFieldExpanded: boolean
+}
+
 /**
  * Renders submit button in proposal's field
  */
-const ProposalSubmitButtonComponent = ({
-  canSubmit,
-  handleSubmit,
-  isPannelOpen,
-  isFieldExpanded
-}) => {
+export const ProposalSubmitButtonComponent = (props: Props) => {
+  const {
+    handleSubmit,
+    canSubmit,
+    isPannelOpen,
+    isFieldExpanded
+  } = props;
+
   if (canSubmit) {
     return (
       <ProposalButton
@@ -49,5 +62,3 @@ const ProposalSubmitButtonComponent = ({
     </DisabledProposalButton>
   );
 };
-
-export default ProposalSubmitButtonComponent;

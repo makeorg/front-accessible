@@ -4,8 +4,8 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Components/Elements/HiddenElements';
 import { getBaitText } from 'Constants/proposal';
-import ProposalSubmitButtonComponent from './Button';
-import ProposalSubmitForm, { ExpandedForm } from './Styled';
+import { ProposalSubmitButtonComponent } from './Button';
+import ProposalSubmitForm from './Styled';
 
 type Props = {
   /** Value's content */
@@ -21,16 +21,16 @@ type Props = {
   /** Boolean toggled when User is typing a proposal */
   isTyping: boolean,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: () => void,
   /** Method called when field is focused */
-  handleFocus: Function,
+  handleFocus: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function
+  handleSubmit: () => void
 }
 /**
  * Render the Proposal Field
  */
-const ProposalSubmitFormComponent = (props: Props) => {
+export const ProposalSubmitFormComponent = (props: Props) => {
   const {
     content,
     length,
@@ -93,5 +93,3 @@ const ProposalSubmitFormComponent = (props: Props) => {
     </ProposalSubmitForm>
   );
 };
-
-export default ProposalSubmitFormComponent;
