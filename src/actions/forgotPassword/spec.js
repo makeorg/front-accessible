@@ -35,7 +35,7 @@ describe('ForgotPassword Actions', () => {
         email
       };
 
-      expect(actions.forgotPasswordRequest(email)).to.eql(expectedAction);
+      expect(actions.forgotPasswordRequest(email)).toEqual(expectedAction);
     });
 
     it('Creates an action forgotPasswordSuccess', () => {
@@ -43,7 +43,7 @@ describe('ForgotPassword Actions', () => {
         type: actionTypes.FORGOT_PASSWORD_SUCCESS
       };
 
-      expect(actions.forgotPasswordSuccess()).to.eql(expectedAction);
+      expect(actions.forgotPasswordSuccess()).toEqual(expectedAction);
     });
 
     it('Creates an action forgotPasswordFailure', () => {
@@ -53,7 +53,7 @@ describe('ForgotPassword Actions', () => {
         errors
       };
 
-      expect(actions.forgotPasswordFailure(errors)).to.eql(expectedAction);
+      expect(actions.forgotPasswordFailure(errors)).toEqual(expectedAction);
     });
 
     it('Creates an action forgotPasswordInit', () => {
@@ -61,7 +61,7 @@ describe('ForgotPassword Actions', () => {
         type: actionTypes.FORGOT_PASSWORD_INIT
       };
 
-      expect(actions.forgotPasswordInit()).to.eql(expectedAction);
+      expect(actions.forgotPasswordInit()).toEqual(expectedAction);
     });
 
     it('Creates an action to forgot password when success', () => {
@@ -76,7 +76,7 @@ describe('ForgotPassword Actions', () => {
       ];
 
       return store.dispatch(actions.forgotPassword(email)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
 
@@ -97,7 +97,7 @@ describe('ForgotPassword Actions', () => {
       ];
 
       return store.dispatch(actions.forgotPassword(email)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
   });

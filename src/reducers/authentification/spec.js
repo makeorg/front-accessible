@@ -12,7 +12,7 @@ describe('Authentification reducer', () => {
       token: null
     };
 
-    expect(authentification(undefined, {})).to.eql(expectedState);
+    expect(authentification(undefined, {})).toEqual(expectedState);
   });
 
   describe('Login action reducers', () => {
@@ -32,7 +32,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Success', () => {
@@ -51,7 +51,7 @@ describe('Authentification reducer', () => {
         token: 'fooToken'
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Failure', () => {
@@ -70,7 +70,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -91,7 +91,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Social Success', () => {
@@ -110,7 +110,7 @@ describe('Authentification reducer', () => {
         token: 'fooToken'
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Social Failure', () => {
@@ -129,7 +129,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -154,7 +154,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -178,7 +178,7 @@ describe('Authentification reducer', () => {
         user: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -203,7 +203,7 @@ describe('Authentification reducer', () => {
         token: null
       };
 
-      expect(authentification(previousState, action)).to.eql(expectedState);
+      expect(authentification(previousState, action)).toEqual(expectedState);
     });
   });
 });

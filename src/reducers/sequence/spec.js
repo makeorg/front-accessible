@@ -12,7 +12,7 @@ describe('Sequence reducer', () => {
       votedProposalIds: []
     };
 
-    expect(sequence(undefined, {})).to.eql(expectedState);
+    expect(sequence(undefined, {})).toEqual(expectedState);
   });
 
   it('Collapse sequence reducer', () => {
@@ -25,7 +25,7 @@ describe('Sequence reducer', () => {
       isSequenceCollapsed: true
     };
 
-    expect(sequence(previousState, action)).to.eql(expectedState);
+    expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
   it('Expand sequence reducer', () => {
@@ -38,7 +38,7 @@ describe('Sequence reducer', () => {
       isSequenceCollapsed: false
     };
 
-    expect(sequence(previousState, action)).to.eql(expectedState);
+    expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
   it('Vote into Sequence reducer', () => {
@@ -51,7 +51,7 @@ describe('Sequence reducer', () => {
       votedProposalIds: ['fooId']
     };
 
-    expect(sequence(previousState, action)).to.eql(expectedState);
+    expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
   it('Unvote into Sequence reducer', () => {
@@ -64,6 +64,6 @@ describe('Sequence reducer', () => {
       votedProposalIds: ['barId', 'bazId']
     };
 
-    expect(sequence(previousState, action)).to.eql(expectedState);
+    expect(sequence(previousState, action)).toEqual(expectedState);
   });
 });

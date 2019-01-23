@@ -11,10 +11,10 @@ describe('SequenceFooterComponent', () => {
     }
     const wrapper = shallow(<SequenceFooterComponent {...props} />);
 
-    expect(wrapper.find(Sequence.FooterNav).prop('aria-labelledby')).to.equal('footer_title');
-    expect(wrapper.find(Sequence.FooterNav).text()).to.equal(props.questionConfiguration.wording.question);
-    expect(wrapper.find(Sequence.FooterTitle).prop('color')).to.equal(props.questionConfiguration.theme.footerFontColor);
-    expect(wrapper.find(Sequence.FooterLink).prop('color')).to.equal(props.questionConfiguration.theme.footerFontColor);
-    expect(wrapper.find(Sequence.FooterLink).prop('href')).to.equal(props.questionConfiguration.consultationUrl);
+    expect(wrapper.find(Sequence.FooterNav).prop('aria-labelledby')).toBe('footer_title');
+    expect(wrapper.find(Sequence.FooterNav).text()).toBe(props.questionConfiguration.wording.question);
+    expect(wrapper.find(Sequence.FooterTitle).prop('color')).toBe(props.questionConfiguration.theme.footerFontColor);
+    expect(wrapper.find(Sequence.FooterLink).prop('color')).toBe(props.questionConfiguration.theme.footerFontColor);
+    expect(wrapper.find(Sequence.FooterLink).prop('href')).toBe(props.questionConfiguration.consultationUrl);
   });
 });

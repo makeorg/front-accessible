@@ -7,11 +7,11 @@ import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Constants/v
 describe('VoteResultContainer', () => {
   const defaultProps = {
     proposalId: 'fooId',
-    votes: [{voteKey: 'foo'}, {voteKey: 'bar'}],
+    votes: [{ voteKey: 'foo' }, { voteKey: 'bar' }],
     votedKey: 'bar',
     tabIndex: 0,
     index: 0,
-    handleVote: () => {}
+    handleVote: () => { }
   };
 
   it('render VoteResultComponent and passed props', () => {
@@ -25,7 +25,7 @@ describe('VoteResultContainer', () => {
     sinon.stub(VoteResultHelper, 'getVotesCount').returns(votesCount);
     sinon.stub(VoteResultHelper, 'getVotesPercent').returns(votePercent);
 
-    const wrapper = shallow(<VoteResult {...defaultProps}/>);
+    const wrapper = shallow(<VoteResult {...defaultProps} />);
 
     const expectedPassedProps = {
       votesPercent: votePercent,
@@ -37,7 +37,7 @@ describe('VoteResultContainer', () => {
     };
 
     const voteResultComponentWrapper = wrapper.find(VoteResultComponent);
-    expect(voteResultComponentWrapper).to.have.length(1);
-    expect(voteResultComponentWrapper.props()).to.include(expectedPassedProps);
+    expect(voteResultComponentWrapper).toHaveLength(1);
+    expect(voteResultComponentWrapper.props()).toEqual(expect.objectContaining(expectedPassedProps));
   });
 });

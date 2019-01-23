@@ -1,28 +1,20 @@
 import * as React from 'react'; // eslint-disable-line no-unused-vars
-import chai, { expect } from 'chai';
-import sinonChai from 'sinon-chai';
 import sinon from 'sinon';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import ApiService from '../src/api/ApiService';
-
-import jestexpect from 'expect'
-import toMatchSnapshot from "expect-mocha-snapshot";
-jestexpect.extend({ toMatchSnapshot });
+import 'jest-styled-components'
 
 Enzyme.configure({ adapter: new Adapter() });
 
-chai.use(sinonChai);
-require.extensions['.svg'] = () => {};
+require.extensions['.svg'] = () => { };
 
 global.document = new JSDOM('');
 global.window = document.defaultView;
-document.location = 'http://localhost:3000';
 global.navigator = { userAgent: 'browser' };
 global.sinon = sinon;
 global.React = React;
-global.expect = expect;
 global.sinon = sinon;
 
 ApiService.sessionId = 'foo-session';

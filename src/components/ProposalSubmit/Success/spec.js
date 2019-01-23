@@ -1,6 +1,8 @@
-import { shallow } from 'enzyme';
-import ProposalSubmitDescriptionComponent from './';
+// import { shallow } from 'enzyme';
 
-describe('ProposalSubmitDescriptionComponent', () => {
-
+describe('ProposalSubmitSuccess', () => {
+  it('TODO missing-test', () => {
+    // TODO missing-test
+    expect(true).toBe(true);
+  });
 });

@@ -35,7 +35,7 @@ describe('Authentification Actions', () => {
         type: actionTypes.LOGIN_REQUEST,
       };
 
-      expect(actions.loginRequest()).to.eql(expectedAction);
+      expect(actions.loginRequest()).toEqual(expectedAction);
     });
 
     it('Creates an action loginFailure', () => {
@@ -45,7 +45,7 @@ describe('Authentification Actions', () => {
         error
       };
 
-      expect(actions.loginFailure(error)).to.eql(expectedAction);
+      expect(actions.loginFailure(error)).toEqual(expectedAction);
     });
 
     it('creates an action loginSuccess', () => {
@@ -55,7 +55,7 @@ describe('Authentification Actions', () => {
         token
       };
 
-      expect(actions.loginSuccess(token)).to.eql(expectedAction);
+      expect(actions.loginSuccess(token)).toEqual(expectedAction);
     });
 
     it('creates an action to login when success', () => {
@@ -91,7 +91,7 @@ describe('Authentification Actions', () => {
 
       ;
       return store.dispatch(actions.login(user.email, user.password)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
 
@@ -102,8 +102,8 @@ describe('Authentification Actions', () => {
       const proposalContent = 'foo';
       const questionId = 'bar';
       const store = mockStore({
-        proposal: {content: proposalContent},
-        sequence: {question: {questionId}}
+        proposal: { content: proposalContent },
+        sequence: { question: { questionId } }
       });
 
       sandbox
@@ -122,7 +122,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.login(user.email, user.password)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
   });
@@ -135,7 +135,7 @@ describe('Authentification Actions', () => {
         provider
       };
 
-      expect(actions.loginSocialRequest(provider)).to.eql(expectedAction);
+      expect(actions.loginSocialRequest(provider)).toEqual(expectedAction);
     });
 
     it('creates an action loginSocialFailure', () => {
@@ -143,7 +143,7 @@ describe('Authentification Actions', () => {
         type: actionTypes.LOGIN_SOCIAL_FAILURE
       };
 
-      expect(actions.loginSocialFailure()).to.eql(expectedAction);
+      expect(actions.loginSocialFailure()).toEqual(expectedAction);
     });
 
     it('creates an action loginSocialSuccess', () => {
@@ -153,14 +153,14 @@ describe('Authentification Actions', () => {
         token
       };
 
-      expect(actions.loginSocialSuccess(token)).to.eql(expectedAction);
+      expect(actions.loginSocialSuccess(token)).toEqual(expectedAction);
     });
 
     it('creates an action to login social when success', () => {
       const store = mockStore({
         proposal: { canSubmit: false },
         authentification: { isLoggedIn: false },
-        pannel: {isPannelOpen: false}
+        pannel: { isPannelOpen: false }
       });
       const token = { foo: 'bar' };
       const user = { firstname: 'baz' };
@@ -188,7 +188,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
 
@@ -196,8 +196,8 @@ describe('Authentification Actions', () => {
       const proposalContent = 'foo';
       const questionId = 'bar';
       const store = mockStore({
-        proposal: {content: proposalContent },
-        sequence: {question: {questionId}}
+        proposal: { content: proposalContent },
+        sequence: { question: { questionId } }
       });
       const socialToken = 'fooToken';
       const provider = 'barProvider';
@@ -215,7 +215,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
   });
@@ -231,7 +231,7 @@ describe('Authentification Actions', () => {
         token
       };
 
-      expect(actions.setUserToken(token)).to.eql(expectedAction);
+      expect(actions.setUserToken(token)).toEqual(expectedAction);
     });
 
     it('creates an action to get user informations', () => {
@@ -244,7 +244,7 @@ describe('Authentification Actions', () => {
         user
       };
 
-      expect(actions.setUserInfo(user)).to.eql(expectedAction);
+      expect(actions.setUserInfo(user)).toEqual(expectedAction);
     });
 
     it('creates an action to logout a user', () => {
@@ -252,7 +252,7 @@ describe('Authentification Actions', () => {
         type: actionTypes.LOGOUT
       };
 
-      expect(actions.logout()).to.eql(expectedAction);
+      expect(actions.logout()).toEqual(expectedAction);
     });
 
     it('creates an action to getUser when pannel is open', () => {
@@ -275,7 +275,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.getUser()).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
 
@@ -294,7 +294,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.getUser()).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
 
@@ -307,7 +307,7 @@ describe('Authentification Actions', () => {
         proposal: { content },
         pannel: { isPannelOpen: false },
         authentification: { isLoggedIn: false },
-        sequence: {question: {questionId}}
+        sequence: { question: { questionId } }
       });
 
       sandbox
@@ -324,7 +324,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.getToken()).then(() => {
-        expect(store.getActions()).to.deep.equal(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions)
       });
     });
   });

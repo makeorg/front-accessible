@@ -20,14 +20,14 @@ describe('ProposalSubmitContainer', () => {
   it('Renders Initial Props & State', () => {
     const wrapper = shallow(<ProposalSubmit {...defaultProps} />);
 
-    expect(wrapper.find(ProposalSubmitFormComponent)).to.have.length(1);
+    expect(wrapper.find(ProposalSubmitFormComponent)).toHaveLength(1);
     const proposalSubmitProps = wrapper.find(ProposalSubmitFormComponent).first().props();
-    expect(proposalSubmitProps.content).to.be.equal(defaultProps.content);
-    expect(proposalSubmitProps.length).to.be.equal(defaultProps.length);
-    expect(proposalSubmitProps.canSubmit).to.be.equal(defaultProps.canSubmit);
+    expect(proposalSubmitProps.content).toBe(defaultProps.content);
+    expect(proposalSubmitProps.length).toBe(defaultProps.length);
+    expect(proposalSubmitProps.canSubmit).toBe(defaultProps.canSubmit);
 
-    expect(wrapper.find(ProposalSubmitDescriptionComponent)).to.have.length(0);
-    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(0);
+    expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(0);
+    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).toHaveLength(0);
   });
 
   it('Renders Description', () => {
@@ -38,8 +38,8 @@ describe('ProposalSubmitContainer', () => {
     const wrapper = shallow(<ProposalSubmit {...descriptionProps} />);
 
     wrapper.setState({ isTyping: true });
-    expect(wrapper.find(ProposalSubmitDescriptionComponent)).to.have.length(1);
-    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(0);
+    expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).toHaveLength(0);
   });
 
   it('Renders Authentification', () => {
@@ -50,8 +50,8 @@ describe('ProposalSubmitContainer', () => {
     };
     const wrapper = shallow(<ProposalSubmit {...notLoggedInProps} />);
 
-    expect(wrapper.find(ProposalSubmitDescriptionComponent)).to.have.length(0);
-    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).to.have.length(1);
+    expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(0);
+    expect(wrapper.find(ProposalSubmitAuthentificationContainer)).toHaveLength(1);
   });
 
 });

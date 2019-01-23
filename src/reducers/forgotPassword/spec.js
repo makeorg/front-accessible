@@ -10,7 +10,7 @@ describe('ForgotPassword reducer', () => {
       isSuccess: false
     };
 
-    expect(forgotPassword(undefined, {})).to.eql(expectedState);
+    expect(forgotPassword(undefined, {})).toEqual(expectedState);
   });
 
 
@@ -27,7 +27,7 @@ describe('ForgotPassword reducer', () => {
         isSuccess: false
       };
 
-      expect(forgotPassword(previousState, action)).to.eql(expectedState);
+      expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
 
     it('ForgotPassword Success', () => {
@@ -42,7 +42,7 @@ describe('ForgotPassword reducer', () => {
         isSuccess: true
       };
 
-      expect(forgotPassword(previousState, action)).to.eql(expectedState);
+      expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Failure', () => {
@@ -57,7 +57,7 @@ describe('ForgotPassword reducer', () => {
         isSuccess: false
       };
 
-      expect(forgotPassword(previousState, action)).to.eql(expectedState);
+      expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Init', () => {
@@ -72,7 +72,7 @@ describe('ForgotPassword reducer', () => {
         isSuccess: false
       };
 
-      expect(forgotPassword(previousState, action)).to.eql(expectedState);
+      expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
   });
 });

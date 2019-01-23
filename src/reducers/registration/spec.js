@@ -10,7 +10,7 @@ describe('Registration reducer', () => {
       user: null,
     };
 
-    expect(registration(undefined, {})).to.eql(expectedState);
+    expect(registration(undefined, {})).toEqual(expectedState);
   });
 
   describe('Register action reducers', () => {
@@ -26,7 +26,7 @@ describe('Registration reducer', () => {
         user: null,
       };
 
-      expect(registration(previousState, action)).to.eql(expectedState);
+      expect(registration(previousState, action)).toEqual(expectedState);
     });
 
     it('Register Success', () => {
@@ -46,7 +46,7 @@ describe('Registration reducer', () => {
         user: user
       };
 
-      expect(registration(previousState, action)).to.eql(expectedState);
+      expect(registration(previousState, action)).toEqual(expectedState);
     });
 
     it('Register Failure', () => {
@@ -65,7 +65,7 @@ describe('Registration reducer', () => {
         token: null
       };
 
-      expect(registration(previousState, action)).to.eql(expectedState);
+      expect(registration(previousState, action)).toEqual(expectedState);
     });
   });
 });

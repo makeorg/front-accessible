@@ -24,15 +24,15 @@ describe('ProposalSubmitAuthentificationComponent', () => {
     const EmailButtonIcon = wrapper.find(EmailButton).find(FontAwesomeIcon);
 
 
-    expect(wrapper.find(Small).prop('aria-hidden')).to.equal(true);
-    expect(EmailButtonIcon.prop('aria-hidden')).to.equal(true);
-    expect(DescriptionLinkIcon.prop('aria-label')).to.equal('Ouverture dans un nouvel onglet');
+    expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
+    expect(EmailButtonIcon.prop('aria-hidden')).toBe(true);
+    expect(DescriptionLinkIcon.prop('aria-label')).toBe('Ouverture dans un nouvel onglet');
   });
 
   it('Check link target', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
 
-    expect(wrapper.find(DescriptionLink).prop('target')).to.equal('_blank');
+    expect(wrapper.find(DescriptionLink).prop('target')).toBe('_blank');
   });
 
 });
