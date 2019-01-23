@@ -4,6 +4,8 @@ import ApiService from 'Api/ApiService';
 import * as trackingConstants from 'Constants/tracking';
 import Logger from 'Services/Logger';
 import { PATH_POST_TRACKING } from 'Constants/paths';
+import FacebookTracking from './Trackers/FacebookTracking';
+import TwitterTracking from './Trackers/TwitterTracking';
 
 const
   PARENT_URL = typeof window
@@ -31,13 +33,16 @@ class Tracking {
   }
 
   track = (eventName: string, parameters: Object = {}) => {
-    const eventParameters = Object.assign({}, {
-      location: 'front-accessible',
-      source: ApiService.source,
-      country: ApiService.country,
-      language: ApiService.language,
-      url: PARENT_URL
-    }, parameters || {});
+    const eventParameters = {
+      ...{
+        location: 'front-accessible',
+        source: ApiService.source,
+        country: ApiService.country,
+        language: ApiService.language,
+        url: PARENT_URL
+      },
+      ...parameters
+    };
 
     return ApiService.callApi(PATH_POST_TRACKING, {
       method: 'POST',
@@ -49,9 +54,32 @@ class Tracking {
     }).catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...error }));
   };
 
+  trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
+    const eventParameters = {
+      ...{
+        source: ApiService.source,
+        country: ApiService.country,
+        language: ApiService.language,
+        url: PARENT_URL,
+        location: trackingConstants.LOCATION_SEQUENCE
+      },
+      ...parameters
+    };
+
+    FacebookTracking.trackCustom(eventName, eventParameters);
+  };
+
+  trackTwitter = (eventName: string) => {
+    TwitterTracking.track(eventName);
+  };
+
   /* On Load Tracking */
-  trackDisplaySequence = () => {
-    this.track(trackingConstants.DISPLAY_SEQUENCE);
+  trackDisplaySequence = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_SEQUENCE;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackTwitter(eventName);
   }
 
   /* Header Tracking */
@@ -77,12 +105,19 @@ class Tracking {
   }
 
   /* Proposal Submit */
-  trackClickProposalSubmit = () => {
-    this.track(trackingConstants.CLICK_PROPOSAL_SUBMIT);
+  trackClickProposalSubmit = (questionSlug: string) => {
+    const eventName = trackingConstants.CLICK_PROPOSAL_SUBMIT;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
   }
 
-  trackDisplayProposalSubmitValidation = () => {
-    this.track(trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION);
+  trackDisplayProposalSubmitValidation = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackTwitter(eventName);
   }
 
 
@@ -129,8 +164,12 @@ class Tracking {
   }
 
   /* Sequence */
-  trackClickStartSequence = () => {
-    this.track(trackingConstants.CLICK_START_SEQUENCE);
+  trackClickStartSequence = (questionSlug: string) => {
+    const eventName = trackingConstants.CLICK_START_SEQUENCE;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackTwitter(eventName);
   }
 
   trackClickNextCard = () => {
@@ -149,25 +188,79 @@ class Tracking {
     this.track(trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
   }
 
-  trackDisplayFinalCard = () => {
-    this.track(trackingConstants.DISPLAY_FINAL_CARD);
+  trackDisplayIntroCard = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_INTRO_CARD;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+  }
+
+  trackDisplayProposalPushCard = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_PROPOSAL_PUSH_CARD;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackTwitter(eventName);
+  }
+
+  trackDisplaySignUpCard = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_SIGN_UP_CARD;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackTwitter(eventName);
+  }
+
+  trackDisplayFinalCard = (questionSlug: string) => {
+    const eventName = trackingConstants.DISPLAY_FINAL_CARD;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName, { question: questionSlug });
   }
 
   /* Votes */
-  trackVote = (proposalId: string, nature: string, cardPosition?: number) => {
-    this.track(trackingConstants.CLICK_PROPOSAL_VOTE, {
+  trackVote = (
+    questionSlug: string,
+    proposalId: string,
+    nature: string,
+    position?: number
+  ) => {
+    const eventName: string = trackingConstants.CLICK_PROPOSAL_VOTE;
+    const cardPosition: string = getPosition(position);
+    const params = {
       proposalId,
-      nature,
-      'card-position': getPosition(cardPosition)
+      cardPosition,
+      question: questionSlug
+    };
+
+    this.track(eventName, {
+      ...params,
+      ...{ nature }
     });
+    this.trackFacebookPixel(eventName, params);
+    this.trackTwitter(eventName);
   }
 
-  trackFirstVote = (proposalId: string, nature: string, cardPosition?: number) => {
-    this.track(trackingConstants.CLICK_SEQUENCE_FIRST_VOTE, {
+  trackFirstVote = (
+    questionSlug: string,
+    proposalId: string,
+    nature: string,
+    position?: number
+  ) => {
+    const eventName: string = trackingConstants.CLICK_SEQUENCE_FIRST_VOTE;
+    const cardPosition = getPosition(position);
+    const params = {
       proposalId,
-      nature,
-      'card-position': getPosition(cardPosition)
+      cardPosition,
+      question: questionSlug
+    };
+
+    this.track(eventName, {
+      ...params,
+      ...{ nature }
     });
+    this.trackFacebookPixel(eventName, params);
+    this.trackTwitter(eventName);
   }
 
   trackUnvote = (proposalId: string, nature: string, cardPosition?: number) => {

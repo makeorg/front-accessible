@@ -5,7 +5,9 @@ import { Provider } from 'react-redux';
 import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
-import AppContainer from 'Containers/App';
+import { AppContainer } from 'Containers/App';
+import FacebookTracking from 'Services/Trackers/FacebookTracking';
+import TwitterTracking from 'Services/Trackers/TwitterTracking';
 import configureStore from './store';
 import Logger from './services/Logger';
 import { env } from '../shared/env';
@@ -47,6 +49,8 @@ i18next.init({
   }
 });
 
+FacebookTracking.init('260470104426586');
+TwitterTracking.init('o16m6');
 
 const store = configureStore(initialState);
 

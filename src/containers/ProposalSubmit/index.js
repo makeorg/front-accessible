@@ -14,6 +14,8 @@ import Tracking from 'Services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 
 type Props = {
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: Object,
   /** Content of the proposal */
   content: string,
   /** Length of the proposal */
@@ -77,14 +79,16 @@ export class ProposalSubmit extends React.Component<Props, State> {
   handleSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
-    Tracking.trackClickProposalSubmit();
 
     const {
+      question,
       content,
       isLoggedIn,
       handleSubmitProposal,
       handleGetUserToken
     } = this.props;
+
+    Tracking.trackClickProposalSubmit(question.slug);
 
     if (isLoggedIn) {
       handleSubmitProposal(content).then(() => {
@@ -166,7 +170,7 @@ export class ProposalSubmit extends React.Component<Props, State> {
 
 const mapStateToProps = (state) => {
   const { isLoggedIn } = state.authentification;
-  const { isSequenceCollapsed } = state.sequence;
+  const { isSequenceCollapsed, question } = state.sequence;
   const { isPannelOpen } = state.pannel;
   const {
     content,
@@ -179,6 +183,7 @@ const mapStateToProps = (state) => {
     isLoggedIn,
     isSequenceCollapsed,
     isPannelOpen,
+    question,
     content,
     length,
     canSubmit,

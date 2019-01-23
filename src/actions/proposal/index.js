@@ -26,7 +26,7 @@ export const typingProposal = (content: string, length: number, canSubmit: boole
 
 export const submitProposal = (content: string) => (dispatch: Function, getState: Function) => {
   const { isLoggedIn } = getState().authentification;
-  const { questionId } = getState().sequence.question;
+  const { questionId, slug } = getState().sequence.question;
   if (!isLoggedIn) {
     dispatch(proposeRequest(content, questionId));
     return Promise.resolve();
@@ -41,7 +41,7 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
     .then(({ proposalId }) => {
       dispatch(proposeSuccess(proposalId));
 
-      Tracking.trackDisplayProposalSubmitValidation();
+      Tracking.trackDisplayProposalSubmitValidation(slug);
     })
     .catch((error) => {
       dispatch(proposeFailure(error));
