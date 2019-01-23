@@ -20,6 +20,12 @@ export const
   + Elements.SequenceFooterHeightDesktop;
 
 export const
+  PROPOSALSTACK_HEIGHT_MOBILE: number = 65;
+
+export const
+  PROPOSALSTACK_HEIGHT_DESKTOP: number = 90;
+
+export const
   CALC_WIDTH_MOBILE: number = DefaultPadding.Mobile * 2;
 
 export const

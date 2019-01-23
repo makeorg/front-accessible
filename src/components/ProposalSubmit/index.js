@@ -21,11 +21,11 @@ type Props = {
   /** Boolean toggled when User is typing a proposal */
   isTyping: boolean,
   /** Method called when field's value changes */
-  handleChange: () => void,
+  handleChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
   handleFocus: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: () => void
+  handleSubmit: (SyntheticEvent<*>) => void
 }
 /**
  * Render the Proposal Field

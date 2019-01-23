@@ -132,8 +132,8 @@ export class ProposalSubmit extends React.Component<Props, State> {
           content={content}
           length={length}
           canSubmit={canSubmit}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          handleChange={event => this.handleChange(event)}
+          handleSubmit={event => this.handleSubmit(event)}
           handleFocus={this.handleFocus}
           isPannelOpen={isPannelOpen}
           isSequenceCollapsed={isSequenceCollapsed}

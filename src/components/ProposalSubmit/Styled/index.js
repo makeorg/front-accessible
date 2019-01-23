@@ -13,7 +13,9 @@ import {
   ProposalIcon
 } from './ProposalField';
 
-export const DescriptionWrapper = styled.div``;
+export const DescriptionWrapper = styled.div`
+  margin: ${pxToRem('20px')} auto 0;
+`;
 
 const ProposalSubmitForm = styled.form`
   display: flex;
@@ -43,7 +45,7 @@ export const ProposalSubmitFormWrapper = styled.aside`
   padding: 0 ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     max-height: ${pxToRem('50px')};
-    margin: ${pxToRem('15px')} auto;
+    margin: ${pxToRem('25px')} auto ${pxToRem('15px')};
   }
 `;
 

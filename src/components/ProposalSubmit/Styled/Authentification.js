@@ -9,6 +9,7 @@ const ProposalSubmitAuthentificationWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  margin: ${pxToRem('20px')} auto 0;
 `;
 
 export default ProposalSubmitAuthentificationWrapper;

@@ -13,7 +13,7 @@ import {
 
 type Props = {
   /** Method called when field's value is submitted */
-  handleSubmit: () => void,
+  handleSubmit: (SyntheticEvent<*>) => void,
   /** Can user submit value */
   canSubmit: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
