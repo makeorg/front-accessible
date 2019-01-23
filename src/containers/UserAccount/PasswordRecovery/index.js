@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { PasswordRecoveryComponent } from 'Components/UserAccount/PasswordRecovery';
 
 import { passwordRecovery } from 'Actions/user/passwordRecovery';
+import { throttle } from 'Shared/helpers/throttle';
 
 type Props = {
   /** Boolean to check if form contain errors */
@@ -28,12 +29,15 @@ type State = {
  * Handles Password Recovery Business Logic
  */
 class PasswordRecovery extends React.Component<Props, State> {
+  throttleSubmit: any = undefined;
+
   constructor(props) {
     super(props);
     this.state = {
       password: '',
       passwordIsDisplayed: false
     };
+    this.throttleSubmit = throttle(this.handleSubmit);
   }
 
   togglePasswordIsDisplayed = () => {
@@ -72,7 +76,7 @@ class PasswordRecovery extends React.Component<Props, State> {
         updated={updated}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
+        handleSubmit={this.throttleSubmit}
       />
     );
   }

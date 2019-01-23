@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import type { UserObject, ErrorObject } from 'Types/form';
+import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { register } from 'Actions/registration';
 import RegisterComponent from 'Components/Register';
@@ -48,6 +49,13 @@ class RegisterContainer extends React.Component<Props, State> {
     passwordIsDisplayed: false
   }
 
+  throttleSubmit: any = undefined;
+
+  constructor(props: Props) {
+    super(props);
+    this.throttleSubmit = throttle(this.handleSubmit);
+  }
+
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     const { user } = this.state;
@@ -84,8 +92,8 @@ class RegisterContainer extends React.Component<Props, State> {
       <RegisterComponent
         user={user}
         errors={errors}
-        handleChange={event => this.handleChange(event)}
-        handleSubmit={event => this.handleSubmit(event)}
+        handleChange={this.handleChange}
+        handleSubmit={this.throttleSubmit}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleLoginPannel={handleLoginPannel}

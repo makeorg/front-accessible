@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import type { ErrorObject } from 'Types/form';
+import { throttle } from 'Shared/helpers/throttle';
 import ForgotPasswordComponent from 'Components/ForgotPassword';
 import { forgotPassword } from 'Actions/forgotPassword';
 import { pannelShowLogin } from 'Actions/pannel';
@@ -29,14 +30,15 @@ type State = {
  * Handles Forgot Password Business Logic
  */
 class ForgotPasswordContainer extends React.Component<Props, State> {
+  throttleSubmit: any = undefined
+
   constructor(props) {
     super(props);
     this.state = {
       email: ''
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.throttleSubmit = throttle(this.handleSubmit);
   }
 
   handleChange = (event) => {
@@ -71,7 +73,7 @@ class ForgotPasswordContainer extends React.Component<Props, State> {
         errors={errors}
         isSuccess={isSuccess}
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
+        handleSubmit={this.throttleSubmit}
         handleLoginPannel={handleLoginPannel}
         isPannelOpen={isPannelOpen}
       />
