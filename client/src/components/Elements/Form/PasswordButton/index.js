@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { UnstyledButton } from 'Components/Elements/ButtonElements';
+import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
 import { HidePasswordIcon } from '..';
 
 const PasswordButton = ({

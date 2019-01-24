@@ -8,12 +8,12 @@ import {
   IconInButton,
   SmallButtonsWrapper,
   RedLinkButton
-} from 'Components/Elements/ButtonElements';
-import { CenterColumn } from 'Components/Elements/FlexElements';
-import { ExtraAltParagraph } from 'Components/Elements/Form';
+} from 'Src/components/Elements/ButtonElements';
+import { CenterColumn } from 'Src/components/Elements/FlexElements';
+import { ExtraAltParagraph } from 'Src/components/Elements/Form';
 import FacebookAuthentificationButtonComponent
-  from 'Components/Authentification/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from 'Components/Authentification/Social/GoogleAuthentification/Button';
+  from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';
 
 type Props = {
   /** Method called to render Register Pannel */

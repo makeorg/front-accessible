@@ -1,5 +1,5 @@
-import UserService from 'Api/UserService';
-import QuestionService from 'Api/QuestionService';
+import UserService from 'Src/api/UserService';
+import QuestionService from 'Src/api/QuestionService';
 import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { logger } from '../logger';

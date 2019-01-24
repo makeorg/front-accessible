@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
-import { CookieBannerComponent } from 'Components/Cookie';
-import * as Helpers from 'Helpers/url';
+import { CookieBannerComponent } from 'Src/components/Cookie';
+import * as Helpers from 'Src/helpers/url';
 
 type Props = {
   /** Cookies object */

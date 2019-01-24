@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { ShadowColors, TextColors } from 'Assets/vars/Colors';
-import { pxToRem } from 'Helpers/styled';
-import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
+import { ShadowColors, TextColors } from 'Src/assets/vars/Colors';
+import { pxToRem } from 'Src/helpers/styled';
+import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const Footer = styled.footer`
   display: flex;

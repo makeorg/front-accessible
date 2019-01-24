@@ -9,14 +9,14 @@ import {
   IconInButton,
   ButtonsWrapper,
   SmallButtonsWrapper
-} from 'Components/Elements/ButtonElements';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
-import { AltDescription, DescriptionLink } from 'Components/Elements/DescriptionElements';
-import * as Separators from 'Components/Elements/Separators';
+} from 'Src/components/Elements/ButtonElements';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
+import { AltDescription, DescriptionLink } from 'Src/components/Elements/DescriptionElements';
+import * as Separators from 'Src/components/Elements/Separators';
 import FacebookAuthentificationButtonComponent
-  from 'Components/Authentification/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from 'Components/Authentification/Social/GoogleAuthentification/Button';
-import { localizeDataPolicyLink } from 'Helpers/url';
+  from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';
+import { localizeDataPolicyLink } from 'Src/helpers/url';
 import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 type Props = {

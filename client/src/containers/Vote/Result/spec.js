@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import VoteResult from './index';
-import VoteResultComponent from 'Components/Vote/Result';
-import * as VoteResultHelper from 'Helpers/voteResult';
-import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Constants/vote';
+import VoteResultComponent from 'Src/components/Vote/Result';
+import * as VoteResultHelper from 'Src/helpers/voteResult';
+import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Src/constants/vote';
 
-jest.mock('Helpers/voteResult');
+jest.mock('Src/helpers/voteResult');
 
 describe('VoteResultContainer', () => {
   const defaultProps = {

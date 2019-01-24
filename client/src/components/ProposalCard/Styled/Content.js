@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BackgroundColors, TextColors, BasicColors } from 'Assets/vars/Colors';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
-import { Small } from 'Components/Elements/Separators';
-import { UnstyledList } from 'Components/Elements/ListElements';
+import { pxToRem } from 'Src/helpers/styled';
+import { BackgroundColors, TextColors, BasicColors } from 'Src/assets/vars/Colors';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { Small } from 'Src/components/Elements/Separators';
+import { UnstyledList } from 'Src/components/Elements/ListElements';
 import {
   MiddleRow, CenterColumn, MiddleColumn, MiddleColumnToRow
-} from 'Components/Elements/FlexElements';
+} from 'Src/components/Elements/FlexElements';
 
 export const ContentWrapper = styled(MiddleColumn)`
   width: 100%;

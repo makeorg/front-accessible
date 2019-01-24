@@ -2,10 +2,10 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import type { Proposal } from 'Types/proposal';
-import VoteContainer from 'Containers/Vote';
-import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
-import { ProposalAuthor } from 'Components/ProposalCard/ProposalAuthor';
+import type { Proposal } from 'Src/types/proposal';
+import VoteContainer from 'Src/containers/Vote';
+import { getPosition, getScale, getZIndex } from 'Src/helpers/sequence';
+import { ProposalAuthor } from 'Src/components/ProposalCard/ProposalAuthor';
 import ProposalCard from './Styled';
 import ProgressBarComponent from './ProgressBar';
 

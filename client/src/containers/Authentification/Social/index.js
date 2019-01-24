@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import AuthentificationSocialComponent from 'Components/Authentification/Social';
+import AuthentificationSocialComponent from 'Src/components/Authentification/Social';
 
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */

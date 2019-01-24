@@ -3,13 +3,13 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
 import { throttle } from 'Shared/helpers/throttle';
-import { doVote, doUnvote } from 'Helpers/vote';
-import VoteService from 'Api/VoteService';
-import { sequenceVote, sequenceUnvote } from 'Actions/sequence';
-import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
-import VoteStyled from 'Components/Vote/Styled';
-import VoteComponent from 'Components/Vote';
-import QualificationContainer from 'Containers/Qualification';
+import { doVote, doUnvote } from 'Src/helpers/vote';
+import VoteService from 'Src/api/VoteService';
+import { sequenceVote, sequenceUnvote } from 'Src/actions/sequence';
+import { NextButton } from 'Src/components/ProposalCard/Styled/Buttons';
+import VoteStyled from 'Src/components/Vote/Styled';
+import VoteComponent from 'Src/components/Vote';
+import QualificationContainer from 'Src/containers/Qualification';
 import VoteResultsContainer from './Result';
 
 type Props = {

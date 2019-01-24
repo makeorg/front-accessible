@@ -1,7 +1,7 @@
 /* @flow */
 
-import { Elements } from 'Assets/vars/Elements';
-import { DefaultPadding } from 'Assets/vars/Breakpoints';
+import { Elements } from 'Src/assets/vars/Elements';
+import { DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const
   CALC_HEIGHT_MOBILE: number = Elements.HeaderHeightMobile

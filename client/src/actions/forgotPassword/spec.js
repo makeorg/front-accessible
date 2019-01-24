@@ -5,10 +5,10 @@ import thunk from 'redux-thunk';
 import i18next from 'i18next';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import * as actionTypes from 'Constants/actionTypes';
-import UserService from 'Api/UserService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import UserService from 'Src/api/UserService';
 import * as actions from './index';
-jest.mock('Api/UserService')
+jest.mock('Src/api/UserService')
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);

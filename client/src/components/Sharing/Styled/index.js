@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { SpaceBetweenRow } from 'Components/Elements/FlexElements';
+import { pxToRem } from 'Src/helpers/styled';
+import { SpaceBetweenRow } from 'Src/components/Elements/FlexElements';
 import {
   Facebook,
   Twitter,

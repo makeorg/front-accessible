@@ -1,8 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import { SequenceFooterComponent } from 'Components/Sequence/Footer';
-import Tracking from 'Services/Tracking';
+import { SequenceFooterComponent } from 'Src/components/Sequence/Footer';
+import Tracking from 'Src/services/Tracking';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */

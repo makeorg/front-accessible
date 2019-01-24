@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import type { Proposal } from 'Types/proposal';
-import type { QuestionConfiguration } from 'Types/sequence';
-import { fetchProposalData } from 'Actions/proposal';
-import { fetchQuestionConfigurationData } from 'Actions/sequence';
-import MetaTags from 'Components/MetaTags';
+import type { Proposal } from 'Src/types/proposal';
+import type { QuestionConfiguration } from 'Src/types/sequence';
+import { fetchProposalData } from 'Src/actions/proposal';
+import { fetchQuestionConfigurationData } from 'Src/actions/sequence';
+import MetaTags from 'Src/components/MetaTags';
 import { match as TypeMatch } from 'react-router';
-import { MiddlePageWrapper } from 'Components/Elements/MainElements';
+import { MiddlePageWrapper } from 'Src/components/Elements/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {

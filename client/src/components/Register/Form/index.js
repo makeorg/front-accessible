@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import type { UserObject, ErrorObject } from 'Types/form';
+import type { UserObject, ErrorObject } from 'Src/types/form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -11,18 +11,18 @@ import {
   faMapMarkerAlt,
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
   InputError,
   FormErrors,
   FormError
-} from 'Components/Elements/Form';
-import { fieldErrors } from 'Helpers/form';
-import UntypedInput from 'Components/Elements/Form/UntypedInput';
-import PasswordInput from 'Components/Elements/Form/PasswordInput';
-import * as Helpers from 'Helpers/url';
+} from 'Src/components/Elements/Form';
+import { fieldErrors } from 'Src/helpers/form';
+import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
+import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
+import * as Helpers from 'Src/helpers/url';
 
 type Props = {
   /** type UserObject = {

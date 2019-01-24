@@ -1,6 +1,6 @@
 /* @flow */
 
-import { getBaitText } from 'Constants/proposal';
+import { getBaitText } from 'Src/constants/proposal';
 import * as ProposalHelper from './proposal';
 
 describe('Proposal Helper', () => {

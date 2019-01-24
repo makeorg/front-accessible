@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { EmailButton } from 'Components/Elements/ButtonElements';
-import { DescriptionLink } from 'Components/Elements/DescriptionElements';
-import { Small } from 'Components/Elements/Separators';
+import { EmailButton } from 'Src/components/Elements/ButtonElements';
+import { DescriptionLink } from 'Src/components/Elements/DescriptionElements';
+import { Small } from 'Src/components/Elements/Separators';
 import ProposalSubmitAuthentificationComponent from './index';
 
 // mock

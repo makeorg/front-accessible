@@ -1,9 +1,9 @@
 /* @flow */
 
 import { shallow } from 'enzyme';
-import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
-import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
-import ProposalSubmitWrapper from 'Components/ProposalSubmit/Styled';
+import ProposalSubmitDescriptionComponent from 'Src/components/ProposalSubmit/Description';
+import { ProposalSubmitFormComponent } from 'Src/components/ProposalSubmit';
+import ProposalSubmitWrapper from 'Src/components/ProposalSubmit/Styled';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 import { ProposalSubmit } from './index';
 import { ProposalSubmitAuthentification } from './';

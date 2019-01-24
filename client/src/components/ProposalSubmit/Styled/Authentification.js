@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
+import { pxToRem } from 'Src/helpers/styled';
 
 const ProposalSubmitAuthentificationWrapper = styled.div`
   max-width: ${pxToRem('620px')};

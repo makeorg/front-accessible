@@ -2,23 +2,23 @@
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { CookieBannerContainer } from 'Containers/Cookie';
-import MainHeaderContainer from 'Containers/MainHeader';
-import PannelContainer from 'Containers/Pannel';
-import SequencePage from 'Pages/Consultation/Sequence';
-import ProposalPage from 'Pages/Proposal';
-import { PasswordRecoveryPage } from 'Pages/PasswordRecovery';
-import NotFoundPage from 'Pages/NotFound';
-import HomePage from 'Pages/Home';
-import ModernNormalizeStylesheet from 'Assets/css-in-js/ModernNormalize';
-import { FontFacesStylesheet } from 'Assets/css-in-js/FontFaces';
-import DefaultStylesheet from 'Assets/css-in-js/DefaultStyle';
-import AnimationsStylesheet from 'Assets/css-in-js/Animations';
-import { UIThemeStylesheet } from 'Assets/css-in-js/UITheme';
-import { AppWrapper, MainContent } from 'Components/Elements/MainElements';
-import { AccountActivationPage } from 'Pages/AccountActivation';
-import { NotificationContainer } from 'Containers/Notification';
-import { MainFooterComponent } from 'Components/MainFooter';
+import { CookieBannerContainer } from 'Src/containers/Cookie';
+import MainHeaderContainer from 'Src/containers/MainHeader';
+import PannelContainer from 'Src/containers/Pannel';
+import SequencePage from 'Src/pages/Consultation/Sequence';
+import ProposalPage from 'Src/pages/Proposal';
+import { PasswordRecoveryPage } from 'Src/pages/PasswordRecovery';
+import NotFoundPage from 'Src/pages/NotFound';
+import HomePage from 'Src/pages/Home';
+import ModernNormalizeStylesheet from 'Src/assets/css-in-js/ModernNormalize';
+import { FontFacesStylesheet } from 'Src/assets/css-in-js/FontFaces';
+import DefaultStylesheet from 'Src/assets/css-in-js/DefaultStyle';
+import AnimationsStylesheet from 'Src/assets/css-in-js/Animations';
+import { UIThemeStylesheet } from 'Src/assets/css-in-js/UITheme';
+import { AppWrapper, MainContent } from 'Src/components/Elements/MainElements';
+import { AccountActivationPage } from 'Src/pages/AccountActivation';
+import { NotificationContainer } from 'Src/containers/Notification';
+import { MainFooterComponent } from 'Src/components/MainFooter';
 
 /**
  * Renders App component

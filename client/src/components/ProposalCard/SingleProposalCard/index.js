@@ -1,12 +1,12 @@
 import * as React from 'react';
 import i18next from 'i18next';
-import type { Proposal } from 'Types/proposal';
-import type { QuestionConfiguration } from 'Types/sequence';
-import { getSequenceLink } from 'Helpers/url';
-import { CenterRow } from 'Components/Elements/FlexElements';
-import { ProposalAuthor } from 'Components/ProposalCard/ProposalAuthor';
-import VoteContainer from 'Containers/Vote';
-import ProposalCard from 'Components/ProposalCard/Styled';
+import type { Proposal } from 'Src/types/proposal';
+import type { QuestionConfiguration } from 'Src/types/sequence';
+import { getSequenceLink } from 'Src/helpers/url';
+import { CenterRow } from 'Src/components/Elements/FlexElements';
+import { ProposalAuthor } from 'Src/components/ProposalCard/ProposalAuthor';
+import VoteContainer from 'Src/containers/Vote';
+import ProposalCard from 'Src/components/ProposalCard/Styled';
 import * as SingleProposal from './Styled';
 
 type Props = {

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BasicColors, TextColors, BackgroundColors } from 'Assets/vars/Colors';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { BasicColors, TextColors, BackgroundColors } from 'Src/assets/vars/Colors';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const ProgressWrapper = styled.div`
   position: relative;

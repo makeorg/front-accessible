@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import i18next from 'i18next';
 import { Vote } from './index';
-import VoteComponent from 'Components/Vote';
-import VoteStyled from 'Components/Vote/Styled';
-import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
+import VoteComponent from 'Src/components/Vote';
+import VoteStyled from 'Src/components/Vote/Styled';
+import { NextButton } from 'Src/components/ProposalCard/Styled/Buttons';
 
 describe('VoteContainer', () => {
   let wrapper;

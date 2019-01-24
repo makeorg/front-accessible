@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { FooterLinkComponent } from 'Components/MainFooter/Link';
+import { FooterLinkComponent } from 'Src/components/MainFooter/Link';
 
 type Props = {
   /** String with Language value */

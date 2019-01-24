@@ -4,10 +4,10 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import * as actionTypes from 'Constants/actionTypes';
-import UserService from 'Api/UserService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import UserService from 'Src/api/UserService';
 import * as actions from './index';
-import Tracking from 'Services/Tracking';
+import Tracking from 'Src/services/Tracking';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);

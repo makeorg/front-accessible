@@ -1,8 +1,8 @@
 /* @flow */
 
 import styled, { keyframes } from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BackgroundColors } from 'Assets/vars/Colors';
+import { pxToRem } from 'Src/helpers/styled';
+import { BackgroundColors } from 'Src/assets/vars/Colors';
 
 export const Wrapper = styled.div`
   display: block;

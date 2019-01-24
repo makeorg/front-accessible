@@ -1,12 +1,12 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import type { ErrorObject } from 'Types/form';
-import AuthentificationSocialContainer from 'Containers/Authentification/Social';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from 'Components/Elements/Form';
-import * as Separators from 'Components/Elements/Separators';
-import { RedLinkButton } from 'Components/Elements/ButtonElements';
+import type { ErrorObject } from 'Src/types/form';
+import AuthentificationSocialContainer from 'Src/containers/Authentification/Social';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
+import { ExtraParagraph, ExtraAltParagraph } from 'Src/components/Elements/Form';
+import * as Separators from 'Src/components/Elements/Separators';
+import { RedLinkButton } from 'Src/components/Elements/ButtonElements';
 import LoginFormComponent from './Form';
 import Login from './Styled';
 

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
-import { NoStyleTextInput } from 'Components/Elements/Form';
-import { MiddleRow, FlexElement } from 'Components/Elements/FlexElements';
-import { SmallGreyButton, SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { TextColors, ShadowColors } from 'Assets/vars/Colors';
+import { pxToRem } from 'Src/helpers/styled';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { NoStyleTextInput } from 'Src/components/Elements/Form';
+import { MiddleRow, FlexElement } from 'Src/components/Elements/FlexElements';
+import { SmallGreyButton, SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { TextColors, ShadowColors } from 'Src/assets/vars/Colors';
 
 export const InputWrapper = styled(FlexElement)`
   width: 100%;

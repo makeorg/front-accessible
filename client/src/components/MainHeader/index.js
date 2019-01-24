@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import Logo from 'Assets/images/logo.svg';
+import Logo from 'Src/assets/images/logo.svg';
 import MainHeader from './Styled';
 
 type Props = {

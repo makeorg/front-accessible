@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import SignUpCardAuthentificationComponent from 'Components/ProposalCard/SignUpCard/Authentification';
-import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';
+import SignUpCardAuthentificationComponent from 'Src/components/ProposalCard/SignUpCard/Authentification';
+import { pannelShowRegister, pannelShowLogin } from 'Src/actions/pannel';
 
 type Props = {
   /** Tabindex for interactive items */

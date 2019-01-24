@@ -2,12 +2,12 @@
 
 import * as React from 'react';
 import { notificationConstants } from 'Shared/constants/notification';
-import { AccountActivationSuccessComponent } from 'Components/UserAccount/Activation/Success';
-import { AccountActivationFailureComponent } from 'Components/UserAccount/Activation/Failure';
-import { PasswordRecoveryFailureComponent } from 'Components/UserAccount/PasswordRecovery/Failure';
-import { NotificationComponent } from 'Components/Notification';
+import { AccountActivationSuccessComponent } from 'Src/components/UserAccount/Activation/Success';
+import { AccountActivationFailureComponent } from 'Src/components/UserAccount/Activation/Failure';
+import { PasswordRecoveryFailureComponent } from 'Src/components/UserAccount/PasswordRecovery/Failure';
+import { NotificationComponent } from 'Src/components/Notification';
 import { connect } from 'react-redux';
-import { clearNotification } from 'Actions/notification';
+import { clearNotification } from 'Src/actions/notification';
 import { selectNotificationContent } from './notification.selector';
 
 const notifcationContent = {

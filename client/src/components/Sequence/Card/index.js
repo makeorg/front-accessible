@@ -1,17 +1,17 @@
 /* @flow */
 import * as React from 'react';
-import ProposalCardContainer from 'Containers/ProposalCard';
-import SignUpCardContainer from 'Containers/ProposalCard/SignUpCard';
-import IntroCardContainer from 'Containers/ProposalCard/IntroCard';
-import FinalCardContainer from 'Containers/ProposalCard/FinalCard';
-import PushProposalCardContainer from 'Containers/ProposalCard/PushProposalCard';
+import ProposalCardContainer from 'Src/containers/ProposalCard';
+import SignUpCardContainer from 'Src/containers/ProposalCard/SignUpCard';
+import IntroCardContainer from 'Src/containers/ProposalCard/IntroCard';
+import FinalCardContainer from 'Src/containers/ProposalCard/FinalCard';
+import PushProposalCardContainer from 'Src/containers/ProposalCard/PushProposalCard';
 import {
   CARD_TYPE_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD
-} from 'Constants/card';
+} from 'Src/constants/card';
 
 type Props = {
   card: Object,

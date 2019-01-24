@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
 import i18next from 'i18next';
-import MetaTags from 'Components/MetaTags';
-import { MiddlePageWrapper } from 'Components/Elements/MainElements';
-import { Description } from 'Components/Elements/DescriptionElements';
+import MetaTags from 'Src/components/MetaTags';
+import { MiddlePageWrapper } from 'Src/components/Elements/MainElements';
+import { Description } from 'Src/components/Elements/DescriptionElements';
 import {
   NotFoundPageContent,
   NotFoundIntro,

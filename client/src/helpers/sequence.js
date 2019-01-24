@@ -3,17 +3,17 @@ import type {
   ExtraSlidesConfig,
   ExtraSlidesWording,
   CardType
-} from 'Types/sequence';
+} from 'Src/types/sequence';
 import type {
   Proposal
-} from 'Types/proposal';
+} from 'Src/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_PROPOSAL
-} from 'Constants/card';
+} from 'Src/constants/card';
 
 export const getPosition = (index: number = 0, currentIndex: number = 0) => (
   (index - currentIndex) * 2

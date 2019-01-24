@@ -3,9 +3,9 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { Description, AltDescription, DescriptionLink } from 'Components/Elements/DescriptionElements';
-import { IconInButton } from 'Components/Elements/ButtonElements';
-import { localizeModerationCharterLink } from 'Helpers/url';
+import { Description, AltDescription, DescriptionLink } from 'Src/components/Elements/DescriptionElements';
+import { IconInButton } from 'Src/components/Elements/ButtonElements';
+import { localizeModerationCharterLink } from 'Src/helpers/url';
 import { DescriptionWrapper } from '../Styled';
 
 type Props = {

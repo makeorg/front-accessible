@@ -1,7 +1,7 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { MiddleColumn } from 'Components/Elements/FlexElements';
+import { MiddleColumn } from 'Src/components/Elements/FlexElements';
 import {
   Wrapper,
   FirstRing,

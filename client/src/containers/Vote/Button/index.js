@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import VoteButtonComponent from 'Components/Vote/Button';
+import VoteButtonComponent from 'Src/components/Vote/Button';
 
 type Props = {
   /** Color property passed to Styled Component */

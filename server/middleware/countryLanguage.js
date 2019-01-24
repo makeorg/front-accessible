@@ -1,4 +1,4 @@
-import ApiService from 'Api/ApiService';
+import ApiService from 'Src/api/ApiService';
 
 export const isCountryLanguage = (countryLanguage = null) => (
   countryLanguage !== null && (/^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase()))

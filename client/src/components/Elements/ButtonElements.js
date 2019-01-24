@@ -1,16 +1,16 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 import {
   BasicColors,
   IconColors,
   MakeThemeColors,
   BackgroundColors,
   ShadowColors
-} from 'Assets/vars/Colors';
-import { MakeFonts } from 'Assets/vars/Fonts';
+} from 'Src/assets/vars/Colors';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
 
 export const ButtonsWrapper = styled.div`
   display: flex;

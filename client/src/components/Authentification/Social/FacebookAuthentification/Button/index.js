@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton, FacebookButton } from 'Components/Elements/ButtonElements';
+import { IconInButton, FacebookButton } from 'Src/components/Elements/ButtonElements';
 import FacebookAuthentificationComponent from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (

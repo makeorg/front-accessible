@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ProposalSubmitAuthentificationComponent from 'Components/ProposalSubmit/Authentification';
-import { pannelShowRegister, pannelShowLogin } from 'Actions/pannel';
-import Tracking from 'Services/Tracking';
+import ProposalSubmitAuthentificationComponent from 'Src/components/ProposalSubmit/Authentification';
+import { pannelShowRegister, pannelShowLogin } from 'Src/actions/pannel';
+import Tracking from 'Src/services/Tracking';
 
 /**
  * Handles Authentification Business Logic after Proposal Submit

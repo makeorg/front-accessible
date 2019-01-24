@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from 'Components/Elements/ButtonElements';
+import { IconInButton } from 'Src/components/Elements/ButtonElements';
 import ProposalCard from '../../Styled';
 
 type Props = {

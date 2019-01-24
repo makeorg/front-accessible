@@ -1,5 +1,5 @@
 // @flow
-import * as trackingConstants from 'Constants/tracking';
+import * as trackingConstants from 'Src/constants/tracking';
 
 let initialized = false;
 

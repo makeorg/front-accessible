@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { SignUpCardConfig, SignUpCardWording } from 'Types/card';
-import Tracking from 'Services/Tracking';
+import type { SignUpCardConfig, SignUpCardWording } from 'Src/types/card';
+import Tracking from 'Src/services/Tracking';
 import SignUpCardComponent from '../../../components/ProposalCard/SignUpCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 

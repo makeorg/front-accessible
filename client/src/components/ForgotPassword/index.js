@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import type { ErrorObject } from 'Types/form';
-import { ExtraAltParagraph } from 'Components/Elements/Form';
-import { SecondLevelTitle, FourthLevelTtitle } from 'Components/Elements/TitleElements';
-import * as Separators from 'Components/Elements/Separators';
-import { RedLinkButton } from 'Components/Elements/ButtonElements';
+import type { ErrorObject } from 'Src/types/form';
+import { ExtraAltParagraph } from 'Src/components/Elements/Form';
+import { SecondLevelTitle, FourthLevelTtitle } from 'Src/components/Elements/TitleElements';
+import * as Separators from 'Src/components/Elements/Separators';
+import { RedLinkButton } from 'Src/components/Elements/ButtonElements';
 import ForgotPasswordFormComponent from './Form';
 import ForgotPassword from './Styled';
 

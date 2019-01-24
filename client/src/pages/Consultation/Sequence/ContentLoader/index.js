@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import ProposalSubmitContainer from 'Containers/ProposalSubmit';
-import SequenceContainer from 'Containers/Sequence';
-import SpinnerComponent from 'Components/Spinner';
+import ProposalSubmitContainer from 'Src/containers/ProposalSubmit';
+import SequenceContainer from 'Src/containers/Sequence';
+import SpinnerComponent from 'Src/components/Spinner';
 import { SequencePageContent, SequencePageInnerContent } from '../Styled';
 
 type Props = {

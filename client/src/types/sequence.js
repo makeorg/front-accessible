@@ -7,11 +7,11 @@ import type {
   SignUpCardWording,
   FinalCardConfig,
   FinalCardWording
-} from 'Types/card';
+} from 'Src/types/card';
 
 import type {
   Proposal
-} from 'Types/proposal';
+} from 'Src/types/proposal';
 
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,

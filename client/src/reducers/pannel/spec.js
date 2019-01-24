@@ -1,7 +1,7 @@
 /* @flow */
 
-import * as actionCreators from 'Actions/pannel';
-import * as pannelContentTypes from 'Constants/pannel';
+import * as actionCreators from 'Src/actions/pannel';
+import * as pannelContentTypes from 'Src/constants/pannel';
 import pannel from './index';
 
 describe('Pannel reducer', () => {

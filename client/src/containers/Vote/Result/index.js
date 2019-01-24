@@ -1,6 +1,6 @@
 import * as React from 'react';
-import VoteResultComponent from 'Components/Vote/Result';
-import * as VoteResultHelper from 'Helpers/voteResult';
+import VoteResultComponent from 'Src/components/Vote/Result';
+import * as VoteResultHelper from 'Src/helpers/voteResult';
 
 type Props = {
   /** Proposal's Id */

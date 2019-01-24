@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import 'url-search-params-polyfill';
-import { PasswordRecoveryContainer } from 'Containers/UserAccount/PasswordRecovery';
+import { PasswordRecoveryContainer } from 'Src/containers/UserAccount/PasswordRecovery';
 import { PasswordRecoveryWrapper, PasswordRecoveryContent } from './Styled';
 
 type Props = {

@@ -1,6 +1,6 @@
 import i18next from 'i18next';
-import * as actionTypes from 'Constants/actionTypes';
-import UserService from 'Api/UserService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import UserService from 'Src/api/UserService';
 
 export const passwordRecoveryRequest = (newPassword: string, resetToken: string, userId: string) => (
   { type: actionTypes.PASSWORD_RECOVERY_REQUEST, payload: { newPassword, resetToken, userId } }

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import MainHeaderComponent from './';
 import MainHeader from './Styled';
 
-jest.mock('Assets/images/logo.svg', () => '<LogoSvg />');
+jest.mock('Src/assets/images/logo.svg', () => '<LogoSvg />');
 
 describe('MainHeaderComponent', () => {
   it('Check a11y rules', () => {

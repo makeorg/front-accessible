@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
-import type { PartnerItem } from 'Types/card';
+import type { PartnerItem } from 'Src/types/card';
 import i18next from 'i18next';
-import { MiddleRow } from 'Components/Elements/FlexElements';
+import { MiddleRow } from 'Src/components/Elements/FlexElements';
 import ProposalCard from '../../Styled';
 
 type ListProps = {

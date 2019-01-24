@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { IntroCardConfig, IntroCardWording } from 'Types/card';
-import IntroCardComponent from 'Components/ProposalCard/IntroCard';
-import { getPosition, getScale, getZIndex } from 'Helpers/sequence';
-import Tracking from 'Services/Tracking';
+import type { IntroCardConfig, IntroCardWording } from 'Src/types/card';
+import IntroCardComponent from 'Src/components/ProposalCard/IntroCard';
+import { getPosition, getScale, getZIndex } from 'Src/helpers/sequence';
+import Tracking from 'Src/services/Tracking';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */

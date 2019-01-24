@@ -1,11 +1,11 @@
 // @flow
 import * as React from 'react';
-import type { IntroCardConfig, IntroCardWording } from 'Types/card';
+import type { IntroCardConfig, IntroCardWording } from 'Src/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from 'Components/Elements/ButtonElements';
-import { Small } from 'Components/Elements/Separators';
+import { IconInButton } from 'Src/components/Elements/ButtonElements';
+import { Small } from 'Src/components/Elements/Separators';
 import ExtraLogo from './ExtraLogo';
 import IntroTitle from './Title';
 import IntroDescription from './Description';

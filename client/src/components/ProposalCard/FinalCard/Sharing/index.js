@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import SharingContainer from 'Containers/Sharing';
+import SharingContainer from 'Src/containers/Sharing';
 import ProposalCard from '../../Styled';
 
 type Props = {

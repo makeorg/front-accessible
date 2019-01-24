@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
-import SpinnerComponent from 'Components/Spinner';
-import type { Proposal } from 'Types/proposal';
-import type { QuestionConfiguration } from 'Types/sequence';
-import { SingleProposalCardComponent } from 'Components/ProposalCard/SingleProposalCard';
-import { SingleProposalSharingComponent } from 'Components/ProposalCard/SingleProposalCard/Sharing';
+import SpinnerComponent from 'Src/components/Spinner';
+import type { Proposal } from 'Src/types/proposal';
+import type { QuestionConfiguration } from 'Src/types/sequence';
+import { SingleProposalCardComponent } from 'Src/components/ProposalCard/SingleProposalCard';
+import { SingleProposalSharingComponent } from 'Src/components/ProposalCard/SingleProposalCard/Sharing';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Proposal (author, id, slug, ...) */

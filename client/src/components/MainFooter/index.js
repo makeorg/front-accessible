@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import FooterLinkContainer from 'Containers/MainFooter/Link';
+import FooterLinkContainer from 'Src/containers/MainFooter/Link';
 import MainFooter from './Styled';
 
 /**

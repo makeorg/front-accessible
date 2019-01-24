@@ -3,13 +3,13 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import type { ErrorObject } from 'Types/form';
-import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
+import type { ErrorObject } from 'Src/types/form';
+import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
 import {
   FormErrors,
   FormError
-} from 'Components/Elements/Form';
-import UntypedInput from 'Components/Elements/Form/UntypedInput';
+} from 'Src/components/Elements/Form';
+import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
 import ForgotPassword from '../Styled';
 
 type Props = {

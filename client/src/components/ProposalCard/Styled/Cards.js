@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
+import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const ProposalCardCentered = styled.li`
   position: absolute;

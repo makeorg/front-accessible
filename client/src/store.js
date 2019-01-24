@@ -3,10 +3,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import Cookies from 'universal-cookie';
-import { SESSION_ID_COOKIE_KEY } from 'Constants/config';
-import { uuid } from 'Helpers/uuid';
-import ApiService from 'Api/ApiService';
-import DateHelper from 'Helpers/date';
+import { SESSION_ID_COOKIE_KEY } from 'Src/constants/config';
+import { uuid } from 'Src/helpers/uuid';
+import ApiService from 'Src/api/ApiService';
+import DateHelper from 'Src/helpers/date';
 import rootReducer from './reducers';
 
 export default function configureStore(initialState: Object = {}) {

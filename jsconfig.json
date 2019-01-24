@@ -2,35 +2,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "Actions/*": [
-        "client/src/actions/*"
-      ],
-      "Api/*": [
-        "client/src/api/*"
-      ],
-      "Assets/*": [
-        "client/src/assets/*"
-      ],
-      "Components/*": [
-        "client/src/components/*"
-      ],
-      "Containers/*": [
-        "client/src/containers/*"
-      ],
-      "Constants/*": [
-        "client/src/constants/*"
-      ],
-      "Helpers/*": [
-        "client/src/helpers/*"
-      ],
-      "Pages/*": [
-        "client/src/pages/*"
-      ],
-      "Services/*": [
-        "client/src/services/*"
-      ],
-      "Types/*": [
-        "client/src/types/*"
+      "Src/*": [
+        "client/src/*"
       ],
       "Shared/*": [
         "shared/*"

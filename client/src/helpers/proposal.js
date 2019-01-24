@@ -1,7 +1,7 @@
 /* @flow */
 
-import { getBaitText, MIN_PROPOSAL_LENGTH, MAX_PROPOSAL_LENGTH } from 'Constants/proposal';
-import type { Proposal } from 'Types/proposal';
+import { getBaitText, MIN_PROPOSAL_LENGTH, MAX_PROPOSAL_LENGTH } from 'Src/constants/proposal';
+import type { Proposal } from 'Src/types/proposal';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {

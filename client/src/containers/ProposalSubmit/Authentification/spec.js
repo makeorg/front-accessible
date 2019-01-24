@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import ProposalSubmitAuthentificationComponent from 'Components/ProposalSubmit/Authentification';
+import ProposalSubmitAuthentificationComponent from 'Src/components/ProposalSubmit/Authentification';
 import { ProposalSubmitAuthentification } from './';
 
 describe('ProposalSubmitAuthentificationContainer', () => {

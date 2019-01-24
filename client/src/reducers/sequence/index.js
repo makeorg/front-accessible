@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionTypes from 'Constants/actionTypes';
+import * as actionTypes from 'Src/constants/actionTypes';
 
 const initialState: Object = {
   isSequenceCollapsed: false,

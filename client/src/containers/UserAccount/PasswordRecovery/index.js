@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { PasswordRecoveryComponent } from 'Components/UserAccount/PasswordRecovery';
+import { PasswordRecoveryComponent } from 'Src/components/UserAccount/PasswordRecovery';
 
-import { passwordRecovery } from 'Actions/user/passwordRecovery';
+import { passwordRecovery } from 'Src/actions/user/passwordRecovery';
 import { throttle } from 'Shared/helpers/throttle';
 
 type Props = {

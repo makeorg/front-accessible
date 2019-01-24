@@ -1,6 +1,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
-import type { Author } from 'Types/proposal';
+import type { Author } from 'Src/types/proposal';
 import ProposalCard from '../Styled';
 
 type Props = {

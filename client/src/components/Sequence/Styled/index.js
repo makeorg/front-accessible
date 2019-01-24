@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Breakpoints, Layouts } from 'Assets/vars/Breakpoints';
-import { pxToRem } from 'Helpers/styled';
-import { PROPOSALSTACK_HEIGHT_MOBILE, PROPOSALSTACK_HEIGHT_DESKTOP } from 'Constants/elements';
+import { Breakpoints, Layouts } from 'Src/assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { PROPOSALSTACK_HEIGHT_MOBILE, PROPOSALSTACK_HEIGHT_DESKTOP } from 'Src/constants/elements';
 import {
   Wrapper,
   List

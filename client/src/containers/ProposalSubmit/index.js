@@ -3,15 +3,15 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { throttle } from 'Shared/helpers/throttle';
-import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
-import { ProposalSubmitFormWrapper } from 'Components/ProposalSubmit/Styled';
-import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
-import ProposalSubmitSuccessComponent from 'Components/ProposalSubmit/Success';
-import { getProposalLength, getIsProposalValidLength } from 'Helpers/proposal';
-import { typingProposal, submitProposal } from 'Actions/proposal';
-import { sequenceCollapse } from 'Actions/sequence';
-import { getToken } from 'Actions/authentification';
-import Tracking from 'Services/Tracking';
+import { ProposalSubmitFormComponent } from 'Src/components/ProposalSubmit';
+import { ProposalSubmitFormWrapper } from 'Src/components/ProposalSubmit/Styled';
+import ProposalSubmitDescriptionComponent from 'Src/components/ProposalSubmit/Description';
+import ProposalSubmitSuccessComponent from 'Src/components/ProposalSubmit/Success';
+import { getProposalLength, getIsProposalValidLength } from 'Src/helpers/proposal';
+import { typingProposal, submitProposal } from 'Src/actions/proposal';
+import { sequenceCollapse } from 'Src/actions/sequence';
+import { getToken } from 'Src/actions/authentification';
+import Tracking from 'Src/services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 
 type Props = {

@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import { doUpdateState } from 'Helpers/qualification';
-import QualificationService from 'Api/QualificationService';
-import QualificationComponent from 'Components/Qualification';
-import Tracking from 'Services/Tracking';
+import { doUpdateState } from 'Src/helpers/qualification';
+import QualificationService from 'Src/api/QualificationService';
+import QualificationComponent from 'Src/components/Qualification';
+import Tracking from 'Src/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 
 type Props = {

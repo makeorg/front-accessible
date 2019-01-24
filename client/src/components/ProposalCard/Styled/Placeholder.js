@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { MiddleColumn } from 'Components/Elements/FlexElements';
-import { BasicColors } from 'Assets/vars/Colors';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { MiddleColumn } from 'Src/components/Elements/FlexElements';
+import { BasicColors } from 'Src/assets/vars/Colors';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const PlaceholderWrapper = styled(MiddleColumn)`
   width: 100%;

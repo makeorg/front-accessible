@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
+import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
 import {
   Nav,
   Item,

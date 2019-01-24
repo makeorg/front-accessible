@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { PushProposalCardConfig } from 'Types/card';
-import Tracking from 'Services/Tracking';
+import type { PushProposalCardConfig } from 'Src/types/card';
+import Tracking from 'Src/services/Tracking';
 import PushProposalCardComponent from '../../../components/ProposalCard/PushProposalCard';
 import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
 

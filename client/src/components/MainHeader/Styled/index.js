@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BasicColors, ShadowColors } from 'Assets/vars/Colors';
-import { DefaultPadding } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
+import { DefaultPadding } from 'Src/assets/vars/Breakpoints';
 import Logo from './HeaderContent';
 
 const MainHeader = styled.header`

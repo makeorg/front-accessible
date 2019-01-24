@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import type { VotesPercentObject } from 'Types/proposal';
-import ResultItemComponent from 'Components/Vote/Result/Item';
-import * as VoteResultHelper from 'Helpers/voteResult';
-import { getVoteKey } from 'Helpers/vote';
+import type { VotesPercentObject } from 'Src/types/proposal';
+import ResultItemComponent from 'Src/components/Vote/Result/Item';
+import * as VoteResultHelper from 'Src/helpers/voteResult';
+import { getVoteKey } from 'Src/helpers/vote';
 
 type Props = {
   /** Object with votes percentage results */

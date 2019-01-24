@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AppComponent from 'Components/App';
+import AppComponent from 'Src/components/App';
 import ErrorBoundary from './Error';
 
 /**

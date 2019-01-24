@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import PlaceholderCardComponent from 'Components/ProposalCard/PlaceholderCard';
+import PlaceholderCardComponent from 'Src/components/ProposalCard/PlaceholderCard';
 import CollapseToggle from '../Button';
 import Sequence from '../Styled';
 

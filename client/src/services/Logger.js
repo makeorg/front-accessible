@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ApiService, { NODE_API_BASE } from 'Api/ApiService';
+import ApiService, { NODE_API_BASE } from 'Src/api/ApiService';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';

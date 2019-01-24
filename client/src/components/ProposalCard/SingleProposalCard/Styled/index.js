@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BasicColors, TextColors, ShadowColors } from 'Assets/vars/Colors';
-import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { MiddleColumn, MiddleColumnToRow } from 'Components/Elements/FlexElements';
-import { Large, SeparatorStyle } from 'Components/Elements/Separators';
-import { SmallRedButton } from 'Components/Elements/ButtonElements';
-import { Proposal } from 'Components/ProposalCard/Styled/Proposal';
+import { pxToRem } from 'Src/helpers/styled';
+import { BasicColors, TextColors, ShadowColors } from 'Src/assets/vars/Colors';
+import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { MiddleColumn, MiddleColumnToRow } from 'Src/components/Elements/FlexElements';
+import { Large, SeparatorStyle } from 'Src/components/Elements/Separators';
+import { SmallRedButton } from 'Src/components/Elements/ButtonElements';
+import { Proposal } from 'Src/components/ProposalCard/Styled/Proposal';
 
 export const Card = styled.section`
   display: flex;

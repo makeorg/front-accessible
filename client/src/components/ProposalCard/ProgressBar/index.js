@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import * as CardConstant from 'Constants/card';
-import { gaugeProgress, gaugeRemain } from 'Helpers/sequence';
-import { HiddenItem } from 'Components/Elements/HiddenElements';
+import * as CardConstant from 'Src/constants/card';
+import { gaugeProgress, gaugeRemain } from 'Src/helpers/sequence';
+import { HiddenItem } from 'Src/components/Elements/HiddenElements';
 import * as Progress from '../Styled/Progress';
 
 type Props = {

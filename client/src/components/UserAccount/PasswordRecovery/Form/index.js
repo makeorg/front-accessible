@@ -4,9 +4,9 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Components/Elements/ButtonElements';
-import { InputError } from 'Components/Elements/Form';
-import PasswordInput from 'Components/Elements/Form/PasswordInput';
+import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
+import { InputError } from 'Src/components/Elements/Form';
+import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
 import { PasswordRecovery } from '../Styled';
 
 type Props = {

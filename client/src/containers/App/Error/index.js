@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Logger from 'Services/Logger';
+import Logger from 'Src/services/Logger';
 
 /**
  * Handles Error Logger Business Logic

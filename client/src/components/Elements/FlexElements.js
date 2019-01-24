@@ -1,8 +1,8 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const FlexElement = styled.div`
   display: flex;

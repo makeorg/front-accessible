@@ -1,8 +1,8 @@
 /* @flow */
 
-import ApiService from 'Api/ApiService';
-import * as actionTypes from 'Constants/actionTypes';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Constants/user';
+import ApiService from 'Src/api/ApiService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Src/constants/user';
 
 const savedUser: ?string = (typeof localStorage !== 'undefined')
   ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;

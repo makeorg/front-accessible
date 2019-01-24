@@ -1,12 +1,12 @@
 /* @flow */
 
 import i18next from 'i18next';
-import UserService from 'Api/UserService';
-import * as actionTypes from 'Constants/actionTypes';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Constants/user';
-import { pannelClose } from 'Actions/pannel';
-import { submitProposal } from 'Actions/proposal';
-import Tracking from 'Services/Tracking';
+import UserService from 'Src/api/UserService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Src/constants/user';
+import { pannelClose } from 'Src/actions/pannel';
+import { submitProposal } from 'Src/actions/proposal';
+import Tracking from 'Src/services/Tracking';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: string) => ({ type: actionTypes.LOGIN_FAILURE, error });

@@ -1,12 +1,12 @@
 /* @flow */
 
-import * as actionTypes from 'Constants/actionTypes';
-import type { QuestionConfiguration } from 'Types/sequence';
-import type { DispatchString } from 'Types/dispatch';
-import SequenceService from 'Api/SequenceService';
-import QuestionService from 'Api/QuestionService';
-import Logger from 'Services/Logger';
-import Tracking from 'Services/Tracking';
+import * as actionTypes from 'Src/constants/actionTypes';
+import type { QuestionConfiguration } from 'Src/types/sequence';
+import type { DispatchString } from 'Src/types/dispatch';
+import SequenceService from 'Src/api/SequenceService';
+import QuestionService from 'Src/api/QuestionService';
+import Logger from 'Src/services/Logger';
+import Tracking from 'Src/services/Tracking';
 
 export const sequenceCollapse = () => (
   dispatch: (DispatchString) => void

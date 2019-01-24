@@ -1,12 +1,12 @@
 /* @flow */
 
 import * as React from 'react';
-import type { UserObject, ErrorObject } from 'Types/form';
+import type { UserObject, ErrorObject } from 'Src/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
-import { register } from 'Actions/registration';
-import RegisterComponent from 'Components/Register';
-import { pannelShowLogin } from 'Actions/pannel';
+import { register } from 'Src/actions/registration';
+import RegisterComponent from 'Src/components/Register';
+import { pannelShowLogin } from 'Src/actions/pannel';
 
 type Props = {
   /** Array with form errors */

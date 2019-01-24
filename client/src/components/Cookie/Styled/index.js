@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { BackgroundColors } from 'Assets/vars/Colors';
-import { UnstyledButton } from 'Components/Elements/ButtonElements';
-import { Breakpoints, Layouts, DefaultPadding } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { BackgroundColors } from 'Src/assets/vars/Colors';
+import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
+import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const Wrapper = styled.section`
   position: relative;

@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { fetchQuestionData, fetchQuestionConfigurationData } from 'Actions/sequence';
-import MetaTags from 'Components/MetaTags';
-import { SequenceFooterContainer } from 'Containers/Sequence/Footer';
+import { fetchQuestionData, fetchQuestionConfigurationData } from 'Src/actions/sequence';
+import MetaTags from 'Src/components/MetaTags';
+import { SequenceFooterContainer } from 'Src/containers/Sequence/Footer';
 import { match as TypeMatch } from 'react-router';
-import Tracking from 'Services/Tracking';
+import Tracking from 'Src/services/Tracking';
 import { SequencePageContent } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 

@@ -1,6 +1,7 @@
 /* @flow */
 
 import i18next from 'i18next';
+import { env } from 'Shared/env';
 import deAT from './staticData/i18n/de-AT.json';
 import frBE from './staticData/i18n/fr-BE.json';
 import nlBE from './staticData/i18n/nl-BE.json';
@@ -30,7 +31,6 @@ import roRO from './staticData/i18n/ro-RO.json';
 import svSE from './staticData/i18n/sv-SE.json';
 import slSI from './staticData/i18n/sl-SI.json';
 import skSK from './staticData/i18n/sk-SK.json';
-import { env } from '../shared/env';
 
 i18next
   .init({

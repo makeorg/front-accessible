@@ -1,9 +1,9 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { TextColors } from 'Assets/vars/Colors';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { TextColors } from 'Src/assets/vars/Colors';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const Description = styled.p`
   font-size: ${pxToRem('14px')};

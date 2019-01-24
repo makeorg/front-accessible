@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
+import { pxToRem } from 'Src/helpers/styled';
 import {
   UnstyledButton,
   TallRedButton,
   IconInButton,
   SmallRedButton,
   SmallGreyButton
-} from 'Components/Elements/ButtonElements';
-import { BackgroundColors, BasicColors, TextColors } from 'Assets/vars/Colors';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+} from 'Src/components/Elements/ButtonElements';
+import { BackgroundColors, BasicColors, TextColors } from 'Src/assets/vars/Colors';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const BackButtonWrapper = styled.div`
   position: absolute;

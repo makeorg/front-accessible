@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 
 export const MainTitle = styled.h2`

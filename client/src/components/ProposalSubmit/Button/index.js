@@ -2,8 +2,8 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { HiddenOnMobile } from 'Components/Elements/HiddenElements';
-import { IconInButton } from 'Components/Elements/ButtonElements';
+import { HiddenOnMobile } from 'Src/components/Elements/HiddenElements';
+import { IconInButton } from 'Src/components/Elements/ButtonElements';
 import {
   ProposalButton,
   DisabledProposalButton,

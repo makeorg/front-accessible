@@ -1,13 +1,13 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import type { UserObject, ErrorObject } from 'Types/form';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Components/Elements/TitleElements';
-import * as Separators from 'Components/Elements/Separators';
-import { RedLinkButton } from 'Components/Elements/ButtonElements';
-import { ExtraParagraph } from 'Components/Elements/Form';
-import FacebookAuthentificationLinkComponent from 'Components/Authentification/Social/FacebookAuthentification/Link';
-import GoogleAuthentificationLinkComponent from 'Components/Authentification/Social/GoogleAuthentification/Link';
+import type { UserObject, ErrorObject } from 'Src/types/form';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
+import * as Separators from 'Src/components/Elements/Separators';
+import { RedLinkButton } from 'Src/components/Elements/ButtonElements';
+import { ExtraParagraph } from 'Src/components/Elements/Form';
+import FacebookAuthentificationLinkComponent from 'Src/components/Authentification/Social/FacebookAuthentification/Link';
+import GoogleAuthentificationLinkComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Link';
 import RegisterFormComponent from './Form';
 import Register from './Styled';
 

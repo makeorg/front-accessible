@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { TextColors } from 'Assets/vars/Colors';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
-import { MakeFonts } from 'Assets/vars/Fonts';
+import { pxToRem } from 'Src/helpers/styled';
+import { TextColors } from 'Src/assets/vars/Colors';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
 
 export const AuthorInfos = styled.cite`
   font-size: ${pxToRem('14px')};

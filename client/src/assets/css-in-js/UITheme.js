@@ -1,7 +1,7 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
-import { MakeThemeColors } from 'Assets/vars/Colors';
+import { MakeThemeColors } from 'Src/assets/vars/Colors';
 
 export const UIThemeStylesheet = createGlobalStyle`
   .red-link {

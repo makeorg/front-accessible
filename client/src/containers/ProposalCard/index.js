@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import ProposalCardComponent from 'Components/ProposalCard';
+import ProposalCardComponent from 'Src/components/ProposalCard';
 
 type Props = {
   /** Object with all proposal's properties */

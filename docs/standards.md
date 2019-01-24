@@ -150,8 +150,8 @@ expect(response.redirect).toBeCalledWith('/FR-fr');
 
 - Initialize a mock
 ```js
-import UserService from 'Api/UserService';
-jest.mock('Api/UserService')
+import UserService from 'Src/api/UserService';
+jest.mock('Src/api/UserService')
 ```
 
 - Resolve a promise

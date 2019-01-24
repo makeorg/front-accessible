@@ -1,12 +1,12 @@
 /* @flow */
 
-import UserService from 'Api/UserService';
-import * as actionTypes from 'Constants/actionTypes';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Constants/user';
-import { loginSuccess } from 'Actions/authentification';
-import { submitProposal } from 'Actions/proposal';
-import { pannelClose } from 'Actions/pannel';
-import Tracking from 'Services/Tracking';
+import UserService from 'Src/api/UserService';
+import * as actionTypes from 'Src/constants/actionTypes';
+import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Src/constants/user';
+import { loginSuccess } from 'Src/actions/authentification';
+import { submitProposal } from 'Src/actions/proposal';
+import { pannelClose } from 'Src/actions/pannel';
+import Tracking from 'Src/services/Tracking';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = (user: Object) => ({ type: actionTypes.REGISTER_SUCCESS, user });

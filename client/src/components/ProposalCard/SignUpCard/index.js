@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
-import type { SignUpCardConfig, SignUpCardWording } from 'Types/card';
+import type { SignUpCardConfig, SignUpCardWording } from 'Src/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import SignUpCardAuthentification from 'Containers/ProposalCard/SignUpCard/Authentification';
+import SignUpCardAuthentification from 'Src/containers/ProposalCard/SignUpCard/Authentification';
 import SignUpTitle from './Title';
 import SkipSignUpButton from './Button';
 import ProgressBarComponent from '../ProgressBar';

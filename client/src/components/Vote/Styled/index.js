@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { CenterRow } from 'Components/Elements/FlexElements';
-import { Breakpoints } from 'Assets/vars/Breakpoints';
+import { pxToRem } from 'Src/helpers/styled';
+import { CenterRow } from 'Src/components/Elements/FlexElements';
+import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 import { ButtonList } from './Button';
 
 const Vote = styled.form`

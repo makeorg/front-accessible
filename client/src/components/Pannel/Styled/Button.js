@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Helpers/styled';
-import { UnstyledButton } from 'Components/Elements/ButtonElements';
+import { pxToRem } from 'Src/helpers/styled';
+import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
 
 const CloseButton = styled(UnstyledButton)`
   position: absolute;

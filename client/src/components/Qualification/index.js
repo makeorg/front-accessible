@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import { getQualificationIndex } from 'Helpers/qualification';
-import { HiddenItem } from 'Components/Elements/HiddenElements';
-import voteStaticParams from 'Constants/vote';
+import { getQualificationIndex } from 'Src/helpers/qualification';
+import { HiddenItem } from 'Src/components/Elements/HiddenElements';
+import voteStaticParams from 'Src/constants/vote';
 import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
 

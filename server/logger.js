@@ -1,5 +1,5 @@
 import winston from 'winston';
-import { env } from '../shared/env';
+import { env } from 'Shared/env';
 
 const {
   combine,

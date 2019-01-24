@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { MakeFonts } from 'Assets/vars/Fonts';
-import { pxToRem } from 'Helpers/styled';
-import { Breakpoints, DefaultPadding } from 'Assets/vars/Breakpoints';
+import { MakeFonts } from 'Src/assets/vars/Fonts';
+import { pxToRem } from 'Src/helpers/styled';
+import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const Nav = styled.nav`
   display: flex;

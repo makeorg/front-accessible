@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-import { GOOGLE_PROVIDER_ENUM } from 'Api/UserService';
-import { loginSocial } from 'Actions/authentification';
+import { GOOGLE_PROVIDER_ENUM } from 'Src/api/UserService';
+import { loginSocial } from 'Src/actions/authentification';
 
 type Props = {
   /** Tabindex for interactive items */

@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from 'Actions/authentification';
+import * as actionCreators from 'Src/actions/authentification';
 import authentification from './index';
 
 describe('Authentification reducer', () => {

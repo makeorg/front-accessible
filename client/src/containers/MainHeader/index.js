@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import MainHeaderComponent from 'Components/MainHeader';
-import Tracking from 'Services/Tracking';
+import MainHeaderComponent from 'Src/components/MainHeader';
+import Tracking from 'Src/services/Tracking';
 
 /**
  * Handles Main Header Business Logic

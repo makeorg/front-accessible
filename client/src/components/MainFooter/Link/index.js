@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import * as Constants from 'Constants/footer';
-import * as Helpers from 'Helpers/url';
-import { UnstyledList } from 'Components/Elements/ListElements';
+import * as Constants from 'Src/constants/footer';
+import * as Helpers from 'Src/helpers/url';
+import { UnstyledList } from 'Src/components/Elements/ListElements';
 import MainFooter from '../Styled';
 
 type Props = {

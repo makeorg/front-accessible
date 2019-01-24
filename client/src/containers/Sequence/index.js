@@ -2,16 +2,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import type { Props as SequenceProps } from 'Components/Sequence';
-import SequenceComponent from 'Components/Sequence';
-import SequencePlaceholderComponent from 'Components/Sequence/SequencePlaceholder';
-import QuestionService from 'Api/QuestionService';
-import { sequenceExpand } from 'Actions/sequence';
-import * as ProposalHelper from 'Helpers/proposal';
-import * as SequenceHelper from 'Helpers/sequence';
-import Tracking from 'Services/Tracking';
-import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Types/sequence';
-import type { Proposal } from 'Types/proposal';
+import type { Props as SequenceProps } from 'Src/components/Sequence';
+import SequenceComponent from 'Src/components/Sequence';
+import SequencePlaceholderComponent from 'Src/components/Sequence/SequencePlaceholder';
+import QuestionService from 'Src/api/QuestionService';
+import { sequenceExpand } from 'Src/actions/sequence';
+import * as ProposalHelper from 'Src/helpers/proposal';
+import * as SequenceHelper from 'Src/helpers/sequence';
+import Tracking from 'Src/services/Tracking';
+import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Src/types/sequence';
+import type { Proposal } from 'Src/types/proposal';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
