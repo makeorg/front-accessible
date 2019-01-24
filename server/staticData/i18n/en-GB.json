@@ -193,5 +193,10 @@
       "bad_link": "This link is no longer valid.",
       "error_message": "Your password could not be changed."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

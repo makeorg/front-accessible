@@ -190,5 +190,10 @@
       "bad_link": "Din il-ħolqa m’għadhiex valida.",
       "error_message": "Il-password tiegħek ma setgħetx tiġi sostitwita."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

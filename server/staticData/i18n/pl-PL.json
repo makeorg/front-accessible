@@ -190,5 +190,10 @@
       "bad_link": "Ten link nie jest już prawidłowy.",
       "error_message": "Nie mogliśmy zastąpić Twojego hasła."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

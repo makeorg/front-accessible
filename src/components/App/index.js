@@ -36,6 +36,10 @@ const AppComponent = () => (
       <NotificationContainer />
       <Switch>
         <Route
+          path="/404"
+          component={NotFoundPage}
+        />
+        <Route
           exact
           path="/:countryLanguage"
           component={HomePage}
@@ -56,7 +60,6 @@ const AppComponent = () => (
           path="/:countryLanguage/password-recovery/:userId/:resetToken"
           component={PasswordRecoveryPage}
         />
-        <Route component={NotFoundPage} />
       </Switch>
       <PannelContainer />
     </MainContent>

@@ -190,5 +190,10 @@
       "bad_link": "Acest link nu mai este valabil.",
       "error_message": "Parola dvs. nu a putut fi înlocuită."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

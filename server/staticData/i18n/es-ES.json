@@ -190,5 +190,10 @@
       "bad_link": "Este enlace ya no es válido.",
       "error_message": "Su contraseña no ha podido ser restablecida."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

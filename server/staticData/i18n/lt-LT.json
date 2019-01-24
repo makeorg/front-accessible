@@ -190,5 +190,10 @@
       "bad_link": "Ši nuoroda nebeveikia.",
       "error_message": "Pakeisti slaptažodžio nepavyko."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

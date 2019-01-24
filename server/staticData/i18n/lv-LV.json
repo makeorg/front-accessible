@@ -190,5 +190,10 @@
       "bad_link": "Šī saite vairs nav derīga.",
       "error_message": "Jūsu paroli nebija iespējams nomainīt."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

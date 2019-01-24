@@ -190,5 +190,10 @@
       "bad_link": "Tento link už nie je platný.",
       "error_message": "Vaše heslo nebolo možné nahradiť."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

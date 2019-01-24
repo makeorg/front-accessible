@@ -190,5 +190,10 @@
       "bad_link": "Esta ligação já não é válida.",
       "error_message": "Não foi possível substituir a sua palavra-passe."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

@@ -190,5 +190,10 @@
       "bad_link": "Questo link non è più valido.",
       "error_message": "La password non è stata aggiornata."
     }
+  },
+  "not_found": {
+    "intro": "ops",
+    "title": "Errore 404",
+    "description": "Ci dispiace, la pagina che cerchi non esiste più."
   }
 }
