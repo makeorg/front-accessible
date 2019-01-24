@@ -4,6 +4,7 @@ import { doUpdateState } from 'Helpers/qualification';
 import QualificationService from 'Api/QualificationService';
 import QualificationComponent from 'Components/Qualification';
 import Tracking from 'Services/Tracking';
+import { throttle } from 'Shared/helpers/throttle';
 
 type Props = {
   /** Array with qualifications received from Api */
@@ -31,12 +32,15 @@ class QualificationContainer extends React.Component<Props, State> {
     index: undefined
   };
 
+  throttleQualification: any = undefined;
+
   constructor(props: Props) {
     super(props);
     this.state = {
       qualifications: props.qualifications
     };
-    this.handleQualification = this.handleQualification.bind(this);
+
+    this.throttleQualification = throttle(this.handleQualification);
   }
 
   handleQualification = (event: SyntheticEvent<*>, qualification: Object, voteKey: string) => {
@@ -66,7 +70,7 @@ class QualificationContainer extends React.Component<Props, State> {
         proposalId={proposalId}
         votedKey={votedKey}
         qualifications={qualifications}
-        handleQualification={this.handleQualification}
+        handleQualification={this.throttleQualification}
         tabIndex={tabIndex}
       />
     );

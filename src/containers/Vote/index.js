@@ -2,6 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
+import { throttle } from 'Shared/helpers/throttle';
 import { doVote, doUnvote } from 'Helpers/vote';
 import VoteService from 'Api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Actions/sequence';
@@ -55,6 +56,8 @@ export class Vote extends React.Component<Props, State> {
     goToNextCard: undefined
   }
 
+  throttleVote: any = undefined;
+
   constructor(props: Props) {
     super(props);
     const userVote = props.votes.find(vote => vote.hasVoted === true);
@@ -68,6 +71,7 @@ export class Vote extends React.Component<Props, State> {
       qualifications,
       votes: props.votes
     };
+    this.throttleVote = throttle(this.handleVote);
   }
 
   handleVote = (event: SyntheticEvent<*>, voteKey: string) => {
@@ -119,7 +123,7 @@ export class Vote extends React.Component<Props, State> {
               votes={votes}
               votedKey={votedKey}
               index={index}
-              handleVote={this.handleVote}
+              handleVote={this.throttleVote}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
             <QualificationContainer
@@ -151,7 +155,7 @@ export class Vote extends React.Component<Props, State> {
         proposalId={proposalId}
         index={index}
         tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-        handleVote={this.handleVote}
+        handleVote={this.throttleVote}
       />
     );
   }

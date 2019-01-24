@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { throttle } from 'Shared/helpers/throttle';
 import { ProposalSubmitFormComponent } from 'Components/ProposalSubmit';
 import { ProposalSubmitFormWrapper } from 'Components/ProposalSubmit/Styled';
 import ProposalSubmitDescriptionComponent from 'Components/ProposalSubmit/Description';
@@ -51,6 +52,13 @@ type State = {
 export class ProposalSubmit extends React.Component<Props, State> {
   state = {
     isTyping: false
+  }
+
+  throttleSubmit: any = undefined;
+
+  constructor(props: Props) {
+    super(props);
+    this.throttleSubmit = throttle(this.handleSubmit);
   }
 
   handleChange = (event: SyntheticEvent<*>) => {
@@ -136,8 +144,8 @@ export class ProposalSubmit extends React.Component<Props, State> {
           content={content}
           length={length}
           canSubmit={canSubmit}
-          handleChange={event => this.handleChange(event)}
-          handleSubmit={event => this.handleSubmit(event)}
+          handleChange={this.handleChange}
+          handleSubmit={this.throttleSubmit}
           handleFocus={this.handleFocus}
           isPannelOpen={isPannelOpen}
           isSequenceCollapsed={isSequenceCollapsed}

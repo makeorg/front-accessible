@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import type { ErrorObject } from 'Types/form';
+import { throttle } from 'Shared/helpers/throttle';
 import LoginComponent from 'Components/Login';
 import { login } from 'Actions/authentification';
 import { pannelShowRegister, pannelShowForgotPassword } from 'Actions/pannel';
@@ -30,6 +31,8 @@ type State = {
  * Handles Login Business Logic
  */
 class LoginContainer extends React.Component<Props, State> {
+  throttleSubmit: any = undefined;
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -37,6 +40,8 @@ class LoginContainer extends React.Component<Props, State> {
       password: '',
       passwordIsDisplayed: false
     };
+
+    this.throttleSubmit = throttle(this.handleSubmit);
   }
 
   handleChange = (event) => {
@@ -77,7 +82,7 @@ class LoginContainer extends React.Component<Props, State> {
         password={password}
         errors={errors}
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
+        handleSubmit={this.throttleSubmit}
         togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
         passwordIsDisplayed={passwordIsDisplayed}
         handleRegisterPannel={handleRegisterPannel}
