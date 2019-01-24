@@ -4,6 +4,8 @@ import VoteResultComponent from 'Components/Vote/Result';
 import * as VoteResultHelper from 'Helpers/voteResult';
 import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Constants/vote';
 
+jest.mock('Helpers/voteResult');
+
 describe('VoteResultContainer', () => {
   const defaultProps = {
     proposalId: 'fooId',
@@ -22,8 +24,8 @@ describe('VoteResultContainer', () => {
       [VOTE_NEUTRAL_KEY]: 0
     };
 
-    sinon.stub(VoteResultHelper, 'getVotesCount').returns(votesCount);
-    sinon.stub(VoteResultHelper, 'getVotesPercent').returns(votePercent);
+    VoteResultHelper.getVotesCount.mockReturnValue(votesCount);
+    VoteResultHelper.getVotesPercent.mockReturnValue(votePercent);
 
     const wrapper = shallow(<VoteResult {...defaultProps} />);
 

@@ -137,6 +137,38 @@ Bad:
 
 ## TESTS: `
 
+### JEST snippets
+
+- spyOn
+```js
+const response = httpMocks.createResponse();
+jest.spyOn(response, 'redirect');
+expect(response.redirect).toBeCalledWith('/FR-fr');
+```
+
+#### Mock
+
+- Initialize a mock
+```js
+import UserService from 'Api/UserService';
+jest.mock('Api/UserService')
+```
+
+- Resolve a promise
+```js
+UserService.forgotPassword.mockResolvedValue();
+
+// same as:
+// UserService.forgotPassword.mockImplementation(() => Promise.resolve())
+```
+- Reject a promise
+```js
+UserService.forgotPassword.mockRejectedValue();
+
+// same as:
+// UserService.forgotPassword.mockImplementation(() => Promise.reject())
+```
+
 ### UI test strategy
 
 - An UI component (dumb) should be tested using snapshot

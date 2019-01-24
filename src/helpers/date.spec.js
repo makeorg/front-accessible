@@ -1,27 +1,28 @@
 /* @flow */
 
 import DateHelper, { getDateOfBirthFromAge } from './date';
+import MockDate from 'mockdate';
 
 describe('Date Helper', () => {
   it('getDateOfBirthFromAge with valid integer age', () => {
-    const clock = sinon.useFakeTimers(new Date(2019,1,1).getTime());
+    MockDate.set('1/1/2019');
     const dateOfBirth = getDateOfBirthFromAge(32);
     expect(dateOfBirth).toBe('1987-01-01');
-    clock.restore();
+    MockDate.reset();
   });
 
   it('getDateOfBirthFromAge with valid integer age and changing current date', () => {
-    const clock = sinon.useFakeTimers(new Date(2018,1,1).getTime());
+    MockDate.set('1/1/2018');
     const dateOfBirth = getDateOfBirthFromAge(35);
     expect(dateOfBirth).toBe('1983-01-01');
-    clock.restore();
+    MockDate.reset();
   });
 
   it('getDateOfBirthFromAge with valid string age', () => {
-    const clock = sinon.useFakeTimers(new Date(2019,1,1).getTime());
+    MockDate.set('1/1/2019');
     const dateOfBirth = getDateOfBirthFromAge('32');
     expect(dateOfBirth).toBe('1987-01-01');
-    clock.restore();
+    MockDate.reset();
   });
 
   it('getDateOfBirthFromAge without age', () => {

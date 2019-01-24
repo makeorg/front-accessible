@@ -103,7 +103,9 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   </span>
   <div
     className="c3 HiddenElements__HiddenOnMobile-sc-1k80phd-1 c3"
-  />
+  >
+    common.propose
+  </div>
 </button>
 `;
 
@@ -210,7 +212,9 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   </span>
   <div
     className="c3 HiddenElements__HiddenOnMobile-sc-1k80phd-1 c3"
-  />
+  >
+    common.propose
+  </div>
 </button>
 `;
 
@@ -311,7 +315,9 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   </span>
   <span
     className="c2 c3"
-  />
+  >
+    common.propose
+  </span>
 </button>
 `;
 
@@ -418,7 +424,9 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   </span>
   <div
     className="c3 HiddenElements__HiddenOnMobile-sc-1k80phd-1 c3"
-  />
+  >
+    common.propose
+  </div>
 </button>
 `;
 
@@ -525,6 +533,8 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   </span>
   <div
     className="c3 HiddenElements__HiddenOnMobile-sc-1k80phd-1 c3"
-  />
+  >
+    common.propose
+  </div>
 </button>
 `;

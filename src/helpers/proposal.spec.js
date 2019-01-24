@@ -7,7 +7,7 @@ describe('Proposal Helper', () => {
   const validProposalContent = "foobar";
   it('getProposalLength with content', () => {
     const proposalLength = ProposalHelper.getProposalLength(validProposalContent);
-    expect(proposalLength).toBe(14);
+    expect(proposalLength).toBe(26);
   });
 
   it('getProposalLength with empty content', () => {
@@ -42,9 +42,9 @@ describe('Proposal Helper', () => {
 
   it('sortProposalsByVoted with proposals', () => {
     const proposals = [
-      {id: 'foo', votes: [{hasVoted: false}, {hasVoted: false}, {hasVoted: false}]},
-      {id: 'bar', votes: [{hasVoted: false}, {hasVoted: false}, {hasVoted: false}]},
-      {id: 'baz', votes: [{hasVoted: true}, {hasVoted: false}, {hasVoted: false}]}
+      { id: 'foo', votes: [{ hasVoted: false }, { hasVoted: false }, { hasVoted: false }] },
+      { id: 'bar', votes: [{ hasVoted: false }, { hasVoted: false }, { hasVoted: false }] },
+      { id: 'baz', votes: [{ hasVoted: true }, { hasVoted: false }, { hasVoted: false }] }
     ];
 
     const sortedProposals = ProposalHelper.sortProposalsByVoted(proposals);
@@ -59,9 +59,9 @@ describe('Proposal Helper', () => {
   });
 
   it('searchFirstUnvotedProposal with proposals', () => {
-    const fooProposal = {id: 'foo', votes: [{hasVoted: true}, {hasVoted: false}, {hasVoted: false}]};
-    const barProposal = {id: 'bar', votes: [{hasVoted: false}, {hasVoted: false}, {hasVoted: false}]};
-    const bazProposal = {id: 'baz', votes: [{hasVoted: true}, {hasVoted: false}, {hasVoted: false}]};
+    const fooProposal = { id: 'foo', votes: [{ hasVoted: true }, { hasVoted: false }, { hasVoted: false }] };
+    const barProposal = { id: 'bar', votes: [{ hasVoted: false }, { hasVoted: false }, { hasVoted: false }] };
+    const bazProposal = { id: 'baz', votes: [{ hasVoted: true }, { hasVoted: false }, { hasVoted: false }] };
     const proposals = [fooProposal, barProposal, bazProposal];
 
     const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal(proposals);
