@@ -15,18 +15,21 @@ const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('Sequence Actions', () => {
-  let sandbox;
-  let trackingService;
+
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
-    trackingService = sandbox.mock(Tracking);
+    jest.spyOn(Tracking, 'track');
+    jest.spyOn(Tracking, 'trackVote');
+    jest.spyOn(Tracking, 'trackFirstVote');
+
     store.clearActions();
     axiosMock.restore();
     axiosMock.onPost('/tracking/front').reply(204);
   });
 
   afterEach(function () {
-    sandbox.restore();
+    Tracking.track.mockRestore();
+    Tracking.trackVote.mockRestore();
+    Tracking.trackFirstVote.mockRestore();
   });
 
   it('Creates SEQUENCE_COLLAPSE when calling action', () => {
@@ -83,17 +86,10 @@ describe('Sequence Actions', () => {
       payload: { proposalId }
     }];
 
-    trackingService
-      .expects('trackVote')
-      .once()
-      .withArgs(questionSlug, proposalId, voteKey, index);
-
-    trackingService
-      .expects('trackFirstVote')
-      .once()
-      .withArgs(questionSlug, proposalId, voteKey, index);
-
     store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+
+    expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
+    expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -111,16 +107,12 @@ describe('Sequence Actions', () => {
       payload: { proposalId }
     }];
 
-    trackingService
-      .expects('trackVote')
-      .once()
-      .withArgs(questionSlug, proposalId, voteKey, index);
-
-    trackingService
-      .expects('trackFirstVote')
-      .never();
 
     store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+
+    expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
+    expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual(expectedActions);
+
   });
 });

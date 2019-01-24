@@ -9,24 +9,21 @@ import UserService from 'Api/UserService';
 import Tracking from 'Services/Tracking';
 import * as actions from './index';
 
+// mocks
+jest.mock('Api/UserService')
+
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('Authentification Actions', () => {
-  let sandbox;
 
   beforeEach(() => {
     store.clearActions();
-    sandbox = sinon.createSandbox();
 
     axiosMock.restore();
     axiosMock.onPost('/tracking/front').reply(204);
-  });
-
-  afterEach(() => {
-    sandbox.restore();
   });
 
   describe('Login Actions', () => {
@@ -71,17 +68,12 @@ describe('Authentification Actions', () => {
         authentification: { isLoggedIn: false }
       });
 
-      sandbox
-        .stub(UserService, 'login')
-        .withArgs(user.email, user.password).returns(Promise.resolve(token));
+      // mocks
+      UserService.login.mockResolvedValue(token);
+      UserService.me.mockResolvedValue(user);
 
-      sandbox
-        .stub(UserService, 'me')
-        .returns(Promise.resolve(user));
-
-      sandbox
-        .stub(Tracking, 'trackLoginEmailSuccess')
-        .returns(Promise.resolve());
+      // spy
+      jest.spyOn(Tracking, 'trackLoginEmailSuccess');
 
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
@@ -91,6 +83,7 @@ describe('Authentification Actions', () => {
 
       ;
       return store.dispatch(actions.login(user.email, user.password)).then(() => {
+        expect(Tracking.trackLoginEmailSuccess).toBeCalled()
         expect(store.getActions()).toEqual(expectedActions)
       });
     });
@@ -98,7 +91,7 @@ describe('Authentification Actions', () => {
     it('creates an action to login when failure', () => {
       const user = { email: 'baz@make.org', password: 'foo' };
 
-      const error = undefined;
+      const error = 'login.email_doesnot_exist';
       const proposalContent = 'foo';
       const questionId = 'bar';
       const store = mockStore({
@@ -106,14 +99,10 @@ describe('Authentification Actions', () => {
         sequence: { question: { questionId } }
       });
 
-      sandbox
-        .stub(UserService, 'login')
-        .withArgs(user.email, user.password)
-        .returns(Promise.reject('fooError'));
+      UserService.login.mockRejectedValue();
 
-      sandbox
-        .stub(Tracking, 'trackLoginEmailFailure')
-        .returns(Promise.resolve());
+      // spy
+      jest.spyOn(Tracking, 'trackLoginEmailFailure');
 
 
       const expectedActions = [
@@ -122,6 +111,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.login(user.email, user.password)).then(() => {
+        expect(Tracking.trackLoginEmailFailure).toBeCalled()
         expect(store.getActions()).toEqual(expectedActions)
       });
     });
@@ -167,19 +157,12 @@ describe('Authentification Actions', () => {
       const provider = 'fooProvider';
       const socialToken = 'fooToken';
 
-      sandbox
-        .stub(UserService, 'loginSocial')
-        .withArgs(provider, socialToken)
-        .returns(Promise.resolve(token));
+      // mock
+      UserService.loginSocial.mockResolvedValue(token);
+      UserService.me.mockResolvedValue(user);
 
-      sandbox
-        .stub(UserService, 'me')
-        .returns(Promise.resolve(user));
-
-      sandbox
-        .stub(Tracking, 'trackAuthentificationSocialSuccess')
-        .returns(Promise.resolve());
-
+      // spy
+      jest.spyOn(Tracking, 'trackAuthentificationSocialSuccess');
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider: provider },
@@ -188,6 +171,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
+        expect(Tracking.trackAuthentificationSocialSuccess).toBeCalled()
         expect(store.getActions()).toEqual(expectedActions)
       });
     });
@@ -202,12 +186,10 @@ describe('Authentification Actions', () => {
       const socialToken = 'fooToken';
       const provider = 'barProvider';
 
-      sandbox.stub(UserService, 'loginSocial')
-        .withArgs(provider, socialToken).returns(Promise.reject('fooError'));
+      UserService.loginSocial.mockRejectedValue();
 
-
-      sandbox.stub(Tracking, 'trackAuthentificationSocialFailure')
-        .returns(Promise.resolve());
+      // spy
+      jest.spyOn(Tracking, 'trackAuthentificationSocialFailure');
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
@@ -215,6 +197,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
+        expect(Tracking.trackAuthentificationSocialFailure).toBeCalled()
         expect(store.getActions()).toEqual(expectedActions)
       });
     });
@@ -261,12 +244,12 @@ describe('Authentification Actions', () => {
         pannel: { isPannelOpen: true }
       });
 
-      sandbox
-        .stub(UserService, 'me')
-        .returns(Promise.resolve(user));
-      sandbox
-        .stub(Tracking, 'trackClickClosePannel')
-        .returns(Promise.resolve());
+      // mock
+      UserService.me.mockResolvedValue(user);
+
+      // spy
+      jest.spyOn(Tracking, 'trackClickClosePannel');
+
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
@@ -275,6 +258,7 @@ describe('Authentification Actions', () => {
       ];
 
       return store.dispatch(actions.getUser()).then(() => {
+        expect(Tracking.trackClickClosePannel).toBeCalled()
         expect(store.getActions()).toEqual(expectedActions)
       });
     });
@@ -285,9 +269,8 @@ describe('Authentification Actions', () => {
         pannel: { isPannelOpen: false }
       });
 
-      sandbox
-        .stub(UserService, 'me')
-        .returns(Promise.resolve(user));
+      // mock
+      UserService.me.mockResolvedValue(user);
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user }
@@ -310,13 +293,9 @@ describe('Authentification Actions', () => {
         sequence: { question: { questionId } }
       });
 
-      sandbox
-        .stub(UserService, 'getUserToken')
-        .returns(Promise.resolve(token));
-
-      sandbox
-        .stub(UserService, 'me')
-        .returns(Promise.resolve(user));
+      // mock
+      UserService.getUserToken.mockResolvedValue(token);
+      UserService.me.mockResolvedValue(user);
 
       const expectedActions = [
         { type: actionTypes.GET_TOKEN, token },

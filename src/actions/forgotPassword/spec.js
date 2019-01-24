@@ -8,6 +8,7 @@ import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Constants/actionTypes';
 import UserService from 'Api/UserService';
 import * as actions from './index';
+jest.mock('Api/UserService')
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
@@ -15,16 +16,10 @@ const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('ForgotPassword Actions', () => {
-  let sandbox;
   beforeEach(() => {
     store.clearActions();
-    sandbox = sinon.createSandbox();
     axiosMock.restore();
     axiosMock.onPost('/tracking/front').reply(204);
-  });
-
-  afterEach(() => {
-    sandbox.restore();
   });
 
   describe('Forgot password Actions', () => {
@@ -66,9 +61,7 @@ describe('ForgotPassword Actions', () => {
 
     it('Creates an action to forgot password when success', () => {
       const email = 'foo@example.com';
-
-      const userServiceForgotPasswordMock = sandbox.stub(UserService, 'forgotPassword');
-      userServiceForgotPasswordMock.withArgs(email).returns(Promise.resolve());
+      UserService.forgotPassword.mockResolvedValue()
 
       const expectedActions = [
         { type: actionTypes.FORGOT_PASSWORD_REQUEST, email },
@@ -82,14 +75,11 @@ describe('ForgotPassword Actions', () => {
 
     it('Creates an action to forgot password when failure', () => {
       const errorMessage = 'account does not exist';
-      const i18nextStub = sandbox.stub(i18next, 't');
-      i18nextStub.withArgs('login.email_doesnot_exist').returns(errorMessage);
 
       const errors = [errorMessage];
       const email = 'foo@example.com';
 
-      const userServiceForgotPasswordMock = sandbox.stub(UserService, 'forgotPassword');
-      userServiceForgotPasswordMock.withArgs(email).returns(Promise.reject(errors));
+      UserService.forgotPassword.mockRejectedValue(errors);
 
       const expectedActions = [
         { type: actionTypes.FORGOT_PASSWORD_REQUEST, email },

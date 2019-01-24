@@ -8,22 +8,19 @@ import ProposalService from 'Api/ProposalService';
 import * as actionTypes from 'Constants/actionTypes';
 import * as actions from './index';
 
+// mocks
+jest.mock('Api/ProposalService')
+
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('Proposal Actions', () => {
-  let sandbox;
   beforeEach(function () {
-    sandbox = sinon.createSandbox();
     store.clearActions();
     axiosMock.restore();
     axiosMock.onPost('/tracking/front').reply(204);
-  });
-
-  afterEach(function () {
-      sandbox.restore();
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {
@@ -120,14 +117,14 @@ describe('Proposal Actions', () => {
   it('creates an action to proposal Submit when user is logged in', () => {
     const questionId = 'bar';
     const store = mockStore({
-      authentification: {isLoggedIn: true },
+      authentification: { isLoggedIn: true },
       sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
 
-    const proposalServiceRegisterMock = sandbox.stub(ProposalService, 'propose');
-    proposalServiceRegisterMock.returns(Promise.resolve(proposalIdResponse));
+    // mocks
+    ProposalService.propose.mockResolvedValue(proposalIdResponse);
 
     const expectedActions = [
       {
@@ -144,14 +141,15 @@ describe('Proposal Actions', () => {
   it('creates an action to proposal Submit failure', () => {
     const questionId = 'bar';
     const store = mockStore({
-      authentification: {isLoggedIn: true },
+      authentification: { isLoggedIn: true },
       sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
 
-    const proposalServiceRegisterMock = sandbox.stub(ProposalService, 'propose');
-    proposalServiceRegisterMock.returns(Promise.reject('fooError'));
+
+    // mocks
+    ProposalService.propose.mockRejectedValue('fooError');
 
     const expectedActions = [
       {

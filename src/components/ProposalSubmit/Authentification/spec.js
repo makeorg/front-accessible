@@ -6,19 +6,14 @@ import { DescriptionLink } from 'Components/Elements/DescriptionElements';
 import { Small } from 'Components/Elements/Separators';
 import ProposalSubmitAuthentificationComponent from './index';
 
-describe('ProposalSubmitAuthentificationComponent', () => {
-  let sandbox;
-  beforeEach(function () {
-    sandbox = sinon.createSandbox();
-  });
+// mock
+jest.mock('i18next')
 
-  afterEach(function () {
-      sandbox.restore();
-  });
+describe('ProposalSubmitAuthentificationComponent', () => {
 
   it('Check a11y rules', () => {
-    const i18nextStub = sandbox.stub(i18next, 't');
-    i18nextStub.withArgs('common.open_new_window').returns('Ouverture dans un nouvel onglet');
+
+
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
     const DescriptionLinkIcon = wrapper.find(DescriptionLink).find(FontAwesomeIcon);
     const EmailButtonIcon = wrapper.find(EmailButton).find(FontAwesomeIcon);
@@ -26,7 +21,7 @@ describe('ProposalSubmitAuthentificationComponent', () => {
 
     expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
     expect(EmailButtonIcon.prop('aria-hidden')).toBe(true);
-    expect(DescriptionLinkIcon.prop('aria-label')).toBe('Ouverture dans un nouvel onglet');
+    expect(DescriptionLinkIcon.prop('aria-label')).toBe("common.open_new_window");
   });
 
   it('Check link target', () => {

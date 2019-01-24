@@ -12,7 +12,7 @@ describe('SequenceFooterComponent', () => {
     const wrapper = shallow(<SequenceFooterComponent {...props} />);
 
     expect(wrapper.find(Sequence.FooterNav).prop('aria-labelledby')).toBe('footer_title');
-    expect(wrapper.find(Sequence.FooterNav).text()).toBe(props.questionConfiguration.wording.question);
+    expect(wrapper.find(Sequence.FooterNav).text()).toBe("footer_sequence.see_morefoofooter_sequence.link");
     expect(wrapper.find(Sequence.FooterTitle).prop('color')).toBe(props.questionConfiguration.theme.footerFontColor);
     expect(wrapper.find(Sequence.FooterLink).prop('color')).toBe(props.questionConfiguration.theme.footerFontColor);
     expect(wrapper.find(Sequence.FooterLink).prop('href')).toBe(props.questionConfiguration.consultationUrl);

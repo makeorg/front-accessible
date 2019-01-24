@@ -7,14 +7,6 @@ import { NextButton } from 'Components/ProposalCard/Styled/Buttons';
 
 describe('VoteContainer', () => {
   let wrapper;
-  let sandbox;
-  beforeEach(() => {
-    sandbox = sinon.createSandbox();
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-  });
 
   const defaultProps = {
     proposalId: 'fooId',
@@ -49,9 +41,6 @@ describe('VoteContainer', () => {
   });
 
   it('render VoteComponent and change state', () => {
-    const nextTrad = 'next';
-    const i18nextStub = sandbox.stub(i18next, 't');
-    i18nextStub.withArgs('proposal_card.next').returns(nextTrad);
 
     wrapper.setState({ hasVoted: true });
     expect(wrapper.find(VoteComponent)).toHaveLength(0);
@@ -64,7 +53,7 @@ describe('VoteContainer', () => {
       onClick: defaultProps.goToNextCard,
       id: "next-button-1",
       children: [
-        nextTrad,
+        "proposal_card.next",
         ' >'
       ]
     });

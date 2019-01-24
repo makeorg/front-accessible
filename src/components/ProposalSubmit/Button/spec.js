@@ -40,7 +40,7 @@ describe('ProposalSubmitButtonComponent', () => {
 });
 
 
-describe("ProposalSubmitButtonComponent snapshot", function () {  
+describe("ProposalSubmitButtonComponent snapshot", function () {
   it("must match the snapshot by default", function () {
     // TODO need to use shallow with jest for better testing
     const component = renderer.create(
@@ -80,5 +80,6 @@ describe("ProposalSubmitButtonComponent snapshot", function () {
       <ProposalSubmitButtonComponent {...expandedField} />
     );
     expect(component).toMatchSnapshot();
+
   });
 });

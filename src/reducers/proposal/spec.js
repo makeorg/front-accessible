@@ -11,7 +11,7 @@ describe('Proposal reducer', () => {
       hasProposed: false,
       canSubmit: false,
       content: '',
-      length: 8,
+      length: 20,
       questionId: null,
       error: null
     };
@@ -96,7 +96,7 @@ describe('Proposal reducer', () => {
         hasProposed: true,
         canSubmit: false,
         content: '',
-        length: 8,
+        length: 20,
         questionId: null,
         error: null
       };
