@@ -1,55 +1,69 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "targets": {
-        "browsers": [
-          "last 2 versions",
-          "IE >= 11"
-        ]
-      },
-      "useBuiltIns": "usage"
-    }],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "IE >= 11"
+          ]
+        },
+        "useBuiltIns": "usage"
+      }
+    ],
     "@babel/preset-react",
     "@babel/preset-flow"
   ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
-    ["transform-imports", {
-      "react-router-dom": {
-        "transform": "react-router-dom/${member}",
-        "preventFullImport": true
-      },
-      "@fortawesome/free-solid-svg-icons": {
-        "transform": "@fortawesome/free-solid-svg-icons/${member}",
-        "skipDefaultConversion": true
-      },
-      "@fortawesome/free-brands-svg-icons": {
-        "transform": "@fortawesome/free-brands-svg-icons/${member}",
-        "skipDefaultConversion": true
-      },
-      "@fortawesome/free-regular-svg-icons": {
-        "transform": "@fortawesome/free-regular-svg-icons/${member}",
-        "skipDefaultConversion": true
+    [
+      "transform-imports",
+      {
+        "react-router-dom": {
+          "transform": "react-router-dom/${member}",
+          "preventFullImport": true
+        },
+        "@fortawesome/free-solid-svg-icons": {
+          "transform": "@fortawesome/free-solid-svg-icons/${member}",
+          "skipDefaultConversion": true
+        },
+        "@fortawesome/free-brands-svg-icons": {
+          "transform": "@fortawesome/free-brands-svg-icons/${member}",
+          "skipDefaultConversion": true
+        },
+        "@fortawesome/free-regular-svg-icons": {
+          "transform": "@fortawesome/free-regular-svg-icons/${member}",
+          "skipDefaultConversion": true
+        }
       }
-    }],
-    ["transform-es2015-modules-commonjs"],
-    ["babel-plugin-styled-components", {
-      "pure": true
-    }],
-    ["module-resolver", {
-      "alias": {
-        "Actions": "./src/actions",
-        "Api": "./src/api",
-        "Assets": "./src/assets",
-        "Components": "./src/components",
-        "Containers": "./src/containers",
-        "Constants": "./src/constants",
-        "Helpers": "./src/helpers",
-        "Pages": "./src/pages",
-        "Services": "./src/services",
-        "Types": "./src/types",
-        "Shared": "./shared",
+    ],
+    [
+      "transform-es2015-modules-commonjs"
+    ],
+    [
+      "babel-plugin-styled-components",
+      {
+        "pure": true
       }
-    }]
+    ],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "Actions": "./client/src/actions",
+          "Api": "./client/src/api",
+          "Assets": "./client/src/assets",
+          "Components": "./client/src/components",
+          "Containers": "./client/src/containers",
+          "Constants": "./client/src/constants",
+          "Helpers": "./client/src/helpers",
+          "Pages": "./client/src/pages",
+          "Services": "./client/src/services",
+          "Types": "./client/src/types",
+          "Shared": "./shared",
+        }
+      }
+    ]
   ]
 }

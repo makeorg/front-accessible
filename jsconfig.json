@@ -3,34 +3,34 @@
     "baseUrl": "./",
     "paths": {
       "Actions/*": [
-        "src/actions/*"
+        "client/src/actions/*"
       ],
       "Api/*": [
-        "src/api/*"
+        "client/src/api/*"
       ],
       "Assets/*": [
-        "src/assets/*"
+        "client/src/assets/*"
       ],
       "Components/*": [
-        "src/components/*"
+        "client/src/components/*"
       ],
       "Containers/*": [
-        "src/containers/*"
+        "client/src/containers/*"
       ],
       "Constants/*": [
-        "src/constants/*"
+        "client/src/constants/*"
       ],
       "Helpers/*": [
-        "src/helpers/*"
+        "client/src/helpers/*"
       ],
       "Pages/*": [
-        "src/pages/*"
+        "client/src/pages/*"
       ],
       "Services/*": [
-        "src/services/*"
+        "client/src/services/*"
       ],
       "Types/*": [
-        "src/types/*"
+        "client/src/types/*"
       ],
       "Shared/*": [
         "shared/*"

@@ -8,10 +8,10 @@ import { HeadProvider } from 'react-head';
 import { AppContainer } from 'Containers/App';
 import FacebookTracking from 'Services/Trackers/FacebookTracking';
 import TwitterTracking from 'Services/Trackers/TwitterTracking';
+import { env } from 'Shared/env';
+import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from './store';
 import Logger from './services/Logger';
-import { env } from '../shared/env';
-import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
 import { initialStateDebug } from './initialState.debug';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {

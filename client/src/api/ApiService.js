@@ -4,7 +4,7 @@ import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Helpers/url';
 import Logger from 'Services/Logger';
 import { APP_NAME } from 'Constants/config';
-import { env } from '../../shared/env';
+import { env } from 'Shared/env';
 
 const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
