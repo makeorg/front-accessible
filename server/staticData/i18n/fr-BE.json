@@ -193,5 +193,10 @@
       "bad_link": "Ce lien n'est plus valable.",
       "error_message": "Votre mot de passe n'a pas pu être remplacé."
     }
+  },
+  "not_found": {
+    "intro": "oups",
+    "title": "Erreur 404",
+    "description": "La page que vous avez demandé n’existe pas ou plus."
   }
 }

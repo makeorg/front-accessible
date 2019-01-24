@@ -12,11 +12,12 @@ const compression = require('compression');
 const serveStatic = require('serve-static');
 const csp = require('express-csp');
 const cookiesMiddleware = require('universal-cookie-express');
-const homeRoute = require('./ssr/homeRoute');
+const defaultRoute = require('./ssr/defaultRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const accountActivationRoute = require('./ssr/accountActivationRoute');
 const proposalRoute = require('./ssr/proposalRoute');
 const passwordRecoveryRoute = require('./ssr/passwordRecoveryRoute');
+
 const {
   BUILD_DIR,
   IMAGES_DIR,
@@ -76,9 +77,10 @@ function renderVersion(req, res) {
 const frontMiddlewares = [countryLanguageMiddleware, cookiesHandlerMiddleware];
 
 // Front Routes
+app.get('/404', cookiesHandlerMiddleware, defaultRoute);
 app.get('/', countryLanguageMiddleware);
 app.get('/version', renderVersion);
-app.get('/:countryLanguage', frontMiddlewares, homeRoute);
+app.get('/:countryLanguage', frontMiddlewares, defaultRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
   frontMiddlewares,

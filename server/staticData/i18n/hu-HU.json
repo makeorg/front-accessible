@@ -190,5 +190,10 @@
       "bad_link": "Ez a link nem érvényes.",
       "error_message": "A jelszó cseréje sikertelen."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

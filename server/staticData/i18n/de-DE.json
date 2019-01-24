@@ -190,5 +190,10 @@
       "bad_link": "Dieser Link ist nicht mehr gültig.",
       "error_message": "Ihr Passwort konnte nicht geändert werden."
     }
+  },
+  "not_found": {
+    "intro": "ups",
+    "title": "Fehler 404",
+    "description": "Die von Ihnen angeforderte Seite existiert nicht oder nicht mehr."
   }
 }

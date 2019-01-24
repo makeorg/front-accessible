@@ -190,5 +190,10 @@
       "bad_link": "See link ei ole enam kehtiv.",
       "error_message": "Teie salasõna ei olnud võimalik vahetada."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

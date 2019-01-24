@@ -190,5 +190,10 @@
       "bad_link": "Dette link er ikke gyldigt mere.",
       "error_message": "Det var ikke muligt at ændre din adgangskode."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

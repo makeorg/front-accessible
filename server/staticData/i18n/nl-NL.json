@@ -190,5 +190,10 @@
       "bad_link": "Deze link is niet langer actief.",
       "error_message": "Uw wachtwoord kon niet worden gewijzigd."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }

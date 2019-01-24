@@ -190,5 +190,10 @@
       "bad_link": "Tämä linkki ei ole enää voimassa.",
       "error_message": "Salasanaasi ei voitu vaihtaa."
     }
+  },
+  "not_found": {
+    "intro": "oops",
+    "title": "Error 404",
+    "description": "We are sorry, the page you have requested no longer exists."
   }
 }
