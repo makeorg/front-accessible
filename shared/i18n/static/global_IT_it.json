@@ -133,7 +133,7 @@
     "or": "o",
     "subtitle": "Iscrizione tramite modulo",
     "login_title": "Ho già un account.",
-    "login_link": "Login",
+    "login_link": "pagina di connessione",
     "cgu_text": "Iscrivendoti, accetti le nostre {{cgu_link}} e accetti di ricevere le (sporadiche) e-mail di Make.org.",
     "cgu": "condizioni generali di utilizzo"
   },
