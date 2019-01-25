@@ -9,9 +9,10 @@ const {
   printf
 } = winston.format;
 
-const logFormat = printf(info => (
-  `${info.timestamp} ${info.label} ${info.sessionId} ${info.level}: ${info.message} stackTrace: ${info.stack}`
-));
+const logFormat = printf((info) => {
+  const message = (info.message instanceof Object) ? JSON.stringify(info.message) : info.message;
+  return `${info.timestamp} ${info.label} ${info.sessionId} ${info.level}: ${message} stackTrace: ${info.stack}`;
+});
 
 /**
  * Instantiate the logger

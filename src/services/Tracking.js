@@ -44,14 +44,17 @@ class Tracking {
       ...parameters
     };
 
-    return ApiService.callApi(PATH_POST_TRACKING, {
-      method: 'POST',
-      body: JSON.stringify({
-        eventName,
-        eventParameters,
-        eventType: 'trackCustom'
-      })
-    }).catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...error }));
+    return ApiService.callApi(
+      PATH_POST_TRACKING, {
+        method: 'POST',
+        body: JSON.stringify({
+          eventName,
+          eventParameters,
+          eventType: 'trackCustom'
+        })
+      }
+    )
+      .catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...error }));
   };
 
   trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
