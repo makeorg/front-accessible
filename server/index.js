@@ -1,6 +1,7 @@
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { cookiesHandlerMiddleware } from './middleware/cookies';
 import { headersResponseMiddleware } from './middleware/headers';
+import { metricsMiddleware } from './middleware/metrics';
 import questionApi from './questionApi';
 import { logger } from './logger';
 
@@ -12,6 +13,7 @@ const compression = require('compression');
 const serveStatic = require('serve-static');
 const csp = require('express-csp');
 const cookiesMiddleware = require('universal-cookie-express');
+
 const defaultRoute = require('./ssr/defaultRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
 const accountActivationRoute = require('./ssr/accountActivationRoute');
@@ -73,8 +75,12 @@ function renderVersion(req, res) {
   }
 }
 
-// define front middelware
-const frontMiddlewares = [countryLanguageMiddleware, cookiesHandlerMiddleware];
+
+const frontMiddlewares = [
+  countryLanguageMiddleware,
+  cookiesHandlerMiddleware,
+  metricsMiddleware
+];
 
 // Front Routes
 app.get('/404', cookiesHandlerMiddleware, defaultRoute);
