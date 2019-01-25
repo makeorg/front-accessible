@@ -1,5 +1,6 @@
 // @flow
 import * as trackingConstants from 'Src/constants/tracking';
+import { env } from 'Shared/env';
 
 let initialized = false;
 
@@ -7,12 +8,13 @@ const twitterEventMapping = {
   [trackingConstants.DISPLAY_SEQUENCE]: 'o173q',
   [trackingConstants.CLICK_START_SEQUENCE]: 'o16w5',
   [trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION]: 'o16wc',
-  [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o173p',
+  [trackingConstants.CLICK_PROPOSAL_VOTE]: 'o173p',
+  [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o16w8',
   [trackingConstants.DISPLAY_PROPOSAL_PUSH_CARD]: 'o16wa',
   [trackingConstants.DISPLAY_SIGN_UP_CARD]: 'o16wb'
 };
 
-const isInitialized = () => {
+const isInitialized = (): boolean => {
   if (!initialized) {
     console.warn('Twitter Tracking not initialized before using call TwitterTracking.init with required params');
   }
@@ -21,7 +23,7 @@ const isInitialized = () => {
 };
 
 export default {
-  init(conversionId: string) {
+  init(conversionId: string): void {
     /* eslint-disable */
     !(function (e, t, n, s, u, a) {
       e.twq || (s = e.twq = function () {
@@ -42,7 +44,7 @@ export default {
     }
   },
 
-  pageView() {
+  pageView(): void {
     if (!isInitialized()) {
       return;
     }
@@ -51,7 +53,7 @@ export default {
     twq('track', 'PageView'); // eslint-disable-line no-undef
   },
 
-  track(action: string) {
+  track(action: string): void {
     if (!isInitialized()) {
       return;
     }
@@ -61,6 +63,10 @@ export default {
     }
 
     const eventName = twitterEventMapping[action];
+
+    if (env.isDev()) {
+      console.info(`Tracking Twitter: event ${eventName}`);
+    }
 
     // $FlowFixMe
     twq('track', eventName); // eslint-disable-line no-undef
