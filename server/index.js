@@ -2,6 +2,7 @@ import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { cookiesHandlerMiddleware } from './middleware/cookies';
 import { headersResponseMiddleware } from './middleware/headers';
 import { metricsMiddleware } from './middleware/metrics';
+import { cspMiddleware } from './middleware/contentSecurityPolicy';
 import questionApi from './questionApi';
 import { logger } from './logger';
 
@@ -11,7 +12,6 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
-const csp = require('express-csp');
 const cookiesMiddleware = require('universal-cookie-express');
 
 const defaultRoute = require('./ssr/defaultRoute');
@@ -41,6 +41,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(cookiesMiddleware());
 app.use(headersResponseMiddleware);
+app.use(cspMiddleware);
 
 // Static files
 app.use('/assets', express.static(BUILD_DIR, {
@@ -105,23 +106,5 @@ app.get(
   frontMiddlewares,
   passwordRecoveryRoute
 );
-
-// CSP
-csp.extend(app, {
-  policy: {
-    directives: {
-      'base-uri': 'self',
-      'script-src': ['self', '*.facebook.net', '*.facebook.com', '*.google.com', 'unsafe-inline'],
-      'img-src': ['self', '*.facebook.com'],
-      'style-src': ['unsafe-inline'],
-      'font-src': 'self',
-      'object-src': 'none',
-      'media-src': 'none',
-      'connect-src': ['self', '*.makeorg.tech', '*.make.org'],
-      'form-action': ['self', '*.facebook.com'],
-      'child-src': ['self', '*.facebook.com', '*.google.com']
-    }
-  }
-});
 
 module.exports = app;
