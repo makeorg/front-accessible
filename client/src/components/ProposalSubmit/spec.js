@@ -19,6 +19,10 @@ describe('ProposalSubmitFormComponent', () => {
     expect(wrapper.find(ProposalSubmitWrapper.Label)).toHaveLength(1);
     expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalSubmitWrapper.Input)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('autoCapitalize')).toBe('none');
+    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('autoComplete')).toBe('off');
+    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('spellCheck')).toBe(true);
+    expect(wrapper.find(ProposalSubmitWrapper.Input).prop('maxLength')).toBe('140');
     expect(wrapper.find(ProposalSubmitWrapper.Input).prop('onChange')).toBeInstanceOf(Function);
     expect(wrapper.find(ProposalSubmitWrapper.Label).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalSubmitWrapper.CharLimit)).toHaveLength(1);

@@ -61,8 +61,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           value={content}
           onChange={handleChange}
           onFocus={handleFocus}
+          autoCapitalize="none"
           autoComplete="off"
-          spellCheck="true"
+          spellCheck
           maxLength="140"
           tabIndex={isPannelOpen ? -1 : 0}
           isFieldExpanded={isSequenceCollapsed && isTyping}
