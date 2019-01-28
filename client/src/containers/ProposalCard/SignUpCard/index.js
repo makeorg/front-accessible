@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import type { SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
-=======
-import type { SignUpCardConfig, SignUpCardWording } from 'Src/types/card';
->>>>>>> refactor(transverse): move Src/services -> Shared/services
 import Tracking from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import SignUpCardComponent from 'Src/components/ProposalCard/SignUpCard';
