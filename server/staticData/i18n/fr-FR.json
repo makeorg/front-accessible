@@ -99,8 +99,8 @@
   },
   "qualification": {
     "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
-    "doable": "Coup de cœur",
-    "likeIt": "Réaliste",
+    "likeIt": "Coup de cœur",
+    "doable": "Réaliste",
     "platitudeAgree": "Banalité",
     "noWay": "Surtout pas !",
     "impossible": "Infaisable",

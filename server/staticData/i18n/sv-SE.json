@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Genom att klicka på knapparna nedan, preciserar jag min åsikt:",
-    "doable": "Gillar skarpt",
-    "likeIt": "Realistiskt",
+    "likeIt": "Gillar skarpt",
+    "doable": "Realistiskt",
     "platitudeAgree": "Banalt",
     "noWay": "Absolut inte!",
     "impossible": "Ogenomförbart",

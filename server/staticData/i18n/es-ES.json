@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Al hacer clic en los siguientes botones, especifico mi opinión:",
-    "doable": "Genial",
-    "likeIt": "Realista",
+    "likeIt": "Genial",
+    "doable": "Realista",
     "platitudeAgree": "Banalidad",
     "noWay": "¡En absoluto!",
     "impossible": "Inviable",

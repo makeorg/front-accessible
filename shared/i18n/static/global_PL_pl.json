@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Klikając poniższe przyciski, precyzuję swoją opinię:",
-    "doable": "Naprawdę warto",
-    "likeIt": "Realistyczne",
+    "likeIt": "Naprawdę warto",
+    "doable": "Realistyczne",
     "platitudeAgree": "Banalne",
     "noWay": "Absolutnie nie!",
     "impossible": "Niewykonalne",

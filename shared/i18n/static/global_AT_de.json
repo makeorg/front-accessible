@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Durch Klicken auf die weiter unten aufgeführten Schaltflächen spezifiziere ich meine Meinung:",
-    "doable": "Favorit",
-    "likeIt": "Realistisch",
+    "likeIt": "Favorit",
+    "doable": "Realistisch",
     "platitudeAgree": "Banalität",
     "noWay": "Sicherlich nicht!",
     "impossible": "Unrealistisch",

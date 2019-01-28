@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Az alábbi gombokra kattintva pontosítom a véleményemet:",
-    "doable": "Kedvenc",
-    "likeIt": "Realista",
+    "likeIt": "Kedvenc",
+    "doable": "Realista",
     "platitudeAgree": "Elcsépelt dolog",
     "noWay": "Semmi esetre sem!",
     "impossible": "Megvalósíthatatlan",

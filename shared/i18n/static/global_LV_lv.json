@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Nospiežot uz šīs pogas, es precizēju savu viedokli:",
-    "doable": "Ļoti patīk",
-    "likeIt": "Reāli",
+    "likeIt": "Ļoti patīk",
+    "doable": "Reāli",
     "platitudeAgree": "Banāli",
     "noWay": "Noteikti nē!",
     "impossible": "Neiespējami",

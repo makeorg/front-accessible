@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Door op de knoppen hieronder te klikken, licht ik mijn mening toe:",
-    "doable": "Topvoorstel",
-    "likeIt": "Realistisch",
+    "likeIt": "Topvoorstel",
+    "doable": "Realistisch",
     "platitudeAgree": "Banaal",
     "noWay": "Echt niet!",
     "impossible": "Onuitvoerbaar",

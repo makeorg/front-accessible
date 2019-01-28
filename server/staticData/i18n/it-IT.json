@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Cliccando sul pulsante qui sotto, specifico la mia opinione:",
-    "doable": "Proposta del cuore",
-    "likeIt": "Realista",
+    "likeIt": "Proposta del cuore",
+    "doable": "Realista",
     "platitudeAgree": "Banale",
     "noWay": "Assolutamente no!",
     "impossible": "Irrealizzabile",

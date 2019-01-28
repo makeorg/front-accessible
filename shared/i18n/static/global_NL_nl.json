@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Door op onderstaande button te klikken, geef ik extra uitleg over mijn oordeel:",
-    "doable": "Fantastisch",
-    "likeIt": "Realistisch",
+    "likeIt": "Fantastisch",
+    "doable": "Realistisch",
     "platitudeAgree": "Cliché",
     "noWay": "Absoluut niet!",
     "impossible": "Niet uitvoerbaar",

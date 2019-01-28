@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "S klikom na spodnja gumba navedem svoje mnenje:",
-    "doable": "Najljubše",
-    "likeIt": "Realistično",
+    "likeIt": "Najljubše",
+    "doable": "Realistično",
     "platitudeAgree": "Banalnost",
     "noWay": "Še posebej ne!",
     "impossible": "Ni izvedljivo",

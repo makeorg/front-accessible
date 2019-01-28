@@ -99,8 +99,8 @@
   },
   "qualification": {
     "title": "By clicking on the buttons below, I wish to be more specific on my vote:",
-    "doable": "I love it",
-    "likeIt": "Realistic",
+    "likeIt": "I love it",
+    "doable": "Realistic",
     "platitudeAgree": "Trivial",
     "noWay": "Definitely not!",
     "impossible": "Infeasible",
