@@ -33,6 +33,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     .replace('<head>', `<head>${ReactDOMServer.renderToString(metaTags)}`)
     .replace('</head>', `${styles}</head>`)
     .replace('"__REDUX__"', JSON.stringify(reduxState))
+    .replace('__LANG__', reduxState.appConfig.language)
     .replace('__API_URL__', apiUrl)
     .replace('__FRONT_URL__', frontUrl);
 };
