@@ -1,4 +1,5 @@
-/** @flow */
+/* @flow */
+import { env } from 'Shared/env';
 
 let initialized: boolean = false;
 
@@ -16,7 +17,7 @@ type FacebookEventParams = {
   questionId?: string
 };
 
-const isInitialized = () => {
+const isInitialized = (): boolean => {
   if (!initialized) {
     console.warn('Facebook Tracking not initialized before using call FacebookTracking.init with required params');
   }
@@ -56,25 +57,40 @@ export default {
       return;
     }
 
+    if (env.isDev()) {
+      return;
+    }
+
     // $FlowFixMe
     fbq('track', 'PageView'); // eslint-disable-line no-undef
   },
 
-  track(title: string, data: FacebookEventParams): void {
+  track(eventName: string, eventParameters: FacebookEventParams): void {
     if (!isInitialized()) {
       return;
     }
 
+
+    if (env.isDev()) {
+      console.info(`Tracking Facebook: event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      return;
+    }
+
     // $FlowFixMe
-    fbq('track', title, data); // eslint-disable-line no-undef
+    fbq('track', title, eventParameters); // eslint-disable-line no-undef
   },
 
-  trackCustom(eventName: string, data: FacebookEventParams) {
+  trackCustom(eventName: string, eventParameters: FacebookEventParams): void {
     if (!isInitialized()) {
       return;
     }
 
+    if (env.isDev()) {
+      console.info(`Tracking Facebook: event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      return;
+    }
+
     // $FlowFixMe
-    fbq('trackCustom', eventName, data); // eslint-disable-line no-undef
+    fbq('trackCustom', eventName, eventParameters); // eslint-disable-line no-undef
   }
 };

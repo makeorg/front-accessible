@@ -4,6 +4,7 @@ import ApiService from 'Src/api/ApiService';
 import * as trackingConstants from 'Src/constants/tracking';
 import Logger from 'Src/services/Logger';
 import { PATH_POST_TRACKING } from 'Src/constants/paths';
+import { env } from 'Shared/env';
 import FacebookTracking from './Trackers/FacebookTracking';
 import TwitterTracking from './Trackers/TwitterTracking';
 
@@ -14,7 +15,7 @@ const
     ? document.referrer : document.location.href;
 
 
-const getPosition = (cardPosition?: number) => {
+const getPosition = (cardPosition?: number): string => {
   if (cardPosition !== undefined) {
     return cardPosition.toString();
   }
@@ -44,6 +45,11 @@ class Tracking {
       ...parameters
     };
 
+    if (env.isDev()) {
+      console.info(`Tracking: event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      return Promise.resolve();
+    }
+
     return ApiService.callApi(
       PATH_POST_TRACKING, {
         method: 'POST',
@@ -54,7 +60,7 @@ class Tracking {
         })
       }
     )
-      .catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...error }));
+      .catch(error => Logger.logError({ ...{ source: 'Tracking api call error' }, ...{ error } }));
   };
 
   trackFacebookPixel = (eventName: string, parameters: Object = {}) => {

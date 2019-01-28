@@ -67,7 +67,7 @@ export const fetchQuestionData = (
       dispatch(loadQuestion(question));
     })
     .catch((error) => {
-      Logger.logError({ ...{ source: 'fetchQuestionData api call error' }, ...error });
+      Logger.logError({ ...{ source: 'fetchQuestionData api call error' }, ...{ error } });
     })
 );
 
@@ -80,6 +80,6 @@ export const fetchQuestionConfigurationData = (
     })
 
     .catch((error) => {
-      Logger.logError({ ...{ source: 'fetchQuestionConfigurationData api call error' }, ...error });
+      Logger.logError({ ...{ source: 'fetchQuestionConfigurationData api call error' }, ...{ error } });
     })
 );
