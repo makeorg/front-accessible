@@ -1,7 +1,11 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import type { PushProposalCardConfig } from 'Shared/types/card';
+=======
+import type { PushProposalCardConfig } from 'Src/types/card';
+>>>>>>> refactor(transverse): move Src/services -> Shared/services
 import Tracking from 'Shared/services/Tracking';
 import PushProposalCardComponent from 'Src/components/ProposalCard/PushProposalCard';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
