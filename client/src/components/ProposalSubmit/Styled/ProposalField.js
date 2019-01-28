@@ -42,6 +42,7 @@ export const Input = styled(NoStyleTextInput)`
   font-size: ${pxToRem('16px')};
   max-height: ${pxToRem('40px')};
   padding: ${pxToRem('10px')} 0 0 ${pxToRem('5px')};
+  resize: none;
   ${props => (props.isFieldExpanded ? `
     height: ${pxToRem('125px')};
     max-height: 100%;`
