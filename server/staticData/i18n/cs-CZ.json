@@ -146,7 +146,7 @@
     "send_link": "dostat e-mail"
   },
   "footer_sequence": {
-    "with": "s",
+    "with": "ve spolupráci s",
     "see_more": "Chci se dozvědět víc o této problematice/",
     "link": "Chci se dozvědět víc o této anketě"
   },
@@ -170,9 +170,9 @@
     "close": "Zavřít rozbalovací menu"
   },
   "cookie_alert": {
-    "text": "Pokračováním v navigaci vyjadřujete souhlas s našimi podmínkami {{cgu_link}}, s našimi pravidly {{policy_link}} a také s používáním cookies na našich stránkách, které mají pomoci zkvalitnit naše služby.",
-    "cgu": "podmínky používání",
-    "policy": "pravidla ochrany osobních údajů"
+    "text": "Pokračováním v navigaci vyjadřujete souhlas s našimi {{cgu_link}}, s našimi {{policy_link}} a také s používáním cookies na našich stránkách, které mají pomoci zkvalitnit naše služby.",
+    "cgu": "podmínkami používání",
+    "policy": "pravidly ochrany osobních údajů"
   },
   "activate_account": {
     "success": "Váš účet byl právě aktivován. Od této chvíle se můžete připojit",

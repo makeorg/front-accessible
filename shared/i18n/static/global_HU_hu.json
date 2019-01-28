@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org, általános érdekű gyorsító",
@@ -171,8 +171,8 @@
   },
   "cookie_alert": {
     "text": "Az oldal további használatával elfogadja a {{cgu_link}} és {{policy_link}} szabályzatot, illetve a sütik használatát az oldalon.",
-    "cgu": "felhasználási feltételek",
-    "policy": "személyes adatkezelési szabályzat"
+    "cgu": "felhasználási feltételeket",
+    "policy": "a adatkezelési"
   },
   "activate_account": {
     "success": "A fiókját aktiváltuk. Most már beléphet a fiókba",

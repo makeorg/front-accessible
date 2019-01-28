@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org, promotriċi tal-interess ġenerali",
@@ -10,7 +10,7 @@
     "connexion_label": "Illoggja",
     "register_label": "Irreġistra",
     "form": {
-      "email_label": "Indirizz elettroniku",
+      "email_label": "Indirizz tal-email",
       "password_label": "Password",
       "firstname_label": "Isem",
       "age_label": "Età (fakultattiva)",
@@ -23,7 +23,7 @@
       "required_field": "Jekk jogħġbok imla dan l-attribwit."
     },
     "from": "fuq",
-    "email": "Indirizz elettroniku",
+    "email": "Indirizz tal-email",
     "propose": "Ipproponi",
     "click_there": "agħfas hawn",
     "open_new_window": "Iftaħ f’tab ġdida",
@@ -39,8 +39,8 @@
     "footer_text": "Din il-proposta tressqet bħala parti mill-operazzjoni {{operation_name}}"
   },
   "proposal_card": {
-    "previous": "Proposta preċedenti",
-    "next": "Proposta sussegwenti",
+    "previous": "Il-proposta ta’ qabel",
+    "next": "Il-proposta li jmiss",
     "number": "Proposta numru"
   },
   "intro_card": {
@@ -55,7 +55,7 @@
     "button": "Ara l-proposti kollha"
   },
   "sign_up_card": {
-    "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
+    "title": "Irċievi r-riżultati tal-konsultazzjoni biex tibqa’ infurmat(a) bl-azzjonijiet li ser jittieħdu",
     "authentification-text": "Qed nidentifika ruħi permezz ta’  ",
     "next-cta": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati"
   },
@@ -68,8 +68,8 @@
     "title": "Ressaq il-proposti tiegħek billi timla din il-formola b’inqas minn 140 karattru:",
     "entred_chars": "karattri mdaħħla",
     "available_chars": "karattri disponibbli",
-    "description": "Tinkwetax. Aħna nikkoreġu kwalunkwe żball ortografiku.",
-    "moderation_charter": "Biex issir taf aktar dwar il-linji gwida tal-moderazzjoni tagħna,",
+    "description": "Tinkwetax. Aħna nikkoreġu kull żball ortografiku.",
+    "moderation_charter": "Biex issir taf aktar rigward il-gwida tagħna dwar il-moderazzjoni,",
     "success": "Il-proposta tiegħek ġiet ikkunsidrata. Issa ser terġa’ tinqara mis-servizz tal-moderazzjoni tagħna. Għandek tirċievi email malli din tkun ġiet ivvalidata."
   },
   "vote": {
@@ -96,7 +96,7 @@
   },
   "qualification": {
     "title": "Qed nagħfas fuq il-buttuna t’hawn taħt biex niċċara l-fehma tiegħi:",
-    "doable": "Proposta għall-qalbi",
+    "doable": "Proposta għal qalbi",
     "likeIt": "Proposta realistika",
     "platitudeAgree": "Proposta banali",
     "noWay": "Allaħares qatt!",
@@ -117,21 +117,21 @@
   },
   "login": {
     "title": "Diġà għandi kont",
-    "social_connect": "Qed nilloggja permezz ta’",
+    "social_connect": "Qed nidħol permezz ta’",
     "or": "jew",
-    "button_connect": "Qed nilloggja",
-    "email_connect": "Qed nilloggja bl-indirizz elettroniku tiegħi",
+    "button_connect": "Ser idħol",
+    "email_connect": "Ser nidħol bl-indirizz tal-email tiegħi",
     "forgot_password_title": "Uwps,",
-    "forgot_password_link": "insejt il-password tiegħi!",
+    "forgot_password_link": "insejt il-password!",
     "registration_title": "M’għandix kont.",
     "registration_link": "Ser noħloq wieħed.",
-    "email_doesnot_exist": "Ma nistgħux insibu kont assoċjat ma’ dan l-indirizz elettroniku."
+    "email_doesnot_exist": "Ma nistgħux insibu kont assoċjat ma’ dan l-indirizz tal-email."
   },
   "register": {
     "title": "Oħloq kont",
     "social_connect": "Qed nirreġistra permezz ta’",
     "or": "jew",
-    "subtitle": "Qed nirreġistra ma’ din il-formola",
+    "subtitle": "Qed nirreġistra b’din il-formola",
     "login_title": "Diġà għandi kont.",
     "login_link": "għall-iskrin tal-login",
     "cgu_text": "B’din ir-reġistrazzjoni, qed taqbel {{cgu_link}} tagħna u qed taċċetta li tirċievi (għadd żgħir) ta’ emails mingħand Make.org.",
@@ -139,7 +139,7 @@
   },
   "forgot_password": {
     "title": "qed nibdel il-password tiegħi",
-    "description": "Jekk jogħġbok agħti l-indirizz elettroniku marbut mal-kont tiegħek tal-Make.org biex tirċievi l-ħolqa tal-bidla tal-password.",
+    "description": "Jekk jogħġbok daħħal l-indirizz tal-email marbut mal-kont tiegħek ta'Make.org biex tirċievi l-ħolqa tal-bidla tal-password.",
     "success": "Grazzi. Ser jintbagħatlek email biex tkun tista’ taġġorna l-password tiegħek.",
     "return": "Erġa’ lura ",
     "login_link": "għall-iskrin tal-login",
@@ -175,7 +175,7 @@
     "policy": "karta dwar id-data personali"
   },
   "activate_account": {
-    "success": "Il-kont tiegħek għadu kif ġie attivat. Issa tista’ taqbad mas-sit",
+    "success": "Il-kont tiegħek għadu kif ġie attivat. Issa tista’ tidħol fis-sit",
     "bad_link": "Din il-ħolqa m’għadhiex valida."
   },
   "reset_password":{

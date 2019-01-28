@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org — sabiedrības interešu veicināšana",
@@ -117,28 +117,28 @@
   },
   "login": {
     "title": "Man jau ir konts",
-    "social_connect": "Es pieslēdzos ar",
+    "social_connect": "Pieslēgties ar",
     "or": "vai",
-    "button_connect": "Es pieslēdzos",
-    "email_connect": "Es pieslēdzos ar e-pastu",
+    "button_connect": "Pieslēgties",
+    "email_connect": "Pieslēgties ar e-pastu",
     "forgot_password_title": "Ups!",
-    "forgot_password_link": "Neatceros paroli?",
+    "forgot_password_link": "Neatceros paroli",
     "registration_title": "Man nav konta,",
     "registration_link": "es to izveidošu.",
     "email_doesnot_exist": "Mēs neatrodam kontu ar šādu e-pastu."
   },
   "register": {
     "title": "Izveidot kontu",
-    "social_connect": "Es pierakstos ar",
+    "social_connect": "Pierakstīties ar",
     "or": "vai",
-    "subtitle": "Es pierakstos ar šo formu",
+    "subtitle": "Pierakstīties ar šo formu",
     "login_title": "Man jau ir konts.",
     "login_link": "Pieslēgšanās",
     "cgu_text": "Pierakstoties jūs piekrītat mūsu {{cgu_link}} un jūs piekrītat saņemt e-pastus (nelielā skaitā) no Make.org.",
     "cgu": "vispārējiem lietošanas noteikumiem"
   },
   "forgot_password": {
-    "title": "es atjaunoju paroli",
+    "title": "Paroles Atjaunošana",
     "description": "Lūdzu norādiet ar Make.org konta saistīto e-pasta adresi, lai saņemtu paroles atjaunošanas saiti.",
     "success": "Paldies, uz jūsu e-pastu tika nosūtīta saite paroles atjaunošanai.",
     "return": "Atgriezties uz ",
@@ -194,9 +194,9 @@
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
-      "question": "Kā tieši pārveidot Eiropu?",
+      "question": "Ko tieši mēs varam darīt, lai pārveidotu Eiropu?»",
       "metas": {
-        "title": "Kā tieši pārveidot Eiropu?",
+        "title": "Ko tieši mēs varam darīt, lai pārveidotu Eiropu?»",
         "description": "Vai jums saistībā ar šo tematu ir kāda ideja? Piedalieties lielajā pilsoņu apspriedē Make.org",
         "picture": ""
       }
