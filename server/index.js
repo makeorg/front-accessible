@@ -3,8 +3,8 @@ import { cookiesHandlerMiddleware } from './middleware/cookies';
 import { headersResponseMiddleware } from './middleware/headers';
 import { metricsMiddleware } from './middleware/metrics';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
-import questionApi from './questionApi';
-import { logger } from './logger';
+import { questionApi } from './api/question';
+import { loggerApi } from './api/logger';
 
 require('./browserPolyfill');
 const express = require('express');
@@ -58,14 +58,7 @@ app.use('/doc', express.static(DOC_DIR));
 
 // API Routes
 app.get('/api/questions/:questionSlug', questionApi);
-app.post('/api/logger', (req, res) => {
-  logger.log(
-    req.body.level,
-    req.body.data
-  );
-
-  return res.sendStatus(204);
-});
+app.post('/api/logger', loggerApi);
 
 const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
 function renderVersion(req, res) {
@@ -84,9 +77,9 @@ const frontMiddlewares = [
 ];
 
 // Front Routes
+app.get('/version', renderVersion);
 app.get('/404', cookiesHandlerMiddleware, defaultRoute);
 app.get('/', countryLanguageMiddleware);
-app.get('/version', renderVersion);
 app.get('/:countryLanguage', frontMiddlewares, defaultRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
