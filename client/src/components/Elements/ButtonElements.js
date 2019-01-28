@@ -99,7 +99,6 @@ export const IconInButton = styled.span`
 
 export const LargeButton = styled(SmallBasicButton)`
   width: 100%;
-  max-width: ${pxToRem('230px')};
   margin: 0 ${pxToRem('5px')};
 `;
 
