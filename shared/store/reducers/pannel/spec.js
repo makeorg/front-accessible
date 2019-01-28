@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from 'Src/actions/pannel';
+import * as actionCreators from 'Shared/store/actions/pannel';
 import * as pannelContentTypes from 'Src/constants/pannel';
 import pannel from './index';
 

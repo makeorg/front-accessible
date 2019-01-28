@@ -4,8 +4,8 @@ import i18next from 'i18next';
 import UserService from 'Src/api/UserService';
 import * as actionTypes from 'Src/constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Src/constants/user';
-import { pannelClose } from 'Src/actions/pannel';
-import { submitProposal } from 'Src/actions/proposal';
+import { pannelClose } from 'Shared/store/actions/pannel';
+import { submitProposal } from 'Shared/store/actions/proposal';
 import Tracking from 'Src/services/Tracking';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });

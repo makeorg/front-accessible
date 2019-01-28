@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import PannelComponent from 'Src/components/Pannel';
-import { pannelClose } from 'Src/actions/pannel';
+import { pannelClose } from 'Shared/store/actions/pannel';
 import * as pannelContentTypes from 'Src/constants/pannel';
 import LoginContainer from 'Src/containers/Login';
 import RegisterContainer from 'Src/containers/Register';

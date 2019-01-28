@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { loginSocial } from 'Src/actions/authentification';
+import { loginSocial } from 'Shared/store/actions/authentification';
 import { FACEBOOK_PROVIDER_ENUM } from 'Src/api/UserService';
 
 type Props = {

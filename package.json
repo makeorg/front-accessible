@@ -122,6 +122,7 @@
     "server:dev": "env NODE_ENV=development PORT=9009 node bin/start",
     "server": "env PORT=9009 pm2-runtime start ecosystem.config.js",
     "version:build": "node server/versionBuild.js",
+    "prepush": "yarn lint && yarn flow && yarn test:unit:all",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "lint": "eslint client server",

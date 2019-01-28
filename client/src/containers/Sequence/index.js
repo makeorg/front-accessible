@@ -6,7 +6,7 @@ import type { Props as SequenceProps } from 'Src/components/Sequence';
 import SequenceComponent from 'Src/components/Sequence';
 import SequencePlaceholderComponent from 'Src/components/Sequence/SequencePlaceholder';
 import QuestionService from 'Src/api/QuestionService';
-import { sequenceExpand } from 'Src/actions/sequence';
+import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Src/helpers/proposal';
 import * as SequenceHelper from 'Src/helpers/sequence';
 import Tracking from 'Src/services/Tracking';

@@ -4,9 +4,9 @@ import * as React from 'react';
 import type { UserObject, ErrorObject } from 'Src/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
-import { register } from 'Src/actions/registration';
+import { register } from 'Shared/store/actions/registration';
 import RegisterComponent from 'Src/components/Register';
-import { pannelShowLogin } from 'Src/actions/pannel';
+import { pannelShowLogin } from 'Shared/store/actions/pannel';
 
 type Props = {
   /** Array with form errors */

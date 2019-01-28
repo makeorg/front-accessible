@@ -6,7 +6,7 @@ import { CookiesProvider } from 'react-cookie';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
-import configureStore from 'Src/store';
+import configureStore from 'Shared/store';
 import { AppContainer } from 'Src/containers/App';
 import i18next from './i18n';
 

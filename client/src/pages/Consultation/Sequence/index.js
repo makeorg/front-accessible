@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { fetchQuestionData, fetchQuestionConfigurationData } from 'Src/actions/sequence';
+import { fetchQuestionData, fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import MetaTags from 'Src/components/MetaTags';
 import { SequenceFooterContainer } from 'Src/containers/Sequence/Footer';
 import { match as TypeMatch } from 'react-router';
