@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org, accelerator de interes general",
@@ -156,7 +156,7 @@
         "label": "Mențiuni legale"
       },
       "item-2": {
-        "label": "Condiții de utilizare"
+        "label": "condițiile de utilizare"
       },
       "item-3": {
         "label": "Politica privind protecția datelor"
@@ -171,7 +171,7 @@
   },
   "cookie_alert": {
     "text": "Continuând navigarea, sunteți de acord cu {{cgu_link}}, {{policy_link}}, precum și cu utilizarea cookie-urilor pe site-ul nostru în scopul îmbunătățirii serviciului nostru.",
-    "cgu": "condiții de utilizare",
+    "cgu": "condițiile de utilizare",
     "policy": "carta datelor personale"
   },
   "activate_account": {

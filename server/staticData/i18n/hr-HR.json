@@ -111,7 +111,7 @@
   },
   "authentification": {
     "title": "Prijavite se kako biste potvrdili vlastiti prijedlog",
-    "description": "s",
+    "description": "uporabom",
     "commitment": "Make. org obvezuje se štititi vaše ",
     "personal_data": "osobne podatke "
   },
@@ -124,7 +124,7 @@
     "forgot_password_title": "Ups,",
     "forgot_password_link": "zaboravljena lozinka?",
     "registration_title": "Nemam račun,",
-    "registration_link": "račun je stvoren.",
+    "registration_link": "stvaranje računa.",
     "email_doesnot_exist": "Ne pronalazimo račun pridružen ovoj adresi elektroničke pošte."
   },
   "register": {
@@ -143,7 +143,7 @@
     "success": "Zahvaljujemo vam. Poslanom vam se elektroničkom poštom omogućava ažuriranje vaše lozinke.",
     "return": "Vrati se na ",
     "login_link": "zaslon za prijavu",
-    "send_link": "primi elektroničku poruku"
+    "send_link": "pošalji elektroničku poruku"
   },
   "footer_sequence": {
     "with": "s",
@@ -171,8 +171,8 @@
   },
   "cookie_alert": {
     "text": "Nastavkom pregledavanja slažete se s {{cgu_link}} i {{policy_link}} te uporabom kolačića na našem mrežnom mjestu radi poboljšavanja naše usluge.",
-    "cgu": "uvjeti uporabe",
-    "policy": "pravilnik za osobne podatke"
+    "cgu": "uvjetima uporabe",
+    "policy": "pravilnikom za osobne podatke"
   },
   "activate_account": {
     "success": "Vaš je račun aktiviran. Sada se možete prijaviti",

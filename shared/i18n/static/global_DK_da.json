@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org, en accelerator af almen interesse",
@@ -64,7 +64,7 @@
     "next-cta": "Ikke endnu, jeg bliver ved med at stemme"
   },
   "proposal_submit": {
-    "bait": "Det er nødvendigt ",
+    "bait": "Vi skal",
     "title": "Fremlæg dine forslag ved at udfylde denne formular med mindre end 140 tegn:",
     "entred_chars": "indtastede tegn",
     "available_chars": "disponible tegn",

@@ -1,4 +1,4 @@
-﻿{
+{
   "meta": {
     "home": {
       "title": "Make.org, akcelerátor všeobecného záujmu ",
@@ -170,9 +170,9 @@
     "close": "Zatvoriť rozbaľovacie menu"
   },
   "cookie_alert": {
-    "text": "Pokračovaním v navigácii súhlasíte s našimi podmienkami {{cgu_link}}a s našimi pravidlami {{policy_link}}, ako aj s používaním cookies na našej stránke s cieľom zlepšiť našu službu. ",
-    "cgu": "podmienky používania",
-    "policy": "pravidlá ochrany osobných údajov"
+    "text": "Pokračovaním v navigácii súhlasíte s našimi {{cgu_link}} s našimi pravidlami {{policy_link}}, ako aj s používaním cookies na našej stránke s cieľom zlepšiť našu službu.",
+    "cgu": "podmienkami používania",
+    "policy": "ochrany osobných údajov"
   },
   "activate_account": {
     "success": "Váš účet bol práve aktivovaný.  Hneď sa môžete pripojiť. ",

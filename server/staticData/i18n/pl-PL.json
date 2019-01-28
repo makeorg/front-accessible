@@ -146,7 +146,7 @@
     "send_link": "odbierz e-mail"
   },
   "footer_sequence": {
-    "with": "za pomocą",
+    "with": "ze wsparciem ze wsparciem",
     "see_more": "Dowiedz się więcej na ten temat:",
     "link": "Dowiedz się więcej na temat tej konsultacji"
   },
@@ -172,7 +172,7 @@
   "cookie_alert": {
     "text": "Kontynuując przeglądanie tej strony, akceptujesz nasze {{cgu_link}}, {{policy_link}} oraz wyrażasz zgodę na wykorzystywanie plików cookie przez naszą witrynę w celu optymalizacji świadczonych usług.",
     "cgu": "warunki użytkowania",
-    "policy": "karta danych osobowych"
+    "policy": "zasady ochrony danych oobowych"
   },
   "activate_account": {
     "success": "Twoje konto zostało aktywowane. Możesz się zalogować",
