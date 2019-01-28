@@ -8,3 +8,4 @@
 /cypress/videos
 .vscode/settings.json
 .idea
+.DS_Store

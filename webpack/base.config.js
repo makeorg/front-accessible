@@ -6,7 +6,7 @@ const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', 'src', 'index.js'),
+  entry: path.resolve(__dirname, '..', 'client', 'src', 'index.js'),
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
@@ -34,7 +34,7 @@ module.exports = {
       inlineSource: 'runtime~.+\\.js'
     }),
     new FaviconsWebpackPlugin({
-      logo: path.join(__dirname, '../src/assets/images/favicon.png'),
+      logo: path.join(__dirname, '../client/src/assets/images/favicon.png'),
       prefix: 'favicon/'
     }),
     new WebpackPwaManifest({
@@ -46,7 +46,7 @@ module.exports = {
       background_color: '#ffffff',
       icons: [
         {
-          src: path.join(__dirname, '../src/assets/images/favicon.png'),
+          src: path.join(__dirname, '../client/src/assets/images/favicon.png'),
           size: [36, 48, 72, 96, 144, 192, 256, 384, 512],
           destination: path.join('favicon')
         }

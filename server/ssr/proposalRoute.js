@@ -1,5 +1,5 @@
-import ProposalService from 'Api/ProposalService';
-import SequenceService from 'Api/SequenceService';
+import ProposalService from 'Src/api/ProposalService';
+import SequenceService from 'Src/api/SequenceService';
 import { logger } from '../logger';
 
 const reactRender = require('../reactRender');

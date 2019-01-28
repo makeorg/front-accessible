@@ -5,10 +5,10 @@ import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
-import configureStore from '../src/store';
+import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
+import configureStore from 'Src/store';
+import { AppContainer } from 'Src/containers/App';
 import i18next from './i18n';
-import { TRANSLATION_NAMESPACE } from '../shared/i18n/constants';
-import { AppContainer } from '../src/containers/App';
 
 const fs = require('fs');
 const path = require('path');

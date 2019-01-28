@@ -1,5 +1,5 @@
 /dist
 /node_modules
-/src/**/*spec.js
+/client/src/**/*spec.js
 /test
 /cypress
