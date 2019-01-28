@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
-import { AppContainer } from 'Src/containers/App';
+import { AppContainer } from 'Client/app';
 import FacebookTracking from 'Shared/services/Trackers/FacebookTracking';
 import TwitterTracking from 'Shared/services/Trackers/TwitterTracking';
 import { env } from 'Shared/env';

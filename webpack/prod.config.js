@@ -5,7 +5,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
-  entry: path.resolve(__dirname, '..', 'client', 'src', 'index.js'),
+  entry: path.resolve(__dirname, '..', 'client', 'index.js'),
   mode: 'production',
   output: {
     filename: '[name].[hash].js',
