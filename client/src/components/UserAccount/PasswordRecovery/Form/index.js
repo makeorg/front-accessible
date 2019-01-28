@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
-import { InputError } from 'Src/components/Elements/Form';
+import { InputErrorMessage } from 'Src/components/Elements/Form';
 import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
 import { PasswordRecovery } from '../Styled';
 
@@ -42,7 +42,6 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
 
   return (
     <PasswordRecovery.Form id="password_recovery" onSubmit={handleSubmit}>
-      {error && <InputError id="authentification-email-error">{errorMessage}</InputError>}
       <PasswordInput
         type="password"
         name="password"
@@ -56,7 +55,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-
+      {error && <InputErrorMessage id="authentification-email-error">{errorMessage}</InputErrorMessage>}
       <SmallRedButton
         type="submit"
         form="password_recovery"

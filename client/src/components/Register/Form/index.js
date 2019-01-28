@@ -15,7 +15,7 @@ import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElem
 import {
   Form,
   ConditionParagraph,
-  InputError,
+  InputErrorMessage,
   FormErrors,
   FormError
 } from 'Src/components/Elements/Form';
@@ -88,7 +88,7 @@ const RegisterFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      {emailError && <InputError id="authentification-email-error">{emailError}</InputError>}
+      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
       <PasswordInput
         type="password"
         name="password"
@@ -102,7 +102,7 @@ const RegisterFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {passwordError && <InputError id="authentification-password-error">{passwordError}</InputError>}
+      {passwordError && <InputErrorMessage id="authentification-password-error">{passwordError}</InputErrorMessage>}
       <UntypedInput
         type="text"
         name="firstname"

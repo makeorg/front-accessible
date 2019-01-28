@@ -29,8 +29,9 @@ export const Form = styled(FormWrapper)`
   margin: ${pxToRem('10px')} 0 0;
 `;
 
-export const InputError = styled.span`
+export const InputErrorMessage = styled.p`
   color: ${BorderColors.ErrorRed};
+  margin-bottom: ${pxToRem('10px')};
 `;
 
 export const LastFakeInput = styled.div`
