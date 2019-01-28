@@ -8,9 +8,11 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
 import {
   Form,
+  InputErrorMessage,
   FormErrors,
   FormError
 } from 'Src/components/Elements/Form';
+import { fieldErrors } from 'Src/helpers/form';
 import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
 import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
 
@@ -48,12 +50,16 @@ const LoginFormComponent = (props: Props) => {
     isPannelOpen
   } = props;
 
+  const emailError = fieldErrors('email', errors);
+  const passwordError = fieldErrors('password', errors);
+  const globalError = fieldErrors('global', errors);
+
   return (
     <Form id="login" onSubmit={handleSubmit}>
-      {errors.length > 0
+      {globalError
         && (
           <FormErrors id="authentification-login-error">
-            {errors.map(error => <FormError key={error.field}>{error}</FormError>)}
+            <FormError key={globalError}>{globalError}</FormError>
           </FormErrors>
         )
       }
@@ -64,9 +70,11 @@ const LoginFormComponent = (props: Props) => {
         value={email}
         label={i18next.t('common.form.email_label')}
         required
+        errors={emailError}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
+      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
       <PasswordInput
         type="password"
         name="password"
@@ -74,11 +82,13 @@ const LoginFormComponent = (props: Props) => {
         value={password}
         label={i18next.t('common.form.password_label')}
         required
+        errors={passwordError}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
+      {passwordError && <InputErrorMessage id="authentification-password-error">{passwordError}</InputErrorMessage>}
       <SmallRedButton
         type="submit"
         form="login"

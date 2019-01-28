@@ -6,9 +6,11 @@ import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import type { ErrorObject } from 'Src/types/form';
 import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
 import {
+  InputErrorMessage,
   FormErrors,
   FormError
 } from 'Src/components/Elements/Form';
+import { fieldErrors } from 'Src/helpers/form';
 import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
 import ForgotPassword from '../Styled';
 
@@ -37,12 +39,15 @@ const ForgotPasswordFormComponent = (props: Props) => {
     isPannelOpen
   } = props;
 
+  const emailError = fieldErrors('email', errors);
+  const globalError = fieldErrors('global', errors);
+
   return (
     <ForgotPassword.Form id="forgot_password" onSubmit={handleSubmit}>
-      {errors.length > 0
+      {globalError
         && (
-          <FormErrors>
-            {errors.map((error: ErrorObject) => <FormError key={error.field}>{error.message}</FormError>)}
+          <FormErrors id="authentification-forgotpassword-error">
+            <FormError key={globalError}>{globalError}</FormError>
           </FormErrors>
         )
       }
@@ -55,7 +60,9 @@ const ForgotPasswordFormComponent = (props: Props) => {
         required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
+        errors={emailError}
       />
+      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
       <SmallRedButton
         type="submit"
         form="forgot_password"
