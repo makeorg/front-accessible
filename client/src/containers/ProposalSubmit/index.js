@@ -8,9 +8,9 @@ import { ProposalSubmitFormWrapper } from 'Src/components/ProposalSubmit/Styled'
 import ProposalSubmitDescriptionComponent from 'Src/components/ProposalSubmit/Description';
 import ProposalSubmitSuccessComponent from 'Src/components/ProposalSubmit/Success';
 import { getProposalLength, getIsProposalValidLength } from 'Src/helpers/proposal';
-import { typingProposal, submitProposal } from 'Src/actions/proposal';
-import { sequenceCollapse } from 'Src/actions/sequence';
-import { getToken } from 'Src/actions/authentification';
+import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
+import { sequenceCollapse } from 'Shared/store/actions/sequence';
+import { getToken } from 'Shared/store/actions/authentification';
 import Tracking from 'Src/services/Tracking';
 import ProposalSubmitAuthentificationContainer from './Authentification';
 

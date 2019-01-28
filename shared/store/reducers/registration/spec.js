@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from 'Src/actions/registration';
+import * as actionCreators from 'Shared/store/actions/registration';
 import registration from './index';
 
 describe('Registration reducer', () => {

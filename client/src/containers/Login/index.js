@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import type { ErrorObject } from 'Src/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import LoginComponent from 'Src/components/Login';
-import { login } from 'Src/actions/authentification';
-import { pannelShowRegister, pannelShowForgotPassword } from 'Src/actions/pannel';
+import { login } from 'Shared/store/actions/authentification';
+import { pannelShowRegister, pannelShowForgotPassword } from 'Shared/store/actions/pannel';
 
 type Props = {
   /** Array with form errors */

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { throttle } from 'Shared/helpers/throttle';
 import { doVote, doUnvote } from 'Src/helpers/vote';
 import VoteService from 'Src/api/VoteService';
-import { sequenceVote, sequenceUnvote } from 'Src/actions/sequence';
+import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButton } from 'Src/components/ProposalCard/Styled/Buttons';
 import VoteStyled from 'Src/components/Vote/Styled';
 import VoteComponent from 'Src/components/Vote';

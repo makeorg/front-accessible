@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionCreators from 'Src/actions/proposal';
+import * as actionCreators from 'Shared/store/actions/proposal';
 import proposal from './index';
 
 describe('Proposal reducer', () => {

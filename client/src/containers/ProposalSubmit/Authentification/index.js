@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import ProposalSubmitAuthentificationComponent from 'Src/components/ProposalSubmit/Authentification';
-import { pannelShowRegister, pannelShowLogin } from 'Src/actions/pannel';
+import { pannelShowRegister, pannelShowLogin } from 'Shared/store/actions/pannel';
 import Tracking from 'Src/services/Tracking';
 
 /**

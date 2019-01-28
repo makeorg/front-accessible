@@ -10,9 +10,9 @@ import FacebookTracking from 'Src/services/Trackers/FacebookTracking';
 import TwitterTracking from 'Src/services/Trackers/TwitterTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
-import configureStore from './store';
+import configureStore from 'Shared/store';
+import { initialStateDebug } from 'Shared/store/initialState.debug';
 import Logger from './services/Logger';
-import { initialStateDebug } from './initialState.debug';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {

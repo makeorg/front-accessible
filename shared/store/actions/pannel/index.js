@@ -2,7 +2,7 @@
 
 import * as actionTypes from 'Src/constants/actionTypes';
 import Tracking from 'Src/services/Tracking';
-import { forgotPasswordInit } from 'Src/actions/forgotPassword';
+import { forgotPasswordInit } from 'Shared/store/actions/forgotPassword';
 
 export const pannelClose = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.PANNEL_CLOSE });

@@ -3,9 +3,9 @@
 import UserService from 'Src/api/UserService';
 import * as actionTypes from 'Src/constants/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Src/constants/user';
-import { loginSuccess } from 'Src/actions/authentification';
-import { submitProposal } from 'Src/actions/proposal';
-import { pannelClose } from 'Src/actions/pannel';
+import { loginSuccess } from 'Shared/store/actions/authentification';
+import { submitProposal } from 'Shared/store/actions/proposal';
+import { pannelClose } from 'Shared/store/actions/pannel';
 import Tracking from 'Src/services/Tracking';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });

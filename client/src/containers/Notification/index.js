@@ -7,7 +7,7 @@ import { AccountActivationFailureComponent } from 'Src/components/UserAccount/Ac
 import { PasswordRecoveryFailureComponent } from 'Src/components/UserAccount/PasswordRecovery/Failure';
 import { NotificationComponent } from 'Src/components/Notification';
 import { connect } from 'react-redux';
-import { clearNotification } from 'Src/actions/notification';
+import { clearNotification } from 'Shared/store/actions/notification';
 import { selectNotificationContent } from './notification.selector';
 
 const notifcationContent = {
