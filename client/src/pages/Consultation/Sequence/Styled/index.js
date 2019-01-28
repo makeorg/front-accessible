@@ -7,6 +7,7 @@ import { MiddleColumn } from 'Src/components/Elements/FlexElements';
 export const SequencePageContent = styled.div`
   width: 100%;
   height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_MOBILE)});
+  min-height: ${pxToRem('300px')};
   overflow: auto;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_DESKTOP)});
