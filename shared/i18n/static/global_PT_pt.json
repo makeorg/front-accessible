@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Ao clicar nos botões abaixo, defino a minha opinião como:",
-    "doable": "Favorita",
-    "likeIt": "Realista",
+    "likeIt": "Favorita",
+    "doable": "Realista",
     "platitudeAgree": "Banal",
     "noWay": "De forma nenhuma",
     "impossible": "Impraticável",

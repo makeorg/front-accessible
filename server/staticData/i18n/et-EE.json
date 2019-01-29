@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Klõpsates allpool olevatele nuppudele, täpsustan oma arvamust:",
-    "doable": "Lemmik",
-    "likeIt": "Realistlik",
+    "likeIt": "Lemmik",
+    "doable": "Realistlik",
     "platitudeAgree": "Banaalsus",
     "noWay": "Kindel ei!",
     "impossible": "Teostamatu",

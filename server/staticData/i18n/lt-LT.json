@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Spausdamas žemiau esantį mygtuką patikslinu savo nuomonę apie šį pasiūlymą:",
-    "doable": "Nuostabu",
-    "likeIt": "Realu",
+    "likeIt": "Nuostabu",
+    "doable": "Realu",
     "platitudeAgree": "Banalu",
     "noWay": "Jokiu būdu!",
     "impossible": "Neįgyvendinama",

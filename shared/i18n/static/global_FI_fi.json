@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Voit tarkentaa antamaasi ääntä klikkaamalla seuraavia painikkeita:",
-    "doable": "Mahtava idea",
-    "likeIt": "Realistinen",
+    "likeIt": "Mahtava idea",
+    "doable": "Realistinen",
     "platitudeAgree": "Tyhjänpäiväinen",
     "noWay": "Ehdottomasti ei!",
     "impossible": "Toteuttamiskelvoton",

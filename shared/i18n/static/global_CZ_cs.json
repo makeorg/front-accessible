@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Kliknutím na dolní tlačítka lze upřesnit svoje stanovisko k tomuto návrhu:",
-    "doable": "Vynikající",
-    "likeIt": "Reálné",
+    "likeIt": "Vynikající",
+    "doable": "Reálné",
     "platitudeAgree": "Triviální",
     "noWay": "Hlavně to ne!",
     "impossible": "Neproveditelné",

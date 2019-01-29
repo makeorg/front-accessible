@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Făcând clic pe butonul de mai jos, îmi precizez opinia:",
-    "doable": "Favorit ",
-    "likeIt": "Realist ",
+    "likeIt": "Favorit ",
+    "doable": "Realist ",
     "platitudeAgree": "Banalitate ",
     "noWay": "Nicidecum! ",
     "impossible": "Nefezabil ",

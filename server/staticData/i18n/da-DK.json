@@ -96,8 +96,8 @@
   },
   "qualification": {
     "title": "Når jeg klikker på knapperne nedenfor, præciserer jeg min mening:",
-    "doable": "Virkelig godt",
-    "likeIt": "Realistisk",
+    "likeIt": "Virkelig godt",
+    "doable": "Realistisk",
     "platitudeAgree": "Banalitet",
     "noWay": "Overhovedet ikke!",
     "impossible": "Umuligt",
