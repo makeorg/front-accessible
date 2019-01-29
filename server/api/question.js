@@ -3,9 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 const cache = require('memory-cache');
-const { SERVER_DIR } = require('./paths');
+const { SERVER_DIR } = require('../paths');
 
-export default function questionApi(req, res) {
+export function questionApi(req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 

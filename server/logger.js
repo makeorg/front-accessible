@@ -11,7 +11,7 @@ const {
 
 const logFormat = printf((info) => {
   const message = (info.message instanceof Object) ? JSON.stringify(info.message) : info.message;
-  return `${info.timestamp} ${info.label} ${info.sessionId} ${info.level}: ${message} stackTrace: ${info.stack}`;
+  return `${info.timestamp} ${info.label} browser ${JSON.stringify(info.browser)} - os ${JSON.stringify(info.os)} - device ${JSON.stringify(info.device)} - sessionId ${info.sessionId} - ${info.level}: ${message} - stackTrace: ${info.stack}`;
 });
 
 /**
