@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import type { FinalCardConfig, FinalCardWording } from 'Src/types/card';
+import type { FinalCardConfig, FinalCardWording } from 'Shared/types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarComponent from '../ProgressBar';

@@ -1,10 +1,10 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors, BasicColors, BorderColors } from 'Src/assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
-import { CALC_HEIGHT_MOBILE, CALC_HEIGHT_DESKTOP } from 'Src/constants/elements';
+import { CALC_HEIGHT_MOBILE, CALC_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
 import { SpaceBetweenColumn, CenterColumn } from './FlexElements';
 
 export const AppWrapper = styled(SpaceBetweenColumn)`

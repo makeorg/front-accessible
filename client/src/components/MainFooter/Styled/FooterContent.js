@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Src/assets/vars/Fonts';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const Nav = styled.nav`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { UnstyledButton, SmallRedButton } from 'Src/components/Elements/ButtonElements';
 import { BackgroundColors, BasicColors } from 'Src/assets/vars/Colors';
 import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';

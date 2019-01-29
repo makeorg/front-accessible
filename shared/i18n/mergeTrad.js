@@ -129,7 +129,7 @@ countries.forEach((country) => {
             reject();
           }
         } catch (error) {
-          console.log(`error in content of ${globalFilePath} => ${error}`);
+          console.log(`error in content of ${globalFilePath} => ${error}`); // eslint-disable-line no-console
           reject();
         }
       })
@@ -140,6 +140,6 @@ countries.forEach((country) => {
 Promise.all(promises)
   .then(() => console.info('all i18n files are valid'))
   .catch(() => {
-    console.log('Error on validate i18n files');
+    console.log('Error on validate i18n files'); // eslint-disable-line no-console
     process.exit(1);
   });

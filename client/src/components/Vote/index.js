@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import voteStaticParams from 'Src/constants/vote';
-import { getVoteKey, getVoteButtonId } from 'Src/helpers/vote';
+import voteStaticParams from 'Shared/constants/vote';
+import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
 import { HiddenItem } from 'Src/components/Elements/HiddenElements';
 import VoteButtonContainer from 'Src/containers/Vote/Button';
 import Vote from './Styled';

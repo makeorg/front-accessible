@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { SequenceFooterComponent } from 'Src/components/Sequence/Footer';
-import Tracking from 'Src/services/Tracking';
+import Tracking from 'Shared/services/Tracking';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */

@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { SignUpCardConfig, SignUpCardWording } from 'Src/types/card';
+import type { SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

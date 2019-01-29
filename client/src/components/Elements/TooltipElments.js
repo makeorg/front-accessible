@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, BackgroundColors } from 'Src/assets/vars/Colors';
 
 export const Tooltip = styled.div`

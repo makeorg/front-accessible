@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { withRouter } from 'react-router-dom';
 import SharingComponent from 'Src/components/Sharing';
-import { twitterShareUrl, facebookShareUrl, linkedinShareUrl } from 'Src/helpers/url';
+import { twitterShareUrl, facebookShareUrl, linkedinShareUrl } from 'Shared/helpers/url';
 
 /**
  * Handles Sharing Business Logic

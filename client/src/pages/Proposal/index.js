@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import type { Proposal } from 'Src/types/proposal';
-import type { QuestionConfiguration } from 'Src/types/sequence';
+import type { Proposal } from 'Shared/types/proposal';
+import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import MetaTags from 'Src/components/MetaTags';

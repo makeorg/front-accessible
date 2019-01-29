@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import type { VotesPercentObject } from 'Src/types/proposal';
+import type { VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItem } from 'Src/components/Elements/HiddenElements';
 import ResultItemContainer from 'Src/containers/Vote/Result/Item';
-import voteStaticParams from 'Src/constants/vote';
+import voteStaticParams from 'Shared/constants/vote';
 import VoteButtonComponent from '../Button';
 import VoteResult from './Styled';
 import { UnvoteButton } from '../Styled/Button';

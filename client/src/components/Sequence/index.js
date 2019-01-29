@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import * as sequenceHelper from 'Src/helpers/sequence';
-import type { CardType } from 'Src/types/sequence';
+import * as sequenceHelper from 'Shared/helpers/sequence';
+import type { CardType } from 'Shared/types/sequence';
 import CollapseToggle from './Button';
 import Card from './Card';
 import Sequence from './Styled';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Form } from 'Src/components/Elements/Form';
 
 const ForgotPassword = styled.section`

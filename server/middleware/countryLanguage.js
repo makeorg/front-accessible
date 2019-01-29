@@ -1,4 +1,4 @@
-import ApiService from 'Src/api/ApiService';
+import ApiService from 'Shared/api/ApiService';
 import { METRIC_PATH } from './metrics';
 
 export const isCountryLanguage = (countryLanguage = null) => (

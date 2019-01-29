@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, TextColors, ShadowColors } from 'Src/assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 import { MakeFonts } from 'Src/assets/vars/Fonts';

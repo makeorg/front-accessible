@@ -1,6 +1,6 @@
 /* @flow */
 
-import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Src/constants/vote';
+import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Shared/constants/vote';
 
 export const getResultBarIndex = (proposalVoteKey: string, proposalId: string) => (
   `ResultBar_${proposalVoteKey}_${proposalId}`

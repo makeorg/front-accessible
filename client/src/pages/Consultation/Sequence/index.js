@@ -7,7 +7,7 @@ import { fetchQuestionData, fetchQuestionConfigurationData } from 'Shared/store/
 import MetaTags from 'Src/components/MetaTags';
 import { SequenceFooterContainer } from 'Src/containers/Sequence/Footer';
 import { match as TypeMatch } from 'react-router';
-import Tracking from 'Src/services/Tracking';
+import Tracking from 'Shared/services/Tracking';
 import { SequencePageContent } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 

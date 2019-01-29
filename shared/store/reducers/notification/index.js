@@ -1,5 +1,5 @@
 /* @flow */
-import { NOTIFICATION_CLOSE } from 'Src/constants/actionTypes';
+import { NOTIFICATION_CLOSE } from 'Shared/store/actionTypes';
 import { notificationConstants } from 'Shared/constants/notification';
 
 type NotificationState = {

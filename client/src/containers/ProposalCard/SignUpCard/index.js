@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { SignUpCardConfig, SignUpCardWording } from 'Src/types/card';
-import Tracking from 'Src/services/Tracking';
-import SignUpCardComponent from '../../../components/ProposalCard/SignUpCard';
-import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
+import type { SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
+import Tracking from 'Shared/services/Tracking';
+import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
+import SignUpCardComponent from 'Src/components/ProposalCard/SignUpCard';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */

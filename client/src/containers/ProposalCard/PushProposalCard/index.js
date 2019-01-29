@@ -1,10 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { PushProposalCardConfig } from 'Src/types/card';
-import Tracking from 'Src/services/Tracking';
-import PushProposalCardComponent from '../../../components/ProposalCard/PushProposalCard';
-import { getPosition, getScale, getZIndex } from '../../../helpers/sequence';
+import type { PushProposalCardConfig } from 'Shared/types/card';
+import Tracking from 'Shared/services/Tracking';
+import PushProposalCardComponent from 'Src/components/ProposalCard/PushProposalCard';
+import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */

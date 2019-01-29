@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { UnstyledList } from 'Src/components/Elements/ListElements';
 import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';

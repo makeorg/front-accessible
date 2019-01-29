@@ -16,7 +16,7 @@ import * as Separators from 'Src/components/Elements/Separators';
 import FacebookAuthentificationButtonComponent
   from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
 import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';
-import { localizeDataPolicyLink } from 'Src/helpers/url';
+import { localizeDataPolicyLink } from 'Shared/helpers/url';
 import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
 type Props = {

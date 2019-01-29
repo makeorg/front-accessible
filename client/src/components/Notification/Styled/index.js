@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
 import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
-import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Src/constants/elements';
+import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Client/app/constants/elements';
 
 export const Wrapper = styled.section`
   position: absolute;

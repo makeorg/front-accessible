@@ -3,7 +3,7 @@ import * as React from 'react'; // eslint-disable-line no-unused-vars
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
-import ApiService from 'Src/api/ApiService';
+import ApiService from 'Shared/api/ApiService';
 import 'jest-styled-components'
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -22,8 +22,8 @@ ApiService.language = 'foo';
 ApiService.source = 'foo';
 ApiService.operationId = 'foo';
 
-jest.mock('Src/services/Trackers/FacebookTracking')
-jest.mock('Src/services/Trackers/TwitterTracking')
+jest.mock('Shared/services/Trackers/FacebookTracking')
+jest.mock('Shared/services/Trackers/TwitterTracking')
 
 function storageMock() {
   const storage = {};

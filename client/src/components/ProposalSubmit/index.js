@@ -3,7 +3,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Src/components/Elements/HiddenElements';
-import { getBaitText } from 'Src/constants/proposal';
+import { getBaitText } from 'Shared/constants/proposal';
 import { ProposalSubmitButtonComponent } from './Button';
 import ProposalSubmitForm from './Styled';
 

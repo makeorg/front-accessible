@@ -1,6 +1,6 @@
-import { SESSION_ID_COOKIE_KEY } from 'Src/constants/config';
-import { uuid } from 'Src/helpers/uuid';
-import ApiService from 'Src/api/ApiService';
+import { SESSION_ID_COOKIE_KEY } from 'Shared/constants/config';
+import { uuid } from 'Shared/helpers/uuid';
+import ApiService from 'Shared/api/ApiService';
 
 export const cookiesHandlerMiddleware = (req, res, next) => {
   const cookies = req.universalCookies;

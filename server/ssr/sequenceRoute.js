@@ -1,5 +1,5 @@
-import QuestionService from 'Src/api/QuestionService';
-import SequenceService from 'Src/api/SequenceService';
+import QuestionService from 'Shared/api/QuestionService';
+import SequenceService from 'Shared/api/SequenceService';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logger } from '../logger';
 

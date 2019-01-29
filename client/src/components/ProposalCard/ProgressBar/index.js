@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import * as CardConstant from 'Src/constants/card';
-import { gaugeProgress, gaugeRemain } from 'Src/helpers/sequence';
+import * as CardConstant from 'Shared/constants/card';
+import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
 import { HiddenItem } from 'Src/components/Elements/HiddenElements';
 import * as Progress from '../Styled/Progress';
 

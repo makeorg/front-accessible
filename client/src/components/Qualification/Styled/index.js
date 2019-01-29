@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SpaceBetweenColumn } from 'Src/components/Elements/FlexElements';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 const Qualification = styled(SpaceBetweenColumn)`

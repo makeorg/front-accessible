@@ -1,7 +1,7 @@
 /* eslint no-console: ["error", { allow: ["log"] }] */
 /* @flow */
 import axios from 'axios';
-import Logger from 'Src/services/Logger';
+import Logger from 'Shared/services/Logger';
 import { NODE_API_BASE } from './ApiService';
 
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug';

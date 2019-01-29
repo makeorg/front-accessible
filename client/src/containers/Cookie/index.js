@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { withCookies, Cookies } from 'react-cookie';
 import { CookieBannerComponent } from 'Src/components/Cookie';
-import * as Helpers from 'Src/helpers/url';
+import * as Helpers from 'Shared/helpers/url';
 
 type Props = {
   /** Cookies object */

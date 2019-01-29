@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { CenterRow } from 'Src/components/Elements/FlexElements';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 import { ButtonList } from './Button';

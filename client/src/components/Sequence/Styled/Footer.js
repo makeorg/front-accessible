@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ShadowColors, TextColors } from 'Src/assets/vars/Colors';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 
 export const Footer = styled.footer`

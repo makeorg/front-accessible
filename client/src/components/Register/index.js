@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import type { UserObject, ErrorObject } from 'Src/types/form';
+import type { UserObject, ErrorObject } from 'Shared/types/form';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
 import * as Separators from 'Src/components/Elements/Separators';
 import { RedLinkButton } from 'Src/components/Elements/ButtonElements';

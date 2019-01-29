@@ -5,13 +5,13 @@ import { CSSTransition } from 'react-transition-group';
 import type { Props as SequenceProps } from 'Src/components/Sequence';
 import SequenceComponent from 'Src/components/Sequence';
 import SequencePlaceholderComponent from 'Src/components/Sequence/SequencePlaceholder';
-import QuestionService from 'Src/api/QuestionService';
+import QuestionService from 'Shared/api/QuestionService';
 import { sequenceExpand } from 'Shared/store/actions/sequence';
-import * as ProposalHelper from 'Src/helpers/proposal';
-import * as SequenceHelper from 'Src/helpers/sequence';
-import Tracking from 'Src/services/Tracking';
-import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Src/types/sequence';
-import type { Proposal } from 'Src/types/proposal';
+import * as ProposalHelper from 'Shared/helpers/proposal';
+import * as SequenceHelper from 'Shared/helpers/sequence';
+import Tracking from 'Shared/services/Tracking';
+import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Shared/types/sequence';
+import type { Proposal } from 'Shared/types/proposal';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1

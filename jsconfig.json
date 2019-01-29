@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "Client/*": [
+        "client/*"
+      ],
       "Src/*": [
         "client/src/*"
       ],

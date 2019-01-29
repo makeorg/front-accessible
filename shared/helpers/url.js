@@ -1,7 +1,7 @@
 import 'url-search-params-polyfill';
-import { FRONT_URL } from 'Src/constants/config';
-import * as URL from 'Src/constants/url';
-import ApiService from 'Src/api/ApiService';
+import { FRONT_URL } from 'Shared/constants/config';
+import * as URL from 'Shared/constants/url';
+import ApiService from 'Shared/api/ApiService';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);

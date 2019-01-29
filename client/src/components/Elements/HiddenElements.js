@@ -1,7 +1,7 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';
 
 export const HiddenItem = styled.span`

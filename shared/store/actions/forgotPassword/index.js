@@ -1,9 +1,9 @@
 /* @flow */
 
 import i18next from 'i18next';
-import * as actionTypes from 'Src/constants/actionTypes';
-import UserService from 'Src/api/UserService';
-import { type ErrorObject } from 'Src/types/form';
+import * as actionTypes from 'Shared/store/actionTypes';
+import UserService from 'Shared/api/UserService';
+import { type ErrorObject } from 'Shared/types/form';
 
 export const forgotPasswordRequest = (email: string) => ({ type: actionTypes.FORGOT_PASSWORD_REQUEST, email });
 export const forgotPasswordSuccess = () => ({ type: actionTypes.FORGOT_PASSWORD_SUCCESS });

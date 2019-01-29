@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as actionTypes from 'Src/constants/actionTypes';
+import * as actionTypes from 'Shared/store/actionTypes';
 
 export default function registration(state: Object = { user: null, errors: [] }, action: Object) {
   switch (action.type) {

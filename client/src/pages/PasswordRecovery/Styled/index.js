@@ -2,9 +2,9 @@
 
 import styled from 'styled-components';
 import { PageWrapper, PageContainer } from 'Src/components/Elements/MainElements';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';
-import { CALC_RECOVERY_HEIGHT_MOBILE, CALC_RECOVERY_HEIGHT_DESKTOP } from 'Src/constants/elements';
+import { CALC_RECOVERY_HEIGHT_MOBILE, CALC_RECOVERY_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
 
 
 export const PasswordRecoveryWrapper = styled(PageWrapper)`

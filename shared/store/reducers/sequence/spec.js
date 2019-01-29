@@ -1,6 +1,6 @@
 /* @flow */
 import sequence from './index';
-import * as actionTypes from 'Src/constants/actionTypes';
+import * as actionTypes from 'Shared/store/actionTypes';
 
 describe('Sequence reducer', () => {
   it('Return the initial state', () => {

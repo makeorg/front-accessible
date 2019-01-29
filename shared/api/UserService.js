@@ -1,7 +1,7 @@
 /* @flow */
 
-import { getDateOfBirthFromAge } from 'Src/helpers/date';
-import Logger from 'Src/services/Logger';
+import { getDateOfBirthFromAge } from 'Shared/helpers/date';
+import Logger from 'Shared/services/Logger';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import ApiService from './ApiService';
 

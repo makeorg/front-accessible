@@ -1,7 +1,7 @@
 /* @flow */
 
-import * as actionTypes from 'Src/constants/actionTypes';
-import * as pannelContentTypes from 'Src/constants/pannel';
+import * as actionTypes from 'Shared/store/actionTypes';
+import * as pannelContentTypes from 'Shared/constants/pannel';
 
 const initialState: Object = {
   isPannelOpen: false,

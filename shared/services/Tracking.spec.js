@@ -1,8 +1,8 @@
 /* @flow */
 
-import ApiService from 'Src/api/ApiService';
-import { PATH_POST_TRACKING } from 'Src/constants/paths';
-import * as trackingConstants from 'Src/constants/tracking';
+import ApiService from 'Shared/api/ApiService';
+import { PATH_POST_TRACKING } from 'Shared/constants/paths';
+import * as trackingConstants from 'Shared/constants/tracking';
 import Tracking from './Tracking';
 import FacebookTracking from './Trackers/FacebookTracking';
 import TwitterTracking from './Trackers/TwitterTracking';

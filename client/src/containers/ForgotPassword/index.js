@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { ErrorObject } from 'Src/types/form';
+import type { ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import ForgotPasswordComponent from 'Src/components/ForgotPassword';
 import { forgotPassword } from 'Shared/store/actions/forgotPassword';

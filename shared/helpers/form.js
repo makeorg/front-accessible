@@ -1,7 +1,7 @@
 /* @flow */
 
 import i18next from 'i18next';
-import type { ErrorObject } from 'Src/types/form';
+import type { ErrorObject } from 'Shared/types/form';
 
 
 export const errorTranslation = (apiError: string) => {

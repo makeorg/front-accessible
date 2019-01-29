@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { IconInButton } from 'Src/components/Elements/ButtonElements';
 import { IconColors } from 'Src/assets/vars/Colors';
 import { Breakpoints } from 'Src/assets/vars/Breakpoints';

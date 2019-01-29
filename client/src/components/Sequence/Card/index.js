@@ -11,7 +11,7 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD
-} from 'Src/constants/card';
+} from 'Shared/constants/card';
 
 type Props = {
   card: Object,

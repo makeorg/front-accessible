@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { PushProposalCardConfig } from 'Src/types/card';
+import type { PushProposalCardConfig } from 'Shared/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';

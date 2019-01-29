@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
 import { BackgroundColors, MakeThemeColors } from 'Src/assets/vars/Colors';
 import { MiddleColumn } from 'Src/components/Elements/FlexElements';

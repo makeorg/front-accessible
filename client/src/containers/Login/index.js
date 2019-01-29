@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import type { ErrorObject } from 'Src/types/form';
+import type { ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import LoginComponent from 'Src/components/Login';
 import { login } from 'Shared/store/actions/authentification';

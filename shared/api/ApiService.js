@@ -1,9 +1,9 @@
 /* @flow */
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import * as UrlHelper from 'Src/helpers/url';
-import Logger from 'Src/services/Logger';
-import { APP_NAME } from 'Src/constants/config';
+import * as UrlHelper from 'Shared/helpers/url';
+import Logger from 'Shared/services/Logger';
+import { APP_NAME } from 'Shared/constants/config';
 import { env } from 'Shared/env';
 
 const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;

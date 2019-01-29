@@ -1,8 +1,8 @@
 import * as React from 'react';
 import i18next from 'i18next';
-import type { Proposal } from 'Src/types/proposal';
-import type { QuestionConfiguration } from 'Src/types/sequence';
-import { getSequenceLink } from 'Src/helpers/url';
+import type { Proposal } from 'Shared/types/proposal';
+import type { QuestionConfiguration } from 'Shared/types/sequence';
+import { getSequenceLink } from 'Shared/helpers/url';
 import { CenterRow } from 'Src/components/Elements/FlexElements';
 import { ProposalAuthor } from 'Src/components/ProposalCard/ProposalAuthor';
 import VoteContainer from 'Src/containers/Vote';

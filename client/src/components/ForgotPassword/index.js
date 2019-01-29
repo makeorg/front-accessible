@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import type { ErrorObject } from 'Src/types/form';
+import type { ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraph } from 'Src/components/Elements/Form';
 import { SecondLevelTitle, FourthLevelTtitle } from 'Src/components/Elements/TitleElements';
 import * as Separators from 'Src/components/Elements/Separators';

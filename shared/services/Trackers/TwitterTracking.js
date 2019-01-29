@@ -1,5 +1,5 @@
 // @flow
-import * as trackingConstants from 'Src/constants/tracking';
+import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
 
 let initialized = false;
@@ -28,10 +28,10 @@ export default {
     !(function (e, t, n, s, u, a) {
       e.twq || (s = e.twq = function () {
         // $FlowFixMe
-      s.exe ? s.exe(...arguments) : s.queue.push(arguments);
+        s.exe ? s.exe(...arguments) : s.queue.push(arguments);
       }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = '//static.ads-twitter.com/uwt.js',
-      // $FlowFixMe
-      a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a));
+        // $FlowFixMe
+        a = t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a));
     }(window, document, 'script'));
     /* eslint-enable */
 

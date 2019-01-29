@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import type { ErrorObject } from 'Src/types/form';
+import type { ErrorObject } from 'Shared/types/form';
 import AuthentificationSocialContainer from 'Src/containers/Authentification/Social';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
 import { ExtraParagraph, ExtraAltParagraph } from 'Src/components/Elements/Form';

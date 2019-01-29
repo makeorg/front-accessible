@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
 import { BasicColors, SocialNetworksColors } from 'Src/assets/vars/Colors';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 
 export const SharingButton = styled(UnstyledButton)`
   width: ${pxToRem('40px')};

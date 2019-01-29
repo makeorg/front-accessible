@@ -1,7 +1,7 @@
 /* @flow */
 
-import * as actionTypes from 'Src/constants/actionTypes';
-import { getBaitText } from 'Src/constants/proposal';
+import * as actionTypes from 'Shared/store/actionTypes';
+import { getBaitText } from 'Shared/constants/proposal';
 
 const initialState: Object = {
   isTyping: false,

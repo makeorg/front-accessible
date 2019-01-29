@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { UnstyledList } from 'Src/components/Elements/ListElements';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 
 export const Wrapper = styled.div`
   overflow: hidden;

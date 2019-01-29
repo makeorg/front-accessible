@@ -52,6 +52,7 @@
       {
         "alias": {
           "Src": "./client/src",
+          "Client": "./client",
           "Shared": "./shared",
         }
       }

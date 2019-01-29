@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import SpinnerComponent from 'Src/components/Spinner';
-import type { Proposal } from 'Src/types/proposal';
-import type { QuestionConfiguration } from 'Src/types/sequence';
+import type { Proposal } from 'Shared/types/proposal';
+import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { SingleProposalCardComponent } from 'Src/components/ProposalCard/SingleProposalCard';
 import { SingleProposalSharingComponent } from 'Src/components/ProposalCard/SingleProposalCard/Sharing';
 

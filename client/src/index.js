@@ -6,13 +6,13 @@ import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { AppContainer } from 'Src/containers/App';
-import FacebookTracking from 'Src/services/Trackers/FacebookTracking';
-import TwitterTracking from 'Src/services/Trackers/TwitterTracking';
+import FacebookTracking from 'Shared/services/Trackers/FacebookTracking';
+import TwitterTracking from 'Shared/services/Trackers/TwitterTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
 import { initialStateDebug } from 'Shared/store/initialState.debug';
-import Logger from './services/Logger';
+import Logger from 'Shared/services/Logger';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {

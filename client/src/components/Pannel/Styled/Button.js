@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Src/helpers/styled';
+import { pxToRem } from 'Shared/helpers/styled';
 import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
 
 const CloseButton = styled(UnstyledButton)`
