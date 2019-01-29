@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Iepriekšējais ierosinājums",
     "next": "Nākamais ierosinājums",
-    "number": "Ierosinājuma numurs"
+    "number": "Ierosinājuma numurs",
+    "author": {
+      "age": "{{age}} gadi"
+    }
   },
   "intro_card": {
     "title": "Tūkstošiem pilsoņu piedāvā risinājumus.",
@@ -194,9 +197,9 @@
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
-      "question": "Ko tieši mēs varam darīt, lai pārveidotu Eiropu?»",
+      "question": "Kā tieši pārveidot Eiropu?",
       "metas": {
-        "title": "Ko tieši mēs varam darīt, lai pārveidotu Eiropu?»",
+        "title": "Kā tieši pārveidot Eiropu?",
         "description": "Vai jums saistībā ar šo tematu ir kāda ideja? Piedalieties lielajā pilsoņu apspriedē Make.org",
         "picture": ""
       }

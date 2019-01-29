@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Iepriekšējais ierosinājums",
     "next": "Nākamais ierosinājums",
-    "number": "Ierosinājuma numurs"
+    "number": "Ierosinājuma numurs",
+    "author": {
+      "age": "{{age}} gadi"
+    }
   },
   "intro_card": {
     "title": "Tūkstošiem pilsoņu piedāvā risinājumus.",

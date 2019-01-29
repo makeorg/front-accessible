@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Propunerea precedentă",
     "next": "Propunerea următoare",
-    "number": "Propunerea numărul"
+    "number": "Propunerea numărul",
+    "author": {
+      "age": "{{age}} ani"
+    }
   },
   "intro_card": {
     "title": "Mii de cetățeni propun soluții.",

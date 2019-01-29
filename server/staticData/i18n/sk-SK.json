@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Predchádzajúci návrh",
     "next": "Nasledujúci návrh",
-    "number": "Návrh číslo"
+    "number": "Návrh číslo",
+    "author": {
+      "age": "{{age}} rokov"
+    }
   },
   "intro_card": {
     "title": "Tisíce občanov navrhujú riešenia.",
