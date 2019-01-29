@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Eelmine ettepanek",
     "next": "Järgmine ettepanek",
-    "number": "Ettepanek nr"
+    "number": "Ettepanek nr",
+    "author": {
+      "age": "{{age}} a"
+    }
   },
   "intro_card": {
     "title": "Tuhanded kodanikud pakuvad välja lahendusi.",

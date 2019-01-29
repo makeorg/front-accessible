@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Prethodni prijedlog",
     "next": "Sljedeći prijedlog",
-    "number": "Broj prijedloga"
+    "number": "Broj prijedloga",
+    "author": {
+      "age": "{{age}} godine"
+    }
   },
   "intro_card": {
     "title": "Tisuće građana predlaže rješenja.",

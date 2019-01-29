@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Föregående förslag",
     "next": "Nästa förslag",
-    "number": "Förslag nummer"
+    "number": "Förslag nummer",
+    "author": {
+      "age": "{{age}} år"
+    }
   },
   "intro_card": {
     "title": "Tusentals medborgare föreslår lösningar.",

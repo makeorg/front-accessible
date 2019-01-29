@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Proposta anterior",
     "next": "Proposta seguinte",
-    "number": "Número da proposta"
+    "number": "Número da proposta",
+    "author": {
+      "age": "{{age}} anos"
+    }
   },
   "intro_card": {
     "title": "Milhares de cidadãos propõem soluções.",

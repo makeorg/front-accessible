@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Il-proposta ta’ qabel",
     "next": "Il-proposta li jmiss",
-    "number": "Proposta numru"
+    "number": "Proposta numru",
+    "author": {
+      "age": "{{age}} sena"
+    }
   },
   "intro_card": {
     "title": "Eluf ta’ ċittadini qed jipproponu s-soluzzjonijiet tagħhom.",

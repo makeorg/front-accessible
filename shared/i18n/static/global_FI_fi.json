@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Edellinen ehdotus",
     "next": "Seuraava ehdotus",
-    "number": "Ehdotus numero"
+    "number": "Ehdotus numero",
+    "author": {
+      "age": "{{age}} vuotta"
+    }
   },
   "intro_card": {
     "title": "Tuhannet kansalaiset esittävät ratkaisuja.",

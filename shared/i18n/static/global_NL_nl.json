@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Vorige voorstel",
     "next": "Volgende voorstel",
-    "number": "Voorstel nummer"
+    "number": "Voorstel nummer",
+    "author": {
+      "age": "{{age}} jaar"
+    }
   },
   "intro_card": {
     "title": "Duizenden burgers hebben oplossingen aangedragen.",

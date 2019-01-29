@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Ankstesnis pasiūlymas",
     "next": "Kitas pasiūlymas",
-    "number": "Pasiūlymas Nr.:"
+    "number": "Pasiūlymas Nr.:",
+    "author": {
+      "age": "{{age}} metai"
+    }
   },
   "intro_card": {
     "title": "Sprendimus siūlo tūkstančiai piliečių.",

@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Előző javaslat",
     "next": "Következő javaslat",
-    "number": "Javaslat száma"
+    "number": "Javaslat száma",
+    "author": {
+      "age": "{{age}} éves"
+    }
   },
   "intro_card": {
     "title": "Több ezer polgár javasol megoldásokat.",

@@ -41,7 +41,10 @@
   "proposal_card": {
     "previous": "Prejšnji predlog",
     "next": "Naslednji predlog",
-    "number": "Številka predloga"
+    "number": "Številka predloga",
+    "author": {
+      "age": "{{age}} let"
+    }
   },
   "intro_card": {
     "title": "Na tisoče državljanov predlaga rešitve.",
@@ -194,9 +197,9 @@
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
-      "question": "Kako preoblikovati Evropo, konkretno?",
+      "question": "Kako preoblikovati Europo, konkretno?",
       "metas": {
-        "title": "Kako preoblikovati Evropo, konkretno?",
+        "title": "Kako preoblikovati Europo, konkretno?",
         "description": "Imate idejo o tem? Pridružite se odličnemu državljanskemu posvetovanju Make.org",
         "picture": ""
       }
