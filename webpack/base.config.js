@@ -6,7 +6,7 @@ const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', 'client', 'src', 'index.js'),
+  entry: path.resolve(__dirname, '..', 'client', 'index.js'),
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },

@@ -7,7 +7,7 @@ import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
-import { AppContainer } from 'Src/containers/App';
+import { AppContainer } from 'Client/app';
 import i18next from './i18n';
 
 const fs = require('fs');

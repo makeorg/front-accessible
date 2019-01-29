@@ -30,7 +30,7 @@ type Props = {
 /**
  * Handles Intro Card Business Logic
  */
-class IntroCardContainer extends React.Component <Props> {
+class IntroCardContainer extends React.Component<Props> {
   componentDidUpdate = () => {
     const { question, index, currentIndex } = this.props;
     if (index === currentIndex) {
