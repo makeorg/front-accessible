@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarComponent from '../ProgressBar';
 import FinalTitle from './Title';
-import Sharing from './Sharing';
+import { Sharing } from './Sharing';
 import { More } from './More';
 import ProposalCard from '../Styled';
 
@@ -79,7 +79,7 @@ const FinalCardComponent = (props: Props) => {
         <ProposalCard.InnerContent as="section">
           {finalCardConfig.customTitle ? <FinalTitle title={finalCardWording.title} /> : <FinalTitle />}
           <ProposalCard.FinalCardContentWrapper>
-            {finalCardConfig.withSharing && <Sharing wording={finalCardWording.share} />}
+            {finalCardConfig.withSharing && <Sharing wording={finalCardWording.share} tabIndex={tabIndex} />}
             <More
               configuration={finalCardConfig}
               wording={finalCardWording}

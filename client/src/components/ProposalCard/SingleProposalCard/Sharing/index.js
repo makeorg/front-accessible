@@ -1,6 +1,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
-import SharingContainer from 'Src/containers/Sharing';
+import { SharingContainer } from 'Src/containers/Sharing';
 import * as ProposalSharing from '../Styled/Sharing';
 
 /**
