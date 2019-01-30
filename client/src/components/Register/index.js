@@ -2,10 +2,10 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { UserObject, ErrorObject } from 'Shared/types/form';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
-import * as Separators from 'Src/components/Elements/Separators';
-import { RedLinkButton } from 'Src/components/Elements/ButtonElements';
-import { ExtraParagraph } from 'Src/components/Elements/Form';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import * as Separators from 'Client/ui/Elements/Separators';
+import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
+import { ExtraParagraph } from 'Client/ui/Elements/Form';
 import FacebookAuthentificationLinkComponent from 'Src/components/Authentification/Social/FacebookAuthentification/Link';
 import GoogleAuthentificationLinkComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Link';
 import RegisterFormComponent from './Form';

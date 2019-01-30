@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { TextColors } from 'Src/assets/vars/Colors';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
-import { MiddleColumnToRow } from 'Src/components/Elements/FlexElements';
+import { TextColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { MiddleColumnToRow } from 'Client/ui/Elements/FlexElements';
 
 
 export const Wrapper = styled(MiddleColumnToRow)`

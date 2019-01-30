@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import { HiddenItem } from 'Src/components/Elements/HiddenElements';
-import { MiddleColumnToRow, MiddleRow } from 'Src/components/Elements/FlexElements';
+import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
+import { MiddleColumnToRow, MiddleRow } from 'Client/ui/Elements/FlexElements';
 import Sequence from '../Styled';
 
 type Props = {

@@ -1,12 +1,14 @@
+
+import React from 'react';
 import { shallow } from 'enzyme';
-import ProposalSubmitDescriptionComponent from './';
-import { DescriptionLink } from '../../Elements/DescriptionElements';
+import { DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
+import ProposalSubmitDescriptionComponent from '.';
 
 describe('ProposalSubmitDescriptionComponent', () => {
   const props = {
     isPannelOpen: false,
-    trackModerationText: () => {},
-    trackModerationLink: () => {}
+    trackModerationText: () => { },
+    trackModerationLink: () => { }
   };
 
   it('Render & Props', () => {

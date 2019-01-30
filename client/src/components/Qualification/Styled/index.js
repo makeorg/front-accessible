@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { SpaceBetweenColumn } from 'Src/components/Elements/FlexElements';
+import { SpaceBetweenColumn } from 'Client/ui/Elements/FlexElements';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 const Qualification = styled(SpaceBetweenColumn)`
   min-height: ${pxToRem('110px')};

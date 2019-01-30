@@ -5,16 +5,16 @@ import type { ErrorObject } from 'Shared/types/form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   Form,
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Src/components/Elements/Form';
+} from 'Client/ui/Elements/Form';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
-import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
+import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
+import PasswordInput from 'Client/ui/Elements/Form/PasswordInput';
 
 type Props = {
   /** User's email */

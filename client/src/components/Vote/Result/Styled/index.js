@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { CenterColumn } from 'Src/components/Elements/FlexElements';
+import { CenterColumn } from 'Client/ui/Elements/FlexElements';
 import {
   Graph,
   TotalLabel

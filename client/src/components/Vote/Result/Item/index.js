@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import { LeftTooltip, BottomTooltip, DisplayedTooltip } from 'Src/components/Elements/TooltipElments';
-import { HiddenOnMobile, HiddenOnDesktop } from 'Src/components/Elements/HiddenElements';
+import { LeftTooltip, BottomTooltip, DisplayedTooltip } from 'Client/ui/Elements/TooltipElments';
+import { HiddenOnMobile, HiddenOnDesktop } from 'Client/ui/Elements/HiddenElements';
 import { Bar, GraphItem } from '../Styled/Graph';
 
 type Props = {

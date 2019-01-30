@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Form } from 'Src/components/Elements/Form';
+import { Form } from 'Client/ui/Elements/Form';
 
 const PasswordRecovery = styled.section`
   display: flex;

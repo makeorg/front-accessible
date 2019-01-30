@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Breakpoints, Layouts } from 'Src/assets/vars/Breakpoints';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { pxToRem } from 'Shared/helpers/styled';
 import { PROPOSALSTACK_HEIGHT_MOBILE, PROPOSALSTACK_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
 import {

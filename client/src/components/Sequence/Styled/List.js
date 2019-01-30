@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { UnstyledList } from 'Src/components/Elements/ListElements';
+import { UnstyledList } from 'Client/ui/Elements/ListElements';
 import { pxToRem } from 'Shared/helpers/styled';
 
 export const Wrapper = styled.div`

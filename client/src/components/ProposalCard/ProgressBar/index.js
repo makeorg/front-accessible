@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
-import { HiddenItem } from 'Src/components/Elements/HiddenElements';
+import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
 import * as Progress from '../Styled/Progress';
 
 type Props = {

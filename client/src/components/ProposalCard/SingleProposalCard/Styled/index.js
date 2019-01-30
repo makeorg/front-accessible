@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BasicColors, TextColors, ShadowColors } from 'Src/assets/vars/Colors';
-import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
-import { MakeFonts } from 'Src/assets/vars/Fonts';
-import { MiddleColumn, MiddleColumnToRow } from 'Src/components/Elements/FlexElements';
-import { Large, SeparatorStyle } from 'Src/components/Elements/Separators';
-import { SmallRedButton } from 'Src/components/Elements/ButtonElements';
+import { BasicColors, TextColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { MiddleColumn, MiddleColumnToRow } from 'Client/ui/Elements/FlexElements';
+import { Large, SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { SmallRedButton } from 'Client/ui/Elements/ButtonElements';
 import { Proposal } from 'Src/components/ProposalCard/Styled/Proposal';
 
 export const Card = styled.section`

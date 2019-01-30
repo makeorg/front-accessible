@@ -9,7 +9,7 @@ import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import MetaTags from 'Src/components/MetaTags';
 import { match as TypeMatch } from 'react-router';
-import { MiddlePageWrapper } from 'Src/components/Elements/MainElements';
+import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {

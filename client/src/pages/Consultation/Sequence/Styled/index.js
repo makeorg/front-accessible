@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { pxToRem } from 'Shared/helpers/styled';
 import { CALC_SEQUENCE_HEIGHT_MOBILE, CALC_SEQUENCE_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { MiddleColumn } from 'Src/components/Elements/FlexElements';
+import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
 
 export const SequencePageContent = styled.div`
   width: 100%;

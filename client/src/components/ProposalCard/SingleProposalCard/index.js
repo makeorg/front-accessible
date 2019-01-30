@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink } from 'Shared/helpers/url';
-import { CenterRow } from 'Src/components/Elements/FlexElements';
+import { CenterRow } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthor } from 'Src/components/ProposalCard/ProposalAuthor';
 import VoteContainer from 'Src/containers/Vote';
 import ProposalCard from 'Src/components/ProposalCard/Styled';

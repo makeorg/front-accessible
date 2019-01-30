@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { IconInButton } from 'Src/components/Elements/ButtonElements';
-import { IconColors } from 'Src/assets/vars/Colors';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { IconColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 const Link = styled.button`
   font-size: ${pxToRem('16px')};

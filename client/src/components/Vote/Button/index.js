@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { BottomTooltip, DisplayedTooltip } from 'Src/components/Elements/TooltipElments';
-import { HiddenOnMobile } from 'Src/components/Elements/HiddenElements';
+import { BottomTooltip, DisplayedTooltip } from 'Client/ui/Elements/TooltipElments';
+import { HiddenOnMobile } from 'Client/ui/Elements/HiddenElements';
 import { ButtonWrapper, Button } from '../Styled/Button';
 
 type Props = {

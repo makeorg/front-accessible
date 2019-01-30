@@ -11,17 +11,17 @@ import {
   faMapMarkerAlt,
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Src/components/Elements/Form';
+} from 'Client/ui/Elements/Form';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
-import PasswordInput from 'Src/components/Elements/Form/PasswordInput';
+import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
+import PasswordInput from 'Client/ui/Elements/Form/PasswordInput';
 import * as Helpers from 'Shared/helpers/url';
 
 type Props = {
