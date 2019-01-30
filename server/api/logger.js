@@ -10,11 +10,9 @@ export function loggerApi(req, res) {
     level,
     {
       ...data,
-      ...{
-        browser: ua.browser,
-        os: ua.os,
-        device: ua.device
-      }
+      browser: ua.browser,
+      os: ua.os,
+      device: ua.device
     }
   );
 

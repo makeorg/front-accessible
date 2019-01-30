@@ -63,24 +63,22 @@ describe('VoteContainer', () => {
   it('render initialise state from props', () => {
     const props = {
       ...defaultProps,
-      ...{
-        votes: [{
-          voteKey: "agree",
-          count: 12,
-          hasVoted: true,
-          qualifications: ['foo', 'bar']
-        }, {
-          voteKey: "disagree",
-          count: 6,
-          hasVoted: false,
-          qualifications: ['foo', 'bar']
-        }, {
-          voteKey: "neutral",
-          count: 6,
-          hasVoted: false,
-          qualifications: ['foo', 'bar']
-        }]
-      }
+      votes: [{
+        voteKey: "agree",
+        count: 12,
+        hasVoted: true,
+        qualifications: ['foo', 'bar']
+      }, {
+        voteKey: "disagree",
+        count: 6,
+        hasVoted: false,
+        qualifications: ['foo', 'bar']
+      }, {
+        voteKey: "neutral",
+        count: 6,
+        hasVoted: false,
+        qualifications: ['foo', 'bar']
+      }]
     }
 
     const voteWrapper = shallow(<Vote {...props} />);

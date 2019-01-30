@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
 const cookiesMiddleware = require('universal-cookie-express');
+const favicon = require('serve-favicon');
 
 const defaultRoute = require('./ssr/defaultRoute');
 const sequenceRoute = require('./ssr/sequenceRoute');
@@ -24,7 +25,8 @@ const {
   BUILD_DIR,
   IMAGES_DIR,
   DOC_DIR,
-  VERSION_PATH
+  VERSION_PATH,
+  FAVICON_PATH
 } = require('./paths');
 
 function setCustomCacheControl(res, path) {
@@ -39,6 +41,7 @@ const app = express();
 
 app.use(compression());
 app.use(bodyParser.json());
+app.use(favicon(FAVICON_PATH));
 app.use(cookiesMiddleware());
 app.use(headersResponseMiddleware);
 app.use(cspMiddleware);

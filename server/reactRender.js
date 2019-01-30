@@ -8,6 +8,7 @@ import { HeadProvider } from 'react-head';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
 import { AppContainer } from 'Client/app';
+import { initialState } from 'Shared/store/initialState';
 import i18next from './i18n';
 
 const fs = require('fs');
@@ -39,22 +40,20 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
 };
 
 
-module.exports = function reactRender(req, res, initialState = {}) {
+module.exports = function reactRender(req, res, routeState = {}) {
   const { country, language } = req.params;
 
   const tradLanguage = `${language}-${country}`;
-  i18next.changeLanguage(tradLanguage);
 
   const state = {
-    ...{
-      appConfig: {
-        source: 'core',
-        language,
-        country,
-        translations: i18next.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
-      }
+    ...initialState,
+    appConfig: {
+      source: 'core',
+      language,
+      country,
+      translations: i18next.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
     },
-    ...initialState
+    ...routeState
   };
 
   const store = configureStore(state);

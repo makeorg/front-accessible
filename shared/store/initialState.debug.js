@@ -5,6 +5,9 @@ export const initialStateDebug = {
     country: 'FR',
     translations: require('../../server/staticData/i18n/fr-FR.json')
   },
+  proposal: {
+    length: 8
+  },
   sequence: {
     /* question: {
       questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',

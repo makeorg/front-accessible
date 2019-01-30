@@ -1,20 +1,10 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
+import { initialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
 
-const initialState: Object = {
-  isTyping: false,
-  canSubmit: false,
-  hasProposed: false,
-  isCurrentSubmitSuccess: false,
-  content: '',
-  length: getBaitText().length,
-  questionId: null,
-  error: null
-};
-
-export default function proposal(state: Object = initialState, action: Object) {
+export default function proposal(state: Object = initialState.proposal, action: Object) {
   switch (action.type) {
     case actionTypes.PROPOSE_TYPING:
       return {
@@ -40,8 +30,8 @@ export default function proposal(state: Object = initialState, action: Object) {
         content: '',
         length: getBaitText().length,
         hasProposed: true,
-        questionId: null,
-        error: null
+        questionId: undefined,
+        error: undefined
       };
     case actionTypes.PROPOSE_FAILURE:
       return {

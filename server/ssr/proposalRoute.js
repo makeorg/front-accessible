@@ -1,5 +1,6 @@
 import ProposalService from 'Shared/api/ProposalService';
 import SequenceService from 'Shared/api/SequenceService';
+import { initialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 
 const reactRender = require('../reactRender');
@@ -18,13 +19,16 @@ module.exports = async function ProposalRoute(req, res) {
     const proposal = await getProposal(proposalId);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
 
-    const proposalState = {
+    const routeState = {
       proposal: {
-        proposal,
+        ...initialState.proposal,
+        proposal
+      },
+      sequence: {
         questionConfiguration
       }
     };
-    return reactRender(req, res, proposalState);
+    return reactRender(req, res, routeState);
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;
