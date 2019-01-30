@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import i18next from 'i18next';
-import MetaTags from 'Src/components/MetaTags';
+import { MetaTags } from 'Client/app/MetaTags';
 import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
 import { Description } from 'Client/ui/Elements/DescriptionElements';
 import {

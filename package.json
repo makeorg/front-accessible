@@ -106,6 +106,7 @@
     "react-hot-loader": "~4.3.11",
     "react-styleguidist": "~8.0.6",
     "react-transition-group": "^2.5.1",
+    "react-test-renderer": "^16.0.0-0",
     "redux-mock-store": "~1.5.3",
     "start-server-and-test": "~1.7.5",
     "uglifyjs-webpack-plugin": "~2.0.1",

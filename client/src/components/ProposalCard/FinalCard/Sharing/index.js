@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { SharingContainer } from 'Src/containers/Sharing';
+import { Sharing as SharingProposal } from 'Client/features/Sharing';
 import ProposalCard from '../../Styled';
 
 type Props = {
@@ -36,7 +36,7 @@ export class Sharing extends React.Component<Props> {
           )
         )}
         <ProposalCard.SharingWrapper>
-          <SharingContainer tabIndex={tabIndex} />
+          <SharingProposal tabIndex={tabIndex} />
         </ProposalCard.SharingWrapper>
       </ProposalCard.SharingInner>
     );

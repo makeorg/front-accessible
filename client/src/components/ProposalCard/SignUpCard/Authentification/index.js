@@ -12,8 +12,8 @@ import {
 import { CenterColumn } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraph } from 'Client/ui/Elements/Form';
 import FacebookAuthentificationButtonComponent
-  from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';
+  from 'Client/features/auth/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from 'Client/features/auth/Social/GoogleAuthentification/Button';
 
 type Props = {
   /** Method called to render Register Pannel */

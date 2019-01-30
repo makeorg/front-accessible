@@ -7,7 +7,7 @@ import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
-import MetaTags from 'Src/components/MetaTags';
+import { MetaTags } from 'Client/app/MetaTags';
 import { match as TypeMatch } from 'react-router';
 import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
