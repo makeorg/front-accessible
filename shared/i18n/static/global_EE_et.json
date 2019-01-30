@@ -204,6 +204,9 @@
         "picture": ""
       }
     },
+    "footer":  {
+      "sentence" : "We Europeans, kasutades MAKE.ORG ja CIVICO Europa"
+    },
     "sequenceExtraSlidesWording": {
       "introCard":  {
         "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",

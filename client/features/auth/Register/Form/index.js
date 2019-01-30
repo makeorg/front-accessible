@@ -150,7 +150,7 @@ const RegisterFormComponent = (props: Props) => {
             __html: i18next.t(
               'register.cgu_text',
               {
-                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}">$t(register.cgu)</a>`,
+                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${isPannelOpen ? 0 : -1}">$t(register.cgu)</a>`,
                 interpolation: { escapeValue: false }
               }
             )

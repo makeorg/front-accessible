@@ -31,8 +31,7 @@ export type Theme = {
   color: string,
   footerFontColor: string,
   gradientStart: string,
-  gradientEnd: string,
-  weEuropeansTheme?: boolean
+  gradientEnd: string
 }
 
 export type Metas = {
@@ -45,6 +44,10 @@ export type Wording = {
   title: string,
   question: string,
   metas: Metas
+}
+
+export type FooterType = {
+  sentence: string
 }
 
 export type Question = {
@@ -72,6 +75,7 @@ export type QuestionConfiguration = {
   sequenceExtraSlidesWording: ExtraSlidesWording,
   sequenceExtraSlidesConfig: ExtraSlidesConfig,
   sequenceSignUpForm: any,
+  footer?: FooterType
 }
 
 export type ConfigurationTypes =

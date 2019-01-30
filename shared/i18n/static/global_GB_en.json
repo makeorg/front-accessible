@@ -204,6 +204,9 @@
         "picture": ""
       }
     },
+    "footer":  {
+      "sentence" : "We Europeans, with MAKE.ORG and CIVICO Europa"
+    },
     "sequenceExtraSlidesWording": {
       "introCard": {
         "title": "Thousands of citizens are proposing solutions to reinvent Europe.",

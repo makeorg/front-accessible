@@ -149,7 +149,7 @@
     "send_link": "odbierz e-mail"
   },
   "footer_sequence": {
-    "with": "ze wsparciem ze wsparciem",
+    "with": "ze wsparciem",
     "see_more": "Dowiedz się więcej na ten temat:",
     "link": "Dowiedz się więcej na temat tej konsultacji"
   },
@@ -203,6 +203,9 @@
         "description": "WeEuropeans jest obywatelską, demokratyczną i bezpartyjną inicjatywą. Zrzesza europejskich obywateli i obywatelki bez względu na ich poglądy, oferując możliwość udziału w największych w historii europejskich konsultacjach społecznych. Przyszłość Europy jest w naszych rękach.",
         "picture": ""
       }
+    },
+    "footer":  {
+      "sentence" : "We Europeans, ze wsparciem MAKE.ORG i CIVICO Europa"
     },
     "sequenceExtraSlidesWording": {
       "introCard":  {

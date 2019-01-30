@@ -2,7 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
-import { MiddleColumnToRow, MiddleRow } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
 import Sequence from '../Styled';
 
 type Props = {
@@ -21,25 +21,25 @@ export const SequenceFooterComponent = (props: Props) => {
   return (
     <Sequence.Footer>
       <Sequence.FooterNav aria-labelledby="footer_title">
-        <MiddleColumnToRow>
+        <MiddleColumn>
           <Sequence.FooterTitle
             color={questionConfiguration.theme.footerFontColor}
             id="footer_title"
           >
             <HiddenItem aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItem>
-            {questionConfiguration.wording.question}
+            <Sequence.TitleInner>
+              {questionConfiguration.wording.question}
+              {questionConfiguration.footer
+                && questionConfiguration.footer.sentence
+                && (
+                  <Sequence.InPartnershipWith>
+                    {questionConfiguration.footer.sentence}
+                  </Sequence.InPartnershipWith>
+                )
+              }
+            </Sequence.TitleInner>
           </Sequence.FooterTitle>
-          {questionConfiguration.theme.weEuropeansTheme
-            && (
-              <MiddleRow>
-                <Sequence.InPartnershipWith>
-                  {i18next.t('footer_sequence.with')}
-                </Sequence.InPartnershipWith>
-                <img src="/images/operations/weeuropeans/logo-civico.svg" alt="Civico" />
-              </MiddleRow>
-            )
-          }
-        </MiddleColumnToRow>
+        </MiddleColumn>
         <Sequence.FooterLink
           color={questionConfiguration.theme.footerFontColor}
           target="_blank"
