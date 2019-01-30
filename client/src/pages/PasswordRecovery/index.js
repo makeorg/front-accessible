@@ -3,8 +3,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import 'url-search-params-polyfill';
-import { PasswordRecoveryContainer } from 'Src/containers/UserAccount/PasswordRecovery';
-import { PasswordRecoveryWrapper, PasswordRecoveryContent } from './Styled';
+import { PasswordRecovery } from 'Client/features/auth/PasswordRecovery';
+import { PasswordRecoveryWrapper, PasswordRecoveryContent } from 'Client/features/auth/PasswordRecovery/Styled';
 
 type Props = {
   passwordRecovery: Object,
@@ -12,7 +12,7 @@ type Props = {
   match: Object
 };
 
-export class PasswordRecovery extends React.Component<Props> {
+export class PasswordRecoveryRedirect extends React.Component<Props> {
   render() {
     const { passwordRecovery } = this.props;
     const { validToken } = passwordRecovery;
@@ -32,7 +32,7 @@ export class PasswordRecovery extends React.Component<Props> {
     return (
       <PasswordRecoveryWrapper>
         <PasswordRecoveryContent>
-          <PasswordRecoveryContainer />
+          <PasswordRecovery />
         </PasswordRecoveryContent>
       </PasswordRecoveryWrapper>
     );
@@ -46,4 +46,4 @@ const mapStateToProps = (state) => {
   return { passwordRecovery, question };
 };
 
-export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecovery));
+export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecoveryRedirect));

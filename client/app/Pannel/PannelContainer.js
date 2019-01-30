@@ -4,15 +4,15 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { pannelClose } from 'Shared/store/actions/pannel';
 import * as pannelContentTypes from 'Shared/constants/pannel';
-import LoginContainer from 'Src/containers/Login';
-import RegisterContainer from 'Src/containers/Register';
-import ForgotPasswordContainer from 'Src/containers/ForgotPassword';
+import { Login } from 'Client/features/auth/Login';
+import { Register } from 'Client/features/auth/Register';
+import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
 import { PannelComponent } from './PannelComponent';
 
 const pannelContents = {
-  [pannelContentTypes.LOGIN_CONTENT]: <LoginContainer />,
-  [pannelContentTypes.REGISTER_CONTENT]: <RegisterContainer />,
-  [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <ForgotPasswordContainer />
+  [pannelContentTypes.LOGIN_CONTENT]: <Login />,
+  [pannelContentTypes.REGISTER_CONTENT]: <Register />,
+  [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <PasswordForgot />
 };
 
 type Props = {

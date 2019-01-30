@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import MetaTags from 'Src/components/MetaTags';
+import { MetaTags } from 'Client/app/MetaTags';
 import { PageWrapper } from 'Client/app/Styled/MainElements';
 
 const HomePage = () => (

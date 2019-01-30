@@ -1,6 +1,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
-import { SharingContainer } from 'Src/containers/Sharing';
+import { Sharing } from 'Client/features/Sharing';
 import * as ProposalSharing from '../Styled/Sharing';
 
 /**
@@ -11,6 +11,6 @@ export const SingleProposalSharingComponent = () => (
     <ProposalSharing.Title id="sharing_title">
       {i18next.t('proposal_page.share_text')}
     </ProposalSharing.Title>
-    <SharingContainer />
+    <Sharing />
   </ProposalSharing.Wrapper>
 );

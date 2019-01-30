@@ -117,6 +117,11 @@ https://github.com/redux-utilities/flux-standard-action#design-goals
 
 ## CSS:
 ___
+- All Styled component must be Suffix by `Style`:
+```
+const PasswordRecoveryStyle = styled.section`
+```
+
 - Use a MOBILE-FIRST approach is better for performance:
 
 Good: 

@@ -14,8 +14,8 @@ import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElem
 import { AltDescription, DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import FacebookAuthentificationButtonComponent
-  from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';
+  from 'Client/features/auth/Social/FacebookAuthentification/Button';
+import GoogleAuthentificationButtonComponent from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
 import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
 
