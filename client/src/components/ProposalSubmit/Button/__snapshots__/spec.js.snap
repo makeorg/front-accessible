@@ -82,7 +82,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   type="submit"
 >
   <span
-    className="ButtonElements__IconInButton-sc-1mwh5wi-9 c1 c2"
+    className="ButtonElements__IconInButton-sc-1wm8iti-9 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -91,7 +91,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
     />
   </span>
   <div
-    className="c3 HiddenElements__HiddenOnMobile-sc-1cajanv-1 c3"
+    className="c3 HiddenElements__HiddenOnMobile-mvkq91-1 c3"
   >
     common.propose
   </div>
@@ -180,7 +180,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   type="submit"
 >
   <span
-    className="ButtonElements__IconInButton-sc-1mwh5wi-9 c1 c2"
+    className="ButtonElements__IconInButton-sc-1wm8iti-9 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -189,7 +189,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
     />
   </span>
   <div
-    className="c3 HiddenElements__HiddenOnMobile-sc-1cajanv-1 c3"
+    className="c3 HiddenElements__HiddenOnMobile-mvkq91-1 c3"
   >
     common.propose
   </div>
@@ -272,7 +272,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   type="submit"
 >
   <span
-    className="c1 ButtonElements__IconInButton-sc-1mwh5wi-9 c1"
+    className="c1 ButtonElements__IconInButton-sc-1wm8iti-9 c1"
   >
     <svg
       icon="pencil-alt"
@@ -370,7 +370,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   type="submit"
 >
   <span
-    className="ButtonElements__IconInButton-sc-1mwh5wi-9 c1 c2"
+    className="ButtonElements__IconInButton-sc-1wm8iti-9 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -379,7 +379,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
     />
   </span>
   <div
-    className="c3 HiddenElements__HiddenOnMobile-sc-1cajanv-1 c3"
+    className="c3 HiddenElements__HiddenOnMobile-mvkq91-1 c3"
   >
     common.propose
   </div>
@@ -468,7 +468,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   type="submit"
 >
   <span
-    className="ButtonElements__IconInButton-sc-1mwh5wi-9 c1 c2"
+    className="ButtonElements__IconInButton-sc-1wm8iti-9 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -477,7 +477,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
     />
   </span>
   <div
-    className="c3 HiddenElements__HiddenOnMobile-sc-1cajanv-1 c3"
+    className="c3 HiddenElements__HiddenOnMobile-mvkq91-1 c3"
   >
     common.propose
   </div>

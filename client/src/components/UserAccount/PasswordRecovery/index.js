@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import { SecondLevelTitle, FourthLevelTtitle } from 'Src/components/Elements/TitleElements';
-import * as Separators from 'Src/components/Elements/Separators';
+import { SecondLevelTitle, FourthLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import * as Separators from 'Client/ui/Elements/Separators';
 import { PasswordRecoveryFormComponent } from './Form';
 import { PasswordRecovery } from './Styled';
 

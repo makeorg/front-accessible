@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButton, SmallRedButton } from 'Src/components/Elements/ButtonElements';
-import { BackgroundColors, BasicColors } from 'Src/assets/vars/Colors';
-import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
+import { UnstyledButton, SmallRedButton } from 'Client/ui/Elements/ButtonElements';
+import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 
 export const BackArrow = styled(UnstyledButton)`
   position: absolute;

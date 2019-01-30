@@ -9,10 +9,10 @@ import {
   IconInButton,
   ButtonsWrapper,
   SmallButtonsWrapper
-} from 'Src/components/Elements/ButtonElements';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
-import { AltDescription, DescriptionLink } from 'Src/components/Elements/DescriptionElements';
-import * as Separators from 'Src/components/Elements/Separators';
+} from 'Client/ui/Elements/ButtonElements';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import { AltDescription, DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
+import * as Separators from 'Client/ui/Elements/Separators';
 import FacebookAuthentificationButtonComponent
   from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
 import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';

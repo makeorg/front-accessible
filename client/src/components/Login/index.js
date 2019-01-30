@@ -3,10 +3,10 @@ import * as React from 'react';
 import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
 import AuthentificationSocialContainer from 'Src/containers/Authentification/Social';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Src/components/Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from 'Src/components/Elements/Form';
-import * as Separators from 'Src/components/Elements/Separators';
-import { RedLinkButton } from 'Src/components/Elements/ButtonElements';
+import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import { ExtraParagraph, ExtraAltParagraph } from 'Client/ui/Elements/Form';
+import * as Separators from 'Client/ui/Elements/Separators';
+import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
 import LoginFormComponent from './Form';
 import Login from './Styled';
 

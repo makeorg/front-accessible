@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { CookieBannerContainer } from 'Src/containers/Cookie';
-import MainHeaderContainer from 'Src/containers/MainHeader';
-import PannelContainer from 'Src/containers/Pannel';
 
-import ModernNormalizeStylesheet from 'Src/assets/css-in-js/ModernNormalize';
-import { FontFacesStylesheet } from 'Src/assets/css-in-js/FontFaces';
-import DefaultStylesheet from 'Src/assets/css-in-js/DefaultStyle';
-import AnimationsStylesheet from 'Src/assets/css-in-js/Animations';
-import { UIThemeStylesheet } from 'Src/assets/css-in-js/UITheme';
-import { AppWrapper, MainContent } from 'Src/components/Elements/MainElements';
-import { NotificationContainer } from 'Src/containers/Notification';
-import { MainFooterComponent } from 'Src/components/MainFooter';
+import ModernNormalizeStylesheet from 'Client/app/assets/css-in-js/ModernNormalize';
+import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
+import DefaultStylesheet from 'Client/app/assets/css-in-js/DefaultStyle';
+import AnimationsStylesheet from 'Client/app/assets/css-in-js/Animations';
+import { UIThemeStylesheet } from 'Client/app/assets/css-in-js/UITheme';
+import { AppWrapper, MainContent } from 'Client/app/Styled/MainElements';
+import { Notification } from './Notification';
+import { CookieBanner } from './CookieBanner';
+import { MainHeader } from './MainHeader';
+import { MainFooter } from './MainFooter';
+import { Pannel } from './Pannel';
 import { Routes } from './Routes';
 import ErrorBoundary from './Error';
 
@@ -25,14 +25,14 @@ export const AppContainer = () => (
       <DefaultStylesheet />
       <AnimationsStylesheet />
       <UIThemeStylesheet />
-      <CookieBannerContainer />
-      <MainHeaderContainer />
+      <CookieBanner />
+      <MainHeader />
       <MainContent role="main">
-        <NotificationContainer />
+        <Notification />
         <Routes />
-        <PannelContainer />
+        <Pannel />
       </MainContent>
-      <MainFooterComponent />
+      <MainFooter />
     </AppWrapper>
   </ErrorBoundary>
 );

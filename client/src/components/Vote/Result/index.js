@@ -2,7 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { VotesPercentObject } from 'Shared/types/proposal';
-import { HiddenItem } from 'Src/components/Elements/HiddenElements';
+import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
 import ResultItemContainer from 'Src/containers/Vote/Result/Item';
 import voteStaticParams from 'Shared/constants/vote';
 import VoteButtonComponent from '../Button';

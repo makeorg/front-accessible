@@ -4,14 +4,14 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import type { ErrorObject } from 'Shared/types/form';
-import { SmallRedButton, IconInButton } from 'Src/components/Elements/ButtonElements';
+import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Src/components/Elements/Form';
+} from 'Client/ui/Elements/Form';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Src/components/Elements/Form/UntypedInput';
+import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
 import ForgotPassword from '../Styled';
 
 type Props = {

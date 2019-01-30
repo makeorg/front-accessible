@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UnstyledList } from 'Src/components/Elements/ListElements';
+import { UnstyledList } from 'Client/ui/Elements/ListElements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,

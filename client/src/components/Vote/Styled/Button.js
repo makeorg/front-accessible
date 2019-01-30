@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledList } from 'Src/components/Elements/ListElements';
-import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonList = styled(UnstyledList)`
   display: flex;

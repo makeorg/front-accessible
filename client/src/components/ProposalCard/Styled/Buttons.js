@@ -6,10 +6,10 @@ import {
   IconInButton,
   SmallRedButton,
   SmallGreyButton
-} from 'Src/components/Elements/ButtonElements';
-import { BackgroundColors, BasicColors, TextColors } from 'Src/assets/vars/Colors';
-import { MakeFonts } from 'Src/assets/vars/Fonts';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+} from 'Client/ui/Elements/ButtonElements';
+import { BackgroundColors, BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const BackButtonWrapper = styled.div`
   position: absolute;

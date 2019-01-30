@@ -1,9 +1,9 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { PageWrapper, PageContainer } from 'Src/components/Elements/MainElements';
+import { PageWrapper, PageContainer } from 'Client/app/Styled/MainElements';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { CALC_RECOVERY_HEIGHT_MOBILE, CALC_RECOVERY_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
 
 

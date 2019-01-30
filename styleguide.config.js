@@ -29,7 +29,7 @@ module.exports = {
     }
   ],
   pagePerSection: true,
-  ignore: ['client/src/components/**/Styled/*.js', 'client/src/components/Elements/**/*.js'],
+  ignore: ['client/src/components/**/Styled/*.js', 'client/app/ui/Elements/**/*.js'],
   ribbon: {
     url: 'https://gitlab.com/makeorg/platform/front-accessible',
     text: 'Fork me on GitLab'

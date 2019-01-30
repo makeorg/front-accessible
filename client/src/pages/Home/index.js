@@ -2,7 +2,7 @@
 
 import React from 'react';
 import MetaTags from 'Src/components/MetaTags';
-import { PageWrapper } from 'Src/components/Elements/MainElements';
+import { PageWrapper } from 'Client/app/Styled/MainElements';
 
 const HomePage = () => (
   <PageWrapper>

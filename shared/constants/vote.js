@@ -1,7 +1,7 @@
 // @flow
 import i18next from 'i18next';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
-import { VoteColors } from 'Src/assets/vars/Colors';
+import { VoteColors } from 'Client/app/assets/vars/Colors';
 
 export const VOTE_AGREE_KEY: string = 'agree';
 export const VOTE_DISAGREE_KEY: string = 'disagree';

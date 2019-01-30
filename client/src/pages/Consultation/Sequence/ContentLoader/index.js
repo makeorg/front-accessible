@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ProposalSubmitContainer from 'Src/containers/ProposalSubmit';
 import SequenceContainer from 'Src/containers/Sequence';
-import SpinnerComponent from 'Src/components/Spinner';
+import SpinnerComponent from 'Client/ui/Spinner';
 import { SequencePageContent, SequencePageInnerContent } from '../Styled';
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 /**
  * Renders SequenceContainerLoader
  */
-export const SequencePageContentLoader = (props:Props) => {
+export const SequencePageContentLoader = (props: Props) => {
   const {
     question,
     questionConfiguration,

@@ -3,8 +3,8 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { Description, AltDescription, DescriptionLink } from 'Src/components/Elements/DescriptionElements';
-import { IconInButton } from 'Src/components/Elements/ButtonElements';
+import { Description, AltDescription, DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
+import { IconInButton } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
 import { DescriptionWrapper } from '../Styled';
 

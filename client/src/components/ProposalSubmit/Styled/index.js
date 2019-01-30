@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BasicColors, BorderColors } from 'Src/assets/vars/Colors';
-import { Breakpoints, Layouts } from 'Src/assets/vars/Breakpoints';
+import { BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
   InputWrapper,
   Label,

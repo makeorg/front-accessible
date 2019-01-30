@@ -2,7 +2,7 @@
 import * as React from 'react';
 import type { PartnerItem } from 'Shared/types/card';
 import i18next from 'i18next';
-import { MiddleRow } from 'Src/components/Elements/FlexElements';
+import { MiddleRow } from 'Client/ui/Elements/FlexElements';
 import ProposalCard from '../../Styled';
 
 type ListProps = {

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints, Layouts, DefaultPadding } from 'Src/assets/vars/Breakpoints';
-import { BackgroundColors, MakeThemeColors } from 'Src/assets/vars/Colors';
-import { MiddleColumn } from 'Src/components/Elements/FlexElements';
-import { SecondLevelTitle } from 'Src/components/Elements/TitleElements';
+import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import { BackgroundColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
+import { SecondLevelTitle } from 'Client/ui/Elements/TitleElements';
 
 export const NotFoundPageContent = styled(MiddleColumn)`
   width: 100%;

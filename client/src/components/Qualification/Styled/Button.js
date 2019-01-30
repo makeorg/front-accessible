@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { MakeFonts } from 'Src/assets/vars/Fonts';
-import { BasicColors, ShadowColors } from 'Src/assets/vars/Colors';
-import { Breakpoints } from 'Src/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const Button = styled.button`
   display: flex;

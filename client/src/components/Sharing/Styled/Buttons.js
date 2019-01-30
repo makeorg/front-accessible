@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { UnstyledButton } from 'Src/components/Elements/ButtonElements';
-import { BasicColors, SocialNetworksColors } from 'Src/assets/vars/Colors';
+import { UnstyledButton } from 'Client/ui/Elements/ButtonElements';
+import { BasicColors, SocialNetworksColors } from 'Client/app/assets/vars/Colors';
 import { pxToRem } from 'Shared/helpers/styled';
 
 export const SharingButton = styled(UnstyledButton)`

@@ -8,9 +8,9 @@ import {
   IconInButton,
   SmallButtonsWrapper,
   RedLinkButton
-} from 'Src/components/Elements/ButtonElements';
-import { CenterColumn } from 'Src/components/Elements/FlexElements';
-import { ExtraAltParagraph } from 'Src/components/Elements/Form';
+} from 'Client/ui/Elements/ButtonElements';
+import { CenterColumn } from 'Client/ui/Elements/FlexElements';
+import { ExtraAltParagraph } from 'Client/ui/Elements/Form';
 import FacebookAuthentificationButtonComponent
   from 'Src/components/Authentification/Social/FacebookAuthentification/Button';
 import GoogleAuthentificationButtonComponent from 'Src/components/Authentification/Social/GoogleAuthentification/Button';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints, DefaultPadding } from 'Src/assets/vars/Breakpoints';
+import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 
 export const ProposalPageContent = styled.div`
   width: 100%;
