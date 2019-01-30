@@ -30,8 +30,8 @@ export default function proposal(state: Object = initialState.proposal, action: 
         content: '',
         length: getBaitText().length,
         hasProposed: true,
-        questionId: null,
-        error: null
+        questionId: undefined,
+        error: undefined
       };
     case actionTypes.PROPOSE_FAILURE:
       return {

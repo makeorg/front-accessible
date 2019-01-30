@@ -1,12 +1,15 @@
-export const initialState = {
+// @flow
+import type { StateRoot } from './types';
+
+export const initialState: StateRoot = {
   proposal: {
     isTyping: false,
     canSubmit: false,
     hasProposed: false,
     isCurrentSubmitSuccess: false,
     content: '',
-    questionId: null,
-    error: null
+    questionId: undefined,
+    error: undefined
   },
   sequence: {
     isSequenceCollapsed: false,

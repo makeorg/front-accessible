@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initialState snapshot 1`] = `
+Object {
+  "notification": Object {
+    "contentType": undefined,
+  },
+  "proposal": Object {
+    "canSubmit": false,
+    "content": "",
+    "error": undefined,
+    "hasProposed": false,
+    "isCurrentSubmitSuccess": false,
+    "isTyping": false,
+    "questionId": undefined,
+  },
+  "sequence": Object {
+    "firstProposal": undefined,
+    "isSequenceCollapsed": false,
+    "question": undefined,
+    "questionConfiguration": undefined,
+    "votedProposalIds": Array [],
+  },
+  "user": Object {
+    "passwordRecovery": Object {
+      "error": false,
+      "errorMessage": undefined,
+      "newPassword": undefined,
+      "resetToken": undefined,
+      "updated": false,
+      "userId": undefined,
+    },
+  },
+}
+`;

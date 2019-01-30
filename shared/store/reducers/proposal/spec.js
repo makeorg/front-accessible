@@ -11,8 +11,8 @@ describe('Proposal reducer', () => {
       hasProposed: false,
       canSubmit: false,
       content: '',
-      questionId: null,
-      error: null
+      questionId: undefined,
+      error: undefined
     };
 
     expect(proposal(undefined, {})).toEqual(expectedState);
@@ -30,18 +30,18 @@ describe('Proposal reducer', () => {
         canSubmit: false,
         content: '',
         length: 0,
-        questionId: null,
-        error: null
+        questionId: undefined,
+        error: undefined
       };
 
       const expectedState = {
         isTyping: true,
         isCurrentSubmitSuccess: false,
         canSubmit: true,
-        content: content,
-        length: length,
-        questionId: null,
-        error: null
+        content,
+        length,
+        questionId: undefined,
+        error: undefined
       };
 
       expect(proposal(previousState, action)).toEqual(expectedState);
@@ -58,20 +58,20 @@ describe('Proposal reducer', () => {
         isTyping: false,
         isCurrentSubmitSuccess: false,
         canSubmit: true,
-        content: content,
+        content,
         length: 10,
-        questionId: null,
-        error: null
+        questionId: undefined,
+        error: undefined
       };
 
       const expectedState = {
         isTyping: false,
         isCurrentSubmitSuccess: false,
         canSubmit: true,
-        content: content,
+        content,
         length: 10,
         questionId,
-        error: null
+        error: undefined
       };
 
       expect(proposal(previousState, action)).toEqual(expectedState);
@@ -86,7 +86,7 @@ describe('Proposal reducer', () => {
         content: 'il faut foo',
         length: 10,
         questionId: 'bar-operation-id',
-        error: null
+        error: undefined
       };
 
       const expectedState = {
@@ -96,8 +96,8 @@ describe('Proposal reducer', () => {
         canSubmit: false,
         content: '',
         length: 20,
-        questionId: null,
-        error: null
+        questionId: undefined,
+        error: undefined
       };
 
       expect(proposal(previousState, action)).toEqual(expectedState);
@@ -112,7 +112,7 @@ describe('Proposal reducer', () => {
         content: 'il faut foo',
         length: 10,
         questionId: 'bar-question-id',
-        error: null
+        error: undefined
       };
 
       const expectedState = {
