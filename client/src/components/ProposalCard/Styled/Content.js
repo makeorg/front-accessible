@@ -17,6 +17,17 @@ export const ContentWrapper = styled(MiddleColumn)`
   }
 `;
 
+export const ContentSpecialWrapper = styled(ContentWrapper)`
+  height: auto;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    height: 100%;
+  }
+`;
+
+export const FinalCardContentWrapper = styled(MiddleColumnToRow)`
+  width: 100%;
+`;
+
 export const InnerContent = styled(CenterColumn)`
   width: 100%;
 `;
@@ -47,10 +58,6 @@ export const Separator = styled(Small)`
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
   }
-`;
-
-export const FinalCardContentWrapper = styled(MiddleColumnToRow)`
-  width: 100%;
 `;
 
 export const SharingInner = styled(CenterColumn)`

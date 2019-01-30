@@ -21,6 +21,7 @@ import {
   FinalParagraph,
   Separator,
   ContentWrapper,
+  ContentSpecialWrapper,
   InnerContent,
   FinalCardContentWrapper,
   SharingInner,
@@ -76,6 +77,7 @@ ProposalCard.ExtraLogo = ExtraLogo;
 
 /* Contents */
 ProposalCard.ContentWrapper = ContentWrapper;
+ProposalCard.ContentSpecialWrapper = ContentSpecialWrapper;
 ProposalCard.InnerContent = InnerContent;
 ProposalCard.IntroParagraph = IntroParagraph;
 ProposalCard.FinalParagraph = FinalParagraph;
