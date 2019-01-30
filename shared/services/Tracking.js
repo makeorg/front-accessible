@@ -35,13 +35,11 @@ class Tracking {
 
   track = (eventName: string, parameters: Object = {}) => {
     const eventParameters = {
-      ...{
-        location: 'front-accessible',
-        source: ApiService.source,
-        country: ApiService.country,
-        language: ApiService.language,
-        url: PARENT_URL
-      },
+      location: 'front-accessible',
+      source: ApiService.source,
+      country: ApiService.country,
+      language: ApiService.language,
+      url: PARENT_URL,
       ...parameters
     };
 

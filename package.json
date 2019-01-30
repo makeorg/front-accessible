@@ -47,6 +47,7 @@
     "react-router-dom": "~4.3.1",
     "redux": "~4.0.1",
     "redux-thunk": "~2.3.0",
+    "serve-favicon": "^2.5.0",
     "serve-static": "~1.13.2",
     "styled-components": "~4.1.1",
     "ua-parser-js": "^0.7.19",
