@@ -1,18 +1,8 @@
 /* @flow */
 import * as actionTypes from 'Shared/store/actionTypes';
+import { initialState } from 'Shared/store/initialState';
 
-const initalState = {
-  newPassword: undefined,
-  resetToken: undefined,
-  userId: undefined,
-  errorMessage: undefined,
-  error: false,
-  updated: false
-};
-export function passwordRecovery(
-  state: Object = initalState,
-  action: Object
-) {
+export function passwordRecovery(state: Object = initialState.user.passwordRecovery, action: Object) {
   switch (action.type) {
     case actionTypes.PASSWORD_RECOVERY_REQUEST:
       return {
@@ -33,7 +23,7 @@ export function passwordRecovery(
     case actionTypes.PASSWORD_RECOVERY_SUCCESS:
       return {
         ...state,
-        ...initalState,
+        ...initialState.user.passwordRecovery,
         updated: true
       };
     default:

@@ -1,7 +1,11 @@
 import QuestionService from 'Shared/api/QuestionService';
 import SequenceService from 'Shared/api/SequenceService';
+import { initialState } from 'Shared/store/initialState';
+import { getBaitText } from 'Shared/constants/proposal';
+
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logger } from '../logger';
+
 
 const reactRender = require('../reactRender');
 
@@ -25,24 +29,26 @@ module.exports = async function SequenceRoute(req, res) {
 
     const { firstProposal } = req.query;
 
-    let sequenceState = {
+    const routeState = {
       sequence: {
+        ...initialState.proposal,
         question,
-        questionConfiguration,
-        votedProposalIds: []
+        questionConfiguration
+      },
+      proposal: {
+        ...initialState.proposal,
+        length: getBaitText().length
       }
     };
 
     if (firstProposal) {
-      sequenceState = {
-        sequence: {
-          ...sequenceState.sequence,
-          ...{ firstProposal }
-        }
+      routeState.sequence = {
+        ...routeState.sequence,
+        firstProposal
       };
     }
 
-    return reactRender(req, res, sequenceState);
+    return reactRender(req, res, routeState);
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;

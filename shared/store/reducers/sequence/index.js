@@ -1,16 +1,9 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
+import { initialState } from 'Shared/store/initialState';
 
-const initialState: Object = {
-  isSequenceCollapsed: false,
-  firstProposal: null,
-  question: null,
-  questionConfiguration: null,
-  votedProposalIds: []
-};
-
-export default function sequence(state: Object = initialState, action: Object) {
+export default function sequence(state: Object = initialState.sequence, action: Object) {
   switch (action.type) {
     case actionTypes.SEQUENCE_COLLAPSE:
       return {
