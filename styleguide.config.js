@@ -16,20 +16,20 @@ module.exports = {
     {
       name: 'Containers',
       description: 'Containers are used to manage React Elements business logic',
-      components: 'client/src/containers/**/index.js',
+      components: 'client/**/containers/**/index.js',
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
     },
     {
       name: 'Components',
       description: 'Components are used to render React Elements',
-      components: 'client/src/components/**/index.js',
+      components: 'client/**/components/**/index.js',
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
     }
   ],
   pagePerSection: true,
-  ignore: ['client/src/components/**/Styled/*.js', 'client/app/ui/Elements/**/*.js'],
+  ignore: ['client/**/components/**/Styled/*.js', 'client/app/ui/Elements/**/*.js'],
   ribbon: {
     url: 'https://gitlab.com/makeorg/platform/front-accessible',
     text: 'Fork me on GitLab'

@@ -1,5 +1,5 @@
-import HomePage from 'Src/pages/Home';
-import SequencePage from 'Src/pages/Consultation/Sequence';
+import HomePage from 'Client/pages/Home';
+import SequencePage from 'Client/pages/Consultation/Sequence';
 
 export default [
   {

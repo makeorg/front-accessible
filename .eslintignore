@@ -1,6 +1,5 @@
 /dist
 /node_modules
-/client/src/**/*spec.js
 /shared/**/*spec.js
 /test
 /cypress
