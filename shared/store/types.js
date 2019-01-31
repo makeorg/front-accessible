@@ -2,7 +2,7 @@
 import type { Question, QuestionConfiguration } from 'Shared/types/sequence';
 
 // Proposal State
-type StateProposal = {
+type StateProposal = $ReadOnly<{
   isTyping: boolean,
   canSubmit: boolean,
   hasProposed: boolean,
@@ -10,41 +10,41 @@ type StateProposal = {
   content: string,
   questionId?: string,
   error?: string
-}
+}>
 
 // Sequence State
-type StateSequence = {
+type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
   question?: Question,
   questionConfiguration?: QuestionConfiguration,
   votedProposalIds?: Array<string>
-}
+}>
 
 // Notification State
-type StateNotification = {
+type StateNotification = $ReadOnly<{
   contentType?: string
-}
+}>
 
 // User Password Recovery State
-type StateUserPasswordRecovery = {
+type StateUserPasswordRecovery = $ReadOnly<{
   newPassword?: string,
   resetToken?: string,
   userId?: string,
   errorMessage?: string,
   error: boolean,
   updated: boolean
-}
+}>
 
 // User State
-type StateUser = {
+type StateUser = $ReadOnly<{
   passwordRecovery: StateUserPasswordRecovery
-}
+}>
 
 // All state
-export type StateRoot = {
+export type StateRoot = $ReadOnly<{
   proposal: StateProposal,
   sequence: StateSequence,
   notification: StateNotification,
   user: StateUser
-}
+}>
