@@ -32,7 +32,7 @@ module.exports = async function SequenceRoute(req, res) {
 
     const routeState = {
       sequence: {
-        ...initialState.proposal,
+        ...initialState.sequence,
         question,
         questionConfiguration
       },
