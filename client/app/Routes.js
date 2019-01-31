@@ -5,20 +5,10 @@ import SequencePage from 'Client/pages/Consultation/Sequence';
 import ProposalPage from 'Client/pages/Proposal';
 import { PasswordRecoveryPage } from 'Client/pages/PasswordRecovery';
 import NotFoundPage from 'Client/pages/NotFound';
-import HomePage from 'Client/pages/Home';
 import { AccountActivationPage } from 'Client/pages/AccountActivation';
 
 export const Routes = () => (
   <Switch>
-    <Route
-      path="/404"
-      component={NotFoundPage}
-    />
-    <Route
-      exact
-      path="/:countryLanguage"
-      component={HomePage}
-    />
     <Route
       path="/:countryLanguage/consultation/:questionSlug/selection"
       component={SequencePage}
@@ -35,4 +25,5 @@ export const Routes = () => (
       path="/:countryLanguage/password-recovery/:userId/:resetToken"
       component={PasswordRecoveryPage}
     />
+    <Route component={NotFoundPage} />
   </Switch>);
