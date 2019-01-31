@@ -5,7 +5,7 @@ import * as trackingConstants from 'Shared/constants/tracking';
 import Logger from 'Shared/services/Logger';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
-import FacebookTracking from './Trackers/FacebookTracking';
+import { FacebookTracking } from './Trackers/FacebookTracking';
 import TwitterTracking from './Trackers/TwitterTracking';
 
 const
@@ -63,13 +63,11 @@ class Tracking {
 
   trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
     const eventParameters = {
-      ...{
-        source: ApiService.source,
-        country: ApiService.country,
-        language: ApiService.language,
-        url: PARENT_URL,
-        location: trackingConstants.LOCATION_SEQUENCE
-      },
+      source: ApiService.source,
+      country: ApiService.country,
+      language: ApiService.language,
+      url: PARENT_URL,
+      location: trackingConstants.LOCATION_SEQUENCE,
       ...parameters
     };
 
@@ -242,7 +240,7 @@ class Tracking {
 
     this.track(eventName, {
       ...params,
-      ...{ nature }
+      nature
     });
     this.trackFacebookPixel(eventName, params);
     this.trackTwitter(eventName);
@@ -264,7 +262,7 @@ class Tracking {
 
     this.track(eventName, {
       ...params,
-      ...{ nature }
+      nature
     });
     this.trackFacebookPixel(eventName, params);
     this.trackTwitter(eventName);

@@ -6,7 +6,7 @@ import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { AppContainer } from 'Client/app';
-import FacebookTracking from 'Shared/services/Trackers/FacebookTracking';
+import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import TwitterTracking from 'Shared/services/Trackers/TwitterTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
@@ -49,7 +49,7 @@ i18next.init({
   }
 });
 
-FacebookTracking.init('260470104426586');
+FacebookTracking.init();
 TwitterTracking.init('o16m6');
 
 const store = configureStore(initialState);
