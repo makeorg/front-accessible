@@ -5,11 +5,14 @@ import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
+import deepFreeze from 'deep-freeze';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
 import { AppContainer } from 'Client/app';
-import { createInitialState } from 'Shared/store/initialState';
+import { createInitialState, initialState } from 'Shared/store/initialState';
 import i18next from './i18n';
+
+deepFreeze(initialState);
 
 const fs = require('fs');
 const path = require('path');
@@ -44,9 +47,8 @@ module.exports = function reactRender(req, res, routeState = {}) {
   const { country, language } = req.params;
 
   const tradLanguage = `${language}-${country}`;
-  const initialState = createInitialState();
   const state = {
-    ...initialState,
+    ...createInitialState(),
     appConfig: {
       source: 'core',
       language,
