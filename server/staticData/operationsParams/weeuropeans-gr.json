@@ -34,8 +34,7 @@
     "color": "#3839ca",
     "gradient-start": "#3839ca",
     "gradient-end": "#3839ca",
-    "footerFontColor": "white",
-    "weEuropeansTheme": true
+    "footerFontColor": "white"
   },
   "consultationUrl": "https://weeuropeans.eu/gr/el/about",
   "aboutUrl": "https://weeuropeans.eu/gr/el/about",
@@ -64,5 +63,8 @@
     "gender": false,
     "hiddenOptOut": false,
     "partnerOptin": false
+  },
+  "footer": {
+    "sentence": "We Europeans, μέσω MAKE.ORG και CIVICO Europa"
   }
 }

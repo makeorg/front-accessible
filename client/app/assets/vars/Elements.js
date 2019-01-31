@@ -3,6 +3,6 @@ export const Elements = {
   HeaderHeightDesktop: 75,
   FooterHeightMobile: 96,
   FooterHeightDesktop: 48,
-  SequenceFooterHeightMobile: 91,
-  SequenceFooterHeightDesktop: 78
+  SequenceFooterHeightMobile: 74,
+  SequenceFooterHeightDesktop: 87
 };

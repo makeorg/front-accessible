@@ -15,6 +15,7 @@ import {
   FooterNav,
   FooterTitle,
   FooterLink,
+  TitleInner,
   InPartnershipWith
 } from './Footer';
 
@@ -41,6 +42,7 @@ Sequence.BackButton = BackButton;
 Sequence.Footer = Footer;
 Sequence.FooterNav = FooterNav;
 Sequence.FooterTitle = FooterTitle;
+Sequence.TitleInner = TitleInner;
 Sequence.FooterLink = FooterLink;
 Sequence.InPartnershipWith = InPartnershipWith;
 

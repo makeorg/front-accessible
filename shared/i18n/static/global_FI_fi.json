@@ -204,6 +204,9 @@
         "picture": ""
       }
     },
+    "footer":  {
+      "sentence" : "We Europeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
+    },
     "sequenceExtraSlidesWording": {
       "introCard": {
         "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",

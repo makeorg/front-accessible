@@ -204,6 +204,9 @@
         "picture": ""
       }
     },
+    "footer":  {
+      "sentence" : "We Europeans, naudojant MAKE.ORG ir CIVICO Europa"
+    },
     "sequenceExtraSlidesWording": {
       "introCard":  {
         "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
