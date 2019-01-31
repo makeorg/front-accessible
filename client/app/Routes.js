@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import SequencePage from 'Src/pages/Consultation/Sequence';
-import ProposalPage from 'Src/pages/Proposal';
-import { PasswordRecoveryPage } from 'Src/pages/PasswordRecovery';
-import NotFoundPage from 'Src/pages/NotFound';
-import HomePage from 'Src/pages/Home';
-import { AccountActivationPage } from 'Src/pages/AccountActivation';
+import SequencePage from 'Client/pages/Consultation/Sequence';
+import ProposalPage from 'Client/pages/Proposal';
+import { PasswordRecoveryPage } from 'Client/pages/PasswordRecovery';
+import NotFoundPage from 'Client/pages/NotFound';
+import HomePage from 'Client/pages/Home';
+import { AccountActivationPage } from 'Client/pages/AccountActivation';
 
 export const Routes = () => (
   <Switch>
