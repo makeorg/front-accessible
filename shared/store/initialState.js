@@ -32,3 +32,5 @@ export const initialState: StateRoot = {
     }
   }
 };
+
+export const createInitialState = () => JSON.parse(JSON.stringify(initialState));
