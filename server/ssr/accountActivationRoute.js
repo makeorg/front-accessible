@@ -2,7 +2,7 @@ import UserService from 'Shared/api/UserService';
 import QuestionService from 'Shared/api/QuestionService';
 import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
-import { initialState } from 'Shared/store/initialState';
+import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 
 const reactRender = require('../reactRender');
@@ -16,7 +16,7 @@ async function postAccountActivation(userId: string, verificationToken: string) 
 }
 
 module.exports = async function AccountActivationRoute(req, res) {
-  const routeState = initialState;
+  const routeState = createInitialState();
   try {
     const { verificationToken, userId } = req.params;
     const status = await postAccountActivation(userId, verificationToken);

@@ -1,6 +1,6 @@
 import QuestionService from 'Shared/api/QuestionService';
 import SequenceService from 'Shared/api/SequenceService';
-import { initialState } from 'Shared/store/initialState';
+import { createInitialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
 
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
@@ -19,6 +19,7 @@ async function getQuestionConfiguration(questionSlug) {
 
 module.exports = async function SequenceRoute(req, res) {
   try {
+    const initialState = createInitialState();
     const { questionSlug } = req.params;
     const question = await getQuestion(questionSlug);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);

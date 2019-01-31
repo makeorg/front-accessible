@@ -1,6 +1,6 @@
 import ProposalService from 'Shared/api/ProposalService';
 import SequenceService from 'Shared/api/SequenceService';
-import { initialState } from 'Shared/store/initialState';
+import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 
 const reactRender = require('../reactRender');
@@ -15,6 +15,7 @@ async function getQuestionConfiguration(questionSlug) {
 
 module.exports = async function ProposalRoute(req, res) {
   try {
+    const initialState = createInitialState();
     const { proposalId, questionSlug } = req.params;
     const proposal = await getProposal(proposalId);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);

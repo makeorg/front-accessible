@@ -8,7 +8,7 @@ import { HeadProvider } from 'react-head';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
 import { AppContainer } from 'Client/app';
-import { initialState } from 'Shared/store/initialState';
+import { createInitialState } from 'Shared/store/initialState';
 import i18next from './i18n';
 
 const fs = require('fs');
@@ -44,7 +44,7 @@ module.exports = function reactRender(req, res, routeState = {}) {
   const { country, language } = req.params;
 
   const tradLanguage = `${language}-${country}`;
-
+  const initialState = createInitialState();
   const state = {
     ...initialState,
     appConfig: {
