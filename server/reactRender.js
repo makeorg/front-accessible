@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ChunkExtractor } from '@loadable/server';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -19,14 +20,21 @@ const path = require('path');
 const { BUILD_DIR } = require('./paths');
 const configuration = require('./configuration.js');
 
+const statsFile = path.resolve(__dirname, '..', 'dist', 'loadable-stats.json');
+
 const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
 
 const renderHtml = (reactApp, reduxStore, metaTags) => {
+  const extractor = new ChunkExtractor({ statsFile });
   const { apiUrl, frontUrl } = configuration;
   const sheet = new ServerStyleSheet();
-  const body = ReactDOMServer.renderToString(sheet.collectStyles(reactApp));
+
+  const jsx = extractor.collectChunks(reactApp);
+
+  const body = ReactDOMServer.renderToString(sheet.collectStyles(jsx));
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
+  const scriptTags = extractor.getScriptTags();
 
   if (!htmlContent) {
     return false;
@@ -39,7 +47,8 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     .replace('"__REDUX__"', JSON.stringify(reduxState))
     .replace('__LANG__', reduxState.appConfig.language)
     .replace('__API_URL__', apiUrl)
-    .replace('__FRONT_URL__', frontUrl);
+    .replace('__FRONT_URL__', frontUrl)
+    .replace('</body>', `${scriptTags}</body>`);
 };
 
 

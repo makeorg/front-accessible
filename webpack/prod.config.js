@@ -33,7 +33,7 @@ module.exports = merge(baseConfig, {
         }
       })
     ],
-    runtimeChunk: true,
+    runtimeChunk: false, // runtimeChunk + inlineSource is not compatible with loadable-component for now
     splitChunks: {
       cacheGroups: {
         default: false,
