@@ -81,8 +81,6 @@ const frontMiddlewares = [
 
 // Front Routes
 app.get('/version', renderVersion);
-app.get('/404', cookiesHandlerMiddleware, defaultRoute);
-app.get('/', countryLanguageMiddleware);
 app.get('/:countryLanguage', frontMiddlewares, defaultRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
@@ -103,4 +101,5 @@ app.get(
   passwordRecoveryRoute
 );
 
+app.get('*', frontMiddlewares, defaultRoute);
 module.exports = app;
