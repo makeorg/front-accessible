@@ -4,17 +4,17 @@ import ApiService from 'Shared/api/ApiService';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
 import Tracking from './Tracking';
-import FacebookTracking from './Trackers/FacebookTracking';
+import { FacebookTracking } from './Trackers/FacebookTracking';
 import TwitterTracking from './Trackers/TwitterTracking';
 
 describe('Tracking Service', () => {
-  beforeEach(function () {
+  beforeEach(() => {
     jest.spyOn(Tracking, 'track');
     jest.spyOn(FacebookTracking, 'trackCustom');
     jest.spyOn(TwitterTracking, 'track');
   });
 
-  afterEach(function () {
+  afterEach(() => {
     Tracking.track.mockRestore();
     FacebookTracking.trackCustom.mockRestore();
     TwitterTracking.track.mockRestore();
@@ -34,13 +34,13 @@ describe('Tracking Service', () => {
         url: 'http://localhost/',
         ...eventParams
       },
-      eventType: 'trackCustom',
+      eventType: 'trackCustom'
     });
 
     jest.spyOn(ApiService, 'callApi');
 
     Tracking.track(eventName, eventParams);
-    expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_POST_TRACKING, { body: expectedBody, method: 'POST' })
+    expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_POST_TRACKING, { body: expectedBody, method: 'POST' });
   });
 
   it('track DisplaySequence', () => {
@@ -52,17 +52,19 @@ describe('Tracking Service', () => {
 
 
   it('track trackFacebookPixel', () => {
-    Tracking.trackFacebookPixel("eventName");
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, "eventName", { "country": "foo", "language": "foo", "location": "sequence", "source": "foo", "url": "http://localhost/" });
+    Tracking.trackFacebookPixel('eventName');
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, 'eventName', {
+      country: 'foo', language: 'foo', location: 'sequence', source: 'foo', url: 'http://localhost/'
+    });
   });
 
   it('track trackTwitter', () => {
-    Tracking.trackTwitter("eventName");
-    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, "eventName");
+    Tracking.trackTwitter('eventName');
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, 'eventName');
   });
 
   it('track ClickMakeLogo', () => {
-    Tracking.track.mockRestore()
+    Tracking.track.mockRestore();
     jest.spyOn(Tracking, 'track');
 
     Tracking.trackClickMakeLogo();
@@ -262,8 +264,8 @@ describe('Tracking Service', () => {
 
     Tracking.trackUnvote('foo', 'bar', undefined);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNVOTE, {
-      'proposalId': 'foo',
-      'nature': 'bar',
+      proposalId: 'foo',
+      nature: 'bar',
       'card-position': 'single-proposal'
     });
   });
@@ -273,9 +275,9 @@ describe('Tracking Service', () => {
 
     Tracking.trackQualify('foo', 'baz', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_QUALIFY, {
-      'proposalId': 'foo',
-      'type': 'baz',
-      'nature': 'bar',
+      proposalId: 'foo',
+      type: 'baz',
+      nature: 'bar',
       'card-position': '999'
     });
   });
@@ -285,15 +287,14 @@ describe('Tracking Service', () => {
 
     Tracking.trackUnqualify('foo', 'baz', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNQUALIFY, {
-      'proposalId': 'foo',
-      'type': 'baz',
-      'nature': 'bar',
+      proposalId: 'foo',
+      type: 'baz',
+      nature: 'bar',
       'card-position': '999'
     });
   });
 
   it('track Click Consultation', () => {
-
     jest.spyOn(Tracking, 'track');
 
     Tracking.trackClickConsultation();

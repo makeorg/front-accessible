@@ -1,5 +1,11 @@
 /* @flow */
 import { env } from 'Shared/env';
+import { fbq } from './fbq';
+
+const makePixelId: string = '260470104426586';
+const weEuropeansPixelId: string = '387088288517542';
+
+const weeuropeansquestionRegex = new RegExp(/weeuropeans-[a-z]+/);
 
 let initialized: boolean = false;
 
@@ -10,7 +16,7 @@ type FacebookEventParams = {
   country: string,
   language: string,
   referer?: string,
-  question?: string,
+  question: string,
   cardPosition?: string,
   sequenceId?: string,
   proposalId?: string,
@@ -25,31 +31,12 @@ const isInitialized = (): boolean => {
   return initialized;
 };
 
-export default {
-  init(pixelId: string): void {
-    /* eslint-disable */
-    // $FlowFixMe
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      // $FlowFixMe
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    /* eslint-enable */
-
-    if (pixelId) {
-      // $FlowFixMe
-      fbq('init', pixelId); // eslint-disable-line no-undef
-      initialized = true;
-    } else {
-      console.error('FacebookTracking.init(convId) missing pixelId.');
-    }
+export const FacebookTracking = {
+  init(): void {
+    fbq.load();
+    fbq.track('init', makePixelId);
+    fbq.track('init', weEuropeansPixelId);
+    initialized = true;
   },
 
   pageView(): void {
@@ -61,23 +48,7 @@ export default {
       return;
     }
 
-    // $FlowFixMe
-    fbq('track', 'PageView'); // eslint-disable-line no-undef
-  },
-
-  track(eventName: string, eventParameters: FacebookEventParams): void {
-    if (!isInitialized()) {
-      return;
-    }
-
-
-    if (env.isDev()) {
-      console.info(`Tracking Facebook: event ${eventName} params ${JSON.stringify(eventParameters)}`);
-      return;
-    }
-
-    // $FlowFixMe
-    fbq('track', title, eventParameters); // eslint-disable-line no-undef
+    fbq.track('track', 'PageView');
   },
 
   trackCustom(eventName: string, eventParameters: FacebookEventParams): void {
@@ -85,12 +56,18 @@ export default {
       return;
     }
 
+    const isWeeuropeans = eventParameters.question && weeuropeansquestionRegex.test(eventParameters.question);
     if (env.isDev()) {
-      console.info(`Tracking Facebook: event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      console.info(`Tracking Custom Facebook (${makePixelId}): event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      if (isWeeuropeans) {
+        console.info(`Tracking Custom Facebook (${weEuropeansPixelId}): event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      }
       return;
     }
 
-    // $FlowFixMe
-    fbq('trackCustom', eventName, eventParameters); // eslint-disable-line no-undef
+    fbq.track('trackSingleCustom', makePixelId, eventName, eventParameters);
+    if (isWeeuropeans) {
+      fbq.track('trackSingleCustom', weEuropeansPixelId, eventName, eventParameters);
+    }
   }
 };
