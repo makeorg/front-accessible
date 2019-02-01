@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
-import { InputErrorMessage } from 'Client/ui/Elements/Form';
-import PasswordInput from 'Client/ui/Elements/Form/PasswordInput';
+import { InputErrorMessage } from 'Client/ui/Elements/Form/Styled';
+import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
+import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
+import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
 import { PasswordRecoveryStyle } from '../Styled';
 
 type Props = {
@@ -41,7 +41,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
   } = props;
 
   return (
-    <PasswordRecoveryStyle.Form id="password_recovery" onSubmit={handleSubmit}>
+    <PasswordRecoveryStyle.Form id={PASSWORD_RECOVERY_FORMNAME} onSubmit={handleSubmit}>
       <PasswordInput
         type="password"
         name="password"
@@ -56,16 +56,11 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
       {error && <InputErrorMessage id="authentification-email-error">{errorMessage}</InputErrorMessage>}
-      <SmallRedButton
-        type="submit"
-        form="password_recovery"
-        tabIndex={0}
-      >
-        <IconInButton>
-          <FontAwesomeIcon icon={faPaperPlane} />
-        </IconInButton>
-        {i18next.t('reset_password.send_cta')}
-      </SmallRedButton>
+      <SubmitButton
+        formName={PASSWORD_RECOVERY_FORMNAME}
+        icon={faPaperPlane}
+        label={i18next.t('reset_password.send_cta')}
+      />
     </PasswordRecoveryStyle.Form>
   );
 };

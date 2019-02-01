@@ -1,18 +1,15 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import Spinner from './Styled';
+import * as SpinnerElement from './Styled';
 
-const SpinnerComponent = () => (
-  <Spinner>
-    <Spinner.Wrapper aria-label={i18next.t('common.loading')}>
-      <Spinner.FirstRing aria-hidden />
-      <Spinner.SecondRing aria-hidden />
-      <Spinner.ThirdRing aria-hidden />
-      <Spinner.FourthRing aria-hidden />
-    </Spinner.Wrapper>
-  </Spinner>
+export const Spinner = () => (
+  <SpinnerElement.Container>
+    <SpinnerElement.Wrapper aria-label={i18next.t('common.loading')}>
+      <SpinnerElement.FirstRing aria-hidden />
+      <SpinnerElement.SecondRing aria-hidden />
+      <SpinnerElement.ThirdRing aria-hidden />
+      <SpinnerElement.FourthRing aria-hidden />
+    </SpinnerElement.Wrapper>
+  </SpinnerElement.Container>
 );
-
-
-export default SpinnerComponent;

@@ -3,11 +3,11 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
-import { ExtraAltParagraph } from 'Client/ui/Elements/Form';
+import { ExtraAltParagraph } from 'Client/ui/Elements/Form/Styled';
 import { SecondLevelTitle, FourthLevelTtitle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
-import ForgotPasswordFormComponent from './Form';
+import { ForgotPasswordFormComponent } from './Form';
 import ForgotPassword from './Styled';
 
 type Props = {

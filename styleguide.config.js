@@ -9,27 +9,25 @@ module.exports = {
       content: 'docs/introduction.md'
     },
     {
-      name: 'Installation & Commands',
+      name: 'Installation',
       content: 'docs/installation.md',
       description: 'How to install Make.org Front End & useful command lines'
     },
     {
-      name: 'Containers',
-      description: 'Containers are used to manage React Elements business logic',
-      components: 'client/**/containers/**/index.js',
-      exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
-      usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
+      name: 'Standards',
+      content: 'docs/standards.md',
+      description: 'Code standards used on Make.org Front End'
     },
     {
-      name: 'Components',
-      description: 'Components are used to render React Elements',
-      components: 'client/**/components/**/index.js',
+      name: 'UI',
+      description: 'UI',
+      components: 'client/ui/**/index.js',
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
     }
   ],
   pagePerSection: true,
-  ignore: ['client/**/components/**/Styled/*.js', 'client/app/ui/Elements/**/*.js'],
+  ignore: ['client/ui/**/Styled/*.js'],
   ribbon: {
     url: 'https://gitlab.com/makeorg/platform/front-accessible',
     text: 'Fork me on GitLab'
@@ -48,7 +46,17 @@ module.exports = {
       linkHover: 'rgb(232, 24, 68)',
       name: 'rgb(37, 49, 134)',
       type: 'rgb(232, 24, 68)',
-      error: 'rgb(232, 24, 68)'
+      error: 'rgb(232, 24, 68)',
+      codeComment: '#6d6d6d',
+      codePunctuation: '#999',
+      codeProperty: '#905',
+      codeDeleted: '#905',
+      codeString: '#690',
+      codeInserted: '#690',
+      codeOperator: '#9a6e3a',
+      codeKeyword: '#1673b1',
+      codeFunction: '#DD4A68',
+      codeVariable: '#e90'
     },
     fontFamily: {
       base: '"Helvetica Neue", "Roboto", sans-serif'

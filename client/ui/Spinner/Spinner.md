@@ -1,0 +1,4 @@
+##### Spinner Example :
+```js
+  <Spinner />
+```

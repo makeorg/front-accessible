@@ -4,7 +4,7 @@ import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from 'Client/ui/Elements/Form';
+import { ExtraParagraph, ExtraAltParagraph } from 'Client/ui/Elements/Form/Styled';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
 import LoginFormComponent from './Form';

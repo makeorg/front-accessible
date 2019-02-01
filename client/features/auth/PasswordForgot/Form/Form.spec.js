@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ForgotPasswordFormComponent from './index';
+import { ForgotPasswordFormComponent } from './index';
 
 describe('ForgotPasswordFormComponent', () => {
   it('must match the snapshot by default', () => {

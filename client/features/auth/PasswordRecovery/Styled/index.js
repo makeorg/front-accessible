@@ -5,7 +5,7 @@ import { PageWrapper, PageContainer } from 'Client/app/Styled/MainElements';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { CALC_RECOVERY_HEIGHT_MOBILE, CALC_RECOVERY_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { Form } from 'Client/ui/Elements/Form';
+import { Form } from 'Client/ui/Elements/Form/Styled';
 
 export const PasswordRecoveryWrapper = styled(PageWrapper)`
   padding-bottom: 0;

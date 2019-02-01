@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import SpinnerComponent from 'Client/ui/Spinner';
+import { Spinner } from 'Client/ui/Spinner';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { SingleProposalCardComponent } from 'Client/features/proposal/SingleProposalCard';
@@ -22,7 +22,7 @@ export const ProposalPageContentLoader = (props: Props) => {
 
   if (!proposal) {
     return (
-      <SpinnerComponent />
+      <Spinner />
     );
   }
 

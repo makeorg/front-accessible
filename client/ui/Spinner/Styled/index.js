@@ -1,25 +1,53 @@
 /* @flow */
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { pxToRem } from 'Shared/helpers/styled';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
-import {
-  Wrapper,
-  FirstRing,
-  SecondRing,
-  ThirdRing,
-  FourthRing
-} from './Spinner';
 
-const Spinner = styled(MiddleColumn)`
+export const Container = styled(MiddleColumn)`
   width: 100%;
   height: 100%
 `;
 
-/* FooterContent */
-Spinner.Wrapper = Wrapper;
-Spinner.FirstRing = FirstRing;
-Spinner.SecondRing = SecondRing;
-Spinner.ThirdRing = ThirdRing;
-Spinner.FourthRing = FourthRing;
+export const Wrapper = styled.div`
+  display: block;
+  position: relative;
+  width: ${pxToRem('64px')};
+  height: ${pxToRem('64px')};
+  overflow: hidden;
+`;
 
-export default Spinner;
+const Spinning = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const FirstRing = styled.div`
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: ${pxToRem('51px')};
+  height: ${pxToRem('51px')};
+  margin: ${pxToRem('6px')};
+  border: ${pxToRem('6px')} solid ${BackgroundColors.Grey};
+  border-radius: 50%;
+  animation: ${Spinning} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: ${BackgroundColors.Grey} transparent transparent transparent;
+`;
+
+export const SecondRing = styled(FirstRing)`
+  animation-delay: -0.45s;
+`;
+
+export const ThirdRing = styled(FirstRing)`
+  animation-delay: -0.3s;
+`;
+
+export const FourthRing = styled(FirstRing)`
+  animation-delay: -0.15s;
+`;
