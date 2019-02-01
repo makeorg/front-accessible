@@ -5,10 +5,10 @@ import { metricsMiddleware } from './middleware/metrics';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
 import { questionApi } from './api/question';
 import { loggerApi } from './api/logger';
+import * as technicalPages from './technicalPages';
 
 require('./browserPolyfill');
 const express = require('express');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const serveStatic = require('serve-static');
@@ -25,7 +25,6 @@ const {
   BUILD_DIR,
   IMAGES_DIR,
   DOC_DIR,
-  VERSION_PATH,
   FAVICON_PATH
 } = require('./paths');
 
@@ -38,7 +37,6 @@ function setCustomCacheControl(res, path) {
 
 // App
 const app = express();
-
 app.use(compression());
 app.use(bodyParser.json());
 app.use(favicon(FAVICON_PATH));
@@ -63,16 +61,6 @@ app.use('/doc', express.static(DOC_DIR));
 app.get('/api/questions/:questionSlug', questionApi);
 app.post('/api/logger', loggerApi);
 
-const versionData = fs.readFileSync(VERSION_PATH, 'utf8');
-function renderVersion(req, res) {
-  try {
-    res.json(JSON.parse(versionData));
-  } catch (error) {
-    res.status(404).send('Version file not found');
-  }
-}
-
-
 const frontMiddlewares = [
   countryLanguageMiddleware,
   cookiesHandlerMiddleware,
@@ -80,7 +68,8 @@ const frontMiddlewares = [
 ];
 
 // Front Routes
-app.get('/version', renderVersion);
+app.get('/robot.txt', technicalPages.renderRobot);
+app.get('/version', technicalPages.renderVersion);
 app.get('/:countryLanguage', frontMiddlewares, defaultRoute);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/selection',
