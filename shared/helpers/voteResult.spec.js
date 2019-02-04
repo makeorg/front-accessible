@@ -1,7 +1,7 @@
 /* @flow */
 
-import * as VoteResultHelper from './voteResult';
 import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Shared/constants/vote';
+import * as VoteResultHelper from './voteResult';
 
 describe('VoteResult Helper', () => {
   it('test getResultBarIndex', () => {
@@ -15,7 +15,7 @@ describe('VoteResult Helper', () => {
   });
 
   it('test getVotesCount', () => {
-    const votesCount = VoteResultHelper.getVotesCount([{count: 1}, {count: 2}, {count: 3}]);
+    const votesCount = VoteResultHelper.getVotesCount([{ count: 1 }, { count: 2 }, { count: 3 }]);
     expect(votesCount).toBe(6);
   });
 

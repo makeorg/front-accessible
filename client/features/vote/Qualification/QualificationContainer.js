@@ -11,6 +11,8 @@ type Props = {
   qualifications: Array<Object>,
   /** Proposal's Id */
   proposalId: string,
+  /** String containing the hash generate api side for security purpose */
+  proposalKey: string,
   /** Index of the card */
   index?: number,
   /** Tabindex for interactive items */
@@ -45,15 +47,15 @@ export class QualificationContainer extends React.Component<Props, State> {
 
   handleQualification = (event: SyntheticEvent<*>, qualification: Object, voteKey: string) => {
     event.preventDefault();
-    const { proposalId, index } = this.props;
+    const { proposalId, proposalKey, index } = this.props;
     if (qualification.hasQualified) {
-      QualificationService.unqualify(proposalId, voteKey, qualification.qualificationKey)
+      QualificationService.unqualify(proposalId, proposalKey, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
           this.setState(prevState => doUpdateState(prevState, qualificationResult));
         });
       Tracking.trackUnqualify(proposalId, qualification.qualificationKey, voteKey, index);
     } else {
-      QualificationService.qualify(proposalId, voteKey, qualification.qualificationKey)
+      QualificationService.qualify(proposalId, proposalKey, voteKey, qualification.qualificationKey)
         .then((qualificationResult) => {
           this.setState(prevState => doUpdateState(prevState, qualificationResult));
         });

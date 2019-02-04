@@ -75,6 +75,7 @@ export const ProposalCardComponent = (props: Props) => {
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}
+          proposalKey={proposal.proposalKey}
           index={index}
           currentIndex={currentIndex}
           goToNextCard={goToNextCard}

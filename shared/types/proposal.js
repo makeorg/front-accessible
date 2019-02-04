@@ -53,5 +53,6 @@ export type Proposal = {
   myProposal: boolean,
   idea: string,
   questionId: string,
-  operationId: string
+  operationId: string,
+  proposalKey: string
 };

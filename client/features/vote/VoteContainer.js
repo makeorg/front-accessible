@@ -17,6 +17,8 @@ type Props = {
   proposalId: string,
   /** Array with votes received from Api */
   votes: Array<Object>,
+  /** String containing the hash generate api side for security purpose */
+  proposalKey: string,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen?: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -78,6 +80,7 @@ export class VoteHandler extends React.Component<Props, State> {
     event.preventDefault();
     const {
       proposalId,
+      proposalKey,
       index,
       handleVoteOnSequence,
       handleUnvoteOnSequence
@@ -85,13 +88,13 @@ export class VoteHandler extends React.Component<Props, State> {
     const { hasVoted } = this.state;
 
     if (hasVoted) {
-      VoteService.unvote(proposalId, voteKey)
+      VoteService.unvote(proposalId, voteKey, proposalKey)
         .then((vote) => {
           this.setState(prevState => doUnvote(prevState, vote));
           handleUnvoteOnSequence(proposalId, voteKey, index);
         });
     } else {
-      VoteService.vote(proposalId, voteKey)
+      VoteService.vote(proposalId, voteKey, proposalKey)
         .then((vote) => {
           this.setState(prevState => doVote(prevState, vote));
           handleVoteOnSequence(proposalId, voteKey, index);
