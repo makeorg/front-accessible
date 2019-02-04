@@ -55,7 +55,7 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
 >
   <label
     aria-label="qux"
-    className="c1"
+    className="1 c1"
     htmlFor="bar"
   >
     <svg
@@ -66,7 +66,7 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
   </label>
   <input
     aria-required={false}
-    className="c2"
+    className="0 c2"
     id="bar"
     name="bar"
     onChange={[Function]}
@@ -92,7 +92,7 @@ Snapshot Diff:
     <input
 -     aria-required={true}
 +     aria-required={false}
-      className="Styled__NoStyleTextInput-ntcd9w-0 Styled__BasicInput-ntcd9w-10 fioZqj"
+      className="ntcd9w-0 ntcd9w-10 fJHjnQ"
       id="bar"
       name="bar"
       onChange={[Function handleChange]}

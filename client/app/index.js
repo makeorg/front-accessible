@@ -3,7 +3,6 @@ import * as React from 'react';
 import ModernNormalizeStylesheet from 'Client/app/assets/css-in-js/ModernNormalize';
 import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
 import DefaultStylesheet from 'Client/app/assets/css-in-js/DefaultStyle';
-import AnimationsStylesheet from 'Client/app/assets/css-in-js/Animations';
 import { UIThemeStylesheet } from 'Client/app/assets/css-in-js/UITheme';
 import { AppWrapper, MainContent } from 'Client/app/Styled/MainElements';
 import { Notification } from './Notification';
@@ -23,7 +22,6 @@ export const AppContainer = () => (
       <ModernNormalizeStylesheet />
       <FontFacesStylesheet />
       <DefaultStylesheet />
-      <AnimationsStylesheet />
       <UIThemeStylesheet />
       <CookieBanner />
       <MainHeader />

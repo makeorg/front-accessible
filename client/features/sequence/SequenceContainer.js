@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { CSSTransition } from 'react-transition-group';
 import QuestionService from 'Shared/api/QuestionService';
 import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
@@ -82,27 +81,20 @@ const Sequence = ({
 }: SequenceProps & ContainerProps) => {
   if (isSequenceLoaded) {
     return (
-      <CSSTransition
-        in={isSequenceLoaded}
-        timeout={500}
-        classNames="fadein"
-        mountonEnter="true"
-      >
-        <SequenceComponent
-          cards={cards}
-          cardsCount={cardsCount}
-          currentIndex={currentIndex}
-          cardOffset={cardOffset}
-          isSequenceCollapsed={isSequenceCollapsed}
-          handleExpandSequence={expandSequence}
-          isPannelOpen={isPannelOpen}
-          handleStartSequence={handleStartSequence}
-          goToNextCard={goToNextCard}
-          skipSignUpCard={skipSignUpCard}
-          skipProposalPushCard={skipProposalPushCard}
-          goToPreviousCard={goToPreviousCard}
-        />
-      </CSSTransition>
+      <SequenceComponent
+        cards={cards}
+        cardsCount={cardsCount}
+        currentIndex={currentIndex}
+        cardOffset={cardOffset}
+        isSequenceCollapsed={isSequenceCollapsed}
+        handleExpandSequence={expandSequence}
+        isPannelOpen={isPannelOpen}
+        handleStartSequence={handleStartSequence}
+        goToNextCard={goToNextCard}
+        skipSignUpCard={skipSignUpCard}
+        skipProposalPushCard={skipProposalPushCard}
+        goToPreviousCard={goToPreviousCard}
+      />
     );
   }
 
