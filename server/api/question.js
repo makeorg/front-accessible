@@ -6,25 +6,32 @@ const cache = require('memory-cache');
 const { SERVER_DIR } = require('../paths');
 
 export function questionApi(req, res) {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
 
   const { questionSlug } = req.params;
+
+  if (!(new RegExp('^[a-z0-9-]+$').test(questionSlug))) {
+    return res.status(400).end();
+  }
+
   const questionPath = path.join(
     SERVER_DIR,
-    `/staticData/operationsParams/${questionSlug}.json`
+    'staticData/operationsParams',
+    `${questionSlug}.json`
   );
 
   const content = cache.get(questionPath);
-  if (!content) {
-    fs.readFile(path.join(questionPath), 'utf8', (err, result) => {
-      if (err) {
-        return res.status(404).end();
-      }
-      cache.put(questionPath, result);
-      return res.send(result);
-    });
-  } else {
+  if (content) {
     return res.send(content);
+  }
+
+  try {
+    const result = fs.readFileSync(path.join(questionPath), 'utf8');
+    cache.put(questionPath, result);
+
+    return res.send(result);
+  } catch (error) {
+    return res.status(404).end();
   }
 }
