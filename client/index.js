@@ -33,7 +33,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
 let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
-if (!process.env.NODE_ENV || env.isDev()) {
+if (env.isNone() || env.isDev()) {
   initialState = initialStateDebug;
 }
 

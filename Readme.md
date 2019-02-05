@@ -11,13 +11,19 @@
 
 ## Installation:
 ### Development Mode
-*   npm start:dev
+#### Start application with auto-reload
+*   yarn install
+*   yarn start:dev
 *   visit `http://localhost:3000`
+
+#### Start server
+*   yarn build
+*   yarn server:dev
+*   visit `http://localhost:9009`
 
 ### Production
 *   Build command : `yarn build`
 *   Start server : `env API_URL=https://api.preprod.makeorg.tech yarn server`
-
 
 ## Tests
 To launch test `yarn test:unit` or `npm run test:unit`
