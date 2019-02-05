@@ -76,13 +76,13 @@ Snapshot Diff:
 
 @@ -1,9 +1,9 @@
   <button
-    className="ButtonElements__BasicButton-sc-1wm8iti-2 ButtonElements__SmallBasicButton-sc-1wm8iti-3 ButtonElements__SmallRedButton-sc-1wm8iti-7 hvdoYn"
+    className="sc-1wm8iti-2 sc-1wm8iti-3 sc-1wm8iti-7 lnrzkv"
     form="foo"
 -   tabIndex="-1"
 +   tabIndex="0"
     type="submit"
   >
     <span
-      className="ButtonElements__IconInButton-sc-1wm8iti-9 gCGRPq"
+      className="sc-1wm8iti-9 eCQQoZ"
     >
 `;

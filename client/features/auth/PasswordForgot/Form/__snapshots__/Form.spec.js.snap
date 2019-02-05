@@ -129,7 +129,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="c2"
+      className="1 c2"
       htmlFor="email"
     >
       <svg
@@ -140,7 +140,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
     </label>
     <input
       aria-required={true}
-      className="c3"
+      className="0 c3"
       id="email"
       name="email"
       placeholder="common.form.email_label"
@@ -303,7 +303,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="c2"
+      className="1 c2"
       htmlFor="email"
     >
       <svg
@@ -314,7 +314,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
     </label>
     <input
       aria-required={true}
-      className="c3"
+      className="0 c3"
       id="email"
       name="email"
       placeholder="common.form.email_label"
