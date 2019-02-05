@@ -1,17 +1,17 @@
 // @flow
 import * as React from 'react';
 import i18next from 'i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import type { ErrorObject } from 'Shared/types/form';
-import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Client/ui/Elements/Form';
+} from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
+import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
+import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
+import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
 import ForgotPassword from '../Styled';
 
 type Props = {
@@ -30,7 +30,7 @@ type Props = {
 /**
  * Renders ForgotPassword Form
  */
-const ForgotPasswordFormComponent = (props: Props) => {
+export const ForgotPasswordFormComponent = (props: Props) => {
   const {
     email,
     errors,
@@ -43,7 +43,7 @@ const ForgotPasswordFormComponent = (props: Props) => {
   const globalError = fieldErrors('global', errors);
 
   return (
-    <ForgotPassword.Form id="forgot_password" onSubmit={handleSubmit}>
+    <ForgotPassword.Form id={FORGOT_PASSWORD_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
           <FormErrors id="authentification-forgotpassword-error">
@@ -63,18 +63,12 @@ const ForgotPasswordFormComponent = (props: Props) => {
         errors={emailError}
       />
       {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
-      <SmallRedButton
-        type="submit"
-        form="forgot_password"
+      <SubmitButton
+        formName={FORGOT_PASSWORD_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}
-      >
-        <IconInButton>
-          <FontAwesomeIcon icon={faPaperPlane} />
-        </IconInButton>
-        {i18next.t('forgot_password.send_link')}
-      </SmallRedButton>
+        icon={faPaperPlane}
+        label={i18next.t('forgot_password.send_link')}
+      />
     </ForgotPassword.Form>
   );
 };
-
-export default ForgotPasswordFormComponent;

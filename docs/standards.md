@@ -183,7 +183,7 @@ UserService.forgotPassword.mockRejectedValue();
 Default case
 ```js
 import renderer from 'react-test-renderer';
-import ForgotPasswordFormComponent from './index';
+import { ForgotPasswordFormComponent } from './index';
 
 describe("ForgotPasswordFormComponent", function () {
   it("must match the snapshot by default", function () {

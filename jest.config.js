@@ -2,6 +2,9 @@ module.exports = {
   transform: {
     '^.+\\.(js)$': '<rootDir>/node_modules/babel-jest'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/test/setup.js',
+  snapshotSerializers: [
+    require.resolve('snapshot-diff/serializer.js')
+  ],
+  setupFilesAfterEnv: ['<rootDir>/test/setup.js'],
   testPathIgnorePatterns: ['\\.snap$', '\\.svg$', '<rootDir>/node_modules/']
 };

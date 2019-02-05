@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { NoStyleTextInput } from 'Client/ui/Elements/Form';
+import { NoStyleTextInput } from 'Client/ui/Elements/Form/Styled';
 import { MiddleRow, FlexElement } from 'Client/ui/Elements/FlexElements';
 import { SmallGreyButton, SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';

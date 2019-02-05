@@ -6,5 +6,6 @@
 *   React 16
 *   Webpack 4
 *   Styled Components 4
+*   Jest 24
 *   Babel 7
 *   Styleguidist 7

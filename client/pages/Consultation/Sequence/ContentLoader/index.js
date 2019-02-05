@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
-import SpinnerComponent from 'Client/ui/Spinner';
+import { Spinner } from 'Client/ui/Spinner';
 import { SequencePageContent, SequencePageInnerContent } from '../Styled';
 
 type Props = {
@@ -27,7 +27,7 @@ export const SequencePageContentLoader = (props: Props) => {
   if (!question) {
     return (
       <SequencePageContent>
-        <SpinnerComponent />
+        <Spinner />
       </SequencePageContent>
     );
   }

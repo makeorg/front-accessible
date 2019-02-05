@@ -5,7 +5,7 @@ import type { UserObject, ErrorObject } from 'Shared/types/form';
 import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
-import { ExtraParagraph } from 'Client/ui/Elements/Form';
+import { ExtraParagraph } from 'Client/ui/Elements/Form/Styled';
 import FacebookAuthentificationLinkComponent from 'Client/features/auth/Social/FacebookAuthentification/Link';
 import GoogleAuthentificationLinkComponent from 'Client/features/auth/Social/GoogleAuthentification/Link';
 import RegisterFormComponent from './Form';

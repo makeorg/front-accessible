@@ -2,7 +2,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { UserObject, ErrorObject } from 'Shared/types/form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
   faLock,
@@ -11,18 +10,19 @@ import {
   faMapMarkerAlt,
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   Form,
   ConditionParagraph,
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Client/ui/Elements/Form';
+} from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
-import PasswordInput from 'Client/ui/Elements/Form/PasswordInput';
+import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
+import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import * as Helpers from 'Shared/helpers/url';
+import { REGISTER_FORMNAME } from 'Shared/constants/form';
+import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 
 type Props = {
   /** type UserObject = {
@@ -69,7 +69,7 @@ const RegisterFormComponent = (props: Props) => {
   const cguLink = Helpers.localizeCguLink();
 
   return (
-    <Form id="register" onSubmit={handleSubmit}>
+    <Form id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
           <FormErrors id="authentification-register-error">
@@ -157,17 +157,13 @@ const RegisterFormComponent = (props: Props) => {
           }
         }
       />
-      <SmallRedButton
-        type="submit"
-        form="register"
-        tabIndex={isPannelOpen ? 0 : -1}
+      <SubmitButton
+        formName={REGISTER_FORMNAME}
         id="authentification-register-submit"
-      >
-        <IconInButton>
-          <FontAwesomeIcon icon={faThumbsUp} />
-        </IconInButton>
-        {i18next.t('common.register_label')}
-      </SmallRedButton>
+        icon={faThumbsUp}
+        tabIndex={isPannelOpen ? 0 : -1}
+        label={i18next.t('common.register_label')}
+      />
     </Form>
   );
 };

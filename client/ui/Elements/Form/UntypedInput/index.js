@@ -4,9 +4,36 @@ import {
   FakeInputGrey,
   IconLabel,
   BasicInput
-} from '..';
+} from '../Styled';
 
-class UntypedInput extends React.Component {
+type Props = {
+  /** Type of the input */
+  type: string,
+  /** Name of the input */
+  name: string,
+  /** Icon of the input */
+  icon: IconDefinition,
+  /** Value of the input */
+  value: string,
+  /** Label of the input */
+  label: string,
+  /** Mehtod called on change event */
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  /** Array containing form errors */
+  errors?: Array<ErrorObject>,
+  /** Is input required or optional */
+  required?: boolean,
+  /** Tabindex for interactive items */
+  tabIndex?: number
+}
+
+export class UntypedInput extends React.Component<Props> {
+  static defaultProps = {
+    required: false,
+    errors: undefined,
+    tabIndex: 0
+  }
+
   render() {
     const {
       type,
@@ -40,5 +67,3 @@ class UntypedInput extends React.Component {
     );
   }
 }
-
-export default UntypedInput;

@@ -2,19 +2,19 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
 import {
   Form,
   InputErrorMessage,
   FormErrors,
   FormError
-} from 'Client/ui/Elements/Form';
+} from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
-import UntypedInput from 'Client/ui/Elements/Form/UntypedInput';
-import PasswordInput from 'Client/ui/Elements/Form/PasswordInput';
+import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
+import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
+import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
+import { LOGIN_FORMNAME } from 'Shared/constants/form';
 
 type Props = {
   /** User's email */
@@ -55,7 +55,7 @@ const LoginFormComponent = (props: Props) => {
   const globalError = fieldErrors('global', errors);
 
   return (
-    <Form id="login" onSubmit={handleSubmit}>
+    <Form id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
           <FormErrors id="authentification-login-error">
@@ -89,17 +89,13 @@ const LoginFormComponent = (props: Props) => {
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
       {passwordError && <InputErrorMessage id="authentification-password-error">{passwordError}</InputErrorMessage>}
-      <SmallRedButton
-        type="submit"
-        form="login"
+      <SubmitButton
+        formName={LOGIN_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}
+        icon={faThumbsUp}
         id="authentification-login-submit"
-      >
-        <IconInButton>
-          <FontAwesomeIcon icon={faThumbsUp} />
-        </IconInButton>
-        {i18next.t('common.connexion_label')}
-      </SmallRedButton>
+        label={i18next.t('common.connexion_label')}
+      />
     </Form>
   );
 };
