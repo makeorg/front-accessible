@@ -1,13 +1,11 @@
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import loadable from '@loadable/component';
-
-const SequencePage = loadable(() => import('Client/pages/Consultation/Sequence'));
-const PasswordRecoveryPage = loadable(() => import('Client/pages/PasswordRecovery'));
-const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
-const ProposalPage = loadable(() => import('Client/pages/Proposal'));
-const AccountActivationPage = loadable(() => import('Client/pages/AccountActivation'));
+import SequencePage from 'Client/pages/Consultation/Sequence';
+import ProposalPage from 'Client/pages/Proposal';
+import { PasswordRecoveryPage } from 'Client/pages/PasswordRecovery';
+import NotFoundPage from 'Client/pages/NotFound';
+import { AccountActivationPage } from 'Client/pages/AccountActivation';
 
 export const Routes = () => (
   <Switch>
