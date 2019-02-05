@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import i18next from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
+import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import TwitterTracking from 'Shared/services/Trackers/TwitterTracking';
@@ -54,18 +55,20 @@ TwitterTracking.init('o16m6');
 
 const store = configureStore(initialState);
 
-ReactDOM.hydrate(
-  <CookiesProvider>
-    <HeadProvider>
-      <Provider store={store}>
-        <BrowserRouter>
-          <AppContainer />
-        </BrowserRouter>
-      </Provider>
-    </HeadProvider>
-  </CookiesProvider>,
-  document.getElementById('app'),
-);
+loadableReady(() => {
+  ReactDOM.hydrate(
+    <CookiesProvider>
+      <HeadProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <AppContainer />
+          </BrowserRouter>
+        </Provider>
+      </HeadProvider>
+    </CookiesProvider>,
+    document.getElementById('app'),
+  );
+});
 
 if (module.hot) {
   module.hot.accept();
