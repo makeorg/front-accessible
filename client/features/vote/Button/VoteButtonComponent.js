@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { BottomTooltip, DisplayedTooltip } from 'Client/ui/Elements/TooltipElments';
-import { HiddenOnMobile } from 'Client/ui/Elements/HiddenElements';
+import { BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { ButtonWrapper, Button } from '../Styled/Button';
 
 type Props = {
@@ -63,15 +63,15 @@ export const VoteButtonComponent = (props: Props) => {
       >
         <FontAwesomeIcon icon={icon} />
       </Button>
-      <HiddenOnMobile>
-        <BottomTooltip
-          as={isTooltipDisplayed ? DisplayedTooltip : ''}
+      <HiddenOnMobileStyle>
+        <BottomTooltipStyle
+          as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
           aria-hidden={!isTooltipDisplayed}
           role="tooltip"
         >
           <p>{label}</p>
-        </BottomTooltip>
-      </HiddenOnMobile>
+        </BottomTooltipStyle>
+      </HiddenOnMobileStyle>
     </ButtonWrapper>
   );
 };

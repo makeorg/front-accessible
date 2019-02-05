@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { pxToRem } from 'Shared/helpers/styled';
 import { CALC_SEQUENCE_HEIGHT_MOBILE, CALC_SEQUENCE_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const SequencePageContent = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const SequencePageContent = styled.div`
   }
 `;
 
-export const SequencePageInnerContent = styled(MiddleColumn)`
+export const SequencePageInnerContent = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   position: relative;

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { getQualificationIndex } from 'Shared/helpers/qualification';
-import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import voteStaticParams from 'Shared/constants/vote';
 import Qualification from './Styled';
 import QualificationButtonComponent from './Button';
@@ -34,7 +34,7 @@ export const QualificationComponent = (props: Props) => {
 
   return (
     <Qualification>
-      <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
+      <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
       {
         qualifications.map(qualification => (
           <QualificationButtonComponent

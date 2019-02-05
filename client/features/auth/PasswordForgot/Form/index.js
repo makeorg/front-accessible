@@ -4,9 +4,9 @@ import i18next from 'i18next';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import type { ErrorObject } from 'Shared/types/form';
 import {
-  InputErrorMessage,
-  FormErrors,
-  FormError
+  InputErrorMessageStyle,
+  FormErrorsListStyle,
+  FormErrorStyle
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -46,9 +46,9 @@ export const ForgotPasswordFormComponent = (props: Props) => {
     <ForgotPassword.Form id={FORGOT_PASSWORD_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
-          <FormErrors id="authentification-forgotpassword-error">
-            <FormError key={globalError}>{globalError}</FormError>
-          </FormErrors>
+          <FormErrorsListStyle id="authentification-forgotpassword-error">
+            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+          </FormErrorsListStyle>
         )
       }
       <UntypedInput
@@ -62,7 +62,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         tabIndex={isPannelOpen ? 0 : -1}
         errors={emailError}
       />
-      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
+      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}

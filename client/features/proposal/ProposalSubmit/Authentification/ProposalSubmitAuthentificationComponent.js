@@ -4,14 +4,14 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
-  SmallRedButton,
-  EmailButton,
-  IconInButton,
-  ButtonsWrapper,
-  SmallButtonsWrapper
+  RedButtonStyle,
+  EmailButtonStyle,
+  IconInButtonStyle,
+  ButtonsWrapperStyle,
+  SmallButtonWrapperStyle
 } from 'Client/ui/Elements/ButtonElements';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
-import { AltDescription, DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
+import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import FacebookAuthentificationButtonComponent
   from 'Client/features/auth/Social/FacebookAuthentification/Button';
@@ -24,7 +24,7 @@ type Props = {
   handleRegisterClick: Function,
   /** Method called to render Register Component in Sliding Pannel */
   handleLoginClick: Function,
-  /** Method called to track DescriptionLink */
+  /** Method called to track DescriptionLinkStyle */
   trackPersonnalDataLink: Function,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean
@@ -43,53 +43,53 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
 
   return (
     <ProposalSubmitAuthentificationWrapper id="proposal-submit-authentification">
-      <SecondLevelTitle>{i18next.t('authentification.title')}</SecondLevelTitle>
-      <ThirdLevelTtitle>
+      <SecondLevelTitleStyle>{i18next.t('authentification.title')}</SecondLevelTitleStyle>
+      <ThirdLevelTtitleStyle>
         {i18next.t('authentification.description')}
-      </ThirdLevelTtitle>
-      <SmallButtonsWrapper>
+      </ThirdLevelTtitleStyle>
+      <SmallButtonWrapperStyle>
         <FacebookAuthentificationButtonComponent
           tabIndex={isPannelOpen ? -1 : 0}
         />
         <GoogleAuthentificationButtonComponent
           tabIndex={isPannelOpen ? -1 : 0}
         />
-        <EmailButton
+        <EmailButtonStyle
           onClick={handleRegisterClick}
           tabIndex={isPannelOpen ? -1 : 0}
           id="authentification-register-button"
         >
-          <IconInButton>
+          <IconInButtonStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconInButton>
+          </IconInButtonStyle>
           {i18next.t('common.email')}
-        </EmailButton>
-      </SmallButtonsWrapper>
-      <AltDescription>
+        </EmailButtonStyle>
+      </SmallButtonWrapperStyle>
+      <AltDescriptionStyle>
         {i18next.t('authentification.commitment')}
-        <DescriptionLink
+        <DescriptionLinkStyle
           href={localizeDataPolicyLink()}
           target="_blank"
           tabIndex={isPannelOpen ? -1 : 0}
           onClick={trackPersonnalDataLink}
         >
           {i18next.t('authentification.personal_data')}
-          <IconInButton>
+          <IconInButtonStyle>
             <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
-          </IconInButton>
-        </DescriptionLink>
-      </AltDescription>
+          </IconInButtonStyle>
+        </DescriptionLinkStyle>
+      </AltDescriptionStyle>
       <Separators.Small aria-hidden />
-      <SecondLevelTitle>{i18next.t('login.title')}</SecondLevelTitle>
-      <ButtonsWrapper>
-        <SmallRedButton
+      <SecondLevelTitleStyle>{i18next.t('login.title')}</SecondLevelTitleStyle>
+      <ButtonsWrapperStyle>
+        <RedButtonStyle
           onClick={handleLoginClick}
           tabIndex={isPannelOpen ? -1 : 0}
           id="authentification-login-button"
         >
           {i18next.t('login.button_connect')}
-        </SmallRedButton>
-      </ButtonsWrapper>
+        </RedButtonStyle>
+      </ButtonsWrapperStyle>
     </ProposalSubmitAuthentificationWrapper>
   );
 };

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButton } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
-const CloseButton = styled(UnstyledButton)`
+const CloseButton = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${pxToRem('20px')};
   right: ${pxToRem('20px')};

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { IconColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
@@ -25,7 +25,7 @@ export const GoogleLink = styled(Link)`
   border-bottom-color: ${IconColors.Google};
 `;
 
-export const SocialIcon = styled(IconInButton)`
+export const SocialIcon = styled(IconInButtonStyle)`
   margin-right: ${pxToRem('5px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-right: ${pxToRem('5px')};

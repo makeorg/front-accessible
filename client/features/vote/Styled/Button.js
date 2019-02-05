@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const ButtonList = styled(UnstyledList)`
+export const ButtonList = styled(UnstyledListStyle)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@ export const ButtonList = styled(UnstyledList)`
 
 export const ButtonWrapper = styled.div`
   position: relative;
-  z-index: 0;
+  z-index: 1;
 `;
 
 export const Button = styled.button`

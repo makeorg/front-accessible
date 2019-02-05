@@ -11,11 +11,11 @@ import {
   faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
 import {
-  Form,
-  ConditionParagraph,
-  InputErrorMessage,
-  FormErrors,
-  FormError
+  FormStyle,
+  ConditionParagraphStyle,
+  InputErrorMessageStyle,
+  FormErrorsListStyle,
+  FormErrorStyle
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -69,12 +69,12 @@ const RegisterFormComponent = (props: Props) => {
   const cguLink = Helpers.localizeCguLink();
 
   return (
-    <Form id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
+    <FormStyle id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
-          <FormErrors id="authentification-register-error">
-            <FormError key={globalError}>{globalError}</FormError>
-          </FormErrors>
+          <FormErrorsListStyle id="authentification-register-error">
+            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+          </FormErrorsListStyle>
         )
       }
       <UntypedInput
@@ -88,7 +88,7 @@ const RegisterFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
+      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
       <PasswordInput
         type="password"
         name="password"
@@ -102,7 +102,7 @@ const RegisterFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {passwordError && <InputErrorMessage id="authentification-password-error">{passwordError}</InputErrorMessage>}
+      {passwordError && <InputErrorMessageStyle id="authentification-password-error">{passwordError}</InputErrorMessageStyle>}
       <UntypedInput
         type="text"
         name="firstname"
@@ -144,7 +144,7 @@ const RegisterFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      <ConditionParagraph
+      <ConditionParagraphStyle
         dangerouslySetInnerHTML={
           {
             __html: i18next.t(
@@ -164,7 +164,7 @@ const RegisterFormComponent = (props: Props) => {
         tabIndex={isPannelOpen ? 0 : -1}
         label={i18next.t('common.register_label')}
       />
-    </Form>
+    </FormStyle>
   );
 };
 

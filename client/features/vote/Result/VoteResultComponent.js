@@ -2,7 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { VotesPercentObject } from 'Shared/types/proposal';
-import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import voteStaticParams from 'Shared/constants/vote';
 import { ResultItem } from './Item';
 import { VoteButton } from '../Button';
@@ -43,7 +43,7 @@ export const VoteResultComponent = (props: Props) => {
 
   return (
     <VoteResult>
-      <HiddenItem aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItem>
+      <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
       <VoteButton
         id={id}
         color={voteStaticParams[votedKey].color}
@@ -55,7 +55,7 @@ export const VoteResultComponent = (props: Props) => {
         tabIndex={tabIndex}
       />
       <aside>
-        <HiddenItem aria-hidden as="h3">{i18next.t('results.title')}</HiddenItem>
+        <HiddenItemStyle aria-hidden as="h3">{i18next.t('results.title')}</HiddenItemStyle>
         <VoteResult.Graph>
           {voteKeys.map(voteKey => (
             <ResultItem
@@ -69,7 +69,7 @@ export const VoteResultComponent = (props: Props) => {
           ))}
         </VoteResult.Graph>
         <VoteResult.TotalLabel>
-          <HiddenItem aria-hidden>{i18next.t('results.total_text')}</HiddenItem>
+          <HiddenItemStyle aria-hidden>{i18next.t('results.total_text')}</HiddenItemStyle>
           {i18next.t('vote.label', { count: votesCount })}
         </VoteResult.TotalLabel>
       </aside>

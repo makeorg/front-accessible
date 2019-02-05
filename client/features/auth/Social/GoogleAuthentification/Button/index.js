@@ -2,16 +2,16 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { IconInButton, GoogleButton } from 'Client/ui/Elements/ButtonElements';
+import { IconInButtonStyle, GoogleButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import GoogleAuthentificationComponent from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
-  <GoogleButton onClick={renderProps.onClick} tabIndex={tabIndex}>
-    <IconInButton>
+  <GoogleButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+    <IconInButtonStyle>
       <FontAwesomeIcon icon={faGoogle} />
-    </IconInButton>
+    </IconInButtonStyle>
     Google
-  </GoogleButton>
+  </GoogleButtonStyle>
 
 );
 

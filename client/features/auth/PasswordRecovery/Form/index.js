@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import { InputErrorMessage } from 'Client/ui/Elements/Form/Styled';
+import { InputErrorMessageStyle } from 'Client/ui/Elements/Form/Styled';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
@@ -55,7 +55,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {error && <InputErrorMessage id="authentification-email-error">{errorMessage}</InputErrorMessage>}
+      {error && <InputErrorMessageStyle id="authentification-email-error">{errorMessage}</InputErrorMessageStyle>}
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}
         icon={faPaperPlane}

@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import voteStaticParams from 'Shared/constants/vote';
 import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
-import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import Vote from './Styled';
 import { VoteButton } from './Button';
 import { VoteButton as VoteButtonStyle } from './Styled/Button';
@@ -70,8 +70,8 @@ export const VoteComponent = (props: VoteProps) => {
 
   return (
     <Vote>
-      <HiddenItem aria-hidden as="h3">{i18next.t('vote.intro_title')}</HiddenItem>
-      <HiddenItem aria-hidden>{i18next.t('vote.intro_text')}</HiddenItem>
+      <HiddenItemStyle aria-hidden as="h3">{i18next.t('vote.intro_title')}</HiddenItemStyle>
+      <HiddenItemStyle aria-hidden>{i18next.t('vote.intro_text')}</HiddenItemStyle>
       <Vote.Wrapper>
         <VoteButtonsComponent
           proposalId={proposalId}

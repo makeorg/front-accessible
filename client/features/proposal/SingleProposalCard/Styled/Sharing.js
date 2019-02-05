@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { MiddleColumnToRow } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 
 
-export const Wrapper = styled(MiddleColumnToRow)`
+export const Wrapper = styled(MiddleColumnToRowStyle)`
   width: 100%;
   margin: ${pxToRem('15px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

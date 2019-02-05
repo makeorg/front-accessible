@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { pxToRem } from 'Shared/helpers/styled';
 
 export const Wrapper = styled.div`
@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   height: 100%;
 `;
 
-export const List = styled(UnstyledList)`
+export const List = styled(UnstyledListStyle)`
   margin: ${pxToRem('30px')} ${pxToRem('20px')} 0;
   width: calc(100% - ${pxToRem('40px')});
   height: calc(100% - ${pxToRem('30px')});

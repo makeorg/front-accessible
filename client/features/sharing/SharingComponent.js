@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
@@ -31,7 +31,7 @@ export class SharingComponent extends React.Component<Props> {
       tabIndex
     } = this.props;
     return (
-      <Sharing as={UnstyledList}>
+      <Sharing as={UnstyledListStyle}>
         <li>
           <Sharing.Facebook
             rel="noreferrer noopener"

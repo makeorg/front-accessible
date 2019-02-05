@@ -4,7 +4,7 @@ import { BasicColors, TextColors, BackgroundColors } from 'Client/app/assets/var
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const ProgressWrapper = styled.div`
+export const WrapperStyle = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ export const ProgressWrapper = styled.div`
   }
 `;
 
-export const ProgressSvg = styled.svg`
+export const SvgStyle = styled.svg`
   position: absolute;
   top: 0;
   left: 0;
@@ -26,17 +26,17 @@ export const ProgressSvg = styled.svg`
   height: 100%;
 `;
 
-export const ProgressBackground = styled.circle`
+export const BackgroundStyle = styled.circle`
   fill: ${BasicColors.PureWhite};
 `;
 
-export const ProgressRing = styled.circle`
+export const RingStyle = styled.circle`
   fill: transparent;
   stroke: ${BackgroundColors.ExtraLightGrey};
   stroke-width: ${pxToRem('3px')};
 `;
 
-export const ProgressCircleStyle = styled.circle`
+export const CircleStyle = styled.circle`
   fill: transparent;
   stroke: ${props => props.theme.color};
   stroke-width: ${pxToRem('3px')};
@@ -44,7 +44,7 @@ export const ProgressCircleStyle = styled.circle`
   stroke-dashoffset: 25;
 `;
 
-export const ProgressCounter = styled.h2`
+export const CounterStyle = styled.h2`
   position: relative;
   z-index: 1;
   font-size: ${pxToRem('12px')};
@@ -55,7 +55,7 @@ export const ProgressCounter = styled.h2`
   }
 `;
 
-export const ActiveCard = styled.span`
+export const ActiveCardStyle = styled.span`
   font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

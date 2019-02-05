@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { MiddleRow } from './FlexElements';
+import { MiddleRowStyle } from './FlexElements';
 
 export const SeparatorStyle = styled.div`
   width: 100%;
@@ -27,11 +27,11 @@ export const Large = styled(SeparatorStyle)`
   }
 `;
 
-export const Wrapper = styled(MiddleRow)`
+export const Wrapper = styled(MiddleRowStyle)`
   width: 100%;
 `;
 
-export const Text = styled(MiddleRow)`
+export const Text = styled(MiddleRowStyle)`
   width: ${pxToRem('60px')};
   font-size: ${pxToRem('14px')};
 `;

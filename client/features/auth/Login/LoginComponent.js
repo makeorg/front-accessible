@@ -3,10 +3,10 @@ import * as React from 'react';
 import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
-import { ExtraParagraph, ExtraAltParagraph } from 'Client/ui/Elements/Form/Styled';
+import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ExtraParagraphStyle, ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
 import * as Separators from 'Client/ui/Elements/Separators';
-import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import LoginFormComponent from './Form';
 import Login from './Styled';
 
@@ -45,13 +45,13 @@ export const LoginComponent = (props: Props) => {
 
   return (
     <Login role="region" aria-labelledby="login_title">
-      <SecondLevelTitle id="login_title">
+      <SecondLevelTitleStyle id="login_title">
         {i18next.t('login.title')}
-      </SecondLevelTitle>
+      </SecondLevelTitleStyle>
       <Separators.Small />
-      <ThirdLevelTtitle>
+      <ThirdLevelTtitleStyle>
         {i18next.t('login.social_connect')}
-      </ThirdLevelTtitle>
+      </ThirdLevelTtitleStyle>
       <AuthentificationSocial
         tabIndex={isPannelOpen ? 0 : -1}
       />
@@ -60,28 +60,28 @@ export const LoginComponent = (props: Props) => {
         <Separators.Text>{i18next.t('login.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
-      <ThirdLevelTtitle>
+      <ThirdLevelTtitleStyle>
         {i18next.t('login.email_connect')}
-      </ThirdLevelTtitle>
+      </ThirdLevelTtitleStyle>
       <LoginFormComponent {...props} />
-      <ExtraParagraph>
+      <ExtraParagraphStyle>
         {i18next.t('login.forgot_password_title')}
-        <RedLinkButton
+        <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleForgotPasswordPannel}
         >
           {i18next.t('login.forgot_password_link')}
-        </RedLinkButton>
-      </ExtraParagraph>
-      <ExtraAltParagraph>
+        </RedLinkButtonStyle>
+      </ExtraParagraphStyle>
+      <ExtraAltParagraphStyle>
         {i18next.t('login.registration_title')}
-        <RedLinkButton
+        <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleRegisterPannel}
         >
           {i18next.t('login.registration_link')}
-        </RedLinkButton>
-      </ExtraAltParagraph>
+        </RedLinkButtonStyle>
+      </ExtraAltParagraphStyle>
     </Login>
   );
 };

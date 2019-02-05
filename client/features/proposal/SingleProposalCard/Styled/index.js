@@ -3,9 +3,9 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, TextColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { MiddleColumn, MiddleColumnToRow } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumnStyle, MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { Large, SeparatorStyle } from 'Client/ui/Elements/Separators';
-import { SmallRedButton } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Proposal } from 'Client/features/sequence/Card/Styled/Proposal';
 
 export const Card = styled.section`
@@ -34,7 +34,7 @@ export const Content = styled(Proposal)`
   }
 `;
 
-export const InnerProposal = styled(MiddleColumn)`
+export const InnerProposal = styled(MiddleColumnStyle)`
   width: 100%;
 `;
 
@@ -49,11 +49,11 @@ export const Footer = styled.footer`
   width: 100%;
 `;
 
-export const FooterContent = styled(MiddleColumnToRow)`
+export const FooterContent = styled(MiddleColumnToRowStyle)`
   width: 100%;
 `;
 
-export const Description = styled.p`
+export const DescriptionStyle = styled.p`
   width: 100%;
   max-width: ${pxToRem('650px')};
   color: ${TextColors.MediumGrey};
@@ -78,7 +78,7 @@ export const FooterContentSeparator = styled(SeparatorStyle)`
   }
 `;
 
-export const Button = styled(SmallRedButton)`
+export const Button = styled(RedButtonStyle)`
   text-decoration: none;
   margin: 0 ${pxToRem('5px')};
   &:hover,

@@ -60,11 +60,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -82,7 +77,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   type="submit"
 >
   <span
-    className="sc-1wm8iti-9 c1 c2"
+    className="sc-1wm8iti-6 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -158,11 +153,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -180,7 +170,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   type="submit"
 >
   <span
-    className="sc-1wm8iti-9 c1 c2"
+    className="sc-1wm8iti-6 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -256,11 +246,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -272,7 +257,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   type="submit"
 >
   <span
-    className="c1 sc-1wm8iti-9 c1"
+    className="c1 sc-1wm8iti-6 c1"
   >
     <svg
       icon="pencil-alt"
@@ -348,11 +333,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -370,7 +350,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   type="submit"
 >
   <span
-    className="sc-1wm8iti-9 c1 c2"
+    className="sc-1wm8iti-6 c1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -446,11 +426,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -468,7 +443,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   type="submit"
 >
   <span
-    className="sc-1wm8iti-9 c1 c2"
+    className="sc-1wm8iti-6 c1 c2"
   >
     <svg
       icon="pencil-alt"

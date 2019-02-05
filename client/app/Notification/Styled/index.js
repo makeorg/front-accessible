@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButton } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Client/app/constants/elements';
@@ -41,7 +41,7 @@ export const Content = styled.div`
 `;
 
 
-export const CloseButton = styled(UnstyledButton)`
+export const CloseButton = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${pxToRem(DefaultPadding.Mobile)};
   right: ${pxToRem(DefaultPadding.Mobile)};

@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * Renders Intro Description component
+ * Renders Intro DescriptionStyle component
  */
 const IntroDescription = (props: Props) => {
   const {

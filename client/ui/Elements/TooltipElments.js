@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 
-export const Tooltip = styled.div`
+export const TooltipStyle = styled.div`
   display: none;
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
@@ -17,7 +17,7 @@ export const Tooltip = styled.div`
   }
 `;
 
-export const VerticalTooptip = styled(Tooltip)`
+export const VerticalTooptipStyle = styled(TooltipStyle)`
   transform: translate(-50%,0);
   left: 50%;
   > :after {
@@ -28,7 +28,7 @@ export const VerticalTooptip = styled(Tooltip)`
   }
 `;
 
-export const HorizontalTooltip = styled(Tooltip)`
+export const HorizontalTooltipStyle = styled(TooltipStyle)`
   transform: translate(0,-50%);
   top: 50%;
   > :after {
@@ -39,7 +39,7 @@ export const HorizontalTooltip = styled(Tooltip)`
   }
 `;
 
-export const TopTooltip = styled(VerticalTooptip)`
+export const TopTooltipStyle = styled(VerticalTooptipStyle)`
   bottom: calc(100% + ${pxToRem('10px')});
   > :after {
     top: 100%;
@@ -47,7 +47,7 @@ export const TopTooltip = styled(VerticalTooptip)`
   }
 `;
 
-export const BottomTooltip = styled(VerticalTooptip)`
+export const BottomTooltipStyle = styled(VerticalTooptipStyle)`
   top: calc(100% + ${pxToRem('10px')});
   > :after {
     bottom: 100%;
@@ -55,7 +55,7 @@ export const BottomTooltip = styled(VerticalTooptip)`
   }
 `;
 
-export const LeftTooltip = styled(HorizontalTooltip)`
+export const LeftTooltipStyle = styled(HorizontalTooltipStyle)`
   right: calc(100% + ${pxToRem('10px')});
   > :after {
     left: 100%;
@@ -63,7 +63,7 @@ export const LeftTooltip = styled(HorizontalTooltip)`
   }
 `;
 
-export const RightTooltip = styled(HorizontalTooltip)`
+export const RightTooltipStyle = styled(HorizontalTooltipStyle)`
   left: calc(100% + ${pxToRem('10px')});
   > :after {
     right: 100%;
@@ -71,6 +71,6 @@ export const RightTooltip = styled(HorizontalTooltip)`
   }
 `;
 
-export const DisplayedTooltip = styled(Tooltip)`
+export const DisplayedTooltipStyle = styled(TooltipStyle)`
   display: block;
 `;
