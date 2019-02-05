@@ -4,7 +4,6 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const LoadablePlugin = require('@loadable/webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', 'client', 'index.js'),
@@ -20,7 +19,6 @@ module.exports = {
         charset: 'utf-8',
         'theme-color': '#ed1844'
       },
-      inject: false,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -55,8 +53,7 @@ module.exports = {
       ]
     }),
     new InlineSourcePlugin(),
-    new ManifestPlugin(),
-    new LoadablePlugin()
+    new ManifestPlugin()
   ],
   module: {
     rules: [

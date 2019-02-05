@@ -16,7 +16,6 @@
     "@babel/preset-flow"
   ],
   "plugins": [
-    "@loadable/babel-plugin",
     "@babel/plugin-proposal-class-properties",
     [
       "transform-imports",
