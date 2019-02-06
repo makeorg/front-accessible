@@ -24,6 +24,7 @@ ApiService.operationId = 'foo';
 
 jest.mock('Shared/services/Trackers/FacebookTracking')
 jest.mock('Shared/services/Trackers/TwitterTracking')
+jest.mock('Shared/constants/config');
 
 function storageMock() {
   const storage = {};

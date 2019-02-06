@@ -8,6 +8,11 @@
       "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
     }
   },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
   "sequenceExtraSlidesWording": {
     "introCard": {
       "title": "Χιλιάδες πολίτες προτείνουν λύσεις ώστε η Ευρώπη να αποκτήσει νέες βάσεις.",
