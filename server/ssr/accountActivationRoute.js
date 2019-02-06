@@ -4,40 +4,57 @@ import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
+import { reactRender } from '../reactRender';
 
-const reactRender = require('../reactRender');
-
-async function getQuestion(questionId) {
-  return QuestionService.getDetail(questionId);
+async function getQuestion(questionId, headers) {
+  return QuestionService.getDetail(questionId, headers);
 }
 
-async function postAccountActivation(userId: string, verificationToken: string) {
-  return UserService.verifyUser(userId, verificationToken);
+async function postAccountActivation(userId: string, verificationToken: string, headers) {
+  return UserService.verifyUser(userId, verificationToken, headers);
 }
 
-module.exports = async function AccountActivationRoute(req, res) {
+export const accountActivationRoute = async (req, res) => {
   const routeState = createInitialState();
+  const {
+    userId,
+    verificationToken,
+    sessionId,
+    country,
+    language
+  } = req.params;
+
   try {
-    const { verificationToken, userId } = req.params;
-    const status = await postAccountActivation(userId, verificationToken);
-    if (status === HTTP_NO_CONTENT) {
-      routeState.notification.contentType = notificationConstants.ACTIVATION_SUCCESS_CONTENT;
-    }
-
-    if (status === HTTP_NOT_FOUND) {
-      routeState.notification.contentType = notificationConstants.ACTIVATION_FAILURE_CONTENT;
-      routeState.notification.status = status;
-    }
-
-    if (req.query.question) {
-      const question = await getQuestion(req.query.question);
+    const questionId = req.query.question;
+    if (questionId) {
+      const question = await getQuestion(questionId, {
+        'x-session-id': sessionId,
+        'x-make-question': questionId,
+        'x-make-question-id': questionId,
+        'x-make-country': country,
+        'x-make-language': language
+      });
 
       if (question) {
         routeState.sequence.question = question;
       }
     }
 
-    return reactRender(req, res, routeState);
+    const status = await postAccountActivation(userId, verificationToken, {
+      'x-session-id': sessionId,
+      'x-make-question': questionId,
+      'x-make-question-id': questionId,
+      'x-make-country': country,
+      'x-make-language': language
+    });
+
+    if (status === HTTP_NO_CONTENT) {
+      routeState.notification.contentType = notificationConstants.ACTIVATION_SUCCESS_CONTENT;
+    }
+
+    if (status === HTTP_NOT_FOUND) {
+      routeState.notification.contentType = notificationConstants.ACTIVATION_FAILURE_CONTENT;
+    }
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;
@@ -46,4 +63,6 @@ module.exports = async function AccountActivationRoute(req, res) {
 
     res.send(error);
   }
+
+  return reactRender(req, res, routeState);
 };

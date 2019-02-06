@@ -132,7 +132,7 @@ class ApiService {
 
   callApi(url: string, options: Object = {}): Promise<any> {
     const paramsQuery = UrlHelper.getParamsQuery(LOCATION_PARAMS);
-    let headers = Object.assign({}, {
+    const defaultHeaders = {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
       'x-session-id': this._sessionId,
@@ -144,7 +144,8 @@ class ApiService {
       'x-make-question': this._questionId,
       'x-make-operation': this._operationId,
       'x-make-app-name': APP_NAME
-    }, options.headers || {});
+    };
+    let headers = Object.assign({}, defaultHeaders, options.headers || {});
 
     if (paramsQuery) {
       headers = Object.assign({}, headers, {

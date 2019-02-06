@@ -1,14 +1,16 @@
 // @flow
 
+import type { ApiServiceHeaders } from './type';
 import ApiService from './ApiService';
 
 const PATH_QUESTION_DETAIL = '/questions/:questionSlug/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 
 export default class QuestionService {
-  static getDetail(questionSlug: string) {
+  static getDetail(questionSlug: string, headers: ApiServiceHeaders = {}) {
     return ApiService.callApi(PATH_QUESTION_DETAIL.replace(':questionSlug', questionSlug), {
-      method: 'GET'
+      method: 'GET',
+      headers
     });
   }
 

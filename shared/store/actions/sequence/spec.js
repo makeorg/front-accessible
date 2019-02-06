@@ -1,22 +1,21 @@
 /* @flow */
 
-import configureMockStore from 'redux-mock-store'
+import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
 import UserService from 'Shared/api/UserService';
-import * as actions from './index';
 import Tracking from 'Shared/services/Tracking';
+import * as actions from './index';
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('Sequence Actions', () => {
-
-  beforeEach(function () {
+  beforeEach(() => {
     jest.spyOn(Tracking, 'track');
     jest.spyOn(Tracking, 'trackVote');
     jest.spyOn(Tracking, 'trackFirstVote');
@@ -26,7 +25,7 @@ describe('Sequence Actions', () => {
     axiosMock.onPost('/tracking/front').reply(204);
   });
 
-  afterEach(function () {
+  afterEach(() => {
     Tracking.track.mockRestore();
     Tracking.trackVote.mockRestore();
     Tracking.trackFirstVote.mockRestore();
@@ -38,7 +37,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.sequenceCollapse());
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates SEQUENCE_EXPAND when calling action', () => {
@@ -47,7 +46,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.sequenceExpand());
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
@@ -58,7 +57,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.voteProposal(proposalId));
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates SEQUENCE_PROPOSAL_UNVOTE when calling action', () => {
@@ -69,7 +68,7 @@ describe('Sequence Actions', () => {
     }];
 
     store.dispatch(actions.unvoteProposal(proposalId));
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Track sequence vote when first vote', () => {
@@ -113,6 +112,5 @@ describe('Sequence Actions', () => {
     expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
     expect(store.getActions()).toEqual(expectedActions);
-
   });
 });

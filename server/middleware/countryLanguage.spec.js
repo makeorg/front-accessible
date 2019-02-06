@@ -1,9 +1,6 @@
 import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
-import i18next from 'i18next';
 import { isCountryLanguage, countryLanguageMiddleware } from './countryLanguage';
-
-jest.mock('i18next');
 
 describe('Country Language middelware', () => {
   afterEach(() => {
@@ -32,12 +29,12 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
-      jest.spyOn(i18next, 'changeLanguage');
+
       countryLanguageMiddleware(request, response, () => { });
+
       expect(request.params.country).toBe('FR');
       expect(request.params.language).toBe('fr');
       expect(response.redirect).toHaveBeenCalledTimes(0);
-      expect(i18next.changeLanguage).toHaveBeenCalledWith('fr-FR');
     });
     it('country Lowercase and language Uppercase into Request params', () => {
       const request = httpMocks.createRequest({
@@ -45,12 +42,12 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
-      jest.spyOn(i18next, 'changeLanguage');
+
       countryLanguageMiddleware(request, response, () => { });
+
       expect(request.params.country).toBe('FR');
       expect(request.params.language).toBe('fr');
       expect(response.redirect).toHaveBeenCalledTimes(0);
-      expect(i18next.changeLanguage).toBeCalledWith('fr-FR');
     });
     it('country Capitalize and language Capitalize into Request params', () => {
       const request = httpMocks.createRequest({
@@ -58,12 +55,11 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
-      jest.spyOn(i18next, 'changeLanguage');
+
       countryLanguageMiddleware(request, response, () => { });
       expect(request.params.country).toBe('FR');
       expect(request.params.language).toBe('fr');
       expect(response.redirect).toHaveBeenCalledTimes(0);
-      expect(i18next.changeLanguage).toBeCalledWith('fr-FR');
     });
     it('redirect to FR-fr on unknow country', () => {
       const request = httpMocks.createRequest({
@@ -71,9 +67,9 @@ describe('Country Language middelware', () => {
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
-      jest.spyOn(i18next, 'changeLanguage');
+
       countryLanguageMiddleware(request, response, () => { });
-      expect(i18next.changeLanguage).toHaveBeenCalledTimes(0);
+
       expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
     });
   });

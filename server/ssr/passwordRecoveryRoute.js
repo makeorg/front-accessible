@@ -4,20 +4,25 @@ import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
+import { reactRender } from '../reactRender';
 
-const reactRender = require('../reactRender');
-
-async function getQuestion(questionId) {
-  return QuestionService.getDetail(questionId);
+async function getQuestion(questionId, headers) {
+  return QuestionService.getDetail(questionId, headers);
 }
 
-async function postResetPasswordTokenCheck(userId: string, resetToken: string) {
-  return UserService.resetPasswordTokenCheck(userId, resetToken);
+async function postResetPasswordTokenCheck(userId: string, resetToken: string, headers) {
+  return UserService.resetPasswordTokenCheck(userId, resetToken, headers);
 }
 
-module.exports = async function passwordRecoveryRoute(req, res) {
+export const passwordRecoveryRoute = async (req, res) => {
   const initialState = createInitialState();
-  const { resetToken, userId } = req.params;
+  const {
+    resetToken,
+    userId,
+    sessionId,
+    country,
+    language
+  } = req.params;
   const routeState = {
     ...initialState,
     user: {
@@ -31,7 +36,30 @@ module.exports = async function passwordRecoveryRoute(req, res) {
   };
 
   try {
-    const status = await postResetPasswordTokenCheck(userId, resetToken);
+    const questionId = req.query.question;
+
+    if (questionId) {
+      const question = await getQuestion(questionId, {
+        'x-session-id': sessionId,
+        'x-make-question': questionId,
+        'x-make-question-id': questionId,
+        'x-make-country': country,
+        'x-make-language': language
+      });
+
+      if (question) {
+        routeState.sequence.question = question;
+      }
+    }
+
+    const status = await postResetPasswordTokenCheck(userId, resetToken, {
+      'x-session-id': sessionId,
+      'x-make-question': questionId,
+      'x-make-question-id': questionId,
+      'x-make-country': country,
+      'x-make-language': language
+    });
+
     if (status === HTTP_NO_CONTENT) {
       routeState.user.passwordRecovery.validToken = true;
       routeState.user.passwordRecovery.resetToken = resetToken;
@@ -40,13 +68,6 @@ module.exports = async function passwordRecoveryRoute(req, res) {
     if (status === HTTP_NOT_FOUND) {
       routeState.notification.contentType = notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT;
       routeState.notification.status = status;
-    }
-
-    if (req.query.question) {
-      const question = await getQuestion(req.query.question);
-      if (question) {
-        routeState.sequence.question = question;
-      }
     }
 
     return reactRender(req, res, routeState);

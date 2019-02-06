@@ -1,8 +1,8 @@
 /* @flow */
-
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import Logger from 'Shared/services/Logger';
 import * as HttpStatus from 'Shared/constants/httpStatus';
+import type { ApiServiceHeaders } from './type';
 import ApiService from './ApiService';
 
 const PATH_USER_ME = '/user/me';
@@ -132,13 +132,14 @@ export default class UserService {
    * @param  {String}  verificationToken
    * @return {Promise}
    */
-  static verifyUser(userId: string, verificationToken: string): Promise<Object> {
+  static verifyUser(userId: string, verificationToken: string, headers: ApiServiceHeaders = {}): Promise<Object> {
     const newPath = PATH_USER_VERIFICATION
       .replace(':userId', userId)
       .replace(':verificationToken', verificationToken);
 
     return ApiService.callApi(newPath, {
-      method: 'POST'
+      method: 'POST',
+      headers
     })
       .then(() => HttpStatus.HTTP_NO_CONTENT)
       .catch((error) => {
@@ -154,11 +155,14 @@ export default class UserService {
    * @param  {String}  resetToken
    * @return {Promise}
    */
-  static resetPasswordTokenCheck(userId: string, resetToken: string): Promise<Object> {
+  static resetPasswordTokenCheck(userId: string, resetToken: string, headers: ApiServiceHeaders): Promise<Object> {
     return ApiService.callApi(
       PATH_USER_RESET_TOKEN_CHECK
         .replace(':userId', userId)
-        .replace(':resetToken', resetToken), { method: 'POST' }
+        .replace(':resetToken', resetToken), {
+        method: 'POST',
+        headers
+      }
     )
       .then(() => HttpStatus.HTTP_NO_CONTENT)
       .catch((error) => {
