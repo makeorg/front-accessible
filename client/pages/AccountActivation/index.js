@@ -23,3 +23,4 @@ const mapStateToProps = (state) => {
 };
 
 export const AccountActivationPage = connect(mapStateToProps)(AccountActivation);
+export default AccountActivationPage;

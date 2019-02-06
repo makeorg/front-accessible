@@ -47,3 +47,4 @@ const mapStateToProps = (state) => {
 };
 
 export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecoveryRedirect));
+export default PasswordRecoveryPage;
