@@ -8,7 +8,6 @@ import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
-import TwitterTracking from 'Shared/services/Trackers/TwitterTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
@@ -51,7 +50,7 @@ i18next.init({
 });
 
 FacebookTracking.init();
-TwitterTracking.init('o16m6');
+
 
 const store = configureStore(initialState);
 
