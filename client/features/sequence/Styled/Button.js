@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButton, SmallRedButton } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle, RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 
-export const BackArrow = styled(UnstyledButton)`
+export const BackArrow = styled(UnstyledButtonStyle)`
   position: absolute;
   background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
@@ -26,7 +26,7 @@ export const BackArrow = styled(UnstyledButton)`
   }
 `;
 
-export const BackButton = styled(SmallRedButton)`
+export const BackButton = styled(RedButtonStyle)`
   position: absolute;
   top: 0;
   left: 50%;

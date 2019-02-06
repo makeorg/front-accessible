@@ -35,11 +35,6 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 @media (min-width:47.94rem) {
   .c0 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -76,13 +71,13 @@ Snapshot Diff:
 
 @@ -1,9 +1,9 @@
   <button
-    className="sc-1wm8iti-2 sc-1wm8iti-3 sc-1wm8iti-7 lnrzkv"
+    className="sc-1wm8iti-2 sc-1wm8iti-4 iZdAOk"
     form="foo"
 -   tabIndex="-1"
 +   tabIndex="0"
     type="submit"
   >
     <span
-      className="sc-1wm8iti-9 eCQQoZ"
+      className="sc-1wm8iti-6 dKldnF"
     >
 `;

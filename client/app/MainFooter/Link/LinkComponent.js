@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { footerItems, type TypeFooterLink } from 'Client/app/constants/footer';
 import * as Helpers from 'Shared/helpers/url';
-import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import MainFooter from '../Styled';
 
 type Props = {
@@ -24,7 +24,7 @@ export const FooterLinkComponent = (props: Props) => {
   // avoid any -> https://github.com/facebook/flow/issues/2221
   const Items: Array<TypeFooterLink> = (Object.values(footerItems): any);
   return (
-    <UnstyledList>
+    <UnstyledListStyle>
       {Items.map(Item => (
         <MainFooter.Item key={i18next.t(Item.label)}>
           <MainFooter.ItemLink href={Helpers.localizeLink(Item.linkUrl, country, language)}>
@@ -32,6 +32,6 @@ export const FooterLinkComponent = (props: Props) => {
           </MainFooter.ItemLink>
         </MainFooter.Item>
       ))}
-    </UnstyledList>
+    </UnstyledListStyle>
   );
 };

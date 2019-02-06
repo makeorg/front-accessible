@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import { LeftTooltip, BottomTooltip, DisplayedTooltip } from 'Client/ui/Elements/TooltipElments';
-import { HiddenOnMobile, HiddenOnDesktop } from 'Client/ui/Elements/HiddenElements';
+import { LeftTooltipStyle, BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
+import { HiddenOnMobileStyle, HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import { Bar, GraphItem } from '../Styled/Graph';
 
 type Props = {
@@ -64,28 +64,28 @@ export const ResultItemComponent = (props: Props) => {
         aria-controls={tooltipKey}
         aria-label={i18next.t(`results.tooltipbutton.${voteKey}`)}
       />
-      <HiddenOnDesktop>
-        <BottomTooltip
+      <HiddenOnDesktopStyle>
+        <BottomTooltipStyle
           key={tooltipKey}
-          as={isTooltipDisplayed ? DisplayedTooltip : ''}
+          as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
           aria-hidden={!isTooltipDisplayed}
           role="tooltip"
         >
           <p>{i18next.t(`vote.${voteKey}`)}</p>
           <p>{`${votePercent} %`}</p>
-        </BottomTooltip>
-      </HiddenOnDesktop>
-      <HiddenOnMobile>
-        <LeftTooltip
+        </BottomTooltipStyle>
+      </HiddenOnDesktopStyle>
+      <HiddenOnMobileStyle>
+        <LeftTooltipStyle
           key={tooltipKey}
-          as={isTooltipDisplayed ? DisplayedTooltip : ''}
+          as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
           aria-hidden={!isTooltipDisplayed}
           role="tooltip"
         >
           <p>{i18next.t(`vote.${voteKey}`)}</p>
           <p>{`${votePercent} %`}</p>
-        </LeftTooltip>
-      </HiddenOnMobile>
+        </LeftTooltipStyle>
+      </HiddenOnMobileStyle>
     </GraphItem>
   );
 };

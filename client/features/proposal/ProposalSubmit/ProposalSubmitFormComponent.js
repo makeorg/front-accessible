@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import i18next from 'i18next';
-import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { getBaitText } from 'Shared/constants/proposal';
 import { ProposalSubmitButtonComponent } from './Button';
 import ProposalSubmitForm from './Styled';
@@ -45,9 +45,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
 
   return (
     <ProposalSubmitForm isFieldExpanded={isSequenceCollapsed && isTyping}>
-      <HiddenItem aria-hidden as="h2">
+      <HiddenItemStyle aria-hidden as="h2">
         {i18next.t('proposal_submit.title')}
-      </HiddenItem>
+      </HiddenItemStyle>
       <ProposalSubmitForm.InputWrapper>
         <ProposalSubmitForm.Label
           htmlFor="proposal"
@@ -72,17 +72,17 @@ export const ProposalSubmitFormComponent = (props: Props) => {
       <ProposalSubmitForm.ButtonWrapper isFieldExpanded={isSequenceCollapsed && isTyping}>
         <ProposalSubmitForm.CharLimit>
           <span aria-valuetext={length}>{length}</span>
-          <HiddenItem aria-hidden>
+          <HiddenItemStyle aria-hidden>
             {i18next.t('proposal_submit.entred_chars')}
-          </HiddenItem>
+          </HiddenItemStyle>
           /
-          <HiddenItem aria-hidden>
+          <HiddenItemStyle aria-hidden>
             {i18next.t('common.from')}
-          </HiddenItem>
+          </HiddenItemStyle>
           <span aria-valuemax="140">140</span>
-          <HiddenItem aria-hidden>
+          <HiddenItemStyle aria-hidden>
             {i18next.t('proposal_submit.available_chars')}
-          </HiddenItem>
+          </HiddenItemStyle>
         </ProposalSubmitForm.CharLimit>
         <ProposalSubmitButtonComponent
           handleSubmit={handleSubmit}

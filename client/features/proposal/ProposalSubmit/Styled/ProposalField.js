@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { NoStyleTextInput } from 'Client/ui/Elements/Form/Styled';
-import { MiddleRow, FlexElement } from 'Client/ui/Elements/FlexElements';
-import { SmallGreyButton, SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { NoStyleTextInputStyle } from 'Client/ui/Elements/Form/Styled';
+import { MiddleRowStyle, FlexElementStyle } from 'Client/ui/Elements/FlexElements';
+import { GreyButtonStyle, RedButtonStyle, IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { TextColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 
-export const InputWrapper = styled(FlexElement)`
+export const InputWrapper = styled(FlexElementStyle)`
   width: 100%;
 `;
 
-export const ButtonWrapper = styled(FlexElement)`
+export const ButtonWrapper = styled(FlexElementStyle)`
   justify-content: flex-end;
   padding: ${pxToRem('7px')} 0;
   ${props => (props.isFieldExpanded ? 'width: 100%;' : '')};
@@ -34,7 +34,7 @@ export const Label = styled.label`
   }
 `;
 
-export const Input = styled(NoStyleTextInput)`
+export const Input = styled(NoStyleTextInputStyle)`
   width: 100%;
   max-width: ${pxToRem('780px')};
   font-family: ${MakeFonts.RobotoBold};
@@ -56,7 +56,7 @@ export const Input = styled(NoStyleTextInput)`
   }
 `;
 
-export const CharLimit = styled(MiddleRow)`
+export const CharLimit = styled(MiddleRowStyle)`
   font-family: ${MakeFonts.RobotoRegular};
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
@@ -69,17 +69,17 @@ export const CharLimit = styled(MiddleRow)`
   }
 `;
 
-export const DisabledProposalButton = styled(SmallGreyButton)`
+export const DisabledProposalButton = styled(GreyButtonStyle)`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroTwoOpacity};
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
 `;
 
-export const ProposalButton = styled(SmallRedButton)`
+export const ProposalButton = styled(RedButtonStyle)`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
 `;
 
-export const ProposalIcon = styled(IconInButton)`
+export const ProposalIcon = styled(IconInButtonStyle)`
   margin: 0;
 `;
 

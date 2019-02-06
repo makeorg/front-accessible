@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink } from 'Shared/helpers/url';
-import { CenterRow } from 'Client/ui/Elements/FlexElements';
+import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { Vote } from 'Client/features/vote';
 import ProposalCard from 'Client/features/sequence/Card/Styled';
@@ -43,7 +43,7 @@ export const SingleProposalCardComponent = (props: Props) => {
       <SingleProposal.Footer>
         <SingleProposal.ContentSeparator />
         <SingleProposal.FooterContent>
-          <SingleProposal.Description
+          <SingleProposal.DescriptionStyle
             dangerouslySetInnerHTML={
               {
                 __html: i18next.t(
@@ -54,7 +54,7 @@ export const SingleProposalCardComponent = (props: Props) => {
             }
           />
           <SingleProposal.FooterContentSeparator />
-          <CenterRow>
+          <CenterRowStyle>
             <SingleProposal.Button
               as="a"
               href={getSequenceLink(questionSlug)}
@@ -67,7 +67,7 @@ export const SingleProposalCardComponent = (props: Props) => {
             >
               {i18next.t('proposal_page.button_2')}
             </SingleProposal.Button>
-          </CenterRow>
+          </CenterRowStyle>
         </SingleProposal.FooterContent>
       </SingleProposal.Footer>
     </SingleProposal.Card>

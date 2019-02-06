@@ -1,10 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const PlaceholderWrapper = styled(MiddleColumn)`
+export const PlaceholderWrapper = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
 `;

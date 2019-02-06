@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButton } from 'Client/ui/Elements/ButtonElements';
-import { UnstyledList } from 'Client/ui/Elements/ListElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 
-export const Graph = styled(UnstyledList)`
+export const Graph = styled(UnstyledListStyle)`
   position: relative;
   display: flex;
   width: 100%;
@@ -20,7 +20,7 @@ export const GraphItem = styled.li`
   align-items: flex-end;
 `;
 
-export const Bar = styled(UnstyledButton)`
+export const Bar = styled(UnstyledButtonStyle)`
   display: flex;
   width: ${pxToRem('6px')};
   min-height: ${pxToRem('5px')};

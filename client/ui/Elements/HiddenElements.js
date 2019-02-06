@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const HiddenItem = styled.span`
+export const HiddenItemStyle = styled.span`
   position: absolute;
   display: none;
   width: 0;
@@ -13,7 +13,7 @@ export const HiddenItem = styled.span`
   visibility: hidden;
 `;
 
-export const HiddenOnMobile = styled.div`
+export const HiddenOnMobileStyle = styled.div`
   display: none;
   visibility: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -22,7 +22,7 @@ export const HiddenOnMobile = styled.div`
   }
 `;
 
-export const HiddenOnDesktop = styled.div`
+export const HiddenOnDesktopStyle = styled.div`
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     display: none;
     visibility: hidden;

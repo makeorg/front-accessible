@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Form } from 'Client/ui/Elements/Form/Styled';
+import { FormStyle } from 'Client/ui/Elements/Form/Styled';
 
 const ForgotPassword = styled.section`
   display: flex;
@@ -12,7 +12,7 @@ const ForgotPassword = styled.section`
   max-width: ${pxToRem('697px')};
 `;
 
-const ForgotPasswordForm = styled(Form)`
+const ForgotPasswordForm = styled(FormStyle)`
   max-width: ${pxToRem('490px')};
 `;
 

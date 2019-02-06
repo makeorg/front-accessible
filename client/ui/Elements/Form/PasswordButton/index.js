@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { UnstyledButton } from 'Client/ui/Elements/ButtonElements';
-import { HidePasswordIcon } from '../Styled';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { HidePasswordIconStyle } from '../Styled';
 
 type Props = {
   /** Boolean toggled when password shown / hidden */
@@ -28,15 +28,15 @@ export class PasswordButton extends React.Component<Props> {
 
     if (passwordIsDisplayed) {
       return (
-        <HidePasswordIcon onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
+        <HidePasswordIconStyle onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
           <FontAwesomeIcon aria-hidden icon={faEyeSlash} />
-        </HidePasswordIcon>
+        </HidePasswordIconStyle>
       );
     }
     return (
-      <UnstyledButton onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
+      <UnstyledButtonStyle onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
         <FontAwesomeIcon aria-hidden icon={faEye} />
-      </UnstyledButton>
+      </UnstyledButtonStyle>
     );
   }
 }

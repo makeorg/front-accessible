@@ -3,7 +3,7 @@ import React from 'react';
 import i18next from 'i18next';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
-import { Description } from 'Client/ui/Elements/DescriptionElements';
+import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
 import {
   NotFoundPageContent,
   NotFoundIntro,
@@ -20,9 +20,9 @@ const NotFoundPage = () => (
       <NotFoundTitle>
         {i18next.t('not_found.title')}
       </NotFoundTitle>
-      <Description>
+      <DescriptionStyle>
         {i18next.t('not_found.description')}
-      </Description>
+      </DescriptionStyle>
     </NotFoundPageContent>
   </MiddlePageWrapper>
 );

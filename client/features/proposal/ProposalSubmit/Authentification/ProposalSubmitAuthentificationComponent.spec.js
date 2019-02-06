@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { EmailButton } from 'Client/ui/Elements/ButtonElements';
-import { DescriptionLink } from 'Client/ui/Elements/DescriptionElements';
+import { EmailButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
 import { Small } from 'Client/ui/Elements/Separators';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
@@ -12,8 +12,8 @@ jest.mock('i18next');
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
-    const DescriptionLinkIcon = wrapper.find(DescriptionLink).find(FontAwesomeIcon);
-    const EmailButtonIcon = wrapper.find(EmailButton).find(FontAwesomeIcon);
+    const DescriptionLinkIcon = wrapper.find(DescriptionLinkStyle).find(FontAwesomeIcon);
+    const EmailButtonIcon = wrapper.find(EmailButtonStyle).find(FontAwesomeIcon);
 
 
     expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
@@ -24,6 +24,6 @@ describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check link target', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
 
-    expect(wrapper.find(DescriptionLink).prop('target')).toBe('_blank');
+    expect(wrapper.find(DescriptionLinkStyle).prop('target')).toBe('_blank');
   });
 });

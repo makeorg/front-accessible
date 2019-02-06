@@ -92,11 +92,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
 @media (min-width:47.94rem) {
   .c4 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c4 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -129,7 +124,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="1 c2"
+      className="c2"
       htmlFor="email"
     >
       <svg
@@ -140,7 +135,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
     </label>
     <input
       aria-required={true}
-      className="0 c3"
+      className="c3"
       id="email"
       name="email"
       placeholder="common.form.email_label"
@@ -266,11 +261,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
 @media (min-width:47.94rem) {
   .c5 {
     font-size: 1rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c5 {
     padding: 0.5625rem 1.25rem;
   }
 }
@@ -303,7 +293,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="1 c2"
+      className="c2"
       htmlFor="email"
     >
       <svg
@@ -314,7 +304,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
     </label>
     <input
       aria-required={true}
-      className="0 c3"
+      className="c3"
       id="email"
       name="email"
       placeholder="common.form.email_label"

@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 
-export const UnstyledList = styled.ul`
+export const UnstyledListStyle = styled.ul`
   padding: 0;
   list-style: none;
 `;

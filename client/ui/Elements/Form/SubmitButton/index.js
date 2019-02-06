@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SmallRedButton, IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle, IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 type Props = {
   /** Name of the input */
@@ -32,17 +32,17 @@ export class SubmitButton extends React.Component<Props> {
     } = this.props;
 
     return (
-      <SmallRedButton
+      <RedButtonStyle
         type="submit"
         form={formName}
         tabIndex={tabIndex}
         id={id}
       >
-        <IconInButton>
+        <IconInButtonStyle>
           <FontAwesomeIcon icon={icon} />
-        </IconInButton>
+        </IconInButtonStyle>
         {label}
-      </SmallRedButton>
+      </RedButtonStyle>
     );
   }
 }

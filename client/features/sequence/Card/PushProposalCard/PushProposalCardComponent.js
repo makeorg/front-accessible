@@ -4,8 +4,8 @@ import type { PushProposalCardConfig } from 'Shared/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from 'Client/ui/Elements/ButtonElements';
-import { MiddleColumnToRow } from 'Client/ui/Elements/FlexElements';
+import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import ExtraLogo from './ExtraLogo';
 import ProposalCard from '../Styled';
@@ -83,30 +83,30 @@ export const PushProposalCardComponent = (props: Props) => {
               {i18next.t('push_proposal_card.title')}
             </ProposalCard.AltMainTitle>
           </header>
-          <MiddleColumnToRow as="section">
+          <MiddleColumnToRowStyle as="section">
             <ProposalCard.PushProposalButton
               type="submit"
               tabIndex={tabIndex}
               onClick={focusProposalField}
             >
-              <IconInButton>
+              <IconInButtonStyle>
                 <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-              </IconInButton>
+              </IconInButtonStyle>
               {i18next.t('common.propose')}
             </ProposalCard.PushProposalButton>
             <ProposalCard.PushProposalNextButton
               tabIndex={tabIndex}
               onClick={skipProposalPushCard}
             >
-              <IconInButton>
+              <IconInButtonStyle>
                 <FontAwesomeIcon
                   aria-hidden
                   icon={faStepForward}
                 />
-              </IconInButton>
+              </IconInButtonStyle>
               {i18next.t('push_proposal_card.next-cta')}
             </ProposalCard.PushProposalNextButton>
-          </MiddleColumnToRow>
+          </MiddleColumnToRowStyle>
         </ProposalCard.InnerContent>
       </ProposalCard.ContentWrapper>
     </ProposalCard>

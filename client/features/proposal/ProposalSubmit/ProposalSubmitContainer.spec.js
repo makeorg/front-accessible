@@ -28,7 +28,7 @@ describe('ProposalSubmitContainer', () => {
     expect(wrapper.find(ProposalSubmitAuthentification)).toHaveLength(0);
   });
 
-  it('Renders Description', () => {
+  it('Renders DescriptionStyle', () => {
     const descriptionProps = {
       ...defaultProps,
       isSequenceCollapsed: true

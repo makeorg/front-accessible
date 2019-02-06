@@ -12,7 +12,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const ButtonsWrapper = styled.div`
+export const ButtonsWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -25,7 +25,7 @@ export const ButtonsWrapper = styled.div`
   }
 `;
 
-export const UnstyledButton = styled.button`
+export const UnstyledButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -35,7 +35,7 @@ export const UnstyledButton = styled.button`
   background-color: transparent;
 `;
 
-export const BasicButton = styled.button`
+export const BasicButtonStyle = styled.button`
   white-space: nowrap;
   display: flex;
   justify-content: center;
@@ -47,68 +47,51 @@ export const BasicButton = styled.button`
   border-radius: ${pxToRem('30px')};
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    font-size: ${pxToRem('16px')};
-  }
-`;
-
-export const SmallBasicButton = styled(BasicButton)`
   padding: ${pxToRem('5px')} ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    font-size: ${pxToRem('16px')};
     padding: ${pxToRem('9px')} ${pxToRem('20px')};
   }
 `;
 
-export const TallBasicButton = styled(BasicButton)`
+export const GreyButtonStyle = styled(BasicButtonStyle)`
+  color: ${BasicColors.PureWhite};
+  background: ${BackgroundColors.Grey};
+  background-color: ${BackgroundColors.Grey};
+`;
+
+export const RedButtonStyle = styled(BasicButtonStyle)`
+  color: ${BasicColors.PureWhite};
+  background: ${MakeThemeColors.Red};
+  background-color: ${MakeThemeColors.Red};
+`;
+
+export const TallRedButtonStyle = styled(RedButtonStyle)`
   padding: ${pxToRem('8px')} ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem('10px')} ${pxToRem('20px')};
   }
 `;
 
-export const SmallGreyButton = styled(SmallBasicButton)`
-  color: ${BasicColors.PureWhite};
-  background: ${BackgroundColors.Grey};
-  background-color: ${BackgroundColors.Grey};
-`;
-
-export const TallGreyButton = styled(TallBasicButton)`
-  color: ${BasicColors.PureWhite};
-  background: ${BackgroundColors.Grey};
-  background-color: ${BackgroundColors.Grey};
-`;
-
-export const SmallRedButton = styled(SmallBasicButton)`
-  color: ${BasicColors.PureWhite};
-  background: ${MakeThemeColors.Red};
-  background-color: ${MakeThemeColors.Red};
-`;
-
-export const TallRedButton = styled(TallBasicButton)`
-  color: ${BasicColors.PureWhite};
-  background: ${MakeThemeColors.Red};
-  background-color: ${MakeThemeColors.Red};
-`;
-
-export const IconInButton = styled.span`
+export const IconInButtonStyle = styled.span`
   margin-right: ${pxToRem('6.5px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-right: ${pxToRem('10px')};
   }
 `;
 
-export const LargeButton = styled(SmallBasicButton)`
+export const LargeButtonStyle = styled(BasicButtonStyle)`
   width: 100%;
   margin: 0 ${pxToRem('5px')};
 `;
 
-export const FacebookButton = styled(LargeButton)`
+export const FacebookButtonStyle = styled(LargeButtonStyle)`
   color: ${BasicColors.PureWhite};
   background: ${IconColors.Facebook};
   background-color: ${IconColors.Facebook};
 `;
 
-export const GoogleButton = styled(LargeButton)`
+export const GoogleButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background: ${IconColors.Google};
@@ -117,7 +100,7 @@ export const GoogleButton = styled(LargeButton)`
     margin-top: 0;
   }
 `;
-export const EmailButton = styled(LargeButton)`
+export const EmailButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background: ${MakeThemeColors.Red};
@@ -127,15 +110,15 @@ export const EmailButton = styled(LargeButton)`
   }
 `;
 
-export const RedLinkButton = styled(UnstyledButton)`
+export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
-  margin: 0 ${pxToRem('5px')}
+  margin: 0 ${pxToRem('5px')};
 `;
 
-export const SmallButtonsWrapper = styled(ButtonsWrapper)`
+export const SmallButtonWrapperStyle = styled(ButtonsWrapperStyle)`
   max-width: ${pxToRem('410px')};
 `;

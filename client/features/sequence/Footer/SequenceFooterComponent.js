@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
-import { HiddenItem } from 'Client/ui/Elements/HiddenElements';
-import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import Sequence from '../Styled';
 
 type Props = {
@@ -21,12 +21,12 @@ export const SequenceFooterComponent = (props: Props) => {
   return (
     <Sequence.Footer>
       <Sequence.FooterNav aria-labelledby="footer_title">
-        <MiddleColumn>
+        <MiddleColumnStyle>
           <Sequence.FooterTitle
             color={questionConfiguration.theme.footerFontColor}
             id="footer_title"
           >
-            <HiddenItem aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItem>
+            <HiddenItemStyle aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItemStyle>
             <Sequence.TitleInner>
               {questionConfiguration.wording.question}
               {questionConfiguration.footer
@@ -39,7 +39,7 @@ export const SequenceFooterComponent = (props: Props) => {
               }
             </Sequence.TitleInner>
           </Sequence.FooterTitle>
-        </MiddleColumn>
+        </MiddleColumnStyle>
         <Sequence.FooterLink
           color={questionConfiguration.theme.footerFontColor}
           target="_blank"

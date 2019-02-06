@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  FakeInputGrey,
-  IconLabel,
-  BasicInput
+  FakeInputGreyStyle,
+  IconLabelStyle,
+  BasicInputStyle
 } from '../Styled';
 import { PasswordButton } from '../PasswordButton';
 
@@ -57,11 +57,11 @@ export class PasswordInput extends React.Component<Props> {
     } = this.props;
 
     return (
-      <FakeInputGrey hasError={errors}>
-        <IconLabel htmlFor={name} aria-label={label}>
+      <FakeInputGreyStyle hasError={errors}>
+        <IconLabelStyle htmlFor={name} aria-label={label}>
           <FontAwesomeIcon aria-hidden icon={icon} />
-        </IconLabel>
-        <BasicInput
+        </IconLabelStyle>
+        <BasicInputStyle
           type={passwordIsDisplayed ? 'text' : type}
           name={name}
           id={name}
@@ -77,7 +77,7 @@ export class PasswordInput extends React.Component<Props> {
           passwordIsDisplayed={passwordIsDisplayed}
           tabIndex={tabIndex}
         />
-      </FakeInputGrey>
+      </FakeInputGreyStyle>
     );
   }
 }

@@ -5,9 +5,9 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors, BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { CALC_HEIGHT_MOBILE, CALC_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { SpaceBetweenColumn, CenterColumn } from 'Client/ui/Elements/FlexElements';
+import { SpaceBetweenColumnStyle, CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
-export const AppWrapper = styled(SpaceBetweenColumn)`
+export const AppWrapper = styled(SpaceBetweenColumnStyle)`
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -21,7 +21,7 @@ export const MainContent = styled.main`
   overflow: hidden;
 `;
 
-export const PageWrapper = styled(CenterColumn)`
+export const PageWrapper = styled(CenterColumnStyle)`
   min-height: calc(100vh - ${pxToRem(CALC_HEIGHT_MOBILE)});
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@ export const MiddlePageWrapper = styled(PageWrapper)`
   justify-content: center;
 `;
 
-export const PageContainer = styled(CenterColumn)`
+export const PageContainer = styled(CenterColumnStyle)`
   width: 100%;
   height: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};

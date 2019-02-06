@@ -4,7 +4,7 @@ import type { IntroCardConfig, IntroCardWording } from 'Shared/types/card';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Small } from 'Client/ui/Elements/Separators';
 import ExtraLogo from './ExtraLogo';
 import IntroTitle from './Title';
@@ -67,12 +67,12 @@ export const IntroCardComponent = (props: Props) => {
         tabIndex={tabIndex}
         onClick={handleStartSequence}
       >
-        <IconInButton>
+        <IconInButtonStyle>
           <FontAwesomeIcon
             aria-hidden
             icon={faPlay}
           />
-        </IconInButton>
+        </IconInButtonStyle>
         {i18next.t('intro_card.button')}
       </ProposalCard.IntroButton>
       {configuration

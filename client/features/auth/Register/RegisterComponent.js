@@ -2,10 +2,10 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { UserObject, ErrorObject } from 'Shared/types/form';
-import { SecondLevelTitle, ThirdLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
-import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
-import { ExtraParagraph } from 'Client/ui/Elements/Form/Styled';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled';
 import FacebookAuthentificationLinkComponent from 'Client/features/auth/Social/FacebookAuthentification/Link';
 import GoogleAuthentificationLinkComponent from 'Client/features/auth/Social/GoogleAuthentification/Link';
 import RegisterFormComponent from './Form';
@@ -48,11 +48,11 @@ export const RegisterComponent = (props: Props) => {
 
   return (
     <Register role="region" aria-labelledby="register_title">
-      <SecondLevelTitle id="register_title">
+      <SecondLevelTitleStyle id="register_title">
         {i18next.t('register.title')}
-      </SecondLevelTitle>
+      </SecondLevelTitleStyle>
       <Separators.Small />
-      <ThirdLevelTtitle>
+      <ThirdLevelTtitleStyle>
         {i18next.t('register.social_connect')}
         &nbsp;
         <FacebookAuthentificationLinkComponent
@@ -64,22 +64,22 @@ export const RegisterComponent = (props: Props) => {
         <GoogleAuthentificationLinkComponent
           tabIndex={isPannelOpen ? 0 : -1}
         />
-      </ThirdLevelTtitle>
+      </ThirdLevelTtitleStyle>
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18next.t('register.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
-      <ThirdLevelTtitle>
+      <ThirdLevelTtitleStyle>
         {i18next.t('register.subtitle')}
-      </ThirdLevelTtitle>
+      </ThirdLevelTtitleStyle>
       <RegisterFormComponent {...props} />
-      <ExtraParagraph>
+      <ExtraParagraphStyle>
         {i18next.t('register.login_title')}
-        <RedLinkButton onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>
+        <RedLinkButtonStyle onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>
           {i18next.t('register.login_link')}
-        </RedLinkButton>
-      </ExtraParagraph>
+        </RedLinkButtonStyle>
+      </ExtraParagraphStyle>
     </Register>
   );
 };

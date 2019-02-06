@@ -4,63 +4,63 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const FlexElement = styled.div`
+export const FlexElementStyle = styled.div`
   display: flex;
 `;
 
-export const ColumnToRowElement = styled(FlexElement)`
+export const ColumnToRowElementStyle = styled(FlexElementStyle)`
   flex-flow: column;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     flex-flow: row;
   }
 `;
 
-export const ColumnElement = styled(FlexElement)`
+export const ColumnElementStyle = styled(FlexElementStyle)`
   flex-flow: column;
 `;
 
 /* Row Elements */
-export const CenterRow = styled(FlexElement)`
+export const CenterRowStyle = styled(FlexElementStyle)`
   justify-content: center;
 `;
 
-export const MiddleRow = styled(CenterRow)`
+export const MiddleRowStyle = styled(CenterRowStyle)`
   align-items: center;
 `;
 
-export const SpaceBetweenRow = styled(FlexElement)`
+export const SpaceBetweenRowStyle = styled(FlexElementStyle)`
   justify-content: space-between;
 `;
 
 /* Column Elements */
-export const CenterColumn = styled(ColumnElement)`
+export const CenterColumnStyle = styled(ColumnElementStyle)`
   align-items: center;
 `;
 
-export const MiddleColumn = styled(CenterColumn)`
+export const MiddleColumnStyle = styled(CenterColumnStyle)`
   justify-content: center;
 `;
 
-export const SpaceBetweenColumn = styled(ColumnElement)`
+export const SpaceBetweenColumnStyle = styled(ColumnElementStyle)`
   justify-content: space-between;
 `;
 
 /* Column To Row Elements */
-export const CenterColumnToRow = styled(ColumnToRowElement)`
+export const CenterColumnStyleToRowStyle = styled(ColumnToRowElementStyle)`
   align-items: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     justify-content: center;
   }
 `;
 
-export const MiddleColumnToRow = styled(CenterColumnToRow)`
+export const MiddleColumnToRowStyle = styled(CenterColumnStyleToRowStyle)`
   justify-content: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     align-items: center;
   }
 `;
 
-export const SpaceBetweenColumnToRow = styled(ColumnToRowElement)`
+export const SpaceBetweenColumnToRowStyle = styled(ColumnToRowElementStyle)`
   align-items: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     justify-content: space-between;

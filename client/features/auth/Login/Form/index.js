@@ -5,10 +5,10 @@ import type { ErrorObject } from 'Shared/types/form';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import {
-  Form,
-  InputErrorMessage,
-  FormErrors,
-  FormError
+  FormStyle,
+  InputErrorMessageStyle,
+  FormErrorsListStyle,
+  FormErrorStyle
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -55,12 +55,12 @@ const LoginFormComponent = (props: Props) => {
   const globalError = fieldErrors('global', errors);
 
   return (
-    <Form id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
+    <FormStyle id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
-          <FormErrors id="authentification-login-error">
-            <FormError key={globalError}>{globalError}</FormError>
-          </FormErrors>
+          <FormErrorsListStyle id="authentification-login-error">
+            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+          </FormErrorsListStyle>
         )
       }
       <UntypedInput
@@ -74,7 +74,7 @@ const LoginFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      {emailError && <InputErrorMessage id="authentification-email-error">{emailError}</InputErrorMessage>}
+      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
       <PasswordInput
         type="password"
         name="password"
@@ -88,7 +88,7 @@ const LoginFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {passwordError && <InputErrorMessage id="authentification-password-error">{passwordError}</InputErrorMessage>}
+      {passwordError && <InputErrorMessageStyle id="authentification-password-error">{passwordError}</InputErrorMessageStyle>}
       <SubmitButton
         formName={LOGIN_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -96,7 +96,7 @@ const LoginFormComponent = (props: Props) => {
         id="authentification-login-submit"
         label={i18next.t('common.connexion_label')}
       />
-    </Form>
+    </FormStyle>
   );
 };
 

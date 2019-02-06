@@ -3,14 +3,14 @@
 import styled, { keyframes } from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
-import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
-export const Container = styled(MiddleColumn)`
+export const ContainerStyle = styled(MiddleColumnStyle)`
   width: 100%;
-  height: 100%
+  height: 100%;
 `;
 
-export const Wrapper = styled.div`
+export const WrapperStyle = styled.div`
   display: block;
   position: relative;
   width: ${pxToRem('64px')};
@@ -27,7 +27,7 @@ const Spinning = keyframes`
   }
 `;
 
-export const FirstRing = styled.div`
+export const FirstRingStyle = styled.div`
   box-sizing: border-box;
   display: block;
   position: absolute;
@@ -40,14 +40,14 @@ export const FirstRing = styled.div`
   border-color: ${BackgroundColors.Grey} transparent transparent transparent;
 `;
 
-export const SecondRing = styled(FirstRing)`
+export const SecondRingStyle = styled(FirstRingStyle)`
   animation-delay: -0.45s;
 `;
 
-export const ThirdRing = styled(FirstRing)`
+export const ThirdRingStyle = styled(FirstRingStyle)`
   animation-delay: -0.3s;
 `;
 
-export const FourthRing = styled(FirstRing)`
+export const FourthRingStyle = styled(FirstRingStyle)`
   animation-delay: -0.15s;
 `;

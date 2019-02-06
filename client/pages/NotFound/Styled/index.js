@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { BackgroundColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
-import { MiddleColumn } from 'Client/ui/Elements/FlexElements';
-import { SecondLevelTitle } from 'Client/ui/Elements/TitleElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
-export const NotFoundPageContent = styled(MiddleColumn)`
+export const NotFoundPageContent = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   flex: 1;
@@ -28,7 +28,7 @@ export const NotFoundIntro = styled.p`
   }
 `;
 
-export const NotFoundTitle = styled(SecondLevelTitle)`
+export const NotFoundTitle = styled(SecondLevelTitleStyle)`
   font-size: ${pxToRem('30px')};
   line-height: 1;
   margin: ${pxToRem('15px')} 0 ${pxToRem('30px')};

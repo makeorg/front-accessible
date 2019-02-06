@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { CenterRow } from 'Client/ui/Elements/FlexElements';
+import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ButtonList } from './Button';
 
@@ -16,7 +16,7 @@ const Vote = styled.form`
   }
 `;
 
-export const Wrapper = styled(CenterRow)`
+export const Wrapper = styled(CenterRowStyle)`
   width: 100%;
   justify-content: space-around;
   max-width: ${pxToRem('300px')};

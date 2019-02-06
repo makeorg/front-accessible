@@ -3,10 +3,10 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import type { ErrorObject } from 'Shared/types/form';
-import { ExtraAltParagraph } from 'Client/ui/Elements/Form/Styled';
-import { SecondLevelTitle, FourthLevelTtitle } from 'Client/ui/Elements/TitleElements';
+import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
+import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
-import { RedLinkButton } from 'Client/ui/Elements/ButtonElements';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ForgotPasswordFormComponent } from './Form';
 import ForgotPassword from './Styled';
 
@@ -39,31 +39,31 @@ export const PasswordForgotComponent = (props: Props) => {
 
   return (
     <ForgotPassword role="region" aria-labelledby="forgot_password_title">
-      <SecondLevelTitle id="forgot_password_title">
+      <SecondLevelTitleStyle id="forgot_password_title">
         {i18next.t('forgot_password.title')}
-      </SecondLevelTitle>
+      </SecondLevelTitleStyle>
       <Separators.Small />
       {isSuccess ? (
-        <FourthLevelTtitle>
+        <FourthLevelTtitleStyle>
           {i18next.t('forgot_password.success')}
-        </FourthLevelTtitle>
+        </FourthLevelTtitleStyle>
       ) : (
         <React.Fragment>
-          <FourthLevelTtitle>
+          <FourthLevelTtitleStyle>
             {i18next.t('forgot_password.description')}
-          </FourthLevelTtitle>
+          </FourthLevelTtitleStyle>
           <ForgotPasswordFormComponent {...props} />
         </React.Fragment>
       )}
-      <ExtraAltParagraph>
+      <ExtraAltParagraphStyle>
         {i18next.t('forgot_password.return')}
-        <RedLinkButton
+        <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleLoginPannel}
         >
           {i18next.t('forgot_password.login_link')}
-        </RedLinkButton>
-      </ExtraAltParagraph>
+        </RedLinkButtonStyle>
+      </ExtraAltParagraphStyle>
     </ForgotPassword>
   );
 };

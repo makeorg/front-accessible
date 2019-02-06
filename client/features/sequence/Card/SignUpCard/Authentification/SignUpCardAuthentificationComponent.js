@@ -4,13 +4,13 @@ import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
-  EmailButton,
-  IconInButton,
-  SmallButtonsWrapper,
-  RedLinkButton
+  EmailButtonStyle,
+  IconInButtonStyle,
+  SmallButtonWrapperStyle,
+  RedLinkButtonStyle
 } from 'Client/ui/Elements/ButtonElements';
-import { CenterColumn } from 'Client/ui/Elements/FlexElements';
-import { ExtraAltParagraph } from 'Client/ui/Elements/Form/Styled';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
 import FacebookAuthentificationButtonComponent
   from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import GoogleAuthentificationButtonComponent from 'Client/features/auth/Social/GoogleAuthentification/Button';
@@ -35,34 +35,34 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
   } = props;
 
   return (
-    <CenterColumn>
-      <SmallButtonsWrapper>
+    <CenterColumnStyle>
+      <SmallButtonWrapperStyle>
         <FacebookAuthentificationButtonComponent
           tabIndex={tabIndex}
         />
         <GoogleAuthentificationButtonComponent
           tabIndex={tabIndex}
         />
-        <EmailButton
+        <EmailButtonStyle
           onClick={handleRegisterClick}
           tabIndex={tabIndex}
           id="authentification-register-button"
         >
-          <IconInButton>
+          <IconInButtonStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconInButton>
+          </IconInButtonStyle>
           {i18next.t('common.email')}
-        </EmailButton>
-      </SmallButtonsWrapper>
-      <ExtraAltParagraph>
+        </EmailButtonStyle>
+      </SmallButtonWrapperStyle>
+      <ExtraAltParagraphStyle>
         {i18next.t('register.login_title')}
-        <RedLinkButton
+        <RedLinkButtonStyle
           tabIndex={tabIndex}
           onClick={handleLoginClick}
         >
           {i18next.t('register.login_link')}
-        </RedLinkButton>
-      </ExtraAltParagraph>
-    </CenterColumn>
+        </RedLinkButtonStyle>
+      </ExtraAltParagraphStyle>
+    </CenterColumnStyle>
   );
 };

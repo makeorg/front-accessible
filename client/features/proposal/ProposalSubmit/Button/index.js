@@ -2,8 +2,8 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { HiddenOnMobile } from 'Client/ui/Elements/HiddenElements';
-import { IconInButton } from 'Client/ui/Elements/ButtonElements';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
+import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   ProposalButton,
   DisabledProposalButton,
@@ -41,24 +41,24 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButton as={isFieldExpanded ? IconInButton : ProposalIcon}>
+        <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIcon}>
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-        </IconInButton>
-        <HiddenOnMobile as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobile}>
+        </IconInButtonStyle>
+        <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
           {i18next.t('common.propose')}
-        </HiddenOnMobile>
+        </HiddenOnMobileStyle>
       </ProposalButton>
     );
   }
 
   return (
     <DisabledProposalButton id="proposal-submit-button" type="submit" disabled>
-      <IconInButton as={isFieldExpanded ? IconInButton : ProposalIcon}>
+      <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIcon}>
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-      </IconInButton>
-      <HiddenOnMobile as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobile}>
+      </IconInButtonStyle>
+      <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
         {i18next.t('common.propose')}
-      </HiddenOnMobile>
+      </HiddenOnMobileStyle>
     </DisabledProposalButton>
   );
 };
