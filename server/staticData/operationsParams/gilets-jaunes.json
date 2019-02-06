@@ -1,0 +1,48 @@
+{
+  "wording": {
+    "title": "Grand débat national",
+    "question": "Grand débat national : quelles sont vos propositions ?",
+    "metas": {
+      "title": "Grand débat national : quelles sont vos propositions ?",
+      "description": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5c483e3ec604e5e49713d344_meta%20grand%20de%CC%81bat.jpg"
+    }
+  },
+  "theme": {
+    "color": "#0024A6",
+    "gradient-start": "#0024A6",
+    "gradient-end": "#0024A6",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
+  "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
+  "sequenceExtraSlidesWording": {},
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": false,
+      "customDescription": false,
+      "partners": false,
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "signUpCard": true,
+    "pushProposal": true,
+    "finalCard": {
+      "customTitle": false,
+      "linkUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
+      "withSharing": false
+    }
+  },
+  "sequenceSignUpForm": {
+    "firstName": false,
+    "age": false,
+    "job": false,
+    "postalCode": false,
+    "csp": false,
+    "gender": false,
+    "hiddenOptOut": false,
+    "partnerOptin": false
+  },
+  "sequenceSignUpPannel": false,
+  "displayInShowcases": true
+}
