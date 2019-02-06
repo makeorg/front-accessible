@@ -1,7 +1,7 @@
 import 'url-search-params-polyfill';
-import { FRONT_URL } from 'Shared/constants/config';
 import * as URL from 'Shared/constants/url';
 import ApiService from 'Shared/api/ApiService';
+import { FRONT_URL } from 'Shared/constants/config';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -29,12 +29,16 @@ export const localizeModerationCharterLink = () => (
   localizeLink(URL.MODERATION_CHARTER_LINK, ApiService.country, ApiService.language)
 );
 
-const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;
+export const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;
 
-export const twitterShareUrl = (pathName: string = '', message: string = '') => (
+export const twitterShareUrl = (pathName: string = '', message: string = '', hashtags: string = '') => (
   `https://twitter.com/intent/tweet/?text=${encodeURIComponent(
     message
-  )}&url=${encodeURIComponent(currentUrl(pathName))}`
+  )}&hashtags=${encodeURIComponent(
+    hashtags
+  )}&url=${encodeURIComponent(
+    currentUrl(pathName)
+  )}`
 );
 
 export const facebookShareUrl = (pathName: string = '') => (

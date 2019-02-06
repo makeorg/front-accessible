@@ -46,6 +46,14 @@ export type Wording = {
   metas: Metas
 }
 
+export type TwitterType = {
+  hashtags: string
+}
+
+export type SharingType = {
+  twitter: TwitterType
+}
+
 export type FooterType = {
   sentence: string
 }
@@ -65,10 +73,8 @@ export type Question = {
 }
 
 export type QuestionConfiguration = {
-  slug: string,
-  country: string,
-  language: string,
   wording: Wording,
+  sharing: SharingType,
   theme: Theme,
   consultationUrl: string,
   sequenceUrl: string,
