@@ -12,7 +12,6 @@ import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
-import { initialStateDebug } from 'Shared/store/initialState.debug';
 import Logger from 'Shared/services/Logger';
 import { SESSION_ID_COOKIE_KEY } from 'Shared/constants/config';
 import { uuid } from 'Shared/helpers/uuid';
@@ -38,7 +37,7 @@ let initialState = window.INITIAL_STATE;
 delete window.INITIAL_STATE;
 
 if (env.isNone() || env.isDev()) {
-  initialState = initialStateDebug;
+  initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 
 const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;

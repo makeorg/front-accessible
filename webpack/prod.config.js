@@ -2,7 +2,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const baseConfig = require('./base.config.js');
+const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 
 module.exports = merge(baseConfig, {
   entry: path.resolve(__dirname, '..', 'client', 'index.js'),
@@ -57,6 +59,8 @@ module.exports = merge(baseConfig, {
     ]
   },
   plugins: [
+    createHtmlWebpackPlugin({ ssr: true }),
+    new InlineSourcePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')

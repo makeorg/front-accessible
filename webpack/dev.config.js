@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
+const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
@@ -11,6 +12,7 @@ module.exports = merge(baseConfig, {
     filename: 'bundle.js'
   },
   plugins: [
+    createHtmlWebpackPlugin({ ssr: false }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {

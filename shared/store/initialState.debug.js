@@ -2,9 +2,8 @@ export const initialStateDebug = {
   appConfig: {
     source: 'core',
     language: 'fr',
-    country: 'FR'
-    // do not add it in the js bundle
-    // translations: require('../../server/staticData/i18n/fr-FR.json')
+    country: 'FR',
+    translations: require('../../server/staticData/i18n/fr-FR.json')
   },
   proposal: {
     length: 8
