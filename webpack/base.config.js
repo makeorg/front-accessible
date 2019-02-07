@@ -1,8 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 
@@ -12,29 +10,6 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../public/index.html'),
-      filename: './index.html',
-      meta: {
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-        charset: 'utf-8',
-        'theme-color': '#ed1844'
-      },
-      chunks: [], // do not inject scripts because it's managed by loadable in server/reactRender.js -> extractor.getScriptTags
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      },
-      inlineSource: 'runtime~.+\\.js'
-    }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, '../client/app/assets/images/favicon.png'),
       prefix: 'favicon/'
@@ -54,7 +29,6 @@ module.exports = {
         }
       ]
     }),
-    new InlineSourcePlugin(),
     new ManifestPlugin(),
     new LoadablePlugin()
   ],
