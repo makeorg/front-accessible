@@ -18,7 +18,11 @@ export const MainTitle = styled.h2`
 `;
 
 export const ExtraLogo = styled.img`
+  max-width: ${pxToRem('75px')};
   margin: 0 auto ${pxToRem('15px')};
+  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
+    max-width: 100%;
+  }
 `;
 
 export const IntroTitle = styled(MainTitle)`
