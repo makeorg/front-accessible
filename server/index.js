@@ -1,3 +1,4 @@
+import './browserPolyfill';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { cookiesHandlerMiddleware } from './middleware/cookies';
 import { headersResponseMiddleware } from './middleware/headers';
@@ -7,7 +8,12 @@ import { questionApi } from './api/question';
 import { loggerApi } from './api/logger';
 import * as technicalPages from './technicalPages';
 
-require('./browserPolyfill');
+import { accountActivationRoute } from './ssr/accountActivationRoute';
+import { defaultRoute } from './ssr/defaultRoute';
+import { sequenceRoute } from './ssr/sequenceRoute';
+import { proposalRoute } from './ssr/proposalRoute';
+import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
@@ -15,11 +21,6 @@ const serveStatic = require('serve-static');
 const cookiesMiddleware = require('universal-cookie-express');
 const favicon = require('serve-favicon');
 
-const defaultRoute = require('./ssr/defaultRoute');
-const sequenceRoute = require('./ssr/sequenceRoute');
-const accountActivationRoute = require('./ssr/accountActivationRoute');
-const proposalRoute = require('./ssr/proposalRoute');
-const passwordRecoveryRoute = require('./ssr/passwordRecoveryRoute');
 
 const {
   BUILD_DIR,
@@ -91,4 +92,5 @@ app.get(
 );
 
 app.get('*', frontMiddlewares, defaultRoute);
+
 module.exports = app;

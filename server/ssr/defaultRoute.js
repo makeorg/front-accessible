@@ -1,5 +1,3 @@
-const reactRender = require('../reactRender');
+import { reactRender } from '../reactRender';
 
-module.exports = function defaultRoute(req, res) {
-  return reactRender(req, res);
-};
+export const defaultRoute = (req, res) => reactRender(req, res);

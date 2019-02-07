@@ -1,5 +1,3 @@
-import ApiService from 'Shared/api/ApiService';
-import i18next from '../i18n';
 import { METRIC_PATH } from './metrics';
 
 export const isCountryLanguage = (countryLanguage = null) => (
@@ -23,12 +21,6 @@ export const countryLanguageMiddleware = (req, res, next) => {
 
   req.params.country = country;
   req.params.language = language;
-
-  const tradLanguage = `${language}-${country}`;
-  i18next.changeLanguage(tradLanguage);
-
-  ApiService.country = country;
-  ApiService.language = language;
 
   return next();
 };

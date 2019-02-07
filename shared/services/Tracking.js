@@ -9,11 +9,8 @@ import { FacebookTracking } from './Trackers/FacebookTracking';
 import TwitterTracking from './Trackers/TwitterTracking';
 
 const
-  PARENT_URL = typeof window
-    !== 'undefined' && window && window.parent && document
-    && document.location && (window.location !== window.parent.location)
-    ? document.referrer : document.location.href;
-
+  PARENT_URL = typeof window !== 'undefined' && window && window.location
+    ? window.location.href : undefined;
 
 const getPosition = (cardPosition?: number): string => {
   if (cardPosition !== undefined) {

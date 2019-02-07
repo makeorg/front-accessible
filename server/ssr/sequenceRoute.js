@@ -2,26 +2,30 @@ import QuestionService from 'Shared/api/QuestionService';
 import SequenceService from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
-
+// import { reactRender } from '../reactRender';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logger } from '../logger';
 
+const { reactRender } = require('../reactRender');
 
-const reactRender = require('../reactRender');
-
-async function getQuestion(questionSlug) {
-  return QuestionService.getDetail(questionSlug);
+async function getQuestion(questionSlug, headers) {
+  return QuestionService.getDetail(questionSlug, headers);
 }
 
 async function getQuestionConfiguration(questionSlug) {
   return SequenceService.fetchConfiguration(questionSlug);
 }
 
-module.exports = async function SequenceRoute(req, res) {
+export const sequenceRoute = async (req, res) => {
+  const { sessionId } = req.params;
+  let routeState = {};
+
   try {
     const initialState = createInitialState();
     const { questionSlug } = req.params;
-    const question = await getQuestion(questionSlug);
+    const question = await getQuestion(questionSlug, {
+      'x-session-id': sessionId
+    });
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
       const { sequenceExtraSlidesConfig } = questionConfiguration;
@@ -30,7 +34,7 @@ module.exports = async function SequenceRoute(req, res) {
 
     const { firstProposal } = req.query;
 
-    const routeState = {
+    routeState = {
       sequence: {
         ...initialState.sequence,
         question,
@@ -48,14 +52,14 @@ module.exports = async function SequenceRoute(req, res) {
         firstProposal
       };
     }
-
-    return reactRender(req, res, routeState);
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;
       logger.log('error', stack);
     }
 
-    res.send(error);
+    return res.send(error);
   }
+
+  return reactRender(req, res, routeState);
 };

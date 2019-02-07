@@ -1,6 +1,5 @@
 import { SESSION_ID_COOKIE_KEY } from 'Shared/constants/config';
 import { uuid } from 'Shared/helpers/uuid';
-import ApiService from 'Shared/api/ApiService';
 
 export const cookiesHandlerMiddleware = (req, res, next) => {
   const cookies = req.universalCookies;
@@ -11,7 +10,7 @@ export const cookiesHandlerMiddleware = (req, res, next) => {
     cookies.set(SESSION_ID_COOKIE_KEY, sessionId);
   }
 
-  ApiService.sessionId = sessionId;
+  req.params.sessionId = sessionId;
 
   return next();
 };

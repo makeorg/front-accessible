@@ -2,25 +2,37 @@ import ProposalService from 'Shared/api/ProposalService';
 import SequenceService from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
+// import { reactRender } from '../reactRender';
+const { reactRender } = require('../reactRender');
 
-const reactRender = require('../reactRender');
-
-async function getProposal(proposalId) {
-  return ProposalService.getProposal(proposalId);
+async function getProposal(proposalId, headers) {
+  return ProposalService.getProposal(proposalId, headers);
 }
 
 async function getQuestionConfiguration(questionSlug) {
   return SequenceService.fetchConfiguration(questionSlug);
 }
 
-module.exports = async function ProposalRoute(req, res) {
+export const proposalRoute = async (req, res) => {
+  let routeState = {};
   try {
     const initialState = createInitialState();
-    const { proposalId, questionSlug } = req.params;
-    const proposal = await getProposal(proposalId);
+    const {
+      proposalId,
+      questionSlug,
+      sessionId,
+      country,
+      language
+    } = req.params;
+
+    const proposal = await getProposal(proposalId, {
+      'x-session-id': sessionId,
+      'x-make-country': country,
+      'x-make-language': language
+    });
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
 
-    const routeState = {
+    routeState = {
       proposal: {
         ...initialState.proposal,
         proposal
@@ -29,12 +41,13 @@ module.exports = async function ProposalRoute(req, res) {
         questionConfiguration
       }
     };
-    return reactRender(req, res, routeState);
   } catch (error) {
     if (error && error.stack) {
       const { stack } = error;
       logger.log('error', stack);
     }
-    res.send(error);
+    return res.send(error);
   }
+
+  return reactRender(req, res, routeState);
 };

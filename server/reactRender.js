@@ -25,6 +25,10 @@ const statsFile = path.resolve(__dirname, '..', 'dist', 'loadable-stats.json');
 const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
 
 const renderHtml = (reactApp, reduxStore, metaTags) => {
+  if (!htmlContent) {
+    return false;
+  }
+
   const extractor = new ChunkExtractor({ statsFile });
   const { apiUrl, frontUrl } = configuration;
   const sheet = new ServerStyleSheet();
@@ -35,10 +39,6 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
   const scriptTags = extractor.getScriptTags();
-
-  if (!htmlContent) {
-    return false;
-  }
 
   return htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
@@ -52,7 +52,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
 };
 
 
-module.exports = function reactRender(req, res, routeState = {}) {
+export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
 
   const tradLanguage = `${language}-${country}`;

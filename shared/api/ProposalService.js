@@ -1,5 +1,6 @@
 /* @flow */
 
+import type { ApiServiceHeaders } from './type';
 import ApiService from './ApiService';
 
 const PATH_PROPOSAL_PROPOSE = '/proposals';
@@ -18,9 +19,10 @@ export default class ProposalService {
     });
   }
 
-  static getProposal(proposalId: string) {
+  static getProposal(proposalId: string, headers: ApiServiceHeaders = {}) {
     return ApiService.callApi(PATH_PROPOSAL_GET.replace(':proposalId', proposalId), {
-      method: 'GET'
+      method: 'GET',
+      headers
     });
   }
 }
