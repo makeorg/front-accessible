@@ -204,8 +204,13 @@
         "picture": ""
       }
     },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
     "footer":  {
-      "sentence" : "We Europeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
+      "sentence" : "WeEuropeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
     },
     "sequenceExtraSlidesWording": {
       "introCard": {

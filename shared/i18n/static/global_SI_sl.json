@@ -197,15 +197,20 @@
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
-      "question": "Kako preoblikovati Evropo, konkretno?",
+      "question": "Kako preoblikovati Europo, konkretno?",
       "metas": {
-        "title": "Kako preoblikovati Evropo, konkretno?",
+        "title": "Kako preoblikovati Europo, konkretno?",
         "description": "WeEuropeans je državljanska, demokratična in nestrankarska kampanja. Združuje evropske državljane in državljanke ter jim ne glede na njihovo mnenje predlaga sodelovanje na največjem evropskem javnom posvetovanju. Evropa ne bo izvedena brez nas.",
         "picture": ""
       }
     },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
     "footer":  {
-      "sentence" : "We Europeans, z MAKE.ORG in CIVICO Europa"
+      "sentence" : "WeEuropeans, z MAKE.ORG in CIVICO Europa"
     },
     "sequenceExtraSlidesWording": {
       "introCard":  {
