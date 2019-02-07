@@ -148,8 +148,10 @@ class SequenceHandler extends React.Component<Props, State> {
 
     if (question) {
       QuestionService.startSequence(question.questionId, [firstProposal])
-        .then(sequence => this.setProposals(sequence, isLoggedIn, hasProposed))
-        .catch(error => error);
+        .then((sequence) => {
+          Tracking.trackDisplaySequence(question.slug);
+          this.setProposals(sequence, isLoggedIn, hasProposed);
+        }).catch(error => error);
     }
   }
 

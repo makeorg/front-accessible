@@ -19,7 +19,6 @@ export const accountActivationRoute = async (req, res) => {
   const {
     userId,
     verificationToken,
-    sessionId,
     country,
     language
   } = req.params;
@@ -28,7 +27,6 @@ export const accountActivationRoute = async (req, res) => {
     const questionId = req.query.question;
     if (questionId) {
       const question = await getQuestion(questionId, {
-        'x-session-id': sessionId,
         'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
@@ -41,7 +39,6 @@ export const accountActivationRoute = async (req, res) => {
     }
 
     const status = await postAccountActivation(userId, verificationToken, {
-      'x-session-id': sessionId,
       'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,

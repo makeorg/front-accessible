@@ -19,7 +19,6 @@ export const passwordRecoveryRoute = async (req, res) => {
   const {
     resetToken,
     userId,
-    sessionId,
     country,
     language
   } = req.params;
@@ -40,7 +39,6 @@ export const passwordRecoveryRoute = async (req, res) => {
 
     if (questionId) {
       const question = await getQuestion(questionId, {
-        'x-session-id': sessionId,
         'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
@@ -53,7 +51,6 @@ export const passwordRecoveryRoute = async (req, res) => {
     }
 
     const status = await postResetPasswordTokenCheck(userId, resetToken, {
-      'x-session-id': sessionId,
       'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,

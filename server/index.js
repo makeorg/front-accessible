@@ -1,6 +1,5 @@
 import './browserPolyfill';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
-import { cookiesHandlerMiddleware } from './middleware/cookies';
 import { headersResponseMiddleware } from './middleware/headers';
 import { metricsMiddleware } from './middleware/metrics';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
@@ -64,7 +63,6 @@ app.post('/api/logger', loggerApi);
 
 const frontMiddlewares = [
   countryLanguageMiddleware,
-  cookiesHandlerMiddleware,
   metricsMiddleware
 ];
 

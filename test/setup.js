@@ -16,7 +16,6 @@ global.window = document.defaultView;
 global.navigator = { userAgent: 'browser' };
 global.React = React;
 
-ApiService.sessionId = 'foo-session';
 ApiService.country = 'foo';
 ApiService.language = 'foo';
 ApiService.source = 'foo';
