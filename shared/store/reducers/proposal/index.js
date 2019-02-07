@@ -41,7 +41,7 @@ export default function proposal(state: Object = initialState.proposal, action: 
     case actionTypes.PROPOSAL_LOAD:
       return {
         ...state,
-        proposal: action.proposal
+        data: action.data
       };
     default:
       return state;

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import i18next from 'i18next';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
@@ -53,7 +54,9 @@ class ProposalPage extends React.Component<Props> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <MiddlePageWrapper>
-          <MetaTags />
+          <MetaTags
+            description={i18next.t('meta.proposal.description')}
+          />
           <ProposalPageContentLoader
             proposal={proposal}
             questionConfiguration={questionConfiguration}
@@ -66,11 +69,11 @@ class ProposalPage extends React.Component<Props> {
 }
 
 const mapStateToProps = (state) => {
-  const { proposal } = state.proposal;
+  const { data } = state.proposal;
   const { questionConfiguration } = state.sequence;
 
   return {
-    proposal,
+    proposal: data,
     questionConfiguration
   };
 };

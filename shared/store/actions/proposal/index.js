@@ -52,7 +52,7 @@ export const fetchProposalData = (proposalId: string) => (dispatch: Function) =>
   ProposalService
     .getProposal(proposalId)
     .then((proposal) => {
-      dispatch({ type: actionTypes.PROPOSAL_LOAD, proposal });
+      dispatch({ type: actionTypes.PROPOSAL_LOAD, data: proposal });
     })
     .catch((error) => {
       Logger.logError({ ...{ source: 'fetchProposalData api call error' }, ...{ error } });

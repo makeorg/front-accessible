@@ -9,7 +9,8 @@ export const initialState: StateRoot = {
     isCurrentSubmitSuccess: false,
     content: '',
     questionId: undefined,
-    error: undefined
+    error: undefined,
+    data: undefined
   },
   sequence: {
     isSequenceCollapsed: false,
