@@ -53,8 +53,9 @@ const DefaultStylesheet = createGlobalStyle`
     color: ${BasicColors.PureBlack};
   }
 
-  label:hover,
-  button:hover {
+  a,
+  label,
+  button {
     cursor: pointer
   }
 

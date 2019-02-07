@@ -2,7 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { LeftTooltipStyle, BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
-import { HiddenOnMobileStyle, HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { Bar, GraphItem } from '../Styled/Graph';
 
 type Props = {
@@ -64,17 +64,15 @@ export const ResultItemComponent = (props: Props) => {
         aria-controls={tooltipKey}
         aria-label={i18next.t(`results.tooltipbutton.${voteKey}`)}
       />
-      <HiddenOnDesktopStyle>
-        <BottomTooltipStyle
-          key={tooltipKey}
-          as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
-          aria-hidden={!isTooltipDisplayed}
-          role="tooltip"
-        >
-          <p>{i18next.t(`vote.${voteKey}`)}</p>
-          <p>{`${votePercent} %`}</p>
-        </BottomTooltipStyle>
-      </HiddenOnDesktopStyle>
+      <BottomTooltipStyle
+        key={tooltipKey}
+        as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
+        aria-hidden={!isTooltipDisplayed}
+        role="tooltip"
+      >
+        <p>{i18next.t(`vote.${voteKey}`)}</p>
+        <p>{`${votePercent} %`}</p>
+      </BottomTooltipStyle>
       <HiddenOnMobileStyle>
         <LeftTooltipStyle
           key={tooltipKey}
