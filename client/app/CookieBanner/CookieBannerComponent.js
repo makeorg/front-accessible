@@ -10,6 +10,11 @@ import * as CookieBanner from './Styled';
  */
 export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }:
   { cguLink: string, policyLink: string, handleClose: () => void }) => (
+    /** TODO find another way to render html,
+     *  because of dangeroslySetInnerHTML,
+     *  need a componentDidMount to rerender component
+     *  and update translations
+     */
     <CookieBanner.Wrapper role="banner" aria-describedby="content_info">
       <CookieBanner.Content
         id="content_info"
