@@ -5,22 +5,24 @@ const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
 const PATH_UNQUALIFICATION = '/proposals/:proposalId/unqualification';
 
 export default class QualificationService {
-  static qualify(proposalId: string, voteKey: string, qualificationKey: string): Promise<Object> {
+  static qualify(proposalId: string, proposalKey: string, voteKey: string, qualificationKey: string): Promise<Object> {
     return ApiService.callApi(PATH_QUALIFICATION.replace(':proposalId', proposalId), {
       method: 'POST',
       body: JSON.stringify({
         voteKey,
-        qualificationKey
+        qualificationKey,
+        proposalKey
       })
     });
   }
 
-  static unqualify(proposalId: string, voteKey: string, qualificationKey: string): Promise<Object> {
+  static unqualify(proposalId: string, proposalKey: string, voteKey: string, qualificationKey: string): Promise<Object> {
     return ApiService.callApi(PATH_UNQUALIFICATION.replace(':proposalId', proposalId), {
       method: 'POST',
       body: JSON.stringify({
         voteKey,
-        qualificationKey
+        qualificationKey,
+        proposalKey
       })
     });
   }

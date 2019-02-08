@@ -39,6 +39,7 @@ export const SingleProposalCardComponent = (props: Props) => {
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}
+          proposalKey={proposal.proposalKey}
         />
       </SingleProposal.InnerProposal>
       <SingleProposal.Footer>
