@@ -204,8 +204,13 @@
         "picture": ""
       }
     },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
     "footer":  {
-      "sentence" : "We Europeans, permezz ta’ MAKE.ORG u CIVICO Europa"
+      "sentence" : "WeEuropeans, permezz ta’ MAKE.ORG u CIVICO Europa"
     },
     "sequenceExtraSlidesWording": {
       "introCard":  {

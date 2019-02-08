@@ -204,8 +204,13 @@
         "picture": ""
       }
     },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
     "footer":  {
-      "sentence" : "We Europeans, med MAKE.ORG og CIVICO Europa"
+      "sentence" : "WeEuropeans, med MAKE.ORG og CIVICO Europa"
     },
     "sequenceExtraSlidesWording": {
       "introCard":  {
