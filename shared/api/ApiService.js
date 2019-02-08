@@ -151,7 +151,8 @@ class ApiService {
     return axios(`${API_URL}${url}`, {
       method: options.method,
       headers,
-      data: options.body
+      data: options.body,
+      withCredentials: true
     })
       .then(response => response.data)
       .catch(handleErrors);
