@@ -1,5 +1,6 @@
 import * as React from 'react';
 import i18next from 'i18next';
+import { Link } from 'react-router-dom';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink } from 'Shared/helpers/url';
@@ -56,8 +57,8 @@ export const SingleProposalCardComponent = (props: Props) => {
           <SingleProposal.FooterContentSeparator />
           <CenterRowStyle>
             <SingleProposal.Button
-              as="a"
-              href={getSequenceLink(questionSlug)}
+              as={Link}
+              to={getSequenceLink(questionSlug, proposal.country, proposal.language)}
             >
               {i18next.t('proposal_page.button_1')}
             </SingleProposal.Button>

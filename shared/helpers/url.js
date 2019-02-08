@@ -1,6 +1,5 @@
 import 'url-search-params-polyfill';
 import * as URL from 'Shared/constants/url';
-import ApiService from 'Shared/api/ApiService';
 import { FRONT_URL } from 'Shared/constants/config';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -17,16 +16,16 @@ export const localizeLink = (link: string, country: string, language: string) =>
   return `${link}/${country.toLowerCase()}-${language.toLowerCase()}`;
 };
 
-export const localizeCguLink = () => (
-  localizeLink(URL.CGU_LINK, ApiService.country, ApiService.language)
+export const localizeCguLink = (country: string, language: string) => (
+  localizeLink(URL.CGU_LINK, country, language)
 );
 
-export const localizeDataPolicyLink = () => (
-  localizeLink(URL.DATA_POLICY_LINK, ApiService.country, ApiService.language)
+export const localizeDataPolicyLink = (country: string, language: string) => (
+  localizeLink(URL.DATA_POLICY_LINK, country, language)
 );
 
-export const localizeModerationCharterLink = () => (
-  localizeLink(URL.MODERATION_CHARTER_LINK, ApiService.country, ApiService.language)
+export const localizeModerationCharterLink = (country: string, language: string) => (
+  localizeLink(URL.MODERATION_CHARTER_LINK, country, language)
 );
 
 export const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;
@@ -59,6 +58,6 @@ export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
  * @return {string}
  */
 
-export const getSequenceLink = (
-  questionSlug: string
-) => `${FRONT_URL}/${ApiService.country}-${ApiService.language}/consultation/${questionSlug}/selection`;
+export const getSequenceLink = (questionSlug: string, country: string, language: string) => (
+  `/${country}-${language}/consultation/${questionSlug}/selection`
+);

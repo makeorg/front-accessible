@@ -11,6 +11,10 @@ import { DescriptionWrapper } from '../Styled';
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Localiszed Language of the app */
+  language: string,
+  /** Localiszed Country of the app */
+  country: string,
   /** Method called to track moderation text show */
   trackModerationText: () => {},
   /** Method called to track DescriptionLinkStyle */
@@ -31,6 +35,8 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   render() {
     const {
       isPannelOpen,
+      country,
+      language,
       trackModerationLink
     } = this.props;
     return (
@@ -43,7 +49,7 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
           &nbsp;
           <DescriptionLinkStyle
             target="_blank"
-            href={localizeModerationCharterLink()}
+            href={localizeModerationCharterLink(country, language)}
             onClick={trackModerationLink}
             tabIndex={isPannelOpen ? -1 : 0}
           >
