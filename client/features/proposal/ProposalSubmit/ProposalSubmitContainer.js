@@ -31,6 +31,10 @@ type Props = {
   isSequenceCollapsed: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
+  /** Localiszed Language of the app */
+  language: string,
+  /** Localiszed Country of the app */
+  country: string,
   /** Method called to collapse Sequence */
   handleCollapseSequence: Function,
   /** Method called when user is typing a proposal */
@@ -131,7 +135,9 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       isCurrentSubmitSuccess,
       isLoggedIn,
       isSequenceCollapsed,
-      isPannelOpen
+      isPannelOpen,
+      country,
+      language
     } = this.props;
     const { isTyping } = this.state;
     const isDescriptionShown = isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
@@ -155,6 +161,8 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
             isPannelOpen={isPannelOpen}
+            country={country}
+            language={language}
             trackModerationText={this.trackModerationText}
             trackModerationLink={this.trackModerationLink}
           />
@@ -184,6 +192,7 @@ const mapStateToProps = (state) => {
     canSubmit,
     isCurrentSubmitSuccess
   } = state.proposal;
+  const { country, language } = state.appConfig;
 
   return {
     isLoggedIn,
@@ -193,7 +202,9 @@ const mapStateToProps = (state) => {
     content,
     length,
     canSubmit,
-    isCurrentSubmitSuccess
+    isCurrentSubmitSuccess,
+    country,
+    language
   };
 };
 

@@ -1,5 +1,6 @@
 /* @flow */
 import * as urlHelper from './url';
+
 const socialPathName = '/foo';
 const socialMessage = 'bar';
 const twitterHashtag = 'baz';
@@ -46,7 +47,7 @@ describe('Url Helper', () => {
       `https://twitter.com/intent/tweet/?text=${
         encodeURIComponent(socialMessage)
       }&hashtags=&url=${
-          encodeURIComponent(urlHelper.currentUrl(socialPathName))
+        encodeURIComponent(urlHelper.currentUrl(socialPathName))
       }`
     );
   });
