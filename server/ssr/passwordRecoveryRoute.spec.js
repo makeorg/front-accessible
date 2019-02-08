@@ -15,11 +15,9 @@ const requestParams = {
   resetToken: 'bar',
   userId: 'foo',
   country: 'FR',
-  language: 'fr',
-  sessionId: 'faz'
+  language: 'fr'
 };
 const expectedHeaders = {
-  'x-session-id': 'faz',
   'x-make-question': 'foo',
   'x-make-question-id': 'foo',
   'x-make-country': 'FR',
@@ -57,7 +55,7 @@ describe('Account activation route', () => {
     });
     const response = httpMocks.createResponse();
 
-    await passwordRecoveryRoute(request, response, () => {});
+    await passwordRecoveryRoute(request, response, () => { });
 
     expect(QuestionService.getDetail).toHaveBeenCalledWith(fooQuestion.id, expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
@@ -90,7 +88,7 @@ describe('Account activation route', () => {
       }
     };
 
-    await passwordRecoveryRoute(request, response, () => {});
+    await passwordRecoveryRoute(request, response, () => { });
 
     expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(requestParams.userId, requestParams.resetToken, expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
@@ -127,7 +125,7 @@ describe('Account activation route', () => {
       }
     };
 
-    await passwordRecoveryRoute(request, response, () => {});
+    await passwordRecoveryRoute(request, response, () => { });
     expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(requestParams.userId, requestParams.resetToken, expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });

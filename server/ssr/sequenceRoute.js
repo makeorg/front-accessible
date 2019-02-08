@@ -17,15 +17,12 @@ async function getQuestionConfiguration(questionSlug) {
 }
 
 export const sequenceRoute = async (req, res) => {
-  const { sessionId } = req.params;
   let routeState = {};
 
   try {
     const initialState = createInitialState();
     const { questionSlug } = req.params;
-    const question = await getQuestion(questionSlug, {
-      'x-session-id': sessionId
-    });
+    const question = await getQuestion(questionSlug);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
       const { sequenceExtraSlidesConfig } = questionConfiguration;

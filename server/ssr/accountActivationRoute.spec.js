@@ -15,11 +15,9 @@ const requestParams = {
   verificationToken: 'bar',
   userId: 'foo',
   country: 'FR',
-  language: 'fr',
-  sessionId: 'faz'
+  language: 'fr'
 };
 const expectedHeaders = {
-  'x-session-id': 'faz',
   'x-make-question': 'foo',
   'x-make-question-id': 'foo',
   'x-make-country': 'FR',
@@ -49,7 +47,7 @@ describe('Account activation route', () => {
       query: { question: fooQuestion.id }
     });
     const response = httpMocks.createResponse();
-    await accountActivationRoute(request, response, () => {});
+    await accountActivationRoute(request, response, () => { });
     expect(QuestionService.getDetail).toHaveBeenCalledWith(fooQuestion.id, expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
@@ -76,7 +74,7 @@ describe('Account activation route', () => {
         question: { id: fooQuestionId }
       }
     };
-    await accountActivationRoute(request, response, () => {});
+    await accountActivationRoute(request, response, () => { });
     expect(UserService.verifyUser).toHaveBeenCalledWith('foo', 'bar', expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
@@ -104,7 +102,7 @@ describe('Account activation route', () => {
       }
     };
 
-    await accountActivationRoute(request, response, () => {});
+    await accountActivationRoute(request, response, () => { });
     expect(UserService.verifyUser).toHaveBeenCalledWith('foo', 'bar', expectedHeaders);
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });

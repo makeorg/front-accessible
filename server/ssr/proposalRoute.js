@@ -2,7 +2,7 @@ import ProposalService from 'Shared/api/ProposalService';
 import SequenceService from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
-// import { reactRender } from '../reactRender';
+
 const { reactRender } = require('../reactRender');
 
 async function getProposal(proposalId, headers) {
@@ -20,13 +20,11 @@ export const proposalRoute = async (req, res) => {
     const {
       proposalId,
       questionSlug,
-      sessionId,
       country,
       language
     } = req.params;
 
     const proposal = await getProposal(proposalId, {
-      'x-session-id': sessionId,
       'x-make-country': country,
       'x-make-language': language
     });

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ApiService, { NODE_API_BASE } from 'Shared/api/ApiService';
+import { NODE_API_BASE } from 'Shared/api/ApiService';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';
@@ -54,9 +54,9 @@ class Logger {
       },
       data: {
         level: level || 'error',
-        data: { ...data, ...{ sessionId: ApiService.sessionId } }
+        data: { ...data }
       }
-    }).then(() => {})
+    }).then(() => { })
       .catch((e) => { console.log('Error on logger', e); })
   )
 }
