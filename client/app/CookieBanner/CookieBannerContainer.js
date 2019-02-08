@@ -10,7 +10,8 @@ type Props = {
 };
 
 type State = {
-  hasAccespted: boolean
+  hasAccepted: boolean,
+  hideCookieBanner: boolean
 };
 
 const acceptCookieName: string = 'make-cookie';
@@ -22,18 +23,24 @@ export class CookieBanner extends React.Component<Props, State> {
     super(props);
     const { cookies } = props;
 
-    this.state = { hasAccespted: (cookies.get(acceptCookieName) !== undefined) };
+    this.state = { hasAccepted: (cookies.get(acceptCookieName) !== undefined), hideCookieBanner: true };
+  }
+
+  // TODO refacoring componentDidMount, Used to 'rerender component and update translations
+
+  componentDidMount() {
+    this.setState({ hideCookieBanner: false });
   }
 
   handleClose = () => {
     const { cookies } = this.props;
     cookies.set(acceptCookieName, true, { path: '/' });
-    this.setState({ hasAccespted: true });
+    this.setState({ hasAccepted: true });
   }
 
   render = () => {
-    const { hasAccespted } = this.state;
-    if (hasAccespted) {
+    const { hasAccepted, hideCookieBanner } = this.state;
+    if (hasAccepted || hideCookieBanner) {
       return null;
     }
 
