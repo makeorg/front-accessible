@@ -1,5 +1,6 @@
 /* @flow */
 import * as React from 'react';
+import type { QualificationType } from 'Shared/types/proposal';
 import { doUpdateState } from 'Shared/helpers/qualification';
 import QualificationService from 'Shared/api/QualificationService';
 import Tracking from 'Shared/services/Tracking';
@@ -8,7 +9,7 @@ import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
   /** Array with qualifications received from Api */
-  qualifications: Array<Object>,
+  qualifications: Array<QualificationType>,
   /** Proposal's Id */
   proposalId: string,
   /** String containing the hash generate api side for security purpose */
@@ -23,7 +24,7 @@ type Props = {
 
 type State = {
   /** Array with qualifications received from Api */
-  qualifications: Array<Object>
+  qualifications: Array<QualificationType>
 };
 
 /**

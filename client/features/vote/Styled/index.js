@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { ButtonList } from './Button';
 
-const Vote = styled.form`
+export const ContainerStyle = styled.form`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -16,14 +16,21 @@ const Vote = styled.form`
   }
 `;
 
-export const Wrapper = styled(CenterRowStyle)`
+export const WrapperStyle = styled(CenterRowStyle)`
   width: 100%;
   justify-content: space-around;
   max-width: ${pxToRem('300px')};
 `;
 
-Vote.Wrapper = Wrapper;
-/* Buttons */
-Vote.ButtonList = ButtonList;
 
-export default Vote;
+export const ButtonListStyle = styled(UnstyledListStyle)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+export const ButtonWrapperStyle = styled.div`
+  position: relative;
+  z-index: 1;
+`;

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { NextButton } from 'Client/features/sequence/Card/Styled/Buttons';
 import { VoteComponent } from './VoteComponent';
 import { VoteHandler } from './VoteContainer';
-import VoteStyled from './Styled';
+import * as VoteStyle from './Styled';
 
 describe('VoteContainer', () => {
   let wrapper;
@@ -43,7 +43,7 @@ describe('VoteContainer', () => {
   it('render VoteComponent and change state', () => {
     wrapper.setState({ hasVoted: true });
     expect(wrapper.find(VoteComponent)).toHaveLength(0);
-    expect(wrapper.find(VoteStyled)).toHaveLength(1);
+    expect(wrapper.find(VoteStyle.ContainerStyle)).toHaveLength(1);
     const NextButtonWrapper = wrapper.find(NextButton);
     expect(NextButtonWrapper).toHaveLength(1);
 

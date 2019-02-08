@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const Button = styled.button`
+export const ButtonStyle = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -23,14 +23,14 @@ export const Button = styled.button`
   }
 `;
 
-export const UnqualifyButton = styled(Button)`
+export const UnqualifyButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background: ${props => props.color};
   background-color: : ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const QualifyButton = styled(Button)`
+export const QualifyButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
   background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
@@ -42,7 +42,7 @@ export const QualifyButton = styled(Button)`
   }
 `;
 
-export const QualificationCounter = styled.span`
+export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   font-size: ${pxToRem('18px')};

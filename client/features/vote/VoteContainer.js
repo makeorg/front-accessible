@@ -2,6 +2,7 @@
 import * as React from 'react';
 import i18next from 'i18next';
 import { connect } from 'react-redux';
+import type { QualificationType, VoteType } from 'Shared/types/proposal';
 import { throttle } from 'Shared/helpers/throttle';
 import { doVote, doUnvote } from 'Shared/helpers/vote';
 import VoteService from 'Shared/api/VoteService';
@@ -10,13 +11,13 @@ import { NextButton } from 'Client/features/sequence/Card/Styled/Buttons';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
 import { VoteResult } from './Result';
-import VoteStyled from './Styled';
+import * as VoteStyle from './Styled';
 
 type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array with votes received from Api */
-  votes: Array<Object>,
+  votes: Array<VoteType>,
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -28,7 +29,7 @@ type Props = {
   /** Incremented / Decremented Index */
   currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard?: () => void,
+  goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called on vote */
   handleVoteOnSequence: (string, string, ?number) => void,
   /** Method called on unvote */
@@ -41,9 +42,9 @@ type State = {
   /** Voted key property */
   votedKey: string,
   /** Array with votes received from Api */
-  votes: Array<Object>,
+  votes: Array<VoteType>,
   /** Array with qualifications received from Api */
-  qualifications: Array<Object>
+  qualifications: Array<QualificationType>
 };
 
 /**
@@ -120,7 +121,7 @@ export class VoteHandler extends React.Component<Props, State> {
     if (hasVoted) {
       return (
         <React.Fragment>
-          <VoteStyled>
+          <VoteStyle.ContainerStyle>
             <VoteResult
               proposalId={proposalId}
               votes={votes}
@@ -136,7 +137,7 @@ export class VoteHandler extends React.Component<Props, State> {
               index={index}
               tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
             />
-          </VoteStyled>
+          </VoteStyle.ContainerStyle>
           {index !== undefined
             && (
               <NextButton

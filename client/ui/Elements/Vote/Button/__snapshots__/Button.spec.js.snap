@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 2.875rem;
+  height: 2.875rem;
+  border-width: 0.125rem;
+  font-size: 1.375rem;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: red;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  overflow: hidden;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 2.875rem;
+  height: 2.875rem;
+  border-width: 0.125rem;
+  font-size: 1.375rem;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: red;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  overflow: hidden;
+  color: red;
+  background: rgb(255,255,255);
+  background-color: rgb(255,255,255);
+}
+
+.c1:focus,
+.c1:active {
+  color: rgb(255,255,255);
+  background: red;
+  background-color: red;
+}
+
+@media (min-width:47.94rem) {
+  .c0 {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width:47.94rem) {
+  .c1 {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 1.875rem;
+  }
+}
+
+<button
+  aria-label="foo"
+  className="sc-1xooriq-0 c0 c1"
+  color="red"
+  id="vote_button_element"
+  rotate={0}
+>
+  <svg
+    icon="thumbs-up"
+    lib="@fortawesome/react-fontawesome"
+    prefix="far"
+  />
+</button>
+`;
+
+exports[`VoteButtonElement must return the diff between snapshot when proposal is qualified or not 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,8 +1,8 @@
+  <button
+    aria-label="foo"
+-   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-1 dzXxVx"
++   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 gJrMNL"
+    color="red"
+    id="vote_button_element"
+    rotate={0}
+  >
+    <svg
+`;
+
+exports[`VoteButtonElement must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,11 +2,11 @@
+    aria-label="foo"
+    className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 gJrMNL"
+    color="red"
+    id="vote_button_element"
+    rotate={0}
+-   tabIndex="-1"
++   tabIndex="0"
+  >
+    <svg
+      icon="thumbs-up"
+      lib="@fortawesome/react-fontawesome"
+      prefix="far"
+`;
