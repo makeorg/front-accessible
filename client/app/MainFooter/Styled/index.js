@@ -7,7 +7,7 @@ import {
 } from './FooterContent';
 
 const MainFooter = styled.footer`
-  background: ${BasicColors.PureWhite};
+  background-color: ${BasicColors.PureWhite};
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroThreOpacity};
 `;
 

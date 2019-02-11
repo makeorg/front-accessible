@@ -1,7 +1,10 @@
 
 // @flow
-export type Qualifications = {
-};
+export type QualificationType = {
+  count: number,
+  hasQualified: false,
+  qualificationKey: string
+}
 
 export type Author = {
   firstName: string,
@@ -19,10 +22,10 @@ export type Context = {
   question: string
 };
 
-export type Votes = {
+export type VoteType = {
   voteKey: string,
   count: number,
-  qualifications: Qualifications[],
+  qualifications: Array<QualificationType>,
   hasVoted: boolean
 };
 
@@ -40,7 +43,7 @@ export type Proposal = {
   status: string,
   createdAt: string,
   updatedAt: string,
-  votes: Votes[],
+  votes: Array<VoteType>,
   context: Context,
   trending: string,
   labels: any[],

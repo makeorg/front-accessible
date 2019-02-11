@@ -3,7 +3,7 @@ import * as React from 'react';
 import i18next from 'i18next';
 import { LeftTooltipStyle, BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
 import { HiddenOnMobileStyle, HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
-import { Bar, GraphItem } from '../Styled/Graph';
+import * as Graph from '../Styled';
 
 type Props = {
   /** id to set key for list element */
@@ -50,8 +50,8 @@ export const ResultItemComponent = (props: Props) => {
   } = props;
 
   return (
-    <GraphItem key={listKey}>
-      <Bar
+    <Graph.ItemStyle key={listKey}>
+      <Graph.BarStyle
         key={barKey}
         color={voteColor}
         percent={votePercent}
@@ -86,6 +86,6 @@ export const ResultItemComponent = (props: Props) => {
           <p>{`${votePercent} %`}</p>
         </LeftTooltipStyle>
       </HiddenOnMobileStyle>
-    </GraphItem>
+    </Graph.ItemStyle>
   );
 };

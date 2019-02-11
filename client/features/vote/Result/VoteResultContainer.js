@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
+import type { VotesType } from 'Shared/types/proposal';
 import { VoteResultComponent } from './VoteResultComponent';
 
 type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array with votes received from Api */
-  votes: Array<Object>,
+  votes: Array<VotesType>,
   /** Voted key property */
   votedKey: string,
   /** Tabindex for interactive items */
@@ -14,7 +15,7 @@ type Props = {
   /** Index of the card */
   index: number,
   /** Method called when vote button is clicked */
-  handleVote: Function
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => {}
 };
 
 /**

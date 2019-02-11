@@ -1,5 +1,5 @@
 /* @flow */
-
+import type { VoteType } from 'Shared/types/proposal';
 import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Shared/constants/vote';
 
 export const getResultBarIndex = (proposalVoteKey: string, proposalId: string) => (
@@ -10,11 +10,11 @@ export const getTooltipIndex = (proposalVoteKey: string, proposalId: string) => 
   `Tooltip_${proposalVoteKey}_${proposalId}`
 );
 
-export const getVotesCount = (votes: Array<Object>) => (
+export const getVotesCount = (votes: Array<VoteType>) => (
   votes.map(vote => vote.count).reduce((total, voteCount) => total + voteCount)
 );
 
-export const getVotesPercent = (votes: Array<Object>, votesCount: number) => {
+export const getVotesPercent = (votes: Array<VoteType>, votesCount: number) => {
   const agreeVote: ?Object = votes.find(vote => vote.voteKey === VOTE_AGREE_KEY);
   const disagreeVote: ?Object = votes.find(vote => vote.voteKey === VOTE_DISAGREE_KEY);
   const neutralVote: ?Object = votes.find(vote => vote.voteKey === VOTE_NEUTRAL_KEY);

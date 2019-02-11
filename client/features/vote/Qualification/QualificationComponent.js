@@ -1,15 +1,16 @@
 /* @flow */
 import * as React from 'react';
 import i18next from 'i18next';
+import type { QualificationType } from 'Shared/types/proposal';
 import { getQualificationIndex } from 'Shared/helpers/qualification';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import voteStaticParams from 'Shared/constants/vote';
-import Qualification from './Styled';
-import QualificationButtonComponent from './Button';
+import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
+import * as Qualification from './Styled';
 
 type Props = {
   /** Array with qualifications received from Api */
-  qualifications: Array<Object>,
+  qualifications: Array<QualificationType>,
   /** Proposal's Id */
   proposalId: string,
   /** Voted key property */
@@ -17,7 +18,7 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when qualification button is clicked */
-  handleQualification: Function
+  handleQualification: (event: SyntheticEvent<HTMLButtonElement>, qualification: Object, votedKey: string) => {}
 }
 
 /**
@@ -33,20 +34,20 @@ export const QualificationComponent = (props: Props) => {
   } = props;
 
   return (
-    <Qualification>
+    <Qualification.ContainerStyle>
       <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
       {
         qualifications.map(qualification => (
-          <QualificationButtonComponent
+          <QualificationButtonElement
             key={getQualificationIndex(qualification.qualificationKey, proposalId)}
             color={voteStaticParams[votedKey].color}
-            qualificationKey={qualification.qualificationKey}
+            label={i18next.t(`qualification.${qualification.qualificationKey}`)}
             qualificationCounter={qualification.count}
             isQualified={qualification.hasQualified}
             handleQualification={event => handleQualification(event, qualification, votedKey)}
             tabIndex={tabIndex}
           />
         ))}
-    </Qualification>
+    </Qualification.ContainerStyle>
   );
 };

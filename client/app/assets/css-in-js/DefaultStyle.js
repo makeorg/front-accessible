@@ -8,7 +8,6 @@ const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.RobotoRegular};
     color: ${BasicColors.PureBlack};
-    background: ${BasicColors.PureWhite};
     background-color: ${BasicColors.PureWhite};
   }
 
@@ -53,8 +52,9 @@ const DefaultStylesheet = createGlobalStyle`
     color: ${BasicColors.PureBlack};
   }
 
-  label:hover,
-  button:hover {
+  a,
+  label,
+  button {
     cursor: pointer
   }
 

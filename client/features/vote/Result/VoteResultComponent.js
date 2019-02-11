@@ -4,10 +4,10 @@ import i18next from 'i18next';
 import type { VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import voteStaticParams from 'Shared/constants/vote';
+import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { ResultItem } from './Item';
 import { VoteButton } from '../Button';
-import VoteResult from './Styled';
-import { UnvoteButton } from '../Styled/Button';
+import * as VoteResult from './Styled';
 
 type Props = {
   /** Object with votes percentage results */
@@ -42,7 +42,7 @@ export const VoteResultComponent = (props: Props) => {
   const voteKeys = Object.keys(voteStaticParams);
 
   return (
-    <VoteResult>
+    <VoteResult.ContainerStyle>
       <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
       <VoteButton
         id={id}
@@ -51,12 +51,12 @@ export const VoteResultComponent = (props: Props) => {
         icon={voteStaticParams[votedKey].icon}
         rotate={voteStaticParams[votedKey].rotate}
         handleVote={event => handleVote(event, votedKey)}
-        buttonType={UnvoteButton}
+        buttonType={UnvoteButtonStyle}
         tabIndex={tabIndex}
       />
       <aside>
         <HiddenItemStyle aria-hidden as="h3">{i18next.t('results.title')}</HiddenItemStyle>
-        <VoteResult.Graph>
+        <VoteResult.GraphStyle>
           {voteKeys.map(voteKey => (
             <ResultItem
               key={`${voteKey}_item_${proposalId}`}
@@ -67,12 +67,12 @@ export const VoteResultComponent = (props: Props) => {
               votesPercent={votesPercent}
             />
           ))}
-        </VoteResult.Graph>
-        <VoteResult.TotalLabel>
+        </VoteResult.GraphStyle>
+        <VoteResult.TotalLabelStyle>
           <HiddenItemStyle aria-hidden>{i18next.t('results.total_text')}</HiddenItemStyle>
           {i18next.t('vote.label', { count: votesCount })}
-        </VoteResult.TotalLabel>
+        </VoteResult.TotalLabelStyle>
       </aside>
-    </VoteResult>
+    </VoteResult.ContainerStyle>
   );
 };

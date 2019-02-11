@@ -10,7 +10,7 @@ type Props = {
   /** Vote key's Icon */
   icon: string,
   /** Rotate property passed to Styled Component */
-  rotate: string,
+  rotate: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Id of vote button */

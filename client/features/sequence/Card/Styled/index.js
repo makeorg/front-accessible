@@ -55,7 +55,6 @@ const ProposalCard = styled.li`
   padding: ${pxToRem(DefaultPadding.Mobile)};
   z-index: ${props => props.zindex || 0};
   transform: scaleX(${props => props.scale || 0}) translateY(-${props => props.position || 0}px);
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   transition: transform 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};

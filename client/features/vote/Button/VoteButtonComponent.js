@@ -1,9 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
-import { ButtonWrapper, Button } from '../Styled/Button';
+import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
+import { ButtonWrapperStyle } from '../Styled';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -13,7 +12,7 @@ type Props = {
   /** Vote key's Icon */
   icon: string,
   /** Rotate property passed to Styled Component */
-  rotate: string,
+  rotate: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Id of vote button */
@@ -21,11 +20,11 @@ type Props = {
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** Boolean Toggle when Tooltip is shown / hidden */
-  isTooltipDisplayed?: boolean,
+  isTooltipDisplayed: boolean,
   /** Method called onMouseLeave to hide Tooltip */
-  hideTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
+  hideTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called onMouseEnter to  show Tooltip */
-  displayTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
+  displayTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
 }
@@ -49,35 +48,26 @@ export const VoteButtonComponent = (props: Props) => {
   } = props;
 
   return (
-    <ButtonWrapper>
-      <Button
-        aria-label={label}
-        id={id}
-        tabIndex={tabIndex}
+    <ButtonWrapperStyle>
+      <VoteButtonElement
         color={color}
+        label={label}
+        icon={icon}
         rotate={rotate}
-        as={buttonType}
-        onClick={handleVote}
-        onMouseEnter={displayTooltip}
-        onMouseLeave={hideTooltip}
+        tabIndex={tabIndex}
+        id={id}
+        buttonType={buttonType}
+        handleVote={handleVote}
+        displayTooltip={displayTooltip}
+        hideTooltip={hideTooltip}
+      />
+      <BottomTooltipStyle
+        as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
+        aria-hidden={!isTooltipDisplayed}
+        role="tooltip"
       >
-        <FontAwesomeIcon icon={icon} />
-      </Button>
-      <HiddenOnMobileStyle>
-        <BottomTooltipStyle
-          as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
-          aria-hidden={!isTooltipDisplayed}
-          role="tooltip"
-        >
-          <p>{label}</p>
-        </BottomTooltipStyle>
-      </HiddenOnMobileStyle>
-    </ButtonWrapper>
+        <p>{label}</p>
+      </BottomTooltipStyle>
+    </ButtonWrapperStyle>
   );
-};
-
-VoteButtonComponent.defaultProps = {
-  isTooltipDisplayed: false,
-  hideTooltip: undefined,
-  displayTooltip: undefined
 };

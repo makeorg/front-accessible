@@ -25,7 +25,6 @@ const ProposalSubmitForm = styled.form`
   padding: 0 ${pxToRem('8px')};
   border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
   border-radius: ${pxToRem('30px')};
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   ${props => (props.isFieldExpanded ? `
     flex-flow: column;

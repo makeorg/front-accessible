@@ -4,9 +4,9 @@ import i18next from 'i18next';
 import voteStaticParams from 'Shared/constants/vote';
 import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import Vote from './Styled';
+import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import * as VoteStyle from './Styled';
 import { VoteButton } from './Button';
-import { VoteButton as VoteButtonStyle } from './Styled/Button';
 
 type VoteButtonsProps = {
   /** Proposal's Id */
@@ -16,7 +16,7 @@ type VoteButtonsProps = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when vote button is clicked */
-  handleVote: Function
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
 };
 
 export const VoteButtonsComponent = (props: VoteButtonsProps) => {
@@ -53,7 +53,7 @@ type VoteProps = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when vote button is clicked */
-  handleVote: Function
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
 };
 
 
@@ -69,18 +69,18 @@ export const VoteComponent = (props: VoteProps) => {
   } = props;
 
   return (
-    <Vote>
+    <VoteStyle.ContainerStyle>
       <HiddenItemStyle aria-hidden as="h3">{i18next.t('vote.intro_title')}</HiddenItemStyle>
       <HiddenItemStyle aria-hidden>{i18next.t('vote.intro_text')}</HiddenItemStyle>
-      <Vote.Wrapper>
+      <VoteStyle.WrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}
           index={index}
           tabIndex={tabIndex}
           handleVote={handleVote}
         />
-      </Vote.Wrapper>
-    </Vote>
+      </VoteStyle.WrapperStyle>
+    </VoteStyle.ContainerStyle>
   );
 };
 

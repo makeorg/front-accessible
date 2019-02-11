@@ -1,22 +1,9 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const ButtonList = styled(UnstyledListStyle)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
-
-export const ButtonWrapper = styled.div`
-  position: relative;
-  z-index: 1;
-`;
-
-export const Button = styled.button`
+export const ButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,20 +23,18 @@ export const Button = styled.button`
   }
 `;
 
-export const UnvoteButton = styled(Button)`
+export const UnvoteButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
-  background: ${props => props.color};
   background-color: : ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const VoteButton = styled(Button)`
+export const VoteButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
-  &:hover {
+  &:focus,
+  &:active {
     color: ${BasicColors.PureWhite};
-    background: ${props => props.color};
     background-color: ${props => props.color};
   }
 `;

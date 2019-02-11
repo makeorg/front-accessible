@@ -56,13 +56,11 @@ export const BasicButtonStyle = styled.button`
 
 export const GreyButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
-  background: ${BackgroundColors.Grey};
   background-color: ${BackgroundColors.Grey};
 `;
 
 export const RedButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
-  background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};
 `;
 
@@ -87,14 +85,12 @@ export const LargeButtonStyle = styled(BasicButtonStyle)`
 
 export const FacebookButtonStyle = styled(LargeButtonStyle)`
   color: ${BasicColors.PureWhite};
-  background: ${IconColors.Facebook};
   background-color: ${IconColors.Facebook};
 `;
 
 export const GoogleButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
-  background: ${IconColors.Google};
   background-color: ${IconColors.Google};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-top: 0;
@@ -103,7 +99,6 @@ export const GoogleButtonStyle = styled(LargeButtonStyle)`
 export const EmailButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
-  background: ${MakeThemeColors.Red};
   background-color: ${MakeThemeColors.Red};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin-top: 0;

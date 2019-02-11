@@ -18,7 +18,6 @@ const FadeInAnimation = keyframes`
 export const Placeholder = styled.div`
   display: block;
   width: 100%;
-  background: ${BasicColors.PureBlack};
   background-color: ${BasicColors.PureBlack};
   border-radius: ${pxToRem('20px')};
   opacity: 0.1;

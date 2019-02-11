@@ -6,7 +6,6 @@ import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints'
 
 export const BackArrow = styled(UnstyledButtonStyle)`
   position: absolute;
-  background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
   border-radius: 50%;
   display: flex;

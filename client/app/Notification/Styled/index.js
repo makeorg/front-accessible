@@ -16,7 +16,6 @@ export const Wrapper = styled.section`
   top: ${pxToRem(DefaultPadding.Mobile)};
   left: ${pxToRem(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   border-radius: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

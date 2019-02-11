@@ -16,16 +16,13 @@ export const SharingButton = styled(UnstyledButtonStyle)`
 `;
 
 export const Facebook = styled(SharingButton)`
-  background: ${SocialNetworksColors.Facebook};
   background-color: ${SocialNetworksColors.Facebook};
 `;
 
 export const Twitter = styled(SharingButton)`
-  background: ${SocialNetworksColors.Twitter};
   background-color: ${SocialNetworksColors.Twitter};
 `;
 
 export const LinkedIn = styled(SharingButton)`
-  background: ${SocialNetworksColors.LinkedIn};
   background-color: ${SocialNetworksColors.LinkedIn};
 `;

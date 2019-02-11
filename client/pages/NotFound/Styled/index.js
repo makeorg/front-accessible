@@ -12,7 +12,6 @@ export const NotFoundPageContent = styled(MiddleColumnStyle)`
   padding: ${pxToRem(DefaultPadding.Mobile)};
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   max-height: ${pxToRem('550px')};
-  background: ${BackgroundColors.NotFoundPage};
   background-color: ${BackgroundColors.NotFoundPage};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     padding: ${pxToRem(DefaultPadding.Desktop)};

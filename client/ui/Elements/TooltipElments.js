@@ -7,7 +7,6 @@ export const TooltipStyle = styled.div`
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: 1;
-  background: ${BackgroundColors.LightBlack};
   background-color: ${BackgroundColors.LightBlack};
   color: ${BasicColors.PureWhite};
   font-size: ${pxToRem('12px')};
