@@ -8,7 +8,6 @@ export const Proposal = styled.blockquote`
   font-size: ${pxToRem('16px')};
   line-height: ${pxToRem('22px')};
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};

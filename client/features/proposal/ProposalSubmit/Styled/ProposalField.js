@@ -38,7 +38,6 @@ export const Input = styled(NoStyleTextInputStyle)`
   width: 100%;
   max-width: ${pxToRem('780px')};
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   font-size: ${pxToRem('16px')};
   max-height: ${pxToRem('40px')};
   padding: ${pxToRem('10px')} 0 0 ${pxToRem('5px')};

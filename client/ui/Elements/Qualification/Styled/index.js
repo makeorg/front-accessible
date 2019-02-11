@@ -41,7 +41,6 @@ export const QualifyButtonStyle = styled(ButtonStyle)`
 
 export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   font-size: ${pxToRem('18px')};
   margin-left: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

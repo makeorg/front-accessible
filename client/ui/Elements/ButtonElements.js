@@ -41,7 +41,6 @@ export const BasicButtonStyle = styled.button`
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.RobotoCondensedBold};
-  font-weight: bold;
   font-size: ${pxToRem('14px')};
   border: none;
   border-radius: ${pxToRem('30px')};
@@ -108,7 +107,6 @@ export const EmailButtonStyle = styled(LargeButtonStyle)`
 export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
   margin: 0 ${pxToRem('5px')};

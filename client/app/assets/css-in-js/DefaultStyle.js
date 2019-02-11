@@ -19,8 +19,8 @@ const DefaultStylesheet = createGlobalStyle`
   h6 {
     font-family: ${MakeFonts.RobotoCondensedBold}, Arial;
     text-transform: uppercase;
-    font-weight: bold;
     font-style: normal;
+    font-weight: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
@@ -29,7 +29,6 @@ const DefaultStylesheet = createGlobalStyle`
 
   a {
     font-family: ${MakeFonts.RobotoBold}, Arial;
-    font-weight: bold;
     color: ${BasicColors.PureBlack};
     text-decoration: underline;
   }
@@ -48,7 +47,6 @@ const DefaultStylesheet = createGlobalStyle`
 
   label {
     font-family: ${MakeFonts.RobotoBold}, Arial;
-    font-weight: bold;
     color: ${BasicColors.PureBlack};
   }
 

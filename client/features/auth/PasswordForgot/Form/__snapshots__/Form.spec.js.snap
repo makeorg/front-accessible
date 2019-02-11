@@ -16,7 +16,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;
@@ -178,7 +177,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;

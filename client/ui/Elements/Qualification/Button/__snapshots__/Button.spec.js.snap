@@ -57,7 +57,6 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
 
 .c2 {
   font-family: 'Roboto Bold',Arial,sans-serif;
-  font-weight: bold;
   font-size: 1.125rem;
   margin-left: 0.625rem;
 }
@@ -113,7 +112,7 @@ Snapshot Diff:
     foo
     <span
       aria-hidden={true}
-      className="sc-1gf9o0u-3 dzwIqr"
+      className="sc-1gf9o0u-3 fwpWkq"
     >
 -     0
 +     +1
@@ -136,5 +135,5 @@ Snapshot Diff:
     foo
     <span
       aria-hidden={true}
-      className="sc-1gf9o0u-3 dzwIqr"
+      className="sc-1gf9o0u-3 fwpWkq"
 `;
