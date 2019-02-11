@@ -1,6 +1,6 @@
 /* @flow */
 
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
 import UserService from 'Shared/api/UserService';
 import { type ErrorObject } from 'Shared/types/form';
@@ -17,7 +17,7 @@ export const forgotPassword = (email: string) => (dispatch: Function) => {
       dispatch(forgotPasswordSuccess());
     })
     .catch((errors) => {
-      const error: ErrorObject = { field: 'email', message: i18next.t('login.email_doesnot_exist') };
+      const error: ErrorObject = { field: 'email', message: i18n.t('login.email_doesnot_exist') };
       const errorMessages = (errors === 404) ? [error] : errors;
       dispatch(forgotPasswordFailure(errorMessages));
     });

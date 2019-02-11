@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { connect } from 'react-redux';
 import type { QualificationType, VoteType } from 'Shared/types/proposal';
 import { throttle } from 'Shared/helpers/throttle';
@@ -145,7 +145,7 @@ export class VoteHandler extends React.Component<Props, State> {
                 onClick={goToNextCard}
                 id={`next-button-${index}`}
               >
-                {i18next.t('proposal_card.next')}
+                {i18n.t('proposal_card.next')}
                 {' >'}
               </NextButton>
             )

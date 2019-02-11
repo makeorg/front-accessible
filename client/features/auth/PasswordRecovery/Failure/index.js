@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 
 export const PasswordRecoveryFailureComponent = () => (
-  <p>{i18next.t('reset_password.failure.bad_link')}</p>
+  <p>{i18n.t('reset_password.failure.bad_link')}</p>
 );

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -51,11 +51,11 @@ export const ProgressCircleComponent = (props: Props) => {
       </Progress.SvgStyle>
       <Progress.CounterStyle>
         <HiddenItemStyle aria-hidden>
-          {i18next.t('proposal_card.number')}
+          {i18n.t('proposal_card.number')}
         </HiddenItemStyle>
         <Progress.ActiveCardStyle aria-valuetext={activeGaugeIndex}>{activeGaugeIndex}</Progress.ActiveCardStyle>
         <span aria-hidden>/</span>
-        <HiddenItemStyle>{i18next.t('common.from')}</HiddenItemStyle>
+        <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
         <span aria-valuemax={maxGaugeIndex}>{maxGaugeIndex}</span>
       </Progress.CounterStyle>
     </Progress.WrapperStyle>

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { InputErrorMessageStyle } from 'Client/ui/Elements/Form/Styled';
@@ -48,7 +48,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         icon={faLock}
         errors={error}
         value={password}
-        label={i18next.t('common.form.password_label')}
+        label={i18n.t('common.form.password_label')}
         required
         handleChange={handleChange}
         tabIndex={0}
@@ -59,7 +59,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}
         icon={faPaperPlane}
-        label={i18next.t('reset_password.send_cta')}
+        label={i18n.t('reset_password.send_cta')}
       />
     </PasswordRecoveryStyle.Form>
   );

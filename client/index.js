@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
@@ -39,7 +39,7 @@ if (env.isNone() || env.isDev()) {
 
 const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
 
-i18next.init({
+i18n.init({
   interpolation: {
     escapeValue: false
   },

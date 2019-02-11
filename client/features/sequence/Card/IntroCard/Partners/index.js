@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type { PartnerItem } from 'Shared/types/card';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { MiddleRowStyle } from 'Client/ui/Elements/FlexElements';
 import ProposalCard from '../../Styled';
 
@@ -72,7 +72,7 @@ const Partners = (props: Props) => {
   return (
     <ProposalCard.PartnerFooter as="footer">
       {configuration
-        ? i18next.t('intro_card.partnership')
+        ? i18n.t('intro_card.partnership')
         : ''
       }
       <PartnersList partners={partners} />

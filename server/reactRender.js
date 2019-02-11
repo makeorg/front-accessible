@@ -11,7 +11,7 @@ import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import configureStore from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
-import i18next from './i18n';
+import i18n from './i18n';
 
 deepFreeze(initialState);
 
@@ -56,13 +56,14 @@ export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
 
   const tradLanguage = `${language}-${country}`;
+
   const state = {
     ...createInitialState(),
     appConfig: {
       source: 'core',
       language,
       country,
-      translations: i18next.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
+      translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
     },
     ...routeState
   };

@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
 import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -40,28 +40,28 @@ export const PasswordForgotComponent = (props: Props) => {
   return (
     <ForgotPassword role="region" aria-labelledby="forgot_password_title">
       <SecondLevelTitleStyle id="forgot_password_title">
-        {i18next.t('forgot_password.title')}
+        {i18n.t('forgot_password.title')}
       </SecondLevelTitleStyle>
       <Separators.Small />
       {isSuccess ? (
         <FourthLevelTtitleStyle>
-          {i18next.t('forgot_password.success')}
+          {i18n.t('forgot_password.success')}
         </FourthLevelTtitleStyle>
       ) : (
         <React.Fragment>
           <FourthLevelTtitleStyle>
-            {i18next.t('forgot_password.description')}
+            {i18n.t('forgot_password.description')}
           </FourthLevelTtitleStyle>
           <ForgotPasswordFormComponent {...props} />
         </React.Fragment>
       )}
       <ExtraAltParagraphStyle>
-        {i18next.t('forgot_password.return')}
+        {i18n.t('forgot_password.return')}
         <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleLoginPannel}
         >
-          {i18next.t('forgot_password.login_link')}
+          {i18n.t('forgot_password.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
     </ForgotPassword>

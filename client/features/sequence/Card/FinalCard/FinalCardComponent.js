@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { FinalCardConfig, FinalCardWording } from 'Shared/types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -71,7 +71,7 @@ export const FinalCardComponent = (props: Props) => {
           <ProposalCard.BackIcon>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </ProposalCard.BackIcon>
-          {i18next.t('proposal_card.previous')}
+          {i18n.t('proposal_card.previous')}
         </ProposalCard.BackButton>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>

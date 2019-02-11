@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { UserObject, ErrorObject } from 'Shared/types/form';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -83,7 +83,7 @@ const RegisterFormComponent = (props: Props) => {
         icon={faEnvelope}
         errors={emailError}
         value={user.email}
-        label={i18next.t('common.form.email_label')}
+        label={i18n.t('common.form.email_label')}
         required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -95,7 +95,7 @@ const RegisterFormComponent = (props: Props) => {
         icon={faLock}
         errors={passwordError}
         value={user.password}
-        label={i18next.t('common.form.password_label')}
+        label={i18n.t('common.form.password_label')}
         required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -109,7 +109,7 @@ const RegisterFormComponent = (props: Props) => {
         icon={faUser}
         errors={firstnameError}
         value={user.firstname}
-        label={i18next.t('common.form.firstname_label')}
+        label={i18n.t('common.form.firstname_label')}
         required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -119,7 +119,7 @@ const RegisterFormComponent = (props: Props) => {
         name="age"
         icon={faChild}
         value={user.age}
-        label={i18next.t('common.form.age_label')}
+        label={i18n.t('common.form.age_label')}
         required={false}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -129,7 +129,7 @@ const RegisterFormComponent = (props: Props) => {
         name="postalcode"
         icon={faMapMarkerAlt}
         value={user.postalcode}
-        label={i18next.t('common.form.postalcode_label')}
+        label={i18n.t('common.form.postalcode_label')}
         required={false}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -139,7 +139,7 @@ const RegisterFormComponent = (props: Props) => {
         name="profession"
         icon={faSuitcase}
         value={user.profession}
-        label={i18next.t('common.form.profession_label')}
+        label={i18n.t('common.form.profession_label')}
         required={false}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -147,7 +147,7 @@ const RegisterFormComponent = (props: Props) => {
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={
           {
-            __html: i18next.t(
+            __html: i18n.t(
               'register.cgu_text',
               {
                 cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${isPannelOpen ? 0 : -1}">$t(register.cgu)</a>`,
@@ -162,7 +162,7 @@ const RegisterFormComponent = (props: Props) => {
         id="authentification-register-submit"
         icon={faThumbsUp}
         tabIndex={isPannelOpen ? 0 : -1}
-        label={i18next.t('common.register_label')}
+        label={i18n.t('common.register_label')}
       />
     </FormStyle>
   );

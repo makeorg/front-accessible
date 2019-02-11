@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -46,40 +46,40 @@ export const LoginComponent = (props: Props) => {
   return (
     <Login role="region" aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
-        {i18next.t('login.title')}
+        {i18n.t('login.title')}
       </SecondLevelTitleStyle>
       <Separators.Small />
       <ThirdLevelTtitleStyle>
-        {i18next.t('login.social_connect')}
+        {i18n.t('login.social_connect')}
       </ThirdLevelTtitleStyle>
       <AuthentificationSocial
         tabIndex={isPannelOpen ? 0 : -1}
       />
       <Separators.Wrapper>
         <Separators.Large />
-        <Separators.Text>{i18next.t('login.or')}</Separators.Text>
+        <Separators.Text>{i18n.t('login.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
       <ThirdLevelTtitleStyle>
-        {i18next.t('login.email_connect')}
+        {i18n.t('login.email_connect')}
       </ThirdLevelTtitleStyle>
       <LoginFormComponent {...props} />
       <ExtraParagraphStyle>
-        {i18next.t('login.forgot_password_title')}
+        {i18n.t('login.forgot_password_title')}
         <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleForgotPasswordPannel}
         >
-          {i18next.t('login.forgot_password_link')}
+          {i18n.t('login.forgot_password_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
       <ExtraAltParagraphStyle>
-        {i18next.t('login.registration_title')}
+        {i18n.t('login.registration_title')}
         <RedLinkButtonStyle
           tabIndex={isPannelOpen ? 0 : -1}
           onClick={handleRegisterPannel}
         >
-          {i18next.t('login.registration_link')}
+          {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
     </Login>

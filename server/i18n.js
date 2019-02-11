@@ -1,6 +1,6 @@
 /* @flow */
 
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { env } from 'Shared/env';
 import deAT from './staticData/i18n/de-AT.json';
 import frBE from './staticData/i18n/fr-BE.json';
@@ -32,7 +32,7 @@ import svSE from './staticData/i18n/sv-SE.json';
 import slSI from './staticData/i18n/sl-SI.json';
 import skSK from './staticData/i18n/sk-SK.json';
 
-i18next
+i18n
   .init({
     interpolation: {
       escapeValue: false
@@ -72,4 +72,4 @@ i18next
     }
   });
 
-export default i18next;
+export default i18n;

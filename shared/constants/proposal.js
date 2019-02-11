@@ -1,7 +1,7 @@
 // @flow
 
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 
 export const MIN_PROPOSAL_LENGTH: number = 12;
 export const MAX_PROPOSAL_LENGTH: number = 140;
-export const getBaitText = () => i18next.t('proposal_submit.bait');
+export const getBaitText = () => i18n.t('proposal_submit.bait');

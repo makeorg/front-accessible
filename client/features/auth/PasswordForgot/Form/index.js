@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import type { ErrorObject } from 'Shared/types/form';
 import {
@@ -56,7 +56,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         name="email"
         icon={faEnvelope}
         value={email}
-        label={i18next.t('common.form.email_label')}
+        label={i18n.t('common.form.email_label')}
         required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
@@ -67,7 +67,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         formName={FORGOT_PASSWORD_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}
         icon={faPaperPlane}
-        label={i18next.t('forgot_password.send_link')}
+        label={i18n.t('forgot_password.send_link')}
       />
     </ForgotPassword.Form>
   );

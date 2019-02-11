@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
 import { DescriptionWrapper } from '../Styled';
 
@@ -9,7 +9,7 @@ import { DescriptionWrapper } from '../Styled';
 const ProposalSubmitSuccessComponent = () => (
   <DescriptionWrapper>
     <DescriptionStyle id="proposal-submit-success">
-      {i18next.t('proposal_submit.success')}
+      {i18n.t('proposal_submit.success')}
     </DescriptionStyle>
   </DescriptionWrapper>
 );

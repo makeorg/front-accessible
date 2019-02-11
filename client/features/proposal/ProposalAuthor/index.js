@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { Author } from 'Shared/types/proposal';
 import { AuthorInfos } from './Styled';
 
@@ -16,7 +16,7 @@ const ProposalAuthorAge = ({ age }) => {
   return (
     <span>
       {', '}
-      {i18next.t('proposal_card.author.age', { age })}
+      {i18n.t('proposal_card.author.age', { age })}
     </span>
   );
 };

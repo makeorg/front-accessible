@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
@@ -45,7 +45,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButtonStyle>
         <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
-          {i18next.t('common.propose')}
+          {i18n.t('common.propose')}
         </HiddenOnMobileStyle>
       </ProposalButton>
     );
@@ -57,7 +57,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButtonStyle>
       <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
-        {i18next.t('common.propose')}
+        {i18n.t('common.propose')}
       </HiddenOnMobileStyle>
     </DisabledProposalButton>
   );

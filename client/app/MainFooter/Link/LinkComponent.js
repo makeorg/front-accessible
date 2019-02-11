@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { footerItems, type TypeFooterLink } from 'Client/app/constants/footer';
 import * as Helpers from 'Shared/helpers/url';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
@@ -26,9 +26,9 @@ export const FooterLinkComponent = (props: Props) => {
   return (
     <UnstyledListStyle>
       {Items.map(Item => (
-        <MainFooter.Item key={i18next.t(Item.label)}>
+        <MainFooter.Item key={i18n.t(Item.label)}>
           <MainFooter.ItemLink href={Helpers.localizeLink(Item.linkUrl, country, language)}>
-            {i18next.t(Item.label)}
+            {i18n.t(Item.label)}
           </MainFooter.ItemLink>
         </MainFooter.Item>
       ))}
