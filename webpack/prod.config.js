@@ -49,15 +49,6 @@ module.exports = merge(baseConfig, {
     },
     concatenateModules: true
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['eslint-loader']
-      }
-    ]
-  },
   plugins: [
     createHtmlWebpackPlugin({ ssr: true }),
     new InlineSourcePlugin(),
