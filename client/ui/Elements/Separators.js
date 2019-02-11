@@ -8,7 +8,6 @@ import { MiddleRowStyle } from './FlexElements';
 export const SeparatorStyle = styled.div`
   width: 100%;
   height: ${pxToRem('2px')};
-  background: ${BackgroundColors.ExtraLightGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 

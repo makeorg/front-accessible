@@ -9,7 +9,6 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
-  background: ${BackgroundColors.LightGrey};
   background-color: ${BackgroundColors.LightGrey};
 `;
 

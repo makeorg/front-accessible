@@ -24,7 +24,6 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(232,24,68);
   background-color: rgb(232,24,68);
 }
 
@@ -71,7 +70,7 @@ Snapshot Diff:
 
 @@ -1,9 +1,9 @@
   <button
-    className="sc-1wm8iti-2 sc-1wm8iti-4 iZdAOk"
+    className="sc-1wm8iti-2 sc-1wm8iti-4 cEMXkN"
     form="foo"
 -   tabIndex="-1"
 +   tabIndex="0"

@@ -33,7 +33,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(118,118,118);
   background-color: rgb(118,118,118);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
   padding: 0.3125rem 0.625rem;
@@ -126,7 +125,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(118,118,118);
   background-color: rgb(118,118,118);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
   padding: 0.3125rem 0.625rem;
@@ -219,7 +217,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(118,118,118);
   background-color: rgb(118,118,118);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
   padding: 0.3125rem 0.625rem;
@@ -306,7 +303,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(232,24,68);
   background-color: rgb(232,24,68);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.625rem;
@@ -399,7 +395,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(118,118,118);
   background-color: rgb(118,118,118);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
   padding: 0.3125rem 0.625rem;

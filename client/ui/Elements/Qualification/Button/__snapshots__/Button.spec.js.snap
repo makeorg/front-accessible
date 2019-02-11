@@ -46,14 +46,12 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
   border-radius: 2.25rem;
   border-color: red;
   color: red;
-  background: rgb(255,255,255);
   background-color: rgb(255,255,255);
 }
 
 .c1:focus,
 .c1:active {
   color: rgb(255,255,255);
-  background: red;
   background-color: red;
 }
 
@@ -107,8 +105,8 @@ Snapshot Diff:
 + Second value
 
   <button
--   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-1 figISE"
-+   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 eZsxOV"
+-   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-1 erWLvG"
++   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 MyKyT"
     color="red"
     tabIndex={0}
   >
@@ -130,7 +128,7 @@ Snapshot Diff:
 
 @@ -1,9 +1,9 @@
   <button
-    className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 eZsxOV"
+    className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 MyKyT"
     color="red"
 -   tabIndex="-1"
 +   tabIndex="0"

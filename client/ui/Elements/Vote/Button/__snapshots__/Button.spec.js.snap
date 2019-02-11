@@ -52,14 +52,12 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   transform: rotate(0deg);
   overflow: hidden;
   color: red;
-  background: rgb(255,255,255);
   background-color: rgb(255,255,255);
 }
 
 .c1:focus,
 .c1:active {
   color: rgb(255,255,255);
-  background: red;
   background-color: red;
 }
 
@@ -102,8 +100,8 @@ Snapshot Diff:
 @@ -1,8 +1,8 @@
   <button
     aria-label="foo"
--   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-1 dzXxVx"
-+   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 gJrMNL"
+-   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-1 cdNpDN"
++   className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 culLKY"
     color="red"
     id="vote_button_element"
     rotate={0}
@@ -118,7 +116,7 @@ Snapshot Diff:
 
 @@ -2,11 +2,11 @@
     aria-label="foo"
-    className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 gJrMNL"
+    className="sc-1xooriq-0 sc-1xooriq-0 gzgaZN sc-1xooriq-2 culLKY"
     color="red"
     id="vote_button_element"
     rotate={0}

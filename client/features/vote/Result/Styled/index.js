@@ -31,7 +31,6 @@ export const BarStyle = styled(UnstyledButtonStyle)`
   min-height: ${pxToRem('5px')};
   margin: 0 ${pxToRem('2px')};
   height: ${props => props.percent}%;
-  background: ${props => props.color};
   background-color: ${props => props.color};
 `;
 

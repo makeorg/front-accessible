@@ -17,7 +17,6 @@ export const Card = styled.section`
   height: ${pxToRem('440px')};
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: ${pxToRem(DefaultPadding.Mobile)};
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 13px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;

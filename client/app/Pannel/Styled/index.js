@@ -15,7 +15,6 @@ const Pannel = styled.div`
   height: calc( 100% - ${pxToRem('15px')});
   padding: ${pxToRem('50px')} ${pxToRem('20px')}  ${pxToRem(Elements.SequenceFooterHeightMobile)};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
-  background: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureWhite};
   transform: translate(-50%, -${props => props.translate}%);
   transition: transform 0.5s linear;

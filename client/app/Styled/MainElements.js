@@ -11,7 +11,6 @@ export const AppWrapper = styled(SpaceBetweenColumnStyle)`
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  background: ${BackgroundColors.LightGrey};
   background-color: ${BackgroundColors.LightGrey};
 `;
 

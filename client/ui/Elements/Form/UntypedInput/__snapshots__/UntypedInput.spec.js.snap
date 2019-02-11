@@ -15,7 +15,6 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
   border-radius: 1.875rem;
   border: 0.0625rem solid rgba(0,0,0,0.2);
   margin-bottom: 0.9375rem;
-  background: rgb(242,242,242);
   background-color: rgb(242,242,242);
   border-color: rgba(0,0,0,0.2);
 }

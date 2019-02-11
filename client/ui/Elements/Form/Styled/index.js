@@ -42,7 +42,6 @@ export const ClassicFakeInputStyle = styled(LastFakeInputStyle)`
 `;
 
 export const FakeInputGreyStyle = styled(ClassicFakeInputStyle)`
-  background: ${ColorVars.BackgroundColors.LightGrey};
   background-color: ${ColorVars.BackgroundColors.LightGrey};
   border-color: ${props => (props.hasError ? ColorVars.BorderColors.ErrorRed : ColorVars.BorderColors.LightGrey)};
 `;

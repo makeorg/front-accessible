@@ -8,7 +8,6 @@ const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.RobotoRegular};
     color: ${BasicColors.PureBlack};
-    background: ${BasicColors.PureWhite};
     background-color: ${BasicColors.PureWhite};
   }
 

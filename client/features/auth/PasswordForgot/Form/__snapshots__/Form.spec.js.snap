@@ -24,7 +24,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(232,24,68);
   background-color: rgb(232,24,68);
 }
 
@@ -46,7 +45,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   border-radius: 1.875rem;
   border: 0.0625rem solid rgba(0,0,0,0.2);
   margin-bottom: 0.9375rem;
-  background: rgb(242,242,242);
   background-color: rgb(242,242,242);
   border-color: rgba(0,0,0,0.2);
 }
@@ -188,7 +186,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 0.3125rem 0.9375rem;
   color: rgb(255,255,255);
-  background: rgb(232,24,68);
   background-color: rgb(232,24,68);
 }
 
@@ -215,7 +212,6 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   border-radius: 1.875rem;
   border: 0.0625rem solid rgba(0,0,0,0.2);
   margin-bottom: 0.9375rem;
-  background: rgb(242,242,242);
   background-color: rgb(242,242,242);
   border-color: rgb(237,24,68);
 }

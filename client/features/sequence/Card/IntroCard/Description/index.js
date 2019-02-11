@@ -17,19 +17,19 @@ const IntroDescription = (props: Props) => {
   } = props;
   if (!description) {
     return (
-      <React.Fragment>
-        <ProposalCard.IntroParagraph id="introduction">
+      <div id="introduction">
+        <ProposalCard.IntroParagraph>
           {i18next.t('intro_card.description_1')}
         </ProposalCard.IntroParagraph>
         <ProposalCard.IntroParagraph>
           {i18next.t('intro_card.description_2')}
         </ProposalCard.IntroParagraph>
-      </React.Fragment>
+      </div>
     );
   }
 
   return (
-    <React.Fragment>
+    <div id="introduction">
       {description.map(
         introDescription => (
           <ProposalCard.IntroParagraph key={introDescription}>
@@ -37,7 +37,7 @@ const IntroDescription = (props: Props) => {
           </ProposalCard.IntroParagraph>
         )
       )}
-    </React.Fragment>
+    </div>
   );
 };
 
