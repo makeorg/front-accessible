@@ -40,7 +40,6 @@ export const IntroButton = styled(TallRedButtonStyle)`
 export const BackButton = styled(UnstyledButtonStyle)`
   align-items: center;
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

@@ -6,7 +6,6 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const MainTitle = styled.h2`
   font-family: ${MakeFonts.RobotoBold};
-  font-weight: bold;
   font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('26px')};
   text-transform: none;

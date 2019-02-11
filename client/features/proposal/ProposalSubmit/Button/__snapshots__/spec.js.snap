@@ -25,7 +25,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;
@@ -117,7 +116,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;
@@ -209,7 +207,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;
@@ -295,7 +292,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;
@@ -387,7 +383,6 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   -ms-flex-align: baseline;
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
-  font-weight: bold;
   font-size: 0.875rem;
   border: none;
   border-radius: 1.875rem;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors, TextColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Small } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
@@ -44,8 +45,8 @@ export const IntroParagraph = styled.p`
 `;
 
 export const FinalParagraph = styled.p`
+  font-family: ${MakeFonts.RobotoBold};
   font-size: ${pxToRem('18px')};
-  font-weight: bold;
   color: ${BasicColors.PureBlack};
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
