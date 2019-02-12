@@ -8,6 +8,7 @@ Object {
   "proposal": Object {
     "canSubmit": false,
     "content": "",
+    "data": undefined,
     "error": undefined,
     "hasProposed": false,
     "isCurrentSubmitSuccess": false,

@@ -2,11 +2,9 @@ import QuestionService from 'Shared/api/QuestionService';
 import SequenceService from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
-// import { reactRender } from '../reactRender';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logger } from '../logger';
-
-const { reactRender } = require('../reactRender');
+import { reactRender } from '../reactRender';
 
 async function getQuestion(questionSlug, headers) {
   return QuestionService.getDetail(questionSlug, headers);

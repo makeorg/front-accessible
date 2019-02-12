@@ -3,23 +3,26 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
+import { type ProposalAction } from 'Shared/types/action';
+import { type StateProposal } from 'Shared/store/types';
 
-export default function proposal(state: Object = initialState.proposal, action: Object) {
+export default function proposal(state: StateProposal = initialState.proposal, action: ProposalAction) {
   switch (action.type) {
     case actionTypes.PROPOSE_TYPING:
       return {
         ...state,
         isTyping: true,
         isCurrentSubmitSuccess: false,
-        content: action.content,
-        length: action.length,
-        canSubmit: action.canSubmit
+        content: action.payload.content,
+        length: action.payload.length,
+        canSubmit: action.payload.canSubmit
       };
     case actionTypes.PROPOSE_REQUEST:
       return {
         ...state,
         isTyping: false,
-        questionId: action.questionId
+        content: action.payload.content,
+        questionId: action.payload.questionId
       };
     case actionTypes.PROPOSE_SUCCESS:
       return {
@@ -41,7 +44,7 @@ export default function proposal(state: Object = initialState.proposal, action: 
     case actionTypes.PROPOSAL_LOAD:
       return {
         ...state,
-        proposal: action.proposal
+        data: action.payload
       };
     default:
       return state;
