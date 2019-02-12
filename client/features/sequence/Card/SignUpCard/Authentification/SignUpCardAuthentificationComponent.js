@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -51,16 +51,16 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
           <IconInButtonStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
           </IconInButtonStyle>
-          {i18next.t('common.email')}
+          {i18n.t('common.email')}
         </EmailButtonStyle>
       </SmallButtonWrapperStyle>
       <ExtraAltParagraphStyle>
-        {i18next.t('register.login_title')}
+        {i18n.t('register.login_title')}
         <RedLinkButtonStyle
           tabIndex={tabIndex}
           onClick={handleLoginClick}
         >
-          {i18next.t('register.login_link')}
+          {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
     </CenterColumnStyle>

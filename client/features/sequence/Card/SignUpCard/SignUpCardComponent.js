@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import type { SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import SignUpCardAuthentification from 'Client/features/sequence/Card/SignUpCard/Authentification';
@@ -71,7 +71,7 @@ export const SignUpCardComponent = (props: Props) => {
           <ProposalCard.BackIcon>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </ProposalCard.BackIcon>
-          {i18next.t('proposal_card.previous')}
+          {i18n.t('proposal_card.previous')}
         </ProposalCard.BackButton>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
@@ -81,7 +81,7 @@ export const SignUpCardComponent = (props: Props) => {
             <SignUpTitle title={configuration.customTitle && wording.title} />
           </header>
           <ProposalCard.SecondaryTitle>
-            {i18next.t('sign_up_card.authentification-text')}
+            {i18n.t('sign_up_card.authentification-text')}
           </ProposalCard.SecondaryTitle>
           <SignUpCardAuthentification
             tabIndex={tabIndex}

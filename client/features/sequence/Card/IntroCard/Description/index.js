@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import ProposalCard from '../../Styled';
 
 type Props = {
@@ -19,10 +19,10 @@ const IntroDescription = (props: Props) => {
     return (
       <div id="introduction">
         <ProposalCard.IntroParagraph>
-          {i18next.t('intro_card.description_1')}
+          {i18n.t('intro_card.description_1')}
         </ProposalCard.IntroParagraph>
         <ProposalCard.IntroParagraph>
-          {i18next.t('intro_card.description_2')}
+          {i18n.t('intro_card.description_2')}
         </ProposalCard.IntroParagraph>
       </div>
     );

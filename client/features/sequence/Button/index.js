@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { BackArrow, BackButton } from '../Styled/Button';
@@ -18,7 +18,7 @@ const CollapseToggle = ({ isSequenceCollapsed, handleExpandSequence, isPannelOpe
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrow>
       <BackButton aria-hidden onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
-        {i18next.t('sequence.return')}
+        {i18n.t('sequence.return')}
       </BackButton>
     </div>
   );

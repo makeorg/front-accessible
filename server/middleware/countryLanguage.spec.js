@@ -1,10 +1,15 @@
 import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
+import i18n from 'Shared/i18n';
 import { isCountryLanguage, countryLanguageMiddleware } from './countryLanguage';
+
+jest.mock('Shared/i18n');
 
 describe('Country Language middelware', () => {
   afterEach(() => {
     jest.restoreAllMocks();
+    i18n.cloneInstance.mockRestore();
+    i18n.changeLanguage.mockRestore();
   });
 
   describe('isCountryLanguage country-language (FR-fr)', () => {
@@ -71,6 +76,19 @@ describe('Country Language middelware', () => {
       countryLanguageMiddleware(request, response, () => { });
 
       expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
+    });
+    it('must call i18n changeLanguage on a new instance', () => {
+      jest.spyOn(i18n, 'changeLanguage');
+      jest.spyOn(i18n, 'cloneInstance');
+      const request = httpMocks.createRequest({
+        params: { countryLanguage: 'GB-en' }
+      });
+      const response = httpMocks.createResponse();
+
+      countryLanguageMiddleware(request, response, () => { });
+
+      expect(i18n.cloneInstance).toHaveBeenCalledTimes(1);
+      expect(i18n.changeLanguage).toHaveBeenNthCalledWith(1, 'en-GB');
     });
   });
 });

@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import Sequence from '../Styled';
@@ -26,7 +26,7 @@ export const SequenceFooterComponent = (props: Props) => {
             color={questionConfiguration.theme.footerFontColor}
             id="footer_title"
           >
-            <HiddenItemStyle aria-hidden>{i18next.t('footer_sequence.see_more')}</HiddenItemStyle>
+            <HiddenItemStyle aria-hidden>{i18n.t('footer_sequence.see_more')}</HiddenItemStyle>
             <Sequence.TitleInner>
               {questionConfiguration.wording.question}
               {questionConfiguration.footer
@@ -46,7 +46,7 @@ export const SequenceFooterComponent = (props: Props) => {
           href={questionConfiguration.consultationUrl}
           onClick={handleTracking}
         >
-          {i18next.t('footer_sequence.link')}
+          {i18n.t('footer_sequence.link')}
         </Sequence.FooterLink>
       </Sequence.FooterNav>
     </Sequence.Footer>

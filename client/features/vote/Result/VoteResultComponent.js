@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import voteStaticParams from 'Shared/constants/vote';
@@ -43,11 +43,11 @@ export const VoteResultComponent = (props: Props) => {
 
   return (
     <VoteResult.ContainerStyle>
-      <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
+      <HiddenItemStyle aria-hidden as="h3">{i18n.t('unvote.title')}</HiddenItemStyle>
       <VoteButton
         id={id}
         color={voteStaticParams[votedKey].color}
-        label={i18next.t('unvote.button')}
+        label={i18n.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}
         rotate={voteStaticParams[votedKey].rotate}
         handleVote={event => handleVote(event, votedKey)}
@@ -55,7 +55,7 @@ export const VoteResultComponent = (props: Props) => {
         tabIndex={tabIndex}
       />
       <aside>
-        <HiddenItemStyle aria-hidden as="h3">{i18next.t('results.title')}</HiddenItemStyle>
+        <HiddenItemStyle aria-hidden as="h3">{i18n.t('results.title')}</HiddenItemStyle>
         <VoteResult.GraphStyle>
           {voteKeys.map(voteKey => (
             <ResultItem
@@ -69,8 +69,8 @@ export const VoteResultComponent = (props: Props) => {
           ))}
         </VoteResult.GraphStyle>
         <VoteResult.TotalLabelStyle>
-          <HiddenItemStyle aria-hidden>{i18next.t('results.total_text')}</HiddenItemStyle>
-          {i18next.t('vote.label', { count: votesCount })}
+          <HiddenItemStyle aria-hidden>{i18n.t('results.total_text')}</HiddenItemStyle>
+          {i18n.t('vote.label', { count: votesCount })}
         </VoteResult.TotalLabelStyle>
       </aside>
     </VoteResult.ContainerStyle>

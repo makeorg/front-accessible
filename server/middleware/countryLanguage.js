@@ -1,4 +1,5 @@
 import { METRIC_PATH } from './metrics';
+import i18n from '../i18n';
 
 export const isCountryLanguage = (countryLanguage = null) => (
   countryLanguage !== null && (/^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase()))
@@ -21,6 +22,8 @@ export const countryLanguageMiddleware = (req, res, next) => {
 
   req.params.country = country;
   req.params.language = language;
+  i18n.cloneInstance();
+  i18n.changeLanguage(`${language}-${country}`);
 
   return next();
 };

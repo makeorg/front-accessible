@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { PasswordRecoveryFormComponent } from './Form';
@@ -10,7 +10,7 @@ import { PasswordRecoveryStyle } from './Styled';
 export const PasswordRecoverySuccess = () => (
   <React.Fragment>
     <SecondLevelTitleStyle id="password_recovery_title">
-      {i18next.t('reset_password.success.title')}
+      {i18n.t('reset_password.success.title')}
     </SecondLevelTitleStyle>
   </React.Fragment>
 );
@@ -51,12 +51,12 @@ export const PasswordRecoveryComponent = (props: Props) => {
         ) : (
           <React.Fragment>
             <SecondLevelTitleStyle id="password_recovery_title">
-              {i18next.t('reset_password.title')}
+              {i18n.t('reset_password.title')}
             </SecondLevelTitleStyle>
             <Separators.Small />
             <React.Fragment>
               <FourthLevelTtitleStyle>
-                {i18next.t('reset_password.info')}
+                {i18n.t('reset_password.info')}
               </FourthLevelTtitleStyle>
               <PasswordRecoveryFormComponent {...props} />
             </React.Fragment>

@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
 import UserService from 'Shared/api/UserService';
 
@@ -14,7 +14,7 @@ export const passwordRecovery = (newPassword: string) => (dispatch: Function, ge
   const { resetToken, userId } = getState().user.passwordRecovery;
   dispatch(passwordRecoveryRequest(newPassword, resetToken, userId));
   if (newPassword.length < 8) {
-    return dispatch(passwordRecoveryFailure(i18next.t('common.form.Password must be at least 8 characters')));
+    return dispatch(passwordRecoveryFailure(i18n.t('common.form.Password must be at least 8 characters')));
   }
 
   return UserService.changePassword(newPassword, resetToken, userId)

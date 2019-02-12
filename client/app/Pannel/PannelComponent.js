@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Pannel from './Styled';
@@ -23,7 +23,7 @@ export const PannelComponent = (props: Props) => {
   return (
     <Pannel translate={isPannelOpen ? 100 : 0} aria-hidden={isPannelOpen ? 'false' : 'true'}>
       <Pannel.CloseButton
-        aria-label={i18next.t('pannel.close')}
+        aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={handleClose}
         tabIndex={isPannelOpen ? 0 : -1}

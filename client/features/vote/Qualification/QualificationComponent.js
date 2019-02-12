@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { QualificationType } from 'Shared/types/proposal';
 import { getQualificationIndex } from 'Shared/helpers/qualification';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -35,13 +35,13 @@ export const QualificationComponent = (props: Props) => {
 
   return (
     <Qualification.ContainerStyle>
-      <HiddenItemStyle aria-hidden as="h3">{i18next.t('unvote.title')}</HiddenItemStyle>
+      <HiddenItemStyle aria-hidden as="h3">{i18n.t('unvote.title')}</HiddenItemStyle>
       {
         qualifications.map(qualification => (
           <QualificationButtonElement
             key={getQualificationIndex(qualification.qualificationKey, proposalId)}
             color={voteStaticParams[votedKey].color}
-            label={i18next.t(`qualification.${qualification.qualificationKey}`)}
+            label={i18n.t(`qualification.${qualification.qualificationKey}`)}
             qualificationCounter={qualification.count}
             isQualified={qualification.hasQualified}
             handleQualification={event => handleQualification(event, qualification, votedKey)}

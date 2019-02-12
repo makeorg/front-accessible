@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -43,9 +43,9 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
 
   return (
     <ProposalSubmitAuthentificationWrapper id="proposal-submit-authentification">
-      <SecondLevelTitleStyle>{i18next.t('authentification.title')}</SecondLevelTitleStyle>
+      <SecondLevelTitleStyle>{i18n.t('authentification.title')}</SecondLevelTitleStyle>
       <ThirdLevelTtitleStyle>
-        {i18next.t('authentification.description')}
+        {i18n.t('authentification.description')}
       </ThirdLevelTtitleStyle>
       <SmallButtonWrapperStyle>
         <FacebookAuthentificationButtonComponent
@@ -62,32 +62,32 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           <IconInButtonStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
           </IconInButtonStyle>
-          {i18next.t('common.email')}
+          {i18n.t('common.email')}
         </EmailButtonStyle>
       </SmallButtonWrapperStyle>
       <AltDescriptionStyle>
-        {i18next.t('authentification.commitment')}
+        {i18n.t('authentification.commitment')}
         <DescriptionLinkStyle
           href={localizeDataPolicyLink()}
           target="_blank"
           tabIndex={isPannelOpen ? -1 : 0}
           onClick={trackPersonnalDataLink}
         >
-          {i18next.t('authentification.personal_data')}
+          {i18n.t('authentification.personal_data')}
           <IconInButtonStyle>
-            <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
+            <FontAwesomeIcon aria-label={i18n.t('common.open_new_window')} icon={faExternalLinkAlt} />
           </IconInButtonStyle>
         </DescriptionLinkStyle>
       </AltDescriptionStyle>
       <Separators.Small aria-hidden />
-      <SecondLevelTitleStyle>{i18next.t('login.title')}</SecondLevelTitleStyle>
+      <SecondLevelTitleStyle>{i18n.t('login.title')}</SecondLevelTitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
           onClick={handleLoginClick}
           tabIndex={isPannelOpen ? -1 : 0}
           id="authentification-login-button"
         >
-          {i18next.t('login.button_connect')}
+          {i18n.t('login.button_connect')}
         </RedButtonStyle>
       </ButtonsWrapperStyle>
     </ProposalSubmitAuthentificationWrapper>

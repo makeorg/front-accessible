@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as CookieBanner from './Styled';
@@ -10,17 +10,12 @@ import * as CookieBanner from './Styled';
  */
 export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }:
   { cguLink: string, policyLink: string, handleClose: () => void }) => (
-    /** TODO find another way to render html,
-     *  because of dangeroslySetInnerHTML,
-     *  need a componentDidMount to rerender component
-     *  and update translations
-     */
     <CookieBanner.Wrapper role="banner" aria-describedby="content_info">
       <CookieBanner.Content
         id="content_info"
         dangerouslySetInnerHTML={
           {
-            __html: i18next.t(
+            __html: i18n.t(
               'cookie_alert.text',
               {
                 cgu_link: `<a class="red-link" target="_blank" href="${cguLink}">$t(cookie_alert.cgu)</a>`,
@@ -31,7 +26,7 @@ export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }:
         }
       />
       <CookieBanner.CloseButton
-        aria-label={i18next.t('pannel.close')}
+        aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={handleClose}
       >

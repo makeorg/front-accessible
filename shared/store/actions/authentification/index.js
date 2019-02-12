@@ -1,6 +1,6 @@
 /* @flow */
 
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import UserService from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
@@ -62,7 +62,7 @@ export const login = (email: string, password: string) => (dispatch: Function, g
       });
     })
     .catch(() => {
-      dispatch(loginFailure(i18next.t('login.email_doesnot_exist')));
+      dispatch(loginFailure(i18n.t('login.email_doesnot_exist')));
       Tracking.trackLoginEmailFailure();
     });
 };

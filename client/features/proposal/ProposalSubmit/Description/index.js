@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { DescriptionStyle, AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
@@ -42,10 +42,10 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
     return (
       <DescriptionWrapper id="proposal-submit-description">
         <DescriptionStyle>
-          {i18next.t('proposal_submit.description')}
+          {i18n.t('proposal_submit.description')}
         </DescriptionStyle>
         <AltDescriptionStyle>
-          {i18next.t('proposal_submit.moderation_charter')}
+          {i18n.t('proposal_submit.moderation_charter')}
           &nbsp;
           <DescriptionLinkStyle
             target="_blank"
@@ -53,10 +53,10 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             onClick={trackModerationLink}
             tabIndex={isPannelOpen ? -1 : 0}
           >
-            {i18next.t('common.click_there')}
+            {i18n.t('common.click_there')}
             &nbsp;
             <IconInButtonStyle>
-              <FontAwesomeIcon aria-label={i18next.t('common.open_new_window')} icon={faExternalLinkAlt} />
+              <FontAwesomeIcon aria-label={i18n.t('common.open_new_window')} icon={faExternalLinkAlt} />
             </IconInButtonStyle>
           </DescriptionLinkStyle>
         </AltDescriptionStyle>

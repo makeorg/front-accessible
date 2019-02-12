@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import ProposalCard from '../../Styled';
 
 type Props = {
@@ -24,7 +24,7 @@ const FinalTitle = (props: Props) => {
   }
 
   return (
-    <ProposalCard.FinalParagraph dangerouslySetInnerHTML={{ __html: i18next.t('final_card.title') }} />
+    <ProposalCard.FinalParagraph dangerouslySetInnerHTML={{ __html: i18n.t('final_card.title') }} />
   );
 };
 

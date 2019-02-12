@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import ProposalCard from '../../Styled';
 
 type Props = {
@@ -52,7 +52,7 @@ export const More = (props: Props) => {
       target="_blank"
       onClick={handleEndSequence}
     >
-      {i18next.t('final_card.button')}
+      {i18n.t('final_card.button')}
     </ProposalCard.FinalLink>
   );
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import type { Proposal } from 'Shared/types/proposal';
@@ -62,7 +62,7 @@ export const ProposalCardComponent = (props: Props) => {
           <ProposalCard.BackIcon>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </ProposalCard.BackIcon>
-          {i18next.t('proposal_card.previous')}
+          {i18n.t('proposal_card.previous')}
         </ProposalCard.BackButton>
         <ProgressCircleComponent index={index} cardOffset={cardOffset} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>

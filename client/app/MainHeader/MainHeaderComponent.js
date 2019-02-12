@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import Logo from 'Client/app/assets/images/logo.svg';
 import MainHeader from './Styled';
 
@@ -20,7 +20,7 @@ export const MainHeaderComponent = (props: Props) => {
     <MainHeader role="banner">
       <a href="https://make.org">
         <h1>
-          <MainHeader.Logo onClick={handleTracking} src={Logo} alt={i18next.t('header.logo_alt')} />
+          <MainHeader.Logo onClick={handleTracking} src={Logo} alt={i18n.t('header.logo_alt')} />
         </h1>
       </a>
     </MainHeader>

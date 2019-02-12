@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { Title, Meta } from 'react-head';
 
 type Props = {
@@ -18,19 +18,19 @@ export const MetaTags = (props: Props) => {
 
   return (
     <React.Fragment>
-      <Title>{title || i18next.t('meta.home.title')}</Title>
-      <Meta name="description" content={description || i18next.t('meta.home.description')} />
-      <Meta itemProp="name" content={title || i18next.t('meta.home.title')} />
-      <Meta itemProp="description" content={description || i18next.t('meta.home.description')} />
-      <Meta itemProp="image" content={picture || i18next.t('meta.home.picture')} />
-      <Meta property="og:title" content={title || i18next.t('meta.home.title')} />
-      <Meta property="og:description" content={description || i18next.t('meta.home.description')} />
-      <Meta property="og:headline" content={description || i18next.t('meta.home.description')} />
-      <Meta property="og:image" content={picture || i18next.t('meta.home.picture')} />
+      <Title>{title || i18n.t('meta.home.title')}</Title>
+      <Meta name="description" content={description || i18n.t('meta.home.description')} />
+      <Meta itemProp="name" content={title || i18n.t('meta.home.title')} />
+      <Meta itemProp="description" content={description || i18n.t('meta.home.description')} />
+      <Meta itemProp="image" content={picture || i18n.t('meta.home.picture')} />
+      <Meta property="og:title" content={title || i18n.t('meta.home.title')} />
+      <Meta property="og:description" content={description || i18n.t('meta.home.description')} />
+      <Meta property="og:headline" content={description || i18n.t('meta.home.description')} />
+      <Meta property="og:image" content={picture || i18n.t('meta.home.picture')} />
       <Meta name="twitter:card" content="summary" />
-      <Meta property="twitter:title" content={title || i18next.t('meta.home.title')} />
-      <Meta property="twitter:description" content={description || i18next.t('meta.home.description')} />
-      <Meta property="twitter:image" content={picture || i18next.t('meta.home.picture')} />
+      <Meta property="twitter:title" content={title || i18n.t('meta.home.title')} />
+      <Meta property="twitter:description" content={description || i18n.t('meta.home.description')} />
+      <Meta property="twitter:image" content={picture || i18n.t('meta.home.picture')} />
     </React.Fragment>
   );
 };

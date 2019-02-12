@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
@@ -48,7 +48,7 @@ export const SingleProposalCardComponent = (props: Props) => {
           <SingleProposal.DescriptionStyle
             dangerouslySetInnerHTML={
               {
-                __html: i18next.t(
+                __html: i18n.t(
                   'proposal_page.footer_text',
                   { operation_name: `<span>${questionConfiguration.wording.title}</span>` }
                 )
@@ -61,13 +61,13 @@ export const SingleProposalCardComponent = (props: Props) => {
               as={Link}
               to={getSequenceLink(questionSlug, proposal.country, proposal.language)}
             >
-              {i18next.t('proposal_page.button_1')}
+              {i18n.t('proposal_page.button_1')}
             </SingleProposal.Button>
             <SingleProposal.Button
               as="a"
               href={questionConfiguration.aboutUrl}
             >
-              {i18next.t('proposal_page.button_2')}
+              {i18n.t('proposal_page.button_2')}
             </SingleProposal.Button>
           </CenterRowStyle>
         </SingleProposal.FooterContent>

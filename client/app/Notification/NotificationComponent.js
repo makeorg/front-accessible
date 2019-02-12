@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import * as Notification from './Styled';
@@ -20,7 +20,7 @@ export const NotificationComponent = (props: Props) => {
         {children}
       </Notification.Content>
       <Notification.CloseButton
-        aria-label={i18next.t('pannel.close')}
+        aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={onClose}
       >

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type { IntroCardConfig, IntroCardWording } from 'Shared/types/card';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -73,7 +73,7 @@ export const IntroCardComponent = (props: Props) => {
             icon={faPlay}
           />
         </IconInButtonStyle>
-        {i18next.t('intro_card.button')}
+        {i18n.t('intro_card.button')}
       </ProposalCard.IntroButton>
       {configuration
         && (

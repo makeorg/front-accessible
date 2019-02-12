@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -36,7 +36,7 @@ const SkipSignUpButton = (props: Props) => {
           icon={faStepForward}
         />
       </IconInButtonStyle>
-      {wording || i18next.t('sign_up_card.next-cta') }
+      {wording || i18n.t('sign_up_card.next-cta') }
     </ProposalCard.AltNextButton>
   );
 };

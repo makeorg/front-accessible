@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
@@ -68,7 +68,7 @@ const LoginFormComponent = (props: Props) => {
         name="email"
         icon={faEnvelope}
         value={email}
-        label={i18next.t('common.form.email_label')}
+        label={i18n.t('common.form.email_label')}
         required
         errors={emailError}
         handleChange={handleChange}
@@ -80,7 +80,7 @@ const LoginFormComponent = (props: Props) => {
         name="password"
         icon={faLock}
         value={password}
-        label={i18next.t('common.form.password_label')}
+        label={i18n.t('common.form.password_label')}
         required
         errors={passwordError}
         handleChange={handleChange}
@@ -94,7 +94,7 @@ const LoginFormComponent = (props: Props) => {
         tabIndex={isPannelOpen ? 0 : -1}
         icon={faThumbsUp}
         id="authentification-login-submit"
-        label={i18next.t('common.connexion_label')}
+        label={i18n.t('common.connexion_label')}
       />
     </FormStyle>
   );

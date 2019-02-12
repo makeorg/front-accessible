@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import voteStaticParams from 'Shared/constants/vote';
 import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -33,7 +33,7 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       <VoteButton
         key={getVoteKey(voteKey, proposalId)}
         color={voteStaticParams[voteKey].color}
-        label={i18next.t(`vote.${voteKey}`)}
+        label={i18n.t(`vote.${voteKey}`)}
         icon={voteStaticParams[voteKey].icon}
         rotate={voteStaticParams[voteKey].rotate}
         buttonType={VoteButtonStyle}
@@ -70,8 +70,8 @@ export const VoteComponent = (props: VoteProps) => {
 
   return (
     <VoteStyle.ContainerStyle>
-      <HiddenItemStyle aria-hidden as="h3">{i18next.t('vote.intro_title')}</HiddenItemStyle>
-      <HiddenItemStyle aria-hidden>{i18next.t('vote.intro_text')}</HiddenItemStyle>
+      <HiddenItemStyle aria-hidden as="h3">{i18n.t('vote.intro_title')}</HiddenItemStyle>
+      <HiddenItemStyle aria-hidden>{i18n.t('vote.intro_text')}</HiddenItemStyle>
       <VoteStyle.WrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}

@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import type { PushProposalCardConfig } from 'Shared/types/card';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -71,7 +71,7 @@ export const PushProposalCardComponent = (props: Props) => {
           <ProposalCard.BackIcon>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </ProposalCard.BackIcon>
-          {i18next.t('proposal_card.previous')}
+          {i18n.t('proposal_card.previous')}
         </ProposalCard.BackButton>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
       </ProposalCard.BackButtonWrapper>
@@ -80,7 +80,7 @@ export const PushProposalCardComponent = (props: Props) => {
           <header>
             {proposalCardConfig && <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />}
             <ProposalCard.AltMainTitle>
-              {i18next.t('push_proposal_card.title')}
+              {i18n.t('push_proposal_card.title')}
             </ProposalCard.AltMainTitle>
           </header>
           <MiddleColumnToRowStyle as="section">
@@ -92,7 +92,7 @@ export const PushProposalCardComponent = (props: Props) => {
               <IconInButtonStyle>
                 <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
               </IconInButtonStyle>
-              {i18next.t('common.propose')}
+              {i18n.t('common.propose')}
             </ProposalCard.PushProposalButton>
             <ProposalCard.PushProposalNextButton
               tabIndex={tabIndex}
@@ -104,7 +104,7 @@ export const PushProposalCardComponent = (props: Props) => {
                   icon={faStepForward}
                 />
               </IconInButtonStyle>
-              {i18next.t('push_proposal_card.next-cta')}
+              {i18n.t('push_proposal_card.next-cta')}
             </ProposalCard.PushProposalNextButton>
           </MiddleColumnToRowStyle>
         </ProposalCard.InnerContent>
