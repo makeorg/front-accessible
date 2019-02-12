@@ -1,5 +1,6 @@
 import httpMocks from 'node-mocks-http';
 import SequenceService from 'Shared/api/SequenceService';
+import { createInitialState } from 'Shared/store/initialState';
 import { proposalRoute } from './proposalRoute';
 import { reactRender } from '../reactRender';
 import { logger } from '../logger';
@@ -9,6 +10,10 @@ jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('../logger', () => ({
   logger: { log: jest.fn() }
 }));
+jest.mock('Shared/store/initialState', () => ({
+  createInitialState: jest.fn()
+}));
+
 
 const country = 'FR';
 const language = 'fr';
@@ -23,7 +28,7 @@ describe('Proposal route', () => {
   describe('The route', () => {
     it('construct route initial state and render', async () => {
       SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
-
+      createInitialState.mockReturnValue({ sequence: {} });
       const request = httpMocks.createRequest({
         params: {
           country,

@@ -1,4 +1,5 @@
 import SequenceService from 'Shared/api/SequenceService';
+import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 import { reactRender } from '../reactRender';
 
@@ -9,14 +10,14 @@ export const getQuestionConfiguration = async questionSlug => (
 export const proposalRoute = async (req, res) => {
   let routeState = {};
   try {
-    const {
-      questionSlug
-    } = req.params;
+    const initialState = createInitialState();
+    const { questionSlug } = req.params;
 
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
 
     routeState = {
       sequence: {
+        ...initialState.sequence,
         questionConfiguration
       }
     };

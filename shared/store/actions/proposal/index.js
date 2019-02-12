@@ -8,16 +8,18 @@ import Logger from 'Shared/services/Logger';
 
 export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
   type: actionTypes.PROPOSE_TYPING,
-  content,
-  length,
-  canSubmit
+  payload: {
+    content,
+    length,
+    canSubmit
+  }
 });
 
 export const proposeRequest = (content: string, questionId: string) => (
-  { type: actionTypes.PROPOSE_REQUEST, content, questionId }
+  { type: actionTypes.PROPOSE_REQUEST, payload: { content, questionId } }
 );
 
-export const proposeSuccess = (proposalId: string) => ({ type: actionTypes.PROPOSE_SUCCESS, proposalId });
+export const proposeSuccess = () => ({ type: actionTypes.PROPOSE_SUCCESS });
 export const proposeFailure = (error: string) => ({ type: actionTypes.PROPOSE_FAILURE, error });
 
 export const typingProposal = (content: string, length: number, canSubmit: boolean) => (dispatch: Function) => {
@@ -38,8 +40,8 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
 
   const proposalContent = getBaitText() + content;
   return ProposalService.propose(proposalContent, questionId)
-    .then(({ proposalId }) => {
-      dispatch(proposeSuccess(proposalId));
+    .then(() => {
+      dispatch(proposeSuccess());
 
       Tracking.trackDisplayProposalSubmitValidation(slug);
     })
@@ -52,7 +54,7 @@ export const fetchProposalData = (proposalId: string) => (dispatch: Function) =>
   ProposalService
     .getProposal(proposalId)
     .then((proposal) => {
-      dispatch({ type: actionTypes.PROPOSAL_LOAD, data: proposal });
+      dispatch({ type: actionTypes.PROPOSAL_LOAD, payload: proposal });
     })
     .catch((error) => {
       Logger.logError({ ...{ source: 'fetchProposalData api call error' }, ...{ error } });

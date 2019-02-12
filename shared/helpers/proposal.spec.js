@@ -4,7 +4,7 @@ import { getBaitText } from 'Shared/constants/proposal';
 import * as ProposalHelper from './proposal';
 
 describe('Proposal Helper', () => {
-  const validProposalContent = "foobar";
+  const validProposalContent = 'foobar';
   it('getProposalLength with content', () => {
     const proposalLength = ProposalHelper.getProposalLength(validProposalContent);
     expect(proposalLength).toBe(26);

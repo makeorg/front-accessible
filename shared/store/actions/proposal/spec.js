@@ -9,15 +9,15 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import * as actions from './index';
 
 // mocks
-jest.mock('Shared/api/ProposalService')
+jest.mock('Shared/api/ProposalService');
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 const axiosMock = new MockAdapter(axios);
 
 describe('Proposal Actions', () => {
-  beforeEach(function () {
+  beforeEach(() => {
     store.clearActions();
     axiosMock.restore();
     axiosMock.onPost('/tracking/front').reply(204);
@@ -30,13 +30,15 @@ describe('Proposal Actions', () => {
 
     const expectedActions = [{
       type: actionTypes.PROPOSE_TYPING,
-      content: proposalContent,
-      length: proposalLength,
-      canSubmit: proposalCanBeSubmitted
+      payload: {
+        content: proposalContent,
+        length: proposalLength,
+        canSubmit: proposalCanBeSubmitted
+      }
     }];
 
     store.dispatch(actions.proposeTyping(proposalContent, proposalLength, proposalCanBeSubmitted));
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates PROPOSE_REQUEST when calling action', () => {
@@ -45,8 +47,10 @@ describe('Proposal Actions', () => {
 
     const expectedActions = [{
       type: actionTypes.PROPOSE_REQUEST,
-      content: proposalContent,
-      questionId: proposalQuestionId
+      payload: {
+        content: proposalContent,
+        questionId: proposalQuestionId
+      }
     }];
 
     store.dispatch(actions.proposeRequest(proposalContent, proposalQuestionId));
@@ -54,14 +58,12 @@ describe('Proposal Actions', () => {
   });
 
   it('creates PROPOSE_SUCCESS when calling action', () => {
-    const proposalId = 'foo';
     const expectedActions = [{
-      type: actionTypes.PROPOSE_SUCCESS,
-      proposalId
+      type: actionTypes.PROPOSE_SUCCESS
     }];
 
-    store.dispatch(actions.proposeSuccess(proposalId));
-    expect(store.getActions()).toEqual(expectedActions)
+    store.dispatch(actions.proposeSuccess());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('creates PROPOSE_FAILURE when calling action', () => {
@@ -83,9 +85,11 @@ describe('Proposal Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_TYPING,
-        content: proposalContent,
-        length: proposalLength,
-        canSubmit: proposalCanBeSubmitted
+        payload: {
+          content: proposalContent,
+          length: proposalLength,
+          canSubmit: proposalCanBeSubmitted
+        }
       }
     ];
 
@@ -95,7 +99,7 @@ describe('Proposal Actions', () => {
 
   it('creates an action to proposal Submit when user is not logged in', () => {
     const questionId = 123;
-    const store = mockStore({
+    const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: false },
       sequence: { question: { questionId } }
     });
@@ -104,19 +108,21 @@ describe('Proposal Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_REQUEST,
-        content: proposalContent,
-        questionId
+        payload: {
+          content: proposalContent,
+          questionId
+        }
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
+    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
+      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
     });
   });
 
   it('creates an action to proposal Submit when user is logged in', () => {
     const questionId = 'bar';
-    const store = mockStore({
+    const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: true },
       sequence: { question: { questionId } }
     });
@@ -126,27 +132,20 @@ describe('Proposal Actions', () => {
     // mocks
     ProposalService.propose.mockResolvedValue(proposalIdResponse);
 
-    const expectedActions = [
-      {
-        type: actionTypes.PROPOSE_SUCCESS,
-        proposalId: 'baz'
-      }
-    ];
+    const expectedActions = [{ type: actionTypes.PROPOSE_SUCCESS }];
 
-    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
+    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
+      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
     });
   });
 
   it('creates an action to proposal Submit failure', () => {
     const questionId = 'bar';
-    const store = mockStore({
+    const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: true },
       sequence: { question: { questionId } }
     });
     const proposalContent = 'foo';
-    const proposalIdResponse = { proposalId: 'baz' };
-
 
     // mocks
     ProposalService.propose.mockRejectedValue('fooError');
@@ -158,8 +157,8 @@ describe('Proposal Actions', () => {
       }
     ];
 
-    return store.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
+    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
+      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
     });
   });
 });

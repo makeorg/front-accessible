@@ -2,7 +2,7 @@
 import type { Question, QuestionConfiguration } from 'Shared/types/sequence';
 
 // Proposal State
-type StateProposal = $ReadOnly<{
+export type StateProposal = $ReadOnly<{
   isTyping: boolean,
   canSubmit: boolean,
   hasProposed: boolean,

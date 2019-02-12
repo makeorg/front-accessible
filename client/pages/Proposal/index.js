@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import i18next from 'i18next';
+import i18n from 'Shared/i18n';
 import type { Proposal } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
@@ -47,7 +47,7 @@ class ProposalPage extends React.Component<Props> {
       questionConfiguration
     } = this.props;
 
-    if (!questionConfiguration || !proposal) {
+    if (!questionConfiguration) {
       return null;
     }
 
@@ -55,13 +55,15 @@ class ProposalPage extends React.Component<Props> {
       <ThemeProvider theme={questionConfiguration.theme}>
         <MiddlePageWrapper>
           <MetaTags
-            description={i18next.t('meta.proposal.description')}
+            description={i18n.t('meta.proposal.description')}
           />
-          <ProposalPageContentLoader
-            proposal={proposal}
-            questionConfiguration={questionConfiguration}
-            questionSlug={match.params.questionSlug}
-          />
+          {proposal && (
+            <ProposalPageContentLoader
+              proposal={proposal}
+              questionConfiguration={questionConfiguration}
+              questionSlug={match.params.questionSlug}
+            />
+          )}
         </MiddlePageWrapper>
       </ThemeProvider>
     );
