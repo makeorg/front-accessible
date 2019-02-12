@@ -5,7 +5,7 @@ import { BackgroundColors, MakeThemeColors } from 'Client/app/assets/vars/Colors
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
-export const NotFoundPageContent = styled(MiddleColumnStyle)`
+export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   flex: 1;
@@ -18,7 +18,7 @@ export const NotFoundPageContent = styled(MiddleColumnStyle)`
   }
 `;
 
-export const NotFoundIntro = styled.p`
+export const NotFoundIntroStyle = styled.p`
   font-size: ${pxToRem('15px')};
   color: ${MakeThemeColors.Red};
   font-style: italic;
@@ -27,7 +27,7 @@ export const NotFoundIntro = styled.p`
   }
 `;
 
-export const NotFoundTitle = styled(SecondLevelTitleStyle)`
+export const NotFoundTitleStyle = styled(SecondLevelTitleStyle)`
   font-size: ${pxToRem('30px')};
   line-height: 1;
   margin: ${pxToRem('15px')} 0 ${pxToRem('30px')};

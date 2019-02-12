@@ -2,29 +2,29 @@
 import React from 'react';
 import i18n from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
+import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
 import {
-  NotFoundPageContent,
-  NotFoundIntro,
-  NotFoundTitle
+  NotFoundPageContentStyle,
+  NotFoundIntroStyle,
+  NotFoundTitleStyle
 } from './Styled';
 
-const NotFoundPage = () => (
-  <MiddlePageWrapper>
+export const NotFoundPage = () => (
+  <MiddlePageWrapperStyle>
     <MetaTags />
-    <NotFoundPageContent>
-      <NotFoundIntro>
+    <NotFoundPageContentStyle>
+      <NotFoundIntroStyle>
         {i18n.t('not_found.intro')}
-      </NotFoundIntro>
-      <NotFoundTitle>
+      </NotFoundIntroStyle>
+      <NotFoundTitleStyle>
         {i18n.t('not_found.title')}
-      </NotFoundTitle>
+      </NotFoundTitleStyle>
       <DescriptionStyle>
         {i18n.t('not_found.description')}
       </DescriptionStyle>
-    </NotFoundPageContent>
-  </MiddlePageWrapper>
+    </NotFoundPageContentStyle>
+  </MiddlePageWrapperStyle>
 );
 
 export default NotFoundPage;

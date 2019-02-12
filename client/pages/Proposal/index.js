@@ -10,7 +10,7 @@ import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { match as TypeMatch } from 'react-router';
-import { MiddlePageWrapper } from 'Client/app/Styled/MainElements';
+import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
@@ -53,7 +53,7 @@ class ProposalPage extends React.Component<Props> {
 
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
-        <MiddlePageWrapper>
+        <MiddlePageWrapperStyle>
           <MetaTags
             description={i18n.t('meta.proposal.description')}
           />
@@ -64,7 +64,7 @@ class ProposalPage extends React.Component<Props> {
               questionSlug={match.params.questionSlug}
             />
           )}
-        </MiddlePageWrapper>
+        </MiddlePageWrapperStyle>
       </ThemeProvider>
     );
   }

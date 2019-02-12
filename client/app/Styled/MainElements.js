@@ -20,7 +20,7 @@ export const MainContent = styled.main`
   overflow: hidden;
 `;
 
-export const PageWrapper = styled(CenterColumnStyle)`
+export const PageWrapperStyle = styled(CenterColumnStyle)`
   min-height: calc(100vh - ${pxToRem(CALC_HEIGHT_MOBILE)});
   width: 100%;
   height: 100%;
@@ -31,7 +31,7 @@ export const PageWrapper = styled(CenterColumnStyle)`
   }
 `;
 
-export const MiddlePageWrapper = styled(PageWrapper)`
+export const MiddlePageWrapperStyle = styled(PageWrapperStyle)`
   justify-content: center;
 `;
 
