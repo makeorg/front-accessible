@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
-import ProposalCard from '../../Styled';
+import { IntroParagraphStyle, SharingInnerStyle, SharingWrapperStyle } from '../../Styled/Content';
 
 type Props = {
   /** Special wording for Final Card's Sharinng section */
@@ -27,18 +27,18 @@ export class Sharing extends React.Component<Props> {
     if (!wording) { return null; }
 
     return (
-      <ProposalCard.SharingInner>
+      <SharingInnerStyle>
         {wording.map(
           paragraph => (
-            <ProposalCard.IntroParagraph key={paragraph}>
+            <IntroParagraphStyle key={paragraph}>
               {paragraph}
-            </ProposalCard.IntroParagraph>
+            </IntroParagraphStyle>
           )
         )}
-        <ProposalCard.SharingWrapper>
+        <SharingWrapperStyle>
           <SharingProposal tabIndex={tabIndex} />
-        </ProposalCard.SharingWrapper>
-      </ProposalCard.SharingInner>
+        </SharingWrapperStyle>
+      </SharingInnerStyle>
     );
   }
 }

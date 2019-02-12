@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
-import Authentification from './Styled';
-import FacebookAuthentificationButtonComponent from './FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from './GoogleAuthentification/Button';
+import { AuthentificationStyle } from './Styled';
+import { FacebookAuthentificationButtonComponent } from './FacebookAuthentification/Button';
+import { GoogleAuthentificationButtonComponent } from './GoogleAuthentification/Button';
 
 type Props = {
   /** Tabindex for interactive items */
@@ -24,9 +24,9 @@ export const AuthentificationSocialComponent = (props: Props) => {
   } = props;
 
   return (
-    <Authentification>
+    <AuthentificationStyle>
       <FacebookAuthentificationButtonComponent tabIndex={tabIndex} handleTracking={trackFacebookLogin} />
       <GoogleAuthentificationButtonComponent tabIndex={tabIndex} handleTracking={trackGoogleLogin} />
-    </Authentification>
+    </AuthentificationStyle>
   );
 };

@@ -7,10 +7,10 @@ import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import Tracking from 'Shared/services/Tracking';
 import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Shared/types/sequence';
-import type { Proposal } from 'Shared/types/proposal';
+import type { ProposalType } from 'Shared/types/proposal';
 import { SequenceComponent } from './SequenceComponent';
 import type { Props as SequenceProps } from './SequenceComponent';
-import SequencePlaceholderComponent from './SequencePlaceholder';
+import { SequencePlaceholderComponent } from './SequencePlaceholder';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
   currentIndex: prevState.currentIndex - 1
@@ -161,7 +161,7 @@ class SequenceHandler extends React.Component<Props, State> {
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlidesConfig;
     const extraSlidesWording: ExtraSlidesWording = questionConfiguration.sequenceExtraSlidesWording;
-    const votedFirstProposals: Array<Proposal> = ProposalHelper.sortProposalsByVoted(proposals);
+    const votedFirstProposals: Array<ProposalType> = ProposalHelper.sortProposalsByVoted(proposals);
     const cards: Array<CardType> = SequenceHelper.buildCards(
       votedFirstProposals,
       extraSlidesConfig,
@@ -170,7 +170,7 @@ class SequenceHandler extends React.Component<Props, State> {
       hasProposed
     );
 
-    const firstUnvotedProposal: void | Proposal = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
+    const firstUnvotedProposal: void | ProposalType = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
     const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(firstUnvotedProposal, cards);
     const currentIndex: number = (indexOfFirstUnvotedCard === 0 && hasStarted) ? 1 : indexOfFirstUnvotedCard;
 

@@ -4,7 +4,7 @@ import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import ProposalCard from '../../Styled';
+import { AltNextButtonStyle } from '../../Styled/Buttons';
 
 type Props = {
   /** Tabindex for interactive items */
@@ -18,7 +18,7 @@ type Props = {
 /**
  * Renders Next Card Button in Sign Up Card
  */
-const SkipSignUpButton = (props: Props) => {
+export const SkipSignUpButton = (props: Props) => {
   const {
     tabIndex,
     skipSignUpCard,
@@ -26,7 +26,7 @@ const SkipSignUpButton = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCard.AltNextButton
+    <AltNextButtonStyle
       tabIndex={tabIndex}
       onClick={skipSignUpCard}
     >
@@ -37,8 +37,6 @@ const SkipSignUpButton = (props: Props) => {
         />
       </IconInButtonStyle>
       {wording || i18n.t('sign_up_card.next-cta') }
-    </ProposalCard.AltNextButton>
+    </AltNextButtonStyle>
   );
 };
-
-export default SkipSignUpButton;

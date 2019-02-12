@@ -12,7 +12,7 @@ import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import ProposalSubmitSuccessComponent from './Success';
 import ProposalSubmitDescriptionComponent from './Description';
-import { ProposalSubmitFormWrapper } from './Styled';
+import { ProposalSubmitFormWrapperStyle } from './Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -144,7 +144,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
     const isSuccessShown = !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
-      <ProposalSubmitFormWrapper>
+      <ProposalSubmitFormWrapperStyle>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
@@ -177,7 +177,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
             key="ProposalSubmitAuthentificationContainer"
           />
         ) : null}
-      </ProposalSubmitFormWrapper>
+      </ProposalSubmitFormWrapperStyle>
     );
   }
 }

@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import i18n from 'Shared/i18n';
-import ProposalCard from '../../Styled';
+import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
+import { FinalLinkStyle } from '../../Styled/Buttons';
 
 type Props = {
   /** Special configuration for Final Card's Know More paragraph */
@@ -27,11 +28,11 @@ export const More = (props: Props) => {
 
   if (wording && wording.learn_more_title && wording.learn_more_button) {
     return (
-      <ProposalCard.MoreWrapper>
-        <ProposalCard.IntroParagraph>
+      <MoreWrapperStyle>
+        <IntroParagraphStyle>
           {wording.learn_more_title}
-        </ProposalCard.IntroParagraph>
-        <ProposalCard.FinalLink
+        </IntroParagraphStyle>
+        <FinalLinkStyle
           as="a"
           tabIndex={tabIndex}
           href={configuration.linkUrl}
@@ -39,13 +40,13 @@ export const More = (props: Props) => {
           onClick={handleEndSequence}
         >
           {wording.learn_more_button}
-        </ProposalCard.FinalLink>
-      </ProposalCard.MoreWrapper>
+        </FinalLinkStyle>
+      </MoreWrapperStyle>
     );
   }
 
   return (
-    <ProposalCard.FinalLink
+    <FinalLinkStyle
       as="a"
       tabIndex={tabIndex}
       href={configuration.linkUrl}
@@ -53,6 +54,6 @@ export const More = (props: Props) => {
       onClick={handleEndSequence}
     >
       {i18n.t('final_card.button')}
-    </ProposalCard.FinalLink>
+    </FinalLinkStyle>
   );
 };

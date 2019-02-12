@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import ProposalCard from '../../Styled';
+import { ExtraLogoStyle } from '../../Styled/Titles';
 
 type Props = {
   /** String with extraLogo image path */
@@ -10,7 +10,7 @@ type Props = {
 /**
  * Renders Intro ExtraLogo component
  */
-const ExtraLogo = (props: Props) => {
+export const ExtraLogo = (props: Props) => {
   const {
     extraLogo
   } = props;
@@ -20,11 +20,9 @@ const ExtraLogo = (props: Props) => {
   }
 
   return (
-    <ProposalCard.ExtraLogo
+    <ExtraLogoStyle
       src={extraLogo}
       alt=""
     />
   );
 };
-
-export default ExtraLogo;

@@ -75,7 +75,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot by defau
   type="submit"
 >
   <span
-    className="sc-1wm8iti-6 c1 c2"
+    className="sc-1wm8iti-6 c1 1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -166,7 +166,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
   type="submit"
 >
   <span
-    className="sc-1wm8iti-6 c1 c2"
+    className="sc-1wm8iti-6 c1 1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -260,7 +260,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if field
     />
   </span>
   <span
-    className="c2 c3"
+    className="c2 2 c3"
   >
     common.propose
   </span>
@@ -336,13 +336,13 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
 }
 
 <button
-  className="c0"
+  className="0 c0"
   id="proposal-submit-button"
   tabIndex={0}
   type="submit"
 >
   <span
-    className="sc-1wm8iti-6 c1 c2"
+    className="sc-1wm8iti-6 c1 1 c2"
   >
     <svg
       icon="pencil-alt"
@@ -433,7 +433,7 @@ exports[`ProposalSubmitButtonComponent snapshot must match the snapshot if user 
   type="submit"
 >
   <span
-    className="sc-1wm8iti-6 c1 c2"
+    className="sc-1wm8iti-6 c1 1 c2"
   >
     <svg
       icon="pencil-alt"

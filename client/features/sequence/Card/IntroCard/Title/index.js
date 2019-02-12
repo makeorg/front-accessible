@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18n from 'Shared/i18n';
-import ProposalCard from '../../Styled';
+import { IntroTitleStyle } from '../../Styled/Titles';
 
 type Props = {
   title: boolean | string
@@ -10,16 +10,14 @@ type Props = {
 /**
  * Renders Intro Title component
  */
-const IntroTitle = (props: Props) => {
+export const IntroTitle = (props: Props) => {
   const {
     title
   } = props;
 
   return (
-    <ProposalCard.IntroTitle>
+    <IntroTitleStyle>
       {title || i18n.t('intro_card.title')}
-    </ProposalCard.IntroTitle>
+    </IntroTitleStyle>
   );
 };
-
-export default IntroTitle;

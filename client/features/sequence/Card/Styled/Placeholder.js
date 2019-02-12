@@ -4,7 +4,7 @@ import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const PlaceholderWrapper = styled(MiddleColumnStyle)`
+export const PlaceholderWrapperStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
 `;
@@ -15,7 +15,7 @@ const FadeInAnimation = keyframes`
   100% { opacity: 0.1; }
 `;
 
-export const Placeholder = styled.div`
+export const PlaceholderStyle = styled.div`
   display: block;
   width: 100%;
   background-color: ${BasicColors.PureBlack};
@@ -24,13 +24,13 @@ export const Placeholder = styled.div`
   animation: ${FadeInAnimation} 1s infinite;
 `;
 
-export const PlaceholderTitle = styled(Placeholder)`
+export const PlaceholderTitleSTyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('800px')};
   height: ${pxToRem('15px')};
   margin: ${pxToRem('15px')} auto 0;
 `;
 
-export const PlaceholderSeparator = styled(Placeholder)`
+export const PlaceholderSeparatorStyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('58px')};
   height: ${pxToRem('2px')};
   margin: ${pxToRem('20px')} auto;
@@ -39,13 +39,13 @@ export const PlaceholderSeparator = styled(Placeholder)`
   }
 `;
 
-export const PlaceholderDescription = styled(Placeholder)`
+export const PlaceholderDescriptionStyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('330px')};
   height: ${pxToRem('8px')};
   margin: ${pxToRem('10px')} auto;
 `;
 
-export const PlaceholderButton = styled(Placeholder)`
+export const PlaceholderButtonStyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('150px')};
   height: ${pxToRem('40px')};
   margin: ${pxToRem('10px')} auto;

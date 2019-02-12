@@ -51,7 +51,7 @@ type Props = {
 /**
  * Renders Register Form
  */
-const RegisterFormComponent = (props: Props) => {
+export const RegisterFormComponent = (props: Props) => {
   const {
     user,
     errors,
@@ -167,6 +167,3 @@ const RegisterFormComponent = (props: Props) => {
     </FormStyle>
   );
 };
-
-
-export default RegisterFormComponent;

@@ -8,7 +8,7 @@ import { ExtraParagraphStyle, ExtraAltParagraphStyle } from 'Client/ui/Elements/
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import LoginFormComponent from './Form';
-import Login from './Styled';
+import { LoginStyle } from './Styled';
 
 type Props = {
   /** User's email */
@@ -44,7 +44,7 @@ export const LoginComponent = (props: Props) => {
   } = props;
 
   return (
-    <Login role="region" aria-labelledby="login_title">
+    <LoginStyle role="region" aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>
@@ -82,6 +82,6 @@ export const LoginComponent = (props: Props) => {
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
-    </Login>
+    </LoginStyle>
   );
 };

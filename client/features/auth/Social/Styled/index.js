@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconColors } from 'Client/app/assets/vars/Colors';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 
-const Authentification = styled(SpaceBetweenColumnToRowStyle)`
+export const AuthentificationStyle = styled(SpaceBetweenColumnToRowStyle)`
   width: 100%;
   margin-top: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -11,5 +13,30 @@ const Authentification = styled(SpaceBetweenColumnToRowStyle)`
   }
 `;
 
+export const AuthentificationLinkStyle = styled.button`
+  font-size: ${pxToRem('16px')};
+  border: none;
+  padding: 0;
+  margin: 0 ${pxToRem('5px')};
+  background: none;
+  text-transform: uppercase;
+  border-bottom-width: ${pxToRem('1px')};
+  border-bottom-style: solid;
+`;
 
-export default Authentification;
+export const FacebookLinkStyle = styled(AuthentificationLinkStyle)`
+  color: ${IconColors.Facebook};
+  border-bottom-color: ${IconColors.Facebook};
+`;
+
+export const GoogleLinkStyle = styled(AuthentificationLinkStyle)`
+  color: ${IconColors.Google};
+  border-bottom-color: ${IconColors.Google};
+`;
+
+export const SocialIconStyle = styled(IconInButtonStyle)`
+  margin-right: ${pxToRem('5px')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    margin-right: ${pxToRem('5px')};
+  }
+`;

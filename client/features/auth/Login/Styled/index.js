@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 
-const Login = styled.section`
+export const LoginStyle = styled.section`
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -10,5 +10,3 @@ const Login = styled.section`
   min-height: ${pxToRem('490px')};
   max-width: ${pxToRem('470px')};
 `;
-
-export default Login;

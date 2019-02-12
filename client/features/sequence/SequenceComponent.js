@@ -2,9 +2,9 @@
 import * as React from 'react';
 import * as sequenceHelper from 'Shared/helpers/sequence';
 import type { CardType } from 'Shared/types/sequence';
-import CollapseToggle from './Button';
+import { CollapseToggle } from './Button';
 import Card from './Card';
-import Sequence from './Styled';
+import { SequenceStyle, WrapperStyle, ListStyle } from './Styled';
 
 export type Props = {
   /** Number of cards */
@@ -57,7 +57,7 @@ export const SequenceComponent = (props: Props) => {
   }
 
   return (
-    <Sequence
+    <SequenceStyle
       role="region"
       aria-describedby="introduction"
       isSequenceCollapsed={isSequenceCollapsed}
@@ -67,8 +67,8 @@ export const SequenceComponent = (props: Props) => {
         isSequenceCollapsed={isSequenceCollapsed}
         isPannelOpen={isPannelOpen}
       />
-      <Sequence.Wrapper>
-        <Sequence.List isSequenceCollapsed={isSequenceCollapsed} id="sequence">
+      <WrapperStyle>
+        <ListStyle isSequenceCollapsed={isSequenceCollapsed} id="sequence">
           {cards.map((card, index) => (
             <Card
               key={sequenceHelper.getCardIndex(index)}
@@ -84,8 +84,8 @@ export const SequenceComponent = (props: Props) => {
               handleStartSequence={handleStartSequence}
             />
           ))}
-        </Sequence.List>
-      </Sequence.Wrapper>
-    </Sequence>
+        </ListStyle>
+      </WrapperStyle>
+    </SequenceStyle>
   );
 };

@@ -1,7 +1,7 @@
 /* @flow */
 
 import { getBaitText, MIN_PROPOSAL_LENGTH, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
-import type { Proposal } from 'Shared/types/proposal';
+import type { ProposalType } from 'Shared/types/proposal';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -37,6 +37,6 @@ export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> =>
  * Search the first no voted proposal
  * @type {Object|null}
  */
-export const searchFirstUnvotedProposal = (proposals: Array<Proposal>) => (
+export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) => (
   proposals.find(proposal => proposal.votes.every(vote => vote.hasVoted === false))
 );

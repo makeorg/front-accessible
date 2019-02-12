@@ -11,7 +11,7 @@ import { BackgroundColors, BasicColors, TextColors } from 'Client/app/assets/var
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const BackButtonWrapper = styled.div`
+export const BackButtonWrapperStyle = styled.div`
   position: absolute;
   top: ${pxToRem('15px')};
   left: ${pxToRem('15px')};
@@ -28,7 +28,7 @@ export const BackButtonWrapper = styled.div`
   }
 `;
 
-export const IntroButton = styled(TallRedButtonStyle)`
+export const IntroButtonStyle = styled(TallRedButtonStyle)`
   margin-top: ${pxToRem('15px')};
   min-width: ${pxToRem('125px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -37,7 +37,7 @@ export const IntroButton = styled(TallRedButtonStyle)`
   }
 `;
 
-export const BackButton = styled(UnstyledButtonStyle)`
+export const BackButtonStyle = styled(UnstyledButtonStyle)`
   align-items: center;
   font-family: ${MakeFonts.RobotoBold};
   font-size: ${pxToRem('12px')};
@@ -47,7 +47,7 @@ export const BackButton = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const BackIcon = styled(IconInButtonStyle)`
+export const BackIconStyle = styled(IconInButtonStyle)`
   font-size: ${pxToRem('25px')};
   color: ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -55,7 +55,7 @@ export const BackIcon = styled(IconInButtonStyle)`
   }
 `;
 
-export const PushProposalButton = styled(RedButtonStyle)`
+export const PushProposalButtonStyle = styled(RedButtonStyle)`
   width: 100%;
   margin: 0 0 ${pxToRem('10px')};
   white-space: normal;
@@ -65,7 +65,7 @@ export const PushProposalButton = styled(RedButtonStyle)`
   }
 `;
 
-export const PushProposalNextButton = styled(GreyButtonStyle)`
+export const PushProposalNextButtonStyle = styled(GreyButtonStyle)`
   width: 100%;
   white-space: normal;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -74,18 +74,18 @@ export const PushProposalNextButton = styled(GreyButtonStyle)`
   }
 `;
 
-export const NextButton = styled(RedButtonStyle)`
+export const NextButtonStyle = styled(RedButtonStyle)`
   width: 100%;
   max-width: ${pxToRem('285px')};
   white-space: normal;
 `;
 
-export const AltNextButton = styled(GreyButtonStyle)`
+export const AltNextButtonStyle = styled(GreyButtonStyle)`
   margin-top: ${pxToRem('20px')};
   white-space: normal;
 `;
 
-export const FinalLink = styled(IntroButton)`
+export const FinalLinkStyle = styled(IntroButtonStyle)`
   text-decoration: none;
   &:hover,
   &:focus {

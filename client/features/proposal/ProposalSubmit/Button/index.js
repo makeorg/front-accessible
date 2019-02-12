@@ -5,11 +5,11 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
-  ProposalButton,
-  DisabledProposalButton,
-  ProposalIcon,
-  ProposalButtonLabel
-} from '../Styled/ProposalField';
+  ProposalButtonStyle,
+  DisabledProposalButtonStyle,
+  ProposalIconStyle,
+  ProposalButtonLabelStyle
+} from '../Styled';
 
 type Props = {
   /** Method called when field's value is submitted */
@@ -35,30 +35,30 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
 
   if (canSubmit) {
     return (
-      <ProposalButton
+      <ProposalButtonStyle
         id="proposal-submit-button"
         type="submit"
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIcon}>
+        <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}>
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButtonStyle>
-        <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
+        <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}>
           {i18n.t('common.propose')}
         </HiddenOnMobileStyle>
-      </ProposalButton>
+      </ProposalButtonStyle>
     );
   }
 
   return (
-    <DisabledProposalButton id="proposal-submit-button" type="submit" disabled>
-      <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIcon}>
+    <DisabledProposalButtonStyle id="proposal-submit-button" type="submit" disabled>
+      <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}>
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButtonStyle>
-      <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabel : HiddenOnMobileStyle}>
+      <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}>
         {i18n.t('common.propose')}
       </HiddenOnMobileStyle>
-    </DisabledProposalButton>
+    </DisabledProposalButtonStyle>
   );
 };

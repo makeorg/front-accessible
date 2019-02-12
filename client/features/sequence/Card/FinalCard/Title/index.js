@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import i18n from 'Shared/i18n';
-import ProposalCard from '../../Styled';
+import { FinalParagraphStyle } from '../../Styled/Content';
+import { AltMainTitleStyle } from '../../Styled/Titles';
 
 type Props = {
   title?: string
@@ -10,25 +11,24 @@ type Props = {
 /**
  * Renders finalCard Title component
  */
-const FinalTitle = (props: Props) => {
+export const FinalTitle = (props: Props) => {
   const {
     title
   } = props;
 
   if (title) {
     return (
-      <ProposalCard.AltMainTitle>
+      <AltMainTitleStyle>
         {title}
-      </ProposalCard.AltMainTitle>
+      </AltMainTitleStyle>
     );
   }
 
   return (
-    <ProposalCard.FinalParagraph dangerouslySetInnerHTML={{ __html: i18n.t('final_card.title') }} />
+    <FinalParagraphStyle dangerouslySetInnerHTML={{ __html: i18n.t('final_card.title') }} />
   );
 };
 
 FinalTitle.defaultProps = {
   title: undefined
 };
-export default FinalTitle;

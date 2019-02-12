@@ -4,7 +4,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 
-export const MainTitle = styled.h2`
+export const MainTitleStyle = styled.h2`
   font-family: ${MakeFonts.RobotoBold};
   font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('26px')};
@@ -16,7 +16,7 @@ export const MainTitle = styled.h2`
   }
 `;
 
-export const ExtraLogo = styled.img`
+export const ExtraLogoStyle = styled.img`
   max-width: ${pxToRem('75px')};
   margin: 0 auto ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
@@ -24,11 +24,11 @@ export const ExtraLogo = styled.img`
   }
 `;
 
-export const IntroTitle = styled(MainTitle)`
+export const IntroTitleStyle = styled(MainTitleStyle)`
   color: ${props => props.theme.color};
 `;
 
-export const AltMainTitle = styled(MainTitle)`
+export const AltMainTitleStyle = styled(MainTitleStyle)`
   font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('28px')};
   margin-bottom: ${pxToRem('15px')};
@@ -39,7 +39,7 @@ export const AltMainTitle = styled(MainTitle)`
   }
 `;
 
-export const SecondaryTitle = styled.h3`
+export const SecondaryTitleStyle = styled.h3`
   font-size: ${pxToRem('16px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};

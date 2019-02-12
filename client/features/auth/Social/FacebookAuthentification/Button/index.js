@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { IconInButtonStyle, FacebookButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import FacebookAuthentificationComponent from '../index';
+import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
   <FacebookButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
@@ -22,11 +22,9 @@ type Props = {
 /**
  * Renders Facebook authentification button
  */
-const FacebookAuthentificationButtonComponent = (props: Props) => {
+export const FacebookAuthentificationButtonComponent = (props: Props) => {
   const { tabIndex } = props;
   return (
     <FacebookAuthentificationComponent {...props} render={renderFacebookLogin(tabIndex)} />
   );
 };
-
-export default FacebookAuthentificationButtonComponent;

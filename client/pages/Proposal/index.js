@@ -4,7 +4,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import i18n from 'Shared/i18n';
-import type { Proposal } from 'Shared/types/proposal';
+import type { ProposalType } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
@@ -14,7 +14,7 @@ import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
-  proposal: Proposal,
+  proposal: ProposalType,
   questionConfiguration: QuestionConfiguration,
   fetchProposal: (proposalId: string) => void,
   fetchQuestionConfiguration: (questionSlug: string) => void,
