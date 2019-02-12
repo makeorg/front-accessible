@@ -4,7 +4,7 @@ import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 
-export const Wrapper = styled.section`
+export const CookieWrapperStyle = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@ export const Wrapper = styled.section`
   background-color: ${BackgroundColors.LightGrey};
 `;
 
-export const Content = styled.p`
+export const CookieContentStyle = styled.p`
   width: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: ${pxToRem(DefaultPadding.Mobile)} ${pxToRem('30px')} ${pxToRem(DefaultPadding.Mobile)} ${pxToRem(DefaultPadding.Mobile)};
@@ -25,7 +25,7 @@ export const Content = styled.p`
   }
 `;
 
-export const CloseButton = styled(UnstyledButtonStyle)`
+export const CookieCloseButtonStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${pxToRem(DefaultPadding.Mobile)};
   right: ${pxToRem(DefaultPadding.Mobile)};

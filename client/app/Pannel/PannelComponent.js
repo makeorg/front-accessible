@@ -4,7 +4,7 @@ import * as React from 'react';
 import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import Pannel from './Styled';
+import { PannelCloseButtonStyle, PannelContentStyle, PannelStyle } from './Styled';
 
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -21,18 +21,18 @@ type Props = {
 export const PannelComponent = (props: Props) => {
   const { isPannelOpen, handleClose, children } = props;
   return (
-    <Pannel translate={isPannelOpen ? 100 : 0} aria-hidden={isPannelOpen ? 'false' : 'true'}>
-      <Pannel.CloseButton
+    <PannelStyle translate={isPannelOpen ? 100 : 0} aria-hidden={isPannelOpen ? 'false' : 'true'}>
+      <PannelCloseButtonStyle
         aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={handleClose}
         tabIndex={isPannelOpen ? 0 : -1}
       >
         <FontAwesomeIcon aria-hidden icon={faTimes} />
-      </Pannel.CloseButton>
-      <Pannel.Content>
+      </PannelCloseButtonStyle>
+      <PannelContentStyle>
         {children}
-      </Pannel.Content>
-    </Pannel>
+      </PannelContentStyle>
+    </PannelStyle>
   );
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { PannelComponent } from './PannelComponent';
-import Pannel from './Styled';
+import { PannelCloseButtonStyle, PannelStyle, PannelContentStyle } from './Styled';
 
 describe('PannelComponent', () => {
   const props = {
@@ -14,10 +14,10 @@ describe('PannelComponent', () => {
   it('Check a11y rules when pannel is open', () => {
     const wrapper = shallow(<PannelComponent {...props} />);
 
-    expect(wrapper.find(Pannel).prop('translate')).toBe(100);
-    expect(wrapper.find(Pannel).prop('aria-hidden')).toBe('false');
-    expect(wrapper.find(Pannel.CloseButton).prop('aria-expanded')).toBe('false');
-    expect(wrapper.find(Pannel.CloseButton).prop('tabIndex')).toBe(0);
+    expect(wrapper.find(PannelStyle).prop('translate')).toBe(100);
+    expect(wrapper.find(PannelStyle).prop('aria-hidden')).toBe('false');
+    expect(wrapper.find(PannelCloseButtonStyle).prop('aria-expanded')).toBe('false');
+    expect(wrapper.find(PannelCloseButtonStyle).prop('tabIndex')).toBe(0);
   });
 
   it('Check a11y rules when pannel is close', () => {
@@ -28,10 +28,10 @@ describe('PannelComponent', () => {
 
     const wrapper = shallow(<PannelComponent {...closePannelProps} />);
 
-    expect(wrapper.find(Pannel).prop('translate')).toBe(0);
-    expect(wrapper.find(Pannel).prop('aria-hidden')).toBe('true');
-    expect(wrapper.find(Pannel.CloseButton).prop('aria-expanded')).toBe('false');
-    expect(wrapper.find(Pannel.CloseButton).prop('tabIndex')).toBe(-1);
+    expect(wrapper.find(PannelStyle).prop('translate')).toBe(0);
+    expect(wrapper.find(PannelStyle).prop('aria-hidden')).toBe('true');
+    expect(wrapper.find(PannelCloseButtonStyle).prop('aria-expanded')).toBe('false');
+    expect(wrapper.find(PannelCloseButtonStyle).prop('tabIndex')).toBe(-1);
   });
 
   it('pannel contain chilren props', () => {
@@ -42,6 +42,6 @@ describe('PannelComponent', () => {
 
     const wrapper = shallow(<PannelComponent {...childrenProps} />);
 
-    expect(wrapper.find(Pannel.Content).text()).toBe('<p>Foo bar</p>');
+    expect(wrapper.find(PannelContentStyle).text()).toBe('<p>Foo bar</p>');
   });
 });

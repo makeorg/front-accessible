@@ -3,7 +3,7 @@
 import * as React from 'react';
 import i18n from 'Shared/i18n';
 import Logo from 'Client/app/assets/images/logo.svg';
-import MainHeader from './Styled';
+import { HeaderStyle, HeaderLogoStyle } from './Styled';
 
 type Props = {
   /** Method called to track Header */
@@ -13,16 +13,16 @@ type Props = {
 /**
  * Renders Main Header
  */
-export const MainHeaderComponent = (props: Props) => {
+export const HeaderComponent = (props: Props) => {
   const { handleTracking } = props;
 
   return (
-    <MainHeader role="banner">
+    <HeaderStyle role="banner">
       <a href="https://make.org">
         <h1>
-          <MainHeader.Logo onClick={handleTracking} src={Logo} alt={i18n.t('header.logo_alt')} />
+          <HeaderLogoStyle onClick={handleTracking} src={Logo} alt={i18n.t('header.logo_alt')} />
         </h1>
       </a>
-    </MainHeader>
+    </HeaderStyle>
   );
 };
