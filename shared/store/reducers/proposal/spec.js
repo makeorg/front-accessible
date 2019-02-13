@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as actionCreators from 'Shared/store/actions/proposal';
-import proposal from './index';
+import { proposal } from './index';
 
 describe('Proposal reducer', () => {
   it('Return the initial state', () => {

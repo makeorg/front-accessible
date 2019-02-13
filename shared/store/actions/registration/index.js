@@ -6,7 +6,7 @@ import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constant
 import { loginSuccess } from 'Shared/store/actions/authentification';
 import { submitProposal } from 'Shared/store/actions/proposal';
 import { pannelClose } from 'Shared/store/actions/pannel';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = (user: Object) => ({ type: actionTypes.REGISTER_SUCCESS, user });

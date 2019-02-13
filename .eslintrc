@@ -21,6 +21,7 @@
         "devDependencies": true
       }
     ],
+    "import/no-default-export": 2,
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/no-danger": 0,

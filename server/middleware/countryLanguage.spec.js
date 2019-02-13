@@ -1,6 +1,6 @@
 import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { isCountryLanguage, countryLanguageMiddleware } from './countryLanguage';
 
 jest.mock('Shared/i18n');

@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
@@ -27,4 +27,5 @@ export const NotFoundPage = () => (
   </MiddlePageWrapperStyle>
 );
 
-export default NotFoundPage;
+// default export needed for loadable component
+export default NotFoundPage; // eslint-disable-line import/no-default-export

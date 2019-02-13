@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import i18n from 'Shared/i18n';
-import voteStaticParams from 'Shared/constants/vote';
+import { i18n } from 'Shared/i18n';
+import { voteStaticParams } from 'Shared/constants/vote';
 import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';

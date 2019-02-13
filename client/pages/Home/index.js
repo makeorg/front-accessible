@@ -11,4 +11,5 @@ const HomePage = () => (
   </PageWrapperStyle>
 );
 
-export default HomePage;
+// default export needed for loadable component
+export default HomePage; // eslint-disable-line import/no-default-export

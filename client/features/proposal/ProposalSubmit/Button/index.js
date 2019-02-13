@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';

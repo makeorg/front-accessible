@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as actionCreators from 'Shared/store/actions/authentification';
-import authentification from './index';
+import { authentification } from './index';
 
 describe('Authentification reducer', () => {
   it('Return the initial state', () => {

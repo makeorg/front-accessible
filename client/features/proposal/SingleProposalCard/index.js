@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import type { ProposalType } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';

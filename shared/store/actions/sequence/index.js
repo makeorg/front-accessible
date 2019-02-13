@@ -3,10 +3,10 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import type { DispatchString } from 'Shared/types/dispatch';
-import SequenceService from 'Shared/api/SequenceService';
-import QuestionService from 'Shared/api/QuestionService';
-import Logger from 'Shared/services/Logger';
-import Tracking from 'Shared/services/Tracking';
+import { SequenceService } from 'Shared/api/SequenceService';
+import { QuestionService } from 'Shared/api/QuestionService';
+import { Logger } from 'Shared/services/Logger';
+import { Tracking } from 'Shared/services/Tracking';
 
 export const sequenceCollapse = () => (
   dispatch: (DispatchString) => void

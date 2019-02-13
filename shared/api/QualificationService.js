@@ -1,10 +1,10 @@
 /* @flow */
-import ApiService from './ApiService';
+import { ApiService } from './ApiService';
 
 const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
 const PATH_UNQUALIFICATION = '/proposals/:proposalId/unqualification';
 
-export default class QualificationService {
+export class QualificationService {
   static qualify(
     proposalId: string,
     proposalKey: string,

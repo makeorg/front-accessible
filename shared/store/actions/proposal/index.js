@@ -1,10 +1,10 @@
 /* @flow */
 
-import ProposalService from 'Shared/api/ProposalService';
+import { ProposalService } from 'Shared/api/ProposalService';
 import { getBaitText } from 'Shared/constants/proposal';
 import * as actionTypes from 'Shared/store/actionTypes';
-import Tracking from 'Shared/services/Tracking';
-import Logger from 'Shared/services/Logger';
+import { Tracking } from 'Shared/services/Tracking';
+import { Logger } from 'Shared/services/Logger';
 
 export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
   type: actionTypes.PROPOSE_TYPING,

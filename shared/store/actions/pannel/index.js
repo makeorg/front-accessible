@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 import { forgotPasswordInit } from 'Shared/store/actions/forgotPassword';
 
 export const pannelClose = () => (dispatch: Function) => {

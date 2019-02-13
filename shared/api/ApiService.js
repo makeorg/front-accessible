@@ -2,7 +2,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Shared/helpers/url';
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
 import { env } from 'Shared/env';
 
@@ -51,7 +51,7 @@ export const handleErrors = (error: Object) => {
 
 let instance = null;
 
-class ApiService {
+class ApiServiceSingleton {
   _language: string = '';
 
   _country: string = '';
@@ -159,4 +159,4 @@ class ApiService {
   }
 }
 
-export default new ApiService();
+export const ApiService = new ApiServiceSingleton();

@@ -2,7 +2,7 @@
 
 import { createGlobalStyle } from 'styled-components';
 
-const ModernNormalizeStylesheet = createGlobalStyle`
+export const ModernNormalizeStylesheet = createGlobalStyle`
   /*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
 
   /* Document
@@ -277,5 +277,3 @@ const ModernNormalizeStylesheet = createGlobalStyle`
   display: list-item;
   }
 `;
-
-export default ModernNormalizeStylesheet;

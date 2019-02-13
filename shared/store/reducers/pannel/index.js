@@ -8,7 +8,7 @@ const initialState: Object = {
   contentType: null
 };
 
-export default function pannel(state: Object = initialState, action: Object) {
+export function pannel(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.PANNEL_SHOW_LOGIN:
       return {

@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
 
-const DefaultStylesheet = createGlobalStyle`
+export const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.RobotoRegular};
     color: ${BasicColors.PureBlack};
@@ -67,5 +67,3 @@ const DefaultStylesheet = createGlobalStyle`
     margin: 0;
   }
 `;
-
-export default DefaultStylesheet;

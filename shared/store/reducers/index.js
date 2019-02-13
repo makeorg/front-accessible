@@ -1,17 +1,17 @@
 /* @flow */
 
 import { combineReducers } from 'redux';
-import appConfig from './appConfig';
-import authentification from './authentification';
-import registration from './registration';
-import forgotPassword from './forgotPassword';
-import proposal from './proposal';
-import pannel from './pannel';
-import sequence from './sequence';
+import { appConfig } from './appConfig';
+import { authentification } from './authentification';
+import { registration } from './registration';
+import { forgotPassword } from './forgotPassword';
+import { proposal } from './proposal';
+import { pannel } from './pannel';
+import { sequence } from './sequence';
 import { notificationReducer } from './notification';
-import user from './user';
+import { user } from './user';
 
-export default combineReducers({
+export const rootReducer = combineReducers({
   appConfig,
   authentification,
   registration,

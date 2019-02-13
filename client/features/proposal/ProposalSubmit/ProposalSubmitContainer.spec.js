@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProposalSubmitDescriptionComponent from './Description';
+import { ProposalSubmitDescriptionComponent } from './Description';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitHandler } from './ProposalSubmitContainer';

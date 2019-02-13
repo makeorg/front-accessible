@@ -7,11 +7,11 @@ import { getProposalLength, getIsProposalValidLength } from 'Shared/helpers/prop
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
 import { getToken } from 'Shared/store/actions/authentification';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
-import ProposalSubmitSuccessComponent from './Success';
-import ProposalSubmitDescriptionComponent from './Description';
+import { ProposalSubmitSuccessComponent } from './Success';
+import { ProposalSubmitDescriptionComponent } from './Description';
 import { ProposalSubmitFormWrapperStyle } from './Styled';
 
 type Props = {

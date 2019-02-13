@@ -1,12 +1,12 @@
 /* @flow */
 
-import ApiService from 'Shared/api/ApiService';
+import { ApiService } from 'Shared/api/ApiService';
 import * as trackingConstants from 'Shared/constants/tracking';
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
 import { FacebookTracking } from './Trackers/FacebookTracking';
-import TwitterTracking from './Trackers/TwitterTracking';
+import { TwitterTracking } from './Trackers/TwitterTracking';
 
 const
   PARENT_URL = typeof window !== 'undefined' && window && window.location
@@ -21,7 +21,7 @@ const getPosition = (cardPosition?: number): string => {
 
 let instance = null;
 
-class Tracking {
+class TrackingSingleton {
   constructor() {
     if (!instance) {
       instance = this;
@@ -299,4 +299,4 @@ class Tracking {
   }
 }
 
-export default new Tracking();
+export const Tracking = new TrackingSingleton();

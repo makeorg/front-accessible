@@ -1,6 +1,6 @@
 /* @flow */
 
-import ApiService from 'Shared/api/ApiService';
+import { ApiService } from 'Shared/api/ApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
 
@@ -20,7 +20,7 @@ const initialState: Object = {
 };
 ApiService.token = initialState.token;
 
-export default function authentification(state: Object = initialState, action: Object) {
+export function authentification(state: Object = initialState, action: Object) {
   switch (action.type) {
     case actionTypes.LOGIN_REQUEST:
       return {

@@ -3,7 +3,7 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 
-export default function sequence(state: Object = initialState.sequence, action: Object) {
+export function sequence(state: Object = initialState.sequence, action: Object) {
   switch (action.type) {
     case actionTypes.SEQUENCE_COLLAPSE:
       return {

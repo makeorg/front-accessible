@@ -1,5 +1,5 @@
-import QuestionService from 'Shared/api/QuestionService';
-import SequenceService from 'Shared/api/SequenceService';
+import { QuestionService } from 'Shared/api/QuestionService';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';

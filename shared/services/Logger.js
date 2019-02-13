@@ -7,7 +7,7 @@ const LOG_ERROR = 'error';
 
 let instance = null;
 
-class Logger {
+class LoggerSingleton {
   constructor() {
     if (!instance) {
       instance = this;
@@ -64,4 +64,4 @@ class Logger {
   )
 }
 
-export default new Logger();
+export const Logger = new LoggerSingleton();

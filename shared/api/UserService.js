@@ -1,9 +1,9 @@
 /* @flow */
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import type { ApiServiceHeaders } from './type';
-import ApiService from './ApiService';
+import { ApiService } from './ApiService';
 
 const PATH_USER_ME = '/user/me';
 const PATH_USER_LOGIN = '/oauth/make_access_token';

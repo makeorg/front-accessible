@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { DescriptionStyle, AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
@@ -26,7 +26,7 @@ type Props = {
 /**
  * Renders description component after proposal submit button is clicked
  */
-class ProposalSubmitDescriptionComponent extends React.Component<Props> {
+export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   componentDidMount() {
     const { trackModerationText } = this.props;
     trackModerationText();
@@ -64,5 +64,3 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
     );
   }
 }
-
-export default ProposalSubmitDescriptionComponent;

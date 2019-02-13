@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
-import ProposalSubmitDescriptionComponent from '.';
+import { ProposalSubmitDescriptionComponent } from '.';
 
 describe('ProposalSubmitDescriptionComponent', () => {
   const props = {

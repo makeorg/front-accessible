@@ -1,7 +1,12 @@
 // @flow
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+<<<<<<< HEAD
+import { i18n } from 'Shared/i18n';
 import { IntroParagraphStyle } from '../../Styled/Content';
+=======
+import { i18n } from 'Shared/i18n';
+import ProposalCard from '../../Styled';
+>>>>>>> refactor(transverse): wip remove export default
 
 type Props = {
   /** Object with description paragraphs */

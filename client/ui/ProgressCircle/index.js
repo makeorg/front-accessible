@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';

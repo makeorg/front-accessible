@@ -1,12 +1,12 @@
 /* @flow */
 
 import type { ApiServiceHeaders } from './type';
-import ApiService from './ApiService';
+import { ApiService } from './ApiService';
 
 const PATH_PROPOSAL_PROPOSE = '/proposals';
 const PATH_PROPOSAL_GET = '/proposals/:proposalId';
 
-export default class ProposalService {
+export class ProposalService {
   static propose(content: string, questionId: string): Promise<Object> {
     return ApiService.callApi(PATH_PROPOSAL_PROPOSE, {
       method: 'POST',

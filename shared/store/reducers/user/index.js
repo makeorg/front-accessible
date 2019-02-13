@@ -3,6 +3,6 @@
 import { combineReducers } from 'redux';
 import { passwordRecovery } from './passwordRecoveryRecovery';
 
-export default combineReducers({
+export const user = combineReducers({
   passwordRecovery
 });

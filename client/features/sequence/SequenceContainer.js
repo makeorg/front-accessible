@@ -1,11 +1,11 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import QuestionService from 'Shared/api/QuestionService';
+import { QuestionService } from 'Shared/api/QuestionService';
 import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Shared/types/sequence';
 import type { ProposalType } from 'Shared/types/proposal';
 import { SequenceComponent } from './SequenceComponent';

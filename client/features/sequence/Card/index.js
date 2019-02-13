@@ -38,7 +38,7 @@ type Props = {
 /**
  * Renders Card
  */
-const Card = (props: Props) => {
+export const Card = (props: Props) => {
   const {
     card,
     index,
@@ -116,5 +116,3 @@ const Card = (props: Props) => {
       return null;
   }
 };
-
-export default Card;
