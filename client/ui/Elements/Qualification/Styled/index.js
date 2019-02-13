@@ -25,7 +25,7 @@ export const ButtonStyle = styled.button`
 
 export const UnqualifyButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
-  background-color: : ${props => props.color};
+  background-color: ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
