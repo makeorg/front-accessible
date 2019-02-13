@@ -1,6 +1,6 @@
 /* @flow */
 
-import i18next from 'i18next';
+import { i18n } from 'Shared/i18n';
 import { env } from 'Shared/env';
 import deAT from './staticData/i18n/de-AT.json';
 import frBE from './staticData/i18n/fr-BE.json';
@@ -32,42 +32,45 @@ import svSE from './staticData/i18n/sv-SE.json';
 import slSI from './staticData/i18n/sl-SI.json';
 import skSK from './staticData/i18n/sk-SK.json';
 
-i18next
-  .init({
+const resources = {
+  'de-AT': { translation: deAT },
+  'fr-BE': { translation: frBE },
+  'nl-BE': { translation: nlBE },
+  'bg-BG': { translation: bgBG },
+  'el-CY': { translation: elCY },
+  'cs-CZ': { translation: csCZ },
+  'de-DE': { translation: deDE },
+  'da-DK': { translation: daDK },
+  'et-EE': { translation: etEE },
+  'es-ES': { translation: esES },
+  'fi-FI': { translation: fiFI },
+  'fr-FR': { translation: frFR },
+  'en-GB': { translation: enGB },
+  'el-GR': { translation: elGR },
+  'hr-HR': { translation: hrHR },
+  'hu-HU': { translation: huHU },
+  'en-IE': { translation: enIE },
+  'it-IT': { translation: itIT },
+  'lt-LT': { translation: ltLT },
+  'fr-LU': { translation: frLU },
+  'lv-LV': { translation: lvLV },
+  'mt-MT': { translation: mtMT },
+  'nl-NL': { translation: nlNL },
+  'pl-PL': { translation: plPL },
+  'pt-PT': { translation: ptPT },
+  'ro-RO': { translation: roRO },
+  'sv-SE': { translation: svSE },
+  'sl-SI': { translation: slSI },
+  'sk-SK': { translation: skSK }
+};
+
+export const serverInitI18n = () => {
+  i18n.init({
     interpolation: {
       escapeValue: false
     },
     lng: 'fr-FR',
     debug: env.isDev(),
-    resources: {
-      'de-AT': { translation: deAT },
-      'fr-BE': { translation: frBE },
-      'nl-BE': { translation: nlBE },
-      'bg-BG': { translation: bgBG },
-      'el-CY': { translation: elCY },
-      'cs-CZ': { translation: csCZ },
-      'de-DE': { translation: deDE },
-      'da-DK': { translation: daDK },
-      'et-EE': { translation: etEE },
-      'es-ES': { translation: esES },
-      'fi-FI': { translation: fiFI },
-      'fr-FR': { translation: frFR },
-      'en-GB': { translation: enGB },
-      'el-GR': { translation: elGR },
-      'hr-HR': { translation: hrHR },
-      'hu-HU': { translation: huHU },
-      'en-IE': { translation: enIE },
-      'it-IT': { translation: itIT },
-      'lt-LT': { translation: ltLT },
-      'fr-LU': { translation: frLU },
-      'lv-LV': { translation: lvLV },
-      'mt-MT': { translation: mtMT },
-      'nl-NL': { translation: nlNL },
-      'pl-PL': { translation: plPL },
-      'pt-PT': { translation: ptPT },
-      'ro-RO': { translation: roRO },
-      'sv-SE': { translation: svSE },
-      'sl-SI': { translation: slSI },
-      'sk-SK': { translation: skSK }
-    }
+    resources
   });
+};
