@@ -7,7 +7,7 @@ import { fetchQuestionData, fetchQuestionConfigurationData } from 'Shared/store/
 import { MetaTags } from 'Client/app/MetaTags';
 import { SequenceFooter } from 'Client/features/sequence/Footer';
 import { match as TypeMatch } from 'react-router';
-import { SequencePageContent } from './Styled';
+import { SequencePageContentStyle } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 
 type Props = {
@@ -71,7 +71,7 @@ class SequencePage extends React.Component<Props, State> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <React.Fragment>
-          <SequencePageContent height={windowHeight}>
+          <SequencePageContentStyle height={windowHeight}>
             <MetaTags
               title={metas.title}
               description={metas.description}
@@ -82,7 +82,7 @@ class SequencePage extends React.Component<Props, State> {
               questionConfiguration={questionConfiguration}
               isSequenceCollapsed={isSequenceCollapsed}
             />
-          </SequencePageContent>
+          </SequencePageContentStyle>
           <SequenceFooter
             questionConfiguration={questionConfiguration}
           />

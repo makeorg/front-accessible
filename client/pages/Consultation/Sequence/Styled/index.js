@@ -4,7 +4,7 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { CALC_SEQUENCE_HEIGHT_MOBILE, CALC_SEQUENCE_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
-export const SequencePageContent = styled.div`
+export const SequencePageContentStyle = styled.div`
   width: 100%;
   height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_MOBILE)});
   min-height: ${pxToRem('300px')};
@@ -14,7 +14,7 @@ export const SequencePageContent = styled.div`
   }
 `;
 
-export const SequencePageInnerContent = styled(MiddleColumnStyle)`
+export const SequencePageInnerContentStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   position: relative;
