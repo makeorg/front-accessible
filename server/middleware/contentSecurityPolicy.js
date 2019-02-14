@@ -22,9 +22,11 @@ export const cspMiddleware = csp({
     connectSrc: [
       "'self'",
       '*.makeorg.tech',
-      '*.make.org'
+      '*.make.org',
+      '*.facebook.com',
+      '*.facebook.net'
     ],
-    formAction: ["'self'"],
+    formAction: ["'self'", '*.facebook.com', '*.facebook.net'],
     frameSrc: [
       '*.facebook.com',
       '*.google.com'
