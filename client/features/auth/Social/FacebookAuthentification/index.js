@@ -11,27 +11,51 @@ type Props = {
   handleFacebookLoginCallback: Function
 };
 
+type State = {
+  isFacebookBrowser: boolean
+}
+
 /**
  * Handles Facebook authentification
  */
-class FacebookAuthentificationComponent extends React.Component<Props> {
+class FacebookAuthentificationComponent extends React.Component<Props, State> {
+  state = {
+    isFacebookBrowser: false
+  }
+
+  /** Dirty Hack to disable facebook connect in webview / FB browser due to unstable SDK methods
+   *  https://developers.facebook.com/docs/facebook-login/best-practices/#avoidwebview
+  */
+  componentDidMount() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    if (ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1) {
+      this.setState({ isFacebookBrowser: true });
+    }
+  }
+
   render() {
     const {
       handleFacebookLoginCallback,
       tabIndex
     } = this.props;
 
-    return (
-      <FacebookLogin
-        {...this.props}
-        appId="317128238675603"
-        version="2.8"
-        fields="name,email,picture"
-        callback={handleFacebookLoginCallback}
-        disableMobileRedirect
-        tabIndex={tabIndex}
-      />
-    );
+    const { isFacebookBrowser } = this.state;
+
+    if (!isFacebookBrowser) {
+      return (
+        <FacebookLogin
+          {...this.props}
+          appId="317128238675603"
+          version="2.8"
+          fields="name,email,picture"
+          callback={handleFacebookLoginCallback}
+          disableMobileRedirect
+          tabIndex={tabIndex}
+        />
+      );
+    }
+
+    return null;
   }
 }
 
