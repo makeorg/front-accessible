@@ -12,12 +12,12 @@ export const BackArrow = styled(UnstyledButtonStyle)`
   justify-content: center;
   align-items: center;
   color: ${BasicColors.PureWhite};
-  padding: ${pxToRem('20px')};
-  top: ${pxToRem('-65px')};
+  padding: ${pxToRem('15px')};
+  top: ${pxToRem('-50px')};
   left: 50%;
   z-index: 0;
   transform: translate(-50%, 0);
-  font-size: ${pxToRem('45px')};
+  font-size: ${pxToRem('35px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     top: ${pxToRem('-85px')};
     font-size: ${pxToRem('50px')};
