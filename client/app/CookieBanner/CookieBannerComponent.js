@@ -3,15 +3,15 @@ import * as React from 'react';
 import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import * as CookieBanner from './Styled';
+import { CookieContentStyle, CookieWrapperStyle, CookieCloseButtonStyle } from './Styled';
 
 /**
  * Renders Cookie Banner component
  */
 export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }:
   { cguLink: string, policyLink: string, handleClose: () => void }) => (
-    <CookieBanner.Wrapper role="banner" aria-describedby="content_info">
-      <CookieBanner.Content
+    <CookieWrapperStyle role="banner" aria-describedby="content_info">
+      <CookieContentStyle
         id="content_info"
         dangerouslySetInnerHTML={
           {
@@ -25,11 +25,11 @@ export const CookieBannerComponent = ({ cguLink, policyLink, handleClose }:
           }
         }
       />
-      <CookieBanner.CloseButton
+      <CookieCloseButtonStyle
         aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={handleClose}
       >
         <FontAwesomeIcon aria-hidden icon={faTimes} />
-      </CookieBanner.CloseButton>
-    </CookieBanner.Wrapper>);
+      </CookieCloseButtonStyle>
+    </CookieWrapperStyle>);

@@ -4,7 +4,7 @@ import i18n from 'Shared/i18n';
 import { footerItems, type TypeFooterLink } from 'Client/app/constants/footer';
 import * as Helpers from 'Shared/helpers/url';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import MainFooter from '../Styled';
+import { FooterItemStyle, FooterItemLinkStyle } from '../Styled';
 
 type Props = {
   /** String with Language value */
@@ -26,11 +26,11 @@ export const FooterLinkComponent = (props: Props) => {
   return (
     <UnstyledListStyle>
       {Items.map(Item => (
-        <MainFooter.Item key={i18n.t(Item.label)}>
-          <MainFooter.ItemLink href={Helpers.localizeLink(Item.linkUrl, country, language)}>
+        <FooterItemStyle key={i18n.t(Item.label)}>
+          <FooterItemLinkStyle href={Helpers.localizeLink(Item.linkUrl, country, language)}>
             {i18n.t(Item.label)}
-          </MainFooter.ItemLink>
-        </MainFooter.Item>
+          </FooterItemLinkStyle>
+        </FooterItemStyle>
       ))}
     </UnstyledListStyle>
   );

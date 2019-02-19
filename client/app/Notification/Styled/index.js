@@ -5,7 +5,7 @@ import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Bre
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Client/app/constants/elements';
 
-export const Wrapper = styled.section`
+export const NotificationWrapperStyle = styled.section`
   position: absolute;
   z-index: 2;
   display: flex;
@@ -27,7 +27,7 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const Content = styled.div`
+export const NotificationContentStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -40,7 +40,7 @@ export const Content = styled.div`
 `;
 
 
-export const CloseButton = styled(UnstyledButtonStyle)`
+export const NotificationCloseButtonStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${pxToRem(DefaultPadding.Mobile)};
   right: ${pxToRem(DefaultPadding.Mobile)};

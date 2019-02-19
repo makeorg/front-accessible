@@ -4,11 +4,11 @@ import ModernNormalizeStylesheet from 'Client/app/assets/css-in-js/ModernNormali
 import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
 import DefaultStylesheet from 'Client/app/assets/css-in-js/DefaultStyle';
 import { UIThemeStylesheet } from 'Client/app/assets/css-in-js/UITheme';
-import { AppWrapper, MainContent } from 'Client/app/Styled/MainElements';
+import { AppWrapperStyle, AppMainContentStyle } from 'Client/app/Styled/MainElements';
 import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
-import { MainHeader } from './MainHeader';
-import { MainFooter } from './MainFooter';
+import { Header } from './Header';
+import { Footer } from './Footer';
 import { Pannel } from './Pannel';
 import { Routes } from './Routes';
 import ErrorBoundary from './Error';
@@ -18,19 +18,19 @@ import ErrorBoundary from './Error';
  */
 export const AppContainer = () => (
   <ErrorBoundary>
-    <AppWrapper>
+    <AppWrapperStyle>
       <ModernNormalizeStylesheet />
       <FontFacesStylesheet />
       <DefaultStylesheet />
       <UIThemeStylesheet />
       <CookieBanner />
-      <MainHeader />
-      <MainContent role="main">
+      <Header />
+      <AppMainContentStyle role="main">
         <Notification />
         <Routes />
         <Pannel />
-      </MainContent>
-      <MainFooter />
-    </AppWrapper>
+      </AppMainContentStyle>
+      <Footer />
+    </AppWrapperStyle>
   </ErrorBoundary>
 );

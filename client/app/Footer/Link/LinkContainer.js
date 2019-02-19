@@ -13,7 +13,7 @@ type Props = {
 /**
  * Handles Main Footer Business Logic
  */
-class FooterLinkContainer extends React.Component<Props> {
+class FooterLink extends React.Component<Props> {
   render() {
     return (
       <FooterLinkComponent {...this.props} />
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(FooterLinkContainer);
+export const FooterLinkContainer = connect(mapStateToProps)(FooterLink);

@@ -1,12 +1,12 @@
 /* @flow */
 import * as React from 'react';
 import Tracking from 'Shared/services/Tracking';
-import { MainHeaderComponent } from './MainHeaderComponent';
+import { HeaderComponent } from './HeaderComponent';
 
 /**
  * Handles Main Header Business Logic
  */
-export class MainHeaderContainer extends React.Component<{}> {
+export class HeaderContainer extends React.Component<{}> {
   constructor() {
     super();
     this.trackMakeLogo = this.trackMakeLogo.bind(this);
@@ -19,7 +19,7 @@ export class MainHeaderContainer extends React.Component<{}> {
 
   render() {
     return (
-      <MainHeaderComponent handleTracking={this.trackMakeLogo} />
+      <HeaderComponent handleTracking={this.trackMakeLogo} />
     );
   }
 }

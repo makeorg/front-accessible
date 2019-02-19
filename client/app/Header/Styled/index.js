@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
-import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
-import Logo from './HeaderContent';
+import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 
-const MainHeader = styled.header`
+export const HeaderStyle = styled.header`
   position: relative;
   z-index: 2;
   display: flex;
@@ -16,7 +15,9 @@ const MainHeader = styled.header`
   background-color: ${BasicColors.PureWhite};
 `;
 
-/* HeaderContent */
-MainHeader.Logo = Logo;
-
-export default MainHeader;
+export const HeaderLogoStyle = styled.img`
+  max-width: ${pxToRem('70px')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    max-width: ${pxToRem('85px')};
+  }
+`;

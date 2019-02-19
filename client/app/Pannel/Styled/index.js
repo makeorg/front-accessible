@@ -3,9 +3,10 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import CloseButton from './Button';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
-const Pannel = styled.div`
+
+export const PannelStyle = styled.div`
   position: absolute;
   z-index: 1;
   top: 100%;
@@ -24,7 +25,7 @@ const Pannel = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const PannelContentStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -32,10 +33,11 @@ export const Content = styled.div`
   overflow: auto;
 `;
 
-/* Pannel */
-Pannel.Content = Content;
 
-/* Button */
-Pannel.CloseButton = CloseButton;
-
-export default Pannel;
+export const PannelCloseButtonStyle = styled(UnstyledButtonStyle)`
+  position: absolute;
+  top: ${pxToRem('20px')};
+  right: ${pxToRem('20px')};
+  z-index: 1;
+  font-size: ${pxToRem('24px')};
+`;
