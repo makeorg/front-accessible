@@ -1,9 +1,9 @@
 /**
  * This script utility is needed to create version file.
  */
-
 const fs = require('fs');
-const childProcess = require('child_process');
+
+const childProcess = require('child_process'); // eslint-disable-line security/detect-child-process
 const { BUILD_DIR } = require('./paths');
 
 const lastCommit = childProcess
@@ -29,8 +29,10 @@ try {
 
   fs.writeFileSync(versionPathFile, JSON.stringify(version, null, 2), 'utf8');
 } catch (error) {
+  // eslint-disable-next-line no-console
   console.error(`error when writing version file => ${error}`);
   process.exit(1);
 }
 
+// eslint-disable-next-line no-console
 console.info('Version file created successfully!');

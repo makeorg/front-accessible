@@ -15,7 +15,11 @@ export const CookieWrapperStyle = styled.section`
 export const CookieContentStyle = styled.p`
   width: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
-  padding: ${pxToRem(DefaultPadding.Mobile)} ${pxToRem('30px')} ${pxToRem(DefaultPadding.Mobile)} ${pxToRem(DefaultPadding.Mobile)};
+  padding:
+    ${pxToRem(DefaultPadding.Mobile)}
+    ${pxToRem('30px')}
+    ${pxToRem(DefaultPadding.Mobile)}
+    ${pxToRem(DefaultPadding.Mobile)};
   font-size: ${pxToRem('12px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('14px')};

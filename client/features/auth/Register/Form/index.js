@@ -102,7 +102,11 @@ export const RegisterFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {passwordError && <InputErrorMessageStyle id="authentification-password-error">{passwordError}</InputErrorMessageStyle>}
+      {passwordError && (
+        <InputErrorMessageStyle id="authentification-password-error">
+          {passwordError}
+        </InputErrorMessageStyle>
+      )}
       <UntypedInput
         type="text"
         name="firstname"
@@ -150,7 +154,7 @@ export const RegisterFormComponent = (props: Props) => {
             __html: i18n.t(
               'register.cgu_text',
               {
-                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${isPannelOpen ? 0 : -1}">$t(register.cgu)</a>`,
+                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${isPannelOpen ? 0 : -1}">$t(register.cgu)</a>`, // eslint-disable-line max-len
                 interpolation: { escapeValue: false }
               }
             )

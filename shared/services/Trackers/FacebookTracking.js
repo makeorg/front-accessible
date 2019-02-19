@@ -25,6 +25,7 @@ type FacebookEventParams = {
 
 const isInitialized = (): boolean => {
   if (!initialized) {
+    // eslint-disable-next-line no-console
     console.warn('Facebook Tracking not initialized before using call FacebookTracking.init with required params');
   }
 
@@ -58,9 +59,19 @@ export const FacebookTracking = {
 
     const isWeeuropeans = eventParameters.question && weeuropeansquestionRegex.test(eventParameters.question);
     if (env.isDev()) {
-      console.info(`Tracking Custom Facebook (${makePixelId}): event ${eventName} params ${JSON.stringify(eventParameters)}`);
+      // eslint-disable-next-line no-console
+      console.info(
+        `Tracking Custom Facebook (${makePixelId})
+        event => ${eventName}
+        params => ${JSON.stringify(eventParameters)}`
+      );
       if (isWeeuropeans) {
-        console.info(`Tracking Custom Facebook (${weEuropeansPixelId}): event ${eventName} params ${JSON.stringify(eventParameters)}`);
+        // eslint-disable-next-line no-console
+        console.info(
+          `Tracking Custom Facebook (${weEuropeansPixelId})
+          event => ${eventName}
+          params => ${JSON.stringify(eventParameters)}`
+        );
       }
       return;
     }

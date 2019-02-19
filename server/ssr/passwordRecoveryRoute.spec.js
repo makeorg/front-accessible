@@ -90,7 +90,12 @@ describe('Account activation route', () => {
 
     await passwordRecoveryRoute(request, response, () => { });
 
-    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(requestParams.userId, requestParams.resetToken, expectedHeaders);
+    expect(UserService.resetPasswordTokenCheck)
+      .toHaveBeenCalledWith(
+        requestParams.userId,
+        requestParams.resetToken,
+        expectedHeaders
+      );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 
@@ -126,7 +131,12 @@ describe('Account activation route', () => {
     };
 
     await passwordRecoveryRoute(request, response, () => { });
-    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(requestParams.userId, requestParams.resetToken, expectedHeaders);
+    expect(UserService.resetPasswordTokenCheck)
+      .toHaveBeenCalledWith(
+        requestParams.userId,
+        requestParams.resetToken,
+        expectedHeaders
+      );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 });
