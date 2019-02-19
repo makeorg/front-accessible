@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import PlaceholderCardComponent from './PlaceholderCard';
-import CollapseToggle from '../Button';
-import Sequence from '../Styled';
+import { PlaceholderCardComponent } from './PlaceholderCard';
+import { CollapseToggle } from '../Button';
+import { SequenceStyle, WrapperStyle, ListStyle } from '../Styled';
 
 type Props = {
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -16,7 +16,7 @@ type Props = {
 /**
  * Renders Sequence with PlaceholderCard
  */
-const SequencePlaceholderComponent = (props: Props) => {
+export const SequencePlaceholderComponent = (props: Props) => {
   const {
     isSequenceCollapsed,
     isPannelOpen,
@@ -24,7 +24,7 @@ const SequencePlaceholderComponent = (props: Props) => {
   } = props;
 
   return (
-    <Sequence
+    <SequenceStyle
       role="region"
       aria-describedby="introduction"
       isSequenceCollapsed={isSequenceCollapsed}
@@ -34,13 +34,11 @@ const SequencePlaceholderComponent = (props: Props) => {
         isSequenceCollapsed={isSequenceCollapsed}
         isPannelOpen={isPannelOpen}
       />
-      <Sequence.Wrapper>
-        <Sequence.List isSequenceCollapsed={isSequenceCollapsed} as="div" id="sequence">
+      <WrapperStyle>
+        <ListStyle isSequenceCollapsed={isSequenceCollapsed} as="div" id="sequence">
           <PlaceholderCardComponent />
-        </Sequence.List>
-      </Sequence.Wrapper>
-    </Sequence>
+        </ListStyle>
+      </WrapperStyle>
+    </SequenceStyle>
   );
 };
-
-export default SequencePlaceholderComponent;

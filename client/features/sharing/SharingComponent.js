@@ -6,7 +6,12 @@ import {
   faTwitter,
   faLinkedinIn
 } from '@fortawesome/free-brands-svg-icons';
-import Sharing from './Styled';
+import {
+  SharingStyle,
+  FacebookButtonStyle,
+  TwitterButtonStyle,
+  LinkedInButtonStyle
+} from './Styled';
 
 type Props = {
   twitterShareUrl: string,
@@ -31,9 +36,9 @@ export class SharingComponent extends React.Component<Props> {
       tabIndex
     } = this.props;
     return (
-      <Sharing as={UnstyledListStyle}>
+      <SharingStyle as={UnstyledListStyle}>
         <li>
-          <Sharing.Facebook
+          <FacebookButtonStyle
             rel="noreferrer noopener"
             aria-label="Facebook share"
             as="a"
@@ -42,10 +47,10 @@ export class SharingComponent extends React.Component<Props> {
             tabIndex={tabIndex}
           >
             <FontAwesomeIcon icon={faFacebookF} />
-          </Sharing.Facebook>
+          </FacebookButtonStyle>
         </li>
         <li>
-          <Sharing.Twitter
+          <TwitterButtonStyle
             rel="noreferrer noopener"
             aria-label="Twitter share"
             as="a"
@@ -54,10 +59,10 @@ export class SharingComponent extends React.Component<Props> {
             tabIndex={tabIndex}
           >
             <FontAwesomeIcon icon={faTwitter} />
-          </Sharing.Twitter>
+          </TwitterButtonStyle>
         </li>
         <li>
-          <Sharing.LinkedIn
+          <LinkedInButtonStyle
             rel="noreferrer noopener"
             aria-label="Linkedin share"
             as="a"
@@ -66,9 +71,9 @@ export class SharingComponent extends React.Component<Props> {
             tabIndex={tabIndex}
           >
             <FontAwesomeIcon icon={faLinkedinIn} />
-          </Sharing.LinkedIn>
+          </LinkedInButtonStyle>
         </li>
-      </Sharing>
+      </SharingStyle>
     );
   }
 }

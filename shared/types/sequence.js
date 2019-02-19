@@ -10,7 +10,7 @@ import type {
 } from 'Shared/types/card';
 
 import type {
-  Proposal
+  ProposalType
 } from 'Shared/types/proposal';
 
 export type ExtraSlidesConfig = {
@@ -89,7 +89,7 @@ export type ConfigurationTypes =
   | PushProposalCardConfig
   | SignUpCardConfig
   | FinalCardConfig
-  | Proposal
+  | ProposalType
 
 
 export type WordingTypes =

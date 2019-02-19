@@ -12,7 +12,7 @@ import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
-import ForgotPassword from '../Styled';
+import { ForgotPasswordFormStyle } from '../Styled';
 
 type Props = {
   /** User email value */
@@ -43,7 +43,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
   const globalError = fieldErrors('global', errors);
 
   return (
-    <ForgotPassword.Form id={FORGOT_PASSWORD_FORMNAME} onSubmit={handleSubmit}>
+    <ForgotPasswordFormStyle id={FORGOT_PASSWORD_FORMNAME} onSubmit={handleSubmit}>
       {globalError
         && (
           <FormErrorsListStyle id="authentification-forgotpassword-error">
@@ -69,6 +69,6 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         icon={faPaperPlane}
         label={i18n.t('forgot_password.send_link')}
       />
-    </ForgotPassword.Form>
+    </ForgotPasswordFormStyle>
   );
 };

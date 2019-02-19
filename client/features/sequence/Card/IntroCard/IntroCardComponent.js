@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Small } from 'Client/ui/Elements/Separators';
-import ExtraLogo from './ExtraLogo';
-import IntroTitle from './Title';
-import IntroDescription from './Description';
-import Partners from './Partners';
-import ProposalCard from '../Styled';
+import { ExtraLogo } from './ExtraLogo';
+import { IntroTitle } from './Title';
+import { IntroDescription } from './Description';
+import { Partners } from './Partners';
+import { ProposalCardCenteredStyle } from '../Styled';
+import { IntroButtonStyle } from '../Styled/Buttons';
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
@@ -50,7 +51,7 @@ export const IntroCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCard.ProposalCardCentered
+    <ProposalCardCenteredStyle
       position={position}
       scale={scale}
       zindex={zindex}
@@ -62,7 +63,7 @@ export const IntroCardComponent = (props: Props) => {
       </header>
       <Small aria-hidden />
       {configuration.customDescription ? <IntroDescription description={wording.description} /> : <IntroDescription />}
-      <ProposalCard.IntroButton
+      <IntroButtonStyle
         id="sequence-start-sequence-button"
         tabIndex={tabIndex}
         onClick={handleStartSequence}
@@ -74,7 +75,7 @@ export const IntroCardComponent = (props: Props) => {
           />
         </IconInButtonStyle>
         {i18n.t('intro_card.button')}
-      </ProposalCard.IntroButton>
+      </IntroButtonStyle>
       {configuration
         && (
           <Partners
@@ -83,6 +84,6 @@ export const IntroCardComponent = (props: Props) => {
           />
         )
       }
-    </ProposalCard.ProposalCardCentered>
+    </ProposalCardCenteredStyle>
   );
 };

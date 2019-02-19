@@ -6,10 +6,10 @@ import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled';
-import FacebookAuthentificationLinkComponent from 'Client/features/auth/Social/FacebookAuthentification/Link';
-import GoogleAuthentificationLinkComponent from 'Client/features/auth/Social/GoogleAuthentification/Link';
-import RegisterFormComponent from './Form';
-import Register from './Styled';
+import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Social/FacebookAuthentification/Link';
+import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';
+import { RegisterFormComponent } from './Form';
+import { RegisterStyle } from './Styled';
 
 type Props = {
   /** type userObject = {
@@ -47,7 +47,7 @@ export const RegisterComponent = (props: Props) => {
   } = props;
 
   return (
-    <Register role="region" aria-labelledby="register_title">
+    <RegisterStyle role="region" aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
@@ -80,6 +80,6 @@ export const RegisterComponent = (props: Props) => {
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
-    </Register>
+    </RegisterStyle>
   );
 };

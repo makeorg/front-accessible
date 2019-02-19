@@ -35,7 +35,7 @@ export type VotesPercentObject = {
   neutral: number
 }
 
-export type Proposal = {
+export type ProposalType = {
   id: string,
   userId: string,
   content: string,

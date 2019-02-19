@@ -6,7 +6,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { DescriptionStyle, AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
-import { DescriptionWrapper } from '../Styled';
+import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -40,7 +40,7 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
       trackModerationLink
     } = this.props;
     return (
-      <DescriptionWrapper id="proposal-submit-description">
+      <DescriptionWrapperStyle id="proposal-submit-description">
         <DescriptionStyle>
           {i18n.t('proposal_submit.description')}
         </DescriptionStyle>
@@ -60,7 +60,7 @@ class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             </IconInButtonStyle>
           </DescriptionLinkStyle>
         </AltDescriptionStyle>
-      </DescriptionWrapper>
+      </DescriptionWrapperStyle>
     );
   }
 }

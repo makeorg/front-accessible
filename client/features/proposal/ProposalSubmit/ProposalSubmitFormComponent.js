@@ -5,7 +5,14 @@ import i18n from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { getBaitText } from 'Shared/constants/proposal';
 import { ProposalSubmitButtonComponent } from './Button';
-import ProposalSubmitForm from './Styled';
+import {
+  ProposalSubmitFormStyle,
+  ProposalInputWrapperStyle,
+  ProposalLabelStyle,
+  ProposalInputStyle,
+  ProposalButtonWrapperStyle,
+  ProposalCharLimitStyle
+} from './Styled';
 
 type Props = {
   /** Value's content */
@@ -44,17 +51,17 @@ export const ProposalSubmitFormComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalSubmitForm isFieldExpanded={isSequenceCollapsed && isTyping}>
+    <ProposalSubmitFormStyle isFieldExpanded={isSequenceCollapsed && isTyping}>
       <HiddenItemStyle aria-hidden as="h2">
         {i18n.t('proposal_submit.title')}
       </HiddenItemStyle>
-      <ProposalSubmitForm.InputWrapper>
-        <ProposalSubmitForm.Label
+      <ProposalInputWrapperStyle>
+        <ProposalLabelStyle
           htmlFor="proposal"
         >
           {getBaitText()}
-        </ProposalSubmitForm.Label>
-        <ProposalSubmitForm.Input
+        </ProposalLabelStyle>
+        <ProposalInputStyle
           as="textarea"
           name="proposal"
           id="proposal"
@@ -68,9 +75,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           tabIndex={isPannelOpen ? -1 : 0}
           isFieldExpanded={isSequenceCollapsed && isTyping}
         />
-      </ProposalSubmitForm.InputWrapper>
-      <ProposalSubmitForm.ButtonWrapper isFieldExpanded={isSequenceCollapsed && isTyping}>
-        <ProposalSubmitForm.CharLimit>
+      </ProposalInputWrapperStyle>
+      <ProposalButtonWrapperStyle isFieldExpanded={isSequenceCollapsed && isTyping}>
+        <ProposalCharLimitStyle>
           <span aria-valuetext={length}>{length}</span>
           <HiddenItemStyle aria-hidden>
             {i18n.t('proposal_submit.entred_chars')}
@@ -83,14 +90,14 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           <HiddenItemStyle aria-hidden>
             {i18n.t('proposal_submit.available_chars')}
           </HiddenItemStyle>
-        </ProposalSubmitForm.CharLimit>
+        </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent
           handleSubmit={handleSubmit}
           canSubmit={canSubmit}
           isPannelOpen={isPannelOpen}
           isFieldExpanded={isSequenceCollapsed && isTyping}
         />
-      </ProposalSubmitForm.ButtonWrapper>
-    </ProposalSubmitForm>
+      </ProposalButtonWrapperStyle>
+    </ProposalSubmitFormStyle>
   );
 };

@@ -5,7 +5,7 @@ import type {
   CardType
 } from 'Shared/types/sequence';
 import type {
-  Proposal
+  ProposalType
 } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
@@ -49,7 +49,7 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  * @param  {Array<CardType>} cards
  * @return {number}
  */
-export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal?: Proposal, cards: Array<CardType>): number => {
+export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal?: ProposalType, cards: Array<CardType>): number => {
   if (!firstUnvotedProposal) {
     return cards.length - 1;
   }
@@ -70,7 +70,7 @@ export const findIndexOfFirstUnvotedCard = (firstUnvotedProposal?: Proposal, car
  * @return {Array<CardType>}
  */
 export const buildCards = (
-  proposals: Array<Proposal>,
+  proposals: Array<ProposalType>,
   extraSlidesConfig: ExtraSlidesConfig,
   extraSlidesWording: ExtraSlidesWording,
   isLoggedIn: boolean,

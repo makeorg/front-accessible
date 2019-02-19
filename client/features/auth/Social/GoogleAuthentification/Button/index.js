@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { IconInButtonStyle, GoogleButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import GoogleAuthentificationComponent from '../index';
+import { GoogleAuthentificationComponent } from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
   <GoogleButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
@@ -23,13 +23,10 @@ type Props = {
 /**
  * Renders Google authentification button
  */
-const GoogleAuthentificationButtonComponent = (props: Props) => {
+export const GoogleAuthentificationButtonComponent = (props: Props) => {
   const { tabIndex } = props;
 
   return (
     <GoogleAuthentificationComponent {...props} render={renderGoogleLogin(tabIndex)} />
   );
 };
-
-
-export default GoogleAuthentificationButtonComponent;

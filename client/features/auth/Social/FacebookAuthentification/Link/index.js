@@ -2,16 +2,16 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { FacebookLink, SocialIcon } from '../../Styled/Content';
-import FacebookAuthentificationComponent from '../index';
+import { FacebookLinkStyle, SocialIconStyle } from '../../Styled';
+import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
-  <FacebookLink onClick={renderProps.onClick} tabIndex={tabIndex}>
-    <SocialIcon>
+  <FacebookLinkStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+    <SocialIconStyle>
       <FontAwesomeIcon icon={faFacebook} />
-    </SocialIcon>
+    </SocialIconStyle>
     Facebook
-  </FacebookLink>
+  </FacebookLinkStyle>
 );
 
 type Props = {
@@ -22,12 +22,10 @@ type Props = {
 /**
  * Renders Facebook authentification link
  */
-const FacebookAuthentificationLinkComponent = (props: Props) => {
+export const FacebookAuthentificationLinkComponent = (props: Props) => {
   const { tabIndex } = props;
 
   return (
     <FacebookAuthentificationComponent {...props} render={renderFacebookLogin(tabIndex)} />
   );
 };
-
-export default FacebookAuthentificationLinkComponent;

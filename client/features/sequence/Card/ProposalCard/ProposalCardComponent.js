@@ -2,16 +2,18 @@ import * as React from 'react';
 import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import type { Proposal } from 'Shared/types/proposal';
+import type { ProposalType } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import ProposalCard from '../Styled';
+import { ProposalCardStyle, ProposalStyle } from '../Styled';
+import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
+import { ContentSpecialWrapperStyle, SeparatorStyle } from '../Styled/Content';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: Proposal,
+  proposal: ProposalType,
   /** Index of the card */
   index: number,
   /** Total of cards */
@@ -47,31 +49,31 @@ export const ProposalCardComponent = (props: Props) => {
   const zindex = getZIndex(index, currentIndex);
 
   return (
-    <ProposalCard
+    <ProposalCardStyle
       position={position}
       scale={scale}
       zindex={zindex}
       isCardCollapsed={index < currentIndex}
       id={`proposal-card-${index}`}
     >
-      <ProposalCard.BackButtonWrapper>
-        <ProposalCard.BackButton
+      <BackButtonWrapperStyle>
+        <BackButtonStyle
           tabIndex={tabIndex}
           onClick={goToPreviousCard}
         >
-          <ProposalCard.BackIcon>
+          <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
-          </ProposalCard.BackIcon>
+          </BackIconStyle>
           {i18n.t('proposal_card.previous')}
-        </ProposalCard.BackButton>
+        </BackButtonStyle>
         <ProgressCircleComponent index={index} cardOffset={cardOffset} cardsCount={cardsCount} />
-      </ProposalCard.BackButtonWrapper>
-      <ProposalCard.ContentSpecialWrapper as="section">
+      </BackButtonWrapperStyle>
+      <ContentSpecialWrapperStyle as="section">
         <ProposalAuthor author={proposal.author} />
-        <ProposalCard.Separator aria-hidden />
-        <ProposalCard.Proposal>
+        <SeparatorStyle aria-hidden />
+        <ProposalStyle>
           {proposal.content}
-        </ProposalCard.Proposal>
+        </ProposalStyle>
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}
@@ -80,7 +82,7 @@ export const ProposalCardComponent = (props: Props) => {
           currentIndex={currentIndex}
           goToNextCard={goToNextCard}
         />
-      </ProposalCard.ContentSpecialWrapper>
-    </ProposalCard>
+      </ContentSpecialWrapperStyle>
+    </ProposalCardStyle>
   );
 };

@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { PartnerItem } from 'Shared/types/card';
 import i18n from 'Shared/i18n';
 import { MiddleRowStyle } from 'Client/ui/Elements/FlexElements';
-import ProposalCard from '../../Styled';
+import { PartnerFooterStyle, PartnerListStyle, PartnerAvatarStyle } from '../../Styled/Content';
 
 type ListProps = {
   /** Array with partners propeties */
@@ -20,11 +20,11 @@ const PartnersList = (props: ListProps) => {
 
   if (partners.length > 1) {
     return (
-      <ProposalCard.PartnerList>
+      <PartnerListStyle>
         {partners.map(
           partner => (
             <MiddleRowStyle as="li" key={partner.name}>
-              <ProposalCard.PartnerAvatar
+              <PartnerAvatarStyle
                 key={partner.name}
                 src={partner.imageUrl}
                 alt={partner.name}
@@ -32,14 +32,14 @@ const PartnersList = (props: ListProps) => {
             </MiddleRowStyle>
           )
         )}
-      </ProposalCard.PartnerList>
+      </PartnerListStyle>
     );
   }
 
   return (
     partners.map(
       partner => (
-        <ProposalCard.PartnerAvatar
+        <PartnerAvatarStyle
           key={partner.name}
           src={partner.imageUrl}
           alt={partner.name}
@@ -59,7 +59,7 @@ type Props = {
 /**
  * Renders Partners component
  */
-const Partners = (props: Props) => {
+export const Partners = (props: Props) => {
   const {
     partners,
     configuration
@@ -70,14 +70,12 @@ const Partners = (props: Props) => {
   }
 
   return (
-    <ProposalCard.PartnerFooter as="footer">
+    <PartnerFooterStyle as="footer">
       {configuration
         ? i18n.t('intro_card.partnership')
         : ''
       }
       <PartnersList partners={partners} />
-    </ProposalCard.PartnerFooter>
+    </PartnerFooterStyle>
   );
 };
-
-export default Partners;

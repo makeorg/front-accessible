@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NextButton } from 'Client/features/sequence/Card/Styled/Buttons';
+import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { VoteComponent } from './VoteComponent';
 import { VoteHandler } from './VoteContainer';
 import * as VoteStyle from './Styled';
@@ -34,9 +34,9 @@ describe('VoteContainer', () => {
     expect(voteComponentWrapper.props()).toEqual(expect.objectContaining(expectedPassedProps));
   });
 
-  it('NextButton should not be rendered', () => {
+  it('NextButtonStyle should not be rendered', () => {
     // check next button is not visible
-    const NextButtonWrapper = wrapper.find(NextButton);
+    const NextButtonWrapper = wrapper.find(NextButtonStyle);
     expect(NextButtonWrapper).toHaveLength(0);
   });
 
@@ -44,7 +44,7 @@ describe('VoteContainer', () => {
     wrapper.setState({ hasVoted: true });
     expect(wrapper.find(VoteComponent)).toHaveLength(0);
     expect(wrapper.find(VoteStyle.ContainerStyle)).toHaveLength(1);
-    const NextButtonWrapper = wrapper.find(NextButton);
+    const NextButtonWrapper = wrapper.find(NextButtonStyle);
     expect(NextButtonWrapper).toHaveLength(1);
 
     expect(NextButtonWrapper.props()).toEqual({

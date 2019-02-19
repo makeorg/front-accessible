@@ -9,7 +9,7 @@ import {
   MiddleRowStyle, CenterColumnStyle, MiddleColumnStyle, MiddleColumnToRowStyle
 } from 'Client/ui/Elements/FlexElements';
 
-export const ContentWrapper = styled(MiddleColumnStyle)`
+export const ContentWrapperStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   padding-top: ${pxToRem('58px')};
@@ -18,22 +18,22 @@ export const ContentWrapper = styled(MiddleColumnStyle)`
   }
 `;
 
-export const ContentSpecialWrapper = styled(ContentWrapper)`
+export const ContentSpecialWrapperStyle = styled(ContentWrapperStyle)`
   height: auto;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     height: 100%;
   }
 `;
 
-export const FinalCardContentWrapper = styled(MiddleColumnToRowStyle)`
+export const FinalCardContentWrapperStyle = styled(MiddleColumnToRowStyle)`
   width: 100%;
 `;
 
-export const InnerContent = styled(CenterColumnStyle)`
+export const InnerContentStyle = styled(CenterColumnStyle)`
   width: 100%;
 `;
 
-export const IntroParagraph = styled.p`
+export const IntroParagraphStyle = styled.p`
   font-size: ${pxToRem('12px')};
   line-height: ${pxToRem('18px')};
   color: ${TextColors.MediumGrey};
@@ -44,7 +44,7 @@ export const IntroParagraph = styled.p`
   }
 `;
 
-export const FinalParagraph = styled.p`
+export const FinalParagraphStyle = styled.p`
   font-family: ${MakeFonts.RobotoBold};
   font-size: ${pxToRem('18px')};
   color: ${BasicColors.PureBlack};
@@ -54,14 +54,14 @@ export const FinalParagraph = styled.p`
   }
 `;
 
-export const Separator = styled(Small)`
+export const SeparatorStyle = styled(Small)`
   margin: ${pxToRem('10px')} 0 ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
   }
 `;
 
-export const SharingInner = styled(CenterColumnStyle)`
+export const SharingInnerStyle = styled(CenterColumnStyle)`
   width: 100%;
   border-bottom: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
   padding: 0 0 ${pxToRem('10px')} 0;
@@ -75,12 +75,12 @@ export const SharingInner = styled(CenterColumnStyle)`
   }
 `;
 
-export const SharingWrapper = styled(MiddleRowStyle)`
+export const SharingWrapperStyle = styled(MiddleRowStyle)`
   width: 100%;
   margin-top: ${pxToRem('10px')};
 `;
 
-export const MoreWrapper = styled(CenterColumnStyle)`
+export const MoreWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     width: 50%;
@@ -88,7 +88,7 @@ export const MoreWrapper = styled(CenterColumnStyle)`
   }
 `;
 
-export const PartnerFooter = styled(MiddleColumnToRowStyle)`
+export const PartnerFooterStyle = styled(MiddleColumnToRowStyle)`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   margin: ${pxToRem('15px')} auto 0;
@@ -97,10 +97,10 @@ export const PartnerFooter = styled(MiddleColumnToRowStyle)`
   }
 `;
 
-export const PartnerAvatar = styled.img`
+export const PartnerAvatarStyle = styled.img`
   margin: ${pxToRem('7.5px')};
 `;
 
-export const PartnerList = styled(UnstyledListStyle)`
+export const PartnerListStyle = styled(UnstyledListStyle)`
   display: flex;
 `;

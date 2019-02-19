@@ -4,11 +4,14 @@ import type { SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
 import i18n from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import SignUpCardAuthentification from 'Client/features/sequence/Card/SignUpCard/Authentification';
+import { SignUpCardAuthentificationContainer } from 'Client/features/sequence/Card/SignUpCard/Authentification';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import SignUpTitle from './Title';
-import SkipSignUpButton from './Button';
-import ProposalCard from '../Styled';
+import { SignUpTitle } from './Title';
+import { SkipSignUpButton } from './Button';
+import { ProposalCardStyle } from '../Styled';
+import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
+import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
+import { SecondaryTitleStyle } from '../Styled/Titles';
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
@@ -57,33 +60,33 @@ export const SignUpCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCard
+    <ProposalCardStyle
       position={position}
       scale={scale}
       zindex={zindex}
       isCardCollapsed={index < currentIndex}
     >
-      <ProposalCard.BackButtonWrapper>
-        <ProposalCard.BackButton
+      <BackButtonWrapperStyle>
+        <BackButtonStyle
           tabIndex={tabIndex}
           onClick={goToPreviousCard}
         >
-          <ProposalCard.BackIcon>
+          <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
-          </ProposalCard.BackIcon>
+          </BackIconStyle>
           {i18n.t('proposal_card.previous')}
-        </ProposalCard.BackButton>
+        </BackButtonStyle>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
-      </ProposalCard.BackButtonWrapper>
-      <ProposalCard.ContentWrapper>
-        <ProposalCard.InnerContent as="section">
+      </BackButtonWrapperStyle>
+      <ContentWrapperStyle>
+        <InnerContentStyle as="section">
           <header>
             <SignUpTitle title={configuration.customTitle && wording.title} />
           </header>
-          <ProposalCard.SecondaryTitle>
+          <SecondaryTitleStyle>
             {i18n.t('sign_up_card.authentification-text')}
-          </ProposalCard.SecondaryTitle>
-          <SignUpCardAuthentification
+          </SecondaryTitleStyle>
+          <SignUpCardAuthentificationContainer
             tabIndex={tabIndex}
           />
           <SkipSignUpButton
@@ -91,8 +94,8 @@ export const SignUpCardComponent = (props: Props) => {
             skipSignUpCard={skipSignUpCard}
             wording={configuration.customNextCTA && wording.nextCTA}
           />
-        </ProposalCard.InnerContent>
-      </ProposalCard.ContentWrapper>
-    </ProposalCard>
+        </InnerContentStyle>
+      </ContentWrapperStyle>
+    </ProposalCardStyle>
   );
 };

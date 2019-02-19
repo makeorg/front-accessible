@@ -7,8 +7,17 @@ import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import ExtraLogo from './ExtraLogo';
-import ProposalCard from '../Styled';
+import { ExtraLogo } from './ExtraLogo';
+import { ProposalCardStyle } from '../Styled';
+import {
+  BackButtonWrapperStyle,
+  BackButtonStyle,
+  BackIconStyle,
+  PushProposalButtonStyle,
+  PushProposalNextButtonStyle
+} from '../Styled/Buttons';
+import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
+import { AltMainTitleStyle } from '../Styled/Titles';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
@@ -57,34 +66,34 @@ export const PushProposalCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCard
+    <ProposalCardStyle
       position={position}
       scale={scale}
       zindex={zindex}
       isCardCollapsed={index < currentIndex}
     >
-      <ProposalCard.BackButtonWrapper>
-        <ProposalCard.BackButton
+      <BackButtonWrapperStyle>
+        <BackButtonStyle
           tabIndex={tabIndex}
           onClick={goToPreviousCard}
         >
-          <ProposalCard.BackIcon>
+          <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
-          </ProposalCard.BackIcon>
+          </BackIconStyle>
           {i18n.t('proposal_card.previous')}
-        </ProposalCard.BackButton>
+        </BackButtonStyle>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
-      </ProposalCard.BackButtonWrapper>
-      <ProposalCard.ContentWrapper>
-        <ProposalCard.InnerContent as="section">
+      </BackButtonWrapperStyle>
+      <ContentWrapperStyle>
+        <InnerContentStyle as="section">
           <header>
             {proposalCardConfig && <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />}
-            <ProposalCard.AltMainTitle>
+            <AltMainTitleStyle>
               {i18n.t('push_proposal_card.title')}
-            </ProposalCard.AltMainTitle>
+            </AltMainTitleStyle>
           </header>
           <MiddleColumnToRowStyle as="section">
-            <ProposalCard.PushProposalButton
+            <PushProposalButtonStyle
               type="submit"
               tabIndex={tabIndex}
               onClick={focusProposalField}
@@ -93,8 +102,8 @@ export const PushProposalCardComponent = (props: Props) => {
                 <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
               </IconInButtonStyle>
               {i18n.t('common.propose')}
-            </ProposalCard.PushProposalButton>
-            <ProposalCard.PushProposalNextButton
+            </PushProposalButtonStyle>
+            <PushProposalNextButtonStyle
               tabIndex={tabIndex}
               onClick={skipProposalPushCard}
             >
@@ -105,10 +114,10 @@ export const PushProposalCardComponent = (props: Props) => {
                 />
               </IconInButtonStyle>
               {i18n.t('push_proposal_card.next-cta')}
-            </ProposalCard.PushProposalNextButton>
+            </PushProposalNextButtonStyle>
           </MiddleColumnToRowStyle>
-        </ProposalCard.InnerContent>
-      </ProposalCard.ContentWrapper>
-    </ProposalCard>
+        </InnerContentStyle>
+      </ContentWrapperStyle>
+    </ProposalCardStyle>
   );
 };

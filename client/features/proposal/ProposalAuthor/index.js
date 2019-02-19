@@ -1,7 +1,7 @@
 import * as React from 'react';
 import i18n from 'Shared/i18n';
 import type { Author } from 'Shared/types/proposal';
-import { AuthorInfos } from './Styled';
+import { AuthorInfosStyle } from './Styled';
 
 type Props = {
   /** Object with author's properties */
@@ -25,9 +25,9 @@ export const ProposalAuthor = (props: Props) => {
   const { author } = props;
 
   return (
-    <AuthorInfos>
+    <AuthorInfosStyle>
       {author.firstName}
       <ProposalAuthorAge age={author.age} />
-    </AuthorInfos>
+    </AuthorInfosStyle>
   );
 };

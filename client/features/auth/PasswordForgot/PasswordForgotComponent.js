@@ -8,7 +8,7 @@ import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Element
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ForgotPasswordFormComponent } from './Form';
-import ForgotPassword from './Styled';
+import { ForgotPasswordStyle } from './Styled';
 
 type Props = {
   /** User's email */
@@ -38,7 +38,7 @@ export const PasswordForgotComponent = (props: Props) => {
   } = props;
 
   return (
-    <ForgotPassword role="region" aria-labelledby="forgot_password_title">
+    <ForgotPasswordStyle role="region" aria-labelledby="forgot_password_title">
       <SecondLevelTitleStyle id="forgot_password_title">
         {i18n.t('forgot_password.title')}
       </SecondLevelTitleStyle>
@@ -64,6 +64,6 @@ export const PasswordForgotComponent = (props: Props) => {
           {i18n.t('forgot_password.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
-    </ForgotPassword>
+    </ForgotPasswordStyle>
   );
 };

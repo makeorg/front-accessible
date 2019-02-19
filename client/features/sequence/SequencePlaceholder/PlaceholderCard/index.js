@@ -1,23 +1,28 @@
 import * as React from 'react';
-import ProposalCard from 'Client/features/sequence/Card/Styled';
+import { ProposalCardStyle } from 'Client/features/sequence/Card/Styled';
+import {
+  PlaceholderWrapperStyle,
+  PlaceholderTitleSTyle,
+  PlaceholderSeparatorStyle,
+  PlaceholderDescriptionStyle,
+  PlaceholderButtonStyle
+} from 'Client/features/sequence/Card/Styled/Placeholder';
 
 /**
  * Renders Proposal Placeholder used when the Sequence is loading
  */
-const PlaceholderCardComponent = () => (
-  <ProposalCard
+export const PlaceholderCardComponent = () => (
+  <ProposalCardStyle
     as="div"
     scale="1"
     zindex="1"
   >
-    <ProposalCard.PlaceholderWrapper>
-      <ProposalCard.PlaceholderTitle />
-      <ProposalCard.PlaceholderSeparator />
-      <ProposalCard.PlaceholderDescription />
-      <ProposalCard.PlaceholderDescription />
-      <ProposalCard.PlaceholderButton />
-    </ProposalCard.PlaceholderWrapper>
-  </ProposalCard>
+    <PlaceholderWrapperStyle>
+      <PlaceholderTitleSTyle />
+      <PlaceholderSeparatorStyle />
+      <PlaceholderDescriptionStyle />
+      <PlaceholderDescriptionStyle />
+      <PlaceholderButtonStyle />
+    </PlaceholderWrapperStyle>
+  </ProposalCardStyle>
 );
-
-export default PlaceholderCardComponent;

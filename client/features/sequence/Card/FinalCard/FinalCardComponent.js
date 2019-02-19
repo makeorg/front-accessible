@@ -5,10 +5,12 @@ import type { FinalCardConfig, FinalCardWording } from 'Shared/types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import FinalTitle from './Title';
+import { FinalTitle } from './Title';
 import { Sharing } from './Sharing';
 import { More } from './More';
-import ProposalCard from '../Styled';
+import { ProposalCardStyle } from '../Styled';
+import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
+import { ContentWrapperStyle, InnerContentStyle, FinalCardContentWrapperStyle } from '../Styled/Content';
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
@@ -57,28 +59,28 @@ export const FinalCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCard
+    <ProposalCardStyle
       position={position}
       scale={scale}
       zindex={zindex}
       className={index < currentIndex ? 'collpased-card' : ''}
     >
-      <ProposalCard.BackButtonWrapper>
-        <ProposalCard.BackButton
+      <BackButtonWrapperStyle>
+        <BackButtonStyle
           tabIndex={tabIndex}
           onClick={goToPreviousCard}
         >
-          <ProposalCard.BackIcon>
+          <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
-          </ProposalCard.BackIcon>
+          </BackIconStyle>
           {i18n.t('proposal_card.previous')}
-        </ProposalCard.BackButton>
+        </BackButtonStyle>
         <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
-      </ProposalCard.BackButtonWrapper>
-      <ProposalCard.ContentWrapper>
-        <ProposalCard.InnerContent as="section">
+      </BackButtonWrapperStyle>
+      <ContentWrapperStyle>
+        <InnerContentStyle as="section">
           {finalCardConfig.customTitle ? <FinalTitle title={finalCardWording.title} /> : <FinalTitle />}
-          <ProposalCard.FinalCardContentWrapper>
+          <FinalCardContentWrapperStyle>
             {finalCardConfig.withSharing && <Sharing wording={finalCardWording.share} tabIndex={tabIndex} />}
             <More
               configuration={finalCardConfig}
@@ -86,9 +88,9 @@ export const FinalCardComponent = (props: Props) => {
               tabIndex={tabIndex}
               handleEndSequence={handleEndSequence}
             />
-          </ProposalCard.FinalCardContentWrapper>
-        </ProposalCard.InnerContent>
-      </ProposalCard.ContentWrapper>
-    </ProposalCard>
+          </FinalCardContentWrapperStyle>
+        </InnerContentStyle>
+      </ContentWrapperStyle>
+    </ProposalCardStyle>
   );
 };

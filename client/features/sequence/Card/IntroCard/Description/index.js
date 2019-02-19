@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import i18n from 'Shared/i18n';
-import ProposalCard from '../../Styled';
+import { IntroParagraphStyle } from '../../Styled/Content';
 
 type Props = {
   /** Object with description paragraphs */
@@ -11,19 +11,19 @@ type Props = {
 /**
  * Renders Intro DescriptionStyle component
  */
-const IntroDescription = (props: Props) => {
+export const IntroDescription = (props: Props) => {
   const {
     description
   } = props;
   if (!description) {
     return (
       <div id="introduction">
-        <ProposalCard.IntroParagraph>
+        <IntroParagraphStyle>
           {i18n.t('intro_card.description_1')}
-        </ProposalCard.IntroParagraph>
-        <ProposalCard.IntroParagraph>
+        </IntroParagraphStyle>
+        <IntroParagraphStyle>
           {i18n.t('intro_card.description_2')}
-        </ProposalCard.IntroParagraph>
+        </IntroParagraphStyle>
       </div>
     );
   }
@@ -32,9 +32,9 @@ const IntroDescription = (props: Props) => {
     <div id="introduction">
       {description.map(
         introDescription => (
-          <ProposalCard.IntroParagraph key={introDescription}>
+          <IntroParagraphStyle key={introDescription}>
             {introDescription}
-          </ProposalCard.IntroParagraph>
+          </IntroParagraphStyle>
         )
       )}
     </div>
@@ -44,5 +44,3 @@ const IntroDescription = (props: Props) => {
 IntroDescription.defaultProps = {
   description: undefined
 };
-
-export default IntroDescription;

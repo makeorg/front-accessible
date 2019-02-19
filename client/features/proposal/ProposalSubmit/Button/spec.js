@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProposalSubmitButtonComponent } from '.';
-import { ProposalButton, DisabledProposalButton } from '../Styled/ProposalField';
+import { ProposalButtonStyle, DisabledProposalButtonStyle } from '../Styled';
 
 const enabledButtonProps = {
   canSubmit: true
@@ -22,15 +22,15 @@ describe('ProposalSubmitButtonComponent', () => {
   it('Renders enabled button', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent {...enabledButtonProps} />);
 
-    expect(wrapper.find(ProposalButton)).toHaveLength(1);
-    expect(wrapper.find(ProposalButton).prop('disabled')).toBeUndefined();
+    expect(wrapper.find(ProposalButtonStyle)).toHaveLength(1);
+    expect(wrapper.find(ProposalButtonStyle).prop('disabled')).toBeUndefined();
   });
 
   it('Renders disabled button', () => {
     const wrapper = shallow(<ProposalSubmitButtonComponent {...disabledButtonProps} />);
 
-    expect(wrapper.find(DisabledProposalButton)).toHaveLength(1);
-    expect(wrapper.find(DisabledProposalButton).prop('disabled')).toBe(true);
+    expect(wrapper.find(DisabledProposalButtonStyle)).toHaveLength(1);
+    expect(wrapper.find(DisabledProposalButtonStyle).prop('disabled')).toBe(true);
   });
 
   it('Check a11y rules', () => {

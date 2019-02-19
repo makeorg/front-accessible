@@ -13,11 +13,11 @@ import {
 import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
 import * as Separators from 'Client/ui/Elements/Separators';
-import FacebookAuthentificationButtonComponent
+import { FacebookAuthentificationButtonComponent }
   from 'Client/features/auth/Social/FacebookAuthentification/Button';
-import GoogleAuthentificationButtonComponent from 'Client/features/auth/Social/GoogleAuthentification/Button';
+import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
-import ProposalSubmitAuthentificationWrapper from '../Styled/Authentification';
+import { ProposalSubmitAuthentificationWrapperStyle } from '../Styled';
 
 type Props = {
   /** Method called to render Register Component in Sliding Pannel */
@@ -42,7 +42,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalSubmitAuthentificationWrapper id="proposal-submit-authentification">
+    <ProposalSubmitAuthentificationWrapperStyle id="proposal-submit-authentification">
       <SecondLevelTitleStyle>{i18n.t('authentification.title')}</SecondLevelTitleStyle>
       <ThirdLevelTtitleStyle>
         {i18n.t('authentification.description')}
@@ -90,6 +90,6 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           {i18n.t('login.button_connect')}
         </RedButtonStyle>
       </ButtonsWrapperStyle>
-    </ProposalSubmitAuthentificationWrapper>
+    </ProposalSubmitAuthentificationWrapperStyle>
   );
 };

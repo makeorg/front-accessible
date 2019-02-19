@@ -7,7 +7,7 @@ import { throttle } from 'Shared/helpers/throttle';
 import { doVote, doUnvote } from 'Shared/helpers/vote';
 import VoteService from 'Shared/api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
-import { NextButton } from 'Client/features/sequence/Card/Styled/Buttons';
+import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
 import { VoteResult } from './Result';
@@ -140,14 +140,14 @@ export class VoteHandler extends React.Component<Props, State> {
           </VoteStyle.ContainerStyle>
           {index !== undefined
             && (
-              <NextButton
+              <NextButtonStyle
                 tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
                 onClick={goToNextCard}
                 id={`next-button-${index}`}
               >
                 {i18n.t('proposal_card.next')}
                 {' >'}
-              </NextButton>
+              </NextButtonStyle>
             )
           }
         </React.Fragment>

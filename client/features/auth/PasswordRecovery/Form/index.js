@@ -7,7 +7,7 @@ import { InputErrorMessageStyle } from 'Client/ui/Elements/Form/Styled';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
-import { PasswordRecoveryStyle } from '../Styled';
+import { PasswordRecoveryFormStyle } from '../Styled';
 
 type Props = {
   /** User email value */
@@ -41,7 +41,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
   } = props;
 
   return (
-    <PasswordRecoveryStyle.Form id={PASSWORD_RECOVERY_FORMNAME} onSubmit={handleSubmit}>
+    <PasswordRecoveryFormStyle id={PASSWORD_RECOVERY_FORMNAME} onSubmit={handleSubmit}>
       <PasswordInput
         type="password"
         name="password"
@@ -61,6 +61,6 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         icon={faPaperPlane}
         label={i18n.t('reset_password.send_cta')}
       />
-    </PasswordRecoveryStyle.Form>
+    </PasswordRecoveryFormStyle>
   );
 };

@@ -15,7 +15,7 @@ type Props = {
 /**
  * Handles Google authentification
  */
-class GoogleAuthentificationComponent extends React.Component<Props> {
+class GoogleAuthentification extends React.Component<Props> {
   render() {
     const { handleGoogleLoginCallback, tabIndex } = this.props;
     return (
@@ -35,4 +35,4 @@ const mapDispatchToProps = {
   handleGoogleLoginCallback: response => loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId)
 };
 
-export default connect(null, mapDispatchToProps)(GoogleAuthentificationComponent);
+export const GoogleAuthentificationComponent = connect(null, mapDispatchToProps)(GoogleAuthentification);

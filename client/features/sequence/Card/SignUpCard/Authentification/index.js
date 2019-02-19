@@ -29,4 +29,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(SignUpCardAuthentification);
+export const SignUpCardAuthentificationContainer = connect(null, mapDispatchToProps)(SignUpCardAuthentification);

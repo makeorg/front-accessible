@@ -2,16 +2,16 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { GoogleLink, SocialIcon } from '../../Styled/Content';
-import GoogleAuthentificationComponent from '..';
+import { GoogleLinkStyle, SocialIconStyle } from '../../Styled';
+import { GoogleAuthentificationComponent } from '..';
 
 const renderGoogleLogin = tabIndex => renderProps => (
-  <GoogleLink onClick={renderProps.onClick} tabIndex={tabIndex}>
-    <SocialIcon>
+  <GoogleLinkStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+    <SocialIconStyle>
       <FontAwesomeIcon icon={faGoogle} />
-    </SocialIcon>
+    </SocialIconStyle>
     Google
-  </GoogleLink>
+  </GoogleLinkStyle>
 );
 
 type Props = {
@@ -22,11 +22,9 @@ type Props = {
 /**
  * Renders Google authentification link
  */
-const GoogleAuthentificationLinkComponent = (props: Props) => {
+export const GoogleAuthentificationLinkComponent = (props: Props) => {
   const { tabIndex } = props;
   return (
     <GoogleAuthentificationComponent {...props} render={renderGoogleLogin(tabIndex)} />
   );
 };
-
-export default GoogleAuthentificationLinkComponent;

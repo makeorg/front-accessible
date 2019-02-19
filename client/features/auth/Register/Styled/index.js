@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 
-const Register = styled.section`
+export const RegisterStyle = styled.section`
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -10,6 +10,3 @@ const Register = styled.section`
   min-height: ${pxToRem('665px')};
   max-width: ${pxToRem('470px')};
 `;
-
-
-export default Register;

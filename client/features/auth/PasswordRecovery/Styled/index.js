@@ -21,7 +21,7 @@ export const PasswordRecoveryContentStyle = styled(PageContainer)`
   }
 `;
 
-const PasswordRecoveryStyle = styled.section`
+export const PasswordRecoveryStyle = styled.section`
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -31,10 +31,6 @@ const PasswordRecoveryStyle = styled.section`
   max-width: ${pxToRem('697px')};
 `;
 
-const PasswordRecoveryForm = styled(FormStyle)`
+export const PasswordRecoveryFormStyle = styled(FormStyle)`
   max-width: ${pxToRem('490px')};
 `;
-
-PasswordRecoveryStyle.Form = PasswordRecoveryForm;
-
-export { PasswordRecoveryStyle };

@@ -3,7 +3,7 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const AuthorInfos = styled.cite`
+export const AuthorInfosStyle = styled.cite`
   font-size: ${pxToRem('14px')};
   color: ${TextColors.MediumGrey};
   font-style: normal;

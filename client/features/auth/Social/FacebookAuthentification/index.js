@@ -18,7 +18,7 @@ type State = {
 /**
  * Handles Facebook authentification
  */
-class FacebookAuthentificationComponent extends React.Component<Props, State> {
+class FacebookAuthentification extends React.Component<Props, State> {
   state = {
     isFacebookBrowser: false
   }
@@ -63,4 +63,4 @@ const mapDispatchToProps = {
   handleFacebookLoginCallback: response => loginSocial(FACEBOOK_PROVIDER_ENUM, response.accessToken)
 };
 
-export default connect(null, mapDispatchToProps)(FacebookAuthentificationComponent);
+export const FacebookAuthentificationComponent = connect(null, mapDispatchToProps)(FacebookAuthentification);
