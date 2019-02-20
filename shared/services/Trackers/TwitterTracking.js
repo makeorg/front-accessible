@@ -1,5 +1,5 @@
 // @flow
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
 import { twttr } from './twttr';
@@ -23,7 +23,7 @@ const isInitialized = (): boolean => {
   return twttr.initialized();
 };
 
-export default {
+export const TwitterTracking = {
   track(action: string): void {
     if (!isInitialized()) {
       return;

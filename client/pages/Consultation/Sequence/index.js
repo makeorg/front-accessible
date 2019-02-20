@@ -23,7 +23,7 @@ type State = {
   windowHeight: string
 }
 
-class SequencePage extends React.Component<Props, State> {
+class SequencePageContainer extends React.Component<Props, State> {
   state = {
     windowHeight: '100vh'
   }
@@ -112,4 +112,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SequencePage);
+export const SequencePage = connect(mapStateToProps, mapDispatchToProps)(SequencePageContainer);
+
+// default export needed for loadable component
+export default SequencePage; // eslint-disable-line import/no-default-export

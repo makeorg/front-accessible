@@ -1,13 +1,13 @@
 /* @flow */
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ExtraParagraphStyle, ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import LoginFormComponent from './Form';
+import { LoginFormComponent } from './Form';
 import { LoginStyle } from './Styled';
 
 type Props = {

@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +38,7 @@ type Props = {
 /**
  * Renders Login Form
  */
-const LoginFormComponent = (props: Props) => {
+export const LoginFormComponent = (props: Props) => {
   const {
     email,
     password,
@@ -103,5 +103,3 @@ const LoginFormComponent = (props: Props) => {
     </FormStyle>
   );
 };
-
-export default LoginFormComponent;

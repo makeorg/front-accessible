@@ -1,6 +1,6 @@
 // @flow
 
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 
 export const MIN_PROPOSAL_LENGTH: number = 12;
 export const MAX_PROPOSAL_LENGTH: number = 140;

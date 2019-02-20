@@ -1,11 +1,11 @@
 /* @flow */
 
-import ApiService from 'Shared/api/ApiService';
+import { ApiService } from 'Shared/api/ApiService';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
-import Tracking from './Tracking';
+import { Tracking } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
-import TwitterTracking from './Trackers/TwitterTracking';
+import { TwitterTracking } from './Trackers/TwitterTracking';
 
 describe('Tracking Service', () => {
   beforeEach(() => {

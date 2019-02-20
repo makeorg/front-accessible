@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 

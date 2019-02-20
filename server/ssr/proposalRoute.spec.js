@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http';
-import SequenceService from 'Shared/api/SequenceService';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { proposalRoute } from './proposalRoute';
 import { reactRender } from '../reactRender';

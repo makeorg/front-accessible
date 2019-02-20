@@ -1,5 +1,5 @@
+import { i18n } from 'Shared/i18n';
 import { METRIC_PATH } from './metrics';
-import i18n from '../i18n';
 
 export const isCountryLanguage = (countryLanguage = null) => (
   countryLanguage !== null && (/^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase()))

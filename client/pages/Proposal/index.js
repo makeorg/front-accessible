@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import type { ProposalType } from 'Shared/types/proposal';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
@@ -21,7 +21,7 @@ type Props = {
   match: TypeMatch
 };
 
-class ProposalPage extends React.Component<Props> {
+class ProposalPageContainer extends React.Component<Props> {
   componentDidMount() {
     const {
       match,
@@ -89,4 +89,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProposalPage);
+export const ProposalPage = connect(mapStateToProps, mapDispatchToProps)(ProposalPageContainer);
+
+// default export needed for loadable component
+export default ProposalPage; // eslint-disable-line import/no-default-export

@@ -1,5 +1,5 @@
-import UserService from 'Shared/api/UserService';
-import QuestionService from 'Shared/api/QuestionService';
+import { UserService } from 'Shared/api/UserService';
+import { QuestionService } from 'Shared/api/QuestionService';
 import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';

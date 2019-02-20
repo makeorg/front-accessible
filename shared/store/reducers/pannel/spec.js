@@ -2,7 +2,7 @@
 
 import * as actionCreators from 'Shared/store/actions/pannel';
 import * as pannelContentTypes from 'Shared/constants/pannel';
-import pannel from './index';
+import { pannel } from './index';
 
 describe('Pannel reducer', () => {
   it('Return the initial state', () => {

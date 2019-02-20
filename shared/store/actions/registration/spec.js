@@ -5,9 +5,9 @@ import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
-import UserService from 'Shared/api/UserService';
+import { UserService } from 'Shared/api/UserService';
 import * as actions from './index';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 
 // mocks
 jest.mock('Shared/api/UserService')

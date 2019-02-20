@@ -1,9 +1,9 @@
 /* @flow */
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
 import { twttr } from './twttr';
-import TwitterTracking from './TwitterTracking';
+import { TwitterTracking } from './TwitterTracking';
 
 jest.unmock('./TwitterTracking');
 jest.mock('./twttr');

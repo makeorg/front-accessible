@@ -3,7 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import type { IntroCardConfig, IntroCardWording } from 'Shared/types/card';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 import { IntroCardComponent } from './IntroCardComponent';
 
 type Props = {

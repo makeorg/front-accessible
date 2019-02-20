@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {

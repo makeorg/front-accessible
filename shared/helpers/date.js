@@ -28,7 +28,7 @@ export const getDateOfBirthFromAge = (age: number = 0) => {
   return `${birthYear}-01-01`;
 };
 
-class DateHelper {
+export class DateHelperSingleton {
   _language: string
 
   constructor() {
@@ -64,4 +64,4 @@ class DateHelper {
   }
 }
 
-export default new DateHelper();
+export const DateHelper = new DateHelperSingleton();

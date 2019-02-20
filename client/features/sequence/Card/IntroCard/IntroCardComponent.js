@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import type { IntroCardConfig, IntroCardWording } from 'Shared/types/card';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';

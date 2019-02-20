@@ -50,4 +50,5 @@ const mapStateToProps = (state) => {
 };
 
 export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecoveryRedirect));
-export default PasswordRecoveryPage;
+// default export needed for loadable component
+export default PasswordRecoveryPage; // eslint-disable-line import/no-default-export

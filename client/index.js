@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import * as React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { BrowserRouter } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
@@ -10,10 +10,10 @@ import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
-import configureStore from 'Shared/store';
-import Logger from 'Shared/services/Logger';
-import ApiService from 'Shared/api/ApiService';
-import DateHelper from 'Shared/helpers/date';
+import { configureStore } from 'Shared/store';
+import { Logger } from 'Shared/services/Logger';
+import { ApiService } from 'Shared/api/ApiService';
+import { DateHelper } from 'Shared/helpers/date';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {

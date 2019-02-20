@@ -23,4 +23,5 @@ const mapStateToProps = (state) => {
 };
 
 export const AccountActivationPage = connect(mapStateToProps)(AccountActivation);
-export default AccountActivationPage;
+// default export needed for loadable component
+export default AccountActivationPage; // eslint-disable-line import/no-default-export

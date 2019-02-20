@@ -12,6 +12,7 @@ import { defaultRoute } from './ssr/defaultRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
+import { serverInitI18n } from './i18n';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,6 +21,7 @@ const serveStatic = require('serve-static');
 const cookiesMiddleware = require('universal-cookie-express');
 const favicon = require('serve-favicon');
 
+serverInitI18n();
 
 const {
   BUILD_DIR,

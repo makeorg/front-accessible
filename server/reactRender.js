@@ -6,12 +6,12 @@ import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import { ServerStyleSheet } from 'styled-components';
 import { HeadProvider } from 'react-head';
+import { i18n } from 'Shared/i18n';
 import deepFreeze from 'deep-freeze';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
-import configureStore from 'Shared/store';
+import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
-import i18n from './i18n';
 
 deepFreeze(initialState);
 

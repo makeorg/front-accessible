@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import Tracking from 'Shared/services/Tracking';
+import { Tracking } from 'Shared/services/Tracking';
 import { HeaderComponent } from './HeaderComponent';
 
 /**

@@ -1,6 +1,6 @@
 /* @flow */
 
-import DateHelper, { getDateOfBirthFromAge } from './date';
+import { DateHelper, getDateOfBirthFromAge } from './date';
 import MockDate from 'mockdate';
 
 describe('Date Helper', () => {

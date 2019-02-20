@@ -1,4 +1,4 @@
-import SequenceService from 'Shared/api/SequenceService';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 import { reactRender } from '../reactRender';

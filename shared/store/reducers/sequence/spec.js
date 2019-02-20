@@ -1,5 +1,5 @@
 /* @flow */
-import sequence from './index';
+import { sequence } from './index';
 import * as actionTypes from 'Shared/store/actionTypes';
 
 describe('Sequence reducer', () => {

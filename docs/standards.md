@@ -155,7 +155,7 @@ expect(response.redirect).toBeCalledWith('/FR-fr');
 
 - Initialize a mock
 ```js
-import UserService from 'Shared/api/UserService';
+import { UserService } from 'Shared/api/UserService';
 jest.mock('Shared/api/UserService')
 ```
 

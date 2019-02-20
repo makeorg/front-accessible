@@ -1,5 +1,5 @@
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { Sharing } from 'Client/features/sharing';
 import { SharingWrapperStyle, SharingTitleStyle } from '../Styled';
 

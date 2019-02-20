@@ -1,13 +1,13 @@
 import httpMocks from 'node-mocks-http';
-import QuestionService from 'Shared/api/QuestionService';
-import UserService from 'Shared/api/UserService';
+import { QuestionService } from 'Shared/api/QuestionService';
+import { UserService } from 'Shared/api/UserService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
-jest.mock('Shared/api/UserService', () => ({ verifyUser: jest.fn() }));
+jest.mock('Shared/api/UserService');
 jest.mock('Shared/api/QuestionService');
 
 const initialState = createInitialState();

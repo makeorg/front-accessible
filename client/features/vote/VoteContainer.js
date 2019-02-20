@@ -1,11 +1,11 @@
 /* @flow */
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { connect } from 'react-redux';
 import type { QualificationType, VoteType } from 'Shared/types/proposal';
 import { throttle } from 'Shared/helpers/throttle';
 import { doVote, doUnvote } from 'Shared/helpers/vote';
-import VoteService from 'Shared/api/VoteService';
+import { VoteService } from 'Shared/api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { Qualification } from './Qualification';

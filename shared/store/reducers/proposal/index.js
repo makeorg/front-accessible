@@ -6,7 +6,7 @@ import { getBaitText } from 'Shared/constants/proposal';
 import { type ProposalAction } from 'Shared/types/action';
 import { type StateProposal } from 'Shared/store/types';
 
-export default function proposal(state: StateProposal = initialState.proposal, action: ProposalAction) {
+export function proposal(state: StateProposal = initialState.proposal, action: ProposalAction) {
   switch (action.type) {
     case actionTypes.PROPOSE_TYPING:
       return {

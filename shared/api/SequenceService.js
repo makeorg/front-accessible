@@ -1,12 +1,12 @@
 /* eslint no-console: ["error", { allow: ["log"] }] */
 /* @flow */
 import axios from 'axios';
-import Logger from 'Shared/services/Logger';
+import { Logger } from 'Shared/services/Logger';
 import { NODE_API_BASE } from './ApiService';
 
 const PATH_QUESTION_CONFIGURATION = '/api/questions/:questionSlug';
 
-export default class SequenceService {
+export class SequenceService {
   static fetchConfiguration(questionSlug: string): Promise<Object> {
     return axios({
       method: 'GET',

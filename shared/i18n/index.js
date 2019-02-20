@@ -3,7 +3,7 @@ import i18next, { type InitOptions, type Callback } from 'i18next';
 
 let instance = i18next;
 
-export default {
+export const i18n = {
   t: (...args) => instance.t(...args),
   getLanguage: () => instance.language,
   init: (options: InitOptions, callback?: Callback) => instance.init(options, callback),

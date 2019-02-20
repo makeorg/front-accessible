@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as actionCreators from 'Shared/store/actions/forgotPassword';
-import forgotPassword from './index';
+import { forgotPassword } from './index';
 
 describe('ForgotPassword reducer', () => {
   it('Return the initial state', () => {

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import i18n from 'Shared/i18n';
+import { i18n } from 'Shared/i18n';
 import { AltMainTitleStyle } from '../../Styled/Titles';
 
 type Props = {
