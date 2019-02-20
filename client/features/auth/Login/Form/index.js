@@ -88,7 +88,11 @@ const LoginFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {passwordError && <InputErrorMessageStyle id="authentification-password-error">{passwordError}</InputErrorMessageStyle>}
+      {passwordError && (
+        <InputErrorMessageStyle id="authentification-password-error">
+          {passwordError}
+        </InputErrorMessageStyle>
+      )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}

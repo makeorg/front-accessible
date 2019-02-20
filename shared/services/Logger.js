@@ -57,7 +57,10 @@ class Logger {
         data: { ...data }
       }
     }).then(() => { })
-      .catch((e) => { console.log('Error on logger', e); })
+      .catch((e) => {
+        // eslint-disable-next-line no-console
+        console.log('Error on logger', e);
+      })
   )
 }
 

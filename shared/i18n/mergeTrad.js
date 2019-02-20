@@ -94,7 +94,9 @@ countries.forEach((country) => {
       new Promise((resolve, reject) => {
         const globalFilePath = `${GLOBAL_TRAD_DIR}/global_${country}_${language}.json`;
         const appTradFilePath = `${APP_TRAD_DIR}/${language}-${country}.json`;
-        const weeuropeanFileName = (countriesLanguages[country].length > 1) ? `weeuropeans-${country.toLowerCase()}-${language}.json` : `weeuropeans-${country.toLowerCase()}.json`;
+        const weeuropeanFileName = (countriesLanguages[country].length > 1)
+          ? `weeuropeans-${country.toLowerCase()}-${language}.json`
+          : `weeuropeans-${country.toLowerCase()}.json`;
         const questionTradFilePath = `${QUESTION_TRAD_DIR}/${weeuropeanFileName}`;
         try {
           const data = fs.readFileSync(globalFilePath, 'utf8');

@@ -30,7 +30,8 @@ describe('ProposalSubmitFormComponent', () => {
     expect(wrapper.find(ProposalInputStyle).prop('onChange')).toBeInstanceOf(Function);
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalCharLimitStyle)).toHaveLength(1);
-    expect(wrapper.find(ProposalCharLimitStyle).first().text()).toBe('15proposal_submit.entred_chars/common.from140proposal_submit.available_chars');
+    expect(wrapper.find(ProposalCharLimitStyle).first().text())
+      .toBe('15proposal_submit.entred_chars/common.from140proposal_submit.available_chars');
     expect(wrapper.find(ProposalSubmitButtonComponent)).toHaveLength(1);
     expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).toBe(true);
   });

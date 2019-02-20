@@ -41,6 +41,7 @@ class Tracking {
     };
 
     if (env.isDev()) {
+      // eslint-disable-next-line no-console
       console.info(`Tracking: event ${eventName} params ${JSON.stringify(eventParameters)}`);
       return Promise.resolve();
     }
