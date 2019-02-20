@@ -4,6 +4,7 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ContainerStyle = styled(CenterColumnStyle)`
     margin-right: ${pxToRem('10px')};
@@ -15,8 +16,10 @@ export const GraphStyle = styled(UnstyledListStyle)`
   width: 100%;
   height: ${pxToRem('30px')};
   justify-content: center;
-  align-items: flex-end;
-  margin-top: ${pxToRem('10px')};
+  align-items: flex-start;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    margin-top: ${pxToRem('10px')};
+  }
 `;
 
 export const ItemStyle = styled.li`

@@ -41,8 +41,16 @@ export const MiddleColumnStyle = styled(CenterColumnStyle)`
   justify-content: center;
 `;
 
+export const StartColumnStyle = styled(ColumnElementStyle)`
+  justify-content: start;
+`;
+
 export const SpaceBetweenColumnStyle = styled(ColumnElementStyle)`
   justify-content: space-between;
+`;
+
+export const SpaceEvenlyColumnStyle = styled(ColumnElementStyle)`
+  justify-content: space-evenly;
 `;
 
 /* Column To Row Elements */

@@ -7,8 +7,8 @@ export const ButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${pxToRem('46px')};
-  height: ${pxToRem('46px')};
+  width: ${pxToRem('40px')};
+  height: ${pxToRem('40px')};
   border-width: ${pxToRem('2px')};
   font-size: ${pxToRem('22px')};
   border-style: solid;

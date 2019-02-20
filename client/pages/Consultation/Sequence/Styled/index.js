@@ -1,27 +1,14 @@
 import styled from 'styled-components';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { pxToRem } from 'Shared/helpers/styled';
-import { CALC_SEQUENCE_HEIGHT_MOBILE, CALC_SEQUENCE_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { StartColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const SequencePageContentStyle = styled.div`
   width: 100%;
-  height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_MOBILE)});
-  min-height: ${pxToRem('300px')};
+  height: 100%;
   overflow: auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: calc(${props => props.height || '100vh'} - ${pxToRem(CALC_SEQUENCE_HEIGHT_DESKTOP)});
-  }
 `;
 
-export const SequencePageInnerContentStyle = styled(MiddleColumnStyle)`
+export const SequencePageInnerContentStyle = styled(StartColumnStyle)`
   width: 100%;
-  height: 100%;
-  position: relative;
   z-index: 0;
-  min-height: ${pxToRem('510px')};
   ${props => (props.isSequenceCollapsed ? 'overflow: hidden' : '')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    min-height: ${pxToRem('585px')};
-  }
 `;

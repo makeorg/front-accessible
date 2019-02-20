@@ -5,17 +5,23 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors, BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { CALC_HEIGHT_MOBILE, CALC_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
-import { SpaceBetweenColumnStyle, CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { ColumnElementStyle, CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
-export const AppWrapperStyle = styled(SpaceBetweenColumnStyle)`
+export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 110vh;
   background-color: ${BackgroundColors.LightGrey};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    min-height: 100vh;
+  }
 `;
 
 export const AppMainContentStyle = styled.main`
   position: relative;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
   z-index: 0;
   overflow: hidden;
 `;

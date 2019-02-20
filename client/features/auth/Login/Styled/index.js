@@ -7,6 +7,5 @@ export const LoginStyle = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: ${pxToRem('490px')};
   max-width: ${pxToRem('470px')};
 `;
