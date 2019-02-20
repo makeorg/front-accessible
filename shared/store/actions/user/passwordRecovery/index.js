@@ -1,6 +1,6 @@
 import { i18n } from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
-import UserService from 'Shared/api/UserService';
+import { UserService } from 'Shared/api/UserService';
 
 export const passwordRecoveryRequest = (newPassword: string, resetToken: string, userId: string) => (
   { type: actionTypes.PASSWORD_RECOVERY_REQUEST, payload: { newPassword, resetToken, userId } }

@@ -19,7 +19,7 @@ const PATH_USER_CHANGE_PASSWORD = '/user/reset-password/change-password/:userId'
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
 
-export default class UserService {
+export class UserService {
   /**
    * Get user info
    * @return {Promise}

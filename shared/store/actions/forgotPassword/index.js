@@ -2,7 +2,7 @@
 
 import { i18n } from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
-import UserService from 'Shared/api/UserService';
+import { UserService } from 'Shared/api/UserService';
 import { type ErrorObject } from 'Shared/types/form';
 
 export const forgotPasswordRequest = (email: string) => ({ type: actionTypes.FORGOT_PASSWORD_REQUEST, email });

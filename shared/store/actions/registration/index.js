@@ -1,6 +1,6 @@
 /* @flow */
 
-import UserService from 'Shared/api/UserService';
+import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
 import { loginSuccess } from 'Shared/store/actions/authentification';
