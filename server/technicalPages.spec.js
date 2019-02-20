@@ -6,13 +6,16 @@ jest.mock('Shared/env');
 
 describe('technical Pages', () => {
   describe('render a robots.txt by env', () => {
+    afterEach(() => {
+      process.env = env;
+    });
+
     it('allow when we are in prod env', () => {
       const request = httpMocks.createRequest({});
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'type');
       jest.spyOn(response, 'send');
-
-      env.isProd.mockReturnValueOnce(true);
+      env.contextEnvName.mockReturnValue('prod');
       renderRobot(request, response, () => { });
       expect(response.type).toHaveBeenCalledWith('text/plain');
       expect(response.send).toHaveBeenCalledWith('User-agent: *\nAllow: /');
@@ -23,7 +26,7 @@ describe('technical Pages', () => {
       jest.spyOn(response, 'type');
       jest.spyOn(response, 'send');
 
-      env.isProd.mockReturnValueOnce(false);
+      env.contextEnvName.mockReturnValue('preprod');
       renderRobot(request, response, () => { });
       expect(response.type).toHaveBeenCalledWith('text/plain');
       expect(response.send).toHaveBeenCalledWith('User-agent: *\nDisallow: /');
