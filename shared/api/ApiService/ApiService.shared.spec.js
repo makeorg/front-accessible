@@ -25,6 +25,7 @@ describe('ApiServiceShared', () => {
         headers,
         method: 'POST',
         withCredentials: true,
+        httpsAgent: undefined,
       });
     });
 

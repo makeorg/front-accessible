@@ -1,3 +1,4 @@
+import https from 'https';
 import { ApiServiceShared } from './ApiService.shared';
 import { IApiServiceStrategy } from './index';
 
@@ -8,8 +9,14 @@ export class ApiServiceServer implements IApiServiceStrategy {
       'x-make-location': 'core',
       ...options.headers,
     };
+
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+    const serverOptions = Object.assign({}, { httpsAgent: agent }, options);
+
     return ApiServiceShared.callApi(url, {
-      ...options,
+      ...serverOptions,
       headers,
     });
   }
