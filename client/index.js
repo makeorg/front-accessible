@@ -10,10 +10,13 @@ import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
+
 import { configureStore } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
+import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
 import { DateHelper } from 'Shared/helpers/date';
+import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -52,17 +55,36 @@ i18n.init({
 
 FacebookTracking.init();
 
+// keep user login on client side
+const savedUser: ?string = (typeof localStorage !== 'undefined')
+  ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;
+const savedToken: ?string = (typeof localStorage !== 'undefined')
+  ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) : null;
+
+const user: ?Object = savedUser ? JSON.parse(savedUser) : null;
+const token: ?Object = savedToken ? JSON.parse(savedToken) : null;
+
+initialState.authentification = {
+  ...initialState.authentification,
+  isLoggedIn: (token !== null && user !== null),
+  token,
+  user
+};
+
+const apiClient = new ApiServiceClient();
+ApiService.strategy = apiClient;
 
 const store = configureStore(initialState);
 
 if (initialState.sequence && initialState.sequence.question) {
-  ApiService.questionId = initialState.sequence.question.questionId;
-  ApiService.operationId = initialState.sequence.question.operationId;
+  apiClient.questionId = initialState.sequence.question.questionId;
+  apiClient.operationId = initialState.sequence.question.operationId;
 }
 
-ApiService.source = initialState.appConfig.source;
-ApiService.country = initialState.appConfig.country;
-ApiService.language = initialState.appConfig.language;
+apiClient.source = initialState.appConfig.source;
+apiClient.country = initialState.appConfig.country;
+apiClient.language = initialState.appConfig.language;
+apiClient.token = initialState.authentification.token;
 DateHelper.language = initialState.appConfig.language;
 
 loadableReady(() => {

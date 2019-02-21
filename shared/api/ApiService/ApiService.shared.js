@@ -5,6 +5,8 @@ import * as UrlHelper from 'Shared/helpers/url';
 import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
 import { env } from 'Shared/env';
+import { type ErrorResponse } from './types';
+
 
 const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
 const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
@@ -22,18 +24,12 @@ axiosRetry(axios, {
   retries: 5,
   retryDelay: retryCount => retryCount * 100
 });
-
-type TypeToken = {
-  token_type: string;
-  access_token: string;
-}
-
 /**
  * handle error for http response
  * @param  {Object} response
  * @return {String|Object}
  */
-export const handleErrors = (error: Object) => {
+export const handleErrors = (error: ErrorResponse) => {
   if (error.response) {
     switch (error.response.status) {
       case 400:
@@ -49,102 +45,21 @@ export const handleErrors = (error: Object) => {
   throw error.message;
 };
 
-let instance = null;
-
-class ApiServiceSingleton {
-  _language: string = '';
-
-  _country: string = '';
-
-  _operationId: string = '';
-
-  _questionId: string = '';
-
-  _source: string = '';
-
-  _token: TypeToken;
-
-  constructor() {
-    if (!instance) {
-      instance = this;
-    }
-
-    return instance;
-  }
-
-  set language(language: string) {
-    this._language = language;
-  }
-
-  get language(): string {
-    return this._language;
-  }
-
-  set country(country: string) {
-    this._country = country;
-  }
-
-  get country(): string {
-    return this._country;
-  }
-
-  set operationId(operationId: string) {
-    this._operationId = operationId;
-  }
-
-  get operationId(): string {
-    return this._operationId;
-  }
-
-  set questionId(questionId: string) {
-    this._questionId = questionId;
-  }
-
-  get questionId() {
-    return this._questionId;
-  }
-
-  set source(source: string) {
-    this._source = source;
-  }
-
-  get source(): string {
-    return this._source;
-  }
-
-  set token(token: TypeToken) {
-    this._token = token;
-  }
-
-  get token(): ?TypeToken {
-    return this._token;
-  }
-
+class ApiServiceSharedClass {
+  // eslint-disable-next-line class-methods-use-this
   callApi(url: string, options: Object = {}): Promise<any> {
     const paramsQuery = UrlHelper.getParamsQuery(LOCATION_PARAMS);
     const defaultHeaders = {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
-      'x-make-country': this._country,
-      'x-make-language': this._language,
-      'x-make-location': 'core',
-      'x-make-source': this._source,
-      'x-make-question-id': this._questionId,
-      'x-make-question': this._questionId,
-      'x-make-operation': this._operationId,
-      'x-make-app-name': APP_NAME
+      'x-make-app-name': APP_NAME,
+      'x-make-location': 'core'
     };
     let headers = Object.assign({}, defaultHeaders, options.headers || {});
 
     if (paramsQuery) {
       headers = Object.assign({}, headers, {
         'x-get-parameters': paramsQuery
-      });
-    }
-
-    if (this.token) {
-      headers = Object.assign({}, headers, {
-        Authorization: `${this.token.token_type} ${this.token.access_token}`
       });
     }
 
@@ -159,4 +74,4 @@ class ApiServiceSingleton {
   }
 }
 
-export const ApiService = new ApiServiceSingleton();
+export const ApiServiceShared = new ApiServiceSharedClass();

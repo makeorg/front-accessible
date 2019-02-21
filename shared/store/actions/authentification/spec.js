@@ -1,9 +1,7 @@
 /* @flow */
 
-import configureMockStore from 'redux-mock-store'
+import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserService } from 'Shared/api/UserService';
 import { Tracking } from 'Shared/services/Tracking';
@@ -15,15 +13,11 @@ jest.mock('Shared/api/UserService')
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
-const axiosMock = new MockAdapter(axios);
 
 describe('Authentification Actions', () => {
 
   beforeEach(() => {
     store.clearActions();
-
-    axiosMock.restore();
-    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   describe('Login Actions', () => {
@@ -56,13 +50,10 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login when success', () => {
-      const proposalIdResponse = { proposalId: 'baz' };
-      const proposalContent = 'foo';
-      const questionId = 'bar';
       const token = { foo: 'bar' };
       const user = { email: 'baz@make.org', password: 'foo' };
 
-      const store = mockStore({
+      const newStore = mockStore({
         proposal: { canSubmit: false },
         pannel: { isPannelOpen: false },
         authentification: { isLoggedIn: false }
@@ -82,9 +73,9 @@ describe('Authentification Actions', () => {
       ];
 
       ;
-      return store.dispatch(actions.login(user.email, user.password)).then(() => {
-        expect(Tracking.trackLoginEmailSuccess).toBeCalled()
-        expect(store.getActions()).toEqual(expectedActions)
+      return newStore.dispatch(actions.login(user.email, user.password)).then(() => {
+        expect(Tracking.trackLoginEmailSuccess).toBeCalled();
+        expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
 
@@ -94,7 +85,7 @@ describe('Authentification Actions', () => {
       const error = 'login.email_doesnot_exist';
       const proposalContent = 'foo';
       const questionId = 'bar';
-      const store = mockStore({
+      const newStore = mockStore({
         proposal: { content: proposalContent },
         sequence: { question: { questionId } }
       });
@@ -110,9 +101,9 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_FAILURE, error }
       ];
 
-      return store.dispatch(actions.login(user.email, user.password)).then(() => {
+      return newStore.dispatch(actions.login(user.email, user.password)).then(() => {
         expect(Tracking.trackLoginEmailFailure).toBeCalled()
-        expect(store.getActions()).toEqual(expectedActions)
+        expect(newStore.getActions()).toEqual(expectedActions)
       });
     });
   });
@@ -179,7 +170,7 @@ describe('Authentification Actions', () => {
     it('creates an action to login social when failure', () => {
       const proposalContent = 'foo';
       const questionId = 'bar';
-      const store = mockStore({
+      const newStore = mockStore({
         proposal: { content: proposalContent },
         sequence: { question: { questionId } }
       });
@@ -196,9 +187,9 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_SOCIAL_FAILURE }
       ];
 
-      return store.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
+      return newStore.dispatch(actions.loginSocial(provider, socialToken)).then(() => {
         expect(Tracking.trackAuthentificationSocialFailure).toBeCalled()
-        expect(store.getActions()).toEqual(expectedActions)
+        expect(newStore.getActions()).toEqual(expectedActions)
       });
     });
   });

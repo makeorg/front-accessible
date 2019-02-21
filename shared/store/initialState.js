@@ -2,6 +2,12 @@
 import type { StateRoot } from './types';
 
 export const initialState: StateRoot = {
+  authentification: {
+    errors: [],
+    isLoggedIn: false,
+    token: undefined,
+    user: undefined
+  },
   proposal: {
     isTyping: false,
     canSubmit: false,

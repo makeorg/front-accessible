@@ -1,9 +1,7 @@
 /* @flow */
 
-import configureMockStore from 'redux-mock-store'
+import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import { ProposalService } from 'Shared/api/ProposalService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import * as actions from './index';
@@ -14,13 +12,10 @@ jest.mock('Shared/api/ProposalService');
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
-const axiosMock = new MockAdapter(axios);
 
 describe('Proposal Actions', () => {
   beforeEach(() => {
     store.clearActions();
-    axiosMock.restore();
-    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {

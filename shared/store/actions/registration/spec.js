@@ -1,27 +1,22 @@
 /* @flow */
 
-import configureMockStore from 'redux-mock-store'
+import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserService } from 'Shared/api/UserService';
-import * as actions from './index';
 import { Tracking } from 'Shared/services/Tracking';
+import * as actions from './index';
 
 // mocks
-jest.mock('Shared/api/UserService')
+jest.mock('Shared/api/UserService');
 
-const middlewares = [thunk]
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
-const axiosMock = new MockAdapter(axios);
 
 describe('Registration Actions', () => {
-  beforeEach(function () {
+  beforeEach(() => {
     store.clearActions();
-    axiosMock.restore();
-    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {
@@ -37,7 +32,7 @@ describe('Registration Actions', () => {
     const user = { firstname: 'foo' };
     const expectedActions = [{
       type: actionTypes.REGISTER_SUCCESS,
-      user: user
+      user
     }];
 
     store.dispatch(actions.registerSuccess(user));
@@ -56,7 +51,7 @@ describe('Registration Actions', () => {
   });
 
   it('creates an action to register when success', () => {
-    const store = mockStore({
+    const newStore = mockStore({
       proposal: { canSubmit: false },
       authentification: { isLoggedIn: false }
     });
@@ -81,9 +76,9 @@ describe('Registration Actions', () => {
       { type: actionTypes.FORGOT_PASSWORD_INIT }
     ];
 
-    return store.dispatch(actions.register(user)).then(() => {
+    return newStore.dispatch(actions.register(user)).then(() => {
       expect(Tracking.trackSignupEmailSuccess).toBeCalled()
-      expect(store.getActions()).toEqual(expectedActions)
+      expect(newStore.getActions()).toEqual(expectedActions)
     });
   });
 

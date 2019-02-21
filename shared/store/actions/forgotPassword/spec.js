@@ -2,8 +2,6 @@
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserService } from 'Shared/api/UserService';
 import * as actions from './index';
@@ -13,13 +11,10 @@ jest.mock('Shared/api/UserService');
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
-const axiosMock = new MockAdapter(axios);
 
 describe('ForgotPassword Actions', () => {
   beforeEach(() => {
     store.clearActions();
-    axiosMock.restore();
-    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   describe('Forgot password Actions', () => {
@@ -87,7 +82,7 @@ describe('ForgotPassword Actions', () => {
       ];
 
       return store.dispatch(actions.forgotPassword(email)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions)
+        expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });

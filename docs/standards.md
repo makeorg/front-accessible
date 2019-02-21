@@ -177,8 +177,7 @@ UserService.forgotPassword.mockRejectedValue();
 ### UI test strategy
 
 - An UI component (dumb) should be tested using snapshot
-- [TODO] Add [styled-component](https://github.com/styled-components/jest-styled-components) support
-- [TODO] Manage shallow snapshot to avoid BIG snapshot
+- [TODO] Add [Eslint rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md) to avoid BIG snapshot 
 
 Default case
 ```js
@@ -211,4 +210,73 @@ it("must match the snapshot with errors", function () {
   );
   expect(component).toMatchSnapshot();
 });
+```
+
+## Conception
+
+[KISS principle](https://en.wikipedia.org/wiki/KISS_principle) Keep it simple, stupid
+
+**Design Pattern**: Design patterns are reusable solutions to commonly occurring problems in software design. They are both exciting and a fascinating topic to explore in any programming language.
+
+Sources: 
+- Article: [Javascript design patterns](https://medium.com/beginners-guide-to-mobile-web-development/javascript-design-patterns-25f0faaaa15)
+- Book: [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+
+
+### [Singleton Pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript): The Singleton pattern is thus known because it restricts instantiation of a class to a single object. 
+```ts
+// ApiService.js
+class ApiClassService {
+}
+export const ApiService = new ApiClassService();
+// other.js
+import { ApiService } from './ApiService';
+// ApiService is now a singleton on all the app
+```
+
+### [Strategy pattern](https://robdodson.me/javascript-design-patterns-strategy/): Encapsulates an algorithm inside a class separating the selection from the implementation.
+
+
+Usage:
+```ts
+class ApiService {
+  _strategy: IApiServiceStrategy;
+
+  set strategy(strategy: IApiServiceStrategy) {
+    this._strategy = strategy;
+  }
+
+  get strategy() {
+    if (!this._strategy){
+      throw new Error('No ApiService strategy configured');
+    } 
+    return this._strategy;
+  }
+
+  callApi(url: string) {
+    return this.strategy.callApi(url);
+  }
+}
+
+class ApiServiceServer implements IApiServiceStrategy {
+  // eslint-disable-next-line class-methods-use-this
+  callApi(url: string) {
+    console.log("ApiServiceServer call ",url);
+  }
+}
+
+class ApiServiceClient implements IApiServiceStrategy {
+  // eslint-disable-next-line class-methods-use-this
+  callApi(url: string) {
+    console.log("ApiServiceClient call ",url);
+  }
+}
+
+const apiService = new ApiService();
+
+apiService.strategy = new ApiServiceServer();
+apiService.callApi(url); // console.log ->  ApiServiceServer call
+
+apiService.strategy = new ApiServiceClient();
+apiService.callApi(url); // console.log -> ApiServiceClient call
 ```
