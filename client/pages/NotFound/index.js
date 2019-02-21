@@ -2,18 +2,18 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
 import {
   NotFoundPageContentStyle,
+  NotFoundPageInnerStyle,
   NotFoundIntroStyle,
   NotFoundTitleStyle
 } from './Styled';
 
 export const NotFoundPage = () => (
-  <MiddlePageWrapperStyle>
+  <NotFoundPageContentStyle>
     <MetaTags />
-    <NotFoundPageContentStyle>
+    <NotFoundPageInnerStyle>
       <NotFoundIntroStyle>
         {i18n.t('not_found.intro')}
       </NotFoundIntroStyle>
@@ -23,8 +23,8 @@ export const NotFoundPage = () => (
       <DescriptionStyle>
         {i18n.t('not_found.description')}
       </DescriptionStyle>
-    </NotFoundPageContentStyle>
-  </MiddlePageWrapperStyle>
+    </NotFoundPageInnerStyle>
+  </NotFoundPageContentStyle>
 );
 
 // default export needed for loadable component

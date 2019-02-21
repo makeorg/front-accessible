@@ -17,7 +17,7 @@ export const IntroDescription = (props: Props) => {
   } = props;
   if (!description) {
     return (
-      <div id="introduction">
+      <div>
         <IntroParagraphStyle>
           {i18n.t('intro_card.description_1')}
         </IntroParagraphStyle>
@@ -29,7 +29,7 @@ export const IntroDescription = (props: Props) => {
   }
 
   return (
-    <div id="introduction">
+    <div>
       {description.map(
         introDescription => (
           <IntroParagraphStyle key={introDescription}>

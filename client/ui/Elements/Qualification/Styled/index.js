@@ -7,7 +7,6 @@ import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 export const ButtonStyle = styled.button`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   width: 100%;
   border-width: ${pxToRem('2px')};
   font-size: ${pxToRem('12px')};
@@ -41,7 +40,7 @@ export const QualifyButtonStyle = styled(ButtonStyle)`
 
 export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
-  font-size: ${pxToRem('18px')};
+  font-size: ${pxToRem('14px')};
   margin-left: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('22px')};

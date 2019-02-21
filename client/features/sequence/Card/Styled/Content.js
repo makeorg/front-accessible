@@ -12,10 +12,6 @@ import {
 export const ContentWrapperStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
-  padding-top: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    padding-top: ${pxToRem('82px')};
-  }
 `;
 
 export const ContentSpecialWrapperStyle = styled(ContentWrapperStyle)`
@@ -55,7 +51,7 @@ export const FinalParagraphStyle = styled.p`
 `;
 
 export const SeparatorStyle = styled(Small)`
-  margin: ${pxToRem('10px')} 0 ${pxToRem('20px')};
+  margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
   }

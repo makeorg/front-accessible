@@ -10,10 +10,6 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
   width: 100%;
   border-width: 0.125rem;
   font-size: 0.75rem;
@@ -33,10 +29,6 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
   width: 100%;
   border-width: 0.125rem;
   font-size: 0.75rem;
@@ -57,7 +49,7 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
 
 .c2 {
   font-family: 'Roboto Bold',Arial,sans-serif;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   margin-left: 0.625rem;
 }
 
@@ -104,15 +96,15 @@ Snapshot Diff:
 + Second value
 
   <button
--   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-1 bYTTDx"
-+   className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 MyKyT"
+-   className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-1 eNeyJR"
++   className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-2 FdDWG"
     color="red"
     tabIndex={0}
   >
     foo
     <span
       aria-hidden={true}
-      className="sc-1gf9o0u-3 fwpWkq"
+      className="sc-1gf9o0u-3 hbYyJy"
     >
 -     0
 +     +1
@@ -127,7 +119,7 @@ Snapshot Diff:
 
 @@ -1,9 +1,9 @@
   <button
-    className="sc-1gf9o0u-0 sc-1gf9o0u-0 gLrvNW sc-1gf9o0u-2 MyKyT"
+    className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-2 FdDWG"
     color="red"
 -   tabIndex="-1"
 +   tabIndex="0"
@@ -135,5 +127,5 @@ Snapshot Diff:
     foo
     <span
       aria-hidden={true}
-      className="sc-1gf9o0u-3 fwpWkq"
+      className="sc-1gf9o0u-3 hbYyJy"
 `;

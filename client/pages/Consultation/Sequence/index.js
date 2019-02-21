@@ -7,7 +7,6 @@ import { fetchQuestionData, fetchQuestionConfigurationData } from 'Shared/store/
 import { MetaTags } from 'Client/app/MetaTags';
 import { SequenceFooter } from 'Client/features/sequence/Footer';
 import { match as TypeMatch } from 'react-router';
-import { SequencePageContentStyle } from './Styled';
 import { SequencePageContentLoader } from './ContentLoader';
 
 type Props = {
@@ -19,15 +18,7 @@ type Props = {
   isSequenceCollapsed: boolean
 };
 
-type State = {
-  windowHeight: string
-}
-
-class SequencePageContainer extends React.Component<Props, State> {
-  state = {
-    windowHeight: '100vh'
-  }
-
+class SequencePageContainer extends React.Component<Props> {
   componentDidMount() {
     const {
       match,
@@ -44,23 +35,10 @@ class SequencePageContainer extends React.Component<Props, State> {
     if (!questionConfiguration) {
       fetchQuestionConfiguration(match.params.questionSlug);
     }
-
-
-    this.getWindowHeight();
-    window.addEventListener('resize', this.getWindowHeight);
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.getWindowHeight);
-  }
-
-  getWindowHeight = () => {
-    this.setState({ windowHeight: `${window.innerHeight}px` });
-  };
 
   render() {
     const { isSequenceCollapsed, question, questionConfiguration } = this.props;
-    const { windowHeight } = this.state;
 
     if (!questionConfiguration) {
       return null;
@@ -71,18 +49,16 @@ class SequencePageContainer extends React.Component<Props, State> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <React.Fragment>
-          <SequencePageContentStyle height={windowHeight}>
-            <MetaTags
-              title={metas.title}
-              description={metas.description}
-              picture={metas.picture}
-            />
-            <SequencePageContentLoader
-              question={question}
-              questionConfiguration={questionConfiguration}
-              isSequenceCollapsed={isSequenceCollapsed}
-            />
-          </SequencePageContentStyle>
+          <MetaTags
+            title={metas.title}
+            description={metas.description}
+            picture={metas.picture}
+          />
+          <SequencePageContentLoader
+            question={question}
+            questionConfiguration={questionConfiguration}
+            isSequenceCollapsed={isSequenceCollapsed}
+          />
           <SequenceFooter
             questionConfiguration={questionConfiguration}
           />

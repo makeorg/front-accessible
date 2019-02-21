@@ -47,13 +47,12 @@ export const ProposalSubmitFormStyle = styled.form`
 
 export const ProposalSubmitFormWrapperStyle = styled.aside`
   display: block;
+  flex-grow: 0;
   width: 100%;
-  max-height: ${pxToRem('45px')};
   max-width: ${pxToRem(Layouts.ContainerWidth)};
-  margin: ${pxToRem('15px')} auto ${pxToRem('5px')};
+  margin: ${pxToRem('10px')} auto 0;
   padding: 0 ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    max-height: ${pxToRem('50px')};
     margin: ${pxToRem('25px')} auto ${pxToRem('15px')};
   }
 `;

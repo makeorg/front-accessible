@@ -3,11 +3,12 @@ import * as React from 'react';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
 import { Spinner } from 'Client/ui/Spinner';
-import { SequencePageContentStyle, SequencePageInnerContentStyle } from '../Styled';
+import { type Question } from 'Shared/types/question';
+import { SequencePageContentStyle } from '../Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Object,
+  question: Question,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: Object,
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -33,13 +34,16 @@ export const SequencePageContentLoader = (props: Props) => {
   }
 
   return (
-    <SequencePageInnerContentStyle isSequenceCollapsed={isSequenceCollapsed}>
-      <ProposalSubmit question={question} />
+    <React.Fragment>
+      {question.canPropose && (
+        <ProposalSubmit question={question} />
+      )}
       <Sequence
+        isSequenceCollapsed={isSequenceCollapsed}
         question={question}
         questionConfiguration={questionConfiguration}
       />
-    </SequencePageInnerContentStyle>
+    </React.Fragment>
 
   );
 };

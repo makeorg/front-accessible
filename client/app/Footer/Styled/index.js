@@ -21,9 +21,10 @@ export const FooterNavStyle = styled.nav`
 export const FooterItemStyle = styled.li`
   display: inline-block;
   width: 50%;
-  padding: ${pxToRem(DefaultPadding.Mobile)};
+  padding: ${pxToRem('5px')};
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    padding: ${pxToRem(DefaultPadding.Mobile)};
     width: auto;
   }
 `;

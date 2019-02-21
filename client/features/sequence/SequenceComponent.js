@@ -59,8 +59,6 @@ export const SequenceComponent = (props: Props) => {
   return (
     <SequenceStyle
       role="region"
-      aria-describedby="introduction"
-      isSequenceCollapsed={isSequenceCollapsed}
     >
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}

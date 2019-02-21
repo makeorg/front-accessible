@@ -9,7 +9,7 @@ export const ContainerStyle = styled.form`
   justify-content: center;
   width: 100%;
   min-width: ${pxToRem('275px')};
-  margin: ${pxToRem('15px')} 0;
+  margin: ${pxToRem('10px')} 0;
   padding: 0 ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('30px')} 0;

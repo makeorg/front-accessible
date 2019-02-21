@@ -7,6 +7,5 @@ export const RegisterStyle = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: ${pxToRem('665px')};
   max-width: ${pxToRem('470px')};
 `;

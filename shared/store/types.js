@@ -1,6 +1,7 @@
 // @flow
-import type { Question, QuestionConfiguration } from 'Shared/types/sequence';
-import { type TypeToken } from 'Shared/api/ApiService/types';
+import type { QuestionConfiguration } from 'Shared/types/sequence';
+import type { Question } from 'Shared/types/question';
+import type { TypeToken } from 'Shared/api/ApiService/types';
 
 // Authentification State
 export type StateAuthentification = $ReadOnly<{

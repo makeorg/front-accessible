@@ -12,19 +12,13 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const BackButtonWrapperStyle = styled.div`
-  position: absolute;
-  top: ${pxToRem('15px')};
-  left: ${pxToRem('15px')};
   display: flex;
-  width: calc(100% - ${pxToRem('30px')});
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  min-height: ${pxToRem('58px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     top: ${pxToRem('30px')};
     left: ${pxToRem('30px')};
-    width: calc(100% - ${pxToRem('60px')});
-    min-height: ${pxToRem('82px')};
   }
 `;
 
@@ -48,7 +42,7 @@ export const BackButtonStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const BackIconStyle = styled(IconInButtonStyle)`
-  font-size: ${pxToRem('25px')};
+  font-size: ${pxToRem('15px')};
   color: ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     font-size: ${pxToRem('40px')};
