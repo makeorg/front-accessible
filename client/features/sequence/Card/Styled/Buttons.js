@@ -16,11 +16,9 @@ export const BackButtonWrapperStyle = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  min-height: ${pxToRem('58px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     top: ${pxToRem('30px')};
     left: ${pxToRem('30px')};
-    min-height: ${pxToRem('82px')};
   }
 `;
 

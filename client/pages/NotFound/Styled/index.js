@@ -6,9 +6,16 @@ import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
+  flex-grow: 1;
+  padding: ${pxToRem(DefaultPadding.Mobile)};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    padding: ${pxToRem(DefaultPadding.Desktop)};
+  }
+`;
+
+export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
   width: 100%;
-  height: 100%;
-  flex: 1;
+  flex-grow: 1;
   padding: ${pxToRem(DefaultPadding.Mobile)};
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   max-height: ${pxToRem('550px')};

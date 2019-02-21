@@ -14,14 +14,14 @@ export const CardStyle = styled.section`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: ${pxToRem('440px')};
+  flex-grow: 1;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: ${pxToRem(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 13px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    height: ${pxToRem('550px')};
+    max-height: ${pxToRem('550px')};
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;

@@ -50,7 +50,7 @@ export const ProposalSubmitFormWrapperStyle = styled.aside`
   flex-grow: 0;
   width: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
-  margin: 3% auto 0;
+  margin: ${pxToRem('10px')} auto 0;
   padding: 0 ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
     margin: ${pxToRem('25px')} auto ${pxToRem('15px')};

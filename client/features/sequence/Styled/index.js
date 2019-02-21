@@ -22,10 +22,6 @@ export const SequenceStyle = styled.section`
   margin: 0 auto;
   max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
-  ${props => (props.isSequenceCollapsed ? 'transform: translateY(25%)' : '')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    ${props => (props.isSequenceCollapsed ? 'transform: translateY(50%)' : '')};
-  }
 `;
 
 
