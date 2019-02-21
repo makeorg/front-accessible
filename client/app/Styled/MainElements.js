@@ -9,18 +9,15 @@ import { ColumnElementStyle, CenterColumnStyle } from 'Client/ui/Elements/FlexEl
 export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
   overflow: hidden;
-  min-height: 110vh;
+  min-height: 100vh;
   background-color: ${BackgroundColors.LightGrey};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    min-height: 100vh;
-  }
 `;
 
 export const AppMainContentStyle = styled.main`
   position: relative;
   display: flex;
   flex-flow: column;
-  flex-grow: 1;
+  flex: 1 1 auto;
   z-index: 0;
   overflow: hidden;
 `;

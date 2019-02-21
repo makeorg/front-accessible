@@ -7,8 +7,8 @@ export const ButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${pxToRem('40px')};
-  height: ${pxToRem('40px')};
+  width: 48px;
+  height: 48px;
   border-width: ${pxToRem('2px')};
   font-size: ${pxToRem('22px')};
   border-style: solid;
@@ -17,8 +17,8 @@ export const ButtonStyle = styled.button`
   transform: rotate(${props => props.rotate}deg);
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-    width: ${pxToRem('60px')};
-    height: ${pxToRem('60px')};
+    width: 60px;
+    height: 60px;
     font-size: ${pxToRem('30px')};
   }
 `;
