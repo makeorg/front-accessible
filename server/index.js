@@ -1,4 +1,6 @@
 import './browserPolyfill';
+import { ApiService } from 'Shared/api/ApiService';
+import { ApiServiceServer } from 'Shared/api/ApiService/ApiService.server';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { headersResponseMiddleware } from './middleware/headers';
 import { metricsMiddleware } from './middleware/metrics';
@@ -22,6 +24,7 @@ const cookiesMiddleware = require('universal-cookie-express');
 const favicon = require('serve-favicon');
 
 serverInitI18n();
+ApiService.strategy = new ApiServiceServer();
 
 const {
   BUILD_DIR,

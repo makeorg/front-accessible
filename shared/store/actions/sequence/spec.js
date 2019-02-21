@@ -2,17 +2,14 @@
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { UserService } from 'Shared/api/UserService';
 import { Tracking } from 'Shared/services/Tracking';
+
 import * as actions from './index';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
-const axiosMock = new MockAdapter(axios);
 
 describe('Sequence Actions', () => {
   beforeEach(() => {
@@ -21,8 +18,6 @@ describe('Sequence Actions', () => {
     jest.spyOn(Tracking, 'trackFirstVote');
 
     store.clearActions();
-    axiosMock.restore();
-    axiosMock.onPost('/tracking/front').reply(204);
   });
 
   afterEach(() => {
@@ -76,7 +71,7 @@ describe('Sequence Actions', () => {
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
-    const store = mockStore({
+    const newStore = mockStore({
       sequence: { votedProposalIds: [], question: { slug: questionSlug } }
     });
 
@@ -85,11 +80,11 @@ describe('Sequence Actions', () => {
       payload: { proposalId }
     }];
 
-    store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+    newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
     expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
     expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(newStore.getActions()).toEqual(expectedActions);
   });
 
   it('Track sequence vote when second vote', () => {
@@ -97,7 +92,7 @@ describe('Sequence Actions', () => {
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
-    const store = mockStore({
+    const newStore = mockStore({
       sequence: { question: { slug: questionSlug }, votedProposalIds: ['fooId'] }
     });
 
@@ -107,10 +102,10 @@ describe('Sequence Actions', () => {
     }];
 
 
-    store.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+    newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
     expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
-    expect(store.getActions()).toEqual(expectedActions);
+    expect(newStore.getActions()).toEqual(expectedActions);
   });
 });

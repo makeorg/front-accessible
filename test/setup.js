@@ -4,6 +4,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import { ApiService } from 'Shared/api/ApiService';
+import { ApiServiceMock } from 'Shared/api/ApiService/ApiService.mock';
 import 'jest-styled-components'
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -16,10 +17,7 @@ global.window = document.defaultView;
 global.navigator = { userAgent: 'browser' };
 global.React = React;
 
-ApiService.country = 'foo';
-ApiService.language = 'foo';
-ApiService.source = 'foo';
-ApiService.operationId = 'foo';
+ApiService.strategy = new ApiServiceMock();
 
 jest.mock('Shared/services/Trackers/FacebookTracking')
 jest.mock('Shared/services/Trackers/TwitterTracking')

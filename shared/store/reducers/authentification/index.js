@@ -2,25 +2,10 @@
 
 import { ApiService } from 'Shared/api/ApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
+import { initialState } from 'Shared/store/initialState';
+import { type StateAuthentification } from 'Shared/store/types';
 
-const savedUser: ?string = (typeof localStorage !== 'undefined')
-  ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;
-const savedToken: ?string = (typeof localStorage !== 'undefined')
-  ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) : null;
-
-const user: ?Object = savedUser ? JSON.parse(savedUser) : null;
-const token: ?Object = savedToken ? JSON.parse(savedToken) : null;
-
-const initialState: Object = {
-  isLoggedIn: (token !== null && user !== null),
-  errors: [],
-  token,
-  user
-};
-ApiService.token = initialState.token;
-
-export function authentification(state: Object = initialState, action: Object) {
+export function authentification(state: StateAuthentification = initialState.authentification, action: Object) {
   switch (action.type) {
     case actionTypes.LOGIN_REQUEST:
       return {
@@ -75,8 +60,8 @@ export function authentification(state: Object = initialState, action: Object) {
       return {
         ...state,
         isLoggedIn: false,
-        user: null,
-        token: null,
+        user: undefined,
+        token: undefined,
         errors: []
       };
     default:
