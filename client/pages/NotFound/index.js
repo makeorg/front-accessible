@@ -7,22 +7,16 @@ import {
   NotFoundPageContentStyle,
   NotFoundPageInnerStyle,
   NotFoundIntroStyle,
-  NotFoundTitleStyle
+  NotFoundTitleStyle,
 } from './Styled';
 
 export const NotFoundPage = () => (
   <NotFoundPageContentStyle>
     <MetaTags />
     <NotFoundPageInnerStyle>
-      <NotFoundIntroStyle>
-        {i18n.t('not_found.intro')}
-      </NotFoundIntroStyle>
-      <NotFoundTitleStyle>
-        {i18n.t('not_found.title')}
-      </NotFoundTitleStyle>
-      <DescriptionStyle>
-        {i18n.t('not_found.description')}
-      </DescriptionStyle>
+      <NotFoundIntroStyle>{i18n.t('not_found.intro')}</NotFoundIntroStyle>
+      <NotFoundTitleStyle>{i18n.t('not_found.title')}</NotFoundTitleStyle>
+      <DescriptionStyle>{i18n.t('not_found.description')}</DescriptionStyle>
     </NotFoundPageInnerStyle>
   </NotFoundPageContentStyle>
 );

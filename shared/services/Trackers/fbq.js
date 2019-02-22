@@ -18,5 +18,5 @@ export const fbq = {
   },
   track(...args) {
     return window.fbq(...args);
-  }
+  },
 };

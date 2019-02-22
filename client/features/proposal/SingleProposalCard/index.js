@@ -15,7 +15,7 @@ import {
   FooterContentSeparatorStyle,
   FooterContentStyle,
   DescriptionStyle,
-  ButtonStyle
+  ButtonStyle,
 } from './Styled';
 import { ProposalStyle } from '../../sequence/Card/Styled';
 import { SeparatorStyle } from '../../sequence/Card/Styled/Content';
@@ -25,27 +25,21 @@ type Props = {
   proposal: ProposalType,
   /** Object with all question's properties */
   questionConfiguration: QuestionConfiguration,
-  questionSlug: string
-}
+  questionSlug: string,
+};
 
 /**
  * Renders Single Proposal Card
  */
 export const SingleProposalCardComponent = (props: Props) => {
-  const {
-    proposal,
-    questionConfiguration,
-    questionSlug
-  } = props;
+  const { proposal, questionConfiguration, questionSlug } = props;
 
   return (
     <CardStyle>
       <InnerProposalStyle>
         <ProposalAuthor author={proposal.author} />
         <SeparatorStyle aria-hidden />
-        <ProposalStyle>
-          {proposal.content}
-        </ProposalStyle>
+        <ProposalStyle>{proposal.content}</ProposalStyle>
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}
@@ -56,27 +50,27 @@ export const SingleProposalCardComponent = (props: Props) => {
         <ContentSeparatorStyle />
         <FooterContentStyle>
           <DescriptionStyle
-            dangerouslySetInnerHTML={
-              {
-                __html: i18n.t(
-                  'proposal_page.footer_text',
-                  { operation_name: `<span>${questionConfiguration.wording.title}</span>` }
-                )
-              }
-            }
+            dangerouslySetInnerHTML={{
+              __html: i18n.t('proposal_page.footer_text', {
+                operation_name: `<span>${
+                  questionConfiguration.wording.title
+                }</span>`,
+              }),
+            }}
           />
           <FooterContentSeparatorStyle />
           <CenterRowStyle>
             <ButtonStyle
               as={Link}
-              to={getSequenceLink(questionSlug, proposal.country, proposal.language)}
+              to={getSequenceLink(
+                questionSlug,
+                proposal.country,
+                proposal.language
+              )}
             >
               {i18n.t('proposal_page.button_1')}
             </ButtonStyle>
-            <ButtonStyle
-              as="a"
-              href={questionConfiguration.aboutUrl}
-            >
+            <ButtonStyle as="a" href={questionConfiguration.aboutUrl}>
               {i18n.t('proposal_page.button_2')}
             </ButtonStyle>
           </CenterRowStyle>

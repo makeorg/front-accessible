@@ -13,5 +13,5 @@ module.exports = {
   IMAGES_DIR,
   DOC_DIR,
   VERSION_PATH,
-  FAVICON_PATH
+  FAVICON_PATH,
 };

@@ -6,7 +6,7 @@ import { SequenceFooterComponent } from './SequenceFooterComponent';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: Object
+  questionConfiguration: Object,
 };
 
 /**
@@ -16,11 +16,14 @@ export class SequenceFooterContainer extends React.Component<Props> {
   trackClickConsultation = () => {
     Tracking.trackClickConsultation();
     return this;
-  }
+  };
 
   render() {
     return (
-      <SequenceFooterComponent handleTracking={this.trackClickConsultation} {...this.props} />
+      <SequenceFooterComponent
+        handleTracking={this.trackClickConsultation}
+        {...this.props}
+      />
     );
   }
 }

@@ -11,13 +11,11 @@ describe('UntypedInput', () => {
     icon: faEnvelope,
     value: 'baz',
     label: 'qux',
-    handleChange: () => {}
+    handleChange: () => {},
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(
-      <UntypedInput {...defaultProps} />
-    );
+    const component = renderer.create(<UntypedInput {...defaultProps} />);
     expect(component).toMatchSnapshot();
   });
 

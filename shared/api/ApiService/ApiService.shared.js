@@ -7,22 +7,32 @@ import { APP_NAME } from 'Shared/constants/config';
 import { env } from 'Shared/env';
 import { type ErrorResponse } from './types';
 
+const HOSTNAME =
+  (typeof window !== 'undefined' &&
+    window &&
+    window.location &&
+    window.location.hostname) ||
+  null;
+const LOCATION_PARAMS =
+  typeof window !== 'undefined' &&
+  window &&
+  window.location &&
+  window.location.search;
+const BROWSER_API_URL =
+  typeof window !== 'undefined' &&
+  window &&
+  window.API_URL &&
+  window.API_URL !== '__API_URL__'
+    ? window.API_URL
+    : null;
 
-const HOSTNAME = (typeof window !== 'undefined' && window && window.location && window.location.hostname) || null;
-const LOCATION_PARAMS = typeof window !== 'undefined' && window && window.location && window.location.search;
-const BROWSER_API_URL = (
-  typeof window !== 'undefined'
-  && window
-  && window.API_URL
-  && window.API_URL !== '__API_URL__'
-) ? window.API_URL : null;
-
-export const API_URL = BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';
+export const API_URL =
+  BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';
 export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
 
 axiosRetry(axios, {
   retries: 5,
-  retryDelay: retryCount => retryCount * 100
+  retryDelay: retryCount => retryCount * 100,
 });
 /**
  * handle error for http response
@@ -53,13 +63,13 @@ class ApiServiceSharedClass {
       'Content-Type': 'application/json; charset=UTF-8',
       'x-hostname': HOSTNAME,
       'x-make-app-name': APP_NAME,
-      'x-make-location': 'core'
+      'x-make-location': 'core',
     };
     let headers = Object.assign({}, defaultHeaders, options.headers || {});
 
     if (paramsQuery) {
       headers = Object.assign({}, headers, {
-        'x-get-parameters': paramsQuery
+        'x-get-parameters': paramsQuery,
       });
     }
 
@@ -67,7 +77,7 @@ class ApiServiceSharedClass {
       method: options.method,
       headers,
       data: options.body,
-      withCredentials: true
+      withCredentials: true,
     })
       .then(response => response.data)
       .catch(handleErrors);

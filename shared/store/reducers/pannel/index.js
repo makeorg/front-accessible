@@ -5,7 +5,7 @@ import * as pannelContentTypes from 'Shared/constants/pannel';
 
 const initialState: Object = {
   isPannelOpen: false,
-  contentType: null
+  contentType: null,
 };
 
 export function pannel(state: Object = initialState, action: Object) {
@@ -14,24 +14,24 @@ export function pannel(state: Object = initialState, action: Object) {
       return {
         ...state,
         isPannelOpen: true,
-        contentType: pannelContentTypes.LOGIN_CONTENT
+        contentType: pannelContentTypes.LOGIN_CONTENT,
       };
     case actionTypes.PANNEL_SHOW_REGISTER:
       return {
         ...state,
         isPannelOpen: true,
-        contentType: pannelContentTypes.REGISTER_CONTENT
+        contentType: pannelContentTypes.REGISTER_CONTENT,
       };
     case actionTypes.PANNEL_SHOW_FORGOT_PASSWORD:
       return {
         ...state,
         isPannelOpen: true,
-        contentType: pannelContentTypes.FORGOT_PASSWORD_CONTENT
+        contentType: pannelContentTypes.FORGOT_PASSWORD_CONTENT,
       };
     case actionTypes.PANNEL_CLOSE:
       return {
         ...state,
-        isPannelOpen: false
+        isPannelOpen: false,
       };
     default:
       return state;

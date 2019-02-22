@@ -25,8 +25,8 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean
-}
+  isSequenceCollapsed: boolean,
+};
 
 /**
  * Handles Sign Up Card Business Logic
@@ -37,7 +37,7 @@ export class SignUpCardhandler extends React.Component<Props> {
     if (index === currentIndex) {
       Tracking.trackDisplaySignUpCard(question.slug);
     }
-  }
+  };
 
   render() {
     const {
@@ -46,7 +46,7 @@ export class SignUpCardhandler extends React.Component<Props> {
       index,
       currentIndex,
       isPannelOpen,
-      isSequenceCollapsed
+      isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -59,21 +59,23 @@ export class SignUpCardhandler extends React.Component<Props> {
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        tabIndex={
+          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+        }
         {...this.props}
       />
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
   const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
     isSequenceCollapsed,
-    question
+    question,
   };
 };
 

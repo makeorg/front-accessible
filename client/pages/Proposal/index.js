@@ -18,7 +18,7 @@ type Props = {
   questionConfiguration: QuestionConfiguration,
   fetchProposal: (proposalId: string) => void,
   fetchQuestionConfiguration: (questionSlug: string) => void,
-  match: TypeMatch
+  match: TypeMatch,
 };
 
 class ProposalPageContainer extends React.Component<Props> {
@@ -28,7 +28,7 @@ class ProposalPageContainer extends React.Component<Props> {
       proposal,
       questionConfiguration,
       fetchProposal,
-      fetchQuestionConfiguration
+      fetchQuestionConfiguration,
     } = this.props;
 
     if (!proposal) {
@@ -41,11 +41,7 @@ class ProposalPageContainer extends React.Component<Props> {
   }
 
   render() {
-    const {
-      match,
-      proposal,
-      questionConfiguration
-    } = this.props;
+    const { match, proposal, questionConfiguration } = this.props;
 
     if (!questionConfiguration) {
       return null;
@@ -54,9 +50,7 @@ class ProposalPageContainer extends React.Component<Props> {
     return (
       <ThemeProvider theme={questionConfiguration.theme}>
         <MiddlePageWrapperStyle>
-          <MetaTags
-            description={i18n.t('meta.proposal.description')}
-          />
+          <MetaTags description={i18n.t('meta.proposal.description')} />
           {proposal && (
             <ProposalPageContentLoader
               proposal={proposal}
@@ -70,13 +64,13 @@ class ProposalPageContainer extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { data } = state.proposal;
   const { questionConfiguration } = state.sequence;
 
   return {
     proposal: data,
-    questionConfiguration
+    questionConfiguration,
   };
 };
 
@@ -86,10 +80,13 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchQuestionConfiguration: (questionSlug: string) => {
     dispatch(fetchQuestionConfigurationData(questionSlug));
-  }
+  },
 });
 
-export const ProposalPage = connect(mapStateToProps, mapDispatchToProps)(ProposalPageContainer);
+export const ProposalPage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProposalPageContainer);
 
 // default export needed for loadable component
 export default ProposalPage; // eslint-disable-line import/no-default-export

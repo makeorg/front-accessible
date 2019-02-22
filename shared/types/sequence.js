@@ -6,57 +6,54 @@ import type {
   SignUpCardConfig,
   SignUpCardWording,
   FinalCardConfig,
-  FinalCardWording
+  FinalCardWording,
 } from 'Shared/types/card';
 
-import type {
-  ProposalType
-} from 'Shared/types/proposal';
+import type { ProposalType } from 'Shared/types/proposal';
 
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,
   pushProposal: PushProposalCardConfig,
   signUpCard: SignUpCardConfig,
-  finalCard: FinalCardConfig
-}
-
+  finalCard: FinalCardConfig,
+};
 
 export type ExtraSlidesWording = {
   introCard: IntroCardWording,
   signUpCard: SignUpCardWording,
-  finalCard: FinalCardWording
-}
+  finalCard: FinalCardWording,
+};
 
 export type Theme = {
   color: string,
   footerFontColor: string,
   gradientStart: string,
-  gradientEnd: string
-}
+  gradientEnd: string,
+};
 
 export type Metas = {
   title: string,
   description: string,
-  picture: string
-}
+  picture: string,
+};
 
 export type Wording = {
   title: string,
   question: string,
-  metas: Metas
-}
+  metas: Metas,
+};
 
 export type TwitterType = {
-  hashtags: string
-}
+  hashtags: string,
+};
 
 export type SharingType = {
-  twitter: TwitterType
-}
+  twitter: TwitterType,
+};
 
 export type FooterType = {
-  sentence: string
-}
+  sentence: string,
+};
 
 export type QuestionConfiguration = {
   wording: Wording,
@@ -67,25 +64,24 @@ export type QuestionConfiguration = {
   sequenceExtraSlidesWording: ExtraSlidesWording,
   sequenceExtraSlidesConfig: ExtraSlidesConfig,
   sequenceSignUpForm: any,
-  footer?: FooterType
-}
+  footer?: FooterType,
+};
 
 export type ConfigurationTypes =
   | IntroCardConfig
   | PushProposalCardConfig
   | SignUpCardConfig
   | FinalCardConfig
-  | ProposalType
-
+  | ProposalType;
 
 export type WordingTypes =
   | IntroCardWording
   | SignUpCardWording
-  | FinalCardWording
+  | FinalCardWording;
 
 export type CardType = {
   type: string,
   configuration: ConfigurationTypes,
   wording?: WordingTypes,
   cardOffset?: number,
-}
+};

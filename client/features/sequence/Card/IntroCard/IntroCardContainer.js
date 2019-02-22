@@ -24,8 +24,8 @@ type Props = {
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Method called when start button is clicked */
-  handleStartSequence: Function
-}
+  handleStartSequence: Function,
+};
 
 /**
  * Handles Intro Card Business Logic
@@ -36,8 +36,7 @@ class IntroCardHandler extends React.Component<Props> {
     if (index === currentIndex) {
       Tracking.trackDisplayIntroCard(question.slug);
     }
-  }
-
+  };
 
   render() {
     const {
@@ -46,7 +45,7 @@ class IntroCardHandler extends React.Component<Props> {
       index,
       currentIndex,
       isPannelOpen,
-      isSequenceCollapsed
+      isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -58,21 +57,23 @@ class IntroCardHandler extends React.Component<Props> {
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        tabIndex={
+          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+        }
         {...this.props}
       />
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
   const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
     isSequenceCollapsed,
-    question
+    question,
   };
 };
 

@@ -7,7 +7,7 @@ export const AuthorInfosStyle = styled.cite`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   font-style: normal;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};
   }
 `;

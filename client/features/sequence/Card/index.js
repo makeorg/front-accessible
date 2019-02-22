@@ -5,7 +5,7 @@ import {
   CARD_TYPE_EXTRASLIDE_INTRO,
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-  CARD_TYPE_EXTRASLIDE_FINAL_CARD
+  CARD_TYPE_EXTRASLIDE_FINAL_CARD,
 } from 'Shared/constants/card';
 import { ProposalCard } from './ProposalCard';
 import { SignUpCardContainer } from './SignUpCard';
@@ -32,7 +32,7 @@ type Props = {
   /** Method called when next card button in Push Proposal Card is clicked  */
   skipProposalPushCard: Function,
   /** Method called when next card button in Intro Card is clicked  */
-  handleStartSequence: Function
+  handleStartSequence: Function,
 };
 
 /**
@@ -48,7 +48,7 @@ export const Card = (props: Props) => {
     goToPreviousCard,
     skipSignUpCard,
     skipProposalPushCard,
-    handleStartSequence
+    handleStartSequence,
   } = props;
 
   switch (card.type) {

@@ -7,12 +7,11 @@ import {
   EmailButtonStyle,
   IconInButtonStyle,
   SmallButtonWrapperStyle,
-  RedLinkButtonStyle
+  RedLinkButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
-import { FacebookAuthentificationButtonComponent }
-  from 'Client/features/auth/Social/FacebookAuthentification/Button';
+import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 
 type Props = {
@@ -21,28 +20,20 @@ type Props = {
   /** Method called to render Login Pannel */
   handleLoginClick: () => void,
   /** Tabindex for interactive items */
-  tabIndex: number
-}
+  tabIndex: number,
+};
 
 /**
  * Renders Authentification in Sign Up Card
  */
 export const SignUpCardAuthentificationComponent = (props: Props) => {
-  const {
-    handleRegisterClick,
-    handleLoginClick,
-    tabIndex
-  } = props;
+  const { handleRegisterClick, handleLoginClick, tabIndex } = props;
 
   return (
     <CenterColumnStyle>
       <SmallButtonWrapperStyle>
-        <FacebookAuthentificationButtonComponent
-          tabIndex={tabIndex}
-        />
-        <GoogleAuthentificationButtonComponent
-          tabIndex={tabIndex}
-        />
+        <FacebookAuthentificationButtonComponent tabIndex={tabIndex} />
+        <GoogleAuthentificationButtonComponent tabIndex={tabIndex} />
         <EmailButtonStyle
           onClick={handleRegisterClick}
           tabIndex={tabIndex}
@@ -56,10 +47,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
       </SmallButtonWrapperStyle>
       <ExtraAltParagraphStyle>
         {i18n.t('register.login_title')}
-        <RedLinkButtonStyle
-          tabIndex={tabIndex}
-          onClick={handleLoginClick}
-        >
+        <RedLinkButtonStyle tabIndex={tabIndex} onClick={handleLoginClick}>
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>

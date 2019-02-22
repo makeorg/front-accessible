@@ -1,1 +1,3 @@
-export { PushProposalCardContainer as PushProposalCard } from './PushProposalCardContainer';
+export {
+  PushProposalCardContainer as PushProposalCard,
+} from './PushProposalCardContainer';

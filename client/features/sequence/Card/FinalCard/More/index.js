@@ -12,26 +12,19 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when button is clicked */
-  handleEndSequence: () => void
-}
+  handleEndSequence: () => void,
+};
 
 /**
  * Renders finalCard More component
  */
 export const More = (props: Props) => {
-  const {
-    configuration,
-    wording,
-    tabIndex,
-    handleEndSequence
-  } = props;
+  const { configuration, wording, tabIndex, handleEndSequence } = props;
 
   if (wording && wording.learn_more_title && wording.learn_more_button) {
     return (
       <MoreWrapperStyle>
-        <IntroParagraphStyle>
-          {wording.learn_more_title}
-        </IntroParagraphStyle>
+        <IntroParagraphStyle>{wording.learn_more_title}</IntroParagraphStyle>
         <FinalLinkStyle
           as="a"
           tabIndex={tabIndex}

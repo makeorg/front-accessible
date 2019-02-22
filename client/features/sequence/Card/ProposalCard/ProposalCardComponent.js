@@ -8,7 +8,11 @@ import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { ProposalCardStyle, ProposalStyle } from '../Styled';
-import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
+import {
+  BackButtonWrapperStyle,
+  BackButtonStyle,
+  BackIconStyle,
+} from '../Styled/Buttons';
 import { ContentSpecialWrapperStyle, SeparatorStyle } from '../Styled/Content';
 
 type Props = {
@@ -27,8 +31,8 @@ type Props = {
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: Function
-}
+  goToNextCard: Function,
+};
 
 /**
  * Renders Proposal Card
@@ -42,7 +46,7 @@ export const ProposalCardComponent = (props: Props) => {
     cardOffset,
     tabIndex,
     goToPreviousCard,
-    goToNextCard
+    goToNextCard,
   } = props;
   const position = getPosition(index, currentIndex);
   const scale = getScale(index, currentIndex);
@@ -57,23 +61,22 @@ export const ProposalCardComponent = (props: Props) => {
       id={`proposal-card-${index}`}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle
-          tabIndex={tabIndex}
-          onClick={goToPreviousCard}
-        >
+        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
-        <ProgressCircleComponent index={index} cardOffset={cardOffset} cardsCount={cardsCount} />
+        <ProgressCircleComponent
+          index={index}
+          cardOffset={cardOffset}
+          cardsCount={cardsCount}
+        />
       </BackButtonWrapperStyle>
       <ContentSpecialWrapperStyle as="section">
         <ProposalAuthor author={proposal.author} />
         <SeparatorStyle aria-hidden />
-        <ProposalStyle>
-          {proposal.content}
-        </ProposalStyle>
+        <ProposalStyle>{proposal.content}</ProposalStyle>
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}

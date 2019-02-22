@@ -15,21 +15,21 @@ const localeMonths = {
     'septembre',
     'octobre',
     'novembre',
-    'décembre'
-  ]
+    'décembre',
+  ],
 };
 
 export const getDateOfBirthFromAge = (age: number = 0) => {
   if (!age) {
     return null;
   }
-  const birthYear = (new Date()).getFullYear() - Number(age);
+  const birthYear = new Date().getFullYear() - Number(age);
 
   return `${birthYear}-01-01`;
 };
 
 export class DateHelperSingleton {
-  _language: string
+  _language: string;
 
   constructor() {
     if (!instance) {

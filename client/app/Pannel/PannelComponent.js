@@ -4,7 +4,11 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { PannelCloseButtonStyle, PannelContentStyle, PannelStyle } from './Styled';
+import {
+  PannelCloseButtonStyle,
+  PannelContentStyle,
+  PannelStyle,
+} from './Styled';
 
 type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -12,7 +16,7 @@ type Props = {
   /** Method called to close Sliding Pannel */
   handleClose: Function,
   /** React elements rendered as children */
-  children: React.Node
+  children: React.Node,
 };
 
 /**
@@ -21,7 +25,10 @@ type Props = {
 export const PannelComponent = (props: Props) => {
   const { isPannelOpen, handleClose, children } = props;
   return (
-    <PannelStyle translate={isPannelOpen ? 100 : 0} aria-hidden={isPannelOpen ? 'false' : 'true'}>
+    <PannelStyle
+      translate={isPannelOpen ? 100 : 0}
+      aria-hidden={isPannelOpen ? 'false' : 'true'}
+    >
       <PannelCloseButtonStyle
         aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
@@ -30,9 +37,7 @@ export const PannelComponent = (props: Props) => {
       >
         <FontAwesomeIcon aria-hidden icon={faTimes} />
       </PannelCloseButtonStyle>
-      <PannelContentStyle>
-        {children}
-      </PannelContentStyle>
+      <PannelContentStyle>{children}</PannelContentStyle>
     </PannelStyle>
   );
 };

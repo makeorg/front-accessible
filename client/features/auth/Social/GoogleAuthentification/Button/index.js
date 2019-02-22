@@ -2,7 +2,10 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { IconInButtonStyle, GoogleButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import {
+  IconInButtonStyle,
+  GoogleButtonStyle,
+} from 'Client/ui/Elements/ButtonElements';
 import { GoogleAuthentificationComponent } from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
@@ -12,12 +15,11 @@ const renderGoogleLogin = tabIndex => renderProps => (
     </IconInButtonStyle>
     Google
   </GoogleButtonStyle>
-
 );
 
 type Props = {
   /** Tabindex for interactive items */
-  tabIndex: number
+  tabIndex: number,
 };
 
 /**
@@ -27,6 +29,9 @@ export const GoogleAuthentificationButtonComponent = (props: Props) => {
   const { tabIndex } = props;
 
   return (
-    <GoogleAuthentificationComponent {...props} render={renderGoogleLogin(tabIndex)} />
+    <GoogleAuthentificationComponent
+      {...props}
+      render={renderGoogleLogin(tabIndex)}
+    />
   );
 };

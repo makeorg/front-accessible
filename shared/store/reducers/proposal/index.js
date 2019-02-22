@@ -6,7 +6,10 @@ import { getBaitText } from 'Shared/constants/proposal';
 import { type ProposalAction } from 'Shared/types/action';
 import { type StateProposal } from 'Shared/store/types';
 
-export function proposal(state: StateProposal = initialState.proposal, action: ProposalAction) {
+export function proposal(
+  state: StateProposal = initialState.proposal,
+  action: ProposalAction
+) {
   switch (action.type) {
     case actionTypes.PROPOSE_TYPING:
       return {
@@ -15,14 +18,14 @@ export function proposal(state: StateProposal = initialState.proposal, action: P
         isCurrentSubmitSuccess: false,
         content: action.payload.content,
         length: action.payload.length,
-        canSubmit: action.payload.canSubmit
+        canSubmit: action.payload.canSubmit,
       };
     case actionTypes.PROPOSE_REQUEST:
       return {
         ...state,
         isTyping: false,
         content: action.payload.content,
-        questionId: action.payload.questionId
+        questionId: action.payload.questionId,
       };
     case actionTypes.PROPOSE_SUCCESS:
       return {
@@ -34,17 +37,17 @@ export function proposal(state: StateProposal = initialState.proposal, action: P
         length: getBaitText().length,
         hasProposed: true,
         questionId: undefined,
-        error: undefined
+        error: undefined,
       };
     case actionTypes.PROPOSE_FAILURE:
       return {
         ...state,
-        error: action.error
+        error: action.error,
       };
     case actionTypes.PROPOSAL_LOAD:
       return {
         ...state,
-        data: action.payload
+        data: action.payload,
       };
     default:
       return state;

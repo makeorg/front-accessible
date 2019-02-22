@@ -8,7 +8,11 @@ export const getParamsQuery = (searchParams: string) => {
   return params.toString();
 };
 
-export const localizeLink = (link: string, country: string, language: string) => {
+export const localizeLink = (
+  link: string,
+  country: string,
+  language: string
+) => {
   if (!country || !language) {
     return null;
   }
@@ -16,41 +20,41 @@ export const localizeLink = (link: string, country: string, language: string) =>
   return `${link}/${country.toLowerCase()}-${language.toLowerCase()}`;
 };
 
-export const localizeCguLink = (country: string, language: string) => (
-  localizeLink(URL.CGU_LINK, country, language)
-);
+export const localizeCguLink = (country: string, language: string) =>
+  localizeLink(URL.CGU_LINK, country, language);
 
-export const localizeDataPolicyLink = (country: string, language: string) => (
-  localizeLink(URL.DATA_POLICY_LINK, country, language)
-);
+export const localizeDataPolicyLink = (country: string, language: string) =>
+  localizeLink(URL.DATA_POLICY_LINK, country, language);
 
-export const localizeModerationCharterLink = (country: string, language: string) => (
-  localizeLink(URL.MODERATION_CHARTER_LINK, country, language)
-);
+export const localizeModerationCharterLink = (
+  country: string,
+  language: string
+) => localizeLink(URL.MODERATION_CHARTER_LINK, country, language);
 
 export const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;
 
-export const twitterShareUrl = (pathName: string = '', message: string = '', hashtags: string = '') => (
+export const twitterShareUrl = (
+  pathName: string = '',
+  message: string = '',
+  hashtags: string = ''
+) =>
   `https://twitter.com/intent/tweet/?text=${encodeURIComponent(
     message
-  )}&hashtags=${encodeURIComponent(
-    hashtags
-  )}&url=${encodeURIComponent(
+  )}&hashtags=${encodeURIComponent(hashtags)}&url=${encodeURIComponent(
     currentUrl(pathName)
-  )}`
-);
+  )}`;
 
-export const facebookShareUrl = (pathName: string = '') => (
-  `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl(pathName))}`
-);
+export const facebookShareUrl = (pathName: string = '') =>
+  `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    currentUrl(pathName)
+  )}`;
 
-export const linkedinShareUrl = (pathName: string = '', message: string = '') => (
+export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
   `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
     currentUrl(pathName)
   )}&title=${encodeURIComponent(message)}&summary=${encodeURIComponent(
     message
-  )}&source=${encodeURIComponent(currentUrl(pathName))}`
-);
+  )}&source=${encodeURIComponent(currentUrl(pathName))}`;
 
 /**
  * Get the sequence link
@@ -58,6 +62,8 @@ export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
  * @return {string}
  */
 
-export const getSequenceLink = (questionSlug: string, country: string, language: string) => (
-  `/${country}-${language}/consultation/${questionSlug}/selection`
-);
+export const getSequenceLink = (
+  questionSlug: string,
+  country: string,
+  language: string
+) => `/${country}-${language}/consultation/${questionSlug}/selection`;

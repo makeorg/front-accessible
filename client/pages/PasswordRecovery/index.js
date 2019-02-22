@@ -6,13 +6,13 @@ import 'url-search-params-polyfill';
 import { PasswordRecovery } from 'Client/features/auth/PasswordRecovery';
 import {
   PasswordRecoveryWrapperStyle,
-  PasswordRecoveryContentStyle
+  PasswordRecoveryContentStyle,
 } from 'Client/features/auth/PasswordRecovery/Styled';
 
 type Props = {
   passwordRecovery: Object,
   question: Object,
-  match: Object
+  match: Object,
 };
 
 export class PasswordRecoveryRedirect extends React.Component<Props> {
@@ -20,15 +20,19 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
     const { passwordRecovery } = this.props;
     const { validToken } = passwordRecovery;
 
-
     if (!validToken) {
       const { question, match } = this.props;
       const redirectPath = !question
         ? `/${match.params.countryLanguage}`
-        : `/${match.params.countryLanguage}/consultation/${question.slug}/selection`;
+        : `/${match.params.countryLanguage}/consultation/${
+            question.slug
+          }/selection`;
 
       return (
-        <Redirect path="/:countryLanguage/password-recovery/:userId/:resetToken" to={redirectPath} />
+        <Redirect
+          path="/:countryLanguage/password-recovery/:userId/:resetToken"
+          to={redirectPath}
+        />
       );
     }
 
@@ -42,13 +46,14 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
   }
 }
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { passwordRecovery } = state.user;
   const { question } = state.sequence;
   return { passwordRecovery, question };
 };
 
-export const PasswordRecoveryPage = withRouter(connect(mapStateToProps)(PasswordRecoveryRedirect));
+export const PasswordRecoveryPage = withRouter(
+  connect(mapStateToProps)(PasswordRecoveryRedirect)
+);
 // default export needed for loadable component
 export default PasswordRecoveryPage; // eslint-disable-line import/no-default-export

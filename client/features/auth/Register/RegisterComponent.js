@@ -2,7 +2,10 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import type { UserObject, ErrorObject } from 'Shared/types/form';
-import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  SecondLevelTitleStyle,
+  ThirdLevelTtitleStyle,
+} from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled';
@@ -34,17 +37,14 @@ type Props = {
   /** Boolean toggled when password shown / hidden */
   passwordIsDisplayed: boolean,
   /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void
-}
+  togglePasswordIsDisplayed: () => void,
+};
 
 /**
  * Renders Register component
  */
 export const RegisterComponent = (props: Props) => {
-  const {
-    isPannelOpen,
-    handleLoginPannel
-  } = props;
+  const { isPannelOpen, handleLoginPannel } = props;
 
   return (
     <RegisterStyle role="region" aria-labelledby="register_title">
@@ -61,9 +61,7 @@ export const RegisterComponent = (props: Props) => {
         &nbsp;
         {i18n.t('register.or')}
         &nbsp;
-        <GoogleAuthentificationLinkComponent
-          tabIndex={isPannelOpen ? 0 : -1}
-        />
+        <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
       </ThirdLevelTtitleStyle>
       <Separators.Wrapper>
         <Separators.Large />
@@ -76,7 +74,10 @@ export const RegisterComponent = (props: Props) => {
       <RegisterFormComponent {...props} />
       <ExtraParagraphStyle>
         {i18n.t('register.login_title')}
-        <RedLinkButtonStyle onClick={handleLoginPannel} tabIndex={isPannelOpen ? 0 : -1}>
+        <RedLinkButtonStyle
+          onClick={handleLoginPannel}
+          tabIndex={isPannelOpen ? 0 : -1}
+        >
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>

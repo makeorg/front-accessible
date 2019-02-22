@@ -31,8 +31,8 @@ type Props = {
   /** Zindex property used by Styled Component */
   zindex: number,
   /** Method called when button is clicked */
-  handleStartSequence: () => void
-}
+  handleStartSequence: () => void,
+};
 
 /**
  * Renders Intro Card
@@ -47,7 +47,7 @@ export const IntroCardComponent = (props: Props) => {
     handleStartSequence,
     position,
     scale,
-    zindex
+    zindex,
   } = props;
 
   return (
@@ -58,32 +58,33 @@ export const IntroCardComponent = (props: Props) => {
       isCardCollapsed={index < currentIndex}
     >
       <header>
-        <ExtraLogo extraLogo={configuration.extraLogo && configuration.extraLogo} />
+        <ExtraLogo
+          extraLogo={configuration.extraLogo && configuration.extraLogo}
+        />
         <IntroTitle title={configuration.customTitle && wording.title} />
       </header>
       <Small aria-hidden />
-      {configuration.customDescription ? <IntroDescription description={wording.description} /> : <IntroDescription />}
+      {configuration.customDescription ? (
+        <IntroDescription description={wording.description} />
+      ) : (
+        <IntroDescription />
+      )}
       <IntroButtonStyle
         id="sequence-start-sequence-button"
         tabIndex={tabIndex}
         onClick={handleStartSequence}
       >
         <IconInButtonStyle>
-          <FontAwesomeIcon
-            aria-hidden
-            icon={faPlay}
-          />
+          <FontAwesomeIcon aria-hidden icon={faPlay} />
         </IconInButtonStyle>
         {i18n.t('intro_card.button')}
       </IntroButtonStyle>
-      {configuration
-        && (
-          <Partners
-            partners={configuration.partners}
-            configuration={configuration.inPartnershipWith}
-          />
-        )
-      }
+      {configuration && (
+        <Partners
+          partners={configuration.partners}
+          configuration={configuration.inPartnershipWith}
+        />
+      )}
     </ProposalCardCenteredStyle>
   );
 };

@@ -19,34 +19,34 @@ type Props = {
   buttonType: React.Node,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
-}
+};
 
 type State = {
   /** Boolean toggled when tooltip is shown / hidden */
-  isTooltipDisplayed: boolean
-}
+  isTooltipDisplayed: boolean,
+};
 
 /**
  * Handles Vote Button Business Logic
  */
 export class VoteButtonContainer extends React.Component<Props, State> {
   state = {
-    isTooltipDisplayed: false
-  }
+    isTooltipDisplayed: false,
+  };
 
   displayTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     this.setState({
-      isTooltipDisplayed: true
+      isTooltipDisplayed: true,
     });
-  }
+  };
 
   hideTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     this.setState({
-      isTooltipDisplayed: false
+      isTooltipDisplayed: false,
     });
-  }
+  };
 
   render() {
     return (

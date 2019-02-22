@@ -1,14 +1,14 @@
 /* @flow */
 
 export type TypeToken = {
-  token_type: string;
-  access_token: string;
-}
+  token_type: string,
+  access_token: string,
+};
 
 export type ErrorResponse = {
   response: {
-    status: number;
-    data: Object;
+    status: number,
+    data: Object,
   },
-  message: string;
-}
+  message: string,
+};

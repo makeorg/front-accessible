@@ -7,17 +7,29 @@ import { BackArrowStyle, BackButtonStyle } from '../Styled';
 /**
  * Renders button used to expand the Sequence
  */
-export const CollapseToggle = ({ isSequenceCollapsed, handleExpandSequence, isPannelOpen }) => {
+export const CollapseToggle = ({
+  isSequenceCollapsed,
+  handleExpandSequence,
+  isPannelOpen,
+}) => {
   if (!isSequenceCollapsed) {
     return null;
   }
 
   return (
     <React.Fragment>
-      <BackArrowStyle aria-hidden onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
+      <BackArrowStyle
+        aria-hidden
+        onClick={handleExpandSequence}
+        tabIndex={isPannelOpen ? -1 : 0}
+      >
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrowStyle>
-      <BackButtonStyle aria-hidden onClick={handleExpandSequence} tabIndex={isPannelOpen ? -1 : 0}>
+      <BackButtonStyle
+        aria-hidden
+        onClick={handleExpandSequence}
+        tabIndex={isPannelOpen ? -1 : 0}
+      >
         {i18n.t('sequence.return')}
       </BackButtonStyle>
     </React.Fragment>

@@ -7,8 +7,22 @@ const fs = require('fs');
 const path = require('path');
 
 const GLOBAL_TRAD_DIR = path.resolve(__dirname, 'static');
-const APP_TRAD_DIR = path.resolve(__dirname, '..', '..', 'server', 'staticData', 'i18n');
-const QUESTION_TRAD_DIR = path.resolve(__dirname, '..', '..', 'server', 'staticData', 'operationsParams');
+const APP_TRAD_DIR = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'server',
+  'staticData',
+  'i18n'
+);
+const QUESTION_TRAD_DIR = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'server',
+  'staticData',
+  'operationsParams'
+);
 
 const countriesLanguages = {
   AT: ['de'],
@@ -38,7 +52,7 @@ const countriesLanguages = {
   RO: ['ro'],
   SE: ['sv'],
   SI: ['sl'],
-  SK: ['sk']
+  SK: ['sk'],
 };
 
 const writeJson = object => JSON.stringify(object, null, 2);
@@ -52,7 +66,7 @@ const mergeAppTrads = (filePath, newTrads) => {
     const appTrads = JSON.parse(appTradData);
     const updatedTrads = {
       ...appTrads,
-      ...newTrads
+      ...newTrads,
     };
     fs.writeFileSync(filePath, writeJson(updatedTrads), 'utf8');
   } catch (error) {
@@ -71,10 +85,9 @@ const mergeQuestionTrads = (filePath, newTrads) => {
 
     const questionTrads = JSON.parse(questionTradData);
 
-
     const updatedTrads = {
       ...questionTrads,
-      ...newTrads
+      ...newTrads,
     };
 
     fs.writeFileSync(filePath, writeJson(updatedTrads), 'utf8');
@@ -88,15 +101,16 @@ const mergeQuestionTrads = (filePath, newTrads) => {
 
 const promises = [];
 const countries = Object.keys(countriesLanguages);
-countries.forEach((country) => {
-  countriesLanguages[country].forEach((language) => {
+countries.forEach(country => {
+  countriesLanguages[country].forEach(language => {
     promises.push(
       new Promise((resolve, reject) => {
         const globalFilePath = `${GLOBAL_TRAD_DIR}/global_${country}_${language}.json`;
         const appTradFilePath = `${APP_TRAD_DIR}/${language}-${country}.json`;
-        const weeuropeanFileName = (countriesLanguages[country].length > 1)
-          ? `weeuropeans-${country.toLowerCase()}-${language}.json`
-          : `weeuropeans-${country.toLowerCase()}.json`;
+        const weeuropeanFileName =
+          countriesLanguages[country].length > 1
+            ? `weeuropeans-${country.toLowerCase()}-${language}.json`
+            : `weeuropeans-${country.toLowerCase()}.json`;
         const questionTradFilePath = `${QUESTION_TRAD_DIR}/${weeuropeanFileName}`;
         try {
           const data = fs.readFileSync(globalFilePath, 'utf8');
@@ -108,11 +122,14 @@ countries.forEach((country) => {
           const trads = JSON.parse(data.trim());
           const { weeuropean } = trads;
           if (!weeuropean) {
-            console.error(`The file for ${language}-${country} miss weeuropean trads`);
+            console.error(
+              `The file for ${language}-${country} miss weeuropean trads`
+            );
             reject();
           }
 
-          weeuropean.wording.metas.picture = 'https://assets.make.org/assets/images/meta-we-europeans-no-copy.png';
+          weeuropean.wording.metas.picture =
+            'https://assets.make.org/assets/images/meta-we-europeans-no-copy.png';
 
           const appTrads = trads;
           delete appTrads.weeuropean;
@@ -120,14 +137,20 @@ countries.forEach((country) => {
           if (mergeAppTrads(appTradFilePath, appTrads)) {
             console.info(`App Tranlsation merged for ${language}-${country}`);
           } else {
-            console.error(`Error when App Tranlsation merge: ${language}-${country}`);
+            console.error(
+              `Error when App Tranlsation merge: ${language}-${country}`
+            );
             reject();
           }
 
           if (mergeQuestionTrads(questionTradFilePath, weeuropean)) {
-            console.info(`Weeuropean Tranlsation merge for ${language}-${country}`);
+            console.info(
+              `Weeuropean Tranlsation merge for ${language}-${country}`
+            );
           } else {
-            console.error(`Error when Weeuropean Tranlsation merge: ${language}-${country}`);
+            console.error(
+              `Error when Weeuropean Tranlsation merge: ${language}-${country}`
+            );
             reject();
           }
         } catch (error) {

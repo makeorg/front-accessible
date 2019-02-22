@@ -1,7 +1,10 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { pannelShowRegister, pannelShowLogin } from 'Shared/store/actions/pannel';
+import {
+  pannelShowRegister,
+  pannelShowLogin,
+} from 'Shared/store/actions/pannel';
 import { SignUpCardAuthentificationComponent } from './SignUpCardAuthentificationComponent';
 
 type Props = {
@@ -10,8 +13,8 @@ type Props = {
   /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: Function,
   /** Method called to render Login Component in Sliding Pannel */
-  handleLoginClick: Function
-}
+  handleLoginClick: Function,
+};
 
 /**
  * Handles Authentification Business Logic in Sign Up Card
@@ -26,7 +29,10 @@ const mapDispatchToProps = dispatch => ({
   },
   handleLoginClick: () => {
     dispatch(pannelShowLogin());
-  }
+  },
 });
 
-export const SignUpCardAuthentificationContainer = connect(null, mapDispatchToProps)(SignUpCardAuthentification);
+export const SignUpCardAuthentificationContainer = connect(
+  null,
+  mapDispatchToProps
+)(SignUpCardAuthentification);

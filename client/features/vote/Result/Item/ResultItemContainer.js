@@ -15,13 +15,13 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Vote key */
-  voteKey: string
-}
+  voteKey: string,
+};
 
 type State = {
   /** Boolean toggled when tooltip is shown / hidden */
-  isTooltipDisplayed: boolean
-}
+  isTooltipDisplayed: boolean,
+};
 
 /**
  * Handles Result Item Business Logic
@@ -30,7 +30,7 @@ export class ResultItemContainer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      isTooltipDisplayed: false
+      isTooltipDisplayed: false,
     };
   }
 
@@ -39,28 +39,28 @@ export class ResultItemContainer extends React.Component<Props, State> {
     event.preventDefault();
     if (isTooltipDisplayed) {
       this.setState({
-        isTooltipDisplayed: false
+        isTooltipDisplayed: false,
       });
     } else {
       this.setState({
-        isTooltipDisplayed: true
+        isTooltipDisplayed: true,
       });
     }
-  }
+  };
 
   displayTooltip = (event: SyntheticEvent<>) => {
     event.preventDefault();
     this.setState({
-      isTooltipDisplayed: true
+      isTooltipDisplayed: true,
     });
-  }
+  };
 
   hideTooltip = (event: SyntheticEvent<>) => {
     event.preventDefault();
     this.setState({
-      isTooltipDisplayed: false
+      isTooltipDisplayed: false,
     });
-  }
+  };
 
   render() {
     const {
@@ -68,7 +68,7 @@ export class ResultItemContainer extends React.Component<Props, State> {
       voteStaticParams,
       proposalId,
       tabIndex,
-      voteKey
+      voteKey,
     } = this.props;
     const { isTooltipDisplayed } = this.state;
     return (

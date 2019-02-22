@@ -8,7 +8,7 @@ import {
   IconColors,
   MakeThemeColors,
   BackgroundColors,
-  ShadowColors
+  ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -19,7 +19,7 @@ export const ButtonsWrapperStyle = styled.div`
   justify-content: center;
   align-items: center;
   margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     flex-flow: row;
     margin: ${pxToRem('20px')} 0;
   }
@@ -47,7 +47,7 @@ export const BasicButtonStyle = styled.button`
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: ${pxToRem('5px')} ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('16px')};
     padding: ${pxToRem('9px')} ${pxToRem('20px')};
   }
@@ -65,14 +65,14 @@ export const RedButtonStyle = styled(BasicButtonStyle)`
 
 export const TallRedButtonStyle = styled(RedButtonStyle)`
   padding: ${pxToRem('8px')} ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     padding: ${pxToRem('10px')} ${pxToRem('20px')};
   }
 `;
 
 export const IconInButtonStyle = styled.span`
   margin-right: ${pxToRem('6.5px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-right: ${pxToRem('10px')};
   }
 `;
@@ -91,7 +91,7 @@ export const GoogleButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background-color: ${IconColors.Google};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-top: 0;
   }
 `;
@@ -99,7 +99,7 @@ export const EmailButtonStyle = styled(LargeButtonStyle)`
   margin-top: ${pxToRem('10px')};
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-top: 0;
   }
 `;

@@ -10,15 +10,19 @@ export class SequenceService {
   static fetchConfiguration(questionSlug: string): Promise<Object> {
     return axios({
       method: 'GET',
-      url: `${NODE_API_BASE}${PATH_QUESTION_CONFIGURATION
-        .replace(':questionSlug', questionSlug)}`,
+      url: `${NODE_API_BASE}${PATH_QUESTION_CONFIGURATION.replace(
+        ':questionSlug',
+        questionSlug
+      )}`,
       proxy: {
-        port: process.env.PORT
-      }
+        port: process.env.PORT,
+      },
     })
       .then(response => response.data)
-      .catch((error) => {
-        Logger.logError(`Error in fetchConfiguration for ${questionSlug} : ${error}`);
+      .catch(error => {
+        Logger.logError(
+          `Error in fetchConfiguration for ${questionSlug} : ${error}`
+        );
       });
   }
 }

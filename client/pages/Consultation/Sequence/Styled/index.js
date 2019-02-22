@@ -9,7 +9,7 @@ export const SequencePageContentStyle = styled(MiddleColumnStyle)`
   flex-grow: 1;
   overflow: auto;
   min-height: ${pxToRem('450px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     min-height: ${pxToRem('550px')};
   }
 `;

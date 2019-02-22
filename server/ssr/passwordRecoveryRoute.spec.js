@@ -15,13 +15,13 @@ const requestParams = {
   resetToken: 'bar',
   userId: 'foo',
   country: 'FR',
-  language: 'fr'
+  language: 'fr',
 };
 const expectedHeaders = {
   'x-make-question': 'foo',
   'x-make-question-id': 'foo',
   'x-make-country': 'FR',
-  'x-make-language': 'fr'
+  'x-make-language': 'fr',
 };
 
 describe('Account activation route', () => {
@@ -31,7 +31,7 @@ describe('Account activation route', () => {
 
   it('add the question to the initialState and set headers', async () => {
     const fooQuestion = {
-      id: 'foo'
+      id: 'foo',
     };
     QuestionService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
@@ -40,24 +40,27 @@ describe('Account activation route', () => {
         passwordRecovery: {
           validToken: false,
           resetToken: requestParams.resetToken,
-          userId: requestParams.userId
-        }
+          userId: requestParams.userId,
+        },
       },
       sequence: {
         ...initialState.sequence,
-        question: fooQuestion
-      }
+        question: fooQuestion,
+      },
     };
 
     const request = httpMocks.createRequest({
       params: requestParams,
-      query: { question: fooQuestion.id }
+      query: { question: fooQuestion.id },
     });
     const response = httpMocks.createResponse();
 
-    await passwordRecoveryRoute(request, response, () => { });
+    await passwordRecoveryRoute(request, response, () => {});
 
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(fooQuestion.id, expectedHeaders);
+    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+      fooQuestion.id,
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 
@@ -69,8 +72,8 @@ describe('Account activation route', () => {
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId
-      }
+        question: fooQuestionId,
+      },
     });
     const response = httpMocks.createResponse();
     const routeState = {
@@ -79,23 +82,22 @@ describe('Account activation route', () => {
         passwordRecovery: {
           validToken: true,
           resetToken: requestParams.resetToken,
-          userId: requestParams.userId
-        }
+          userId: requestParams.userId,
+        },
       },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId }
-      }
+        question: { id: fooQuestionId },
+      },
     };
 
-    await passwordRecoveryRoute(request, response, () => { });
+    await passwordRecoveryRoute(request, response, () => {});
 
-    expect(UserService.resetPasswordTokenCheck)
-      .toHaveBeenCalledWith(
-        requestParams.userId,
-        requestParams.resetToken,
-        expectedHeaders
-      );
+    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(
+      requestParams.userId,
+      requestParams.resetToken,
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 
@@ -107,8 +109,8 @@ describe('Account activation route', () => {
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId
-      }
+        question: fooQuestionId,
+      },
     });
     const response = httpMocks.createResponse();
     const routeState = {
@@ -117,26 +119,25 @@ describe('Account activation route', () => {
         passwordRecovery: {
           validToken: false,
           resetToken: requestParams.resetToken,
-          userId: requestParams.userId
-        }
+          userId: requestParams.userId,
+        },
       },
       notification: {
         contentType: 'PASSWORD_RECOVERY_FAILURE_CONTENT',
-        status: HTTP_NOT_FOUND
+        status: HTTP_NOT_FOUND,
       },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId }
-      }
+        question: { id: fooQuestionId },
+      },
     };
 
-    await passwordRecoveryRoute(request, response, () => { });
-    expect(UserService.resetPasswordTokenCheck)
-      .toHaveBeenCalledWith(
-        requestParams.userId,
-        requestParams.resetToken,
-        expectedHeaders
-      );
+    await passwordRecoveryRoute(request, response, () => {});
+    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(
+      requestParams.userId,
+      requestParams.resetToken,
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 });

@@ -4,36 +4,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
   faTwitter,
-  faLinkedinIn
+  faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   SharingStyle,
   FacebookButtonStyle,
   TwitterButtonStyle,
-  LinkedInButtonStyle
+  LinkedInButtonStyle,
 } from './Styled';
 
 type Props = {
   twitterShareUrl: string,
   facebookShareUrl: string,
   linkedinShareUrl: string,
-  tabIndex?: number
-}
+  tabIndex?: number,
+};
 
 /**
  * Renders Sharing
  */
 export class SharingComponent extends React.Component<Props> {
   static defaultProps = {
-    tabIndex: undefined
-  }
+    tabIndex: undefined,
+  };
 
   render() {
     const {
       twitterShareUrl,
       facebookShareUrl,
       linkedinShareUrl,
-      tabIndex
+      tabIndex,
     } = this.props;
     return (
       <SharingStyle as={UnstyledListStyle}>

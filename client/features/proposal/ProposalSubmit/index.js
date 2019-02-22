@@ -1,3 +1,3 @@
 export {
-  ProposalSubmitContainer as ProposalSubmit
+  ProposalSubmitContainer as ProposalSubmit,
 } from './ProposalSubmitContainer';

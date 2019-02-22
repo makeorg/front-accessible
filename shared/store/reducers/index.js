@@ -20,5 +20,5 @@ export const rootReducer = combineReducers({
   pannel,
   sequence,
   notification: notificationReducer,
-  user
+  user,
 });

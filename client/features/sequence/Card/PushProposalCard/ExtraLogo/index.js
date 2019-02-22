@@ -4,25 +4,18 @@ import { ExtraLogoStyle } from '../../Styled/Titles';
 
 type Props = {
   /** String with extraLogo image path */
-  extraLogo: string
-}
+  extraLogo: string,
+};
 
 /**
  * Renders Push Proposal ExtraLogo component
  */
 export const ExtraLogo = (props: Props) => {
-  const {
-    extraLogo
-  } = props;
+  const { extraLogo } = props;
 
   if (!extraLogo) {
     return null;
   }
 
-  return (
-    <ExtraLogoStyle
-      src={extraLogo}
-      alt=""
-    />
-  );
+  return <ExtraLogoStyle src={extraLogo} alt="" />;
 };

@@ -1,6 +1,9 @@
 /* @flow */
 import * as React from 'react';
-import { BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
+import {
+  BottomTooltipStyle,
+  DisplayedTooltipStyle,
+} from 'Client/ui/Elements/TooltipElments';
 import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
 import { ButtonWrapperStyle } from '../Styled';
 
@@ -27,7 +30,7 @@ type Props = {
   displayTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
-}
+};
 
 /**
  * Renders Vote Button element
@@ -44,7 +47,7 @@ export const VoteButtonComponent = (props: Props) => {
     handleVote,
     displayTooltip,
     hideTooltip,
-    isTooltipDisplayed
+    isTooltipDisplayed,
   } = props;
 
   return (

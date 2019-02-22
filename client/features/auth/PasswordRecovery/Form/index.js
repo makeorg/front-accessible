@@ -23,7 +23,7 @@ type Props = {
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -37,11 +37,14 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
     passwordIsDisplayed,
     togglePasswordIsDisplayed,
     handleChange,
-    handleSubmit
+    handleSubmit,
   } = props;
 
   return (
-    <PasswordRecoveryFormStyle id={PASSWORD_RECOVERY_FORMNAME} onSubmit={handleSubmit}>
+    <PasswordRecoveryFormStyle
+      id={PASSWORD_RECOVERY_FORMNAME}
+      onSubmit={handleSubmit}
+    >
       <PasswordInput
         type="password"
         name="password"
@@ -55,7 +58,11 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         passwordIsDisplayed={passwordIsDisplayed}
         togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
-      {error && <InputErrorMessageStyle id="authentification-email-error">{errorMessage}</InputErrorMessageStyle>}
+      {error && (
+        <InputErrorMessageStyle id="authentification-email-error">
+          {errorMessage}
+        </InputErrorMessageStyle>
+      )}
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}
         icon={faPaperPlane}

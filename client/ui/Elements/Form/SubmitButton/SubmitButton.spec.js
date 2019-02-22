@@ -8,13 +8,11 @@ describe('SubmitButton', () => {
   const defaultProps = {
     formName: 'foo',
     label: 'bar',
-    icon: faThumbsUp
+    icon: faThumbsUp,
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(
-      <SubmitButton {...defaultProps} />
-    );
+    const component = renderer.create(<SubmitButton {...defaultProps} />);
     expect(component).toMatchSnapshot();
   });
 

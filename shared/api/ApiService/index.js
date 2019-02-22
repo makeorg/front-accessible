@@ -4,12 +4,12 @@ import { type TypeToken } from './types';
 export { NODE_API_BASE } from './ApiService.shared';
 
 export interface IApiServiceStrategy {
-  callApi(url: string, options: Object): Promise<any>,
-  set token(token: TypeToken) : void,
-  get token(): ?TypeToken,
-    get country(): string,
-      get language(): string,
-        get source(): string
+  callApi(url: string, options: Object): Promise<any>;
+  set token(token: TypeToken): void;
+  get token(): ?TypeToken;
+  get country(): string;
+  get language(): string;
+  get source(): string;
 }
 
 class ApiServiceClass {

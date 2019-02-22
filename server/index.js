@@ -26,12 +26,7 @@ const favicon = require('serve-favicon');
 serverInitI18n();
 ApiService.strategy = new ApiServiceServer();
 
-const {
-  BUILD_DIR,
-  IMAGES_DIR,
-  DOC_DIR,
-  FAVICON_PATH
-} = require('./paths');
+const { BUILD_DIR, IMAGES_DIR, DOC_DIR, FAVICON_PATH } = require('./paths');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -50,15 +45,21 @@ app.use(headersResponseMiddleware);
 app.use(cspMiddleware);
 
 // Static files
-app.use('/assets', express.static(BUILD_DIR, {
-  maxAge: '1y',
-  setHeaders: setCustomCacheControl
-}));
+app.use(
+  '/assets',
+  express.static(BUILD_DIR, {
+    maxAge: '1y',
+    setHeaders: setCustomCacheControl,
+  })
+);
 
-app.use('/images', express.static(IMAGES_DIR, {
-  maxAge: '1y',
-  setHeaders: setCustomCacheControl
-}));
+app.use(
+  '/images',
+  express.static(IMAGES_DIR, {
+    maxAge: '1y',
+    setHeaders: setCustomCacheControl,
+  })
+);
 
 app.use('/doc', express.static(DOC_DIR));
 
@@ -66,10 +67,7 @@ app.use('/doc', express.static(DOC_DIR));
 app.get('/api/questions/:questionSlug', questionApi);
 app.post('/api/logger', loggerApi);
 
-const frontMiddlewares = [
-  countryLanguageMiddleware,
-  metricsMiddleware
-];
+const frontMiddlewares = [countryLanguageMiddleware, metricsMiddleware];
 
 // Front Routes
 app.get('/robot.txt', technicalPages.renderRobot);
@@ -80,9 +78,11 @@ app.get(
   frontMiddlewares,
   sequenceRoute
 );
-app.get('/:countryLanguage/account-activation/:userId/:verificationToken',
+app.get(
+  '/:countryLanguage/account-activation/:userId/:verificationToken',
   frontMiddlewares,
-  accountActivationRoute);
+  accountActivationRoute
+);
 app.get(
   '/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug',
   frontMiddlewares,

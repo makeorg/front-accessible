@@ -9,8 +9,8 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Google login method callback */
-  handleGoogleLoginCallback: Function
-}
+  handleGoogleLoginCallback: Function,
+};
 
 /**
  * Handles Google authentification
@@ -32,7 +32,11 @@ class GoogleAuthentification extends React.Component<Props> {
 }
 
 const mapDispatchToProps = {
-  handleGoogleLoginCallback: response => loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId)
+  handleGoogleLoginCallback: response =>
+    loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId),
 };
 
-export const GoogleAuthentificationComponent = connect(null, mapDispatchToProps)(GoogleAuthentification);
+export const GoogleAuthentificationComponent = connect(
+  null,
+  mapDispatchToProps
+)(GoogleAuthentification);

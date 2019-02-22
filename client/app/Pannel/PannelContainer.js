@@ -12,7 +12,7 @@ import { PannelComponent } from './PannelComponent';
 const pannelContents = {
   [pannelContentTypes.LOGIN_CONTENT]: <Login />,
   [pannelContentTypes.REGISTER_CONTENT]: <Register />,
-  [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <PasswordForgot />
+  [pannelContentTypes.FORGOT_PASSWORD_CONTENT]: <PasswordForgot />,
 };
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
   /** Content to render in Sliding pannel */
   contentType: string,
   /** Method called to close Sliding pannel */
-  handleClose: Function
+  handleClose: Function,
 };
 
 /**
@@ -30,29 +30,28 @@ type Props = {
 const PannelContainerSwitch = (props: Props) => {
   const { handleClose, isPannelOpen, contentType } = props;
   return (
-    <PannelComponent
-      isPannelOpen={isPannelOpen}
-      handleClose={handleClose}
-    >
+    <PannelComponent isPannelOpen={isPannelOpen} handleClose={handleClose}>
       {pannelContents[contentType]}
     </PannelComponent>
   );
 };
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen, contentType } = state.pannel;
 
   return {
     isPannelOpen,
-    contentType
+    contentType,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   handleClose: () => {
     dispatch(pannelClose());
-  }
+  },
 });
 
-export const PannelContainer = connect(mapStateToProps, mapDispatchToProps)(PannelContainerSwitch);
+export const PannelContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PannelContainerSwitch);

@@ -16,14 +16,14 @@ export const HiddenItemStyle = styled.span`
 export const HiddenOnMobileStyle = styled.div`
   display: none;
   visibility: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     display: block;
     visibility: visible;
   }
 `;
 
 export const HiddenOnDesktopStyle = styled.div`
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     display: none;
     visibility: hidden;
   }

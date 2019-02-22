@@ -17,24 +17,24 @@ export const TooltipStyle = styled.div`
 `;
 
 export const VerticalTooptipStyle = styled(TooltipStyle)`
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   left: 50%;
   > :after {
     right: 50%;
     border-left: ${pxToRem('5px')} solid transparent;
     border-right: ${pxToRem('5px')} solid transparent;
-    transform: translate(50%,0);
+    transform: translate(50%, 0);
   }
 `;
 
 export const HorizontalTooltipStyle = styled(TooltipStyle)`
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
   top: 50%;
   > :after {
     bottom: 50%;
     border-bottom: ${pxToRem('5px')} solid transparent;
     border-top: ${pxToRem('5px')} solid transparent;
-    transform: translate(0,50%);
+    transform: translate(0, 50%);
   }
 `;
 

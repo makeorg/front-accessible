@@ -8,7 +8,7 @@ import {
   FormStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
-  FormErrorStyle
+  FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -32,8 +32,8 @@ type Props = {
   /** Method called to show / encrypt password */
   togglePasswordIsDisplayed: () => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean
-}
+  isPannelOpen: boolean,
+};
 
 /**
  * Renders Login Form
@@ -47,7 +47,7 @@ export const LoginFormComponent = (props: Props) => {
     handleSubmit,
     passwordIsDisplayed,
     togglePasswordIsDisplayed,
-    isPannelOpen
+    isPannelOpen,
   } = props;
 
   const emailError = fieldErrors('email', errors);
@@ -56,13 +56,11 @@ export const LoginFormComponent = (props: Props) => {
 
   return (
     <FormStyle id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
-      {globalError
-        && (
-          <FormErrorsListStyle id="authentification-login-error">
-            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-          </FormErrorsListStyle>
-        )
-      }
+      {globalError && (
+        <FormErrorsListStyle id="authentification-login-error">
+          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+        </FormErrorsListStyle>
+      )}
       <UntypedInput
         type="email"
         name="email"
@@ -74,7 +72,11 @@ export const LoginFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
+      {emailError && (
+        <InputErrorMessageStyle id="authentification-email-error">
+          {emailError}
+        </InputErrorMessageStyle>
+      )}
       <PasswordInput
         type="password"
         name="password"

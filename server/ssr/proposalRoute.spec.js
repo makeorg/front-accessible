@@ -8,12 +8,11 @@ import { logger } from '../logger';
 jest.mock('Shared/api/SequenceService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('../logger', () => ({
-  logger: { log: jest.fn() }
+  logger: { log: jest.fn() },
 }));
 jest.mock('Shared/store/initialState', () => ({
-  createInitialState: jest.fn()
+  createInitialState: jest.fn(),
 }));
-
 
 const country = 'FR';
 const language = 'fr';
@@ -34,8 +33,8 @@ describe('Proposal route', () => {
           country,
           language,
           sessionId,
-          questionSlug
-        }
+          questionSlug,
+        },
       });
       const response = httpMocks.createResponse();
 
@@ -43,8 +42,8 @@ describe('Proposal route', () => {
 
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         sequence: {
-          questionConfiguration: 'questionconfigData'
-        }
+          questionConfiguration: 'questionconfigData',
+        },
       });
     });
 
@@ -59,8 +58,8 @@ describe('Proposal route', () => {
           country,
           language,
           sessionId,
-          questionSlug
-        }
+          questionSlug,
+        },
       });
       const response = httpMocks.createResponse();
 

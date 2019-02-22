@@ -6,27 +6,42 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { Tracking } from 'Shared/services/Tracking';
 import { Logger } from 'Shared/services/Logger';
 
-export const proposeTyping = (content: string, length: number, canSubmit: boolean) => ({
+export const proposeTyping = (
+  content: string,
+  length: number,
+  canSubmit: boolean
+) => ({
   type: actionTypes.PROPOSE_TYPING,
   payload: {
     content,
     length,
-    canSubmit
-  }
+    canSubmit,
+  },
 });
 
-export const proposeRequest = (content: string, questionId: string) => (
-  { type: actionTypes.PROPOSE_REQUEST, payload: { content, questionId } }
-);
+export const proposeRequest = (content: string, questionId: string) => ({
+  type: actionTypes.PROPOSE_REQUEST,
+  payload: { content, questionId },
+});
 
 export const proposeSuccess = () => ({ type: actionTypes.PROPOSE_SUCCESS });
-export const proposeFailure = (error: string) => ({ type: actionTypes.PROPOSE_FAILURE, error });
+export const proposeFailure = (error: string) => ({
+  type: actionTypes.PROPOSE_FAILURE,
+  error,
+});
 
-export const typingProposal = (content: string, length: number, canSubmit: boolean) => (dispatch: Function) => {
+export const typingProposal = (
+  content: string,
+  length: number,
+  canSubmit: boolean
+) => (dispatch: Function) => {
   dispatch(proposeTyping(content, length, canSubmit));
 };
 
-export const submitProposal = (content: string) => (dispatch: Function, getState: Function) => {
+export const submitProposal = (content: string) => (
+  dispatch: Function,
+  getState: Function
+) => {
   const { isLoggedIn } = getState().authentification;
   const { questionId, slug } = getState().sequence.question;
   if (!isLoggedIn) {
@@ -45,18 +60,19 @@ export const submitProposal = (content: string) => (dispatch: Function, getState
 
       Tracking.trackDisplayProposalSubmitValidation(slug);
     })
-    .catch((error) => {
+    .catch(error => {
       dispatch(proposeFailure(error));
     });
 };
 
-export const fetchProposalData = (proposalId: string) => (dispatch: Function) => (
-  ProposalService
-    .getProposal(proposalId)
-    .then((proposal) => {
+export const fetchProposalData = (proposalId: string) => (dispatch: Function) =>
+  ProposalService.getProposal(proposalId)
+    .then(proposal => {
       dispatch({ type: actionTypes.PROPOSAL_LOAD, payload: proposal });
     })
-    .catch((error) => {
-      Logger.logError({ ...{ source: 'fetchProposalData api call error' }, ...{ error } });
-    })
-);
+    .catch(error => {
+      Logger.logError({
+        ...{ source: 'fetchProposalData api call error' },
+        ...{ error },
+      });
+    });

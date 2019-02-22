@@ -1,4 +1,4 @@
 export const FacebookTracking = {
-  init: () => { },
-  trackCustom: () => { }
+  init: () => {},
+  trackCustom: () => {},
 };

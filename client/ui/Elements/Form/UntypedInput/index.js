@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  FakeInputGreyStyle,
-  IconLabelStyle,
-  BasicInputStyle
-} from '../Styled';
+import { FakeInputGreyStyle, IconLabelStyle, BasicInputStyle } from '../Styled';
 
 type Props = {
   /** Type of the input */
@@ -24,15 +20,15 @@ type Props = {
   /** Is input required or optional */
   required?: boolean,
   /** Tabindex for interactive items */
-  tabIndex?: number
-}
+  tabIndex?: number,
+};
 
 export class UntypedInput extends React.Component<Props> {
   static defaultProps = {
     required: false,
     errors: undefined,
-    tabIndex: 0
-  }
+    tabIndex: 0,
+  };
 
   render() {
     const {
@@ -44,7 +40,7 @@ export class UntypedInput extends React.Component<Props> {
       label,
       required,
       handleChange,
-      tabIndex
+      tabIndex,
     } = this.props;
 
     return (

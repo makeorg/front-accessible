@@ -1,1 +1,3 @@
-export { PasswordForgotContainer as PasswordForgot } from './PasswordForgotContainer';
+export {
+  PasswordForgotContainer as PasswordForgot,
+} from './PasswordForgotContainer';

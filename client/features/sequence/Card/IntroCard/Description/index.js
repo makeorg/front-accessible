@@ -5,16 +5,14 @@ import { IntroParagraphStyle } from '../../Styled/Content';
 
 type Props = {
   /** Object with description paragraphs */
-  description?: Array<string>
-}
+  description?: Array<string>,
+};
 
 /**
  * Renders Intro DescriptionStyle component
  */
 export const IntroDescription = (props: Props) => {
-  const {
-    description
-  } = props;
+  const { description } = props;
   if (!description) {
     return (
       <div>
@@ -30,17 +28,15 @@ export const IntroDescription = (props: Props) => {
 
   return (
     <div>
-      {description.map(
-        introDescription => (
-          <IntroParagraphStyle key={introDescription}>
-            {introDescription}
-          </IntroParagraphStyle>
-        )
-      )}
+      {description.map(introDescription => (
+        <IntroParagraphStyle key={introDescription}>
+          {introDescription}
+        </IntroParagraphStyle>
+      ))}
     </div>
   );
 };
 
 IntroDescription.defaultProps = {
-  description: undefined
+  description: undefined,
 };

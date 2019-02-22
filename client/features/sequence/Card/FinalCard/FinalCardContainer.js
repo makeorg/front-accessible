@@ -23,8 +23,8 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean
-}
+  isSequenceCollapsed: boolean,
+};
 
 /**
  * Handles Final Card Business Logic
@@ -47,7 +47,7 @@ class FinalCardHandler extends React.Component<Props> {
       goToPreviousCard,
       isPannelOpen,
       isSequenceCollapsed,
-      cardOffset
+      cardOffset,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -64,20 +64,22 @@ class FinalCardHandler extends React.Component<Props> {
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        tabIndex={
+          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+        }
         goToPreviousCard={goToPreviousCard}
       />
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
   const { isSequenceCollapsed } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed
+    isSequenceCollapsed,
   };
 };
 

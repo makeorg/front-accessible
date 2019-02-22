@@ -1,13 +1,18 @@
-
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import loadable from '@loadable/component';
 
-const SequencePage = loadable(() => import('Client/pages/Consultation/Sequence'));
-const PasswordRecoveryPage = loadable(() => import('Client/pages/PasswordRecovery'));
+const SequencePage = loadable(() =>
+  import('Client/pages/Consultation/Sequence')
+);
+const PasswordRecoveryPage = loadable(() =>
+  import('Client/pages/PasswordRecovery')
+);
 const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
 const ProposalPage = loadable(() => import('Client/pages/Proposal'));
-const AccountActivationPage = loadable(() => import('Client/pages/AccountActivation'));
+const AccountActivationPage = loadable(() =>
+  import('Client/pages/AccountActivation')
+);
 
 export const Routes = () => (
   <Switch>
@@ -28,4 +33,5 @@ export const Routes = () => (
       component={PasswordRecoveryPage}
     />
     <Route component={NotFoundPage} />
-  </Switch>);
+  </Switch>
+);

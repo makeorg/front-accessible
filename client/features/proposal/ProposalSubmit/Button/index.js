@@ -8,7 +8,7 @@ import {
   ProposalButtonStyle,
   DisabledProposalButtonStyle,
   ProposalIconStyle,
-  ProposalButtonLabelStyle
+  ProposalButtonLabelStyle,
 } from '../Styled';
 
 type Props = {
@@ -19,19 +19,14 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Boolean toggled when Proposal Fieldis expanded / collapsed */
-  isFieldExpanded: boolean
-}
+  isFieldExpanded: boolean,
+};
 
 /**
  * Renders submit button in proposal's field
  */
 export const ProposalSubmitButtonComponent = (props: Props) => {
-  const {
-    handleSubmit,
-    canSubmit,
-    isPannelOpen,
-    isFieldExpanded
-  } = props;
+  const { handleSubmit, canSubmit, isPannelOpen, isFieldExpanded } = props;
 
   if (canSubmit) {
     return (
@@ -41,10 +36,14 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}>
+        <IconInButtonStyle
+          as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}
+        >
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
         </IconInButtonStyle>
-        <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}>
+        <HiddenOnMobileStyle
+          as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
+        >
           {i18n.t('common.propose')}
         </HiddenOnMobileStyle>
       </ProposalButtonStyle>
@@ -52,11 +51,19 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
   }
 
   return (
-    <DisabledProposalButtonStyle id="proposal-submit-button" type="submit" disabled>
-      <IconInButtonStyle as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}>
+    <DisabledProposalButtonStyle
+      id="proposal-submit-button"
+      type="submit"
+      disabled
+    >
+      <IconInButtonStyle
+        as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}
+      >
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
       </IconInButtonStyle>
-      <HiddenOnMobileStyle as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}>
+      <HiddenOnMobileStyle
+        as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
+      >
         {i18n.t('common.propose')}
       </HiddenOnMobileStyle>
     </DisabledProposalButtonStyle>

@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { BasicColors, SocialNetworksColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  SocialNetworksColors,
+} from 'Client/app/assets/vars/Colors';
 
 export const SharingStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
@@ -16,7 +19,8 @@ export const SharingButtonStyle = styled(UnstyledButtonStyle)`
   color: ${BasicColors.PureWhite};
   border-radius: 50%;
   align-items: center;
-  &:hover,&:focus {
+  &:hover,
+  &:focus {
     color: ${BasicColors.PureWhite};
   }
 `;

@@ -2,20 +2,21 @@ import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import { UnvoteButtonStyle, VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import {
+  UnvoteButtonStyle,
+  VoteButtonStyle,
+} from 'Client/ui/Elements/Vote/Styled';
 import { VoteButtonElement } from './index';
 
 describe('VoteButtonElement', () => {
   const defaultProps = {
     color: 'red',
     label: 'foo',
-    icon: faThumbsUp
+    icon: faThumbsUp,
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(
-      <VoteButtonElement {...defaultProps} />
-    );
+    const component = renderer.create(<VoteButtonElement {...defaultProps} />);
     expect(component).toMatchSnapshot();
   });
 

@@ -14,15 +14,18 @@ export class ProposalService {
         content,
         questionId,
         country: ApiService.country,
-        language: ApiService.language
-      })
+        language: ApiService.language,
+      }),
     });
   }
 
   static getProposal(proposalId: string, headers: ApiServiceHeaders = {}) {
-    return ApiService.callApi(PATH_PROPOSAL_GET.replace(':proposalId', proposalId), {
-      method: 'GET',
-      headers
-    });
+    return ApiService.callApi(
+      PATH_PROPOSAL_GET.replace(':proposalId', proposalId),
+      {
+        method: 'GET',
+        headers,
+      }
+    );
   }
 }

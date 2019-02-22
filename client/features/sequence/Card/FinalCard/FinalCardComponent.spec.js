@@ -6,7 +6,7 @@ import { FinalCardComponent } from './FinalCardComponent';
 describe('FinalCardComponent', () => {
   const props = {
     finalCardConfig: { customTitle: true },
-    finalCardWording: { title: 'foo' }
+    finalCardWording: { title: 'foo' },
   };
 
   it('Check a11y rules', () => {

@@ -7,7 +7,7 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ContainerStyle = styled(CenterColumnStyle)`
-    margin-right: ${pxToRem('10px')};
+  margin-right: ${pxToRem('10px')};
 `;
 
 export const GraphStyle = styled(UnstyledListStyle)`
@@ -17,7 +17,7 @@ export const GraphStyle = styled(UnstyledListStyle)`
   height: ${pxToRem('30px')};
   justify-content: center;
   align-items: flex-start;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-top: ${pxToRem('10px')};
   }
 `;

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
-  BasicColors,
-  ShadowColors
-} from 'Client/app/assets/vars/Colors';
-import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ProposalCardStyle = styled.li`
@@ -19,13 +19,14 @@ export const ProposalCardStyle = styled.li`
   min-height: ${pxToRem('345px')};
   padding: ${pxToRem(DefaultPadding.Mobile)};
   z-index: ${props => props.zindex || 0};
-  transform: scaleX(${props => props.scale || 0}) translateY(-${props => props.position || 0}px);
+  transform: scaleX(${props => props.scale || 0})
+    translateY(-${props => props.position || 0}px);
   background-color: ${BasicColors.PureWhite};
   transition: transform 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
-  ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')}; 
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     min-height: ${pxToRem('445px')};
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }
@@ -41,7 +42,7 @@ export const ProposalStyle = styled.blockquote`
   line-height: ${pxToRem('16px')};
   font-family: ${MakeFonts.RobotoBold};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('22px')};
     line-height: ${pxToRem('30px')};
   }

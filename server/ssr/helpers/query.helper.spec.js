@@ -33,7 +33,10 @@ describe('query helper', () => {
   describe('disableExtraSlidesByQuery', () => {
     let extraSlidesConfig;
     beforeEach(() => {
-      extraSlidesConfig = { introCard: { param: 'unactive' }, signUpCard: { param: 'active' } };
+      extraSlidesConfig = {
+        introCard: { param: 'unactive' },
+        signUpCard: { param: 'active' },
+      };
     });
     it('introCard query must be enabled by default', () => {
       // given

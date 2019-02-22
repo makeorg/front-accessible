@@ -1,11 +1,6 @@
-
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  FakeInputGreyStyle,
-  IconLabelStyle,
-  BasicInputStyle
-} from '../Styled';
+import { FakeInputGreyStyle, IconLabelStyle, BasicInputStyle } from '../Styled';
 import { PasswordButton } from '../PasswordButton';
 
 type Props = {
@@ -22,7 +17,9 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Mehtod called on PasswordButton click */
-  togglePasswordIsDisplayed: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  togglePasswordIsDisplayed: (
+    event: SyntheticInputEvent<HTMLInputElement>
+  ) => void,
   /** Boolean toggled when password is shown / hidden */
   passwordIsDisplayed?: boolean,
   /** Array containing form errors */
@@ -30,16 +27,16 @@ type Props = {
   /** Is input required or optional */
   required?: boolean,
   /** Tabindex for interactive items */
-  tabIndex?: number
-}
+  tabIndex?: number,
+};
 
 export class PasswordInput extends React.Component<Props> {
   static defaultProps = {
     errors: undefined,
     required: false,
     passwordIsDisplayed: false,
-    tabIndex: 0
-  }
+    tabIndex: 0,
+  };
 
   render() {
     const {
@@ -53,7 +50,7 @@ export class PasswordInput extends React.Component<Props> {
       handleChange,
       tabIndex,
       passwordIsDisplayed,
-      togglePasswordIsDisplayed
+      togglePasswordIsDisplayed,
     } = this.props;
 
     return (

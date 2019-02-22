@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BackgroundColors, TextColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import {
+  BackgroundColors,
+  TextColors,
+  BasicColors,
+} from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Small } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
-  MiddleRowStyle, CenterColumnStyle, MiddleColumnStyle, MiddleColumnToRowStyle
+  MiddleRowStyle,
+  CenterColumnStyle,
+  MiddleColumnStyle,
+  MiddleColumnToRowStyle,
 } from 'Client/ui/Elements/FlexElements';
 
 export const ContentWrapperStyle = styled(MiddleColumnStyle)`
@@ -16,7 +23,7 @@ export const ContentWrapperStyle = styled(MiddleColumnStyle)`
 
 export const ContentSpecialWrapperStyle = styled(ContentWrapperStyle)`
   height: auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     height: 100%;
   }
 `;
@@ -34,7 +41,7 @@ export const IntroParagraphStyle = styled.p`
   line-height: ${pxToRem('18px')};
   color: ${TextColors.MediumGrey};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('28px')};
   }
@@ -45,14 +52,14 @@ export const FinalParagraphStyle = styled.p`
   font-size: ${pxToRem('18px')};
   color: ${BasicColors.PureBlack};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('24px')};
   }
 `;
 
 export const SeparatorStyle = styled(Small)`
   margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
   }
 `;
@@ -62,7 +69,7 @@ export const SharingInnerStyle = styled(CenterColumnStyle)`
   border-bottom: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
   padding: 0 0 ${pxToRem('10px')} 0;
   margin-bottom: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     width: 50%;
     border-bottom: none;
     border-right: ${pxToRem('2px')} solid ${BackgroundColors.ExtraLightGrey};
@@ -78,7 +85,7 @@ export const SharingWrapperStyle = styled(MiddleRowStyle)`
 
 export const MoreWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     width: 50%;
     padding-left: ${pxToRem('25px')};
   }
@@ -88,7 +95,7 @@ export const PartnerFooterStyle = styled(MiddleColumnToRowStyle)`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   margin: ${pxToRem('15px')} auto 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('14px')};
   }
 `;

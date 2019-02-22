@@ -10,24 +10,23 @@ type Props = {
   /** String with Language value */
   language: string,
   /** String with Country value */
-  country: string
+  country: string,
 };
 
 /**
  * Renders Main Footer
  */
 export const FooterLinkComponent = (props: Props) => {
-  const {
-    language,
-    country
-  } = props;
+  const { language, country } = props;
   // avoid any -> https://github.com/facebook/flow/issues/2221
   const Items: Array<TypeFooterLink> = (Object.values(footerItems): any);
   return (
     <UnstyledListStyle>
       {Items.map(Item => (
         <FooterItemStyle key={i18n.t(Item.label)}>
-          <FooterItemLinkStyle href={Helpers.localizeLink(Item.linkUrl, country, language)}>
+          <FooterItemLinkStyle
+            href={Helpers.localizeLink(Item.linkUrl, country, language)}
+          >
             {i18n.t(Item.label)}
           </FooterItemLinkStyle>
         </FooterItemStyle>

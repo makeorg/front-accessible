@@ -10,18 +10,17 @@ async function getQuestion(questionId, headers) {
   return QuestionService.getDetail(questionId, headers);
 }
 
-async function postAccountActivation(userId: string, verificationToken: string, headers) {
+async function postAccountActivation(
+  userId: string,
+  verificationToken: string,
+  headers
+) {
   return UserService.verifyUser(userId, verificationToken, headers);
 }
 
 export const accountActivationRoute = async (req, res) => {
   const routeState = createInitialState();
-  const {
-    userId,
-    verificationToken,
-    country,
-    language
-  } = req.params;
+  const { userId, verificationToken, country, language } = req.params;
 
   try {
     const questionId = req.query.question;
@@ -30,7 +29,7 @@ export const accountActivationRoute = async (req, res) => {
         'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
-        'x-make-language': language
+        'x-make-language': language,
       });
 
       if (question) {
@@ -42,15 +41,17 @@ export const accountActivationRoute = async (req, res) => {
       'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,
-      'x-make-language': language
+      'x-make-language': language,
     });
 
     if (status === HTTP_NO_CONTENT) {
-      routeState.notification.contentType = notificationConstants.ACTIVATION_SUCCESS_CONTENT;
+      routeState.notification.contentType =
+        notificationConstants.ACTIVATION_SUCCESS_CONTENT;
     }
 
     if (status === HTTP_NOT_FOUND) {
-      routeState.notification.contentType = notificationConstants.ACTIVATION_FAILURE_CONTENT;
+      routeState.notification.contentType =
+        notificationConstants.ACTIVATION_FAILURE_CONTENT;
     }
   } catch (error) {
     if (error && error.stack) {

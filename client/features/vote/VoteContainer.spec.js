@@ -15,7 +15,7 @@ describe('VoteContainer', () => {
     isSequenceCollapsed: true,
     index: 1,
     currentIndex: 1,
-    goToNextCard: () => { }
+    goToNextCard: () => {},
   };
 
   beforeEach(() => {
@@ -26,12 +26,14 @@ describe('VoteContainer', () => {
     const expectedPassedProps = {
       proposalId: defaultProps.proposalId,
       index: 1,
-      tabIndex: -1
+      tabIndex: -1,
     };
 
     const voteComponentWrapper = wrapper.find(VoteComponent);
     expect(voteComponentWrapper).toHaveLength(1);
-    expect(voteComponentWrapper.props()).toEqual(expect.objectContaining(expectedPassedProps));
+    expect(voteComponentWrapper.props()).toEqual(
+      expect.objectContaining(expectedPassedProps)
+    );
   });
 
   it('NextButtonStyle should not be rendered', () => {
@@ -51,32 +53,33 @@ describe('VoteContainer', () => {
       tabIndex: -1,
       onClick: defaultProps.goToNextCard,
       id: 'next-button-1',
-      children: [
-        'proposal_card.next',
-        ' >'
-      ]
+      children: ['proposal_card.next', ' >'],
     });
   });
 
   it('render initialise state from props', () => {
     const props = {
       ...defaultProps,
-      votes: [{
-        voteKey: 'agree',
-        count: 12,
-        hasVoted: true,
-        qualifications: ['foo', 'bar']
-      }, {
-        voteKey: 'disagree',
-        count: 6,
-        hasVoted: false,
-        qualifications: ['foo', 'bar']
-      }, {
-        voteKey: 'neutral',
-        count: 6,
-        hasVoted: false,
-        qualifications: ['foo', 'bar']
-      }]
+      votes: [
+        {
+          voteKey: 'agree',
+          count: 12,
+          hasVoted: true,
+          qualifications: ['foo', 'bar'],
+        },
+        {
+          voteKey: 'disagree',
+          count: 6,
+          hasVoted: false,
+          qualifications: ['foo', 'bar'],
+        },
+        {
+          voteKey: 'neutral',
+          count: 6,
+          hasVoted: false,
+          qualifications: ['foo', 'bar'],
+        },
+      ],
     };
 
     const voteWrapper = shallow(<VoteHandler {...props} />);

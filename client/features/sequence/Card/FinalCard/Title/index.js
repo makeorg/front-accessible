@@ -5,30 +5,26 @@ import { FinalParagraphStyle } from '../../Styled/Content';
 import { AltMainTitleStyle } from '../../Styled/Titles';
 
 type Props = {
-  title?: string
-}
+  title?: string,
+};
 
 /**
  * Renders finalCard Title component
  */
 export const FinalTitle = (props: Props) => {
-  const {
-    title
-  } = props;
+  const { title } = props;
 
   if (title) {
-    return (
-      <AltMainTitleStyle>
-        {title}
-      </AltMainTitleStyle>
-    );
+    return <AltMainTitleStyle>{title}</AltMainTitleStyle>;
   }
 
   return (
-    <FinalParagraphStyle dangerouslySetInnerHTML={{ __html: i18n.t('final_card.title') }} />
+    <FinalParagraphStyle
+      dangerouslySetInnerHTML={{ __html: i18n.t('final_card.title') }}
+    />
   );
 };
 
 FinalTitle.defaultProps = {
-  title: undefined
+  title: undefined,
 };

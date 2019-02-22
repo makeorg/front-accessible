@@ -7,5 +7,5 @@ export const metricsMiddleware = promBundle({
   includeMethod: true,
   includePath: true,
   includeUp: false,
-  metricsPath: METRIC_PATH
+  metricsPath: METRIC_PATH,
 });

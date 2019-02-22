@@ -6,14 +6,23 @@ import { ProposalSubmitAuthentification } from './ProposalSubmitAuthentification
 describe('ProposalSubmitAuthentificationContainer', () => {
   it('renders', () => {
     const props = {
-      handleRegisterClick: () => { },
-      handleLoginClick: () => { }
+      handleRegisterClick: () => {},
+      handleLoginClick: () => {},
     };
     const wrapper = shallow(<ProposalSubmitAuthentification {...props} />);
 
-    expect(wrapper.find(ProposalSubmitAuthentificationComponent)).toHaveLength(1);
-    const ProposalSubmitAuthentificationProps = wrapper.find(ProposalSubmitAuthentificationComponent).first().props();
-    expect(ProposalSubmitAuthentificationProps.handleRegisterClick).toBe(props.handleRegisterClick);
-    expect(ProposalSubmitAuthentificationProps.handleLoginClick).toBe(props.handleLoginClick);
+    expect(wrapper.find(ProposalSubmitAuthentificationComponent)).toHaveLength(
+      1
+    );
+    const ProposalSubmitAuthentificationProps = wrapper
+      .find(ProposalSubmitAuthentificationComponent)
+      .first()
+      .props();
+    expect(ProposalSubmitAuthentificationProps.handleRegisterClick).toBe(
+      props.handleRegisterClick
+    );
+    expect(ProposalSubmitAuthentificationProps.handleLoginClick).toBe(
+      props.handleLoginClick
+    );
   });
 });

@@ -11,14 +11,17 @@ export class QualificationService {
     voteKey: string,
     qualificationKey: string
   ): Promise<Object> {
-    return ApiService.callApi(PATH_QUALIFICATION.replace(':proposalId', proposalId), {
-      method: 'POST',
-      body: JSON.stringify({
-        voteKey,
-        qualificationKey,
-        proposalKey
-      })
-    });
+    return ApiService.callApi(
+      PATH_QUALIFICATION.replace(':proposalId', proposalId),
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          voteKey,
+          qualificationKey,
+          proposalKey,
+        }),
+      }
+    );
   }
 
   static unqualify(
@@ -27,13 +30,16 @@ export class QualificationService {
     voteKey: string,
     qualificationKey: string
   ): Promise<Object> {
-    return ApiService.callApi(PATH_UNQUALIFICATION.replace(':proposalId', proposalId), {
-      method: 'POST',
-      body: JSON.stringify({
-        voteKey,
-        qualificationKey,
-        proposalKey
-      })
-    });
+    return ApiService.callApi(
+      PATH_UNQUALIFICATION.replace(':proposalId', proposalId),
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          voteKey,
+          qualificationKey,
+          proposalKey,
+        }),
+      }
+    );
   }
 }

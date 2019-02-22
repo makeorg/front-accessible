@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BasicColors, TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
@@ -11,7 +15,7 @@ export const WrapperStyle = styled.div`
   align-items: center;
   width: ${pxToRem('58px')};
   height: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     width: ${pxToRem('82px')};
     height: ${pxToRem('82px')};
   }
@@ -40,7 +44,8 @@ export const CircleStyle = styled.circle`
   fill: transparent;
   stroke: ${props => props.theme.color};
   stroke-width: ${pxToRem('3px')};
-  stroke-dasharray: ${props => props.progress || 0} ${props => props.remain || 0};
+  stroke-dasharray: ${props => props.progress || 0}
+    ${props => props.remain || 0};
   stroke-dashoffset: 25;
 `;
 
@@ -50,7 +55,7 @@ export const CounterStyle = styled.h2`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.RobotoRegular};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('14px')};
   }
 `;
@@ -58,7 +63,7 @@ export const CounterStyle = styled.h2`
 export const ActiveCardStyle = styled.span`
   font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};
   }
 `;

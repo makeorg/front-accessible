@@ -26,8 +26,10 @@ export function renderVersion(req, res) {
 }
 
 export function renderRobot(req, res) {
-  const robotContent = env.contextEnvName() === 'prod'
-    ? 'User-agent: *\nAllow: /' : 'User-agent: *\nDisallow: /';
+  const robotContent =
+    env.contextEnvName() === 'prod'
+      ? 'User-agent: *\nAllow: /'
+      : 'User-agent: *\nDisallow: /';
   res.type('text/plain');
   res.send(robotContent);
 }

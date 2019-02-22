@@ -11,7 +11,7 @@ export function questionApi(req, res) {
 
   const { questionSlug } = req.params;
 
-  if (!(new RegExp('^[a-z0-9-]+$').test(questionSlug))) {
+  if (!new RegExp('^[a-z0-9-]+$').test(questionSlug)) {
     return res.status(400).end();
   }
 

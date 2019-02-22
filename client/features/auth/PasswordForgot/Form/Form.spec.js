@@ -14,13 +14,17 @@ describe('ForgotPasswordFormComponent', () => {
   it('must match the snapshot with errors', () => {
     // TODO need to use shallow with jest for better testing
     const component = renderer.create(
-      <ForgotPasswordFormComponent errors={[{
-        field: 'email',
-        message: 'Error message 1'
-      }, {
-        field: 'field',
-        message: 'Error message 2'
-      }]}
+      <ForgotPasswordFormComponent
+        errors={[
+          {
+            field: 'email',
+            message: 'Error message 1',
+          },
+          {
+            field: 'field',
+            message: 'Error message 2',
+          },
+        ]}
       />
     );
     expect(component).toMatchSnapshot();

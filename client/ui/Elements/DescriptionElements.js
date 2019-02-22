@@ -9,15 +9,15 @@ export const DescriptionStyle = styled.p`
   font-size: ${pxToRem('14px')};
   color: ${TextColors.MediumGrey};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-      font-size: ${pxToRem('16px')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    font-size: ${pxToRem('16px')};
   }
 `;
 
 export const AltDescriptionStyle = styled(DescriptionStyle)`
   font-size: ${pxToRem('12px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
-      font-size: ${pxToRem('14px')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    font-size: ${pxToRem('14px')};
   }
 `;
 

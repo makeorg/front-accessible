@@ -15,11 +15,9 @@ export class HeaderContainer extends React.Component<{}> {
   trackMakeLogo = () => {
     Tracking.trackClickMakeLogo();
     return this;
-  }
+  };
 
   render() {
-    return (
-      <HeaderComponent handleTracking={this.trackMakeLogo} />
-    );
+    return <HeaderComponent handleTracking={this.trackMakeLogo} />;
   }
 }

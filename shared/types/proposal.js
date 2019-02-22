@@ -1,10 +1,9 @@
-
 // @flow
 export type QualificationType = {
   count: number,
   hasQualified: false,
-  qualificationKey: string
-}
+  qualificationKey: string,
+};
 
 export type Author = {
   firstName: string,
@@ -12,28 +11,28 @@ export type Author = {
   organisationSlug: string,
   postalCode: string,
   age: number,
-  avatarUrl: string
+  avatarUrl: string,
 };
 
 export type Context = {
   operation: string,
   source: string,
   location: string,
-  question: string
+  question: string,
 };
 
 export type VoteType = {
   voteKey: string,
   count: number,
   qualifications: Array<QualificationType>,
-  hasVoted: boolean
+  hasVoted: boolean,
 };
 
 export type VotesPercentObject = {
   agree: number,
   disagree: number,
-  neutral: number
-}
+  neutral: number,
+};
 
 export type ProposalType = {
   id: string,
@@ -57,5 +56,5 @@ export type ProposalType = {
   idea: string,
   questionId: string,
   operationId: string,
-  proposalKey: string
+  proposalKey: string,
 };

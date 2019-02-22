@@ -9,7 +9,11 @@ import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { SignUpTitle } from './Title';
 import { SkipSignUpButton } from './Button';
 import { ProposalCardStyle } from '../Styled';
-import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
+import {
+  BackButtonWrapperStyle,
+  BackButtonStyle,
+  BackIconStyle,
+} from '../Styled/Buttons';
 import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
 import { SecondaryTitleStyle } from '../Styled/Titles';
 
@@ -37,8 +41,8 @@ type Props = {
   /** Zindex property used by Styled Component */
   zindex: number,
   /** Method called when next card button is clicked */
-  skipSignUpCard: () => void
-}
+  skipSignUpCard: () => void,
+};
 
 /**
  * Renders Sign Up Card
@@ -56,7 +60,7 @@ export const SignUpCardComponent = (props: Props) => {
     skipSignUpCard,
     position,
     scale,
-    zindex
+    zindex,
   } = props;
 
   return (
@@ -67,16 +71,17 @@ export const SignUpCardComponent = (props: Props) => {
       isCardCollapsed={index < currentIndex}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle
-          tabIndex={tabIndex}
-          onClick={goToPreviousCard}
-        >
+        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
-        <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
+        <ProgressCircleComponent
+          cardOffset={cardOffset}
+          index={index}
+          cardsCount={cardsCount}
+        />
       </BackButtonWrapperStyle>
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
@@ -86,9 +91,7 @@ export const SignUpCardComponent = (props: Props) => {
           <SecondaryTitleStyle>
             {i18n.t('sign_up_card.authentification-text')}
           </SecondaryTitleStyle>
-          <SignUpCardAuthentificationContainer
-            tabIndex={tabIndex}
-          />
+          <SignUpCardAuthentificationContainer tabIndex={tabIndex} />
           <SkipSignUpButton
             tabIndex={tabIndex}
             skipSignUpCard={skipSignUpCard}
