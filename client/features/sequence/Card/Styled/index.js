@@ -38,7 +38,7 @@ export const ProposalCardCenteredStyle = styled(ProposalCardStyle)`
 export const ProposalStyle = styled.blockquote`
   max-width: 100%;
   font-size: ${pxToRem('12px')};
-  line-height: ${pxToRem('22px')};
+  line-height: ${pxToRem('16px')};
   font-family: ${MakeFonts.RobotoBold};
   text-align: center;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}){

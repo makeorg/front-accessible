@@ -5,6 +5,13 @@ import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
 
 export const DefaultStylesheet = createGlobalStyle`
+  html,
+  body,
+  #app {
+    width: 100%;
+    height: 100%;
+  }
+
   body {
     font-family: ${MakeFonts.RobotoRegular};
     color: ${BasicColors.PureBlack};

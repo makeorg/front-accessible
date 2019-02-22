@@ -8,6 +8,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { SequenceFooter } from 'Client/features/sequence/Footer';
 import { match as TypeMatch } from 'react-router';
 import { SequencePageContentLoader } from './ContentLoader';
+import { SequencePageContentStyle } from './Styled';
 
 type Props = {
   question: Object,
@@ -54,11 +55,13 @@ class SequencePageContainer extends React.Component<Props> {
             description={metas.description}
             picture={metas.picture}
           />
-          <SequencePageContentLoader
-            question={question}
-            questionConfiguration={questionConfiguration}
-            isSequenceCollapsed={isSequenceCollapsed}
-          />
+          <SequencePageContentStyle>
+            <SequencePageContentLoader
+              question={question}
+              questionConfiguration={questionConfiguration}
+              isSequenceCollapsed={isSequenceCollapsed}
+            />
+          </SequencePageContentStyle>
           <SequenceFooter
             questionConfiguration={questionConfiguration}
           />

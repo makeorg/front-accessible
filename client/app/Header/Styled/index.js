@@ -7,6 +7,7 @@ export const HeaderStyle = styled.header`
   position: relative;
   z-index: 2;
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   width: 100%;

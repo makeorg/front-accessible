@@ -18,10 +18,10 @@ export const SequenceStyle = styled.section`
   z-index: 0;
   position: relative;
   width: 100%;
-  height: 100%;
   margin: 0 auto;
   max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
+  overflow: hidden;
 `;
 
 
