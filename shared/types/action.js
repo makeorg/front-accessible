@@ -8,18 +8,24 @@ type ProposalProposeTypingAction = {
   payload: {
     content: string,
     length: number,
-    canSubmit: boolean
-  }
+    canSubmit: boolean,
+  },
 };
 type ProposalProposeRequestAction = {
   type: 'PROPOSAL_PROPOSE_REQUEST',
   payload: {
     questionId: string,
-    content: string
-  }
+    content: string,
+  },
 };
-type ProposalProposeSuccessAction = { type: 'PROPOSAL_PROPOSE_SUCCESS', payload: string };
-type ProposalProposeFailureAction = { type: 'PROPOSAL_PROPOSE_FAILURE', error: string };
+type ProposalProposeSuccessAction = {
+  type: 'PROPOSAL_PROPOSE_SUCCESS',
+  payload: string,
+};
+type ProposalProposeFailureAction = {
+  type: 'PROPOSAL_PROPOSE_FAILURE',
+  error: string,
+};
 
 export type ProposalAction =
   | ProposalLoadAction

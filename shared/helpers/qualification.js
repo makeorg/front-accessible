@@ -1,6 +1,9 @@
 /* @flow */
 
-export const getQualificationIndex = (qualificationKey: string, proposalId: string) => {
+export const getQualificationIndex = (
+  qualificationKey: string,
+  proposalId: string
+) => {
   if (proposalId === null) {
     return null;
   }
@@ -9,7 +12,7 @@ export const getQualificationIndex = (qualificationKey: string, proposalId: stri
 };
 
 export const doUpdateState = (prevState: Object, qualification: Object) => {
-  const newQualifications = prevState.qualifications.map((oldQualification) => {
+  const newQualifications = prevState.qualifications.map(oldQualification => {
     if (oldQualification.qualificationKey === qualification.qualificationKey) {
       return qualification;
     }
@@ -19,6 +22,6 @@ export const doUpdateState = (prevState: Object, qualification: Object) => {
 
   return {
     ...prevState,
-    qualifications: newQualifications
+    qualifications: newQualifications,
   };
 };

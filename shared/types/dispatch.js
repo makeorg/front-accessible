@@ -1,5 +1,5 @@
 // @flow
 
 export type DispatchString = {
-  type: string
-}
+  type: string,
+};

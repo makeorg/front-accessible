@@ -13,8 +13,10 @@ const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
 const PATH_USER_REGISTER = '/user';
 const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
 const PATH_USER_VERIFICATION = '/user/:userId/validate/:verificationToken';
-const PATH_USER_RESET_TOKEN_CHECK = '/user/reset-password/check-validity/:userId/:resetToken';
-const PATH_USER_CHANGE_PASSWORD = '/user/reset-password/change-password/:userId';
+const PATH_USER_RESET_TOKEN_CHECK =
+  '/user/reset-password/check-validity/:userId/:resetToken';
+const PATH_USER_CHANGE_PASSWORD =
+  '/user/reset-password/change-password/:userId';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
@@ -26,7 +28,7 @@ export class UserService {
    */
   static me(): Promise<Object> {
     return ApiService.callApi(PATH_USER_ME, {
-      method: 'GET'
+      method: 'GET',
     });
   }
 
@@ -36,7 +38,7 @@ export class UserService {
    */
   static getUserToken(): Promise<Object> {
     return ApiService.callApi(PATH_USER_GET_TOKEN, {
-      method: 'GET'
+      method: 'GET',
     });
   }
 
@@ -50,17 +52,19 @@ export class UserService {
     const data = {
       username: email,
       password,
-      grant_type: 'password'
+      grant_type: 'password',
     };
 
     return ApiService.callApi(PATH_USER_LOGIN, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: Object.keys(data)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-        .join('&')
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&'),
     });
   }
 
@@ -71,7 +75,7 @@ export class UserService {
    */
   static logout(): Promise<Object> {
     return ApiService.callApi(PATH_USER_LOGOUT, {
-      method: 'POST'
+      method: 'POST',
     });
   }
 
@@ -88,8 +92,8 @@ export class UserService {
         provider,
         token,
         country: ApiService.country,
-        language: ApiService.language
-      })
+        language: ApiService.language,
+      }),
     });
   }
 
@@ -109,8 +113,8 @@ export class UserService {
         postalCode: user.postalcode,
         profession: user.profession,
         country: ApiService.country,
-        language: ApiService.language
-      })
+        language: ApiService.language,
+      }),
     });
   }
 
@@ -122,7 +126,7 @@ export class UserService {
   static forgotPassword(email: string): Promise<Object> {
     return ApiService.callApi(PATH_USER_FORGOT_PASSWORD, {
       method: 'POST',
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email }),
     });
   }
 
@@ -132,17 +136,22 @@ export class UserService {
    * @param  {String}  verificationToken
    * @return {Promise}
    */
-  static verifyUser(userId: string, verificationToken: string, headers: ApiServiceHeaders = {}): Promise<Object> {
-    const newPath = PATH_USER_VERIFICATION
-      .replace(':userId', userId)
-      .replace(':verificationToken', verificationToken);
+  static verifyUser(
+    userId: string,
+    verificationToken: string,
+    headers: ApiServiceHeaders = {}
+  ): Promise<Object> {
+    const newPath = PATH_USER_VERIFICATION.replace(':userId', userId).replace(
+      ':verificationToken',
+      verificationToken
+    );
 
     return ApiService.callApi(newPath, {
       method: 'POST',
-      headers
+      headers,
     })
       .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch((error) => {
+      .catch(error => {
         Logger.logError(`Error in verifyUser for 
       userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
         return error;
@@ -155,18 +164,26 @@ export class UserService {
    * @param  {String}  resetToken
    * @return {Promise}
    */
-  static resetPasswordTokenCheck(userId: string, resetToken: string, headers: ApiServiceHeaders): Promise<Object> {
+  static resetPasswordTokenCheck(
+    userId: string,
+    resetToken: string,
+    headers: ApiServiceHeaders
+  ): Promise<Object> {
     return ApiService.callApi(
-      PATH_USER_RESET_TOKEN_CHECK
-        .replace(':userId', userId)
-        .replace(':resetToken', resetToken), {
+      PATH_USER_RESET_TOKEN_CHECK.replace(':userId', userId).replace(
+        ':resetToken',
+        resetToken
+      ),
+      {
         method: 'POST',
-        headers
+        headers,
       }
     )
       .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch((error) => {
-        Logger.logError(`Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`);
+      .catch(error => {
+        Logger.logError(
+          `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
+        );
 
         return error;
       });
@@ -177,16 +194,23 @@ export class UserService {
    * @param  {String}  userId
    * @param  {String}  resetToken
    */
-  static changePassword(newPassword: string, resetToken: string, userId: string): Promise<Object> {
+  static changePassword(
+    newPassword: string,
+    resetToken: string,
+    userId: string
+  ): Promise<Object> {
     return ApiService.callApi(
-      PATH_USER_CHANGE_PASSWORD.replace(':userId', userId), {
+      PATH_USER_CHANGE_PASSWORD.replace(':userId', userId),
+      {
         method: 'POST',
-        body: JSON.stringify({ password: newPassword, resetToken })
+        body: JSON.stringify({ password: newPassword, resetToken }),
       }
     )
       .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch((error) => {
-        Logger.logError(`Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`);
+      .catch(error => {
+        Logger.logError(
+          `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
+        );
 
         return error;
       });

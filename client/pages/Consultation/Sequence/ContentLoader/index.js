@@ -19,11 +19,7 @@ type Props = {
  * Renders SequenceContainerLoader
  */
 export const SequencePageContentLoader = (props: Props) => {
-  const {
-    question,
-    questionConfiguration,
-    isSequenceCollapsed
-  } = props;
+  const { question, questionConfiguration, isSequenceCollapsed } = props;
 
   if (!question) {
     return (
@@ -35,15 +31,12 @@ export const SequencePageContentLoader = (props: Props) => {
 
   return (
     <React.Fragment>
-      {question.canPropose && (
-        <ProposalSubmit question={question} />
-      )}
+      {question.canPropose && <ProposalSubmit question={question} />}
       <Sequence
         isSequenceCollapsed={isSequenceCollapsed}
         question={question}
         questionConfiguration={questionConfiguration}
       />
     </React.Fragment>
-
   );
 };

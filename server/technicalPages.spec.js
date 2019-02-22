@@ -16,7 +16,7 @@ describe('technical Pages', () => {
       jest.spyOn(response, 'type');
       jest.spyOn(response, 'send');
       env.contextEnvName.mockReturnValue('prod');
-      renderRobot(request, response, () => { });
+      renderRobot(request, response, () => {});
       expect(response.type).toHaveBeenCalledWith('text/plain');
       expect(response.send).toHaveBeenCalledWith('User-agent: *\nAllow: /');
     });
@@ -27,7 +27,7 @@ describe('technical Pages', () => {
       jest.spyOn(response, 'send');
 
       env.contextEnvName.mockReturnValue('preprod');
-      renderRobot(request, response, () => { });
+      renderRobot(request, response, () => {});
       expect(response.type).toHaveBeenCalledWith('text/plain');
       expect(response.send).toHaveBeenCalledWith('User-agent: *\nDisallow: /');
     });

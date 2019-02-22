@@ -1,1 +1,3 @@
-export { SequenceFooterContainer as SequenceFooter } from './SequenceFooterContainer';
+export {
+  SequenceFooterContainer as SequenceFooter,
+} from './SequenceFooterContainer';

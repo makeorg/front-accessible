@@ -16,7 +16,7 @@ type Props = {
   /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function,
   /** Method called to render Register Component in Sliding Pannel */
-  handleRegister: Function
+  handleRegister: Function,
 };
 
 type State = {
@@ -30,7 +30,7 @@ type State = {
   } */
   user: UserObject,
   /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean
+  passwordIsDisplayed: boolean,
 };
 
 /**
@@ -44,10 +44,10 @@ class RegisterHandler extends React.Component<Props, State> {
       firstname: '',
       age: '',
       postalcode: '',
-      profession: ''
+      profession: '',
     },
-    passwordIsDisplayed: false
-  }
+    passwordIsDisplayed: false,
+  };
 
   throttleSubmit: any = undefined;
 
@@ -62,10 +62,10 @@ class RegisterHandler extends React.Component<Props, State> {
     this.setState({
       user: {
         ...user,
-        [id]: value
-      }
+        [id]: value,
+      },
     });
-  }
+  };
 
   handleSubmit = (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -76,13 +76,13 @@ class RegisterHandler extends React.Component<Props, State> {
     if (user.email && user.password && user.firstname) {
       handleRegister(user);
     }
-  }
+  };
 
   togglePasswordIsDisplayed = () => {
     this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed
+      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
     }));
-  }
+  };
 
   render() {
     const { user, passwordIsDisplayed } = this.state;
@@ -103,24 +103,26 @@ class RegisterHandler extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { errors } = state.registration;
   const { isPannelOpen } = state.pannel;
 
   return {
     errors,
-    isPannelOpen
+    isPannelOpen,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleRegister: (user) => {
+  handleRegister: user => {
     dispatch(register(user));
   },
   handleLoginPannel: () => {
     dispatch(pannelShowLogin());
-  }
+  },
 });
 
-
-export const RegisterContainer = connect(mapStateToProps, mapDispatchToProps)(RegisterHandler);
+export const RegisterContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegisterHandler);

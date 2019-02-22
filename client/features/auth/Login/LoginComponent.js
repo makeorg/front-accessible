@@ -3,8 +3,14 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
-import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
-import { ExtraParagraphStyle, ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
+import {
+  SecondLevelTitleStyle,
+  ThirdLevelTtitleStyle,
+} from 'Client/ui/Elements/TitleElements';
+import {
+  ExtraParagraphStyle,
+  ExtraAltParagraphStyle,
+} from 'Client/ui/Elements/Form/Styled';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginFormComponent } from './Form';
@@ -30,7 +36,7 @@ type Props = {
   /** Method called to render Register Component in Sliding Pannel */
   handleRegisterPannel: Function,
   /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotPasswordPannel: Function
+  handleForgotPasswordPannel: Function,
 };
 
 /**
@@ -40,7 +46,7 @@ export const LoginComponent = (props: Props) => {
   const {
     isPannelOpen,
     handleRegisterPannel,
-    handleForgotPasswordPannel
+    handleForgotPasswordPannel,
   } = props;
 
   return (
@@ -52,9 +58,7 @@ export const LoginComponent = (props: Props) => {
       <ThirdLevelTtitleStyle>
         {i18n.t('login.social_connect')}
       </ThirdLevelTtitleStyle>
-      <AuthentificationSocial
-        tabIndex={isPannelOpen ? 0 : -1}
-      />
+      <AuthentificationSocial tabIndex={isPannelOpen ? 0 : -1} />
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18n.t('login.or')}</Separators.Text>

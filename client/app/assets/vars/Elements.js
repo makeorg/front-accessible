@@ -4,5 +4,5 @@ export const Elements = {
   FooterHeightMobile: 96,
   FooterHeightDesktop: 48,
   SequenceFooterHeightMobile: 74,
-  SequenceFooterHeightDesktop: 87
+  SequenceFooterHeightDesktop: 87,
 };

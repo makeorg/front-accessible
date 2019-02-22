@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
-import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import {
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 
 export const HeaderStyle = styled.header`
   position: relative;
@@ -18,7 +21,7 @@ export const HeaderStyle = styled.header`
 
 export const HeaderLogoStyle = styled.img`
   max-width: ${pxToRem('70px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     max-width: ${pxToRem('85px')};
   }
 `;

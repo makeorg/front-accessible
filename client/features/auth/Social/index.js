@@ -1,1 +1,3 @@
-export { AuthentificationSocialContainer as AuthentificationSocial } from './AuthentificationSocialContainer';
+export {
+  AuthentificationSocialContainer as AuthentificationSocial,
+} from './AuthentificationSocialContainer';

@@ -11,31 +11,24 @@ export const cspMiddleware = csp({
       '*.twitter.com',
       '*.ads-twitter.com',
       '*.google.com',
-      "'unsafe-inline'"
+      "'unsafe-inline'",
     ],
     styleSrc: ["'unsafe-inline'"],
-    imgSrc: [
-      "'self'",
-      '*.facebook.com',
-      't.co'
-    ],
+    imgSrc: ["'self'", '*.facebook.com', 't.co'],
     connectSrc: [
       "'self'",
       '*.makeorg.tech',
       '*.make.org',
       '*.facebook.com',
-      '*.facebook.net'
+      '*.facebook.net',
     ],
     formAction: ["'self'", '*.facebook.com', '*.facebook.net'],
-    frameSrc: [
-      '*.facebook.com',
-      '*.google.com'
-    ],
+    frameSrc: ['*.facebook.com', '*.google.com'],
     objectSrc: ["'none'"],
     mediaSrc: ["'none'"],
-    frameAncestors: ["'none'"]
+    frameAncestors: ["'none'"],
   },
 
   // Set to true if you want to disable CSP on Android where it can be buggy.
-  disableAndroid: true
+  disableAndroid: true,
 });

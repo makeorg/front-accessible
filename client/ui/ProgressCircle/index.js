@@ -12,18 +12,14 @@ type Props = {
   /** Total of cards */
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
-  cardOffset: number
-}
+  cardOffset: number,
+};
 
 /**
  * Renders Progress Bar in each card
  */
 export const ProgressCircleComponent = (props: Props) => {
-  const {
-    index,
-    cardsCount,
-    cardOffset
-  } = props;
+  const { index, cardsCount, cardOffset } = props;
 
   const activeGaugeIndex = index + cardOffset;
   const maxGaugeIndex = cardsCount + cardOffset;
@@ -53,7 +49,9 @@ export const ProgressCircleComponent = (props: Props) => {
         <HiddenItemStyle aria-hidden>
           {i18n.t('proposal_card.number')}
         </HiddenItemStyle>
-        <Progress.ActiveCardStyle aria-valuetext={activeGaugeIndex}>{activeGaugeIndex}</Progress.ActiveCardStyle>
+        <Progress.ActiveCardStyle aria-valuetext={activeGaugeIndex}>
+          {activeGaugeIndex}
+        </Progress.ActiveCardStyle>
         <span aria-hidden>/</span>
         <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
         <span aria-valuemax={maxGaugeIndex}>{maxGaugeIndex}</span>

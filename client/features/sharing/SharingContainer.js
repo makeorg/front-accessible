@@ -4,14 +4,18 @@ import { connect } from 'react-redux';
 import { Location } from 'history';
 import { withRouter } from 'react-router-dom';
 import type { QuestionConfiguration } from 'Shared/types/sequence';
-import { twitterShareUrl, facebookShareUrl, linkedinShareUrl } from 'Shared/helpers/url';
+import {
+  twitterShareUrl,
+  facebookShareUrl,
+  linkedinShareUrl,
+} from 'Shared/helpers/url';
 import { SharingComponent } from './SharingComponent';
 
 type Props = {
   location: Location,
   questionConfiguration: QuestionConfiguration,
-  tabIndex?: number
-}
+  tabIndex?: number,
+};
 
 /**
  * Handles Sharing Business Logic
@@ -19,15 +23,11 @@ type Props = {
 
 class SharingContainerLinks extends React.Component<Props> {
   static defaultProps = {
-    tabIndex: undefined
-  }
+    tabIndex: undefined,
+  };
 
   render() {
-    const {
-      location,
-      questionConfiguration,
-      tabIndex
-    } = this.props;
+    const { location, questionConfiguration, tabIndex } = this.props;
 
     let hashtagsProps: string = '';
 
@@ -46,12 +46,14 @@ class SharingContainerLinks extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { questionConfiguration } = state.sequence;
 
   return {
-    questionConfiguration
+    questionConfiguration,
   };
 };
 
-export const SharingContainer = withRouter(connect(mapStateToProps)(SharingContainerLinks));
+export const SharingContainer = withRouter(
+  connect(mapStateToProps)(SharingContainerLinks)
+);

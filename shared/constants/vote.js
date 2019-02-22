@@ -12,18 +12,18 @@ export const voteStaticParams: Object = {
     label: i18n.t('vote.agree'),
     color: VoteColors.Agree,
     icon: faThumbsUp,
-    rotate: 0
+    rotate: 0,
   },
   [VOTE_DISAGREE_KEY]: {
     label: i18n.t('vote.disagree'),
     color: VoteColors.Disagree,
     icon: faThumbsDown,
-    rotate: 0
+    rotate: 0,
   },
   [VOTE_NEUTRAL_KEY]: {
     label: i18n.t('vote.neutral'),
     color: VoteColors.Neutral,
     icon: faThumbsUp,
-    rotate: -90
-  }
+    rotate: -90,
+  },
 };

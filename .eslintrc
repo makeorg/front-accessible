@@ -1,6 +1,7 @@
 {
   "parser": "babel-eslint",
   "rules": {
+    "prettier/prettier": "error",
     "max-len": [
       1,
       120,
@@ -8,10 +9,6 @@
       {
         "ignoreComments": true
       }
-    ],
-    "comma-dangle": [
-      "error",
-      "never"
     ],
     "no-underscore-dangle": 0,
     "import/no-extraneous-dependencies": [
@@ -52,14 +49,10 @@
     "plugin:security/recommended",
     "airbnb",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "eslint-config-prettier"
   ],
-  "plugins": [
-    "jsx-a11y",
-    "flowtype",
-    "security",
-    "import"
-  ],
+  "plugins": ["jsx-a11y", "flowtype", "security", "import", "prettier"],
   "settings": {
     "import/resolver": {
       "babel-module": {}

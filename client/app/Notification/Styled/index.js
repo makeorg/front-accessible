@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { Breakpoints, Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import {
+  Breakpoints,
+  Layouts,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
-import { CALC_WIDTH_MOBILE, CALC_WIDTH_DESKTOP } from 'Client/app/constants/elements';
+import {
+  CALC_WIDTH_MOBILE,
+  CALC_WIDTH_DESKTOP,
+} from 'Client/app/constants/elements';
 
 export const NotificationWrapperStyle = styled.section`
   position: absolute;
@@ -18,10 +25,10 @@ export const NotificationWrapperStyle = styled.section`
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background-color: ${BasicColors.PureWhite};
   border-radius: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     top: ${pxToRem(DefaultPadding.Desktop)};
   }
-  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}) {
     width: calc(100% - ${pxToRem(CALC_WIDTH_DESKTOP)});
     left: ${pxToRem(DefaultPadding.Desktop)};
   }
@@ -34,11 +41,10 @@ export const NotificationContentStyle = styled.div`
   width: 100%;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding-right: ${pxToRem(DefaultPadding.Desktop)};
-  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}) {
     padding-right: ${pxToRem(DefaultPadding.Mobile)};
   }
 `;
-
 
 export const NotificationCloseButtonStyle = styled(UnstyledButtonStyle)`
   position: absolute;

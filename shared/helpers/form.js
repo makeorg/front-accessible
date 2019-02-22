@@ -3,7 +3,6 @@
 import { i18n } from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 
-
 export const errorTranslation = (apiError: string) => {
   if (/Email\s(.+)\salready exist/.test(apiError)) {
     return i18n.t('common.form.email_already_exist');
@@ -28,5 +27,7 @@ export const fieldErrors = (field: string, errors: Array<ErrorObject>) => {
     return null;
   }
 
-  return (Object.keys(fieldError).length === 0) ? undefined : errorTranslation(fieldError.message);
+  return Object.keys(fieldError).length === 0
+    ? undefined
+    : errorTranslation(fieldError.message);
 };

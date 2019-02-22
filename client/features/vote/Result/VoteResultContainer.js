@@ -15,18 +15,14 @@ type Props = {
   /** Index of the card */
   index: number,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => {}
+  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => {},
 };
 
 /**
  * Handles Vote Result Business Logic
  */
 export const VoteResultContainer = (props: Props) => {
-  const {
-    votes,
-    votedKey,
-    handleVote
-  } = props;
+  const { votes, votedKey, handleVote } = props;
 
   const votesCount = VoteResultHelper.getVotesCount(votes);
 

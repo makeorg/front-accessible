@@ -1,4 +1,4 @@
 export const fbq = {
   load: () => {},
-  track: (...args) => args
+  track: (...args) => args,
 };

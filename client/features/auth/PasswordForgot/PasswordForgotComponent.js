@@ -4,7 +4,10 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import type { ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
-import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  SecondLevelTitleStyle,
+  FourthLevelTtitleStyle,
+} from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ForgotPasswordFormComponent } from './Form';
@@ -24,18 +27,14 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: Function
+  handleLoginPannel: Function,
 };
 
 /**
  * Renders Forgot Password component
  */
 export const PasswordForgotComponent = (props: Props) => {
-  const {
-    isSuccess,
-    isPannelOpen,
-    handleLoginPannel
-  } = props;
+  const { isSuccess, isPannelOpen, handleLoginPannel } = props;
 
   return (
     <ForgotPasswordStyle role="region" aria-labelledby="forgot_password_title">

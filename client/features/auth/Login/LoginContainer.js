@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import type { ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { login } from 'Shared/store/actions/authentification';
-import { pannelShowRegister, pannelShowForgotPassword } from 'Shared/store/actions/pannel';
+import {
+  pannelShowRegister,
+  pannelShowForgotPassword,
+} from 'Shared/store/actions/pannel';
 import { LoginComponent } from './LoginComponent';
 
 type Props = {
@@ -17,15 +20,15 @@ type Props = {
   /** Method called to render ForgotPassword Component in Sliding Pannel */
   handleForgotPasswordPannel: () => void,
   /** Method called to submit Login Form */
-  handleLogin: (string, string) => void
-}
+  handleLogin: (string, string) => void,
+};
 
 type State = {
   email: string,
   password: string,
   /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean
-}
+  passwordIsDisplayed: boolean,
+};
 
 /**
  * Handles Login Business Logic
@@ -38,20 +41,20 @@ class LoginHandler extends React.Component<Props, State> {
     this.state = {
       email: '',
       password: '',
-      passwordIsDisplayed: false
+      passwordIsDisplayed: false,
     };
 
     this.throttleSubmit = throttle(this.handleSubmit);
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { id, value } = event.target;
     this.setState({
-      [id]: value
+      [id]: value,
     });
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const { email, password } = this.state;
@@ -59,13 +62,13 @@ class LoginHandler extends React.Component<Props, State> {
     if (email && password) {
       handleLogin(email, password);
     }
-  }
+  };
 
   togglePasswordIsDisplayed = () => {
     this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed
+      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
     }));
-  }
+  };
 
   render() {
     const { email, password, passwordIsDisplayed } = this.state;
@@ -73,7 +76,7 @@ class LoginHandler extends React.Component<Props, State> {
       errors,
       isPannelOpen,
       handleRegisterPannel,
-      handleForgotPasswordPannel
+      handleForgotPasswordPannel,
     } = this.props;
 
     return (
@@ -93,13 +96,13 @@ class LoginHandler extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { errors } = state.authentification;
   const { isPannelOpen } = state.pannel;
 
   return {
     errors,
-    isPannelOpen
+    isPannelOpen,
   };
 };
 
@@ -112,7 +115,10 @@ const mapDispatchToProps = dispatch => ({
   },
   handleForgotPasswordPannel: () => {
     dispatch(pannelShowForgotPassword());
-  }
+  },
 });
 
-export const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginHandler);
+export const LoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginHandler);

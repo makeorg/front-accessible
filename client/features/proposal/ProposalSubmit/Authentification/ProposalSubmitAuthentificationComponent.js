@@ -2,19 +2,27 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faExternalLinkAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   RedButtonStyle,
   EmailButtonStyle,
   IconInButtonStyle,
   ButtonsWrapperStyle,
-  SmallButtonWrapperStyle
+  SmallButtonWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import { SecondLevelTitleStyle, ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
-import { AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
+import {
+  SecondLevelTitleStyle,
+  ThirdLevelTtitleStyle,
+} from 'Client/ui/Elements/TitleElements';
+import {
+  AltDescriptionStyle,
+  DescriptionLinkStyle,
+} from 'Client/ui/Elements/DescriptionElements';
 import * as Separators from 'Client/ui/Elements/Separators';
-import { FacebookAuthentificationButtonComponent }
-  from 'Client/features/auth/Social/FacebookAuthentification/Button';
+import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
 import { ProposalSubmitAuthentificationWrapperStyle } from '../Styled';
@@ -27,8 +35,8 @@ type Props = {
   /** Method called to track DescriptionLinkStyle */
   trackPersonnalDataLink: Function,
   /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean
-}
+  isPannelOpen: boolean,
+};
 
 /**
  * Renders authentification component after proposal submit button is clicked
@@ -38,12 +46,14 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
     handleRegisterClick,
     handleLoginClick,
     trackPersonnalDataLink,
-    isPannelOpen
+    isPannelOpen,
   } = props;
 
   return (
     <ProposalSubmitAuthentificationWrapperStyle id="proposal-submit-authentification">
-      <SecondLevelTitleStyle>{i18n.t('authentification.title')}</SecondLevelTitleStyle>
+      <SecondLevelTitleStyle>
+        {i18n.t('authentification.title')}
+      </SecondLevelTitleStyle>
       <ThirdLevelTtitleStyle>
         {i18n.t('authentification.description')}
       </ThirdLevelTtitleStyle>
@@ -75,7 +85,10 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         >
           {i18n.t('authentification.personal_data')}
           <IconInButtonStyle>
-            <FontAwesomeIcon aria-label={i18n.t('common.open_new_window')} icon={faExternalLinkAlt} />
+            <FontAwesomeIcon
+              aria-label={i18n.t('common.open_new_window')}
+              icon={faExternalLinkAlt}
+            />
           </IconInButtonStyle>
         </DescriptionLinkStyle>
       </AltDescriptionStyle>

@@ -15,13 +15,13 @@ const requestParams = {
   verificationToken: 'bar',
   userId: 'foo',
   country: 'FR',
-  language: 'fr'
+  language: 'fr',
 };
 const expectedHeaders = {
   'x-make-question': 'foo',
   'x-make-question-id': 'foo',
   'x-make-country': 'FR',
-  'x-make-language': 'fr'
+  'x-make-language': 'fr',
 };
 
 describe('Account activation route', () => {
@@ -31,24 +31,27 @@ describe('Account activation route', () => {
 
   it('add the question to the initialState and set headers', async () => {
     const fooQuestion = {
-      id: 'foo'
+      id: 'foo',
     };
     QuestionService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       sequence: {
         ...initialState.sequence,
-        question: fooQuestion
-      }
+        question: fooQuestion,
+      },
     };
 
     const request = httpMocks.createRequest({
       params: requestParams,
-      query: { question: fooQuestion.id }
+      query: { question: fooQuestion.id },
     });
     const response = httpMocks.createResponse();
-    await accountActivationRoute(request, response, () => { });
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(fooQuestion.id, expectedHeaders);
+    await accountActivationRoute(request, response, () => {});
+    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+      fooQuestion.id,
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 
@@ -60,22 +63,26 @@ describe('Account activation route', () => {
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId
-      }
+        question: fooQuestionId,
+      },
     });
     const response = httpMocks.createResponse();
     const routeState = {
       ...initialState,
       notification: {
-        contentType: 'ACTIVATION_SUCCESS_CONTENT'
+        contentType: 'ACTIVATION_SUCCESS_CONTENT',
       },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId }
-      }
+        question: { id: fooQuestionId },
+      },
     };
-    await accountActivationRoute(request, response, () => { });
-    expect(UserService.verifyUser).toHaveBeenCalledWith('foo', 'bar', expectedHeaders);
+    await accountActivationRoute(request, response, () => {});
+    expect(UserService.verifyUser).toHaveBeenCalledWith(
+      'foo',
+      'bar',
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 
@@ -87,23 +94,27 @@ describe('Account activation route', () => {
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId
-      }
+        question: fooQuestionId,
+      },
     });
     const response = httpMocks.createResponse();
     const routeState = {
       ...initialState,
       notification: {
-        contentType: 'ACTIVATION_FAILURE_CONTENT'
+        contentType: 'ACTIVATION_FAILURE_CONTENT',
       },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId }
-      }
+        question: { id: fooQuestionId },
+      },
     };
 
-    await accountActivationRoute(request, response, () => { });
-    expect(UserService.verifyUser).toHaveBeenCalledWith('foo', 'bar', expectedHeaders);
+    await accountActivationRoute(request, response, () => {});
+    expect(UserService.verifyUser).toHaveBeenCalledWith(
+      'foo',
+      'bar',
+      expectedHeaders
+    );
     expect(reactRender).toHaveBeenCalledWith(request, response, routeState);
   });
 });

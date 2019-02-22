@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
-
+import {
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 
 export const FooterStyle = styled.footer`
   display: flex;
@@ -25,7 +27,7 @@ export const FooterItemStyle = styled.li`
   width: 50%;
   padding: ${pxToRem('5px')};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     padding: ${pxToRem(DefaultPadding.Mobile)};
     width: auto;
   }

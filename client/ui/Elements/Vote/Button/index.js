@@ -24,7 +24,7 @@ type Props = {
   displayTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
   handleVote?: (SyntheticEvent<HTMLButtonElement>, string) => void,
-}
+};
 
 /**
  * Renders Vote Button element
@@ -40,7 +40,7 @@ export const VoteButtonElement = (props: Props) => {
     buttonType,
     handleVote,
     displayTooltip,
-    hideTooltip
+    hideTooltip,
   } = props;
 
   return (
@@ -69,5 +69,5 @@ VoteButtonElement.defaultProps = {
   displayTooltip: undefined,
   handleVote: undefined,
   id: 'vote_button_element',
-  rotate: 0
+  rotate: 0,
 };

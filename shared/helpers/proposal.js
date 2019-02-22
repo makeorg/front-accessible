@@ -1,6 +1,10 @@
 /* @flow */
 
-import { getBaitText, MIN_PROPOSAL_LENGTH, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
+import {
+  getBaitText,
+  MIN_PROPOSAL_LENGTH,
+  MAX_PROPOSAL_LENGTH,
+} from 'Shared/constants/proposal';
 import type { ProposalType } from 'Shared/types/proposal';
 
 export const getProposalLength = (content: string = '') => {
@@ -16,7 +20,7 @@ export const getIsProposalValidLength = (length: number = 0) => {
     return false;
   }
 
-  return (length >= MIN_PROPOSAL_LENGTH && length <= MAX_PROPOSAL_LENGTH);
+  return length >= MIN_PROPOSAL_LENGTH && length <= MAX_PROPOSAL_LENGTH;
 };
 
 /**
@@ -24,19 +28,19 @@ export const getIsProposalValidLength = (length: number = 0) => {
  * @param  {Array<Object>} proposals
  * @return {Array<Object>}
  */
-export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> => (
+export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> =>
   proposals.sort((first, second) => {
     const firstHasVoted = first.votes.some(vote => vote.hasVoted);
     const secondHasVoted = second.votes.some(vote => vote.hasVoted);
 
     return Number(secondHasVoted) - Number(firstHasVoted);
-  })
-);
+  });
 
 /**
  * Search the first no voted proposal
  * @type {Object|null}
  */
-export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) => (
-  proposals.find(proposal => proposal.votes.every(vote => vote.hasVoted === false))
-);
+export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) =>
+  proposals.find(proposal =>
+    proposal.votes.every(vote => vote.hasVoted === false)
+  );

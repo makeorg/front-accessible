@@ -1,15 +1,13 @@
 /* @flow */
 
-export const getVoteKey = (voteKey: string, proposalId: string) => (
-  `${voteKey}_${proposalId}`
-);
+export const getVoteKey = (voteKey: string, proposalId: string) =>
+  `${voteKey}_${proposalId}`;
 
-export const getVoteButtonId = (voteKey: string, id?: number) => (
-  id ? `${voteKey}-${id}` : voteKey
-);
+export const getVoteButtonId = (voteKey: string, id?: number) =>
+  id ? `${voteKey}-${id}` : voteKey;
 
 const getNewVoteState = (prevState: Object, vote: Object) => {
-  const newVotes = prevState.votes.map((oldVote) => {
+  const newVotes = prevState.votes.map(oldVote => {
     if (oldVote.voteKey === vote.voteKey) {
       return vote;
     }
@@ -24,12 +22,12 @@ export const doVote = (prevState: Object, vote: Object) => ({
   hasVoted: true,
   votedKey: vote.voteKey,
   votes: getNewVoteState(prevState, vote),
-  qualifications: vote.qualifications
+  qualifications: vote.qualifications,
 });
 
 export const doUnvote = (prevState: Object, vote: Object) => ({
   hasVoted: false,
   votedKey: '',
   votes: getNewVoteState(prevState, vote),
-  qualifications: []
+  qualifications: [],
 });

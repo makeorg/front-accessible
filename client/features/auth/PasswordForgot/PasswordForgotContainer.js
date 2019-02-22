@@ -18,37 +18,37 @@ type Props = {
   /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: Function,
   /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotpassword: Function
+  handleForgotpassword: Function,
 };
 
 type State = {
   /** User's email */
-  email: string
-}
+  email: string,
+};
 
 /**
  * Handles Forgot Password Business Logic
  */
 class PasswordForgotHandler extends React.Component<Props, State> {
-  throttleSubmit: any = undefined
+  throttleSubmit: any = undefined;
 
   constructor(props) {
     super(props);
     this.state = {
-      email: ''
+      email: '',
     };
 
     this.throttleSubmit = throttle(this.handleSubmit);
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const email = event.target.value;
     this.setState({
-      email
+      email,
     });
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const { email } = this.state;
@@ -56,16 +56,11 @@ class PasswordForgotHandler extends React.Component<Props, State> {
     if (email) {
       handleForgotpassword(email);
     }
-  }
+  };
 
   render() {
     const { email } = this.state;
-    const {
-      errors,
-      isSuccess,
-      isPannelOpen,
-      handleLoginPannel
-    } = this.props;
+    const { errors, isSuccess, isPannelOpen, handleLoginPannel } = this.props;
 
     return (
       <PasswordForgotComponent
@@ -81,24 +76,27 @@ class PasswordForgotHandler extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { errors, isSuccess } = state.forgotPassword;
   const { isPannelOpen } = state.pannel;
 
   return {
     errors,
     isSuccess,
-    isPannelOpen
+    isPannelOpen,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleForgotpassword: (email) => {
+  handleForgotpassword: email => {
     dispatch(forgotPassword(email));
   },
   handleLoginPannel: () => {
     dispatch(pannelShowLogin());
-  }
+  },
 });
 
-export const PasswordForgotContainer = connect(mapStateToProps, mapDispatchToProps)(PasswordForgotHandler);
+export const PasswordForgotContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PasswordForgotHandler);

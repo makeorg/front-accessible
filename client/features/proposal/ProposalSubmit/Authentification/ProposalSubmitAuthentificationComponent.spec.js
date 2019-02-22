@@ -12,13 +12,18 @@ jest.mock('i18next');
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
-    const DescriptionLinkIcon = wrapper.find(DescriptionLinkStyle).find(FontAwesomeIcon);
-    const EmailButtonIcon = wrapper.find(EmailButtonStyle).find(FontAwesomeIcon);
-
+    const DescriptionLinkIcon = wrapper
+      .find(DescriptionLinkStyle)
+      .find(FontAwesomeIcon);
+    const EmailButtonIcon = wrapper
+      .find(EmailButtonStyle)
+      .find(FontAwesomeIcon);
 
     expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
     expect(EmailButtonIcon.prop('aria-hidden')).toBe(true);
-    expect(DescriptionLinkIcon.prop('aria-label')).toBe('common.open_new_window');
+    expect(DescriptionLinkIcon.prop('aria-label')).toBe(
+      'common.open_new_window'
+    );
   });
 
   it('Check link target', () => {

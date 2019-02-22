@@ -10,5 +10,5 @@ export type Question = {
   endDate: string,
   landingSequenceId: string,
   operationTitle: string,
-  canPropose: boolean
+  canPropose: boolean,
 };

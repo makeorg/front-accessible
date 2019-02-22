@@ -10,30 +10,28 @@ type Props = {
   /** Boolean toggled when Sliding Pannel is collapsed / expanded */
   isPannelOpen: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleExpandSequence: Function
+  handleExpandSequence: Function,
 };
 
 /**
  * Renders Sequence with PlaceholderCard
  */
 export const SequencePlaceholderComponent = (props: Props) => {
-  const {
-    isSequenceCollapsed,
-    isPannelOpen,
-    handleExpandSequence
-  } = props;
+  const { isSequenceCollapsed, isPannelOpen, handleExpandSequence } = props;
 
   return (
-    <SequenceStyle
-      role="region"
-    >
+    <SequenceStyle role="region">
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}
         isSequenceCollapsed={isSequenceCollapsed}
         isPannelOpen={isPannelOpen}
       />
       <WrapperStyle>
-        <ListStyle isSequenceCollapsed={isSequenceCollapsed} as="div" id="sequence">
+        <ListStyle
+          isSequenceCollapsed={isSequenceCollapsed}
+          as="div"
+          id="sequence"
+        >
           <PlaceholderCardComponent />
         </ListStyle>
       </WrapperStyle>

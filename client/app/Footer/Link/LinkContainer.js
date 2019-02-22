@@ -7,7 +7,7 @@ type Props = {
   /** String with Language value */
   language: string,
   /** String with Country value */
-  country: string
+  country: string,
 };
 
 /**
@@ -15,18 +15,16 @@ type Props = {
  */
 class FooterLink extends React.Component<Props> {
   render() {
-    return (
-      <FooterLinkComponent {...this.props} />
-    );
+    return <FooterLinkComponent {...this.props} />;
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { language, country } = state.appConfig;
 
   return {
     language,
-    country
+    country,
   };
 };
 

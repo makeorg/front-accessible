@@ -1,5 +1,5 @@
 export const TwitterTracking = {
-  init: () => { },
-  track: () => { },
-  pageView: () => { }
+  init: () => {},
+  track: () => {},
+  pageView: () => {},
 };

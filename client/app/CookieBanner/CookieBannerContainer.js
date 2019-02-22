@@ -11,7 +11,7 @@ type Props = {
   /** Localiszed Language of the app */
   language: string,
   /** Localiszed Country of the app */
-  country: string
+  country: string,
 };
 
 type State = {
@@ -27,15 +27,14 @@ export class CookieBanner extends React.Component<Props, State> {
     super(props);
     const { cookies } = props;
 
-    this.state = { hasAccepted: (cookies.get(acceptCookieName) !== undefined) };
+    this.state = { hasAccepted: cookies.get(acceptCookieName) !== undefined };
   }
-
 
   handleClose = () => {
     const { cookies } = this.props;
     cookies.set(acceptCookieName, true, { path: '/' });
     this.setState({ hasAccepted: true });
-  }
+  };
 
   render = () => {
     const { hasAccepted } = this.state;
@@ -53,13 +52,15 @@ export class CookieBanner extends React.Component<Props, State> {
         handleClose={this.handleClose}
       />
     );
-  }
+  };
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { country, language } = state.appConfig;
 
   return { country, language };
 };
 
-export const CookieBannerContainer = connect(mapStateToProps)(withCookies(CookieBanner));
+export const CookieBannerContainer = connect(mapStateToProps)(
+  withCookies(CookieBanner)
+);

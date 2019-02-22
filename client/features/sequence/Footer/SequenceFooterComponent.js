@@ -9,14 +9,14 @@ import {
   FooterTitleStyle,
   TitleInnerStyle,
   InPartnershipWithStyle,
-  FooterLinkStyle
+  FooterLinkStyle,
 } from '../Styled';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: Object,
   /** Method called to track Footer */
-  handleTracking: Function
+  handleTracking: Function,
 };
 
 /**
@@ -33,17 +33,17 @@ export const SequenceFooterComponent = (props: Props) => {
             color={questionConfiguration.theme.footerFontColor}
             id="footer_title"
           >
-            <HiddenItemStyle aria-hidden>{i18n.t('footer_sequence.see_more')}</HiddenItemStyle>
+            <HiddenItemStyle aria-hidden>
+              {i18n.t('footer_sequence.see_more')}
+            </HiddenItemStyle>
             <TitleInnerStyle>
               {questionConfiguration.wording.question}
-              {questionConfiguration.footer
-                && questionConfiguration.footer.sentence
-                && (
+              {questionConfiguration.footer &&
+                questionConfiguration.footer.sentence && (
                   <InPartnershipWithStyle>
                     {questionConfiguration.footer.sentence}
                   </InPartnershipWithStyle>
-                )
-              }
+                )}
             </TitleInnerStyle>
           </FooterTitleStyle>
         </MiddleColumnStyle>

@@ -6,5 +6,5 @@ const contextEnvName = () => process.env.ENV_NAME;
 export const env = {
   isDev,
   isNone,
-  contextEnvName
+  contextEnvName,
 };

@@ -16,7 +16,10 @@ import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
 import { DateHelper } from 'Shared/helpers/date';
-import { USER_LOCAL_STORAGE_KEY, TOKEN_LOCAL_STORAGE_KEY } from 'Shared/constants/user';
+import {
+  USER_LOCAL_STORAGE_KEY,
+  TOKEN_LOCAL_STORAGE_KEY,
+} from 'Shared/constants/user';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -26,7 +29,7 @@ window.onerror = (message, source, lineNumber, columnNumber, error) => {
       source,
       lineNumber,
       columnNumber,
-      stack
+      stack,
     });
   }
 
@@ -40,35 +43,43 @@ if (env.isNone() || env.isDev()) {
   initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 
-const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
+const tradLanguage = `${initialState.appConfig.language}-${
+  initialState.appConfig.country
+}`;
 
 i18n.init({
   interpolation: {
-    escapeValue: false
+    escapeValue: false,
   },
   debug: env.isDev(),
   lng: tradLanguage,
   resources: {
-    [tradLanguage]: { [TRANSLATION_NAMESPACE]: initialState.appConfig.translations }
-  }
+    [tradLanguage]: {
+      [TRANSLATION_NAMESPACE]: initialState.appConfig.translations,
+    },
+  },
 });
 
 FacebookTracking.init();
 
 // keep user login on client side
-const savedUser: ?string = (typeof localStorage !== 'undefined')
-  ? localStorage.getItem(USER_LOCAL_STORAGE_KEY) : null;
-const savedToken: ?string = (typeof localStorage !== 'undefined')
-  ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY) : null;
+const savedUser: ?string =
+  typeof localStorage !== 'undefined'
+    ? localStorage.getItem(USER_LOCAL_STORAGE_KEY)
+    : null;
+const savedToken: ?string =
+  typeof localStorage !== 'undefined'
+    ? localStorage.getItem(TOKEN_LOCAL_STORAGE_KEY)
+    : null;
 
 const user: ?Object = savedUser ? JSON.parse(savedUser) : null;
 const token: ?Object = savedToken ? JSON.parse(savedToken) : null;
 
 initialState.authentification = {
   ...initialState.authentification,
-  isLoggedIn: (token !== null && user !== null),
+  isLoggedIn: token !== null && user !== null,
   token,
-  user
+  user,
 };
 
 const apiClient = new ApiServiceClient();
@@ -98,7 +109,7 @@ loadableReady(() => {
         </Provider>
       </HeadProvider>
     </CookiesProvider>,
-    document.getElementById('app'),
+    document.getElementById('app')
   );
 });
 

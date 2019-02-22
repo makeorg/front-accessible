@@ -5,18 +5,14 @@ import {
   PlaceholderTitleSTyle,
   PlaceholderSeparatorStyle,
   PlaceholderDescriptionStyle,
-  PlaceholderButtonStyle
+  PlaceholderButtonStyle,
 } from 'Client/features/sequence/Card/Styled/Placeholder';
 
 /**
  * Renders Proposal Placeholder used when the Sequence is loading
  */
 export const PlaceholderCardComponent = () => (
-  <ProposalCardStyle
-    as="div"
-    scale="1"
-    zindex="1"
-  >
+  <ProposalCardStyle as="div" scale="1" zindex="1">
     <PlaceholderWrapperStyle>
       <PlaceholderTitleSTyle />
       <PlaceholderSeparatorStyle />

@@ -10,18 +10,17 @@ async function getQuestion(questionId, headers) {
   return QuestionService.getDetail(questionId, headers);
 }
 
-async function postResetPasswordTokenCheck(userId: string, resetToken: string, headers) {
+async function postResetPasswordTokenCheck(
+  userId: string,
+  resetToken: string,
+  headers
+) {
   return UserService.resetPasswordTokenCheck(userId, resetToken, headers);
 }
 
 export const passwordRecoveryRoute = async (req, res) => {
   const initialState = createInitialState();
-  const {
-    resetToken,
-    userId,
-    country,
-    language
-  } = req.params;
+  const { resetToken, userId, country, language } = req.params;
   const routeState = {
     ...initialState,
     user: {
@@ -29,9 +28,9 @@ export const passwordRecoveryRoute = async (req, res) => {
       passwordRecovery: {
         validToken: false,
         resetToken,
-        userId
-      }
-    }
+        userId,
+      },
+    },
   };
 
   try {
@@ -42,7 +41,7 @@ export const passwordRecoveryRoute = async (req, res) => {
         'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
-        'x-make-language': language
+        'x-make-language': language,
       });
 
       if (question) {
@@ -54,7 +53,7 @@ export const passwordRecoveryRoute = async (req, res) => {
       'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,
-      'x-make-language': language
+      'x-make-language': language,
     });
 
     if (status === HTTP_NO_CONTENT) {
@@ -63,7 +62,8 @@ export const passwordRecoveryRoute = async (req, res) => {
     }
 
     if (status === HTTP_NOT_FOUND) {
-      routeState.notification.contentType = notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT;
+      routeState.notification.contentType =
+        notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT;
       routeState.notification.status = status;
     }
 

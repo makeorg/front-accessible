@@ -6,7 +6,7 @@ export const initialState: StateRoot = {
     errors: [],
     isLoggedIn: false,
     token: undefined,
-    user: undefined
+    user: undefined,
   },
   proposal: {
     isTyping: false,
@@ -16,17 +16,17 @@ export const initialState: StateRoot = {
     content: '',
     questionId: undefined,
     error: undefined,
-    data: undefined
+    data: undefined,
   },
   sequence: {
     isSequenceCollapsed: false,
     firstProposal: undefined,
     question: undefined,
     questionConfiguration: undefined,
-    votedProposalIds: []
+    votedProposalIds: [],
   },
   notification: {
-    contentType: undefined
+    contentType: undefined,
   },
   user: {
     passwordRecovery: {
@@ -35,9 +35,10 @@ export const initialState: StateRoot = {
       userId: undefined,
       errorMessage: undefined,
       error: false,
-      updated: false
-    }
-  }
+      updated: false,
+    },
+  },
 };
 
-export const createInitialState = () => JSON.parse(JSON.stringify(initialState));
+export const createInitialState = () =>
+  JSON.parse(JSON.stringify(initialState));

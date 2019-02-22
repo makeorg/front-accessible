@@ -7,7 +7,7 @@ import { HeaderStyle, HeaderLogoStyle } from './Styled';
 
 type Props = {
   /** Method called to track Header */
-  handleTracking: Function
+  handleTracking: Function,
 };
 
 /**
@@ -20,7 +20,11 @@ export const HeaderComponent = (props: Props) => {
     <HeaderStyle role="banner">
       <a href="https://make.org">
         <h1>
-          <HeaderLogoStyle onClick={handleTracking} src={Logo} alt={i18n.t('header.logo_alt')} />
+          <HeaderLogoStyle
+            onClick={handleTracking}
+            src={Logo}
+            alt={i18n.t('header.logo_alt')}
+          />
         </h1>
       </a>
     </HeaderStyle>

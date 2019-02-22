@@ -5,19 +5,13 @@ import { PasswordButton } from './index';
 
 describe('PasswordButton', () => {
   it('must match the snapshot with defaultProps', () => {
-    const component = renderer.create(
-      <PasswordButton />
-    );
+    const component = renderer.create(<PasswordButton />);
     expect(component).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer.create(
-      <PasswordButton tabIndex="-1" />
-    );
-    const PositiveTabIndex = renderer.create(
-      <PasswordButton tabIndex="0" />
-    );
+    const NegativeTabIndex = renderer.create(<PasswordButton tabIndex="-1" />);
+    const PositiveTabIndex = renderer.create(<PasswordButton tabIndex="0" />);
     expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
   });
 

@@ -16,7 +16,7 @@ class LoggerSingleton {
     return instance;
   }
 
-  logError = (error) => {
+  logError = error => {
     let data = {};
     if (error instanceof Error) {
       data = {
@@ -25,43 +25,43 @@ class LoggerSingleton {
         fileName: error.fileName,
         lineNumber: error.lineNumber,
         columnNumber: error.columnNumber,
-        stack: error.stack
+        stack: error.stack,
       };
     } else {
       data = {
         message: error,
-        stack: 'no-stack'
+        stack: 'no-stack',
       };
     }
 
     this.log(data, LOG_ERROR);
-  }
+  };
 
-  logInfo = (data) => {
+  logInfo = data => {
     this.log({ message: data }, LOG_INFO);
-  }
+  };
 
-  logWarning = (data) => {
+  logWarning = data => {
     this.log({ message: data }, LOG_WARNING);
-  }
+  };
 
-  log = (data, level) => (
+  log = (data, level) =>
     axios({
       method: 'POST',
       url: `${NODE_API_BASE}/api/logger`,
       proxy: {
-        port: process.env.PORT
+        port: process.env.PORT,
       },
       data: {
         level: level || 'error',
-        data: { ...data }
-      }
-    }).then(() => { })
-      .catch((e) => {
+        data: { ...data },
+      },
+    })
+      .then(() => {})
+      .catch(e => {
         // eslint-disable-next-line no-console
         console.log('Error on logger', e);
-      })
-  )
+      });
 }
 
 export const Logger = new LoggerSingleton();

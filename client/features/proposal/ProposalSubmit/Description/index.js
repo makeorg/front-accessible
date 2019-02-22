@@ -3,7 +3,11 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { DescriptionStyle, AltDescriptionStyle, DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
+import {
+  DescriptionStyle,
+  AltDescriptionStyle,
+  DescriptionLinkStyle,
+} from 'Client/ui/Elements/DescriptionElements';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
 import { DescriptionWrapperStyle } from '../Styled';
@@ -20,8 +24,8 @@ type Props = {
   /** Method called to track DescriptionLinkStyle */
   trackModerationLink: () => void,
   /** Method called to track DescriptionText */
-  trackModerationText: () => void
-}
+  trackModerationText: () => void,
+};
 
 /**
  * Renders description component after proposal submit button is clicked
@@ -33,12 +37,7 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   }
 
   render() {
-    const {
-      isPannelOpen,
-      country,
-      language,
-      trackModerationLink
-    } = this.props;
+    const { isPannelOpen, country, language, trackModerationLink } = this.props;
     return (
       <DescriptionWrapperStyle id="proposal-submit-description">
         <DescriptionStyle>
@@ -56,7 +55,10 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             {i18n.t('common.click_there')}
             &nbsp;
             <IconInButtonStyle>
-              <FontAwesomeIcon aria-label={i18n.t('common.open_new_window')} icon={faExternalLinkAlt} />
+              <FontAwesomeIcon
+                aria-label={i18n.t('common.open_new_window')}
+                icon={faExternalLinkAlt}
+              />
             </IconInButtonStyle>
           </DescriptionLinkStyle>
         </AltDescriptionStyle>

@@ -61,16 +61,16 @@ const resources = {
   'ro-RO': { translation: roRO },
   'sv-SE': { translation: svSE },
   'sl-SI': { translation: slSI },
-  'sk-SK': { translation: skSK }
+  'sk-SK': { translation: skSK },
 };
 
 export const serverInitI18n = () => {
   i18n.init({
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
     lng: 'fr-FR',
     debug: env.isDev(),
-    resources
+    resources,
   });
 };

@@ -6,31 +6,37 @@ import { ProposalSubmitButtonComponent } from '.';
 import { ProposalButtonStyle, DisabledProposalButtonStyle } from '../Styled';
 
 const enabledButtonProps = {
-  canSubmit: true
+  canSubmit: true,
 };
 const disabledButtonProps = {
-  canSubmit: false
+  canSubmit: false,
 };
 const collapsedField = {
-  isFieldExpanded: false
+  isFieldExpanded: false,
 };
 const expandedField = {
-  isFieldExpanded: true
+  isFieldExpanded: true,
 };
 
 describe('ProposalSubmitButtonComponent', () => {
   it('Renders enabled button', () => {
-    const wrapper = shallow(<ProposalSubmitButtonComponent {...enabledButtonProps} />);
+    const wrapper = shallow(
+      <ProposalSubmitButtonComponent {...enabledButtonProps} />
+    );
 
     expect(wrapper.find(ProposalButtonStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalButtonStyle).prop('disabled')).toBeUndefined();
   });
 
   it('Renders disabled button', () => {
-    const wrapper = shallow(<ProposalSubmitButtonComponent {...disabledButtonProps} />);
+    const wrapper = shallow(
+      <ProposalSubmitButtonComponent {...disabledButtonProps} />
+    );
 
     expect(wrapper.find(DisabledProposalButtonStyle)).toHaveLength(1);
-    expect(wrapper.find(DisabledProposalButtonStyle).prop('disabled')).toBe(true);
+    expect(wrapper.find(DisabledProposalButtonStyle).prop('disabled')).toBe(
+      true
+    );
   });
 
   it('Check a11y rules', () => {
@@ -40,13 +46,10 @@ describe('ProposalSubmitButtonComponent', () => {
   });
 });
 
-
 describe('ProposalSubmitButtonComponent snapshot', () => {
   it('must match the snapshot by default', () => {
     // TODO need to use shallow with jest for better testing
-    const component = renderer.create(
-      <ProposalSubmitButtonComponent />
-    );
+    const component = renderer.create(<ProposalSubmitButtonComponent />);
     expect(component).toMatchSnapshot();
   });
 
@@ -57,7 +60,6 @@ describe('ProposalSubmitButtonComponent snapshot', () => {
     );
     expect(component).toMatchSnapshot();
   });
-
 
   it('must match the snapshot if user can submit', () => {
     // TODO need to use shallow with jest for better testing

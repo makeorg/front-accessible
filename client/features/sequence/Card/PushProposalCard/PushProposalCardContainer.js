@@ -26,8 +26,8 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean
-}
+  isSequenceCollapsed: boolean,
+};
 
 /**
  * Handles Push Proposal Card Business Logic
@@ -38,14 +38,14 @@ class PushProposalCardHandler extends React.Component<Props> {
     if (index === currentIndex) {
       Tracking.trackDisplayProposalPushCard(question.slug);
     }
-  }
+  };
 
   focusProposalField = (): void => {
     const proposalInput = document.getElementById('proposal');
     if (proposalInput !== null) {
       proposalInput.focus();
     }
-  }
+  };
 
   render() {
     const {
@@ -53,7 +53,7 @@ class PushProposalCardHandler extends React.Component<Props> {
       index,
       currentIndex,
       isPannelOpen,
-      isSequenceCollapsed
+      isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
@@ -64,7 +64,9 @@ class PushProposalCardHandler extends React.Component<Props> {
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        tabIndex={
+          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+        }
         focusProposalField={this.focusProposalField}
         {...this.props}
       />
@@ -72,15 +74,17 @@ class PushProposalCardHandler extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
   const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
     isSequenceCollapsed,
-    question
+    question,
   };
 };
 
-export const PushProposalCardContainer = connect(mapStateToProps)(PushProposalCardHandler);
+export const PushProposalCardContainer = connect(mapStateToProps)(
+  PushProposalCardHandler
+);

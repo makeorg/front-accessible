@@ -2,7 +2,10 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { IconInButtonStyle, FacebookButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import {
+  IconInButtonStyle,
+  FacebookButtonStyle,
+} from 'Client/ui/Elements/ButtonElements';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
@@ -16,7 +19,7 @@ const renderFacebookLogin = tabIndex => renderProps => (
 
 type Props = {
   /** Tabindex for interactive items */
-  tabIndex: number
+  tabIndex: number,
 };
 
 /**
@@ -25,6 +28,9 @@ type Props = {
 export const FacebookAuthentificationButtonComponent = (props: Props) => {
   const { tabIndex } = props;
   return (
-    <FacebookAuthentificationComponent {...props} render={renderFacebookLogin(tabIndex)} />
+    <FacebookAuthentificationComponent
+      {...props}
+      render={renderFacebookLogin(tabIndex)}
+    />
   );
 };

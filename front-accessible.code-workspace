@@ -2,7 +2,7 @@
   "folders": [
     {
       "path": ".",
-      "name": "root",
+      "name": "root"
     },
     {
       "path": "server"
@@ -19,6 +19,7 @@
   ],
   "settings": {
     "typescript.validate.enable": false,
-    "javascript.validate.enable": false
+    "javascript.validate.enable": false,
+    "prettier.eslintIntegration": true
   }
 }

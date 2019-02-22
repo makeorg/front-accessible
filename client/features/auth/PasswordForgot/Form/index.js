@@ -6,7 +6,7 @@ import type { ErrorObject } from 'Shared/types/form';
 import {
   InputErrorMessageStyle,
   FormErrorsListStyle,
-  FormErrorStyle
+  FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -24,33 +24,28 @@ type Props = {
   /** Method called when field's value is submitted */
   handleSubmit: Function,
   /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean
+  isPannelOpen: boolean,
 };
 
 /**
  * Renders ForgotPassword Form
  */
 export const ForgotPasswordFormComponent = (props: Props) => {
-  const {
-    email,
-    errors,
-    handleChange,
-    handleSubmit,
-    isPannelOpen
-  } = props;
+  const { email, errors, handleChange, handleSubmit, isPannelOpen } = props;
 
   const emailError = fieldErrors('email', errors);
   const globalError = fieldErrors('global', errors);
 
   return (
-    <ForgotPasswordFormStyle id={FORGOT_PASSWORD_FORMNAME} onSubmit={handleSubmit}>
-      {globalError
-        && (
-          <FormErrorsListStyle id="authentification-forgotpassword-error">
-            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-          </FormErrorsListStyle>
-        )
-      }
+    <ForgotPasswordFormStyle
+      id={FORGOT_PASSWORD_FORMNAME}
+      onSubmit={handleSubmit}
+    >
+      {globalError && (
+        <FormErrorsListStyle id="authentification-forgotpassword-error">
+          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+        </FormErrorsListStyle>
+      )}
       <UntypedInput
         type="email"
         name="email"
@@ -62,7 +57,11 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         tabIndex={isPannelOpen ? 0 : -1}
         errors={emailError}
       />
-      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
+      {emailError && (
+        <InputErrorMessageStyle id="authentification-email-error">
+          {emailError}
+        </InputErrorMessageStyle>
+      )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
         tabIndex={isPannelOpen ? 0 : -1}

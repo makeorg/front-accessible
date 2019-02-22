@@ -15,15 +15,15 @@ type Props = {
   /** Boolean toggled when Form is succesfully submitted */
   updated: boolean,
   /** Function to dispatch form submit */
-  handleSubmitForm: (password: string) => void
+  handleSubmitForm: (password: string) => void,
 };
 
 type State = {
   /** User's email */
   password: string,
   /** show the password as text or not */
-  passwordIsDisplayed: boolean
-}
+  passwordIsDisplayed: boolean,
+};
 
 /**
  * Handles Password Recovery Business Logic
@@ -35,23 +35,23 @@ class PasswordRecovery extends React.Component<Props, State> {
     super(props);
     this.state = {
       password: '',
-      passwordIsDisplayed: false
+      passwordIsDisplayed: false,
     };
     this.throttleSubmit = throttle(this.handleSubmit);
   }
 
   togglePasswordIsDisplayed = () => {
     this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed
+      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
     }));
-  }
+  };
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const password = event.target.value;
     this.setState({
-      password
+      password,
     });
-  }
+  };
 
   handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -61,7 +61,7 @@ class PasswordRecovery extends React.Component<Props, State> {
     if (password) {
       handleSubmitForm(password);
     }
-  }
+  };
 
   render() {
     const { password, passwordIsDisplayed } = this.state;
@@ -82,16 +82,19 @@ class PasswordRecovery extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { error, errorMessage, updated } = state.user.passwordRecovery;
 
   return { error, errorMessage, updated };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleSubmitForm: (password) => {
+  handleSubmitForm: password => {
     dispatch(passwordRecovery(password));
-  }
+  },
 });
 
-export const PasswordRecoveryContainer = connect(mapStateToProps, mapDispatchToProps)(PasswordRecovery);
+export const PasswordRecoveryContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PasswordRecovery);

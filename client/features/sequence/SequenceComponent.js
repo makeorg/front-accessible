@@ -30,7 +30,7 @@ export type Props = {
   /** Method called when next button in Sign Up Card is clicked  */
   skipSignUpCard: () => void,
   /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: () => void
+  skipProposalPushCard: () => void,
 };
 
 /**
@@ -49,7 +49,7 @@ export const SequenceComponent = (props: Props) => {
     goToNextCard,
     skipSignUpCard,
     skipProposalPushCard,
-    cardOffset
+    cardOffset,
   } = props;
 
   if (!cards) {
@@ -57,9 +57,7 @@ export const SequenceComponent = (props: Props) => {
   }
 
   return (
-    <SequenceStyle
-      role="region"
-    >
+    <SequenceStyle role="region">
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}
         isSequenceCollapsed={isSequenceCollapsed}

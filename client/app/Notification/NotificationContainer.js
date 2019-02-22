@@ -11,15 +11,21 @@ import { NotificationComponent } from './NotificationComponent';
 import { selectNotificationContent } from './notification.selector';
 
 const notifcationContent = {
-  [notificationConstants.ACTIVATION_SUCCESS_CONTENT]: <AccountActivationSuccessComponent />,
-  [notificationConstants.ACTIVATION_FAILURE_CONTENT]: <AccountActivationFailureComponent />,
-  [notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT]: <PasswordRecoveryFailureComponent />
+  [notificationConstants.ACTIVATION_SUCCESS_CONTENT]: (
+    <AccountActivationSuccessComponent />
+  ),
+  [notificationConstants.ACTIVATION_FAILURE_CONTENT]: (
+    <AccountActivationFailureComponent />
+  ),
+  [notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT]: (
+    <PasswordRecoveryFailureComponent />
+  ),
 };
 
 type Props = {
   /** Content to render in Notification Component */
   contentType?: string,
-  closeNotification: () => void
+  closeNotification: () => void,
 };
 
 /**
@@ -36,18 +42,20 @@ const NotificationSwitch = (props: Props) => {
 };
 
 NotificationSwitch.defaultProps = {
-  contentType: undefined
+  contentType: undefined,
 };
 
-
 const mapStateToProps = state => ({
-  contentType: selectNotificationContent(state)
+  contentType: selectNotificationContent(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   closeNotification: () => {
     dispatch(clearNotification());
-  }
+  },
 });
 
-export const NotificationContainer = connect(mapStateToProps, mapDispatchToProps)(NotificationSwitch);
+export const NotificationContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NotificationSwitch);

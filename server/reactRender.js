@@ -51,7 +51,6 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     .replace('</body>', `${scriptTags}</body>`);
 };
 
-
 export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
 
@@ -63,9 +62,9 @@ export const reactRender = (req, res, routeState = {}) => {
       source: 'core',
       language,
       country,
-      translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE)
+      translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE),
     },
-    ...routeState
+    ...routeState,
   };
 
   const store = configureStore(state);

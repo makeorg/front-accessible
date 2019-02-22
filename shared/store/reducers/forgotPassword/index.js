@@ -2,30 +2,33 @@
 
 import * as actionTypes from 'Shared/store/actionTypes';
 
-export function forgotPassword(state: Object = { isSuccess: false, errors: [] }, action: Object) {
+export function forgotPassword(
+  state: Object = { isSuccess: false, errors: [] },
+  action: Object
+) {
   switch (action.type) {
     case actionTypes.FORGOT_PASSWORD_REQUEST:
       return {
         ...state,
         errors: [],
-        isSuccess: false
+        isSuccess: false,
       };
     case actionTypes.FORGOT_PASSWORD_SUCCESS:
       return {
         ...state,
         errors: [],
-        isSuccess: true
+        isSuccess: true,
       };
     case actionTypes.FORGOT_PASSWORD_FAILURE:
       return {
         ...state,
-        errors: action.errors
+        errors: action.errors,
       };
     case actionTypes.FORGOT_PASSWORD_INIT:
       return {
         ...state,
         errors: [],
-        isSuccess: false
+        isSuccess: false,
       };
     default:
       return state;

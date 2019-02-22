@@ -12,13 +12,11 @@ describe('PasswordInput', () => {
     value: 'baz',
     label: 'qux',
     handleChange: () => {},
-    togglePasswordIsDisplayed: () => {}
+    togglePasswordIsDisplayed: () => {},
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(
-      <PasswordInput {...defaultProps} />
-    );
+    const component = renderer.create(<PasswordInput {...defaultProps} />);
     expect(component).toMatchSnapshot();
   });
 

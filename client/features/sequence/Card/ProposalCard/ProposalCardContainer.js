@@ -20,37 +20,35 @@ type Props = {
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: Function
-}
+  goToNextCard: Function,
+};
 
 /**
  * Handles Proposal Card Business Logic
  */
 const ProposalCardHandler = (props: Props) => {
-  const {
-    index,
-    currentIndex,
-    isPannelOpen,
-    isSequenceCollapsed
-  } = props;
+  const { index, currentIndex, isPannelOpen, isSequenceCollapsed } = props;
 
   return (
     <ProposalCardComponent
-      tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+      tabIndex={
+        isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+      }
       {...props}
     />
   );
 };
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
   const { isSequenceCollapsed } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed
+    isSequenceCollapsed,
   };
 };
 
-export const ProposalCardContainer = connect(mapStateToProps)(ProposalCardHandler);
+export const ProposalCardContainer = connect(mapStateToProps)(
+  ProposalCardHandler
+);

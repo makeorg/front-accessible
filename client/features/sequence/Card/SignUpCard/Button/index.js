@@ -12,31 +12,21 @@ type Props = {
   /** Method called when next card button is clicked */
   skipSignUpCard: () => void,
   /** Special wording for next card button */
-  wording: boolean | string
-}
+  wording: boolean | string,
+};
 
 /**
  * Renders Next Card Button in Sign Up Card
  */
 export const SkipSignUpButton = (props: Props) => {
-  const {
-    tabIndex,
-    skipSignUpCard,
-    wording
-  } = props;
+  const { tabIndex, skipSignUpCard, wording } = props;
 
   return (
-    <AltNextButtonStyle
-      tabIndex={tabIndex}
-      onClick={skipSignUpCard}
-    >
+    <AltNextButtonStyle tabIndex={tabIndex} onClick={skipSignUpCard}>
       <IconInButtonStyle>
-        <FontAwesomeIcon
-          aria-hidden
-          icon={faStepForward}
-        />
+        <FontAwesomeIcon aria-hidden icon={faStepForward} />
       </IconInButtonStyle>
-      {wording || i18n.t('sign_up_card.next-cta') }
+      {wording || i18n.t('sign_up_card.next-cta')}
     </AltNextButtonStyle>
   );
 };

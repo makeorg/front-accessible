@@ -44,7 +44,7 @@ type State = {
   /** Array with votes received from Api */
   votes: Array<VoteType>,
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>
+  qualifications: Array<QualificationType>,
 };
 
 /**
@@ -56,23 +56,24 @@ export class VoteHandler extends React.Component<Props, State> {
     isSequenceCollapsed: false,
     index: undefined,
     currentIndex: undefined,
-    goToNextCard: undefined
-  }
+    goToNextCard: undefined,
+  };
 
   throttleVote: any = undefined;
 
   constructor(props: Props) {
     super(props);
     const userVote = props.votes.find(vote => vote.hasVoted === true);
-    const hasVoted = (userVote !== undefined);
-    const votedKey = (userVote !== undefined) ? userVote.voteKey : '';
-    const qualifications = (userVote !== undefined) ? userVote.qualifications : [];
+    const hasVoted = userVote !== undefined;
+    const votedKey = userVote !== undefined ? userVote.voteKey : '';
+    const qualifications =
+      userVote !== undefined ? userVote.qualifications : [];
 
     this.state = {
       hasVoted,
       votedKey,
       qualifications,
-      votes: props.votes
+      votes: props.votes,
     };
     this.throttleVote = throttle(this.handleVote);
   }
@@ -84,24 +85,22 @@ export class VoteHandler extends React.Component<Props, State> {
       proposalKey,
       index,
       handleVoteOnSequence,
-      handleUnvoteOnSequence
+      handleUnvoteOnSequence,
     } = this.props;
     const { hasVoted } = this.state;
 
     if (hasVoted) {
-      VoteService.unvote(proposalId, voteKey, proposalKey)
-        .then((vote) => {
-          this.setState(prevState => doUnvote(prevState, vote));
-          handleUnvoteOnSequence(proposalId, voteKey, index);
-        });
+      VoteService.unvote(proposalId, voteKey, proposalKey).then(vote => {
+        this.setState(prevState => doUnvote(prevState, vote));
+        handleUnvoteOnSequence(proposalId, voteKey, index);
+      });
     } else {
-      VoteService.vote(proposalId, voteKey, proposalKey)
-        .then((vote) => {
-          this.setState(prevState => doVote(prevState, vote));
-          handleVoteOnSequence(proposalId, voteKey, index);
-        });
+      VoteService.vote(proposalId, voteKey, proposalKey).then(vote => {
+        this.setState(prevState => doVote(prevState, vote));
+        handleVoteOnSequence(proposalId, voteKey, index);
+      });
     }
-  }
+  };
 
   render() {
     const {
@@ -110,14 +109,9 @@ export class VoteHandler extends React.Component<Props, State> {
       isSequenceCollapsed,
       index,
       currentIndex,
-      goToNextCard
+      goToNextCard,
     } = this.props;
-    const {
-      hasVoted,
-      votedKey,
-      votes,
-      qualifications
-    } = this.state;
+    const { hasVoted, votedKey, votes, qualifications } = this.state;
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -128,28 +122,38 @@ export class VoteHandler extends React.Component<Props, State> {
               votedKey={votedKey}
               index={index}
               handleVote={this.throttleVote}
-              tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+              tabIndex={
+                isPannelOpen || isSequenceCollapsed || index !== currentIndex
+                  ? -1
+                  : 0
+              }
             />
             <Qualification
               proposalId={proposalId}
               qualifications={qualifications}
               votedKey={votedKey}
               index={index}
-              tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+              tabIndex={
+                isPannelOpen || isSequenceCollapsed || index !== currentIndex
+                  ? -1
+                  : 0
+              }
             />
           </VoteStyle.ContainerStyle>
-          {index !== undefined
-            && (
-              <NextButtonStyle
-                tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-                onClick={goToNextCard}
-                id={`next-button-${index}`}
-              >
-                {i18n.t('proposal_card.next')}
-                {' >'}
-              </NextButtonStyle>
-            )
-          }
+          {index !== undefined && (
+            <NextButtonStyle
+              tabIndex={
+                isPannelOpen || isSequenceCollapsed || index !== currentIndex
+                  ? -1
+                  : 0
+              }
+              onClick={goToNextCard}
+              id={`next-button-${index}`}
+            >
+              {i18n.t('proposal_card.next')}
+              {' >'}
+            </NextButtonStyle>
+          )}
         </React.Fragment>
       );
     }
@@ -158,31 +162,43 @@ export class VoteHandler extends React.Component<Props, State> {
       <VoteComponent
         proposalId={proposalId}
         index={index}
-        tabIndex={isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0}
+        tabIndex={
+          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
+        }
         handleVote={this.throttleVote}
       />
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
 
-
   return {
     isSequenceCollapsed,
-    isPannelOpen
+    isPannelOpen,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleVoteOnSequence: (proposalId: string, voteKey: string, index: number) => {
+  handleVoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index: number
+  ) => {
     dispatch(sequenceVote(proposalId, voteKey, index));
   },
-  handleUnvoteOnSequence: (proposalId: string, voteKey: string, index: number) => {
+  handleUnvoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index: number
+  ) => {
     dispatch(sequenceUnvote(proposalId, voteKey, index));
-  }
+  },
 });
 
-export const VoteContainer = connect(mapStateToProps, mapDispatchToProps)(VoteHandler);
+export const VoteContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VoteHandler);

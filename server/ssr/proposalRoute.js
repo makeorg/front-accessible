@@ -3,9 +3,8 @@ import { createInitialState } from 'Shared/store/initialState';
 import { logger } from '../logger';
 import { reactRender } from '../reactRender';
 
-export const getQuestionConfiguration = async questionSlug => (
-  SequenceService.fetchConfiguration(questionSlug)
-);
+export const getQuestionConfiguration = async questionSlug =>
+  SequenceService.fetchConfiguration(questionSlug);
 
 export const proposalRoute = async (req, res) => {
   let routeState = {};
@@ -18,8 +17,8 @@ export const proposalRoute = async (req, res) => {
     routeState = {
       sequence: {
         ...initialState.sequence,
-        questionConfiguration
-      }
+        questionConfiguration,
+      },
     };
   } catch (error) {
     if (error && error.stack) {

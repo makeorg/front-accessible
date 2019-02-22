@@ -10,31 +10,39 @@ type Props = {
   /** Method called to show / encrypt password */
   togglePasswordIsDisplayed: () => void,
   /** Tabindex for interactive items */
-  tabIndex?: number
-}
+  tabIndex?: number,
+};
 
 export class PasswordButton extends React.Component<Props> {
   static defaultProps = {
     passwordIsDisplayed: false,
-    tabIndex: 0
-  }
+    tabIndex: 0,
+  };
 
   render() {
     const {
       passwordIsDisplayed,
       togglePasswordIsDisplayed,
-      tabIndex
+      tabIndex,
     } = this.props;
 
     if (passwordIsDisplayed) {
       return (
-        <HidePasswordIconStyle onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
+        <HidePasswordIconStyle
+          onClick={togglePasswordIsDisplayed}
+          aria-hidden
+          tabIndex={tabIndex}
+        >
           <FontAwesomeIcon aria-hidden icon={faEyeSlash} />
         </HidePasswordIconStyle>
       );
     }
     return (
-      <UnstyledButtonStyle onClick={togglePasswordIsDisplayed} aria-hidden tabIndex={tabIndex}>
+      <UnstyledButtonStyle
+        onClick={togglePasswordIsDisplayed}
+        aria-hidden
+        tabIndex={tabIndex}
+      >
         <FontAwesomeIcon aria-hidden icon={faEye} />
       </UnstyledButtonStyle>
     );

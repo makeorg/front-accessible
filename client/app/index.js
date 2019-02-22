@@ -4,7 +4,10 @@ import { ModernNormalizeStylesheet } from 'Client/app/assets/css-in-js/ModernNor
 import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
 import { DefaultStylesheet } from 'Client/app/assets/css-in-js/DefaultStyle';
 import { UIThemeStylesheet } from 'Client/app/assets/css-in-js/UITheme';
-import { AppWrapperStyle, AppMainContentStyle } from 'Client/app/Styled/MainElements';
+import {
+  AppWrapperStyle,
+  AppMainContentStyle,
+} from 'Client/app/Styled/MainElements';
 import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';

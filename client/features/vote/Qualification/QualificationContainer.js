@@ -19,12 +19,12 @@ type Props = {
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Voted key property */
-  votedKey: string
+  votedKey: string,
 };
 
 type State = {
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>
+  qualifications: Array<QualificationType>,
 };
 
 /**
@@ -32,7 +32,7 @@ type State = {
  */
 export class QualificationContainer extends React.Component<Props, State> {
   static defaultProps = {
-    index: undefined
+    index: undefined,
   };
 
   throttleQualification: any = undefined;
@@ -40,29 +40,55 @@ export class QualificationContainer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      qualifications: props.qualifications
+      qualifications: props.qualifications,
     };
 
     this.throttleQualification = throttle(this.handleQualification);
   }
 
-  handleQualification = (event: SyntheticEvent<*>, qualification: Object, voteKey: string) => {
+  handleQualification = (
+    event: SyntheticEvent<*>,
+    qualification: Object,
+    voteKey: string
+  ) => {
     event.preventDefault();
     const { proposalId, proposalKey, index } = this.props;
     if (qualification.hasQualified) {
-      QualificationService.unqualify(proposalId, proposalKey, voteKey, qualification.qualificationKey)
-        .then((qualificationResult) => {
-          this.setState(prevState => doUpdateState(prevState, qualificationResult));
-        });
-      Tracking.trackUnqualify(proposalId, qualification.qualificationKey, voteKey, index);
+      QualificationService.unqualify(
+        proposalId,
+        proposalKey,
+        voteKey,
+        qualification.qualificationKey
+      ).then(qualificationResult => {
+        this.setState(prevState =>
+          doUpdateState(prevState, qualificationResult)
+        );
+      });
+      Tracking.trackUnqualify(
+        proposalId,
+        qualification.qualificationKey,
+        voteKey,
+        index
+      );
     } else {
-      QualificationService.qualify(proposalId, proposalKey, voteKey, qualification.qualificationKey)
-        .then((qualificationResult) => {
-          this.setState(prevState => doUpdateState(prevState, qualificationResult));
-        });
-      Tracking.trackQualify(proposalId, qualification.qualificationKey, voteKey, index);
+      QualificationService.qualify(
+        proposalId,
+        proposalKey,
+        voteKey,
+        qualification.qualificationKey
+      ).then(qualificationResult => {
+        this.setState(prevState =>
+          doUpdateState(prevState, qualificationResult)
+        );
+      });
+      Tracking.trackQualify(
+        proposalId,
+        qualification.qualificationKey,
+        voteKey,
+        index
+      );
     }
-  }
+  };
 
   render() {
     const { tabIndex, proposalId, votedKey } = this.props;

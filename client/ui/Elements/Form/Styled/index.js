@@ -43,7 +43,10 @@ export const ClassicFakeInputStyle = styled(LastFakeInputStyle)`
 
 export const FakeInputGreyStyle = styled(ClassicFakeInputStyle)`
   background-color: ${ColorVars.BackgroundColors.LightGrey};
-  border-color: ${props => (props.hasError ? ColorVars.BorderColors.ErrorRed : ColorVars.BorderColors.LightGrey)};
+  border-color: ${props =>
+    props.hasError
+      ? ColorVars.BorderColors.ErrorRed
+      : ColorVars.BorderColors.LightGrey};
 `;
 
 export const BasicInputStyle = styled(NoStyleTextInputStyle)`
@@ -51,7 +54,7 @@ export const BasicInputStyle = styled(NoStyleTextInputStyle)`
   color: ${ColorVars.TextColors.MediumGrey};
   font-size: ${pxToRem('14px')};
   line-height: ${pxToRem('35px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('16px')};
     line-height: ${pxToRem('40px')};
   }
@@ -61,7 +64,7 @@ export const IconLabelStyle = styled.label`
   width: ${pxToRem('30px')};
   color: ${ColorVars.MakeThemeColors.Red};
   font-size: ${pxToRem('16px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};
   }
 `;
@@ -73,7 +76,7 @@ export const HidePasswordIconStyle = styled(UnstyledButtonStyle)`
 export const InlineParagraphStyle = styled.p`
   display: inline;
   font-size: ${pxToRem('14px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('16px')};
   }
 `;
@@ -90,7 +93,7 @@ export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
   color: ${ColorVars.TextColors.MediumGrey};
   font-size: ${pxToRem('12px')};
   margin-bottom: ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('14px')};
   }
 `;

@@ -8,14 +8,14 @@ import {
   faUser,
   faChild,
   faMapMarkerAlt,
-  faSuitcase
+  faSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   FormStyle,
   ConditionParagraphStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
-  FormErrorStyle
+  FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -45,8 +45,8 @@ type Props = {
   /** Method called to show / encrypt password */
   togglePasswordIsDisplayed: () => void,
   /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean
-}
+  passwordIsDisplayed: boolean,
+};
 
 /**
  * Renders Register Form
@@ -59,7 +59,7 @@ export const RegisterFormComponent = (props: Props) => {
     handleSubmit,
     togglePasswordIsDisplayed,
     passwordIsDisplayed,
-    isPannelOpen
+    isPannelOpen,
   } = props;
 
   const emailError = fieldErrors('email', errors);
@@ -70,13 +70,11 @@ export const RegisterFormComponent = (props: Props) => {
 
   return (
     <FormStyle id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
-      {globalError
-        && (
-          <FormErrorsListStyle id="authentification-register-error">
-            <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-          </FormErrorsListStyle>
-        )
-      }
+      {globalError && (
+        <FormErrorsListStyle id="authentification-register-error">
+          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
+        </FormErrorsListStyle>
+      )}
       <UntypedInput
         type="email"
         name="email"
@@ -88,7 +86,11 @@ export const RegisterFormComponent = (props: Props) => {
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
       />
-      {emailError && <InputErrorMessageStyle id="authentification-email-error">{emailError}</InputErrorMessageStyle>}
+      {emailError && (
+        <InputErrorMessageStyle id="authentification-email-error">
+          {emailError}
+        </InputErrorMessageStyle>
+      )}
       <PasswordInput
         type="password"
         name="password"
@@ -149,17 +151,14 @@ export const RegisterFormComponent = (props: Props) => {
         tabIndex={isPannelOpen ? 0 : -1}
       />
       <ConditionParagraphStyle
-        dangerouslySetInnerHTML={
-          {
-            __html: i18n.t(
-              'register.cgu_text',
-              {
-                cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${isPannelOpen ? 0 : -1}">$t(register.cgu)</a>`, // eslint-disable-line max-len
-                interpolation: { escapeValue: false }
-              }
-            )
-          }
-        }
+        dangerouslySetInnerHTML={{
+          __html: i18n.t('register.cgu_text', {
+            cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${
+              isPannelOpen ? 0 : -1
+            }">$t(register.cgu)</a>`, // eslint-disable-line max-len
+            interpolation: { escapeValue: false },
+          }),
+        }}
       />
       <SubmitButton
         formName={REGISTER_FORMNAME}

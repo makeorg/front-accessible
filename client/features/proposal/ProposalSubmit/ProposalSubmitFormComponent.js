@@ -11,7 +11,7 @@ import {
   ProposalLabelStyle,
   ProposalInputStyle,
   ProposalButtonWrapperStyle,
-  ProposalCharLimitStyle
+  ProposalCharLimitStyle,
 } from './Styled';
 
 type Props = {
@@ -32,8 +32,8 @@ type Props = {
   /** Method called when field is focused */
   handleFocus: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (SyntheticEvent<*>) => void
-}
+  handleSubmit: (SyntheticEvent<*>) => void,
+};
 /**
  * Render the Proposal Field
  */
@@ -47,7 +47,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     isTyping,
     handleChange,
     handleFocus,
-    handleSubmit
+    handleSubmit,
   } = props;
 
   return (
@@ -56,9 +56,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         {i18n.t('proposal_submit.title')}
       </HiddenItemStyle>
       <ProposalInputWrapperStyle>
-        <ProposalLabelStyle
-          htmlFor="proposal"
-        >
+        <ProposalLabelStyle htmlFor="proposal">
           {getBaitText()}
         </ProposalLabelStyle>
         <ProposalInputStyle
@@ -76,16 +74,16 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           isFieldExpanded={isSequenceCollapsed && isTyping}
         />
       </ProposalInputWrapperStyle>
-      <ProposalButtonWrapperStyle isFieldExpanded={isSequenceCollapsed && isTyping}>
+      <ProposalButtonWrapperStyle
+        isFieldExpanded={isSequenceCollapsed && isTyping}
+      >
         <ProposalCharLimitStyle>
           <span aria-valuetext={length}>{length}</span>
           <HiddenItemStyle aria-hidden>
             {i18n.t('proposal_submit.entred_chars')}
           </HiddenItemStyle>
           /
-          <HiddenItemStyle aria-hidden>
-            {i18n.t('common.from')}
-          </HiddenItemStyle>
+          <HiddenItemStyle aria-hidden>{i18n.t('common.from')}</HiddenItemStyle>
           <span aria-valuemax="140">140</span>
           <HiddenItemStyle aria-hidden>
             {i18n.t('proposal_submit.available_chars')}

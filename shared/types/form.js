@@ -6,10 +6,10 @@ export type UserObject = {
   firstname: string,
   age: string,
   postalcode: string,
-  profession: string
-}
+  profession: string,
+};
 
 export type ErrorObject = {
   field: string,
-  message: string
-}
+  message: string,
+};

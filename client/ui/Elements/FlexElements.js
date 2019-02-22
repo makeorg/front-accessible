@@ -10,7 +10,7 @@ export const FlexElementStyle = styled.div`
 
 export const ColumnToRowElementStyle = styled(FlexElementStyle)`
   flex-flow: column;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     flex-flow: row;
   }
 `;
@@ -56,21 +56,21 @@ export const SpaceEvenlyColumnStyle = styled(ColumnElementStyle)`
 /* Column To Row Elements */
 export const CenterColumnStyleToRowStyle = styled(ColumnToRowElementStyle)`
   align-items: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     justify-content: center;
   }
 `;
 
 export const MiddleColumnToRowStyle = styled(CenterColumnStyleToRowStyle)`
   justify-content: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     align-items: center;
   }
 `;
 
 export const SpaceBetweenColumnToRowStyle = styled(ColumnToRowElementStyle)`
   align-items: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     justify-content: space-between;
   }
 `;

@@ -5,8 +5,8 @@ import { AuthorInfosStyle } from './Styled';
 
 type Props = {
   /** Object with author's properties */
-  author: Author
-}
+  author: Author,
+};
 
 const ProposalAuthorAge = ({ age }) => {
   if (!age) {

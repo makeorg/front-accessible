@@ -6,18 +6,22 @@ import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
-import type { CardType, ExtraSlidesConfig, ExtraSlidesWording } from 'Shared/types/sequence';
+import type {
+  CardType,
+  ExtraSlidesConfig,
+  ExtraSlidesWording,
+} from 'Shared/types/sequence';
 import type { ProposalType } from 'Shared/types/proposal';
 import { SequenceComponent } from './SequenceComponent';
 import type { Props as SequenceProps } from './SequenceComponent';
 import { SequencePlaceholderComponent } from './SequencePlaceholder';
 
 export const decrementCurrentIndex = (prevState: Object) => ({
-  currentIndex: prevState.currentIndex - 1
+  currentIndex: prevState.currentIndex - 1,
 });
 
 export const incrementCurrentIndex = (prevState: Object) => ({
-  currentIndex: prevState.currentIndex + 1
+  currentIndex: prevState.currentIndex + 1,
 });
 
 type Props = {
@@ -40,7 +44,7 @@ type Props = {
   /** Id of the first proposal to display */
   firstProposal: string,
   /** Array with the voted proposals' ids */
-  votedProposalIds: Array<string>
+  votedProposalIds: Array<string>,
 };
 
 type State = {
@@ -55,14 +59,14 @@ type State = {
   /** Sequence has started yet */
   hasStarted: boolean,
   /** Check if sequence is loaded */
-  isSequenceLoaded: boolean
+  isSequenceLoaded: boolean,
 };
 
 type ContainerProps = {
   isSequenceLoaded: boolean,
   isSequenceCollapsed: boolean,
-  expandSequence: () => void
-}
+  expandSequence: () => void,
+};
 
 const Sequence = ({
   cards,
@@ -77,7 +81,7 @@ const Sequence = ({
   skipProposalPushCard,
   goToPreviousCard,
   expandSequence,
-  isSequenceLoaded
+  isSequenceLoaded,
 }: SequenceProps & ContainerProps) => {
   if (isSequenceLoaded) {
     return (
@@ -117,51 +121,59 @@ class SequenceHandler extends React.Component<Props, State> {
     cardsCount: 0,
     currentIndex: 0,
     hasStarted: false,
-    isSequenceLoaded: false
-  }
+    isSequenceLoaded: false,
+  };
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = prevProps => {
     const {
       isLoggedIn,
       hasProposed,
       question,
       firstProposal,
-      votedProposalIds
+      votedProposalIds,
     } = this.props;
 
-    if (question && (isLoggedIn !== prevProps.isLoggedIn || hasProposed !== prevProps.hasProposed)) {
+    if (
+      question &&
+      (isLoggedIn !== prevProps.isLoggedIn ||
+        hasProposed !== prevProps.hasProposed)
+    ) {
       const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
 
       QuestionService.startSequence(question.questionId, includedProposalIds)
         .then(sequence => this.setProposals(sequence, isLoggedIn, hasProposed))
         .catch(error => error);
     }
-  }
+  };
 
   componentDidMount = () => {
-    const {
-      question,
-      firstProposal,
-      isLoggedIn,
-      hasProposed
-    } = this.props;
+    const { question, firstProposal, isLoggedIn, hasProposed } = this.props;
 
     if (question) {
       QuestionService.startSequence(question.questionId, [firstProposal])
-        .then((sequence) => {
+        .then(sequence => {
           Tracking.trackDisplaySequence(question.slug);
           this.setProposals(sequence, isLoggedIn, hasProposed);
-        }).catch(error => error);
+        })
+        .catch(error => error);
     }
-  }
+  };
 
-  setProposals = (sequence: Object, isLoggedIn: boolean, hasProposed: boolean) => {
+  setProposals = (
+    sequence: Object,
+    isLoggedIn: boolean,
+    hasProposed: boolean
+  ) => {
     const { questionConfiguration } = this.props;
     const { hasStarted } = this.state;
     const { proposals } = sequence;
-    const extraSlidesConfig: ExtraSlidesConfig = questionConfiguration.sequenceExtraSlidesConfig;
-    const extraSlidesWording: ExtraSlidesWording = questionConfiguration.sequenceExtraSlidesWording;
-    const votedFirstProposals: Array<ProposalType> = ProposalHelper.sortProposalsByVoted(proposals);
+    const extraSlidesConfig: ExtraSlidesConfig =
+      questionConfiguration.sequenceExtraSlidesConfig;
+    const extraSlidesWording: ExtraSlidesWording =
+      questionConfiguration.sequenceExtraSlidesWording;
+    const votedFirstProposals: Array<ProposalType> = ProposalHelper.sortProposalsByVoted(
+      proposals
+    );
     const cards: Array<CardType> = SequenceHelper.buildCards(
       votedFirstProposals,
       extraSlidesConfig,
@@ -170,53 +182,59 @@ class SequenceHandler extends React.Component<Props, State> {
       hasProposed
     );
 
-    const firstUnvotedProposal: void | ProposalType = ProposalHelper.searchFirstUnvotedProposal(votedFirstProposals);
-    const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(firstUnvotedProposal, cards);
-    const currentIndex: number = (indexOfFirstUnvotedCard === 0 && hasStarted) ? 1 : indexOfFirstUnvotedCard;
+    const firstUnvotedProposal: void | ProposalType = ProposalHelper.searchFirstUnvotedProposal(
+      votedFirstProposals
+    );
+    const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(
+      firstUnvotedProposal,
+      cards
+    );
+    const currentIndex: number =
+      indexOfFirstUnvotedCard === 0 && hasStarted ? 1 : indexOfFirstUnvotedCard;
 
     this.setState({
       proposals,
       cards,
       currentIndex,
       cardsCount: cards.length - 1,
-      isSequenceLoaded: true
+      isSequenceLoaded: true,
     });
-  }
+  };
 
   handleStartSequence = () => {
     const { question } = this.props;
 
     this.setState(prevState => ({
       ...incrementCurrentIndex(prevState),
-      hasStarted: true
+      hasStarted: true,
     }));
     Tracking.trackClickStartSequence(question.slug);
-  }
+  };
 
   goToNextCard = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackClickNextCard();
-  }
+  };
 
   skipSignUpCard = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackSkipSignUpCard();
-  }
+  };
 
   skipProposalPushCard = () => {
     this.setState(incrementCurrentIndex);
     Tracking.trackClickProposalPushCardIgnore();
-  }
+  };
 
   goToPreviousCard = () => {
     this.setState(decrementCurrentIndex);
     Tracking.trackClickPreviousCard();
-  }
+  };
 
   expandSequence = () => {
     const { handleExpandSequence } = this.props;
     handleExpandSequence();
-  }
+  };
 
   render() {
     const { cardOffset } = this.props;
@@ -236,9 +254,12 @@ class SequenceHandler extends React.Component<Props, State> {
   }
 }
 
-
-const mapStateToProps = (state) => {
-  const { firstProposal, votedProposalIds, isSequenceCollapsed } = state.sequence;
+const mapStateToProps = state => {
+  const {
+    firstProposal,
+    votedProposalIds,
+    isSequenceCollapsed,
+  } = state.sequence;
   const { hasProposed } = state.proposal;
   const { isPannelOpen } = state.pannel;
   const { isLoggedIn } = state.authentification;
@@ -249,14 +270,17 @@ const mapStateToProps = (state) => {
     isSequenceCollapsed,
     hasProposed,
     isPannelOpen,
-    isLoggedIn
+    isLoggedIn,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   handleExpandSequence: () => {
     dispatch(sequenceExpand());
-  }
+  },
 });
 
-export const SequenceContainer = connect(mapStateToProps, mapDispatchToProps)(SequenceHandler);
+export const SequenceContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SequenceHandler);

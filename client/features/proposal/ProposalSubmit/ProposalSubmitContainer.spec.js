@@ -12,14 +12,17 @@ describe('ProposalSubmitContainer', () => {
     length: 10,
     canSubmit: true,
     isLoggedIn: true,
-    isSequenceCollapsed: false
+    isSequenceCollapsed: false,
   };
 
   it('Renders Initial Props & State', () => {
     const wrapper = shallow(<ProposalSubmitHandler {...defaultProps} />);
 
     expect(wrapper.find(ProposalSubmitFormComponent)).toHaveLength(1);
-    const proposalSubmitProps = wrapper.find(ProposalSubmitFormComponent).first().props();
+    const proposalSubmitProps = wrapper
+      .find(ProposalSubmitFormComponent)
+      .first()
+      .props();
     expect(proposalSubmitProps.content).toBe(defaultProps.content);
     expect(proposalSubmitProps.length).toBe(defaultProps.length);
     expect(proposalSubmitProps.canSubmit).toBe(defaultProps.canSubmit);
@@ -31,7 +34,7 @@ describe('ProposalSubmitContainer', () => {
   it('Renders DescriptionStyle', () => {
     const descriptionProps = {
       ...defaultProps,
-      isSequenceCollapsed: true
+      isSequenceCollapsed: true,
     };
     const wrapper = shallow(<ProposalSubmitHandler {...descriptionProps} />);
 
@@ -44,7 +47,7 @@ describe('ProposalSubmitContainer', () => {
     const notLoggedInProps = {
       ...defaultProps,
       isLoggedIn: false,
-      isSequenceCollapsed: true
+      isSequenceCollapsed: true,
     };
     const wrapper = shallow(<ProposalSubmitHandler {...notLoggedInProps} />);
 

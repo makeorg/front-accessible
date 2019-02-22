@@ -81,13 +81,13 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-source': this._source,
       'x-make-question-id': this._questionId,
       'x-make-question': this._questionId,
-      'x-make-operation': this._operationId
+      'x-make-operation': this._operationId,
     };
     let headers = Object.assign({}, defaultHeaders, options.headers || {});
 
     if (this.token) {
       headers = Object.assign({}, headers, {
-        Authorization: `${this.token.token_type} ${this.token.access_token}`
+        Authorization: `${this.token.token_type} ${this.token.access_token}`,
       });
     }
     return ApiServiceShared.callApi(url, { ...options, headers });

@@ -9,8 +9,8 @@ type Props = {
   /** Method to track Facebook Login */
   trackFacebookLogin: Function,
   /** Method to track Google Login */
-  trackGoogleLogin: Function
-}
+  trackGoogleLogin: Function,
+};
 
 /**
  * Handles Google & Fracebook Authentification Business Logic
@@ -25,12 +25,14 @@ const AuthentificationSocialPannel = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
 
   return {
-    isPannelOpen
+    isPannelOpen,
   };
 };
 
-export const AuthentificationSocialContainer = connect(mapStateToProps)(AuthentificationSocialPannel);
+export const AuthentificationSocialContainer = connect(mapStateToProps)(
+  AuthentificationSocialPannel
+);

@@ -1,9 +1,9 @@
 import { i18n } from 'Shared/i18n';
 import { METRIC_PATH } from './metrics';
 
-export const isCountryLanguage = (countryLanguage = null) => (
-  countryLanguage !== null && (/^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase()))
-);
+export const isCountryLanguage = (countryLanguage = null) =>
+  countryLanguage !== null &&
+  /^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase());
 
 export const countryLanguageMiddleware = (req, res, next) => {
   if (req.url === METRIC_PATH) {

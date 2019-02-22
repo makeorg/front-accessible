@@ -3,7 +3,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { throttle } from 'Shared/helpers/throttle';
-import { getProposalLength, getIsProposalValidLength } from 'Shared/helpers/proposal';
+import {
+  getProposalLength,
+  getIsProposalValidLength,
+} from 'Shared/helpers/proposal';
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
 import { getToken } from 'Shared/store/actions/authentification';
@@ -42,21 +45,21 @@ type Props = {
   /** Method called to submit proposal */
   handleSubmitProposal: Function,
   /** Method called to get user token */
-  handleGetUserToken: Function
+  handleGetUserToken: Function,
 };
 
 type State = {
   /** Boolean toggled when user is typing a proposal */
-  isTyping: boolean
-}
+  isTyping: boolean,
+};
 
 /**
-* Handles Proposal Submit Business Logic
-*/
+ * Handles Proposal Submit Business Logic
+ */
 export class ProposalSubmitHandler extends React.Component<Props, State> {
   state = {
-    isTyping: false
-  }
+    isTyping: false,
+  };
 
   throttleSubmit: any = undefined;
 
@@ -73,27 +76,26 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     const { handleTypingProposal } = this.props;
 
     handleTypingProposal(content, length, canSubmit);
-  }
+  };
 
   handleFocus = () => {
     this.setState({
-      isTyping: true
+      isTyping: true,
     });
 
     const { handleCollapseSequence, isSequenceCollapsed } = this.props;
     if (!isSequenceCollapsed) handleCollapseSequence();
-  }
+  };
 
   handleSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
-
 
     const {
       question,
       content,
       isLoggedIn,
       handleSubmitProposal,
-      handleGetUserToken
+      handleGetUserToken,
     } = this.props;
 
     Tracking.trackClickProposalSubmit(question.slug);
@@ -101,31 +103,31 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     if (isLoggedIn) {
       handleSubmitProposal(content).then(() => {
         this.setState({
-          isTyping: false
+          isTyping: false,
         });
       });
     } else {
       handleGetUserToken()
         .then(() => {
           this.setState({
-            isTyping: false
+            isTyping: false,
           });
         })
         .catch(() => {
           this.setState({
-            isTyping: false
+            isTyping: false,
           });
         });
     }
-  }
+  };
 
   trackModerationText = () => {
     Tracking.trackDisplayModerationText();
-  }
+  };
 
   trackModerationLink = () => {
     Tracking.trackClickModerationLink();
-  }
+  };
 
   render() {
     const {
@@ -137,12 +139,15 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       isSequenceCollapsed,
       isPannelOpen,
       country,
-      language
+      language,
     } = this.props;
     const { isTyping } = this.state;
-    const isDescriptionShown = isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
-    const isAuthentificationShown = !isTyping && !isLoggedIn && isSequenceCollapsed;
-    const isSuccessShown = !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
+    const isDescriptionShown =
+      isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
+    const isAuthentificationShown =
+      !isTyping && !isLoggedIn && isSequenceCollapsed;
+    const isSuccessShown =
+      !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
       <ProposalSubmitFormWrapperStyle>
         <ProposalSubmitFormComponent
@@ -167,31 +172,22 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
             trackModerationLink={this.trackModerationLink}
           />
         ) : null}
-        {(isSuccessShown) ? (
-          <ProposalSubmitSuccessComponent
-            key="ProposalSubmitSuccessComponent"
-          />
+        {isSuccessShown ? (
+          <ProposalSubmitSuccessComponent key="ProposalSubmitSuccessComponent" />
         ) : null}
         {isAuthentificationShown ? (
-          <ProposalSubmitAuthentification
-            key="ProposalSubmitAuthentificationContainer"
-          />
+          <ProposalSubmitAuthentification key="ProposalSubmitAuthentificationContainer" />
         ) : null}
       </ProposalSubmitFormWrapperStyle>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isLoggedIn } = state.authentification;
   const { isSequenceCollapsed, question } = state.sequence;
   const { isPannelOpen } = state.pannel;
-  const {
-    content,
-    length,
-    canSubmit,
-    isCurrentSubmitSuccess
-  } = state.proposal;
+  const { content, length, canSubmit, isCurrentSubmitSuccess } = state.proposal;
   const { country, language } = state.appConfig;
 
   return {
@@ -204,23 +200,19 @@ const mapStateToProps = (state) => {
     canSubmit,
     isCurrentSubmitSuccess,
     country,
-    language
+    language,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleCollapseSequence: () => (
-    dispatch(sequenceCollapse())
-  ),
-  handleTypingProposal: (content: string, length: number, canSubmit: boolean) => (
-    dispatch(typingProposal(content, length, canSubmit))
-  ),
-  handleSubmitProposal: (content: string) => (
-    dispatch(submitProposal(content))
-  ),
-  handleGetUserToken: () => (
-    dispatch(getToken())
-  )
+  handleCollapseSequence: () => dispatch(sequenceCollapse()),
+  handleTypingProposal: (content: string, length: number, canSubmit: boolean) =>
+    dispatch(typingProposal(content, length, canSubmit)),
+  handleSubmitProposal: (content: string) => dispatch(submitProposal(content)),
+  handleGetUserToken: () => dispatch(getToken()),
 });
 
-export const ProposalSubmitContainer = connect(mapStateToProps, mapDispatchToProps)(ProposalSubmitHandler);
+export const ProposalSubmitContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProposalSubmitHandler);

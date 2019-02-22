@@ -20,13 +20,15 @@ type FacebookEventParams = {
   cardPosition?: string,
   sequenceId?: string,
   proposalId?: string,
-  questionId?: string
+  questionId?: string,
 };
 
 const isInitialized = (): boolean => {
   if (!initialized) {
     // eslint-disable-next-line no-console
-    console.warn('Facebook Tracking not initialized before using call FacebookTracking.init with required params');
+    console.warn(
+      'Facebook Tracking not initialized before using call FacebookTracking.init with required params'
+    );
   }
 
   return initialized;
@@ -57,7 +59,9 @@ export const FacebookTracking = {
       return;
     }
 
-    const isWeeuropeans = eventParameters.question && weeuropeansquestionRegex.test(eventParameters.question);
+    const isWeeuropeans =
+      eventParameters.question &&
+      weeuropeansquestionRegex.test(eventParameters.question);
     if (env.isDev()) {
       // eslint-disable-next-line no-console
       console.info(
@@ -78,7 +82,12 @@ export const FacebookTracking = {
 
     fbq.track('trackSingleCustom', makePixelId, eventName, eventParameters);
     if (isWeeuropeans) {
-      fbq.track('trackSingleCustom', weEuropeansPixelId, eventName, eventParameters);
+      fbq.track(
+        'trackSingleCustom',
+        weEuropeansPixelId,
+        eventName,
+        eventParameters
+      );
     }
-  }
+  },
 };

@@ -6,7 +6,7 @@ import { QualificationButtonElement } from './index';
 describe('QualificationButtonElement', () => {
   const defaultProps = {
     color: 'red',
-    label: 'foo'
+    label: 'foo',
   };
 
   it('must match the snapshot with default Props', () => {
@@ -33,6 +33,8 @@ describe('QualificationButtonElement', () => {
     const ButtonIsNotQualified = renderer.create(
       <QualificationButtonElement {...defaultProps} isQualified={false} />
     );
-    expect(snapshotDiff(ButtonIsQualified, ButtonIsNotQualified)).toMatchSnapshot();
+    expect(
+      snapshotDiff(ButtonIsQualified, ButtonIsNotQualified)
+    ).toMatchSnapshot();
   });
 });

@@ -1,3 +1,3 @@
 export {
-  ProposalSubmitAuthentificationContainer as ProposalSubmitAuthentification
+  ProposalSubmitAuthentificationContainer as ProposalSubmitAuthentification,
 } from './ProposalSubmitAuthentificationContainer';

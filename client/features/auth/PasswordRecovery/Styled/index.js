@@ -1,22 +1,28 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { PageWrapperStyle, PageContainerStyle } from 'Client/app/Styled/MainElements';
+import {
+  PageWrapperStyle,
+  PageContainerStyle,
+} from 'Client/app/Styled/MainElements';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { CALC_RECOVERY_HEIGHT_MOBILE, CALC_RECOVERY_HEIGHT_DESKTOP } from 'Client/app/constants/elements';
+import {
+  CALC_RECOVERY_HEIGHT_MOBILE,
+  CALC_RECOVERY_HEIGHT_DESKTOP,
+} from 'Client/app/constants/elements';
 import { FormStyle } from 'Client/ui/Elements/Form/Styled';
 
 export const PasswordRecoveryWrapperStyle = styled(PageWrapperStyle)`
   padding-bottom: 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     padding-bottom: 0;
   }
 `;
 
 export const PasswordRecoveryContentStyle = styled(PageContainerStyle)`
-  min-height : calc(100vh - ${pxToRem(CALC_RECOVERY_HEIGHT_MOBILE)});
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  min-height: calc(100vh - ${pxToRem(CALC_RECOVERY_HEIGHT_MOBILE)});
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     min-height: calc(100vh - ${pxToRem(CALC_RECOVERY_HEIGHT_DESKTOP)});
   }
 `;

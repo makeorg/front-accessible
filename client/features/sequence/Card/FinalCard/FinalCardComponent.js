@@ -9,8 +9,16 @@ import { FinalTitle } from './Title';
 import { Sharing } from './Sharing';
 import { More } from './More';
 import { ProposalCardStyle } from '../Styled';
-import { BackButtonWrapperStyle, BackButtonStyle, BackIconStyle } from '../Styled/Buttons';
-import { ContentWrapperStyle, InnerContentStyle, FinalCardContentWrapperStyle } from '../Styled/Content';
+import {
+  BackButtonWrapperStyle,
+  BackButtonStyle,
+  BackIconStyle,
+} from '../Styled/Buttons';
+import {
+  ContentWrapperStyle,
+  InnerContentStyle,
+  FinalCardContentWrapperStyle,
+} from '../Styled/Content';
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
@@ -36,8 +44,8 @@ type Props = {
   /** Method called when previous card button is clicked  */
   goToPreviousCard: () => void,
   /** Method called when button is clicked */
-  handleEndSequence: () => void
-}
+  handleEndSequence: () => void,
+};
 
 /**
  * Renders Final Card of the Sequence
@@ -55,7 +63,7 @@ export const FinalCardComponent = (props: Props) => {
     zindex,
     tabIndex,
     goToPreviousCard,
-    handleEndSequence
+    handleEndSequence,
   } = props;
 
   return (
@@ -66,22 +74,29 @@ export const FinalCardComponent = (props: Props) => {
       className={index < currentIndex ? 'collpased-card' : ''}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle
-          tabIndex={tabIndex}
-          onClick={goToPreviousCard}
-        >
+        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
-        <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
+        <ProgressCircleComponent
+          cardOffset={cardOffset}
+          index={index}
+          cardsCount={cardsCount}
+        />
       </BackButtonWrapperStyle>
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
-          {finalCardConfig.customTitle ? <FinalTitle title={finalCardWording.title} /> : <FinalTitle />}
+          {finalCardConfig.customTitle ? (
+            <FinalTitle title={finalCardWording.title} />
+          ) : (
+            <FinalTitle />
+          )}
           <FinalCardContentWrapperStyle>
-            {finalCardConfig.withSharing && <Sharing wording={finalCardWording.share} tabIndex={tabIndex} />}
+            {finalCardConfig.withSharing && (
+              <Sharing wording={finalCardWording.share} tabIndex={tabIndex} />
+            )}
             <More
               configuration={finalCardConfig}
               wording={finalCardWording}

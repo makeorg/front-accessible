@@ -2,7 +2,10 @@
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { SecondLevelTitleStyle, FourthLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  SecondLevelTitleStyle,
+  FourthLevelTtitleStyle,
+} from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { PasswordRecoveryFormComponent } from './Form';
 import { PasswordRecoveryStyle } from './Styled';
@@ -34,7 +37,7 @@ type Props = {
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -44,24 +47,26 @@ export const PasswordRecoveryComponent = (props: Props) => {
   const { updated } = props;
 
   return (
-    <PasswordRecoveryStyle role="region" aria-labelledby="password_recovery_title">
-      {updated
-        ? (
-          <PasswordRecoverySuccess />
-        ) : (
+    <PasswordRecoveryStyle
+      role="region"
+      aria-labelledby="password_recovery_title"
+    >
+      {updated ? (
+        <PasswordRecoverySuccess />
+      ) : (
+        <React.Fragment>
+          <SecondLevelTitleStyle id="password_recovery_title">
+            {i18n.t('reset_password.title')}
+          </SecondLevelTitleStyle>
+          <Separators.Small />
           <React.Fragment>
-            <SecondLevelTitleStyle id="password_recovery_title">
-              {i18n.t('reset_password.title')}
-            </SecondLevelTitleStyle>
-            <Separators.Small />
-            <React.Fragment>
-              <FourthLevelTtitleStyle>
-                {i18n.t('reset_password.info')}
-              </FourthLevelTtitleStyle>
-              <PasswordRecoveryFormComponent {...props} />
-            </React.Fragment>
+            <FourthLevelTtitleStyle>
+              {i18n.t('reset_password.info')}
+            </FourthLevelTtitleStyle>
+            <PasswordRecoveryFormComponent {...props} />
           </React.Fragment>
-        )}
+        </React.Fragment>
+      )}
     </PasswordRecoveryStyle>
   );
 };

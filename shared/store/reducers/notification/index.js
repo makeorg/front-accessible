@@ -3,8 +3,8 @@ import { NOTIFICATION_CLOSE } from 'Shared/store/actionTypes';
 import { notificationConstants } from 'Shared/constants/notification';
 
 type NotificationState = {
-  contentType?: typeof notificationConstants
-}
+  contentType?: typeof notificationConstants,
+};
 
 /*
 const initialState = {
@@ -12,7 +12,10 @@ const initialState = {
 };
 */
 const initialState = { contentType: undefined };
-export function notificationReducer(state: NotificationState = initialState, action: Object) {
+export function notificationReducer(
+  state: NotificationState = initialState,
+  action: Object
+) {
   switch (action.type) {
     case NOTIFICATION_CLOSE:
       return {};

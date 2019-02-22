@@ -4,7 +4,7 @@ import {
   ButtonStyle,
   UnqualifyButtonStyle,
   QualifyButtonStyle,
-  CounterStyle
+  CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
 
 type Props = {
@@ -15,11 +15,15 @@ type Props = {
   /** Tabindex for interactive items */
   isQualified: boolean,
   /** Method called when qualification button is clicked */
-  handleQualification: (event: SyntheticEvent<HTMLButtonElement>, qualification: Object, votedKey: string) => {},
+  handleQualification: (
+    event: SyntheticEvent<HTMLButtonElement>,
+    qualification: Object,
+    votedKey: string
+  ) => {},
   /** Number of qualifications */
   qualificationCounter?: number,
   /** Tabindex for interactive items */
-  tabIndex?: number
+  tabIndex?: number,
 };
 
 /**
@@ -32,7 +36,7 @@ export const QualificationButtonElement = (props: Props) => {
     isQualified,
     qualificationCounter,
     handleQualification,
-    tabIndex
+    tabIndex,
   } = props;
   return (
     <ButtonStyle
@@ -42,12 +46,14 @@ export const QualificationButtonElement = (props: Props) => {
       onClick={handleQualification}
     >
       {label}
-      <CounterStyle aria-hidden>{isQualified ? qualificationCounter : '+1'}</CounterStyle>
+      <CounterStyle aria-hidden>
+        {isQualified ? qualificationCounter : '+1'}
+      </CounterStyle>
     </ButtonStyle>
   );
 };
 
 QualificationButtonElement.defaultProps = {
   qualificationCounter: 0,
-  tabIndex: 0
+  tabIndex: 0,
 };

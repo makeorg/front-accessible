@@ -11,7 +11,7 @@ type Props = {
   proposal: ProposalType,
   /** Object with Static properties of the question (theme, ...) */
   questionConfiguration: QuestionConfiguration,
-  questionSlug: string
+  questionSlug: string,
 };
 
 /**
@@ -21,9 +21,7 @@ export const ProposalPageContentLoader = (props: Props) => {
   const { proposal } = props;
 
   if (!proposal) {
-    return (
-      <Spinner />
-    );
+    return <Spinner />;
   }
 
   return (

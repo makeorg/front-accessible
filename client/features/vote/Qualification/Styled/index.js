@@ -5,7 +5,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ContainerStyle = styled(SpaceEvenlyColumnStyle)`
   min-height: ${pxToRem('110px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     min-height: ${pxToRem('130px')};
   }
 `;

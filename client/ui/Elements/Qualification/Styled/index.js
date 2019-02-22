@@ -15,7 +15,7 @@ export const ButtonStyle = styled.button`
   padding: 0 ${pxToRem('10px')};
   border-radius: ${pxToRem('36px')};
   border-color: ${props => props.color};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('16px')};
     line-height: ${pxToRem('33px')};
     padding: 0 ${pxToRem('15px')};
@@ -42,7 +42,7 @@ export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   font-size: ${pxToRem('14px')};
   margin-left: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('22px')};
   }
 `;

@@ -3,7 +3,11 @@ import * as React from 'react';
 import type { PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStepForward, faArrowLeft, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStepForward,
+  faArrowLeft,
+  faPencilAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
@@ -14,7 +18,7 @@ import {
   BackButtonStyle,
   BackIconStyle,
   PushProposalButtonStyle,
-  PushProposalNextButtonStyle
+  PushProposalNextButtonStyle,
 } from '../Styled/Buttons';
 import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
 import { AltMainTitleStyle } from '../Styled/Titles';
@@ -43,8 +47,8 @@ type Props = {
   /** Method called when next card button is clicked */
   skipProposalPushCard: Function,
   /** Method called when proposal button is clicked  */
-  focusProposalField: Function
-}
+  focusProposalField: Function,
+};
 
 /**
  * Renders Push Proposal Card
@@ -62,7 +66,7 @@ export const PushProposalCardComponent = (props: Props) => {
     scale,
     zindex,
     skipProposalPushCard,
-    focusProposalField
+    focusProposalField,
   } = props;
 
   return (
@@ -73,21 +77,24 @@ export const PushProposalCardComponent = (props: Props) => {
       isCardCollapsed={index < currentIndex}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle
-          tabIndex={tabIndex}
-          onClick={goToPreviousCard}
-        >
+        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
             <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
-        <ProgressCircleComponent cardOffset={cardOffset} index={index} cardsCount={cardsCount} />
+        <ProgressCircleComponent
+          cardOffset={cardOffset}
+          index={index}
+          cardsCount={cardsCount}
+        />
       </BackButtonWrapperStyle>
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
           <header>
-            {proposalCardConfig && <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />}
+            {proposalCardConfig && (
+              <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />
+            )}
             <AltMainTitleStyle>
               {i18n.t('push_proposal_card.title')}
             </AltMainTitleStyle>
@@ -108,10 +115,7 @@ export const PushProposalCardComponent = (props: Props) => {
               onClick={skipProposalPushCard}
             >
               <IconInButtonStyle>
-                <FontAwesomeIcon
-                  aria-hidden
-                  icon={faStepForward}
-                />
+                <FontAwesomeIcon aria-hidden icon={faStepForward} />
               </IconInButtonStyle>
               {i18n.t('push_proposal_card.next-cta')}
             </PushProposalNextButtonStyle>

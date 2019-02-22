@@ -8,10 +8,12 @@ const { BUILD_DIR } = require('./paths');
 
 const lastCommit = childProcess
   .execSync('git rev-parse HEAD')
-  .toString().trim();
+  .toString()
+  .trim();
 const branch = childProcess
   .execSync('git rev-parse --abbrev-ref HEAD')
-  .toString().trim();
+  .toString()
+  .trim();
 
 const projectName = 'make.org-frontend';
 const dateTime = new Date();
@@ -21,7 +23,7 @@ const version = {
   version: lastCommit.substr(0, 10),
   gitCommit: lastCommit,
   gitBranch: branch,
-  buildTime: dateTime.toISOString()
+  buildTime: dateTime.toISOString(),
 };
 
 try {

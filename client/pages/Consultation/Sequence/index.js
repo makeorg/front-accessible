@@ -3,7 +3,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { fetchQuestionData, fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
+import {
+  fetchQuestionData,
+  fetchQuestionConfigurationData,
+} from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { SequenceFooter } from 'Client/features/sequence/Footer';
 import { match as TypeMatch } from 'react-router';
@@ -16,7 +19,7 @@ type Props = {
   fetchQuestion: Function,
   fetchQuestionConfiguration: Function,
   match: TypeMatch,
-  isSequenceCollapsed: boolean
+  isSequenceCollapsed: boolean,
 };
 
 class SequencePageContainer extends React.Component<Props> {
@@ -26,7 +29,7 @@ class SequencePageContainer extends React.Component<Props> {
       question,
       fetchQuestion,
       questionConfiguration,
-      fetchQuestionConfiguration
+      fetchQuestionConfiguration,
     } = this.props;
 
     if (!question) {
@@ -62,23 +65,21 @@ class SequencePageContainer extends React.Component<Props> {
               isSequenceCollapsed={isSequenceCollapsed}
             />
           </SequencePageContentStyle>
-          <SequenceFooter
-            questionConfiguration={questionConfiguration}
-          />
+          <SequenceFooter questionConfiguration={questionConfiguration} />
         </React.Fragment>
       </ThemeProvider>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const { isSequenceCollapsed } = state.sequence;
   const { question, questionConfiguration } = state.sequence;
 
   return {
     isSequenceCollapsed,
     question,
-    questionConfiguration
+    questionConfiguration,
   };
 };
 
@@ -88,10 +89,13 @@ const mapDispatchToProps = dispatch => ({
   },
   fetchQuestion: (questionSlug: string) => {
     dispatch(fetchQuestionData(questionSlug));
-  }
+  },
 });
 
-export const SequencePage = connect(mapStateToProps, mapDispatchToProps)(SequencePageContainer);
+export const SequencePage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SequencePageContainer);
 
 // default export needed for loadable component
 export default SequencePage; // eslint-disable-line import/no-default-export

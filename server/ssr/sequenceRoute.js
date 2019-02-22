@@ -24,7 +24,10 @@ export const sequenceRoute = async (req, res) => {
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
       const { sequenceExtraSlidesConfig } = questionConfiguration;
-      questionConfiguration.sequenceExtraSlidesConfig = disableExtraSlidesByQuery(sequenceExtraSlidesConfig, req.query);
+      questionConfiguration.sequenceExtraSlidesConfig = disableExtraSlidesByQuery(
+        sequenceExtraSlidesConfig,
+        req.query
+      );
     }
 
     const { firstProposal } = req.query;
@@ -33,18 +36,18 @@ export const sequenceRoute = async (req, res) => {
       sequence: {
         ...initialState.sequence,
         question,
-        questionConfiguration
+        questionConfiguration,
       },
       proposal: {
         ...initialState.proposal,
-        length: getBaitText().length
-      }
+        length: getBaitText().length,
+      },
     };
 
     if (firstProposal) {
       routeState.sequence = {
         ...routeState.sequence,
-        firstProposal
+        firstProposal,
       };
     }
   } catch (error) {

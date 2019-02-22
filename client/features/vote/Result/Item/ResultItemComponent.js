@@ -1,8 +1,15 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { LeftTooltipStyle, BottomTooltipStyle, DisplayedTooltipStyle } from 'Client/ui/Elements/TooltipElments';
-import { HiddenOnMobileStyle, HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import {
+  LeftTooltipStyle,
+  BottomTooltipStyle,
+  DisplayedTooltipStyle,
+} from 'Client/ui/Elements/TooltipElments';
+import {
+  HiddenOnMobileStyle,
+  HiddenOnDesktopStyle,
+} from 'Client/ui/Elements/HiddenElements';
 import * as Graph from '../Styled';
 
 type Props = {
@@ -27,9 +34,8 @@ type Props = {
   /** Method to hide tooltip with votes results */
   hideTooltip: Function,
   /** Boolean toggled when tooltip is shown / hidden */
-  isTooltipDisplayed: boolean
-}
-
+  isTooltipDisplayed: boolean,
+};
 
 /**
  * Renders Vote Result Bar & Tooltip elements
@@ -46,7 +52,7 @@ export const ResultItemComponent = (props: Props) => {
     toggleTooltip,
     displayTooltip,
     hideTooltip,
-    isTooltipDisplayed
+    isTooltipDisplayed,
   } = props;
 
   return (

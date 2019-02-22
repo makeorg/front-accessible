@@ -34,7 +34,7 @@ export const PlaceholderSeparatorStyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('58px')};
   height: ${pxToRem('2px')};
   margin: ${pxToRem('20px')} auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin: ${pxToRem('40px')} auto;
   }
 `;
@@ -49,7 +49,7 @@ export const PlaceholderButtonStyle = styled(PlaceholderStyle)`
   max-width: ${pxToRem('150px')};
   height: ${pxToRem('40px')};
   margin: ${pxToRem('10px')} auto;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin: ${pxToRem('30px')} auto;
   }
 `;

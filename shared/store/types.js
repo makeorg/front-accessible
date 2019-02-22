@@ -9,8 +9,8 @@ export type StateAuthentification = $ReadOnly<{
   isLoggedIn: boolean,
   errors: [],
   user?: {
-    userId: string;
-  }
+    userId: string,
+  },
 }>;
 
 // Proposal State
@@ -21,8 +21,8 @@ export type StateProposal = $ReadOnly<{
   isCurrentSubmitSuccess: boolean,
   content: string,
   questionId?: string,
-  error?: string
-}>
+  error?: string,
+}>;
 
 // Sequence State
 type StateSequence = $ReadOnly<{
@@ -30,13 +30,13 @@ type StateSequence = $ReadOnly<{
   firstProposal?: string,
   question?: Question,
   questionConfiguration?: QuestionConfiguration,
-  votedProposalIds?: Array<string>
-}>
+  votedProposalIds?: Array<string>,
+}>;
 
 // Notification State
 type StateNotification = $ReadOnly<{
-  contentType?: string
-}>
+  contentType?: string,
+}>;
 
 // User Password Recovery State
 type StateUserPasswordRecovery = $ReadOnly<{
@@ -45,13 +45,13 @@ type StateUserPasswordRecovery = $ReadOnly<{
   userId?: string,
   errorMessage?: string,
   error: boolean,
-  updated: boolean
-}>
+  updated: boolean,
+}>;
 
 // User State
 type StateUser = $ReadOnly<{
-  passwordRecovery: StateUserPasswordRecovery
-}>
+  passwordRecovery: StateUserPasswordRecovery,
+}>;
 
 // All state
 export type StateRoot = $ReadOnly<{
@@ -59,5 +59,5 @@ export type StateRoot = $ReadOnly<{
   proposal: StateProposal,
   sequence: StateSequence,
   notification: StateNotification,
-  user: StateUser
-}>
+  user: StateUser,
+}>;

@@ -1,1 +1,3 @@
-export { PasswordRecoveryContainer as PasswordRecovery } from './PasswordRecoveryContainer';
+export {
+  PasswordRecoveryContainer as PasswordRecovery,
+} from './PasswordRecoveryContainer';

@@ -1,1 +1,3 @@
-export { QualificationContainer as Qualification } from './QualificationContainer';
+export {
+  QualificationContainer as Qualification,
+} from './QualificationContainer';
