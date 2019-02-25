@@ -9,8 +9,8 @@ jest.mock('../PasswordButton', () => ({
 }));
 
 jest.mock('../Styled', () => ({
-  FakeInputGreyStyle: 'FakeInputGreyStyle',
-  IconLabelStyle: 'IconLabelStyle',
+  MiddleFakeInputStyle: 'MiddleFakeInputStyle',
+  CenterInputIconStyle: 'CenterInputIconStyle',
   BasicInputStyle: 'BasicInputStyle',
 }));
 

@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FakeInputGreyStyle, IconLabelStyle, BasicInputStyle } from '../Styled';
+import {
+  MiddleFakeInputStyle,
+  CenterInputIconStyle,
+  BasicInputStyle,
+} from '../Styled';
 import { PasswordButton } from '../PasswordButton';
 
 type Props = {
@@ -54,10 +58,10 @@ export class PasswordInput extends React.Component<Props> {
     } = this.props;
 
     return (
-      <FakeInputGreyStyle hasError={errors}>
-        <IconLabelStyle htmlFor={name} aria-label={label}>
+      <MiddleFakeInputStyle hasError={errors}>
+        <CenterInputIconStyle htmlFor={name} aria-label={label}>
           <FontAwesomeIcon aria-hidden icon={icon} />
-        </IconLabelStyle>
+        </CenterInputIconStyle>
         <BasicInputStyle
           type={passwordIsDisplayed ? 'text' : type}
           name={name}
@@ -74,7 +78,7 @@ export class PasswordInput extends React.Component<Props> {
           passwordIsDisplayed={passwordIsDisplayed}
           tabIndex={tabIndex}
         />
-      </FakeInputGreyStyle>
+      </MiddleFakeInputStyle>
     );
   }
 }

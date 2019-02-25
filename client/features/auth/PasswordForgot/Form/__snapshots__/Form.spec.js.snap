@@ -35,17 +35,22 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  padding: 0 1.125rem;
+  border-radius: 1.875rem;
+  background-color: rgb(242,242,242);
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.2);
+  margin-bottom: 0.9375rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
-  padding: 0 1.125rem;
-  border-radius: 1.875rem;
-  border: 0.0625rem solid rgba(0,0,0,0.2);
-  margin-bottom: 0.9375rem;
-  background-color: rgb(242,242,242);
-  border-color: rgba(0,0,0,0.2);
+}
+
+.c1:last-child {
+  margin-bottom: 0;
 }
 
 .c3 {
@@ -61,8 +66,16 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
 
 .c2 {
   width: 1.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: rgb(232,24,68);
   font-size: 1rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c0 {
@@ -121,7 +134,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="c2"
+      className="0 c2"
       htmlFor="email"
     >
       <svg
@@ -201,17 +214,22 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  padding: 0 1.125rem;
+  border-radius: 1.875rem;
+  background-color: rgb(242,242,242);
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: rgb(237,24,68);
+  margin-bottom: 0.9375rem;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
-  padding: 0 1.125rem;
-  border-radius: 1.875rem;
-  border: 0.0625rem solid rgba(0,0,0,0.2);
-  margin-bottom: 0.9375rem;
-  background-color: rgb(242,242,242);
-  border-color: rgb(237,24,68);
+}
+
+.c1:last-child {
+  margin-bottom: 0;
 }
 
 .c3 {
@@ -227,8 +245,16 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
 
 .c2 {
   width: 1.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: rgb(232,24,68);
   font-size: 1rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c0 {
@@ -287,7 +313,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="c2"
+      className="0 c2"
       htmlFor="email"
     >
       <svg

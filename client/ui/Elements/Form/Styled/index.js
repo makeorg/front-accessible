@@ -28,25 +28,26 @@ export const InputErrorMessageStyle = styled.p`
   margin-bottom: ${pxToRem('10px')};
 `;
 
-export const LastFakeInputStyle = styled.div`
+export const FakeInputStyle = styled.div`
   display: flex;
-  align-items: center;
   width: 100%;
   padding: 0 ${pxToRem('18px')};
   border-radius: ${pxToRem('30px')};
-  border: ${pxToRem('1px')} solid ${ColorVars.BorderColors.LightGrey};
-`;
-
-export const ClassicFakeInputStyle = styled(LastFakeInputStyle)`
-  margin-bottom: ${pxToRem('15px')};
-`;
-
-export const FakeInputGreyStyle = styled(ClassicFakeInputStyle)`
   background-color: ${ColorVars.BackgroundColors.LightGrey};
+  border-width: ${pxToRem('1px')};
+  border-style: solid;
   border-color: ${props =>
     props.hasError
       ? ColorVars.BorderColors.ErrorRed
       : ColorVars.BorderColors.LightGrey};
+  margin-bottom: ${pxToRem('15px')};
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const MiddleFakeInputStyle = styled(FakeInputStyle)`
+  align-items: center;
 `;
 
 export const BasicInputStyle = styled(NoStyleTextInputStyle)`
@@ -60,13 +61,52 @@ export const BasicInputStyle = styled(NoStyleTextInputStyle)`
   }
 `;
 
-export const IconLabelStyle = styled.label`
+export const FakeTextAreaStyle = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0 ${pxToRem('18px')};
+  border-radius: ${pxToRem('30px')};
+  background-color: ${ColorVars.BackgroundColors.LightGrey};
+  border-width: ${pxToRem('1px')};
+  border-style: solid;
+  border-color: ${props =>
+    props.hasError
+      ? ColorVars.BorderColors.ErrorRed
+      : ColorVars.BorderColors.LightGrey};
+  margin-bottom: ${pxToRem('15px')};
+`;
+
+export const BasicTextAreaStyle = styled.textarea`
+  width: 100%;
+  border: none;
+  background: transparent;
+  background-color: transparent;
+  padding: ${pxToRem('10px')};
+  color: ${ColorVars.TextColors.MediumGrey};
+  font-size: ${pxToRem('14px')};
+  line-height: ${pxToRem('18px')};
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    font-size: ${pxToRem('16px')};
+    line-height: ${pxToRem('20px')};
+  }
+`;
+
+export const InputIconStyle = styled.label`
   width: ${pxToRem('30px')};
+  display: flex;
   color: ${ColorVars.MakeThemeColors.Red};
   font-size: ${pxToRem('16px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};
   }
+`;
+
+export const CenterInputIconStyle = styled(InputIconStyle)`
+  align-items: center;
+`;
+
+export const TextAreaIconStyle = styled(InputIconStyle)`
+  margin-top: ${pxToRem('10px')};
 `;
 
 export const HidePasswordIconStyle = styled(UnstyledButtonStyle)`
