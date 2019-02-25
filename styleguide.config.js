@@ -5,10 +5,6 @@ module.exports = {
   },
   sections: [
     {
-      name: 'Introduction',
-      content: 'docs/introduction.md'
-    },
-    {
       name: 'Installation',
       content: 'docs/installation.md',
       description: 'How to install Make.org Front End & useful command lines'
@@ -17,6 +13,14 @@ module.exports = {
       name: 'Standards',
       content: 'docs/standards.md',
       description: 'Code standards used on Make.org Front End'
+    },
+    {
+      name: 'Editors',
+      content: 'docs/editors.md'
+    },
+    {
+      name: 'Sequence',
+      content: 'docs/sequence.md'
     },
     {
       name: 'UI',

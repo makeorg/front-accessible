@@ -135,14 +135,13 @@ Bad:
 ```
 
 ## TODO:
-- [ ] remove all export default
 - [ ] update all redux Action with FSA standard
 - [ ] remove all .bind in constructor
 - [ ] activate [React.StrictMode](https://reactjs.org/docs/strict-mode.html) on App
 
 ## TESTS: `
 
-### JEST snippets
+#### JEST snippets
 
 - spyOn
 ```js
@@ -151,12 +150,23 @@ jest.spyOn(response, 'redirect');
 expect(response.redirect).toBeCalledWith('/FR-fr');
 ```
 
-#### Mock
+#### Mocks
 
-- Initialize a mock
+- Initialize a local mock
 ```js
 import { UserService } from 'Shared/api/UserService';
 jest.mock('Shared/api/UserService')
+```
+
+- Initialize a node_modules mock
+
+```js
+// inside root/__mocks__/i18next.js 
+module.exports = {
+  init: () => jest.fn(),
+  changeLanguage: value => value,
+  t: value => (value)
+};
 ```
 
 - Resolve a promise
@@ -176,41 +186,67 @@ UserService.forgotPassword.mockRejectedValue();
 
 ### UI test strategy
 
-- An UI component (dumb) should be tested using snapshot
-- [TODO] Add [Eslint rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md) to avoid BIG snapshot 
+- A client/ui Style component should be tested using snapshot
 
-Default case
-```js
+```ts
 import renderer from 'react-test-renderer';
-import { ForgotPasswordFormComponent } from './index';
+import { ComponentStyle } from './index';
 
-describe("ForgotPasswordFormComponent", function () {
-  it("must match the snapshot by default", function () {
-    // TODO need to use shallow with jest for better testing
+describe('ComponentStyle', () => {
+  it('snapshot by default', () => {
     const component = renderer.create(
-      <ForgotPasswordFormComponent errors={[]} />
-    );
+      <ComponentStyle />
+    ).toJSON();
     expect(component).toMatchSnapshot();
+  });
+
+  // you can also secure important props with toHaveStyleRule
+  it('must set color from props', () => {
+    const component = renderer.create(
+      <ComponentStyle color="red" />
+    ).toJSON();
+    expect(component).toHaveStyleRule('color', 'red');
+    expect(component).toHaveStyleRule('background-color', 'red', {
+      modifier: ':active'
+    });
   });
 });
 ```
+- A client/ui component (without style) should be tested using snapshot-diff and jest.mock
 
-Error case 
-```js
-it("must match the snapshot with errors", function () {
-  // TODO need to use shallow with jest for better testing
-  const component = renderer.create(
-    <ForgotPasswordFormComponent errors={[{
-      field: 'field',
-      message: 'Error message 1'
-    }, {
-      field: 'field',
-      message: 'Error message 2'
-    }]} />
-  );
-  expect(component).toMatchSnapshot();
+```ts
+import { Component } from './index';
+import { ComponentStyle } from './Styled';
+
+jest.mock('./Styled', () => ({
+  ComponentStyle: 'ComponentStyle',
+}));
+
+describe('Component', () => {
+
+  it('must match the snapshot with default Props', () => {
+    const component = renderer.create(
+      <Component />
+    ).toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('must return the diff between snapshot on color props', () => {
+    const ComponentOne = renderer.create(
+      <Component color="red" />
+    ).toJSON();
+    const ComponentTwo = renderer.create(
+      <Component color="green" />
+    ).toJSON();
+    expect(snapshotDiff(ComponentOne, ComponentTwo)).toMatchSnapshot();
+  });
+
 });
 ```
+
+### Features test strategy
+
+- Code inside **root/client/features** must be tested with [Cypress](https://www.cypress.io/) in priority
 
 ## Conception
 

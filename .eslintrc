@@ -1,5 +1,8 @@
 {
   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2015
+  },
   "rules": {
     "prettier/prettier": "error",
     "max-len": [
@@ -43,6 +46,12 @@
           }
         ]
       }
+    ],
+    "jest/no-large-snapshots": [
+      "error",
+      {
+        "maxSize": 3
+      }
     ]
   },
   "extends": [
@@ -50,9 +59,17 @@
     "airbnb",
     "plugin:import/errors",
     "plugin:import/warnings",
+    "plugin:jest/recommended",
     "eslint-config-prettier"
   ],
-  "plugins": ["jsx-a11y", "flowtype", "security", "import", "prettier"],
+  "plugins": [
+    "jsx-a11y",
+    "flowtype",
+    "security",
+    "import",
+    "jest",
+    "prettier"
+  ],
   "settings": {
     "import/resolver": {
       "babel-module": {}

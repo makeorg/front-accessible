@@ -14,7 +14,7 @@ export const ButtonStyle = styled.button`
   border-style: solid;
   border-radius: 50%;
   border-color: ${props => props.color};
-  transform: rotate(${props => props.rotate}deg);
+  ${props => props.rotate && `transform:rotate(${props.rotate}deg)`};
   overflow: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     width: 60px;

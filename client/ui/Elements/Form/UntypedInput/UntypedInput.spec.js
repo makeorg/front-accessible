@@ -15,7 +15,9 @@ describe('UntypedInput', () => {
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<UntypedInput {...defaultProps} />);
+    const component = renderer
+      .create(<UntypedInput {...defaultProps} />)
+      .toJSON();
     expect(component).toMatchSnapshot();
   });
 
@@ -23,19 +25,19 @@ describe('UntypedInput', () => {
     const NegativeTabIndex = renderer.create(
       <UntypedInput {...defaultProps} tabIndex="-1" />
     );
-    const PositiveTabIndex = renderer.create(
-      <UntypedInput {...defaultProps} tabIndex="0" />
-    );
+    const PositiveTabIndex = renderer
+      .create(<UntypedInput {...defaultProps} tabIndex="0" />)
+      .toJSON();
     expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot when input is required or optionnal', () => {
-    const RequiredInput = renderer.create(
-      <UntypedInput {...defaultProps} required />
-    );
-    const OptionnalInput = renderer.create(
-      <UntypedInput {...defaultProps} required={false} />
-    );
+    const RequiredInput = renderer
+      .create(<UntypedInput {...defaultProps} required />)
+      .toJSON();
+    const OptionnalInput = renderer
+      .create(<UntypedInput {...defaultProps} required={false} />)
+      .toJSON();
     expect(snapshotDiff(RequiredInput, OptionnalInput)).toMatchSnapshot();
   });
 });
