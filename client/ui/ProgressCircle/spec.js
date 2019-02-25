@@ -4,7 +4,7 @@ import { ProgressCircleComponent } from '.';
 
 describe('ProgressCircleComponent', () => {
   it('toMatchSnapshot', () => {
-    const component = renderer.create(<ProgressCircleComponent />);
+    const component = renderer.create(<ProgressCircleComponent />).toJSON();
     expect(component).toMatchSnapshot();
   });
 });

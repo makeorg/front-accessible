@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  border-width: 0.125rem;
+  font-size: 0.75rem;
+  line-height: 1.625rem;
+  border-style: solid;
+  padding: 0 0.625rem;
+  border-radius: 2.25rem;
+}
+
+@media (min-width:47.94rem) {
+  .c0 {
+    font-size: 1rem;
+    line-height: 2.063rem;
+    padding: 0 0.9375rem;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`QualifyButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  border-width: 0.125rem;
+  font-size: 0.75rem;
+  line-height: 1.625rem;
+  border-style: solid;
+  padding: 0 0.625rem;
+  border-radius: 2.25rem;
+  background-color: rgb(255,255,255);
+}
+
+.c0:focus,
+.c0:active {
+  color: rgb(255,255,255);
+}
+
+@media (min-width:47.94rem) {
+  .c0 {
+    font-size: 1rem;
+    line-height: 2.063rem;
+    padding: 0 0.9375rem;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;

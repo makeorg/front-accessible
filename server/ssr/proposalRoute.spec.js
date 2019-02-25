@@ -64,7 +64,7 @@ describe('Proposal route', () => {
       const response = httpMocks.createResponse();
 
       await proposalRoute(request, response, () => {});
-      expect(logger.log).toBeCalledWith('error', error.stack);
+      expect(logger.log).toHaveBeenCalledWith('error', error.stack);
       expect(response.statusCode).toEqual(404);
     });
   });

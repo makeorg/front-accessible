@@ -12,7 +12,9 @@ describe('SubmitButton', () => {
   };
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<SubmitButton {...defaultProps} />);
+    const component = renderer
+      .create(<SubmitButton {...defaultProps} />)
+      .toJSON();
     expect(component).toMatchSnapshot();
   });
 
@@ -20,9 +22,9 @@ describe('SubmitButton', () => {
     const NegativeTabIndex = renderer.create(
       <SubmitButton {...defaultProps} tabIndex="-1" />
     );
-    const PositiveTabIndex = renderer.create(
-      <SubmitButton {...defaultProps} tabIndex="0" />
-    );
+    const PositiveTabIndex = renderer
+      .create(<SubmitButton {...defaultProps} tabIndex="0" />)
+      .toJSON();
     expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
   });
 });

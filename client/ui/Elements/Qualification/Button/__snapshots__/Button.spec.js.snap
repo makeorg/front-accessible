@@ -1,93 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QualificationButtonElement must match the snapshot with default Props 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  border-width: 0.125rem;
-  font-size: 0.75rem;
-  line-height: 1.625rem;
-  border-style: solid;
-  padding: 0 0.625rem;
-  border-radius: 2.25rem;
-  border-color: red;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  border-width: 0.125rem;
-  font-size: 0.75rem;
-  line-height: 1.625rem;
-  border-style: solid;
-  padding: 0 0.625rem;
-  border-radius: 2.25rem;
-  border-color: red;
-  color: red;
-  background-color: rgb(255,255,255);
-}
-
-.c1:focus,
-.c1:active {
-  color: rgb(255,255,255);
-  background-color: red;
-}
-
-.c2 {
-  font-family: 'Roboto Bold',Arial,sans-serif;
-  font-size: 0.875rem;
-  margin-left: 0.625rem;
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    font-size: 1rem;
-    line-height: 2.063rem;
-    padding: 0 0.9375rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c1 {
-    font-size: 1rem;
-    line-height: 2.063rem;
-    padding: 0 0.9375rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c2 {
-    font-size: 1.375rem;
-  }
-}
-
-<button
-  className="sc-1gf9o0u-0 c0 c1"
+<ButtonStyle
+  as="QualifyButtonStyle"
   color="red"
   tabIndex={0}
 >
   foo
-  <span
+  <CounterStyle
     aria-hidden={true}
-    className="c2"
   >
     +1
-  </span>
-</button>
+  </CounterStyle>
+</ButtonStyle>
 `;
 
 exports[`QualificationButtonElement must return the diff between snapshot when proposal is qualified or not 1`] = `
@@ -95,21 +20,20 @@ Snapshot Diff:
 - First value
 + Second value
 
-  <button
--   className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-1 eNeyJR"
-+   className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-2 FdDWG"
+  <ButtonStyle
+-   as="UnqualifyButtonStyle"
++   as="QualifyButtonStyle"
     color="red"
     tabIndex={0}
   >
     foo
-    <span
+    <CounterStyle
       aria-hidden={true}
-      className="sc-1gf9o0u-3 hbYyJy"
     >
 -     0
 +     +1
-    </span>
-  </button>
+    </CounterStyle>
+  </ButtonStyle>
 `;
 
 exports[`QualificationButtonElement must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
@@ -118,14 +42,14 @@ Snapshot Diff:
 + Second value
 
 @@ -1,9 +1,9 @@
-  <button
-    className="sc-1gf9o0u-0 sc-1gf9o0u-0 jfJdlP sc-1gf9o0u-2 FdDWG"
+  <ButtonStyle
+    as="QualifyButtonStyle"
     color="red"
 -   tabIndex="-1"
 +   tabIndex="0"
   >
     foo
-    <span
+    <CounterStyle
       aria-hidden={true}
-      className="sc-1gf9o0u-3 hbYyJy"
+    >
 `;

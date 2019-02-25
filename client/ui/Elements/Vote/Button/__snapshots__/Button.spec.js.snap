@@ -1,85 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-  border-width: 0.125rem;
-  font-size: 1.375rem;
-  border-style: solid;
-  border-radius: 50%;
-  border-color: red;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  overflow: hidden;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-  border-width: 0.125rem;
-  font-size: 1.375rem;
-  border-style: solid;
-  border-radius: 50%;
-  border-color: red;
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  overflow: hidden;
-  color: red;
-  background-color: rgb(255,255,255);
-}
-
-.c1:focus,
-.c1:active {
-  color: rgb(255,255,255);
-  background-color: red;
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    width: 60px;
-    height: 60px;
-    font-size: 1.875rem;
-  }
-}
-
-@media (min-width:47.94rem) {
-  .c1 {
-    width: 60px;
-    height: 60px;
-    font-size: 1.875rem;
-  }
-}
-
-<button
+<ButtonStyle
   aria-label="foo"
-  className="sc-1xooriq-0 c0 c1"
+  as="VoteButtonStyle"
   color="red"
   id="vote_button_element"
   rotate={0}
@@ -89,7 +13,7 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
     lib="@fortawesome/react-fontawesome"
     prefix="far"
   />
-</button>
+</ButtonStyle>
 `;
 
 exports[`VoteButtonElement must return the diff between snapshot when proposal is qualified or not 1`] = `
@@ -98,10 +22,10 @@ Snapshot Diff:
 + Second value
 
 @@ -1,8 +1,8 @@
-  <button
+  <ButtonStyle
     aria-label="foo"
--   className="sc-1xooriq-0 sc-1xooriq-0 dVqgOp sc-1xooriq-1 inlyxu"
-+   className="sc-1xooriq-0 sc-1xooriq-0 dVqgOp sc-1xooriq-2 bXgKAz"
+-   as="UnvoteButtonStyle"
++   as="VoteButtonStyle"
     color="red"
     id="vote_button_element"
     rotate={0}
@@ -116,7 +40,7 @@ Snapshot Diff:
 
 @@ -2,11 +2,11 @@
     aria-label="foo"
-    className="sc-1xooriq-0 sc-1xooriq-0 dVqgOp sc-1xooriq-2 bXgKAz"
+    as="VoteButtonStyle"
     color="red"
     id="vote_button_element"
     rotate={0}

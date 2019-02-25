@@ -2,6 +2,15 @@
 *   yarn install
 
 ## Development Mode
+
+#### Start server
+*   yarn build
+*   yarn server:dev
+*   visit `http://localhost:9009`
+
+
+#### Start application with auto-reload
+*   yarn install
 *   yarn start:dev
 *   visit `http://localhost:3000`
 
@@ -11,12 +20,21 @@
 *   Build command : `npx styleguidist build`
 
 ## Tests
-- To launch test `yarn test:unit` or `npm run test:unit`
+- To launch test `yarn test:unit:all`
 
-- Update snapshot: `yarn test:unit:u`
+- Watch mode: `yarn test:unit:all:watch`
+> then touch the o key to re-launch test only on files changed
 
 ## Linter
-To launch linter `yarn lint` or `npm run lint`
+To launch linter `yarn lint`
 
 ## Flow
-To launch flow type checking `yarn flow` or `npm run flow`
+To launch flow type checking `yarn flow`
+
+## Prepush 
+Before push the following command will be executed `yarn prepush`
+
+### Production
+*   Build command : `yarn build`
+*   Start server : `env API_URL=https://api.preprod.makeorg.tech yarn server`
+
