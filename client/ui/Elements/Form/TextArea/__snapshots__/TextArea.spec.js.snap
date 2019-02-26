@@ -1,9 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextArea must match the snapshot with default Props 1`] = `
+.c0 {
+  width: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgb(232,24,68);
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 18px;
+  }
+}
+
 <FakeInputStyle>
-  <TextAreaIconStyle
+  <label
     aria-label="qux"
+    className="c0"
     htmlFor="bar"
   >
     <svg
@@ -11,7 +29,7 @@ exports[`TextArea must match the snapshot with default Props 1`] = `
       lib="@fortawesome/react-fontawesome"
       prefix="fas"
     />
-  </TextAreaIconStyle>
+  </label>
   <BasicTextAreaStyle
     aria-required={false}
     autoComplete="off"
@@ -33,10 +51,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -9,11 +9,11 @@
+@@ -10,11 +10,11 @@
         prefix="fas"
       />
-    </TextAreaIconStyle>
+    </label>
     <BasicTextAreaStyle
       aria-required={false}
 -     autoComplete="off"
@@ -53,7 +71,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -16,10 +16,10 @@
+@@ -17,10 +17,10 @@
       name="bar"
       onChange={[Function handleChange]}
       placeholder="qux"
@@ -72,8 +90,8 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -11,10 +11,12 @@
-    </TextAreaIconStyle>
+@@ -12,10 +12,12 @@
+    </label>
     <BasicTextAreaStyle
       aria-required={false}
       autoComplete="off"
@@ -92,11 +110,11 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -8,17 +8,17 @@
+@@ -9,17 +9,17 @@
         lib="@fortawesome/react-fontawesome"
         prefix="fas"
       />
-    </TextAreaIconStyle>
+    </label>
     <BasicTextAreaStyle
 -     aria-required={true}
 +     aria-required={false}
@@ -119,7 +137,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -17,9 +17,9 @@
+@@ -18,9 +18,9 @@
       onChange={[Function handleChange]}
       placeholder="qux"
       required={false}

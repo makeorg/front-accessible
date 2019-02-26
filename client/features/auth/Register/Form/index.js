@@ -11,12 +11,14 @@ import {
   faSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import {
-  FormStyle,
-  ConditionParagraphStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Errors';
+import {
+  FormStyle,
+  ConditionParagraphStyle,
+} from 'Client/ui/Elements/Form/Styled/Content';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';

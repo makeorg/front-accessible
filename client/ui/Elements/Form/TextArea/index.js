@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  FakeInputStyle,
-  TextAreaIconStyle,
-  BasicTextAreaStyle,
-} from '../Styled';
+import { FakeInputStyle } from '../Styled/Input';
+import { BasicTextAreaStyle } from '../Styled/TextArea';
+import { TextAreaIconStyle } from '../Styled/Icons';
 
 type Props = {
   /** Name of the TextArea */

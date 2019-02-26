@@ -70,7 +70,8 @@ export const DefaultStylesheet = createGlobalStyle`
   ul,
   p,
   form,
-  blockquote {
+  blockquote,
+  checkbox {
     margin: 0;
   }
 `;

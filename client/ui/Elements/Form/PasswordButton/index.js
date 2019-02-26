@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { HidePasswordIconStyle } from '../Styled';
+import { HidePasswordIconStyle } from '../Styled/Icons';
 
 type Props = {
   /** Boolean toggled when password shown / hidden */

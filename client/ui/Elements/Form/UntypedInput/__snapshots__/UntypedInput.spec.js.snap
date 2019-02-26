@@ -7,13 +7,13 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0 1.125rem;
-  border-radius: 1.875rem;
+  padding: 0 18px;
+  border-radius: 30px;
   background-color: rgb(242,242,242);
-  border-width: 0.0625rem;
+  border-width: 1px;
   border-style: solid;
   border-color: rgba(0,0,0,0.2);
-  margin-bottom: 0.9375rem;
+  margin-bottom: 15px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -28,37 +28,37 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
   border: none;
   background: transparent;
   background-color: transparent;
-  padding: 0 0.625rem;
+  padding: 0 10px;
   width: 100%;
   color: rgba(0,0,0,0.55);
-  font-size: 0.875rem;
-  line-height: 2.188rem;
+  font-size: 14px;
+  line-height: 35px;
 }
 
 .c1 {
-  width: 1.875rem;
+  width: 30px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   color: rgb(232,24,68);
-  font-size: 1rem;
+  font-size: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
 }
 
-@media (min-width:47.94rem) {
+@media (min-width:767) {
   .c2 {
-    font-size: 1rem;
-    line-height: 2.5rem;
+    font-size: 16px;
+    line-height: 40px;
   }
 }
 
-@media (min-width:47.94rem) {
+@media (min-width:767px) {
   .c1 {
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 }
 
@@ -67,7 +67,7 @@ exports[`UntypedInput must match the snapshot with default Props 1`] = `
 >
   <label
     aria-label="qux"
-    className="0 c1"
+    className="c1"
     htmlFor="bar"
   >
     <svg
@@ -104,7 +104,7 @@ Snapshot Diff:
     <input
 -     aria-required={true}
 +     aria-required={false}
-      className="ntcd9w-0 ntcd9w-6 getYL"
+      className="sc-9bn3a1-0 sc-9bn3a1-3 krQACV"
       id="bar"
       name="bar"
       onChange={[Function handleChange]}

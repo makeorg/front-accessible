@@ -1,6 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 0 18px;
+  border-radius: 30px;
+  background-color: rgb(242,242,242);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1:last-child {
+  margin-bottom: 0;
+}
+
+.c3 {
+  border: none;
+  background: transparent;
+  background-color: transparent;
+  padding: 0 10px;
+  width: 100%;
+  color: rgba(0,0,0,0.55);
+  font-size: 14px;
+  line-height: 35px;
+}
+
 .c4 {
   white-space: nowrap;
   display: -webkit-box;
@@ -30,48 +64,14 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   margin-right: 0.375rem;
 }
 
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  padding: 0 1.125rem;
-  border-radius: 1.875rem;
-  background-color: rgb(242,242,242);
-  border-width: 0.0625rem;
-  border-style: solid;
-  border-color: rgba(0,0,0,0.2);
-  margin-bottom: 0.9375rem;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1:last-child {
-  margin-bottom: 0;
-}
-
-.c3 {
-  border: none;
-  background: transparent;
-  background-color: transparent;
-  padding: 0 0.625rem;
-  width: 100%;
-  color: rgba(0,0,0,0.55);
-  font-size: 0.875rem;
-  line-height: 2.188rem;
-}
-
 .c2 {
-  width: 1.875rem;
+  width: 30px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   color: rgb(232,24,68);
-  font-size: 1rem;
+  font-size: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -95,8 +95,15 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  margin: 0.625rem 0 0;
+  margin: 10px 0 0;
   max-width: 30.63rem;
+}
+
+@media (min-width:767) {
+  .c3 {
+    font-size: 16px;
+    line-height: 40px;
+  }
 }
 
 @media (min-width:47.94rem) {
@@ -112,16 +119,9 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   }
 }
 
-@media (min-width:47.94rem) {
-  .c3 {
-    font-size: 1rem;
-    line-height: 2.5rem;
-  }
-}
-
-@media (min-width:47.94rem) {
+@media (min-width:767px) {
   .c2 {
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 }
 
@@ -134,7 +134,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="0 c2"
+      className="c2"
       htmlFor="email"
     >
       <svg
@@ -175,6 +175,45 @@ exports[`ForgotPasswordFormComponent must match the snapshot by default 1`] = `
 `;
 
 exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
+.c4 {
+  color: rgb(237,24,68);
+  margin-bottom: 10px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 0 18px;
+  border-radius: 30px;
+  background-color: rgb(242,242,242);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(237,24,68);
+  margin-bottom: 15px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1:last-child {
+  margin-bottom: 0;
+}
+
+.c3 {
+  border: none;
+  background: transparent;
+  background-color: transparent;
+  padding: 0 10px;
+  width: 100%;
+  color: rgba(0,0,0,0.55);
+  font-size: 14px;
+  line-height: 35px;
+}
+
 .c5 {
   white-space: nowrap;
   display: -webkit-box;
@@ -204,53 +243,14 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   margin-right: 0.375rem;
 }
 
-.c4 {
-  color: rgb(237,24,68);
-  margin-bottom: 0.625rem;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  padding: 0 1.125rem;
-  border-radius: 1.875rem;
-  background-color: rgb(242,242,242);
-  border-width: 0.0625rem;
-  border-style: solid;
-  border-color: rgb(237,24,68);
-  margin-bottom: 0.9375rem;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1:last-child {
-  margin-bottom: 0;
-}
-
-.c3 {
-  border: none;
-  background: transparent;
-  background-color: transparent;
-  padding: 0 0.625rem;
-  width: 100%;
-  color: rgba(0,0,0,0.55);
-  font-size: 0.875rem;
-  line-height: 2.188rem;
-}
-
 .c2 {
-  width: 1.875rem;
+  width: 30px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   color: rgb(232,24,68);
-  font-size: 1rem;
+  font-size: 16px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -274,8 +274,15 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  margin: 0.625rem 0 0;
+  margin: 10px 0 0;
   max-width: 30.63rem;
+}
+
+@media (min-width:767) {
+  .c3 {
+    font-size: 16px;
+    line-height: 40px;
+  }
 }
 
 @media (min-width:47.94rem) {
@@ -291,16 +298,9 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   }
 }
 
-@media (min-width:47.94rem) {
-  .c3 {
-    font-size: 1rem;
-    line-height: 2.5rem;
-  }
-}
-
-@media (min-width:47.94rem) {
+@media (min-width:767px) {
   .c2 {
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 }
 
@@ -313,7 +313,7 @@ exports[`ForgotPasswordFormComponent must match the snapshot with errors 1`] = `
   >
     <label
       aria-label="common.form.email_label"
-      className="0 c2"
+      className="c2"
       htmlFor="email"
     >
       <svg

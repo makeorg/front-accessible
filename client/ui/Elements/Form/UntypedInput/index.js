@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  MiddleFakeInputStyle,
-  CenterInputIconStyle,
-  BasicInputStyle,
-} from '../Styled';
+import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
+import { CenterInputIconStyle } from '../Styled/Icons';
 
 type Props = {
   /** Type of the input */

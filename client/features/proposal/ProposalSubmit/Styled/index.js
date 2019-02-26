@@ -7,7 +7,7 @@ import {
   ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
-import { NoStyleTextInputStyle } from 'Client/ui/Elements/Form/Styled';
+import { NoStyleTextInputStyle } from 'Client/ui/Elements/Form/Styled/Input';
 import {
   MiddleRowStyle,
   FlexElementStyle,

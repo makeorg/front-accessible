@@ -8,7 +8,7 @@ import {
 } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled';
+import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Social/FacebookAuthentification/Link';
 import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';
 import { RegisterFormComponent } from './Form';

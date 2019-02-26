@@ -10,7 +10,7 @@ import {
 import {
   ExtraParagraphStyle,
   ExtraAltParagraphStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Content';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginFormComponent } from './Form';

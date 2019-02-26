@@ -6,3 +6,7 @@ export const pxToRem = (value: string | number, base: number = 16) => {
 
   return `${rem}rem`;
 };
+
+export const IntToPx = (value: number) => {
+  return `${value}px`;
+};

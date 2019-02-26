@@ -4,8 +4,11 @@ import renderer from 'react-test-renderer';
 import { faPenAlt } from '@fortawesome/free-solid-svg-icons';
 import { TextArea } from './index';
 
-jest.mock('../Styled', () => ({
+jest.mock('../Styled/Input', () => ({
   FakeInputStyle: 'FakeInputStyle',
+}));
+
+jest.mock('../Styled/TextArea', () => ({
   TextAreaIconStyle: 'TextAreaIconStyle',
   BasicTextAreaStyle: 'BasicTextAreaStyle',
 }));

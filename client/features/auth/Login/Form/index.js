@@ -5,11 +5,11 @@ import type { ErrorObject } from 'Shared/types/form';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import {
-  FormStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Errors';
+import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
