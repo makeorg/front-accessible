@@ -20,6 +20,7 @@
   "settings": {
     "typescript.validate.enable": false,
     "javascript.validate.enable": false,
-    "prettier.eslintIntegration": true
+    "prettier.eslintIntegration": true,
+    "eslint.autoFixOnSave": true
   }
 }

@@ -2,15 +2,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "Client/*": [
-        "client/*"
-      ],
-      "Shared/*": [
-        "shared/*"
-      ]
-    },
+      "Client/*": ["client/*"],
+      "Shared/*": ["shared/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["server", "client", "shared"],
+  "exclude": ["node_modules"]
 }
