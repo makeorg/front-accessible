@@ -34,10 +34,6 @@ type Props = {
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
   handleLoginPannel: () => void,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
 };
 
 /**

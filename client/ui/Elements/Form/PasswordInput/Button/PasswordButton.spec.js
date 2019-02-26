@@ -7,7 +7,7 @@ jest.mock('Client/ui/Elements/ButtonElements', () => ({
   UnstyledButtonStyle: 'UnstyledButtonStyle',
 }));
 
-jest.mock('../Styled/Icons', () => ({
+jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
   HidePasswordIconStyle: 'HidePasswordIconStyle',
 }));
 

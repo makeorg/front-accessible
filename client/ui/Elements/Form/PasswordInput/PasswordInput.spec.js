@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { PasswordInput } from './index';
 
-jest.mock('../PasswordButton', () => ({
+jest.mock('./Button', () => ({
   PasswordButton: 'PasswordButton',
 }));
 

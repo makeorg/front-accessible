@@ -1,1 +1,1 @@
-export { CheckBoxContainer as CheckBox } from './CheckBoxContainer';
+export { CheckBoxState as CheckBox } from './CheckBoxState';

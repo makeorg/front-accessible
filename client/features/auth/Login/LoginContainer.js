@@ -26,8 +26,6 @@ type Props = {
 type State = {
   email: string,
   password: string,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
 };
 
 /**
@@ -41,7 +39,6 @@ class LoginHandler extends React.Component<Props, State> {
     this.state = {
       email: '',
       password: '',
-      passwordIsDisplayed: false,
     };
 
     this.throttleSubmit = throttle(this.handleSubmit);
@@ -64,33 +61,13 @@ class LoginHandler extends React.Component<Props, State> {
     }
   };
 
-  togglePasswordIsDisplayed = () => {
-    this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
-    }));
-  };
-
   render() {
-    const { email, password, passwordIsDisplayed } = this.state;
-    const {
-      errors,
-      isPannelOpen,
-      handleRegisterPannel,
-      handleForgotPasswordPannel,
-    } = this.props;
-
     return (
       <LoginComponent
-        email={email}
-        password={password}
-        errors={errors}
+        {...this.props}
+        {...this.state}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
-        togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
-        passwordIsDisplayed={passwordIsDisplayed}
-        handleRegisterPannel={handleRegisterPannel}
-        handleForgotPasswordPannel={handleForgotPasswordPannel}
-        isPannelOpen={isPannelOpen}
       />
     );
   }

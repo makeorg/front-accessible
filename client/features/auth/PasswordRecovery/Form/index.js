@@ -16,10 +16,6 @@ type Props = {
   error: boolean,
   /** Error message of the form  */
   errorMessage: string,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
@@ -30,15 +26,7 @@ type Props = {
  * Renders ForgotPassword Form
  */
 export const PasswordRecoveryFormComponent = (props: Props) => {
-  const {
-    password,
-    error,
-    errorMessage,
-    passwordIsDisplayed,
-    togglePasswordIsDisplayed,
-    handleChange,
-    handleSubmit,
-  } = props;
+  const { password, error, errorMessage, handleChange, handleSubmit } = props;
 
   return (
     <PasswordRecoveryFormStyle
@@ -46,17 +34,12 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
       onSubmit={handleSubmit}
     >
       <PasswordInput
-        type="password"
         name="password"
         icon={faLock}
         errors={error}
         value={password}
         label={i18n.t('common.form.password_label')}
-        required
         handleChange={handleChange}
-        tabIndex={0}
-        passwordIsDisplayed={passwordIsDisplayed}
-        togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
       {error && (
         <InputErrorMessageStyle id="authentification-email-error">

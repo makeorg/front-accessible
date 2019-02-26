@@ -21,7 +21,7 @@ type State = {
   isChecked: boolean,
 };
 
-export class CheckBoxContainer extends React.Component<Props, State> {
+export class CheckBoxState extends React.Component<Props, State> {
   static defaultProps = {
     value: undefined,
     required: false,

@@ -14,9 +14,9 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: Function,
+  handleLoginPannel: () => void,
   /** Method called to render Register Component in Sliding Pannel */
-  handleRegister: Function,
+  handleRegister: UserObject => void,
 };
 
 type State = {
@@ -29,8 +29,6 @@ type State = {
     profession: string
   } */
   user: UserObject,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
 };
 
 /**
@@ -46,7 +44,6 @@ class RegisterHandler extends React.Component<Props, State> {
       postalcode: '',
       profession: '',
     },
-    passwordIsDisplayed: false,
   };
 
   throttleSubmit: any = undefined;
@@ -78,26 +75,13 @@ class RegisterHandler extends React.Component<Props, State> {
     }
   };
 
-  togglePasswordIsDisplayed = () => {
-    this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
-    }));
-  };
-
   render() {
-    const { user, passwordIsDisplayed } = this.state;
-    const { errors, isPannelOpen, handleLoginPannel } = this.props;
-
     return (
       <RegisterComponent
-        user={user}
-        errors={errors}
+        {...this.props}
+        {...this.state}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
-        togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
-        passwordIsDisplayed={passwordIsDisplayed}
-        handleLoginPannel={handleLoginPannel}
-        isPannelOpen={isPannelOpen}
       />
     );
   }
