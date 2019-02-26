@@ -51,7 +51,7 @@
       "inPartnershipWith": false,
       "extraLogo": false
     },
-    "pushProposal": false,
+    "pushProposal": true,
     "signUpCard": true,
     "finalCard": {
       "customTitle": true,
