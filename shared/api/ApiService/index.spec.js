@@ -10,7 +10,9 @@ describe('ApiService', () => {
 
   it('get strategy throw an error by default', () => {
     ApiService.strategy = undefined;
-    expect(() => ApiService.strategy).toThrow(new Error('No ApiService strategy configured'));
+    expect(() => ApiService.strategy).toThrow(
+      new Error('No ApiService strategy configured')
+    );
   });
 
   it('get mock strategy instance ', () => {
@@ -18,7 +20,6 @@ describe('ApiService', () => {
   });
 
   it('all getter must return foo', () => {
-    expect(ApiService.token).toBe('foo');
     expect(ApiService.language).toBe('foo');
     expect(ApiService.country).toBe('foo');
     expect(ApiService.source).toBe('foo');

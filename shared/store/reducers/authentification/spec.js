@@ -9,7 +9,6 @@ describe('Authentification reducer', () => {
       isLoggedIn: false,
       errors: [],
       user: undefined,
-      token: undefined
     };
 
     expect(authentification(undefined, {})).toEqual(expectedState);
@@ -22,33 +21,29 @@ describe('Authentification reducer', () => {
         isLoggedIn: false,
         errors: ['foo', 'bar'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: [],
         user: undefined,
-        token: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Success', () => {
-      const action = actionCreators.loginSuccess('fooToken');
+      const action = actionCreators.loginSuccess();
       const previousState = {
         isLoggedIn: false,
         errors: ['foo', 'bar'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: true,
         errors: [],
         user: undefined,
-        token: 'fooToken'
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
@@ -60,14 +55,12 @@ describe('Authentification reducer', () => {
         isLoggedIn: false,
         errors: ['bazError', 'barError'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: ['fooError', 'bazError', 'barError'],
         user: undefined,
-        token: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
@@ -81,33 +74,29 @@ describe('Authentification reducer', () => {
         isLoggedIn: false,
         errors: ['foo', 'bar'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: [],
         user: undefined,
-        token: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Social Success', () => {
-      const action = actionCreators.loginSocialSuccess('fooToken');
+      const action = actionCreators.loginSocialSuccess();
       const previousState = {
         isLoggedIn: false,
         errors: ['foo', 'bar'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: true,
         errors: [],
         user: undefined,
-        token: 'fooToken'
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
@@ -119,14 +108,12 @@ describe('Authentification reducer', () => {
         isLoggedIn: false,
         errors: ['bazError', 'barError'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: [],
         user: undefined,
-        token: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
@@ -137,45 +124,19 @@ describe('Authentification reducer', () => {
     it('Get user Info', () => {
       const user = {
         firstname: 'foo',
-        lastname: 'bar'
+        lastname: 'bar',
       };
       const action = actionCreators.setUserInfo(user);
       const previousState = {
         isLoggedIn: false,
         errors: ['bazError', 'barError'],
         user: undefined,
-        token: undefined
       };
 
       const expectedState = {
         isLoggedIn: true,
         errors: ['bazError', 'barError'],
         user,
-        token: undefined
-      };
-
-      expect(authentification(previousState, action)).toEqual(expectedState);
-    });
-  });
-
-  describe('Get token info action reducers', () => {
-    it('Get token Info', () => {
-      const token = {
-        foo: 'bar'
-      };
-      const action = actionCreators.setUserToken(token);
-      const previousState = {
-        isLoggedIn: false,
-        errors: ['bazError', 'barError'],
-        user: undefined,
-        token: undefined
-      };
-
-      const expectedState = {
-        isLoggedIn: true,
-        errors: ['bazError', 'barError'],
-        token,
-        user: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);
@@ -189,14 +150,12 @@ describe('Authentification reducer', () => {
         isLoggedIn: true,
         errors: ['bazError', 'barError'],
         user: { firstname: 'foo' },
-        token: { token: 'tokenfoo' }
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: [],
         user: undefined,
-        token: undefined
       };
 
       expect(authentification(previousState, action)).toEqual(expectedState);

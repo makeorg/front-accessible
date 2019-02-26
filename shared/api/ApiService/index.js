@@ -1,12 +1,9 @@
 /* @flow */
-import { type TypeToken } from './types';
 
 export { NODE_API_BASE } from './ApiService.shared';
 
 export interface IApiServiceStrategy {
   callApi(url: string, options: Object): Promise<any>;
-  set token(token: TypeToken): void;
-  get token(): ?TypeToken;
   get country(): string;
   get language(): string;
   get source(): string;
@@ -26,14 +23,6 @@ class ApiServiceClass {
 
   callApi(url: string, options: Object = {}): Promise<any> {
     return this.strategy.callApi(url, options);
-  }
-
-  set token(token: TypeToken): void {
-    this.strategy.token = token;
-  }
-
-  get token(): ?TypeToken {
-    return this.strategy.token;
   }
 
   get country(): string {

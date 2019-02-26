@@ -20,15 +20,6 @@ describe('ApiServiceServer', () => {
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, options);
   });
 
-  it('token property must be disable', () => {
-    expect(apiServer.token).toBe(undefined);
-    apiServer.token = {
-      token_type: 'token_type',
-      access_token: 'access_token'
-    };
-    expect(apiServer.token).toBe(undefined);
-  });
-
   it('language property must be disable', () => {
     expect(apiServer.language).toBe(undefined);
   });

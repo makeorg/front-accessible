@@ -3,7 +3,7 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 
 export function registration(
-  state: Object = { user: null, errors: [] },
+  state: Object = { user: undefined, errors: [] },
   action: Object
 ) {
   switch (action.type) {

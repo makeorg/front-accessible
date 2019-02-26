@@ -5,7 +5,6 @@ export const initialState: StateRoot = {
   authentification: {
     errors: [],
     isLoggedIn: false,
-    token: undefined,
     user: undefined,
   },
   proposal: {
