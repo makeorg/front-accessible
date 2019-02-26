@@ -1,6 +1,14 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import loadable from '@loadable/component';
+import {
+  ROUTE_SEQUENCE,
+  ROUTE_ACCOUNT_ACTIVATION,
+  ROUTE_PROPOSAL,
+  ROUTE_PASSWORD_RECOVERY,
+  ROUTE_PROFILE,
+  ROUTE_PROFILE_EDIT,
+} from 'Shared/routes';
 
 const SequencePage = loadable(() =>
   import('Client/pages/Consultation/Sequence')
@@ -13,25 +21,18 @@ const ProposalPage = loadable(() => import('Client/pages/Proposal'));
 const AccountActivationPage = loadable(() =>
   import('Client/pages/AccountActivation')
 );
+const ProfileEditPage = loadable(() =>
+  import('Client/pages/Profile/ProfileEdit')
+);
 
 export const Routes = () => (
   <Switch>
-    <Route
-      path="/:countryLanguage/consultation/:questionSlug/selection"
-      component={SequencePage}
-    />
-    <Route
-      path="/:countryLanguage/account-activation/:userId/:verificationToken"
-      component={AccountActivationPage}
-    />
-    <Route
-      path="/:countryLanguage/consultation/:questionSlug/proposal/:proposalId/:proposalSlug"
-      component={ProposalPage}
-    />
-    <Route
-      path="/:countryLanguage/password-recovery/:userId/:resetToken"
-      component={PasswordRecoveryPage}
-    />
+    <Route path={ROUTE_SEQUENCE} component={SequencePage} />
+    <Route path={ROUTE_ACCOUNT_ACTIVATION} component={AccountActivationPage} />
+    <Route path={ROUTE_PROPOSAL} component={ProposalPage} />
+    <Route path={ROUTE_PASSWORD_RECOVERY} component={PasswordRecoveryPage} />
+    <Route path={ROUTE_PROFILE_EDIT} component={ProfileEditPage} />
+    <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_EDIT} />
     <Route component={NotFoundPage} />
   </Switch>
 );
