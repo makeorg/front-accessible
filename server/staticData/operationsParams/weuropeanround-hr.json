@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Kako konkretno udahnuti novi život Europi?",
+    "metas": {
+      "title": "Kako konkretno udahnuti novi život Europi?",
+      "description": "WeEuropeans je građanska, demokratska i nestranačka inicijativa. U okviru ove inicijative građani i građanke mogu izraziti vlastita mišljenja i sudjelovati u najvećoj građanskoj raspravi koja je ikada organizirana. Europa se od sada oblikuje uz naše sudjelovanje.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
+      "description": [
+        "Zauzmite svoj stav o navedenim rješenjima ili predložite vlastita rješenja.",
+        "Najbolje će prijedloge kandidati morati argumentirati na europskim izborima."
+      ]
+    },
+    "signUpCard": {
+      "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
+      "nextCTA": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
+    },
+    "finalCard": {
+      "title": "Zahvaljujemo vam na sudjelovanju",
+      "share": [
+        "Želite li napraviti korak više kako biste udahnuli novi život Europi?",
+        "Pozovite svoje bližnje i/ili članove vaše zajednice na sudjelovanje"
+      ],
+      "learn_more_title": "Saznajte sve o projektu WeEuropeans",
+      "learn_more_button": "Saznati više"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/hr/hr/about",
+  "aboutUrl": "https://weeuropeans.eu/hr/hr/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/hr/hr/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, s MAKE.ORG i CIVICO Europa"
+  }
+}

@@ -107,11 +107,15 @@ countries.forEach(country => {
       new Promise((resolve, reject) => {
         const globalFilePath = `${GLOBAL_TRAD_DIR}/global_${country}_${language}.json`;
         const appTradFilePath = `${APP_TRAD_DIR}/${language}-${country}.json`;
-        const weeuropeanFileName =
-          countriesLanguages[country].length > 1
-            ? `weeuropeans-${country.toLowerCase()}-${language}.json`
-            : `weeuropeans-${country.toLowerCase()}.json`;
-        const questionTradFilePath = `${QUESTION_TRAD_DIR}/${weeuropeanFileName}`;
+        const isMultiCountry = countriesLanguages[country].length > 1;
+        const weeuropeanFileName = isMultiCountry
+          ? `weeuropeans-${country.toLowerCase()}-${language}.json`
+          : `weeuropeans-${country.toLowerCase()}.json`;
+        const weuropeanroundFileName = isMultiCountry
+          ? `weuropeanround-${country.toLowerCase()}-${language}.json`
+          : `weuropeanround-${country.toLowerCase()}.json`;
+        const questionWeeuropeanTradFilePath = `${QUESTION_TRAD_DIR}/${weeuropeanFileName}`;
+        const questionWeuropeanroundTradFilePath = `${QUESTION_TRAD_DIR}/${weuropeanroundFileName}`;
         try {
           const data = fs.readFileSync(globalFilePath, 'utf8');
           if (!data) {
@@ -120,19 +124,27 @@ countries.forEach(country => {
           }
 
           const trads = JSON.parse(data.trim());
-          const { weeuropean } = trads;
+          const { weeuropean, weuropeanround } = trads;
           if (!weeuropean) {
             console.error(
               `The file for ${language}-${country} miss weeuropean trads`
             );
             reject();
           }
-
+          if (!weuropeanround) {
+            console.error(
+              `The file for ${language}-${country} miss weuropeanaround trads`
+            );
+            reject();
+          }
           weeuropean.wording.metas.picture =
             'https://assets.make.org/assets/images/meta-we-europeans-no-copy.png';
+          weuropeanround.wording.metas.picture =
+            weeuropean.wording.metas.picture;
 
           const appTrads = trads;
           delete appTrads.weeuropean;
+          delete appTrads.weuropeanround;
 
           if (mergeAppTrads(appTradFilePath, appTrads)) {
             console.info(`App Tranlsation merged for ${language}-${country}`);
@@ -143,13 +155,28 @@ countries.forEach(country => {
             reject();
           }
 
-          if (mergeQuestionTrads(questionTradFilePath, weeuropean)) {
+          if (mergeQuestionTrads(questionWeeuropeanTradFilePath, weeuropean)) {
             console.info(
               `Weeuropean Tranlsation merge for ${language}-${country}`
             );
           } else {
             console.error(
-              `Error when Weeuropean Tranlsation merge: ${language}-${country}`
+              `Error when Weeuropean Translation merge: ${language}-${country}`
+            );
+            reject();
+          }
+          if (
+            mergeQuestionTrads(
+              questionWeuropeanroundTradFilePath,
+              weuropeanround
+            )
+          ) {
+            console.info(
+              `Weuropeanround Tranlsation merge for ${language}-${country}`
+            );
+          } else {
+            console.error(
+              `Error when Weuropeanround Translation merge: ${language}-${country}`
             );
             reject();
           }

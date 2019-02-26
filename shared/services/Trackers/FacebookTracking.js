@@ -5,7 +5,9 @@ import { fbq } from './fbq';
 const makePixelId: string = '260470104426586';
 const weEuropeansPixelId: string = '387088288517542';
 
-const weeuropeansquestionRegex = new RegExp(/weeuropeans-[a-z]+/);
+const weeuropeansquestionRegex = new RegExp(
+  /(weeuropeans|weuropeanround)-[a-z]+/
+);
 
 let initialized: boolean = false;
 

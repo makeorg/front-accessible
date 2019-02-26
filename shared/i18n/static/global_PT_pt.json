@@ -234,5 +234,46 @@
         "learn_more_button": "Saber mais"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Como reinventar a Europa de forma concreta?",
+      "metas": {
+        "title": "Como reinventar a Europa de forma concreta?",
+        "description": "A WeEuropeans é uma campanha cívica, democrática e não partidária. Reúne os cidadãos europeus, independentemente das suas opiniões, propondo-lhes participar na maior consulta pública europeia alguma vez realizada. A Europa não continuará a ser construída sem nós.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, com MAKE.ORG e CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Milhares de cidadãos propõem soluções para reinventar a Europa.",
+        "description": [
+          "Tome uma posição sobre estas soluções ou apresente as suas.",
+          "As ideias mais apoiadas deverão ser defendidas pelos candidatos nas eleições europeias."
+        ]
+      },
+      "signUpCard": {
+        "title": "Receba os resultados da consulta e mantenha-se informado(a) sobre ações futuras",
+        "nextCTA": "Não obrigado(a). Não quero ser informado(a) dos resultados."
+      },
+      "finalCard": {
+        "title": "Obrigado pela sua participação",
+        "share": [
+          "Deseja ir mais além para reinventar a Europa?",
+          "Convide os seus familiares, amigos e/ou comunidade a participar"
+        ],
+        "learn_more_title": "Saiba tudo sobre o projeto WeEuropeans",
+        "learn_more_button": "Saber mais"
+      }
+    }
   }
 }

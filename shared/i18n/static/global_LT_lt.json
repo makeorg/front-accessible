@@ -234,5 +234,46 @@
         "learn_more_button": "Daugiau informacijos"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Kaip iš naujo atrasti Europą? Konkrečiai.",
+      "metas": {
+        "title": "Kaip iš naujo atrasti Europą? Konkrečiai.",
+        "description": "\"WeEuropeans\" yra pilietinė, demokratinė ir nešališka iniciatyva. Tai didžiausia visų laikų visuomenės apklausa Europoje, kurioje siūloma dalyvauti Europos piliečiams ir pilietėms, nepriklausomai nuo jų nuomonių skirtumų. Europa nebebus kuriama be mūsų.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, naudojant MAKE.ORG ir CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
+        "description": [
+          "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savo sprendimus.",
+          "Daugiausiai palaikymo susilaukusias idėjas turės palaikyti kandidatai Europos Parlamento rinkimuose."
+        ]
+      },
+      "signUpCard": {
+        "title": "Gaukite apklausos rezultatus ir informaciją apie būsimas veiklas",
+        "nextCTA": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus."
+      },
+      "finalCard": {
+        "title": "Dėkojame, kad dalyvavote",
+        "share": [
+          "Norite nuveikti dar daugiau, kad iš naujo atrastume Europą?",
+          "Paraginkite dalyvauti Jums artimus žmones ir (arba) Jūsų bendruomenės narius"
+        ],
+        "learn_more_title": "Sužinokite viską apie „WeEuropeans“ projektą",
+        "learn_more_button": "Daugiau informacijos"
+      }
+    }
   }
 }

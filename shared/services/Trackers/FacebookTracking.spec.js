@@ -25,7 +25,7 @@ describe('Facebook Tracking Service', () => {
     expect(fbq.load).toHaveBeenCalled();
     expect(fbq.track.mock.calls).toEqual([
       ['init', '260470104426586'],
-      ['init', '387088288517542']
+      ['init', '387088288517542'],
     ]);
   });
 
@@ -48,7 +48,7 @@ describe('Facebook Tracking Service', () => {
     FacebookTracking.trackCustom(eventName, eventParameters);
 
     expect(fbq.track.mock.calls).toEqual([
-      ['trackSingleCustom', '260470104426586', eventName, eventParameters]
+      ['trackSingleCustom', '260470104426586', eventName, eventParameters],
     ]);
   });
 
@@ -56,14 +56,29 @@ describe('Facebook Tracking Service', () => {
     jest.spyOn(fbq, 'track');
     const eventName = 'FooEvent';
     const eventParameters = {
-      question: 'weeuropeans-it'
+      question: 'weeuropeans-it',
     };
 
     FacebookTracking.trackCustom(eventName, eventParameters);
 
     expect(fbq.track.mock.calls).toEqual([
       ['trackSingleCustom', '260470104426586', eventName, eventParameters],
-      ['trackSingleCustom', '387088288517542', eventName, eventParameters]
+      ['trackSingleCustom', '387088288517542', eventName, eventParameters],
+    ]);
+  });
+
+  it('send event in weuropeanround context', () => {
+    jest.spyOn(fbq, 'track');
+    const eventName = 'FooEvent';
+    const eventParameters = {
+      question: 'weuropeanround-it',
+    };
+
+    FacebookTracking.trackCustom(eventName, eventParameters);
+
+    expect(fbq.track.mock.calls).toEqual([
+      ['trackSingleCustom', '260470104426586', eventName, eventParameters],
+      ['trackSingleCustom', '387088288517542', eventName, eventParameters],
     ]);
   });
 
@@ -71,13 +86,13 @@ describe('Facebook Tracking Service', () => {
     jest.spyOn(fbq, 'track');
     const eventName = 'FooEvent';
     const eventParameters = {
-      question: 'foo'
+      question: 'foo',
     };
 
     FacebookTracking.trackCustom(eventName, eventParameters);
 
     expect(fbq.track.mock.calls).toEqual([
-      ['trackSingleCustom', '260470104426586', eventName, eventParameters]
+      ['trackSingleCustom', '260470104426586', eventName, eventParameters],
     ]);
   });
 });

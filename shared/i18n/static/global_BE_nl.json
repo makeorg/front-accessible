@@ -234,5 +234,46 @@
         "learn_more_button": "Meer informatie"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hoe kunnen we Europa concreet vernieuwen?",
+      "metas": {
+        "title": "Hoe kunnen we Europa concreet vernieuwen?",
+        "description": "WeEuropeans is een democratische, apolitieke burgercampagne. Deze campagne is bestemd voor alle Europese burgers, ongeacht hun mening, en nodigt hen uit om deel te nemen aan de grootste Europese volksraadpleging ooit. Vanaf nu bouwen wij mee aan Europa.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, met MAKE.ORG en CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Duizenden burgers stellen oplossingen voor om Europa te vernieuwen.",
+        "description": [
+          "Neem een standpunt in over deze oplossingen of stel zelf oplossingen voor.",
+          "De ideeën met de grootste aanhang moeten worden verdedigd door de kandidaten voor de Europese verkiezingen."
+        ]
+      },
+      "signUpCard": {
+        "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
+        "nextCTA": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
+      },
+      "finalCard": {
+        "title": "Bedankt voor uw deelname",
+        "share": [
+          "Wilt u meer doen om Europa te vernieuwen?",
+          "Nodig uw familie, vrienden en/of gemeenschap uit om deel te nemen"
+        ],
+        "learn_more_title": "Ontdek alles over het project WeEuropeans",
+        "learn_more_button": "Meer informatie"
+      }
+    }
   }
 }

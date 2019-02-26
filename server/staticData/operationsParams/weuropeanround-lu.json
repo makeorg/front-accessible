@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "We Europeans",
+    "question": "Comment réinventer l'Europe, concrètement ?",
+    "metas": {
+      "title": "Comment réinventer l'Europe, concrètement ?",
+      "description": "WeEuropeans est une campagne civique, démocratique et non-partisane. Elle rassemble les citoyens et les citoyennes européens quelles que soient leurs opinions en leur proposant de participer à la plus grande consultation populaire européenne jamais réalisée. L'Europe ne se fera plus sans nous.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
+      "description": [
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les idées les plus massivement soutenues devront être défendues par les candidats aux élections européennes."
+      ]
+    },
+    "signUpCard": {
+      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+      "nextCTA": "Non merci, je ne souhaite pas être informé(e) des résultats."
+    },
+    "finalCard": {
+      "title": "Merci pour votre participation !",
+      "share": [
+        "Vous souhaitez aller plus loin pour réinventer l'Europe ?",
+        "Invitez vos proches et/ou votre communauté à participer"
+      ],
+      "learn_more_title": "Découvrez tout du projet We Europeans",
+      "learn_more_button": "En savoir +"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/lu/fr/about",
+  "aboutUrl": "https://weeuropeans.eu/lu/fr/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/lu/fr/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, avec MAKE.ORG et CIVICO Europa"
+  }
+}

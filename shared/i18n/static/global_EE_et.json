@@ -234,5 +234,46 @@
         "learn_more_button": "Lisainfo"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Kuidas konkreetselt Euroopa uueks luua?",
+      "metas": {
+        "title": "Kuidas konkreetselt Euroopa uueks luua?",
+        "description": "WeEuropeans on demokraatlik ja erapooletu kodanikukampaania. See toob kokku kodanikud olenemata nende arvamustest, tehes neile ettepaneku osaleda seni suurimas Euroopa rahvaarutelus. Euroopat enam ilma meieta ei looda.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, kasutades MAKE.ORG ja CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
+        "description": [
+          "Võtke nendes lahendustes seisukoht või esitage oma lahendusi.",
+          "Kõige suurema toetuse saanud ideid peavad kaitsma Euroopa Parlamendi valimiste kandidaadid."
+        ]
+      },
+      "signUpCard": {
+        "title": "Saage arutelu tulemusi ja teavet tulevaste meetmete kohta",
+        "nextCTA": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
+      },
+      "finalCard": {
+        "title": "Täname teid osalemast.",
+        "share": [
+          "Kas sooviksite Euroopa uueks loomisel veelgi kaugemale minna?",
+          "Kutsuge oma lähedased ja/või oma kogukond osalema"
+        ],
+        "learn_more_title": "Tutvuge kogu projektiga „WeEuropeans“",
+        "learn_more_button": "Lisainfo"
+      }
+    }
   }
 }

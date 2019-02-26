@@ -234,5 +234,46 @@
         "learn_more_button": "Mer information"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hur kan man konkret återuppfinna Europa?",
+      "metas": {
+        "title": "Hur kan man konkret återuppfinna Europa?",
+        "description": "WeEuropeans är en demokratisk och obunden medborgarkampanj. Den samlar europeiska medborgare oavsett vad de har för åsikter och erbjuder dem att delta i det största europeiska folkliga samråd som någonsin genomförts. Europa kan inte fortsätta utan oss.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, med MAKE.ORG och CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
+        "description": [
+          "Ta ställning till lösningarna och ge egna förslag.",
+          "De idéer som får störst stöd kommer att försvaras av kandidaterna till EU-valet."
+        ]
+      },
+      "signUpCard": {
+        "title": "Få resultaten av samrådet och få information om kommande kampanjer",
+        "nextCTA": "Nej tack, jag vill inte få information om resultaten."
+      },
+      "finalCard": {
+        "title": "Tack för din medverkan",
+        "share": [
+          "Vill du gå längre för att återuppfinna Europa?",
+          "Bjud in dina närstående och/eller din intressegrupp att delta"
+        ],
+        "learn_more_title": "Upptäck allt om projektet WeEuropeans",
+        "learn_more_button": "Mer information"
+      }
+    }
   }
 }

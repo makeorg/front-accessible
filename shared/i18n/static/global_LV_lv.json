@@ -234,5 +234,46 @@
         "learn_more_button": "Uzzināt vairāk"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Kā tieši pārveidot Eiropu?",
+      "metas": {
+        "title": "Kā tieši pārveidot Eiropu?",
+        "description": "WeEuropeans ir pilsoniska, demokrātiska un nepolitiska kampaņa. Šī kampaņa apvieno Eiropas pilsoņus un pilsones neatkarīgi no to viedokļiem, aicinot piedalīties līdz šim lielākajā Eiropas sabiedriskajā apspriedē. Eiropa vairs netiks veidota bez mūsu līdzdalības.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, ar MAKE.ORG un CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
+        "description": [
+          "Paudiet viedokli par šiem risinājumiem vai sniedziet savus.",
+          "Visvairāk atbalstītās idejas būs jāaizstāv Eiropas vēlēšanu kandidātiem."
+        ]
+      },
+      "signUpCard": {
+        "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
+        "nextCTA": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
+      },
+      "finalCard": {
+        "title": "Paldies par jūsu dalību",
+        "share": [
+          "Vai vēlaties izdarīt vairāk, lai pārveidotu Eiropu?",
+          "Aiciniet piedalīties savus tuviniekus un/vai savas kopienas iedzīvotājus"
+        ],
+        "learn_more_title": "Uzziniet visu par projektu WeEuropeans",
+        "learn_more_button": "Uzzināt vairāk"
+      }
+    }
   }
 }
