@@ -32,17 +32,5 @@
       "linkUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": false,
-    "age": false,
-    "job": false,
-    "postalCode": false,
-    "csp": false,
-    "gender": false,
-    "hiddenOptOut": false,
-    "partnerOptin": false
-  },
-  "sequenceSignUpPannel": false,
-  "displayInShowcases": true
+  }
 }

@@ -1,0 +1,36 @@
+{
+  "wording": {
+    "title": "Pour une économie bienveillante",
+    "question": "Comment agir pour rendre notre économie plus bienveillante ?",
+    "metas": {
+      "title": "Comment agir pour rendre notre économie plus bienveillante ?",
+      "description": "Le MEB et Make.org lancent ensemble une vaste consultation citoyenne autour de la question : \"Comment agir pour rendre notre économie plus bienveillante ?\". Vous aussi, votez et proposez des actions pour rendre notre économie plus bienveillante.",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5c73f3da2d05ce61a79a8ff0_meta%20meb%20fr.jpg"
+    }
+  },
+  "theme": {
+    "color": "#1657ec",
+    "gradient-start": "#1657ec",
+    "gradient-end": "#1657ec",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://about.make.org/about-economiebienveillante",
+  "aboutUrl": "https://about.make.org/about-economiebienveillante",
+  "sequenceExtraSlidesWording": {},
+  "sequenceExtraSlidesConfig": {
+    "introCard":  {
+      "customTitle": false,
+      "customDescription": false,
+      "partners": false,
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "signUpCard": false,
+    "pushProposal": false,
+    "finalCard": {
+      "customTitle": false,
+      "linkUrl": "https://about.make.org/about-economiebienveillante",
+      "withSharing": false
+    }
+  }
+}

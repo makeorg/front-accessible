@@ -50,15 +50,5 @@
       "linkUrl": "https://make.org/#/FR/consultation/villededemain/consultation",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": false,
-    "age": false,
-    "job": false,
-    "postalCode": false,
-    "csp": false,
-    "gender": false,
-    "hiddenOptOut": false,
-    "partnerOptin": false
   }
 }

@@ -62,15 +62,5 @@
       "linkUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": false,
-    "age": false,
-    "job": false,
-    "postalCode": false,
-    "csp": false,
-    "gender": false,
-    "hiddenOptOut": false,
-    "partnerOptin": false
   }
 }
