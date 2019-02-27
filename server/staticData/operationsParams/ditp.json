@@ -54,12 +54,5 @@
       "linkUrl": "https://make.org/#/FR/consultation/ditp/consultation",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": true,
-    "age": true,
-    "job": true,
-    "postalCode": true,
-    "hiddenOptOut": true
   }
 }

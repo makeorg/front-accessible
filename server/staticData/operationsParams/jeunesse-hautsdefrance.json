@@ -52,18 +52,5 @@
       "linkUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": true,
-    "age": true,
-    "job": true,
-    "postalCode": true,
-    "csp": true,
-    "gender": true,
-    "hiddenOptOut": true,
-    "partnerOptin": {
-      "language": "fr",
-      "label": "J'autorise la région Hauts-de-France à me recontacter dans le cadre de cette opération."
-    }
   }
 }

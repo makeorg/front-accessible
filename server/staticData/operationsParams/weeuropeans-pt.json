@@ -59,16 +59,6 @@
       "withSharing": true
     }
   },
-  "sequenceSignUpForm": {
-    "firstName": true,
-    "age": true,
-    "job": true,
-    "postalCode": false,
-    "csp": false,
-    "gender": false,
-    "hiddenOptOut": false,
-    "partnerOptin": false
-  },
   "footer": {
     "sentence": "WeEuropeans, com MAKE.ORG e CIVICO Europa"
   }

@@ -58,15 +58,5 @@
       "linkUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
       "withSharing": false
     }
-  },
-  "sequenceSignUpForm": {
-    "firstName": false,
-    "age": false,
-    "job": false,
-    "postalCode": false,
-    "csp": false,
-    "gender": false,
-    "hiddenOptOut": false,
-    "partnerOptin": false
   }
 }
