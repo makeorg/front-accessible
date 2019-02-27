@@ -21,6 +21,7 @@
     "typescript.validate.enable": false,
     "javascript.validate.enable": false,
     "prettier.eslintIntegration": true,
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": false
   }
 }
