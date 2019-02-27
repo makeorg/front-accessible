@@ -1,110 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UntypedInput must match the snapshot with default Props 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  padding: 0 18px;
-  border-radius: 30px;
-  background-color: rgb(242,242,242);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0,0,0,0.2);
-  margin-bottom: 15px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c0:last-child {
-  margin-bottom: 0;
-}
-
-.c2 {
-  border: none;
-  background: transparent;
-  background-color: transparent;
-  padding: 0 10px;
-  width: 100%;
-  color: rgba(0,0,0,0.55);
-  font-size: 14px;
-  line-height: 35px;
-}
-
-.c1 {
-  width: 30px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  color: rgb(232,24,68);
-  font-size: 16px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-@media (min-width:767) {
-  .c2 {
-    font-size: 16px;
-    line-height: 40px;
-  }
-}
-
-@media (min-width:767px) {
-  .c1 {
-    font-size: 18px;
-  }
-}
-
-<div
-  className="c0"
->
-  <label
-    aria-label="qux"
-    className="c1"
-    htmlFor="bar"
-  >
-    <svg
-      icon="envelope"
-      lib="@fortawesome/react-fontawesome"
-      prefix="far"
-    />
-  </label>
-  <input
-    aria-required={false}
-    className="c2"
-    id="bar"
-    name="bar"
-    onChange={[Function]}
-    placeholder="qux"
-    required={false}
-    tabIndex={0}
-    type="foo"
-    value="baz"
-  />
-</div>
-`;
-
 exports[`UntypedInput must return the diff between snapshot when input is required or optionnal 1`] = `
 Snapshot Diff:
 - First value
 + Second value
 
-@@ -11,17 +11,17 @@
+@@ -8,16 +8,16 @@
         lib="@fortawesome/react-fontawesome"
         prefix="far"
       />
-    </label>
-    <input
+    </CenterInputIconStyle>
+    <BasicInputStyle
 -     aria-required={true}
 +     aria-required={false}
-      className="sc-9bn3a1-0 sc-9bn3a1-3 krQACV"
       id="bar"
       name="bar"
       onChange={[Function handleChange]}
@@ -115,7 +23,7 @@ Snapshot Diff:
       type="foo"
       value="baz"
     />
-  </div>
+  </MiddleFakeInputStyle>
 `;
 
 exports[`UntypedInput must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
@@ -123,7 +31,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -18,10 +18,10 @@
+@@ -14,10 +14,10 @@
       id="bar"
       name="bar"
       onChange={[Function handleChange]}
@@ -134,5 +42,5 @@ Snapshot Diff:
       type="foo"
       value="baz"
     />
-  </div>
+  </MiddleFakeInputStyle>
 `;

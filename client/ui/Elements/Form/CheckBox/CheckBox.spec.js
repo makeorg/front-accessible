@@ -3,17 +3,22 @@ import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import { CheckBox } from './index';
 
+jest.mock('Client/ui/Elements/Form/Styled/CheckBox', () => ({
+  FakeCheckboxInputStyle: 'FakeCheckboxInputStyle',
+  CheckboxLabelStyle: 'CheckboxLabelStyle',
+  CheckboxWrapper: 'CheckboxWrapper',
+}));
+
+jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
+  CheckboxIconStyle: 'CheckboxIconStyle',
+}));
+
 describe('CheckBox', () => {
   const defaultProps = {
     id: 'foo',
     name: 'bar',
     label: 'baz',
   };
-
-  it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<CheckBox {...defaultProps} />).toJSON();
-    expect(component).toMatchSnapshot();
-  });
 
   it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
     const NegativeTabIndex = renderer.create(

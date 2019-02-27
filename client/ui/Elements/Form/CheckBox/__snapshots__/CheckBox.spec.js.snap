@@ -1,72 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CheckBox must match the snapshot with default Props 1`] = `
-.c0 {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 0 18px;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  color: rgba(0,0,0,0.55);
-  font-family: 'Roboto Regular',Arial,sans-serif;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.c2 {
-  position: relative;
-  width: 14px;
-  height: 14px;
-  border: 1px solid rgba(0,0,0,0.5);
-  margin: 2px 8px 0 0;
-  z-index: 0;
-}
-
-@media (min-width:767px) {
-  .c1 {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
-<div
-  className="c0"
->
-  <input
-    checked={false}
-    hidden={true}
-    id="foo"
-    name="bar"
-    required={false}
-    type="checkbox"
-  />
-  <label
-    className="c1"
-    htmlFor="foo"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    tabIndex={0}
-  >
-    <div
-      aria-hidden={true}
-      className="c2"
-    />
-    baz
-  </label>
-</div>
-`;
-
 exports[`CheckBox must return the diff between snapshot when checkbox has a defined value or not 1`] = `
 Snapshot Diff:
 - First value
 + Second value
 
-@@ -6,11 +6,10 @@
+@@ -4,11 +4,10 @@
       hidden={true}
       id="foo"
       name="bar"
@@ -74,10 +13,10 @@ Snapshot Diff:
       type="checkbox"
 -     vale="qux"
     />
-    <label
-      className="sc-1s7n670-1 jheIqZ"
+    <CheckboxLabelStyle
       htmlFor="foo"
       onClick={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
 `;
 
 exports[`CheckBox must return the diff between snapshot when checkbox is required or optionnal 1`] = `
@@ -85,7 +24,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -4,11 +4,11 @@
+@@ -2,11 +2,11 @@
     <input
       checked={false}
       hidden={true}
@@ -95,9 +34,9 @@ Snapshot Diff:
 +     required={false}
       type="checkbox"
     />
-    <label
-      className="sc-1s7n670-1 jheIqZ"
+    <CheckboxLabelStyle
       htmlFor="foo"
+      onClick={[Function anonymous]}
 `;
 
 exports[`CheckBox must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
@@ -105,17 +44,17 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -12,11 +12,11 @@
-    <label
-      className="sc-1s7n670-1 jheIqZ"
+@@ -9,11 +9,11 @@
+    />
+    <CheckboxLabelStyle
       htmlFor="foo"
       onClick={[Function anonymous]}
       onKeyPress={[Function anonymous]}
 -     tabIndex="-1"
 +     tabIndex={0}
     >
-      <div
+      <FakeCheckboxInputStyle
         aria-hidden={true}
-        className="sc-1s7n670-2 fmxMXm"
       />
+      baz
 `;

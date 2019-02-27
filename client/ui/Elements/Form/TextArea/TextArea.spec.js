@@ -13,20 +13,15 @@ jest.mock('../Styled/TextArea', () => ({
   BasicTextAreaStyle: 'BasicTextAreaStyle',
 }));
 
+const defaultProps = {
+  name: 'bar',
+  icon: faPenAlt,
+  value: 'baz',
+  label: 'qux',
+  handleChange: () => {},
+};
+
 describe('TextArea', () => {
-  const defaultProps = {
-    name: 'bar',
-    icon: faPenAlt,
-    value: 'baz',
-    label: 'qux',
-    handleChange: () => {},
-  };
-
-  it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<TextArea {...defaultProps} />).toJSON();
-    expect(component).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
     const NegativeTabIndex = renderer
       .create(<TextArea {...defaultProps} tabIndex="-1" />)
