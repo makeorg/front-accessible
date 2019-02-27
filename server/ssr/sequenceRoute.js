@@ -3,7 +3,7 @@ import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { getBaitText } from 'Shared/constants/proposal';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
-import { logger } from '../logger';
+import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 
 async function getQuestion(questionSlug, headers) {
@@ -51,11 +51,7 @@ export const sequenceRoute = async (req, res) => {
       };
     }
   } catch (error) {
-    if (error && error.stack) {
-      const { stack } = error;
-      logger.log('error', stack);
-    }
-
+    logError(error);
     return res.send(error);
   }
 

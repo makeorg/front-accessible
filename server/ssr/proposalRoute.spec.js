@@ -3,12 +3,12 @@ import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { proposalRoute } from './proposalRoute';
 import { reactRender } from '../reactRender';
-import { logger } from '../logger';
+import { logError } from './helpers/ssr.helper';
 
 jest.mock('Shared/api/SequenceService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
-jest.mock('../logger', () => ({
-  logger: { log: jest.fn() },
+jest.mock('./helpers/ssr.helper', () => ({
+  logError: jest.fn(),
 }));
 jest.mock('Shared/store/initialState', () => ({
   createInitialState: jest.fn(),
@@ -64,7 +64,7 @@ describe('Proposal route', () => {
       const response = httpMocks.createResponse();
 
       await proposalRoute(request, response, () => {});
-      expect(logger.log).toHaveBeenCalledWith('error', error.stack);
+      expect(logError).toHaveBeenNthCalledWith(1, error);
       expect(response.statusCode).toEqual(404);
     });
   });

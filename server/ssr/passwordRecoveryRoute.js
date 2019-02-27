@@ -3,7 +3,7 @@ import { QuestionService } from 'Shared/api/QuestionService';
 import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
-import { logger } from '../logger';
+import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 
 async function getQuestion(questionId, headers) {
@@ -69,11 +69,7 @@ export const passwordRecoveryRoute = async (req, res) => {
 
     return reactRender(req, res, routeState);
   } catch (error) {
-    if (error && error.stack) {
-      const { stack } = error;
-      logger.log('error', stack);
-    }
-
+    logError(error);
     return res.send(error);
   }
 };

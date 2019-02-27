@@ -6,6 +6,7 @@ import {
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_PROFILE,
   ROUTE_PROFILE_EDIT,
+  ROUTE_CONSULTATION,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -15,6 +16,7 @@ import * as technicalPages from './technicalPages';
 
 import { accountActivationRoute } from './ssr/accountActivationRoute';
 import { defaultRoute } from './ssr/defaultRoute';
+import { consultationRoute } from './ssr/consultationRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
@@ -61,6 +63,7 @@ export const initRoutes = app => {
   app.get('/robot.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);
