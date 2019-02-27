@@ -4,23 +4,25 @@ import renderer from 'react-test-renderer';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { UntypedInput } from './index';
 
+jest.mock('Client/ui/Elements/Form/Styled/Input', () => ({
+  MiddleFakeInputStyle: 'MiddleFakeInputStyle',
+  BasicInputStyle: 'BasicInputStyle',
+}));
+
+jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
+  CenterInputIconStyle: 'CenterInputIconStyle',
+}));
+
+const defaultProps = {
+  type: 'foo',
+  name: 'bar',
+  icon: faEnvelope,
+  value: 'baz',
+  label: 'qux',
+  handleChange: () => {},
+};
+
 describe('UntypedInput', () => {
-  const defaultProps = {
-    type: 'foo',
-    name: 'bar',
-    icon: faEnvelope,
-    value: 'baz',
-    label: 'qux',
-    handleChange: () => {},
-  };
-
-  it('must match the snapshot with default Props', () => {
-    const component = renderer
-      .create(<UntypedInput {...defaultProps} />)
-      .toJSON();
-    expect(component).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
     const NegativeTabIndex = renderer.create(
       <UntypedInput {...defaultProps} tabIndex="-1" />

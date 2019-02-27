@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea must return the diff between snapshot when TextArea has a disable vs enable autocomplete 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -10,11 +10,11 @@
+        prefix="fas"
+      />
+    </label>
+    <BasicTextAreaStyle
+      aria-required={false}
+-     autoComplete="off"
++     autoComplete="on"
+      id="bar"
+      name="bar"
+      onChange={[Function handleChange]}
+      placeholder="qux"
+      required={false}
+`;
+
+exports[`TextArea must return the diff between snapshot when TextArea has a enable vs disable spellchecking 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -17,10 +17,10 @@
+      name="bar"
+      onChange={[Function handleChange]}
+      placeholder="qux"
+      required={false}
+      rows={5}
+-     spellCheck={true}
++     spellCheck={false}
+      tabIndex={0}
+      value="baz"
+    />
+  </FakeInputStyle>
+`;
+
+exports[`TextArea must return the diff between snapshot when TextArea has a limit of characters or not 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -12,10 +12,12 @@
+    </label>
+    <BasicTextAreaStyle
+      aria-required={false}
+      autoComplete="off"
+      id="bar"
++     maxLength="450"
++     minLength="25"
+      name="bar"
+      onChange={[Function handleChange]}
+      placeholder="qux"
+      required={false}
+      rows={5}
+`;
+
+exports[`TextArea must return the diff between snapshot when TextArea is required or optionnal 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -9,17 +9,17 @@
+        lib="@fortawesome/react-fontawesome"
+        prefix="fas"
+      />
+    </label>
+    <BasicTextAreaStyle
+-     aria-required={true}
++     aria-required={false}
+      autoComplete="off"
+      id="bar"
+      name="bar"
+      onChange={[Function handleChange]}
+      placeholder="qux"
+-     required={true}
++     required={false}
+      rows={5}
+      spellCheck={true}
+      tabIndex={0}
+      value="baz"
+    />
+`;
+
+exports[`TextArea must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -18,9 +18,9 @@
+      onChange={[Function handleChange]}
+      placeholder="qux"
+      required={false}
+      rows={5}
+      spellCheck={true}
+-     tabIndex="-1"
++     tabIndex="0"
+      value="baz"
+    />
+  </FakeInputStyle>
+`;

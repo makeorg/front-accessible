@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox must return the diff between snapshot when checkbox has a defined value or not 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -4,11 +4,10 @@
+      hidden={true}
+      id="foo"
+      name="bar"
+      required={false}
+      type="checkbox"
+-     vale="qux"
+    />
+    <CheckboxLabelStyle
+      htmlFor="foo"
+      onClick={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
+`;
+
+exports[`CheckBox must return the diff between snapshot when checkbox is required or optionnal 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,11 +2,11 @@
+    <input
+      checked={false}
+      hidden={true}
+      id="foo"
+      name="bar"
+-     required={true}
++     required={false}
+      type="checkbox"
+    />
+    <CheckboxLabelStyle
+      htmlFor="foo"
+      onClick={[Function anonymous]}
+`;
+
+exports[`CheckBox must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -9,11 +9,11 @@
+    />
+    <CheckboxLabelStyle
+      htmlFor="foo"
+      onClick={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
+-     tabIndex="-1"
++     tabIndex={0}
+    >
+      <FakeCheckboxInputStyle
+        aria-hidden={true}
+      />
+      baz
+`;

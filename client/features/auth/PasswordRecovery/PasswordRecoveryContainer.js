@@ -21,8 +21,6 @@ type Props = {
 type State = {
   /** User's email */
   password: string,
-  /** show the password as text or not */
-  passwordIsDisplayed: boolean,
 };
 
 /**
@@ -35,16 +33,9 @@ class PasswordRecovery extends React.Component<Props, State> {
     super(props);
     this.state = {
       password: '',
-      passwordIsDisplayed: false,
     };
     this.throttleSubmit = throttle(this.handleSubmit);
   }
-
-  togglePasswordIsDisplayed = () => {
-    this.setState(prevstate => ({
-      passwordIsDisplayed: !prevstate.passwordIsDisplayed,
-    }));
-  };
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const password = event.target.value;
@@ -64,17 +55,10 @@ class PasswordRecovery extends React.Component<Props, State> {
   };
 
   render() {
-    const { password, passwordIsDisplayed } = this.state;
-    const { error, errorMessage, updated } = this.props;
-
     return (
       <PasswordRecoveryComponent
-        password={password}
-        passwordIsDisplayed={passwordIsDisplayed}
-        error={error}
-        errorMessage={errorMessage}
-        updated={updated}
-        togglePasswordIsDisplayed={this.togglePasswordIsDisplayed}
+        {...this.props}
+        {...this.state}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
       />

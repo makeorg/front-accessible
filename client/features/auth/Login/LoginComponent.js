@@ -10,7 +10,7 @@ import {
 import {
   ExtraParagraphStyle,
   ExtraAltParagraphStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Content';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginFormComponent } from './Form';
@@ -24,19 +24,15 @@ type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called to render Register Component in Sliding Pannel */
-  handleRegisterPannel: Function,
+  handleRegisterPannel: () => void,
   /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotPasswordPannel: Function,
+  handleForgotPasswordPannel: () => void,
 };
 
 /**

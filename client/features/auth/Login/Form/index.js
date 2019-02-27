@@ -5,11 +5,11 @@ import type { ErrorObject } from 'Shared/types/form';
 import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import {
-  FormStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Errors';
+import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
@@ -24,13 +24,9 @@ type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
 };
@@ -45,8 +41,6 @@ export const LoginFormComponent = (props: Props) => {
     errors,
     handleChange,
     handleSubmit,
-    passwordIsDisplayed,
-    togglePasswordIsDisplayed,
     isPannelOpen,
   } = props;
 
@@ -78,7 +72,6 @@ export const LoginFormComponent = (props: Props) => {
         </InputErrorMessageStyle>
       )}
       <PasswordInput
-        type="password"
         name="password"
         icon={faLock}
         value={password}
@@ -87,8 +80,6 @@ export const LoginFormComponent = (props: Props) => {
         errors={passwordError}
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
-        passwordIsDisplayed={passwordIsDisplayed}
-        togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
       {passwordError && (
         <InputErrorMessageStyle id="authentification-password-error">

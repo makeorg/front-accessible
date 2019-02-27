@@ -28,12 +28,8 @@ type Props = {
   errorMessage: string,
   /** Boolean toggled when Form is succesfully submitted */
   updated: boolean,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
   /** Boolean toggled when form is successfully submitted */
   updated: boolean,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

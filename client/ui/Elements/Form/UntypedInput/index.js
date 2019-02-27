@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FakeInputGreyStyle, IconLabelStyle, BasicInputStyle } from '../Styled';
+import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
+import { CenterInputIconStyle } from '../Styled/Icons';
 
 type Props = {
   /** Type of the input */
@@ -44,10 +45,10 @@ export class UntypedInput extends React.Component<Props> {
     } = this.props;
 
     return (
-      <FakeInputGreyStyle hasError={errors}>
-        <IconLabelStyle htmlFor={name} aria-label={label}>
+      <MiddleFakeInputStyle hasError={errors}>
+        <CenterInputIconStyle htmlFor={name} aria-label={label}>
           <FontAwesomeIcon aria-hidden icon={icon} />
-        </IconLabelStyle>
+        </CenterInputIconStyle>
         <BasicInputStyle
           type={type}
           name={name}
@@ -59,7 +60,7 @@ export class UntypedInput extends React.Component<Props> {
           onChange={handleChange}
           tabIndex={tabIndex}
         />
-      </FakeInputGreyStyle>
+      </MiddleFakeInputStyle>
     );
   }
 }

@@ -11,12 +11,14 @@ import {
   faSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import {
-  FormStyle,
-  ConditionParagraphStyle,
   InputErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled';
+} from 'Client/ui/Elements/Form/Styled/Errors';
+import {
+  FormStyle,
+  ConditionParagraphStyle,
+} from 'Client/ui/Elements/Form/Styled/Content';
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
@@ -42,25 +44,13 @@ type Props = {
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Method called to show / encrypt password */
-  togglePasswordIsDisplayed: () => void,
-  /** Boolean toggled when password shown / hidden */
-  passwordIsDisplayed: boolean,
 };
 
 /**
  * Renders Register Form
  */
 export const RegisterFormComponent = (props: Props) => {
-  const {
-    user,
-    errors,
-    handleChange,
-    handleSubmit,
-    togglePasswordIsDisplayed,
-    passwordIsDisplayed,
-    isPannelOpen,
-  } = props;
+  const { user, errors, handleChange, handleSubmit, isPannelOpen } = props;
 
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
@@ -92,17 +82,13 @@ export const RegisterFormComponent = (props: Props) => {
         </InputErrorMessageStyle>
       )}
       <PasswordInput
-        type="password"
         name="password"
         icon={faLock}
         errors={passwordError}
         value={user.password}
         label={i18n.t('common.form.password_label')}
-        required
         handleChange={handleChange}
         tabIndex={isPannelOpen ? 0 : -1}
-        passwordIsDisplayed={passwordIsDisplayed}
-        togglePasswordIsDisplayed={togglePasswordIsDisplayed}
       />
       {passwordError && (
         <InputErrorMessageStyle id="authentification-password-error">

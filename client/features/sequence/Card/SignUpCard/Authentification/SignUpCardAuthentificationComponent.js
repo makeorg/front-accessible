@@ -10,7 +10,7 @@ import {
   RedLinkButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled';
+import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 

@@ -4,13 +4,13 @@ import renderer from 'react-test-renderer';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { PasswordInput } from './index';
 
-jest.mock('../PasswordButton', () => ({
+jest.mock('./Button', () => ({
   PasswordButton: 'PasswordButton',
 }));
 
-jest.mock('../Styled', () => ({
-  FakeInputGreyStyle: 'FakeInputGreyStyle',
-  IconLabelStyle: 'IconLabelStyle',
+jest.mock('../Styled/Input', () => ({
+  MiddleFakeInputStyle: 'MiddleFakeInputStyle',
+  CenterInputIconStyle: 'CenterInputIconStyle',
   BasicInputStyle: 'BasicInputStyle',
 }));
 
