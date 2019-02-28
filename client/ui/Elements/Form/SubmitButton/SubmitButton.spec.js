@@ -4,6 +4,12 @@ import renderer from 'react-test-renderer';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { SubmitButton } from './index';
 
+jest.mock('Client/ui/Elements/ButtonElements', () => ({
+  RedButtonStyle: 'RedButtonStyle',
+  IconInButtonStyle: 'IconInButtonStyle',
+  GreyButtonStyle: 'GreyButtonStyle',
+}));
+
 describe('SubmitButton', () => {
   const defaultProps = {
     formName: 'foo',
@@ -18,13 +24,21 @@ describe('SubmitButton', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('must return the diff between when disabled', () => {
+    const OneSubmit = renderer.create(<SubmitButton {...defaultProps} />);
+    const TwoSubmit = renderer
+      .create(<SubmitButton {...defaultProps} disabled />)
+      .toJSON();
+    expect(snapshotDiff(OneSubmit, TwoSubmit)).toMatchSnapshot();
+  });
+
   it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer.create(
+    const OneSubmit = renderer.create(
       <SubmitButton {...defaultProps} tabIndex="-1" />
     );
-    const PositiveTabIndex = renderer
+    const TwoSubmit = renderer
       .create(<SubmitButton {...defaultProps} tabIndex="0" />)
       .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
+    expect(snapshotDiff(OneSubmit, TwoSubmit)).toMatchSnapshot();
   });
 });
