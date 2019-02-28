@@ -18,7 +18,7 @@ export const ThirdLevelTtitleStyle = styled.h3`
   }
 `;
 
-export const FourthLevelTtitleStyle = styled.h4`
+export const FourthLevelTitleStyle = styled.h4`
   font-size: ${pxToRem('12px')};
   margin-bottom: ${pxToRem('20px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {

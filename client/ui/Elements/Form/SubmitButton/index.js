@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   RedButtonStyle,
   IconInButtonStyle,
+  GreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 
 type Props = {
@@ -16,24 +17,33 @@ type Props = {
   id?: string,
   /** Tabindex for interactive items */
   tabIndex?: number,
+  /** disabled interaction */
+  disabled?: boolean,
 };
 
 export class SubmitButton extends React.Component<Props> {
   static defaultProps = {
     id: undefined,
     tabIndex: 0,
+    disabled: false,
   };
 
   render() {
-    const { formName, icon, id, label, tabIndex } = this.props;
-
+    const { formName, icon, id, label, tabIndex, disabled } = this.props;
+    const ButtonStyled = disabled ? GreyButtonStyle : RedButtonStyle;
     return (
-      <RedButtonStyle type="submit" form={formName} tabIndex={tabIndex} id={id}>
+      <ButtonStyled
+        type="submit"
+        form={formName}
+        tabIndex={tabIndex}
+        id={id}
+        disabled={disabled}
+      >
         <IconInButtonStyle>
           <FontAwesomeIcon icon={icon} />
         </IconInButtonStyle>
         {label}
-      </RedButtonStyle>
+      </ButtonStyled>
     );
   }
 }

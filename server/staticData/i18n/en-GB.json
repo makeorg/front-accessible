@@ -198,5 +198,15 @@
     "intro": "oops",
     "title": "Error 404",
     "description": "We are sorry, the page you have requested no longer exists."
+  },
+  "profile": {
+    "password_update": {
+      "title": "Modify your password",
+      "password_label": "Current password",
+      "password_placeholder": "Current password (mandatory)",
+      "newpassword_label": "New password",
+      "newpassword_placeholder": "New password (mandatory)",
+      "submit_label": "Save changes"
+    }
   }
 }

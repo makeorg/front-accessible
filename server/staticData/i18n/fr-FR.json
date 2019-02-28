@@ -201,5 +201,15 @@
     "intro": "oups",
     "title": "Erreur 404",
     "description": "La page que vous avez demandé n’existe pas ou plus."
+  },
+  "profile": {
+    "password_update": {
+      "title": "Modifier mon mot de passe",
+      "password_label": "Mot de passe actuel",
+      "password_placeholder": "Mot de passe actuel (obligatoire)",
+      "newpassword_label": "Nouveau mot de passe",
+      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
+      "submit_label": "Enregistrer les modifications"
+    }
   }
 }

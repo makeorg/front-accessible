@@ -4,7 +4,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import {
   SecondLevelTitleStyle,
-  FourthLevelTtitleStyle,
+  FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { PasswordRecoveryFormComponent } from './Form';
@@ -56,9 +56,9 @@ export const PasswordRecoveryComponent = (props: Props) => {
           </SecondLevelTitleStyle>
           <Separators.Small />
           <React.Fragment>
-            <FourthLevelTtitleStyle>
+            <FourthLevelTitleStyle>
               {i18n.t('reset_password.info')}
-            </FourthLevelTtitleStyle>
+            </FourthLevelTitleStyle>
             <PasswordRecoveryFormComponent {...props} />
           </React.Fragment>
         </React.Fragment>

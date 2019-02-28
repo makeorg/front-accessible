@@ -6,7 +6,7 @@ import type { ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import {
   SecondLevelTitleStyle,
-  FourthLevelTtitleStyle,
+  FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -43,14 +43,14 @@ export const PasswordForgotComponent = (props: Props) => {
       </SecondLevelTitleStyle>
       <Separators.Small />
       {isSuccess ? (
-        <FourthLevelTtitleStyle>
+        <FourthLevelTitleStyle>
           {i18n.t('forgot_password.success')}
-        </FourthLevelTtitleStyle>
+        </FourthLevelTitleStyle>
       ) : (
         <React.Fragment>
-          <FourthLevelTtitleStyle>
+          <FourthLevelTitleStyle>
             {i18n.t('forgot_password.description')}
-          </FourthLevelTtitleStyle>
+          </FourthLevelTitleStyle>
           <ForgotPasswordFormComponent {...props} />
         </React.Fragment>
       )}
