@@ -1,6 +1,6 @@
 import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
-import { logger } from '../logger';
+import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 
 export const getQuestionConfiguration = async questionSlug =>
@@ -21,13 +21,7 @@ export const proposalRoute = async (req, res) => {
       },
     };
   } catch (error) {
-    if (error && error.stack) {
-      const { stack } = error;
-      logger.log('error', stack);
-    } else {
-      logger.log('error', error);
-    }
-
+    logError(error);
     return res.status(404).end();
   }
 

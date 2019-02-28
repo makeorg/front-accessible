@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import loadable from '@loadable/component';
 import {
+  ROUTE_CONSULTATION,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
@@ -10,6 +11,7 @@ import {
   ROUTE_PROFILE_EDIT,
 } from 'Shared/routes';
 
+const ConsultationPage = loadable(() => import('Client/pages/Consultation'));
 const SequencePage = loadable(() =>
   import('Client/pages/Consultation/Sequence')
 );
@@ -27,6 +29,7 @@ const ProfileEditPage = loadable(() =>
 
 export const Routes = () => (
   <Switch>
+    <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
     <Route path={ROUTE_SEQUENCE} component={SequencePage} />
     <Route path={ROUTE_ACCOUNT_ACTIVATION} component={AccountActivationPage} />
     <Route path={ROUTE_PROPOSAL} component={ProposalPage} />
