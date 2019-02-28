@@ -8,6 +8,10 @@ Object {
     "token": undefined,
     "user": undefined,
   },
+  "consultation": Object {
+    "question": undefined,
+    "questionConfiguration": undefined,
+  },
   "notification": Object {
     "contentType": undefined,
   },
