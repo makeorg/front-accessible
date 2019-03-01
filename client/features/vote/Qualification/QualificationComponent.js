@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { QualificationType } from 'Shared/types/proposal';
+import { type QualificationType } from 'Shared/types/proposal';
 import { getQualificationIndex } from 'Shared/helpers/qualification';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';

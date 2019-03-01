@@ -6,14 +6,16 @@ import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
-import type {
-  CardType,
-  ExtraSlidesConfig,
-  ExtraSlidesWording,
+import {
+  type CardType,
+  type ExtraSlidesConfig,
+  type ExtraSlidesWording,
 } from 'Shared/types/sequence';
-import type { ProposalType } from 'Shared/types/proposal';
-import { SequenceComponent } from './SequenceComponent';
-import type { Props as SequenceProps } from './SequenceComponent';
+import { type ProposalType } from 'Shared/types/proposal';
+import {
+  type Props as SequenceProps,
+  SequenceComponent,
+} from './SequenceComponent';
 import { SequencePlaceholderComponent } from './SequencePlaceholder';
 
 export const decrementCurrentIndex = (prevState: Object) => ({

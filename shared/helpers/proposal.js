@@ -5,7 +5,7 @@ import {
   MIN_PROPOSAL_LENGTH,
   MAX_PROPOSAL_LENGTH,
 } from 'Shared/constants/proposal';
-import type { ProposalType } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {

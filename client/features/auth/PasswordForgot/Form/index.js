@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import type { ErrorObject } from 'Shared/types/form';
+import { type ErrorObject } from 'Shared/types/form';
 import {
   InputErrorMessageStyle,
   FormErrorsListStyle,

@@ -1,5 +1,5 @@
 // @flow
-import type { StateRoot } from './types';
+import { type StateRoot } from './types';
 
 export const initialState: StateRoot = {
   authentification: {

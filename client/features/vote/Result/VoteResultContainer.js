@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
-import type { VotesType } from 'Shared/types/proposal';
+import { type VotesType } from 'Shared/types/proposal';
 import { VoteResultComponent } from './VoteResultComponent';
 
 type Props = {

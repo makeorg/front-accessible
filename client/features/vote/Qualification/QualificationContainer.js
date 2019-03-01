@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { QualificationType } from 'Shared/types/proposal';
+import { type QualificationType } from 'Shared/types/proposal';
 import { doUpdateState } from 'Shared/helpers/qualification';
 import { QualificationService } from 'Shared/api/QualificationService';
 import { Tracking } from 'Shared/services/Tracking';

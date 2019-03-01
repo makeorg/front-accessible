@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { ErrorObject } from 'Shared/types/form';
+import { type ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import {
   SecondLevelTitleStyle,

@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { VotesPercentObject } from 'Shared/types/proposal';
+import { type VotesPercentObject } from 'Shared/types/proposal';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
 import { getVoteKey } from 'Shared/helpers/vote';
 import { ResultItemComponent } from './ResultItemComponent';

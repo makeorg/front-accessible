@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { FinalCardConfig, FinalCardWording } from 'Shared/types/card';
+import { type FinalCardConfig, type FinalCardWording } from 'Shared/types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';

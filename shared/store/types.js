@@ -1,6 +1,6 @@
 // @flow
-import type { QuestionConfiguration } from 'Shared/types/sequence';
-import type { Question } from 'Shared/types/question';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question } from 'Shared/types/question';
 
 // Authentification State
 export type StateAuthentification = $ReadOnly<{

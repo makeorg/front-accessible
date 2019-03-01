@@ -1,10 +1,10 @@
 // @flow
-import type {
-  ExtraSlidesConfig,
-  ExtraSlidesWording,
-  CardType,
+import {
+  type ExtraSlidesConfig,
+  type ExtraSlidesWording,
+  type CardType,
 } from 'Shared/types/sequence';
-import type { ProposalType } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,

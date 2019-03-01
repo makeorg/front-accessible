@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { VotesPercentObject } from 'Shared/types/proposal';
+import { type VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';

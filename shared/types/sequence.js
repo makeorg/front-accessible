@@ -1,15 +1,15 @@
 // @flow
-import type {
-  IntroCardConfig,
-  IntroCardWording,
-  PushProposalCardConfig,
-  SignUpCardConfig,
-  SignUpCardWording,
-  FinalCardConfig,
-  FinalCardWording,
+import {
+  type IntroCardConfig,
+  type IntroCardWording,
+  type PushProposalCardConfig,
+  type SignUpCardConfig,
+  type SignUpCardWording,
+  type FinalCardConfig,
+  type FinalCardWording,
 } from 'Shared/types/card';
 
-import type { ProposalType } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,

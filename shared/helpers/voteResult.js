@@ -1,5 +1,5 @@
 /* @flow */
-import type { VoteType } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/proposal';
 import {
   VOTE_AGREE_KEY,
   VOTE_DISAGREE_KEY,
