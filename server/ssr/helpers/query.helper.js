@@ -7,7 +7,7 @@ export function disableExtraSlidesByQuery(sequenceExtraSlides, query) {
   if (queryParamIsDisable(query, 'introCard'))
     delete extraSlidesConfig.introCard;
   if (queryParamIsDisable(query, 'pushProposal'))
-    delete extraSlidesConfig.pushProposal;
+    delete extraSlidesConfig.pushProposalCard;
   if (queryParamIsDisable(query, 'signUpCard'))
     delete extraSlidesConfig.signUpCard;
   return extraSlidesConfig;

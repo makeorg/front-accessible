@@ -43,7 +43,7 @@
   },
   "consultationUrl": "https://weeuropeans.eu/gb/en/about",
   "aboutUrl": "https://weeuropeans.eu/gb/en/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
       "title": true,
       "description": true,

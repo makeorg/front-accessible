@@ -20,7 +20,7 @@
   "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
   "aboutUrl": "https://about.make.org/about-aines",
   "sequenceExtraSlidesWording": {},
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": false,
       "customDescription": false,

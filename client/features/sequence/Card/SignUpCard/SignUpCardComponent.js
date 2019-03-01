@@ -1,9 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import {
-  type SignUpCardConfig,
-  type SignUpCardWording,
-} from 'Shared/types/card';
+import { type SignUpCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -23,8 +20,6 @@ import { SecondaryTitleStyle } from '../Styled/Titles';
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
   configuration: SignUpCardConfig,
-  /** Object with Static properties used to customise the wording of the Sign Up Card */
-  wording: SignUpCardWording,
   /** Index of the card */
   index: number,
   /** Tabindex for interactive items */
@@ -53,7 +48,6 @@ type Props = {
 export const SignUpCardComponent = (props: Props) => {
   const {
     configuration,
-    wording,
     index,
     tabIndex,
     currentIndex,
@@ -89,7 +83,7 @@ export const SignUpCardComponent = (props: Props) => {
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
           <header>
-            <SignUpTitle title={configuration.customTitle && wording.title} />
+            <SignUpTitle title={configuration.title} />
           </header>
           <SecondaryTitleStyle>
             {i18n.t('sign_up_card.authentification-text')}
@@ -98,7 +92,7 @@ export const SignUpCardComponent = (props: Props) => {
           <SkipSignUpButton
             tabIndex={tabIndex}
             skipSignUpCard={skipSignUpCard}
-            wording={configuration.customNextCTA && wording.nextCTA}
+            text={configuration.nextCtaText}
           />
         </InnerContentStyle>
       </ContentWrapperStyle>

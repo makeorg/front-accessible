@@ -59,15 +59,16 @@ class PushProposalCardHandler extends React.Component<Props> {
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
+    const tabIndex =
+      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+
     return (
       <PushProposalCardComponent
-        proposalCardConfig={configuration}
+        configuration={configuration}
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={
-          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-        }
+        tabIndex={tabIndex}
         focusProposalField={this.focusProposalField}
         {...this.props}
       />

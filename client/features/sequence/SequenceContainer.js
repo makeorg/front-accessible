@@ -9,7 +9,6 @@ import { Tracking } from 'Shared/services/Tracking';
 import {
   type CardType,
   type ExtraSlidesConfig,
-  type ExtraSlidesWording,
   type QuestionConfiguration,
 } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
@@ -172,16 +171,13 @@ class SequenceHandler extends React.Component<Props, State> {
     const { hasStarted } = this.state;
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig =
-      questionConfiguration.sequenceExtraSlidesConfig;
-    const extraSlidesWording: ExtraSlidesWording =
-      questionConfiguration.sequenceExtraSlidesWording;
+      questionConfiguration.sequenceConfig;
     const votedFirstProposals: Array<ProposalType> = ProposalHelper.sortProposalsByVoted(
       proposals
     );
     const cards: Array<CardType> = SequenceHelper.buildCards(
       votedFirstProposals,
       extraSlidesConfig,
-      extraSlidesWording,
       isLoggedIn,
       hasProposed,
       question.canPropose

@@ -24,7 +24,3 @@ export const FinalTitle = (props: Props) => {
     />
   );
 };
-
-FinalTitle.defaultProps = {
-  title: undefined,
-};

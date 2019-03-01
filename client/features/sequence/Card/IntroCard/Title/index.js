@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { IntroTitleStyle } from '../../Styled/Titles';
 
 type Props = {
-  title: boolean | string,
+  title?: string,
 };
 
 /**

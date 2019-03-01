@@ -69,7 +69,6 @@ export const Card = (props: Props) => {
         <IntroCardContainer
           configuration={card.configuration}
           cardOffset={card.cardOffset}
-          wording={card.wording}
           index={index}
           currentIndex={currentIndex}
           handleStartSequence={handleStartSequence}
@@ -80,7 +79,6 @@ export const Card = (props: Props) => {
         <SignUpCardContainer
           configuration={card.configuration}
           cardOffset={card.cardOffset}
-          wording={card.wording}
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
@@ -106,7 +104,6 @@ export const Card = (props: Props) => {
           configuration={card.configuration}
           cardOffset={card.cardOffset}
           index={index}
-          wording={card.wording}
           cardsCount={cardsCount}
           currentIndex={currentIndex}
           goToPreviousCard={goToPreviousCard}

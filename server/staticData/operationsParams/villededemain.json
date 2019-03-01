@@ -27,7 +27,7 @@
       "title": "Soyez informés des résultats de la consultation"
     }
   },
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": false,
       "customDescription": false,

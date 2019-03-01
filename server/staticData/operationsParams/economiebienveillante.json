@@ -36,7 +36,7 @@
       "learn_more_button": "En savoir +"
     }
   },
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": true,
       "customDescription": true,

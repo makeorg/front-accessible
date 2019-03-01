@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type FinalCardConfig, type FinalCardWording } from 'Shared/types/card';
+import { type FinalCardConfig } from 'Shared/types/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
@@ -22,9 +22,7 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
-  finalCardConfig: FinalCardConfig,
-  /** Object with Static properties used to customise the wording of the Final Card */
-  finalCardWording: FinalCardWording,
+  configuration: FinalCardConfig,
   /** Total of cards */
   cardsCount: number,
   /** Index of the card */
@@ -52,8 +50,7 @@ type Props = {
  */
 export const FinalCardComponent = (props: Props) => {
   const {
-    finalCardConfig,
-    finalCardWording,
+    configuration,
     cardsCount,
     index,
     currentIndex,
@@ -88,18 +85,15 @@ export const FinalCardComponent = (props: Props) => {
       </BackButtonWrapperStyle>
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
-          {finalCardConfig.customTitle ? (
-            <FinalTitle title={finalCardWording.title} />
-          ) : (
-            <FinalTitle />
-          )}
+          <FinalTitle title={configuration.title} />
           <FinalCardContentWrapperStyle>
-            {finalCardConfig.withSharing && (
-              <Sharing wording={finalCardWording.share} tabIndex={tabIndex} />
+            {configuration.withSharing && (
+              <Sharing text={configuration.share} tabIndex={tabIndex} />
             )}
             <More
-              configuration={finalCardConfig}
-              wording={finalCardWording}
+              title={configuration.learnMoreTitle}
+              buttonText={configuration.learnMoreTextButton}
+              url={configuration.linkUrl}
               tabIndex={tabIndex}
               handleEndSequence={handleEndSequence}
             />

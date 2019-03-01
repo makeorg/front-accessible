@@ -5,10 +5,12 @@ import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 
 type Props = {
-  /** Special configuration for Final Card's Know More paragraph */
-  configuration: Object,
-  /** Special wording for Final Card's Know More paragraph */
-  wording: Object,
+  /** Title of the More paragraph */
+  title?: string,
+  /** Text of the button */
+  buttonText?: string,
+  /** Url of show more button */
+  url?: string,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Method called when button is clicked */
@@ -19,20 +21,24 @@ type Props = {
  * Renders finalCard More component
  */
 export const More = (props: Props) => {
-  const { configuration, wording, tabIndex, handleEndSequence } = props;
+  const { title, buttonText, url, tabIndex, handleEndSequence } = props;
 
-  if (wording && wording.learn_more_title && wording.learn_more_button) {
+  if (!url) {
+    return null;
+  }
+
+  if (title) {
     return (
       <MoreWrapperStyle>
-        <IntroParagraphStyle>{wording.learn_more_title}</IntroParagraphStyle>
+        <IntroParagraphStyle>{title}</IntroParagraphStyle>
         <FinalLinkStyle
           as="a"
           tabIndex={tabIndex}
-          href={configuration.linkUrl}
+          href={url}
           target="_blank"
           onClick={handleEndSequence}
         >
-          {wording.learn_more_button}
+          {buttonText || i18n.t('final_card.button')}
         </FinalLinkStyle>
       </MoreWrapperStyle>
     );
@@ -42,11 +48,11 @@ export const More = (props: Props) => {
     <FinalLinkStyle
       as="a"
       tabIndex={tabIndex}
-      href={configuration.linkUrl}
+      href={url}
       target="_blank"
       onClick={handleEndSequence}
     >
-      {i18n.t('final_card.button')}
+      {buttonText || i18n.t('final_card.button')}
     </FinalLinkStyle>
   );
 };

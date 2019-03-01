@@ -29,7 +29,7 @@
       "nextCTA": "No thanks"
     }
   },
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": true,
       "customDescription": true,

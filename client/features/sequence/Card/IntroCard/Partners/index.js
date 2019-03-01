@@ -47,16 +47,14 @@ const PartnersList = (props: ListProps) => {
 
 type Props = {
   /** Array with partners propeties */
-  partners: Array<Object>,
-  /** Boolean used to return configuration for partnership label display */
-  configuration: boolean,
+  partners: ?Array<PartnerItem>,
 };
 
 /**
  * Renders Partners component
  */
 export const Partners = (props: Props) => {
-  const { partners, configuration } = props;
+  const { partners } = props;
 
   if (!partners) {
     return null;
@@ -64,7 +62,7 @@ export const Partners = (props: Props) => {
 
   return (
     <PartnerFooterStyle as="footer">
-      {configuration ? i18n.t('intro_card.partnership') : ''}
+      {i18n.t('intro_card.partnership')}
       <PartnersList partners={partners} />
     </PartnerFooterStyle>
   );

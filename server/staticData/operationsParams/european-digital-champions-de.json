@@ -28,7 +28,7 @@
       "nextCTA": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
     }
   },
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": true,
       "customDescription": true,

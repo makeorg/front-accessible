@@ -29,7 +29,7 @@
       "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
     }
   },
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": true,
       "customDescription": true,

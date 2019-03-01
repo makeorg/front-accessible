@@ -5,7 +5,7 @@ import { IntroParagraphStyle } from '../../Styled/Content';
 
 type Props = {
   /** Object with description paragraphs */
-  description?: Array<string>,
+  description: ?Array<string>,
 };
 
 /**
@@ -13,6 +13,7 @@ type Props = {
  */
 export const IntroDescription = (props: Props) => {
   const { description } = props;
+
   if (!description) {
     return (
       <div>
@@ -35,8 +36,4 @@ export const IntroDescription = (props: Props) => {
       ))}
     </div>
   );
-};
-
-IntroDescription.defaultProps = {
-  description: undefined,
 };

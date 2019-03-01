@@ -17,7 +17,7 @@
   "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "sequenceExtraSlidesWording": {},
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard":  {
       "customTitle": false,
       "customDescription": false,
