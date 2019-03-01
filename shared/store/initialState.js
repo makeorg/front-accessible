@@ -25,6 +25,10 @@ export const initialState: StateRoot = {
     questionConfiguration: undefined,
     votedProposalIds: [],
   },
+  consultation: {
+    question: undefined,
+    questionConfiguration: undefined,
+  },
   notification: {
     contentType: undefined,
   },
