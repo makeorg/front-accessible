@@ -208,5 +208,11 @@
       "newpassword_placeholder": "New password (mandatory)",
       "submit_label": "Save changes"
     }
+  },
+  "consultation": {
+    "presentation": {
+      "title": "Why this consultation ?",
+      "link_text": "Find out more"
+    }
   }
 }

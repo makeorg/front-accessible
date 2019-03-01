@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { DescriptionWrapperStyle } from '../Styled';
 
 /**
@@ -8,8 +8,8 @@ import { DescriptionWrapperStyle } from '../Styled';
  */
 export const ProposalSubmitSuccessComponent = () => (
   <DescriptionWrapperStyle>
-    <DescriptionStyle id="proposal-submit-success">
+    <ParagraphStyle id="proposal-submit-success">
       {i18n.t('proposal_submit.success')}
-    </DescriptionStyle>
+    </ParagraphStyle>
   </DescriptionWrapperStyle>
 );

@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmailButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { DescriptionLinkStyle } from 'Client/ui/Elements/DescriptionElements';
 import { Small } from 'Client/ui/Elements/Separators';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
@@ -12,9 +11,7 @@ jest.mock('i18next');
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
-    const DescriptionLinkIcon = wrapper
-      .find(DescriptionLinkStyle)
-      .find(FontAwesomeIcon);
+    const DescriptionLinkIcon = wrapper.find('a').find(FontAwesomeIcon);
     const EmailButtonIcon = wrapper
       .find(EmailButtonStyle)
       .find(FontAwesomeIcon);
@@ -29,6 +26,6 @@ describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check link target', () => {
     const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
 
-    expect(wrapper.find(DescriptionLinkStyle).prop('target')).toBe('_blank');
+    expect(wrapper.find('a').prop('target')).toBe('_blank');
   });
 });
