@@ -1,13 +1,5 @@
-import React from 'react';
-import { MetaTags } from 'Client/app/MetaTags';
-import { PageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { ConsultationPageContainer } from './ConsultationPageContainer';
 
-const ConsultationPage = () => (
-  <PageWrapperStyle>
-    <MetaTags />
-    <h1>Consultation</h1>
-  </PageWrapperStyle>
-);
-
+const ConsultationPage = ConsultationPageContainer;
 // default export needed for loadable component
 export default ConsultationPage; // eslint-disable-line import/no-default-export

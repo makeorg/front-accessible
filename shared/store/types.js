@@ -31,12 +31,6 @@ type StateSequence = $ReadOnly<{
   votedProposalIds?: Array<string>,
 }>;
 
-// Consultation State
-type StateConsultation = $ReadOnly<{
-  question?: Question,
-  questionConfiguration?: QuestionConfiguration,
-}>;
-
 // Notification State
 type StateNotification = $ReadOnly<{
   contentType?: string,
@@ -62,7 +56,6 @@ export type StateRoot = $ReadOnly<{
   authentification: StateAuthentification,
   proposal: StateProposal,
   sequence: StateSequence,
-  consultation: StateConsultation,
   notification: StateNotification,
   user: StateUser,
 }>;
