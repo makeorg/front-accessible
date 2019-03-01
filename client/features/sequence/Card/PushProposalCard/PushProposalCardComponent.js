@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import type { PushProposalCardConfig } from 'Shared/types/card';
+import { type PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

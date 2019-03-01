@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { FinalCardConfig, FinalCardWording } from 'Shared/types/card';
+import { type FinalCardConfig, FinalCardWording } from 'Shared/types/card';
 import { connect } from 'react-redux';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';

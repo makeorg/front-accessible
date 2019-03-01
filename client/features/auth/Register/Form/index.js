@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { UserObject, ErrorObject } from 'Shared/types/form';
+import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
   faLock,

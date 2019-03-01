@@ -1,6 +1,6 @@
 // @flow
 
-import type { ApiServiceHeaders } from './type';
+import { type ApiServiceHeaders } from './type';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTION_DETAIL = '/questions/:questionSlug/details';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import type { ProposalType } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';

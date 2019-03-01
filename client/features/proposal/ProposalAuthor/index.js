@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import type { Author } from 'Shared/types/proposal';
+import { type Author } from 'Shared/types/proposal';
 import { AuthorInfosStyle } from './Styled';
 
 type Props = {

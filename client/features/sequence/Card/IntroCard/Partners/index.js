@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import type { PartnerItem } from 'Shared/types/card';
+import { type PartnerItem } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { MiddleRowStyle } from 'Client/ui/Elements/FlexElements';
 import {
