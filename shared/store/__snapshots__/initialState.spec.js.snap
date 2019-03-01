@@ -5,7 +5,6 @@ Object {
   "authentification": Object {
     "errors": Array [],
     "isLoggedIn": false,
-    "token": undefined,
     "user": undefined,
   },
   "consultation": Object {

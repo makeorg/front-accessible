@@ -7,7 +7,7 @@ describe('Registration reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       errors: [],
-      user: null,
+      user: undefined,
     };
 
     expect(registration(undefined, {})).toEqual(expectedState);
@@ -18,12 +18,12 @@ describe('Registration reducer', () => {
       const action = actionCreators.registerRequest();
       const previousState = {
         errors: ['foo', 'bar'],
-        user: null
+        user: undefined,
       };
 
       const expectedState = {
         errors: [],
-        user: null,
+        user: undefined,
       };
 
       expect(registration(previousState, action)).toEqual(expectedState);
@@ -33,17 +33,17 @@ describe('Registration reducer', () => {
       const user = {
         email: 'foo@example.com',
         password: 'bar',
-        firstname: 'baz'
-      }
+        firstname: 'baz',
+      };
       const action = actionCreators.registerSuccess(user);
       const previousState = {
         errors: ['foo', 'bar'],
-        user: null,
+        user: undefined,
       };
 
       const expectedState = {
         errors: [],
-        user: user
+        user,
       };
 
       expect(registration(previousState, action)).toEqual(expectedState);
@@ -54,15 +54,13 @@ describe('Registration reducer', () => {
       const previousState = {
         isLoggedIn: false,
         errors: [],
-        user: null,
-        token: null
+        user: undefined,
       };
 
       const expectedState = {
         isLoggedIn: false,
         errors: ['fooError'],
-        user: null,
-        token: null
+        user: undefined,
       };
 
       expect(registration(previousState, action)).toEqual(expectedState);

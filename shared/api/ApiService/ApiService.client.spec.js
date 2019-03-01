@@ -22,21 +22,20 @@ describe('ApiServiceClient', () => {
     // when
     apiClient.callApi(url, options);
     // then
-    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url,
-      {
-        ...options,
-        ...{
-          headers: {
-            'x-make-country': '',
-            'x-make-language': '',
-            'x-make-operation': '',
-            'x-make-question': '',
-            'x-make-question-id': '',
-            'x-make-source': '',
-            ...options.headers
-          }
-        }
-      });
+    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
+      ...options,
+      ...{
+        headers: {
+          'x-make-country': '',
+          'x-make-language': '',
+          'x-make-operation': '',
+          'x-make-question': '',
+          'x-make-question-id': '',
+          'x-make-source': '',
+          ...options.headers,
+        },
+      },
+    });
   });
 
   it('callApi must call ApiServiceShared.callApi with headers', () => {
@@ -49,39 +48,22 @@ describe('ApiServiceClient', () => {
     apiClient.source = 'core';
     apiClient.questionId = '1234';
     apiClient.operationId = 'abcd';
-    apiClient.token = {
-      token_type: 'token_type',
-      access_token: 'access_token'
-    };
+
     apiClient.callApi(url, options);
     // then
-    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url,
-      {
-        ...options,
-        ...{
-          headers: {
-            'x-make-country': 'FR',
-            'x-make-language': 'fr',
-            'x-make-operation': 'abcd',
-            'x-make-question': '1234',
-            'x-make-question-id': '1234',
-            'x-make-source': 'core',
-            Authorization: 'token_type access_token',
-            ...options.headers
-          }
-        }
-      });
-  });
-
-  it('token property must be enabled', () => {
-    expect(apiClient.token).toBe(undefined);
-    apiClient.token = {
-      token_type: 'token_type',
-      access_token: 'access_token'
-    };
-    expect(apiClient.token).toEqual({
-      token_type: 'token_type',
-      access_token: 'access_token'
+    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
+      ...options,
+      ...{
+        headers: {
+          'x-make-country': 'FR',
+          'x-make-language': 'fr',
+          'x-make-operation': 'abcd',
+          'x-make-question': '1234',
+          'x-make-question-id': '1234',
+          'x-make-source': 'core',
+          ...options.headers,
+        },
+      },
     });
   });
 

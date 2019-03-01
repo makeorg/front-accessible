@@ -9,7 +9,6 @@ import {
 } from 'Shared/helpers/proposal';
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
-import { getToken } from 'Shared/store/actions/authentification';
 import { Tracking } from 'Shared/services/Tracking';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
@@ -44,8 +43,6 @@ type Props = {
   handleTypingProposal: Function,
   /** Method called to submit proposal */
   handleSubmitProposal: Function,
-  /** Method called to get user token */
-  handleGetUserToken: Function,
 };
 
 type State = {
@@ -90,34 +87,15 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   handleSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
-    const {
-      question,
-      content,
-      isLoggedIn,
-      handleSubmitProposal,
-      handleGetUserToken,
-    } = this.props;
+    const { question, content, isLoggedIn, handleSubmitProposal } = this.props;
 
     Tracking.trackClickProposalSubmit(question.slug);
+    this.setState({
+      isTyping: false,
+    });
 
     if (isLoggedIn) {
-      handleSubmitProposal(content).then(() => {
-        this.setState({
-          isTyping: false,
-        });
-      });
-    } else {
-      handleGetUserToken()
-        .then(() => {
-          this.setState({
-            isTyping: false,
-          });
-        })
-        .catch(() => {
-          this.setState({
-            isTyping: false,
-          });
-        });
+      handleSubmitProposal(content);
     }
   };
 
@@ -209,7 +187,6 @@ const mapDispatchToProps = dispatch => ({
   handleTypingProposal: (content: string, length: number, canSubmit: boolean) =>
     dispatch(typingProposal(content, length, canSubmit)),
   handleSubmitProposal: (content: string) => dispatch(submitProposal(content)),
-  handleGetUserToken: () => dispatch(getToken()),
 });
 
 export const ProposalSubmitContainer = connect(

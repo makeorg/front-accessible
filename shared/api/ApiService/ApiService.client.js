@@ -1,6 +1,5 @@
 /* @flow */
 import { IApiServiceStrategy } from './index';
-import { type TypeToken } from './types';
 import { ApiServiceShared } from './ApiService.shared';
 
 export class ApiServiceClient implements IApiServiceStrategy {
@@ -13,8 +12,6 @@ export class ApiServiceClient implements IApiServiceStrategy {
   _questionId: string = '';
 
   _source: string = '';
-
-  _token: TypeToken;
 
   _instance = null;
 
@@ -66,14 +63,6 @@ export class ApiServiceClient implements IApiServiceStrategy {
     return this._source;
   }
 
-  set token(token: TypeToken) {
-    this._token = token;
-  }
-
-  get token(): ?TypeToken {
-    return this._token;
-  }
-
   callApi(url: string, options: Object = {}): Promise<any> {
     const defaultHeaders = {
       'x-make-country': this._country,
@@ -83,13 +72,8 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-question': this._questionId,
       'x-make-operation': this._operationId,
     };
-    let headers = Object.assign({}, defaultHeaders, options.headers || {});
+    const headers = Object.assign({}, defaultHeaders, options.headers || {});
 
-    if (this.token) {
-      headers = Object.assign({}, headers, {
-        Authorization: `${this.token.token_type} ${this.token.access_token}`,
-      });
-    }
     return ApiServiceShared.callApi(url, { ...options, headers });
   }
 }
