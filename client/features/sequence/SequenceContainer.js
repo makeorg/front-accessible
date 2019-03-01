@@ -10,8 +10,10 @@ import {
   type CardType,
   type ExtraSlidesConfig,
   type ExtraSlidesWording,
+  type QuestionConfiguration,
 } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
+import { type Question } from 'Shared/types/question';
 import {
   type Props as SequenceProps,
   SequenceComponent,
@@ -30,9 +32,9 @@ type Props = {
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Object,
+  question: Question,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: Object,
+  questionConfiguration: QuestionConfiguration,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -166,7 +168,7 @@ class SequenceHandler extends React.Component<Props, State> {
     isLoggedIn: boolean,
     hasProposed: boolean
   ) => {
-    const { questionConfiguration } = this.props;
+    const { questionConfiguration, question } = this.props;
     const { hasStarted } = this.state;
     const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig =
@@ -181,7 +183,8 @@ class SequenceHandler extends React.Component<Props, State> {
       extraSlidesConfig,
       extraSlidesWording,
       isLoggedIn,
-      hasProposed
+      hasProposed,
+      question.canPropose
     );
 
     const firstUnvotedProposal: void | ProposalType = ProposalHelper.searchFirstUnvotedProposal(
