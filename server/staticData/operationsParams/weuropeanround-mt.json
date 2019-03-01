@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Kif nistgħu noħolqu l-Ewropa mill-ġdid, b’mod konkret?",
+    "metas": {
+      "title": "Kif nistgħu noħolqu l-Ewropa mill-ġdid, b’mod konkret?",
+      "description": "WeEuropeans hija kampanja ċivika, demokratika u mhux partiġġjana. Din tiġbor flimkien liċ-ċittadini Ewropej, ikunu xi jkunu l-fehmiet tagħhom, billi tipproponilhom jieħdu sehem fl-akbar konsultazzjoni popolari Ewropea li qatt saret. L-Ewropa mhix ser issir iżjed mingħajrna.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
+      "description": [
+        "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet jew ipproponi tiegħek.",
+        "L-ideat li jgawdu l-akbar appoġġ jenħtieġ jiġu difiżi mill-kandidati fl-elezzjonijiet Ewropej."
+      ]
+    },
+    "signUpCard": {
+      "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
+      "nextCTA": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
+    },
+    "finalCard": {
+      "title": "Ħajr tal-parteċipazzjoni tiegħek",
+      "share": [
+        "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
+        "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
+      ],
+      "learn_more_title": "Skopri kollox dwar il-proġett WeEuropeans",
+      "learn_more_button": "Sir af aktar"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/mt/mt/about",
+  "aboutUrl": "https://weeuropeans.eu/mt/mt/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/mt/mt/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, permezz ta’ MAKE.ORG u CIVICO Europa"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Cum se reinventează concret Europa?",
+    "metas": {
+      "title": "Cum se reinventează concret Europa?",
+      "description": "WeEuropeans este o campanie civică, democratică și nepartizană. Ea strânge laolaltă cetățenii europeni indiferent de opiniile lor, propunându-le să participe la cea mai mare consultare populară europeană realizată vreodată. Europa nu se va mai face fără noi.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
+      "description": [
+        "Luați poziție pentru aceste soluții sau faceți propunerile dvs.",
+        "Soluțiile cu susținerea cea mai mare vor trebui apărate de candidați la alegerile europene."
+      ]
+    },
+    "signUpCard": {
+      "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
+      "nextCTA": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
+    },
+    "finalCard": {
+      "title": "Vă mulțumim pentru participare.",
+      "share": [
+        "Doriți să mergeți mai departe pentru reinventarea Europei?",
+        "Invitați-i pe prietenii dvs. și/sau comunitatea dvs. să participe"
+      ],
+      "learn_more_title": "Descoperiți întregul proiect WeEuropeans",
+      "learn_more_button": "Mai multe informații"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/ro/ro/about",
+  "aboutUrl": "https://weeuropeans.eu/ro/ro/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/ro/ro/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, cu MAKE.ORG și CIVICO Europa"
+  }
+}

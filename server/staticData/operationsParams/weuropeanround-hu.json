@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Pontosan hogyan kellene újragondolni Európát?",
+    "metas": {
+      "title": "Pontosan hogyan kellene újragondolni Európát?",
+      "description": "A WeEuropeans egy civil, demokratikus, pártfüggetlen felmérés. A felmérés keretein belül Európa polgárai elmondhatják véleményüket, és részt vehetnek egy minden eddiginél nagyobb európai közösségi véleménykutatásban. Európa nem létezhet nélkülünk.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Több ezer polgár javasol megoldásokat Európa újragondolásával kapcsolatban.",
+      "description": [
+        "Foglaljon álláspontot ezekben a megoldásokban vagy nyújtson be javaslatot Ön is.",
+        "A leginkább támogatott ötleteket az európai választásokon a jelölteknek kell megvédeniük."
+      ]
+    },
+    "signUpCard": {
+      "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
+      "nextCTA": "Köszönöm, de nem szeretnék értesülni az eredményekről."
+    },
+    "finalCard": {
+      "title": "Köszönjük a részvételét!",
+      "share": [
+        "Szeretne többet tenni Európa újragondolásával kapcsolatban?",
+        "Hívja meg családját és/vagy közösségét, hogy ők is vegyenek részt"
+      ],
+      "learn_more_title": "Fedezze fel az összes WeEuropeans projektet",
+      "learn_more_button": "Tudjon meg többet"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/hu/hu/about",
+  "aboutUrl": "https://weeuropeans.eu/hu/hu/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/hu/hu/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, a MAKE.ORG és CIVICO Europa"
+  }
+}

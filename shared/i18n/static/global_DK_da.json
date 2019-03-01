@@ -234,5 +234,46 @@
         "learn_more_button": "Få mere at vide"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hvordan kan vi genopfinde Europa, helt konkret?",
+      "metas": {
+        "title": "Hvordan kan vi genopfinde Europa, helt konkret?",
+        "description": "WeEuropeans er en demokratisk og upartisk borgerkampagne. Den samler europæiske borgere fra alle horisonter og med alle opfattelser ved at tilbyde dem at deltage i den hidtil største europæiske folkekonsultation. Europa bliver ikke bygget uden os.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, med MAKE.ORG og CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Tusindvis af borgere foreslår løsninger.for at genopfinde Europa.",
+        "description": [
+          "Tag stilling til disse løsninger eller foreslå dine egne løsninger.",
+          "De idéer, der får størst tilslutning, vil blive forsvaret af kandidater til Europa-parlamentet."
+        ]
+      },
+      "signUpCard": {
+        "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
+        "nextCTA": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet."
+      },
+      "finalCard": {
+        "title": "Tak for din deltagelse",
+        "share": [
+          "Ønsker du at gå et skridt videre for at genopfinde Europa?",
+          "Foreslå dine nærmeste eller dit fællesskab at deltage"
+        ],
+        "learn_more_title": "Opdag hele projektet WeEuropeans",
+        "learn_more_button": "Få mere at vide"
+      }
+    }
   }
 }

@@ -234,5 +234,46 @@
         "learn_more_button": "Meer informatie"
       }
     }
+  },
+  "weuropeanround": {
+    "wording": {
+      "title": "WeEuropeans",
+      "question": "Hoe kunnen we Europa verbeteren?",
+      "metas": {
+        "title": "Hoe kunnen we Europa verbeteren?",
+        "description": "WeEuropeans is een democratische en partijloze burgercampagne. Hier kunnen Europese burgers, ongeacht hun opvattingen, meedoen aan de grootste burgerraadpleging ooit. Europa heeft ons nodig.",
+        "picture": ""
+      }
+    },
+    "sharing": {
+      "twitter": {
+        "hashtags": "weeuropeans"
+      }
+    },
+    "footer":  {
+      "sentence" : "WeEuropeans, met MAKE.ORG en CIVICO Europa"
+    },
+    "sequenceExtraSlidesWording": {
+      "introCard":  {
+        "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
+        "description": [
+          "Vertel wat u van deze oplossingen vindt of doe zelf een voorstel.",
+          "De ideeën met de meeste stemmen zullen worden verdedigd door de kandidaten tijdens de Europese parlementsverkiezingen."
+        ]
+      },
+      "signUpCard": {
+        "title": "Ontvang de resultaten van de raadpleging en ontvang informatie over hoe het verder gaat",
+        "nextCTA": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
+      },
+      "finalCard": {
+        "title": "Hartelijk dank voor uw deelname",
+        "share": [
+          "Wilt u nog meer helpen om Europa te verbeteren?",
+          "Nodig uw vrienden, familie en/of gemeenschap uit om deel te nemen"
+        ],
+        "learn_more_title": "Ontdek wat het WeEuropeans-project inhoudt",
+        "learn_more_button": "Meer informatie"
+      }
+    }
   }
 }

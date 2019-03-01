@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Mihin toimenpiteisiin voimme ryhtyä Euroopan uudistamiseksi?",
+    "metas": {
+      "title": "Mihin toimenpiteisiin voimme ryhtyä Euroopan uudistamiseksi?",
+      "description": "WeEuropeans on demokraattinen ja puolueeton kansalaishanke. Se tarjoaa eurooppalaisille mahdollisuuden osallistua kaikkien aikojen suurimpaan Euroopassa järjestettyyn kansalaisselvitykseen, jonka tavoitteena on tuoda kansalaiset yhteen mielipide-eroista riippumatta. Eurooppa ei toimi ilman meitä.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
+      "description": [
+        "Kerro mielipiteesi niistä tai ehdota omaasi.",
+        "Eniten kannatetut ehdotukset ovat sellaisia, joita europarlamenttivaaliehdokkaiden tulisi viedä eteenpäin."
+      ]
+    },
+    "signUpCard": {
+      "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
+      "nextCTA": "Ei kiitos, en halua tietoa tuloksista."
+    },
+    "finalCard": {
+      "title": "Kiitos osallistumisesta",
+      "share": [
+        "Haluatko auttaa vieläkin enemmän Euroopan uudistamisessa?",
+        "Kutsu ystäväsi/perheesi/yhteisösi mukaan"
+      ],
+      "learn_more_title": "Lisätietoa WeEuropeans -hankkeesta",
+      "learn_more_button": "Lisätietoa"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/fi/fi/about",
+  "aboutUrl": "https://weeuropeans.eu/fi/fi/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/fi/fi/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
+  }
+}

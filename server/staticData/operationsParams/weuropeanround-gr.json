@@ -1,0 +1,65 @@
+{
+  "wording": {
+    "title": "WeEuropeans",
+    "question": "Πώς να θέσουμε νέες και σταθερές βάσεις στην Ευρώπη;",
+    "metas": {
+      "title": "Πώς να θέσουμε νέες και σταθερές βάσεις στην Ευρώπη;",
+      "description": "Η εκστρατεία WeEuropeans είναι μια πολιτική, δημοκρατική και μη κομματική διαδικασία. Απευθύνεται σε όλους τους Ευρωπαίους και τις Ευρωπαίες, όποιες κι αν είναι οι πεποιθήσεις τους, προτείνοντάς τους να συμμετάσχουν στο μεγαλύτερο ευρωπαϊκό δημοψήφισμα που έχει διεξαχθεί ποτέ. Η Ευρώπη δεν μπορεί να συνεχίσει χωρίς εμάς.",
+      "picture": "https://assets.make.org/assets/images/meta-we-europeans-no-copy.png"
+    }
+  },
+  "sharing": {
+    "twitter": {
+      "hashtags": "weeuropeans"
+    }
+  },
+  "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Χιλιάδες πολίτες προτείνουν λύσεις ώστε η Ευρώπη να αποκτήσει νέες βάσεις.",
+      "description": [
+        "Εκφράστε τη γνώμη σας σχετικά με αυτές τις λύσεις ή προτείνετε τις δικές σας.",
+        "Οι δημοφιλέστερες ιδέες θα λάβουν την υποστήριξη των υποψηφίων στις ευρωπαϊκές εκλογές."
+      ]
+    },
+    "signUpCard": {
+      "title": "Λάβετε τα αποτελέσματα της διαβούλευσης και μείνετε ενήμερος(-η) για τις μελλοντικές δράσεις",
+      "nextCTA": "Ευχαριστώ, αλλά δεν επιθυμώ να λάβω ενημέρωση σχετικά με τα αποτελέσματα."
+    },
+    "finalCard": {
+      "title": "Σας ευχαριστούμε για τη συμμετοχή",
+      "share": [
+        "Επιθυμείτε να συμβάλλετε περισσότερο στην αναδιαμόρφωση της Ευρώπης;",
+        "Προσκαλέστε τα κοντινά σας πρόσωπα για να συμμετάσχουν"
+      ],
+      "learn_more_title": "Ανακαλύψτε ολόκληρη την εκστρατεία WeEuropeans",
+      "learn_more_button": "Μάθετε περισσότερα"
+    }
+  },
+  "theme": {
+    "color": "#3839ca",
+    "gradient-start": "#3839ca",
+    "gradient-end": "#3839ca",
+    "footerFontColor": "white"
+  },
+  "consultationUrl": "https://weeuropeans.eu/gr/el/about",
+  "aboutUrl": "https://weeuropeans.eu/gr/el/about",
+  "sequenceExtraSlidesConfig": {
+    "introCard": {
+      "title": true,
+      "description": true,
+      "partners": [],
+      "inPartnershipWith": false,
+      "extraLogo": false
+    },
+    "pushProposal": false,
+    "signUpCard": true,
+    "finalCard": {
+      "customTitle": true,
+      "linkUrl": "https://weeuropeans.eu/gr/el/about",
+      "withSharing": true
+    }
+  },
+  "footer": {
+    "sentence": "WeEuropeans, μέσω MAKE.ORG και CIVICO Europa"
+  }
+}
