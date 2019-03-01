@@ -1,6 +1,32 @@
 /* @flow */
+import {
+  ROUTE_CONSULTATION,
+  ROUTE_SEQUENCE,
+  ROUTE_PROPOSAL,
+  matchRoute,
+} from 'Shared/routes';
 import { IApiServiceStrategy } from './index';
 import { ApiServiceShared } from './ApiService.shared';
+
+export const getLocationContext = (
+  pathname: string,
+  questionId: string,
+  proposalId: string
+): string => {
+  // TODO: missing pages
+  // "homepage"
+  // "search_results"
+  switch (true) {
+    case matchRoute(pathname, ROUTE_CONSULTATION):
+      return `question_page ${questionId}`;
+    case matchRoute(pathname, ROUTE_SEQUENCE):
+      return `sequence ${questionId}`;
+    case matchRoute(pathname, ROUTE_PROPOSAL):
+      return `proposal_page ${proposalId}`;
+    default:
+      return `unknown_location ${pathname}`;
+  }
+};
 
 export class ApiServiceClient implements IApiServiceStrategy {
   _language: string = '';
@@ -71,6 +97,11 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-question-id': this._questionId,
       'x-make-question': this._questionId,
       'x-make-operation': this._operationId,
+      'x-make-location': getLocationContext(
+        window.location.pathname,
+        this._questionId,
+        options.proposalId
+      ),
     };
     const headers = Object.assign({}, defaultHeaders, options.headers || {});
 

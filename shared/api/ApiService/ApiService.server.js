@@ -4,7 +4,14 @@ import { IApiServiceStrategy } from './index';
 export class ApiServiceServer implements IApiServiceStrategy {
   // eslint-disable-next-line class-methods-use-this
   callApi(url: string, options: Object = {}): Promise<any> {
-    return ApiServiceShared.callApi(url, options);
+    const headers = {
+      'x-make-location': 'core',
+      ...options.headers,
+    };
+    return ApiServiceShared.callApi(url, {
+      ...options,
+      headers,
+    });
   }
 
   // eslint-disable-next-line class-methods-use-this
