@@ -1,9 +1,12 @@
-
 import axios from 'axios';
 import { Logger } from 'Shared/services/Logger';
 import { ApiServiceShared, API_URL, handleErrors } from './ApiService.shared';
 
 describe('ApiServiceShared', () => {
+  afterEach(() => {
+    axios.mockClear();
+  });
+
   describe('callApi', () => {
     it('with headers and params', () => {
       const url = '/tracking/front';
@@ -16,10 +19,10 @@ describe('ApiServiceShared', () => {
           'Content-Type': 'application/json; charset=UTF-8',
           'x-hostname': 'localhost',
           'x-make-app-name': undefined,
-          'x-make-location': 'core'
+          'x-make-location': 'core',
         },
         method: 'POST',
-        withCredentials: true
+        withCredentials: true,
       });
     });
 
@@ -43,8 +46,8 @@ describe('ApiServiceShared', () => {
     it('default status', () => {
       const error = {
         response: {
-          status: 200
-        }
+          status: 200,
+        },
       };
       expect(() => handleErrors(error)).toThrow('200');
     });
@@ -53,8 +56,8 @@ describe('ApiServiceShared', () => {
       const error = {
         response: {
           status: 400,
-          data: 'error 400'
-        }
+          data: 'error 400',
+        },
       };
       expect(() => handleErrors(error)).toThrow('error 400');
     });
@@ -63,8 +66,8 @@ describe('ApiServiceShared', () => {
       jest.spyOn(Logger, 'logError');
       const error = {
         response: {
-          status: 500
-        }
+          status: 500,
+        },
       };
       expect(() => handleErrors(error)).toThrow('500');
       expect(Logger.logError).toHaveBeenNthCalledWith(1, 'Api Response');

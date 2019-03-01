@@ -6,6 +6,7 @@ jest.mock('./ApiService.shared');
 describe('ApiServiceServer', () => {
   let apiServer: ApiServiceServer;
   beforeEach(() => {
+    ApiServiceShared.callApi.mockClear();
     jest.spyOn(ApiServiceShared, 'callApi');
     apiServer = new ApiServiceServer();
   });
@@ -17,7 +18,21 @@ describe('ApiServiceServer', () => {
     // when
     apiServer.callApi(url, options);
     // then
-    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, options);
+    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
+      headers: { ...options.headers, 'x-make-location': 'core' },
+    });
+  });
+
+  it('callApi must call ApiServiceShared.callApi with custom location', () => {
+    // given
+    const url = '/api/endpoint';
+    const options = { headers: { 'x-make-location': 'custom' } };
+    // when
+    apiServer.callApi(url, options);
+    // then
+    expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
+      headers: { 'x-make-location': 'custom' },
+    });
   });
 
   it('language property must be disable', () => {

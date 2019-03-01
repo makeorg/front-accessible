@@ -25,6 +25,7 @@ export class ProposalService {
       {
         method: 'GET',
         headers,
+        proposalId,
       }
     );
   }

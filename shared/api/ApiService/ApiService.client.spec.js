@@ -1,5 +1,5 @@
 import { ApiServiceShared } from './ApiService.shared';
-import { ApiServiceClient } from './ApiService.client';
+import { ApiServiceClient, getLocationContext } from './ApiService.client';
 
 jest.mock('./ApiService.shared');
 
@@ -32,6 +32,7 @@ describe('ApiServiceClient', () => {
           'x-make-question': '',
           'x-make-question-id': '',
           'x-make-source': '',
+          'x-make-location': 'unknown_location /',
           ...options.headers,
         },
       },
@@ -48,7 +49,6 @@ describe('ApiServiceClient', () => {
     apiClient.source = 'core';
     apiClient.questionId = '1234';
     apiClient.operationId = 'abcd';
-
     apiClient.callApi(url, options);
     // then
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
@@ -61,6 +61,7 @@ describe('ApiServiceClient', () => {
           'x-make-question': '1234',
           'x-make-question-id': '1234',
           'x-make-source': 'core',
+          'x-make-location': 'unknown_location /',
           ...options.headers,
         },
       },
@@ -95,5 +96,33 @@ describe('ApiServiceClient', () => {
     expect(apiClient.operationId).toBe('');
     apiClient.operationId = 'abcd';
     expect(apiClient.operationId).toBe('abcd');
+  });
+});
+
+describe('getLocationContext', () => {
+  it('get location context default', () => {
+    expect(getLocationContext('/FR-fr')).toBe('unknown_location /FR-fr');
+  });
+
+  it('get location context ROUTE_CONSULTATION', () => {
+    expect(
+      getLocationContext('/FR-fr/consultation/foo/consultation', 'abcd')
+    ).toBe('question_page abcd');
+  });
+
+  it('get location context ROUTE_SEQUENCE', () => {
+    expect(
+      getLocationContext('/FR-fr/consultation/foo/selection', 'abcd')
+    ).toBe('sequence abcd');
+  });
+
+  it('get location context ROUTE_PROPOSAL', () => {
+    expect(
+      getLocationContext(
+        '/FR-fr/consultation/foo/proposal/bar/2',
+        undefined,
+        'abcd'
+      )
+    ).toBe('proposal_page abcd');
   });
 });
