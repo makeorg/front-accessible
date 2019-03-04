@@ -1,8 +1,11 @@
 import React from 'react';
+import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
+import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
 import { Presentation } from 'Client/features/consultation/Presentation';
+import { Sharing } from 'Client/features/sharing';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -35,7 +38,12 @@ export const ConsultationPageComponent = (props: Props) => {
           left content
         </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle as="aside">
-          <Presentation />
+          <SidebarTile title={i18n.t('consultation.presentation.title')}>
+            <Presentation />
+          </SidebarTile>
+          <SidebarTile title={i18n.t('consultation.sharing.title')}>
+            <Sharing />
+          </SidebarTile>
         </ConsultationPageSidebarStyle>
       </ConsultationPageWrapperStyle>
     </React.Fragment>

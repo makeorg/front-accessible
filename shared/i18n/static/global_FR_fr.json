@@ -211,6 +211,9 @@
     "presentation": {
       "title": "Pourquoi cette consultation ?",
       "link_text": "En savoir +"
+    },
+    "sharing": {
+      "title": "Partagez cette consultation"
     }
   },
   "weeuropean": {

@@ -8,8 +8,12 @@ export const SidebarTileStyle = styled.div`
   padding: 10px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  margin-top: 20px;
   @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
     padding: 20px;
+  }
+  &:first-child {
+    margin-top: 0;
   }
 `;
 

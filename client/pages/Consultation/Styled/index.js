@@ -25,11 +25,11 @@ export const ConsultationPageWrapperStyle = styled.div`
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
-  background-color: #dddddd;
   flex: 1 1 auto;
 `;
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
+  background-color: #dddddd;
   max-width: 750px;
 `;
 

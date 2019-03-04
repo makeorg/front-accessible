@@ -213,6 +213,9 @@
     "presentation": {
       "title": "Why this consultation ?",
       "link_text": "Find out more"
+    },
+    "sharing": {
+      "title": "Share this consultation"
     }
   }
 }
