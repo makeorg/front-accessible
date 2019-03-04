@@ -17,6 +17,12 @@
   "consultationUrl": "https://about.make.org/about-economiebienveillante",
   "aboutUrl": "https://about.make.org/about-economiebienveillante",
   "sequenceExtraSlidesWording": {
+    "introCard": {
+      "title": "Des milliers de citoyens proposent des solutions pour une économie plus bienveillante",
+      "description": [
+        "Les idées les plus plébiscitées deviendront des solutions concrètes proposées aux entreprises et portées au prochain sommet du G7."
+      ]
+    },
     "finalCard": {
       "title": "Merci pour votre participation !",
       "share": [
@@ -29,8 +35,8 @@
   },
   "sequenceExtraSlidesConfig": {
     "introCard":  {
-      "customTitle": false,
-      "customDescription": false,
+      "customTitle": true,
+      "customDescription": true,
       "partners": false,
       "inPartnershipWith": false,
       "extraLogo": false
