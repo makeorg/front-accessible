@@ -7,6 +7,7 @@ import {
   getProposalLength,
   getIsProposalValidLength,
 } from 'Shared/helpers/proposal';
+import { type Question } from 'Shared/types/question';
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
 import { Tracking } from 'Shared/services/Tracking';
@@ -18,7 +19,7 @@ import { ProposalSubmitFormWrapperStyle } from './Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Object,
+  question: Question,
   /** Content of the proposal */
   content: string,
   /** Length of the proposal */

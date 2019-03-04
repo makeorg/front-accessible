@@ -1,5 +1,5 @@
 import React from 'react';
-import type { QuestionConfiguration } from 'Shared/types/sequence';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import {

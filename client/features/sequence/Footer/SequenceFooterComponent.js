@@ -3,6 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -14,7 +15,7 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: Object,
+  questionConfiguration: QuestionConfiguration,
   /** Method called to track Footer */
   handleTracking: Function,
 };

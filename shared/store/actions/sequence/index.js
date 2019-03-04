@@ -2,6 +2,7 @@
 
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question } from 'Shared/types/question';
 import { type DispatchString } from 'Shared/types/dispatch';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { QuestionService } from 'Shared/api/QuestionService';
@@ -24,7 +25,7 @@ export const unvoteProposal = (proposalId: string) => ({
   payload: { proposalId },
 });
 
-export const loadQuestion = (question: any) => ({
+export const loadQuestion = (question: Question) => ({
   type: actionTypes.QUESTION_LOAD,
   payload: { question },
 });

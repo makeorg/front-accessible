@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { match as TypeMatch } from 'react-router';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question } from 'Shared/types/question';
 import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
@@ -8,8 +10,8 @@ import {
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
-  question: Object,
-  questionConfiguration: Object,
+  question: Question,
+  questionConfiguration: QuestionConfiguration,
   fetchQuestion: () => void,
   fetchQuestionConfiguration: () => void,
   match: TypeMatch,

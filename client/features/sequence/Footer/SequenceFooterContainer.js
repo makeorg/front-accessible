@@ -2,11 +2,12 @@
 
 import * as React from 'react';
 import { Tracking } from 'Shared/services/Tracking';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { SequenceFooterComponent } from './SequenceFooterComponent';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: Object,
+  questionConfiguration: QuestionConfiguration,
 };
 
 /**
