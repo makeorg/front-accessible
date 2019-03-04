@@ -17,6 +17,18 @@
   "consultation": {
     "presentation": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question Comment mieux prendre soin de nos aînés ? Grâce au soutien des partenaires fondateurs Klesia, la fondation Korian, La Poste, l'OCIRP, Primonial REIM, CAREIT, la Croix-Rouge française, les milliers de propositions citoyennes recueillies vont nous permettre de bâtir, aux côtés de l’État, le 1er grand Plan d'actions citoyen en faveur des Aînés. Entreprises, associations, pouvoirs publics, citoyens, nous nous donnons trois ans pour concrétiser les actions de ce Plan et réussir ainsi à mieux prendre soin de nos aînés. "
   },
+  "partners": [
+    {"name": "Klesia", "imageUrl": "/images/operations/aines/partners/klesia.png", "isFounder": true},
+    {"name": "Fondation Korian pour le Bien-vieillir", "imageUrl": "/images/operations/aines/partners/fondation-korian.png", "isFounder": true},
+    {"name": "La Poste", "imageUrl": "/images/operations/aines/partners/la-poste.png", "isFounder": true},
+    {"name": "OCIRP", "imageUrl": "/images/operations/aines/partners/ocirp.png", "isFounder": true},
+    {"name": "CAREIT", "imageUrl": "/images/operations/aines/partners/care-it.png", "isFounder": true},
+    {"name": "Les Talents d'Alphonse", "imageUrl": "/images/operations/aines/partners/les-talents-dalphonse.png", "isFounder": false},
+    {"name": "Siel Bleu", "imageUrl": "/images/operations/aines/partners/siel-bleu.png", "isFounder": false},
+    {"name": "Fondation de l'Armée du Salut", "imageUrl": "/images/operations/aines/partners/armee-du-salut.png", "isFounder": false},
+    {"name": "Croix-Rouge", "imageUrl": "/images/operations/aines/partners/croix-rouge.png", "isFounder": false},
+    {"name": "Association France Dépendance", "imageUrl": "/images/operations/aines/partners/association-france-dependance.png", "isFounder": false}
+  ],
   "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
   "aboutUrl": "https://about.make.org/about-aines",
   "sequenceConfig": {

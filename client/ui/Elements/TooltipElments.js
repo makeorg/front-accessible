@@ -10,6 +10,7 @@ export const TooltipStyle = styled.div`
   background-color: ${BackgroundColors.LightBlack};
   color: ${BasicColors.PureWhite};
   font-size: ${pxToRem('12px')};
+  text-align: center;
   > :after {
     content: '';
     position: absolute;

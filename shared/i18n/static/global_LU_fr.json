@@ -27,7 +27,8 @@
     "propose": "Proposer",
     "click_there": "cliquez ici",
     "open_new_window": "Ouverture dans un nouvel onglet",
-    "loading": "Merci de patienter pendant le chargement."
+    "loading": "Merci de patienter pendant le chargement.",
+    "participate": "Participer"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"
@@ -208,6 +209,17 @@
     "presentation": {
       "title": "Pourquoi cette consultation ?",
       "link_text": "En savoir +"
+    },
+    "sharing": {
+      "title": "Partagez cette consultation"
+    },
+    "partners": {
+      "intro_title": "Une mobilisation d'ampleur",
+      "intro_text": "Des milliers de citoyens s'engagent en participant à la consultation.",
+      "commitment_title": "Nos partenaires s'engagent à nos côtés",
+      "commitment_text": "Ils soutiennent la consultation et le plan d'actions citoyen qui suivra.",
+      "commitment_link": "Voir tous les  partenaires",
+      "founder": "Partenaire Fondateur"
     }
   },
   "weeuropean": {

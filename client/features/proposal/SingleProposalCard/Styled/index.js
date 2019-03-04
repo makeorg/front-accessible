@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
@@ -8,7 +8,7 @@ import {
   MiddleColumnToRowStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { ProposalStyle } from 'Client/features/sequence/Card/Styled';
 
 export const ContentStyle = styled(ProposalStyle)`
@@ -55,14 +55,8 @@ export const FooterContentSeparatorStyle = styled(SeparatorStyle)`
   }
 `;
 
-export const ButtonStyle = styled(RedButtonStyle)`
-  text-decoration: none;
+export const ButtonStyle = styled(LinkAsRedButton)`
   margin: 0 ${pxToRem('5px')};
-  &:hover,
-  &:focus {
-    color: ${BasicColors.PureWhite};
-    text-decoration: none;
-  }
 `;
 
 export const SharingWrapperStyle = styled(MiddleColumnToRowStyle)`
