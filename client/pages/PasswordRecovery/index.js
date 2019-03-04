@@ -3,6 +3,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import 'url-search-params-polyfill';
+import { type Question } from 'Shared/types/question';
 import { PasswordRecovery } from 'Client/features/auth/PasswordRecovery';
 import {
   PasswordRecoveryWrapperStyle,
@@ -11,7 +12,7 @@ import {
 
 type Props = {
   passwordRecovery: Object,
-  question: Object,
+  question: Question,
   match: Object,
 };
 

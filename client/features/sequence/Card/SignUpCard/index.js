@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { type SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
+import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { SignUpCardComponent } from './SignUpCardComponent';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Object,
+  question: Question,
   /** Object with Static properties used to configure the Sign Up Card */
   configuration: SignUpCardConfig,
   /** Object with Static properties used to customise the wording of the Sign Up Card */

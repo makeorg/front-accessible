@@ -3,6 +3,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question } from 'Shared/types/question';
 import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
@@ -14,8 +16,8 @@ import { SequencePageContentLoader } from './ContentLoader';
 import { SequencePageContentStyle } from './Styled';
 
 type Props = {
-  question: Object,
-  questionConfiguration: Object,
+  question: Question,
+  questionConfiguration: QuestionConfiguration,
   fetchQuestion: Function,
   fetchQuestionConfiguration: Function,
   match: TypeMatch,

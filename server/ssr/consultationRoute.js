@@ -22,8 +22,8 @@ export const consultationRoute = async (req, res) => {
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
 
     routeState = {
-      consultation: {
-        ...initialState.consultation,
+      sequence: {
+        ...initialState.sequence,
         question,
         questionConfiguration,
       },

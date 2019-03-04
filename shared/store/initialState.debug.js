@@ -15,7 +15,6 @@ export const initialStateDebug = {
     }, */
     votedProposalIds: [],
   },
-  consultation: {},
   user: {
     /*
     passwordRecovery: {

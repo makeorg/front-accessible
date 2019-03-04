@@ -7,10 +7,6 @@ Object {
     "isLoggedIn": false,
     "user": undefined,
   },
-  "consultation": Object {
-    "question": undefined,
-    "questionConfiguration": undefined,
-  },
   "notification": Object {
     "contentType": undefined,
   },

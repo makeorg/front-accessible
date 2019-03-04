@@ -2,13 +2,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { type PushProposalCardConfig } from 'Shared/types/card';
+import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Object,
+  question: Question,
   /** Object with Static properties used to configure the Push Proposal Card */
   configuration: PushProposalCardConfig,
   /** Index of the card */
