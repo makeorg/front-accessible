@@ -77,6 +77,7 @@ class ApiServiceSharedClass {
       method: options.method,
       headers,
       data: options.body,
+      params: options.params,
       withCredentials: true,
     })
       .then(response => response.data)

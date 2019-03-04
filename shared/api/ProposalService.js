@@ -1,14 +1,21 @@
 /* @flow */
 
-import { type ApiServiceHeaders } from './type';
 import { ApiService } from './ApiService';
+import {
+  type ApiServiceHeaders,
+  type ApiSearchProposalsResponseType,
+} from '../types/api';
 
-const PATH_PROPOSAL_PROPOSE = '/proposals';
-const PATH_PROPOSAL_GET = '/proposals/:proposalId';
+export const PATH_PROPOSALS = '/proposals';
+export const PATH_PROPOSAL_GET = '/proposals/:proposalId';
+
+const SORT_ALGORITHM = {
+  TAGGED_FIRST: 'taggedFirst',
+};
 
 export class ProposalService {
   static propose(content: string, questionId: string): Promise<Object> {
-    return ApiService.callApi(PATH_PROPOSAL_PROPOSE, {
+    return ApiService.callApi(PATH_PROPOSALS, {
       method: 'POST',
       body: JSON.stringify({
         content,
@@ -28,5 +35,26 @@ export class ProposalService {
         proposalId,
       }
     );
+  }
+
+  static searchProposals(
+    questionId: string,
+    limit?: number = 20,
+    skip?: number = 0,
+    tagsIds?: string[],
+    headers?: ApiServiceHeaders = {}
+  ): Promise<ApiSearchProposalsResponseType> {
+    return ApiService.callApi(PATH_PROPOSALS, {
+      method: 'GET',
+      headers,
+      params: {
+        sortAlgorithm: SORT_ALGORITHM.TAGGED_FIRST,
+        questionId,
+        isRandom: true,
+        limit,
+        skip,
+        tagsIds,
+      },
+    });
   }
 }

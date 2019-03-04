@@ -3,25 +3,41 @@ import { Logger } from 'Shared/services/Logger';
 import { ApiServiceShared, API_URL, handleErrors } from './ApiService.shared';
 
 describe('ApiServiceShared', () => {
-  afterEach(() => {
+  const headers = {
+    'Content-Type': 'application/json; charset=UTF-8',
+    'x-hostname': 'localhost',
+    'x-make-app-name': undefined,
+    'x-make-location': 'core',
+  };
+
+  beforeEach(() => {
     axios.mockClear();
   });
 
   describe('callApi', () => {
-    it('with headers and params', () => {
+    it('with post method and headers', () => {
       const url = '/tracking/front';
       const options = { method: 'POST' };
 
       ApiServiceShared.callApi(url, options);
       expect(axios).toHaveBeenNthCalledWith(1, API_URL + url, {
         data: undefined,
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-          'x-hostname': 'localhost',
-          'x-make-app-name': undefined,
-          'x-make-location': 'core',
-        },
+        headers,
         method: 'POST',
+        withCredentials: true,
+      });
+    });
+
+    it('with get method and headers', () => {
+      const url = '/tracking/front';
+      const options = { method: 'GET', params: { value: 'value' } };
+
+      ApiServiceShared.callApi(url, options);
+      expect(axios).toHaveBeenNthCalledWith(1, API_URL + url, {
+        data: undefined,
+        params: { value: 'value' },
+        headers,
+        method: 'GET',
         withCredentials: true,
       });
     });
