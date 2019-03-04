@@ -81,7 +81,8 @@ export const buildCards = (
   extraSlidesConfig: ExtraSlidesConfig,
   extraSlidesWording: ExtraSlidesWording,
   isLoggedIn: boolean,
-  hasProposed: boolean
+  hasProposed: boolean,
+  canPropose: boolean
 ): Array<CardType> => {
   let cards: Array<CardType> = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
@@ -89,7 +90,7 @@ export const buildCards = (
   }));
   let cardOffset = 0;
 
-  if (extraSlidesConfig.pushProposal && !hasProposed) {
+  if (extraSlidesConfig.pushProposal && canPropose && !hasProposed) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposal,
