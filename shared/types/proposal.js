@@ -34,6 +34,18 @@ export type VotesPercentObject = {
   neutral: number,
 };
 
+export type TagType = {
+  tagId: string,
+  label: string,
+  display: boolean,
+};
+
+export type OrganisationType = {
+  organisationId: string,
+  organisationName: string,
+  organisationSlug: string,
+};
+
 export type ProposalType = {
   id: string,
   userId: string,
@@ -47,11 +59,11 @@ export type ProposalType = {
   trending: string,
   labels: any[],
   author: Author,
-  organisations: any[],
+  organisations: OrganisationType[],
   country: string,
   language: string,
   themeId: string,
-  tags: any[],
+  tags: TagType[],
   myProposal: boolean,
   idea: string,
   questionId: string,
