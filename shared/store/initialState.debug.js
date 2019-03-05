@@ -5,6 +5,11 @@ export const initialStateDebug = {
     country: 'FR',
     translations: require('../../server/staticData/i18n/fr-FR.json'),
   },
+  authentification: {
+    errors: [],
+    isLoggedIn: false,
+    user: undefined,
+  },
   proposal: {
     length: 8,
   },

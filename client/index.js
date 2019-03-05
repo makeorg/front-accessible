@@ -10,11 +10,10 @@ import { AppContainer } from 'Client/app';
 import { FacebookTracking } from 'Shared/services/Trackers/FacebookTracking';
 import { env } from 'Shared/env';
 import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
-import { configureStore } from 'Shared/store';
+import { configureStore, authenticationState } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
-import { UserService } from 'Shared/api/UserService';
 import { DateHelper } from 'Shared/helpers/date';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
@@ -61,30 +60,16 @@ FacebookTracking.init();
 const apiClient = new ApiServiceClient();
 ApiService.strategy = apiClient;
 
-const initStore = async state => {
-  let authentificationState;
-  try {
-    const user = await UserService.me();
-    authentificationState = {
-      ...state.authentification,
-      isLoggedIn: !!user,
-      user,
-    };
-  } catch (error) {
-    authentificationState = {
-      isLoggedIn: false,
-      user: undefined,
-    };
-  }
-
-  return configureStore({
-    ...state,
-    authentification: authentificationState,
-  });
-};
-
 const initApp = async state => {
-  const store = await initStore(state);
+  const authentificationState = await authenticationState();
+
+  const store = configureStore({
+    ...state,
+    authentification: {
+      ...state.authentification,
+      ...authentificationState,
+    },
+  });
 
   if (state.sequence && state.sequence.question) {
     apiClient.questionId = state.sequence.question.questionId;
