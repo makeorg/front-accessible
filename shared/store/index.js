@@ -1,3 +1,5 @@
+import { UserService } from 'Shared/api/UserService';
+
 /* @flow */
 
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -16,3 +18,21 @@ export function configureStore(initialState: Object = {}) {
     composeEnhancers(applyMiddleware(thunk))
   );
 }
+
+export const authenticationState = async () => {
+  let authentificationState;
+  try {
+    const user = await UserService.me();
+    authentificationState = {
+      isLoggedIn: !!user,
+      user,
+    };
+  } catch (error) {
+    authentificationState = {
+      isLoggedIn: false,
+      user: undefined,
+    };
+  }
+
+  return authentificationState;
+};
