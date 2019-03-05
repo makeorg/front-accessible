@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use(favicon(FAVICON_PATH));
 app.use(cookiesMiddleware());
 app.use(headersResponseMiddleware);
-app.use(cspMiddleware);
+// apply csp everywhere except on styleguide /doc
+app.use(/^(?!.*doc).*$/, cspMiddleware);
 
 initRoutes(app);
 

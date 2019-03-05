@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Spinner } from 'Client/ui/Spinner';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { SingleProposalCardComponent } from 'Client/features/proposal/SingleProposalCard';
+import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard';
 import { SingleProposalSharingComponent } from 'Client/features/proposal/SingleProposalCard/Sharing';
 
 type Props = {
@@ -26,7 +26,7 @@ export const ProposalPageContentLoader = (props: Props) => {
 
   return (
     <React.Fragment>
-      <SingleProposalCardComponent {...props} />
+      <SingleProposalCard {...props} />
       <SingleProposalSharingComponent />
     </React.Fragment>
   );

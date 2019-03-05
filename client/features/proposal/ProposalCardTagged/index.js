@@ -1,0 +1,1 @@
+export { ProposalCardTagged } from './ProposalCardTagged';

@@ -1,40 +1,56 @@
+const path = require('path');
+
 module.exports = {
   version: '1.1.0',
   template: {
-    favicon: '/images/favicon.ico'
+    favicon: '/images/favicon.ico',
+  },
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'styleguide.wrapper'),
   },
   sections: [
     {
       name: 'Installation',
       content: 'docs/installation.md',
-      description: 'How to install Make.org Front End & useful command lines'
+      description: 'How to install Make.org Front End & useful command lines',
     },
     {
       name: 'Standards',
       content: 'docs/standards.md',
-      description: 'Code standards used on Make.org Front End'
+      description: 'Code standards used on Make.org Front End',
     },
     {
       name: 'Editors',
-      content: 'docs/editors.md'
+      content: 'docs/editors.md',
     },
     {
       name: 'Sequence',
-      content: 'docs/sequence.md'
+      content: 'docs/sequence.md',
     },
     {
       name: 'UI',
       description: 'UI',
       components: 'client/ui/**/index.js',
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
-      usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
-    }
+      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+    },
+    {
+      name: 'Features',
+      description: 'Features',
+      components: [
+        'client/features/proposal/SingleProposalCard/index.js',
+        'client/features/proposal/ProposalCardTagged/index.js',
+        'client/features/sequence/Card/ProposalCard/index.js',
+      ],
+      exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
+      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+    },
   ],
   pagePerSection: true,
   ignore: ['client/ui/**/Styled/*.js'],
   ribbon: {
     url: 'https://gitlab.com/makeorg/platform/front-accessible',
-    text: 'Fork me on GitLab'
+    text: 'Fork me on GitLab',
   },
   theme: {
     color: {
@@ -60,30 +76,31 @@ module.exports = {
       codeOperator: '#9a6e3a',
       codeKeyword: '#1673b1',
       codeFunction: '#DD4A68',
-      codeVariable: '#e90'
+      codeVariable: '#e90',
     },
     fontFamily: {
-      base: '"Helvetica Neue", "Roboto", sans-serif'
+      base: '"Helvetica Neue", "Roboto", sans-serif',
     },
-    sidebarWidth: 300
+    sidebarWidth: 300,
   },
   webpackConfig: {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js|jsx)$/,
           exclude: [/node_modules/],
-          loader: 'babel-loader'
-        }, {
+          loader: 'babel-loader',
+        },
+        {
           test: /\.(jpe?g|woff|woff2|tiff|gif|png|svg)$/,
           use: {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[hash].[ext]'
-            }
-          }
-        }
-      ]
-    }
-  }
+              name: '[path][name].[hash].[ext]',
+            },
+          },
+        },
+      ],
+    },
+  },
 };

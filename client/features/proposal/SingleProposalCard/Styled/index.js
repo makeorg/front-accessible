@@ -1,41 +1,15 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import {
-  BasicColors,
-  TextColors,
-  ShadowColors,
-} from 'Client/app/assets/vars/Colors';
-import {
-  Breakpoints,
-  Layouts,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
+import { BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   MiddleColumnStyle,
   MiddleColumnToRowStyle,
 } from 'Client/ui/Elements/FlexElements';
-import { Large, SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ProposalStyle } from 'Client/features/sequence/Card/Styled';
-
-export const CardStyle = styled.section`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  flex-grow: 1;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 1px 13px 0 ${ShadowColors.BlackZeroThreOpacity};
-  overflow: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    max-height: ${pxToRem('550px')};
-    padding: ${pxToRem(DefaultPadding.Desktop)};
-  }
-`;
 
 export const ContentStyle = styled(ProposalStyle)`
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
@@ -46,13 +20,6 @@ export const ContentStyle = styled(ProposalStyle)`
 
 export const InnerProposalStyle = styled(MiddleColumnStyle)`
   width: 100%;
-`;
-
-export const ContentSeparatorStyle = styled(Large)`
-  margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    margin: ${pxToRem('20px')} 0;
-  }
 `;
 
 export const FooterStyle = styled.footer`
