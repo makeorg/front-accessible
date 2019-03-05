@@ -2,6 +2,7 @@ import React from 'react';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
+import { Presentation } from 'Client/features/consultation/Presentation';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -22,7 +23,7 @@ export const ConsultationPageComponent = (props: Props) => {
   const { metas } = questionConfiguration.wording;
 
   return (
-    <React.Fragment>
+    <React.Fragment aria-describedby="presentation_text">
       <MetaTags
         title={metas.title}
         description={metas.description}
@@ -34,7 +35,7 @@ export const ConsultationPageComponent = (props: Props) => {
           left content
         </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle as="aside">
-          sidebar
+          <Presentation />
         </ConsultationPageSidebarStyle>
       </ConsultationPageWrapperStyle>
     </React.Fragment>

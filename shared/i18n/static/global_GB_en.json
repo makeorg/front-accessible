@@ -204,6 +204,12 @@
       "submit_label": "Save changes"
     }
   },
+  "consultation": {
+    "presentation": {
+      "title": "Why this consultation ?",
+      "link_text": "Find out more"
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",

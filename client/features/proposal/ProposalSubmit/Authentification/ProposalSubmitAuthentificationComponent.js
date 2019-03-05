@@ -17,10 +17,7 @@ import {
   SecondLevelTitleStyle,
   ThirdLevelTtitleStyle,
 } from 'Client/ui/Elements/TitleElements';
-import {
-  AltDescriptionStyle,
-  DescriptionLinkStyle,
-} from 'Client/ui/Elements/DescriptionElements';
+import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
@@ -29,11 +26,11 @@ import { ProposalSubmitAuthentificationWrapperStyle } from '../Styled';
 
 type Props = {
   /** Method called to render Register Component in Sliding Pannel */
-  handleRegisterClick: Function,
+  handleRegisterClick: () => void,
   /** Method called to render Register Component in Sliding Pannel */
-  handleLoginClick: Function,
-  /** Method called to track DescriptionLinkStyle */
-  trackPersonnalDataLink: Function,
+  handleLoginClick: () => void,
+  /** Method called to track link */
+  trackPersonnalDataLink: () => void,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
 };
@@ -75,11 +72,12 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           {i18n.t('common.email')}
         </EmailButtonStyle>
       </SmallButtonWrapperStyle>
-      <AltDescriptionStyle>
+      <CenterParagraphStyle>
         {i18n.t('authentification.commitment')}
-        <DescriptionLinkStyle
+        <a
           href={localizeDataPolicyLink()}
           target="_blank"
+          rel="noopener noreferrer"
           tabIndex={isPannelOpen ? -1 : 0}
           onClick={trackPersonnalDataLink}
         >
@@ -90,8 +88,8 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
               icon={faExternalLinkAlt}
             />
           </IconInButtonStyle>
-        </DescriptionLinkStyle>
-      </AltDescriptionStyle>
+        </a>
+      </CenterParagraphStyle>
       <Separators.Small aria-hidden />
       <SecondLevelTitleStyle>{i18n.t('login.title')}</SecondLevelTitleStyle>
       <ButtonsWrapperStyle>

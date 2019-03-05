@@ -2,7 +2,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { DescriptionStyle } from 'Client/ui/Elements/DescriptionElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import {
   NotFoundPageContentStyle,
   NotFoundPageInnerStyle,
@@ -16,7 +16,7 @@ export const NotFoundPage = () => (
     <NotFoundPageInnerStyle>
       <NotFoundIntroStyle>{i18n.t('not_found.intro')}</NotFoundIntroStyle>
       <NotFoundTitleStyle>{i18n.t('not_found.title')}</NotFoundTitleStyle>
-      <DescriptionStyle>{i18n.t('not_found.description')}</DescriptionStyle>
+      <ParagraphStyle>{i18n.t('not_found.description')}</ParagraphStyle>
     </NotFoundPageInnerStyle>
   </NotFoundPageContentStyle>
 );

@@ -211,5 +211,11 @@
       "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
       "submit_label": "Enregistrer les modifications"
     }
+  },
+  "consultation": {
+    "presentation": {
+      "title": "Pourquoi cette consultation ?",
+      "link_text": "En savoir +"
+    }
   }
 }

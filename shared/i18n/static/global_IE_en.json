@@ -194,6 +194,22 @@
       "error_message": "Your password could not be changed."
     }
   },
+  "profile": {
+    "password_update": {
+      "title": "Modify your password",
+      "password_label": "Current password",
+      "password_placeholder": "Current password (mandatory)",
+      "newpassword_label": "New password",
+      "newpassword_placeholder": "New password (mandatory)",
+      "submit_label": "Save changes"
+    }
+  },
+  "consultation": {
+    "presentation": {
+      "title": "Why this consultation ?",
+      "link_text": "Find out more"
+    }
+  },
   "weeuropean": {
     "wording": {
       "title": "WeEuropeans",
