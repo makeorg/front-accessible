@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, s MAKE.ORG i CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
-        "nextCTA": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
+        "nextCtaText": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
       },
       "finalCard": {
         "title": "Zahvaljujemo vam na sudjelovanju",
@@ -230,8 +230,8 @@
           "Želite li napraviti korak više kako biste udahnuli novi život Europi?",
           "Pozovite svoje bližnje i/ili članove vaše zajednice na sudjelovanje"
         ],
-        "learn_more_title": "Saznajte sve o projektu WeEuropeans",
-        "learn_more_button": "Saznati više"
+        "learnMoreTitle": "Saznajte sve o projektu WeEuropeans",
+        "learnMoreTextButton": "Saznati više"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, s MAKE.ORG i CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
-        "nextCTA": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
+        "nextCtaText": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
       },
       "finalCard": {
         "title": "Zahvaljujemo vam na sudjelovanju",
@@ -271,8 +271,8 @@
           "Želite li napraviti korak više kako biste udahnuli novi život Europi?",
           "Pozovite svoje bližnje i/ili članove vaše zajednice na sudjelovanje"
         ],
-        "learn_more_title": "Saznajte sve o projektu WeEuropeans",
-        "learn_more_button": "Saznati više"
+        "learnMoreTitle": "Saznajte sve o projektu WeEuropeans",
+        "learnMoreTextButton": "Saznati više"
       }
     }
   }

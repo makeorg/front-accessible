@@ -9,7 +9,7 @@ import {
 
 type Props = {
   /** Special wording for Final Card's Sharinng section */
-  text: ?Array<string>,
+  text?: Array<string>,
   /** Tabindex for interactive items */
   tabIndex: number,
 };

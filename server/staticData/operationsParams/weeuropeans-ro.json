@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
-      "description": [
-        "Luați poziție pentru aceste soluții sau faceți propunerile dvs.",
-        "Soluțiile cu susținerea cea mai mare vor trebui apărate de candidați la alegerile europene."
-      ]
-    },
-    "signUpCard": {
-      "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
-      "nextCTA": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
-    },
-    "finalCard": {
-      "title": "Vă mulțumim pentru participare.",
-      "share": [
-        "Doriți să mergeți mai departe pentru reinventarea Europei?",
-        "Invitați-i pe prietenii dvs. și/sau comunitatea dvs. să participe"
-      ],
-      "learn_more_title": "Descoperiți întregul proiect WeEuropeans",
-      "learn_more_button": "Mai multe informații"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/ro/ro/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
+      "description": [
+        "Luați poziție pentru aceste soluții sau faceți propunerile dvs.",
+        "Soluțiile cu susținerea cea mai mare vor trebui apărate de candidați la alegerile europene."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
+      "nextCtaText": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/ro/ro/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Vă mulțumim pentru participare.",
+      "share": [
+        "Doriți să mergeți mai departe pentru reinventarea Europei?",
+        "Invitați-i pe prietenii dvs. și/sau comunitatea dvs. să participe"
+      ],
+      "learnMoreTitle": "Descoperiți întregul proiect WeEuropeans",
+      "learnMoreTextButton": "Mai multe informații"
     }
   },
   "footer": {

@@ -23,13 +23,12 @@
   "aboutUrl": "https://weeuropeans.eu/fr/fr/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": false,
+      "enabled": true,
       "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
       "description": [
         "Prenez position sur ces solutions ou proposez les vôtres.",
         "Les idées les plus massivement soutenues devront être défendues par les candidats aux élections européennes."
-      ],
-      "partners": []
+      ]
     },
     "pushProposalCard": {
       "enabled": false

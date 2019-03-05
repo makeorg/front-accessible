@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
-      "description": [
-        "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savo sprendimus.",
-        "Daugiausiai palaikymo susilaukusias idėjas turės palaikyti kandidatai Europos Parlamento rinkimuose."
-      ]
-    },
-    "signUpCard": {
-      "title": "Gaukite apklausos rezultatus ir informaciją apie būsimas veiklas",
-      "nextCTA": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus."
-    },
-    "finalCard": {
-      "title": "Dėkojame, kad dalyvavote",
-      "share": [
-        "Norite nuveikti dar daugiau, kad iš naujo atrastume Europą?",
-        "Paraginkite dalyvauti Jums artimus žmones ir (arba) Jūsų bendruomenės narius"
-      ],
-      "learn_more_title": "Sužinokite viską apie „WeEuropeans“ projektą",
-      "learn_more_button": "Daugiau informacijos"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/lt/lt/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
+      "description": [
+        "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savo sprendimus.",
+        "Daugiausiai palaikymo susilaukusias idėjas turės palaikyti kandidatai Europos Parlamento rinkimuose."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Gaukite apklausos rezultatus ir informaciją apie būsimas veiklas",
+      "nextCtaText": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/lt/lt/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Dėkojame, kad dalyvavote",
+      "share": [
+        "Norite nuveikti dar daugiau, kad iš naujo atrastume Europą?",
+        "Paraginkite dalyvauti Jums artimus žmones ir (arba) Jūsų bendruomenės narius"
+      ],
+      "learnMoreTitle": "Sužinokite viską apie „WeEuropeans“ projektą",
+      "learnMoreTextButton": "Daugiau informacijos"
     }
   },
   "footer": {

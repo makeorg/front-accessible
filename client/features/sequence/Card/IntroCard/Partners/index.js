@@ -47,7 +47,7 @@ const PartnersList = (props: ListProps) => {
 
 type Props = {
   /** Array with partners propeties */
-  partners: ?Array<PartnerItem>,
+  partners?: Array<PartnerItem>,
 };
 
 /**

@@ -16,39 +16,31 @@
   },
   "consultationUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
   "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Les jeunes des Hauts-de-France proposent des solutions.",
-      "description": [
-        "Prenez position sur ces solutions ou proposez les vôtres.",
-        "Les plus soutenues seront mises en oeuvre par la Région."
-      ]
-    },
-    "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation",
-      "nextCTA": "Non merci, je ne souhaite pas être informé des résultats"
-    }
-  },
   "sequenceConfig": {
     "introCard": {
-      "customTitle": true,
-      "customDescription": true,
+      "enabled": true,
       "partners": [
         {
           "name": "Région Hauts-de-France+",
           "imageUrl": "/images/operations/jeunesse-hautsdefrance/sequence/hdf.svg"
         }
       ],
-      "inPartnershipWith": true,
-      "extraLogo": false
+      "title": "Les jeunes des Hauts-de-France proposent des solutions.",
+      "description": [
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les plus soutenues seront mises en oeuvre par la Région."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": true
+      "enabled": true,
+      "title": "Soyez informés des résultats de la consultation",
+      "nextCtaText": "Non merci, je ne souhaite pas être informé des résultats"
     },
-    "pushProposal": true,
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
       "withSharing": false
     }

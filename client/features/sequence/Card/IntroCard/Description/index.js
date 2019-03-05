@@ -5,7 +5,7 @@ import { IntroParagraphStyle } from '../../Styled/Content';
 
 type Props = {
   /** Object with description paragraphs */
-  description: ?Array<string>,
+  description?: Array<string>,
 };
 
 /**

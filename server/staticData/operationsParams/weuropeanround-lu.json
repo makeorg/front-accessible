@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
-      "description": [
-        "Prenez position sur ces solutions ou proposez les vôtres.",
-        "Les idées les plus massivement soutenues devront être défendues par les candidats aux élections européennes."
-      ]
-    },
-    "signUpCard": {
-      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
-      "nextCTA": "Non merci, je ne souhaite pas être informé(e) des résultats."
-    },
-    "finalCard": {
-      "title": "Merci pour votre participation !",
-      "share": [
-        "Vous souhaitez aller plus loin pour réinventer l'Europe ?",
-        "Invitez vos proches et/ou votre communauté à participer"
-      ],
-      "learn_more_title": "Découvrez tout du projet We Europeans",
-      "learn_more_button": "En savoir +"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/lu/fr/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
+      "description": [
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les idées les plus massivement soutenues devront être défendues par les candidats aux élections européennes."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+      "nextCtaText": "Non merci, je ne souhaite pas être informé(e) des résultats."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/lu/fr/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Merci pour votre participation !",
+      "share": [
+        "Vous souhaitez aller plus loin pour réinventer l'Europe ?",
+        "Invitez vos proches et/ou votre communauté à participer"
+      ],
+      "learnMoreTitle": "Découvrez tout du projet We Europeans",
+      "learnMoreTextButton": "En savoir +"
     }
   },
   "footer": {

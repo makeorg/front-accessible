@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, met MAKE.ORG en CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Ontvang de resultaten van de raadpleging en ontvang informatie over hoe het verder gaat",
-        "nextCTA": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
+        "nextCtaText": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
       },
       "finalCard": {
         "title": "Hartelijk dank voor uw deelname",
@@ -230,8 +230,8 @@
           "Wilt u nog meer helpen om Europa te verbeteren?",
           "Nodig uw vrienden, familie en/of gemeenschap uit om deel te nemen"
         ],
-        "learn_more_title": "Ontdek wat het WeEuropeans-project inhoudt",
-        "learn_more_button": "Meer informatie"
+        "learnMoreTitle": "Ontdek wat het WeEuropeans-project inhoudt",
+        "learnMoreTextButton": "Meer informatie"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, met MAKE.ORG en CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Ontvang de resultaten van de raadpleging en ontvang informatie over hoe het verder gaat",
-        "nextCTA": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
+        "nextCtaText": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
       },
       "finalCard": {
         "title": "Hartelijk dank voor uw deelname",
@@ -271,8 +271,8 @@
           "Wilt u nog meer helpen om Europa te verbeteren?",
           "Nodig uw vrienden, familie en/of gemeenschap uit om deel te nemen"
         ],
-        "learn_more_title": "Ontdek wat het WeEuropeans-project inhoudt",
-        "learn_more_button": "Meer informatie"
+        "learnMoreTitle": "Ontdek wat het WeEuropeans-project inhoudt",
+        "learnMoreTextButton": "Meer informatie"
       }
     }
   }

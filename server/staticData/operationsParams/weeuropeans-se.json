@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
-      "description": [
-        "Ta ställning till lösningarna och ge egna förslag.",
-        "De idéer som får störst stöd kommer att försvaras av kandidaterna till EU-valet."
-      ]
-    },
-    "signUpCard": {
-      "title": "Få resultaten av samrådet och få information om kommande kampanjer",
-      "nextCTA": "Nej tack, jag vill inte få information om resultaten."
-    },
-    "finalCard": {
-      "title": "Tack för din medverkan",
-      "share": [
-        "Vill du gå längre för att återuppfinna Europa?",
-        "Bjud in dina närstående och/eller din intressegrupp att delta"
-      ],
-      "learn_more_title": "Upptäck allt om projektet WeEuropeans",
-      "learn_more_button": "Mer information"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/se/sv/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
+      "description": [
+        "Ta ställning till lösningarna och ge egna förslag.",
+        "De idéer som får störst stöd kommer att försvaras av kandidaterna till EU-valet."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Få resultaten av samrådet och få information om kommande kampanjer",
+      "nextCtaText": "Nej tack, jag vill inte få information om resultaten."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/se/sv/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Tack för din medverkan",
+      "share": [
+        "Vill du gå längre för att återuppfinna Europa?",
+        "Bjud in dina närstående och/eller din intressegrupp att delta"
+      ],
+      "learnMoreTitle": "Upptäck allt om projektet WeEuropeans",
+      "learnMoreTextButton": "Mer information"
     }
   },
   "footer": {

@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Duizenden burgers stellen oplossingen voor om Europa te vernieuwen.",
-      "description": [
-        "Neem een standpunt in over deze oplossingen of stel zelf oplossingen voor.",
-        "De ideeën met de grootste aanhang moeten worden verdedigd door de kandidaten voor de Europese verkiezingen."
-      ]
-    },
-    "signUpCard": {
-      "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
-      "nextCTA": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
-    },
-    "finalCard": {
-      "title": "Bedankt voor uw deelname",
-      "share": [
-        "Wilt u meer doen om Europa te vernieuwen?",
-        "Nodig uw familie, vrienden en/of gemeenschap uit om deel te nemen"
-      ],
-      "learn_more_title": "Ontdek alles over het project WeEuropeans",
-      "learn_more_button": "Meer informatie"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/be/nl/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Duizenden burgers stellen oplossingen voor om Europa te vernieuwen.",
+      "description": [
+        "Neem een standpunt in over deze oplossingen of stel zelf oplossingen voor.",
+        "De ideeën met de grootste aanhang moeten worden verdedigd door de kandidaten voor de Europese verkiezingen."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
+      "nextCtaText": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/be/nl/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Bedankt voor uw deelname",
+      "share": [
+        "Wilt u meer doen om Europa te vernieuwen?",
+        "Nodig uw familie, vrienden en/of gemeenschap uit om deel te nemen"
+      ],
+      "learnMoreTitle": "Ontdek alles over het project WeEuropeans",
+      "learnMoreTextButton": "Meer informatie"
     }
   },
   "footer": {

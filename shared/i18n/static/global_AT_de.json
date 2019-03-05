@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, mit MAKE.ORG und CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tausende von Bürgerinnen und Bürgern haben Lösungsvorschläge, um Europa neu zu gestalten.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Lassen Sie sich die Ergebnisse der Umfrage zukommen und bleiben Sie auf dem Laufenden über zukünftige Maßnahmen",
-        "nextCTA": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
+        "nextCtaText": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
       },
       "finalCard": {
         "title": "Vielen Dank für Ihre Teilnahme",
@@ -230,8 +230,8 @@
           "Sie möchten bei der Umgestaltung von Europa noch einen Schritt weiter gehen? ",
           "Laden Sie Ihre Bekannten und/oder Ihre Familie zum Teilnehmen ein"
         ],
-        "learn_more_title": "Entdecken Sie alles zum Projekt WeEuropeans",
-        "learn_more_button": "Weitere Infos"
+        "learnMoreTitle": "Entdecken Sie alles zum Projekt WeEuropeans",
+        "learnMoreTextButton": "Weitere Infos"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, mit MAKE.ORG und CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tausende von Bürgerinnen und Bürgern haben Lösungsvorschläge, um Europa neu zu gestalten.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Lassen Sie sich die Ergebnisse der Umfrage zukommen und bleiben Sie auf dem Laufenden über zukünftige Maßnahmen",
-        "nextCTA": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
+        "nextCtaText": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
       },
       "finalCard": {
         "title": "Vielen Dank für Ihre Teilnahme",
@@ -271,8 +271,8 @@
           "Sie möchten bei der Umgestaltung von Europa noch einen Schritt weiter gehen? ",
           "Laden Sie Ihre Bekannten und/oder Ihre Familie zum Teilnehmen ein"
         ],
-        "learn_more_title": "Entdecken Sie alles zum Projekt WeEuropeans",
-        "learn_more_button": "Weitere Infos"
+        "learnMoreTitle": "Entdecken Sie alles zum Projekt WeEuropeans",
+        "learnMoreTextButton": "Weitere Infos"
       }
     }
   }

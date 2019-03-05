@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, a MAKE.ORG és CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Több ezer polgár javasol megoldásokat Európa újragondolásával kapcsolatban.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
-        "nextCTA": "Köszönöm, de nem szeretnék értesülni az eredményekről."
+        "nextCtaText": "Köszönöm, de nem szeretnék értesülni az eredményekről."
       },
       "finalCard": {
         "title": "Köszönjük a részvételét!",
@@ -230,8 +230,8 @@
           "Szeretne többet tenni Európa újragondolásával kapcsolatban?",
           "Hívja meg családját és/vagy közösségét, hogy ők is vegyenek részt"
         ],
-        "learn_more_title": "Fedezze fel az összes WeEuropeans projektet",
-        "learn_more_button": "Tudjon meg többet"
+        "learnMoreTitle": "Fedezze fel az összes WeEuropeans projektet",
+        "learnMoreTextButton": "Tudjon meg többet"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, a MAKE.ORG és CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Több ezer polgár javasol megoldásokat Európa újragondolásával kapcsolatban.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
-        "nextCTA": "Köszönöm, de nem szeretnék értesülni az eredményekről."
+        "nextCtaText": "Köszönöm, de nem szeretnék értesülni az eredményekről."
       },
       "finalCard": {
         "title": "Köszönjük a részvételét!",
@@ -271,8 +271,8 @@
           "Szeretne többet tenni Európa újragondolásával kapcsolatban?",
           "Hívja meg családját és/vagy közösségét, hogy ők is vegyenek részt"
         ],
-        "learn_more_title": "Fedezze fel az összes WeEuropeans projektet",
-        "learn_more_button": "Tudjon meg többet"
+        "learnMoreTitle": "Fedezze fel az összes WeEuropeans projektet",
+        "learnMoreTextButton": "Tudjon meg többet"
       }
     }
   }

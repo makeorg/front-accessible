@@ -16,21 +16,9 @@
   },
   "consultationUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
   "aboutUrl": "https://about.make.org/about-plan-climat",
-  "sequenceExtraSlidesWording": {
-    "introCard":  {
-      "description": [
-        "Prenez position sur ces solutions ou proposez les vôtres.",
-        "Les + soutenues seront reprises dans le Plan Climat."
-      ]
-    },
-    "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation"
-    }
-  },
   "sequenceConfig": {
-    "introCard":  {
-      "customTitle": false,
-      "customDescription": true,
+    "introCard": {
+      "enabled": true,
       "partners": [
         {
           "name": "Nice Matin",
@@ -45,16 +33,20 @@
           "imageUrl": "/images/operations/plan-climat/sequence/metropole.jpg"
         }
       ],
-      "inPartnershipWith": true,
-      "extraLogo": false
+      "description": [
+        "Prenez position sur ces solutions ou proposez les vôtres.",
+        "Les + soutenues seront reprises dans le Plan Climat."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": false
+      "enabled": true,
+      "title": "Soyez informés des résultats de la consultation"
     },
-    "pushProposal": true,
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/FR/consultation/plan-climat/consultation",
       "withSharing": false
     }

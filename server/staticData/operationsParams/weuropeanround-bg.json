@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Хиляди граждани предлагат решения за преоткриването на Европа.",
-      "description": [
-        "Вземете отношение по тези решения или предложете Вашите.",
-        "Идеите, намерили най-широка подкрепа, трябва да бъдат защитавани от кандидатите на европейските избори."
-      ]
-    },
-    "signUpCard": {
-      "title": "Получете резултатите от допитването и се информирайте за бъдещи акции",
-      "nextCTA": "Не, благодаря, не желая да се информирам за резултатите."
-    },
-    "finalCard": {
-      "title": "Благодарим Ви за участието",
-      "share": [
-        "Желаете ли да продължите към преоткриването на Европа?",
-        "Поканете Вашите близки и/или общност да участват"
-      ],
-      "learn_more_title": "Открийте всичко за проекта WeEuropeans",
-      "learn_more_button": "Научете повече"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/bg/bg/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Хиляди граждани предлагат решения за преоткриването на Европа.",
+      "description": [
+        "Вземете отношение по тези решения или предложете Вашите.",
+        "Идеите, намерили най-широка подкрепа, трябва да бъдат защитавани от кандидатите на европейските избори."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Получете резултатите от допитването и се информирайте за бъдещи акции",
+      "nextCtaText": "Не, благодаря, не желая да се информирам за резултатите."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/bg/bg/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Благодарим Ви за участието",
+      "share": [
+        "Желаете ли да продължите към преоткриването на Европа?",
+        "Поканете Вашите близки и/или общност да участват"
+      ],
+      "learnMoreTitle": "Открийте всичко за проекта WeEuropeans",
+      "learnMoreTextButton": "Научете повече"
     }
   },
   "footer": {

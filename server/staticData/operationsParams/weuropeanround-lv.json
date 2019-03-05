@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
-      "description": [
-        "Paudiet viedokli par šiem risinājumiem vai sniedziet savus.",
-        "Visvairāk atbalstītās idejas būs jāaizstāv Eiropas vēlēšanu kandidātiem."
-      ]
-    },
-    "signUpCard": {
-      "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
-      "nextCTA": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
-    },
-    "finalCard": {
-      "title": "Paldies par jūsu dalību",
-      "share": [
-        "Vai vēlaties izdarīt vairāk, lai pārveidotu Eiropu?",
-        "Aiciniet piedalīties savus tuviniekus un/vai savas kopienas iedzīvotājus"
-      ],
-      "learn_more_title": "Uzziniet visu par projektu WeEuropeans",
-      "learn_more_button": "Uzzināt vairāk"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/lv/lv/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
+      "description": [
+        "Paudiet viedokli par šiem risinājumiem vai sniedziet savus.",
+        "Visvairāk atbalstītās idejas būs jāaizstāv Eiropas vēlēšanu kandidātiem."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
+      "nextCtaText": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/lv/lv/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Paldies par jūsu dalību",
+      "share": [
+        "Vai vēlaties izdarīt vairāk, lai pārveidotu Eiropu?",
+        "Aiciniet piedalīties savus tuviniekus un/vai savas kopienas iedzīvotājus"
+      ],
+      "learnMoreTitle": "Uzziniet visu par projektu WeEuropeans",
+      "learnMoreTextButton": "Uzzināt vairāk"
     }
   },
   "footer": {

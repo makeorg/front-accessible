@@ -19,37 +19,31 @@
   },
   "consultationUrl": "https://about.make.org/about-economiebienveillante",
   "aboutUrl": "https://about.make.org/about-economiebienveillante",
-  "sequenceExtraSlidesWording": {
+  "sequenceConfig": {
     "introCard": {
+      "enabled": true,
       "title": "Des milliers de citoyens proposent des solutions pour une économie plus bienveillante",
       "description": [
         "Les idées les plus plébiscitées deviendront des solutions concrètes proposées aux entreprises et portées au prochain sommet du G7."
       ]
     },
+    "pushProposalCard": {
+      "enabled": true
+    },
+    "signUpCard": {
+      "enabled": true
+    },
     "finalCard": {
+      "enabled": true,
+      "linkUrl": "http://www.mouvementeconomiebienveillante.com/",
+      "withSharing": true,
       "title": "Merci pour votre participation !",
       "share": [
         "Vous souhaitez aller plus loin pour rendre notre économie plus bienveillante ?",
         "Invitez vos proches et/ou votre communauté à participer"
       ],
-      "learn_more_title": "Découvrez le manifeste du Mouvement pour une Économie Bienveillante.",
-      "learn_more_button": "En savoir +"
-    }
-  },
-  "sequenceConfig": {
-    "introCard":  {
-      "customTitle": true,
-      "customDescription": true,
-      "partners": false,
-      "inPartnershipWith": false,
-      "extraLogo": false
-    },
-    "signUpCard": true,
-    "pushProposal": true,
-    "finalCard": {
-      "customTitle": true,
-      "linkUrl": "http://www.mouvementeconomiebienveillante.com/",
-      "withSharing": true
+      "learnMoreTitle": "Découvrez le manifeste du Mouvement pour une Économie Bienveillante.",
+      "learnMoreTextButton": "En savoir +"
     }
   }
 }

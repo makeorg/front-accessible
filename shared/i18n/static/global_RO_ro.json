@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, cu MAKE.ORG și CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
-        "nextCTA": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
+        "nextCtaText": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
       },
       "finalCard": {
         "title": "Vă mulțumim pentru participare.",
@@ -230,8 +230,8 @@
           "Doriți să mergeți mai departe pentru reinventarea Europei?",
           "Invitați-i pe prietenii dvs. și/sau comunitatea dvs. să participe"
         ],
-        "learn_more_title": "Descoperiți întregul proiect WeEuropeans",
-        "learn_more_button": "Mai multe informații"
+        "learnMoreTitle": "Descoperiți întregul proiect WeEuropeans",
+        "learnMoreTextButton": "Mai multe informații"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, cu MAKE.ORG și CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
-        "nextCTA": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
+        "nextCtaText": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate."
       },
       "finalCard": {
         "title": "Vă mulțumim pentru participare.",
@@ -271,8 +271,8 @@
           "Doriți să mergeți mai departe pentru reinventarea Europei?",
           "Invitați-i pe prietenii dvs. și/sau comunitatea dvs. să participe"
         ],
-        "learn_more_title": "Descoperiți întregul proiect WeEuropeans",
-        "learn_more_button": "Mai multe informații"
+        "learnMoreTitle": "Descoperiți întregul proiect WeEuropeans",
+        "learnMoreTextButton": "Mai multe informații"
       }
     }
   }

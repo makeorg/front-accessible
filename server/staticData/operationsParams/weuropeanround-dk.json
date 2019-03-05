@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tusindvis af borgere foreslår løsninger.for at genopfinde Europa.",
-      "description": [
-        "Tag stilling til disse løsninger eller foreslå dine egne løsninger.",
-        "De idéer, der får størst tilslutning, vil blive forsvaret af kandidater til Europa-parlamentet."
-      ]
-    },
-    "signUpCard": {
-      "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
-      "nextCTA": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet."
-    },
-    "finalCard": {
-      "title": "Tak for din deltagelse",
-      "share": [
-        "Ønsker du at gå et skridt videre for at genopfinde Europa?",
-        "Foreslå dine nærmeste eller dit fællesskab at deltage"
-      ],
-      "learn_more_title": "Opdag hele projektet WeEuropeans",
-      "learn_more_button": "Få mere at vide"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/dk/da/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tusindvis af borgere foreslår løsninger.for at genopfinde Europa.",
+      "description": [
+        "Tag stilling til disse løsninger eller foreslå dine egne løsninger.",
+        "De idéer, der får størst tilslutning, vil blive forsvaret af kandidater til Europa-parlamentet."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
+      "nextCtaText": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/dk/da/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Tak for din deltagelse",
+      "share": [
+        "Ønsker du at gå et skridt videre for at genopfinde Europa?",
+        "Foreslå dine nærmeste eller dit fællesskab at deltage"
+      ],
+      "learnMoreTitle": "Opdag hele projektet WeEuropeans",
+      "learnMoreTextButton": "Få mere at vide"
     }
   },
   "footer": {

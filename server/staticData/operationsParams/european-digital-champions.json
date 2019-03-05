@@ -16,21 +16,9 @@
   },
   "consultationUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
   "aboutUrl": "https://about.make.org/about-digital-champions",
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "#entrepreneuriat  #europe  #investissement  #fiscalité",
-      "description": [
-        "Aidez nous à faire émerger des champions européens du numérique."
-      ]
-    },
-    "signUpCard": {
-      "title": "Soyez informés des résultats de la consultation"
-    }
-  },
   "sequenceConfig": {
-    "introCard":  {
-      "customTitle": true,
-      "customDescription": true,
+    "introCard": {
+      "enabled": true,
       "partners": [
         {
           "name": "G9+",
@@ -49,16 +37,20 @@
           "imageUrl": "/images/operations/european-digital-champions/sequence/bpi-france.png"
         }
       ],
-      "inPartnershipWith": true,
-      "extraLogo": false
+      "title": "#entrepreneuriat  #europe  #investissement  #fiscalité",
+      "description": [
+        "Aidez nous à faire émerger des champions européens du numérique."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": false
+      "enabled": true,
+      "title": "Soyez informés des résultats de la consultation"
     },
-    "pushProposal": true,
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/FR/consultation/european-digital-champions/consultation",
       "withSharing": false
     }

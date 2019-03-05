@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
-      "description": [
-        "Võtke nendes lahendustes seisukoht või esitage oma lahendusi.",
-        "Kõige suurema toetuse saanud ideid peavad kaitsma Euroopa Parlamendi valimiste kandidaadid."
-      ]
-    },
-    "signUpCard": {
-      "title": "Saage arutelu tulemusi ja teavet tulevaste meetmete kohta",
-      "nextCTA": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
-    },
-    "finalCard": {
-      "title": "Täname teid osalemast.",
-      "share": [
-        "Kas sooviksite Euroopa uueks loomisel veelgi kaugemale minna?",
-        "Kutsuge oma lähedased ja/või oma kogukond osalema"
-      ],
-      "learn_more_title": "Tutvuge kogu projektiga „WeEuropeans“",
-      "learn_more_button": "Lisainfo"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/ee/et/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
+      "description": [
+        "Võtke nendes lahendustes seisukoht või esitage oma lahendusi.",
+        "Kõige suurema toetuse saanud ideid peavad kaitsma Euroopa Parlamendi valimiste kandidaadid."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Saage arutelu tulemusi ja teavet tulevaste meetmete kohta",
+      "nextCtaText": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/ee/et/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Täname teid osalemast.",
+      "share": [
+        "Kas sooviksite Euroopa uueks loomisel veelgi kaugemale minna?",
+        "Kutsuge oma lähedased ja/või oma kogukond osalema"
+      ],
+      "learnMoreTitle": "Tutvuge kogu projektiga „WeEuropeans“",
+      "learnMoreTextButton": "Lisainfo"
     }
   },
   "footer": {

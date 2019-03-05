@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, med MAKE.ORG och CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Få resultaten av samrådet och få information om kommande kampanjer",
-        "nextCTA": "Nej tack, jag vill inte få information om resultaten."
+        "nextCtaText": "Nej tack, jag vill inte få information om resultaten."
       },
       "finalCard": {
         "title": "Tack för din medverkan",
@@ -230,8 +230,8 @@
           "Vill du gå längre för att återuppfinna Europa?",
           "Bjud in dina närstående och/eller din intressegrupp att delta"
         ],
-        "learn_more_title": "Upptäck allt om projektet WeEuropeans",
-        "learn_more_button": "Mer information"
+        "learnMoreTitle": "Upptäck allt om projektet WeEuropeans",
+        "learnMoreTextButton": "Mer information"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, med MAKE.ORG och CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Få resultaten av samrådet och få information om kommande kampanjer",
-        "nextCTA": "Nej tack, jag vill inte få information om resultaten."
+        "nextCtaText": "Nej tack, jag vill inte få information om resultaten."
       },
       "finalCard": {
         "title": "Tack för din medverkan",
@@ -271,8 +271,8 @@
           "Vill du gå längre för att återuppfinna Europa?",
           "Bjud in dina närstående och/eller din intressegrupp att delta"
         ],
-        "learn_more_title": "Upptäck allt om projektet WeEuropeans",
-        "learn_more_button": "Mer information"
+        "learnMoreTitle": "Upptäck allt om projektet WeEuropeans",
+        "learnMoreTextButton": "Mer information"
       }
     }
   }

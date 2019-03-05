@@ -16,22 +16,9 @@
   },
   "consultationUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation",
   "aboutUrl": "https://about.make.org/about-digital-champions-de",
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tausende Europäer schlagen Lösungen vor.",
-      "description": [
-        "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor."
-      ]
-    },
-    "signUpCard": {
-      "title": "Lassen Sie sich über die Ergebnisse der Konsultation informieren.",
-      "nextCTA": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
-    }
-  },
   "sequenceConfig": {
-    "introCard":  {
-      "customTitle": true,
-      "customDescription": true,
+    "introCard": {
+      "enabled": true,
       "partners": [
         {
           "name": "G9+",
@@ -50,16 +37,21 @@
           "imageUrl": "/images/operations/european-digital-champions/sequence/bpi-france.png"
         }
       ],
-      "inPartnershipWith": true,
-      "extraLogo": false
+      "title": "Tausende Europäer schlagen Lösungen vor.",
+      "description": [
+        "Nehmen Sie Stellung und schlagen Sie Ihre eigenen vor."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": true
+      "enabled": true,
+      "title": "Lassen Sie sich über die Ergebnisse der Konsultation informieren.",
+      "nextCtaText": "Nein danke, ich möchte nicht über die Ergebnisse informiert werden."
     },
-    "pushProposal": true,
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/DE/consultation/european-digital-champions/consultation",
       "withSharing": false
     }

@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tysiące obywateli proponuje swoje rozwiązania, by wspólnie zmienić Europę.",
-      "description": [
-        "Wyraź swoją opinię na temat tych rozwiązań i zaproponuj własne.",
-        "Najczęściej popierane pomysły będą bronione przez kandydatów do wyborów europejskich."
-      ]
-    },
-    "signUpCard": {
-      "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
-      "nextCTA": "Nie, dziękuję, nie chcę być informowany(a) o wynikach."
-    },
-    "finalCard": {
-      "title": "Dziękujemy za udział",
-      "share": [
-        "Chcesz zrobić więcej na rzecz odnowy Europy?",
-        "Zachęć bliskich oraz/lub swoją społeczność do udziału w akcji"
-      ],
-      "learn_more_title": "Poznaj szczegóły projektu WeEuropeans",
-      "learn_more_button": "Dowiedz się więcej"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/pl/pl/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tysiące obywateli proponuje swoje rozwiązania, by wspólnie zmienić Europę.",
+      "description": [
+        "Wyraź swoją opinię na temat tych rozwiązań i zaproponuj własne.",
+        "Najczęściej popierane pomysły będą bronione przez kandydatów do wyborów europejskich."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
+      "nextCtaText": "Nie, dziękuję, nie chcę być informowany(a) o wynikach."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/pl/pl/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Dziękujemy za udział",
+      "share": [
+        "Chcesz zrobić więcej na rzecz odnowy Europy?",
+        "Zachęć bliskich oraz/lub swoją społeczność do udziału w akcji"
+      ],
+      "learnMoreTitle": "Poznaj szczegóły projektu WeEuropeans",
+      "learnMoreTextButton": "Dowiedz się więcej"
     }
   },
   "footer": {

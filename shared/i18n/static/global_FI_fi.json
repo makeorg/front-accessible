@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard": {
         "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
-        "nextCTA": "Ei kiitos, en halua tietoa tuloksista."
+        "nextCtaText": "Ei kiitos, en halua tietoa tuloksista."
       },
       "finalCard": {
         "title": "Kiitos osallistumisesta",
@@ -230,8 +230,8 @@
           "Haluatko auttaa vieläkin enemmän Euroopan uudistamisessa?",
           "Kutsu ystäväsi/perheesi/yhteisösi mukaan"
         ],
-        "learn_more_title": "Lisätietoa WeEuropeans -hankkeesta",
-        "learn_more_button": "Lisätietoa"
+        "learnMoreTitle": "Lisätietoa WeEuropeans -hankkeesta",
+        "learnMoreTextButton": "Lisätietoa"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, yhteistyössä MAKE.ORG ja CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard": {
         "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
-        "nextCTA": "Ei kiitos, en halua tietoa tuloksista."
+        "nextCtaText": "Ei kiitos, en halua tietoa tuloksista."
       },
       "finalCard": {
         "title": "Kiitos osallistumisesta",
@@ -271,8 +271,8 @@
           "Haluatko auttaa vieläkin enemmän Euroopan uudistamisessa?",
           "Kutsu ystäväsi/perheesi/yhteisösi mukaan"
         ],
-        "learn_more_title": "Lisätietoa WeEuropeans -hankkeesta",
-        "learn_more_button": "Lisätietoa"
+        "learnMoreTitle": "Lisätietoa WeEuropeans -hankkeesta",
+        "learnMoreTextButton": "Lisätietoa"
       }
     }
   }

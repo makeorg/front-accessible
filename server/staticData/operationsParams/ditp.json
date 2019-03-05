@@ -1,4 +1,4 @@
- {
+{
   "wording": {
     "title": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
     "question": "Agents publics : comment lever les blocages que vous rencontrez au quotidien ?",
@@ -16,41 +16,33 @@
   },
   "consultationUrl": "https://make.org/#/FR/consultation/ditp/consultation",
   "aboutUrl": "https://about.make.org/about-ditp",
-  "sequenceExtraSlidesWording": {
+  "sequenceConfig": {
     "introCard": {
+      "enabled": true,
+      "partners": [
+        {
+          "name": "DITP",
+          "imageUrl": "/images/operations/ditp/sequence/ditp.png"
+        }
+      ],
+      "extraLogo": "/images/operations/ditp/sequence/sequence-intro-icon.png",
       "title": "Des milliers d'agents publics proposent des solutions.",
       "description": [
         "Prenez position sur ces solutions ou proposez les vôtres.",
         "Vos contributions seront restituées à la Direction Interministérielle de la Transformation Publique de manière anonyme."
       ]
     },
-    "signUpCard": {
-      "title": "Inscrivez vous pour enregistrer vos contributions",
-      "nextCTA": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
-    }
-  },
-  "sequenceConfig": {
-    "introCard":  {
-      "customTitle": true,
-      "customDescription": true,
-      "partners": [
-          {
-            "name": "DITP",
-            "imageUrl": "/images/operations/ditp/sequence/ditp.png"
-          }
-      ],
-      "inPartnershipWith": false,
-      "extraLogo": "/images/operations/ditp/sequence/sequence-intro-icon.png"
-    },
-    "pushProposal": {
+    "pushProposalCard": {
+      "enabled": true,
       "extraLogo": "/images/operations/ditp/sequence/sequence-proposal-icon.png"
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": true
+      "enabled": true,
+      "title": "Inscrivez vous pour enregistrer vos contributions",
+      "nextCtaText": "Non merci, je ne souhaite pas que mes contributions soient enregistrées"
     },
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/FR/consultation/ditp/consultation",
       "withSharing": false
     }

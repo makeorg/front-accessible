@@ -1,6 +1,6 @@
 {
   "wording": {
-    "title":"How can we plan the city of tomorrow ?",
+    "title": "How can we plan the city of tomorrow ?",
     "question": "How can we plan the city of tomorrow ?",
     "metas": {
       "title": "How can we plan the city of tomorrow ?",
@@ -16,39 +16,31 @@
   },
   "consultationUrl": "https://make.org/#/GB/consultation/cityoftomorrow/consultation",
   "aboutUrl": "https://about.make.org/about-cityoftomorrow",
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Thousands of citizens are submitting solution.",
-      "description": [
-        "Take a stand on these solutions and affer yours",
-        "The ones with the most support will determine future actions."
-      ]
-    },
-    "signUpCard": {
-      "title": "Stay tuned on the actions implemented",
-      "nextCTA": "No thanks"
-    }
-  },
   "sequenceConfig": {
-    "introCard":  {
-      "customTitle": true,
-      "customDescription": true,
+    "introCard": {
+      "enabled": true,
       "partners": [
         {
           "name": "MIPIM",
           "imageUrl": "/images/operations/villededemain/sequence/mipim.jpg"
         }
       ],
-      "inPartnershipWith": true,
-      "extraLogo": false
+      "title": "Thousands of citizens are submitting solution.",
+      "description": [
+        "Take a stand on these solutions and affer yours",
+        "The ones with the most support will determine future actions."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
     },
     "signUpCard": {
-      "customTitle": true,
-      "customNextCTA": true
+      "enabled": true,
+      "title": "Stay tuned on the actions implemented",
+      "nextCtaText": "No thanks"
     },
-    "pushProposal": true,
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/GB/consultation/cityoftomorrow/consultation",
       "withSharing": false
     }

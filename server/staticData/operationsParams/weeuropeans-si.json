@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Na tisoče državljanov predlaga rešitve za ponovno odkrivanje Evrope.",
-      "description": [
-        "Zavzemite se za te rešitve ali predlagajte svoje.",
-        "Kandidate morajo na evropskih volitvah braniti najbolj množično podprte ideje."
-      ]
-    },
-    "signUpCard": {
-      "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
-      "nextCTA": "Ne, hvala, ne želim biti obveščen o rezultatih."
-    },
-    "finalCard": {
-      "title": "Hvala za sodelovanje",
-      "share": [
-        "Ali želite iti še dlje, da bi ponovno odkrili Evropo?",
-        "Povabite svojo družino in / ali skupnost k sodelovanju"
-      ],
-      "learn_more_title": "Odkrijte vse o projektu WeEuropeans",
-      "learn_more_button": "Več o tem"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/si/sl/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Na tisoče državljanov predlaga rešitve za ponovno odkrivanje Evrope.",
+      "description": [
+        "Zavzemite se za te rešitve ali predlagajte svoje.",
+        "Kandidate morajo na evropskih volitvah braniti najbolj množično podprte ideje."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
+      "nextCtaText": "Ne, hvala, ne želim biti obveščen o rezultatih."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/si/sl/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Hvala za sodelovanje",
+      "share": [
+        "Ali želite iti še dlje, da bi ponovno odkrili Evropo?",
+        "Povabite svojo družino in / ali skupnost k sodelovanju"
+      ],
+      "learnMoreTitle": "Odkrijte vse o projektu WeEuropeans",
+      "learnMoreTextButton": "Več o tem"
     }
   },
   "footer": {

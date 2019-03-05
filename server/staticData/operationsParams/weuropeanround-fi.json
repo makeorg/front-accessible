@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
-      "description": [
-        "Kerro mielipiteesi niistä tai ehdota omaasi.",
-        "Eniten kannatetut ehdotukset ovat sellaisia, joita europarlamenttivaaliehdokkaiden tulisi viedä eteenpäin."
-      ]
-    },
-    "signUpCard": {
-      "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
-      "nextCTA": "Ei kiitos, en halua tietoa tuloksista."
-    },
-    "finalCard": {
-      "title": "Kiitos osallistumisesta",
-      "share": [
-        "Haluatko auttaa vieläkin enemmän Euroopan uudistamisessa?",
-        "Kutsu ystäväsi/perheesi/yhteisösi mukaan"
-      ],
-      "learn_more_title": "Lisätietoa WeEuropeans -hankkeesta",
-      "learn_more_button": "Lisätietoa"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -45,18 +23,32 @@
   "aboutUrl": "https://weeuropeans.eu/fi/fi/about",
   "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
+      "description": [
+        "Kerro mielipiteesi niistä tai ehdota omaasi.",
+        "Eniten kannatetut ehdotukset ovat sellaisia, joita europarlamenttivaaliehdokkaiden tulisi viedä eteenpäin."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
+      "nextCtaText": "Ei kiitos, en halua tietoa tuloksista."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/fi/fi/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Kiitos osallistumisesta",
+      "share": [
+        "Haluatko auttaa vieläkin enemmän Euroopan uudistamisessa?",
+        "Kutsu ystäväsi/perheesi/yhteisösi mukaan"
+      ],
+      "learnMoreTitle": "Lisätietoa WeEuropeans -hankkeesta",
+      "learnMoreTextButton": "Lisätietoa"
     }
   },
   "footer": {
