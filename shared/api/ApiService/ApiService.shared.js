@@ -79,6 +79,7 @@ class ApiServiceSharedClass {
       data: options.body,
       params: options.params,
       withCredentials: true,
+      httpsAgent: options.httpsAgent || undefined,
     })
       .then(response => response.data)
       .catch(handleErrors);
