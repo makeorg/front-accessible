@@ -9,7 +9,7 @@ describe('ProposalCardComponent', () => {
   it('Check a11y rules', () => {
     const proposal = {
       author: {
-        firstname: 'foo',
+        firstName: 'foo',
       },
       createdAt: '2018-10-24T12:45:25.752Z',
       content: 'il faut bar',

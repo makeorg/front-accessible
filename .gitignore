@@ -9,3 +9,4 @@
 .vscode/settings.json
 .idea
 .DS_Store
+/client/ui/Svg/svgr

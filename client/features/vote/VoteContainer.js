@@ -63,7 +63,8 @@ export class VoteHandler extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const userVote = props.votes.find(vote => vote.hasVoted === true);
+    const userVote =
+      props.votes && props.votes.find(vote => vote.hasVoted === true);
     const hasVoted = userVote !== undefined;
     const votedKey = userVote !== undefined ? userVote.voteKey : '';
     const qualifications =

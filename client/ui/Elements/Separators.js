@@ -7,7 +7,7 @@ import { MiddleRowStyle } from './FlexElements';
 
 export const SeparatorStyle = styled.div`
   width: 100%;
-  height: ${pxToRem('2px')};
+  height: 1px;
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
@@ -33,4 +33,11 @@ export const Wrapper = styled(MiddleRowStyle)`
 export const Text = styled(MiddleRowStyle)`
   width: ${pxToRem('60px')};
   font-size: ${pxToRem('14px')};
+`;
+
+export const ContentSeparatorStyle = styled(Large)`
+  margin: ${pxToRem('10px')} 0;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    margin: ${pxToRem('20px')} 0;
+  }
 `;
