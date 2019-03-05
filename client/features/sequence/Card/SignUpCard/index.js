@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type SignUpCardConfig, SignUpCardWording } from 'Shared/types/card';
+import { type SignUpCardConfig } from 'Shared/types/card';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
@@ -11,8 +11,6 @@ type Props = {
   question: Question,
   /** Object with Static properties used to configure the Sign Up Card */
   configuration: SignUpCardConfig,
-  /** Object with Static properties used to customise the wording of the Sign Up Card */
-  wording: SignUpCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -43,7 +41,6 @@ export class SignUpCardhandler extends React.Component<Props> {
   render() {
     const {
       configuration,
-      wording,
       index,
       currentIndex,
       isPannelOpen,
@@ -52,17 +49,16 @@ export class SignUpCardhandler extends React.Component<Props> {
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
+    const tabIndex =
+      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
 
     return (
       <SignUpCardComponent
-        signUpConfig={configuration}
-        signUpWording={wording}
+        configuration={configuration}
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={
-          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-        }
+        tabIndex={tabIndex}
         {...this.props}
       />
     );

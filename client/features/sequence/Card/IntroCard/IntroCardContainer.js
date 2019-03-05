@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type IntroCardConfig, type IntroCardWording } from 'Shared/types/card';
+import { type IntroCardConfig } from 'Shared/types/card';
 import { type Question } from 'Shared/types/question';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
@@ -12,8 +12,6 @@ type Props = {
   question: Question,
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
-  /** Object with Static properties used to customise the wording of the Intro Card */
-  wording: IntroCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -42,7 +40,6 @@ class IntroCardHandler extends React.Component<Props> {
   render() {
     const {
       configuration,
-      wording,
       index,
       currentIndex,
       isPannelOpen,
@@ -54,7 +51,6 @@ class IntroCardHandler extends React.Component<Props> {
     return (
       <IntroCardComponent
         introCardConfig={configuration}
-        introCardWording={wording}
         position={position}
         scale={scale}
         zindex={zindex}

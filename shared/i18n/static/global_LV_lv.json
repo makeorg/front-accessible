@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, ar MAKE.ORG un CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
-        "nextCTA": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
+        "nextCtaText": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
       },
       "finalCard": {
         "title": "Paldies par jūsu dalību",
@@ -230,8 +230,8 @@
           "Vai vēlaties izdarīt vairāk, lai pārveidotu Eiropu?",
           "Aiciniet piedalīties savus tuviniekus un/vai savas kopienas iedzīvotājus"
         ],
-        "learn_more_title": "Uzziniet visu par projektu WeEuropeans",
-        "learn_more_button": "Uzzināt vairāk"
+        "learnMoreTitle": "Uzziniet visu par projektu WeEuropeans",
+        "learnMoreTextButton": "Uzzināt vairāk"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, ar MAKE.ORG un CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
-        "nextCTA": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
+        "nextCtaText": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem."
       },
       "finalCard": {
         "title": "Paldies par jūsu dalību",
@@ -271,8 +271,8 @@
           "Vai vēlaties izdarīt vairāk, lai pārveidotu Eiropu?",
           "Aiciniet piedalīties savus tuviniekus un/vai savas kopienas iedzīvotājus"
         ],
-        "learn_more_title": "Uzziniet visu par projektu WeEuropeans",
-        "learn_more_button": "Uzzināt vairāk"
+        "learnMoreTitle": "Uzziniet visu par projektu WeEuropeans",
+        "learnMoreTextButton": "Uzzināt vairāk"
       }
     }
   }

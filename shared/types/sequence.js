@@ -1,27 +1,18 @@
 // @flow
 import {
   type IntroCardConfig,
-  type IntroCardWording,
   type PushProposalCardConfig,
   type SignUpCardConfig,
-  type SignUpCardWording,
   type FinalCardConfig,
-  type FinalCardWording,
 } from 'Shared/types/card';
 
 import { type ProposalType } from 'Shared/types/proposal';
 
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,
-  pushProposal: PushProposalCardConfig,
+  pushProposalCard: PushProposalCardConfig,
   signUpCard: SignUpCardConfig,
   finalCard: FinalCardConfig,
-};
-
-export type ExtraSlidesWording = {
-  introCard: IntroCardWording,
-  signUpCard: SignUpCardWording,
-  finalCard: FinalCardWording,
 };
 
 export type Theme = {
@@ -61,8 +52,7 @@ export type QuestionConfiguration = {
   theme: Theme,
   consultationUrl: string,
   sequenceUrl: string,
-  sequenceExtraSlidesWording: ExtraSlidesWording,
-  sequenceExtraSlidesConfig: ExtraSlidesConfig,
+  sequenceConfig: ExtraSlidesConfig,
   sequenceSignUpForm: any,
   footer?: FooterType,
 };
@@ -74,14 +64,8 @@ export type ConfigurationTypes =
   | FinalCardConfig
   | ProposalType;
 
-export type WordingTypes =
-  | IntroCardWording
-  | SignUpCardWording
-  | FinalCardWording;
-
 export type CardType = {
   type: string,
   configuration: ConfigurationTypes,
-  wording?: WordingTypes,
   cardOffset?: number,
 };

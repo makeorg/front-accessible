@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
-      "description": [
-        "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet jew ipproponi tiegħek.",
-        "L-ideat li jgawdu l-akbar appoġġ jenħtieġ jiġu difiżi mill-kandidati fl-elezzjonijiet Ewropej."
-      ]
-    },
-    "signUpCard": {
-      "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
-      "nextCTA": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
-    },
-    "finalCard": {
-      "title": "Ħajr tal-parteċipazzjoni tiegħek",
-      "share": [
-        "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
-        "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
-      ],
-      "learn_more_title": "Skopri kollox dwar il-proġett WeEuropeans",
-      "learn_more_button": "Sir af aktar"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/mt/mt/about",
   "aboutUrl": "https://weeuropeans.eu/mt/mt/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
+      "description": [
+        "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet jew ipproponi tiegħek.",
+        "L-ideat li jgawdu l-akbar appoġġ jenħtieġ jiġu difiżi mill-kandidati fl-elezzjonijiet Ewropej."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
+      "nextCtaText": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/mt/mt/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Ħajr tal-parteċipazzjoni tiegħek",
+      "share": [
+        "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
+        "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
+      ],
+      "learnMoreTitle": "Skopri kollox dwar il-proġett WeEuropeans",
+      "learnMoreTextButton": "Sir af aktar"
     }
   },
   "footer": {

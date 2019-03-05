@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tisíce občanov navrhujú riešenia, aby sa Európe dal nový zmysel.",
-      "description": [
-        "Zaujmite stanovisko k týmto riešeniam alebo navrhnite vlastné.",
-        "Kandidáti v európskych voľbách budú musieť obhajovať najviac podporované myšlienky."
-      ]
-    },
-    "signUpCard": {
-      "title": "Dostávajte výsledky ankety a buďte informovaný (-á) o budúcich akciách.",
-      "nextCTA": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
-    },
-    "finalCard": {
-      "title": "Ďakujeme za vašu účasť.",
-      "share": [
-        "Chcete zájsť ďalej v hľadaní nového zmyslu Európy?",
-        "Prizvite na účasť svojich blízkych a/alebo svoje spoločenstvo"
-      ],
-      "learn_more_title": "Oboznámte sa s celým projektom WeEuropeans",
-      "learn_more_button": "Dozvedieť sa viac"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/sk/sk/about",
   "aboutUrl": "https://weeuropeans.eu/sk/sk/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tisíce občanov navrhujú riešenia, aby sa Európe dal nový zmysel.",
+      "description": [
+        "Zaujmite stanovisko k týmto riešeniam alebo navrhnite vlastné.",
+        "Kandidáti v európskych voľbách budú musieť obhajovať najviac podporované myšlienky."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Dostávajte výsledky ankety a buďte informovaný (-á) o budúcich akciách.",
+      "nextCtaText": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/sk/sk/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Ďakujeme za vašu účasť.",
+      "share": [
+        "Chcete zájsť ďalej v hľadaní nového zmyslu Európy?",
+        "Prizvite na účasť svojich blízkych a/alebo svoje spoločenstvo"
+      ],
+      "learnMoreTitle": "Oboznámte sa s celým projektom WeEuropeans",
+      "learnMoreTextButton": "Dozvedieť sa viac"
     }
   },
   "footer": {

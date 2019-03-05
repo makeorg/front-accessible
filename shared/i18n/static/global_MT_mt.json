@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, permezz ta’ MAKE.ORG u CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
-        "nextCTA": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
+        "nextCtaText": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
       },
       "finalCard": {
         "title": "Ħajr tal-parteċipazzjoni tiegħek",
@@ -230,8 +230,8 @@
           "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
           "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
         ],
-        "learn_more_title": "Skopri kollox dwar il-proġett WeEuropeans",
-        "learn_more_button": "Sir af aktar"
+        "learnMoreTitle": "Skopri kollox dwar il-proġett WeEuropeans",
+        "learnMoreTextButton": "Sir af aktar"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, permezz ta’ MAKE.ORG u CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Irċievi r-riżultati tal-konsultazzjoni u kun infurmat(a) bl-azzjonijiet li għad jittieħdu",
-        "nextCTA": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
+        "nextCtaText": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati."
       },
       "finalCard": {
         "title": "Ħajr tal-parteċipazzjoni tiegħek",
@@ -271,8 +271,8 @@
           "Trid tagħmel iktar biex toħloq l-Ewropa mill-ġdid?",
           "Stieden lill-qraba u/jew lill-komunitajiet tiegħek biex jipparteċipaw"
         ],
-        "learn_more_title": "Skopri kollox dwar il-proġett WeEuropeans",
-        "learn_more_button": "Sir af aktar"
+        "learnMoreTitle": "Skopri kollox dwar il-proġett WeEuropeans",
+        "learnMoreTextButton": "Sir af aktar"
       }
     }
   }

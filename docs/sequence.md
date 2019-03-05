@@ -10,38 +10,29 @@ ___
 
 ## Operations Params
 
-The Sequence is configured by setting parameters in ```sequenceExtraSlidesConfig``` from JSON file.
-```sequenceExtraSlidesConfig``` contains configuration for :
+The Sequence is configured by setting parameters in ```sequenceConfig``` from JSON file.
+```sequenceConfig``` contains configuration for :
 - [introCard](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/client/features/sequence/Card/IntroCard)
 - [signUpCard](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/client/features/sequence/Card/SignUpCard)
-- [pushProposal](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/client/features/sequence/Card/SignUpCard)
+- [pushProposalCard](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/client/features/sequence/Card/SignUpCard)
 - [finalCard](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/client/features/sequence/Card/FinalCard)
 
 
 ### introCard
 
-```introCard``` can be a ```boolean```
-
-``` json
-  "introCard": false // disabling introCard
-```
-``` json
-  "introCard": true // enbaling introCard with default configuration
-```
-
-or an ```object``` for custom configuration
+```introCard``` is an ```object``` who contain the config of the card
 
 ``` json
   "introCard":  {
-    "customTitle": true, // enabling customTitle defined in sequenceExtraSlidesWording
-    "customDescription":  true, // enabling customDescription defined in sequenceExtraSlidesWording
-    "partners": [ 
+    "enabled": true, // Enable or disable the card
+    "title": "lorem ipsum", // custom title of the intro card 
+    "description": ["lorem ipsum isumlove1", "lorem ipsum isumlove2"], // custom Description of the intro card
+    "partners": [
       {
         "name": "name of the partner",
         "imageUrl": "path of partner logo"
       } 
     ], // configuring operation's partners names & logos
-    "inPartnershipWith": true, // enabling & displaying inPartnershipWith
     "extraLogo": "path of extra logo", // enabling extraLogo on introCard
   }
 ```
@@ -49,61 +40,45 @@ or an ```object``` for custom configuration
 
 ### signUpCard
 
-```signUpCard``` can be a ```boolean```
-
-``` json
-  "signUpCard": false // disabling signUpCard
-```
-``` json
-  "signUpCard": true // enbaling signUpCard with default configuration
-```
-
-or an ```object```
+```signUpCard``` is an ```object``` who conatin the config of the card
 
 ``` json
   "signUpCard": {
-    "customTitle": true, // enabling customTitle defined in sequenceExtraSlidesWording
-    "customNextCTA": true // enabling customNextCTA defined in sequenceExtraSlidesWording
+    "enabled": true, // Enable or disable the card
+    "title": "lorem ipsum", // add a custom Title
+    "nextCtaText": "loremp isum" // add a custom NextCTA text
   }
 ```
 
 
-### pushProposal
+### pushProposalCard
 
-```pushProposal``` can be a ```boolean```
-
-``` json
-  "pushProposal": false // disabling pushProposal
-```
-``` json
-  "pushProposal": true // enbaling pushProposal with default configuration
-```
-
-or an ```object```
+```pushProposalCard``` is an ```object``` who contain the config of the card
 
 ``` json
-  "pushProposal": {
-    "extraLogo": "path of extra logo", // enabling extraLogo on pushProposal
+  "pushProposalCard": {
+    "enabled": true, // Enable or disable the card
+    "extraLogo": "path of extra logo", // add an extraLogo on pushProposal
   }
 ```
 
 
 ### finalCard
 
-```finalCard``` is an ```object```
+```finalCard``` is an ```object``` who contain the config of the card
 
 ``` json
     "finalCard": {
-      "customTitle": false, // using default configuration for finalCard title
-      "linkUrl": "link of the final button",
-      "withSharing": false // disabling sharing on finalCard
-    }
-```
-``` json
-    "finalCard": {
-      "customTitle": true, // enabling customTitle defined in sequenceExtraSlidesWording
-      "linkUrl": "link of the final button",
-      "withSharing": true // enabling sharing on finalCard
+      "enabled": true, // Enable or disable the card
+      "title": "lorem ipsum", // custom finalCard Title
+      "linkUrl": "https://link-of-the-final-button", // Link on the final button
+      "withSharing": false, // disabling sharing on finalCard
+      "share": [
+        "Lorem ipsum 1",
+        "Lorem ipsum 2"
+      ], // Text behind the share
+      "learnMoreTitle": "Lorem ipsum", // Title of the learn more section
+      "learnMoreTextButton": "En savoir +" // Texte of the learn more button
     }
 ```
 

@@ -16,19 +16,18 @@
   },
   "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
-  "sequenceExtraSlidesWording": {},
-  "sequenceExtraSlidesConfig": {
-    "introCard":  {
-      "customTitle": false,
-      "customDescription": false,
-      "partners": false,
-      "inPartnershipWith": false,
-      "extraLogo": false
+  "sequenceConfig": {
+    "introCard": {
+      "enabled": true
     },
-    "signUpCard": true,
-    "pushProposal": true,
+    "pushProposalCard": {
+      "enabled": true
+    },
+    "signUpCard": {
+      "enabled": true
+    },
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
       "withSharing": false
     }

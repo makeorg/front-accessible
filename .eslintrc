@@ -27,6 +27,7 @@
     "react/no-danger": 0,
     "react/jsx-filename-extension": 0,
     "react/prefer-stateless-function": 0,
+    "react/require-default-props": 0,
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
     "security/detect-object-injection": 0,

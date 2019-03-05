@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { type IntroCardConfig, type IntroCardWording } from 'Shared/types/card';
+import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -16,8 +16,6 @@ import { IntroButtonStyle } from '../Styled/Buttons';
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
-  /** Object with Static properties used to customise the wording of the Intro Card */
-  wording: IntroCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -40,7 +38,6 @@ type Props = {
 export const IntroCardComponent = (props: Props) => {
   const {
     configuration,
-    wording,
     index,
     currentIndex,
     tabIndex,
@@ -58,17 +55,11 @@ export const IntroCardComponent = (props: Props) => {
       isCardCollapsed={index < currentIndex}
     >
       <header>
-        <ExtraLogo
-          extraLogo={configuration.extraLogo && configuration.extraLogo}
-        />
-        <IntroTitle title={configuration.customTitle && wording.title} />
+        <ExtraLogo extraLogo={configuration.extraLogo} />
+        <IntroTitle title={configuration.title} />
       </header>
       <Small aria-hidden />
-      {configuration.customDescription ? (
-        <IntroDescription description={wording.description} />
-      ) : (
-        <IntroDescription />
-      )}
+      <IntroDescription description={configuration.description} />
       <IntroButtonStyle
         id="sequence-start-sequence-button"
         tabIndex={tabIndex}
@@ -79,12 +70,7 @@ export const IntroCardComponent = (props: Props) => {
         </IconInButtonStyle>
         {i18n.t('intro_card.button')}
       </IntroButtonStyle>
-      {configuration && (
-        <Partners
-          partners={configuration.partners}
-          configuration={configuration.inPartnershipWith}
-        />
-      )}
+      <Partners partners={configuration.partners} />
     </ProposalCardCenteredStyle>
   );
 };

@@ -4,7 +4,7 @@ import { ExtraLogoStyle } from '../../Styled/Titles';
 
 type Props = {
   /** String with extraLogo image path */
-  extraLogo: string,
+  extraLogo?: string,
 };
 
 /**

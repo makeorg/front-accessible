@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tausende von Bürgerinnen und Bürgern haben Lösungsvorschläge, um Europa neu zu gestalten.",
-      "description": [
-        "Nehmen Sie Stellung zu den Lösungsvorschlägen oder machen Sie selbst Beiträge.",
-        "Die Ideen mit dem meisten Zuspruch werden von den Kandidatinnen und Kandidaten bei den Europawahlen vorgetragen."
-      ]
-    },
-    "signUpCard": {
-      "title": "Lassen Sie sich die Ergebnisse der Umfrage zukommen und bleiben Sie auf dem Laufenden über zukünftige Maßnahmen",
-      "nextCTA": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
-    },
-    "finalCard": {
-      "title": "Vielen Dank für Ihre Teilnahme",
-      "share": [
-        "Sie möchten bei der Umgestaltung von Europa noch einen Schritt weiter gehen? ",
-        "Laden Sie Ihre Bekannten und/oder Ihre Familie zum Teilnehmen ein"
-      ],
-      "learn_more_title": "Entdecken Sie alles zum Projekt WeEuropeans",
-      "learn_more_button": "Weitere Infos"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/de/de/about",
   "aboutUrl": "https://weeuropeans.eu/de/de/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tausende von Bürgerinnen und Bürgern haben Lösungsvorschläge, um Europa neu zu gestalten.",
+      "description": [
+        "Nehmen Sie Stellung zu den Lösungsvorschlägen oder machen Sie selbst Beiträge.",
+        "Die Ideen mit dem meisten Zuspruch werden von den Kandidatinnen und Kandidaten bei den Europawahlen vorgetragen."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Lassen Sie sich die Ergebnisse der Umfrage zukommen und bleiben Sie auf dem Laufenden über zukünftige Maßnahmen",
+      "nextCtaText": "Nein, ich möchte nicht über die Ergebnisse informiert werden."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/de/de/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Vielen Dank für Ihre Teilnahme",
+      "share": [
+        "Sie möchten bei der Umgestaltung von Europa noch einen Schritt weiter gehen? ",
+        "Laden Sie Ihre Bekannten und/oder Ihre Familie zum Teilnehmen ein"
+      ],
+      "learnMoreTitle": "Entdecken Sie alles zum Projekt WeEuropeans",
+      "learnMoreTextButton": "Weitere Infos"
     }
   },
   "footer": {

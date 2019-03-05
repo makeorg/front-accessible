@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, com MAKE.ORG e CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Milhares de cidadãos propõem soluções para reinventar a Europa.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Receba os resultados da consulta e mantenha-se informado(a) sobre ações futuras",
-        "nextCTA": "Não obrigado(a). Não quero ser informado(a) dos resultados."
+        "nextCtaText": "Não obrigado(a). Não quero ser informado(a) dos resultados."
       },
       "finalCard": {
         "title": "Obrigado pela sua participação",
@@ -230,8 +230,8 @@
           "Deseja ir mais além para reinventar a Europa?",
           "Convide os seus familiares, amigos e/ou comunidade a participar"
         ],
-        "learn_more_title": "Saiba tudo sobre o projeto WeEuropeans",
-        "learn_more_button": "Saber mais"
+        "learnMoreTitle": "Saiba tudo sobre o projeto WeEuropeans",
+        "learnMoreTextButton": "Saber mais"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, com MAKE.ORG e CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Milhares de cidadãos propõem soluções para reinventar a Europa.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Receba os resultados da consulta e mantenha-se informado(a) sobre ações futuras",
-        "nextCTA": "Não obrigado(a). Não quero ser informado(a) dos resultados."
+        "nextCtaText": "Não obrigado(a). Não quero ser informado(a) dos resultados."
       },
       "finalCard": {
         "title": "Obrigado pela sua participação",
@@ -271,8 +271,8 @@
           "Deseja ir mais além para reinventar a Europa?",
           "Convide os seus familiares, amigos e/ou comunidade a participar"
         ],
-        "learn_more_title": "Saiba tudo sobre o projeto WeEuropeans",
-        "learn_more_button": "Saber mais"
+        "learnMoreTitle": "Saiba tudo sobre o projeto WeEuropeans",
+        "learnMoreTextButton": "Saber mais"
       }
     }
   }

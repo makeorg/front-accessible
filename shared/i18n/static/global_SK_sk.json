@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, prostredníctvom MAKE.ORG a CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tisíce občanov navrhujú riešenia, aby sa Európe dal nový zmysel.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Dostávajte výsledky ankety a buďte informovaný (-á) o budúcich akciách.",
-        "nextCTA": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
+        "nextCtaText": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
       },
       "finalCard": {
         "title": "Ďakujeme za vašu účasť.",
@@ -230,8 +230,8 @@
           "Chcete zájsť ďalej v hľadaní nového zmyslu Európy?",
           "Prizvite na účasť svojich blízkych a/alebo svoje spoločenstvo"
         ],
-        "learn_more_title": "Oboznámte sa s celým projektom WeEuropeans",
-        "learn_more_button": "Dozvedieť sa viac"
+        "learnMoreTitle": "Oboznámte sa s celým projektom WeEuropeans",
+        "learnMoreTextButton": "Dozvedieť sa viac"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, prostredníctvom MAKE.ORG a CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tisíce občanov navrhujú riešenia, aby sa Európe dal nový zmysel.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Dostávajte výsledky ankety a buďte informovaný (-á) o budúcich akciách.",
-        "nextCTA": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
+        "nextCtaText": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
       },
       "finalCard": {
         "title": "Ďakujeme za vašu účasť.",
@@ -271,8 +271,8 @@
           "Chcete zájsť ďalej v hľadaní nového zmyslu Európy?",
           "Prizvite na účasť svojich blízkych a/alebo svoje spoločenstvo"
         ],
-        "learn_more_title": "Oboznámte sa s celým projektom WeEuropeans",
-        "learn_more_button": "Dozvedieť sa viac"
+        "learnMoreTitle": "Oboznámte sa s celým projektom WeEuropeans",
+        "learnMoreTextButton": "Dozvedieť sa viac"
       }
     }
   }

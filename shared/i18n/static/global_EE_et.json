@@ -212,7 +212,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, kasutades MAKE.ORG ja CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
         "description": [
@@ -222,7 +222,7 @@
       },
       "signUpCard": {
         "title": "Saage arutelu tulemusi ja teavet tulevaste meetmete kohta",
-        "nextCTA": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
+        "nextCtaText": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
       },
       "finalCard": {
         "title": "Täname teid osalemast.",
@@ -230,8 +230,8 @@
           "Kas sooviksite Euroopa uueks loomisel veelgi kaugemale minna?",
           "Kutsuge oma lähedased ja/või oma kogukond osalema"
         ],
-        "learn_more_title": "Tutvuge kogu projektiga „WeEuropeans“",
-        "learn_more_button": "Lisainfo"
+        "learnMoreTitle": "Tutvuge kogu projektiga „WeEuropeans“",
+        "learnMoreTextButton": "Lisainfo"
       }
     }
   },
@@ -253,7 +253,7 @@
     "footer":  {
       "sentence" : "WeEuropeans, kasutades MAKE.ORG ja CIVICO Europa"
     },
-    "sequenceExtraSlidesWording": {
+    "sequenceConfig": {
       "introCard":  {
         "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
         "description": [
@@ -263,7 +263,7 @@
       },
       "signUpCard": {
         "title": "Saage arutelu tulemusi ja teavet tulevaste meetmete kohta",
-        "nextCTA": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
+        "nextCtaText": "Tänan, aga ma ei soovi tulemuste kohta teavet saada.."
       },
       "finalCard": {
         "title": "Täname teid osalemast.",
@@ -271,8 +271,8 @@
           "Kas sooviksite Euroopa uueks loomisel veelgi kaugemale minna?",
           "Kutsuge oma lähedased ja/või oma kogukond osalema"
         ],
-        "learn_more_title": "Tutvuge kogu projektiga „WeEuropeans“",
-        "learn_more_button": "Lisainfo"
+        "learnMoreTitle": "Tutvuge kogu projektiga „WeEuropeans“",
+        "learnMoreTextButton": "Lisainfo"
       }
     }
   }

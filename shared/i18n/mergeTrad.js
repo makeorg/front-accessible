@@ -85,9 +85,29 @@ const mergeQuestionTrads = (filePath, newTrads) => {
 
     const questionTrads = JSON.parse(questionTradData);
 
+    const sequenceConfig = {
+      introCard: {
+        ...questionTrads.sequenceConfig.introCard,
+        ...newTrads.sequenceConfig.introCard,
+      },
+      pushProposalCard: {
+        ...questionTrads.sequenceConfig.pushProposalCard,
+        ...newTrads.sequenceConfig.pushProposalCard,
+      },
+      signUpCard: {
+        ...questionTrads.sequenceConfig.signUpCard,
+        ...newTrads.sequenceConfig.signUpCard,
+      },
+      finalCard: {
+        ...questionTrads.sequenceConfig.finalCard,
+        ...newTrads.sequenceConfig.finalCard,
+      },
+    };
+
     const updatedTrads = {
       ...questionTrads,
       ...newTrads,
+      sequenceConfig,
     };
 
     fs.writeFileSync(filePath, writeJson(updatedTrads), 'utf8');

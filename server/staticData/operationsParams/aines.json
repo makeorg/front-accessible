@@ -19,19 +19,18 @@
   },
   "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
   "aboutUrl": "https://about.make.org/about-aines",
-  "sequenceExtraSlidesWording": {},
-  "sequenceExtraSlidesConfig": {
-    "introCard":  {
-      "customTitle": false,
-      "customDescription": false,
-      "partners": false,
-      "inPartnershipWith": false,
-      "extraLogo": false
+  "sequenceConfig": {
+    "introCard": {
+      "enabled": true
     },
-    "signUpCard": false,
-    "pushProposal": false,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": false
+    },
     "finalCard": {
-      "customTitle": false,
+      "enabled": true,
       "linkUrl": "https://make.org/#/FR/consultation/aines/consultation",
       "withSharing": false
     }

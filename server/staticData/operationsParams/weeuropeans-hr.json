@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
-      "description": [
-        "Zauzmite svoj stav o navedenim rješenjima ili predložite vlastita rješenja.",
-        "Najbolje će prijedloge kandidati morati argumentirati na europskim izborima."
-      ]
-    },
-    "signUpCard": {
-      "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
-      "nextCTA": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
-    },
-    "finalCard": {
-      "title": "Zahvaljujemo vam na sudjelovanju",
-      "share": [
-        "Želite li napraviti korak više kako biste udahnuli novi život Europi?",
-        "Pozovite svoje bližnje i/ili članove vaše zajednice na sudjelovanje"
-      ],
-      "learn_more_title": "Saznajte sve o projektu WeEuropeans",
-      "learn_more_button": "Saznati više"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/hr/hr/about",
   "aboutUrl": "https://weeuropeans.eu/hr/hr/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
+      "description": [
+        "Zauzmite svoj stav o navedenim rješenjima ili predložite vlastita rješenja.",
+        "Najbolje će prijedloge kandidati morati argumentirati na europskim izborima."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
+      "nextCtaText": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/hr/hr/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Zahvaljujemo vam na sudjelovanju",
+      "share": [
+        "Želite li napraviti korak više kako biste udahnuli novi život Europi?",
+        "Pozovite svoje bližnje i/ili članove vaše zajednice na sudjelovanje"
+      ],
+      "learnMoreTitle": "Saznajte sve o projektu WeEuropeans",
+      "learnMoreTextButton": "Saznati više"
     }
   },
   "footer": {

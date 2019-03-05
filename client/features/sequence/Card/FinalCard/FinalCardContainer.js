@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { type FinalCardConfig, FinalCardWording } from 'Shared/types/card';
+import { type FinalCardConfig } from 'Shared/types/card';
 import { connect } from 'react-redux';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
@@ -8,8 +8,6 @@ import { FinalCardComponent } from './FinalCardComponent';
 type Props = {
   /** Object with Static properties used to configure the Final Card */
   configuration: FinalCardConfig,
-  /** Object with Static properties used to customise the wording of the Final Card */
-  wording: FinalCardWording,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
@@ -40,7 +38,6 @@ class FinalCardHandler extends React.Component<Props> {
   render() {
     const {
       configuration,
-      wording,
       index,
       currentIndex,
       cardsCount,
@@ -55,8 +52,7 @@ class FinalCardHandler extends React.Component<Props> {
 
     return (
       <FinalCardComponent
-        finalCardConfig={configuration}
-        finalCardWording={wording}
+        configuration={configuration}
         index={index}
         cardOffset={cardOffset}
         currentIndex={currentIndex}

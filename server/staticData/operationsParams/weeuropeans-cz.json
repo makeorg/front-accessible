@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Tisíce občanů navrhují řešení, jak dát Evropě nový smysl.",
-      "description": [
-        "Zaujměte stanovisko k těmto řešením nebo navrhněte svá vlastní řešení.",
-        "Nejvíce podporované nápady budou muset kandidáti v evropských volbách obhájit."
-      ]
-    },
-    "signUpCard": {
-      "title": "Chci dostávat výsledky ankety a být informován/a o příštích akcích",
-      "nextCTA": "Ne, děkuji, nechci být informován/a o výsledcích."
-    },
-    "finalCard": {
-      "title": "Děkujeme za vaši účast.",
-      "share": [
-        "Chcete pokračovat v hledání nového smyslu pro Evropu? ",
-        "Pozvěte k účasti své blízké a/ nebo své známé"
-      ],
-      "learn_more_title": "Seznamte se s celým projektem WeEuropeans",
-      "learn_more_button": "Dozvědět se víc"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/cz/cs/about",
   "aboutUrl": "https://weeuropeans.eu/cz/cs/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Tisíce občanů navrhují řešení, jak dát Evropě nový smysl.",
+      "description": [
+        "Zaujměte stanovisko k těmto řešením nebo navrhněte svá vlastní řešení.",
+        "Nejvíce podporované nápady budou muset kandidáti v evropských volbách obhájit."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Chci dostávat výsledky ankety a být informován/a o příštích akcích",
+      "nextCtaText": "Ne, děkuji, nechci být informován/a o výsledcích."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/cz/cs/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Děkujeme za vaši účast.",
+      "share": [
+        "Chcete pokračovat v hledání nového smyslu pro Evropu? ",
+        "Pozvěte k účasti své blízké a/ nebo své známé"
+      ],
+      "learnMoreTitle": "Seznamte se s celým projektem WeEuropeans",
+      "learnMoreTextButton": "Dozvědět se víc"
     }
   },
   "footer": {

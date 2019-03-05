@@ -23,9 +23,9 @@ export const sequenceRoute = async (req, res) => {
     const question = await getQuestion(questionSlug);
     const questionConfiguration = await getQuestionConfiguration(questionSlug);
     if (questionConfiguration) {
-      const { sequenceExtraSlidesConfig } = questionConfiguration;
-      questionConfiguration.sequenceExtraSlidesConfig = disableExtraSlidesByQuery(
-        sequenceExtraSlidesConfig,
+      const { sequenceConfig } = questionConfiguration;
+      questionConfiguration.sequenceConfig = disableExtraSlidesByQuery(
+        sequenceConfig,
         req.query
       );
     }

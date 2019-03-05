@@ -1,9 +1,5 @@
 // @flow
-import {
-  type ExtraSlidesConfig,
-  type ExtraSlidesWording,
-  type CardType,
-} from 'Shared/types/sequence';
+import { type ExtraSlidesConfig, type CardType } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
@@ -73,13 +69,11 @@ export const findIndexOfFirstUnvotedCard = (
  * Build cards array
  * @param  {Array<Object>} proposals
  * @param  {ExtraSlidesConfig} extraSlidesConfig
- * @param  {ExtraSlidesWording} extraSlidesWording
  * @return {Array<CardType>}
  */
 export const buildCards = (
   proposals: Array<ProposalType>,
   extraSlidesConfig: ExtraSlidesConfig,
-  extraSlidesWording: ExtraSlidesWording,
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean
@@ -90,36 +84,47 @@ export const buildCards = (
   }));
   let cardOffset = 0;
 
-  if (extraSlidesConfig.pushProposal && canPropose && !hasProposed) {
+  const withPushProposalCard: boolean =
+    extraSlidesConfig.pushProposalCard &&
+    extraSlidesConfig.pushProposalCard.enabled &&
+    canPropose &&
+    !hasProposed;
+  const withIntroCard: boolean =
+    extraSlidesConfig.introCard && extraSlidesConfig.introCard.enabled;
+  const withSignupCard: boolean =
+    extraSlidesConfig.signUpCard &&
+    extraSlidesConfig.signUpCard.enabled &&
+    !isLoggedIn;
+  const withFinalCard: boolean =
+    extraSlidesConfig.finalCard && extraSlidesConfig.finalCard.enabled;
+
+  if (withPushProposalCard) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-      configuration: extraSlidesConfig.pushProposal,
+      configuration: extraSlidesConfig.pushProposalCard,
     });
   }
 
-  if (extraSlidesConfig.introCard) {
+  if (withIntroCard) {
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
-      wording: extraSlidesWording.introCard,
     });
   } else {
     cardOffset = 1;
   }
 
-  if (extraSlidesConfig.signUpCard && !isLoggedIn) {
+  if (withSignupCard) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
-      wording: extraSlidesWording.signUpCard,
     });
   }
 
-  if (extraSlidesConfig.finalCard) {
+  if (withFinalCard) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,
-      wording: extraSlidesWording.finalCard,
     });
   }
 

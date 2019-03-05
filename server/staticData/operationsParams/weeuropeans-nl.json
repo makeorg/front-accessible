@@ -13,28 +13,6 @@
       "hashtags": "weeuropeans"
     }
   },
-  "sequenceExtraSlidesWording": {
-    "introCard": {
-      "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
-      "description": [
-        "Vertel wat u van deze oplossingen vindt of doe zelf een voorstel.",
-        "De ideeën met de meeste stemmen zullen worden verdedigd door de kandidaten tijdens de Europese parlementsverkiezingen."
-      ]
-    },
-    "signUpCard": {
-      "title": "Ontvang de resultaten van de raadpleging en ontvang informatie over hoe het verder gaat",
-      "nextCTA": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
-    },
-    "finalCard": {
-      "title": "Hartelijk dank voor uw deelname",
-      "share": [
-        "Wilt u nog meer helpen om Europa te verbeteren?",
-        "Nodig uw vrienden, familie en/of gemeenschap uit om deel te nemen"
-      ],
-      "learn_more_title": "Ontdek wat het WeEuropeans-project inhoudt",
-      "learn_more_button": "Meer informatie"
-    }
-  },
   "theme": {
     "color": "#3839ca",
     "gradient-start": "#3839ca",
@@ -43,20 +21,34 @@
   },
   "consultationUrl": "https://weeuropeans.eu/nl/nl/about",
   "aboutUrl": "https://weeuropeans.eu/nl/nl/about",
-  "sequenceExtraSlidesConfig": {
+  "sequenceConfig": {
     "introCard": {
-      "title": true,
-      "description": true,
-      "partners": [],
-      "inPartnershipWith": false,
-      "extraLogo": false
+      "enabled": true,
+      "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
+      "description": [
+        "Vertel wat u van deze oplossingen vindt of doe zelf een voorstel.",
+        "De ideeën met de meeste stemmen zullen worden verdedigd door de kandidaten tijdens de Europese parlementsverkiezingen."
+      ]
     },
-    "pushProposal": false,
-    "signUpCard": true,
+    "pushProposalCard": {
+      "enabled": false
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Ontvang de resultaten van de raadpleging en ontvang informatie over hoe het verder gaat",
+      "nextCtaText": "Nee, ik wens niet te worden geïnformeerd over de resultaten."
+    },
     "finalCard": {
-      "customTitle": true,
+      "enabled": true,
       "linkUrl": "https://weeuropeans.eu/nl/nl/about",
-      "withSharing": true
+      "withSharing": true,
+      "title": "Hartelijk dank voor uw deelname",
+      "share": [
+        "Wilt u nog meer helpen om Europa te verbeteren?",
+        "Nodig uw vrienden, familie en/of gemeenschap uit om deel te nemen"
+      ],
+      "learnMoreTitle": "Ontdek wat het WeEuropeans-project inhoudt",
+      "learnMoreTextButton": "Meer informatie"
     }
   },
   "footer": {

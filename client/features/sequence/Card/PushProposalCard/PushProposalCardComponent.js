@@ -25,7 +25,7 @@ import { AltMainTitleStyle } from '../Styled/Titles';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
-  proposalCardConfig: PushProposalCardConfig,
+  configuration: PushProposalCardConfig,
   /** Index of the card */
   index: number,
   /** Tabindex for interactive items */
@@ -55,7 +55,7 @@ type Props = {
  */
 export const PushProposalCardComponent = (props: Props) => {
   const {
-    proposalCardConfig,
+    configuration,
     index,
     tabIndex,
     currentIndex,
@@ -92,9 +92,7 @@ export const PushProposalCardComponent = (props: Props) => {
       <ContentWrapperStyle>
         <InnerContentStyle as="section">
           <header>
-            {proposalCardConfig && (
-              <ExtraLogo extraLogo={proposalCardConfig.extraLogo} />
-            )}
+            <ExtraLogo extraLogo={configuration.extraLogo} />
             <AltMainTitleStyle>
               {i18n.t('push_proposal_card.title')}
             </AltMainTitleStyle>

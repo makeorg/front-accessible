@@ -6,45 +6,34 @@ export type PartnerItem = {
 };
 
 export type IntroCardConfig = {
-  customTitle: boolean,
-  customDescription: boolean,
-  partners: Array<PartnerItem>,
-  inPartnershipWith: boolean,
-  extraLogo: boolean,
-  id?: ?string,
-};
-
-export type IntroCardWording = {
-  title: string,
-  description: Array<string>,
+  enabled: boolean,
+  title?: string,
+  description?: Array<string>,
+  partners?: Array<PartnerItem>,
+  extraLogo?: string,
+  id?: string,
 };
 
 export type PushProposalCardConfig = {
-  extraLogo: string,
-  id?: ?string,
+  enabled: boolean,
+  extraLogo?: string,
+  id?: string,
 };
 
 export type SignUpCardConfig = {
-  customTitle: boolean,
-  customNextCTA: boolean,
-  id?: ?string,
-};
-
-export type SignUpCardWording = {
-  title: string,
-  nextCTA: string,
+  enabled: boolean,
+  title?: string,
+  nextCtaText?: string,
+  id?: string,
 };
 
 export type FinalCardConfig = {
-  customTitle: boolean,
-  linkUrl: string,
+  enabled: boolean,
   withSharing: boolean,
-  id?: ?string,
-};
-
-export type FinalCardWording = {
-  title: string,
-  share: Array<string>,
-  learn_more_title: string,
-  learn_more_button: string,
+  title?: string,
+  share?: Array<string>,
+  learnMoreTitle?: string,
+  learnMoreTextButton?: string,
+  linkUrl?: string,
+  id?: string,
 };
