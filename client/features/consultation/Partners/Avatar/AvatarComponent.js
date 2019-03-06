@@ -4,7 +4,8 @@ import {
   TopTooltipStyle,
   DisplayedTooltipStyle,
 } from 'Client/ui/Elements/TooltipElments';
-import { AvatarWrapperStyle, AvatarStyle } from '../../Styled/Partners';
+import { Avatar } from 'Client/ui/Avatar';
+import { AvatarWrapperStyle } from 'Client/features/consultation/Styled/Partners';
 
 type Props = {
   /** Partner name */
@@ -40,7 +41,9 @@ export const AvatarComponent = (props: Props) => {
         onBlur={hideTooltip}
         aria-hidden
       >
-        <AvatarStyle src={partnerLogo} alt={partnerName} aria-hidden />
+        <Avatar customAvatar avatarSize={50}>
+          <img src={partnerLogo} alt={partnerName} aria-hidden />
+        </Avatar>
       </UnstyledButtonStyle>
       <TopTooltipStyle
         as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}

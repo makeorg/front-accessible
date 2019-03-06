@@ -22,8 +22,3 @@ export const AvatarWrapperStyle = styled.div`
   position: relative;
   z-index: 1;
 `;
-
-export const AvatarStyle = styled.img`
-  border-radius: 50px;
-  overflow: hidden;
-`;
