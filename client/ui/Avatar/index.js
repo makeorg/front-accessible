@@ -1,6 +1,6 @@
 import React from 'react';
 import { Svg } from 'Client/ui/Svg';
-import { AvatarStyle } from 'Client/ui/Elements/AvatarElements';
+import { AvatarStyle } from './Styled';
 
 type Props = {
   /** Boolean use to render or not children */

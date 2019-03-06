@@ -2,8 +2,8 @@
 import * as React from 'react';
 import {
   BottomTooltipStyle,
-  DisplayedTooltipStyle,
-} from 'Client/ui/Elements/TooltipElments';
+  TooltipStyle,
+} from 'Client/ui/Elements/TooltipElements';
 import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
 import { ButtonWrapperStyle } from '../Styled';
 
@@ -64,13 +64,13 @@ export const VoteButtonComponent = (props: Props) => {
         displayTooltip={displayTooltip}
         hideTooltip={hideTooltip}
       />
-      <BottomTooltipStyle
-        as={isTooltipDisplayed ? DisplayedTooltipStyle : ''}
+      <TooltipStyle
+        as={isTooltipDisplayed ? BottomTooltipStyle : ''}
         aria-hidden={!isTooltipDisplayed}
         role="tooltip"
       >
         <p>{label}</p>
-      </BottomTooltipStyle>
+      </TooltipStyle>
     </ButtonWrapperStyle>
   );
 };

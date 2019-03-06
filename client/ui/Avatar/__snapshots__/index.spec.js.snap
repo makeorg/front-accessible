@@ -1,7 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar must return the diff between snapshot with default vs custom Avatar 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+  <div
+    aria-hidden={true}
+    className="cw649x-0 ugUk"
+  >
+-   <Svg
+-     aria-hidden={true}
+-     type="SvgEmptyAvatar"
+-   />
++   foo
+  </div>
+`;
+
 exports[`Avatar snapshot by default 1`] = `
-<Svg
-  type="SvgEmptyAvatar"
-/>
+.c0 {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+}
+
+.c0 img,
+.c0 svg {
+  width: 30px;
+  height: 30px;
+}
+
+<div
+  aria-hidden={true}
+  className="c0"
+>
+  <Svg
+    aria-hidden={true}
+    type="SvgEmptyAvatar"
+  />
+</div>
 `;

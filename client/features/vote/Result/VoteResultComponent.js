@@ -5,9 +5,11 @@ import { type VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
-import { ResultItem } from './Item';
-import { VoteButton } from '../Button';
+import { TooltipWithTrigger } from 'Client/ui/Tooltip';
+import { BottomTooltipStyle } from 'Client/ui/Elements/TooltipElements';
+import { ResultTooltip } from './Tooltip';
 import * as VoteResult from './Styled';
+import { VoteButton } from '../Button';
 
 type Props = {
   /** Object with votes percentage results */
@@ -62,14 +64,24 @@ export const VoteResultComponent = (props: Props) => {
         </HiddenItemStyle>
         <VoteResult.GraphStyle>
           {voteKeys.map(voteKey => (
-            <ResultItem
+            <TooltipWithTrigger
               key={`${voteKey}_item_${proposalId}`}
-              proposalId={proposalId}
+              tooltipWrapper={VoteResult.ItemStyle}
               tabIndex={tabIndex}
-              voteKey={voteKey}
-              voteStaticParams={voteStaticParams}
-              votesPercent={votesPercent}
-            />
+              tooltipType={BottomTooltipStyle}
+              triggerContent={
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <VoteResult.BarStyle
+                  color={voteStaticParams[voteKey].color}
+                  percent={votesPercent[voteKey]}
+                />
+              }
+            >
+              <ResultTooltip
+                votePercent={votesPercent[voteKey]}
+                voteKey={voteKey}
+              />
+            </TooltipWithTrigger>
           ))}
         </VoteResult.GraphStyle>
         <VoteResult.TotalLabelStyle>

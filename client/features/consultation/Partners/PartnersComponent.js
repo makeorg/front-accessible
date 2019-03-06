@@ -12,8 +12,11 @@ import {
   SidebarSeparatorStyle,
 } from 'Client/ui/Elements/SidebarTile/Styled';
 import { getSequenceLink } from 'Shared/helpers/url';
+import { TooltipWithTrigger } from 'Client/ui/Tooltip';
+import { TopTooltipStyle } from 'Client/ui/Elements/TooltipElements';
 import { ParticipateButtonStyle, PartnersListStyle } from '../Styled/Partners';
-import { Avatar } from './Avatar';
+import { PartnerAvatar } from './Avatar';
+import { PartnerTooltip } from './Tooltip';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
@@ -52,7 +55,21 @@ export const PartnersComponent = (props: Props) => {
       <PartnersListStyle>
         {questionConfiguration.partners.map(partner => (
           <li key={partner.name}>
-            <Avatar key={partner.name} partner={partner} />
+            <TooltipWithTrigger
+              tooltipType={TopTooltipStyle}
+              triggerContent={
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <PartnerAvatar
+                  partnerName={partner.name}
+                  partnerLogo={partner.imageUrl}
+                />
+              }
+            >
+              <PartnerTooltip
+                partnerName={partner.name}
+                isFounder={partner.isFounder}
+              />
+            </TooltipWithTrigger>
           </li>
         ))}
       </PartnersListStyle>
