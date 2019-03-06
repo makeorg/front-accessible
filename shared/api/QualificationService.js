@@ -1,8 +1,8 @@
 /* @flow */
 import { ApiService } from './ApiService';
 
-const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
-const PATH_UNQUALIFICATION = '/proposals/:proposalId/unqualification';
+export const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
+export const PATH_UNQUALIFICATION = '/proposals/:proposalId/unqualification';
 
 export class QualificationService {
   static qualify(
@@ -20,6 +20,7 @@ export class QualificationService {
           qualificationKey,
           proposalKey,
         }),
+        proposalId,
       }
     );
   }
@@ -39,6 +40,7 @@ export class QualificationService {
           qualificationKey,
           proposalKey,
         }),
+        proposalId,
       }
     );
   }
