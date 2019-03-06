@@ -1,17 +1,22 @@
 import { ApiServiceShared } from './ApiService.shared';
-import { ApiServiceClient, getLocationContext } from './ApiService.client';
+import { ApiServiceClient } from './ApiService.client';
+import { getLocationContext } from './getLocationContext';
 
 jest.mock('./ApiService.shared');
+
+jest.mock('./getLocationContext');
 
 describe('ApiServiceClient', () => {
   let apiClient: ApiServiceClient;
   beforeEach(() => {
     jest.spyOn(ApiServiceShared, 'callApi');
+    getLocationContext.mockImplementation(() => 'unknown_location /');
     apiClient = new ApiServiceClient();
   });
 
   afterEach(() => {
     ApiServiceShared.callApi.mockRestore();
+    getLocationContext.mockRestore();
     apiClient = undefined;
   });
 
@@ -39,10 +44,26 @@ describe('ApiServiceClient', () => {
     });
   });
 
+  it('callApi must call getLocationContext with params', () => {
+    // given
+    const url = '/api/endpoint';
+    const options = { proposalId: 'proposalId' };
+    apiClient.questionId = '1234';
+    // when
+    apiClient.callApi(url, options);
+    // then
+    expect(getLocationContext).toHaveBeenNthCalledWith(
+      1,
+      '/',
+      '1234',
+      'proposalId'
+    );
+  });
+
   it('callApi must call ApiServiceShared.callApi with headers', () => {
     // given
     const url = '/api/endpoint';
-    const options = { headers: { value: 'value' } };
+    const options = { headers: { value: 'value' }, proposalId: 'abcd_propose' };
     // when
     apiClient.language = 'fr';
     apiClient.country = 'FR';
@@ -96,33 +117,5 @@ describe('ApiServiceClient', () => {
     expect(apiClient.operationId).toBe('');
     apiClient.operationId = 'abcd';
     expect(apiClient.operationId).toBe('abcd');
-  });
-});
-
-describe('getLocationContext', () => {
-  it('get location context default', () => {
-    expect(getLocationContext('/FR-fr')).toBe('unknown_location /FR-fr');
-  });
-
-  it('get location context ROUTE_CONSULTATION', () => {
-    expect(
-      getLocationContext('/FR-fr/consultation/foo/consultation', 'abcd')
-    ).toBe('question_page abcd');
-  });
-
-  it('get location context ROUTE_SEQUENCE', () => {
-    expect(
-      getLocationContext('/FR-fr/consultation/foo/selection', 'abcd')
-    ).toBe('sequence abcd');
-  });
-
-  it('get location context ROUTE_PROPOSAL', () => {
-    expect(
-      getLocationContext(
-        '/FR-fr/consultation/foo/proposal/bar/2',
-        undefined,
-        'abcd'
-      )
-    ).toBe('proposal_page abcd');
   });
 });

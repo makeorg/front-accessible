@@ -2,8 +2,8 @@
 
 import { ApiService } from './ApiService';
 
-const PATH_VOTE = '/proposals/:proposalId/vote';
-const PATH_UNVOTE = '/proposals/:proposalId/unvote';
+export const PATH_VOTE = '/proposals/:proposalId/vote';
+export const PATH_UNVOTE = '/proposals/:proposalId/unvote';
 
 export class VoteService {
   static vote(
@@ -14,6 +14,7 @@ export class VoteService {
     return ApiService.callApi(PATH_VOTE.replace(':proposalId', proposalId), {
       method: 'POST',
       body: JSON.stringify({ voteKey, proposalKey }),
+      proposalId,
     });
   }
 
@@ -25,6 +26,7 @@ export class VoteService {
     return ApiService.callApi(PATH_UNVOTE.replace(':proposalId', proposalId), {
       method: 'POST',
       body: JSON.stringify({ voteKey, proposalKey }),
+      proposalId,
     });
   }
 }
