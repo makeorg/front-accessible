@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
+import { TabIndexContext } from 'Client/app/TabIndexContext';
 import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 
@@ -11,8 +12,6 @@ type Props = {
   buttonText?: string,
   /** Url of show more button */
   url?: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Method called when button is clicked */
   handleEndSequence: () => void,
 };
@@ -21,7 +20,7 @@ type Props = {
  * Renders finalCard More component
  */
 export const More = (props: Props) => {
-  const { title, buttonText, url, tabIndex, handleEndSequence } = props;
+  const { title, buttonText, url, handleEndSequence } = props;
 
   if (!url) {
     return null;
@@ -29,8 +28,28 @@ export const More = (props: Props) => {
 
   if (title) {
     return (
-      <MoreWrapperStyle>
-        <IntroParagraphStyle>{title}</IntroParagraphStyle>
+      <TabIndexContext.Consumer>
+        {tabIndex => (
+          <MoreWrapperStyle>
+            <IntroParagraphStyle>{title}</IntroParagraphStyle>
+            <FinalLinkStyle
+              as="a"
+              tabIndex={tabIndex}
+              href={url}
+              target="_blank"
+              onClick={handleEndSequence}
+            >
+              {buttonText || i18n.t('final_card.button')}
+            </FinalLinkStyle>
+          </MoreWrapperStyle>
+        )}
+      </TabIndexContext.Consumer>
+    );
+  }
+
+  return (
+    <TabIndexContext.Consumer>
+      {tabIndex => (
         <FinalLinkStyle
           as="a"
           tabIndex={tabIndex}
@@ -40,19 +59,7 @@ export const More = (props: Props) => {
         >
           {buttonText || i18n.t('final_card.button')}
         </FinalLinkStyle>
-      </MoreWrapperStyle>
-    );
-  }
-
-  return (
-    <FinalLinkStyle
-      as="a"
-      tabIndex={tabIndex}
-      href={url}
-      target="_blank"
-      onClick={handleEndSequence}
-    >
-      {buttonText || i18n.t('final_card.button')}
-    </FinalLinkStyle>
+      )}
+    </TabIndexContext.Consumer>
   );
 };
