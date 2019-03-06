@@ -1,6 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
@@ -9,6 +10,7 @@ import { Partners } from 'Client/features/consultation/Partners';
 import { Sharing } from 'Client/features/sharing';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { ProposalType } from 'Shared/types/proposal';
+import { TagFilter } from 'Client/features/consultation/TagsFilter';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -18,11 +20,16 @@ import {
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
+  question: Question,
   proposals: ProposalType[],
 };
 
 export const ConsultationPageComponent = (props: Props) => {
-  const { questionConfiguration, proposals } = props;
+  const { questionConfiguration, question, proposals } = props;
+
+  if (!questionConfiguration || !question) {
+    return null;
+  }
   const { metas } = questionConfiguration.wording;
 
   return (
@@ -35,6 +42,7 @@ export const ConsultationPageComponent = (props: Props) => {
       <IntroBanner />
       <ConsultationPageWrapperStyle>
         <ConsultationPageContentStyle>
+          <TagFilter question={question} />
           {proposals &&
             proposals.map(proposal => (
               <ProposalCardTaggedStyle>
