@@ -9,7 +9,7 @@ import { Tag } from 'Client/ui/Elements/Tag';
 import { Avatar } from 'Client/ui/Avatar';
 import { i18n } from 'Shared/i18n';
 import { ProposalAuthor } from '../ProposalAuthor';
-import { ProposalStyle, HeaderStyle, FooterStyle, AvatarStyle } from './Styled';
+import { ProposalStyle, HeaderStyle, FooterStyle } from './Styled';
 
 type Props = {
   proposal: ProposalType,
@@ -19,9 +19,7 @@ export const ProposalCardTagged = ({ proposal }: Props) => {
   return (
     <CardStyle>
       <HeaderStyle>
-        <AvatarStyle>
-          <Avatar />
-        </AvatarStyle>
+        <Avatar />
         <ProposalAuthor
           author={proposal.author}
           createdAt={proposal.createdAt}

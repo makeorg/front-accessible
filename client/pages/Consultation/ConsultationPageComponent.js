@@ -5,6 +5,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
 import { Presentation } from 'Client/features/consultation/Presentation';
+import { Partners } from 'Client/features/consultation/Partners';
 import { Sharing } from 'Client/features/sharing';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { ProposalType } from 'Shared/types/proposal';
@@ -49,6 +50,7 @@ export const ConsultationPageComponent = (props: Props) => {
           <SidebarTile title={i18n.t('consultation.presentation.title')}>
             <Presentation />
           </SidebarTile>
+          {questionConfiguration.partners && <Partners />}
           <SidebarTile title={i18n.t('consultation.sharing.title')}>
             <Sharing />
           </SidebarTile>

@@ -14,12 +14,11 @@ export const ConsultationPageWrapperStyle = styled.div`
   flex-flow: column-reverse;
   width: 100%;
   max-width: ${IntToPx(Layouts.ContainerWidth)};
-  margin: 0 auto;
-  padding: ${IntToPx(DefaultPadding.Mobile)} 0;
+  margin: ${IntToPx(DefaultPadding.Mobile)} auto;
   @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
     justify-content: space-between;
-    padding: ${IntToPx(DefaultPadding.Desktop)} 0;
+    margin: ${IntToPx(DefaultPadding.Desktop)} auto;
   }
 `;
 

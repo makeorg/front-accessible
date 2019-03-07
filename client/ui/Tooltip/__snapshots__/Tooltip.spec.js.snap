@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  display: none;
+  position: absolute;
+  padding: 0.3125rem 0.625rem;
+  background-color: rgb(51,51,51);
+  color: rgb(255,255,255);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.c1 >:after {
+  content: '';
+  position: absolute;
+}
+
+<div
+  className="c0"
+>
+  <UnstyledButtonStyle
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    foo
+  </UnstyledButtonStyle>
+  <div
+    className="c1"
+    role="tooltip"
+  >
+    bar
+  </div>
+</div>
+`;
+
+exports[`TooltipWithTrigger must return the diff between snapshot with a default vs a custom Tab Index 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -5,10 +5,11 @@
+      onBlur={[Function anonymous]}
+      onClick={[Function anonymous]}
+      onFocus={[Function anonymous]}
+      onMouseEnter={[Function anonymous]}
+      onMouseLeave={[Function anonymous]}
++     tabIndex="-1"
+    />
+    <div
+      className="wrvktz-1 cfdQjs"
+      role="tooltip"
+    />
+`;

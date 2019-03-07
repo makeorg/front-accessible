@@ -66,4 +66,5 @@ export const getSequenceLink = (
   questionSlug: string,
   country: string,
   language: string
-) => `/${country}-${language}/consultation/${questionSlug}/selection`;
+) =>
+  `${FRONT_URL}/${country}-${language}/consultation/${questionSlug}/selection`;
