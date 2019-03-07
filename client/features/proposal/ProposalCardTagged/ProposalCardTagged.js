@@ -22,7 +22,10 @@ export const ProposalCardTagged = ({ proposal }: Props) => {
         <AvatarStyle>
           <Avatar />
         </AvatarStyle>
-        <ProposalAuthor author={proposal.author} />
+        <ProposalAuthor
+          author={proposal.author}
+          createdAt={proposal.createdAt}
+        />
       </HeaderStyle>
       <ContentSeparatorStyle />
       <ProposalStyle>{proposal.content}</ProposalStyle>

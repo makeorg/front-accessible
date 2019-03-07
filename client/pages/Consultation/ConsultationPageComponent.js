@@ -6,23 +6,22 @@ import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Sharing } from 'Client/features/sharing';
+import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
+import { ProposalType } from 'Shared/types/proposal';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
+  ProposalCardTaggedStyle,
 } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
+  proposals: ProposalType[],
 };
 
 export const ConsultationPageComponent = (props: Props) => {
-  const { questionConfiguration } = props;
-
-  if (!questionConfiguration) {
-    return null;
-  }
-
+  const { questionConfiguration, proposals } = props;
   const { metas } = questionConfiguration.wording;
 
   return (
@@ -35,7 +34,16 @@ export const ConsultationPageComponent = (props: Props) => {
       <IntroBanner />
       <ConsultationPageWrapperStyle>
         <ConsultationPageContentStyle>
-          left content
+          {proposals &&
+            proposals.map(proposal => (
+              <ProposalCardTaggedStyle>
+                <ProposalCardTagged
+                  key={proposal.id}
+                  questionConfiguration={questionConfiguration}
+                  proposal={proposal}
+                />
+              </ProposalCardTaggedStyle>
+            ))}
         </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle as="aside">
           <SidebarTile title={i18n.t('consultation.presentation.title')}>
