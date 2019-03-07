@@ -12,7 +12,7 @@ export const SidebarTileStyle = styled.div`
   @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
     padding: 20px;
   }
-  &:first-child {
+  &.no-margin-top {
     margin-top: 0;
   }
 `;

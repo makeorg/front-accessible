@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse must match the diff snapshot between Expand vs Collapse Props 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Collapse must match the diff snapshot between forceExpandOnDesktop vs default Props 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Collapse must match the snapshot with default Props 1`] = `
+<SidebarSeparatorStyle>
+  <CollapseTriggerStyle
+    disabled={false}
+    onClick={[Function]}
+  >
+    <ThirdLevelTtitleStyle>
+      foo
+    </ThirdLevelTtitleStyle>
+    <CollapseIconStyle
+      collapsing={true}
+    >
+      <Svg
+        type="SvgAngleArrowRight"
+      />
+    </CollapseIconStyle>
+  </CollapseTriggerStyle>
+  <CollapseContentStyle
+    collapsing={true}
+    forcedexpand={false}
+  >
+    <CollapseSeparatorStyle />
+    bar
+  </CollapseContentStyle>
+</SidebarSeparatorStyle>
+`;

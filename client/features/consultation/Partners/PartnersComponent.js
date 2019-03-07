@@ -7,10 +7,7 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { RedLink } from 'Client/ui/Elements/LinkElements';
-import {
-  SidebarTileStyle,
-  SidebarSeparatorStyle,
-} from 'Client/ui/Elements/SidebarTile/Styled';
+import { SidebarSeparatorStyle } from 'Client/ui/Elements/SidebarTile/Styled';
 import { getSequenceLink } from 'Shared/helpers/url';
 import { TooltipWithTrigger } from 'Client/ui/Tooltip';
 import { TopTooltipStyle } from 'Client/ui/Elements/TooltipElements';
@@ -28,11 +25,7 @@ type Props = {
 export const PartnersComponent = (props: Props) => {
   const { questionConfiguration, questionSlug, country, language } = props;
   return (
-    <SidebarTileStyle>
-      <ThirdLevelTtitleStyle>
-        {i18n.t('consultation.partners.intro_title')}
-      </ThirdLevelTtitleStyle>
-      <SidebarSeparatorStyle />
+    <React.Fragment>
       <ParagraphStyle>
         {i18n.t('consultation.partners.intro_text')}
       </ParagraphStyle>
@@ -76,6 +69,6 @@ export const PartnersComponent = (props: Props) => {
       <RedLink href={questionConfiguration.aboutUrl} target="_blank">
         {i18n.t('consultation.partners.commitment_link')}
       </RedLink>
-    </SidebarTileStyle>
+    </React.Fragment>
   );
 };
