@@ -6,6 +6,8 @@ import {
   MAX_PROPOSAL_LENGTH,
 } from 'Shared/constants/proposal';
 import { type ProposalType } from 'Shared/types/proposal';
+import { ProposalService } from 'Shared/api/ProposalService';
+import { Logger } from 'Shared/services/Logger';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -44,3 +46,19 @@ export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) =>
   proposals.find(proposal =>
     proposal.votes.every(vote => vote.hasVoted === false)
   );
+
+export const searchProposals = async (
+  questionId: string,
+  TagIdsArray: string[]
+) => {
+  const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
+
+  try {
+    const response = await ProposalService.searchProposals(questionId, tagsIds);
+
+    return response.results;
+  } catch (error) {
+    Logger.logError('searchProposals error', error);
+    return [];
+  }
+};

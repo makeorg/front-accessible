@@ -57,5 +57,20 @@ describe('ProposalService', () => {
         },
       });
     });
+    it('must filter by tagIds', async () => {
+      await ProposalService.searchProposals('12345', 'foo, bar');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
+        headers: {},
+        method: 'GET',
+        params: {
+          questionId: '12345',
+          isRandom: true,
+          limit: 20,
+          skip: 0,
+          sortAlgorithm: 'taggedFirst',
+          tagsIds: 'foo, bar',
+        },
+      });
+    });
   });
 });

@@ -1,7 +1,8 @@
 import React from 'react';
 import { TagType } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
-import { TagFilterStyle } from '../Styled/TagFilter';
+import { i18n } from 'Shared/i18n';
+import { TagFilterStyle, TagFilterIntroStyle } from '../Styled/TagFilter';
 
 type Props = {
   /** List of tags */
@@ -29,6 +30,9 @@ export const TagFilterComponent = (props: Props) => {
 
   return (
     <TagFilterStyle>
+      <TagFilterIntroStyle>
+        {i18n.t('consultation.tags.intro')}
+      </TagFilterIntroStyle>
       {tags
         .filter((tag, index) => filterShowAllTags(index, showAll))
         .map(tag => (
@@ -40,7 +44,11 @@ export const TagFilterComponent = (props: Props) => {
           />
         ))}
       <Tag
-        name="Voir tous les tags"
+        name={
+          showAll
+            ? i18n.t('consultation.tags.show_less')
+            : i18n.t('consultation.tags.show_all')
+        }
         selected
         onClick={toggleShowAll}
         key="all"

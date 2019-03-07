@@ -22,14 +22,19 @@ type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
   proposals: ProposalType[],
+  selectedTagIds: string[],
+  handleSelectTag: () => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
-  const { questionConfiguration, question, proposals } = props;
+  const {
+    questionConfiguration,
+    question,
+    proposals,
+    selectedTagIds,
+    handleSelectTag,
+  } = props;
 
-  if (!questionConfiguration || !question) {
-    return null;
-  }
   const { metas } = questionConfiguration.wording;
 
   return (
@@ -42,7 +47,11 @@ export const ConsultationPageComponent = (props: Props) => {
       <IntroBanner />
       <ConsultationPageWrapperStyle>
         <ConsultationPageContentStyle>
-          <TagFilter question={question} />
+          <TagFilter
+            question={question}
+            handleSelectTag={handleSelectTag}
+            selectedTagIds={selectedTagIds}
+          />
           {proposals &&
             proposals.map(proposal => (
               <ProposalCardTaggedStyle>
