@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/cz/cs/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tisíce občanů navrhují řešení, jak dát Evropě nový smysl.",
       "description": [
         "Zaujměte stanovisko k těmto řešením nebo navrhněte svá vlastní řešení.",

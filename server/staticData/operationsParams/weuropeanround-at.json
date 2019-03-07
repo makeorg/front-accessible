@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/at/de/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tausende von Bürgerinnen und Bürgern haben Lösungsvorschläge, um Europa neu zu gestalten.",
       "description": [
         "Nehmen Sie Stellung zu den Lösungsvorschlägen oder machen Sie selbst Beiträge.",

@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/fi/fi/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tuhannet kansalaiset esittävät ratkaisuja Euroopan uudistamiseksi.",
       "description": [
         "Kerro mielipiteesi niistä tai ehdota omaasi.",

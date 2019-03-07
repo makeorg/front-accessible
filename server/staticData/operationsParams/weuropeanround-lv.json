@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/lv/lv/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tūkstošiem pilsoņu piedāvā risinājumus Eiropas atklāšanai no jauna.",
       "description": [
         "Paudiet viedokli par šiem risinājumiem vai sniedziet savus.",

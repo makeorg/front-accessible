@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/lt/lt/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Sprendimus kaip iš naujo atrasti Europą siūlo tūkstančiai piliečių.",
       "description": [
         "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savo sprendimus.",

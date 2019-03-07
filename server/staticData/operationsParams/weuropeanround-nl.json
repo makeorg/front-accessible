@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/nl/nl/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Duizenden burgers kunnen oplossingen aandragen voor een beter Europa.",
       "description": [
         "Vertel wat u van deze oplossingen vindt of doe zelf een voorstel.",

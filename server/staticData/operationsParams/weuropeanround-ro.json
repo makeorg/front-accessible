@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/ro/ro/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Mii de cetățeni propun soluții pentru reinventarea Europei.",
       "description": [
         "Luați poziție pentru aceste soluții sau faceți propunerile dvs.",

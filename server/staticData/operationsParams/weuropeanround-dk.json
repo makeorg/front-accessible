@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/dk/da/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tusindvis af borgere foreslår løsninger.for at genopfinde Europa.",
       "description": [
         "Tag stilling til disse løsninger eller foreslå dine egne løsninger.",

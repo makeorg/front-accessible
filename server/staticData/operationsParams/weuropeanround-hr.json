@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/hr/hr/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tisuće građana predlaže rješenja kojima se može udahnuti novi život Europi.",
       "description": [
         "Zauzmite svoj stav o navedenim rješenjima ili predložite vlastita rješenja.",

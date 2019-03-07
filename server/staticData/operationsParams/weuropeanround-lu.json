@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/lu/fr/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Des milliers de citoyens proposent des solutions pour réinventer l'Europe.",
       "description": [
         "Prenez position sur ces solutions ou proposez les vôtres.",
