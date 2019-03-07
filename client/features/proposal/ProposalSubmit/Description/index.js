@@ -3,10 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import {
-  ParagraphStyle,
-  CenterParagraphStyle,
-} from 'Client/ui/Elements/ParagraphElements';
+import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
 import { DescriptionWrapperStyle } from '../Styled';
@@ -39,7 +36,9 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
     const { isPannelOpen, country, language, trackModerationLink } = this.props;
     return (
       <DescriptionWrapperStyle id="proposal-submit-description">
-        <ParagraphStyle>{i18n.t('proposal_submit.description')}</ParagraphStyle>
+        <CenterParagraphStyle>
+          {i18n.t('proposal_submit.description')}
+        </CenterParagraphStyle>
         <CenterParagraphStyle>
           {i18n.t('proposal_submit.moderation_charter')}
           &nbsp;
