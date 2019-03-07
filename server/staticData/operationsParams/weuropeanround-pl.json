@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/pl/pl/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tysiące obywateli proponuje swoje rozwiązania, by wspólnie zmienić Europę.",
       "description": [
         "Wyraź swoją opinię na temat tych rozwiązań i zaproponuj własne.",

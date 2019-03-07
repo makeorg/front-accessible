@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/ee/et/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tuhanded kodanikud esitavad lahendusi Euroopa uueks loomiseks.",
       "description": [
         "Võtke nendes lahendustes seisukoht või esitage oma lahendusi.",

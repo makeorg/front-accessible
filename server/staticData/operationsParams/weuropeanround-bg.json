@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/bg/bg/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Хиляди граждани предлагат решения за преоткриването на Европа.",
       "description": [
         "Вземете отношение по тези решения или предложете Вашите.",

@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/se/sv/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Tusentals medborgare föreslår lösningar för att återuppfinna Europa.",
       "description": [
         "Ta ställning till lösningarna och ge egna förslag.",

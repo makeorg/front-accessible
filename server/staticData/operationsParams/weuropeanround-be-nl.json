@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/be/nl/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Duizenden burgers stellen oplossingen voor om Europa te vernieuwen.",
       "description": [
         "Neem een standpunt in over deze oplossingen of stel zelf oplossingen voor.",

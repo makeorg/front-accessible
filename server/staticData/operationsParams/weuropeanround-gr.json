@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/gr/el/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Χιλιάδες πολίτες προτείνουν λύσεις ώστε η Ευρώπη να αποκτήσει νέες βάσεις.",
       "description": [
         "Εκφράστε τη γνώμη σας σχετικά με αυτές τις λύσεις ή προτείνετε τις δικές σας.",

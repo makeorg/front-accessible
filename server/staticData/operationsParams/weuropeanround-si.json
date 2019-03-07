@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/si/sl/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Na tisoče državljanov predlaga rešitve za ponovno odkrivanje Evrope.",
       "description": [
         "Zavzemite se za te rešitve ali predlagajte svoje.",

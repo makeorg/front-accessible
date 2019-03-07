@@ -23,7 +23,7 @@
   "aboutUrl": "https://weeuropeans.eu/mt/mt/about",
   "sequenceConfig": {
     "introCard": {
-      "enabled": true,
+      "enabled": false,
       "title": "Eluf ta’ ċittadini qed jipproponu soluzzjonijiet biex noħolqu l-Ewropa mill-ġdid.",
       "description": [
         "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet jew ipproponi tiegħek.",
