@@ -5,17 +5,18 @@ import * as HttpStatus from 'Shared/constants/httpStatus';
 import { type ApiServiceHeaders } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
-const PATH_USER_ME = '/user/me';
-const PATH_USER_LOGIN = '/oauth/make_access_token';
-const PATH_USER_GET_TOKEN = '/oauth/access_token';
-const PATH_USER_LOGOUT = '/logout';
-const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
-const PATH_USER_REGISTER = '/user';
-const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
-const PATH_USER_VERIFICATION = '/user/:userId/validate/:verificationToken';
-const PATH_USER_RESET_TOKEN_CHECK =
+export const PATH_USER_ME = '/user/me';
+export const PATH_USER_LOGIN = '/oauth/make_access_token';
+export const PATH_USER_GET_TOKEN = '/oauth/access_token';
+export const PATH_USER_LOGOUT = '/logout';
+export const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
+export const PATH_USER_REGISTER = '/user';
+export const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
+export const PATH_USER_VERIFICATION =
+  '/user/:userId/validate/:verificationToken';
+export const PATH_USER_RESET_TOKEN_CHECK =
   '/user/reset-password/check-validity/:userId/:resetToken';
-const PATH_USER_CHANGE_PASSWORD =
+export const PATH_USER_CHANGE_PASSWORD =
   '/user/reset-password/change-password/:userId';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
@@ -114,6 +115,7 @@ export class UserService {
         profession: user.profession,
         country: ApiService.country,
         language: ApiService.language,
+        questionId: ApiService.questionId,
       }),
     });
   }
