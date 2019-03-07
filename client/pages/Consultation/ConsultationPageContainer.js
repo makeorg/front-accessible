@@ -1,72 +1,47 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { match as TypeMatch } from 'react-router';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import {
-  fetchQuestionData,
-  fetchQuestionConfigurationData,
-} from 'Shared/store/actions/sequence';
+import { ProposalService } from 'Shared/api/ProposalService';
+import { ProposalType } from 'Shared/types/proposal';
+import { Logger } from 'Shared/services/Logger';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
   question: Question,
   questionConfiguration: QuestionConfiguration,
-  fetchQuestion: () => void,
-  fetchQuestionConfiguration: () => void,
-  match: TypeMatch,
 };
 
-class ConsultationPageClass extends React.Component<Props> {
-  componentDidMount() {
-    const {
-      match,
-      question,
-      fetchQuestion,
-      questionConfiguration,
-      fetchQuestionConfiguration,
-    } = this.props;
+type State = {
+  proposals: ProposalType[],
+};
 
-    if (!question) {
-      fetchQuestion(match.params.questionSlug);
-    }
+export class ConsultationPageContainer extends React.Component<Props, State> {
+  state = {
+    proposals: [],
+  };
 
-    if (!questionConfiguration) {
-      fetchQuestionConfiguration(match.params.questionSlug);
+  async componentDidMount() {
+    const { question } = this.props;
+    try {
+      const response = await ProposalService.searchProposals(
+        question.questionId
+      );
+      this.setState({ proposals: response.results });
+    } catch (error) {
+      Logger.logError('searchProposals error', error);
     }
   }
 
   render() {
     const { question, questionConfiguration } = this.props;
+    const { proposals } = this.state;
 
     return (
       <ConsultationPageComponent
         question={question}
         questionConfiguration={questionConfiguration}
+        proposals={proposals}
       />
     );
   }
 }
-
-const mapStateToProps = state => {
-  const { question, questionConfiguration } = state.sequence;
-
-  return {
-    question,
-    questionConfiguration,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  fetchQuestionConfiguration: (questionSlug: string) => {
-    dispatch(fetchQuestionConfigurationData(questionSlug));
-  },
-  fetchQuestion: (questionSlug: string) => {
-    dispatch(fetchQuestionData(questionSlug));
-  },
-});
-
-export const ConsultationPageContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ConsultationPageClass);

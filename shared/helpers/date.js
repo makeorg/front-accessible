@@ -17,6 +17,20 @@ const localeMonths = {
     'novembre',
     'décembre',
   ],
+  en: [
+    'january',
+    'february',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ],
 };
 
 export const getDateOfBirthFromAge = (age: number = 0) => {
