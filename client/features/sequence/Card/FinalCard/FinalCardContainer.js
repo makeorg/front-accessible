@@ -3,6 +3,7 @@ import { type FinalCardConfig } from 'Shared/types/card';
 import { connect } from 'react-redux';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
+import { TabIndexContext } from 'Client/app/TabIndexContext';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {
@@ -49,22 +50,23 @@ class FinalCardHandler extends React.Component<Props> {
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
-
+    const tabIndex =
+      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
     return (
-      <FinalCardComponent
-        configuration={configuration}
-        index={index}
-        cardOffset={cardOffset}
-        currentIndex={currentIndex}
-        cardsCount={cardsCount}
-        position={position}
-        scale={scale}
-        zindex={zindex}
-        tabIndex={
-          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-        }
-        goToPreviousCard={goToPreviousCard}
-      />
+      <TabIndexContext.Provider value={tabIndex}>
+        <FinalCardComponent
+          configuration={configuration}
+          index={index}
+          cardOffset={cardOffset}
+          currentIndex={currentIndex}
+          cardsCount={cardsCount}
+          position={position}
+          scale={scale}
+          zindex={zindex}
+          tabIndex={tabIndex}
+          goToPreviousCard={goToPreviousCard}
+        />
+      </TabIndexContext.Provider>
     );
   }
 }

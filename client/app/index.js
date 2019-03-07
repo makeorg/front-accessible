@@ -15,25 +15,28 @@ import { Footer } from './Footer';
 import { Pannel } from './Pannel';
 import { Routes } from './Routes';
 import { ErrorBoundary } from './Error';
+import { TabIndexContext } from './TabIndexContext';
 
 /**
  * Handles App Business Logic
  */
 export const AppContainer = () => (
   <ErrorBoundary>
-    <AppWrapperStyle>
-      <ModernNormalizeStylesheet />
-      <FontFacesStylesheet />
-      <DefaultStylesheet />
-      <UIThemeStylesheet />
-      <CookieBanner />
-      <Header />
-      <AppMainContentStyle role="main">
-        <Notification />
-        <Routes />
-        <Pannel />
-      </AppMainContentStyle>
-      <Footer />
-    </AppWrapperStyle>
+    <TabIndexContext.Provider>
+      <AppWrapperStyle>
+        <ModernNormalizeStylesheet />
+        <FontFacesStylesheet />
+        <DefaultStylesheet />
+        <UIThemeStylesheet />
+        <CookieBanner />
+        <Header />
+        <AppMainContentStyle role="main">
+          <Notification />
+          <Routes />
+          <Pannel />
+        </AppMainContentStyle>
+        <Footer />
+      </AppWrapperStyle>
+    </TabIndexContext.Provider>
   </ErrorBoundary>
 );
