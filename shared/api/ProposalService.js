@@ -39,9 +39,9 @@ export class ProposalService {
 
   static searchProposals(
     questionId: string,
+    tagsIds?: string,
     limit?: number = 20,
     skip?: number = 0,
-    tagsIds?: string[],
     headers?: ApiServiceHeaders = {}
   ): Promise<ApiSearchProposalsResponseType> {
     return ApiService.callApi(PATH_PROPOSALS, {

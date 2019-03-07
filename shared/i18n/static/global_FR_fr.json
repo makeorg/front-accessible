@@ -223,6 +223,11 @@
       "commitment_text": "Ils soutiennent la consultation et le plan d'actions citoyen qui suivra.",
       "commitment_link": "Voir tous les  partenaires",
       "founder": "Partenaire Fondateur"
+    },
+    "tags": {
+      "intro": "Filtrer par tags :",
+      "show_all": "voir tous les tags",
+      "show_less": "masquer"
     }
   },
   "weeuropean": {

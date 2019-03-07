@@ -37,7 +37,6 @@ export type VotesPercentObject = {
 export type TagType = {
   tagId: string,
   label: string,
-  display: boolean,
 };
 
 export type OrganisationType = {
