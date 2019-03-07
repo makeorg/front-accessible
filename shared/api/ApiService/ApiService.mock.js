@@ -20,4 +20,9 @@ export class ApiServiceMock implements IApiServiceStrategy {
   get source(): string {
     return 'foo';
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  get questionId(): string {
+    return 'foo';
+  }
 }

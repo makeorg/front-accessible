@@ -23,6 +23,7 @@ describe('ApiService', () => {
     expect(ApiService.language).toBe('foo');
     expect(ApiService.country).toBe('foo');
     expect(ApiService.source).toBe('foo');
+    expect(ApiService.questionId).toBe('foo');
   });
 
   it('callApi must call strategy.callApi ', () => {

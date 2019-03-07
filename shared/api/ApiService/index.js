@@ -7,6 +7,7 @@ export interface IApiServiceStrategy {
   get country(): string;
   get language(): string;
   get source(): string;
+  get questionId(): string;
 }
 
 class ApiServiceClass {
@@ -35,6 +36,10 @@ class ApiServiceClass {
 
   get source(): string {
     return this.strategy.source;
+  }
+
+  get questionId(): string {
+    return this.strategy.questionId;
   }
 }
 
