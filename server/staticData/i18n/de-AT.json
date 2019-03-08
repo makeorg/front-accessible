@@ -27,7 +27,8 @@
     "propose": "Vorschlag machen",
     "click_there": "Hier klicken",
     "open_new_window": "In einem neuen Fenster öffnen",
-    "loading": "Wird geladen. Wir bitten kurz um Geduld."
+    "loading": "Wird geladen. Wir bitten kurz um Geduld.",
+    "participate": "Mitmachen"
   },
   "header": {
     "logo_alt": "Die Website Make.org öffnen"
@@ -198,5 +199,28 @@
     "intro": "ups",
     "title": "Fehler 404",
     "description": "Die von Ihnen angeforderte Seite existiert nicht oder nicht mehr."
+  },
+  "consultation": {
+    "presentation": {
+      "title": "Warum diese Konsultation ?",
+      "link_text": "Mehr erfahren"
+    },
+    "sharing": {
+      "title": "Diese Konsultation teilen"
+    },
+    "partners": {
+      "intro_title": "Eine groß angelegte Mobilisierung",
+      "intro_text": "Tausende von Bürgern beteiligen sich durch die Teilnahme an der Konsultation.",
+      "commitment_title": "Unsere Partner engagieren sich an unserer Seite",
+      "commitment_text": "Sie unterstützen die Konsultation und den anschließenden Bürgeraktionsplan.",
+      "commitment_link": "Alle Partner sehen",
+      "founder": "Gründer",
+      "init": "Diese Konsultation wurde initiiert von :"
+    },
+    "tags": {
+      "intro": "Nach Stichwort filtern :",
+      "show_all": "alle Schlagwörter sehen",
+      "show_less": "weniger anzeigen"
+    }
   }
 }

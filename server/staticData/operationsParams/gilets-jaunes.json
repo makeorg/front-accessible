@@ -4,7 +4,7 @@
     "question": "Grand débat national : quelles sont vos propositions ?",
     "metas": {
       "title": "Grand débat national : quelles sont vos propositions ?",
-      "description": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?",
+      "description": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?“",
       "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5c483e3ec604e5e49713d344_meta%20grand%20de%CC%81bat.jpg"
     }
   },
@@ -14,6 +14,13 @@
     "gradient-end": "#0024A6",
     "footerFontColor": "white"
   },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "", "isFounder": false}
+  ],
+  "consultation": {
+    "presentation": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?“ "
+  },
+  "isGreatCause": false,
   "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "sequenceConfig": {

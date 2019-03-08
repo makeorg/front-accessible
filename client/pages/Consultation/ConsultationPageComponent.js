@@ -72,12 +72,15 @@ export const ConsultationPageComponent = (props: Props) => {
           >
             <Presentation />
           </Collapse>
-          {questionConfiguration.partners && (
+          {questionConfiguration.isGreatCause && (
             <Collapse
               title={i18n.t('consultation.partners.intro_title')}
               forceExpand
             >
-              <Partners />
+              <Partners
+                questionConfiguration={questionConfiguration}
+                question={question}
+              />
             </Collapse>
           )}
           <HiddenOnMobileStyle>

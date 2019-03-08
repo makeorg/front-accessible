@@ -222,7 +222,8 @@
       "commitment_title": "Nos partenaires s'engagent à nos côtés",
       "commitment_text": "Ils soutiennent la consultation et le plan d'actions citoyen qui suivra.",
       "commitment_link": "Voir tous les  partenaires",
-      "founder": "Partenaire Fondateur"
+      "founder": "Partenaire Fondateur",
+      "init": "Cette consultation a été initiée par :"
     },
     "tags": {
       "intro": "Filtrer par tags :",

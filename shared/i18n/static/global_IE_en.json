@@ -219,7 +219,9 @@
       "commitment_title": "They are involved too",
       "commitment_text": "They support the consultation and the citizen action plan that will follow.",
       "commitment_link": "See all partners",
-      "founder": "Founder Partner"
+      "founder": "Founder Partner",
+      "init": "This consultation has been initiated by :"
+
     },
     "tags": {
       "intro": "Filter by tags:",

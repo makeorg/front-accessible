@@ -8,6 +8,8 @@ import {
 
 import { type ProposalType } from 'Shared/types/proposal';
 
+import { type Partner } from 'Shared/types/partners';
+
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,
   pushProposalCard: PushProposalCardConfig,
@@ -50,6 +52,8 @@ export type QuestionConfiguration = {
   wording: Wording,
   sharing: SharingType,
   theme: Theme,
+  partners?: Partner[],
+  isGreatCause: boolean,
   consultationUrl: string,
   sequenceUrl: string,
   sequenceConfig: ExtraSlidesConfig,

@@ -3,8 +3,6 @@ import { Svg } from 'Client/ui/Svg';
 import { AvatarStyle } from './Styled';
 
 type Props = {
-  /** Boolean use to render or not children */
-  customAvatar: boolean,
   /** Children to render */
   children: React.Node,
   /** Width of avatar */
@@ -12,9 +10,9 @@ type Props = {
 };
 
 export const Avatar = (props: Props) => {
-  const { avatarSize, customAvatar, children } = props;
+  const { avatarSize, children } = props;
 
-  if (customAvatar) {
+  if (children) {
     return (
       <AvatarStyle aria-hidden avatarSize={avatarSize}>
         {children}
