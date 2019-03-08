@@ -3,8 +3,12 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { type Question } from 'Shared/types/question';
-import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
+import {
+  selectSequenceCollapsed,
+  selectSequenceQuestion,
+} from 'Shared/store/selectors/sequence.selector';
+import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { IntroCardComponent } from './IntroCardComponent';
 
 type Props = {
@@ -65,12 +69,11 @@ class IntroCardHandler extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed,
-    question,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
+    question: selectSequenceQuestion(state),
   };
 };
 

@@ -11,32 +11,22 @@ import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { match as TypeMatch } from 'react-router';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
   proposal: ProposalType,
   questionConfiguration: QuestionConfiguration,
-  fetchProposal: (proposalId: string) => void,
-  fetchQuestionConfiguration: (questionSlug: string) => void,
+  fetchProposal: (proposalId: string, questionSlug: string) => void,
   match: TypeMatch,
 };
 
 class ProposalPageContainer extends React.Component<Props> {
   componentDidMount() {
-    const {
-      match,
-      proposal,
-      questionConfiguration,
-      fetchProposal,
-      fetchQuestionConfiguration,
-    } = this.props;
+    const { match, proposal, fetchProposal } = this.props;
 
     if (!proposal) {
-      fetchProposal(match.params.proposalId);
-    }
-
-    if (!questionConfiguration) {
-      fetchQuestionConfiguration(match.params.questionSlug);
+      fetchProposal(match.params.proposalId, match.params.questionSlug);
     }
   }
 
@@ -66,20 +56,20 @@ class ProposalPageContainer extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { data } = state.proposal;
-  const { questionConfiguration } = state.sequence;
 
   return {
     proposal: data,
-    questionConfiguration,
+    questionConfiguration: selectSequenceQuestionConfiguration(state),
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchProposal: (proposalId: string) => {
-    dispatch(fetchProposalData(proposalId));
-  },
-  fetchQuestionConfiguration: (questionSlug: string) => {
-    dispatch(fetchQuestionConfigurationData(questionSlug));
+  fetchProposal: (proposalId: string, questionSlug: string) => {
+    dispatch(fetchProposalData(proposalId)).then((proposal: ProposalType) => {
+      dispatch(
+        fetchQuestionConfigurationData(questionSlug, proposal.questionId)
+      );
+    });
   },
 });
 

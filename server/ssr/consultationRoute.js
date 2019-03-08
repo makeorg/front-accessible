@@ -24,8 +24,13 @@ export const consultationRoute = async (req, res) => {
     routeState = {
       sequence: {
         ...initialState.sequence,
-        question,
-        questionConfiguration,
+        questionId: question.questionId,
+      },
+      questions: {
+        [question.questionId]: {
+          question,
+          questionConfiguration,
+        },
       },
     };
   } catch (error) {

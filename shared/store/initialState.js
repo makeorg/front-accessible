@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 import { type StateRoot } from './types';
 
 export const initialState: StateRoot = {
@@ -20,10 +20,10 @@ export const initialState: StateRoot = {
   sequence: {
     isSequenceCollapsed: false,
     firstProposal: undefined,
-    question: undefined,
-    questionConfiguration: undefined,
+    questionId: undefined,
     votedProposalIds: [],
   },
+  questions: {},
   notification: {
     contentType: undefined,
   },

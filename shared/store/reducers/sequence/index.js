@@ -1,10 +1,9 @@
-/* @flow */
-
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
+import { type StateSequence } from 'Shared/store/types';
 
 export function sequence(
-  state: Object = initialState.sequence,
+  state: StateSequence = initialState.sequence,
   action: Object
 ) {
   switch (action.type) {
@@ -21,12 +20,12 @@ export function sequence(
     case actionTypes.QUESTION_LOAD:
       return {
         ...state,
-        question: action.payload.question,
+        questionId: action.payload.question.questionId,
       };
     case actionTypes.QUESTION_CONFIGURATION_LOAD:
       return {
         ...state,
-        questionConfiguration: action.payload.questionConfiguration,
+        questionId: action.payload.questionId,
       };
     case actionTypes.SEQUENCE_PROPOSAL_VOTE:
       return {
@@ -39,9 +38,11 @@ export function sequence(
     case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
       return {
         ...state,
-        votedProposalIds: state.votedProposalIds.filter(
-          item => item !== action.payload.proposalId
-        ),
+        votedProposalIds:
+          state.votedProposalIds &&
+          state.votedProposalIds.filter(
+            item => item !== action.payload.proposalId
+          ),
       };
     default:
       return state;

@@ -7,8 +7,8 @@ import { AccountActivationFailureComponent } from 'Client/features/auth/Activati
 import { PasswordRecoveryFailureComponent } from 'Client/features/auth/PasswordRecovery/Failure';
 import { connect } from 'react-redux';
 import { clearNotification } from 'Shared/store/actions/notification';
+import { selectNotificationContent } from 'Shared/store/selectors/notification.selector';
 import { NotificationComponent } from './NotificationComponent';
-import { selectNotificationContent } from './notification.selector';
 
 const notifcationContent = {
   [notificationConstants.ACTIVATION_SUCCESS_CONTENT]: (

@@ -4,6 +4,10 @@ import { type SignUpCardConfig } from 'Shared/types/card';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
+import {
+  selectSequenceCollapsed,
+  selectSequenceQuestion,
+} from 'Shared/store/selectors/sequence.selector';
 import { SignUpCardComponent } from './SignUpCardComponent';
 
 type Props = {
@@ -67,12 +71,11 @@ export class SignUpCardhandler extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed,
-    question,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
+    question: selectSequenceQuestion(state),
   };
 };
 

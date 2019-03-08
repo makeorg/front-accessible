@@ -14,11 +14,16 @@ export const initialStateDebug = {
     length: 8,
   },
   sequence: {
-    /* question: {
+    /* 
+    questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',
+    */
+    votedProposalIds: [],
+  },
+  questions: {
+    /* '8358bb5d-493c-4ae8-88be-3de613e2e527': {
       questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',
       operationId: '65dfe694-2ea9-486b-8bc5-3107316fa6ff'
-    }, */
-    votedProposalIds: [],
+    } */
   },
   user: {
     /*

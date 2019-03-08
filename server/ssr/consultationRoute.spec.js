@@ -20,6 +20,7 @@ const country = 'FR';
 const language = 'fr';
 const fooQuestion = {
   id: 'foo',
+  questionId: '1234',
 };
 const questionSlug = 'bar';
 
@@ -39,16 +40,19 @@ describe('Proposal route', () => {
 
   describe('The route', () => {
     it('construct route initial state and render', async () => {
-      SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
       QuestionService.getDetail.mockReturnValue(fooQuestion);
+      SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
       createInitialState.mockReturnValue({ sequence: {} });
 
       await consultationRoute(request, response, () => {});
       expect(reactRender).toHaveBeenCalledWith(request, response, {
-        sequence: {
-          question: fooQuestion,
-          questionConfiguration: 'questionconfigData',
+        questions: {
+          '1234': {
+            question: fooQuestion,
+            questionConfiguration: 'questionconfigData',
+          },
         },
+        sequence: { questionId: '1234' },
       });
     });
 

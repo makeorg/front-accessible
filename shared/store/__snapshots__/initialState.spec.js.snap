@@ -20,11 +20,11 @@ Object {
     "isTyping": false,
     "questionId": undefined,
   },
+  "questions": Object {},
   "sequence": Object {
     "firstProposal": undefined,
     "isSequenceCollapsed": false,
-    "question": undefined,
-    "questionConfiguration": undefined,
+    "questionId": undefined,
     "votedProposalIds": Array [],
   },
   "user": Object {

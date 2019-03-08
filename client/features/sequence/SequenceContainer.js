@@ -13,6 +13,7 @@ import {
 } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type Question } from 'Shared/types/question';
+import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import {
   type Props as SequenceProps,
   SequenceComponent,
@@ -256,11 +257,7 @@ class SequenceHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const {
-    firstProposal,
-    votedProposalIds,
-    isSequenceCollapsed,
-  } = state.sequence;
+  const { firstProposal, votedProposalIds } = state.sequence;
   const { hasProposed } = state.proposal;
   const { isPannelOpen } = state.pannel;
   const { isLoggedIn } = state.authentification;
@@ -268,7 +265,7 @@ const mapStateToProps = state => {
   return {
     firstProposal,
     votedProposalIds,
-    isSequenceCollapsed,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
     hasProposed,
     isPannelOpen,
     isLoggedIn,

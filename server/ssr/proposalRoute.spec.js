@@ -1,11 +1,13 @@
 import httpMocks from 'node-mocks-http';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
+import { ProposalService } from 'Shared/api/ProposalService';
 import { proposalRoute } from './proposalRoute';
 import { reactRender } from '../reactRender';
 import { logError } from './helpers/ssr.helper';
 
 jest.mock('Shared/api/SequenceService');
+jest.mock('Shared/api/ProposalService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('./helpers/ssr.helper', () => ({
   logError: jest.fn(),
@@ -26,7 +28,10 @@ describe('Proposal route', () => {
 
   describe('The route', () => {
     it('construct route initial state and render', async () => {
+      const questionId = '1234';
+      const proposalId = 'abcd';
       SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
+      ProposalService.getProposal.mockReturnValue({ questionId, proposalId });
       createInitialState.mockReturnValue({ sequence: {} });
       const request = httpMocks.createRequest({
         params: {
@@ -34,6 +39,7 @@ describe('Proposal route', () => {
           language,
           sessionId,
           questionSlug,
+          proposalId: 'abcd',
         },
       });
       const response = httpMocks.createResponse();
@@ -41,9 +47,11 @@ describe('Proposal route', () => {
       await proposalRoute(request, response, () => {});
 
       expect(reactRender).toHaveBeenCalledWith(request, response, {
-        sequence: {
-          questionConfiguration: 'questionconfigData',
+        proposal: { data: { questionId: '1234', proposalId: 'abcd' } },
+        questions: {
+          '1234': { questionConfiguration: 'questionconfigData' },
         },
+        sequence: { questionId: '1234' },
       });
     });
 

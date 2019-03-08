@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { TabIndexContext } from 'Client/app/TabIndexContext';
+import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {
@@ -73,11 +74,10 @@ class FinalCardHandler extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
   };
 };
 
