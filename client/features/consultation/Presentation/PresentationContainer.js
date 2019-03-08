@@ -2,6 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
+import {
+  selectSequenceQuestion,
+  selectSequenceQuestionConfiguration,
+} from 'Shared/store/selectors/sequence.selector';
 import { PresentationComponent } from './PresentationComponent';
 
 type Props = {
@@ -23,11 +27,9 @@ class PresentationClass extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { question, questionConfiguration } = state.sequence;
-
   return {
-    question,
-    questionConfiguration,
+    question: selectSequenceQuestion(state),
+    questionConfiguration: selectSequenceQuestionConfiguration(state),
   };
 };
 

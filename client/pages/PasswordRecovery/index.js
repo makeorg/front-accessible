@@ -9,6 +9,7 @@ import {
   PasswordRecoveryWrapperStyle,
   PasswordRecoveryContentStyle,
 } from 'Client/features/auth/PasswordRecovery/Styled';
+import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
 
 type Props = {
   passwordRecovery: Object,
@@ -49,8 +50,7 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { passwordRecovery } = state.user;
-  const { question } = state.sequence;
-  return { passwordRecovery, question };
+  return { passwordRecovery, question: selectSequenceQuestion(state) };
 };
 
 export const PasswordRecoveryPage = withRouter(

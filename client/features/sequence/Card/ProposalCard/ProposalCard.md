@@ -1,6 +1,6 @@
 ##### ProposalCard Example :
 ```js
-const { proposalTypeFixture } = require('../../../../../shared/types/__fixtures__/question.fixture.js');
+const { proposalTypeFixture } = require('../../../../../shared/types/__fixtures__/proposal.fixture.js');
 
   <div style={{position: 'relative'}}>
     <ProposalCard proposal={proposalTypeFixture}

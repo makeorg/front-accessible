@@ -1,4 +1,4 @@
-// @flow
+/* @flow */
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 
@@ -23,21 +23,20 @@ export type StateProposal = $ReadOnly<{
 }>;
 
 // Sequence State
-type StateSequence = $ReadOnly<{
+export type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
-  question?: Question,
-  questionConfiguration?: QuestionConfiguration,
+  questionId?: string,
   votedProposalIds?: Array<string>,
 }>;
 
 // Notification State
-type StateNotification = $ReadOnly<{
+export type StateNotification = $ReadOnly<{
   contentType?: string,
 }>;
 
 // User Password Recovery State
-type StateUserPasswordRecovery = $ReadOnly<{
+export type StateUserPasswordRecovery = $ReadOnly<{
   newPassword?: string,
   resetToken?: string,
   userId?: string,
@@ -47,8 +46,15 @@ type StateUserPasswordRecovery = $ReadOnly<{
 }>;
 
 // User State
-type StateUser = $ReadOnly<{
+export type StateUser = $ReadOnly<{
   passwordRecovery: StateUserPasswordRecovery,
+}>;
+
+export type StateQuestions = $ReadOnly<{
+  [string]: {
+    question: Question,
+    questionConfiguration: QuestionConfiguration,
+  },
 }>;
 
 // All state
@@ -58,4 +64,5 @@ export type StateRoot = $ReadOnly<{
   sequence: StateSequence,
   notification: StateNotification,
   user: StateUser,
+  questions: StateQuestions,
 }>;

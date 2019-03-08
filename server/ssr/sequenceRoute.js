@@ -35,8 +35,13 @@ export const sequenceRoute = async (req, res) => {
     routeState = {
       sequence: {
         ...initialState.sequence,
-        question,
-        questionConfiguration,
+        questionId: question.questionId,
+      },
+      questions: {
+        [question.questionId]: {
+          question,
+          questionConfiguration,
+        },
       },
       proposal: {
         ...initialState.proposal,

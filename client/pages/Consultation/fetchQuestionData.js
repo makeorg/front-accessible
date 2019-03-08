@@ -11,12 +11,15 @@ import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
 } from 'Shared/store/actions/sequence';
+import {
+  selectSequenceQuestion,
+  selectSequenceQuestionConfiguration,
+} from 'Shared/store/selectors/sequence.selector';
 
 type Props = {
   question: Question,
   questionConfiguration: QuestionConfiguration,
   fetchQuestion: (questionSlug: string) => void,
-  fetchQuestionConfiguration: (questionSlug: string) => void,
   match: TypeMatch,
 };
 
@@ -45,20 +48,10 @@ export const PageQuestionWrapper = ({
 const callQuestionData = Component =>
   class FetchQuestionClass extends React.Component<Props> {
     componentDidMount() {
-      const {
-        match,
-        question,
-        fetchQuestion,
-        questionConfiguration,
-        fetchQuestionConfiguration,
-      } = this.props;
+      const { match, question, fetchQuestion } = this.props;
 
       if (!question) {
         fetchQuestion(match.params.questionSlug);
-      }
-
-      if (!questionConfiguration) {
-        fetchQuestionConfiguration(match.params.questionSlug);
       }
     }
 
@@ -77,20 +70,19 @@ const callQuestionData = Component =>
   };
 
 const mapStateToProps = state => {
-  const { question, questionConfiguration } = state.sequence;
-
   return {
-    question,
-    questionConfiguration,
+    question: selectSequenceQuestion(state),
+    questionConfiguration: selectSequenceQuestionConfiguration(state),
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchQuestionConfiguration: (questionSlug: string) => {
-    dispatch(fetchQuestionConfigurationData(questionSlug));
-  },
   fetchQuestion: (questionSlug: string) => {
-    dispatch(fetchQuestionData(questionSlug));
+    dispatch(fetchQuestionData(questionSlug)).then((question: Question) => {
+      dispatch(
+        fetchQuestionConfigurationData(questionSlug, question.questionId)
+      );
+    });
   },
 });
 

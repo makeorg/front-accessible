@@ -8,6 +8,7 @@ import { doVote, doUnvote } from 'Shared/helpers/vote';
 import { VoteService } from 'Shared/api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
+import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
 import { VoteResult } from './Result';
@@ -173,11 +174,10 @@ export class VoteHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { isSequenceCollapsed } = state.sequence;
   const { isPannelOpen } = state.pannel;
 
   return {
-    isSequenceCollapsed,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
     isPannelOpen,
   };
 };

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
 type Props = {
@@ -41,11 +42,10 @@ const ProposalCardHandler = (props: Props) => {
 
 const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
   };
 };
 

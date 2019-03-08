@@ -1,6 +1,6 @@
 /* @flow */
-import { sequence } from './index';
 import * as actionTypes from 'Shared/store/actionTypes';
+import { sequence } from './index';
 
 describe('Sequence reducer', () => {
   it('Return the initial state', () => {
@@ -9,7 +9,7 @@ describe('Sequence reducer', () => {
       firstProposal: undefined,
       question: undefined,
       questionConfiguration: undefined,
-      votedProposalIds: []
+      votedProposalIds: [],
     };
 
     expect(sequence(undefined, {})).toEqual(expectedState);
@@ -18,11 +18,11 @@ describe('Sequence reducer', () => {
   it('Collapse sequence reducer', () => {
     const action = { type: actionTypes.SEQUENCE_COLLAPSE };
     const previousState = {
-      isSequenceCollapsed: false
+      isSequenceCollapsed: false,
     };
 
     const expectedState = {
-      isSequenceCollapsed: true
+      isSequenceCollapsed: true,
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);
@@ -31,37 +31,43 @@ describe('Sequence reducer', () => {
   it('Expand sequence reducer', () => {
     const action = { type: actionTypes.SEQUENCE_EXPAND };
     const previousState = {
-      isSequenceCollapsed: true
+      isSequenceCollapsed: true,
     };
 
     const expectedState = {
-      isSequenceCollapsed: false
+      isSequenceCollapsed: false,
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
   it('Vote into Sequence reducer', () => {
-    const action = { type: actionTypes.SEQUENCE_PROPOSAL_VOTE, payload: { proposalId: 'fooId' } };
+    const action = {
+      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+      payload: { proposalId: 'fooId' },
+    };
     const previousState = {
-      votedProposalIds: []
+      votedProposalIds: [],
     };
 
     const expectedState = {
-      votedProposalIds: ['fooId']
+      votedProposalIds: ['fooId'],
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
   it('Unvote into Sequence reducer', () => {
-    const action = { type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE, payload: { proposalId: 'fooId' } };
+    const action = {
+      type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
+      payload: { proposalId: 'fooId' },
+    };
     const previousState = {
-      votedProposalIds: ['barId', 'fooId', 'bazId']
+      votedProposalIds: ['barId', 'fooId', 'bazId'],
     };
 
     const expectedState = {
-      votedProposalIds: ['barId', 'bazId']
+      votedProposalIds: ['barId', 'bazId'],
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);

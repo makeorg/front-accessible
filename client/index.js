@@ -71,9 +71,12 @@ const initApp = async state => {
     },
   });
 
-  if (state.sequence && state.sequence.question) {
-    apiClient.questionId = state.sequence.question.questionId;
-    apiClient.operationId = state.sequence.question.operationId;
+  if (state.sequence && state.sequence.questionId) {
+    const { questionId } = state.sequence;
+    apiClient.questionId = questionId;
+    apiClient.operationId =
+      state.questions[questionId] &&
+      state.questions[questionId].question.operationId;
   }
 
   apiClient.source = state.appConfig.source;

@@ -69,6 +69,8 @@ export const fetchProposalData = (proposalId: string) => (dispatch: Function) =>
   ProposalService.getProposal(proposalId)
     .then(proposal => {
       dispatch({ type: actionTypes.PROPOSAL_LOAD, payload: proposal });
+      // Important ! Do not remove: use by the parent to use proposal.questionId
+      return proposal;
     })
     .catch(error => {
       Logger.logError({

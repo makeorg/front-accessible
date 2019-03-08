@@ -5,6 +5,10 @@ import { type PushProposalCardConfig } from 'Shared/types/card';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
+import {
+  selectSequenceQuestion,
+  selectSequenceCollapsed,
+} from 'Shared/store/selectors/sequence.selector';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
 
 type Props = {
@@ -78,12 +82,11 @@ class PushProposalCardHandler extends React.Component<Props> {
 
 const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
-  const { isSequenceCollapsed, question } = state.sequence;
 
   return {
     isPannelOpen,
-    isSequenceCollapsed,
-    question,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
+    question: selectSequenceQuestion(state),
   };
 };
 

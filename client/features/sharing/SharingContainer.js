@@ -9,6 +9,7 @@ import {
   facebookShareUrl,
   linkedinShareUrl,
 } from 'Shared/helpers/url';
+import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
 import { SharingComponent } from './SharingComponent';
 
 type Props = {
@@ -47,10 +48,8 @@ class SharingContainerLinks extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { questionConfiguration } = state.sequence;
-
   return {
-    questionConfiguration,
+    questionConfiguration: selectSequenceQuestionConfiguration(state),
   };
 };
 

@@ -10,6 +10,7 @@ import { pannel } from './pannel';
 import { sequence } from './sequence';
 import { notificationReducer } from './notification';
 import { user } from './user';
+import { questions } from './questions';
 
 export const rootReducer = combineReducers({
   appConfig,
@@ -19,6 +20,7 @@ export const rootReducer = combineReducers({
   proposal,
   pannel,
   sequence,
+  questions,
   notification: notificationReducer,
   user,
 });

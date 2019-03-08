@@ -11,6 +11,10 @@ import { type Question } from 'Shared/types/question';
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
 import { Tracking } from 'Shared/services/Tracking';
+import {
+  selectSequenceQuestion,
+  selectSequenceCollapsed,
+} from 'Shared/store/selectors/sequence.selector';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitSuccessComponent } from './Success';
@@ -164,16 +168,15 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { isLoggedIn } = state.authentification;
-  const { isSequenceCollapsed, question } = state.sequence;
   const { isPannelOpen } = state.pannel;
   const { content, length, canSubmit, isCurrentSubmitSuccess } = state.proposal;
   const { country, language } = state.appConfig;
 
   return {
     isLoggedIn,
-    isSequenceCollapsed,
+    isSequenceCollapsed: selectSequenceCollapsed(state),
     isPannelOpen,
-    question,
+    question: selectSequenceQuestion(state),
     content,
     length,
     canSubmit,

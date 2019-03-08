@@ -31,10 +31,11 @@ export const loadQuestion = (question: Question) => ({
 });
 
 export const loadQuestionConfiguration = (
-  questionConfiguration: QuestionConfiguration
+  questionConfiguration: QuestionConfiguration,
+  questionId: string
 ) => ({
   type: actionTypes.QUESTION_CONFIGURATION_LOAD,
-  payload: { questionConfiguration },
+  payload: { questionConfiguration, questionId },
 });
 
 export const sequenceVote = (
@@ -69,6 +70,8 @@ export const fetchQuestionData = (questionSlug: string) => (
   QuestionService.getDetail(questionSlug)
     .then(question => {
       dispatch(loadQuestion(question));
+      // Important ! Do not remove: use by the parent to use question.questionId
+      return question;
     })
     .catch(error => {
       Logger.logError({
@@ -77,12 +80,13 @@ export const fetchQuestionData = (questionSlug: string) => (
       });
     });
 
-export const fetchQuestionConfigurationData = (questionSlug: string) => (
-  dispatch: any => void
-) =>
+export const fetchQuestionConfigurationData = (
+  questionSlug: string,
+  questionId: string
+) => (dispatch: any => void) =>
   SequenceService.fetchConfiguration(questionSlug)
     .then(questionConfiguration => {
-      dispatch(loadQuestionConfiguration(questionConfiguration));
+      dispatch(loadQuestionConfiguration(questionConfiguration, questionId));
     })
 
     .catch(error => {
