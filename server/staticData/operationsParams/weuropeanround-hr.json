@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans je građanska, demokratska i nestranačka inicijativa. U okviru ove inicijative građani i građanke mogu izraziti vlastita mišljenja i sudjelovati u najvećoj građanskoj raspravi koja je ikada organizirana. Europa se od sada oblikuje uz naše sudjelovanje.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/hr/hr/about",
   "aboutUrl": "https://weeuropeans.eu/hr/hr/about",
   "sequenceConfig": {

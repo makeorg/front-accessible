@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans je občanská, demokratická a nestranná kampaň. Spojuje občany a občanky Evropy bez rozdílu názorů a navrhuje jim účast v nejrozsáhlejší veřejné evropské anketě, která kdy byla realizována. Evropa se už nebude budovat bez nás.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/cz/cs/about",
   "aboutUrl": "https://weeuropeans.eu/cz/cs/about",
   "sequenceConfig": {

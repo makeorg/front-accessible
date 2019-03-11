@@ -46,7 +46,10 @@ export const ConsultationPageComponent = (props: Props) => {
         description={metas.description}
         picture={metas.picture}
       />
-      <IntroBanner />
+      <IntroBanner
+        question={question}
+        questionConfiguration={questionConfiguration}
+      />
       <ConsultationPageWrapperStyle>
         <ConsultationPageContentStyle>
           <TagFilter

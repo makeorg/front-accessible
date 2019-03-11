@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "\"WeEuropeans\" yra pilietinė, demokratinė ir nešališka iniciatyva. Tai didžiausia visų laikų visuomenės apklausa Europoje, kurioje siūloma dalyvauti Europos piliečiams ir pilietėms, nepriklausomai nuo jų nuomonių skirtumų. Europa nebebus kuriama be mūsų.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/lt/lt/about",
   "aboutUrl": "https://weeuropeans.eu/lt/lt/about",
   "sequenceConfig": {

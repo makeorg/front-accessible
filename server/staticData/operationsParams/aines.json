@@ -10,12 +10,14 @@
   },
   "theme": {
     "color": "#9C6BDA",
-    "gradient-start": "#9C6BDA",
-    "gradient-end": "#8DDCF6",
+    "gradientStart": "#9C6BDA",
+    "gradientEnd": "#8DDCF6",
     "footerFontColor": "black"
   },
   "consultation": {
-    "presentation": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question Comment mieux prendre soin de nos aînés ? Grâce au soutien des partenaires fondateurs Klesia, la fondation Korian, La Poste, l'OCIRP, Primonial REIM, CAREIT, la Croix-Rouge française, les milliers de propositions citoyennes recueillies vont nous permettre de bâtir, aux côtés de l’État, le 1er grand Plan d'actions citoyen en faveur des Aînés. Entreprises, associations, pouvoirs publics, citoyens, nous nous donnons trois ans pour concrétiser les actions de ce Plan et réussir ainsi à mieux prendre soin de nos aînés. "
+    "presentation": "Make.org lance avec le ministère des Solidarités et de la Santé une vaste consultation citoyenne en ligne autour de la question Comment mieux prendre soin de nos aînés ? Grâce au soutien des partenaires fondateurs Klesia, la fondation Korian, La Poste, l'OCIRP, Primonial REIM, CAREIT, la Croix-Rouge française, les milliers de propositions citoyennes recueillies vont nous permettre de bâtir, aux côtés de l’État, le 1er grand Plan d'actions citoyen en faveur des Aînés. Entreprises, associations, pouvoirs publics, citoyens, nous nous donnons trois ans pour concrétiser les actions de ce Plan et réussir ainsi à mieux prendre soin de nos aînés. ",
+    "logo": "/images/operations/aines/consultation/aines.svg",
+    "label": "Grande Cause Make.org"
   },
   "partners": [
     {"name": "Klesia", "imageUrl": "/images/operations/aines/partners/klesia.png", "isFounder": true},

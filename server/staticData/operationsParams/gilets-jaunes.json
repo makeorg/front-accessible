@@ -10,16 +10,18 @@
   },
   "theme": {
     "color": "#0024A6",
-    "gradient-start": "#0024A6",
-    "gradient-end": "#0024A6",
+    "gradientStart": "#ef3159",
+    "gradientEnd": "#014064",
     "footerFontColor": "white"
   },
-  "partners": [
-    {"name": "Make.org", "imageUrl": "", "isFounder": false}
-  ],
   "consultation": {
-    "presentation": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?“ "
+    "presentation": "Dans le contexte du Grand débat national, des médias lancent, avec Make.org, une grande consultation baptisée “Grand débat national : quelles sont vos propositions ?“ ",
+    "logo": "/images/operations/gilets-jaunes/consultation/grand-debat-national.svg",
+    "label": ""
   },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false}
+  ],
   "isGreatCause": false,
   "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",

@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans jest obywatelską, demokratyczną i bezpartyjną inicjatywą. Zrzesza europejskich obywateli i obywatelki bez względu na ich poglądy, oferując możliwość udziału w największych w historii europejskich konsultacjach społecznych. Przyszłość Europy jest w naszych rękach.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/pl/pl/about",
   "aboutUrl": "https://weeuropeans.eu/pl/pl/about",
   "sequenceConfig": {

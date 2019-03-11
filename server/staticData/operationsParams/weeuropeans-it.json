@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans è una campagna civica, democratica e apartitica. Riunisce i cittadini europei indipendentemente dalle loro opinioni, proponendo loro di partecipare alla più grande consultazione cittadina europea di sempre. L’Europa non si farà più senza di noi.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/it/it/about",
   "aboutUrl": "https://weeuropeans.eu/it/it/about",
   "sequenceConfig": {
