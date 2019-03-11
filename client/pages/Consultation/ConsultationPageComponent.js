@@ -11,6 +11,8 @@ import { Sharing } from 'Client/features/sharing';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { ProposalType } from 'Shared/types/proposal';
 import { TagFilter } from 'Client/features/consultation/TagsFilter';
+import { Collapse } from 'Client/ui/Elements/Collapse';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -64,13 +66,25 @@ export const ConsultationPageComponent = (props: Props) => {
             ))}
         </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle as="aside">
-          <SidebarTile title={i18n.t('consultation.presentation.title')}>
+          <Collapse
+            title={i18n.t('consultation.presentation.title')}
+            forceExpand
+          >
             <Presentation />
-          </SidebarTile>
-          {questionConfiguration.partners && <Partners />}
-          <SidebarTile title={i18n.t('consultation.sharing.title')}>
-            <Sharing />
-          </SidebarTile>
+          </Collapse>
+          {questionConfiguration.partners && (
+            <Collapse
+              title={i18n.t('consultation.partners.intro_title')}
+              forceExpand
+            >
+              <Partners />
+            </Collapse>
+          )}
+          <HiddenOnMobileStyle>
+            <SidebarTile title={i18n.t('consultation.sharing.title')}>
+              <Sharing />
+            </SidebarTile>
+          </HiddenOnMobileStyle>
         </ConsultationPageSidebarStyle>
       </ConsultationPageWrapperStyle>
     </React.Fragment>
