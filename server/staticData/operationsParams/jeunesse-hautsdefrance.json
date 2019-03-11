@@ -14,6 +14,13 @@
     "gradient-end": "#35bfff",
     "footerFontColor": "black"
   },
+  "consultation": {
+    "presentation": "15/30 ans, vous habitez en #HDF, faites entendre votre voix ! Les Hauts-de-France vont initier avec Make.org une consultation totalement inédite : plusieurs dizaines de milliers de jeunes vont en effet pouvoir répondre très librement à la question « Comment vous aider à construire votre avenir en Hauts-de-France ? ». Les résultats de la consultation seront le point de départ d’une mobilisation plus ample de toutes les forces vives de la région, débouchant sur un plan d’actions concrètes que vous pourrez retrouver sur <a href=\"http://www.generation.hautsdefrance.fr\">www.generation.hautsdefrance.fr</a>."
+  },
+  "partners": [
+    {"name": "Région Hauts-de-France", "imageUrl": "/images/operations/jeunesse-hautsdefrance/partners/hdf.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
   "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
   "sequenceConfig": {

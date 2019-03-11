@@ -14,6 +14,13 @@
     "gradient-end": "#000000",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "Comment imaginer la ville de demain en vous incluant dans la démarche ? C’est le grand défi citoyen auquel nous vous invitons à l’occasion du MIPIM 2019. Nous allons vous proposer de vous engager massivement en amont de l’édition 2019 du salon, grâce à une consultation citoyenne ouverte, puis nous transformerons vos meilleures idées en projets d’actions concrets. "
+  },
+  "partners": [
+    {"name": "MIPIM", "imageUrl": "/images/operations/villededemain/partners/mipim.jpg", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://make.org/#/FR/consultation/villededemain/consultation",
   "aboutUrl": "https://about.make.org/about-villededemain",
   "sequenceConfig": {

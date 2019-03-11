@@ -17,6 +17,10 @@
   "consultation": {
     "presentation": "Le Mouvement pour une Economie Bienveillante lance avec Make.org une vaste consultation citoyenne autour de la question : \"Comment agir pour rendre notre économie plus bienveillante ?\". Les propositions citoyennes recueillies figureront dans un Livre Blanc remis au G7 de Biarritz en Août 2019. "
   },
+  "partners": [
+    {"name": "Mouvement pour une Économie Bienveillante", "imageUrl": "", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://about.make.org/about-economiebienveillante",
   "aboutUrl": "https://about.make.org/about-economiebienveillante",
   "sequenceConfig": {
