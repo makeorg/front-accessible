@@ -27,18 +27,22 @@ describe('Sequence Actions', () => {
   });
 
   it('Creates SEQUENCE_COLLAPSE when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_COLLAPSE
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_COLLAPSE,
+      },
+    ];
 
     store.dispatch(actions.sequenceCollapse());
     expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates SEQUENCE_EXPAND when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_EXPAND
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_EXPAND,
+      },
+    ];
 
     store.dispatch(actions.sequenceExpand());
     expect(store.getActions()).toEqual(expectedActions);
@@ -46,10 +50,12 @@ describe('Sequence Actions', () => {
 
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
     const proposalId = 'foo';
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-      payload: { proposalId }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+        payload: { proposalId },
+      },
+    ];
 
     store.dispatch(actions.voteProposal(proposalId));
     expect(store.getActions()).toEqual(expectedActions);
@@ -57,10 +63,12 @@ describe('Sequence Actions', () => {
 
   it('Creates SEQUENCE_PROPOSAL_UNVOTE when calling action', () => {
     const proposalId = 'foo';
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
-      payload: { proposalId }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
+        payload: { proposalId },
+      },
+    ];
 
     store.dispatch(actions.unvoteProposal(proposalId));
     expect(store.getActions()).toEqual(expectedActions);
@@ -72,18 +80,33 @@ describe('Sequence Actions', () => {
     const voteKey = 'bar';
     const index = 0;
     const newStore = mockStore({
-      sequence: { votedProposalIds: [], question: { slug: questionSlug } }
+      sequence: { votedProposalIds: [], questionId: 'foo' },
+      questions: { foo: { question: { slug: questionSlug } } },
     });
 
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-      payload: { proposalId }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+        payload: { proposalId },
+      },
+    ];
 
     newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
-    expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
-    expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
+    expect(Tracking.trackVote).toHaveBeenNthCalledWith(
+      1,
+      questionSlug,
+      proposalId,
+      voteKey,
+      index
+    );
+    expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(
+      1,
+      questionSlug,
+      proposalId,
+      voteKey,
+      index
+    );
     expect(newStore.getActions()).toEqual(expectedActions);
   });
 
@@ -93,18 +116,26 @@ describe('Sequence Actions', () => {
     const voteKey = 'bar';
     const index = 0;
     const newStore = mockStore({
-      sequence: { question: { slug: questionSlug }, votedProposalIds: ['fooId'] }
+      sequence: { votedProposalIds: ['fooId'], questionId: 'foo' },
+      questions: { foo: { question: { slug: questionSlug } } },
     });
 
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-      payload: { proposalId }
-    }];
-
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+        payload: { proposalId },
+      },
+    ];
 
     newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
-    expect(Tracking.trackVote).toHaveBeenNthCalledWith(1, questionSlug, proposalId, voteKey, index);
+    expect(Tracking.trackVote).toHaveBeenNthCalledWith(
+      1,
+      questionSlug,
+      proposalId,
+      voteKey,
+      index
+    );
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
     expect(newStore.getActions()).toEqual(expectedActions);
   });
