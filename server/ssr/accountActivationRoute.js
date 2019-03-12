@@ -33,7 +33,12 @@ export const accountActivationRoute = async (req, res) => {
       });
 
       if (question) {
-        routeState.sequence.question = question;
+        routeState.sequence.questionId = questionId;
+        routeState.questions = {
+          [questionId]: {
+            question,
+          },
+        };
       }
     }
 

@@ -11,6 +11,8 @@ jest.mock('Shared/api/UserService');
 jest.mock('Shared/api/QuestionService');
 
 const initialState = createInitialState();
+const fooQuestion = { id: 'foo' };
+const queryParams = { question: fooQuestion.id };
 const requestParams = {
   resetToken: 'bar',
   userId: 'foo',
@@ -18,8 +20,8 @@ const requestParams = {
   language: 'fr',
 };
 const expectedHeaders = {
-  'x-make-question': 'foo',
-  'x-make-question-id': 'foo',
+  'x-make-question': fooQuestion.id,
+  'x-make-question-id': fooQuestion.id,
   'x-make-country': 'FR',
   'x-make-language': 'fr',
 };
@@ -30,9 +32,6 @@ describe('Account activation route', () => {
   });
 
   it('add the question to the initialState and set headers', async () => {
-    const fooQuestion = {
-      id: 'foo',
-    };
     QuestionService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
@@ -43,15 +42,20 @@ describe('Account activation route', () => {
           userId: requestParams.userId,
         },
       },
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: fooQuestion,
+        questionId: fooQuestion.id,
       },
     };
 
     const request = httpMocks.createRequest({
       params: requestParams,
-      query: { question: fooQuestion.id },
+      query: queryParams,
     });
     const response = httpMocks.createResponse();
 
@@ -65,15 +69,12 @@ describe('Account activation route', () => {
   });
 
   it('activate successfully and add success notification to state', async () => {
-    const fooQuestionId = 'foo';
     UserService.resetPasswordTokenCheck.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestionId });
+    QuestionService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,
-      query: {
-        question: fooQuestionId,
-      },
+      query: queryParams,
     });
     const response = httpMocks.createResponse();
     const routeState = {
@@ -85,9 +86,14 @@ describe('Account activation route', () => {
           userId: requestParams.userId,
         },
       },
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId },
+        questionId: fooQuestion.id,
       },
     };
 
@@ -102,15 +108,12 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    const fooQuestionId = 'foo';
     UserService.resetPasswordTokenCheck.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestionId });
+    QuestionService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,
-      query: {
-        question: fooQuestionId,
-      },
+      query: queryParams,
     });
     const response = httpMocks.createResponse();
     const routeState = {
@@ -126,9 +129,14 @@ describe('Account activation route', () => {
         contentType: 'PASSWORD_RECOVERY_FAILURE_CONTENT',
         status: HTTP_NOT_FOUND,
       },
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId },
+        questionId: fooQuestion.id,
       },
     };
 

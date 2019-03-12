@@ -36,9 +36,14 @@ describe('Account activation route', () => {
     QuestionService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: fooQuestion,
+        questionId: fooQuestion.id,
       },
     };
 
@@ -56,14 +61,16 @@ describe('Account activation route', () => {
   });
 
   it('activate successfully and add success notification to state', async () => {
-    const fooQuestionId = 'foo';
+    const fooQuestion = {
+      id: 'foo',
+    };
     UserService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestionId });
+    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId,
+        question: fooQuestion.id,
       },
     });
     const response = httpMocks.createResponse();
@@ -72,9 +79,14 @@ describe('Account activation route', () => {
       notification: {
         contentType: 'ACTIVATION_SUCCESS_CONTENT',
       },
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId },
+        questionId: fooQuestion.id,
       },
     };
     await accountActivationRoute(request, response, () => {});
@@ -87,14 +99,17 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    const fooQuestionId = 'foo';
+    const fooQuestion = {
+      id: 'foo',
+    };
+
     UserService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestionId });
+    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,
       query: {
-        question: fooQuestionId,
+        question: fooQuestion.id,
       },
     });
     const response = httpMocks.createResponse();
@@ -103,9 +118,14 @@ describe('Account activation route', () => {
       notification: {
         contentType: 'ACTIVATION_FAILURE_CONTENT',
       },
+      questions: {
+        foo: {
+          question: fooQuestion,
+        },
+      },
       sequence: {
         ...initialState.sequence,
-        question: { id: fooQuestionId },
+        questionId: fooQuestion.id,
       },
     };
 
