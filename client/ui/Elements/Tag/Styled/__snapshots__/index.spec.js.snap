@@ -13,7 +13,7 @@ exports[`ComponentStyle snapshot by default 1`] = `
   border: none;
   margin-left: 12px;
   margin-right: 12px;
-  margin-bottom: 12px;
+  margin-top: 15px;
 }
 
 .c0:hover:before {

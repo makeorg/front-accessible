@@ -13,7 +13,7 @@ export const TagStyle = styled.button`
   border: none;
   margin-left: 12px;
   margin-right: 12px;
-  margin-bottom: 12px;
+  margin-top: 15px;
   &:hover {
     background: ${props => props.hoverBackgroundColor};
     &:before {

@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { RedLink } from 'Client/ui/Elements/LinkElements';
+import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { Founders } from '../Founders';
 
 type Props = {
@@ -20,9 +20,12 @@ export const PresentationComponent = (props: Props) => {
         }}
       />
 
-      <RedLink href={questionConfiguration.aboutUrl} target="_blank">
+      <ParagraphRedLinkStyle
+        href={questionConfiguration.aboutUrl}
+        target="_blank"
+      >
         {i18n.t('consultation.presentation.link_text')}
-      </RedLink>
+      </ParagraphRedLinkStyle>
       {!questionConfiguration.isGreatCause && (
         <Founders questionConfiguration={questionConfiguration} />
       )}

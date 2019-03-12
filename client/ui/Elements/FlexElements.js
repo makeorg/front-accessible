@@ -49,10 +49,6 @@ export const SpaceBetweenColumnStyle = styled(ColumnElementStyle)`
   justify-content: space-between;
 `;
 
-export const SpaceEvenlyColumnStyle = styled(ColumnElementStyle)`
-  justify-content: space-evenly;
-`;
-
 /* Column To Row Elements */
 export const CenterColumnStyleToRowStyle = styled(ColumnToRowElementStyle)`
   align-items: center;

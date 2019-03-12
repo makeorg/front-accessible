@@ -9,10 +9,6 @@ exports[`CardStyle snapshot by default 1`] = `
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -25,15 +21,7 @@ exports[`CardStyle snapshot by default 1`] = `
   max-width: 71.25rem;
   padding: 0.9375rem;
   background-color: rgb(255,255,255);
-  box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
-  overflow: hidden;
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    max-height: 34.38rem;
-    padding: 1.875rem;
-  }
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
 }
 
 <section

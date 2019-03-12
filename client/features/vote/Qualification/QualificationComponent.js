@@ -6,7 +6,7 @@ import { getQualificationIndex } from 'Shared/helpers/qualification';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
-import * as Qualification from './Styled';
+import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   /** Array with qualifications received from Api */
@@ -38,7 +38,7 @@ export const QualificationComponent = (props: Props) => {
   } = props;
 
   return (
-    <Qualification.ContainerStyle>
+    <SpaceBetweenColumnStyle>
       <HiddenItemStyle aria-hidden as="h3">
         {i18n.t('unvote.title')}
       </HiddenItemStyle>
@@ -58,6 +58,6 @@ export const QualificationComponent = (props: Props) => {
           tabIndex={tabIndex}
         />
       ))}
-    </Qualification.ContainerStyle>
+    </SpaceBetweenColumnStyle>
   );
 };

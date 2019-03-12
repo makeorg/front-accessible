@@ -8,7 +8,8 @@ import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
-import { CardStyle } from 'Client/ui/Cards';
+import { TallCardStyle } from 'Client/ui/Cards';
+import { SequenceProposalStyle } from 'Client/features/sequence/Card/Styled';
 import {
   InnerProposalStyle,
   FooterStyle,
@@ -17,7 +18,6 @@ import {
   DescriptionStyle,
   ButtonStyle,
 } from './Styled';
-import { ProposalStyle } from '../../sequence/Card/Styled';
 import { SeparatorStyle } from '../../sequence/Card/Styled/Content';
 
 type Props = {
@@ -35,11 +35,11 @@ export const SingleProposalCardComponent = (props: Props) => {
   const { proposal, questionConfiguration, questionSlug } = props;
 
   return (
-    <CardStyle>
+    <TallCardStyle>
       <InnerProposalStyle>
         <ProposalAuthor author={proposal.author} />
         <SeparatorStyle aria-hidden />
-        <ProposalStyle>{proposal.content}</ProposalStyle>
+        <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}
@@ -76,6 +76,6 @@ export const SingleProposalCardComponent = (props: Props) => {
           </CenterRowStyle>
         </FooterContentStyle>
       </FooterStyle>
-    </CardStyle>
+    </TallCardStyle>
   );
 };

@@ -17,6 +17,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
   font-size: 14px;
+  line-height: 1;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
@@ -49,6 +50,12 @@ exports[`ButtonElements/Styled IconInButtonStyle snapshot by default 1`] = `
   margin-right: 5px;
 }
 
+@media (min-width:47.94rem) {
+  .c0 {
+    font-size: 14px;
+  }
+}
+
 <span
   className="c0"
 />
@@ -71,6 +78,7 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   align-items: baseline;
   font-family: 'Roboto Condensed Bold',Arial,serif;
   font-size: 14px;
+  line-height: 1;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;

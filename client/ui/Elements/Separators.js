@@ -38,6 +38,6 @@ export const Text = styled(MiddleRowStyle)`
 export const ContentSeparatorStyle = styled(Large)`
   margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    margin: ${pxToRem('20px')} 0;
+    margin: ${pxToRem('15px')} 0;
   }
 `;

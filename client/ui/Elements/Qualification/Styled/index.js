@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 
@@ -8,18 +6,13 @@ export const ButtonStyle = styled.button`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  border-width: ${pxToRem('2px')};
-  font-size: ${pxToRem('12px')};
-  line-height: ${pxToRem('26px')};
+  border-width: 2px;
+  font-size: 12px;
+  line-height: 26px;
   border-style: solid;
-  padding: 0 ${pxToRem('10px')};
-  border-radius: ${pxToRem('36px')};
+  padding: 0 10px;
+  border-radius: 36px;
   border-color: ${props => props.color};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('16px')};
-    line-height: ${pxToRem('33px')};
-    padding: 0 ${pxToRem('15px')};
-  }
 `;
 
 export const UnqualifyButtonStyle = styled(ButtonStyle)`
@@ -40,9 +33,6 @@ export const QualifyButtonStyle = styled(ButtonStyle)`
 
 export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
-  font-size: ${pxToRem('14px')};
-  margin-left: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('22px')};
-  }
+  font-size: 14px;
+  margin-left: 10px;
 `;

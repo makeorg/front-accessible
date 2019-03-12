@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { getBarHeight, IntToPx } from 'Shared/helpers/styled';
+import { getBarHeight } from 'Shared/helpers/styled';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ContainerStyle = styled(CenterColumnStyle)`
   margin-right: 10px;
@@ -16,9 +15,7 @@ export const GraphStyle = styled(UnstyledListStyle)`
   height: 30px;
   justify-content: center;
   align-items: flex-start;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
-    margin-top: 10px;
-  }
+  margin-top: 5px;
 `;
 
 export const ItemStyle = styled.li`
