@@ -7,19 +7,16 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const PannelStyle = styled.div`
   position: absolute;
-  z-index: 2;
-  top: 100%;
-  left: 50%;
+  z-index: 5;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   padding: ${pxToRem('50px')} ${pxToRem('20px')}
     ${pxToRem(Elements.SequenceFooterHeightMobile)};
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   background-color: ${BasicColors.PureWhite};
-  transform: translate(-50%, -${props => props.translate}%);
-  transition: transform 0.5s linear;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    height: calc(100% - ${pxToRem('25px')});
     padding: ${pxToRem('50px')} ${pxToRem('20px')}
       ${pxToRem(Elements.SequenceFooterHeightDesktop)};
   }

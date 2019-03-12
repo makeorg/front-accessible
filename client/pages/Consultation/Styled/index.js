@@ -33,6 +33,9 @@ export const ConsultationPageContentStyle = styled(ContentElementStyle)`
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   max-width: 360px;
+  position: sticky;
+  ${props =>
+    props.bottomAffix ? 'bottom: 0; align-self: flex-end' : 'top: 0'};
 `;
 
 export const ProposalCardTaggedStyle = styled.div`
