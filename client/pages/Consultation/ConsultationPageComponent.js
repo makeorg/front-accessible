@@ -13,6 +13,7 @@ import { ProposalType } from 'Shared/types/proposal';
 import { TagFilter } from 'Client/features/consultation/TagsFilter';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
+import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -52,6 +53,10 @@ export const ConsultationPageComponent = (props: Props) => {
       />
       <ConsultationPageWrapperStyle>
         <ConsultationPageContentStyle>
+          <ParticipateBanner
+            question={question}
+            questionConfiguration={questionConfiguration}
+          />
           <TagFilter
             question={question}
             handleSelectTag={handleSelectTag}

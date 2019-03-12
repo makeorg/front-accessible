@@ -2,8 +2,7 @@
 import * as React from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { Svg } from 'Client/ui/Svg';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Small } from 'Client/ui/Elements/Separators';
 import { ExtraLogo } from './ExtraLogo';
@@ -66,7 +65,7 @@ export const IntroCardComponent = (props: Props) => {
         onClick={handleStartSequence}
       >
         <IconInButtonStyle>
-          <FontAwesomeIcon aria-hidden icon={faPlay} />
+          <Svg type="SvgPlayButton" />
         </IconInButtonStyle>
         {i18n.t('intro_card.button')}
       </IntroButtonStyle>

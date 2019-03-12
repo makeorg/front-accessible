@@ -227,6 +227,9 @@
       "intro": "Filter by tags:",
       "show_all": "View all tags",
       "show_less": "hide"
+    },
+    "banner": {
+      "title": "Vote on the latest proposals on this topic"
     }
   },
   "weeuropean": {

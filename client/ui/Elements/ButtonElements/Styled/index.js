@@ -18,10 +18,10 @@ export const ButtonsWrapperStyle = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: ${pxToRem('10px')} 0;
+  margin: 10px 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     flex-flow: row;
-    margin: ${pxToRem('20px')} 0;
+    margin: 20px 0;
   }
 `;
 
@@ -41,45 +41,50 @@ export const BasicButtonStyle = styled.button`
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.RobotoCondensedBold};
-  font-size: ${pxToRem('14px')};
+  font-size: 14px;
   border: none;
-  border-radius: ${pxToRem('30px')};
+  border-radius: 30px;
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: ${pxToRem('5px')} ${pxToRem('15px')};
+  padding: 5px 15px;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('16px')};
-    padding: ${pxToRem('9px')} ${pxToRem('20px')};
+    font-size: 16px;
+    padding: 10px 20px;
   }
 `;
 
 export const GreyButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${BackgroundColors.Grey};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
 export const RedButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
 export const TallRedButtonStyle = styled(RedButtonStyle)`
-  padding: ${pxToRem('8px')} ${pxToRem('15px')};
+  padding: 8px 15px;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    padding: ${pxToRem('10px')} ${pxToRem('20px')};
+    padding: 10px 20px;
   }
 `;
 
 export const IconInButtonStyle = styled.span`
-  margin-right: ${pxToRem('6.5px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    margin-right: ${pxToRem('10px')};
-  }
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
 `;
 
 export const LargeButtonStyle = styled(BasicButtonStyle)`
   width: 100%;
-  margin: 0 ${pxToRem('5px')};
+  margin: 0 5px;
 `;
 
 export const FacebookButtonStyle = styled(LargeButtonStyle)`
@@ -88,7 +93,7 @@ export const FacebookButtonStyle = styled(LargeButtonStyle)`
 `;
 
 export const GoogleButtonStyle = styled(LargeButtonStyle)`
-  margin-top: ${pxToRem('10px')};
+  margin-top: 10px;
   color: ${BasicColors.PureWhite};
   background-color: ${IconColors.Google};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
@@ -96,7 +101,7 @@ export const GoogleButtonStyle = styled(LargeButtonStyle)`
   }
 `;
 export const EmailButtonStyle = styled(LargeButtonStyle)`
-  margin-top: ${pxToRem('10px')};
+  margin-top: 10px;
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
@@ -109,9 +114,9 @@ export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   font-family: ${MakeFonts.RobotoBold};
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
-  margin: 0 ${pxToRem('5px')};
+  margin: 0 5px;
 `;
 
 export const SmallButtonWrapperStyle = styled(ButtonsWrapperStyle)`
-  max-width: ${pxToRem('410px')};
+  max-width: 410px;
 `;

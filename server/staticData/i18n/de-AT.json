@@ -221,6 +221,9 @@
       "intro": "Nach Stichwort filtern :",
       "show_all": "alle Schlagwörter sehen",
       "show_less": "weniger anzeigen"
+    },
+    "banner": {
+      "title": "Stimmen Sie über die letzten Vorschläge der Konsultation ab"
     }
   }
 }

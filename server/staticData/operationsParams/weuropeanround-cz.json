@@ -25,8 +25,16 @@
     "label": ""
   },
   "partners": [
-    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
-    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+    {
+      "name": "Make.org",
+      "imageUrl": "/images/operations/default/partners/make.png",
+      "isFounder": false
+    },
+    {
+      "name": "Civico Europa",
+      "imageUrl": "/images/operations/we-europeans/partners/civico.png",
+      "isFounder": false
+    }
   ],
   "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/cz/cs/about",
