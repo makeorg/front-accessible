@@ -64,7 +64,7 @@ export const IntroCardComponent = (props: Props) => {
         tabIndex={tabIndex}
         onClick={handleStartSequence}
       >
-        <IconInButtonStyle>
+        <IconInButtonStyle aria-hidden>
           <Svg type="SvgPlayButton" />
         </IconInButtonStyle>
         {i18n.t('intro_card.button')}

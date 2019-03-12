@@ -19,11 +19,12 @@ type Props = {
 
 export const ParticipateBannerComponent = (props: Props) => {
   const { question, questionConfiguration } = props;
+  const { theme } = questionConfiguration;
   return (
     <ParticipateWrapperStyle
-      gradientStart={questionConfiguration.theme.gradientStart}
-      gradientEnd={questionConfiguration.theme.gradientEnd}
-      color={questionConfiguration.theme.gradientStart}
+      gradientStart={theme.gradientStart}
+      gradientEnd={theme.gradientEnd}
+      color={theme.gradientStart}
     >
       <ParticipateTitle>{i18n.t('consultation.banner.title')}</ParticipateTitle>
       <ParticipateSeparatorStyle aria-hidden />
