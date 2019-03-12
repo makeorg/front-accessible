@@ -7,7 +7,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const PannelStyle = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 100%;
   left: 50%;
   width: 100%;

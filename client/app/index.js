@@ -33,8 +33,8 @@ export const AppContainer = () => (
         <AppMainContentStyle role="main">
           <Notification />
           <Routes />
-          <Pannel />
         </AppMainContentStyle>
+        <Pannel />
         <Footer />
       </AppWrapperStyle>
     </TabIndexContext.Provider>
