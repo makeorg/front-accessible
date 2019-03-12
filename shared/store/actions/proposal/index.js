@@ -43,7 +43,8 @@ export const submitProposal = (content: string) => (
   getState: Function
 ) => {
   const { isLoggedIn } = getState().authentification;
-  const { questionId, slug } = getState().sequence.question;
+  const { questionId, slug } = getState().sequence;
+
   if (!isLoggedIn) {
     dispatch(proposeRequest(content, questionId));
     return Promise.resolve();

@@ -23,17 +23,18 @@ export const register = (user: Object) => (
 ) => {
   dispatch(registerRequest());
   return UserService.register(user)
-    .then(userResonse => {
-      dispatch(registerSuccess(userResonse));
+    .then(userResponse => {
+      dispatch(registerSuccess(userResponse));
       Tracking.trackSignupEmailSuccess();
-
-      return userResonse;
+      return userResponse;
     })
     .then(() =>
       UserService.login(user.email, user.password).then(() => {
         const { content, canSubmit } = getState().proposal;
         dispatch(loginSuccess());
+
         if (canSubmit) dispatch(submitProposal(content));
+
         dispatch(pannelClose());
       })
     )
