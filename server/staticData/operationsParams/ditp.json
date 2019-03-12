@@ -10,12 +10,14 @@
   },
   "theme": {
     "color": "#ED2939",
-    "gradient-start": "#8ADCD7",
-    "gradient-end": "#367ABC",
+    "gradientStart": "#8ADCD7",
+    "gradientEnd": "#367ABC",
     "footerFontColor": "black"
   },
   "consultation": {
-    "presentation": "Le Gouvernement a décidé de revoir en profondeur le mode de fonctionnement de l’État pour vous redonner la liberté d’action qui vous est nécessaire. C’est pourquoi cette question simple, ouverte, « Comment lever les blocages que vous rencontrez au quotidien ? » vous sera soumise pendant deux mois. Pour la première fois à cette échelle, vous allez pouvoir vous exprimer sur votre quotidien, pointer les freins qui vous bloquent et proposer vos solutions qui demain transformeront l’action publique. "
+    "presentation": "Le Gouvernement a décidé de revoir en profondeur le mode de fonctionnement de l’État pour vous redonner la liberté d’action qui vous est nécessaire. C’est pourquoi cette question simple, ouverte, « Comment lever les blocages que vous rencontrez au quotidien ? » vous sera soumise pendant deux mois. Pour la première fois à cette échelle, vous allez pouvoir vous exprimer sur votre quotidien, pointer les freins qui vous bloquent et proposer vos solutions qui demain transformeront l’action publique. ",
+    "logo": "/images/operations/ditp/consultation/ditp.svg",
+    "label": ""
   },
   "partners": [
     {"name": "Direction Interministérielle de la Transformation Publique", "imageUrl": "/images/operations/ditp/partners/ditp.png", "isFounder": false}

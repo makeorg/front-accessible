@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans on demokraattinen ja puolueeton kansalaishanke. Se tarjoaa eurooppalaisille mahdollisuuden osallistua kaikkien aikojen suurimpaan Euroopassa järjestettyyn kansalaisselvitykseen, jonka tavoitteena on tuoda kansalaiset yhteen mielipide-eroista riippumatta. Eurooppa ei toimi ilman meitä.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/fi/fi/about",
   "aboutUrl": "https://weeuropeans.eu/fi/fi/about",
   "sequenceConfig": {

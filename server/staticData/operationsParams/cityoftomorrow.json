@@ -10,12 +10,14 @@
   },
   "theme": {
     "color": "#c42a3c",
-    "gradient-start": "#000000",
-    "gradient-end": "#000000",
+    "gradientStart": "#000000",
+    "gradientEnd": "#000000",
     "footerFontColor": "white"
   },
   "consultation": {
-    "presentation": "How to rethink the urban landscape ? Most importantly, how can we fully involve you in the process of imagining tomorrow's city ? This is the challenge we have set for ourselves by inviting you to MIPIM 2019. Prior to the event we will organize an open consultation, in partnership with MIPIM, giving you the opportunity to submit your ideas alongside thousands of other citizens. We will be turning the most popular ideas into reality supported by a realistic roadmap. "
+    "presentation": "How to rethink the urban landscape ? Most importantly, how can we fully involve you in the process of imagining tomorrow's city ? This is the challenge we have set for ourselves by inviting you to MIPIM 2019. Prior to the event we will organize an open consultation, in partnership with MIPIM, giving you the opportunity to submit your ideas alongside thousands of other citizens. We will be turning the most popular ideas into reality supported by a realistic roadmap. ",
+    "logo": "/images/operations/villededemain/consultation/mipim.jpg",
+    "label": ""
   },
   "partners": [
     {"name": "MIPIM", "imageUrl": "/images/operations/villededemain/partners/mipim.jpg", "isFounder": false}

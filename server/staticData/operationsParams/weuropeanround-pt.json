@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "A WeEuropeans é uma campanha cívica, democrática e não partidária. Reúne os cidadãos europeus, independentemente das suas opiniões, propondo-lhes participar na maior consulta pública europeia alguma vez realizada. A Europa não continuará a ser construída sem nós.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/pt/pt/about",
   "aboutUrl": "https://weeuropeans.eu/pt/pt/about",
   "sequenceConfig": {

@@ -15,10 +15,20 @@
   },
   "theme": {
     "color": "#3839ca",
-    "gradient-start": "#3839ca",
-    "gradient-end": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
     "footerFontColor": "white"
   },
+  "consultation": {
+    "presentation": "WeEuropeans is een democratische, apolitieke burgercampagne. Deze campagne is bestemd voor alle Europese burgers, ongeacht hun mening, en nodigt hen uit om deel te nemen aan de grootste Europese volksraadpleging ooit. Vanaf nu bouwen wij mee aan Europa.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  },
+  "partners": [
+    {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false},
+    {"name": "Civico Europa", "imageUrl": "/images/operations/we-europeans/partners/civico.png", "isFounder": false}
+  ],
+  "isGreatCause": false,
   "consultationUrl": "https://weeuropeans.eu/be/nl/about",
   "aboutUrl": "https://weeuropeans.eu/be/nl/about",
   "sequenceConfig": {

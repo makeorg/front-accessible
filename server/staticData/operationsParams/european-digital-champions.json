@@ -10,12 +10,14 @@
   },
   "theme": {
     "color": "#5DA113",
-    "gradient-start": "#7DB7E3",
-    "gradient-end": "#5DA113",
+    "gradientStart": "#7DB7E3",
+    "gradientEnd": "#5DA113",
     "footerFontColor": "black"
   },
   "consultation": {
-    "presentation": "Les élections européennes offrent une formidable opportunité d’un grand réveil numérique européen. Comment faire émerger les champions européens du numérique ? Pour la première fois, l’Institut G9+, Roland Berger, Croissance+ et Make.org vont massivement mobiliser citoyens français et allemands sur cette question, pour écrire un Livre blanc inédit, première véritable feuille de route citoyenne sur le sujet. "
+    "presentation": "Les élections européennes offrent une formidable opportunité d’un grand réveil numérique européen. Comment faire émerger les champions européens du numérique ? Pour la première fois, l’Institut G9+, Roland Berger, Croissance+ et Make.org vont massivement mobiliser citoyens français et allemands sur cette question, pour écrire un Livre blanc inédit, première véritable feuille de route citoyenne sur le sujet. ",
+    "logo": "/images/operations/european-digital-champions/consultation/european-digital-champions.svg",
+    "label": ""
   },
   "partners": [
     {"name": "Croissance Plus", "imageUrl": "/images/operations/european-digital-champions/partners/croissance-plus.svg", "isFounder": false},

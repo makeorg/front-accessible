@@ -10,12 +10,14 @@
   },
   "theme": {
     "color": "#00B1BA",
-    "gradient-start": "#00B1BA",
-    "gradient-end": "#00B1BA",
+    "gradientStart": "#00B1BA",
+    "gradientEnd": "#00B1BA",
     "footerFontColor": "black"
   },
   "consultation": {
-    "presentation": "La Métropole Nice Côte d'Azur, Nice-Matin et Make.org lançent une vaste consultation citoyenne en ligne autour de la question “Comment lutter ensemble contre le réchauffement climatique ?”. Citoyens et associations, bienvenue sur la plateforme collaborative du Plan Climat air-énergie territorial. Face aux enjeux climatiques, la Métropole Nice Côte d’Azur, accompagné de Nice-Matin et Make.org, s’engage avec vous pour réduire collectivement nos émissions de gaz à effet de serre. "
+    "presentation": "La Métropole Nice Côte d'Azur, Nice-Matin et Make.org lançent une vaste consultation citoyenne en ligne autour de la question “Comment lutter ensemble contre le réchauffement climatique ?”. Citoyens et associations, bienvenue sur la plateforme collaborative du Plan Climat air-énergie territorial. Face aux enjeux climatiques, la Métropole Nice Côte d’Azur, accompagné de Nice-Matin et Make.org, s’engage avec vous pour réduire collectivement nos émissions de gaz à effet de serre. ",
+    "logo": "/images/operations/plan-climat/consultation/plan-climat.svg",
+    "label": ""
   },
   "partners": [
     {"name": "Nice Matin", "imageUrl": "/images/operations/plan-climat/partners/nice-matin.png", "isFounder": false},
