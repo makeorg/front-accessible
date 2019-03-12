@@ -23,16 +23,24 @@ describe('Proposal Actions', () => {
     const proposalLength = 3;
     const proposalCanBeSubmitted = false;
 
-    const expectedActions = [{
-      type: actionTypes.PROPOSE_TYPING,
-      payload: {
-        content: proposalContent,
-        length: proposalLength,
-        canSubmit: proposalCanBeSubmitted
-      }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.PROPOSE_TYPING,
+        payload: {
+          content: proposalContent,
+          length: proposalLength,
+          canSubmit: proposalCanBeSubmitted,
+        },
+      },
+    ];
 
-    store.dispatch(actions.proposeTyping(proposalContent, proposalLength, proposalCanBeSubmitted));
+    store.dispatch(
+      actions.proposeTyping(
+        proposalContent,
+        proposalLength,
+        proposalCanBeSubmitted
+      )
+    );
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -40,22 +48,26 @@ describe('Proposal Actions', () => {
     const proposalContent = 'foo';
     const proposalQuestionId = 'bar';
 
-    const expectedActions = [{
-      type: actionTypes.PROPOSE_REQUEST,
-      payload: {
-        content: proposalContent,
-        questionId: proposalQuestionId
-      }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.PROPOSE_REQUEST,
+        payload: {
+          content: proposalContent,
+          questionId: proposalQuestionId,
+        },
+      },
+    ];
 
     store.dispatch(actions.proposeRequest(proposalContent, proposalQuestionId));
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('creates PROPOSE_SUCCESS when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.PROPOSE_SUCCESS
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.PROPOSE_SUCCESS,
+      },
+    ];
 
     store.dispatch(actions.proposeSuccess());
     expect(store.getActions()).toEqual(expectedActions);
@@ -63,13 +75,15 @@ describe('Proposal Actions', () => {
 
   it('creates PROPOSE_FAILURE when calling action', () => {
     const error = 'baz';
-    const expectedActions = [{
-      type: actionTypes.PROPOSE_FAILURE,
-      error
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.PROPOSE_FAILURE,
+        error,
+      },
+    ];
 
     store.dispatch(actions.proposeFailure(error));
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates an action to proposal Typing', () => {
@@ -83,12 +97,18 @@ describe('Proposal Actions', () => {
         payload: {
           content: proposalContent,
           length: proposalLength,
-          canSubmit: proposalCanBeSubmitted
-        }
-      }
+          canSubmit: proposalCanBeSubmitted,
+        },
+      },
     ];
 
-    store.dispatch(actions.typingProposal(proposalContent, proposalLength, proposalCanBeSubmitted));
+    store.dispatch(
+      actions.typingProposal(
+        proposalContent,
+        proposalLength,
+        proposalCanBeSubmitted
+      )
+    );
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -96,7 +116,7 @@ describe('Proposal Actions', () => {
     const questionId = 123;
     const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: false },
-      sequence: { question: { questionId } }
+      sequence: { questionId },
     });
     const proposalContent = 'foo';
 
@@ -105,21 +125,23 @@ describe('Proposal Actions', () => {
         type: actionTypes.PROPOSE_REQUEST,
         payload: {
           content: proposalContent,
-          questionId
-        }
-      }
+          questionId,
+        },
+      },
     ];
 
-    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
-    });
+    return storeWithQuestion
+      .dispatch(actions.submitProposal(proposalContent, questionId))
+      .then(() => {
+        expect(storeWithQuestion.getActions()).toEqual(expectedActions);
+      });
   });
 
   it('creates an action to proposal Submit when user is logged in', () => {
     const questionId = 'bar';
     const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: true },
-      sequence: { question: { questionId } }
+      sequence: { questionId },
     });
     const proposalContent = 'foo';
     const proposalIdResponse = { proposalId: 'baz' };
@@ -129,16 +151,18 @@ describe('Proposal Actions', () => {
 
     const expectedActions = [{ type: actionTypes.PROPOSE_SUCCESS }];
 
-    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
-    });
+    return storeWithQuestion
+      .dispatch(actions.submitProposal(proposalContent, questionId))
+      .then(() => {
+        expect(storeWithQuestion.getActions()).toEqual(expectedActions);
+      });
   });
 
   it('creates an action to proposal Submit failure', () => {
     const questionId = 'bar';
     const storeWithQuestion = mockStore({
       authentification: { isLoggedIn: true },
-      sequence: { question: { questionId } }
+      sequence: { questionId },
     });
     const proposalContent = 'foo';
 
@@ -148,12 +172,14 @@ describe('Proposal Actions', () => {
     const expectedActions = [
       {
         type: actionTypes.PROPOSE_FAILURE,
-        error: 'fooError'
-      }
+        error: 'fooError',
+      },
     ];
 
-    return storeWithQuestion.dispatch(actions.submitProposal(proposalContent, questionId)).then(() => {
-      expect(storeWithQuestion.getActions()).toEqual(expectedActions);
-    });
+    return storeWithQuestion
+      .dispatch(actions.submitProposal(proposalContent, questionId))
+      .then(() => {
+        expect(storeWithQuestion.getActions()).toEqual(expectedActions);
+      });
   });
 });
