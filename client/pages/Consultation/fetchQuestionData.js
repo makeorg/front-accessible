@@ -48,9 +48,14 @@ export const PageQuestionWrapper = ({
 const callQuestionData = Component =>
   class FetchQuestionClass extends React.Component<Props> {
     componentDidMount() {
-      const { match, question, fetchQuestion } = this.props;
+      const {
+        match,
+        question,
+        questionConfiguration,
+        fetchQuestion,
+      } = this.props;
 
-      if (!question) {
+      if (!question || !questionConfiguration) {
         fetchQuestion(match.params.questionSlug);
       }
     }
