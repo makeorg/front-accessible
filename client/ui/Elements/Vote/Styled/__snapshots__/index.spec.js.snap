@@ -16,19 +16,11 @@ exports[`ButtonStyle snapshot by default 1`] = `
   align-items: center;
   width: 48px;
   height: 48px;
-  border-width: 0.125rem;
-  font-size: 1.375rem;
+  border-width: 2px;
+  font-size: 22px;
   border-style: solid;
   border-radius: 50%;
   overflow: hidden;
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    width: 60px;
-    height: 60px;
-    font-size: 1.875rem;
-  }
 }
 
 <button
@@ -52,21 +44,13 @@ exports[`UnvoteButtonStyle snapshot by default 1`] = `
   align-items: center;
   width: 48px;
   height: 48px;
-  border-width: 0.125rem;
-  font-size: 1.375rem;
+  border-width: 2px;
+  font-size: 22px;
   border-style: solid;
   border-radius: 50%;
   overflow: hidden;
   color: rgb(255,255,255);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    width: 60px;
-    height: 60px;
-    font-size: 1.875rem;
-  }
 }
 
 <button
@@ -90,8 +74,8 @@ exports[`VoteButtonStyle snapshot by default 1`] = `
   align-items: center;
   width: 48px;
   height: 48px;
-  border-width: 0.125rem;
-  font-size: 1.375rem;
+  border-width: 2px;
+  font-size: 22px;
   border-style: solid;
   border-radius: 50%;
   overflow: hidden;
@@ -101,14 +85,6 @@ exports[`VoteButtonStyle snapshot by default 1`] = `
 .c0:focus,
 .c0:active {
   color: rgb(255,255,255);
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    width: 60px;
-    height: 60px;
-    font-size: 1.875rem;
-  }
 }
 
 <button

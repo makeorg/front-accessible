@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { TextColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -16,7 +16,7 @@ export const CheckboxLabelStyle = styled.label`
   font-family: ${MakeFonts.RobotoRegular};
   font-size: 14px;
   line-height: 18px;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
     line-height: 20px;
   }

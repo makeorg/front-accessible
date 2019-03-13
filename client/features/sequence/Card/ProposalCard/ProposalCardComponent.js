@@ -7,7 +7,7 @@ import { Vote } from 'Client/features/vote';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { ProposalCardStyle, ProposalStyle } from '../Styled';
+import { ProposalCardStyle, SequenceProposalStyle } from '../Styled';
 import {
   BackButtonWrapperStyle,
   BackButtonStyle,
@@ -76,7 +76,7 @@ export const ProposalCardComponent = (props: Props) => {
       <ContentSpecialWrapperStyle as="section">
         <ProposalAuthor author={proposal.author} />
         <SeparatorStyle aria-hidden />
-        <ProposalStyle>{proposal.content}</ProposalStyle>
+        <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
           proposalId={proposal.id}
           votes={proposal.votes}

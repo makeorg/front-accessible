@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -9,7 +9,7 @@ export const InputIconStyle = styled.label`
   display: flex;
   color: ${MakeThemeColors.Red};
   font-size: 16px;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 18px;
   }
 `;

@@ -1,12 +1,17 @@
 import styled from 'styled-components';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const AvatarStyle = styled.div`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  margin-right: 5px;
   overflow: hidden;
-  width: ${props => IntToPx(props.avatarSize)};
-  height: ${props => IntToPx(props.avatarSize)};
+  width: ${props => intToPx(props.avatarSize)};
+  height: ${props => intToPx(props.avatarSize)};
+  svg {
+    width: ${props => intToPx(props.avatarSize)};
+    height: ${props => intToPx(props.avatarSize)};
+  }
 `;

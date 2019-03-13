@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 
@@ -9,7 +9,7 @@ export const SidebarTileStyle = styled.div`
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-top: 20px;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 20px;
   }
   &.no-margin-top {

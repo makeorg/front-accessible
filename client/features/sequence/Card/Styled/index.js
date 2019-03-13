@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
@@ -17,7 +17,7 @@ export const ProposalCardStyle = styled.li`
   width: 100%;
   height: 100%;
   min-height: 345px;
-  padding: ${IntToPx(DefaultPadding.Mobile)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
   z-index: ${props => props.zindex || 0};
   transform: scaleX(${props => props.scale || 0})
     translateY(-${props => props.position || 0}px);
@@ -26,9 +26,9 @@ export const ProposalCardStyle = styled.li`
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
   overflow: hidden;
   ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     min-height: 445px;
-    padding: ${IntToPx(DefaultPadding.Desktop)};
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
@@ -36,14 +36,13 @@ export const ProposalCardCenteredStyle = styled(ProposalCardStyle)`
   justify-content: center;
 `;
 
-export const ProposalStyle = styled.blockquote`
+export const SequenceProposalStyle = styled.blockquote`
   max-width: 100%;
   font-size: 12px;
-  line-height: 16px;
+  line-height: normal;
   font-family: ${MakeFonts.RobotoBold};
   text-align: center;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 22px;
-    line-height: 30px;
   }
 `;

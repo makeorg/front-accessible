@@ -1,8 +1,15 @@
 import React from 'react';
+import { Svg } from 'Client/ui/Svg';
 import { TagType } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
-import { TagFilterStyle, TagFilterIntroStyle } from '../Styled/TagFilter';
+import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  TagFilterWrapperStyle,
+  TagSeparatorStyle,
+  TagFilterIntroStyle,
+  TagFilterIconStyle,
+} from '../Styled/TagFilter';
 
 type Props = {
   /** List of tags */
@@ -29,7 +36,13 @@ export const TagFilterComponent = (props: Props) => {
   } = props;
 
   return (
-    <TagFilterStyle>
+    <TagFilterWrapperStyle>
+      <ThirdLevelTtitleStyle>
+        <TagFilterIconStyle>
+          <Svg type="SvgThumbsUp" viewBox="0 0 18 18" />
+        </TagFilterIconStyle>
+        {i18n.t('common.vote_on_proposals')}
+      </ThirdLevelTtitleStyle>
       <TagFilterIntroStyle>
         {i18n.t('consultation.tags.intro')}
       </TagFilterIntroStyle>
@@ -53,6 +66,7 @@ export const TagFilterComponent = (props: Props) => {
         onClick={toggleShowAll}
         key="all"
       />
-    </TagFilterStyle>
+      <TagSeparatorStyle />
+    </TagFilterWrapperStyle>
   );
 };

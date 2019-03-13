@@ -9,14 +9,6 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
-import { ProposalStyle } from 'Client/features/sequence/Card/Styled';
-
-export const ContentStyle = styled(ProposalStyle)`
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('30px')};
-    line-height: 1.29;
-  }
-`;
 
 export const InnerProposalStyle = styled(MiddleColumnStyle)`
   width: 100%;

@@ -28,7 +28,8 @@
     "click_there": "click here",
     "open_new_window": "Open in a new window",
     "loading": "Please wait while it loads.",
-    "participate": "Participate"
+    "participate": "Participate",
+    "vote_on_proposals": "Vote on the proposals"
   },
   "header": {
     "logo_alt": "Go to the Make.org site"

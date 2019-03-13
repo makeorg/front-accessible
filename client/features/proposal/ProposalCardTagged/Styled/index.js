@@ -1,20 +1,20 @@
 import styled from 'styled-components';
-import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { intToPx } from 'Shared/helpers/styled';
+import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 
 export const ProposalStyle = styled.blockquote`
   max-width: 100%;
-  font-size: 30px;
+  font-size: 12px;
+  line-height: normal;
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
-  margin: ${DefaultPadding.Mobile}px 0 0 0;
   align-self: flex-start;
-`;
-
-export const HeaderStyle = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-self: flex-start;
+  margin-top: 10px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 18px;
+  }
 `;
 
 export const FooterStyle = styled.div`
@@ -24,6 +24,6 @@ export const FooterStyle = styled.div`
   flex-wrap: wrap;
 `;
 
-export const AvatarStyle = styled.div`
-  margin-right: 6px;
+export const ProposalSeparatorStyle = styled(SeparatorStyle)`
+  margin-top: 10px;
 `;

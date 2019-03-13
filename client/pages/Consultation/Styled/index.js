@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   Breakpoints,
@@ -13,12 +13,12 @@ export const ConsultationPageWrapperStyle = styled.div`
   align-items: flex-start;
   flex-flow: column-reverse;
   width: 100%;
-  max-width: ${IntToPx(Layouts.ContainerWidth)};
-  margin: ${IntToPx(DefaultPadding.Mobile)} auto;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  margin: ${intToPx(DefaultPadding.Mobile)} auto;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
     justify-content: space-between;
-    margin: ${IntToPx(DefaultPadding.Desktop)} auto;
+    margin: ${intToPx(DefaultPadding.Desktop)} auto;
   }
 `;
 
@@ -28,14 +28,19 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 `;
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
-  max-width: 750px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 750px;
+    margin-right: 15px;
+  }
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
-  max-width: 360px;
   position: sticky;
   ${props =>
     props.bottomAffix ? 'bottom: 0; align-self: flex-end' : 'top: 0'};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 360px;
+  }
 `;
 
 export const ProposalCardTaggedStyle = styled.div`

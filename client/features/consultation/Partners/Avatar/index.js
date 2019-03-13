@@ -13,7 +13,7 @@ export const PartnerAvatar = (props: Props) => {
 
   return (
     <Avatar avatarSize={50}>
-      <img src={partnerLogo} alt={partnerName} aria-hidden />
+      {partnerLogo && <img src={partnerLogo} alt={partnerName} aria-hidden />}
     </Avatar>
   );
 };

@@ -6,7 +6,7 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { RedLink } from 'Client/ui/Elements/LinkElements';
+import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SidebarSeparatorStyle } from 'Client/ui/Elements/SidebarTile/Styled';
 import { getSequenceLink } from 'Shared/helpers/url';
 import { ParticipateButtonStyle } from '../Styled/Partners';
@@ -45,9 +45,12 @@ export const PartnersComponent = (props: Props) => {
         {i18n.t('consultation.partners.commitment_text')}
       </ParagraphStyle>
       <PartnersList partners={questionConfiguration.partners} />
-      <RedLink href={questionConfiguration.aboutUrl} target="_blank">
+      <ParagraphRedLinkStyle
+        href={questionConfiguration.aboutUrl}
+        target="_blank"
+      >
         {i18n.t('consultation.partners.commitment_link')}
-      </RedLink>
+      </ParagraphRedLinkStyle>
     </React.Fragment>
   );
 };

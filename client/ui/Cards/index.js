@@ -10,17 +10,18 @@ import {
 export const CardStyle = styled.section`
   display: flex;
   flex-flow: column;
-  align-items: center;
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: ${pxToRem(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
-  overflow: hidden;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+`;
+
+export const TallCardStyle = styled(CardStyle)`
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    max-height: ${pxToRem('550px')};
+    max-height: 550px;
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;

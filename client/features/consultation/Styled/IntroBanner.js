@@ -3,7 +3,7 @@ import {
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { IntToPx } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -15,9 +15,9 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
     ${props => props.gradientStart},
     ${props => props.gradientEnd}
   );
-  padding: ${IntToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
-    padding: ${IntToPx(DefaultPadding.Desktop)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
@@ -29,7 +29,7 @@ export const IntroLabel = styled.p`
   font-family: ${MakeFonts.RobotoCondensedBold};
   text-transform: uppercase;
   margin-bottom: 5px;
-  @media (min-width: ${IntToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
     padding: 7.5px;
     margin-bottom: 10px;

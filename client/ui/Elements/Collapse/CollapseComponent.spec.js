@@ -10,11 +10,11 @@ import {
 describe('CollapseComponent Style', () => {
   it('style must match collpasing properties for CollapseContentStyle', () => {
     const expandedContent = renderer
-      .create(<CollapseContentStyle collapsing={false} />)
+      .create(<CollapseContentStyle iscollapsed={false} />)
       .toJSON();
 
     const collapseContent = renderer
-      .create(<CollapseContentStyle collapsing />)
+      .create(<CollapseContentStyle iscollapsed />)
       .toJSON();
 
     expect(expandedContent).toHaveStyleRule('height', 'auto');
@@ -23,11 +23,11 @@ describe('CollapseComponent Style', () => {
 
   it('style must match collpasing properties for CollapseIconStyle', () => {
     const defaultIcon = renderer
-      .create(<CollapseIconStyle collapsing={false} />)
+      .create(<CollapseIconStyle iscollapsed={false} />)
       .toJSON();
 
     const rotatedIcon = renderer
-      .create(<CollapseIconStyle collapsing />)
+      .create(<CollapseIconStyle iscollapsed />)
       .toJSON();
 
     expect(defaultIcon).toHaveStyleRule('transform', 'rotate(90deg)');

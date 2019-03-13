@@ -42,6 +42,7 @@ export const BasicButtonStyle = styled.button`
   align-items: baseline;
   font-family: ${MakeFonts.RobotoCondensedBold};
   font-size: 14px;
+  line-height: 1;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
@@ -80,6 +81,9 @@ export const IconInButtonStyle = styled.span`
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    font-size: 14px;
+  }
 `;
 
 export const LargeButtonStyle = styled(BasicButtonStyle)`
