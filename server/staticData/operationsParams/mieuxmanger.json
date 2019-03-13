@@ -1,0 +1,51 @@
+{
+  "wording": {
+    "title": "Mieux mangers",
+    "question": "Comment permettre à chacun de mieux manger ? ",
+    "metas": {
+      "title": "Comment permettre à chacun de mieux manger ? ",
+      "description": " Vous avez une idée sur le sujet ? Participez à la consultation initiée par Systeme U, Danone, Bonduelle, Eureden, Fleury Michon avec Make.org",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5c89079054b42c29c7919da3_meta%20alimentation.jpg"
+    }
+  },
+  "theme": {
+    "color": "#FF6464",
+    "gradientStart": "#7bf4f7",
+    "gradientEnd": "#4aa6ff",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "Au pays de la cuisine, l’alimentation est devenue un sujet d’inquiétude. Certains Français ne nourrissent pas assez, ou pas assez bien. D’autres se méfient de ce qu’ils trouvent dans leurs assiettes, et cherchent à privilégier une nourriture écologiquement et socialement plus vertueuse. Il est temps d’assurer à tous une alimentation accessible, saine et équilibrée, respectueuse de l’environnement et préservant la pérennité de nos filières agricoles. : \"Comment agir pour rendre notre économie plus bienveillante ?\". Les propositions citoyennes recueillies figureront dans un Livre Blanc remis au G7 de Biarritz en Août 2019. ",
+    "logo": "",
+    "label": ""
+  },
+  "isGreatCause": true,
+  "consultationUrl": "https://about.make.org/about-mieuxmanger",
+  "aboutUrl": "https://about.make.org/about-mieuxmanger",
+  "sequenceConfig": {
+    "introCard": {
+      "enabled": true,
+      "title": "Des milliers de citoyens proposent des solutions. Comment permettre à chacun de mieux manger ? Prenez position sur ces solutions et proposez les vôtres !",
+      "description": [
+        "Les meilleures détermineront nos actions"
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir pour permettre à chacun de mieux manger !"
+    },
+    "finalCard": {
+      "enabled": true,
+      "linkUrl": "https://about.make.org/about-mieuxmanger",
+      "withSharing": true,
+      "title": "Merci pour votre participation !",
+      "share": [
+        "Vous souhaitez aller plus loin pour permettre à chacun de mieux manger ?",
+        "Invitez vos proches et/ou votre communauté à participer"
+      ]
+    }
+  }
+}
