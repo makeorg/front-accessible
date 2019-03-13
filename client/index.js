@@ -76,6 +76,7 @@ const initApp = async state => {
     apiClient.questionId = questionId;
     apiClient.operationId =
       state.questions[questionId] &&
+      state.questions[questionId].question &&
       state.questions[questionId].question.operationId;
   }
 

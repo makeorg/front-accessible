@@ -1,6 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Svg } from 'Client/ui/Svg';
+import { Link } from 'react-router-dom';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -29,12 +30,8 @@ export const ParticipateBannerComponent = (props: Props) => {
       <ParticipateTitle>{i18n.t('consultation.banner.title')}</ParticipateTitle>
       <ParticipateSeparatorStyle aria-hidden />
       <LinkAsRedButton
-        as="a"
-        href={getSequenceLink(
-          question.slug,
-          question.country,
-          question.language
-        )}
+        as={Link}
+        to={getSequenceLink(question.slug, question.country, question.language)}
       >
         <IconInButtonStyle>
           <Svg type="SvgPlayButton" />
