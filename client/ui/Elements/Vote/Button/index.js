@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonStyle, VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -18,12 +19,14 @@ type Props = {
   rotate?: number,
   /** Id of vote button */
   id?: string,
+  /** When waiting response from API */
+  pending: boolean,
   /** Method called onMouseLeave to hide Tooltip */
   hideTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called onMouseEnter to  show Tooltip */
   displayTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
-  handleVote?: (SyntheticEvent<HTMLButtonElement>, string) => void,
+  handleVote?: (SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -41,6 +44,7 @@ export const VoteButtonElement = (props: Props) => {
     handleVote,
     displayTooltip,
     hideTooltip,
+    pending,
   } = props;
 
   return (
@@ -49,7 +53,7 @@ export const VoteButtonElement = (props: Props) => {
       id={id}
       tabIndex={tabIndex}
       color={color}
-      rotate={rotate}
+      rotate={pending ? 0 : rotate}
       as={buttonType}
       onClick={handleVote}
       onTouchEnd={handleVote}
@@ -58,7 +62,7 @@ export const VoteButtonElement = (props: Props) => {
       onFocus={displayTooltip}
       onBlur={hideTooltip}
     >
-      <FontAwesomeIcon icon={icon} />
+      {pending ? <LoadingDots /> : <FontAwesomeIcon icon={icon} />}
     </ButtonStyle>
   );
 };

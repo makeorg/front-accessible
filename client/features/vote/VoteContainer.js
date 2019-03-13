@@ -3,8 +3,12 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { connect } from 'react-redux';
 import { type QualificationType, type VoteType } from 'Shared/types/proposal';
-import { throttle } from 'Shared/helpers/throttle';
-import { doVote, doUnvote } from 'Shared/helpers/vote';
+import {
+  doVote,
+  doUnvote,
+  startPendingState,
+  finishPendingState,
+} from 'Shared/helpers/vote';
 import { VoteService } from 'Shared/api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
@@ -46,6 +50,10 @@ type State = {
   votes: VoteType[],
   /** Array with qualifications received from Api */
   qualifications: QualificationType[],
+  /** When waiting response from API */
+  pending: boolean,
+  /** pending Vote key property */
+  pendingVoteKey: string,
 };
 
 /**
@@ -59,8 +67,6 @@ export class VoteHandler extends React.Component<Props, State> {
     currentIndex: undefined,
     goToNextCard: undefined,
   };
-
-  throttleVote: any = undefined;
 
   constructor(props: Props) {
     super(props);
@@ -76,31 +82,49 @@ export class VoteHandler extends React.Component<Props, State> {
       votedKey,
       qualifications,
       votes: props.votes,
+      pending: false,
+      pendingVoteKey: '',
     };
-    this.throttleVote = throttle(this.handleVote);
   }
 
-  handleVote = (event: SyntheticEvent<*>, voteKey: string) => {
-    event.preventDefault();
+  handleUnvote = (voteKey: string) => {
     const {
       proposalId,
       proposalKey,
       index,
-      handleVoteOnSequence,
       handleUnvoteOnSequence,
     } = this.props;
-    const { hasVoted } = this.state;
 
-    if (hasVoted) {
-      VoteService.unvote(proposalId, voteKey, proposalKey).then(vote => {
+    VoteService.unvote(proposalId, voteKey, proposalKey)
+      .then(vote => {
         this.setState(prevState => doUnvote(prevState, vote));
         handleUnvoteOnSequence(proposalId, voteKey, index);
+      })
+      .catch(() => {
+        this.setState(finishPendingState);
       });
-    } else {
-      VoteService.vote(proposalId, voteKey, proposalKey).then(vote => {
+  };
+
+  handleVote = (voteKey: string) => {
+    const { proposalId, proposalKey, index, handleVoteOnSequence } = this.props;
+    VoteService.vote(proposalId, voteKey, proposalKey)
+      .then(vote => {
         this.setState(prevState => doVote(prevState, vote));
+
         handleVoteOnSequence(proposalId, voteKey, index);
+      })
+      .catch(() => {
+        this.setState(finishPendingState);
       });
+  };
+
+  handleVoting = (voteKey: string) => {
+    this.setState(prevState => startPendingState(prevState, voteKey));
+    const { hasVoted } = this.state;
+    if (hasVoted) {
+      this.handleUnvote(voteKey);
+    } else {
+      this.handleVote(voteKey);
     }
   };
 
@@ -113,10 +137,16 @@ export class VoteHandler extends React.Component<Props, State> {
       currentIndex,
       goToNextCard,
     } = this.props;
-    const { hasVoted, votedKey, votes, qualifications } = this.state;
+    const {
+      hasVoted,
+      votedKey,
+      votes,
+      qualifications,
+      pending,
+      pendingVoteKey,
+    } = this.state;
     const tabIndex =
       isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
-
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -126,8 +156,9 @@ export class VoteHandler extends React.Component<Props, State> {
               votes={votes}
               votedKey={votedKey}
               index={index}
-              handleVote={this.throttleVote}
+              handleVote={() => this.handleVoting(votedKey)}
               tabIndex={tabIndex}
+              pending={pending}
             />
             <Qualification
               proposalId={proposalId}
@@ -156,7 +187,9 @@ export class VoteHandler extends React.Component<Props, State> {
         proposalId={proposalId}
         index={index}
         tabIndex={tabIndex}
-        handleVote={this.throttleVote}
+        handleVote={this.handleVoting}
+        pending={pending}
+        pendingVoteKey={pendingVoteKey}
       />
     );
   }

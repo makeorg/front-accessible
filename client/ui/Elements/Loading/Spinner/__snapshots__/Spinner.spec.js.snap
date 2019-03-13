@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PasswordButton must match the snapshot with default Props 1`] = `
+exports[`Spinner must match the snapshot with default Props 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;

@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import { Spinner } from 'Client/ui/Spinner';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard';

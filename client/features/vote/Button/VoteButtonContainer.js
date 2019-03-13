@@ -17,8 +17,10 @@ type Props = {
   id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
+  /** When waiting response from API */
+  pending: boolean,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
+  handleVote: () => void,
 };
 
 type State = {
@@ -48,11 +50,20 @@ export class VoteButtonContainer extends React.Component<Props, State> {
     });
   };
 
+  handleVoteAction = (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const { handleVote, pending } = this.props;
+    if (!pending) {
+      handleVote();
+    }
+  };
+
   render() {
     return (
       <VoteButtonComponent
         {...this.props}
         {...this.state}
+        handleVote={this.handleVoteAction}
         displayTooltip={event => this.displayTooltip(event)}
         hideTooltip={event => this.hideTooltip(event)}
       />

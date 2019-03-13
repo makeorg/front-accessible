@@ -1,6 +1,10 @@
 /* @flow */
 
-import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Shared/constants/vote';
+import {
+  VOTE_AGREE_KEY,
+  VOTE_DISAGREE_KEY,
+  VOTE_NEUTRAL_KEY,
+} from 'Shared/constants/vote';
 import * as voteHelper from './vote';
 
 describe('vote', () => {
@@ -17,50 +21,66 @@ describe('vote', () => {
   });
 
   it('do vote', () => {
-    const votesList = [{
-      count: 3,
-      voteKey: VOTE_AGREE_KEY,
-      qualifications: []
-    }, {
-      count: 3,
-      voteKey: VOTE_DISAGREE_KEY,
-      qualifications: []
-    }, {
-      count: 4,
-      voteKey: VOTE_NEUTRAL_KEY,
-      qualifications: []
-    }];
+    const votesList = [
+      {
+        count: 3,
+        voteKey: VOTE_AGREE_KEY,
+        qualifications: [],
+      },
+      {
+        count: 3,
+        voteKey: VOTE_DISAGREE_KEY,
+        qualifications: [],
+      },
+      {
+        count: 4,
+        voteKey: VOTE_NEUTRAL_KEY,
+        qualifications: [],
+      },
+    ];
 
     const prevState = {
       hasVoted: false,
       votedKey: '',
       votes: votesList,
-      qualifications: []
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const newVote = {
       count: 4,
       voteKey: VOTE_AGREE_KEY,
-      qualifications: []
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const expectedState = {
       hasVoted: true,
       votedKey: VOTE_AGREE_KEY,
-      votes: [{
-        count: 4,
-        voteKey: VOTE_AGREE_KEY,
-        qualifications: []
-      }, {
-        count: 3,
-        voteKey: VOTE_DISAGREE_KEY,
-        qualifications: []
-      }, {
-        count: 4,
-        voteKey: VOTE_NEUTRAL_KEY,
-        qualifications: []
-      }],
-      qualifications: []
+      votes: [
+        {
+          count: 4,
+          voteKey: VOTE_AGREE_KEY,
+          qualifications: [],
+          pending: false,
+          pendingVoteKey: '',
+        },
+        {
+          count: 3,
+          voteKey: VOTE_DISAGREE_KEY,
+          qualifications: [],
+        },
+        {
+          count: 4,
+          voteKey: VOTE_NEUTRAL_KEY,
+          qualifications: [],
+        },
+      ],
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const newVoteState = voteHelper.doVote(prevState, newVote);
@@ -69,50 +89,68 @@ describe('vote', () => {
   });
 
   it('do unvote', () => {
-    const votesList = [{
-      count: 3,
-      voteKey: VOTE_AGREE_KEY,
-      qualifications: []
-    }, {
-      count: 3,
-      voteKey: VOTE_DISAGREE_KEY,
-      qualifications: []
-    }, {
-      count: 4,
-      voteKey: VOTE_NEUTRAL_KEY,
-      qualifications: []
-    }];
+    const votesList = [
+      {
+        count: 3,
+        voteKey: VOTE_AGREE_KEY,
+        qualifications: [],
+      },
+      {
+        count: 3,
+        voteKey: VOTE_DISAGREE_KEY,
+        qualifications: [],
+        pending: false,
+        pendingVoteKey: '',
+      },
+      {
+        count: 4,
+        voteKey: VOTE_NEUTRAL_KEY,
+        qualifications: [],
+      },
+    ];
 
     const prevState = {
       hasVoted: true,
       votedKey: VOTE_AGREE_KEY,
       votes: votesList,
-      qualifications: []
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const newVote = {
       count: 2,
       voteKey: VOTE_DISAGREE_KEY,
-      qualifications: []
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const expectedState = {
       hasVoted: false,
       votedKey: '',
-      votes: [{
-        count: 3,
-        voteKey: VOTE_AGREE_KEY,
-        qualifications: []
-      }, {
-        count: 2,
-        voteKey: VOTE_DISAGREE_KEY,
-        qualifications: []
-      }, {
-        count: 4,
-        voteKey: VOTE_NEUTRAL_KEY,
-        qualifications: []
-      }],
-      qualifications: []
+      votes: [
+        {
+          count: 3,
+          voteKey: VOTE_AGREE_KEY,
+          qualifications: [],
+        },
+        {
+          count: 2,
+          voteKey: VOTE_DISAGREE_KEY,
+          qualifications: [],
+          pending: false,
+          pendingVoteKey: '',
+        },
+        {
+          count: 4,
+          voteKey: VOTE_NEUTRAL_KEY,
+          qualifications: [],
+        },
+      ],
+      qualifications: [],
+      pending: false,
+      pendingVoteKey: '',
     };
 
     const newVoteState = voteHelper.doUnvote(prevState, newVote);

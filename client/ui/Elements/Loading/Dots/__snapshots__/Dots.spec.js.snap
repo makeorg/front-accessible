@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingDots must match the snapshot with default Props 1`] = `
+Array [
+  .c0 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+}
+
+<span
+    className="c0"
+  >
+    •
+  </span>,
+  .c0 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+}
+
+<span
+    className="c0"
+  >
+    •
+  </span>,
+  .c0 {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+}
+
+<span
+    className="c0"
+  >
+    •
+  </span>,
+]
+`;
