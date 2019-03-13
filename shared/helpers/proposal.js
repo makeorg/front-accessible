@@ -40,7 +40,7 @@ export const sortProposalsByVoted = (proposals: Array<Object>): Array<Object> =>
 
 /**
  * Search the first no voted proposal
- * @type {Object|null}
+ * @type {Object|undefined}
  */
 export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) =>
   proposals.find(proposal =>
