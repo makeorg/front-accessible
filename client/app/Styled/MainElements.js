@@ -19,7 +19,6 @@ import {
 
 export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
-  overflow: hidden;
   min-height: 100vh;
   background-color: ${BackgroundColors.LightGrey};
 `;
@@ -30,7 +29,6 @@ export const AppMainContentStyle = styled.main`
   flex-flow: column;
   flex: 1 1 auto;
   z-index: 0;
-  overflow: hidden;
 `;
 
 export const PageWrapperStyle = styled(CenterColumnStyle)`

@@ -11,8 +11,6 @@ import {
 } from './Styled';
 
 type Props = {
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Method called to close Sliding Pannel */
   handleClose: Function,
   /** React elements rendered as children */
@@ -23,17 +21,13 @@ type Props = {
  * Renders Sliding Pannel
  */
 export const PannelComponent = (props: Props) => {
-  const { isPannelOpen, handleClose, children } = props;
+  const { handleClose, children } = props;
   return (
-    <PannelStyle
-      translate={isPannelOpen ? 100 : 0}
-      aria-hidden={isPannelOpen ? 'false' : 'true'}
-    >
+    <PannelStyle>
       <PannelCloseButtonStyle
         aria-label={i18n.t('pannel.close')}
         aria-expanded="false"
         onClick={handleClose}
-        tabIndex={isPannelOpen ? 0 : -1}
       >
         <FontAwesomeIcon aria-hidden icon={faTimes} />
       </PannelCloseButtonStyle>

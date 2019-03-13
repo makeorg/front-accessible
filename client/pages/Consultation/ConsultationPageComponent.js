@@ -68,7 +68,10 @@ export const ConsultationPageComponent = (props: Props) => {
               </ProposalCardTaggedStyle>
             ))}
         </ConsultationPageContentStyle>
-        <ConsultationPageSidebarStyle as="aside">
+        <ConsultationPageSidebarStyle
+          as="aside"
+          bottomAffix={questionConfiguration.isGreatCause}
+        >
           <Collapse
             title={i18n.t('consultation.presentation.title')}
             forceExpand

@@ -29,11 +29,16 @@ type Props = {
  */
 const PannelContainerSwitch = (props: Props) => {
   const { handleClose, isPannelOpen, contentType } = props;
-  return (
-    <PannelComponent isPannelOpen={isPannelOpen} handleClose={handleClose}>
-      {pannelContents[contentType]}
-    </PannelComponent>
-  );
+
+  if (isPannelOpen) {
+    return (
+      <PannelComponent isPannelOpen={isPannelOpen} handleClose={handleClose}>
+        {pannelContents[contentType]}
+      </PannelComponent>
+    );
+  }
+
+  return null;
 };
 
 const mapStateToProps = state => {
