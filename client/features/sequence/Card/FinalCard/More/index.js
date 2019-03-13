@@ -50,15 +50,17 @@ export const More = (props: Props) => {
   return (
     <TabIndexContext.Consumer>
       {tabIndex => (
-        <FinalLinkStyle
-          as="a"
-          tabIndex={tabIndex}
-          href={url}
-          target="_blank"
-          onClick={handleEndSequence}
-        >
-          {buttonText || i18n.t('final_card.button')}
-        </FinalLinkStyle>
+        <MoreWrapperStyle>
+          <FinalLinkStyle
+            as="a"
+            tabIndex={tabIndex}
+            href={url}
+            target="_blank"
+            onClick={handleEndSequence}
+          >
+            {buttonText || i18n.t('final_card.button')}
+          </FinalLinkStyle>
+        </MoreWrapperStyle>
       )}
     </TabIndexContext.Consumer>
   );
