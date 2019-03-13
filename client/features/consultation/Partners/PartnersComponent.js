@@ -1,6 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { Svg } from 'Client/ui/Svg';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
@@ -28,13 +27,13 @@ export const PartnersComponent = (props: Props) => {
       <ParticipateButtonStyle
         as="a"
         href={getSequenceLink(
-          question.questionSlug,
+          question.slug,
           question.country,
           question.language
         )}
       >
         <IconInButtonStyle>
-          <FontAwesomeIcon icon={faPlay} />
+          <Svg type="SvgPlayButton" />
         </IconInButtonStyle>
         {i18n.t('common.participate')}
       </ParticipateButtonStyle>

@@ -229,6 +229,9 @@
       "intro": "Filtrer par tags :",
       "show_all": "voir tous les tags",
       "show_less": "masquer"
+    },
+    "banner": {
+      "title": "Votez sur les dernières propositions issues de la consultation."
     }
   },
   "weeuropean": {
