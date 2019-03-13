@@ -72,13 +72,13 @@ export const findIndexOfFirstUnvotedCard = (
  * @return {Array<CardType>}
  */
 export const buildCards = (
-  proposals: Array<ProposalType>,
+  proposals: ProposalType[],
   extraSlidesConfig: ExtraSlidesConfig,
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean
-): Array<CardType> => {
-  let cards: Array<CardType> = proposals.map(proposal => ({
+): CardType[] => {
+  let cards: CardType[] = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
     configuration: proposal,
   }));

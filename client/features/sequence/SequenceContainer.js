@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { QuestionService } from 'Shared/api/QuestionService';
+import { startSequence } from 'Shared/services/Sequence';
 import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
@@ -48,14 +48,14 @@ type Props = {
   /** Id of the first proposal to display */
   firstProposal: string,
   /** Array with the voted proposals' ids */
-  votedProposalIds: Array<string>,
+  votedProposalIds: string[],
 };
 
 type State = {
   /** Array with cards of the sequence */
-  cards: Array<CardType>,
+  cards: CardType[],
   /** Array with proposals received from Api */
-  proposals: Array<mixed>,
+  proposals: ProposalType[],
   /** Number of proposals */
   cardsCount: number,
   /** Incremented / Decremented Index */
@@ -128,7 +128,7 @@ class SequenceHandler extends React.Component<Props, State> {
     isSequenceLoaded: false,
   };
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate = async prevProps => {
     const {
       isLoggedIn,
       hasProposed,
@@ -142,51 +142,48 @@ class SequenceHandler extends React.Component<Props, State> {
       (isLoggedIn !== prevProps.isLoggedIn ||
         hasProposed !== prevProps.hasProposed)
     ) {
-      const includedProposalIds = [...votedProposalIds, ...[firstProposal]];
+      const includedProposalIds = [firstProposal, ...votedProposalIds];
 
-      QuestionService.startSequence(question.questionId, includedProposalIds)
-        .then(sequence => this.setProposals(sequence, isLoggedIn, hasProposed))
-        .catch(error => error);
+      const proposals = await startSequence(
+        question.questionId,
+        includedProposalIds
+      );
+      this.setProposals(proposals, isLoggedIn, hasProposed);
     }
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const { question, firstProposal, isLoggedIn, hasProposed } = this.props;
 
     if (question) {
-      QuestionService.startSequence(question.questionId, [firstProposal])
-        .then(sequence => {
-          Tracking.trackDisplaySequence(question.slug);
-          this.setProposals(sequence, isLoggedIn, hasProposed);
-        })
-        .catch(error => error);
+      const proposals = await startSequence(question.questionId, [
+        firstProposal,
+      ]);
+      this.setProposals(proposals, isLoggedIn, hasProposed);
     }
   };
 
   setProposals = (
-    sequence: Object,
+    proposals: ProposalType[],
     isLoggedIn: boolean,
     hasProposed: boolean
   ) => {
     const { questionConfiguration, question } = this.props;
     const { hasStarted } = this.state;
-    const { proposals } = sequence;
     const extraSlidesConfig: ExtraSlidesConfig =
       questionConfiguration.sequenceConfig;
-    const votedFirstProposals: Array<ProposalType> = ProposalHelper.sortProposalsByVoted(
-      proposals
-    );
-    const cards: Array<CardType> = SequenceHelper.buildCards(
-      votedFirstProposals,
+
+    const cards: CardType[] = SequenceHelper.buildCards(
+      proposals,
       extraSlidesConfig,
       isLoggedIn,
       hasProposed,
       question.canPropose
     );
 
-    const firstUnvotedProposal: void | ProposalType = ProposalHelper.searchFirstUnvotedProposal(
-      votedFirstProposals
-    );
+    const firstUnvotedProposal:
+      | typeof undefined
+      | ProposalType = ProposalHelper.searchFirstUnvotedProposal(proposals);
     const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(
       firstUnvotedProposal,
       cards

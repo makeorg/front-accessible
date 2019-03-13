@@ -73,3 +73,8 @@ export type CardType = {
   configuration: ConfigurationTypes,
   cardOffset?: number,
 };
+
+export type SequenceType = {
+  id: string,
+  proposals: ProposalType[],
+};
