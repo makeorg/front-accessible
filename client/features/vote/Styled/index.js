@@ -20,6 +20,9 @@ export const WrapperStyle = styled(CenterRowStyle)`
   width: 100%;
   justify-content: space-between;
   max-width: 200px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 250px;
+  }
 `;
 
 export const ButtonListStyle = styled(UnstyledListStyle)`

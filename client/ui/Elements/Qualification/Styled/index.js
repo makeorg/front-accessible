@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonStyle = styled.button`
   display: flex;
@@ -13,6 +15,10 @@ export const ButtonStyle = styled.button`
   padding: 0 10px;
   border-radius: 36px;
   border-color: ${props => props.color};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 14px;
+    line-height: 28px;
+  }
 `;
 
 export const UnqualifyButtonStyle = styled(ButtonStyle)`
@@ -35,4 +41,7 @@ export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 14px;
   margin-left: 10px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 18px;
+  }
 `;
