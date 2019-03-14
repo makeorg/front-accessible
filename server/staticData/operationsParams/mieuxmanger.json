@@ -1,6 +1,6 @@
 {
   "wording": {
-    "title": "Mieux mangers",
+    "title": "Mieux manger",
     "question": "Comment permettre à chacun de mieux manger ? ",
     "metas": {
       "title": "Comment permettre à chacun de mieux manger ? ",
@@ -25,8 +25,9 @@
   "sequenceConfig": {
     "introCard": {
       "enabled": true,
-      "title": "Des milliers de citoyens proposent des solutions. Comment permettre à chacun de mieux manger ? Prenez position sur ces solutions et proposez les vôtres !",
+      "title": "Des milliers de citoyens proposent des solutions. Comment permettre à chacun de mieux manger ?",
       "description": [
+        "Prenez position sur ces solutions et proposez les vôtres !",
         "Les meilleures détermineront nos actions"
       ]
     },
@@ -45,7 +46,8 @@
       "share": [
         "Vous souhaitez aller plus loin pour permettre à chacun de mieux manger ?",
         "Invitez vos proches et/ou votre communauté à participer"
-      ]
+      ],
+      "learnMoreTextButton": "En savoir +"
     }
   }
 }

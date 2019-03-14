@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Svg } from 'Client/ui/Svg';
 import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
@@ -25,12 +26,8 @@ export const PartnersComponent = (props: Props) => {
         {i18n.t('consultation.partners.intro_text')}
       </ParagraphStyle>
       <ParticipateButtonStyle
-        as="a"
-        href={getSequenceLink(
-          question.slug,
-          question.country,
-          question.language
-        )}
+        as={Link}
+        to={getSequenceLink(question.slug, question.country, question.language)}
       >
         <IconInButtonStyle>
           <Svg type="SvgPlayButton" />
