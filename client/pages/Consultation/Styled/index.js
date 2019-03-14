@@ -42,7 +42,3 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
     max-width: 360px;
   }
 `;
-
-export const ProposalCardTaggedStyle = styled.div`
-  margin: 20px 0;
-`;

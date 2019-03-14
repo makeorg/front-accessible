@@ -27,3 +27,7 @@ export const FooterStyle = styled.div`
 export const ProposalSeparatorStyle = styled(SeparatorStyle)`
   margin-top: 10px;
 `;
+
+export const ProposalCardTaggedStyle = styled.div`
+  margin: 20px 0;
+`;
