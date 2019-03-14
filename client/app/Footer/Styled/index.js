@@ -11,7 +11,7 @@ export const FooterStyle = styled.footer`
   display: flex;
   flex: 0 0 auto;
   background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroThreOpacity};
+  box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroThreeOpacity};
 `;
 
 export const FooterNavStyle = styled.nav`

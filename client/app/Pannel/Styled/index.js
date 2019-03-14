@@ -14,7 +14,7 @@ export const PannelStyle = styled.div`
   height: 100%;
   padding: ${pxToRem('50px')} ${pxToRem('20px')}
     ${pxToRem(Elements.SequenceFooterHeightMobile)};
-  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
+  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
   background-color: ${BasicColors.PureWhite};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     padding: ${pxToRem('50px')} ${pxToRem('20px')}

@@ -7,8 +7,6 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 
 export const HeaderStyle = styled.header`
-  position: relative;
-  z-index: 2;
   display: flex;
   flex: 0 0 auto;
   justify-content: center;

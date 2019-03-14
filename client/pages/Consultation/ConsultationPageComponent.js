@@ -12,8 +12,12 @@ import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged'
 import { ProposalType } from 'Shared/types/proposal';
 import { TagFilter } from 'Client/features/consultation/TagsFilter';
 import { Collapse } from 'Client/ui/Elements/Collapse';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
+import {
+  HiddenOnMobileStyle,
+  HiddenOnDesktopStyle,
+} from 'Client/ui/Elements/HiddenElements';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
+import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -100,6 +104,9 @@ export const ConsultationPageComponent = (props: Props) => {
             </SidebarTile>
           </HiddenOnMobileStyle>
         </ConsultationPageSidebarStyle>
+        <HiddenOnDesktopStyle>
+          <MobileSharing />
+        </HiddenOnDesktopStyle>
       </ConsultationPageWrapperStyle>
     </React.Fragment>
   );
