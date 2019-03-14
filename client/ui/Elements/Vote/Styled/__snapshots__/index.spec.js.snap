@@ -23,6 +23,14 @@ exports[`ButtonStyle snapshot by default 1`] = `
   overflow: hidden;
 }
 
+@media (min-width:767px) {
+  .c0 {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+  }
+}
+
 <button
   className="c0"
 />
@@ -51,6 +59,14 @@ exports[`UnvoteButtonStyle snapshot by default 1`] = `
   overflow: hidden;
   color: rgb(255,255,255);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+  }
 }
 
 <button
@@ -85,6 +101,14 @@ exports[`VoteButtonStyle snapshot by default 1`] = `
 .c0:focus,
 .c0:active {
   color: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+  }
 }
 
 <button

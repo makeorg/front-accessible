@@ -19,6 +19,13 @@ exports[`ButtonStyle snapshot by default 1`] = `
   border-radius: 36px;
 }
 
+@media (min-width:767px) {
+  .c0 {
+    font-size: 14px;
+    line-height: 28px;
+  }
+}
+
 <button
   className="c0"
 />
@@ -47,6 +54,13 @@ exports[`QualifyButtonStyle snapshot by default 1`] = `
 .c0:focus,
 .c0:active {
   color: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 14px;
+    line-height: 28px;
+  }
 }
 
 <button

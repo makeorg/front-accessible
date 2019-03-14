@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonStyle = styled.button`
   display: flex;
@@ -14,6 +16,11 @@ export const ButtonStyle = styled.button`
   border-color: ${props => props.color};
   ${props => props.rotate && `transform:rotate(${props.rotate}deg)`};
   overflow: hidden;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: 58px;
+    height: 58px;
+    font-size: 26px;
+  }
 `;
 
 export const UnvoteButtonStyle = styled(ButtonStyle)`
