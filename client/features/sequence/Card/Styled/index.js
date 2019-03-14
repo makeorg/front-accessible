@@ -23,7 +23,7 @@ export const ProposalCardStyle = styled.li`
     translateY(-${props => props.position || 0}px);
   background-color: ${BasicColors.PureWhite};
   transition: transform 0.75s ease-in;
-  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreOpacity};
+  box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
   overflow: hidden;
   ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
