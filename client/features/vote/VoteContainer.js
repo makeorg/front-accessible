@@ -166,6 +166,7 @@ export class VoteHandler extends React.Component<Props, State> {
               votedKey={votedKey}
               index={index}
               tabIndex={tabIndex}
+              pendingVote={pending}
             />
           </VoteStyle.ContainerStyle>
           {index !== undefined && (

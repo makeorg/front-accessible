@@ -4,6 +4,7 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
 <ButtonStyle
   as="QualifyButtonStyle"
   color="red"
+  onClick={[Function]}
   tabIndex={0}
 >
   foo
@@ -24,6 +25,7 @@ Snapshot Diff:
 -   as="UnqualifyButtonStyle"
 +   as="QualifyButtonStyle"
     color="red"
+    onClick={[Function handleClick]}
     tabIndex={0}
   >
     foo
@@ -41,10 +43,11 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,9 +1,9 @@
+@@ -1,10 +1,10 @@
   <ButtonStyle
     as="QualifyButtonStyle"
     color="red"
+    onClick={[Function handleClick]}
 -   tabIndex="-1"
 +   tabIndex="0"
   >
