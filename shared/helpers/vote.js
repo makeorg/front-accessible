@@ -3,9 +3,6 @@
 export const getVoteKey = (voteKey: string, proposalId: string) =>
   `${voteKey}_${proposalId}`;
 
-export const getVoteButtonId = (voteKey: string, id?: number) =>
-  id ? `${voteKey}-${id}` : voteKey;
-
 const getNewVoteState = (prevState: Object, vote: Object) => {
   const newVotes = prevState.votes.map(oldVote => {
     if (oldVote.voteKey === vote.voteKey) {

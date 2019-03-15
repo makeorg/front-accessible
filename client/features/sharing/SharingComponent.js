@@ -6,6 +6,7 @@ import {
   faTwitter,
   faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
+import { i18n } from 'Shared/i18n';
 import {
   SharingStyle,
   FacebookButtonStyle,
@@ -40,37 +41,37 @@ export class SharingComponent extends React.Component<Props> {
         <li>
           <FacebookButtonStyle
             rel="noreferrer noopener"
-            aria-label="Facebook share"
+            aria-label={i18n.t('sharing.facebook')}
             as="a"
             href={facebookShareUrl}
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon icon={faFacebookF} />
+            <FontAwesomeIcon aria-hidden icon={faFacebookF} />
           </FacebookButtonStyle>
         </li>
         <li>
           <TwitterButtonStyle
             rel="noreferrer noopener"
-            aria-label="Twitter share"
+            aria-label={i18n.t('sharing.twitter')}
             as="a"
             href={twitterShareUrl}
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon aria-hidden icon={faTwitter} />
           </TwitterButtonStyle>
         </li>
         <li>
           <LinkedInButtonStyle
             rel="noreferrer noopener"
-            aria-label="Linkedin share"
+            aria-label={i18n.t('sharing.linkedin')}
             as="a"
             href={linkedinShareUrl}
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon icon={faLinkedinIn} />
+            <FontAwesomeIcon aria-hidden icon={faLinkedinIn} />
           </LinkedInButtonStyle>
         </li>
       </SharingStyle>

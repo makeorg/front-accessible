@@ -16,8 +16,8 @@ export const ButtonStyle = styled.button`
   border-radius: 36px;
   border-color: ${props => props.color};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 28px;
   }
 `;
 

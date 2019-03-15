@@ -17,7 +17,7 @@ export const HeaderComponent = (props: Props) => {
   const { handleTracking } = props;
 
   return (
-    <HeaderStyle role="banner">
+    <HeaderStyle>
       <a href="https://make.org">
         <h1>
           <HeaderLogoStyle

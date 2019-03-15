@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { getVoteKey, getVoteButtonId } from 'Shared/helpers/vote';
+import { getVoteKey } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
@@ -11,8 +11,6 @@ import * as VoteStyle from './Styled';
 type VoteButtonsProps = {
   /** Proposal's Id */
   proposalId: string,
-  /** Index of the card */
-  index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** When waiting response from API */
@@ -24,14 +22,7 @@ type VoteButtonsProps = {
 };
 
 export const VoteButtonsComponent = (props: VoteButtonsProps) => {
-  const {
-    proposalId,
-    index,
-    tabIndex,
-    handleVote,
-    pending,
-    pendingVoteKey,
-  } = props;
+  const { proposalId, tabIndex, handleVote, pending, pendingVoteKey } = props;
   const voteKeys = Object.keys(voteStaticParams);
 
   const handleVoteIfNotPending = (
@@ -53,7 +44,6 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       rotate={voteStaticParams[voteKey].rotate}
       buttonType={VoteButtonStyle}
       tabIndex={tabIndex}
-      id={getVoteButtonId(voteKey, index)}
       handleVote={event => handleVoteIfNotPending(event, voteKey)}
       pending={pending && pendingVoteKey === voteKey}
     />
@@ -63,8 +53,6 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
 type VoteProps = {
   /** Proposal's Id */
   proposalId: string,
-  /** Index of the card */
-  index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** When waiting response from API */
@@ -79,14 +67,7 @@ type VoteProps = {
  * Renders Vote component
  */
 export const VoteComponent = (props: VoteProps) => {
-  const {
-    proposalId,
-    index,
-    tabIndex,
-    handleVote,
-    pending,
-    pendingVoteKey,
-  } = props;
+  const { proposalId, tabIndex, handleVote, pending, pendingVoteKey } = props;
 
   return (
     <VoteStyle.ContainerStyle>
@@ -97,7 +78,6 @@ export const VoteComponent = (props: VoteProps) => {
       <VoteStyle.WrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}
-          index={index}
           tabIndex={tabIndex}
           handleVote={handleVote}
           pending={pending}
@@ -106,8 +86,4 @@ export const VoteComponent = (props: VoteProps) => {
       </VoteStyle.WrapperStyle>
     </VoteStyle.ContainerStyle>
   );
-};
-
-VoteComponent.defaultProps = {
-  index: undefined,
 };

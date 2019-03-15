@@ -251,5 +251,10 @@
     "banner": {
       "title": "Votez sur les dernières propositions issues de la consultation."
     }
+  },
+  "sharing": {
+    "facebook": "Partager sur Facebook",
+    "twitter": "Partager sur Twitter",
+    "linkedin": "Partager sur LinkedIn"
   }
 }
