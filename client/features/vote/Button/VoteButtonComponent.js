@@ -66,8 +66,7 @@ export const VoteButtonComponent = (props: Props) => {
       />
       <TooltipStyle
         as={isTooltipDisplayed ? BottomTooltipStyle : ''}
-        aria-hidden={!isTooltipDisplayed}
-        role="tooltip"
+        aria-hidden
       >
         <p>{label}</p>
       </TooltipStyle>

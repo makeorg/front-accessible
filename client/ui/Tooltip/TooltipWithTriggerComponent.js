@@ -62,7 +62,6 @@ export const TooltipWithTriggerComponent = (props: Props) => {
         onBlur={hideTooltip}
         tabIndex={tabIndex}
         aria-label={isTooltipDisplayed ? ariaLabelHide : ariaLabelDisplay}
-        role="tooltip"
       >
         {triggerContent}
       </UnstyledButtonStyle>
@@ -70,6 +69,7 @@ export const TooltipWithTriggerComponent = (props: Props) => {
         as={isTooltipDisplayed ? tooltipType : ''}
         aria-hidden={!isTooltipDisplayed}
         zIndex={zIndex}
+        role="tooltip"
       >
         {children}
       </TooltipStyle>

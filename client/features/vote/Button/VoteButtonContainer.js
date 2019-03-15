@@ -59,10 +59,11 @@ export class VoteButtonContainer extends React.Component<Props, State> {
   };
 
   render() {
+    const { isTooltipDisplayed } = this.state;
     return (
       <VoteButtonComponent
         {...this.props}
-        {...this.state}
+        isTooltipDisplayed={isTooltipDisplayed}
         handleVote={this.handleVoteAction}
         displayTooltip={event => this.displayTooltip(event)}
         hideTooltip={event => this.hideTooltip(event)}

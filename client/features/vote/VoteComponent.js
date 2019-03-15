@@ -5,7 +5,7 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { getVoteKey } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
-import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
+import { VoteButton } from './Button';
 import * as VoteStyle from './Styled';
 
 type VoteButtonsProps = {
@@ -36,7 +36,7 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
   };
 
   return voteKeys.map<React.Node>((voteKey: string) => (
-    <VoteButtonElement
+    <VoteButton
       key={getVoteKey(voteKey, proposalId)}
       color={voteStaticParams[voteKey].color}
       label={i18n.t(`vote.${voteKey}`)}
