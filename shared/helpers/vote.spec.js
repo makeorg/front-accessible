@@ -14,12 +14,6 @@ describe('vote', () => {
     expect(voteKey).toBe('voteKey_proposalId');
   });
 
-  it('get vote button id', () => {
-    const voteButtonId = voteHelper.getVoteButtonId('voteKey', 42);
-
-    expect(voteButtonId).toBe('voteKey-42');
-  });
-
   it('do vote', () => {
     const votesList = [
       {

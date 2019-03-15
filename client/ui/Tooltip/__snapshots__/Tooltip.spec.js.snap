@@ -3,12 +3,14 @@
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 .c0 {
   position: relative;
+  z-index: 0;
 }
 
 .c1 {
   display: none;
   position: absolute;
   padding: 0.3125rem 0.625rem;
+  z-index: 0;
   background-color: rgb(51,51,51);
   color: rgb(255,255,255);
   font-size: 0.75rem;
@@ -21,18 +23,22 @@ exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 }
 
 <div
-  className="c0"
+  className="c0 wrvktz-0 c0"
 >
   <UnstyledButtonStyle
+    aria-label="common.display_tooltip"
+    as="UnstyledButtonStyle"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    tabIndex={0}
   >
     foo
   </UnstyledButtonStyle>
   <div
+    aria-hidden={true}
     className="c1"
     role="tooltip"
   >
@@ -46,16 +52,17 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -5,10 +5,11 @@
+@@ -7,11 +7,11 @@
       onBlur={[Function anonymous]}
       onClick={[Function anonymous]}
       onFocus={[Function anonymous]}
       onMouseEnter={[Function anonymous]}
       onMouseLeave={[Function anonymous]}
-+     tabIndex="-1"
+-     tabIndex={0}
++     tabIndex={-1}
     />
     <div
-      className="wrvktz-1 icczJa"
+      aria-hidden={true}
+      className="wrvktz-1 eqqqVY"
       role="tooltip"
-    />
 `;

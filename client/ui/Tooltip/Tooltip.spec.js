@@ -28,7 +28,7 @@ describe('TooltipWithTrigger', () => {
   it('must return the diff between snapshot with a default vs a custom Tab Index', () => {
     const defaultTabIndex = renderer.create(<TooltipWithTrigger />);
     const customTabIndex = renderer
-      .create(<TooltipWithTrigger tabIndex="-1" />)
+      .create(<TooltipWithTrigger tabIndex={-1} />)
       .toJSON();
     expect(snapshotDiff(defaultTabIndex, customTabIndex)).toMatchSnapshot();
   });

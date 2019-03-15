@@ -20,6 +20,7 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
       foo
     </ThirdLevelTtitleStyle>
     <CollapseIconStyle
+      aria-hidden={true}
       iscollapsed={true}
     >
       <Svg
