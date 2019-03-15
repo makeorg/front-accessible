@@ -3,6 +3,7 @@ import React from 'react';
 import { type ProposalType } from 'Shared/types/proposal';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { type Question } from 'Shared/types/question';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { InfiniteProposalsComponent } from './InfiniteProposalsComponent';
 
 type Props = {
@@ -27,7 +28,15 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
 
   async componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    this.loadProposals();
+    this.initPrposals();
+  }
+
+  async componentDidUpdate(prevProps: Props) {
+    const { tags } = this.props;
+
+    if (tags !== prevProps.tags) {
+      this.initPrposals();
+    }
   }
 
   componentWillUnmount() {
@@ -43,20 +52,33 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
       document.body &&
       window.innerHeight + window.scrollY >= document.body.scrollHeight
     ) {
-      this.loadProposals();
+      this.loadMoreProposals();
     }
   };
 
-  loadProposals = async () => {
+  initPrposals = async () => {
+    const { question, tags } = this.props;
+    this.setState({ isLoading: true });
+    const proposals = await searchProposals(question.questionId, tags);
+    this.setState({
+      proposals,
+      page: 2,
+      hasMore: proposals.length === PROPOSALS_LISTING_LIMIT,
+      isLoading: false,
+    });
+  };
+
+  loadMoreProposals = async () => {
     const { question, tags } = this.props;
     const { page } = this.state;
     this.setState({ isLoading: true });
     const proposals = await searchProposals(question.questionId, tags, page);
+
     this.setState(prevState => ({
       ...prevState,
       proposals: [...prevState.proposals, ...proposals],
       page: prevState.page + 1,
-      hasMore: proposals.length === 2,
+      hasMore: proposals.length === PROPOSALS_LISTING_LIMIT,
       isLoading: false,
     }));
   };

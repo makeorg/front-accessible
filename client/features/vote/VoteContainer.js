@@ -18,7 +18,7 @@ type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array with votes received from Api */
-  votes: Array<VoteType>,
+  votes: VoteType[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Boolean toggled when Sliding pannel is opened / closed */
@@ -43,9 +43,9 @@ type State = {
   /** Voted key property */
   votedKey: string,
   /** Array with votes received from Api */
-  votes: Array<VoteType>,
+  votes: VoteType[],
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
 };
 
 /**
@@ -114,6 +114,9 @@ export class VoteHandler extends React.Component<Props, State> {
       goToNextCard,
     } = this.props;
     const { hasVoted, votedKey, votes, qualifications } = this.state;
+    const tabIndex =
+      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -124,31 +127,19 @@ export class VoteHandler extends React.Component<Props, State> {
               votedKey={votedKey}
               index={index}
               handleVote={this.throttleVote}
-              tabIndex={
-                isPannelOpen || isSequenceCollapsed || index !== currentIndex
-                  ? -1
-                  : 0
-              }
+              tabIndex={tabIndex}
             />
             <Qualification
               proposalId={proposalId}
               qualifications={qualifications}
               votedKey={votedKey}
               index={index}
-              tabIndex={
-                isPannelOpen || isSequenceCollapsed || index !== currentIndex
-                  ? -1
-                  : 0
-              }
+              tabIndex={tabIndex}
             />
           </VoteStyle.ContainerStyle>
           {index !== undefined && (
             <NextButtonStyle
-              tabIndex={
-                isPannelOpen || isSequenceCollapsed || index !== currentIndex
-                  ? -1
-                  : 0
-              }
+              tabIndex={tabIndex}
               onClick={goToNextCard}
               id={`next-button-${index}`}
             >
@@ -164,9 +155,7 @@ export class VoteHandler extends React.Component<Props, State> {
       <VoteComponent
         proposalId={proposalId}
         index={index}
-        tabIndex={
-          isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-        }
+        tabIndex={tabIndex}
         handleVote={this.throttleVote}
       />
     );

@@ -2,7 +2,6 @@
 import React from 'react';
 import { type ProposalType } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
-import { ProposalCardTaggedStyle } from 'Client/features/proposal/ProposalCardTagged/Styled';
 import { Spinner } from 'Client/ui/Spinner';
 
 type Props = {
@@ -12,15 +11,20 @@ type Props = {
 
 export const InfiniteProposalsComponent = (props: Props) => {
   const { proposals, isLoading } = props;
+  const proposalsLength = proposals.length;
+
   return (
-    <React.Fragment>
+    <div role="feed" aria-busy={isLoading}>
       {proposals &&
-        proposals.map(proposal => (
-          <ProposalCardTaggedStyle key={proposal.id}>
-            <ProposalCardTagged key={proposal.id} proposal={proposal} />
-          </ProposalCardTaggedStyle>
+        proposals.map((proposal, index) => (
+          <ProposalCardTagged
+            position={index + 1}
+            size={proposalsLength}
+            key={proposal.id}
+            proposal={proposal}
+          />
         ))}
       {isLoading && <Spinner />}
-    </React.Fragment>
+    </div>
   );
 };
