@@ -29,7 +29,13 @@
     "open_new_window": "Open in a new window",
     "loading": "Please wait while it loads.",
     "participate": "Participate",
-    "vote_on_proposals": "Vote on the proposals"
+    "vote_on_proposals": "Vote on the proposals",
+    "display_pannel": "Display the content of the collapse pannel",
+    "hide_pannel": "Hide the content of the collapse pannel",
+    "display_tooltip": "Display the content of the tooltip",
+    "hide_tooltip": "Hide the content of the tooltip",
+    "expand_collapse": "Display the content of the collapse section",
+    "shrink_collapse": "Hide the content of the collapse section"
   },
   "header": {
     "logo_alt": "Go to the Make.org site"
@@ -94,9 +100,16 @@
     "title": "The votes of others on this proposal are as follows:",
     "total_text": "The total number of votes is: ",
     "tooltipbutton": {
-      "agree": "Display the results for: “I agree”",
-      "disagree": "Display the results for: “I disagree”",
-      "neutral": "Display the results for: “I cast a blank vote”"
+      "display" : {
+        "agree": "Display the results for: “I agree”",
+        "disagree": "Display the results for: “I disagree”",
+        "neutral": "Display the results for: “I cast a blank vote”"
+      },
+      "hide" : {
+        "agree": "Hide the results for: “I agree”",
+        "disagree": "Hide the results for: “I disagree”",
+        "neutral": "Hide the results for: “I cast a blank vote”"
+      }
     }
   },
   "qualification": {
@@ -212,7 +225,9 @@
       "link_text": "Find out more"
     },
     "sharing": {
-      "title": "Share this consultation"
+      "title": "Share this consultation",
+      "display_pannel": "Display the content of the sharing pannel",
+      "hide_pannel": "Hide the content of the sharing pannel"
     },
     "partners": {
       "intro_title": "The community of actions",
