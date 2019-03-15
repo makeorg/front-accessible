@@ -29,7 +29,7 @@ export const PartnersComponent = (props: Props) => {
         as={Link}
         to={getSequenceLink(question.slug, question.country, question.language)}
       >
-        <IconInButtonStyle>
+        <IconInButtonStyle aria-hidden>
           <Svg type="SvgPlayButton" />
         </IconInButtonStyle>
         {i18n.t('common.participate')}

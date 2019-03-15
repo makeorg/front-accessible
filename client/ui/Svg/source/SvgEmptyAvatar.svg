@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
     <defs>
-        <circle id="a" cx="15" cy="15" r="15"/>
+        <circle cx="15" cy="15" r="15"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
         <g>

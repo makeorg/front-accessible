@@ -35,7 +35,7 @@ export const CollapseComponent = (props: Props) => {
       <CollapseTriggerStyle onClick={toggleCollapse} disabled={disableCollapse}>
         <ThirdLevelTtitleStyle>{title}</ThirdLevelTtitleStyle>
         {!disableCollapse && (
-          <CollapseIconStyle iscollapsed={isCollapsed}>
+          <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>
             <Svg type="SvgAngleArrowRight" />
           </CollapseIconStyle>
         )}

@@ -22,7 +22,7 @@ export const Avatar = (props: Props) => {
 
   return (
     <AvatarStyle aria-hidden avatarSize={avatarSize}>
-      <Svg type="SvgEmptyAvatar" aria-hidden />
+      <Svg type="SvgEmptyAvatar" />
     </AvatarStyle>
   );
 };
