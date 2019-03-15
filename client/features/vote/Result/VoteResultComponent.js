@@ -80,6 +80,10 @@ export const VoteResultComponent = (props: Props) => {
                   percent={votesPercent[voteKey]}
                 />
               }
+              ariaLabelDisplay={i18n.t(
+                `results.tooltipbutton.display.${voteKey}`
+              )}
+              ariaLabelHide={i18n.t(`results.tooltipbutton.hide.${voteKey}`)}
             >
               <ResultTooltip
                 votePercent={votesPercent[voteKey]}
