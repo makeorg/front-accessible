@@ -40,6 +40,11 @@
     "expand_collapse": "Afficher le contenu de la section déroulante",
     "shrink_collapse": "Masquer le contenu de la section déroulante"
   },
+  "skip_links": {
+    "intro": "Aller à la bannière de présentation",
+    "main": "Aller au contenu principal",
+    "sidebar": "Aller au contenu de la barre latérale"
+  },
   "header": {
     "logo_alt": "Aller sur le site Make.org"
   },

@@ -256,5 +256,10 @@
     "facebook": "Partager sur Facebook",
     "twitter": "Partager sur Twitter",
     "linkedin": "Partager sur LinkedIn"
+  },
+  "skip_links": {
+    "intro": "Aller à la bannière de présentation",
+    "main": "Aller au contenu principal",
+    "sidebar": "Aller au contenu de la barre latérale"
   }
 }

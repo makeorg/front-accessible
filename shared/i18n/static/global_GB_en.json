@@ -37,6 +37,11 @@
     "expand_collapse": "Display the content of the collapse section",
     "shrink_collapse": "Hide the content of the collapse section"
   },
+  "skip_links": {
+    "intro": "Skip to presentation banner",
+    "main": "Skip to main content",
+    "sidebar": "Skip to sidebar content"
+  },
   "header": {
     "logo_alt": "Go to the Make.org site"
   },
