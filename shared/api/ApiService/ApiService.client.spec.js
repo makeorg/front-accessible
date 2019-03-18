@@ -36,6 +36,7 @@ describe('ApiServiceClient', () => {
           'x-make-operation': '',
           'x-make-question': '',
           'x-make-question-id': '',
+          'x-make-referrer': '',
           'x-make-source': '',
           'x-make-location': 'unknown_location /',
           ...options.headers,
@@ -70,6 +71,7 @@ describe('ApiServiceClient', () => {
     apiClient.source = 'core';
     apiClient.questionId = '1234';
     apiClient.operationId = 'abcd';
+    apiClient.referrer = 'http://localhost';
     apiClient.callApi(url, options);
     // then
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
@@ -81,6 +83,7 @@ describe('ApiServiceClient', () => {
           'x-make-operation': 'abcd',
           'x-make-question': '1234',
           'x-make-question-id': '1234',
+          'x-make-referrer': 'http://localhost',
           'x-make-source': 'core',
           'x-make-location': 'unknown_location /',
           ...options.headers,
