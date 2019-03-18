@@ -17,10 +17,10 @@ const ProposalAuthorAge = ({ age }) => {
   }
 
   return (
-    <span>
-      {', '}
+    <React.Fragment>
+      <span>,&nbsp;</span>
       {i18n.t('proposal_card.author.age', { age })}
-    </span>
+    </React.Fragment>
   );
 };
 
@@ -35,10 +35,10 @@ export const ProposalAuthorWithAvatar = (props: Props) => {
       {author.firstName}
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (
-        <span>
-          {' · '}
-          {DateHelper.proposalCreationDateFormat(createdAt)}
-        </span>
+        <React.Fragment>
+          <span aria-hidden>&nbsp;·&nbsp; </span>
+          <span>{DateHelper.proposalCreationDateFormat(createdAt)}</span>
+        </React.Fragment>
       )}
     </AuthorWithAvatarStyle>
   );
