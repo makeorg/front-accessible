@@ -1,12 +1,20 @@
 /* @flow */
-
-import { getBaitText } from 'Shared/constants/proposal';
+import {
+  getBaitText,
+  PROPOSALS_LISTING_LIMIT,
+} from 'Shared/constants/proposal';
 import { ProposalService } from 'Shared/api/ProposalService';
 import { Logger } from 'Shared/services/Logger';
 import * as ProposalHelper from './proposal';
 
 jest.mock('Shared/api/ProposalService');
 jest.mock('Shared/services/Logger');
+jest.mock('Shared/constants/proposal', () => ({
+  getBaitText: () => 'il faut',
+  MIN_PROPOSAL_LENGTH: 12,
+  MAX_PROPOSAL_LENGTH: 140,
+  PROPOSALS_LISTING_LIMIT: 20,
+}));
 
 describe('Proposal Helper', () => {
   afterEach(() => {
@@ -19,7 +27,7 @@ describe('Proposal Helper', () => {
       const proposalLength = ProposalHelper.getProposalLength(
         validProposalContent
       );
-      expect(proposalLength).toBe(26);
+      expect(proposalLength).toBe(13);
     });
 
     it('getProposalLength with empty content', () => {
@@ -126,10 +134,24 @@ describe('Proposal Helper', () => {
       expect(ProposalService.searchProposals).toHaveBeenNthCalledWith(
         1,
         '12345',
-        'foo,bar'
+        'foo,bar',
+        PROPOSALS_LISTING_LIMIT,
+        0
       );
     });
 
+    it('calculate skipped proposal', async () => {
+      jest.spyOn(ProposalService, 'searchProposals');
+
+      ProposalHelper.searchProposals('12345', ['foo', 'bar'], 3);
+      expect(ProposalService.searchProposals).toHaveBeenNthCalledWith(
+        1,
+        '12345',
+        'foo,bar',
+        PROPOSALS_LISTING_LIMIT,
+        40
+      );
+    });
     it('return results from api response', async () => {
       ProposalService.searchProposals.mockResolvedValue({
         results: ['foo'],

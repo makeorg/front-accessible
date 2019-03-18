@@ -4,6 +4,7 @@ import {
   getBaitText,
   MIN_PROPOSAL_LENGTH,
   MAX_PROPOSAL_LENGTH,
+  PROPOSALS_LISTING_LIMIT,
 } from 'Shared/constants/proposal';
 import { type ProposalType } from 'Shared/types/proposal';
 import { ProposalService } from 'Shared/api/ProposalService';
@@ -49,12 +50,19 @@ export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) =>
 
 export const searchProposals = async (
   questionId: string,
-  TagIdsArray: string[]
+  TagIdsArray: string[] = [],
+  page: number = 1
 ) => {
+  const limit = PROPOSALS_LISTING_LIMIT;
+  const skip = (page - 1) * limit;
   const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
-
   try {
-    const response = await ProposalService.searchProposals(questionId, tagsIds);
+    const response = await ProposalService.searchProposals(
+      questionId,
+      tagsIds,
+      limit,
+      skip
+    );
 
     return response.results;
   } catch (error) {

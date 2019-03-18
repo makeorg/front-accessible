@@ -3,6 +3,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { CardStyle } from 'Client/ui/Cards';
 
 export const ProposalStyle = styled.blockquote`
   max-width: 100%;
@@ -26,4 +27,8 @@ export const FooterStyle = styled.div`
 
 export const ProposalSeparatorStyle = styled(SeparatorStyle)`
   margin-top: 10px;
+`;
+
+export const ProposalCardTaggedStyle = styled(CardStyle)`
+  margin: 20px 0;
 `;

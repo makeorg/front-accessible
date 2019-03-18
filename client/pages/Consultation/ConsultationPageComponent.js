@@ -8,8 +8,6 @@ import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
 import { Sharing } from 'Client/features/sharing';
-import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
-import { ProposalType } from 'Shared/types/proposal';
 import { TagFilter } from 'Client/features/consultation/TagsFilter';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import {
@@ -18,17 +16,16 @@ import {
 } from 'Client/ui/Elements/HiddenElements';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
+import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
-  ProposalCardTaggedStyle,
 } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
-  proposals: ProposalType[],
   selectedTagIds: string[],
   handleSelectTag: () => void,
 };
@@ -37,7 +34,6 @@ export const ConsultationPageComponent = (props: Props) => {
   const {
     questionConfiguration,
     question,
-    proposals,
     selectedTagIds,
     handleSelectTag,
   } = props;
@@ -66,16 +62,7 @@ export const ConsultationPageComponent = (props: Props) => {
             handleSelectTag={handleSelectTag}
             selectedTagIds={selectedTagIds}
           />
-          {proposals &&
-            proposals.map(proposal => (
-              <ProposalCardTaggedStyle>
-                <ProposalCardTagged
-                  key={proposal.id}
-                  questionConfiguration={questionConfiguration}
-                  proposal={proposal}
-                />
-              </ProposalCardTaggedStyle>
-            ))}
+          <InfiniteProposals question={question} tags={selectedTagIds} />
         </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle
           as="aside"

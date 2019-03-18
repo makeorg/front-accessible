@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/question';
