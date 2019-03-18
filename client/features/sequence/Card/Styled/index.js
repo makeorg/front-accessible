@@ -27,7 +27,6 @@ export const ProposalCardStyle = styled.li`
   overflow: hidden;
   ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    min-height: 445px;
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;

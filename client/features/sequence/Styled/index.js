@@ -29,6 +29,9 @@ export const SequenceStyle = styled.section`
   max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
   overflow: hidden;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+    min-height: 550px;
+  }
 `;
 
 export const BackArrowStyle = styled(UnstyledButtonStyle)`
