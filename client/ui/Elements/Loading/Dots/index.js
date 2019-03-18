@@ -4,7 +4,7 @@ import { LoadingWrapperStyle, DotStyle } from './Styled';
 
 export const LoadingDots = () => {
   return (
-    <LoadingWrapperStyle>
+    <LoadingWrapperStyle aria-hidden>
       <DotStyle delay={0} duration={1}>
         &bull;
       </DotStyle>

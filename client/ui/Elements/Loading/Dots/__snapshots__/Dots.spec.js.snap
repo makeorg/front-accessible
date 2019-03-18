@@ -82,6 +82,7 @@ exports[`LoadingDots must match the snapshot with default Props 1`] = `
 }
 
 <div
+  aria-hidden={true}
   className="c0"
 >
   <span

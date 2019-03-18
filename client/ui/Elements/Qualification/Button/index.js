@@ -7,6 +7,7 @@ import {
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Color used by Styled Component */
@@ -48,12 +49,13 @@ export const QualificationButtonElement = (props: Props) => {
       as={isQualified ? UnqualifyButtonStyle : QualifyButtonStyle}
       color={color}
       onClick={handleClick}
+      aria-label={pendingQualification ? i18n.t('common.loading') : label}
     >
       {pendingQualification ? (
         <LoadingDots />
       ) : (
         <React.Fragment>
-          {label}
+          <span aria-hidden>{label}</span>
           <CounterStyle aria-hidden>
             {isQualified ? qualificationCounter : '+1'}
           </CounterStyle>

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonStyle, VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -49,7 +50,7 @@ export const VoteButtonElement = (props: Props) => {
 
   return (
     <ButtonStyle
-      aria-label={label}
+      aria-label={pending ? i18n.t('common.loading') : label}
       id={id}
       tabIndex={tabIndex}
       color={color}
