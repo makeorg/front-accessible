@@ -19,6 +19,7 @@ export const IntroBannerComponent = (props: Props) => {
       gradientEnd={theme.gradientEnd}
       color={theme.gradientStart}
       aria-labelledby="header_consultation_title"
+      id="intro"
     >
       {consultation.label && <IntroLabel>{consultation.label}</IntroLabel>}
       <HiddenItemStyle id="header_consultation_title">

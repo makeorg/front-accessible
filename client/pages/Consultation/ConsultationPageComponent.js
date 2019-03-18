@@ -17,6 +17,7 @@ import {
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
+import { SkipLink } from 'Client/app/Styled/MainElements';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -47,24 +48,22 @@ export const ConsultationPageComponent = (props: Props) => {
         description={metas.description}
         picture={metas.picture}
       />
+      <SkipLink as="a" href="#intro ">
+        {i18n.t('skip_links.intro')}
+      </SkipLink>
+      <SkipLink as="a" href="#main ">
+        {i18n.t('skip_links.main')}
+      </SkipLink>
+      <SkipLink as="a" href="#sidebar">
+        {i18n.t('skip_links.sidebar')}
+      </SkipLink>
       <IntroBanner
         question={question}
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <ConsultationPageContentStyle>
-          <ParticipateBanner
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-          <TagFilter
-            question={question}
-            handleSelectTag={handleSelectTag}
-            selectedTagIds={selectedTagIds}
-          />
-          <InfiniteProposals question={question} tags={selectedTagIds} />
-        </ConsultationPageContentStyle>
         <ConsultationPageSidebarStyle
+          id="sidebar"
           as="aside"
           bottomAffix={questionConfiguration.isGreatCause}
         >
@@ -85,12 +84,24 @@ export const ConsultationPageComponent = (props: Props) => {
               />
             </Collapse>
           )}
-          <HiddenOnMobileStyle>
+          <HiddenOnMobileStyle aria-hidden>
             <SidebarTile title={i18n.t('consultation.sharing.title')}>
               <Sharing />
             </SidebarTile>
           </HiddenOnMobileStyle>
         </ConsultationPageSidebarStyle>
+        <ConsultationPageContentStyle id="main">
+          <ParticipateBanner
+            question={question}
+            questionConfiguration={questionConfiguration}
+          />
+          <TagFilter
+            question={question}
+            handleSelectTag={handleSelectTag}
+            selectedTagIds={selectedTagIds}
+          />
+          <InfiniteProposals question={question} tags={selectedTagIds} />
+        </ConsultationPageContentStyle>
         <HiddenOnDesktopStyle>
           <MobileSharing />
         </HiddenOnDesktopStyle>
