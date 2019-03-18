@@ -30,7 +30,7 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
     </CollapseIconStyle>
   </CollapseTriggerStyle>
   <CollapseContentStyle
-    aria-hidden={false}
+    aria-hidden={true}
     forcedexpand={false}
     iscollapsed={true}
   >
