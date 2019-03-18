@@ -41,7 +41,7 @@ export const ConsultationPageComponent = (props: Props) => {
   const { metas } = questionConfiguration.wording;
 
   return (
-    <React.Fragment aria-describedby="presentation_text">
+    <React.Fragment>
       <MetaTags
         title={metas.title}
         description={metas.description}

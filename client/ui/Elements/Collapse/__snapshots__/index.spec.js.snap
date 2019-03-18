@@ -13,6 +13,7 @@ Compared values have no visual difference.
 exports[`Collapse must match the snapshot with default Props 1`] = `
 <SidebarSeparatorStyle>
   <CollapseTriggerStyle
+    aria-label="common.shrink_collapse"
     disabled={false}
     onClick={[Function]}
   >
@@ -29,10 +30,13 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
     </CollapseIconStyle>
   </CollapseTriggerStyle>
   <CollapseContentStyle
+    aria-hidden={false}
     forcedexpand={false}
     iscollapsed={true}
   >
-    <CollapseSeparatorStyle />
+    <CollapseSeparatorStyle
+      aria-hidden={true}
+    />
     bar
   </CollapseContentStyle>
 </SidebarSeparatorStyle>
