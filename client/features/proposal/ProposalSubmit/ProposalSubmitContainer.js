@@ -52,6 +52,8 @@ type Props = {
 type State = {
   /** Boolean toggled when user is typing a proposal */
   isTyping: boolean,
+  /** Boolean used to expand / collapse proposal field */
+  isFieldExpanded: boolean,
 };
 
 /**
@@ -60,6 +62,7 @@ type State = {
 export class ProposalSubmitHandler extends React.Component<Props, State> {
   state = {
     isTyping: false,
+    isFieldExpanded: false,
   };
 
   throttleSubmit: any = undefined;
@@ -82,10 +85,17 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   handleFocus = () => {
     this.setState({
       isTyping: true,
+      isFieldExpanded: true,
     });
 
     const { handleCollapseSequence, isSequenceCollapsed } = this.props;
     if (!isSequenceCollapsed) handleCollapseSequence();
+  };
+
+  handleBlur = () => {
+    this.setState({
+      isFieldExpanded: false,
+    });
   };
 
   handleSubmit = (event: SyntheticEvent<*>) => {
@@ -123,7 +133,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       country,
       language,
     } = this.props;
-    const { isTyping } = this.state;
+    const { isTyping, isFieldExpanded } = this.state;
     const isDescriptionShown =
       isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
     const isAuthentificationShown =
@@ -140,9 +150,9 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
           handleChange={this.handleChange}
           handleSubmit={this.throttleSubmit}
           handleFocus={this.handleFocus}
+          handleBlur={this.handleBlur}
           isPannelOpen={isPannelOpen}
-          isSequenceCollapsed={isSequenceCollapsed}
-          isTyping={isTyping}
+          isFieldExpanded={isFieldExpanded}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent

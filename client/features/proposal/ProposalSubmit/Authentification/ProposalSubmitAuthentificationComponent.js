@@ -14,8 +14,8 @@ import {
   SmallButtonWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import {
-  SecondLevelTitleStyle,
   ThirdLevelTtitleStyle,
+  FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import * as Separators from 'Client/ui/Elements/Separators';
@@ -48,12 +48,12 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
 
   return (
     <ProposalSubmitAuthentificationWrapperStyle id="proposal-submit-authentification">
-      <SecondLevelTitleStyle>
-        {i18n.t('authentification.title')}
-      </SecondLevelTitleStyle>
       <ThirdLevelTtitleStyle>
-        {i18n.t('authentification.description')}
+        {i18n.t('authentification.title')}
       </ThirdLevelTtitleStyle>
+      <FourthLevelTitleStyle>
+        {i18n.t('authentification.description')}
+      </FourthLevelTitleStyle>
       <SmallButtonWrapperStyle>
         <FacebookAuthentificationButtonComponent
           tabIndex={isPannelOpen ? -1 : 0}
@@ -91,7 +91,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         </a>
       </CenterParagraphStyle>
       <Separators.Small aria-hidden />
-      <SecondLevelTitleStyle>{i18n.t('login.title')}</SecondLevelTitleStyle>
+      <ThirdLevelTtitleStyle>{i18n.t('login.title')}</ThirdLevelTtitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
           onClick={handleLoginClick}
