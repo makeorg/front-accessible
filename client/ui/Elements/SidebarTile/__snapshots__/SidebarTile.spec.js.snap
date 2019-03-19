@@ -2,9 +2,9 @@
 
 exports[`SidebarTile must match the snapshot with default Props 1`] = `
 <SidebarTileStyle>
-  <ThirdLevelTtitleStyle>
+  <ThirdLevelTitleStyle>
     foo
-  </ThirdLevelTtitleStyle>
+  </ThirdLevelTitleStyle>
   <SidebarSeparatorStyle />
   bar
 </SidebarTileStyle>

@@ -5,7 +5,7 @@ import { type ErrorObject } from 'Shared/types/form';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import {
   SecondLevelTitleStyle,
-  ThirdLevelTtitleStyle,
+  ThirdLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import {
   ExtraParagraphStyle,
@@ -45,18 +45,18 @@ export const LoginComponent = (props: Props) => {
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>
       <Separators.SmallWithMargin />
-      <ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>
         {i18n.t('login.social_connect')}
-      </ThirdLevelTtitleStyle>
+      </ThirdLevelTitleStyle>
       <AuthentificationSocial />
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18n.t('login.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
-      <ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>
         {i18n.t('login.email_connect')}
-      </ThirdLevelTtitleStyle>
+      </ThirdLevelTitleStyle>
       <LoginFormComponent {...props} />
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}

@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {
   SecondLevelTitleStyle,
-  ThirdLevelTtitleStyle,
+  ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from '.';
 
@@ -15,10 +15,10 @@ describe('TitleElements', () => {
       expect(component).toMatchSnapshot();
     });
   });
-  describe('ThirdLevelTtitleStyle', () => {
+  describe('ThirdLevelTitleStyle', () => {
     it('snapshot by default', () => {
       const component = renderer
-        .create(<ThirdLevelTtitleStyle>H3</ThirdLevelTtitleStyle>)
+        .create(<ThirdLevelTitleStyle>H3</ThirdLevelTitleStyle>)
         .toJSON();
       expect(component).toMatchSnapshot();
     });

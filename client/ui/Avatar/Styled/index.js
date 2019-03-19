@@ -9,7 +9,6 @@ export const AvatarStyle = styled.div`
   svg,
   img {
     border-radius: 50%;
-    margin-right: 5px;
     overflow: hidden;
     width: ${props => intToPx(props.avatarSize)};
     height: ${props => intToPx(props.avatarSize)};

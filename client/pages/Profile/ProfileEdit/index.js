@@ -2,24 +2,28 @@
 import React from 'react';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
 import { MetaTags } from 'Client/app/MetaTags';
+import { UserInformations } from 'Client/features/profile/UserInformations';
 import {
+  ProfileWrapperStyle,
   ProfileHeaderStyle,
-  ProfilePageWrapperStyle,
+  ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
 } from '../Styled';
 
 export const ProfileEditPage = () => (
-  <React.Fragment>
+  <ProfileWrapperStyle>
     <MetaTags />
     <ProfileHeaderStyle aria-hidden />
-    <ProfilePageWrapperStyle>
-      <ProfilePageSidebarStyle>informations</ProfilePageSidebarStyle>
+    <ProfilePageContentWrapperStyle>
+      <ProfilePageSidebarStyle>
+        <UserInformations />
+      </ProfilePageSidebarStyle>
       <ProfilePageContentStyle>
         <UpdatePassword />
       </ProfilePageContentStyle>
-    </ProfilePageWrapperStyle>
-  </React.Fragment>
+    </ProfilePageContentWrapperStyle>
+  </ProfileWrapperStyle>
 );
 
 // default export needed for loadable component

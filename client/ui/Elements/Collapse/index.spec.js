@@ -16,7 +16,7 @@ jest.mock('Client/ui/Svg/elements', () => ({
 }));
 
 jest.mock('Client/ui/Elements/TitleElements', () => ({
-  ThirdLevelTtitleStyle: 'ThirdLevelTtitleStyle',
+  ThirdLevelTitleStyle: 'ThirdLevelTitleStyle',
 }));
 
 describe('Collapse', () => {

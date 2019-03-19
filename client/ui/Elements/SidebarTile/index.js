@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SidebarTileStyle, SidebarSeparatorStyle } from './Styled';
 
 type Props = {
@@ -13,7 +13,7 @@ export const SidebarTile = (props: Props) => {
   const { title, children } = props;
   return (
     <SidebarTileStyle>
-      <ThirdLevelTtitleStyle>{title}</ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>
       <SidebarSeparatorStyle />
       {children}
     </SidebarTileStyle>

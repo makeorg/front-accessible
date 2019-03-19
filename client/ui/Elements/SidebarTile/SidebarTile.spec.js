@@ -8,7 +8,7 @@ jest.mock('Client/ui/Elements/SidebarTile/Styled', () => ({
 }));
 
 jest.mock('Client/ui/Elements/TitleElements', () => ({
-  ThirdLevelTtitleStyle: 'ThirdLevelTtitleStyle',
+  ThirdLevelTitleStyle: 'ThirdLevelTitleStyle',
 }));
 
 describe('SidebarTile', () => {

@@ -1,5 +1,5 @@
 export {
   SecondLevelTitleStyle,
-  ThirdLevelTtitleStyle,
+  ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from './Styled';

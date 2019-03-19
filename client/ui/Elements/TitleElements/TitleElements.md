@@ -7,9 +7,9 @@ const { SecondLevelTitleStyle } = require('.');
 ```
 
 ```js
-const { ThirdLevelTtitleStyle } = require('.');
+const { ThirdLevelTitleStyle } = require('.');
 
-<ThirdLevelTtitleStyle>H3 Title</ThirdLevelTtitleStyle>;
+<ThirdLevelTitleStyle>H3 Title</ThirdLevelTitleStyle>;
 ```
 
 ```js

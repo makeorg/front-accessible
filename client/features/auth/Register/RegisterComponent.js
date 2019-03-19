@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import {
   SecondLevelTitleStyle,
-  ThirdLevelTtitleStyle,
+  ThirdLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -46,7 +46,7 @@ export const RegisterComponent = (props: Props) => {
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
       <Separators.SmallWithMargin />
-      <ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>
         {i18n.t('register.social_connect')}
         &nbsp;
         <FacebookAuthentificationLinkComponent />
@@ -54,15 +54,13 @@ export const RegisterComponent = (props: Props) => {
         {i18n.t('register.or')}
         &nbsp;
         <GoogleAuthentificationLinkComponent />
-      </ThirdLevelTtitleStyle>
+      </ThirdLevelTitleStyle>
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18n.t('register.or')}</Separators.Text>
         <Separators.Large />
       </Separators.Wrapper>
-      <ThirdLevelTtitleStyle>
-        {i18n.t('register.subtitle')}
-      </ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>{i18n.t('register.subtitle')}</ThirdLevelTitleStyle>
       <RegisterFormComponent {...props} />
       <ExtraParagraphStyle>
         {i18n.t('register.login_title')}

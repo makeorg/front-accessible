@@ -36,7 +36,7 @@ exports[`TitleElements SecondLevelTitleStyle snapshot by default 1`] = `
 </h2>
 `;
 
-exports[`TitleElements ThirdLevelTtitleStyle snapshot by default 1`] = `
+exports[`TitleElements ThirdLevelTitleStyle snapshot by default 1`] = `
 .c0 {
   font-size: 0.875rem;
 }
