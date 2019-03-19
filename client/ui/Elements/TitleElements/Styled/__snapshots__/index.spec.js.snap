@@ -3,7 +3,6 @@
 exports[`TitleElements FourthLevelTitleStyle snapshot by default 1`] = `
 .c0 {
   font-size: 0.75rem;
-  margin-bottom: 1.25rem;
 }
 
 @media (min-width:47.94rem) {
