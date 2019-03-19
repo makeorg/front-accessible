@@ -34,9 +34,17 @@ type Props = {
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called on vote */
-  handleVoteOnSequence: (string, string, ?number) => void,
+  handleVoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index?: number
+  ) => void,
   /** Method called on unvote */
-  handleUnvoteOnSequence: (string, string, ?number) => void,
+  handleUnvoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index?: number
+  ) => void,
 };
 
 type State = {

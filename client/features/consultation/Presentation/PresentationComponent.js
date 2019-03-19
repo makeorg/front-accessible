@@ -7,10 +7,11 @@ import { Founders } from '../Founders';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
+  trackLearnMore: () => void,
 };
 
 export const PresentationComponent = (props: Props) => {
-  const { questionConfiguration } = props;
+  const { questionConfiguration, trackLearnMore } = props;
   return (
     <React.Fragment>
       <ParagraphStyle
@@ -23,6 +24,7 @@ export const PresentationComponent = (props: Props) => {
       <ParagraphRedLinkStyle
         href={questionConfiguration.aboutUrl}
         target="_blank"
+        onClick={trackLearnMore}
       >
         {i18n.t('consultation.presentation.link_text')}
       </ParagraphRedLinkStyle>

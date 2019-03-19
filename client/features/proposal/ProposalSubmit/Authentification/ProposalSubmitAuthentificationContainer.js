@@ -8,13 +8,15 @@ import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthent
 
 type Props = {
   question: Question,
+  /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: () => void,
+  /** Method called to render Register Component in Sliding Pannel */
   handleLoginClick: () => void,
 };
 /**
  * Handles Authentification Business Logic after Proposal Submit
  */
-export class ProposalSubmitAuthentification extends React.Component<Props> {
+export class ProposalSubmitAuthentificationClass extends React.Component<Props> {
   componentDidMount() {
     Tracking.trackDisplayAuthentificationForm();
   }
@@ -51,4 +53,4 @@ const mapDispatchToProps = dispatch => ({
 export const ProposalSubmitAuthentificationContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProposalSubmitAuthentification);
+)(ProposalSubmitAuthentificationClass);

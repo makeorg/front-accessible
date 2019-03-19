@@ -1,6 +1,7 @@
 import React from 'react';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
+import { Tracking } from 'Shared/services/Tracking';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
@@ -16,6 +17,10 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
   state = {
     selectedTagIds: [],
   };
+
+  componentDidMount() {
+    Tracking.trackDisplayConsultation();
+  }
 
   /** Todo: export to function and Test logic */
   handleSelectTag = async tagId => {
@@ -35,6 +40,10 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
     });
   };
 
+  trackPresentationCollpase = (action: string) => {
+    Tracking.trackOpenLearnMore(action);
+  };
+
   render() {
     const { question, questionConfiguration } = this.props;
     const { selectedTagIds } = this.state;
@@ -45,6 +54,7 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
         questionConfiguration={questionConfiguration}
         selectedTagIds={selectedTagIds}
         handleSelectTag={this.handleSelectTag}
+        trackPresentationCollpase={this.trackPresentationCollpase}
       />
     );
   }

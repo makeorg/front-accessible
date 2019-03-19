@@ -2,10 +2,8 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Svg } from 'Client/ui/Svg';
 import { Link } from 'react-router-dom';
-import { type Question } from 'Shared/types/question';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Theme } from 'Shared/types/sequence';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import { getSequenceLink } from 'Shared/helpers/url';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
   ParticipateWrapperStyle,
@@ -14,24 +12,25 @@ import {
 } from 'Client/features/consultation/Styled/ParticipateBanner';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  styleTheme: Theme,
+  sequenceLink: string,
+  trackParticipateButton: () => void,
 };
 
 export const ParticipateBannerComponent = (props: Props) => {
-  const { question, questionConfiguration } = props;
-  const { theme } = questionConfiguration;
+  const { styleTheme, sequenceLink, trackParticipateButton } = props;
   return (
     <ParticipateWrapperStyle
-      gradientStart={theme.gradientStart}
-      gradientEnd={theme.gradientEnd}
-      color={theme.gradientStart}
+      gradientStart={styleTheme.gradientStart}
+      gradientEnd={styleTheme.gradientEnd}
+      color={styleTheme.gradientStart}
     >
       <ParticipateTitle>{i18n.t('consultation.banner.title')}</ParticipateTitle>
       <ParticipateSeparatorStyle aria-hidden />
       <LinkAsRedButton
         as={Link}
-        to={getSequenceLink(question.slug, question.country, question.language)}
+        to={sequenceLink}
+        onClick={trackParticipateButton}
       >
         <IconWrapperStyle aria-hidden>
           <Svg type="SvgPlayButton" />

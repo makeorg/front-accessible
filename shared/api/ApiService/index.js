@@ -8,6 +8,7 @@ export interface IApiServiceStrategy {
   get language(): string;
   get source(): string;
   get questionId(): string;
+  get referrer(): string;
 }
 
 class ApiServiceClass {
@@ -40,6 +41,10 @@ class ApiServiceClass {
 
   get questionId(): string {
     return this.strategy.questionId;
+  }
+
+  get referrer(): string {
+    return this.strategy.referrer;
   }
 }
 

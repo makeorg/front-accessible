@@ -27,10 +27,11 @@ describe('Tracking Service', () => {
     const expectedBody = JSON.stringify({
       eventName,
       eventParameters: {
-        location: 'front-accessible',
+        location: 'unknown',
         source: 'foo',
         country: 'foo',
         language: 'foo',
+        questionId:'foo',
         url: 'http://localhost/',
         ...eventParams
       },
@@ -50,12 +51,26 @@ describe('Tracking Service', () => {
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SEQUENCE);
   });
 
+  it('track Display Page Operation', () => {
+    jest.spyOn(Tracking, 'track');
+
+    Tracking.trackDisplayConsultation();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_PAGE_OPERATION);
+  });
+
 
   it('track trackFacebookPixel', () => {
-    Tracking.trackFacebookPixel('eventName');
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, 'eventName', {
-      country: 'foo', language: 'foo', location: 'sequence', source: 'foo', url: 'http://localhost/'
-    });
+    const eventParams = {
+      location: 'foo',
+      source: 'bar',
+      country: 'baz',
+      language: 'qux',
+      referrer: 'quux',
+      url: 'http://localhost/',
+    }
+    
+    Tracking.trackFacebookPixel('eventName',eventParams);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, 'eventName', eventParams);
   });
 
   it('track trackTwitter', () => {
@@ -214,9 +229,8 @@ describe('Tracking Service', () => {
   it('track First Vote', () => {
     jest.spyOn(Tracking, 'track');
 
-    Tracking.trackFirstVote('bazSlug', 'foo', 'bar', 999);
+    Tracking.trackFirstVote('foo', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_FIRST_VOTE, {
-      question: 'bazSlug',
       proposalId: 'foo',
       nature: 'bar',
       cardPosition: '999'
@@ -226,9 +240,8 @@ describe('Tracking Service', () => {
   it('track Vote', () => {
     jest.spyOn(Tracking, 'track');
 
-    Tracking.trackVote('bazSlug', 'foo', 'bar', 999);
+    Tracking.trackVote('foo', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, {
-      question: 'bazSlug',
       proposalId: 'foo',
       nature: 'bar',
       cardPosition: '999'
@@ -250,9 +263,8 @@ describe('Tracking Service', () => {
     jest.spyOn(Tracking, 'track');
 
 
-    Tracking.trackVote('bazSlug', 'foo', 'bar', undefined);
+    Tracking.trackVote('foo', 'bar', undefined);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, {
-      question: 'bazSlug',
       proposalId: 'foo',
       nature: 'bar',
       cardPosition: 'single-proposal'

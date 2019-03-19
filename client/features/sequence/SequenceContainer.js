@@ -196,13 +196,11 @@ class SequenceHandler extends React.Component<Props, State> {
   };
 
   handleStartSequence = () => {
-    const { question } = this.props;
-
     this.setState(prevState => ({
       ...incrementCurrentIndex(prevState),
       hasStarted: true,
     }));
-    Tracking.trackClickStartSequence(question.slug);
+    Tracking.trackClickStartSequence();
   };
 
   goToNextCard = () => {

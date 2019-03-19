@@ -5,6 +5,7 @@ import * as trackingConstants from 'Shared/constants/tracking';
 import { Logger } from 'Shared/services/Logger';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
+import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 
@@ -33,10 +34,12 @@ class TrackingSingleton {
 
   track = (eventName: string, parameters: Object = {}) => {
     const eventParameters = {
-      location: 'front-accessible',
+      location: `${getTrackingLocation(window.location.pathname)}`,
       source: ApiService.source,
       country: ApiService.country,
       language: ApiService.language,
+      referrer: ApiService.referrer,
+      questionId: ApiService.questionId,
       url: PARENT_URL,
       ...parameters,
     };
@@ -65,28 +68,73 @@ class TrackingSingleton {
   };
 
   trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
-    const eventParameters = {
+    const fbEventParameters = {
+      location: `${getTrackingLocation(window.location.pathname)}`,
       source: ApiService.source,
       country: ApiService.country,
       language: ApiService.language,
+      referrer: ApiService.referrer,
       url: PARENT_URL,
-      location: trackingConstants.LOCATION_SEQUENCE,
       ...parameters,
     };
 
-    FacebookTracking.trackCustom(eventName, eventParameters);
+    FacebookTracking.trackCustom(eventName, fbEventParameters);
   };
 
   trackTwitter = (eventName: string) => {
     TwitterTracking.track(eventName);
   };
 
-  /* On Load Tracking */
-  trackDisplaySequence = (questionSlug: string) => {
+  /* On Load Consultation Tracking */
+  trackDisplayConsultation = () => {
+    const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
+
+    this.track(eventName);
+    this.trackFacebookPixel(eventName);
+    this.trackTwitter(eventName);
+  };
+
+  /* LearnMore Tracking */
+  trackOpenLearnMore = (actionType: string) => {
+    const eventName = trackingConstants.OPEN_BLOCK_LEARN_MORE;
+
+    this.track(eventName, { action: actionType });
+  };
+
+  trackClickLearnMore = () => {
+    const eventName = trackingConstants.CLICK_BUTTON_LEARN_MORE;
+
+    this.track(eventName);
+  };
+
+  /* Open Sequence Tracking */
+
+  trackOpenSequence = () => {
+    const eventName = trackingConstants.CLICK_SEQUENCE_OPEN;
+
+    this.track(eventName);
+  };
+
+  /* Partners Block Tracking */
+
+  trackParticipatePartners = () => {
+    const eventName = trackingConstants.CLICK_PARTICIPATE_COMMUNITY;
+
+    this.track(eventName);
+  };
+
+  trackSeeMorePartners = () => {
+    const eventName = trackingConstants.CLICK_SEE_MORE_COMMUNITY;
+
+    this.track(eventName);
+  };
+
+  /* On Load Sequence Tracking */
+  trackDisplaySequence = () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
     this.trackTwitter(eventName);
   };
 
@@ -113,18 +161,18 @@ class TrackingSingleton {
   };
 
   /* Proposal Submit */
-  trackClickProposalSubmit = (questionSlug: string) => {
+  trackClickProposalSubmit = () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_SUBMIT;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
   };
 
-  trackDisplayProposalSubmitValidation = (questionSlug: string) => {
+  trackDisplayProposalSubmitValidation = () => {
     const eventName = trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
     this.trackTwitter(eventName);
   };
 
@@ -175,11 +223,11 @@ class TrackingSingleton {
   };
 
   /* Sequence */
-  trackClickStartSequence = (questionSlug: string) => {
+  trackClickStartSequence = () => {
     const eventName = trackingConstants.CLICK_START_SEQUENCE;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
     this.trackTwitter(eventName);
   };
 
@@ -199,49 +247,50 @@ class TrackingSingleton {
     this.track(trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
   };
 
-  trackDisplayIntroCard = (questionSlug: string) => {
+  trackDisplayIntroCard = () => {
     const eventName = trackingConstants.DISPLAY_INTRO_CARD;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
   };
 
-  trackDisplayProposalPushCard = (questionSlug: string) => {
+  trackDisplayProposalPushCard = () => {
     const eventName = trackingConstants.DISPLAY_PROPOSAL_PUSH_CARD;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
     this.trackTwitter(eventName);
   };
 
-  trackDisplaySignUpCard = (questionSlug: string) => {
+  trackDisplaySignUpCard = () => {
     const eventName = trackingConstants.DISPLAY_SIGN_UP_CARD;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
     this.trackTwitter(eventName);
   };
 
-  trackDisplayFinalCard = (questionSlug: string) => {
+  trackDisplayFinalCard = () => {
     const eventName = trackingConstants.DISPLAY_FINAL_CARD;
 
     this.track(eventName);
-    this.trackFacebookPixel(eventName, { question: questionSlug });
+    this.trackFacebookPixel(eventName);
+  };
+
+  /* Tags Tracking */
+  trackTag = (label: string, action: string) => {
+    const eventName = trackingConstants.CLICK_TAG_ACTION;
+
+    this.track(eventName, { 'tag-name': label, nature: action });
   };
 
   /* Votes */
-  trackVote = (
-    questionSlug: string,
-    proposalId: string,
-    nature: string,
-    position?: number
-  ) => {
+  trackVote = (proposalId: string, nature: string, position?: number) => {
     const eventName: string = trackingConstants.CLICK_PROPOSAL_VOTE;
     const cardPosition: string = getPosition(position);
     const params = {
       proposalId,
       cardPosition,
-      question: questionSlug,
     };
 
     this.track(eventName, {
@@ -252,18 +301,12 @@ class TrackingSingleton {
     this.trackTwitter(eventName);
   };
 
-  trackFirstVote = (
-    questionSlug: string,
-    proposalId: string,
-    nature: string,
-    position?: number
-  ) => {
+  trackFirstVote = (proposalId: string, nature: string, position?: number) => {
     const eventName: string = trackingConstants.CLICK_SEQUENCE_FIRST_VOTE;
     const cardPosition = getPosition(position);
     const params = {
       proposalId,
       cardPosition,
-      question: questionSlug,
     };
 
     this.track(eventName, {

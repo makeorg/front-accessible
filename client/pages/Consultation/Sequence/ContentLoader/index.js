@@ -37,7 +37,7 @@ export const SequencePageContentLoader = (props: Props) => {
     <React.Fragment>
       {question.canPropose && (
         <SequenceProposalFieldStyle>
-          <ProposalSubmit question={question} isComingFromSequence />
+          <ProposalSubmit isComingFromSequence />
         </SequenceProposalFieldStyle>
       )}
       <Sequence
