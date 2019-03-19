@@ -4,7 +4,7 @@ import { Svg } from 'Client/ui/Svg';
 import { Link } from 'react-router-dom';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { getSequenceLink } from 'Shared/helpers/url';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
@@ -33,9 +33,9 @@ export const ParticipateBannerComponent = (props: Props) => {
         as={Link}
         to={getSequenceLink(question.slug, question.country, question.language)}
       >
-        <IconInButtonStyle aria-hidden>
+        <IconWrapperStyle aria-hidden>
           <Svg type="SvgPlayButton" />
-        </IconInButtonStyle>
+        </IconWrapperStyle>
         {i18n.t('common.participate')}
       </LinkAsRedButton>
     </ParticipateWrapperStyle>

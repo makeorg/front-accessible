@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { AltNextButtonStyle } from '../../Styled/Buttons';
 
 type Props = {
@@ -23,9 +23,9 @@ export const SkipSignUpButton = (props: Props) => {
 
   return (
     <AltNextButtonStyle tabIndex={tabIndex} onClick={skipSignUpCard}>
-      <IconInButtonStyle>
+      <IconWrapperStyle>
         <FontAwesomeIcon aria-hidden icon={faStepForward} />
-      </IconInButtonStyle>
+      </IconWrapperStyle>
       {text || i18n.t('sign_up_card.next-cta')}
     </AltNextButtonStyle>
   );

@@ -43,7 +43,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 />
 `;
 
-exports[`ButtonElements/Styled IconInButtonStyle snapshot by default 1`] = `
+exports[`ButtonElements/Styled IconWrapperStyle snapshot by default 1`] = `
 .c0 {
   display: inline-block;
   vertical-align: middle;

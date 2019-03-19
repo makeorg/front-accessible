@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   EmailButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
   SmallButtonWrapperStyle,
   RedLinkButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
@@ -39,9 +39,9 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
           tabIndex={tabIndex}
           id="authentification-register-button"
         >
-          <IconInButtonStyle>
+          <IconWrapperStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconInButtonStyle>
+          </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
       </SmallButtonWrapperStyle>

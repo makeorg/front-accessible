@@ -8,7 +8,7 @@ import {
   faArrowLeft,
   faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { ExtraLogo } from './ExtraLogo';
@@ -103,18 +103,18 @@ export const PushProposalCardComponent = (props: Props) => {
               tabIndex={tabIndex}
               onClick={focusProposalField}
             >
-              <IconInButtonStyle>
+              <IconWrapperStyle>
                 <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-              </IconInButtonStyle>
+              </IconWrapperStyle>
               {i18n.t('common.propose')}
             </PushProposalButtonStyle>
             <PushProposalNextButtonStyle
               tabIndex={tabIndex}
               onClick={skipProposalPushCard}
             >
-              <IconInButtonStyle>
+              <IconWrapperStyle>
                 <FontAwesomeIcon aria-hidden icon={faStepForward} />
-              </IconInButtonStyle>
+              </IconWrapperStyle>
               {i18n.t('push_proposal_card.next-cta')}
             </PushProposalNextButtonStyle>
           </MiddleColumnToRowStyle>

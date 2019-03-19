@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
 import { DescriptionWrapperStyle } from '../Styled';
 
@@ -51,12 +51,12 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
           >
             {i18n.t('common.click_there')}
             &nbsp;
-            <IconInButtonStyle>
+            <IconWrapperStyle>
               <FontAwesomeIcon
                 aria-label={i18n.t('common.open_new_window')}
                 icon={faExternalLinkAlt}
               />
-            </IconInButtonStyle>
+            </IconWrapperStyle>
           </a>
         </CenterParagraphStyle>
       </DescriptionWrapperStyle>

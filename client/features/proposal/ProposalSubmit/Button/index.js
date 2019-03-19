@@ -3,7 +3,7 @@ import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   ProposalButtonStyle,
   DisabledProposalButtonStyle,
@@ -36,11 +36,11 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
         onClick={handleSubmit}
         tabIndex={isPannelOpen ? -1 : 0}
       >
-        <IconInButtonStyle
-          as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}
+        <IconWrapperStyle
+          as={isFieldExpanded ? IconWrapperStyle : ProposalIconStyle}
         >
           <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-        </IconInButtonStyle>
+        </IconWrapperStyle>
         <HiddenOnMobileStyle
           as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
         >
@@ -56,11 +56,11 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       type="submit"
       disabled
     >
-      <IconInButtonStyle
-        as={isFieldExpanded ? IconInButtonStyle : ProposalIconStyle}
+      <IconWrapperStyle
+        as={isFieldExpanded ? IconWrapperStyle : ProposalIconStyle}
       >
         <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-      </IconInButtonStyle>
+      </IconWrapperStyle>
       <HiddenOnMobileStyle
         as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
       >

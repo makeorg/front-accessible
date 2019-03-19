@@ -15,7 +15,7 @@ import {
 import {
   GreyButtonStyle,
   RedButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -124,7 +124,7 @@ export const ProposalButtonStyle = styled(RedButtonStyle)`
   padding: 5px 10px;
 `;
 
-export const ProposalIconStyle = styled(IconInButtonStyle)`
+export const ProposalIconStyle = styled(IconWrapperStyle)`
   margin: 0;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-right: 5px;

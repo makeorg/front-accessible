@@ -9,7 +9,7 @@ import {
 import {
   RedButtonStyle,
   EmailButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
   ButtonsWrapperStyle,
   SmallButtonWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
@@ -66,9 +66,9 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           tabIndex={isPannelOpen ? -1 : 0}
           id="authentification-register-button"
         >
-          <IconInButtonStyle>
+          <IconWrapperStyle>
             <FontAwesomeIcon aria-hidden icon={faEnvelope} />
-          </IconInButtonStyle>
+          </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
       </SmallButtonWrapperStyle>
@@ -82,12 +82,12 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           onClick={trackPersonnalDataLink}
         >
           {i18n.t('authentification.personal_data')}
-          <IconInButtonStyle>
+          <IconWrapperStyle>
             <FontAwesomeIcon
               aria-label={i18n.t('common.open_new_window')}
               icon={faExternalLinkAlt}
             />
-          </IconInButtonStyle>
+          </IconWrapperStyle>
         </a>
       </CenterParagraphStyle>
       <Separators.Small aria-hidden />

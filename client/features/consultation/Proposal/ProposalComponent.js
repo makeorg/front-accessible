@@ -4,7 +4,7 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { Svg } from 'Client/ui/Svg';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
@@ -18,9 +18,9 @@ export const ConsultationProposalComponent = (props: Props) => {
   return (
     <ProposalWrapperStyle>
       <ThirdLevelTtitleStyle>
-        <IconInButtonStyle>
+        <IconWrapperStyle>
           <Svg type="SvgLightBulb" />
-        </IconInButtonStyle>
+        </IconWrapperStyle>
         {i18n.t('consultation.proposal.title')}
       </ThirdLevelTtitleStyle>
       <ProposalTitleStyle fontColor={questionConfiguration.theme.color}>
