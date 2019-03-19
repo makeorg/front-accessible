@@ -4,14 +4,11 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import {
-  SecondLevelTitleStyle,
-  FourthLevelTitleStyle,
-} from 'Client/ui/Elements/TitleElements';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import * as Separators from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ForgotPasswordFormComponent } from './Form';
-import { ForgotPasswordStyle } from './Styled';
+import { ForgotPasswordStyle, ForgotPasswordTitleStyle } from './Styled';
 
 type Props = {
   /** User's email */
@@ -43,14 +40,14 @@ export const PasswordForgotComponent = (props: Props) => {
       </SecondLevelTitleStyle>
       <Separators.Small />
       {isSuccess ? (
-        <FourthLevelTitleStyle>
+        <ForgotPasswordTitleStyle>
           {i18n.t('forgot_password.success')}
-        </FourthLevelTitleStyle>
+        </ForgotPasswordTitleStyle>
       ) : (
         <React.Fragment>
-          <FourthLevelTitleStyle>
+          <ForgotPasswordTitleStyle>
             {i18n.t('forgot_password.description')}
-          </FourthLevelTitleStyle>
+          </ForgotPasswordTitleStyle>
           <ForgotPasswordFormComponent {...props} />
         </React.Fragment>
       )}

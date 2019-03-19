@@ -19,7 +19,6 @@ import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitSuccessComponent } from './Success';
 import { ProposalSubmitDescriptionComponent } from './Description';
-import { ProposalSubmitFormWrapperStyle } from './Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -132,7 +131,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     const isSuccessShown =
       !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
-      <ProposalSubmitFormWrapperStyle>
+      <React.Fragment>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
@@ -161,7 +160,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         {isAuthentificationShown ? (
           <ProposalSubmitAuthentification key="ProposalSubmitAuthentificationContainer" />
         ) : null}
-      </ProposalSubmitFormWrapperStyle>
+      </React.Fragment>
     );
   }
 }

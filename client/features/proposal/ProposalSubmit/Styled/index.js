@@ -6,7 +6,7 @@ import {
   TextColors,
   ShadowColors,
 } from 'Client/app/assets/vars/Colors';
-import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { NoStyleTextInputStyle } from 'Client/ui/Elements/Form/Styled/Input';
 import {
   MiddleRowStyle,
@@ -51,18 +51,6 @@ export const ProposalSubmitFormStyle = styled.form`
       flex-flow: row;
     }`
       : ''};
-`;
-
-export const ProposalSubmitFormWrapperStyle = styled.aside`
-  display: block;
-  flex-grow: 0;
-  width: 100%;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  margin: 10px auto 0;
-  padding: 0 20px;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    margin: 25px auto 15px;
-  }
 `;
 
 export const ProposalInputWrapperStyle = styled(FlexElementStyle)`

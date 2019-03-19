@@ -250,6 +250,9 @@
     },
     "banner": {
       "title": "Votez sur les dernières propositions issues de la consultation."
+    },
+    "proposal": {
+      "title": "Proposez une solution"
     }
   },
   "sharing": {
