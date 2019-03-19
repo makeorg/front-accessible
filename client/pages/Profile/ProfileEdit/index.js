@@ -1,11 +1,25 @@
 /* @flow */
 import React from 'react';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
+import { MetaTags } from 'Client/app/MetaTags';
+import {
+  ProfileHeaderStyle,
+  ProfilePageWrapperStyle,
+  ProfilePageSidebarStyle,
+  ProfilePageContentStyle,
+} from '../Styled';
 
 export const ProfileEditPage = () => (
-  <div>
-    <UpdatePassword />
-  </div>
+  <React.Fragment>
+    <MetaTags />
+    <ProfileHeaderStyle aria-hidden />
+    <ProfilePageWrapperStyle>
+      <ProfilePageSidebarStyle>informations</ProfilePageSidebarStyle>
+      <ProfilePageContentStyle>
+        <UpdatePassword />
+      </ProfilePageContentStyle>
+    </ProfilePageWrapperStyle>
+  </React.Fragment>
 );
 
 // default export needed for loadable component
