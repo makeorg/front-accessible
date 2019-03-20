@@ -3,14 +3,11 @@ import * as React from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStepForward,
-  faArrowLeft,
-  faPencilAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faStepForward, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
+import { Svg } from 'Client/ui/Svg';
 import { ExtraLogo } from './ExtraLogo';
 import { ProposalCardStyle } from '../Styled';
 import {
@@ -104,7 +101,7 @@ export const PushProposalCardComponent = (props: Props) => {
               onClick={focusProposalField}
             >
               <IconWrapperStyle>
-                <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
+                <Svg aria-hidden type="SvgPencil" />
               </IconWrapperStyle>
               {i18n.t('common.propose')}
             </PushProposalButtonStyle>

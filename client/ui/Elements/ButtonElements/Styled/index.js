@@ -81,9 +81,6 @@ export const IconWrapperStyle = styled.span`
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: 14px;
-  }
 `;
 
 export const LargeButtonStyle = styled(BasicButtonStyle)`
