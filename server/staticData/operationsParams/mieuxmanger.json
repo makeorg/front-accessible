@@ -17,8 +17,29 @@
   "consultation": {
     "presentation": "Au pays de la cuisine, l’alimentation est devenue un sujet d’inquiétude. Certains Français ne nourrissent pas assez, ou pas assez bien. D’autres se méfient de ce qu’ils trouvent dans leurs assiettes, et cherchent à privilégier une nourriture écologiquement et socialement plus vertueuse. Il est temps d’assurer à tous une alimentation accessible, saine et équilibrée, respectueuse de l’environnement et préservant la pérennité de nos filières agricoles. : \"Comment agir pour rendre notre économie plus bienveillante ?\". Les propositions citoyennes recueillies figureront dans un Livre Blanc remis au G7 de Biarritz en Août 2019. ",
     "logo": "/images/operations/mieuxmanger/consultation/logo.svg",
-    "label": ""
+    "label": "Grande Cause Make.org"
   },
+  "partners": [
+    {"name": "U Commerçant", "imageUrl": "/images/operations/mieuxmanger/partners/u-commercant.png", "isFounder": true},
+    {"name": "Danone", "imageUrl": "/images/operations/mieuxmanger/partners/danone.png", "isFounder": true},
+    {"name": "Blue Bees", "imageUrl": "/images/operations/mieuxmanger/partners/bluebees.png", "isFounder": true},
+    {"name": "A Table Citoyens", "imageUrl": "/images/operations/mieuxmanger/partners/a-table-citoyens.png", "isFounder": false},
+    {"name": "Bleu Blanc Coeur", "imageUrl": "/images/operations/mieuxmanger/partners/bleu-blanc-coeur.png", "isFounder": false},
+    {"name": "Bonduelle", "imageUrl": "/images/operations/mieuxmanger/partners/bonduelle.png", "isFounder": false},
+    {"name": "Cagnotte Des Champs", "imageUrl": "/images/operations/mieuxmanger/partners/cagnotte-des-champs.png", "isFounder": false},
+    {"name": "Endat", "imageUrl": "/images/operations/mieuxmanger/partners/endat.png", "isFounder": false},
+    {"name": "Fedelis", "imageUrl": "/images/operations/mieuxmanger/partners/fedelis.png", "isFounder": false},
+    {"name": "Good Mix", "imageUrl": "/images/operations/mieuxmanger/partners/good-mix.png", "isFounder": false},
+    {"name": "Jimini's", "imageUrl": "/images/operations/mieuxmanger/partners/jiminis.png", "isFounder": false},
+    {"name": "La Ruche Qui Dit Oui", "imageUrl": "/images/operations/mieuxmanger/partners/la-ruche-qui-dit-oui.png", "isFounder": false},
+    {"name": "Ligue Contre l'Obésité", "imageUrl": "/images/operations/mieuxmanger/partners/ligue-contre-obesite.png", "isFounder": false},
+    {"name": "Mamie Foodie", "imageUrl": "/images/operations/mieuxmanger/partners/mamie-foodie.png", "isFounder": false},
+    {"name": "Open Food Facts", "imageUrl": "/images/operations/mieuxmanger/partners/open-food-facts.png", "isFounder": false},
+    {"name": "Too Good To Go", "imageUrl": "/images/operations/mieuxmanger/partners/too-good-to-go.png", "isFounder": false},
+    {"name": "Vivons En Forme", "imageUrl": "/images/operations/mieuxmanger/partners/vivons-en-forme.png", "isFounder": false},
+    {"name": "Vrac", "imageUrl": "/images/operations/mieuxmanger/partners/vrac.png", "isFounder": false},
+    {"name": "yz", "imageUrl": "/images/operations/mieuxmanger/partners/yz.png", "isFounder": false}
+  ],
   "isGreatCause": true,
   "consultationUrl": "https://about.make.org/about-mieuxmanger",
   "aboutUrl": "https://about.make.org/about-mieuxmanger",
