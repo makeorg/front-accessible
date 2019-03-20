@@ -92,10 +92,12 @@ export const ConsultationPageComponent = (props: Props) => {
           </HiddenOnMobileStyle>
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle id="main">
-          <ConsultationProposal
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
+          {question.canPropose && (
+            <ConsultationProposal
+              question={question}
+              questionConfiguration={questionConfiguration}
+            />
+          )}
           <ParticipateBanner
             question={question}
             questionConfiguration={questionConfiguration}

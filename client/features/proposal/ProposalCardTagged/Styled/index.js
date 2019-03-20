@@ -30,5 +30,8 @@ export const ProposalSeparatorStyle = styled(SeparatorStyle)`
 `;
 
 export const ProposalCardTaggedStyle = styled(CardStyle)`
-  margin: 20px 0;
+  margin: 15px 0;
+  &:last-child {
+    margin: 15px 0 0;
+  }
 `;

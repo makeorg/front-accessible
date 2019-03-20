@@ -17,7 +17,7 @@ export const ParticipateWrapperStyle = styled.aside`
     ${props => props.gradientEnd}
   );
   padding: ${intToPx(DefaultPadding.Mobile)};
-  margin: 15px 0;
+  margin: 0 0 15px;
 `;
 
 export const ParticipateTitle = styled.h3`
