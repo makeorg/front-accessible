@@ -4,8 +4,9 @@ import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledButtonStyle } from '../../ButtonElements';
+import { MiddleColumnStyle } from '../../FlexElements';
 
-export const CollapseWrapperStyle = styled.div`
+export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
   padding: 10px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
@@ -39,9 +40,9 @@ export const CollapseIconStyle = styled.div`
 
 export const CollapseContentStyle = styled.div`
   ${props =>
-    props.iscollapsed ? `height: 0; overflow: hidden;` : `height: auto;`};
+    props.iscollapsed ? `height: 0; visibility: hidden;` : `height: auto;`};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    ${props => (props.forcedexpand ? `height: auto; overflow: visible;` : '')}
+    ${props => (props.forcedexpand ? `height: auto; visibility: visible;` : '')}
   }
 `;
 

@@ -1,7 +1,7 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import {
   BackgroundColors,
   BasicColors,
@@ -16,6 +16,7 @@ import {
   ColumnElementStyle,
   CenterColumnStyle,
 } from 'Client/ui/Elements/FlexElements';
+import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 
 export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
@@ -34,9 +35,9 @@ export const AppMainContentStyle = styled.main`
 export const PageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   flex-grow: 1;
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    padding: ${pxToRem(DefaultPadding.Desktop)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
@@ -47,11 +48,21 @@ export const MiddlePageWrapperStyle = styled(PageWrapperStyle)`
 export const PageContainerStyle = styled(CenterColumnStyle)`
   width: 100%;
   flex-grow: 1;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWidth)};
   background-color: ${BasicColors.PureWhite};
-  border: ${pxToRem('1px')} solid ${BorderColors.LightGrey};
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    padding: ${pxToRem(DefaultPadding.Desktop)};
+  border: 1px solid ${BorderColors.LightGrey};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: ${intToPx(DefaultPadding.Desktop)};
+  }
+`;
+
+export const SkipLink = styled(LinkAsRedButton)`
+  position: fixed;
+  top: -200px;
+  left: ${intToPx(DefaultPadding.Mobile)};
+  &:active,
+  &:focus {
+    top: ${intToPx(DefaultPadding.Mobile)};
   }
 `;

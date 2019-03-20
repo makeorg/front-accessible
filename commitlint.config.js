@@ -13,6 +13,7 @@ module.exports = {
         'proposal',
         'tracking',
         'ui',
+        'a11y',
       ],
     ],
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Svg } from 'Client/ui/Svg';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { i18n } from 'Shared/i18n';
 import {
   CollapseWrapperStyle,
   CollapseSeparatorStyle,
@@ -32,10 +33,18 @@ export const CollapseComponent = (props: Props) => {
   } = props;
   return (
     <CollapseWrapperStyle>
-      <CollapseTriggerStyle onClick={toggleCollapse} disabled={disableCollapse}>
+      <CollapseTriggerStyle
+        onClick={toggleCollapse}
+        disabled={disableCollapse}
+        aria-label={
+          isCollapsed
+            ? i18n.t('common.shrink_collapse')
+            : i18n.t('common.expand_collapse')
+        }
+      >
         <ThirdLevelTtitleStyle>{title}</ThirdLevelTtitleStyle>
         {!disableCollapse && (
-          <CollapseIconStyle iscollapsed={isCollapsed}>
+          <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>
             <Svg type="SvgAngleArrowRight" />
           </CollapseIconStyle>
         )}
@@ -43,8 +52,9 @@ export const CollapseComponent = (props: Props) => {
       <CollapseContentStyle
         iscollapsed={isCollapsed}
         forcedexpand={disableCollapse}
+        aria-hidden={isCollapsed}
       >
-        <CollapseSeparatorStyle />
+        <CollapseSeparatorStyle aria-hidden />
         {children}
       </CollapseContentStyle>
     </CollapseWrapperStyle>

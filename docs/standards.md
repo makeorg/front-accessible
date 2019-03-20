@@ -335,5 +335,5 @@ apiService.callApi(url); // console.log -> ApiServiceClient call
 2. in the terminal, run `yarn svg`
 4. Export the created component in `/client/ui/Svg/elements/index.js`
 5. import it `import { Svg } from 'Client/ui/Svg';`
-6. Use it `<Svg type="SvgEmptyAvatar" />`
+6. Use it `<Svg aria-hidden type="SvgEmptyAvatar" />`
 

@@ -18,8 +18,6 @@ type Props = {
   rotate: number,
   /** Tabindex for interactive items */
   tabIndex: number,
-  /** Id of vote button */
-  id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** Boolean Toggle when Tooltip is shown / hidden */
@@ -44,7 +42,6 @@ export const VoteButtonComponent = (props: Props) => {
     icon,
     rotate,
     tabIndex,
-    id,
     buttonType,
     handleVote,
     displayTooltip,
@@ -61,7 +58,6 @@ export const VoteButtonComponent = (props: Props) => {
         icon={icon}
         rotate={rotate}
         tabIndex={tabIndex}
-        id={id}
         buttonType={buttonType}
         handleVote={handleVote}
         displayTooltip={displayTooltip}
@@ -70,8 +66,7 @@ export const VoteButtonComponent = (props: Props) => {
       />
       <TooltipStyle
         as={isTooltipDisplayed ? BottomTooltipStyle : ''}
-        aria-hidden={!isTooltipDisplayed}
-        role="tooltip"
+        aria-hidden
       >
         <p>{label}</p>
       </TooltipStyle>

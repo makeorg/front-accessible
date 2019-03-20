@@ -41,9 +41,10 @@ export const ShadowColors = {
 };
 
 export const VoteColors = {
+  // Todo : update Agree to fit RGAA contrast requirement https://gitlab.com/makeorg/platform/front-accessible/issues/282
   Agree: 'rgb(110,182,32)',
   Disagree: 'rgb(218,0,27)',
-  Neutral: 'rgb(126,126,126)',
+  Neutral: 'rgb(118,118,118)',
 };
 
 export const SocialNetworksColors = {

@@ -18,8 +18,6 @@ type Props = {
   buttonType?: React.Node,
   /** Rotate property passed to Styled Component */
   rotate?: number,
-  /** Id of vote button */
-  id?: string,
   /** When waiting response from API */
   pending: boolean,
   /** Method called onMouseLeave to hide Tooltip */
@@ -40,7 +38,6 @@ export const VoteButtonElement = (props: Props) => {
     icon,
     rotate,
     tabIndex,
-    id,
     buttonType,
     handleVote,
     displayTooltip,
@@ -51,7 +48,6 @@ export const VoteButtonElement = (props: Props) => {
   return (
     <ButtonStyle
       aria-label={pending ? i18n.t('common.loading') : label}
-      id={id}
       tabIndex={tabIndex}
       color={color}
       rotate={pending ? 0 : rotate}
@@ -73,6 +69,5 @@ VoteButtonElement.defaultProps = {
   hideTooltip: undefined,
   displayTooltip: undefined,
   handleVote: undefined,
-  id: 'vote_button_element',
   rotate: 0,
 };

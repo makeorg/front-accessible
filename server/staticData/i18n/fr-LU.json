@@ -29,7 +29,13 @@
     "open_new_window": "Ouverture dans un nouvel onglet",
     "loading": "Merci de patienter pendant le chargement.",
     "participate": "Participer",
-    "vote_on_proposals": "Votez sur les propositions"
+    "vote_on_proposals": "Votez sur les propositions",
+    "display_pannel": "Afficher le contenu du panneau déroulant",
+    "hide_pannel": "Masquer le contenu du panneau déroulant",
+    "display_tooltip": "Afficher le contenu de l'infobulle",
+    "hide_tooltip": "Masquer le contenu de l'infobulle",
+    "expand_collapse": "Afficher le contenu de la section déroulante",
+    "shrink_collapse": "Masquer le contenu de la section déroulante"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"
@@ -94,9 +100,16 @@
     "title": "Les avis des autres participants sur cette proposition sont :",
     "total_text": "Le nombre d'avis total est de : ",
     "tooltipbutton": {
-      "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
-      "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
-      "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
+      "display": {
+        "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
+        "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
+        "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
+      },
+      "hide": {
+        "agree": "Masquer les résultats pour l'avis : 'je suis d'accord'",
+        "disagree": "Masquer les résultats pour l'avis : 'je ne suis pas d'accord'",
+        "neutral": "Masquer les résultats pour l'avis : 'je vote blanc'"
+      }
     }
   },
   "qualification": {
@@ -217,7 +230,9 @@
       "link_text": "En savoir +"
     },
     "sharing": {
-      "title": "Partagez cette consultation"
+      "title": "Partagez cette consultation",
+      "display_pannel": "Afficher le contenu du panneau de partage",
+      "hide_pannel": "Masquer le contenu du panneau de partage"
     },
     "partners": {
       "intro_title": "Une mobilisation d'ampleur",
@@ -236,5 +251,15 @@
     "banner": {
       "title": "Votez sur les dernières propositions issues de la consultation."
     }
+  },
+  "sharing": {
+    "facebook": "Partager sur Facebook",
+    "twitter": "Partager sur Twitter",
+    "linkedin": "Partager sur LinkedIn"
+  },
+  "skip_links": {
+    "intro": "Aller à la bannière de présentation",
+    "main": "Aller au contenu principal",
+    "sidebar": "Aller au contenu de la barre latérale"
   }
 }

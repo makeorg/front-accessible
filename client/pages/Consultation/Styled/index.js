@@ -11,7 +11,7 @@ export const ConsultationPageWrapperStyle = styled.div`
   display: flex;
   flex: 1 1 auto;
   align-items: flex-start;
-  flex-flow: column-reverse;
+  flex-flow: column;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   margin: ${intToPx(DefaultPadding.Mobile)} auto;
@@ -31,14 +31,16 @@ export const ConsultationPageContentStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 750px;
     margin-right: 15px;
+    order: 1;
   }
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
-  position: sticky;
-  ${props =>
-    props.bottomAffix ? 'bottom: 0; align-self: flex-end' : 'top: 0'};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    order: 2;
     max-width: 360px;
+    position: sticky;
+    ${props =>
+      props.bottomAffix ? 'bottom: 0; align-self: flex-end' : 'top: 0'};
   }
 `;

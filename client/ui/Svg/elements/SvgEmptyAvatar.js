@@ -3,7 +3,7 @@ import React from 'react';
 export const SvgEmptyAvatar = props => (
   <svg width="1em" height="1em" {...props} viewBox="0 0 30 30">
     <defs>
-      <circle id="EmptyAvatar_svg__a" cx={15} cy={15} r={15} />
+      <circle cx={15} cy={15} r={15} />
     </defs>
     <g fill="none" fillRule="evenodd">
       <use fill="#FFF" xlinkHref="#EmptyAvatar_svg__a" />

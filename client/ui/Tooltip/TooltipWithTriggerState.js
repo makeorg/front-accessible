@@ -1,4 +1,5 @@
 import React from 'react';
+import { i18n } from 'Shared/i18n';
 import {
   TooltipWrapperStyle,
   TopTooltipStyle,
@@ -21,6 +22,10 @@ type Props = {
   tabIndex?: number,
   /** Custom z-index for tooltip */
   zIndex?: number,
+  /** Custom aria-label for display event */
+  ariaLabelDisplay?: sting,
+  /** Custom aria-label for hide event */
+  ariaLabelHide?: sting,
 };
 
 type State = {
@@ -55,10 +60,11 @@ export class TooltipWithTriggerState extends React.Component<Props, State> {
   };
 
   render() {
+    const { isTooltipDisplayed } = this.state;
     return (
       <TooltipWithTriggerComponent
         {...this.props}
-        {...this.state}
+        isTooltipDisplayed={isTooltipDisplayed}
         toggleTooltip={this.toggleTooltip}
         displayTooltip={this.displayTooltip}
         hideTooltip={this.hideTooltip}
@@ -67,10 +73,12 @@ export class TooltipWithTriggerState extends React.Component<Props, State> {
   }
 }
 
-TooltipWithTriggerState.defaulProps = {
-  tooltipWrapper: <TooltipWrapperStyle />,
-  triggerType: <UnstyledButtonStyle />,
-  tooltipType: <TopTooltipStyle />,
+TooltipWithTriggerState.defaultProps = {
+  tooltipWrapper: TooltipWrapperStyle,
+  triggerType: UnstyledButtonStyle,
+  tooltipType: TopTooltipStyle,
   tabIndex: 0,
   zIndex: 0,
+  ariaLabelDisplay: i18n.t('common.display_tooltip'),
+  ariaLabelHide: i18n.t('common.hide_tooltip'),
 };

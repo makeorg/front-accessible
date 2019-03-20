@@ -28,6 +28,10 @@ type Props = {
   tabIndex: number,
   /** Custom z-index for tooltip */
   zIndex: number,
+  /** Custom aria-label for display event */
+  ariaLabelDisplay: sting,
+  /** Custom aria-label for hide event */
+  ariaLabelHide: sting,
 };
 
 export const TooltipWithTriggerComponent = (props: Props) => {
@@ -43,6 +47,8 @@ export const TooltipWithTriggerComponent = (props: Props) => {
     isTooltipDisplayed,
     tabIndex,
     zIndex,
+    ariaLabelDisplay,
+    ariaLabelHide,
   } = props;
 
   return (
@@ -55,13 +61,15 @@ export const TooltipWithTriggerComponent = (props: Props) => {
         onFocus={displayTooltip}
         onBlur={hideTooltip}
         tabIndex={tabIndex}
+        aria-label={isTooltipDisplayed ? ariaLabelHide : ariaLabelDisplay}
       >
         {triggerContent}
       </UnstyledButtonStyle>
       <TooltipStyle
         as={isTooltipDisplayed ? tooltipType : ''}
-        role="tooltip"
+        aria-hidden={!isTooltipDisplayed}
         zIndex={zIndex}
+        role="tooltip"
       >
         {children}
       </TooltipStyle>

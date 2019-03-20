@@ -21,7 +21,7 @@ export const CookieBannerComponent = ({
   policyLink: string,
   handleClose: () => void,
 }) => (
-  <CookieWrapperStyle role="banner" aria-describedby="content_info">
+  <CookieWrapperStyle aria-describedby="content_info">
     <CookieContentStyle
       id="content_info"
       dangerouslySetInnerHTML={{

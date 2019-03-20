@@ -38,7 +38,7 @@ export const TagFilterComponent = (props: Props) => {
   return (
     <TagFilterWrapperStyle>
       <ThirdLevelTtitleStyle>
-        <TagFilterIconStyle>
+        <TagFilterIconStyle aria-hidden>
           <Svg type="SvgThumbsUp" viewBox="0 0 18 18" />
         </TagFilterIconStyle>
         {i18n.t('common.vote_on_proposals')}
