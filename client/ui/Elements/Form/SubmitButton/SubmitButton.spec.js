@@ -6,7 +6,7 @@ import { SubmitButton } from './index';
 
 jest.mock('Client/ui/Elements/ButtonElements', () => ({
   RedButtonStyle: 'RedButtonStyle',
-  IconInButtonStyle: 'IconInButtonStyle',
+  IconWrapperStyle: 'IconWrapperStyle',
   GreyButtonStyle: 'GreyButtonStyle',
 }));
 

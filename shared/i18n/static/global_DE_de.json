@@ -220,6 +220,9 @@
     },
     "banner": {
       "title": "Stimmen Sie über die letzten Vorschläge der Konsultation ab"
+    },
+    "proposal": {
+        "title": "Schlagen Sie eine Lösung vor"
     }
   },
   "weeuropean": {

@@ -19,7 +19,6 @@ import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitSuccessComponent } from './Success';
 import { ProposalSubmitDescriptionComponent } from './Description';
-import { ProposalSubmitFormWrapperStyle } from './Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -53,6 +52,10 @@ type Props = {
 type State = {
   /** Boolean toggled when user is typing a proposal */
   isTyping: boolean,
+  /** Boolean used to expand / collapse proposal field */
+  isFieldExpanded: boolean,
+  /** Boolean toggled when user is submitting a proposal */
+  isSubmitted: boolean,
 };
 
 /**
@@ -61,16 +64,18 @@ type State = {
 export class ProposalSubmitHandler extends React.Component<Props, State> {
   state = {
     isTyping: false,
+    isFieldExpanded: false,
+    isSubmitted: false,
   };
 
-  throttleSubmit: any = undefined;
+  throttleOnSubmit: any = undefined;
 
   constructor(props: Props) {
     super(props);
-    this.throttleSubmit = throttle(this.handleSubmit);
+    this.throttleOnSubmit = throttle(this.handleOnSubmit);
   }
 
-  handleChange = (event: SyntheticEvent<*>) => {
+  handleOnChange = (event: SyntheticEvent<*>) => {
     const content = event.currentTarget.value;
     const length = getProposalLength(content);
     const canSubmit = getIsProposalValidLength(length);
@@ -80,28 +85,38 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     handleTypingProposal(content, length, canSubmit);
   };
 
-  handleFocus = () => {
+  handleOnFocus = () => {
     this.setState({
       isTyping: true,
+      isSubmitted: false,
+      isFieldExpanded: true,
     });
 
     const { handleCollapseSequence, isSequenceCollapsed } = this.props;
     if (!isSequenceCollapsed) handleCollapseSequence();
   };
 
-  handleSubmit = (event: SyntheticEvent<*>) => {
+  handleOnBlur = () => {
+    this.setState({
+      isFieldExpanded: false,
+    });
+  };
+
+  handleOnSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     const { question, content, isLoggedIn, handleSubmitProposal } = this.props;
 
     Tracking.trackClickProposalSubmit(question.slug);
-    this.setState({
-      isTyping: false,
-    });
 
     if (isLoggedIn) {
       handleSubmitProposal(content);
     }
+
+    this.setState({
+      isTyping: false,
+      isSubmitted: true,
+    });
   };
 
   trackModerationText = () => {
@@ -124,26 +139,26 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       country,
       language,
     } = this.props;
-    const { isTyping } = this.state;
+    const { isTyping, isFieldExpanded, isSubmitted } = this.state;
     const isDescriptionShown =
       isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
     const isAuthentificationShown =
-      !isTyping && !isLoggedIn && isSequenceCollapsed;
+      isSubmitted && !isLoggedIn && isSequenceCollapsed;
     const isSuccessShown =
       !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
-      <ProposalSubmitFormWrapperStyle>
+      <React.Fragment>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
           length={length}
           canSubmit={canSubmit}
-          handleChange={this.handleChange}
-          handleSubmit={this.throttleSubmit}
-          handleFocus={this.handleFocus}
+          handleOnChange={this.handleOnChange}
+          handleOnSubmit={this.throttleOnSubmit}
+          handleOnFocus={this.handleOnFocus}
+          handleOnBlur={this.handleOnBlur}
           isPannelOpen={isPannelOpen}
-          isSequenceCollapsed={isSequenceCollapsed}
-          isTyping={isTyping}
+          isFieldExpanded={isFieldExpanded}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent
@@ -161,7 +176,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         {isAuthentificationShown ? (
           <ProposalSubmitAuthentification key="ProposalSubmitAuthentificationContainer" />
         ) : null}
-      </ProposalSubmitFormWrapperStyle>
+      </React.Fragment>
     );
   }
 }

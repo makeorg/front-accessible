@@ -18,6 +18,7 @@ import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanne
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { SkipLink } from 'Client/app/Styled/MainElements';
+import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import {
   ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
@@ -91,6 +92,12 @@ export const ConsultationPageComponent = (props: Props) => {
           </HiddenOnMobileStyle>
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle id="main">
+          {question.canPropose && (
+            <ConsultationProposal
+              question={question}
+              questionConfiguration={questionConfiguration}
+            />
+          )}
           <ParticipateBanner
             question={question}
             questionConfiguration={questionConfiguration}

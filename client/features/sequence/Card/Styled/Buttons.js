@@ -3,7 +3,7 @@ import { pxToRem } from 'Shared/helpers/styled';
 import {
   UnstyledButtonStyle,
   TallRedButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
   RedButtonStyle,
   GreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
@@ -45,7 +45,7 @@ export const BackButtonStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const BackIconStyle = styled(IconInButtonStyle)`
+export const BackIconStyle = styled(IconWrapperStyle)`
   font-size: ${pxToRem('15px')};
   color: ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   RedButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
   GreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 
@@ -39,9 +39,9 @@ export class SubmitButton extends React.Component<Props> {
         id={id}
         disabled={disabled}
       >
-        <IconInButtonStyle>
+        <IconWrapperStyle>
           <FontAwesomeIcon icon={icon} />
-        </IconInButtonStyle>
+        </IconWrapperStyle>
         {label}
       </ButtonStyled>
     );

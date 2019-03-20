@@ -23,16 +23,16 @@ type Props = {
   canSubmit: boolean,
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
-  /** Boolean toggled when User is typing a proposal */
-  isTyping: boolean,
   /** Method called when field's value changes */
-  handleChange: (SyntheticEvent<*>) => void,
+  handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
-  handleFocus: () => void,
+  handleOnFocus: () => void,
+  /** Method called when field is blured */
+  handleOnBlur: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (SyntheticEvent<*>) => void,
+  handleOnSubmit: (SyntheticEvent<*>) => void,
+  /** Boolean used to expand / collapse proposal field */
+  isFieldExpanded: boolean,
 };
 /**
  * Render the Proposal Field
@@ -43,15 +43,15 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     length,
     canSubmit,
     isPannelOpen,
-    isSequenceCollapsed,
-    isTyping,
-    handleChange,
-    handleFocus,
-    handleSubmit,
+    isFieldExpanded,
+    handleOnChange,
+    handleOnFocus,
+    handleOnSubmit,
+    handleOnBlur,
   } = props;
 
   return (
-    <ProposalSubmitFormStyle isFieldExpanded={isSequenceCollapsed && isTyping}>
+    <ProposalSubmitFormStyle isFieldExpanded={isFieldExpanded}>
       <HiddenItemStyle aria-hidden as="h2">
         {i18n.t('proposal_submit.title')}
       </HiddenItemStyle>
@@ -64,19 +64,18 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           name="proposal"
           id="proposal"
           value={content}
-          onChange={handleChange}
-          onFocus={handleFocus}
+          onChange={handleOnChange}
+          onFocus={handleOnFocus}
+          onBlur={handleOnBlur}
           autoCapitalize="none"
           autoComplete="off"
           spellCheck
           maxLength="140"
           tabIndex={isPannelOpen ? -1 : 0}
-          isFieldExpanded={isSequenceCollapsed && isTyping}
+          isFieldExpanded={isFieldExpanded}
         />
       </ProposalInputWrapperStyle>
-      <ProposalButtonWrapperStyle
-        isFieldExpanded={isSequenceCollapsed && isTyping}
-      >
+      <ProposalButtonWrapperStyle isFieldExpanded={isFieldExpanded}>
         <ProposalCharLimitStyle>
           <span aria-valuetext={length}>{length}</span>
           <HiddenItemStyle aria-hidden>
@@ -90,10 +89,10 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           </HiddenItemStyle>
         </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent
-          handleSubmit={handleSubmit}
+          handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
           isPannelOpen={isPannelOpen}
-          isFieldExpanded={isSequenceCollapsed && isTyping}
+          isFieldExpanded={isFieldExpanded}
         />
       </ProposalButtonWrapperStyle>
     </ProposalSubmitFormStyle>

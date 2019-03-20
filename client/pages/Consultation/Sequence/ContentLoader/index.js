@@ -5,7 +5,10 @@ import { Sequence } from 'Client/features/sequence';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import { SequencePageContentStyle } from '../Styled';
+import {
+  SequencePageContentStyle,
+  SequenceProposalFieldStyle,
+} from '../Styled';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -32,7 +35,11 @@ export const SequencePageContentLoader = (props: Props) => {
 
   return (
     <React.Fragment>
-      {question.canPropose && <ProposalSubmit question={question} />}
+      {question.canPropose && (
+        <SequenceProposalFieldStyle>
+          <ProposalSubmit question={question} />
+        </SequenceProposalFieldStyle>
+      )}
       <Sequence
         isSequenceCollapsed={isSequenceCollapsed}
         question={question}

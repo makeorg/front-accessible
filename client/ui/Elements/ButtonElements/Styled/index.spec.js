@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { RedButtonStyle, IconInButtonStyle, GreyButtonStyle } from '.';
+import { RedButtonStyle, IconWrapperStyle, GreyButtonStyle } from '.';
 
 describe('ButtonElements/Styled', () => {
   describe('RedButtonStyle', () => {
@@ -10,9 +10,9 @@ describe('ButtonElements/Styled', () => {
     });
   });
 
-  describe('IconInButtonStyle', () => {
+  describe('IconWrapperStyle', () => {
     it('snapshot by default', () => {
-      const component = renderer.create(<IconInButtonStyle />).toJSON();
+      const component = renderer.create(<IconWrapperStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

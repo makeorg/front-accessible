@@ -3,14 +3,11 @@ import * as React from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStepForward,
-  faArrowLeft,
-  faPencilAlt,
-} from '@fortawesome/free-solid-svg-icons';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { faStepForward, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
+import { Svg } from 'Client/ui/Svg';
 import { ExtraLogo } from './ExtraLogo';
 import { ProposalCardStyle } from '../Styled';
 import {
@@ -103,18 +100,18 @@ export const PushProposalCardComponent = (props: Props) => {
               tabIndex={tabIndex}
               onClick={focusProposalField}
             >
-              <IconInButtonStyle>
-                <FontAwesomeIcon aria-hidden icon={faPencilAlt} />
-              </IconInButtonStyle>
+              <IconWrapperStyle>
+                <Svg aria-hidden type="SvgPencil" />
+              </IconWrapperStyle>
               {i18n.t('common.propose')}
             </PushProposalButtonStyle>
             <PushProposalNextButtonStyle
               tabIndex={tabIndex}
               onClick={skipProposalPushCard}
             >
-              <IconInButtonStyle>
+              <IconWrapperStyle>
                 <FontAwesomeIcon aria-hidden icon={faStepForward} />
-              </IconInButtonStyle>
+              </IconWrapperStyle>
               {i18n.t('push_proposal_card.next-cta')}
             </PushProposalNextButtonStyle>
           </MiddleColumnToRowStyle>

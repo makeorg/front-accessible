@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Svg } from 'Client/ui/Svg';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
@@ -29,9 +29,9 @@ export const PartnersComponent = (props: Props) => {
         as={Link}
         to={getSequenceLink(question.slug, question.country, question.language)}
       >
-        <IconInButtonStyle aria-hidden>
+        <IconWrapperStyle aria-hidden>
           <Svg type="SvgPlayButton" />
-        </IconInButtonStyle>
+        </IconWrapperStyle>
         {i18n.t('common.participate')}
       </ParticipateButtonStyle>
       <ThirdLevelTtitleStyle>

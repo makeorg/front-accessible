@@ -43,17 +43,11 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 />
 `;
 
-exports[`ButtonElements/Styled IconInButtonStyle snapshot by default 1`] = `
+exports[`ButtonElements/Styled IconWrapperStyle snapshot by default 1`] = `
 .c0 {
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;
-}
-
-@media (min-width:47.94rem) {
-  .c0 {
-    font-size: 14px;
-  }
 }
 
 <span

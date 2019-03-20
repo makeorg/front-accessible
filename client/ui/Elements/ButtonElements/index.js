@@ -5,7 +5,7 @@ export {
   GreyButtonStyle,
   RedButtonStyle,
   TallRedButtonStyle,
-  IconInButtonStyle,
+  IconWrapperStyle,
   LargeButtonStyle,
   FacebookButtonStyle,
   GoogleButtonStyle,

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { IconInButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { IconColors } from 'Client/app/assets/vars/Colors';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 
@@ -34,7 +34,7 @@ export const GoogleLinkStyle = styled(AuthentificationLinkStyle)`
   border-bottom-color: ${IconColors.Google};
 `;
 
-export const SocialIconStyle = styled(IconInButtonStyle)`
+export const SocialIconStyle = styled(IconWrapperStyle)`
   margin-right: ${pxToRem('5px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     margin-right: ${pxToRem('5px')};

@@ -7,13 +7,13 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   tabIndex={0}
   type="submit"
 >
-  <IconInButtonStyle>
+  <IconWrapperStyle>
     <svg
       icon="thumbs-up"
       lib="@fortawesome/react-fontawesome"
       prefix="far"
     />
-  </IconInButtonStyle>
+  </IconWrapperStyle>
   bar
 </RedButtonStyle>
 `;
@@ -31,7 +31,7 @@ Snapshot Diff:
 +   tabIndex="0"
     type="submit"
   >
-    <IconInButtonStyle>
+    <IconWrapperStyle>
       <svg
         icon="thumbs-up"
 `;
@@ -50,12 +50,12 @@ Snapshot Diff:
     tabIndex={0}
     type="submit"
   >
-    <IconInButtonStyle>
+    <IconWrapperStyle>
 @@ -10,6 +10,6 @@
         lib="@fortawesome/react-fontawesome"
         prefix="far"
       />
-    </IconInButtonStyle>
+    </IconWrapperStyle>
     bar
 - </RedButtonStyle>
 + </GreyButtonStyle>

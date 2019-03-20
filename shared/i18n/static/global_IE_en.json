@@ -251,6 +251,9 @@
     },
     "banner": {
       "title": "Vote on the latest proposals on this topic"
+    },
+    "proposal": {
+      "title": "Propose a solution"
     }
   },
   "sharing": {

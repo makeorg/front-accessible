@@ -15,7 +15,6 @@ describe('ProposalSubmitFormComponent', () => {
     const props = {
       canSubmit: true,
       length: 15,
-      handleChange: () => {},
     };
     const wrapper = shallow(<ProposalSubmitFormComponent {...props} />);
 
@@ -29,9 +28,6 @@ describe('ProposalSubmitFormComponent', () => {
     expect(wrapper.find(ProposalInputStyle).prop('autoComplete')).toBe('off');
     expect(wrapper.find(ProposalInputStyle).prop('spellCheck')).toBe(true);
     expect(wrapper.find(ProposalInputStyle).prop('maxLength')).toBe('140');
-    expect(wrapper.find(ProposalInputStyle).prop('onChange')).toBeInstanceOf(
-      Function
-    );
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalCharLimitStyle)).toHaveLength(1);
     expect(

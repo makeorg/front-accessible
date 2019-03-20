@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ForgotPasswordStyle = styled.section`
   display: flex;
@@ -14,4 +15,8 @@ export const ForgotPasswordStyle = styled.section`
 
 export const ForgotPasswordFormStyle = styled(FormStyle)`
   max-width: ${pxToRem('490px')};
+`;
+
+export const ForgotPasswordTitleStyle = styled(FourthLevelTitleStyle)`
+  margin-bottom: ${pxToRem('20px')};
 `;

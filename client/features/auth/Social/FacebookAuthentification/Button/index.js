@@ -3,16 +3,16 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {
-  IconInButtonStyle,
+  IconWrapperStyle,
   FacebookButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
   <FacebookButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
-    <IconInButtonStyle>
+    <IconWrapperStyle>
       <FontAwesomeIcon icon={faFacebookF} />
-    </IconInButtonStyle>
+    </IconWrapperStyle>
     Facebook
   </FacebookButtonStyle>
 );
