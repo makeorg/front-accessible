@@ -17,12 +17,14 @@ type Props = {
   votedKey: string,
   /** Tabindex for interactive items */
   tabIndex: number,
+  /** Array with qualifications received from Api */
+  qualifications: Array<QualificationType>,
+  /** When waiting vote response from API */
+  pendingVote: boolean,
+  /** pending qualification keys property */
+  pendingQualificationKeys: Set<string>,
   /** Method called when qualification button is clicked */
-  handleQualification: (
-    event: SyntheticEvent<HTMLButtonElement>,
-    qualification: Object,
-    votedKey: string
-  ) => {},
+  handleQualification: (qualification: Object, votedKey: string) => void,
 };
 
 /**
@@ -35,7 +37,18 @@ export const QualificationComponent = (props: Props) => {
     votedKey,
     tabIndex,
     handleQualification,
+    pendingVote,
+    pendingQualificationKeys,
   } = props;
+
+  const handle = qualification => (): void => {
+    if (
+      !pendingVote &&
+      !pendingQualificationKeys.has(qualification.qualificationKey)
+    ) {
+      handleQualification(qualification, votedKey);
+    }
+  };
 
   return (
     <SpaceBetweenColumnStyle>
@@ -52,10 +65,11 @@ export const QualificationComponent = (props: Props) => {
           label={i18n.t(`qualification.${qualification.qualificationKey}`)}
           qualificationCounter={qualification.count}
           isQualified={qualification.hasQualified}
-          handleQualification={event =>
-            handleQualification(event, qualification, votedKey)
-          }
+          handleQualification={handle(qualification)}
           tabIndex={tabIndex}
+          pendingQualification={pendingQualificationKeys.has(
+            qualification.qualificationKey
+          )}
         />
       ))}
     </SpaceBetweenColumnStyle>

@@ -15,22 +15,26 @@ type Props = {
   /** Index of the card */
   index: number,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => {},
+  handleVote: string => void,
+  /** When waiting response from API */
+  pending: boolean,
 };
 
 /**
  * Handles Vote Result Business Logic
  */
 export const VoteResultContainer = (props: Props) => {
-  const { votes, votedKey, handleVote } = props;
-
+  const { votes, handleVote, votedKey } = props;
   const votesCount = VoteResultHelper.getVotesCount(votes);
+  const handleVoteWithKey = () => {
+    handleVote(votedKey);
+  };
 
   return (
     <VoteResultComponent
       votesPercent={VoteResultHelper.getVotesPercent(votes, votesCount)}
       votesCount={votesCount}
-      handleVote={event => handleVote(event, votedKey)}
+      handleVote={handleVoteWithKey}
       {...props}
     />
   );

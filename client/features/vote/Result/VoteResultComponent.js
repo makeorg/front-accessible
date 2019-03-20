@@ -20,12 +20,14 @@ type Props = {
   votedKey: string,
   /** Proposal's ID */
   proposalId: string,
-  /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** Id of vote button */
   id: string,
+  /** When waiting response from API */
+  pending: boolean,
+  /** Method called when vote button is clicked */
+  handleVote: () => void,
 };
 
 /**
@@ -40,6 +42,7 @@ export const VoteResultComponent = (props: Props) => {
     handleVote,
     tabIndex,
     id,
+    pending,
   } = props;
   const voteKeys = Object.keys(voteStaticParams);
 
@@ -54,9 +57,10 @@ export const VoteResultComponent = (props: Props) => {
         label={i18n.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}
         rotate={voteStaticParams[votedKey].rotate}
-        handleVote={event => handleVote(event, votedKey)}
+        handleVote={handleVote}
         buttonType={UnvoteButtonStyle}
         tabIndex={tabIndex}
+        pending={pending}
       />
       <aside>
         <HiddenItemStyle aria-hidden as="h3">

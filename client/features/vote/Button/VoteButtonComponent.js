@@ -24,12 +24,14 @@ type Props = {
   buttonType: React.Node,
   /** Boolean Toggle when Tooltip is shown / hidden */
   isTooltipDisplayed: boolean,
+  /** When waiting response from API */
+  pending: boolean,
   /** Method called onMouseLeave to hide Tooltip */
   hideTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called onMouseEnter to  show Tooltip */
   displayTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
+  handleVote: (SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -48,6 +50,7 @@ export const VoteButtonComponent = (props: Props) => {
     displayTooltip,
     hideTooltip,
     isTooltipDisplayed,
+    pending,
   } = props;
 
   return (
@@ -63,6 +66,7 @@ export const VoteButtonComponent = (props: Props) => {
         handleVote={handleVote}
         displayTooltip={displayTooltip}
         hideTooltip={hideTooltip}
+        pending={pending}
       />
       <TooltipStyle
         as={isTooltipDisplayed ? BottomTooltipStyle : ''}

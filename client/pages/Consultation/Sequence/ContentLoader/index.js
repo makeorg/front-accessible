@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
-import { Spinner } from 'Client/ui/Spinner';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { SequencePageContentStyle } from '../Styled';

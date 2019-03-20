@@ -6,6 +6,8 @@ import {
   QualifyButtonStyle,
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
+import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Color used by Styled Component */
@@ -14,16 +16,14 @@ type Props = {
   label: string,
   /** Tabindex for interactive items */
   isQualified: boolean,
-  /** Method called when qualification button is clicked */
-  handleQualification: (
-    event: SyntheticEvent<HTMLButtonElement>,
-    qualification: Object,
-    votedKey: string
-  ) => {},
   /** Number of qualifications */
   qualificationCounter?: number,
   /** Tabindex for interactive items */
   tabIndex?: number,
+  /** When waiting qualification response from API */
+  pendingQualification: boolean,
+  /** Method called when qualification button is clicked */
+  handleQualification: () => void,
 };
 
 /**
@@ -37,18 +37,30 @@ export const QualificationButtonElement = (props: Props) => {
     qualificationCounter,
     handleQualification,
     tabIndex,
+    pendingQualification,
   } = props;
+  const handleClick = event => {
+    event.preventDefault();
+    handleQualification();
+  };
   return (
     <ButtonStyle
       tabIndex={tabIndex}
       as={isQualified ? UnqualifyButtonStyle : QualifyButtonStyle}
       color={color}
-      onClick={handleQualification}
+      onClick={handleClick}
+      aria-label={pendingQualification ? i18n.t('common.loading') : label}
     >
-      {label}
-      <CounterStyle aria-hidden>
-        {isQualified ? qualificationCounter : '+1'}
-      </CounterStyle>
+      {pendingQualification ? (
+        <LoadingDots />
+      ) : (
+        <React.Fragment>
+          <span aria-hidden>{label}</span>
+          <CounterStyle aria-hidden>
+            {isQualified ? qualificationCounter : '+1'}
+          </CounterStyle>
+        </React.Fragment>
+      )}
     </ButtonStyle>
   );
 };

@@ -15,13 +15,34 @@ type VoteButtonsProps = {
   index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
+  /** When waiting response from API */
+  pending: boolean,
+  /** pending Vote key property */
+  pendingVoteKey: string,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
+  handleVote: string => void,
 };
 
 export const VoteButtonsComponent = (props: VoteButtonsProps) => {
-  const { proposalId, index, tabIndex, handleVote } = props;
+  const {
+    proposalId,
+    index,
+    tabIndex,
+    handleVote,
+    pending,
+    pendingVoteKey,
+  } = props;
   const voteKeys = Object.keys(voteStaticParams);
+
+  const handleVoteIfNotPending = (
+    event: SyntheticEvent<*>,
+    voteKey: string
+  ) => {
+    event.preventDefault();
+    if (!pending) {
+      handleVote(voteKey);
+    }
+  };
 
   return voteKeys.map<React.Node>((voteKey: string) => (
     <VoteButtonElement
@@ -33,7 +54,8 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       buttonType={VoteButtonStyle}
       tabIndex={tabIndex}
       id={getVoteButtonId(voteKey, index)}
-      handleVote={event => handleVote(event, voteKey)}
+      handleVote={event => handleVoteIfNotPending(event, voteKey)}
+      pending={pending && pendingVoteKey === voteKey}
     />
   ));
 };
@@ -45,15 +67,26 @@ type VoteProps = {
   index?: number,
   /** Tabindex for interactive items */
   tabIndex: number,
+  /** When waiting response from API */
+  pending: boolean,
+  /** pending Vote key property */
+  pendingVoteKey: string,
   /** Method called when vote button is clicked */
-  handleVote: (SyntheticEvent<HTMLButtonElement>, string) => void,
+  handleVote: string => void,
 };
 
 /**
  * Renders Vote component
  */
 export const VoteComponent = (props: VoteProps) => {
-  const { proposalId, index, tabIndex, handleVote } = props;
+  const {
+    proposalId,
+    index,
+    tabIndex,
+    handleVote,
+    pending,
+    pendingVoteKey,
+  } = props;
 
   return (
     <VoteStyle.ContainerStyle>
@@ -67,6 +100,8 @@ export const VoteComponent = (props: VoteProps) => {
           index={index}
           tabIndex={tabIndex}
           handleVote={handleVote}
+          pending={pending}
+          pendingVoteKey={pendingVoteKey}
         />
       </VoteStyle.WrapperStyle>
     </VoteStyle.ContainerStyle>

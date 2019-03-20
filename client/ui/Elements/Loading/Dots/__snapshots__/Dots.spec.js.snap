@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingDots must match the snapshot with default Props 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  justify-self: center;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.c1 {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+  font-size: 16px;
+}
+
+.c2 {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+  font-size: 16px;
+}
+
+.c3 {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: kRnyBP;
+  animation-name: kRnyBP;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  padding: 0 2px;
+  font-size: 16px;
+}
+
+@media (min-width:767px) {
+  .c1 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width:767px) {
+  .c2 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width:767px) {
+  .c3 {
+    font-size: 22px;
+  }
+}
+
+<div
+  aria-hidden={true}
+  className="c0"
+>
+  <span
+    className="c1"
+  >
+    •
+  </span>
+  <span
+    className="c2"
+  >
+    •
+  </span>
+  <span
+    className="c3"
+  >
+    •
+  </span>
+</div>
+`;

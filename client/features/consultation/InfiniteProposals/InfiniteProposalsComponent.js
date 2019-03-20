@@ -2,7 +2,7 @@
 import React from 'react';
 import { type ProposalType } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
-import { Spinner } from 'Client/ui/Spinner';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 
 type Props = {
   proposals: ProposalType[],
