@@ -54,6 +54,8 @@ type State = {
   isTyping: boolean,
   /** Boolean used to expand / collapse proposal field */
   isFieldExpanded: boolean,
+  /** Boolean toggled when user is submitting a proposal */
+  isSubmitted: boolean,
 };
 
 /**
@@ -63,16 +65,17 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   state = {
     isTyping: false,
     isFieldExpanded: false,
+    isSubmitted: false,
   };
 
-  throttleSubmit: any = undefined;
+  throttleOnSubmit: any = undefined;
 
   constructor(props: Props) {
     super(props);
-    this.throttleSubmit = throttle(this.handleSubmit);
+    this.throttleOnSubmit = throttle(this.handleOnSubmit);
   }
 
-  handleChange = (event: SyntheticEvent<*>) => {
+  handleOnChange = (event: SyntheticEvent<*>) => {
     const content = event.currentTarget.value;
     const length = getProposalLength(content);
     const canSubmit = getIsProposalValidLength(length);
@@ -82,9 +85,10 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     handleTypingProposal(content, length, canSubmit);
   };
 
-  handleFocus = () => {
+  handleOnFocus = () => {
     this.setState({
       isTyping: true,
+      isSubmitted: false,
       isFieldExpanded: true,
     });
 
@@ -92,25 +96,27 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     if (!isSequenceCollapsed) handleCollapseSequence();
   };
 
-  handleBlur = () => {
+  handleOnBlur = () => {
     this.setState({
       isFieldExpanded: false,
     });
   };
 
-  handleSubmit = (event: SyntheticEvent<*>) => {
+  handleOnSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     const { question, content, isLoggedIn, handleSubmitProposal } = this.props;
 
     Tracking.trackClickProposalSubmit(question.slug);
-    this.setState({
-      isTyping: false,
-    });
 
     if (isLoggedIn) {
       handleSubmitProposal(content);
     }
+
+    this.setState({
+      isTyping: false,
+      isSubmitted: true,
+    });
   };
 
   trackModerationText = () => {
@@ -133,11 +139,11 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       country,
       language,
     } = this.props;
-    const { isTyping, isFieldExpanded } = this.state;
+    const { isTyping, isFieldExpanded, isSubmitted } = this.state;
     const isDescriptionShown =
       isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
     const isAuthentificationShown =
-      !isTyping && !isLoggedIn && isSequenceCollapsed;
+      isSubmitted && !isLoggedIn && isSequenceCollapsed;
     const isSuccessShown =
       !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
     return (
@@ -147,10 +153,10 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
           content={content}
           length={length}
           canSubmit={canSubmit}
-          handleChange={this.handleChange}
-          handleSubmit={this.throttleSubmit}
-          handleFocus={this.handleFocus}
-          handleBlur={this.handleBlur}
+          handleOnChange={this.handleOnChange}
+          handleOnSubmit={this.throttleOnSubmit}
+          handleOnFocus={this.handleOnFocus}
+          handleOnBlur={this.handleOnBlur}
           isPannelOpen={isPannelOpen}
           isFieldExpanded={isFieldExpanded}
         />

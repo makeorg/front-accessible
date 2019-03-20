@@ -24,13 +24,13 @@ type Props = {
   /** Boolean toggled when Sliding pannel is opened / closed */
   isPannelOpen: boolean,
   /** Method called when field's value changes */
-  handleChange: (SyntheticEvent<*>) => void,
+  handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
-  handleFocus: () => void,
+  handleOnFocus: () => void,
   /** Method called when field is blured */
-  handleBlur: () => void,
+  handleOnBlur: () => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (SyntheticEvent<*>) => void,
+  handleOnSubmit: (SyntheticEvent<*>) => void,
   /** Boolean used to expand / collapse proposal field */
   isFieldExpanded: boolean,
 };
@@ -44,10 +44,10 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     canSubmit,
     isPannelOpen,
     isFieldExpanded,
-    handleChange,
-    handleFocus,
-    handleSubmit,
-    handleBlur,
+    handleOnChange,
+    handleOnFocus,
+    handleOnSubmit,
+    handleOnBlur,
   } = props;
 
   return (
@@ -64,9 +64,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           name="proposal"
           id="proposal"
           value={content}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          onChange={handleOnChange}
+          onFocus={handleOnFocus}
+          onBlur={handleOnBlur}
           autoCapitalize="none"
           autoComplete="off"
           spellCheck
@@ -89,7 +89,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           </HiddenItemStyle>
         </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent
-          handleSubmit={handleSubmit}
+          handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
           isPannelOpen={isPannelOpen}
           isFieldExpanded={isFieldExpanded}
