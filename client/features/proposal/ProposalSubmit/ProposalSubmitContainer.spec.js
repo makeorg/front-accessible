@@ -51,6 +51,7 @@ describe('ProposalSubmitContainer', () => {
     };
     const wrapper = shallow(<ProposalSubmitHandler {...notLoggedInProps} />);
 
+    wrapper.setState({ isSubmitted: true });
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(0);
     expect(wrapper.find(ProposalSubmitAuthentification)).toHaveLength(1);
   });
