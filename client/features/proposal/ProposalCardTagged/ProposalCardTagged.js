@@ -3,10 +3,7 @@ import React from 'react';
 import { Vote } from 'Client/features/vote';
 import { type ProposalType } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { Tag } from 'Client/ui/Elements/Tag';
-import { i18n } from 'Shared/i18n';
-import { getVotesCount } from 'Shared/helpers/voteResult';
 import { ProposalAuthorWithAvatar } from '../ProposalAuthor/WithAvatar';
 import {
   ProposalCardTaggedStyle,
@@ -24,6 +21,8 @@ type Props = {
 export const ProposalCardTagged = (props: Props) => {
   const { proposal, position, size } = props;
   const { author } = proposal;
+  const displayTags = proposal.tags && proposal.tags.length > 0;
+  const numberOfTagsToDisplay = 4;
   return (
     <ProposalCardTaggedStyle
       aria-labelledby={`proposal_author_${position}`}
@@ -48,16 +47,16 @@ export const ProposalCardTagged = (props: Props) => {
         votes={proposal.votes}
         proposalKey={proposal.proposalKey}
       />
-      <CenterParagraphStyle>
-        {i18n.t('vote.label', { count: getVotesCount(proposal.votes) })}
-      </CenterParagraphStyle>
-      <ProposalSeparatorStyle />
-      <FooterStyle>
-        {proposal.tags &&
-          proposal.tags
-            .slice(0, 4)
-            .map(tag => <Tag name={tag.label} key={tag.tagId} />)}
-      </FooterStyle>
+      {displayTags && (
+        <React.Fragment>
+          <ProposalSeparatorStyle />
+          <FooterStyle>
+            {proposal.tags.slice(0, numberOfTagsToDisplay).map(tag => (
+              <Tag name={tag.label} key={tag.tagId} />
+            ))}
+          </FooterStyle>
+        </React.Fragment>
+      )}
     </ProposalCardTaggedStyle>
   );
 };

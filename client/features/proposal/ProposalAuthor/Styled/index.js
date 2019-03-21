@@ -17,3 +17,8 @@ export const AuthorInfosStyle = styled(AuthorWithAvatarStyle)`
     font-size: 18px;
   }
 `;
+
+export const AuthorSeparatorStyle = styled.span`
+  padding: 0 5px;
+  font-size: 24px;
+`;

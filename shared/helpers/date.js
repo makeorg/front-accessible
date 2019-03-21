@@ -74,7 +74,7 @@ export class DateHelperSingleton {
 
     const localeMonth = localeMonths[this._language][objectDate.getMonth()];
 
-    return `${objectDate.getDate()} ${localeMonth}`;
+    return `${objectDate.getDate()} ${localeMonth} ${objectDate.getFullYear()}`;
   }
 }
 

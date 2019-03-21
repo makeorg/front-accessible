@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { type Question } from 'Shared/types/question';
 import {
   faEnvelope,
   faExternalLinkAlt,
@@ -25,6 +26,7 @@ import { localizeDataPolicyLink } from 'Shared/helpers/url';
 import { ProposalSubmitAuthentificationWrapperStyle } from '../Styled';
 
 type Props = {
+  question: Question,
   /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: () => void,
   /** Method called to render Register Component in Sliding Pannel */
@@ -40,6 +42,7 @@ type Props = {
  */
 export const ProposalSubmitAuthentificationComponent = (props: Props) => {
   const {
+    question,
     handleRegisterClick,
     handleLoginClick,
     trackPersonnalDataLink,
@@ -75,7 +78,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
       <CenterParagraphStyle>
         {i18n.t('authentification.commitment')}
         <a
-          href={localizeDataPolicyLink()}
+          href={localizeDataPolicyLink(question.country, question.language)}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={isPannelOpen ? -1 : 0}

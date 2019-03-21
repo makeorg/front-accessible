@@ -1,6 +1,7 @@
 import { QuestionService } from 'Shared/api/QuestionService';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
+import { getBaitText } from 'Shared/constants/proposal';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 
@@ -31,6 +32,10 @@ export const consultationRoute = async (req, res) => {
           question,
           questionConfiguration,
         },
+      },
+      proposal: {
+        ...initialState.proposal,
+        length: getBaitText().length,
       },
     };
   } catch (error) {

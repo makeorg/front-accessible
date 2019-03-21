@@ -7,10 +7,15 @@ import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthent
 
 // mock
 jest.mock('i18next');
+const defaultProps = {
+  question: { country: 'foo', language: 'bar' },
+};
 
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
-    const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
+    const wrapper = shallow(
+      <ProposalSubmitAuthentificationComponent {...defaultProps} />
+    );
     const DescriptionLinkIcon = wrapper.find('a').find(FontAwesomeIcon);
     const EmailButtonIcon = wrapper
       .find(EmailButtonStyle)
@@ -24,7 +29,9 @@ describe('ProposalSubmitAuthentificationComponent', () => {
   });
 
   it('Check link target', () => {
-    const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
+    const wrapper = shallow(
+      <ProposalSubmitAuthentificationComponent {...defaultProps} />
+    );
 
     expect(wrapper.find('a').prop('target')).toBe('_blank');
   });

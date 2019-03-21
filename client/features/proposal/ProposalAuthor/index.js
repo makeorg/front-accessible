@@ -2,7 +2,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Author } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
-import { AuthorInfosStyle } from './Styled';
+import { AuthorInfosStyle, AuthorSeparatorStyle } from './Styled';
 
 type Props = {
   /** Object with author's properties */
@@ -32,7 +32,7 @@ export const ProposalAuthor = (props: Props) => {
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (
         <React.Fragment>
-          <span aria-hidden>&nbsp;·&nbsp; </span>
+          <AuthorSeparatorStyle aria-hidden>&bull;</AuthorSeparatorStyle>
           <span>{DateHelper.proposalCreationDateFormat(createdAt)}</span>
         </React.Fragment>
       )}

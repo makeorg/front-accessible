@@ -31,7 +31,7 @@ describe('Date Helper', () => {
   });
 
   it('proposalCreationDateFormat with valid date', () => {
-    expect(DateHelper.proposalCreationDateFormat('2018-10-24T12:45:25.752Z')).toBe('24 octobre');
+    expect(DateHelper.proposalCreationDateFormat('2018-10-24T12:45:25.752Z')).toBe('24 octobre 2018');
   });
 
   it('proposalCreationDateFormat with invalid date', () => {

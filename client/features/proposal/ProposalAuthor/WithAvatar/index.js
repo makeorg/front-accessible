@@ -3,7 +3,7 @@ import { i18n } from 'Shared/i18n';
 import { Avatar } from 'Client/ui/Avatar';
 import { type Author } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
-import { AuthorWithAvatarStyle } from '../Styled';
+import { AuthorWithAvatarStyle, AuthorSeparatorStyle } from '../Styled';
 
 type Props = {
   /** Object with author's properties */
@@ -36,7 +36,7 @@ export const ProposalAuthorWithAvatar = (props: Props) => {
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (
         <React.Fragment>
-          <span aria-hidden>&nbsp;·&nbsp; </span>
+          <AuthorSeparatorStyle aria-hidden>&bull;</AuthorSeparatorStyle>
           <span>{DateHelper.proposalCreationDateFormat(createdAt)}</span>
         </React.Fragment>
       )}

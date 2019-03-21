@@ -42,7 +42,7 @@ describe('Proposal route', () => {
     it('construct route initial state and render', async () => {
       QuestionService.getDetail.mockReturnValue(fooQuestion);
       SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
-      createInitialState.mockReturnValue({ sequence: {} });
+      createInitialState.mockReturnValue({ sequence: {}, proposal: {} });
 
       await consultationRoute(request, response, () => {});
       expect(reactRender).toHaveBeenCalledWith(request, response, {
@@ -53,6 +53,9 @@ describe('Proposal route', () => {
           },
         },
         sequence: { questionId: '1234' },
+        proposal: {
+          length: 20,
+        },
       });
     });
 
