@@ -27,8 +27,6 @@ type Props = {
   handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
   handleOnFocus: () => void,
-  /** Method called when field is blured */
-  handleOnBlur: () => void,
   /** Method called when field's value is submitted */
   handleOnSubmit: (SyntheticEvent<*>) => void,
   /** Boolean used to expand / collapse proposal field */
@@ -47,7 +45,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     handleOnChange,
     handleOnFocus,
     handleOnSubmit,
-    handleOnBlur,
   } = props;
 
   return (
@@ -66,7 +63,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           value={content}
           onChange={handleOnChange}
           onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
           autoCapitalize="none"
           autoComplete="off"
           spellCheck
