@@ -1,39 +1,37 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { type Question } from 'Shared/types/question';
 import {
   pannelShowRegister,
   pannelShowLogin,
 } from 'Shared/store/actions/pannel';
 import { Tracking } from 'Shared/services/Tracking';
+import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
+type Props = {
+  question: Question,
+  isPannelOpen: boolean,
+  handleRegisterClick: () => void,
+  handleLoginClick: () => void,
+};
 /**
  * Handles Authentification Business Logic after Proposal Submit
  */
-export class ProposalSubmitAuthentification extends React.Component {
-  constructor(props) {
-    super(props);
-    this.trackPersonnalDataLink = this.trackPersonnalDataLink.bind(this);
-  }
-
+export class ProposalSubmitAuthentification extends React.Component<Props> {
   componentDidMount() {
     Tracking.trackDisplayAuthentificationForm();
   }
 
-  trackPersonnalDataLink() {
+  trackPersonnalDataLink = () => {
     Tracking.trackClickPersonnalDataLink();
-    return this;
-  }
+  };
 
   render() {
-    const { isPannelOpen, handleRegisterClick, handleLoginClick } = this.props;
-
     return (
       <ProposalSubmitAuthentificationComponent
-        isPannelOpen={isPannelOpen}
+        {...this.props}
         trackPersonnalDataLink={this.trackPersonnalDataLink}
-        handleRegisterClick={handleRegisterClick}
-        handleLoginClick={handleLoginClick}
       />
     );
   }
@@ -43,6 +41,7 @@ const mapStateToProps = state => {
   const { isPannelOpen } = state.pannel;
 
   return {
+    question: selectSequenceQuestion(state),
     isPannelOpen,
   };
 };
