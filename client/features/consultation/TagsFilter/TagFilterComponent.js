@@ -56,16 +56,19 @@ export const TagFilterComponent = (props: Props) => {
             onClick={() => handleSelectTag(tag.tagId)}
           />
         ))}
-      <Tag
-        name={
-          showAll
-            ? i18n.t('consultation.tags.show_less')
-            : i18n.t('consultation.tags.show_all')
-        }
-        selected
-        onClick={toggleShowAll}
-        key="all"
-      />
+      {tags.length > 5 && (
+        <Tag
+          name={
+            showAll
+              ? i18n.t('consultation.tags.show_less')
+              : i18n.t('consultation.tags.show_all')
+          }
+          selected
+          onClick={toggleShowAll}
+          key="all"
+        />
+      )}
+
       <TagSeparatorStyle />
     </TagFilterWrapperStyle>
   );
