@@ -191,6 +191,7 @@ export class VoteHandler extends React.Component<Props, State> {
         handleVote={this.handleVoting}
         pending={pending}
         pendingVoteKey={pendingVoteKey}
+        votes={votes}
       />
     );
   }

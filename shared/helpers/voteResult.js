@@ -17,6 +17,9 @@ export const getTooltipIndex = (proposalVoteKey: string, proposalId: string) =>
 export const getVotesCount = (votes: Array<VoteType>) =>
   votes.map(vote => vote.count).reduce((total, voteCount) => total + voteCount);
 
+export const getIsVotedProposal = (votes: Array<VoteType>) =>
+  votes.map(vote => vote.hasVoted).reduce((reducer, hasVoted) => hasVoted);
+
 export const getVotesPercent = (votes: Array<VoteType>, votesCount: number) => {
   const agreeVote: ?Object = votes.find(
     vote => vote.voteKey === VOTE_AGREE_KEY
