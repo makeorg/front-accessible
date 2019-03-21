@@ -21,6 +21,8 @@ type Props = {
 export const ProposalCardTagged = (props: Props) => {
   const { proposal, position, size } = props;
   const { author } = proposal;
+  const displayTags = proposal.tags && proposal.tags.length > 0;
+  const numberOfTagsToDisplay = 4;
   return (
     <ProposalCardTaggedStyle
       aria-labelledby={`proposal_author_${position}`}
@@ -45,11 +47,11 @@ export const ProposalCardTagged = (props: Props) => {
         votes={proposal.votes}
         proposalKey={proposal.proposalKey}
       />
-      {proposal.tags && proposal.tags.length > 0 && (
+      {displayTags && (
         <React.Fragment>
           <ProposalSeparatorStyle />
           <FooterStyle>
-            {proposal.tags.slice(0, 4).map(tag => (
+            {proposal.tags.slice(0, numberOfTagsToDisplay).map(tag => (
               <Tag name={tag.label} key={tag.tagId} />
             ))}
           </FooterStyle>

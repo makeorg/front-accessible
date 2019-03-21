@@ -35,6 +35,8 @@ export const TagFilterComponent = (props: Props) => {
     toggleShowAll,
   } = props;
 
+  const displayShowAll = tags.length > 5;
+
   return (
     <TagFilterWrapperStyle>
       <ThirdLevelTtitleStyle>
@@ -56,7 +58,7 @@ export const TagFilterComponent = (props: Props) => {
             onClick={() => handleSelectTag(tag.tagId)}
           />
         ))}
-      {tags.length > 5 && (
+      {displayShowAll && (
         <Tag
           name={
             showAll
