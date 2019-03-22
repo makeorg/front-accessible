@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { forgotPassword } from 'Shared/store/actions/forgotPassword';
-import { pannelShowLogin } from 'Shared/store/actions/pannel';
+import { modalShowLogin } from 'Shared/store/actions/modal';
 import { PasswordForgotComponent } from './PasswordForgotComponent';
 
 type Props = {
@@ -13,12 +13,12 @@ type Props = {
   errors: Array<ErrorObject>,
   /** Boolean toggled when Form is succesfully submitted */
   isSuccess: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: Function,
-  /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotpassword: Function,
+  /** Boolean toggled when Modalis opened / closed */
+  isModalOpen: boolean,
+  /** Method called to render Login Component in Modal */
+  handleLoginModal: () => void,
+  /** Method called to render ForgotPassword Component in Modal */
+  handleForgotpassword: (email: string) => void,
 };
 
 type State = {
@@ -60,7 +60,7 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 
   render() {
     const { email } = this.state;
-    const { errors, isSuccess, isPannelOpen, handleLoginPannel } = this.props;
+    const { errors, isSuccess, isModalOpen, handleLoginModal } = this.props;
 
     return (
       <PasswordForgotComponent
@@ -69,8 +69,8 @@ class PasswordForgotHandler extends React.Component<Props, State> {
         isSuccess={isSuccess}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
-        handleLoginPannel={handleLoginPannel}
-        isPannelOpen={isPannelOpen}
+        handleLoginModal={handleLoginModal}
+        isModalOpen={isModalOpen}
       />
     );
   }
@@ -78,12 +78,12 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors, isSuccess } = state.forgotPassword;
-  const { isPannelOpen } = state.pannel;
+  const { isModalOpen } = state.modal;
 
   return {
     errors,
     isSuccess,
-    isPannelOpen,
+    isModalOpen,
   };
 };
 
@@ -91,8 +91,8 @@ const mapDispatchToProps = dispatch => ({
   handleForgotpassword: email => {
     dispatch(forgotPassword(email));
   },
-  handleLoginPannel: () => {
-    dispatch(pannelShowLogin());
+  handleLoginModal: () => {
+    dispatch(modalShowLogin());
   },
 });
 

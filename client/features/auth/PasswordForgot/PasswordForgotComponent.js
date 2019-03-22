@@ -16,29 +16,29 @@ type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
+  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when form is successfully submitted */
   isSuccess: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: Function,
+  /** Boolean toggled when Modal is opened / closed */
+  isModalOpen: boolean,
+  /** Method called to render Login Component in Modal */
+  handleLoginModal: () => void,
 };
 
 /**
  * Renders Forgot Password component
  */
 export const PasswordForgotComponent = (props: Props) => {
-  const { isSuccess, isPannelOpen, handleLoginPannel } = props;
+  const { isSuccess, isModalOpen, handleLoginModal } = props;
 
   return (
     <ForgotPasswordStyle role="region" aria-labelledby="forgot_password_title">
       <SecondLevelTitleStyle id="forgot_password_title">
         {i18n.t('forgot_password.title')}
       </SecondLevelTitleStyle>
-      <Separators.Small />
+      <Separators.SmallWithMargin />
       {isSuccess ? (
         <ForgotPasswordTitleStyle>
           {i18n.t('forgot_password.success')}
@@ -54,8 +54,8 @@ export const PasswordForgotComponent = (props: Props) => {
       <ExtraAltParagraphStyle>
         {i18n.t('forgot_password.return')}
         <RedLinkButtonStyle
-          tabIndex={isPannelOpen ? 0 : -1}
-          onClick={handleLoginPannel}
+          tabIndex={isModalOpen ? 0 : -1}
+          onClick={handleLoginModal}
         >
           {i18n.t('forgot_password.login_link')}
         </RedLinkButtonStyle>

@@ -29,7 +29,7 @@ type Props = {
 };
 
 /**
- * Handles Sliding Pannel Business Logic
+ * Handles Sliding Modal Business Logic
  */
 const NotificationSwitch = (props: Props) => {
   const { contentType, closeNotification } = props;

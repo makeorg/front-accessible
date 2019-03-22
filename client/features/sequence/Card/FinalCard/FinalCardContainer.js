@@ -20,8 +20,8 @@ type Props = {
   cardOffset: number,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
+  /** Boolean toggled when Modal is opened / closed */
+  isModalOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
 };
@@ -44,7 +44,7 @@ class FinalCardHandler extends React.Component<Props> {
       currentIndex,
       cardsCount,
       goToPreviousCard,
-      isPannelOpen,
+      isModalOpen,
       isSequenceCollapsed,
       cardOffset,
     } = this.props;
@@ -52,7 +52,7 @@ class FinalCardHandler extends React.Component<Props> {
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
     const tabIndex =
-      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+      isModalOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
     return (
       <TabIndexContext.Provider value={tabIndex}>
         <FinalCardComponent
@@ -73,10 +73,10 @@ class FinalCardHandler extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isPannelOpen } = state.pannel;
+  const { isModalOpen } = state.modal;
 
   return {
-    isPannelOpen,
+    isModalOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
   };
 };

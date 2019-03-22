@@ -1,4 +1,0 @@
-// @flow
-export const LOGIN_CONTENT: string = 'PANNEL_LOGIN_CONTENT';
-export const REGISTER_CONTENT: string = 'PANNEL_REGISTER_CONTENT';
-export const FORGOT_PASSWORD_CONTENT: string = 'PANNEL_FORGOT_PASSWORD_CONTENT';

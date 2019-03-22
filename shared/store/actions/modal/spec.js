@@ -9,48 +9,48 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 
-describe('Pannel Actions', () => {
+describe('Modal Actions', () => {
   beforeEach(() => {
     store.clearActions();
   });
 
-  it('Creates PANNEL_CLOSE when calling action', () => {
+  it('Creates MODAL_CLOSE when calling action', () => {
     const expectedActions = [
-      { type: actionTypes.PANNEL_CLOSE },
+      { type: actionTypes.MODAL_CLOSE },
       { type: actionTypes.FORGOT_PASSWORD_INIT }
     ];
 
-    store.dispatch(actions.pannelClose());
+    store.dispatch(actions.modalClose());
 
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('Creates PANNEL_SHOW_LOGIN when calling action', () => {
+  it('Creates MODAL_SHOW_LOGIN when calling action', () => {
     const expectedActions = [{
-      type: actionTypes.PANNEL_SHOW_LOGIN,
+      type: actionTypes.MODAL_SHOW_LOGIN,
     }];
 
-    store.dispatch(actions.pannelShowLogin());
+    store.dispatch(actions.modalShowLogin());
 
     expect(store.getActions()).toEqual(expectedActions)
   });
 
-  it('Creates PANNEL_SHOW_REGISTER when calling action', () => {
+  it('Creates MODAL_SHOW_REGISTER when calling action', () => {
     const expectedActions = [{
-      type: actionTypes.PANNEL_SHOW_REGISTER,
+      type: actionTypes.MODAL_SHOW_REGISTER,
     }];
 
-    store.dispatch(actions.pannelShowRegister());
+    store.dispatch(actions.modalShowRegister());
 
     expect(store.getActions()).toEqual(expectedActions)
   });
 
-  it('Creates PANNEL_SHOW_FORGOT_PASSWORD when calling action', () => {
+  it('Creates MODAL_SHOW_FORGOT_PASSWORD when calling action', () => {
     const expectedActions = [{
-      type: actionTypes.PANNEL_SHOW_FORGOT_PASSWORD,
+      type: actionTypes.MODAL_SHOW_FORGOT_PASSWORD,
     }];
 
-    store.dispatch(actions.pannelShowForgotPassword());
+    store.dispatch(actions.modalShowForgotPassword());
 
     expect(store.getActions()).toEqual(expectedActions)
   });

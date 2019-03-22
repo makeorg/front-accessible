@@ -35,8 +35,8 @@ type Props = {
   isLoggedIn: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
+  /** Boolean toggled when Modal is opened / closed */
+  isModalOpen: boolean,
   /** Localiszed Language of the app */
   language: string,
   /** Localiszed Country of the app */
@@ -155,7 +155,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       isCurrentSubmitSuccess,
       isLoggedIn,
       isSequenceCollapsed,
-      isPannelOpen,
+      isModalOpen,
       country,
       language,
     } = this.props;
@@ -176,13 +176,13 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
           handleOnChange={this.handleOnChange}
           handleOnSubmit={this.throttleOnSubmit}
           handleOnFocus={this.handleOnFocus}
-          isPannelOpen={isPannelOpen}
+          isModalOpen={isModalOpen}
           isFieldExpanded={isFieldExpanded}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
-            isPannelOpen={isPannelOpen}
+            isModalOpen={isModalOpen}
             country={country}
             language={language}
             trackModerationText={this.trackModerationText}
@@ -202,14 +202,14 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { isLoggedIn } = state.authentification;
-  const { isPannelOpen } = state.pannel;
+  const { isModalOpen } = state.modal;
   const { content, length, canSubmit, isCurrentSubmitSuccess } = state.proposal;
   const { country, language } = state.appConfig;
 
   return {
     isLoggedIn,
     isSequenceCollapsed: selectSequenceCollapsed(state),
-    isPannelOpen,
+    isModalOpen,
     question: selectSequenceQuestion(state),
     content,
     length,

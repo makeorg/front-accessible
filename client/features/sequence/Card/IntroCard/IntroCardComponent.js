@@ -4,7 +4,7 @@ import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { Svg } from 'Client/ui/Svg';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import { Small } from 'Client/ui/Elements/Separators';
+import { SmallWithMargin } from 'Client/ui/Elements/Separators';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
@@ -57,7 +57,7 @@ export const IntroCardComponent = (props: Props) => {
         <ExtraLogo extraLogo={configuration.extraLogo} />
         <IntroTitle title={configuration.title} />
       </header>
-      <Small aria-hidden />
+      <SmallWithMargin aria-hidden />
       <IntroDescription description={configuration.description} />
       <IntroButtonStyle
         id="sequence-start-sequence-button"

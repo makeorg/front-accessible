@@ -19,22 +19,24 @@ import {
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import * as Separators from 'Client/ui/Elements/Separators';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
-import { ProposalSubmitAuthentificationWrapperStyle } from '../Styled';
+import {
+  ProposalSubmitAuthentificationWrapperStyle,
+  ProposalSubmitSeparatorStyle,
+} from '../Styled';
 
 type Props = {
   question: Question,
-  /** Method called to render Register Component in Sliding Pannel */
+  /** Method called to render Register Component in Modal */
   handleRegisterClick: () => void,
-  /** Method called to render Register Component in Sliding Pannel */
+  /** Method called to render Register Component in Modal */
   handleLoginClick: () => void,
   /** Method called to track link */
   trackPersonnalDataLink: () => void,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
+  /** Boolean toggled when Modal is opened / closed */
+  isModalOpen: boolean,
 };
 
 /**
@@ -46,7 +48,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
     handleRegisterClick,
     handleLoginClick,
     trackPersonnalDataLink,
-    isPannelOpen,
+    isModalOpen,
   } = props;
 
   return (
@@ -59,14 +61,14 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
       </FourthLevelTitleStyle>
       <SmallButtonWrapperStyle>
         <FacebookAuthentificationButtonComponent
-          tabIndex={isPannelOpen ? -1 : 0}
+          tabIndex={isModalOpen ? -1 : 0}
         />
         <GoogleAuthentificationButtonComponent
-          tabIndex={isPannelOpen ? -1 : 0}
+          tabIndex={isModalOpen ? -1 : 0}
         />
         <EmailButtonStyle
           onClick={handleRegisterClick}
-          tabIndex={isPannelOpen ? -1 : 0}
+          tabIndex={isModalOpen ? -1 : 0}
           id="authentification-register-button"
         >
           <IconWrapperStyle>
@@ -81,7 +83,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           href={localizeDataPolicyLink(question.country, question.language)}
           target="_blank"
           rel="noopener noreferrer"
-          tabIndex={isPannelOpen ? -1 : 0}
+          tabIndex={isModalOpen ? -1 : 0}
           onClick={trackPersonnalDataLink}
         >
           {i18n.t('authentification.personal_data')}
@@ -93,12 +95,12 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           </IconWrapperStyle>
         </a>
       </CenterParagraphStyle>
-      <Separators.Small aria-hidden />
+      <ProposalSubmitSeparatorStyle aria-hidden />
       <ThirdLevelTtitleStyle>{i18n.t('login.title')}</ThirdLevelTtitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
           onClick={handleLoginClick}
-          tabIndex={isPannelOpen ? -1 : 0}
+          tabIndex={isModalOpen ? -1 : 0}
           id="authentification-login-button"
         >
           {i18n.t('login.button_connect')}

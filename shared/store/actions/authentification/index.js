@@ -3,7 +3,7 @@
 import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { pannelClose } from 'Shared/store/actions/pannel';
+import { modalClose } from 'Shared/store/actions/modal';
 import { submitProposal } from 'Shared/store/actions/proposal';
 import { Tracking } from 'Shared/services/Tracking';
 
@@ -32,11 +32,11 @@ export const setUserInfo = (user: Object) => ({
 export const logout = () => ({ type: actionTypes.LOGOUT });
 
 export const getUser = () => (dispatch: Function, getState: Function) => {
-  const { isPannelOpen } = getState().pannel;
+  const { isModalOpen } = getState().modal;
   return UserService.me().then(user => {
     dispatch(setUserInfo(user));
-    if (isPannelOpen) {
-      dispatch(pannelClose());
+    if (isModalOpen) {
+      dispatch(modalClose());
     }
 
     Promise.resolve();

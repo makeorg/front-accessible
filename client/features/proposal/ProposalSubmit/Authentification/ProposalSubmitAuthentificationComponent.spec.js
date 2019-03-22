@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmailButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { Small } from 'Client/ui/Elements/Separators';
+import { ProposalSubmitSeparatorStyle } from '../Styled';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
 // mock
@@ -21,7 +21,9 @@ describe('ProposalSubmitAuthentificationComponent', () => {
       .find(EmailButtonStyle)
       .find(FontAwesomeIcon);
 
-    expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
+    expect(wrapper.find(ProposalSubmitSeparatorStyle).prop('aria-hidden')).toBe(
+      true
+    );
     expect(EmailButtonIcon.prop('aria-hidden')).toBe(true);
     expect(DescriptionLinkIcon.prop('aria-label')).toBe(
       'common.open_new_window'

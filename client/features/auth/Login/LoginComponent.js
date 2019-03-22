@@ -27,34 +27,30 @@ type Props = {
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Register Component in Sliding Pannel */
-  handleRegisterPannel: () => void,
-  /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotPasswordPannel: () => void,
+  /** Boolean toggled when Modal is opened / closed */
+  isModalOpen: boolean,
+  /** Method called to render Register Component in Modal */
+  handleRegisterModal: () => void,
+  /** Method called to render ForgotPassword Component in Modal */
+  handleForgotPasswordModal: () => void,
 };
 
 /**
  * Renders Login component
  */
 export const LoginComponent = (props: Props) => {
-  const {
-    isPannelOpen,
-    handleRegisterPannel,
-    handleForgotPasswordPannel,
-  } = props;
+  const { isModalOpen, handleRegisterModal, handleForgotPasswordModal } = props;
 
   return (
     <LoginStyle role="region" aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>
-      <Separators.Small />
+      <Separators.SmallWithMargin />
       <ThirdLevelTtitleStyle>
         {i18n.t('login.social_connect')}
       </ThirdLevelTtitleStyle>
-      <AuthentificationSocial tabIndex={isPannelOpen ? 0 : -1} />
+      <AuthentificationSocial tabIndex={isModalOpen ? 0 : -1} />
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18n.t('login.or')}</Separators.Text>
@@ -67,8 +63,8 @@ export const LoginComponent = (props: Props) => {
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}
         <RedLinkButtonStyle
-          tabIndex={isPannelOpen ? 0 : -1}
-          onClick={handleForgotPasswordPannel}
+          tabIndex={isModalOpen ? 0 : -1}
+          onClick={handleForgotPasswordModal}
         >
           {i18n.t('login.forgot_password_link')}
         </RedLinkButtonStyle>
@@ -76,8 +72,8 @@ export const LoginComponent = (props: Props) => {
       <ExtraAltParagraphStyle>
         {i18n.t('login.registration_title')}
         <RedLinkButtonStyle
-          tabIndex={isPannelOpen ? 0 : -1}
-          onClick={handleRegisterPannel}
+          tabIndex={isModalOpen ? 0 : -1}
+          onClick={handleRegisterModal}
         >
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>

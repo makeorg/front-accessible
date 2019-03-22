@@ -32,6 +32,8 @@
     "vote_on_proposals": "Vote on the proposals",
     "display_pannel": "Display the content of the collapse pannel",
     "hide_pannel": "Hide the content of the collapse pannel",
+    "display_modal": "Display the content of the dialog modal",
+    "hide_modal": "Hide the content of the dialog modal",
     "display_tooltip": "Display the content of the tooltip",
     "hide_tooltip": "Hide the content of the tooltip",
     "expand_collapse": "Display the content of the collapse section",
@@ -191,6 +193,9 @@
   },
   "pannel": {
     "close": "Close the drop-down panel"
+  },
+  "modal": {
+    "close": "Close the dialog modal"
   },
   "cookie_alert": {
     "text": "By continuing to browse this site, you agree to our {{cgu_link}}, our {{policy_link}}, as well as to the use of cookies on our site in order to improve our service.",

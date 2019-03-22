@@ -5,7 +5,7 @@ export const DISPLAY_SEQUENCE: string = 'display-sequence';
 export const CLICK_MAKEORG_LOGO: string = 'click-navbar-logo';
 export const CLICK_CONSULTATION_LINK: string = 'click-consultation-link';
 export const CLICK_PERSONNAL_DATA_LINK: string = 'click-personnal-data-link';
-export const CLICK_CLOSE_PANNEL: string = 'click-close-pannel';
+export const CLICK_CLOSE_MODAL: string = 'click-close-modal';
 
 /* Sequence */
 export const CLICK_START_SEQUENCE: string = 'click-start-sequence';

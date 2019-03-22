@@ -12,7 +12,7 @@ import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { Pannel } from './Pannel';
+import { Modal } from './Modal';
 import { Routes } from './Routes';
 import { ErrorBoundary } from './Error';
 import { TabIndexContext } from './TabIndexContext';
@@ -34,7 +34,7 @@ export const AppContainer = () => (
           <Notification />
           <Routes />
         </AppMainContentStyle>
-        <Pannel />
+        <Modal />
         <Footer />
       </AppWrapperStyle>
     </TabIndexContext.Provider>

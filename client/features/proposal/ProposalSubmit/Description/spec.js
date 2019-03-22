@@ -4,7 +4,7 @@ import { ProposalSubmitDescriptionComponent } from '.';
 
 describe('ProposalSubmitDescriptionComponent', () => {
   const props = {
-    isPannelOpen: false,
+    isModalOpen: false,
     trackModerationText: () => {},
     trackModerationLink: () => {},
   };

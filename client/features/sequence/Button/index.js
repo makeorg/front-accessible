@@ -10,7 +10,7 @@ import { BackArrowStyle, BackButtonStyle } from '../Styled';
 export const CollapseToggle = ({
   isSequenceCollapsed,
   handleExpandSequence,
-  isPannelOpen,
+  isModalOpen,
 }) => {
   if (!isSequenceCollapsed) {
     return null;
@@ -21,14 +21,14 @@ export const CollapseToggle = ({
       <BackArrowStyle
         aria-hidden
         onClick={handleExpandSequence}
-        tabIndex={isPannelOpen ? -1 : 0}
+        tabIndex={isModalOpen ? -1 : 0}
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrowStyle>
       <BackButtonStyle
         aria-hidden
         onClick={handleExpandSequence}
-        tabIndex={isPannelOpen ? -1 : 0}
+        tabIndex={isModalOpen ? -1 : 0}
       >
         {i18n.t('sequence.return')}
       </BackButtonStyle>
