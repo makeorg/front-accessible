@@ -22,8 +22,6 @@ type Props = {
   currentIndex: number,
   /** Zindex property used by Styled Component */
   zindex: number,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Method called when start button is clicked */
@@ -46,7 +44,6 @@ class IntroCardHandler extends React.Component<Props> {
       configuration,
       index,
       currentIndex,
-      isModalOpen,
       isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
@@ -58,9 +55,7 @@ class IntroCardHandler extends React.Component<Props> {
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={
-          isModalOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-        }
+        tabIndex={isSequenceCollapsed || index !== currentIndex ? -1 : 0}
         {...this.props}
       />
     );
@@ -68,10 +63,7 @@ class IntroCardHandler extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isModalOpen } = state.modal;
-
   return {
-    isModalOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
     question: selectSequenceQuestion(state),
   };

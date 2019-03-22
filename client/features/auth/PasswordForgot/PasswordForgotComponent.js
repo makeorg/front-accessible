@@ -21,8 +21,6 @@ type Props = {
   handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when form is successfully submitted */
   isSuccess: boolean,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
 };
@@ -31,7 +29,7 @@ type Props = {
  * Renders Forgot Password component
  */
 export const PasswordForgotComponent = (props: Props) => {
-  const { isSuccess, isModalOpen, handleLoginModal } = props;
+  const { isSuccess, handleLoginModal } = props;
 
   return (
     <ForgotPasswordStyle role="region" aria-labelledby="forgot_password_title">
@@ -53,10 +51,7 @@ export const PasswordForgotComponent = (props: Props) => {
       )}
       <ExtraAltParagraphStyle>
         {i18n.t('forgot_password.return')}
-        <RedLinkButtonStyle
-          tabIndex={isModalOpen ? 0 : -1}
-          onClick={handleLoginModal}
-        >
+        <RedLinkButtonStyle onClick={handleLoginModal}>
           {i18n.t('forgot_password.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>

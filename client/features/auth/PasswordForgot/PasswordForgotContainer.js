@@ -13,8 +13,6 @@ type Props = {
   errors: Array<ErrorObject>,
   /** Boolean toggled when Form is succesfully submitted */
   isSuccess: boolean,
-  /** Boolean toggled when Modalis opened / closed */
-  isModalOpen: boolean,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
   /** Method called to render ForgotPassword Component in Modal */
@@ -60,7 +58,7 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 
   render() {
     const { email } = this.state;
-    const { errors, isSuccess, isModalOpen, handleLoginModal } = this.props;
+    const { errors, isSuccess, handleLoginModal } = this.props;
 
     return (
       <PasswordForgotComponent
@@ -70,7 +68,6 @@ class PasswordForgotHandler extends React.Component<Props, State> {
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
         handleLoginModal={handleLoginModal}
-        isModalOpen={isModalOpen}
       />
     );
   }
@@ -78,12 +75,10 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors, isSuccess } = state.forgotPassword;
-  const { isModalOpen } = state.modal;
 
   return {
     errors,
     isSuccess,
-    isModalOpen,
   };
 };
 

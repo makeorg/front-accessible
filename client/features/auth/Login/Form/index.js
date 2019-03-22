@@ -27,22 +27,13 @@ type Props = {
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
 };
 
 /**
  * Renders Login Form
  */
 export const LoginFormComponent = (props: Props) => {
-  const {
-    email,
-    password,
-    errors,
-    handleChange,
-    handleSubmit,
-    isModalOpen,
-  } = props;
+  const { email, password, errors, handleChange, handleSubmit } = props;
 
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
@@ -64,7 +55,6 @@ export const LoginFormComponent = (props: Props) => {
         required
         errors={emailError}
         handleChange={handleChange}
-        tabIndex={isModalOpen ? 0 : -1}
       />
       {emailError && (
         <InputErrorMessageStyle id="authentification-email-error">
@@ -79,7 +69,6 @@ export const LoginFormComponent = (props: Props) => {
         required
         errors={passwordError}
         handleChange={handleChange}
-        tabIndex={isModalOpen ? 0 : -1}
       />
       {passwordError && (
         <InputErrorMessageStyle id="authentification-password-error">
@@ -88,7 +77,6 @@ export const LoginFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
-        tabIndex={isModalOpen ? 0 : -1}
         icon={faThumbsUp}
         id="authentification-login-submit"
         label={i18n.t('common.connexion_label')}

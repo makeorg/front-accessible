@@ -20,8 +20,6 @@ type Props = {
   cardOffset: number,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
 };
@@ -44,15 +42,13 @@ class FinalCardHandler extends React.Component<Props> {
       currentIndex,
       cardsCount,
       goToPreviousCard,
-      isModalOpen,
       isSequenceCollapsed,
       cardOffset,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
-    const tabIndex =
-      isModalOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
     return (
       <TabIndexContext.Provider value={tabIndex}>
         <FinalCardComponent
@@ -73,10 +69,7 @@ class FinalCardHandler extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isModalOpen } = state.modal;
-
   return {
-    isModalOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
   };
 };

@@ -25,8 +25,6 @@ type Props = {
   votes: VoteType[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen?: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed?: boolean,
   /** Index of the card */
@@ -61,7 +59,6 @@ type State = {
  */
 export class VoteHandler extends React.Component<Props, State> {
   static defaultProps = {
-    isModalOpen: false,
     isSequenceCollapsed: false,
     index: undefined,
     currentIndex: undefined,
@@ -131,7 +128,6 @@ export class VoteHandler extends React.Component<Props, State> {
   render() {
     const {
       proposalId,
-      isModalOpen,
       isSequenceCollapsed,
       index,
       currentIndex,
@@ -145,8 +141,7 @@ export class VoteHandler extends React.Component<Props, State> {
       pending,
       pendingVoteKey,
     } = this.state;
-    const tabIndex =
-      isModalOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -198,11 +193,8 @@ export class VoteHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { isModalOpen } = state.modal;
-
   return {
     isSequenceCollapsed: selectSequenceCollapsed(state),
-    isModalOpen,
   };
 };
 

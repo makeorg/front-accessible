@@ -11,7 +11,6 @@ describe('VoteContainer', () => {
   const defaultProps = {
     proposalId: 'fooId',
     votes: [],
-    isModalOpen: true,
     isSequenceCollapsed: true,
     index: 1,
     currentIndex: 1,

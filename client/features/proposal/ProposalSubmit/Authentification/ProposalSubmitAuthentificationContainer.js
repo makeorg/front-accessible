@@ -8,7 +8,6 @@ import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthent
 
 type Props = {
   question: Question,
-  isModalOpen: boolean,
   handleRegisterClick: () => void,
   handleLoginClick: () => void,
 };
@@ -35,11 +34,8 @@ export class ProposalSubmitAuthentification extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isModalOpen } = state.modal;
-
   return {
     question: selectSequenceQuestion(state),
-    isModalOpen,
   };
 };
 

@@ -13,8 +13,6 @@ import { LoginComponent } from './LoginComponent';
 type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called to render Register Component in Modal */
   handleRegisterModal: () => void,
   /** Method called to render ForgotPassword Component in Modal */
@@ -75,11 +73,9 @@ class LoginHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors } = state.authentification;
-  const { isModalOpen } = state.modal;
 
   return {
     errors,
-    isModalOpen,
   };
 };
 

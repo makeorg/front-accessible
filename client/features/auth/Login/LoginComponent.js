@@ -27,8 +27,6 @@ type Props = {
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called to render Register Component in Modal */
   handleRegisterModal: () => void,
   /** Method called to render ForgotPassword Component in Modal */
@@ -39,7 +37,7 @@ type Props = {
  * Renders Login component
  */
 export const LoginComponent = (props: Props) => {
-  const { isModalOpen, handleRegisterModal, handleForgotPasswordModal } = props;
+  const { handleRegisterModal, handleForgotPasswordModal } = props;
 
   return (
     <LoginStyle role="region" aria-labelledby="login_title">
@@ -50,7 +48,7 @@ export const LoginComponent = (props: Props) => {
       <ThirdLevelTtitleStyle>
         {i18n.t('login.social_connect')}
       </ThirdLevelTtitleStyle>
-      <AuthentificationSocial tabIndex={isModalOpen ? 0 : -1} />
+      <AuthentificationSocial />
       <Separators.Wrapper>
         <Separators.Large />
         <Separators.Text>{i18n.t('login.or')}</Separators.Text>
@@ -62,19 +60,13 @@ export const LoginComponent = (props: Props) => {
       <LoginFormComponent {...props} />
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}
-        <RedLinkButtonStyle
-          tabIndex={isModalOpen ? 0 : -1}
-          onClick={handleForgotPasswordModal}
-        >
+        <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
           {i18n.t('login.forgot_password_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
       <ExtraAltParagraphStyle>
         {i18n.t('login.registration_title')}
-        <RedLinkButtonStyle
-          tabIndex={isModalOpen ? 0 : -1}
-          onClick={handleRegisterModal}
-        >
+        <RedLinkButtonStyle onClick={handleRegisterModal}>
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>

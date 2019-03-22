@@ -37,8 +37,6 @@ type Props = {
   questionConfiguration: QuestionConfiguration,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called when "Return to proposal" button is clicked */
   handleExpandSequence: () => void,
   /** Boolean toggled when User is Logged in */
@@ -78,7 +76,6 @@ const Sequence = ({
   cardOffset,
   currentIndex,
   isSequenceCollapsed,
-  isModalOpen,
   handleStartSequence,
   goToNextCard,
   skipSignUpCard,
@@ -96,7 +93,6 @@ const Sequence = ({
         cardOffset={cardOffset}
         isSequenceCollapsed={isSequenceCollapsed}
         handleExpandSequence={expandSequence}
-        isModalOpen={isModalOpen}
         handleStartSequence={handleStartSequence}
         goToNextCard={goToNextCard}
         skipSignUpCard={skipSignUpCard}
@@ -110,7 +106,6 @@ const Sequence = ({
     <SequencePlaceholderComponent
       handleExpandSequence={expandSequence}
       isSequenceCollapsed={isSequenceCollapsed}
-      isModalOpen={isModalOpen}
     />
   );
 };
@@ -256,7 +251,6 @@ class SequenceHandler extends React.Component<Props, State> {
 const mapStateToProps = state => {
   const { firstProposal, votedProposalIds } = state.sequence;
   const { hasProposed } = state.proposal;
-  const { isModalOpen } = state.modal;
   const { isLoggedIn } = state.authentification;
 
   return {
@@ -264,7 +258,6 @@ const mapStateToProps = state => {
     votedProposalIds,
     isSequenceCollapsed: selectSequenceCollapsed(state),
     hasProposed,
-    isModalOpen,
     isLoggedIn,
   };
 };

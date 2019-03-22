@@ -11,8 +11,6 @@ import { RegisterComponent } from './RegisterComponent';
 type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
   /** Method called to render Register Component in Modal */
@@ -89,11 +87,9 @@ class RegisterHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors } = state.registration;
-  const { isModalOpen } = state.modal;
 
   return {
     errors,
-    isModalOpen,
   };
 };
 

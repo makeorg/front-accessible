@@ -28,8 +28,6 @@ type Props = {
   goToPreviousCard: Function,
   /** Method called when next card button is clicked  */
   skipProposalPushCard: Function,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
 };
@@ -57,14 +55,12 @@ class PushProposalCardHandler extends React.Component<Props> {
       configuration,
       index,
       currentIndex,
-      isModalOpen,
       isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
-    const tabIndex =
-      isModalOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
 
     return (
       <PushProposalCardComponent
@@ -81,10 +77,7 @@ class PushProposalCardHandler extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isModalOpen } = state.modal;
-
   return {
-    isModalOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
     question: selectSequenceQuestion(state),
   };

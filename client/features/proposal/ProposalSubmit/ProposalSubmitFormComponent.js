@@ -21,8 +21,6 @@ type Props = {
   length: number,
   /** Can user submit value */
   canSubmit: boolean,
-  /** Boolean toggled when Modal is opened / closed */
-  isModalOpen: boolean,
   /** Method called when field's value changes */
   handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
@@ -40,7 +38,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     content,
     length,
     canSubmit,
-    isModalOpen,
     isFieldExpanded,
     handleOnChange,
     handleOnFocus,
@@ -67,7 +64,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           autoComplete="off"
           spellCheck
           maxLength="140"
-          tabIndex={isModalOpen ? -1 : 0}
           isFieldExpanded={isFieldExpanded}
         />
       </ProposalInputWrapperStyle>
@@ -87,7 +83,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
-          isModalOpen={isModalOpen}
           isFieldExpanded={isFieldExpanded}
         />
       </ProposalButtonWrapperStyle>

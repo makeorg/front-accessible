@@ -5,8 +5,8 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { GoogleLinkStyle, SocialIconStyle } from '../../Styled';
 import { GoogleAuthentificationComponent } from '..';
 
-const renderGoogleLogin = tabIndex => renderProps => (
-  <GoogleLinkStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+const renderGoogleLogin = () => renderProps => (
+  <GoogleLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
       <FontAwesomeIcon icon={faGoogle} />
     </SocialIconStyle>
@@ -14,20 +14,9 @@ const renderGoogleLogin = tabIndex => renderProps => (
   </GoogleLinkStyle>
 );
 
-type Props = {
-  /** Tabindex for interactive items */
-  tabIndex: number,
-};
-
 /**
  * Renders Google authentification link
  */
-export const GoogleAuthentificationLinkComponent = (props: Props) => {
-  const { tabIndex } = props;
-  return (
-    <GoogleAuthentificationComponent
-      {...props}
-      render={renderGoogleLogin(tabIndex)}
-    />
-  );
+export const GoogleAuthentificationLinkComponent = () => {
+  return <GoogleAuthentificationComponent render={renderGoogleLogin()} />;
 };
