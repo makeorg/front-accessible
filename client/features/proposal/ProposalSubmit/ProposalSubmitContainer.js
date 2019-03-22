@@ -93,9 +93,9 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         isFieldExpanded: props.isSequenceCollapsed && state.isTyping,
       }));
     } else {
-      this.setState({
-        isFieldExpanded: true,
-      });
+      this.setState(state => ({
+        isFieldExpanded: state.isTyping,
+      }));
     }
   };
 
