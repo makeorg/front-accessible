@@ -18,7 +18,6 @@ export const ModalComponent = (props: Props) => {
   return (
     <ReactModal
       isOpen={isModalOpen}
-      contentLabel="Minimal Modal Example"
       overlayClassName="modal-overlay"
       className="modal-dialog"
     >

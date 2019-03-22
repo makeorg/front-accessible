@@ -27,7 +27,11 @@ export const UIThemeStylesheet = createGlobalStyle`
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: ${ShadowColors.BlackZeroEightOpacity}
+    background-color: ${ShadowColors.BlackZeroEightOpacity};
+    padding: ${intToPx(DefaultPadding.Mobile)};
+    @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+      padding: ${intToPx(DefaultPadding.Desktop)};
+    }
   }
 
   .modal-dialog {
@@ -35,9 +39,11 @@ export const UIThemeStylesheet = createGlobalStyle`
     z-index: 2;
     align-self: center;
     max-width: ${intToPx(Layouts.ContainerWidth)};
+    max-height: 100%;
     padding: ${intToPx(DefaultPadding.Mobile)};
     background-color: ${BasicColors.PureWhite};
     box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+    overflow-y: auto;
     @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
       padding: ${intToPx(DefaultPadding.Desktop)};
     }
