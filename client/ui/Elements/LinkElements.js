@@ -7,6 +7,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const RedLinkStyle = styled.a`
+  text-decoration: none;
   color: ${MakeThemeColors.Red};
   &:hover,
   &:focus {
