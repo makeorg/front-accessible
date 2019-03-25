@@ -60,7 +60,7 @@ export const VoteResultComponent = (props: Props) => {
         handleVote={handleVote}
         buttonType={UnvoteButtonStyle}
         tabIndex={tabIndex}
-        pending={pending}
+        displayPending={pending}
       />
       <aside>
         <HiddenItemStyle aria-hidden as="h3">

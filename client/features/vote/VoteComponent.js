@@ -25,6 +25,12 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
   const { proposalId, tabIndex, handleVote, pending, pendingVoteKey } = props;
   const voteKeys = Object.keys(voteStaticParams);
 
+  const handleVoteIfAnyPending = voteKey => () => {
+    if (!pending) {
+      handleVote(voteKey);
+    }
+  };
+
   return voteKeys.map<React.Node>((voteKey: string) => (
     <VoteButton
       key={getVoteKey(voteKey, proposalId)}
@@ -34,8 +40,8 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       rotate={voteStaticParams[voteKey].rotate}
       buttonType={VoteButtonStyle}
       tabIndex={tabIndex}
-      handleVote={() => handleVote(voteKey)}
-      pending={pending && pendingVoteKey === voteKey}
+      handleVote={handleVoteIfAnyPending(voteKey)}
+      displayPending={pendingVoteKey === voteKey}
     />
   ));
 };

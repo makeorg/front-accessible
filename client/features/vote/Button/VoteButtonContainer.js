@@ -17,8 +17,8 @@ type Props = {
   id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
-  /** When waiting response from API */
-  pending: boolean,
+  /** When button is in pending mode */
+  displayPending: boolean,
   /** Method called when vote button is clicked */
   handleVote: () => void,
 };
@@ -26,6 +26,7 @@ type Props = {
 type State = {
   /** Boolean toggled when tooltip is shown / hidden */
   isTooltipDisplayed: boolean,
+  displayPending: boolean,
 };
 
 /**
@@ -34,6 +35,12 @@ type State = {
 export class VoteButtonContainer extends React.Component<Props, State> {
   state = {
     isTooltipDisplayed: false,
+    displayPending: false,
+  };
+
+  componentDidMount = () => {
+    const { displayPending } = this.props;
+    this.setState(prevState => ({ ...prevState, displayPending }));
   };
 
   displayTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -52,8 +59,8 @@ export class VoteButtonContainer extends React.Component<Props, State> {
 
   handleVoteAction = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const { handleVote, pending } = this.props;
-    if (!pending) {
+    const { handleVote, displayPending } = this.props;
+    if (!displayPending) {
       handleVote();
     }
   };
