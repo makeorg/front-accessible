@@ -43,7 +43,7 @@ export const submitProposal = (content: string) => (
   getState: Function
 ) => {
   const { isLoggedIn } = getState().authentification;
-  const { questionId, slug } = getState().sequence;
+  const { questionId } = getState().sequence;
 
   if (!isLoggedIn) {
     dispatch(proposeRequest(content, questionId));
@@ -59,7 +59,7 @@ export const submitProposal = (content: string) => (
     .then(() => {
       dispatch(proposeSuccess());
 
-      Tracking.trackDisplayProposalSubmitValidation(slug);
+      Tracking.trackDisplayProposalSubmitValidation();
     })
     .catch(error => {
       dispatch(proposeFailure(error));

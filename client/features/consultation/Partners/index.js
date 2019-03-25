@@ -1,1 +1,1 @@
-export { PartnersComponent as Partners } from './PartnersComponent';
+export { PartnersContainer as Partners } from './PartnersContainer';

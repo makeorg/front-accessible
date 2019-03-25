@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
-import { ProposalSubmitAuthentification } from './ProposalSubmitAuthentificationContainer';
+import { ProposalSubmitAuthentificationClass } from './ProposalSubmitAuthentificationContainer';
 
 describe('ProposalSubmitAuthentificationContainer', () => {
   it('renders', () => {
     const props = {
+      question: { questionId: 'foof' },
       handleRegisterClick: () => {},
       handleLoginClick: () => {},
     };
-    const wrapper = shallow(<ProposalSubmitAuthentification {...props} />);
+    const wrapper = shallow(<ProposalSubmitAuthentificationClass {...props} />);
 
     expect(wrapper.find(ProposalSubmitAuthentificationComponent)).toHaveLength(
       1

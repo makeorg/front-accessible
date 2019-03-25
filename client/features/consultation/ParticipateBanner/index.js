@@ -1,3 +1,3 @@
 export {
-  ParticipateBannerComponent as ParticipateBanner,
-} from './ParticipateBannerComponent';
+  ParticipateBannerContainer as ParticipateBanner,
+} from './ParticipateBannerContainer';

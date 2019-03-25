@@ -30,6 +30,7 @@ type Props = {
   question: Question,
   selectedTagIds: string[],
   handleSelectTag: () => void,
+  trackPresentationCollpase: (action: string) => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
@@ -38,6 +39,7 @@ export const ConsultationPageComponent = (props: Props) => {
     question,
     selectedTagIds,
     handleSelectTag,
+    trackPresentationCollpase,
   } = props;
 
   const { metas } = questionConfiguration.wording;
@@ -71,6 +73,8 @@ export const ConsultationPageComponent = (props: Props) => {
           <Collapse
             title={i18n.t('consultation.presentation.title')}
             forceExpand
+            trackCollapse={trackPresentationCollpase}
+            questionId={question.questionId}
           >
             <Presentation />
           </Collapse>

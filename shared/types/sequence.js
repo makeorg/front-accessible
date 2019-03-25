@@ -17,7 +17,7 @@ export type ExtraSlidesConfig = {
   finalCard: FinalCardConfig,
 };
 
-export type Theme = {
+export type QuestionTheme = {
   color: string,
   footerFontColor: string,
   gradientStart: string,
@@ -51,7 +51,7 @@ export type FooterType = {
 export type QuestionConfiguration = {
   wording: Wording,
   sharing: SharingType,
-  theme: Theme,
+  theme: QuestionTheme,
   partners?: Partner[],
   isGreatCause: boolean,
   consultationUrl: string,

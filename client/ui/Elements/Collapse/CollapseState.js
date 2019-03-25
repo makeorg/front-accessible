@@ -11,6 +11,10 @@ type Props = {
   softExpand?: boolean,
   /** Force Expand on Desktop */
   forceExpand?: boolean,
+  /** Special tracking method for collapse button */
+  trackCollapse?: string => void,
+  /** questionId used for tracking */
+  questionId?: string,
 };
 
 type State = {
@@ -45,6 +49,15 @@ export class CollapseState extends React.Component<Props, State> {
     this.setState(prevState => ({
       isCollapsed: !prevState.isCollapsed,
     }));
+
+    this.trackCollapseAction();
+  };
+
+  trackCollapseAction = () => {
+    const { isCollapsed } = this.state;
+    const { trackCollapse, questionId } = this.props;
+
+    trackCollapse(questionId, isCollapsed ? 'open' : 'close');
   };
 
   render() {
@@ -64,4 +77,6 @@ export class CollapseState extends React.Component<Props, State> {
 CollapseState.defaultProps = {
   softExpand: false,
   forceExpand: false,
+  trackCollapse: () => {},
+  questionId: undefined,
 };

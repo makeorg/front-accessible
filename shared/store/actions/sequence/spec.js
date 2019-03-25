@@ -75,13 +75,12 @@ describe('Sequence Actions', () => {
   });
 
   it('Track sequence vote when first vote', () => {
-    const questionSlug = 'baz';
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
+    const questionId =  'baz';
     const newStore = mockStore({
-      sequence: { votedProposalIds: [], questionId: 'foo' },
-      questions: { foo: { question: { slug: questionSlug } } },
+      sequence: { votedProposalIds: [], questionId: questionId },
     });
 
     const expectedActions = [
@@ -95,14 +94,12 @@ describe('Sequence Actions', () => {
 
     expect(Tracking.trackVote).toHaveBeenNthCalledWith(
       1,
-      questionSlug,
       proposalId,
       voteKey,
       index
     );
     expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(
       1,
-      questionSlug,
       proposalId,
       voteKey,
       index
@@ -111,13 +108,12 @@ describe('Sequence Actions', () => {
   });
 
   it('Track sequence vote when second vote', () => {
-    const questionSlug = 'baz';
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
+    const questionId =  'baz';
     const newStore = mockStore({
-      sequence: { votedProposalIds: ['fooId'], questionId: 'foo' },
-      questions: { foo: { question: { slug: questionSlug } } },
+      sequence: { votedProposalIds: ['fooId'], questionId: questionId },
     });
 
     const expectedActions = [
@@ -131,7 +127,6 @@ describe('Sequence Actions', () => {
 
     expect(Tracking.trackVote).toHaveBeenNthCalledWith(
       1,
-      questionSlug,
       proposalId,
       voteKey,
       index

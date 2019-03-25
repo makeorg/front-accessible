@@ -8,7 +8,7 @@ describe('getLocationContext', () => {
   it('get location context ROUTE_CONSULTATION', () => {
     expect(
       getLocationContext('/FR-fr/consultation/foo/consultation', 'abcd')
-    ).toBe('question_page abcd');
+    ).toBe('page-operation abcd');
   });
 
   it('get location context ROUTE_SEQUENCE', () => {

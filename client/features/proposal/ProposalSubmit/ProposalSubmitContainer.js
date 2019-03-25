@@ -7,7 +7,6 @@ import {
   getProposalLength,
   getIsProposalValidLength,
 } from 'Shared/helpers/proposal';
-import { type Question } from 'Shared/types/question';
 import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
 import { sequenceCollapse } from 'Shared/store/actions/sequence';
 import { Tracking } from 'Shared/services/Tracking';
@@ -21,8 +20,6 @@ import { ProposalSubmitSuccessComponent } from './Success';
 import { ProposalSubmitDescriptionComponent } from './Description';
 
 type Props = {
-  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Question,
   /** Content of the proposal */
   content: string,
   /** Length of the proposal */
@@ -122,9 +119,9 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   handleOnSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
-    const { question, content, isLoggedIn, handleSubmitProposal } = this.props;
+    const { content, isLoggedIn, handleSubmitProposal } = this.props;
 
-    Tracking.trackClickProposalSubmit(question.slug);
+    Tracking.trackClickProposalSubmit();
 
     if (isLoggedIn) {
       handleSubmitProposal(content);

@@ -43,21 +43,15 @@ export const sequenceVote = (
   voteKey: string,
   index: number
 ) => (dispatch: any => void, getState: () => any) => {
-  const { votedProposalIds, questionId } = getState().sequence;
-  const { questions } = getState();
+  const { votedProposalIds } = getState().sequence;
   const isFirstVote = votedProposalIds.length === 0;
-  const questionSlug =
-    questions &&
-    questions[questionId] &&
-    questions[questionId].question &&
-    questions[questionId].question.slug;
   dispatch(voteProposal(proposalId));
 
   if (isFirstVote) {
-    Tracking.trackFirstVote(questionSlug, proposalId, voteKey, index);
+    Tracking.trackFirstVote(proposalId, voteKey, index);
   }
 
-  Tracking.trackVote(questionSlug, proposalId, voteKey, index);
+  Tracking.trackVote(proposalId, voteKey, index);
 };
 
 export const sequenceUnvote = (

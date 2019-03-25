@@ -16,12 +16,28 @@ export const getLocationContext = (
   // "search_results"
   switch (true) {
     case matchRoute(pathname, ROUTE_CONSULTATION):
-      return `question_page ${questionId}`;
+      return `page-operation ${questionId}`;
     case matchRoute(pathname, ROUTE_SEQUENCE):
       return `sequence ${questionId}`;
     case matchRoute(pathname, ROUTE_PROPOSAL):
       return `proposal_page ${proposalId}`;
     default:
       return `unknown_location ${pathname}`;
+  }
+};
+
+export const getTrackingLocation = (pathname: string): string => {
+  // TODO: missing pages
+  // "homepage"
+  // "search_results"
+  switch (true) {
+    case matchRoute(pathname, ROUTE_CONSULTATION):
+      return `page-operation`;
+    case matchRoute(pathname, ROUTE_SEQUENCE):
+      return `sequence`;
+    case matchRoute(pathname, ROUTE_PROPOSAL):
+      return `proposal-page`;
+    default:
+      return `unknown`;
   }
 };

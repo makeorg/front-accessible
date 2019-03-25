@@ -1,18 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { type SignUpCardConfig } from 'Shared/types/card';
-import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
-import {
-  selectSequenceCollapsed,
-  selectSequenceQuestion,
-} from 'Shared/store/selectors/sequence.selector';
+import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { SignUpCardComponent } from './SignUpCardComponent';
 
 type Props = {
-  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Question,
   /** Object with Static properties used to configure the Sign Up Card */
   configuration: SignUpCardConfig,
   /** Index of the card */
@@ -34,9 +28,9 @@ type Props = {
  */
 export class SignUpCardhandler extends React.Component<Props> {
   componentDidUpdate = () => {
-    const { question, index, currentIndex } = this.props;
+    const { index, currentIndex } = this.props;
     if (index === currentIndex) {
-      Tracking.trackDisplaySignUpCard(question.slug);
+      Tracking.trackDisplaySignUpCard();
     }
   };
 
@@ -68,7 +62,6 @@ export class SignUpCardhandler extends React.Component<Props> {
 const mapStateToProps = state => {
   return {
     isSequenceCollapsed: selectSequenceCollapsed(state),
-    question: selectSequenceQuestion(state),
   };
 };
 
