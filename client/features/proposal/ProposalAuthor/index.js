@@ -17,7 +17,7 @@ const ProposalAuthorAge = ({ age }) => {
 
   return (
     <React.Fragment>
-      <span>, </span>
+      <span>,&nbsp;</span>
       <span>{i18n.t('proposal_card.author.age', { age })}</span>
     </React.Fragment>
   );
