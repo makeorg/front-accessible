@@ -37,7 +37,7 @@
     {"name": "Kiss Kiss Bank Bank", "imageUrl": "/images/operations/mieuxmanger/partners/kiss-kiss-bank-bank.png", "isFounder": false}
   ],
   "isGreatCause": true,
-  "consultationUrl": "https://about.make.org/about-mieuxmanger",
+  "consultationUrl": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
   "aboutUrl": "https://about.make.org/about-mieuxmanger",
   "sequenceConfig": {
     "introCard": {
@@ -57,7 +57,7 @@
     },
     "finalCard": {
       "enabled": true,
-      "linkUrl": "https://about.make.org/about-mieuxmanger",
+      "linkUrl": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
       "withSharing": true,
       "title": "Merci pour votre participation !",
       "share": [
