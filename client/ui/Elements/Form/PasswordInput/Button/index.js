@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { HidePasswordIconStyle } from 'Client/ui/Elements/Form/Styled/Icons';
+import { Svg } from 'Client/ui/Svg';
 
 type Props = {
   /** Boolean toggled when password shown / hidden */
@@ -25,10 +24,7 @@ export const PasswordButton = (props: Props) => {
       aria-hidden
       tabIndex={tabIndex}
     >
-      <FontAwesomeIcon
-        aria-hidden
-        icon={isPasswordDisplayed ? faEyeSlash : faEye}
-      />
+      <Svg aria-hidden type={isPasswordDisplayed ? 'SvgEyeSlash' : 'SvgEye'} />
     </UnstyledButtonStyle>
   );
 };

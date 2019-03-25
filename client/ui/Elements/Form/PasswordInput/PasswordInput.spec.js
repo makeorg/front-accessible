@@ -1,7 +1,6 @@
 import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { PasswordInput } from './index';
 
 jest.mock('./Button', () => ({
@@ -18,7 +17,7 @@ describe('PasswordInput', () => {
   const defaultProps = {
     type: 'foo',
     name: 'bar',
-    icon: faLock,
+    icon: 'SvgLock',
     value: 'baz',
     label: 'qux',
     handleChange: () => {},

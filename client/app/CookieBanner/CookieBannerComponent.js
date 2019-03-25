@@ -1,13 +1,9 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import {
-  CookieContentStyle,
-  CookieWrapperStyle,
-  CookieCloseButtonStyle,
-} from './Styled';
+import { Svg } from 'Client/ui/Svg';
+import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { CookieContentStyle, CookieWrapperStyle } from './Styled';
 
 /**
  * Renders Cookie Banner component
@@ -31,12 +27,12 @@ export const CookieBannerComponent = ({
         }),
       }}
     />
-    <CookieCloseButtonStyle
+    <CloseButtonStyle
       aria-label={i18n.t('pannel.close')}
       aria-expanded="false"
       onClick={handleClose}
     >
-      <FontAwesomeIcon aria-hidden icon={faTimes} />
-    </CookieCloseButtonStyle>
+      <Svg aria-hidden type="SvgClose" />
+    </CloseButtonStyle>
   </CookieWrapperStyle>
 );

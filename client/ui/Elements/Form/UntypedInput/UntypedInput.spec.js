@@ -1,7 +1,6 @@
 import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { UntypedInput } from './index';
 
 jest.mock('Client/ui/Elements/Form/Styled/Input', () => ({
@@ -16,7 +15,7 @@ jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
 const defaultProps = {
   type: 'foo',
   name: 'bar',
-  icon: faEnvelope,
+  icon: 'SvgEnvelope',
   value: 'baz',
   label: 'qux',
   handleChange: () => {},

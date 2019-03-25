@@ -37,7 +37,6 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       color={voteStaticParams[voteKey].color}
       label={i18n.t(`vote.${voteKey}`)}
       icon={voteStaticParams[voteKey].icon}
-      rotate={voteStaticParams[voteKey].rotate}
       buttonType={VoteButtonStyle}
       tabIndex={tabIndex}
       handleVote={handleVoteIfAnyPending(voteKey)}

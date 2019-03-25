@@ -2,8 +2,6 @@
 import * as React from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStepForward, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
@@ -76,7 +74,7 @@ export const PushProposalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
+            <Svg aria-hidden type="SvgArrowLeft" />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
@@ -110,7 +108,7 @@ export const PushProposalCardComponent = (props: Props) => {
               onClick={skipProposalPushCard}
             >
               <IconWrapperStyle>
-                <FontAwesomeIcon aria-hidden icon={faStepForward} />
+                <Svg aria-hidden type="SvgStepForward" />
               </IconWrapperStyle>
               {i18n.t('push_proposal_card.next-cta')}
             </PushProposalNextButtonStyle>

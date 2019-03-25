@@ -40,7 +40,6 @@ export const VoteButtonComponent = (props: Props) => {
     color,
     label,
     icon,
-    rotate,
     tabIndex,
     buttonType,
     handleVote,
@@ -56,7 +55,6 @@ export const VoteButtonComponent = (props: Props) => {
         color={color}
         label={label}
         icon={icon}
-        rotate={rotate}
         tabIndex={tabIndex}
         buttonType={buttonType}
         handleVote={handleVote}

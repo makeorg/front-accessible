@@ -1,12 +1,7 @@
 import * as React from 'react';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFacebookF,
-  faTwitter,
-  faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
 import { i18n } from 'Shared/i18n';
+import { Svg } from 'Client/ui/Svg';
 import {
   SharingStyle,
   FacebookButtonStyle,
@@ -47,7 +42,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon aria-hidden icon={faFacebookF} />
+            <Svg aria-hidden type="SvgFacebookLogoF" />
           </FacebookButtonStyle>
         </li>
         <li>
@@ -59,7 +54,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon aria-hidden icon={faTwitter} />
+            <Svg aria-hidden type="SvgTwitterLogo" />
           </TwitterButtonStyle>
         </li>
         <li>
@@ -71,7 +66,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <FontAwesomeIcon aria-hidden icon={faLinkedinIn} />
+            <Svg aria-hidden type="SvgLinkedinLogoIn" />
           </LinkedInButtonStyle>
         </li>
       </SharingStyle>

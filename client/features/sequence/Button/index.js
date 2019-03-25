@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { Svg } from 'Client/ui/Svg';
 import { BackArrowStyle, BackButtonStyle } from '../Styled';
 
 /**
@@ -15,7 +14,7 @@ export const CollapseToggle = ({ isClosed, handleOpenSequence }) => {
   return (
     <React.Fragment>
       <BackArrowStyle aria-hidden onClick={handleOpenSequence}>
-        <FontAwesomeIcon icon={faArrowUp} />
+        <Svg type="SvgArrowTop" />
       </BackArrowStyle>
       <BackButtonStyle aria-hidden onClick={handleOpenSequence}>
         {i18n.t('sequence.return')}

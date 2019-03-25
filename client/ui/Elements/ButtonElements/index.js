@@ -12,4 +12,5 @@ export {
   EmailButtonStyle,
   RedLinkButtonStyle,
   SmallButtonWrapperStyle,
+  CloseButtonStyle,
 } from './Styled';

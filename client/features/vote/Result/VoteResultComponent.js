@@ -56,7 +56,6 @@ export const VoteResultComponent = (props: Props) => {
         color={voteStaticParams[votedKey].color}
         label={i18n.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}
-        rotate={voteStaticParams[votedKey].rotate}
         handleVote={handleVote}
         buttonType={UnvoteButtonStyle}
         tabIndex={tabIndex}

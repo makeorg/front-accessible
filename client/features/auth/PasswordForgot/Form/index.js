@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { faEnvelope, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { type ErrorObject } from 'Shared/types/form';
 import {
   InputErrorMessageStyle,
@@ -47,7 +46,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
       <UntypedInput
         type="email"
         name="email"
-        icon={faEnvelope}
+        icon="SvgEnvelope"
         value={email}
         label={i18n.t('common.form.email_label')}
         required
@@ -61,7 +60,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
-        icon={faPaperPlane}
+        icon="SvgPaperPlane"
         label={i18n.t('forgot_password.send_link')}
       />
     </ForgotPasswordFormStyle>

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Svg } from 'Client/ui/Svg';
 import {
   CheckboxWrapper,
   FakeCheckboxInputStyle,
@@ -62,7 +61,7 @@ export const CheckBoxComponent = (props: Props) => {
         <FakeCheckboxInputStyle aria-hidden>
           {isChecked ? (
             <CheckboxIconStyle tabIndex="-1">
-              <FontAwesomeIcon icon={faCheck} />
+              <Svg type="SvgCheck" />
             </CheckboxIconStyle>
           ) : null}
         </FakeCheckboxInputStyle>

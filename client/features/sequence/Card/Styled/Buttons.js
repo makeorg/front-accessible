@@ -48,8 +48,11 @@ export const BackButtonStyle = styled(UnstyledButtonStyle)`
 export const BackIconStyle = styled(IconWrapperStyle)`
   font-size: ${pxToRem('15px')};
   color: ${BackgroundColors.ExtraLightGrey};
+  svg {
+    fill: ${BackgroundColors.ExtraLightGrey};
+  }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('40px')};
+    font-size: ${pxToRem('30px')};
   }
 `;
 

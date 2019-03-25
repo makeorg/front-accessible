@@ -2,8 +2,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
-import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import {
   InputErrorMessageStyle,
   FormErrorsListStyle,
@@ -49,7 +47,7 @@ export const LoginFormComponent = (props: Props) => {
       <UntypedInput
         type="email"
         name="email"
-        icon={faEnvelope}
+        icon="SvgEnvelope"
         value={email}
         label={i18n.t('common.form.email_label')}
         required
@@ -63,7 +61,7 @@ export const LoginFormComponent = (props: Props) => {
       )}
       <PasswordInput
         name="password"
-        icon={faLock}
+        icon="SvgLock"
         value={password}
         label={i18n.t('common.form.password_label')}
         required
@@ -77,7 +75,7 @@ export const LoginFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
-        icon={faThumbsUp}
+        icon="SvgThumbsUp"
         id="authentification-login-submit"
         label={i18n.t('common.connexion_label')}
       />

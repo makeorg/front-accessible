@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   RedButtonStyle,
   IconWrapperStyle,
   GreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
+import { Svg } from 'Client/ui/Svg';
 
 type Props = {
   /** Name of the input */
@@ -40,7 +40,7 @@ export class SubmitButton extends React.Component<Props> {
         disabled={disabled}
       >
         <IconWrapperStyle>
-          <FontAwesomeIcon icon={icon} />
+          <Svg aria-hidden type={icon} />
         </IconWrapperStyle>
         {label}
       </ButtonStyled>

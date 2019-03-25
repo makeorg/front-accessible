@@ -27,11 +27,17 @@ export const AuthentificationLinkStyle = styled.button`
 export const FacebookLinkStyle = styled(AuthentificationLinkStyle)`
   color: ${IconColors.Facebook};
   border-bottom-color: ${IconColors.Facebook};
+  svg {
+    fill: ${IconColors.Facebook};
+  }
 `;
 
 export const GoogleLinkStyle = styled(AuthentificationLinkStyle)`
   color: ${IconColors.Google};
   border-bottom-color: ${IconColors.Google};
+  svg {
+    fill: ${IconColors.Google};
+  }
 `;
 
 export const SocialIconStyle = styled(IconWrapperStyle)`

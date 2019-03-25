@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Svg } from 'Client/ui/Svg';
 import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 
@@ -47,7 +47,7 @@ export class UntypedInput extends React.Component<Props> {
     return (
       <MiddleFakeInputStyle hasError={errors}>
         <CenterInputIconStyle htmlFor={name} aria-label={label}>
-          <FontAwesomeIcon aria-hidden icon={icon} />
+          <Svg aria-hidden type={icon} />
         </CenterInputIconStyle>
         <BasicInputStyle
           type={type}

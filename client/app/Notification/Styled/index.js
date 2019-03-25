@@ -45,11 +45,3 @@ export const NotificationContentStyle = styled.div`
     padding-right: ${pxToRem(DefaultPadding.Mobile)};
   }
 `;
-
-export const NotificationCloseButtonStyle = styled(UnstyledButtonStyle)`
-  position: absolute;
-  top: ${pxToRem(DefaultPadding.Mobile)};
-  right: ${pxToRem(DefaultPadding.Mobile)};
-  z-index: 1;
-  font-size: ${pxToRem('20px')};
-`;

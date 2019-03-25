@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
+import { Svg } from 'Client/ui/Svg';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
@@ -49,9 +48,9 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             {i18n.t('common.click_there')}
             &nbsp;
             <IconWrapperStyle>
-              <FontAwesomeIcon
+              <Svg
                 aria-label={i18n.t('common.open_new_window')}
-                icon={faExternalLinkAlt}
+                type="SvgExternalLink"
               />
             </IconWrapperStyle>
           </a>

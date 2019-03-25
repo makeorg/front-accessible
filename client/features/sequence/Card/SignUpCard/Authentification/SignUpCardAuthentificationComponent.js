@@ -1,8 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
   EmailButtonStyle,
   IconWrapperStyle,
@@ -13,6 +11,7 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
+import { Svg } from 'Client/ui/Svg';
 
 type Props = {
   /** Method called to render Register Pannel */
@@ -40,7 +39,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
           id="authentification-register-button"
         >
           <IconWrapperStyle>
-            <FontAwesomeIcon aria-hidden icon={faEnvelope} />
+            <Svg aria-hidden type="SvgEnvelope" />
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>

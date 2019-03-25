@@ -14,7 +14,6 @@ export const ButtonStyle = styled.button`
   border-style: solid;
   border-radius: 50%;
   border-color: ${props => props.color};
-  ${props => props.rotate && `transform:rotate(${props.rotate}deg)`};
   overflow: hidden;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: 58px;
@@ -27,14 +26,23 @@ export const UnvoteButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
 export const VoteButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
   background-color: ${BasicColors.PureWhite};
+  svg {
+    fill: ${props => props.color};
+  }
   &:focus,
   &:active {
     color: ${BasicColors.PureWhite};
     background-color: ${props => props.color};
+    svg {
+      fill: ${BasicColors.PureWhite};
+    }
   }
 `;
