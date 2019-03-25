@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Svg } from 'Client/ui/Svg';
 import { Link } from 'react-router-dom';
-import { type Theme } from 'Shared/types/sequence';
+import { type QuestionTheme } from 'Shared/types/sequence';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
@@ -12,7 +12,7 @@ import {
 } from 'Client/features/consultation/Styled/ParticipateBanner';
 
 type Props = {
-  styleTheme: Theme,
+  styleTheme: QuestionTheme,
   sequenceLink: string,
   trackParticipateButton: () => void,
 };
