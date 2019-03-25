@@ -18,8 +18,8 @@ type Props = {
   buttonType?: React.Node,
   /** Rotate property passed to Styled Component */
   rotate?: number,
-  /** When waiting response from API */
-  pending: boolean,
+  /** When display pending */
+  displayPending: boolean,
   /** Method called onMouseLeave to hide Tooltip */
   hideTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called onMouseEnter to  show Tooltip */
@@ -42,15 +42,15 @@ export const VoteButtonElement = (props: Props) => {
     handleVote,
     displayTooltip,
     hideTooltip,
-    pending,
+    displayPending,
   } = props;
 
   return (
     <ButtonStyle
-      aria-label={pending ? i18n.t('common.loading') : label}
+      aria-label={displayPending ? i18n.t('common.loading') : label}
       tabIndex={tabIndex}
       color={color}
-      rotate={pending ? 0 : rotate}
+      rotate={displayPending ? 0 : rotate}
       as={buttonType}
       onClick={handleVote}
       onTouchEnd={handleVote}
@@ -59,7 +59,7 @@ export const VoteButtonElement = (props: Props) => {
       onFocus={displayTooltip}
       onBlur={hideTooltip}
     >
-      {pending ? <LoadingDots /> : <FontAwesomeIcon icon={icon} />}
+      {displayPending ? <LoadingDots /> : <FontAwesomeIcon icon={icon} />}
     </ButtonStyle>
   );
 };

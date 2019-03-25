@@ -67,6 +67,7 @@ export class VoteHandler extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
+    clearTimeout(this.timer);
     const userVote =
       props.votes && props.votes.find(vote => vote.hasVoted === true);
     const hasVoted = userVote !== undefined;
@@ -94,7 +95,9 @@ export class VoteHandler extends React.Component<Props, State> {
 
     VoteService.unvote(proposalId, voteKey, proposalKey)
       .then(vote => {
-        this.setState(prevState => doUnvote(prevState, vote));
+        this.delayStateUpdateOnEndVote(() =>
+          this.setState(prevState => doUnvote(prevState, vote))
+        );
         handleUnvoteOnSequence(proposalId, voteKey, index);
       })
       .catch(() => {
@@ -106,7 +109,9 @@ export class VoteHandler extends React.Component<Props, State> {
     const { proposalId, proposalKey, index, handleVoteOnSequence } = this.props;
     VoteService.vote(proposalId, voteKey, proposalKey)
       .then(vote => {
-        this.setState(prevState => doVote(prevState, vote));
+        this.delayStateUpdateOnEndVote(() =>
+          this.setState(prevState => doVote(prevState, vote))
+        );
 
         handleVoteOnSequence(proposalId, voteKey, index);
       })
@@ -116,7 +121,9 @@ export class VoteHandler extends React.Component<Props, State> {
   };
 
   handleVoting = (voteKey: string) => {
-    this.setState(prevState => startPendingState(prevState, voteKey));
+    this.delayStateUpdateOnStartVote(() =>
+      this.setState(prevState => startPendingState(prevState, voteKey))
+    );
     const { hasVoted } = this.state;
     if (hasVoted) {
       this.handleUnvote(voteKey);
@@ -124,6 +131,40 @@ export class VoteHandler extends React.Component<Props, State> {
       this.handleVote(voteKey);
     }
   };
+
+  /**
+   * Delay the pending display
+   */
+  delayStateUpdateOnStartVote = (updateStateMethod: () => void) => {
+    clearTimeout(this.timer);
+    const timeBeforeStartUpdateState = 500;
+    this.hasStartedPending = false;
+    this.timer = setTimeout(() => {
+      this.hasStartedPending = true;
+      updateStateMethod();
+    }, timeBeforeStartUpdateState);
+  };
+
+  /**
+   * Pending should be displayed
+   * a minimum time
+   */
+  delayStateUpdateOnEndVote = (updateStateMethod: () => void) => {
+    const timeBeforeEndUpdateState = 200;
+    clearTimeout(this.timer);
+    if (this.hasStartedPending) {
+      this.timer = setTimeout(() => {
+        updateStateMethod();
+      }, timeBeforeEndUpdateState);
+    } else {
+      updateStateMethod();
+    }
+    this.hasStartedPending = false;
+  };
+
+  timer: TimeoutID;
+
+  hasStartedPending: boolean;
 
   render() {
     const {
