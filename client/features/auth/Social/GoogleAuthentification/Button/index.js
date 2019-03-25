@@ -19,7 +19,7 @@ const renderGoogleLogin = tabIndex => renderProps => (
 
 type Props = {
   /** Tabindex for interactive items */
-  tabIndex: number,
+  tabIndex?: number,
 };
 
 /**
@@ -34,4 +34,8 @@ export const GoogleAuthentificationButtonComponent = (props: Props) => {
       render={renderGoogleLogin(tabIndex)}
     />
   );
+};
+
+GoogleAuthentificationButtonComponent.defaultProps = {
+  tabIndex: 0,
 };

@@ -28,8 +28,6 @@ type Props = {
   goToPreviousCard: Function,
   /** Method called when next card button is clicked  */
   skipProposalPushCard: Function,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
 };
@@ -57,14 +55,12 @@ class PushProposalCardHandler extends React.Component<Props> {
       configuration,
       index,
       currentIndex,
-      isPannelOpen,
       isSequenceCollapsed,
     } = this.props;
     const position = getPosition(index, currentIndex);
     const scale = getScale(index, currentIndex);
     const zindex = getZIndex(index, currentIndex);
-    const tabIndex =
-      isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
 
     return (
       <PushProposalCardComponent
@@ -81,10 +77,7 @@ class PushProposalCardHandler extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { isPannelOpen } = state.pannel;
-
   return {
-    isPannelOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
     question: selectSequenceQuestion(state),
   };

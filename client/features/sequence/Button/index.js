@@ -10,7 +10,6 @@ import { BackArrowStyle, BackButtonStyle } from '../Styled';
 export const CollapseToggle = ({
   isSequenceCollapsed,
   handleExpandSequence,
-  isPannelOpen,
 }) => {
   if (!isSequenceCollapsed) {
     return null;
@@ -18,18 +17,10 @@ export const CollapseToggle = ({
 
   return (
     <React.Fragment>
-      <BackArrowStyle
-        aria-hidden
-        onClick={handleExpandSequence}
-        tabIndex={isPannelOpen ? -1 : 0}
-      >
+      <BackArrowStyle aria-hidden onClick={handleExpandSequence}>
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrowStyle>
-      <BackButtonStyle
-        aria-hidden
-        onClick={handleExpandSequence}
-        tabIndex={isPannelOpen ? -1 : 0}
-      >
+      <BackButtonStyle aria-hidden onClick={handleExpandSequence}>
         {i18n.t('sequence.return')}
       </BackButtonStyle>
     </React.Fragment>

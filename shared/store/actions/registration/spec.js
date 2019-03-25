@@ -77,7 +77,7 @@ describe('Registration Actions', () => {
       { type: actionTypes.REGISTER_REQUEST },
       { type: actionTypes.REGISTER_SUCCESS, user },
       { type: actionTypes.LOGIN_SUCCESS },
-      { type: actionTypes.PANNEL_CLOSE },
+      { type: actionTypes.MODAL_CLOSE },
       { type: actionTypes.FORGOT_PASSWORD_INIT },
     ];
 

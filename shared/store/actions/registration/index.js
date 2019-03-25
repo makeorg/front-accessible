@@ -4,7 +4,7 @@ import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { loginSuccess } from 'Shared/store/actions/authentification';
 import { submitProposal } from 'Shared/store/actions/proposal';
-import { pannelClose } from 'Shared/store/actions/pannel';
+import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
@@ -35,7 +35,7 @@ export const register = (user: Object) => (
 
         if (canSubmit) dispatch(submitProposal(content));
 
-        dispatch(pannelClose());
+        dispatch(modalClose());
       })
     )
     .catch(errors => {

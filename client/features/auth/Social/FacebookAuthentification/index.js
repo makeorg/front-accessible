@@ -5,8 +5,6 @@ import { loginSocial } from 'Shared/store/actions/authentification';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserService';
 
 type Props = {
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Facebook login method callback */
   handleFacebookLoginCallback: Function,
 };
@@ -34,7 +32,7 @@ class FacebookAuthentification extends React.Component<Props, State> {
   }
 
   render() {
-    const { handleFacebookLoginCallback, tabIndex } = this.props;
+    const { handleFacebookLoginCallback } = this.props;
 
     const { isFacebookBrowser } = this.state;
 
@@ -47,7 +45,6 @@ class FacebookAuthentification extends React.Component<Props, State> {
           fields="name,email,picture"
           callback={handleFacebookLoginCallback}
           disableMobileRedirect
-          tabIndex={tabIndex}
         />
       );
     }

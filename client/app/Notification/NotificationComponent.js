@@ -22,7 +22,7 @@ export const NotificationComponent = (props: Props) => {
     <NotificationWrapperStyle role="banner">
       <NotificationContentStyle>{children}</NotificationContentStyle>
       <NotificationCloseButtonStyle
-        aria-label={i18n.t('pannel.close')}
+        aria-label={i18n.t('modal.close')}
         aria-expanded="false"
         onClick={onClose}
       >

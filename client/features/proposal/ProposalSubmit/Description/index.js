@@ -9,8 +9,6 @@ import { localizeModerationCharterLink } from 'Shared/helpers/url';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Localiszed Language of the app */
   language: string,
   /** Localiszed Country of the app */
@@ -33,7 +31,7 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   }
 
   render() {
-    const { isPannelOpen, country, language, trackModerationLink } = this.props;
+    const { country, language, trackModerationLink } = this.props;
     return (
       <DescriptionWrapperStyle id="proposal-submit-description">
         <CenterParagraphStyle>
@@ -47,7 +45,6 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             rel="noopener noreferrer"
             href={localizeModerationCharterLink(country, language)}
             onClick={trackModerationLink}
-            tabIndex={isPannelOpen ? -1 : 0}
           >
             {i18n.t('common.click_there')}
             &nbsp;

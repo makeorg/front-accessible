@@ -5,17 +5,15 @@ import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { register } from 'Shared/store/actions/registration';
-import { pannelShowLogin } from 'Shared/store/actions/pannel';
+import { modalShowLogin } from 'Shared/store/actions/modal';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: () => void,
-  /** Method called to render Register Component in Sliding Pannel */
+  /** Method called to render Login Component in Modal */
+  handleLoginModal: () => void,
+  /** Method called to render Register Component in Modal */
   handleRegister: UserObject => void,
 };
 
@@ -89,11 +87,9 @@ class RegisterHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors } = state.registration;
-  const { isPannelOpen } = state.pannel;
 
   return {
     errors,
-    isPannelOpen,
   };
 };
 
@@ -101,8 +97,8 @@ const mapDispatchToProps = dispatch => ({
   handleRegister: user => {
     dispatch(register(user));
   },
-  handleLoginPannel: () => {
-    dispatch(pannelShowLogin());
+  handleLoginModal: () => {
+    dispatch(modalShowLogin());
   },
 });
 

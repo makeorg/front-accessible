@@ -30,34 +30,30 @@ type Props = {
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Login Component in Sliding Pannel */
-  handleLoginPannel: () => void,
+  /** Method called to render Login Component in Modal */
+  handleLoginModal: () => void,
 };
 
 /**
  * Renders Register component
  */
 export const RegisterComponent = (props: Props) => {
-  const { isPannelOpen, handleLoginPannel } = props;
+  const { handleLoginModal } = props;
 
   return (
     <RegisterStyle role="region" aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
-      <Separators.Small />
+      <Separators.SmallWithMargin />
       <ThirdLevelTtitleStyle>
         {i18n.t('register.social_connect')}
         &nbsp;
-        <FacebookAuthentificationLinkComponent
-          tabIndex={isPannelOpen ? 0 : -1}
-        />
+        <FacebookAuthentificationLinkComponent />
         &nbsp;
         {i18n.t('register.or')}
         &nbsp;
-        <GoogleAuthentificationLinkComponent tabIndex={isPannelOpen ? 0 : -1} />
+        <GoogleAuthentificationLinkComponent />
       </ThirdLevelTtitleStyle>
       <Separators.Wrapper>
         <Separators.Large />
@@ -70,10 +66,7 @@ export const RegisterComponent = (props: Props) => {
       <RegisterFormComponent {...props} />
       <ExtraParagraphStyle>
         {i18n.t('register.login_title')}
-        <RedLinkButtonStyle
-          onClick={handleLoginPannel}
-          tabIndex={isPannelOpen ? 0 : -1}
-        >
+        <RedLinkButtonStyle onClick={handleLoginModal}>
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>

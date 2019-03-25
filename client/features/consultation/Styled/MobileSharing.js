@@ -19,7 +19,7 @@ export const SharingWrapperStyle = styled.aside`
   width: 100%;
   height: 100%;
   padding: ${intToPx(DefaultPadding.Desktop)};
-  background: rgba(0, 0, 0, 0.8);
+  background: ${ShadowColors.BlackZeroEightOpacity};
   z-index: 3;
 `;
 

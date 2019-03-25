@@ -38,8 +38,6 @@ type Props = {
   user: UserObject,
   /** Array with form errors */
   errors: Array<ErrorObject>,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
@@ -50,7 +48,7 @@ type Props = {
  * Renders Register Form
  */
 export const RegisterFormComponent = (props: Props) => {
-  const { user, errors, handleChange, handleSubmit, isPannelOpen } = props;
+  const { user, errors, handleChange, handleSubmit } = props;
 
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
@@ -74,7 +72,6 @@ export const RegisterFormComponent = (props: Props) => {
         label={i18n.t('common.form.email_label')}
         required
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       {emailError && (
         <InputErrorMessageStyle id="authentification-email-error">
@@ -88,7 +85,6 @@ export const RegisterFormComponent = (props: Props) => {
         value={user.password}
         label={i18n.t('common.form.password_label')}
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       {passwordError && (
         <InputErrorMessageStyle id="authentification-password-error">
@@ -104,7 +100,6 @@ export const RegisterFormComponent = (props: Props) => {
         label={i18n.t('common.form.firstname_label')}
         required
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       <UntypedInput
         type="number"
@@ -114,7 +109,6 @@ export const RegisterFormComponent = (props: Props) => {
         label={i18n.t('common.form.age_label')}
         required={false}
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       <UntypedInput
         type="number"
@@ -124,7 +118,6 @@ export const RegisterFormComponent = (props: Props) => {
         label={i18n.t('common.form.postalcode_label')}
         required={false}
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       <UntypedInput
         type="text"
@@ -134,14 +127,11 @@ export const RegisterFormComponent = (props: Props) => {
         label={i18n.t('common.form.profession_label')}
         required={false}
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
       />
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
           __html: i18n.t('register.cgu_text', {
-            cgu_link: `<a class="red_link" target="_blank" href="${cguLink}" tabIndex="${
-              isPannelOpen ? 0 : -1
-            }">$t(register.cgu)</a>`, // eslint-disable-line max-len
+            cgu_link: `<a class="red_link" target="_blank" href="${cguLink}">$t(register.cgu)</a>`, // eslint-disable-line max-len
             interpolation: { escapeValue: false },
           }),
         }}
@@ -150,7 +140,6 @@ export const RegisterFormComponent = (props: Props) => {
         formName={REGISTER_FORMNAME}
         id="authentification-register-submit"
         icon={faThumbsUp}
-        tabIndex={isPannelOpen ? 0 : -1}
         label={i18n.t('common.register_label')}
       />
     </FormStyle>

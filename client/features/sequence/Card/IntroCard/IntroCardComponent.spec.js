@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Small } from 'Client/ui/Elements/Separators';
+import { SmallWithMargin } from 'Client/ui/Elements/Separators';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { IntroCardComponent } from './IntroCardComponent';
 
@@ -13,6 +13,6 @@ describe('IntroCardComponent', () => {
     const wrapper = shallow(<IntroCardComponent {...props} />);
 
     expect(wrapper.find(IconWrapperStyle).prop('aria-hidden')).toBe(true);
-    expect(wrapper.find(Small).prop('aria-hidden')).toBe(true);
+    expect(wrapper.find(SmallWithMargin).prop('aria-hidden')).toBe(true);
   });
 });

@@ -1,3 +1,3 @@
 export {
-  AuthentificationSocialContainer as AuthentificationSocial,
-} from './AuthentificationSocialContainer';
+  AuthentificationSocialComponent as AuthentificationSocial,
+} from './AuthentificationSocialComponent';

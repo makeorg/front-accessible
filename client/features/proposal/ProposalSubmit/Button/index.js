@@ -18,8 +18,6 @@ type Props = {
   handleOnSubmit: (SyntheticEvent<*>) => void,
   /** Can user submit value */
   canSubmit: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Boolean toggled when Proposal Fieldis expanded / collapsed */
   isFieldExpanded: boolean,
 };
@@ -28,7 +26,7 @@ type Props = {
  * Renders submit button in proposal's field
  */
 export const ProposalSubmitButtonComponent = (props: Props) => {
-  const { handleOnSubmit, canSubmit, isPannelOpen, isFieldExpanded } = props;
+  const { handleOnSubmit, canSubmit, isFieldExpanded } = props;
 
   return (
     <BasicButtonStyle
@@ -36,7 +34,6 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       id="proposal-submit-button"
       type="submit"
       onClick={handleOnSubmit}
-      tabIndex={isPannelOpen ? -1 : 0}
       disabled={!canSubmit}
     >
       <IconWrapperStyle

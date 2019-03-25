@@ -120,11 +120,11 @@ describe('Tracking Service', () => {
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
   });
 
-  it('track Click Close Pannel', () => {
+  it('track Click Close Modal', () => {
     jest.spyOn(Tracking, 'track');
 
-    Tracking.trackClickClosePannel();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CLOSE_PANNEL);
+    Tracking.trackClickCloseModal();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CLOSE_MODAL);
   });
 
   it('track Display Signup Form', () => {

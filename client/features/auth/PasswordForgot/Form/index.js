@@ -20,18 +20,16 @@ type Props = {
   /** Array with form errors */
   errors: ErrorObject[],
   /** Method called when field's value changes */
-  handleChange: Function,
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: Function,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
+  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
 };
 
 /**
  * Renders ForgotPassword Form
  */
 export const ForgotPasswordFormComponent = (props: Props) => {
-  const { email, errors, handleChange, handleSubmit, isPannelOpen } = props;
+  const { email, errors, handleChange, handleSubmit } = props;
 
   const emailError = fieldErrors('email', errors);
   const globalError = fieldErrors('global', errors);
@@ -54,7 +52,6 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         label={i18n.t('common.form.email_label')}
         required
         handleChange={handleChange}
-        tabIndex={isPannelOpen ? 0 : -1}
         errors={emailError}
       />
       {emailError && (
@@ -64,7 +61,6 @@ export const ForgotPasswordFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
-        tabIndex={isPannelOpen ? 0 : -1}
         icon={faPaperPlane}
         label={i18n.t('forgot_password.send_link')}
       />

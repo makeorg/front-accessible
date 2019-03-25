@@ -17,8 +17,6 @@ export type Props = {
   cardOffset: number,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Method called when "Return to proposal" button is clicked */
   handleExpandSequence: () => void,
   /** Method called when "Stard Sequence" button is clicked */
@@ -42,7 +40,6 @@ export const SequenceComponent = (props: Props) => {
     cards,
     currentIndex,
     isSequenceCollapsed,
-    isPannelOpen,
     handleExpandSequence,
     handleStartSequence,
     goToPreviousCard,
@@ -61,7 +58,6 @@ export const SequenceComponent = (props: Props) => {
       <CollapseToggle
         handleExpandSequence={handleExpandSequence}
         isSequenceCollapsed={isSequenceCollapsed}
-        isPannelOpen={isPannelOpen}
       />
       <WrapperStyle>
         <ListStyle isSequenceCollapsed={isSequenceCollapsed} id="sequence">

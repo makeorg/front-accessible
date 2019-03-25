@@ -21,8 +21,6 @@ type Props = {
   length: number,
   /** Can user submit value */
   canSubmit: boolean,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Method called when field's value changes */
   handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
@@ -40,7 +38,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     content,
     length,
     canSubmit,
-    isPannelOpen,
     isFieldExpanded,
     handleOnChange,
     handleOnFocus,
@@ -67,27 +64,25 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           autoComplete="off"
           spellCheck
           maxLength="140"
-          tabIndex={isPannelOpen ? -1 : 0}
           isFieldExpanded={isFieldExpanded}
         />
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isFieldExpanded={isFieldExpanded}>
         <ProposalCharLimitStyle>
           <span aria-valuetext={length}>{length}</span>
-          <HiddenItemStyle aria-hidden>
+          <HiddenItemStyle>
             {i18n.t('proposal_submit.entred_chars')}
           </HiddenItemStyle>
-          /
-          <HiddenItemStyle aria-hidden>{i18n.t('common.from')}</HiddenItemStyle>
+          <span aria-hidden>/</span>
+          <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
           <span aria-valuemax="140">140</span>
-          <HiddenItemStyle aria-hidden>
+          <HiddenItemStyle>
             {i18n.t('proposal_submit.available_chars')}
           </HiddenItemStyle>
         </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
-          isPannelOpen={isPannelOpen}
           isFieldExpanded={isFieldExpanded}
         />
       </ProposalButtonWrapperStyle>

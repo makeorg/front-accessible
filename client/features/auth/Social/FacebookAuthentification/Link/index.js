@@ -5,8 +5,8 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FacebookLinkStyle, SocialIconStyle } from '../../Styled';
 import { FacebookAuthentificationComponent } from '../index';
 
-const renderFacebookLogin = tabIndex => renderProps => (
-  <FacebookLinkStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+const renderFacebookLogin = () => renderProps => (
+  <FacebookLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
       <FontAwesomeIcon icon={faFacebook} />
     </SocialIconStyle>
@@ -14,21 +14,9 @@ const renderFacebookLogin = tabIndex => renderProps => (
   </FacebookLinkStyle>
 );
 
-type Props = {
-  /** Tabindex for interactive items */
-  tabIndex: number,
-};
-
 /**
  * Renders Facebook authentification link
  */
-export const FacebookAuthentificationLinkComponent = (props: Props) => {
-  const { tabIndex } = props;
-
-  return (
-    <FacebookAuthentificationComponent
-      {...props}
-      render={renderFacebookLogin(tabIndex)}
-    />
-  );
+export const FacebookAuthentificationLinkComponent = () => {
+  return <FacebookAuthentificationComponent render={renderFacebookLogin()} />;
 };

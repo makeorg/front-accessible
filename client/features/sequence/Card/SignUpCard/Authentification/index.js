@@ -1,10 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import {
-  pannelShowRegister,
-  pannelShowLogin,
-} from 'Shared/store/actions/pannel';
+import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import { SignUpCardAuthentificationComponent } from './SignUpCardAuthentificationComponent';
 
 type Props = {
@@ -25,10 +22,10 @@ const SignUpCardAuthentification = (props: Props) => (
 
 const mapDispatchToProps = dispatch => ({
   handleRegisterClick: () => {
-    dispatch(pannelShowRegister());
+    dispatch(modalShowRegister());
   },
   handleLoginClick: () => {
-    dispatch(pannelShowLogin());
+    dispatch(modalShowLogin());
   },
 });
 

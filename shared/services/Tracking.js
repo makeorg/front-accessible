@@ -132,11 +132,11 @@ class TrackingSingleton {
     this.track(trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
   };
 
-  trackClickClosePannel = () => {
-    this.track(trackingConstants.CLICK_CLOSE_PANNEL);
+  trackClickCloseModal = () => {
+    this.track(trackingConstants.CLICK_CLOSE_MODAL);
   };
 
-  /* Sign Up Pannel */
+  /* Sign Up */
   trackDisplaySignupForm = () => {
     this.track(trackingConstants.DISPLAY_SIGN_UP_FORM);
   };

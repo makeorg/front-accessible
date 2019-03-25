@@ -51,7 +51,7 @@ describe('Authentification Actions', () => {
 
       const newStore = mockStore({
         proposal: { canSubmit: false },
-        pannel: { isPannelOpen: false },
+        modal: { isModalClose: false },
         authentification: { isLoggedIn: false },
       });
 
@@ -137,7 +137,7 @@ describe('Authentification Actions', () => {
       const store = mockStore({
         proposal: { canSubmit: false },
         authentification: { isLoggedIn: false },
-        pannel: { isPannelOpen: false },
+        modal: { isModalClose: false },
       });
       const user = { firstname: 'baz' };
       const provider = 'fooProvider';
@@ -219,34 +219,34 @@ describe('Authentification Actions', () => {
       expect(actions.logout()).toEqual(expectedAction);
     });
 
-    it('creates an action to getUser when pannel is open', () => {
+    it('creates an action to getUser when modal is open', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        pannel: { isPannelOpen: true },
+        modal: { isModalOpen: true },
       });
 
       // mock
       UserService.me.mockResolvedValue(user);
 
       // spy
-      jest.spyOn(Tracking, 'trackClickClosePannel');
+      jest.spyOn(Tracking, 'trackClickCloseModal');
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.PANNEL_CLOSE },
+        { type: actionTypes.MODAL_CLOSE },
         { type: actionTypes.FORGOT_PASSWORD_INIT },
       ];
 
       return store.dispatch(actions.getUser()).then(() => {
-        expect(Tracking.trackClickClosePannel).toHaveBeenCalled();
+        expect(Tracking.trackClickCloseModal).toHaveBeenCalled();
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
 
-    it('creates an action to getUser when pannel is closed', () => {
+    it('creates an action to getUser when modal is closed', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        pannel: { isPannelOpen: false },
+        modal: { isModalClose: false },
       });
 
       // mock

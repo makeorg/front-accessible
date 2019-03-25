@@ -51,7 +51,7 @@ export const PasswordRecoveryComponent = (props: Props) => {
           <SecondLevelTitleStyle id="password_recovery_title">
             {i18n.t('reset_password.title')}
           </SecondLevelTitleStyle>
-          <Separators.Small />
+          <Separators.SmallWithMargin />
           <React.Fragment>
             <PasswordRecoveryTitleStyle>
               {i18n.t('reset_password.info')}

@@ -5,20 +5,18 @@ import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { login } from 'Shared/store/actions/authentification';
 import {
-  pannelShowRegister,
-  pannelShowForgotPassword,
-} from 'Shared/store/actions/pannel';
+  modalShowRegister,
+  modalShowForgotPassword,
+} from 'Shared/store/actions/modal';
 import { LoginComponent } from './LoginComponent';
 
 type Props = {
   /** Array with form errors */
   errors: Array<ErrorObject>,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
-  /** Method called to render Register Component in Sliding Pannel */
-  handleRegisterPannel: () => void,
-  /** Method called to render ForgotPassword Component in Sliding Pannel */
-  handleForgotPasswordPannel: () => void,
+  /** Method called to render Register Component in Modal */
+  handleRegisterModal: () => void,
+  /** Method called to render ForgotPassword Component in Modal */
+  handleForgotPasswordModal: () => void,
   /** Method called to submit Login Form */
   handleLogin: (string, string) => void,
 };
@@ -75,11 +73,9 @@ class LoginHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors } = state.authentification;
-  const { isPannelOpen } = state.pannel;
 
   return {
     errors,
-    isPannelOpen,
   };
 };
 
@@ -87,11 +83,11 @@ const mapDispatchToProps = dispatch => ({
   handleLogin: (email, password) => {
     dispatch(login(email, password));
   },
-  handleRegisterPannel: () => {
-    dispatch(pannelShowRegister());
+  handleRegisterModal: () => {
+    dispatch(modalShowRegister());
   },
-  handleForgotPasswordPannel: () => {
-    dispatch(pannelShowForgotPassword());
+  handleForgotPasswordModal: () => {
+    dispatch(modalShowForgotPassword());
   },
 });
 

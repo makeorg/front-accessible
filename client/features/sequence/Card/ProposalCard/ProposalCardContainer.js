@@ -14,8 +14,6 @@ type Props = {
   currentIndex: number,
   /** Total of cards */
   cardsCount: number,
-  /** Boolean toggled when Sliding pannel is opened / closed */
-  isPannelOpen: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Method called when previous card button is clicked  */
@@ -28,23 +26,18 @@ type Props = {
  * Handles Proposal Card Business Logic
  */
 const ProposalCardHandler = (props: Props) => {
-  const { index, currentIndex, isPannelOpen, isSequenceCollapsed } = props;
+  const { index, currentIndex, isSequenceCollapsed } = props;
 
   return (
     <ProposalCardComponent
-      tabIndex={
-        isPannelOpen || isSequenceCollapsed || index !== currentIndex ? -1 : 0
-      }
+      tabIndex={isSequenceCollapsed || index !== currentIndex ? -1 : 0}
       {...props}
     />
   );
 };
 
 const mapStateToProps = state => {
-  const { isPannelOpen } = state.pannel;
-
   return {
-    isPannelOpen,
     isSequenceCollapsed: selectSequenceCollapsed(state),
   };
 };
