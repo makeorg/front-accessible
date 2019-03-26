@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComponentStyle must match the diff snapshot between Button vs Selected Button Tag 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+  <TagStyle
+    as="TagButtonStyle"
+-   className=""
++   className="selected"
+  >
+    Hello
+  </TagStyle>
+`;
+
+exports[`ComponentStyle must match the diff snapshot between default vs Button Tag 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+  <TagStyle
+-   as="TagStyle"
++   as="TagButtonStyle"
+    className=""
+  >
+    Hello
+  </TagStyle>
+`;
+
+exports[`ComponentStyle snapshot by default 1`] = `
+<TagStyle
+  as="TagStyle"
+  className=""
+>
+  Hello
+</TagStyle>
+`;

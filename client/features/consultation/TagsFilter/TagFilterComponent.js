@@ -54,8 +54,9 @@ export const TagFilterComponent = (props: Props) => {
           <Tag
             name={tag.label}
             key={tag.tagId}
-            selected={selectedTagIds.includes(tag.tagId)}
+            isSelected={selectedTagIds.includes(tag.tagId)}
             onClick={() => handleSelectTag(tag.tagId)}
+            isAButton
           />
         ))}
       {displayShowAll && (
@@ -65,8 +66,9 @@ export const TagFilterComponent = (props: Props) => {
               ? i18n.t('consultation.tags.show_less')
               : i18n.t('consultation.tags.show_all')
           }
-          selected
+          isSelected
           onClick={toggleShowAll}
+          isAButton
           key="all"
         />
       )}
