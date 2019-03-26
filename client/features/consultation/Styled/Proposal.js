@@ -9,12 +9,15 @@ import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ProposalWrapperStyle = styled.aside`
+  width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin: 15px 0;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: 0 0 15px;
+  margin: 0 0 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
+      Breakpoints.Desktop
+    )}) {
+    margin: 15px 0;
   }
 `;
 

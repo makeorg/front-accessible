@@ -65,6 +65,14 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
+        {question.canPropose && (
+          <HiddenOnDesktopStyle>
+            <ConsultationProposal
+              question={question}
+              questionConfiguration={questionConfiguration}
+            />
+          </HiddenOnDesktopStyle>
+        )}
         <ConsultationPageSidebarStyle
           id="sidebar"
           as="aside"
@@ -89,7 +97,7 @@ export const ConsultationPageComponent = (props: Props) => {
               />
             </Collapse>
           )}
-          <HiddenOnMobileStyle aria-hidden>
+          <HiddenOnMobileStyle>
             <SidebarTile title={i18n.t('consultation.sharing.title')}>
               <Sharing />
             </SidebarTile>
@@ -97,10 +105,12 @@ export const ConsultationPageComponent = (props: Props) => {
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle id="main">
           {question.canPropose && (
-            <ConsultationProposal
-              question={question}
-              questionConfiguration={questionConfiguration}
-            />
+            <HiddenOnMobileStyle>
+              <ConsultationProposal
+                question={question}
+                questionConfiguration={questionConfiguration}
+              />
+            </HiddenOnMobileStyle>
           )}
           <ParticipateBanner
             question={question}

@@ -73,3 +73,12 @@ export const getConsultationLink = (
   country: string,
   language: string
 ) => `/${country}-${language}/consultation/${questionSlug}/consultation`;
+
+export const getProposalLink = (
+  questionSlug: string,
+  proposalId: string,
+  proposalSlug: string,
+  country: string,
+  language: string
+) =>
+  `/${country}-${language}/consultation/${questionSlug}/proposal/${proposalId}/${proposalSlug}`;

@@ -39,6 +39,7 @@ export const CollapseIconStyle = styled.div`
 `;
 
 export const CollapseContentStyle = styled.div`
+  width: 100%;
   ${props =>
     props.iscollapsed ? `height: 0; visibility: hidden;` : `height: auto;`};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
