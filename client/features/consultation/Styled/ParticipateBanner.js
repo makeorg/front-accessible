@@ -17,7 +17,10 @@ export const ParticipateWrapperStyle = styled.aside`
     ${props => props.gradientEnd}
   );
   padding: ${intToPx(DefaultPadding.Mobile)};
-  margin: 0 0 15px;
+  margin: 15px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 0 0 15px;
+  }
 `;
 
 export const ParticipateTitle = styled.h3`

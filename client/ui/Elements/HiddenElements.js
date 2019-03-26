@@ -23,6 +23,7 @@ export const HiddenOnMobileStyle = styled.div`
 `;
 
 export const HiddenOnDesktopStyle = styled.div`
+  width: 100%;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     display: none;
     visibility: hidden;
