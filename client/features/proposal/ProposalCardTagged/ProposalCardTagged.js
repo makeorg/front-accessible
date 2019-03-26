@@ -1,9 +1,11 @@
 /* @flow */
 import React from 'react';
 import { Vote } from 'Client/features/vote';
+import { type Question } from 'Shared/types/question';
 import { type ProposalType } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { Tag } from 'Client/ui/Elements/Tag';
+import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalAuthorWithAvatar } from '../ProposalAuthor/WithAvatar';
 import {
   ProposalCardTaggedStyle,
@@ -13,16 +15,25 @@ import {
 } from './Styled';
 
 type Props = {
+  question: Question,
   proposal: ProposalType,
   position: number,
   size: number,
 };
 
 export const ProposalCardTagged = (props: Props) => {
-  const { proposal, position, size } = props;
+  const { question, proposal, position, size } = props;
   const { author } = proposal;
   const displayTags = proposal.tags && proposal.tags.length > 0;
   const numberOfTagsToDisplay = 4;
+  const proposalLink = getProposalLink(
+    question.slug,
+    proposal.id,
+    proposal.slug,
+    question.country,
+    question.language
+  );
+
   return (
     <ProposalCardTaggedStyle
       aria-labelledby={`proposal_author_${position}`}
@@ -39,7 +50,7 @@ export const ProposalCardTagged = (props: Props) => {
         createdAt={proposal.createdAt}
       />
       <ProposalSeparatorStyle />
-      <ProposalStyle id={`proposal_content_${position}`}>
+      <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
         {proposal.content}
       </ProposalStyle>
       <Vote

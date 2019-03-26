@@ -5,7 +5,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { CardStyle } from 'Client/ui/Cards';
 
-export const ProposalStyle = styled.blockquote`
+export const ProposalStyle = styled.a`
   max-width: 100%;
   font-size: 12px;
   line-height: normal;
@@ -13,6 +13,7 @@ export const ProposalStyle = styled.blockquote`
   font-weight: bold;
   align-self: flex-start;
   margin-top: 10px;
+  text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 18px;
   }
