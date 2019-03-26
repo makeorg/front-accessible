@@ -67,3 +67,9 @@ export const getSequenceLink = (
   country: string,
   language: string
 ) => `/${country}-${language}/consultation/${questionSlug}/selection`;
+
+export const getConsultationLink = (
+  questionSlug: string,
+  country: string,
+  language: string
+) => `/${country}-${language}/consultation/${questionSlug}/consultation`;

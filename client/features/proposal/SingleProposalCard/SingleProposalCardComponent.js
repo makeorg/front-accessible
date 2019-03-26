@@ -3,7 +3,7 @@ import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { getSequenceLink } from 'Shared/helpers/url';
+import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { Vote } from 'Client/features/vote';
@@ -52,9 +52,11 @@ export const SingleProposalCardComponent = (props: Props) => {
           <DescriptionStyle
             dangerouslySetInnerHTML={{
               __html: i18n.t('proposal_page.footer_text', {
-                operation_name: `<span>${
-                  questionConfiguration.wording.title
-                }</span>`,
+                operation_name: `<a href="${getConsultationLink(
+                  questionSlug,
+                  proposal.country,
+                  proposal.language
+                )}">${questionConfiguration.wording.title}</a>`,
               }),
             }}
           />
@@ -70,7 +72,14 @@ export const SingleProposalCardComponent = (props: Props) => {
             >
               {i18n.t('proposal_page.button_1')}
             </ButtonStyle>
-            <ButtonStyle as="a" href={questionConfiguration.aboutUrl}>
+            <ButtonStyle
+              as={Link}
+              to={getConsultationLink(
+                questionSlug,
+                proposal.country,
+                proposal.language
+              )}
+            >
               {i18n.t('proposal_page.button_2')}
             </ButtonStyle>
           </CenterRowStyle>

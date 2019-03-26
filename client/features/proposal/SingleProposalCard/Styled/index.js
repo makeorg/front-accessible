@@ -27,9 +27,11 @@ export const DescriptionStyle = styled.p`
   max-width: ${pxToRem('650px')};
   color: ${TextColors.MediumGrey};
   font-size: ${pxToRem('13px;')};
-  > span {
+  > span,
+  > a {
     font-family: ${MakeFonts.RobotoBold};
     color: ${props => props.theme.color};
+    text-decoration: none;
   }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     text-align: right;
