@@ -5,54 +5,46 @@ import { connect } from 'react-redux';
 import { throttle } from 'Shared/helpers/throttle';
 import {
   getProposalLength,
-  getIsProposalValidLength,
+  proposalHasValidLength,
 } from 'Shared/helpers/proposal';
-import { typingProposal, submitProposal } from 'Shared/store/actions/proposal';
-import { sequenceCollapse } from 'Shared/store/actions/sequence';
+import { type Question } from 'Shared/types/question';
+import { proposeSuccess } from 'Shared/store/actions/proposal';
 import { Tracking } from 'Shared/services/Tracking';
-import {
-  selectSequenceQuestion,
-  selectSequenceCollapsed,
-} from 'Shared/store/selectors/sequence.selector';
+import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
+import { propose } from 'Shared/services/Proposal';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitSuccessComponent } from './Success';
 import { ProposalSubmitDescriptionComponent } from './Description';
 
 type Props = {
-  /** Content of the proposal */
-  content: string,
-  /** Length of the proposal */
-  length: number,
-  /** Boolean toggled when proposal can be submitted */
-  canSubmit: boolean,
-  /** Boolean toggled when proposal is succesfully submitted */
-  isCurrentSubmitSuccess: boolean,
+  /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
+  question: Question,
   /** Boolean toggled when user is connected */
   isLoggedIn: boolean,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
   /** Localiszed Language of the app */
   language: string,
   /** Localiszed Country of the app */
   country: string,
-  /** Method called to collapse Sequence */
-  handleCollapseSequence: Function,
-  /** Method called when user is typing a proposal */
-  handleTypingProposal: Function,
-  /** Method called to submit proposal */
-  handleSubmitProposal: Function,
-  /** Is user coming from Sequence Page */
-  isComingFromSequence?: boolean,
+  /** Boolean to check if prposal submit can be expanded */
+  canBeOpen: boolean,
+  /** Method to dispatch propose sucess action */
+  handleProposeSuccess: () => void,
+  /** Method to handle when proposal submit is focused */
+  handleFocus: () => void,
 };
 
 type State = {
+  /** Content of the proposal */
+  content: string,
+  /** Length of the proposal */
+  length: number,
   /** Boolean toggled when user is typing a proposal */
   isTyping: boolean,
-  /** Boolean used to expand / collapse proposal field */
-  isFieldExpanded: boolean,
   /** Boolean toggled when user is submitting a proposal */
   isSubmitted: boolean,
+  /** Boolean toggled when proposal is submitted successfully */
+  isSucess: boolean,
 };
 
 /**
@@ -60,13 +52,16 @@ type State = {
  */
 export class ProposalSubmitHandler extends React.Component<Props, State> {
   state = {
+    content: '',
+    length: getProposalLength(),
     isTyping: false,
     isSubmitted: false,
-    isFieldExpanded: false,
+    isSucess: false,
   };
 
   static defaultProps = {
-    isComingFromSequence: false,
+    canBeOpen: true,
+    handleCollapse: () => {},
   };
 
   throttleOnSubmit: any = undefined;
@@ -76,62 +71,68 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     this.throttleOnSubmit = throttle(this.handleOnSubmit);
   }
 
-  componentDidMount() {
-    this.setFieldExpanded();
+  componentDidUpdate(prevProps: Props) {
+    const { isLoggedIn } = this.props;
+    const { isSubmitted } = this.state;
+    if (isLoggedIn !== prevProps.isLoggedIn && isSubmitted) {
+      this.submitProposal();
+    }
   }
 
-  setFieldExpanded = () => {
-    const { isComingFromSequence } = this.props;
+  submitProposal = async () => {
+    const { question, handleProposeSuccess } = this.props;
+    const { content } = this.state;
 
-    if (isComingFromSequence) {
-      this.setState((state, props) => ({
-        isFieldExpanded: props.isSequenceCollapsed && state.isTyping,
-      }));
-    } else {
-      this.setState(state => ({
-        isFieldExpanded: state.isTyping,
-      }));
+    try {
+      await propose(content, question.questionId);
+      handleProposeSuccess();
+      this.setState({
+        isSucess: true,
+        content: '',
+        length: getProposalLength(),
+      });
+      Tracking.trackDisplayProposalSubmitValidation();
+    } catch {
+      this.setState({
+        isSucess: false,
+      });
     }
   };
 
   handleOnChange = (event: SyntheticEvent<*>) => {
     const content = event.currentTarget.value;
     const length = getProposalLength(content);
-    const canSubmit = getIsProposalValidLength(length);
 
-    const { handleTypingProposal } = this.props;
-
-    handleTypingProposal(content, length, canSubmit);
+    this.setState({ content, length });
   };
 
   handleOnFocus = () => {
+    const { handleFocus } = this.props;
     this.setState({
       isTyping: true,
       isSubmitted: false,
     });
 
-    const { handleCollapseSequence, isSequenceCollapsed } = this.props;
-    if (!isSequenceCollapsed) handleCollapseSequence();
-
-    this.setFieldExpanded();
+    handleFocus();
   };
 
   handleOnSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
-
-    const { content, isLoggedIn, handleSubmitProposal } = this.props;
-
-    Tracking.trackClickProposalSubmit();
-
-    if (isLoggedIn) {
-      handleSubmitProposal(content);
-    }
-
     this.setState({
       isTyping: false,
       isSubmitted: true,
     });
-    this.setFieldExpanded();
+
+    const { isLoggedIn, canBeOpen, handleFocus } = this.props;
+    const { length } = this.state;
+
+    if (!canBeOpen) handleFocus();
+
+    Tracking.trackClickProposalSubmit();
+
+    if (isLoggedIn && proposalHasValidLength(length)) {
+      this.submitProposal();
+    }
   };
 
   trackModerationText = () => {
@@ -143,34 +144,24 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      content,
-      length,
-      canSubmit,
-      isCurrentSubmitSuccess,
-      isLoggedIn,
-      isSequenceCollapsed,
-      country,
-      language,
-    } = this.props;
-    const { isTyping, isSubmitted, isFieldExpanded } = this.state;
-    const isDescriptionShown =
-      isTyping && !isCurrentSubmitSuccess && isSequenceCollapsed;
-    const isAuthentificationShown =
-      isSubmitted && !isLoggedIn && isSequenceCollapsed;
-    const isSuccessShown =
-      !isTyping && isCurrentSubmitSuccess && isSequenceCollapsed;
+    const { country, language, isLoggedIn, canBeOpen } = this.props;
+    const { content, length, isTyping, isSubmitted, isSucess } = this.state;
+    const isDescriptionShown = canBeOpen && isTyping && !isSubmitted;
+    const isAuthentificationShown = canBeOpen && isSubmitted && !isLoggedIn;
+    const isSuccessShown = canBeOpen && isSucess;
+    const isOpen = isDescriptionShown || isAuthentificationShown;
+
     return (
       <React.Fragment>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
           length={length}
-          canSubmit={canSubmit}
+          canSubmit={proposalHasValidLength(length)}
+          isOpen={isOpen}
           handleOnChange={this.handleOnChange}
           handleOnSubmit={this.throttleOnSubmit}
           handleOnFocus={this.handleOnFocus}
-          isFieldExpanded={isFieldExpanded}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent
@@ -194,27 +185,17 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { isLoggedIn } = state.authentification;
-  const { content, length, canSubmit, isCurrentSubmitSuccess } = state.proposal;
   const { country, language } = state.appConfig;
 
   return {
     isLoggedIn,
-    isSequenceCollapsed: selectSequenceCollapsed(state),
     question: selectSequenceQuestion(state),
-    content,
-    length,
-    canSubmit,
-    isCurrentSubmitSuccess,
     country,
     language,
   };
 };
-
 const mapDispatchToProps = dispatch => ({
-  handleCollapseSequence: () => dispatch(sequenceCollapse()),
-  handleTypingProposal: (content: string, length: number, canSubmit: boolean) =>
-    dispatch(typingProposal(content, length, canSubmit)),
-  handleSubmitProposal: (content: string) => dispatch(submitProposal(content)),
+  handleProposeSuccess: () => dispatch(proposeSuccess()),
 });
 
 export const ProposalSubmitContainer = connect(

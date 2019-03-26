@@ -1,19 +1,17 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
+import { type Dispatch } from 'redux';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import { type DispatchString } from 'Shared/types/dispatch';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { QuestionService } from 'Shared/api/QuestionService';
 import { Logger } from 'Shared/services/Logger';
 import { Tracking } from 'Shared/services/Tracking';
 
-export const sequenceCollapse = () => (dispatch: DispatchString => void) =>
+export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
-
-export const sequenceExpand = () => (dispatch: DispatchString => void) =>
-  dispatch({ type: actionTypes.SEQUENCE_EXPAND });
 
 export const voteProposal = (proposalId: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
@@ -42,7 +40,7 @@ export const sequenceVote = (
   proposalId: string,
   voteKey: string,
   index: number
-) => (dispatch: any => void, getState: () => any) => {
+) => (dispatch: Dispatch, getState: () => StateRoot) => {
   const { votedProposalIds } = getState().sequence;
   const isFirstVote = votedProposalIds.length === 0;
   dispatch(voteProposal(proposalId));

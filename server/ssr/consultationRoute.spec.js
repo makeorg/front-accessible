@@ -53,9 +53,7 @@ describe('Proposal route', () => {
           },
         },
         sequence: { questionId: '1234' },
-        proposal: {
-          length: 20,
-        },
+        proposal: {},
       });
     });
 

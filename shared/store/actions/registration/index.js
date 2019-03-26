@@ -3,9 +3,9 @@
 import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { loginSuccess } from 'Shared/store/actions/authentification';
-import { submitProposal } from 'Shared/store/actions/proposal';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
+import { type Dispatch } from 'redux';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = (user: Object) => ({
@@ -17,10 +17,7 @@ export const registerFailure = (errors: Array<Object>) => ({
   errors,
 });
 
-export const register = (user: Object) => (
-  dispatch: Function,
-  getState: Function
-) => {
+export const register = (user: Object) => (dispatch: Dispatch) => {
   dispatch(registerRequest());
   return UserService.register(user)
     .then(userResponse => {
@@ -30,10 +27,7 @@ export const register = (user: Object) => (
     })
     .then(() =>
       UserService.login(user.email, user.password).then(() => {
-        const { content, canSubmit } = getState().proposal;
         dispatch(loginSuccess());
-
-        if (canSubmit) dispatch(submitProposal(content));
 
         dispatch(modalClose());
       })

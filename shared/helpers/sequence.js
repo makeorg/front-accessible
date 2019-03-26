@@ -48,7 +48,7 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  */
 export const findIndexOfFirstUnvotedCard = (
   firstUnvotedProposal?: ProposalType,
-  cards: Array<CardType>
+  cards: CardType[]
 ): number => {
   if (!firstUnvotedProposal) {
     return cards.length - 1;

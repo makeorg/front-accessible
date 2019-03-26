@@ -43,10 +43,10 @@ const ModalContainerSwitch = (props: Props) => {
 };
 
 const mapStateToProps = state => {
-  const { isModalOpen, contentType } = state.modal;
+  const { isOpen, contentType } = state.modal;
 
   return {
-    isModalOpen,
+    isModalOpen: isOpen,
     contentType,
   };
 };

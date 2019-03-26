@@ -36,26 +36,24 @@ describe('Proposal Helper', () => {
     });
   });
 
-  describe('getIsProposalValidLength function', () => {
-    it('getIsProposalValidLength with content with valid length', () => {
-      const isProposalValidLength = ProposalHelper.getIsProposalValidLength(15);
+  describe('proposalHasValidLength function', () => {
+    it('proposalHasValidLength with content with valid length', () => {
+      const isProposalValidLength = ProposalHelper.proposalHasValidLength(15);
       expect(isProposalValidLength).toBe(true);
     });
 
-    it('getIsProposalValidLength with content with length more than Max', () => {
-      const isProposalValidLength = ProposalHelper.getIsProposalValidLength(
-        141
-      );
+    it('proposalHasValidLength with content with length more than Max', () => {
+      const isProposalValidLength = ProposalHelper.proposalHasValidLength(141);
       expect(isProposalValidLength).toBe(false);
     });
 
-    it('getIsProposalValidLength with content with length minus than Min', () => {
-      const isProposalValidLength = ProposalHelper.getIsProposalValidLength(2);
+    it('proposalHasValidLength with content with length minus than Min', () => {
+      const isProposalValidLength = ProposalHelper.proposalHasValidLength(2);
       expect(isProposalValidLength).toBe(false);
     });
 
-    it('getIsProposalValidLength without content', () => {
-      const isProposalValidLength = ProposalHelper.getIsProposalValidLength();
+    it('proposalHasValidLength without content', () => {
+      const isProposalValidLength = ProposalHelper.proposalHasValidLength();
       expect(isProposalValidLength).toBe(false);
     });
   });

@@ -7,18 +7,17 @@ Object {
     "isLoggedIn": false,
     "user": undefined,
   },
+  "modal": Object {
+    "contentType": null,
+    "isOpen": false,
+  },
   "notification": Object {
     "contentType": undefined,
   },
   "proposal": Object {
-    "canSubmit": false,
-    "content": "",
     "data": undefined,
     "error": undefined,
     "hasProposed": false,
-    "isCurrentSubmitSuccess": false,
-    "isTyping": false,
-    "questionId": undefined,
   },
   "questions": Object {},
   "sequence": Object {

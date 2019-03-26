@@ -10,15 +10,15 @@ export type Props = {
   /** Number of cards */
   cardsCount: number,
   /** Array with cards */
-  cards: Array<CardType>,
+  cards: CardType[],
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  isClosed: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleExpandSequence: () => void,
+  handleOpenSequence: () => void,
   /** Method called when "Stard Sequence" button is clicked */
   handleStartSequence: () => void,
   /** Method called when next card button is clicked (Incremented currentIndex) */
@@ -39,8 +39,8 @@ export const SequenceComponent = (props: Props) => {
     cardsCount,
     cards,
     currentIndex,
-    isSequenceCollapsed,
-    handleExpandSequence,
+    isClosed,
+    handleOpenSequence,
     handleStartSequence,
     goToPreviousCard,
     goToNextCard,
@@ -56,11 +56,11 @@ export const SequenceComponent = (props: Props) => {
   return (
     <SequenceStyle role="region">
       <CollapseToggle
-        handleExpandSequence={handleExpandSequence}
-        isSequenceCollapsed={isSequenceCollapsed}
+        handleOpenSequence={handleOpenSequence}
+        isClosed={isClosed}
       />
       <WrapperStyle>
-        <ListStyle isSequenceCollapsed={isSequenceCollapsed} id="sequence">
+        <ListStyle isSequenceCollapsed={isClosed} id="sequence">
           {cards.map((card, index) => (
             <Card
               key={sequenceHelper.getCardIndex(index)}
@@ -69,6 +69,7 @@ export const SequenceComponent = (props: Props) => {
               cardsCount={cardsCount}
               cardOffset={cardOffset}
               currentIndex={currentIndex}
+              isSequenceCollapsed={isClosed}
               goToPreviousCard={goToPreviousCard}
               goToNextCard={goToNextCard}
               skipSignUpCard={skipSignUpCard}

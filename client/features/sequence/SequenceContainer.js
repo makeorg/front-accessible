@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { startSequence } from 'Shared/services/Sequence';
-import { sequenceExpand } from 'Shared/store/actions/sequence';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
@@ -13,7 +12,6 @@ import {
 } from 'Shared/types/sequence';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type Question } from 'Shared/types/question';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import {
   type Props as SequenceProps,
   SequenceComponent,
@@ -36,9 +34,9 @@ type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: QuestionConfiguration,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  isClosed: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleExpandSequence: () => void,
+  handleOpenSequence: () => void,
   /** Boolean toggled when User is Logged in */
   isLoggedIn: boolean,
   /** Boolean toggled when User has submitted a proposal */
@@ -52,8 +50,6 @@ type Props = {
 type State = {
   /** Array with cards of the sequence */
   cards: CardType[],
-  /** Array with proposals received from Api */
-  proposals: ProposalType[],
   /** Number of proposals */
   cardsCount: number,
   /** Incremented / Decremented Index */
@@ -66,8 +62,6 @@ type State = {
 
 type ContainerProps = {
   isSequenceLoaded: boolean,
-  isSequenceCollapsed: boolean,
-  expandSequence: () => void,
 };
 
 const Sequence = ({
@@ -75,13 +69,13 @@ const Sequence = ({
   cardsCount,
   cardOffset,
   currentIndex,
-  isSequenceCollapsed,
+  isClosed,
   handleStartSequence,
   goToNextCard,
   skipSignUpCard,
   skipProposalPushCard,
   goToPreviousCard,
-  expandSequence,
+  handleOpenSequence,
   isSequenceLoaded,
 }: SequenceProps & ContainerProps) => {
   if (isSequenceLoaded) {
@@ -91,8 +85,8 @@ const Sequence = ({
         cardsCount={cardsCount}
         currentIndex={currentIndex}
         cardOffset={cardOffset}
-        isSequenceCollapsed={isSequenceCollapsed}
-        handleExpandSequence={expandSequence}
+        isClosed={isClosed}
+        handleOpenSequence={handleOpenSequence}
         handleStartSequence={handleStartSequence}
         goToNextCard={goToNextCard}
         skipSignUpCard={skipSignUpCard}
@@ -102,21 +96,15 @@ const Sequence = ({
     );
   }
 
-  return (
-    <SequencePlaceholderComponent
-      handleExpandSequence={expandSequence}
-      isSequenceCollapsed={isSequenceCollapsed}
-    />
-  );
+  return <SequencePlaceholderComponent />;
 };
 
 /**
  * Handles Sequence Business Logic
  */
 class SequenceHandler extends React.Component<Props, State> {
-  state = {
+  state: State = {
     cards: [],
-    proposals: [],
     cardsCount: 0,
     currentIndex: 0,
     hasStarted: false,
@@ -187,7 +175,6 @@ class SequenceHandler extends React.Component<Props, State> {
       indexOfFirstUnvotedCard === 0 && hasStarted ? 1 : indexOfFirstUnvotedCard;
 
     this.setState({
-      proposals,
       cards,
       currentIndex,
       cardsCount: cards.length - 1,
@@ -223,24 +210,23 @@ class SequenceHandler extends React.Component<Props, State> {
     Tracking.trackClickPreviousCard();
   };
 
-  expandSequence = () => {
-    const { handleExpandSequence } = this.props;
-    handleExpandSequence();
-  };
-
   render() {
-    const { cardOffset } = this.props;
+    const { cardOffset, isClosed, handleOpenSequence } = this.props;
+    const { cards, cardsCount, currentIndex, isSequenceLoaded } = this.state;
     return (
       <Sequence
-        expandSequence={this.expandSequence}
+        cards={cards}
+        cardsCount={cardsCount}
+        cardOffset={cardOffset}
+        currentIndex={currentIndex}
+        isClosed={isClosed}
         handleStartSequence={this.handleStartSequence}
         goToNextCard={this.goToNextCard}
         skipSignUpCard={this.skipSignUpCard}
         skipProposalPushCard={this.skipProposalPushCard}
         goToPreviousCard={this.goToPreviousCard}
-        cardOffset={cardOffset}
-        {...this.state}
-        {...this.props}
+        handleOpenSequence={handleOpenSequence}
+        isSequenceLoaded={isSequenceLoaded}
       />
     );
   }
@@ -254,19 +240,9 @@ const mapStateToProps = state => {
   return {
     firstProposal,
     votedProposalIds,
-    isSequenceCollapsed: selectSequenceCollapsed(state),
     hasProposed,
     isLoggedIn,
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  handleExpandSequence: () => {
-    dispatch(sequenceExpand());
-  },
-});
-
-export const SequenceContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SequenceHandler);
+export const SequenceContainer = connect(mapStateToProps)(SequenceHandler);

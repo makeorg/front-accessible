@@ -8,12 +8,7 @@ export const initialState: StateRoot = {
     user: undefined,
   },
   proposal: {
-    isTyping: false,
-    canSubmit: false,
     hasProposed: false,
-    isCurrentSubmitSuccess: false,
-    content: '',
-    questionId: undefined,
     error: undefined,
     data: undefined,
   },
@@ -36,6 +31,10 @@ export const initialState: StateRoot = {
       error: false,
       updated: false,
     },
+  },
+  modal: {
+    isOpen: false,
+    contentType: null,
   },
 };
 

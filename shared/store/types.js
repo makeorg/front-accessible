@@ -13,13 +13,7 @@ export type StateAuthentification = $ReadOnly<{
 
 // Proposal State
 export type StateProposal = $ReadOnly<{
-  isTyping: boolean,
-  canSubmit: boolean,
   hasProposed: boolean,
-  isCurrentSubmitSuccess: boolean,
-  content: string,
-  questionId?: string,
-  error?: string,
 }>;
 
 // Sequence State
@@ -27,7 +21,7 @@ export type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
   questionId?: string,
-  votedProposalIds?: Array<string>,
+  votedProposalIds: string[],
 }>;
 
 // Notification State
@@ -57,6 +51,10 @@ export type StateQuestions = $ReadOnly<{
   },
 }>;
 
+export type StateModal = $ReadOnly<{
+  isOpen: boolean,
+}>;
+
 // All state
 export type StateRoot = $ReadOnly<{
   authentification: StateAuthentification,
@@ -65,4 +63,5 @@ export type StateRoot = $ReadOnly<{
   notification: StateNotification,
   user: StateUser,
   questions: StateQuestions,
+  modal: StateModal,
 }>;

@@ -18,15 +18,15 @@ type Props = {
   handleOnSubmit: (SyntheticEvent<*>) => void,
   /** Can user submit value */
   canSubmit: boolean,
-  /** Boolean toggled when Proposal Fieldis expanded / collapsed */
-  isFieldExpanded: boolean,
+  /** Boolean toggled when user is typing a proposal */
+  isOpen: boolean,
 };
 
 /**
  * Renders submit button in proposal's field
  */
 export const ProposalSubmitButtonComponent = (props: Props) => {
-  const { handleOnSubmit, canSubmit, isFieldExpanded } = props;
+  const { handleOnSubmit, canSubmit, isOpen } = props;
 
   return (
     <BasicButtonStyle
@@ -36,13 +36,11 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       onClick={handleOnSubmit}
       disabled={!canSubmit}
     >
-      <IconWrapperStyle
-        as={isFieldExpanded ? IconWrapperStyle : ProposalIconStyle}
-      >
+      <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
         <Svg aria-hidden type="SvgPencil" />
       </IconWrapperStyle>
       <HiddenOnMobileStyle
-        as={isFieldExpanded ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
+        as={isOpen ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
       >
         {i18n.t('common.propose')}
       </HiddenOnMobileStyle>

@@ -53,7 +53,7 @@ export type ProposalType = {
   status: string,
   createdAt: string,
   updatedAt: string,
-  votes: Array<VoteType>,
+  votes: VoteType[],
   context: Context,
   trending: string,
   labels: any[],

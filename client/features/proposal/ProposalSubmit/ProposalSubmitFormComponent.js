@@ -21,14 +21,14 @@ type Props = {
   length: number,
   /** Can user submit value */
   canSubmit: boolean,
+  /** Boolean toggled when user is typing a proposal */
+  isOpen: boolean,
   /** Method called when field's value changes */
   handleOnChange: (SyntheticEvent<*>) => void,
   /** Method called when field is focused */
   handleOnFocus: () => void,
   /** Method called when field's value is submitted */
   handleOnSubmit: (SyntheticEvent<*>) => void,
-  /** Boolean used to expand / collapse proposal field */
-  isFieldExpanded: boolean,
 };
 /**
  * Render the Proposal Field
@@ -38,14 +38,14 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     content,
     length,
     canSubmit,
-    isFieldExpanded,
+    isOpen,
     handleOnChange,
     handleOnFocus,
     handleOnSubmit,
   } = props;
 
   return (
-    <ProposalSubmitFormStyle isFieldExpanded={isFieldExpanded}>
+    <ProposalSubmitFormStyle isOpen={isOpen}>
       <HiddenItemStyle aria-hidden as="h2">
         {i18n.t('proposal_submit.title')}
       </HiddenItemStyle>
@@ -62,12 +62,13 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           onFocus={handleOnFocus}
           autoCapitalize="none"
           autoComplete="off"
+          placeholder="..."
           spellCheck
           maxLength="140"
-          isFieldExpanded={isFieldExpanded}
+          isOpen={isOpen}
         />
       </ProposalInputWrapperStyle>
-      <ProposalButtonWrapperStyle isFieldExpanded={isFieldExpanded}>
+      <ProposalButtonWrapperStyle isOpen={isOpen}>
         <ProposalCharLimitStyle>
           <span aria-valuetext={length}>{length}</span>
           <HiddenItemStyle>
@@ -83,7 +84,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
-          isFieldExpanded={isFieldExpanded}
+          isOpen={isOpen}
         />
       </ProposalButtonWrapperStyle>
     </ProposalSubmitFormStyle>

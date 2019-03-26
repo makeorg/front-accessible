@@ -12,11 +12,6 @@ export function sequence(
         ...state,
         isSequenceCollapsed: true,
       };
-    case actionTypes.SEQUENCE_EXPAND:
-      return {
-        ...state,
-        isSequenceCollapsed: false,
-      };
     case actionTypes.QUESTION_LOAD:
       return {
         ...state,

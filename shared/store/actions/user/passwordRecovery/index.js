@@ -1,4 +1,6 @@
 import { i18n } from 'Shared/i18n';
+import { type Dispatch } from 'redux';
+import { type StateRoot } from 'Shared/store/types';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserService } from 'Shared/api/UserService';
 
@@ -19,8 +21,8 @@ export const passwordRecoverySuccess = () => ({
 });
 
 export const passwordRecovery = (newPassword: string) => (
-  dispatch: Function,
-  getState: Function
+  dispatch: Dispatch,
+  getState: () => StateRoot
 ) => {
   const { resetToken, userId } = getState().user.passwordRecovery;
   dispatch(passwordRecoveryRequest(newPassword, resetToken, userId));

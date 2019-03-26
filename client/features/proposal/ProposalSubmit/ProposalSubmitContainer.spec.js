@@ -6,15 +6,19 @@ import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitHandler } from './ProposalSubmitContainer';
 
+// @todo: update this test, do it with different state
 describe('ProposalSubmitContainer', () => {
   const defaultProps = {
-    content: 'foo',
-    length: 10,
-    canSubmit: true,
+    question: {},
+    isSequenceCollapsed: true,
     isLoggedIn: true,
-    isSequenceCollapsed: false,
+    isPannelOpen: false,
+    language: 'fr',
+    country: 'FR',
+    handleProposeSuccess: () => {},
+    handleCollapse: () => {},
   };
-
+  const baitText = 'proposal_submit.bait';
   it('Renders Initial Props & State', () => {
     const wrapper = shallow(<ProposalSubmitHandler {...defaultProps} />);
 
@@ -23,9 +27,10 @@ describe('ProposalSubmitContainer', () => {
       .find(ProposalSubmitFormComponent)
       .first()
       .props();
-    expect(proposalSubmitProps.content).toBe(defaultProps.content);
-    expect(proposalSubmitProps.length).toBe(defaultProps.length);
-    expect(proposalSubmitProps.canSubmit).toBe(defaultProps.canSubmit);
+
+    expect(proposalSubmitProps.content).toBe('');
+    expect(proposalSubmitProps.length).toBe(baitText.length);
+    expect(proposalSubmitProps.canSubmit).toBe(true);
 
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(0);
     expect(wrapper.find(ProposalSubmitAuthentification)).toHaveLength(0);
@@ -34,7 +39,6 @@ describe('ProposalSubmitContainer', () => {
   it('Renders DescriptionStyle', () => {
     const descriptionProps = {
       ...defaultProps,
-      isSequenceCollapsed: true,
     };
     const wrapper = shallow(<ProposalSubmitHandler {...descriptionProps} />);
 
@@ -47,7 +51,6 @@ describe('ProposalSubmitContainer', () => {
     const notLoggedInProps = {
       ...defaultProps,
       isLoggedIn: false,
-      isSequenceCollapsed: true,
     };
     const wrapper = shallow(<ProposalSubmitHandler {...notLoggedInProps} />);
 

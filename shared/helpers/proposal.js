@@ -18,7 +18,7 @@ export const getProposalLength = (content: string = '') => {
   return (getBaitText() + content).length;
 };
 
-export const getIsProposalValidLength = (length: number = 0) => {
+export const proposalHasValidLength = (length: number = 0) => {
   if (length === 0) {
     return false;
   }

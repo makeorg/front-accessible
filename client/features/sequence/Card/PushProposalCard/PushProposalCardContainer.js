@@ -1,10 +1,8 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
 
 type Props = {
@@ -70,12 +68,4 @@ class PushProposalCardHandler extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
-export const PushProposalCardContainer = connect(mapStateToProps)(
-  PushProposalCardHandler
-);
+export const PushProposalCardContainer = PushProposalCardHandler;

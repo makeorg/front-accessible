@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { type SignUpCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { SignUpCardComponent } from './SignUpCardComponent';
 
 type Props = {
@@ -59,10 +57,4 @@ export class SignUpCardhandler extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
-export const SignUpCardContainer = connect(mapStateToProps)(SignUpCardhandler);
+export const SignUpCardContainer = SignUpCardhandler;

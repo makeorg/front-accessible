@@ -12,7 +12,6 @@ import {
 import { VoteService } from 'Shared/api/VoteService';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
 import { VoteResult } from './Result';
@@ -241,12 +240,6 @@ export class VoteHandler extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
 const mapDispatchToProps = dispatch => ({
   handleVoteOnSequence: (
     proposalId: string,
@@ -265,6 +258,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const VoteContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(VoteHandler);
