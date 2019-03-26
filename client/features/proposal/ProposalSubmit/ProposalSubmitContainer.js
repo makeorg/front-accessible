@@ -61,7 +61,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
   static defaultProps = {
     canBeOpen: true,
-    handleCollapse: () => {},
+    handleFocus: () => {},
   };
 
   throttleOnSubmit: any = undefined;
