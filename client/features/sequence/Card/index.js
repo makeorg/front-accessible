@@ -17,12 +17,12 @@ type Props = {
   card: Object,
   /** Index of the card */
   index: number,
-  /** Total of cards */
-  cardsCount: number,
-  /** Offset of cards without pagination (introCard) */
-  cardOffset: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
+  /** Total of cards */
+  cardsCount: number,
+  /** Boolean toggled when Sequence is collapsed / expanded */
+  isSequenceCollapsed: boolean,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: Function,
   /** Method called when next card button is clicked  */
@@ -44,6 +44,7 @@ export const Card = (props: Props) => {
     index,
     currentIndex,
     cardsCount,
+    isSequenceCollapsed,
     goToNextCard,
     goToPreviousCard,
     skipSignUpCard,
@@ -60,6 +61,7 @@ export const Card = (props: Props) => {
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
+          isSequenceCollapsed={isSequenceCollapsed}
           goToNextCard={goToNextCard}
           goToPreviousCard={goToPreviousCard}
         />
@@ -71,6 +73,7 @@ export const Card = (props: Props) => {
           cardOffset={card.cardOffset}
           index={index}
           currentIndex={currentIndex}
+          isSequenceCollapsed={isSequenceCollapsed}
           handleStartSequence={handleStartSequence}
         />
       );
@@ -82,6 +85,7 @@ export const Card = (props: Props) => {
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
+          isSequenceCollapsed={isSequenceCollapsed}
           goToPreviousCard={goToPreviousCard}
           skipSignUpCard={skipSignUpCard}
         />
@@ -94,6 +98,7 @@ export const Card = (props: Props) => {
           index={index}
           currentIndex={currentIndex}
           cardsCount={cardsCount}
+          isSequenceCollapsed={isSequenceCollapsed}
           goToPreviousCard={goToPreviousCard}
           skipProposalPushCard={skipProposalPushCard}
         />
@@ -106,6 +111,7 @@ export const Card = (props: Props) => {
           index={index}
           cardsCount={cardsCount}
           currentIndex={currentIndex}
+          isSequenceCollapsed={isSequenceCollapsed}
           goToPreviousCard={goToPreviousCard}
         />
       );

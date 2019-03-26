@@ -15,36 +15,57 @@ type Props = {
   question: Question,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: QuestionConfiguration,
-  /** Boolean toggled when Sequence is collapsed / expanded */
+};
+
+type State = {
+  /** Boolean toggled when tooltip is shown / hidden */
   isSequenceCollapsed: boolean,
 };
 
 /**
  * Renders SequenceContainerLoader
  */
-export const SequencePageContentLoader = (props: Props) => {
-  const { question, questionConfiguration, isSequenceCollapsed } = props;
+export class SequencePageContentLoader extends React.Component<Props, State> {
+  state = {
+    isSequenceCollapsed: false,
+  };
 
-  if (!question) {
+  handleToogleCollapseSequence = () => {
+    this.setState(prevState => ({
+      isSequenceCollapsed: !prevState.isSequenceCollapsed,
+    }));
+  };
+
+  render() {
+    const { question, questionConfiguration } = this.props;
+    const { isSequenceCollapsed } = this.state;
+
+    if (!question) {
+      return (
+        <SequencePageContentStyle>
+          <Spinner />
+        </SequencePageContentStyle>
+      );
+    }
+
     return (
-      <SequencePageContentStyle>
-        <Spinner />
-      </SequencePageContentStyle>
+      <React.Fragment>
+        {question.canPropose && (
+          <SequenceProposalFieldStyle>
+            <ProposalSubmit
+              question={question}
+              handleCollapse={this.handleToogleCollapseSequence}
+              isSequenceCollapsed={isSequenceCollapsed}
+            />
+          </SequenceProposalFieldStyle>
+        )}
+        <Sequence
+          question={question}
+          isSequenceCollapsed={isSequenceCollapsed}
+          handleToogleCollapseSequence={this.handleToogleCollapseSequence}
+          questionConfiguration={questionConfiguration}
+        />
+      </React.Fragment>
     );
   }
-
-  return (
-    <React.Fragment>
-      {question.canPropose && (
-        <SequenceProposalFieldStyle>
-          <ProposalSubmit isComingFromSequence />
-        </SequenceProposalFieldStyle>
-      )}
-      <Sequence
-        isSequenceCollapsed={isSequenceCollapsed}
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
-    </React.Fragment>
-  );
-};
+}

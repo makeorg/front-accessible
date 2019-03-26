@@ -52,7 +52,7 @@ export const ProposalSubmitFormStyle = styled.form`
   border-radius: 30px;
   background-color: ${BasicColors.PureWhite};
   ${props =>
-    props.isFieldExpanded
+    props.isOpen
       ? `
     flex-flow: column;
     @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
@@ -68,10 +68,10 @@ export const ProposalInputWrapperStyle = styled(FlexElementStyle)`
 export const ProposalButtonWrapperStyle = styled(FlexElementStyle)`
   justify-content: flex-end;
   padding: 7px 0;
-  ${props => (props.isFieldExpanded ? 'width: 100%;' : '')};
+  ${props => (props.isOpen ? 'width: 100%;' : '')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     min-width: 230px;
-    ${props => (props.isFieldExpanded ? 'width: auto;' : '')};
+    ${props => (props.isOpen ? 'width: auto;' : '')};
   }
 `;
 
@@ -96,7 +96,7 @@ export const ProposalInputStyle = styled(NoStyleTextInputStyle)`
   padding: 10px 0 0 5px;
   resize: none;
   ${props =>
-    props.isFieldExpanded
+    props.isOpen
       ? `
     height: 125px;
     max-height: 100%;`
@@ -105,7 +105,7 @@ export const ProposalInputStyle = styled(NoStyleTextInputStyle)`
     font-size: 18px;
     max-height: 50px;
     padding: 15px 0 0 5px;
-    ${props => (props.isFieldExpanded ? `max-height: 50px;` : '')};
+    ${props => (props.isOpen ? `max-height: 50px;` : '')};
   }
 `;
 

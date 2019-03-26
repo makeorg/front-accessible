@@ -1,8 +1,6 @@
 /* @flow */
 
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
 type Props = {
@@ -36,12 +34,4 @@ const ProposalCardHandler = (props: Props) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
-export const ProposalCardContainer = connect(mapStateToProps)(
-  ProposalCardHandler
-);
+export const ProposalCardContainer = ProposalCardHandler;

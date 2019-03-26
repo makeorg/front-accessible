@@ -11,14 +11,9 @@ Object {
     "contentType": undefined,
   },
   "proposal": Object {
-    "canSubmit": false,
-    "content": "",
     "data": undefined,
     "error": undefined,
     "hasProposed": false,
-    "isCurrentSubmitSuccess": false,
-    "isTyping": false,
-    "questionId": undefined,
   },
   "questions": Object {},
   "sequence": Object {

@@ -4,7 +4,6 @@ import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
-import { submitProposal } from 'Shared/store/actions/proposal';
 import { Tracking } from 'Shared/services/Tracking';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
@@ -44,8 +43,7 @@ export const getUser = () => (dispatch: Function, getState: Function) => {
 };
 
 export const login = (email: string, password: string) => (
-  dispatch: Function,
-  getState: Function
+  dispatch: Function
 ) => {
   dispatch(loginRequest());
   return UserService.login(email, password)
@@ -53,12 +51,7 @@ export const login = (email: string, password: string) => (
       dispatch(loginSuccess());
       Tracking.trackLoginEmailSuccess();
 
-      return dispatch(getUser()).then(() => {
-        const { canSubmit, content } = getState().proposal;
-        if (canSubmit) {
-          dispatch(submitProposal(content));
-        }
-      });
+      return dispatch(getUser());
     })
     .catch(() => {
       dispatch(loginFailure(i18n.t('login.email_doesnot_exist')));
@@ -67,8 +60,7 @@ export const login = (email: string, password: string) => (
 };
 
 export const loginSocial = (provider: string, socialToken: string) => (
-  dispatch: Function,
-  getState: Function
+  dispatch: Function
 ) => {
   dispatch(loginSocialRequest(provider));
   return UserService.loginSocial(provider, socialToken)
@@ -76,13 +68,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
       dispatch(loginSocialSuccess());
       Tracking.trackAuthentificationSocialSuccess(provider);
 
-      return dispatch(getUser()).then(() => {
-        const { canSubmit, content } = getState().proposal;
-
-        if (canSubmit) {
-          dispatch(submitProposal(content));
-        }
-      });
+      return dispatch(getUser());
     })
     .catch(() => {
       dispatch(loginSocialFailure());

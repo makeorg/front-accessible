@@ -11,7 +11,7 @@ export const initialStateDebug = {
     user: undefined,
   },
   proposal: {
-    length: 8,
+    hasProposed: false,
   },
   sequence: {
     /* 

@@ -12,9 +12,6 @@ import { Tracking } from 'Shared/services/Tracking';
 export const sequenceCollapse = () => (dispatch: DispatchString => void) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
 
-export const sequenceExpand = () => (dispatch: DispatchString => void) =>
-  dispatch({ type: actionTypes.SEQUENCE_EXPAND });
-
 export const voteProposal = (proposalId: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
   payload: { proposalId },

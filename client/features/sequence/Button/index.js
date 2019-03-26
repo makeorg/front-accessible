@@ -9,7 +9,7 @@ import { BackArrowStyle, BackButtonStyle } from '../Styled';
  */
 export const CollapseToggle = ({
   isSequenceCollapsed,
-  handleExpandSequence,
+  handleToogleCollapseSequence,
 }) => {
   if (!isSequenceCollapsed) {
     return null;
@@ -17,10 +17,10 @@ export const CollapseToggle = ({
 
   return (
     <React.Fragment>
-      <BackArrowStyle aria-hidden onClick={handleExpandSequence}>
+      <BackArrowStyle aria-hidden onClick={handleToogleCollapseSequence}>
         <FontAwesomeIcon icon={faArrowUp} />
       </BackArrowStyle>
-      <BackButtonStyle aria-hidden onClick={handleExpandSequence}>
+      <BackButtonStyle aria-hidden onClick={handleToogleCollapseSequence}>
         {i18n.t('sequence.return')}
       </BackButtonStyle>
     </React.Fragment>

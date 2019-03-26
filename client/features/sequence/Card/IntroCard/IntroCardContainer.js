@@ -1,9 +1,7 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { IntroCardComponent } from './IntroCardComponent';
 
@@ -14,8 +12,6 @@ type Props = {
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
-  /** Zindex property used by Styled Component */
-  zindex: number,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Method called when start button is clicked */
@@ -56,10 +52,4 @@ class IntroCardHandler extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
-export const IntroCardContainer = connect(mapStateToProps)(IntroCardHandler);
+export const IntroCardContainer = IntroCardHandler;

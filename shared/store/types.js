@@ -13,13 +13,7 @@ export type StateAuthentification = $ReadOnly<{
 
 // Proposal State
 export type StateProposal = $ReadOnly<{
-  isTyping: boolean,
-  canSubmit: boolean,
   hasProposed: boolean,
-  isCurrentSubmitSuccess: boolean,
-  content: string,
-  questionId?: string,
-  error?: string,
 }>;
 
 // Sequence State

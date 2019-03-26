@@ -28,19 +28,6 @@ describe('Sequence reducer', () => {
     expect(sequence(previousState, action)).toEqual(expectedState);
   });
 
-  it('Expand sequence reducer', () => {
-    const action = { type: actionTypes.SEQUENCE_EXPAND };
-    const previousState = {
-      isSequenceCollapsed: true,
-    };
-
-    const expectedState = {
-      isSequenceCollapsed: false,
-    };
-
-    expect(sequence(previousState, action)).toEqual(expectedState);
-  });
-
   it('Vote into Sequence reducer', () => {
     const action = {
       type: actionTypes.SEQUENCE_PROPOSAL_VOTE,

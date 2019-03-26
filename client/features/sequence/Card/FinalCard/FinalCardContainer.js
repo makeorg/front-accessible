@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { type FinalCardConfig } from 'Shared/types/card';
-import { connect } from 'react-redux';
 import { Tracking } from 'Shared/services/Tracking';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { TabIndexContext } from 'Client/app/TabIndexContext';
-import { selectSequenceCollapsed } from 'Shared/store/selectors/sequence.selector';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {
@@ -68,10 +66,4 @@ class FinalCardHandler extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isSequenceCollapsed: selectSequenceCollapsed(state),
-  };
-};
-
-export const FinalCardContainer = connect(mapStateToProps)(FinalCardHandler);
+export const FinalCardContainer = FinalCardHandler;

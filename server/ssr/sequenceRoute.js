@@ -1,7 +1,6 @@
 import { QuestionService } from 'Shared/api/QuestionService';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
-import { getBaitText } from 'Shared/constants/proposal';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -43,10 +42,7 @@ export const sequenceRoute = async (req, res) => {
           questionConfiguration,
         },
       },
-      proposal: {
-        ...initialState.proposal,
-        length: getBaitText().length,
-      },
+      proposal: initialState.proposal,
     };
 
     if (firstProposal) {

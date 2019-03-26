@@ -37,17 +37,6 @@ describe('Sequence Actions', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('Creates SEQUENCE_EXPAND when calling action', () => {
-    const expectedActions = [
-      {
-        type: actionTypes.SEQUENCE_EXPAND,
-      },
-    ];
-
-    store.dispatch(actions.sequenceExpand());
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
     const proposalId = 'foo';
     const expectedActions = [
