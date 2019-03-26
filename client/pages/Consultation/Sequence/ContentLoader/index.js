@@ -19,7 +19,7 @@ type Props = {
 
 type State = {
   /** Boolean toggled when tooltip is shown / hidden */
-  isSequenceCollapsed: boolean,
+  isClosed: boolean,
 };
 
 /**
@@ -27,18 +27,24 @@ type State = {
  */
 export class SequencePageContentLoader extends React.Component<Props, State> {
   state = {
-    isSequenceCollapsed: false,
+    isClosed: false,
   };
 
-  handleToogleCollapseSequence = () => {
-    this.setState(prevState => ({
-      isSequenceCollapsed: !prevState.isSequenceCollapsed,
-    }));
+  handleCloseSequence = () => {
+    this.setState({
+      isClosed: true,
+    });
+  };
+
+  handleOpenSequence = () => {
+    this.setState({
+      isClosed: false,
+    });
   };
 
   render() {
     const { question, questionConfiguration } = this.props;
-    const { isSequenceCollapsed } = this.state;
+    const { isClosed } = this.state;
 
     if (!question) {
       return (
@@ -54,15 +60,15 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
           <SequenceProposalFieldStyle>
             <ProposalSubmit
               question={question}
-              handleCollapse={this.handleToogleCollapseSequence}
-              isSequenceCollapsed={isSequenceCollapsed}
+              handleFocus={this.handleCloseSequence}
+              canBeOpen={isClosed}
             />
           </SequenceProposalFieldStyle>
         )}
         <Sequence
           question={question}
-          isSequenceCollapsed={isSequenceCollapsed}
-          handleToogleCollapseSequence={this.handleToogleCollapseSequence}
+          isClosed={isClosed}
+          handleOpenSequence={this.handleOpenSequence}
           questionConfiguration={questionConfiguration}
         />
       </React.Fragment>

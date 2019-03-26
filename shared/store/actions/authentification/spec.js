@@ -137,7 +137,7 @@ describe('Authentification Actions', () => {
       const store = mockStore({
         proposal: { canSubmit: false },
         authentification: { isLoggedIn: false },
-        modal: { isModalClose: false },
+        modal: { isOpen: true },
       });
       const user = { firstname: 'baz' };
       const provider = 'fooProvider';
@@ -154,6 +154,8 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS },
         { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.MODAL_CLOSE },
+        { type: actionTypes.FORGOT_PASSWORD_INIT },
       ];
 
       return store
@@ -222,7 +224,7 @@ describe('Authentification Actions', () => {
     it('creates an action to getUser when modal is open', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        modal: { isModalOpen: true },
+        modal: { isOpen: true },
       });
 
       // mock
@@ -246,7 +248,7 @@ describe('Authentification Actions', () => {
     it('creates an action to getUser when modal is closed', () => {
       const user = { firstname: 'baz' };
       const store = mockStore({
-        modal: { isModalClose: false },
+        modal: { isOpen: false },
       });
 
       // mock

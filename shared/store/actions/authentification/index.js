@@ -1,10 +1,12 @@
 /* @flow */
 
 import { i18n } from 'Shared/i18n';
+import { type Dispatch } from 'redux';
 import { UserService } from 'Shared/api/UserService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
+import { type StateRoot } from 'Shared/store/types';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: string) => ({
@@ -30,8 +32,11 @@ export const setUserInfo = (user: Object) => ({
 });
 export const logout = () => ({ type: actionTypes.LOGOUT });
 
-export const getUser = () => (dispatch: Function, getState: Function) => {
-  const { isModalOpen } = getState().modal;
+export const getUser = () => (
+  dispatch: Dispatch,
+  getState: () => StateRoot
+) => {
+  const { isOpen: isModalOpen } = getState().modal;
   return UserService.me().then(user => {
     dispatch(setUserInfo(user));
     if (isModalOpen) {
@@ -43,7 +48,7 @@ export const getUser = () => (dispatch: Function, getState: Function) => {
 };
 
 export const login = (email: string, password: string) => (
-  dispatch: Function
+  dispatch: Dispatch
 ) => {
   dispatch(loginRequest());
   return UserService.login(email, password)
@@ -60,7 +65,7 @@ export const login = (email: string, password: string) => (
 };
 
 export const loginSocial = (provider: string, socialToken: string) => (
-  dispatch: Function
+  dispatch: Dispatch
 ) => {
   dispatch(loginSocialRequest(provider));
   return UserService.loginSocial(provider, socialToken)

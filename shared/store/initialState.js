@@ -32,6 +32,10 @@ export const initialState: StateRoot = {
       updated: false,
     },
   },
+  modal: {
+    isOpen: false,
+    contentType: null,
+  },
 };
 
 export const createInitialState = () =>

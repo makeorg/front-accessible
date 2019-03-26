@@ -5,6 +5,7 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { loginSuccess } from 'Shared/store/actions/authentification';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
+import { type Dispatch } from 'redux';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = (user: Object) => ({
@@ -16,7 +17,7 @@ export const registerFailure = (errors: Array<Object>) => ({
   errors,
 });
 
-export const register = (user: Object) => (dispatch: Function) => {
+export const register = (user: Object) => (dispatch: Dispatch) => {
   dispatch(registerRequest());
   return UserService.register(user)
     .then(userResponse => {

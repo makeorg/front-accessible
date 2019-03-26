@@ -24,15 +24,15 @@ type Props = {
   /** Boolean toggled when Sequence is collapsed / expanded */
   isSequenceCollapsed: boolean,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
+  goToPreviousCard: () => void,
   /** Method called when next card button is clicked  */
-  goToNextCard: Function,
+  goToNextCard: () => void,
   /** Method called when next card button in Sign Up Card is clicked  */
-  skipSignUpCard: Function,
+  skipSignUpCard: () => void,
   /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: Function,
+  skipProposalPushCard: () => void,
   /** Method called when next card button in Intro Card is clicked  */
-  handleStartSequence: Function,
+  handleStartSequence: () => void,
 };
 
 /**

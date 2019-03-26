@@ -26,11 +26,12 @@ type Props = {
   language: string,
   /** Localiszed Country of the app */
   country: string,
-  isSequenceCollapsed: boolean,
+  /** Boolean to check if prposal submit can be expanded */
+  canBeOpen: boolean,
   /** Method to dispatch propose sucess action */
   handleProposeSuccess: () => void,
   /** Method to handle when proposal submit is focused */
-  handleCollapse: () => void,
+  handleFocus: () => void,
 };
 
 type State = {
@@ -59,7 +60,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   };
 
   static defaultProps = {
-    isSequenceCollapsed: true,
+    canBeOpen: true,
     handleCollapse: () => {},
   };
 
@@ -106,13 +107,13 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   };
 
   handleOnFocus = () => {
-    const { handleCollapse } = this.props;
+    const { handleFocus } = this.props;
     this.setState({
       isTyping: true,
       isSubmitted: false,
     });
 
-    handleCollapse();
+    handleFocus();
   };
 
   handleOnSubmit = (event: SyntheticEvent<*>) => {
@@ -122,10 +123,10 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
       isSubmitted: true,
     });
 
-    const { isLoggedIn, isSequenceCollapsed, handleCollapse } = this.props;
+    const { isLoggedIn, canBeOpen, handleFocus } = this.props;
     const { length } = this.state;
 
-    if (!isSequenceCollapsed) handleCollapse();
+    if (!canBeOpen) handleFocus();
 
     Tracking.trackClickProposalSubmit();
 
@@ -143,12 +144,11 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   };
 
   render() {
-    const { country, language, isLoggedIn, isSequenceCollapsed } = this.props;
+    const { country, language, isLoggedIn, canBeOpen } = this.props;
     const { content, length, isTyping, isSubmitted, isSucess } = this.state;
-    const isDescriptionShown = isSequenceCollapsed && isTyping && !isSubmitted;
-    const isAuthentificationShown =
-      isSequenceCollapsed && isSubmitted && !isLoggedIn;
-    const isSuccessShown = isSequenceCollapsed && isSucess;
+    const isDescriptionShown = canBeOpen && isTyping && !isSubmitted;
+    const isAuthentificationShown = canBeOpen && isSubmitted && !isLoggedIn;
+    const isSuccessShown = canBeOpen && isSucess;
     const isOpen = isDescriptionShown || isAuthentificationShown;
 
     return (

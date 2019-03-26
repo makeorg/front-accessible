@@ -34,9 +34,9 @@ type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
   questionConfiguration: QuestionConfiguration,
   /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  isClosed: boolean,
   /** Method called when "Return to proposal" button is clicked */
-  handleToogleCollapseSequence: () => void,
+  handleOpenSequence: () => void,
   /** Boolean toggled when User is Logged in */
   isLoggedIn: boolean,
   /** Boolean toggled when User has submitted a proposal */
@@ -62,8 +62,6 @@ type State = {
 
 type ContainerProps = {
   isSequenceLoaded: boolean,
-  isSequenceCollapsed: boolean,
-  handleToogleCollapseSequence: () => void,
 };
 
 const Sequence = ({
@@ -71,13 +69,13 @@ const Sequence = ({
   cardsCount,
   cardOffset,
   currentIndex,
-  isSequenceCollapsed,
+  isClosed,
   handleStartSequence,
   goToNextCard,
   skipSignUpCard,
   skipProposalPushCard,
   goToPreviousCard,
-  handleToogleCollapseSequence,
+  handleOpenSequence,
   isSequenceLoaded,
 }: SequenceProps & ContainerProps) => {
   if (isSequenceLoaded) {
@@ -87,8 +85,8 @@ const Sequence = ({
         cardsCount={cardsCount}
         currentIndex={currentIndex}
         cardOffset={cardOffset}
-        isSequenceCollapsed={isSequenceCollapsed}
-        handleToogleCollapseSequence={handleToogleCollapseSequence}
+        isClosed={isClosed}
+        handleOpenSequence={handleOpenSequence}
         handleStartSequence={handleStartSequence}
         goToNextCard={goToNextCard}
         skipSignUpCard={skipSignUpCard}
@@ -98,12 +96,7 @@ const Sequence = ({
     );
   }
 
-  return (
-    <SequencePlaceholderComponent
-      handleToogleCollapseSequence={handleToogleCollapseSequence}
-      isSequenceCollapsed={isSequenceCollapsed}
-    />
-  );
+  return <SequencePlaceholderComponent />;
 };
 
 /**
@@ -218,11 +211,7 @@ class SequenceHandler extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      cardOffset,
-      isSequenceCollapsed,
-      handleToogleCollapseSequence,
-    } = this.props;
+    const { cardOffset, isClosed, handleOpenSequence } = this.props;
     const { cards, cardsCount, currentIndex, isSequenceLoaded } = this.state;
     return (
       <Sequence
@@ -230,13 +219,13 @@ class SequenceHandler extends React.Component<Props, State> {
         cardsCount={cardsCount}
         cardOffset={cardOffset}
         currentIndex={currentIndex}
-        isSequenceCollapsed={isSequenceCollapsed}
+        isClosed={isClosed}
         handleStartSequence={this.handleStartSequence}
         goToNextCard={this.goToNextCard}
         skipSignUpCard={this.skipSignUpCard}
         skipProposalPushCard={this.skipProposalPushCard}
         goToPreviousCard={this.goToPreviousCard}
-        handleToogleCollapseSequence={handleToogleCollapseSequence}
+        handleOpenSequence={handleOpenSequence}
         isSequenceLoaded={isSequenceLoaded}
       />
     );
