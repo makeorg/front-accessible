@@ -5,7 +5,7 @@ import {
   IconWrapperStyle,
   BasicButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import { Svg } from 'Client/ui/Svg';
+import { SvgPencil } from 'Client/ui/Svg/elements';
 import {
   ProposalButtonStyle,
   DisabledProposalButtonStyle,
@@ -37,7 +37,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       disabled={!canSubmit}
     >
       <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
-        <Svg aria-hidden type="SvgPencil" />
+        <SvgPencil aria-hidden />
       </IconWrapperStyle>
       <HiddenOnMobileStyle
         as={isOpen ? ProposalButtonLabelStyle : HiddenOnMobileStyle}

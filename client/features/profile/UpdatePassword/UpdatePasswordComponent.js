@@ -4,6 +4,7 @@ import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { i18n } from 'Shared/i18n';
+import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 
 type Props = {
   handlePassword: () => void,
@@ -31,7 +32,7 @@ export const UpdatePasswordComponent = ({
       <PasswordInput
         label={i18n.t('profile.password_update.password_placeholder')}
         name="password"
-        icon="SvgLock"
+        icon={PasswordFieldIcon}
         value={password}
         handleChange={handlePassword}
       />
@@ -39,14 +40,14 @@ export const UpdatePasswordComponent = ({
       <PasswordInput
         label={i18n.t('profile.password_update.newpassword_placeholder')}
         name="new"
-        icon="SvgLock"
+        icon={PasswordFieldIcon}
         value={newPassword}
         handleChange={handleNewPassword}
       />
       <SubmitButton
         disabled={disableSubmit}
         formName="formName"
-        icon="SvgThumbsUp"
+        icon={SubmitThumbsUpIcon}
         label={i18n.t('profile.password_update.submit_label')}
       />
     </form>

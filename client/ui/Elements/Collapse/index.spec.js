@@ -11,7 +11,9 @@ jest.mock('Client/ui/Elements/Collapse/Styled', () => ({
   CollapseSeparatorStyle: 'CollapseSeparatorStyle',
 }));
 
-jest.mock('Client/ui/Svg', () => ({ Svg: 'Svg' }));
+jest.mock('Client/ui/Svg/elements', () => ({
+  SvgAngleArrowRight: 'SvgAngleArrowRight',
+}));
 
 jest.mock('Client/ui/Elements/TitleElements', () => ({
   ThirdLevelTtitleStyle: 'ThirdLevelTtitleStyle',

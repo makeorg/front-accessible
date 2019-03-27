@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
+import { SvgClose } from 'Client/ui/Svg/elements';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { NotificationWrapperStyle, NotificationContentStyle } from './Styled';
 
@@ -22,7 +22,7 @@ export const NotificationComponent = (props: Props) => {
         aria-expanded="false"
         onClick={onClose}
       >
-        <Svg aria-hidden type="SvgClose" />
+        <SvgClose aria-hidden />
       </CloseButtonStyle>
     </NotificationWrapperStyle>
   );

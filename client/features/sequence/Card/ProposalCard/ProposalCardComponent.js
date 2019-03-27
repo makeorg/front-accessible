@@ -5,7 +5,7 @@ import { Vote } from 'Client/features/vote';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { Svg } from 'Client/ui/Svg';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { ProposalCardStyle, SequenceProposalStyle } from '../Styled';
 import {
   BackButtonWrapperStyle,
@@ -62,7 +62,7 @@ export const ProposalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <Svg aria-hidden type="SvgArrowLeft" />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

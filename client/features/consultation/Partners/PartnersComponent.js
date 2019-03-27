@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Svg } from 'Client/ui/Svg';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
@@ -8,6 +7,7 @@ import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SidebarSeparatorStyle } from 'Client/ui/Elements/SidebarTile/Styled';
+import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
 
@@ -36,7 +36,7 @@ export const PartnersComponent = (props: Props) => {
         onClick={trackParticipateButton}
       >
         <IconWrapperStyle aria-hidden>
-          <Svg type="SvgPlayButton" />
+          <SvgPlayButton />
         </IconWrapperStyle>
         {i18n.t('common.participate')}
       </ParticipateButtonStyle>

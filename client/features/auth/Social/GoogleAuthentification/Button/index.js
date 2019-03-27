@@ -4,13 +4,13 @@ import {
   IconWrapperStyle,
   GoogleButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import { Svg } from 'Client/ui/Svg';
+import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleAuthentificationComponent } from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
   <GoogleButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
     <IconWrapperStyle>
-      <Svg aria-hidden type="SvgGoogleLogoG" />
+      <SvgGoogleLogoG aria-hidden />
     </IconWrapperStyle>
     Google
   </GoogleButtonStyle>

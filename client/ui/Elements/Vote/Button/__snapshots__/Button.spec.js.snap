@@ -5,7 +5,9 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   aria-label="foo"
   as="VoteButtonStyle"
   color="red"
-/>
+>
+  SvgThumbsup
+</ButtonStyle>
 `;
 
 exports[`VoteButtonElement must return the diff between snapshot when proposal is qualified or not 1`] = `
@@ -18,7 +20,9 @@ Snapshot Diff:
 -   as="UnvoteButtonStyle"
 +   as="VoteButtonStyle"
     color="red"
-  />
+  >
+    SvgThumbsup
+  </ButtonStyle>
 `;
 
 exports[`VoteButtonElement must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
@@ -32,5 +36,7 @@ Snapshot Diff:
     color="red"
 -   tabIndex="-1"
 +   tabIndex="0"
-  />
+  >
+    SvgThumbsup
+  </ButtonStyle>
 `;

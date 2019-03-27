@@ -11,7 +11,7 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
-import { Svg } from 'Client/ui/Svg';
+import { SvgEnvelope } from 'Client/ui/Svg/elements';
 
 type Props = {
   /** Method called to render Register Pannel */
@@ -39,7 +39,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
           id="authentification-register-button"
         >
           <IconWrapperStyle>
-            <Svg aria-hidden type="SvgEnvelope" />
+            <SvgEnvelope aria-hidden />
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>

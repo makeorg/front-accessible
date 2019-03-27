@@ -1,13 +1,13 @@
 // @flow
 import * as React from 'react';
-import { Svg } from 'Client/ui/Svg';
+import { SvgFacebookLogo } from 'Client/ui/Svg/elements';
 import { FacebookLinkStyle, SocialIconStyle } from '../../Styled';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = () => renderProps => (
   <FacebookLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
-      <Svg aria-hidden type="SvgFacebookLogo" />
+      <SvgFacebookLogo aria-hidden />
     </SocialIconStyle>
     Facebook
   </FacebookLinkStyle>

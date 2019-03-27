@@ -4,7 +4,7 @@ import { type SignUpCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { SignUpCardAuthentificationContainer } from 'Client/features/sequence/Card/SignUpCard/Authentification';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { Svg } from 'Client/ui/Svg';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { SignUpTitle } from './Title';
 import { SkipSignUpButton } from './Button';
 import { ProposalCardStyle } from '../Styled';
@@ -69,7 +69,7 @@ export const SignUpCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <Svg aria-hidden type="SvgArrowLeft" />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

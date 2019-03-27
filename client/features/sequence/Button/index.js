@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
+import { SvgArrowTop } from 'Client/ui/Svg/elements';
 import { BackArrowStyle, BackButtonStyle } from '../Styled';
 
 /**
@@ -14,7 +14,7 @@ export const CollapseToggle = ({ isClosed, handleOpenSequence }) => {
   return (
     <React.Fragment>
       <BackArrowStyle aria-hidden onClick={handleOpenSequence}>
-        <Svg type="SvgArrowTop" />
+        <SvgArrowTop />
       </BackArrowStyle>
       <BackButtonStyle aria-hidden onClick={handleOpenSequence}>
         {i18n.t('sequence.return')}

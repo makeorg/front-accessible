@@ -1,13 +1,13 @@
 // @flow
 import * as React from 'react';
-import { Svg } from 'Client/ui/Svg';
+import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleLinkStyle, SocialIconStyle } from '../../Styled';
 import { GoogleAuthentificationComponent } from '..';
 
 const renderGoogleLogin = () => renderProps => (
   <GoogleLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
-      <Svg aria-hidden type="SvgGoogleLogoG" />
+      <SvgGoogleLogoG aria-hidden />
     </SocialIconStyle>
     Google
   </GoogleLinkStyle>

@@ -3,7 +3,6 @@ import * as React from 'react';
 import { ButtonStyle, VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -55,7 +54,7 @@ export const VoteButtonElement = (props: Props) => {
       onFocus={displayTooltip}
       onBlur={hideTooltip}
     >
-      {displayPending ? <LoadingDots /> : <Svg aria-hidden type={icon} />}
+      {displayPending ? <LoadingDots /> : icon}
     </ButtonStyle>
   );
 };

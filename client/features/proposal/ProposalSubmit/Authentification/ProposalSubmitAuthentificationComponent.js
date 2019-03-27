@@ -17,7 +17,7 @@ import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
-import { Svg } from 'Client/ui/Svg';
+import { SvgEnvelope, SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
   ProposalSubmitSeparatorStyle,
@@ -60,7 +60,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           id="authentification-register-button"
         >
           <IconWrapperStyle>
-            <Svg aria-hidden type="SvgEnvelope" />
+            <SvgEnvelope aria-hidden />
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
@@ -75,10 +75,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         >
           {i18n.t('authentification.personal_data')}
           <IconWrapperStyle>
-            <Svg
-              aria-label={i18n.t('common.open_new_window')}
-              type="SvgExternalLink"
-            />
+            <SvgExternalLink aria-label={i18n.t('common.open_new_window')} />
           </IconWrapperStyle>
         </a>
       </CenterParagraphStyle>

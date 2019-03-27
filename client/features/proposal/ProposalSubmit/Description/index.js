@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { localizeModerationCharterLink } from 'Shared/helpers/url';
-import { Svg } from 'Client/ui/Svg';
+import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
@@ -48,10 +48,7 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
             {i18n.t('common.click_there')}
             &nbsp;
             <IconWrapperStyle>
-              <Svg
-                aria-label={i18n.t('common.open_new_window')}
-                type="SvgExternalLink"
-              />
+              <SvgExternalLink aria-label={i18n.t('common.open_new_window')} />
             </IconWrapperStyle>
           </a>
         </CenterParagraphStyle>

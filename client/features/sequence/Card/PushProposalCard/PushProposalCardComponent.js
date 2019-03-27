@@ -5,7 +5,11 @@ import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { Svg } from 'Client/ui/Svg';
+import {
+  SvgArrowLeft,
+  SvgPencil,
+  SvgStepForward,
+} from 'Client/ui/Svg/elements';
 import { ExtraLogo } from './ExtraLogo';
 import { ProposalCardStyle } from '../Styled';
 import {
@@ -74,7 +78,7 @@ export const PushProposalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <Svg aria-hidden type="SvgArrowLeft" />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>
@@ -99,7 +103,7 @@ export const PushProposalCardComponent = (props: Props) => {
               onClick={focusProposalField}
             >
               <IconWrapperStyle>
-                <Svg aria-hidden type="SvgPencil" />
+                <SvgPencil aria-hidden />
               </IconWrapperStyle>
               {i18n.t('common.propose')}
             </PushProposalButtonStyle>
@@ -108,7 +112,7 @@ export const PushProposalCardComponent = (props: Props) => {
               onClick={skipProposalPushCard}
             >
               <IconWrapperStyle>
-                <Svg aria-hidden type="SvgStepForward" />
+                <SvgStepForward aria-hidden />
               </IconWrapperStyle>
               {i18n.t('push_proposal_card.next-cta')}
             </PushProposalNextButtonStyle>

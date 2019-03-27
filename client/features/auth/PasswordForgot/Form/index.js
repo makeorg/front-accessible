@@ -11,6 +11,7 @@ import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
+import { EmailFieldIcon, SubmitPaperPlaneIcon } from 'Shared/constants/icons';
 import { ForgotPasswordFormStyle } from '../Styled';
 
 type Props = {
@@ -46,7 +47,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
       <UntypedInput
         type="email"
         name="email"
-        icon="SvgEnvelope"
+        icon={EmailFieldIcon}
         value={email}
         label={i18n.t('common.form.email_label')}
         required
@@ -60,7 +61,7 @@ export const ForgotPasswordFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
-        icon="SvgPaperPlane"
+        icon={SubmitPaperPlaneIcon}
         label={i18n.t('forgot_password.send_link')}
       />
     </ForgotPasswordFormStyle>

@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
+import {
+  SvgFacebookLogoF,
+  SvgTwitterLogo,
+  SvgLinkedinLogoIn,
+} from 'Client/ui/Svg/elements';
 import {
   SharingStyle,
   FacebookButtonStyle,
@@ -42,7 +46,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <Svg aria-hidden type="SvgFacebookLogoF" />
+            <SvgFacebookLogoF aria-hidden />
           </FacebookButtonStyle>
         </li>
         <li>
@@ -54,7 +58,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <Svg aria-hidden type="SvgTwitterLogo" />
+            <SvgTwitterLogo aria-hidden />
           </TwitterButtonStyle>
         </li>
         <li>
@@ -66,7 +70,7 @@ export class SharingComponent extends React.Component<Props> {
             target="_blank"
             tabIndex={tabIndex}
           >
-            <Svg aria-hidden type="SvgLinkedinLogoIn" />
+            <SvgLinkedinLogoIn aria-hidden />
           </LinkedInButtonStyle>
         </li>
       </SharingStyle>

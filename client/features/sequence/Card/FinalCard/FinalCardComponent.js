@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type FinalCardConfig } from 'Shared/types/card';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { Svg } from 'Client/ui/Svg';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { FinalTitle } from './Title';
 import { Sharing } from './Sharing';
 import { More } from './More';
@@ -72,7 +72,7 @@ export const FinalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <Svg aria-hidden type="SvgArrowLeft" />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

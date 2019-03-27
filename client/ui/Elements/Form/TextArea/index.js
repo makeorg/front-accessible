@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Svg } from 'Client/ui/Svg';
 import { FakeInputStyle } from '../Styled/Input';
 import { BasicTextAreaStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
@@ -65,7 +64,7 @@ export class TextArea extends React.Component<Props> {
     return (
       <FakeInputStyle hasError={errors}>
         <TextAreaIconStyle htmlFor={name} aria-label={label}>
-          <Svg aria-hidden type={icon} />
+          <span aria-hidden>{icon}</span>
         </TextAreaIconStyle>
         <BasicTextAreaStyle
           name={name}

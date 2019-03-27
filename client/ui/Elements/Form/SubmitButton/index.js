@@ -4,7 +4,6 @@ import {
   IconWrapperStyle,
   GreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import { Svg } from 'Client/ui/Svg';
 
 type Props = {
   /** Name of the input */
@@ -39,9 +38,7 @@ export class SubmitButton extends React.Component<Props> {
         id={id}
         disabled={disabled}
       >
-        <IconWrapperStyle>
-          <Svg aria-hidden type={icon} />
-        </IconWrapperStyle>
+        <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>
         {label}
       </ButtonStyled>
     );

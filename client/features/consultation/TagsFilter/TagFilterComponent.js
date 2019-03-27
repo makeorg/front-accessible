@@ -1,9 +1,9 @@
 import React from 'react';
-import { Svg } from 'Client/ui/Svg';
 import { TagType } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import {
   TagFilterWrapperStyle,
   TagSeparatorStyle,
@@ -41,7 +41,7 @@ export const TagFilterComponent = (props: Props) => {
     <TagFilterWrapperStyle>
       <ThirdLevelTtitleStyle>
         <TagFilterIconStyle aria-hidden>
-          <Svg type="SvgThumbsUp" viewBox="0 0 18 18" />
+          <SvgThumbsUp />
         </TagFilterIconStyle>
         {i18n.t('common.vote_on_proposals')}
       </ThirdLevelTtitleStyle>

@@ -4,13 +4,13 @@ import {
   IconWrapperStyle,
   FacebookButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import { Svg } from 'Client/ui/Svg';
+import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
   <FacebookButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
     <IconWrapperStyle>
-      <Svg aria-hidden type="SvgFacebookLogoF" />
+      <SvgFacebookLogoF aria-hidden />
     </IconWrapperStyle>
     Facebook
   </FacebookButtonStyle>

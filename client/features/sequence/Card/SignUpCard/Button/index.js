@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import { Svg } from 'Client/ui/Svg';
+import { SvgStepForward } from 'Client/ui/Svg/elements';
 import { AltNextButtonStyle } from '../../Styled/Buttons';
 
 type Props = {
@@ -23,7 +23,7 @@ export const SkipSignUpButton = (props: Props) => {
   return (
     <AltNextButtonStyle tabIndex={tabIndex} onClick={skipSignUpCard}>
       <IconWrapperStyle>
-        <Svg aria-hidden type="SvgStepForward" />
+        <SvgStepForward aria-hidden />
       </IconWrapperStyle>
       {text || i18n.t('sign_up_card.next-cta')}
     </AltNextButtonStyle>

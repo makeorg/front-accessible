@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { HidePasswordIconStyle } from 'Client/ui/Elements/Form/Styled/Icons';
-import { Svg } from 'Client/ui/Svg';
+import { SvgEyeSlash, SvgEye } from 'Client/ui/Svg/elements';
 
 type Props = {
   /** Boolean toggled when password shown / hidden */
@@ -24,7 +24,11 @@ export const PasswordButton = (props: Props) => {
       aria-hidden
       tabIndex={tabIndex}
     >
-      <Svg aria-hidden type={isPasswordDisplayed ? 'SvgEyeSlash' : 'SvgEye'} />
+      {isPasswordDisplayed ? (
+        <SvgEyeSlash aria-hidden />
+      ) : (
+        <SvgEye aria-hidden />
+      )}
     </UnstyledButtonStyle>
   );
 };

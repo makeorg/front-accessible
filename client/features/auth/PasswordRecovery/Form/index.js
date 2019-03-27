@@ -5,6 +5,10 @@ import { InputErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
+import {
+  PasswordFieldIcon,
+  SubmitPaperPlaneIcon,
+} from 'Shared/constants/icons';
 import { PasswordRecoveryFormStyle } from '../Styled';
 
 type Props = {
@@ -33,7 +37,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
     >
       <PasswordInput
         name="password"
-        icon="SvgLock"
+        icon={PasswordFieldIcon}
         errors={error}
         value={password}
         label={i18n.t('common.form.password_label')}
@@ -46,7 +50,7 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}
-        icon="SvgPaperPlane"
+        icon={SubmitPaperPlaneIcon}
         label={i18n.t('reset_password.send_cta')}
       />
     </PasswordRecoveryFormStyle>

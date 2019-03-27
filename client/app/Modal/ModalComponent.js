@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import ReactModal from 'react-modal';
-import { Svg } from 'Client/ui/Svg';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { SvgClose } from 'Client/ui/Svg/elements';
 
 type Props = {
   isModalOpen: boolean,
@@ -25,7 +25,7 @@ export const ModalComponent = (props: Props) => {
         aria-expanded="false"
         onClick={handleClose}
       >
-        <Svg aria-hidden type="SvgClose" />
+        <SvgClose aria-hidden />
       </CloseButtonStyle>
       {children}
     </ReactModal>

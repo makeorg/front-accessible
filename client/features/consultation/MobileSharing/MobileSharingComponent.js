@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sharing } from 'Client/features/sharing';
-import { Svg } from 'Client/ui/Svg';
+import { SvgClose, SvgShare } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
@@ -27,7 +27,7 @@ export const MobileSharingComponent = (props: Props) => {
           onClick={toggleExpand}
           aria-label={i18n.t('consultation.sharing.hide_pannel')}
         >
-          <Svg aria-hidden type="SvgClose" />
+          <SvgClose aria-hidden />
         </CloseSharingStyle>
       </SharingWrapperStyle>
     );
@@ -38,7 +38,7 @@ export const MobileSharingComponent = (props: Props) => {
       onClick={toggleExpand}
       aria-label={i18n.t('consultation.sharing.display_pannel')}
     >
-      <Svg aria-hidden type="SvgShare" />
+      <SvgShare aria-hidden />
     </ExpandSharingStyle>
   );
 };

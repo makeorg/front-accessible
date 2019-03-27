@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Svg } from 'Client/ui/Svg';
+import { SvgCheck } from 'Client/ui/Svg/elements';
 import {
   CheckboxWrapper,
   FakeCheckboxInputStyle,
@@ -61,7 +61,7 @@ export const CheckBoxComponent = (props: Props) => {
         <FakeCheckboxInputStyle aria-hidden>
           {isChecked ? (
             <CheckboxIconStyle tabIndex="-1">
-              <Svg type="SvgCheck" />
+              <SvgCheck />
             </CheckboxIconStyle>
           ) : null}
         </FakeCheckboxInputStyle>

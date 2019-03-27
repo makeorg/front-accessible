@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Svg } from 'Client/ui/Svg';
 import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
@@ -46,7 +45,7 @@ export const PasswordInputComponent = (props: Props) => {
   return (
     <MiddleFakeInputStyle hasError={errors}>
       <CenterInputIconStyle htmlFor={name} aria-label={label}>
-        <Svg aria-hidden type={icon} />
+        <span aria-hidden>{icon}</span>
       </CenterInputIconStyle>
       <BasicInputStyle
         type={isPasswordDisplayed ? 'text' : 'password'}
