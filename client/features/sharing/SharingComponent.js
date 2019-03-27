@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
+import {
+  SvgFacebookLogoF,
+  SvgTwitterLogo,
+  SvgLinkedinLogoIn,
+} from 'Client/ui/Svg/elements';
 import {
   SvgFacebookLogoF,
   SvgTwitterLogo,

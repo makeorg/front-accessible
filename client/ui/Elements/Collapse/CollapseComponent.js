@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import {
   CollapseWrapperStyle,
