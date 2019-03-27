@@ -3,10 +3,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { ModalComponent } from './ModalComponent';
 
-jest.mock('./Styled', () => ({
-  ModalCloseButtonStyle: 'ModalCloseButtonStyle',
-}));
-
 describe('ModalComponent', () => {
   const props = {
     isModalOpen: true,

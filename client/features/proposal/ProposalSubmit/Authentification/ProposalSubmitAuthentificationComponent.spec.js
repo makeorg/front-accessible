@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { EmailButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { Svg } from 'Client/ui/Svg';
 import { ProposalSubmitSeparatorStyle } from '../Styled';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
@@ -16,10 +16,8 @@ describe('ProposalSubmitAuthentificationComponent', () => {
     const wrapper = shallow(
       <ProposalSubmitAuthentificationComponent {...defaultProps} />
     );
-    const DescriptionLinkIcon = wrapper.find('a').find(FontAwesomeIcon);
-    const EmailButtonIcon = wrapper
-      .find(EmailButtonStyle)
-      .find(FontAwesomeIcon);
+    const DescriptionLinkIcon = wrapper.find('a').find(Svg);
+    const EmailButtonIcon = wrapper.find(EmailButtonStyle).find(Svg);
 
     expect(wrapper.find(ProposalSubmitSeparatorStyle).prop('aria-hidden')).toBe(
       true

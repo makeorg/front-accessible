@@ -1,7 +1,6 @@
 import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
-import { faPenAlt } from '@fortawesome/free-solid-svg-icons';
 import { TextArea } from './index';
 
 jest.mock('../Styled/Input', () => ({
@@ -15,7 +14,7 @@ jest.mock('../Styled/TextArea', () => ({
 
 const defaultProps = {
   name: 'bar',
-  icon: faPenAlt,
+  icon: 'SvgPencil',
   value: 'baz',
   label: 'qux',
   handleChange: () => {},

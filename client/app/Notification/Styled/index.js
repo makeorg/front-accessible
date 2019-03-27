@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   Breakpoints,
   Layouts,

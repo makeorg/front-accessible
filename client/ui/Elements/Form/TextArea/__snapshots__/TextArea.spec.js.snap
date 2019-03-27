@@ -5,9 +5,9 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -10,11 +10,11 @@
-        prefix="fas"
-      />
+@@ -16,11 +16,11 @@
+        />
+      </svg>
     </label>
     <BasicTextAreaStyle
       aria-required={false}
@@ -25,7 +25,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -17,10 +17,10 @@
+@@ -23,10 +23,10 @@
       name="bar"
       onChange={[Function handleChange]}
       placeholder="qux"
@@ -44,7 +44,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -12,10 +12,12 @@
+@@ -18,10 +18,12 @@
     </label>
     <BasicTextAreaStyle
       aria-required={false}
@@ -64,10 +64,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -9,17 +9,17 @@
-        lib="@fortawesome/react-fontawesome"
-        prefix="fas"
-      />
+@@ -15,17 +15,17 @@
+          d="M0 11.607V16h4.393l8.787-8.787L8.787 2.82zm3.834 3.041h-1.13v-1.352H1.352v-1.13l.96-.96 2.483 2.481zm5.29-10.033c.156 0 .233.078.233.233 0 .07-.024.13-.074.18L3.56 10.75a.245.245 0 0 1-.18.074c-.154 0-.232-.078-.232-.232 0-.07.025-.13.074-.18L8.945 4.69a.244.244 0 0 1 .18-.074zm6.486-1.743L13.126.402a1.312 1.312 0 0 0-.96-.402c-.381 0-.698.134-.951.401L9.463 2.144l4.393 4.393 1.753-1.753c.26-.26.391-.577.391-.95 0-.366-.13-.687-.39-.962z"
+        />
+      </svg>
     </label>
     <BasicTextAreaStyle
 -     aria-required={true}
@@ -91,7 +91,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -18,9 +18,9 @@
+@@ -24,9 +24,9 @@
       onChange={[Function handleChange]}
       placeholder="qux"
       required={false}

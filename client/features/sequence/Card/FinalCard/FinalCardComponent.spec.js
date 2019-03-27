@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Svg } from 'Client/ui/Svg';
 import { FinalCardComponent } from './FinalCardComponent';
 
 describe('FinalCardComponent', () => {
@@ -11,6 +11,6 @@ describe('FinalCardComponent', () => {
   it('Check a11y rules', () => {
     const wrapper = shallow(<FinalCardComponent {...props} />);
 
-    expect(wrapper.find(FontAwesomeIcon).prop('aria-hidden')).toBe(true);
+    expect(wrapper.find(Svg).prop('aria-hidden')).toBe(true);
   });
 });

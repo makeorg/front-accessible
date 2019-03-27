@@ -5,7 +5,7 @@ import * as elements from './elements';
 
 type KeysFile = $Keys<typeof elements>;
 type Props = {
-  type: KeysFile,
+  type: KeysFile | string,
 };
 
 export const Svg = (props: Props) => {
