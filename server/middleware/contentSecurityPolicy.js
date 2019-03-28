@@ -14,13 +14,7 @@ export const cspMiddleware = csp({
       "'unsafe-inline'",
     ],
     styleSrc: ["'unsafe-inline'"],
-    imgSrc: [
-      "'self'",
-      'https://*.facebook.com',
-      'http://t.co',
-      'https://*.fbsbx.com',
-      'https://*.googleusercontent.com',
-    ],
+    imgSrc: ['*'],
     connectSrc: [
       "'self'",
       'https://*.makeorg.tech',

@@ -32,7 +32,7 @@ export const ProposalAuthorWithAvatar = (props: Props) => {
       <Avatar>
         {author.avatarUrl && <img src={author.avatarUrl} alt="" />}
       </Avatar>
-      {author.firstName}
+      {author.firstName || author.organisationName}
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (
         <React.Fragment>

@@ -28,7 +28,7 @@ export const ProposalAuthor = (props: Props) => {
 
   return (
     <AuthorInfosStyle>
-      {author.firstName}
+      {author.firstName || author.organisationName}
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (
         <React.Fragment>

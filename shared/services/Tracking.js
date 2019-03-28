@@ -91,7 +91,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   /* LearnMore Tracking */
