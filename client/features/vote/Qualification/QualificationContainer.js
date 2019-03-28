@@ -19,8 +19,6 @@ type Props = {
   proposalKey: string,
   /** Index of the card */
   index?: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Voted key property */
   votedKey: string,
   /** When waiting vote response from API */
@@ -104,7 +102,7 @@ export class QualificationContainer extends React.Component<Props, State> {
   };
 
   render() {
-    const { tabIndex, proposalId, votedKey, pendingVote } = this.props;
+    const { proposalId, votedKey, pendingVote } = this.props;
     const { qualifications, pendingQualificationKeys } = this.state;
 
     return (
@@ -113,7 +111,6 @@ export class QualificationContainer extends React.Component<Props, State> {
         votedKey={votedKey}
         qualifications={qualifications}
         handleQualification={this.handleQualification}
-        tabIndex={tabIndex}
         pendingVote={pendingVote}
         pendingQualificationKeys={pendingQualificationKeys}
       />

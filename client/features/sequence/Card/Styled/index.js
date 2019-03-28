@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
@@ -6,6 +6,16 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+
+const EnableVisibility = keyframes`
+  0% { visibility: hidden; }
+  100% { visibility: visible; }
+`;
+
+const DisableVisibility = keyframes`
+  0% { visibility: visible; }
+  100% { visibility: hidden; }
+`;
 
 export const ProposalCardStyle = styled.li`
   position: absolute;
@@ -22,10 +32,15 @@ export const ProposalCardStyle = styled.li`
   transform: scaleX(${props => props.scale || 0})
     translateY(-${props => props.position || 0}px);
   background-color: ${BasicColors.PureWhite};
-  transition: transform 0.75s ease-in;
+  transition: all 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
-  overflow: hidden;
-  ${props => (props.isCardCollapsed ? 'transform: translateY(125%)' : '')};
+  ${props => (props.isCardCollapsed ? 'transform: translateY(125%);' : '')};
+  button,
+  a {
+    animation: ${props =>
+        props.isCardVisible ? EnableVisibility : DisableVisibility}
+      0.75s 1 forwards;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }

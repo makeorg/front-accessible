@@ -5,7 +5,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -8,16 +8,16 @@
+@@ -8,15 +8,15 @@
       >
         SvgEnvelope
       </span>
@@ -19,26 +19,6 @@ Snapshot Diff:
       placeholder="qux"
 -     required={true}
 +     required={false}
-      tabIndex={0}
-      type="foo"
-      value="baz"
-    />
-  </MiddleFakeInputStyle>
-`;
-
-exports[`UntypedInput must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -14,10 +14,10 @@
-      id="bar"
-      name="bar"
-      onChange={[Function handleChange]}
-      placeholder="qux"
-      required={false}
--     tabIndex="-1"
-+     tabIndex="0"
       type="foo"
       value="baz"
     />

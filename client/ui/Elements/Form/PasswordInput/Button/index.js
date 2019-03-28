@@ -10,19 +10,16 @@ type Props = {
   toggleIsPasswordDisplayed: (
     event: SyntheticInputEvent<HTMLInputElement>
   ) => void,
-  /** Tabindex for interactive items */
-  tabIndex: number,
 };
 
 export const PasswordButton = (props: Props) => {
-  const { isPasswordDisplayed, toggleIsPasswordDisplayed, tabIndex } = props;
+  const { isPasswordDisplayed, toggleIsPasswordDisplayed } = props;
 
   return (
     <UnstyledButtonStyle
       as={isPasswordDisplayed ? HidePasswordIconStyle : UnstyledButtonStyle}
       onClick={toggleIsPasswordDisplayed}
       aria-hidden
-      tabIndex={tabIndex}
     >
       {isPasswordDisplayed ? (
         <SvgEyeSlash aria-hidden />

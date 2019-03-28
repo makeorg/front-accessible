@@ -15,7 +15,6 @@ import { SharingComponent } from './SharingComponent';
 type Props = {
   location: Location,
   questionConfiguration: QuestionConfiguration,
-  tabIndex?: number,
 };
 
 /**
@@ -23,12 +22,8 @@ type Props = {
  */
 
 class SharingContainerLinks extends React.Component<Props> {
-  static defaultProps = {
-    tabIndex: undefined,
-  };
-
   render() {
-    const { location, questionConfiguration, tabIndex } = this.props;
+    const { location, questionConfiguration } = this.props;
 
     let hashtagsProps: string = '';
 
@@ -41,7 +36,6 @@ class SharingContainerLinks extends React.Component<Props> {
         twitterShareUrl={twitterShareUrl(location.pathname, '', hashtagsProps)}
         facebookShareUrl={facebookShareUrl(location.pathname)}
         linkedinShareUrl={linkedinShareUrl(location.pathname)}
-        tabIndex={tabIndex}
       />
     );
   }

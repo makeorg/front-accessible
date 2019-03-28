@@ -14,12 +14,10 @@ type Props = {
   color: string,
   /** Label of the button */
   label: string,
-  /** Tabindex for interactive items */
+  /** isQualified for interactive items */
   isQualified: boolean,
   /** Number of qualifications */
   qualificationCounter?: number,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
   /** When waiting qualification response from API */
   pendingQualification: boolean,
   /** Method called when qualification button is clicked */
@@ -36,7 +34,6 @@ export const QualificationButtonElement = (props: Props) => {
     isQualified,
     qualificationCounter,
     handleQualification,
-    tabIndex,
     pendingQualification,
   } = props;
   const handleClick = event => {
@@ -45,7 +42,6 @@ export const QualificationButtonElement = (props: Props) => {
   };
   return (
     <ButtonStyle
-      tabIndex={tabIndex}
       as={isQualified ? UnqualifyButtonStyle : QualifyButtonStyle}
       color={color}
       onClick={handleClick}
@@ -67,5 +63,4 @@ export const QualificationButtonElement = (props: Props) => {
 
 QualificationButtonElement.defaultProps = {
   qualificationCounter: 0,
-  tabIndex: 0,
 };

@@ -18,8 +18,6 @@ type Props = {
   tooltipType?: React.Component,
   /** Styled Component Element for Tooltip Wrapper */
   tooltipWrapper?: React.Component,
-  /** Tab Index for button */
-  tabIndex?: number,
   /** Custom z-index for tooltip */
   zIndex?: number,
   /** Custom aria-label for display event */
@@ -77,7 +75,6 @@ TooltipWithTriggerState.defaultProps = {
   tooltipWrapper: TooltipWrapperStyle,
   triggerType: UnstyledButtonStyle,
   tooltipType: TopTooltipStyle,
-  tabIndex: 0,
   zIndex: 0,
   ariaLabelDisplay: i18n.t('common.display_tooltip'),
   ariaLabelHide: i18n.t('common.hide_tooltip'),

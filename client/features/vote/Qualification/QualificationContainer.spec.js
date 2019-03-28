@@ -8,7 +8,6 @@ describe('QualificationContainer', () => {
     qualifications: [],
     proposalId: 'foo',
     index: 1,
-    tabIndex: 0,
     votedKey: 'foo',
   };
 
@@ -35,6 +34,5 @@ describe('QualificationContainer', () => {
     expect(typeof QualificationComponentProps.handleQualification).toBe(
       'function'
     );
-    expect(QualificationComponentProps.tabIndex).toBe(expectedProps.tabIndex);
   });
 });

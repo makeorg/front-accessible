@@ -17,24 +17,14 @@ type Props = {
   twitterShareUrl: string,
   facebookShareUrl: string,
   linkedinShareUrl: string,
-  tabIndex?: number,
 };
 
 /**
  * Renders Sharing
  */
 export class SharingComponent extends React.Component<Props> {
-  static defaultProps = {
-    tabIndex: undefined,
-  };
-
   render() {
-    const {
-      twitterShareUrl,
-      facebookShareUrl,
-      linkedinShareUrl,
-      tabIndex,
-    } = this.props;
+    const { twitterShareUrl, facebookShareUrl, linkedinShareUrl } = this.props;
     return (
       <SharingStyle as={UnstyledListStyle}>
         <li>
@@ -44,7 +34,6 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={facebookShareUrl}
             target="_blank"
-            tabIndex={tabIndex}
           >
             <SvgFacebookLogoF aria-hidden />
           </FacebookButtonStyle>
@@ -56,7 +45,6 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={twitterShareUrl}
             target="_blank"
-            tabIndex={tabIndex}
           >
             <SvgTwitterLogo aria-hidden />
           </TwitterButtonStyle>
@@ -68,7 +56,6 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={linkedinShareUrl}
             target="_blank"
-            tabIndex={tabIndex}
           >
             <SvgLinkedinLogoIn aria-hidden />
           </LinkedInButtonStyle>

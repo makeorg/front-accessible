@@ -7,8 +7,8 @@ import {
 import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
 import { FacebookAuthentificationComponent } from '../index';
 
-const renderFacebookLogin = tabIndex => renderProps => (
-  <FacebookButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+const renderFacebookLogin = () => renderProps => (
+  <FacebookButtonStyle onClick={renderProps.onClick}>
     <IconWrapperStyle>
       <SvgFacebookLogoF aria-hidden />
     </IconWrapperStyle>
@@ -16,24 +16,9 @@ const renderFacebookLogin = tabIndex => renderProps => (
   </FacebookButtonStyle>
 );
 
-type Props = {
-  /** Tabindex for interactive items */
-  tabIndex?: number,
-};
-
 /**
  * Renders Facebook authentification button
  */
-export const FacebookAuthentificationButtonComponent = (props: Props) => {
-  const { tabIndex } = props;
-  return (
-    <FacebookAuthentificationComponent
-      {...props}
-      render={renderFacebookLogin(tabIndex)}
-    />
-  );
-};
-
-FacebookAuthentificationButtonComponent.defaultProps = {
-  tabIndex: 0,
+export const FacebookAuthentificationButtonComponent = () => {
+  return <FacebookAuthentificationComponent render={renderFacebookLogin()} />;
 };

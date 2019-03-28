@@ -15,12 +15,10 @@ import { IntroButtonStyle } from '../Styled/Buttons';
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
-  /** Index of the card */
-  index: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
+  /** Boolean toggled when card user has skip the card */
+  isCardCollapsed: boolean,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
   /** Position of the card */
   position: number,
   /** Scale property used by Styled Component */
@@ -37,9 +35,8 @@ type Props = {
 export const IntroCardComponent = (props: Props) => {
   const {
     configuration,
-    index,
-    currentIndex,
-    tabIndex,
+    isCardCollapsed,
+    isCardVisible,
     handleStartSequence,
     position,
     scale,
@@ -51,7 +48,9 @@ export const IntroCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      isCardCollapsed={index < currentIndex}
+      isCardCollapsed={isCardCollapsed}
+      isCardVisible={isCardVisible}
+      aria-hidden={!isCardVisible}
     >
       <header>
         <ExtraLogo extraLogo={configuration.extraLogo} />
@@ -61,7 +60,6 @@ export const IntroCardComponent = (props: Props) => {
       <IntroDescription description={configuration.description} />
       <IntroButtonStyle
         id="sequence-start-sequence-button"
-        tabIndex={tabIndex}
         onClick={handleStartSequence}
       >
         <IconWrapperStyle aria-hidden>

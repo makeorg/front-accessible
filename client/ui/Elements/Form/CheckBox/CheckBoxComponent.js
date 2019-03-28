@@ -24,8 +24,6 @@ type Props = {
   isChecked: boolean,
   /** Is input required or optional */
   required: boolean,
-  /** Tabindex for interactive items */
-  tabIndex: number,
 };
 
 export const CheckBoxComponent = (props: Props) => {
@@ -36,7 +34,6 @@ export const CheckBoxComponent = (props: Props) => {
     label,
     required,
     isChecked,
-    tabIndex,
     handleLabelClick,
     handleEnterKey,
   } = props;
@@ -54,7 +51,6 @@ export const CheckBoxComponent = (props: Props) => {
       />
       <CheckboxLabelStyle
         htmlFor={id}
-        tabIndex={tabIndex}
         onClick={handleLabelClick}
         onKeyPress={handleEnterKey}
       >

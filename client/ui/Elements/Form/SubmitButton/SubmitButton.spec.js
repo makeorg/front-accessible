@@ -30,14 +30,4 @@ describe('SubmitButton', () => {
       .toJSON();
     expect(snapshotDiff(OneSubmit, TwoSubmit)).toMatchSnapshot();
   });
-
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const OneSubmit = renderer.create(
-      <SubmitButton {...defaultProps} tabIndex="-1" />
-    );
-    const TwoSubmit = renderer
-      .create(<SubmitButton {...defaultProps} tabIndex="0" />)
-      .toJSON();
-    expect(snapshotDiff(OneSubmit, TwoSubmit)).toMatchSnapshot();
-  });
 });

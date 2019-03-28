@@ -15,8 +15,6 @@ type Props = {
   proposalId: string,
   /** Voted key property */
   votedKey: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Array with qualifications received from Api */
   qualifications: Array<QualificationType>,
   /** When waiting vote response from API */
@@ -35,7 +33,6 @@ export const QualificationComponent = (props: Props) => {
     qualifications,
     proposalId,
     votedKey,
-    tabIndex,
     handleQualification,
     pendingVote,
     pendingQualificationKeys,
@@ -66,7 +63,6 @@ export const QualificationComponent = (props: Props) => {
           qualificationCounter={qualification.count}
           isQualified={qualification.hasQualified}
           handleQualification={handle(qualification)}
-          tabIndex={tabIndex}
           pendingQualification={pendingQualificationKeys.has(
             qualification.qualificationKey
           )}

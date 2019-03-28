@@ -16,7 +16,6 @@ describe('VoteResultContainer', () => {
     proposalId: 'fooId',
     votes: [{ voteKey: 'foo' }, { voteKey: 'bar' }],
     votedKey: 'bar',
-    tabIndex: 0,
     index: 0,
     handleVote: () => {},
   };
@@ -40,7 +39,6 @@ describe('VoteResultContainer', () => {
       proposalId: defaultProps.proposalId,
       votedKey: defaultProps.votedKey,
       index: defaultProps.index,
-      tabIndex: defaultProps.tabIndex,
     };
 
     const voteResultComponentWrapper = wrapper.find(VoteResultComponent);

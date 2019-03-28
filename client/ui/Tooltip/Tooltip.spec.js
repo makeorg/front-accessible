@@ -1,5 +1,4 @@
 import React from 'react';
-import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import { TooltipWithTrigger } from './index';
 
@@ -23,13 +22,5 @@ describe('TooltipWithTrigger', () => {
       .create(<TooltipWithTrigger {...defaultProps} />)
       .toJSON();
     expect(component).toMatchSnapshot();
-  });
-
-  it('must return the diff between snapshot with a default vs a custom Tab Index', () => {
-    const defaultTabIndex = renderer.create(<TooltipWithTrigger />);
-    const customTabIndex = renderer
-      .create(<TooltipWithTrigger tabIndex={-1} />)
-      .toJSON();
-    expect(snapshotDiff(defaultTabIndex, customTabIndex)).toMatchSnapshot();
   });
 });

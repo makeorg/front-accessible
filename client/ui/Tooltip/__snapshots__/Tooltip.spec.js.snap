@@ -33,7 +33,6 @@ exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    tabIndex={0}
   >
     foo
   </UnstyledButtonStyle>
@@ -45,24 +44,4 @@ exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
     bar
   </div>
 </div>
-`;
-
-exports[`TooltipWithTrigger must return the diff between snapshot with a default vs a custom Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -7,11 +7,11 @@
-      onBlur={[Function anonymous]}
-      onClick={[Function anonymous]}
-      onFocus={[Function anonymous]}
-      onMouseEnter={[Function anonymous]}
-      onMouseLeave={[Function anonymous]}
--     tabIndex={0}
-+     tabIndex={-1}
-    />
-    <div
-      aria-hidden={true}
-      className="wrvktz-1 eqqqVY"
-      role="tooltip"
 `;

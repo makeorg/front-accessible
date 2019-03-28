@@ -27,16 +27,12 @@ type Props = {
   configuration: PushProposalCardConfig,
   /** Index of the card */
   index: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Total of cards */
   cardsCount: number,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
+  goToPreviousCard: () => void,
   /** Position of the card */
   position: number,
   /** Scale property used by Styled Component */
@@ -44,9 +40,13 @@ type Props = {
   /** Zindex property used by Styled Component */
   zindex: number,
   /** Method called when next card button is clicked */
-  skipProposalPushCard: Function,
+  skipProposalPushCard: () => void,
   /** Method called when proposal button is clicked  */
-  focusProposalField: Function,
+  focusProposalField: () => void,
+  /** Boolean toggled when card user has skip the card */
+  isCardCollapsed: boolean,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
@@ -56,8 +56,7 @@ export const PushProposalCardComponent = (props: Props) => {
   const {
     configuration,
     index,
-    tabIndex,
-    currentIndex,
+    isCardCollapsed,
     cardOffset,
     cardsCount,
     goToPreviousCard,
@@ -66,6 +65,7 @@ export const PushProposalCardComponent = (props: Props) => {
     zindex,
     skipProposalPushCard,
     focusProposalField,
+    isCardVisible,
   } = props;
 
   return (
@@ -73,10 +73,12 @@ export const PushProposalCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      isCardCollapsed={index < currentIndex}
+      isCardCollapsed={isCardCollapsed}
+      isCardVisible={isCardVisible}
+      aria-hidden={!isCardVisible}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
+        <BackButtonStyle onClick={goToPreviousCard}>
           <BackIconStyle>
             <SvgArrowLeft aria-hidden />
           </BackIconStyle>
@@ -97,20 +99,13 @@ export const PushProposalCardComponent = (props: Props) => {
             </AltMainTitleStyle>
           </header>
           <MiddleColumnToRowStyle as="section">
-            <PushProposalButtonStyle
-              type="submit"
-              tabIndex={tabIndex}
-              onClick={focusProposalField}
-            >
+            <PushProposalButtonStyle type="submit" onClick={focusProposalField}>
               <IconWrapperStyle>
                 <SvgPencil aria-hidden />
               </IconWrapperStyle>
               {i18n.t('common.propose')}
             </PushProposalButtonStyle>
-            <PushProposalNextButtonStyle
-              tabIndex={tabIndex}
-              onClick={skipProposalPushCard}
-            >
+            <PushProposalNextButtonStyle onClick={skipProposalPushCard}>
               <IconWrapperStyle>
                 <SvgStepForward aria-hidden />
               </IconWrapperStyle>

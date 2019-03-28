@@ -18,24 +18,21 @@ type Props = {
   handleRegisterClick: () => void,
   /** Method called to render Login Pannel */
   handleLoginClick: () => void,
-  /** Tabindex for interactive items */
-  tabIndex: number,
 };
 
 /**
  * Renders Authentification in Sign Up Card
  */
 export const SignUpCardAuthentificationComponent = (props: Props) => {
-  const { handleRegisterClick, handleLoginClick, tabIndex } = props;
+  const { handleRegisterClick, handleLoginClick } = props;
 
   return (
     <CenterColumnStyle>
       <SmallButtonWrapperStyle>
-        <FacebookAuthentificationButtonComponent tabIndex={tabIndex} />
-        <GoogleAuthentificationButtonComponent tabIndex={tabIndex} />
+        <FacebookAuthentificationButtonComponent />
+        <GoogleAuthentificationButtonComponent />
         <EmailButtonStyle
           onClick={handleRegisterClick}
-          tabIndex={tabIndex}
           id="authentification-register-button"
         >
           <IconWrapperStyle>
@@ -46,7 +43,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
       </SmallButtonWrapperStyle>
       <ExtraAltParagraphStyle>
         {i18n.t('register.login_title')}
-        <RedLinkButtonStyle tabIndex={tabIndex} onClick={handleLoginClick}>
+        <RedLinkButtonStyle onClick={handleLoginClick}>
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
