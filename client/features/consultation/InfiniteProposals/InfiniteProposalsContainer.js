@@ -4,6 +4,7 @@ import { type ProposalType } from 'Shared/types/proposal';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { type Question } from 'Shared/types/question';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
+import { Tracking } from 'Shared/services/Tracking';
 import { InfiniteProposalsComponent } from './InfiniteProposalsComponent';
 
 type Props = {
@@ -16,6 +17,7 @@ type State = {
   page: number,
   isLoading: boolean,
   hasMore: boolean,
+  initialLoading: boolean,
 };
 
 export class InfiniteProposalsContainer extends React.Component<Props, State> {
@@ -24,18 +26,19 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
     page: 1,
     isLoading: false,
     hasMore: true,
+    initialLoading: false,
   };
 
   async componentDidMount() {
     window.addEventListener('scroll', this.onScroll, false);
-    this.initPrposals();
+    this.initProposals();
   }
 
   async componentDidUpdate(prevProps: Props) {
     const { tags } = this.props;
 
     if (tags !== prevProps.tags) {
-      this.initPrposals();
+      this.initProposals();
     }
   }
 
@@ -44,19 +47,19 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
   }
 
   onScroll = () => {
-    const { isLoading, hasMore } = this.state;
+    const { isLoading, hasMore, initialLoading } = this.state;
+    const scrollThresold =
+      document.body &&
+      window.innerHeight + window.scrollY >= document.body.scrollHeight;
 
     if (isLoading || !hasMore) return;
 
-    if (
-      document.body &&
-      window.innerHeight + window.scrollY >= document.body.scrollHeight
-    ) {
+    if (scrollThresold && !initialLoading) {
       this.loadMoreProposals();
     }
   };
 
-  initPrposals = async () => {
+  initProposals = async () => {
     const { question, tags } = this.props;
     this.setState({ isLoading: true });
     const proposals = await searchProposals(question.questionId, tags);
@@ -65,6 +68,7 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
       page: 2,
       hasMore: proposals.length === PROPOSALS_LISTING_LIMIT,
       isLoading: false,
+      initialLoading: true,
     });
   };
 
@@ -80,17 +84,25 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
       page: prevState.page + 1,
       hasMore: proposals.length === PROPOSALS_LISTING_LIMIT,
       isLoading: false,
+      initialLoading: false,
     }));
+  };
+
+  clickLoadMore = () => {
+    this.loadMoreProposals();
+    Tracking.trackLoadMoreProposals();
   };
 
   render() {
     const { question } = this.props;
-    const { proposals, isLoading } = this.state;
+    const { proposals, isLoading, initialLoading } = this.state;
     return (
       <InfiniteProposalsComponent
         question={question}
         proposals={proposals}
         isLoading={isLoading}
+        initialLoading={initialLoading}
+        clickLoadMore={this.clickLoadMore}
       />
     );
   }
