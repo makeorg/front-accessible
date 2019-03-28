@@ -6,6 +6,7 @@ import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { register } from 'Shared/store/actions/registration';
 import { modalShowLogin } from 'Shared/store/actions/modal';
+import { selectRegistration } from 'Shared/store/selectors/user.selector';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
@@ -86,11 +87,9 @@ class RegisterHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { errors } = state.registration;
+  const { errors } = selectRegistration(state);
 
-  return {
-    errors,
-  };
+  return { errors };
 };
 
 const mapDispatchToProps = dispatch => ({

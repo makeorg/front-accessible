@@ -65,9 +65,12 @@ const initApp = async state => {
 
   const store = configureStore({
     ...state,
-    authentification: {
-      ...state.authentification,
-      ...authentificationState,
+    user: {
+      ...state.user,
+      authentification: {
+        ...state.user.authentification,
+        ...authentificationState,
+      },
     },
   });
 

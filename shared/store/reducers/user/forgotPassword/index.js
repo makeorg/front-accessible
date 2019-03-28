@@ -1,9 +1,11 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
+import { initialState } from 'Shared/store/initialState';
+import { type StateForgotPassword } from 'Shared/store/types';
 
 export function forgotPassword(
-  state: Object = { isSuccess: false, errors: [] },
+  state: StateForgotPassword = initialState.user.forgotPassword,
   action: Object
 ) {
   switch (action.type) {

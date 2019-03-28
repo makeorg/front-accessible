@@ -36,6 +36,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       user: {
+        ...initialState.user,
         passwordRecovery: {
           validToken: false,
           resetToken: requestParams.resetToken,
@@ -80,6 +81,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       user: {
+        ...initialState.user,
         passwordRecovery: {
           validToken: true,
           resetToken: requestParams.resetToken,
@@ -119,6 +121,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       user: {
+        ...initialState.user,
         passwordRecovery: {
           validToken: false,
           resetToken: requestParams.resetToken,

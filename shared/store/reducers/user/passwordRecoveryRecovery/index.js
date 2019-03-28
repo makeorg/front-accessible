@@ -1,9 +1,10 @@
 /* @flow */
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
+import { type StateUserPasswordRecovery } from 'Shared/store/types';
 
 export function passwordRecovery(
-  state: Object = initialState.user.passwordRecovery,
+  state: StateUserPasswordRecovery = initialState.user.passwordRecovery,
   action: Object
 ) {
   switch (action.type) {
