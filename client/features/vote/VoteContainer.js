@@ -24,12 +24,8 @@ type Props = {
   votes: VoteType[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed?: boolean,
   /** Index of the card */
   index?: number,
-  /** Incremented / Decremented Index */
-  currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called on vote */
@@ -47,7 +43,7 @@ type Props = {
 };
 
 type State = {
-  /** Tabindex for interactive items */
+  /** hasVoted State */
   hasVoted: boolean,
   /** Voted key property */
   votedKey: string,
@@ -174,13 +170,7 @@ export class VoteHandler extends React.Component<Props, State> {
   hasStartedPending: boolean;
 
   render() {
-    const {
-      proposalId,
-      isSequenceCollapsed,
-      index,
-      currentIndex,
-      goToNextCard,
-    } = this.props;
+    const { proposalId, index, goToNextCard } = this.props;
     const {
       hasVoted,
       votedKey,
@@ -189,7 +179,6 @@ export class VoteHandler extends React.Component<Props, State> {
       pending,
       pendingVoteKey,
     } = this.state;
-    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -200,7 +189,6 @@ export class VoteHandler extends React.Component<Props, State> {
               votedKey={votedKey}
               index={index}
               handleVote={() => this.handleVoting(votedKey)}
-              tabIndex={tabIndex}
               pending={pending}
             />
             <Qualification
@@ -208,16 +196,11 @@ export class VoteHandler extends React.Component<Props, State> {
               qualifications={qualifications}
               votedKey={votedKey}
               index={index}
-              tabIndex={tabIndex}
               pendingVote={pending}
             />
           </VoteStyle.ContainerStyle>
           {index !== undefined && (
-            <NextButtonStyle
-              tabIndex={tabIndex}
-              onClick={goToNextCard}
-              id={`next-button-${index}`}
-            >
+            <NextButtonStyle onClick={goToNextCard} id={`next-button-${index}`}>
               {i18n.t('proposal_card.next')}
               {' >'}
             </NextButtonStyle>
@@ -230,7 +213,6 @@ export class VoteHandler extends React.Component<Props, State> {
       <VoteComponent
         proposalId={proposalId}
         index={index}
-        tabIndex={tabIndex}
         handleVote={this.handleVoting}
         pending={pending}
         pendingVoteKey={pendingVoteKey}

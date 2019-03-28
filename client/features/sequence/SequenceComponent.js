@@ -69,7 +69,6 @@ export const SequenceComponent = (props: Props) => {
               cardsCount={cardsCount}
               cardOffset={cardOffset}
               currentIndex={currentIndex}
-              isSequenceCollapsed={isClosed}
               goToPreviousCard={goToPreviousCard}
               goToNextCard={goToNextCard}
               skipSignUpCard={skipSignUpCard}

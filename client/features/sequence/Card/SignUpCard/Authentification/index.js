@@ -5,8 +5,6 @@ import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import { SignUpCardAuthentificationComponent } from './SignUpCardAuthentificationComponent';
 
 type Props = {
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: Function,
   /** Method called to render Login Component in Sliding Pannel */

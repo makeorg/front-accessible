@@ -38,23 +38,3 @@ Snapshot Diff:
       htmlFor="foo"
       onClick={[Function anonymous]}
 `;
-
-exports[`CheckBox must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -9,11 +9,11 @@
-    />
-    <CheckboxLabelStyle
-      htmlFor="foo"
-      onClick={[Function anonymous]}
-      onKeyPress={[Function anonymous]}
--     tabIndex="-1"
-+     tabIndex={0}
-    >
-      <FakeCheckboxInputStyle
-        aria-hidden={true}
-      />
-      baz
-`;

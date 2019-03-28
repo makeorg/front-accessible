@@ -24,19 +24,3 @@ Snapshot Diff:
     SvgThumbsup
   </ButtonStyle>
 `;
-
-exports[`VoteButtonElement must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-  <ButtonStyle
-    aria-label="foo"
-    as="VoteButtonStyle"
-    color="red"
--   tabIndex="-1"
-+   tabIndex="0"
-  >
-    SvgThumbsup
-  </ButtonStyle>
-`;

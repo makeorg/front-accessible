@@ -25,7 +25,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -17,10 +17,10 @@
+@@ -17,9 +17,9 @@
       name="bar"
       onChange={[Function handleChange]}
       placeholder="qux"
@@ -33,7 +33,6 @@ Snapshot Diff:
       rows={5}
 -     spellCheck={true}
 +     spellCheck={false}
-      tabIndex={0}
       value="baz"
     />
   </FakeInputStyle>
@@ -81,24 +80,6 @@ Snapshot Diff:
 +     required={false}
       rows={5}
       spellCheck={true}
-      tabIndex={0}
-      value="baz"
-    />
-`;
-
-exports[`TextArea must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -18,9 +18,9 @@
-      onChange={[Function handleChange]}
-      placeholder="qux"
-      required={false}
-      rows={5}
-      spellCheck={true}
--     tabIndex="-1"
-+     tabIndex="0"
       value="baz"
     />
   </FakeInputStyle>

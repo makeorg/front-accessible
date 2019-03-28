@@ -11,8 +11,6 @@ type Props = {
   label: string,
   /** Vote key's Icon */
   icon: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType?: React.Node,
   /** When display pending */
@@ -33,7 +31,6 @@ export const VoteButtonElement = (props: Props) => {
     color,
     label,
     icon,
-    tabIndex,
     buttonType,
     handleVote,
     displayTooltip,
@@ -44,7 +41,6 @@ export const VoteButtonElement = (props: Props) => {
   return (
     <ButtonStyle
       aria-label={displayPending ? i18n.t('common.loading') : label}
-      tabIndex={tabIndex}
       color={color}
       as={buttonType}
       onClick={handleVote}

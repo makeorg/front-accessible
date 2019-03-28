@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { TabIndexContext } from 'Client/app/TabIndexContext';
 import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 
@@ -13,7 +12,7 @@ type Props = {
   /** Url of show more button */
   url?: string,
   /** Method called when button is clicked */
-  handleEndSequence: () => void,
+  handleEndSequence: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -28,40 +27,34 @@ export const More = (props: Props) => {
 
   if (title) {
     return (
-      <TabIndexContext.Consumer>
-        {tabIndex => (
-          <MoreWrapperStyle>
-            <IntroParagraphStyle>{title}</IntroParagraphStyle>
-            <FinalLinkStyle
-              as="a"
-              tabIndex={tabIndex}
-              href={url}
-              target="_blank"
-              onClick={handleEndSequence}
-            >
-              {buttonText || i18n.t('final_card.button')}
-            </FinalLinkStyle>
-          </MoreWrapperStyle>
-        )}
-      </TabIndexContext.Consumer>
+      <MoreWrapperStyle>
+        <IntroParagraphStyle>{title}</IntroParagraphStyle>
+        <FinalLinkStyle
+          as="a"
+          href={url}
+          target="_blank"
+          onClick={handleEndSequence}
+        >
+          {buttonText}
+        </FinalLinkStyle>
+      </MoreWrapperStyle>
     );
   }
 
   return (
-    <TabIndexContext.Consumer>
-      {tabIndex => (
-        <MoreWrapperStyle>
-          <FinalLinkStyle
-            as="a"
-            tabIndex={tabIndex}
-            href={url}
-            target="_blank"
-            onClick={handleEndSequence}
-          >
-            {buttonText || i18n.t('final_card.button')}
-          </FinalLinkStyle>
-        </MoreWrapperStyle>
-      )}
-    </TabIndexContext.Consumer>
+    <MoreWrapperStyle>
+      <FinalLinkStyle
+        as="a"
+        href={url}
+        target="_blank"
+        onClick={handleEndSequence}
+      >
+        {buttonText}
+      </FinalLinkStyle>
+    </MoreWrapperStyle>
   );
+};
+
+More.defaultProps = {
+  buttonText: i18n.t('final_card.button'),
 };

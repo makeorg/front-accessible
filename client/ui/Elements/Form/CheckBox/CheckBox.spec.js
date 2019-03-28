@@ -20,16 +20,6 @@ describe('CheckBox', () => {
     label: 'baz',
   };
 
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer.create(
-      <CheckBox {...defaultProps} tabIndex="-1" />
-    );
-    const PositiveTabIndex = renderer
-      .create(<CheckBox {...defaultProps} />)
-      .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot when checkbox is required or optionnal', () => {
     const RequiredCheckbox = renderer
       .create(<CheckBox {...defaultProps} required />)

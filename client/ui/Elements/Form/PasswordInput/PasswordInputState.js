@@ -16,8 +16,6 @@ type Props = {
   errors?: Array<ErrorObject>,
   /** Is input required or optional */
   required?: boolean,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
 };
 
 type State = {
@@ -29,7 +27,6 @@ export class PasswordInputState extends React.Component<Props, State> {
   static defaultProps = {
     errors: undefined,
     required: true,
-    tabIndex: 0,
   };
 
   state = {

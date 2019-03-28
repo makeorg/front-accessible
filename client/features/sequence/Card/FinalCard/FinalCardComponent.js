@@ -26,8 +26,6 @@ type Props = {
   cardsCount: number,
   /** Index of the card */
   index: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Position of the card */
@@ -36,12 +34,12 @@ type Props = {
   scale: number,
   /** Zindex property used by Styled Component */
   zindex: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: () => void,
+  goToPreviousCard: (event: SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when button is clicked */
-  handleEndSequence: () => void,
+  handleEndSequence: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
@@ -52,12 +50,11 @@ export const FinalCardComponent = (props: Props) => {
     configuration,
     cardsCount,
     index,
-    currentIndex,
+    isCardVisible,
     cardOffset,
     position,
     scale,
     zindex,
-    tabIndex,
     goToPreviousCard,
     handleEndSequence,
   } = props;
@@ -67,10 +64,11 @@ export const FinalCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      className={index < currentIndex ? 'collpased-card' : ''}
+      isCardVisible={isCardVisible}
+      aria-hidden={!isCardVisible}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
+        <BackButtonStyle onClick={goToPreviousCard}>
           <BackIconStyle>
             <SvgArrowLeft aria-hidden />
           </BackIconStyle>
@@ -87,13 +85,12 @@ export const FinalCardComponent = (props: Props) => {
           <FinalTitle title={configuration.title} />
           <FinalCardContentWrapperStyle>
             {configuration.withSharing && (
-              <Sharing text={configuration.share} tabIndex={tabIndex} />
+              <Sharing text={configuration.share} />
             )}
             <More
               title={configuration.learnMoreTitle}
               buttonText={configuration.learnMoreTextButton}
               url={configuration.linkUrl}
-              tabIndex={tabIndex}
               handleEndSequence={handleEndSequence}
             />
           </FinalCardContentWrapperStyle>

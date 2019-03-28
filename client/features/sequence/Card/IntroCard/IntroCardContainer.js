@@ -2,29 +2,32 @@
 import * as React from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
-import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { IntroCardComponent } from './IntroCardComponent';
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
   configuration: IntroCardConfig,
-  /** Index of the card */
-  index: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  /** Position of the card */
+  position: number,
+  /** Scale property used by Styled Component */
+  scale: number,
+  /** Zindex property used by Styled Component */
+  zindex: number,
   /** Method called when start button is clicked */
-  handleStartSequence: Function,
+  handleStartSequence: () => void,
+  /** Boolean toggled when card user has skip the card */
+  isCardCollapsed: boolean,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
  * Handles Intro Card Business Logic
  */
-class IntroCardHandler extends React.Component<Props> {
+export class IntroCardContainer extends React.Component<Props> {
   componentDidUpdate = () => {
-    const { index, currentIndex } = this.props;
-    if (index === currentIndex) {
+    const { isCardVisible } = this.props;
+    if (isCardVisible) {
       Tracking.trackDisplayIntroCard();
     }
   };
@@ -32,24 +35,23 @@ class IntroCardHandler extends React.Component<Props> {
   render() {
     const {
       configuration,
-      index,
-      currentIndex,
-      isSequenceCollapsed,
+      handleStartSequence,
+      isCardCollapsed,
+      isCardVisible,
+      position,
+      scale,
+      zindex,
     } = this.props;
-    const position = getPosition(index, currentIndex);
-    const scale = getScale(index, currentIndex);
-    const zindex = getZIndex(index, currentIndex);
     return (
       <IntroCardComponent
-        introCardConfig={configuration}
+        configuration={configuration}
         position={position}
         scale={scale}
         zindex={zindex}
-        tabIndex={isSequenceCollapsed || index !== currentIndex ? -1 : 0}
-        {...this.props}
+        isCardVisible={isCardVisible}
+        isCardCollapsed={isCardCollapsed}
+        handleStartSequence={handleStartSequence}
       />
     );
   }
 }
-
-export const IntroCardContainer = IntroCardHandler;

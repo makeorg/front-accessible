@@ -14,8 +14,6 @@ type Props = {
   label: string,
   /** Is input required or optional */
   id?: string,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
   /** disabled interaction */
   disabled?: boolean,
 };
@@ -23,21 +21,14 @@ type Props = {
 export class SubmitButton extends React.Component<Props> {
   static defaultProps = {
     id: undefined,
-    tabIndex: 0,
     disabled: false,
   };
 
   render() {
-    const { formName, icon, id, label, tabIndex, disabled } = this.props;
+    const { formName, icon, id, label, disabled } = this.props;
     const ButtonStyled = disabled ? GreyButtonStyle : RedButtonStyle;
     return (
-      <ButtonStyled
-        type="submit"
-        form={formName}
-        tabIndex={tabIndex}
-        id={id}
-        disabled={disabled}
-      >
+      <ButtonStyled type="submit" form={formName} id={id} disabled={disabled}>
         <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>
         {label}
       </ButtonStyled>

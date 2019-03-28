@@ -20,8 +20,6 @@ type Props = {
   votedKey: string,
   /** Proposal's ID */
   proposalId: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Id of vote button */
   id: string,
   /** When waiting response from API */
@@ -40,7 +38,6 @@ export const VoteResultComponent = (props: Props) => {
     votedKey,
     proposalId,
     handleVote,
-    tabIndex,
     id,
     pending,
   } = props;
@@ -58,7 +55,6 @@ export const VoteResultComponent = (props: Props) => {
         icon={voteStaticParams[votedKey].icon}
         handleVote={handleVote}
         buttonType={UnvoteButtonStyle}
-        tabIndex={tabIndex}
         displayPending={pending}
       />
       <aside>
@@ -70,7 +66,6 @@ export const VoteResultComponent = (props: Props) => {
             <TooltipWithTrigger
               key={`${voteKey}_item_${proposalId}`}
               tooltipWrapper={VoteResult.ItemStyle}
-              tabIndex={tabIndex}
               tooltipType={BottomTooltipStyle}
               triggerContent={
                 // eslint-disable-next-line react/jsx-wrap-multilines

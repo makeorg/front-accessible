@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { type FinalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
-import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
-import { TabIndexContext } from 'Client/app/TabIndexContext';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {
@@ -10,22 +8,26 @@ type Props = {
   configuration: FinalCardConfig,
   /** Index of the card */
   index: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Total of cards */
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
+  /** Position of the card */
+  position: number,
+  /** Scale property used by Styled Component */
+  scale: number,
+  /** Zindex property used by Styled Component */
+  zindex: number,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
+  goToPreviousCard: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
  * Handles Final Card Business Logic
  */
-class FinalCardHandler extends React.Component<Props> {
+export class FinalCardContainer extends React.Component<Props> {
   componentDidUpdate() {
     const { index, currentIndex } = this.props;
     if (index === currentIndex) {
@@ -37,33 +39,27 @@ class FinalCardHandler extends React.Component<Props> {
     const {
       configuration,
       index,
-      currentIndex,
       cardsCount,
       goToPreviousCard,
-      isSequenceCollapsed,
       cardOffset,
+      position,
+      scale,
+      zindex,
+      isCardVisible,
     } = this.props;
-    const position = getPosition(index, currentIndex);
-    const scale = getScale(index, currentIndex);
-    const zindex = getZIndex(index, currentIndex);
-    const tabIndex = isSequenceCollapsed || index !== currentIndex ? -1 : 0;
+
     return (
-      <TabIndexContext.Provider value={tabIndex}>
-        <FinalCardComponent
-          configuration={configuration}
-          index={index}
-          cardOffset={cardOffset}
-          currentIndex={currentIndex}
-          cardsCount={cardsCount}
-          position={position}
-          scale={scale}
-          zindex={zindex}
-          tabIndex={tabIndex}
-          goToPreviousCard={goToPreviousCard}
-        />
-      </TabIndexContext.Provider>
+      <FinalCardComponent
+        configuration={configuration}
+        index={index}
+        cardOffset={cardOffset}
+        cardsCount={cardsCount}
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        goToPreviousCard={goToPreviousCard}
+        isCardVisible={isCardVisible}
+      />
     );
   }
 }
-
-export const FinalCardContainer = FinalCardHandler;

@@ -22,16 +22,6 @@ const defaultProps = {
 };
 
 describe('UntypedInput', () => {
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer.create(
-      <UntypedInput {...defaultProps} tabIndex="-1" />
-    );
-    const PositiveTabIndex = renderer
-      .create(<UntypedInput {...defaultProps} tabIndex="0" />)
-      .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot when input is required or optionnal', () => {
     const RequiredInput = renderer
       .create(<UntypedInput {...defaultProps} required />)

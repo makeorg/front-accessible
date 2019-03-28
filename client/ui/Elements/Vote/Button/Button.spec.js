@@ -27,16 +27,6 @@ describe('VoteButtonElement', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer
-      .create(<VoteButtonElement {...defaultProps} tabIndex="-1" />)
-      .toJSON();
-    const PositiveTabIndex = renderer
-      .create(<VoteButtonElement {...defaultProps} tabIndex="0" />)
-      .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot when proposal is qualified or not', () => {
     const ButtonIsVoted = renderer
       .create(

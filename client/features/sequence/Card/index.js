@@ -7,11 +7,12 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
 } from 'Shared/constants/card';
+import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalCard } from './ProposalCard';
-import { SignUpCardContainer } from './SignUpCard';
-import { IntroCardContainer } from './IntroCard/IntroCardContainer';
-import { FinalCardContainer } from './FinalCard/FinalCardContainer';
-import { PushProposalCardContainer } from './PushProposalCard/PushProposalCardContainer';
+import { SignUpCard } from './SignUpCard';
+import { IntroCard } from './IntroCard';
+import { FinalCard } from './FinalCard';
+import { PushProposalCard } from './PushProposalCard';
 
 type Props = {
   card: Object,
@@ -21,8 +22,6 @@ type Props = {
   currentIndex: number,
   /** Total of cards */
   cardsCount: number,
-  /** Boolean toggled when Sequence is collapsed / expanded */
-  isSequenceCollapsed: boolean,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: () => void,
   /** Method called when next card button is clicked  */
@@ -44,13 +43,18 @@ export const Card = (props: Props) => {
     index,
     currentIndex,
     cardsCount,
-    isSequenceCollapsed,
     goToNextCard,
     goToPreviousCard,
     skipSignUpCard,
     skipProposalPushCard,
     handleStartSequence,
   } = props;
+
+  const position = getPosition(index, currentIndex);
+  const scale = getScale(index, currentIndex);
+  const zindex = getZIndex(index, currentIndex);
+  const isCardCollapsed = index < currentIndex;
+  const isCardVisible = index === currentIndex;
 
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
@@ -60,58 +64,74 @@ export const Card = (props: Props) => {
           cardOffset={card.cardOffset}
           index={index}
           currentIndex={currentIndex}
+          position={position}
+          scale={scale}
+          zindex={zindex}
           cardsCount={cardsCount}
-          isSequenceCollapsed={isSequenceCollapsed}
+          isCardCollapsed={isCardCollapsed}
+          isCardVisible={isCardVisible}
           goToNextCard={goToNextCard}
           goToPreviousCard={goToPreviousCard}
         />
       );
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return (
-        <IntroCardContainer
+        <IntroCard
           configuration={card.configuration}
-          cardOffset={card.cardOffset}
+          position={position}
           index={index}
           currentIndex={currentIndex}
-          isSequenceCollapsed={isSequenceCollapsed}
+          scale={scale}
+          zindex={zindex}
+          isCardCollapsed={isCardCollapsed}
+          isCardVisible={isCardVisible}
           handleStartSequence={handleStartSequence}
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP:
       return (
-        <SignUpCardContainer
+        <SignUpCard
           configuration={card.configuration}
           cardOffset={card.cardOffset}
           index={index}
-          currentIndex={currentIndex}
+          position={position}
+          scale={scale}
+          zindex={zindex}
           cardsCount={cardsCount}
-          isSequenceCollapsed={isSequenceCollapsed}
+          isCardCollapsed={isCardCollapsed}
+          isCardVisible={isCardVisible}
           goToPreviousCard={goToPreviousCard}
           skipSignUpCard={skipSignUpCard}
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL:
       return (
-        <PushProposalCardContainer
+        <PushProposalCard
           configuration={card.configuration}
           cardOffset={card.cardOffset}
           index={index}
-          currentIndex={currentIndex}
+          position={position}
+          scale={scale}
+          zindex={zindex}
+          isCardCollapsed={isCardCollapsed}
+          isCardVisible={isCardVisible}
           cardsCount={cardsCount}
-          isSequenceCollapsed={isSequenceCollapsed}
           goToPreviousCard={goToPreviousCard}
           skipProposalPushCard={skipProposalPushCard}
         />
       );
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:
       return (
-        <FinalCardContainer
+        <FinalCard
           configuration={card.configuration}
           cardOffset={card.cardOffset}
           index={index}
+          position={position}
+          scale={scale}
+          zindex={zindex}
+          isCardVisible={isCardVisible}
           cardsCount={cardsCount}
           currentIndex={currentIndex}
-          isSequenceCollapsed={isSequenceCollapsed}
           goToPreviousCard={goToPreviousCard}
         />
       );

@@ -14,8 +14,6 @@ type Props = {
   label: string,
   /** Vote key's Icon */
   icon: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** Boolean Toggle when Tooltip is shown / hidden */
@@ -38,7 +36,6 @@ export const VoteButtonComponent = (props: Props) => {
     color,
     label,
     icon,
-    tabIndex,
     buttonType,
     handleVote,
     displayTooltip,
@@ -53,7 +50,6 @@ export const VoteButtonComponent = (props: Props) => {
         color={color}
         label={label}
         icon={icon}
-        tabIndex={tabIndex}
         buttonType={buttonType}
         handleVote={handleVote}
         displayTooltip={displayTooltip}

@@ -21,10 +21,6 @@ type Props = {
   configuration: SignUpCardConfig,
   /** Index of the card */
   index: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Total of cards */
@@ -39,6 +35,10 @@ type Props = {
   zindex: number,
   /** Method called when next card button is clicked */
   skipSignUpCard: () => void,
+  /** Boolean toggled when card user has skip the card */
+  isCardCollapsed: boolean,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
@@ -48,8 +48,8 @@ export const SignUpCardComponent = (props: Props) => {
   const {
     configuration,
     index,
-    tabIndex,
-    currentIndex,
+    isCardCollapsed,
+    isCardVisible,
     cardsCount,
     cardOffset,
     goToPreviousCard,
@@ -64,10 +64,12 @@ export const SignUpCardComponent = (props: Props) => {
       position={position}
       scale={scale}
       zindex={zindex}
-      isCardCollapsed={index < currentIndex}
+      isCardCollapsed={isCardCollapsed}
+      isCardVisible={isCardVisible}
+      aria-hidden={!isCardVisible}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
+        <BackButtonStyle onClick={goToPreviousCard}>
           <BackIconStyle>
             <SvgArrowLeft aria-hidden />
           </BackIconStyle>
@@ -87,9 +89,8 @@ export const SignUpCardComponent = (props: Props) => {
           <SecondaryTitleStyle>
             {i18n.t('sign_up_card.authentification-text')}
           </SecondaryTitleStyle>
-          <SignUpCardAuthentificationContainer tabIndex={tabIndex} />
+          <SignUpCardAuthentificationContainer />
           <SkipSignUpButton
-            tabIndex={tabIndex}
             skipSignUpCard={skipSignUpCard}
             text={configuration.nextCtaText}
           />

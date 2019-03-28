@@ -25,7 +25,6 @@ describe('VoteContainer', () => {
     const expectedPassedProps = {
       proposalId: defaultProps.proposalId,
       index: 1,
-      tabIndex: -1,
     };
 
     const voteComponentWrapper = wrapper.find(VoteComponent);
@@ -49,7 +48,6 @@ describe('VoteContainer', () => {
     expect(NextButtonWrapper).toHaveLength(1);
 
     expect(NextButtonWrapper.props()).toEqual({
-      tabIndex: -1,
       onClick: defaultProps.goToNextCard,
       id: 'next-button-1',
       children: ['proposal_card.next', ' >'],

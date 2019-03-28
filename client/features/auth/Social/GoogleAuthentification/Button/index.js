@@ -7,8 +7,8 @@ import {
 import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleAuthentificationComponent } from '../index';
 
-const renderGoogleLogin = tabIndex => renderProps => (
-  <GoogleButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
+const renderGoogleLogin = () => renderProps => (
+  <GoogleButtonStyle onClick={renderProps.onClick}>
     <IconWrapperStyle>
       <SvgGoogleLogoG aria-hidden />
     </IconWrapperStyle>
@@ -16,25 +16,9 @@ const renderGoogleLogin = tabIndex => renderProps => (
   </GoogleButtonStyle>
 );
 
-type Props = {
-  /** Tabindex for interactive items */
-  tabIndex?: number,
-};
-
 /**
  * Renders Google authentification button
  */
-export const GoogleAuthentificationButtonComponent = (props: Props) => {
-  const { tabIndex } = props;
-
-  return (
-    <GoogleAuthentificationComponent
-      {...props}
-      render={renderGoogleLogin(tabIndex)}
-    />
-  );
-};
-
-GoogleAuthentificationButtonComponent.defaultProps = {
-  tabIndex: 0,
+export const GoogleAuthentificationButtonComponent = () => {
+  return <GoogleAuthentificationComponent render={renderGoogleLogin()} />;
 };

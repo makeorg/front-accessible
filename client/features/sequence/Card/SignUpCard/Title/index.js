@@ -13,9 +13,9 @@ type Props = {
 export const SignUpTitle = (props: Props) => {
   const { title } = props;
 
-  return (
-    <AltMainTitleStyle>
-      {title || i18n.t('sign_up_card.title')}
-    </AltMainTitleStyle>
-  );
+  return <AltMainTitleStyle>{title}</AltMainTitleStyle>;
+};
+
+SignUpTitle.defaultProps = {
+  title: i18n.t('sign_up_card.title'),
 };

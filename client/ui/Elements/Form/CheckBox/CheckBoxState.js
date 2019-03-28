@@ -12,8 +12,6 @@ type Props = {
   value?: string,
   /** Is input required or optional */
   required?: boolean,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
 };
 
 type State = {
@@ -25,7 +23,6 @@ export class CheckBoxState extends React.Component<Props, State> {
   static defaultProps = {
     value: undefined,
     required: false,
-    tabIndex: 0,
   };
 
   state = {

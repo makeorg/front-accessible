@@ -10,8 +10,6 @@ type Props = {
   votes: Array<VotesType>,
   /** Voted key property */
   votedKey: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Index of the card */
   index: number,
   /** Method called when vote button is clicked */

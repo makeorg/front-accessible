@@ -12,14 +12,6 @@ jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
 }));
 
 describe('PasswordButton', () => {
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer.create(<PasswordButton tabIndex="-1" />);
-    const PositiveTabIndex = renderer
-      .create(<PasswordButton tabIndex="0" />)
-      .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot when password is displayed vs hidden', () => {
     const ShowPassword = renderer
       .create(<PasswordButton isPasswordDisplayed />)

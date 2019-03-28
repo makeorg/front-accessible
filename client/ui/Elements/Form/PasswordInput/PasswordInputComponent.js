@@ -24,8 +24,6 @@ type Props = {
   errors: Array<ErrorObject>,
   /** Is input required or optional */
   required: boolean,
-  /** Tabindex for interactive items */
-  tabIndex: number,
 };
 
 export const PasswordInputComponent = (props: Props) => {
@@ -37,7 +35,6 @@ export const PasswordInputComponent = (props: Props) => {
     label,
     required,
     handleChange,
-    tabIndex,
     isPasswordDisplayed,
     toggleIsPasswordDisplayed,
   } = props;
@@ -56,12 +53,10 @@ export const PasswordInputComponent = (props: Props) => {
         aria-required={required}
         required={required}
         onChange={handleChange}
-        tabIndex={tabIndex}
       />
       <PasswordButton
         toggleIsPasswordDisplayed={toggleIsPasswordDisplayed}
         isPasswordDisplayed={isPasswordDisplayed}
-        tabIndex={tabIndex}
       />
     </MiddleFakeInputStyle>
   );

@@ -18,8 +18,6 @@ type Props = {
   errors?: Array<ErrorObject>,
   /** Is input required or optional */
   required?: boolean,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
   /** Setting rows attribute for Textarea */
   rows?: number,
   /** Setting minLength for Textarea */
@@ -36,7 +34,6 @@ export class TextArea extends React.Component<Props> {
   static defaultProps = {
     required: false,
     errors: undefined,
-    tabIndex: 0,
     rows: 5,
     minLength: undefined,
     maxLength: undefined,
@@ -53,7 +50,6 @@ export class TextArea extends React.Component<Props> {
       label,
       required,
       handleChange,
-      tabIndex,
       rows,
       minLength,
       maxLength,
@@ -74,7 +70,6 @@ export class TextArea extends React.Component<Props> {
           aria-required={required}
           required={required}
           onChange={handleChange}
-          tabIndex={tabIndex}
           rows={rows}
           minLength={minLength}
           maxLength={maxLength}

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ProposalType } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
-import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
@@ -19,18 +18,26 @@ type Props = {
   proposal: ProposalType,
   /** Index of the card */
   index: number,
+  /** Position of the card */
+  position: number,
+  /** Scale property used by Styled Component */
+  scale: number,
+  /** Zindex property used by Styled Component */
+  zindex: number,
   /** Total of cards */
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Method called when previous card button is clicked  */
-  goToPreviousCard: Function,
+  goToPreviousCard: () => void,
   /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: Function,
+  goToNextCard: () => void,
+  /** Boolean toggled when card user has skip the card */
+  isCardCollapsed: boolean,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
@@ -43,24 +50,27 @@ export const ProposalCardComponent = (props: Props) => {
     cardsCount,
     currentIndex,
     cardOffset,
-    tabIndex,
     goToPreviousCard,
     goToNextCard,
+    position,
+    zindex,
+    scale,
+    isCardCollapsed,
+    isCardVisible,
   } = props;
-  const position = getPosition(index, currentIndex);
-  const scale = getScale(index, currentIndex);
-  const zindex = getZIndex(index, currentIndex);
 
   return (
     <ProposalCardStyle
       position={position}
       scale={scale}
       zindex={zindex}
-      isCardCollapsed={index < currentIndex}
+      isCardCollapsed={isCardCollapsed}
+      isCardVisible={isCardVisible}
+      aria-hidden={!isCardVisible}
       id={`proposal-card-${index}`}
     >
       <BackButtonWrapperStyle>
-        <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
+        <BackButtonStyle onClick={goToPreviousCard}>
           <BackIconStyle>
             <SvgArrowLeft aria-hidden />
           </BackIconStyle>

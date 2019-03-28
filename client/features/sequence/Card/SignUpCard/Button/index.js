@@ -8,8 +8,6 @@ import { AltNextButtonStyle } from '../../Styled/Buttons';
 type Props = {
   /** Special text for next card button */
   text?: string,
-  /** Tabindex for interactive items */
-  tabIndex: number,
   /** Method called when next card button is clicked */
   skipSignUpCard: () => void,
 };
@@ -18,14 +16,18 @@ type Props = {
  * Renders Next Card Button in Sign Up Card
  */
 export const SkipSignUpButton = (props: Props) => {
-  const { tabIndex, skipSignUpCard, text } = props;
+  const { skipSignUpCard, text } = props;
 
   return (
-    <AltNextButtonStyle tabIndex={tabIndex} onClick={skipSignUpCard}>
+    <AltNextButtonStyle onClick={skipSignUpCard}>
       <IconWrapperStyle>
         <SvgStepForward aria-hidden />
       </IconWrapperStyle>
-      {text || i18n.t('sign_up_card.next-cta')}
+      {text}
     </AltNextButtonStyle>
   );
+};
+
+SkipSignUpButton.defaultProps = {
+  text: i18n.t('sign_up_card.next-cta'),
 };

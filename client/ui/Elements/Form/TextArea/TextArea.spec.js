@@ -21,16 +21,6 @@ const defaultProps = {
 };
 
 describe('TextArea', () => {
-  it('must return the diff between snapshot with a negative vs a postive Tab Index', () => {
-    const NegativeTabIndex = renderer
-      .create(<TextArea {...defaultProps} tabIndex="-1" />)
-      .toJSON();
-    const PositiveTabIndex = renderer
-      .create(<TextArea {...defaultProps} tabIndex="0" />)
-      .toJSON();
-    expect(snapshotDiff(NegativeTabIndex, PositiveTabIndex)).toMatchSnapshot();
-  });
-
   it('must return the diff between snapshot when TextArea is required or optionnal', () => {
     const RequiredTextArea = renderer
       .create(<TextArea {...defaultProps} required />)

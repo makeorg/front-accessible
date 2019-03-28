@@ -19,15 +19,12 @@ type Props = {
   errors?: Array<ErrorObject>,
   /** Is input required or optional */
   required?: boolean,
-  /** Tabindex for interactive items */
-  tabIndex?: number,
 };
 
 export class UntypedInput extends React.Component<Props> {
   static defaultProps = {
     required: false,
     errors: undefined,
-    tabIndex: 0,
   };
 
   render() {
@@ -40,7 +37,6 @@ export class UntypedInput extends React.Component<Props> {
       label,
       required,
       handleChange,
-      tabIndex,
     } = this.props;
 
     return (
@@ -57,7 +53,6 @@ export class UntypedInput extends React.Component<Props> {
           aria-required={required}
           required={required}
           onChange={handleChange}
-          tabIndex={tabIndex}
         />
       </MiddleFakeInputStyle>
     );

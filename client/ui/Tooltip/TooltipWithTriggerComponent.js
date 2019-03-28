@@ -24,8 +24,6 @@ type Props = {
   hideTooltip: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when tooltip is shown / hidden */
   isTooltipDisplayed: boolean,
-  /** Tab Index for button */
-  tabIndex: number,
   /** Custom z-index for tooltip */
   zIndex: number,
   /** Custom aria-label for display event */
@@ -45,7 +43,6 @@ export const TooltipWithTriggerComponent = (props: Props) => {
     displayTooltip,
     hideTooltip,
     isTooltipDisplayed,
-    tabIndex,
     zIndex,
     ariaLabelDisplay,
     ariaLabelHide,
@@ -60,7 +57,6 @@ export const TooltipWithTriggerComponent = (props: Props) => {
         onMouseLeave={hideTooltip}
         onFocus={displayTooltip}
         onBlur={hideTooltip}
-        tabIndex={tabIndex}
         aria-label={isTooltipDisplayed ? ariaLabelHide : ariaLabelDisplay}
       >
         {triggerContent}

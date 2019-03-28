@@ -4,7 +4,6 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 <RedButtonStyle
   disabled={false}
   form="foo"
-  tabIndex={0}
   type="submit"
 >
   <IconWrapperStyle
@@ -14,24 +13,6 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   </IconWrapperStyle>
   bar
 </RedButtonStyle>
-`;
-
-exports[`SubmitButton must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,9 +1,9 @@
-  <RedButtonStyle
-    disabled={false}
-    form="foo"
--   tabIndex="-1"
-+   tabIndex="0"
-    type="submit"
-  >
-    <IconWrapperStyle
-      aria-hidden={true}
-    >
 `;
 
 exports[`SubmitButton must return the diff between when disabled 1`] = `
@@ -44,7 +25,6 @@ Snapshot Diff:
 + <GreyButtonStyle
 +   disabled={true}
     form="foo"
-    tabIndex={0}
     type="submit"
   >
     <IconWrapperStyle
