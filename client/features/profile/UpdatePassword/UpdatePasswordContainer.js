@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
+import { Passwords } from 'Shared/types/user';
 import { UpdatePasswordComponent } from './UpdatePasswordComponent';
 
 type Props = {};
 type State = {
-  disableSubmit: boolean,
-  password: string,
-  newPassword: string,
+  formIsValid: boolean,
+  passwords: Passwords,
 };
 
 export class UpdatePasswordContainer extends Component<Props, State> {
-  state = { disableSubmit: true, password: '', newPassword: '' };
-
-  formIsValid = (password, newPassword) => {
-    return !!password && !!newPassword;
+  state = {
+    formIsValid: false,
+    passwords: {
+      newPassword: '',
+      oldPassword: '',
+    },
   };
 
-  handlePassword = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-    const { value } = event.target;
-    const { newPassword } = this.state;
-    this.setState({
-      password: value,
-      disableSubmit: !this.formIsValid(value, newPassword),
-    });
+  formIsValid = (passwords: Passwords) => {
+    return !!passwords.newPassword && !!passwords.oldPassword;
   };
 
-  handleNewPassword = (event: SyntheticInputEvent<HTMLInputElement>): void => {
-    const { value } = event.target;
-    const { password } = this.state;
-    this.setState({
-      newPassword: value,
-      disableSubmit: !this.formIsValid(password, value),
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    const { id, value } = event.target;
+
+    this.setState(prevState => {
+      const passwords = {
+        ...prevState.passwords,
+        [id]: value,
+      };
+
+      return {
+        passwords,
+        formIsValid: this.formIsValid(passwords),
+      };
     });
   };
 
@@ -39,15 +43,13 @@ export class UpdatePasswordContainer extends Component<Props, State> {
   };
 
   render() {
-    const { disableSubmit, password, newPassword } = this.state;
+    const { formIsValid, passwords } = this.state;
     return (
       <UpdatePasswordComponent
-        handleNewPassword={this.handleNewPassword}
-        handlePassword={this.handlePassword}
+        passwords={passwords}
+        formIsValid={formIsValid}
+        handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        disableSubmit={disableSubmit}
-        password={password}
-        newPassword={newPassword}
       />
     );
   }

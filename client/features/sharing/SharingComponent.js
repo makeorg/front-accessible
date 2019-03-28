@@ -7,11 +7,6 @@ import {
   SvgLinkedinLogoIn,
 } from 'Client/ui/Svg/elements';
 import {
-  SvgFacebookLogoF,
-  SvgTwitterLogo,
-  SvgLinkedinLogoIn,
-} from 'Client/ui/Svg/elements';
-import {
   SharingStyle,
   FacebookButtonStyle,
   TwitterButtonStyle,
