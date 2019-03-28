@@ -1,8 +1,11 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
+import {
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import {
   BasicColors,
   IconColors,
@@ -19,7 +22,7 @@ export const ButtonsWrapperStyle = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
     margin: 20px 0;
   }
@@ -28,7 +31,7 @@ export const ButtonsWrapperStyle = styled.div`
 export const UnstyledButtonStyle = styled.button`
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   padding: 0;
   border: none;
   background: transparent;
@@ -39,7 +42,7 @@ export const BasicButtonStyle = styled.button`
   white-space: nowrap;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   font-family: ${MakeFonts.RobotoCondensedBold};
   font-size: 14px;
   line-height: 1;
@@ -48,7 +51,7 @@ export const BasicButtonStyle = styled.button`
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 15px;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
     padding: 10px 20px;
   }
@@ -72,14 +75,15 @@ export const RedButtonStyle = styled(BasicButtonStyle)`
 
 export const TallRedButtonStyle = styled(RedButtonStyle)`
   padding: 8px 15px;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 10px 20px;
   }
 `;
 
 export const IconWrapperStyle = styled.span`
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-content: center;
   margin-right: 5px;
 `;
 
@@ -91,13 +95,19 @@ export const LargeButtonStyle = styled(BasicButtonStyle)`
 export const FacebookButtonStyle = styled(LargeButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${IconColors.Facebook};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
 export const GoogleButtonStyle = styled(LargeButtonStyle)`
   margin-top: 10px;
   color: ${BasicColors.PureWhite};
   background-color: ${IconColors.Google};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-top: 0;
   }
 `;
@@ -105,7 +115,10 @@ export const EmailButtonStyle = styled(LargeButtonStyle)`
   margin-top: 10px;
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-top: 0;
   }
 `;
@@ -120,4 +133,16 @@ export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
 
 export const SmallButtonWrapperStyle = styled(ButtonsWrapperStyle)`
   max-width: 410px;
+`;
+
+export const CloseButtonStyle = styled(UnstyledButtonStyle)`
+  position: absolute;
+  top: ${intToPx(DefaultPadding.Mobile)};
+  right: ${intToPx(DefaultPadding.Mobile)};
+  z-index: 1;
+  font-size: 16px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    top: ${intToPx(DefaultPadding.Desktop)};
+    right: ${intToPx(DefaultPadding.Desktop)};
+  }
 `;

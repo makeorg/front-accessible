@@ -1,6 +1,5 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
 import { Link } from 'react-router-dom';
 import { type QuestionTheme } from 'Shared/types/sequence';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
@@ -10,6 +9,7 @@ import {
   ParticipateSeparatorStyle,
   ParticipateTitle,
 } from 'Client/features/consultation/Styled/ParticipateBanner';
+import { SvgPlayButton } from 'Client/ui/Svg/elements';
 
 type Props = {
   styleTheme: QuestionTheme,
@@ -33,7 +33,7 @@ export const ParticipateBannerComponent = (props: Props) => {
         onClick={trackParticipateButton}
       >
         <IconWrapperStyle aria-hidden>
-          <Svg type="SvgPlayButton" />
+          <SvgPlayButton />
         </IconWrapperStyle>
         {i18n.t('common.participate')}
       </LinkAsRedButton>

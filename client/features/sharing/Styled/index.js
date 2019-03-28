@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
@@ -9,19 +8,22 @@ import {
 
 export const SharingStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
-  max-width: ${pxToRem('150px')};
+  max-width: 150px;
 `;
 
 export const SharingButtonStyle = styled(UnstyledButtonStyle)`
-  width: ${pxToRem('40px')};
-  height: ${pxToRem('40px')};
-  font-size: ${pxToRem('18px')};
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
   color: ${BasicColors.PureWhite};
   border-radius: 50%;
   align-items: center;
   &:hover,
   &:focus {
     color: ${BasicColors.PureWhite};
+  }
+  svg {
+    fill: ${BasicColors.PureWhite};
   }
 `;
 

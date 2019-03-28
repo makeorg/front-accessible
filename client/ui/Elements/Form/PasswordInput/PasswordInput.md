@@ -1,8 +1,6 @@
 ##### PasswordInput Example :
 
 ```js
-const { faLock } = require('@fortawesome/free-solid-svg-icons');
-
 class PasswordInputExample extends React.Component {
   constructor() {
     super();
@@ -24,7 +22,7 @@ class PasswordInputExample extends React.Component {
       <PasswordInput
         type={this.state.passwordIsDisplayed ? 'text' : 'password'}
         name="password"
-        icon={faLock}
+        icon="SvgLock"
         value={this.state.value}
         label="placeholder"
         handleChange={this.handleChange}

@@ -1,17 +1,16 @@
 // @flow
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import {
   IconWrapperStyle,
   FacebookButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
+import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = tabIndex => renderProps => (
   <FacebookButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
     <IconWrapperStyle>
-      <FontAwesomeIcon icon={faFacebookF} />
+      <SvgFacebookLogoF aria-hidden />
     </IconWrapperStyle>
     Facebook
   </FacebookButtonStyle>

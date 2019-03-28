@@ -1,6 +1,5 @@
 /* @flow */
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonStyle, VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import { i18n } from 'Shared/i18n';
@@ -16,8 +15,6 @@ type Props = {
   tabIndex: number,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType?: React.Node,
-  /** Rotate property passed to Styled Component */
-  rotate?: number,
   /** When display pending */
   displayPending: boolean,
   /** Method called onMouseLeave to hide Tooltip */
@@ -36,7 +33,6 @@ export const VoteButtonElement = (props: Props) => {
     color,
     label,
     icon,
-    rotate,
     tabIndex,
     buttonType,
     handleVote,
@@ -50,7 +46,6 @@ export const VoteButtonElement = (props: Props) => {
       aria-label={displayPending ? i18n.t('common.loading') : label}
       tabIndex={tabIndex}
       color={color}
-      rotate={displayPending ? 0 : rotate}
       as={buttonType}
       onClick={handleVote}
       onTouchEnd={handleVote}
@@ -59,7 +54,7 @@ export const VoteButtonElement = (props: Props) => {
       onFocus={displayTooltip}
       onBlur={hideTooltip}
     >
-      {displayPending ? <LoadingDots /> : <FontAwesomeIcon icon={icon} />}
+      {displayPending ? <LoadingDots /> : icon}
     </ButtonStyle>
   );
 };
@@ -69,5 +64,4 @@ VoteButtonElement.defaultProps = {
   hideTooltip: undefined,
   displayTooltip: undefined,
   handleVote: undefined,
-  rotate: 0,
 };

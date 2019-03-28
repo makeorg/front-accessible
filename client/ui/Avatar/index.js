@@ -1,6 +1,6 @@
 import React from 'react';
-import { Svg } from 'Client/ui/Svg';
 import { AvatarStyle } from './Styled';
+import { SvgEmptyAvatar } from '../Svg/elements';
 
 type Props = {
   /** Children to render */
@@ -22,7 +22,7 @@ export const Avatar = (props: Props) => {
 
   return (
     <AvatarStyle aria-hidden avatarSize={avatarSize}>
-      <Svg type="SvgEmptyAvatar" />
+      <SvgEmptyAvatar />
     </AvatarStyle>
   );
 };

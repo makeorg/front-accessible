@@ -45,7 +45,10 @@ export const BackArrowStyle = styled(UnstyledButtonStyle)`
   color: ${BasicColors.PureWhite};
   padding: ${pxToRem('20px')};
   z-index: 0;
-  font-size: ${pxToRem('45px')};
+  font-size: ${pxToRem('35px')};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     max-width: ${pxToRem('110px')};
     font-size: ${pxToRem('50px')};

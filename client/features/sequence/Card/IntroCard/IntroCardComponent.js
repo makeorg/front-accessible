@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
-import { Svg } from 'Client/ui/Svg';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SmallWithMargin } from 'Client/ui/Elements/Separators';
+import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
@@ -65,7 +65,7 @@ export const IntroCardComponent = (props: Props) => {
         onClick={handleStartSequence}
       >
         <IconWrapperStyle aria-hidden>
-          <Svg type="SvgPlayButton" />
+          <SvgPlayButton />
         </IconWrapperStyle>
         {i18n.t('intro_card.button')}
       </IntroButtonStyle>

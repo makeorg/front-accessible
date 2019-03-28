@@ -1,17 +1,16 @@
 // @flow
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import {
   IconWrapperStyle,
   GoogleButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
+import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleAuthentificationComponent } from '../index';
 
 const renderGoogleLogin = tabIndex => renderProps => (
   <GoogleButtonStyle onClick={renderProps.onClick} tabIndex={tabIndex}>
     <IconWrapperStyle>
-      <FontAwesomeIcon icon={faGoogle} />
+      <SvgGoogleLogoG aria-hidden />
     </IconWrapperStyle>
     Google
   </GoogleButtonStyle>

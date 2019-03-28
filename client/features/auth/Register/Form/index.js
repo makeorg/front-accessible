@@ -2,14 +2,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
-import { faEnvelope, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import {
-  faLock,
-  faUser,
-  faChild,
-  faMapMarkerAlt,
-  faSuitcase,
-} from '@fortawesome/free-solid-svg-icons';
 import {
   InputErrorMessageStyle,
   FormErrorsListStyle,
@@ -25,6 +17,15 @@ import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import * as Helpers from 'Shared/helpers/url';
 import { REGISTER_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
+import {
+  EmailFieldIcon,
+  PasswordFieldIcon,
+  FirstNameFieldIcon,
+  AgeFieldIcon,
+  PostalCodeFieldIcon,
+  JobFieldIcon,
+  SubmitThumbsUpIcon,
+} from 'Shared/constants/icons';
 
 type Props = {
   /** type UserObject = {
@@ -66,7 +67,7 @@ export const RegisterFormComponent = (props: Props) => {
       <UntypedInput
         type="email"
         name="email"
-        icon={faEnvelope}
+        icon={EmailFieldIcon}
         errors={emailError}
         value={user.email}
         label={i18n.t('common.form.email_label')}
@@ -80,7 +81,7 @@ export const RegisterFormComponent = (props: Props) => {
       )}
       <PasswordInput
         name="password"
-        icon={faLock}
+        icon={PasswordFieldIcon}
         errors={passwordError}
         value={user.password}
         label={i18n.t('common.form.password_label')}
@@ -94,7 +95,7 @@ export const RegisterFormComponent = (props: Props) => {
       <UntypedInput
         type="text"
         name="firstname"
-        icon={faUser}
+        icon={FirstNameFieldIcon}
         errors={firstnameError}
         value={user.firstname}
         label={i18n.t('common.form.firstname_label')}
@@ -104,7 +105,7 @@ export const RegisterFormComponent = (props: Props) => {
       <UntypedInput
         type="number"
         name="age"
-        icon={faChild}
+        icon={AgeFieldIcon}
         value={user.age}
         label={i18n.t('common.form.age_label')}
         required={false}
@@ -113,7 +114,7 @@ export const RegisterFormComponent = (props: Props) => {
       <UntypedInput
         type="number"
         name="postalcode"
-        icon={faMapMarkerAlt}
+        icon={PostalCodeFieldIcon}
         value={user.postalcode}
         label={i18n.t('common.form.postalcode_label')}
         required={false}
@@ -122,7 +123,7 @@ export const RegisterFormComponent = (props: Props) => {
       <UntypedInput
         type="text"
         name="profession"
-        icon={faSuitcase}
+        icon={JobFieldIcon}
         value={user.profession}
         label={i18n.t('common.form.profession_label')}
         required={false}
@@ -139,7 +140,7 @@ export const RegisterFormComponent = (props: Props) => {
       <SubmitButton
         formName={REGISTER_FORMNAME}
         id="authentification-register-submit"
-        icon={faThumbsUp}
+        icon={SubmitThumbsUpIcon}
         label={i18n.t('common.register_label')}
       />
     </FormStyle>

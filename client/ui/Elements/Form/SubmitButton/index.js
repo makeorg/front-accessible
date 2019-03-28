@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   RedButtonStyle,
   IconWrapperStyle,
@@ -39,9 +38,7 @@ export class SubmitButton extends React.Component<Props> {
         id={id}
         disabled={disabled}
       >
-        <IconWrapperStyle>
-          <FontAwesomeIcon icon={icon} />
-        </IconWrapperStyle>
+        <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>
         {label}
       </ButtonStyled>
     );

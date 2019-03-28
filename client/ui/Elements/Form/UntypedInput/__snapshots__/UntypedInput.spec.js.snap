@@ -6,9 +6,9 @@ Snapshot Diff:
 + Second value
 
 @@ -8,16 +8,16 @@
-        lib="@fortawesome/react-fontawesome"
-        prefix="far"
-      />
+      >
+        SvgEnvelope
+      </span>
     </CenterInputIconStyle>
     <BasicInputStyle
 -     aria-required={true}

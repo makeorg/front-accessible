@@ -2,10 +2,9 @@
 import * as React from 'react';
 import { type SignUpCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { SignUpCardAuthentificationContainer } from 'Client/features/sequence/Card/SignUpCard/Authentification';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { SignUpTitle } from './Title';
 import { SkipSignUpButton } from './Button';
 import { ProposalCardStyle } from '../Styled';
@@ -70,7 +69,7 @@ export const SignUpCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

@@ -5,13 +5,8 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   aria-label="foo"
   as="VoteButtonStyle"
   color="red"
-  rotate={0}
 >
-  <svg
-    icon="thumbs-up"
-    lib="@fortawesome/react-fontawesome"
-    prefix="far"
-  />
+  SvgThumbsup
 </ButtonStyle>
 `;
 
@@ -20,16 +15,14 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,8 +1,8 @@
   <ButtonStyle
     aria-label="foo"
 -   as="UnvoteButtonStyle"
 +   as="VoteButtonStyle"
     color="red"
-    rotate={0}
   >
-    <svg
-      icon="thumbs-up"
+    SvgThumbsup
+  </ButtonStyle>
 `;
 
 exports[`VoteButtonElement must return the diff between snapshot with a negative vs a postive Tab Index 1`] = `
@@ -37,17 +30,13 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,11 +1,11 @@
   <ButtonStyle
     aria-label="foo"
     as="VoteButtonStyle"
     color="red"
-    rotate={0}
 -   tabIndex="-1"
 +   tabIndex="0"
   >
-    <svg
-      icon="thumbs-up"
-      lib="@fortawesome/react-fontawesome"
-      prefix="far"
+    SvgThumbsup
+  </ButtonStyle>
 `;

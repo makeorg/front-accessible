@@ -2,13 +2,9 @@
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import {
-  NotificationWrapperStyle,
-  NotificationContentStyle,
-  NotificationCloseButtonStyle,
-} from './Styled';
+import { SvgClose } from 'Client/ui/Svg/elements';
+import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { NotificationWrapperStyle, NotificationContentStyle } from './Styled';
 
 type Props = {
   /** React elements rendered as children */
@@ -21,13 +17,13 @@ export const NotificationComponent = (props: Props) => {
   return (
     <NotificationWrapperStyle role="banner">
       <NotificationContentStyle>{children}</NotificationContentStyle>
-      <NotificationCloseButtonStyle
+      <CloseButtonStyle
         aria-label={i18n.t('modal.close')}
         aria-expanded="false"
         onClick={onClose}
       >
-        <FontAwesomeIcon aria-hidden icon={faTimes} />
-      </NotificationCloseButtonStyle>
+        <SvgClose aria-hidden />
+      </CloseButtonStyle>
     </NotificationWrapperStyle>
   );
 };

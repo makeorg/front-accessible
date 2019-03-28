@@ -33,8 +33,6 @@ exports[`Avatar snapshot by default 1`] = `
   aria-hidden={true}
   className="c0"
 >
-  <Svg
-    type="SvgEmptyAvatar"
-  />
+  <SvgEmptyAvatar />
 </div>
 `;

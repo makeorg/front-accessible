@@ -1,7 +1,5 @@
 ##### TextArea Example :
 ```js
-const { faPenAlt } = require('@fortawesome/free-solid-svg-icons');
-
 class TextAreaExample extends React.Component {
   constructor() {
     super()
@@ -23,7 +21,7 @@ class TextAreaExample extends React.Component {
     return (
       <TextArea
         name="biography"
-        icon={faPenAlt}
+        icon="SvgPencil"
         value={this.state.value}
         label="textarea placeholder"
         handleChange={this.handleChange}

@@ -1,14 +1,13 @@
 // @flow
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { SvgFacebookLogo } from 'Client/ui/Svg/elements';
 import { FacebookLinkStyle, SocialIconStyle } from '../../Styled';
 import { FacebookAuthentificationComponent } from '../index';
 
 const renderFacebookLogin = () => renderProps => (
   <FacebookLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
-      <FontAwesomeIcon icon={faFacebook} />
+      <SvgFacebookLogo aria-hidden />
     </SocialIconStyle>
     Facebook
   </FacebookLinkStyle>

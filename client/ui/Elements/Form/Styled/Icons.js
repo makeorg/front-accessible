@@ -9,6 +9,9 @@ export const InputIconStyle = styled.label`
   display: flex;
   color: ${MakeThemeColors.Red};
   font-size: 16px;
+  svg {
+    fill: ${MakeThemeColors.Red};
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 18px;
   }

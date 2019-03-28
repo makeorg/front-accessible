@@ -1,14 +1,13 @@
 // @flow
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleLinkStyle, SocialIconStyle } from '../../Styled';
 import { GoogleAuthentificationComponent } from '..';
 
 const renderGoogleLogin = () => renderProps => (
   <GoogleLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
-      <FontAwesomeIcon icon={faGoogle} />
+      <SvgGoogleLogoG aria-hidden />
     </SocialIconStyle>
     Google
   </GoogleLinkStyle>

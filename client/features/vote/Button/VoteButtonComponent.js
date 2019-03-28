@@ -14,8 +14,6 @@ type Props = {
   label: string,
   /** Vote key's Icon */
   icon: string,
-  /** Rotate property passed to Styled Component */
-  rotate: number,
   /** Tabindex for interactive items */
   tabIndex: number,
   /** React Element passed to Styled Component to render correct html tag */
@@ -40,7 +38,6 @@ export const VoteButtonComponent = (props: Props) => {
     color,
     label,
     icon,
-    rotate,
     tabIndex,
     buttonType,
     handleVote,
@@ -56,7 +53,6 @@ export const VoteButtonComponent = (props: Props) => {
         color={color}
         label={label}
         icon={icon}
-        rotate={rotate}
         tabIndex={tabIndex}
         buttonType={buttonType}
         handleVote={handleVote}

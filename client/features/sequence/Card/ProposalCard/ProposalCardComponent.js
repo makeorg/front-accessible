@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { type ProposalType } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { ProposalCardStyle, SequenceProposalStyle } from '../Styled';
 import {
   BackButtonWrapperStyle,
@@ -63,7 +62,7 @@ export const ProposalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

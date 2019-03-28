@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   Breakpoints,
   Layouts,
@@ -28,12 +27,4 @@ export const CookieContentStyle = styled.p`
   @media (min-width: ${pxToRem(Layouts.SpecialContainerWidth)}) {
     padding: ${pxToRem(DefaultPadding.Mobile)};
   }
-`;
-
-export const CookieCloseButtonStyle = styled(UnstyledButtonStyle)`
-  position: absolute;
-  top: ${pxToRem(DefaultPadding.Mobile)};
-  right: ${pxToRem(DefaultPadding.Mobile)};
-  z-index: 1;
-  font-size: ${pxToRem('20px')};
 `;

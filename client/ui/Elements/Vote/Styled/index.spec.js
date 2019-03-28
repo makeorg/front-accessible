@@ -8,16 +8,6 @@ describe('ButtonStyle', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('must set rotate from props', () => {
-    const component = renderer.create(<ButtonStyle rotate={90} />).toJSON();
-    expect(component).toHaveStyleRule('transform', 'rotate(90deg)');
-  });
-
-  it('must not set rotate from props', () => {
-    const component = renderer.create(<ButtonStyle rotate={0} />).toJSON();
-    expect(component).not.toHaveStyleRule('transform', 'rotate(0deg)');
-  });
-
   it('must set border-color from props', () => {
     const component = renderer.create(<ButtonStyle color="red" />).toJSON();
     expect(component).toHaveStyleRule('border-color', 'red');

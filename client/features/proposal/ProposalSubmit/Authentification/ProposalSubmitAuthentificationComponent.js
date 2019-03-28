@@ -1,12 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { type Question } from 'Shared/types/question';
-import {
-  faEnvelope,
-  faExternalLinkAlt,
-} from '@fortawesome/free-solid-svg-icons';
 import {
   RedButtonStyle,
   EmailButtonStyle,
@@ -22,6 +17,7 @@ import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { localizeDataPolicyLink } from 'Shared/helpers/url';
+import { SvgEnvelope, SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
   ProposalSubmitSeparatorStyle,
@@ -64,7 +60,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           id="authentification-register-button"
         >
           <IconWrapperStyle>
-            <FontAwesomeIcon aria-hidden icon={faEnvelope} />
+            <SvgEnvelope aria-hidden />
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
@@ -79,10 +75,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         >
           {i18n.t('authentification.personal_data')}
           <IconWrapperStyle>
-            <FontAwesomeIcon
-              aria-label={i18n.t('common.open_new_window')}
-              icon={faExternalLinkAlt}
-            />
+            <SvgExternalLink aria-label={i18n.t('common.open_new_window')} />
           </IconWrapperStyle>
         </a>
       </CenterParagraphStyle>

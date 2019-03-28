@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   Breakpoints,
   Layouts,
@@ -44,12 +43,4 @@ export const NotificationContentStyle = styled.div`
   @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}) {
     padding-right: ${pxToRem(DefaultPadding.Mobile)};
   }
-`;
-
-export const NotificationCloseButtonStyle = styled(UnstyledButtonStyle)`
-  position: absolute;
-  top: ${pxToRem(DefaultPadding.Mobile)};
-  right: ${pxToRem(DefaultPadding.Mobile)};
-  z-index: 1;
-  font-size: ${pxToRem('20px')};
 `;

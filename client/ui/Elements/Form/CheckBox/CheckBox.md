@@ -1,7 +1,5 @@
 ##### CheckBox Example :
 ```js
-const { faEnvelope } = require('@fortawesome/free-regular-svg-icons');
-
 class CheckBoxExample extends React.Component {
   render() {
     return (

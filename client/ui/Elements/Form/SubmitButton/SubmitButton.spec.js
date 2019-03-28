@@ -1,7 +1,6 @@
 import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
-import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { SubmitButton } from './index';
 
 jest.mock('Client/ui/Elements/ButtonElements', () => ({
@@ -14,7 +13,7 @@ describe('SubmitButton', () => {
   const defaultProps = {
     formName: 'foo',
     label: 'bar',
-    icon: faThumbsUp,
+    icon: 'SvgThumbsUp',
   };
 
   it('must match the snapshot with default Props', () => {

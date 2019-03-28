@@ -6,8 +6,8 @@ Snapshot Diff:
 + Second value
 
 @@ -10,11 +10,11 @@
-        prefix="fas"
-      />
+        SvgPencil
+      </span>
     </label>
     <BasicTextAreaStyle
       aria-required={false}
@@ -65,9 +65,9 @@ Snapshot Diff:
 + Second value
 
 @@ -9,17 +9,17 @@
-        lib="@fortawesome/react-fontawesome"
-        prefix="fas"
-      />
+      >
+        SvgPencil
+      </span>
     </label>
     <BasicTextAreaStyle
 -     aria-required={true}

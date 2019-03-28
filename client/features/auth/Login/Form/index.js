@@ -2,8 +2,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
-import { faThumbsUp, faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import {
   InputErrorMessageStyle,
   FormErrorsListStyle,
@@ -15,6 +13,11 @@ import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { LOGIN_FORMNAME } from 'Shared/constants/form';
+import {
+  EmailFieldIcon,
+  PasswordFieldIcon,
+  SubmitThumbsUpIcon,
+} from 'Shared/constants/icons';
 
 type Props = {
   /** User's email */
@@ -49,7 +52,7 @@ export const LoginFormComponent = (props: Props) => {
       <UntypedInput
         type="email"
         name="email"
-        icon={faEnvelope}
+        icon={EmailFieldIcon}
         value={email}
         label={i18n.t('common.form.email_label')}
         required
@@ -63,7 +66,7 @@ export const LoginFormComponent = (props: Props) => {
       )}
       <PasswordInput
         name="password"
-        icon={faLock}
+        icon={PasswordFieldIcon}
         value={password}
         label={i18n.t('common.form.password_label')}
         required
@@ -77,7 +80,7 @@ export const LoginFormComponent = (props: Props) => {
       )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
-        icon={faThumbsUp}
+        icon={SubmitThumbsUpIcon}
         id="authentification-login-submit"
         label={i18n.t('common.connexion_label')}
       />

@@ -1,7 +1,6 @@
 import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
-import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import {
   UnvoteButtonStyle,
   VoteButtonStyle,
@@ -18,7 +17,7 @@ describe('VoteButtonElement', () => {
   const defaultProps = {
     color: 'red',
     label: 'foo',
-    icon: faThumbsUp,
+    icon: 'SvgThumbsup',
   };
 
   it('must match the snapshot with default Props', () => {

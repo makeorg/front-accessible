@@ -1,11 +1,10 @@
 import React from 'react';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
-import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { i18n } from 'Shared/i18n';
+import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 
 type Props = {
   handlePassword: () => void,
@@ -33,7 +32,7 @@ export const UpdatePasswordComponent = ({
       <PasswordInput
         label={i18n.t('profile.password_update.password_placeholder')}
         name="password"
-        icon={faLock}
+        icon={PasswordFieldIcon}
         value={password}
         handleChange={handlePassword}
       />
@@ -41,14 +40,14 @@ export const UpdatePasswordComponent = ({
       <PasswordInput
         label={i18n.t('profile.password_update.newpassword_placeholder')}
         name="new"
-        icon={faLock}
+        icon={PasswordFieldIcon}
         value={newPassword}
         handleChange={handleNewPassword}
       />
       <SubmitButton
         disabled={disableSubmit}
         formName="formName"
-        icon={faThumbsUp}
+        icon={SubmitThumbsUpIcon}
         label={i18n.t('profile.password_update.submit_label')}
       />
     </form>

@@ -25,18 +25,6 @@
           "transform": "react-router-dom/${member}",
           "preventFullImport": true
         },
-        "@fortawesome/free-solid-svg-icons": {
-          "transform": "@fortawesome/free-solid-svg-icons/${member}",
-          "skipDefaultConversion": true
-        },
-        "@fortawesome/free-brands-svg-icons": {
-          "transform": "@fortawesome/free-brands-svg-icons/${member}",
-          "skipDefaultConversion": true
-        },
-        "@fortawesome/free-regular-svg-icons": {
-          "transform": "@fortawesome/free-regular-svg-icons/${member}",
-          "skipDefaultConversion": true
-        }
       }
     ],
     [

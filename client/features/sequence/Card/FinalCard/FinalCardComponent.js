@@ -2,9 +2,8 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type FinalCardConfig } from 'Shared/types/card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { FinalTitle } from './Title';
 import { Sharing } from './Sharing';
 import { More } from './More';
@@ -73,7 +72,7 @@ export const FinalCardComponent = (props: Props) => {
       <BackButtonWrapperStyle>
         <BackButtonStyle tabIndex={tabIndex} onClick={goToPreviousCard}>
           <BackIconStyle>
-            <FontAwesomeIcon aria-hidden icon={faArrowLeft} />
+            <SvgArrowLeft aria-hidden />
           </BackIconStyle>
           {i18n.t('proposal_card.previous')}
         </BackButtonStyle>

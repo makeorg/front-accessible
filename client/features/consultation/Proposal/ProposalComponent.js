@@ -3,9 +3,9 @@ import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
-import { Svg } from 'Client/ui/Svg';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
+import { SvgLightBulb } from 'Client/ui/Svg/elements';
 import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
 type Props = {
@@ -18,8 +18,8 @@ export const ConsultationProposalComponent = (props: Props) => {
   return (
     <ProposalWrapperStyle>
       <ThirdLevelTtitleStyle>
-        <IconWrapperStyle>
-          <Svg type="SvgLightBulb" />
+        <IconWrapperStyle aria-hidden>
+          <SvgLightBulb />
         </IconWrapperStyle>
         {i18n.t('consultation.proposal.title')}
       </ThirdLevelTtitleStyle>

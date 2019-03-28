@@ -7,12 +7,10 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   tabIndex={0}
   type="submit"
 >
-  <IconWrapperStyle>
-    <svg
-      icon="thumbs-up"
-      lib="@fortawesome/react-fontawesome"
-      prefix="far"
-    />
+  <IconWrapperStyle
+    aria-hidden={true}
+  >
+    SvgThumbsUp
   </IconWrapperStyle>
   bar
 </RedButtonStyle>
@@ -31,9 +29,9 @@ Snapshot Diff:
 +   tabIndex="0"
     type="submit"
   >
-    <IconWrapperStyle>
-      <svg
-        icon="thumbs-up"
+    <IconWrapperStyle
+      aria-hidden={true}
+    >
 `;
 
 exports[`SubmitButton must return the diff between when disabled 1`] = `
@@ -41,7 +39,6 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,7 +1,7 @@
 - <RedButtonStyle
 -   disabled={false}
 + <GreyButtonStyle
@@ -50,11 +47,10 @@ Snapshot Diff:
     tabIndex={0}
     type="submit"
   >
-    <IconWrapperStyle>
-@@ -10,6 +10,6 @@
-        lib="@fortawesome/react-fontawesome"
-        prefix="far"
-      />
+    <IconWrapperStyle
+      aria-hidden={true}
+    >
+      SvgThumbsUp
     </IconWrapperStyle>
     bar
 - </RedButtonStyle>

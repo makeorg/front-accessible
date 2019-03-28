@@ -1,7 +1,5 @@
 ##### UntypedInput Example :
 ```js
-const { faEnvelope } = require('@fortawesome/free-regular-svg-icons');
-
 class UntypedInputExample extends React.Component {
   constructor() {
     super()
@@ -24,7 +22,7 @@ class UntypedInputExample extends React.Component {
       <UntypedInput
         type="email"
         name="email"
-        icon={faEnvelope}
+        icon="SvgEnvelope"
         value={this.state.value}
         label="placeholder"
         handleChange={this.handleChange}

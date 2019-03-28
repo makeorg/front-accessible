@@ -24,9 +24,7 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
       aria-hidden={true}
       iscollapsed={true}
     >
-      <Svg
-        type="SvgAngleArrowRight"
-      />
+      <SvgAngleArrowRight />
     </CollapseIconStyle>
   </CollapseTriggerStyle>
   <CollapseContentStyle
