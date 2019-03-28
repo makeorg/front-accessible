@@ -2,15 +2,6 @@
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 
-// Authentification State
-export type StateAuthentification = $ReadOnly<{
-  isLoggedIn: boolean,
-  errors: [],
-  user?: {
-    userId: string,
-  },
-}>;
-
 // Proposal State
 export type StateProposal = $ReadOnly<{
   hasProposed: boolean,
@@ -29,6 +20,26 @@ export type StateNotification = $ReadOnly<{
   contentType?: string,
 }>;
 
+// Authentification State
+export type StateAuthentification = $ReadOnly<{
+  isLoggedIn: boolean,
+  errors: [],
+  user?: {
+    userId: string,
+  },
+}>;
+
+// Registration State
+export type StateRegistration = $ReadOnly<{
+  errors: [],
+}>;
+
+// User Forgot Password State
+export type StateForgotPassword = $ReadOnly<{
+  isSuccess: boolean,
+  errors: [],
+}>;
+
 // User Password Recovery State
 export type StateUserPasswordRecovery = $ReadOnly<{
   newPassword?: string,
@@ -41,6 +52,9 @@ export type StateUserPasswordRecovery = $ReadOnly<{
 
 // User State
 export type StateUser = $ReadOnly<{
+  authentification: StateAuthentification,
+  registration: StateRegistration,
+  forgotPassword: StateForgotPassword,
   passwordRecovery: StateUserPasswordRecovery,
 }>;
 
@@ -57,7 +71,6 @@ export type StateModal = $ReadOnly<{
 
 // All state
 export type StateRoot = $ReadOnly<{
-  authentification: StateAuthentification,
   proposal: StateProposal,
   sequence: StateSequence,
   notification: StateNotification,

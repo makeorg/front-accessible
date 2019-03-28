@@ -2,11 +2,6 @@
 import { type StateRoot } from './types';
 
 export const initialState: StateRoot = {
-  authentification: {
-    errors: [],
-    isLoggedIn: false,
-    user: undefined,
-  },
   proposal: {
     hasProposed: false,
     error: undefined,
@@ -23,6 +18,18 @@ export const initialState: StateRoot = {
     contentType: undefined,
   },
   user: {
+    authentification: {
+      errors: [],
+      isLoggedIn: false,
+      user: undefined,
+    },
+    registration: {
+      errors: [],
+    },
+    forgotPassword: {
+      isSuccess: false,
+      errors: [],
+    },
     passwordRecovery: {
       newPassword: undefined,
       resetToken: undefined,

@@ -6,6 +6,7 @@ import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { forgotPassword } from 'Shared/store/actions/forgotPassword';
 import { modalShowLogin } from 'Shared/store/actions/modal';
+import { selectForgotPassword } from 'Shared/store/selectors/user.selector';
 import { PasswordForgotComponent } from './PasswordForgotComponent';
 
 type Props = {
@@ -74,7 +75,7 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { errors, isSuccess } = state.forgotPassword;
+  const { errors, isSuccess } = selectForgotPassword(state);
 
   return {
     errors,

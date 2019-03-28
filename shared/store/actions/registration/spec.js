@@ -20,11 +20,7 @@ describe('Registration Actions', () => {
   });
 
   it('Creates PROPOSE_TYPING when calling action', () => {
-    const expectedActions = [
-      {
-        type: actionTypes.REGISTER_REQUEST,
-      },
-    ];
+    const expectedActions = [{ type: actionTypes.REGISTER_REQUEST }];
 
     store.dispatch(actions.registerRequest());
     expect(store.getActions()).toEqual(expectedActions);
@@ -32,12 +28,7 @@ describe('Registration Actions', () => {
 
   it('Creates REGISTER_SUCCESS when calling action', () => {
     const user = { firstname: 'foo' };
-    const expectedActions = [
-      {
-        type: actionTypes.REGISTER_SUCCESS,
-        user,
-      },
-    ];
+    const expectedActions = [{ type: actionTypes.REGISTER_SUCCESS }];
 
     store.dispatch(actions.registerSuccess(user));
     expect(store.getActions()).toEqual(expectedActions);
@@ -75,8 +66,9 @@ describe('Registration Actions', () => {
 
     const expectedActions = [
       { type: actionTypes.REGISTER_REQUEST },
-      { type: actionTypes.REGISTER_SUCCESS, user },
+      { type: actionTypes.REGISTER_SUCCESS },
       { type: actionTypes.LOGIN_SUCCESS },
+      { type: actionTypes.GET_INFO, user },
       { type: actionTypes.MODAL_CLOSE },
       { type: actionTypes.FORGOT_PASSWORD_INIT },
     ];

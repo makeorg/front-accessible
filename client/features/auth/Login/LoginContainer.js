@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { login } from 'Shared/store/actions/authentification';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+
 import {
   modalShowRegister,
   modalShowForgotPassword,
@@ -72,11 +74,9 @@ class LoginHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { errors } = state.authentification;
+  const { errors } = selectAuthentification(state);
 
-  return {
-    errors,
-  };
+  return { errors };
 };
 
 const mapDispatchToProps = dispatch => ({

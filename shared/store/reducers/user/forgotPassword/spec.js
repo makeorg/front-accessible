@@ -7,24 +7,23 @@ describe('ForgotPassword reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       errors: [],
-      isSuccess: false
+      isSuccess: false,
     };
 
     expect(forgotPassword(undefined, {})).toEqual(expectedState);
   });
-
 
   describe('forgotPassword action reducers', () => {
     it('ForgotPassword Request', () => {
       const action = actionCreators.forgotPasswordRequest('foo@example.com');
       const previousState = {
         errors: ['foo', 'bar'],
-        isSuccess: true
+        isSuccess: true,
       };
 
       const expectedState = {
         errors: [],
-        isSuccess: false
+        isSuccess: false,
       };
 
       expect(forgotPassword(previousState, action)).toEqual(expectedState);
@@ -34,42 +33,42 @@ describe('ForgotPassword reducer', () => {
       const action = actionCreators.forgotPasswordSuccess();
       const previousState = {
         errors: ['foo', 'bar'],
-        isSuccess: false
+        isSuccess: false,
       };
 
       const expectedState = {
         errors: [],
-        isSuccess: true
+        isSuccess: true,
       };
 
       expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
 
-    it('Login Failure', () => {
+    it('ForgotPassword Failure', () => {
       const action = actionCreators.forgotPasswordFailure(['fooError']);
       const previousState = {
         errors: ['bazError', 'barError'],
-        isSuccess: false
+        isSuccess: false,
       };
 
       const expectedState = {
         errors: ['fooError'],
-        isSuccess: false
+        isSuccess: false,
       };
 
       expect(forgotPassword(previousState, action)).toEqual(expectedState);
     });
 
-    it('Login Init', () => {
+    it('ForgotPassword Init', () => {
       const action = actionCreators.forgotPasswordInit();
       const previousState = {
         errors: [],
-        isSuccess: false
+        isSuccess: false,
       };
 
       const expectedState = {
         errors: [],
-        isSuccess: false
+        isSuccess: false,
       };
 
       expect(forgotPassword(previousState, action)).toEqual(expectedState);

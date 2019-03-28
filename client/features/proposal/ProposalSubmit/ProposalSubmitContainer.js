@@ -7,6 +7,7 @@ import {
   getProposalLength,
   proposalHasValidLength,
 } from 'Shared/helpers/proposal';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type Question } from 'Shared/types/question';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
 import { Tracking } from 'Shared/services/Tracking';
@@ -184,7 +185,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { isLoggedIn } = state.authentification;
+  const { isLoggedIn } = selectAuthentification(state);
   const { country, language } = state.appConfig;
 
   return {

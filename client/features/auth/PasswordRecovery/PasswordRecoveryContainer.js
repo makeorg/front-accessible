@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-
+import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 import { passwordRecovery } from 'Shared/store/actions/user/passwordRecovery';
 import { throttle } from 'Shared/helpers/throttle';
 import { PasswordRecoveryComponent } from './PasswordRecoveryComponent';
@@ -67,7 +67,7 @@ class PasswordRecovery extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { error, errorMessage, updated } = state.user.passwordRecovery;
+  const { error, errorMessage, updated } = selectPasswordRecovery(state);
 
   return { error, errorMessage, updated };
 };

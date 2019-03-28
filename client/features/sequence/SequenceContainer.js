@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { startSequence } from 'Shared/services/Sequence';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
@@ -235,7 +236,7 @@ class SequenceHandler extends React.Component<Props, State> {
 const mapStateToProps = state => {
   const { firstProposal, votedProposalIds } = state.sequence;
   const { hasProposed } = state.proposal;
-  const { isLoggedIn } = state.authentification;
+  const { isLoggedIn } = selectAuthentification(state);
 
   return {
     firstProposal,

@@ -4,7 +4,7 @@ import { initialState } from 'Shared/store/initialState';
 import { type StateAuthentification } from 'Shared/store/types';
 
 export function authentification(
-  state: StateAuthentification = initialState.authentification,
+  state: StateAuthentification = initialState.user.authentification,
   action: Object
 ) {
   switch (action.type) {
@@ -22,7 +22,7 @@ export function authentification(
     case actionTypes.LOGIN_FAILURE:
       return {
         ...state,
-        errors: [...[action.error], ...state.errors],
+        errors: [action.error, ...state.errors],
       };
     case actionTypes.GET_INFO:
       return {

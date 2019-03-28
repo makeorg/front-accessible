@@ -10,6 +10,7 @@ import {
   PasswordRecoveryContentStyle,
 } from 'Client/features/auth/PasswordRecovery/Styled';
 import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
+import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 
 type Props = {
   passwordRecovery: Object,
@@ -49,12 +50,15 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
 }
 
 const mapStateToProps = state => {
-  const { passwordRecovery } = state.user;
-  return { passwordRecovery, question: selectSequenceQuestion(state) };
+  return {
+    passwordRecovery: selectPasswordRecovery(state),
+    question: selectSequenceQuestion(state),
+  };
 };
 
 export const PasswordRecoveryPage = withRouter(
   connect(mapStateToProps)(PasswordRecoveryRedirect)
 );
+
 // default export needed for loadable component
 export default PasswordRecoveryPage; // eslint-disable-line import/no-default-export

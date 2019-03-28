@@ -2,11 +2,6 @@
 
 exports[`initialState snapshot 1`] = `
 Object {
-  "authentification": Object {
-    "errors": Array [],
-    "isLoggedIn": false,
-    "user": undefined,
-  },
   "modal": Object {
     "contentType": null,
     "isOpen": false,
@@ -27,6 +22,15 @@ Object {
     "votedProposalIds": Array [],
   },
   "user": Object {
+    "authentification": Object {
+      "errors": Array [],
+      "isLoggedIn": false,
+      "user": undefined,
+    },
+    "forgotPassword": Object {
+      "errors": Array [],
+      "isSuccess": false,
+    },
     "passwordRecovery": Object {
       "error": false,
       "errorMessage": undefined,
@@ -34,6 +38,9 @@ Object {
       "resetToken": undefined,
       "updated": false,
       "userId": undefined,
+    },
+    "registration": Object {
+      "errors": Array [],
     },
   },
 }
