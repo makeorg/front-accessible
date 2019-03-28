@@ -26,6 +26,7 @@ export const TagFilterIconStyle = styled.div`
 export const TagFilterIntroStyle = styled.span`
   margin-right: 15px;
   color: ${TextColors.MediumGrey};
+  font-size: 14px;
 `;
 
 export const TagSeparatorStyle = styled.div`

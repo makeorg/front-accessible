@@ -29,9 +29,4 @@ export const IntroLabel = styled.p`
   font-family: ${MakeFonts.RobotoCondensedBold};
   text-transform: uppercase;
   margin-bottom: 5px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-    padding: 7.5px;
-    margin-bottom: 10px;
-  }
 `;
