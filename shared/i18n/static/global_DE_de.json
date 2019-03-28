@@ -222,7 +222,8 @@
       "title": "Stimmen Sie über die letzten Vorschläge der Konsultation ab"
     },
     "proposal": {
-        "title": "Schlagen Sie eine Lösung vor"
+        "title": "Schlagen Sie eine Lösung vor",
+        "load_more": "Mehr Vorschläge sehen"
     }
   },
   "weeuropean": {

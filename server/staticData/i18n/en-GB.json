@@ -254,7 +254,8 @@
       "title": "Vote on the latest proposals on this topic"
     },
     "proposal": {
-      "title": "Propose a solution"
+      "title": "Propose a solution",
+      "load_more": "See more proposals"
     }
   },
   "sharing": {

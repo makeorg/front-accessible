@@ -128,6 +128,12 @@ class TrackingSingleton {
     this.track(eventName);
   };
 
+  trackLoadMoreProposals = () => {
+    const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+
+    this.track(eventName);
+  };
+
   /* On Load Sequence Tracking */
   trackDisplaySequence = () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
