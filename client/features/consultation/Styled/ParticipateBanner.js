@@ -4,7 +4,7 @@ import {
   Breakpoints,
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ParticipateWrapperStyle = styled.aside`
@@ -16,8 +16,9 @@ export const ParticipateWrapperStyle = styled.aside`
     ${props => props.gradientStart},
     ${props => props.gradientEnd}
   );
-  padding: ${intToPx(DefaultPadding.Mobile)};
+  padding: 20px ${intToPx(DefaultPadding.Mobile)};
   margin: 15px 0;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin: 0 0 15px;
   }

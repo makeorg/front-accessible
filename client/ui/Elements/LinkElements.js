@@ -24,7 +24,7 @@ export const ParagraphRedLinkStyle = styled(RedLinkStyle)`
 `;
 
 export const LinkAsRedButton = styled(RedButtonStyle)`
-  display: inline-block;
+  display: inline-flex;
   text-decoration: none;
   &:hover,
   &:focus {

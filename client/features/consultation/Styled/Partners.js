@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ParticipateButtonStyle = styled(LinkAsRedButton)`
   margin: 10px 0 15px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 20px 0;
+  }
 `;
 
 export const PartnersListStyle = styled(UnstyledListStyle)`

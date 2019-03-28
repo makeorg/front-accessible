@@ -29,12 +29,7 @@
     {"name": "Max Havelar France", "imageUrl": "/images/operations/mieuxmanger/partners/max-havelar-france.png", "isFounder": false},
     {"name": "Too Good To Go", "imageUrl": "/images/operations/mieuxmanger/partners/too-good-to-go.png", "isFounder": false},
     {"name": "La Ruche Qui Dit Oui !", "imageUrl": "/images/operations/mieuxmanger/partners/la-ruche-qui-dit-oui.png", "isFounder": false},
-    {"name": "Action Contre La Faim", "imageUrl": "/images/operations/mieuxmanger/partners/action-contre-la-faim.png", "isFounder": false},
-    {"name": "Banques Alimentaires", "imageUrl": "/images/operations/mieuxmanger/partners/banques-alimentaires.png", "isFounder": false},
-    {"name": "Bleu Blanc Coeur", "imageUrl": "/images/operations/mieuxmanger/partners/bleu-blanc-coeur.png", "isFounder": false},
-    {"name": "Open Food Facts", "imageUrl": "/images/operations/mieuxmanger/partners/open-food-facts.png", "isFounder": false},
-    {"name": "Ferme France", "imageUrl": "/images/operations/mieuxmanger/partners/ferme-france.png", "isFounder": false},
-    {"name": "Kiss Kiss Bank Bank", "imageUrl": "/images/operations/mieuxmanger/partners/kiss-kiss-bank-bank.png", "isFounder": false}
+    {"name": "Action Contre La Faim", "imageUrl": "/images/operations/mieuxmanger/partners/action-contre-la-faim.png", "isFounder": false}
   ],
   "isGreatCause": true,
   "consultationUrl": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
