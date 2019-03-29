@@ -2,6 +2,8 @@
 
 exports[`ButtonStyle snapshot by default 1`] = `
 .c0 {
+  position: relative;
+  z-index: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23,6 +25,16 @@ exports[`ButtonStyle snapshot by default 1`] = `
   overflow: hidden;
 }
 
+.c0 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transform: translate(50%,50%);
+  -ms-transform: translate(50%,50%);
+  transform: translate(50%,50%);
+}
+
 @media (min-width:767px) {
   .c0 {
     width: 58px;
@@ -38,6 +50,8 @@ exports[`ButtonStyle snapshot by default 1`] = `
 
 exports[`UnvoteButtonStyle snapshot by default 1`] = `
 .c0 {
+  position: relative;
+  z-index: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -62,6 +76,16 @@ exports[`UnvoteButtonStyle snapshot by default 1`] = `
 }
 
 .c0 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transform: translate(50%,50%);
+  -ms-transform: translate(50%,50%);
+  transform: translate(50%,50%);
+}
+
+.c0 svg {
   fill: rgb(255,255,255);
 }
 
@@ -80,6 +104,8 @@ exports[`UnvoteButtonStyle snapshot by default 1`] = `
 
 exports[`VoteButtonStyle snapshot by default 1`] = `
 .c0 {
+  position: relative;
+  z-index: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -100,6 +126,16 @@ exports[`VoteButtonStyle snapshot by default 1`] = `
   border-radius: 50%;
   overflow: hidden;
   background-color: rgb(255,255,255);
+}
+
+.c0 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  -webkit-transform: translate(50%,50%);
+  -ms-transform: translate(50%,50%);
+  transform: translate(50%,50%);
 }
 
 .c0:focus,

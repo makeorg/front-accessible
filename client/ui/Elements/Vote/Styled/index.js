@@ -4,6 +4,8 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonStyle = styled.button`
+  position: relative;
+  z-index: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +17,13 @@ export const ButtonStyle = styled.button`
   border-radius: 50%;
   border-color: ${props => props.color};
   overflow: hidden;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transform: translate(50%, 50%);
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: 58px;
     height: 58px;
