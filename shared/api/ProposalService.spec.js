@@ -49,7 +49,6 @@ describe('ProposalService', () => {
         method: 'GET',
         params: {
           questionId: '12345',
-          isRandom: true,
           limit: 20,
           skip: 0,
           sortAlgorithm: 'taggedFirst',
@@ -64,7 +63,6 @@ describe('ProposalService', () => {
         method: 'GET',
         params: {
           questionId: '12345',
-          isRandom: true,
           limit: 20,
           skip: 0,
           sortAlgorithm: 'taggedFirst',

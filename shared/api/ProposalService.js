@@ -40,6 +40,7 @@ export class ProposalService {
   static searchProposals(
     questionId: string,
     tagsIds?: string,
+    seed?: ?number,
     limit?: number = 20,
     skip?: number = 0,
     headers?: ApiServiceHeaders = {}
@@ -50,7 +51,7 @@ export class ProposalService {
       params: {
         sortAlgorithm: SORT_ALGORITHM.TAGGED_FIRST,
         questionId,
-        isRandom: true,
+        seed,
         limit,
         skip,
         tagsIds,
