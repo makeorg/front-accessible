@@ -30,7 +30,8 @@ export const setUserInfo = (user: Object) => ({
   type: actionTypes.GET_INFO,
   user,
 });
-export const logout = () => ({ type: actionTypes.LOGOUT });
+
+export const logoutSuccess = () => ({ type: actionTypes.LOGOUT });
 
 export const getUser = () => (
   dispatch: Dispatch,
@@ -79,4 +80,10 @@ export const loginSocial = (provider: string, socialToken: string) => (
       dispatch(loginSocialFailure());
       Tracking.trackAuthentificationSocialFailure(provider);
     });
+};
+
+export const logout = () => (dispatch: Dispatch) => {
+  return UserService.logout().then(() => {
+    return dispatch(logoutSuccess());
+  });
 };

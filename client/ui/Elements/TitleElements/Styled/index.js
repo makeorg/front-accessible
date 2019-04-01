@@ -11,7 +11,7 @@ export const SecondLevelTitleStyle = styled.h2`
   }
 `;
 
-export const ThirdLevelTtitleStyle = styled.h3`
+export const ThirdLevelTitleStyle = styled.h3`
   font-size: ${pxToRem('14px')};
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: ${pxToRem('18px')};

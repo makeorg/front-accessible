@@ -32,6 +32,7 @@ export const ProposalAuthorWithAvatar = (props: Props) => {
       <Avatar>
         {author.avatarUrl && <img src={author.avatarUrl} alt="" />}
       </Avatar>
+      &nbsp;
       {author.firstName || author.organisationName}
       <ProposalAuthorAge age={author.age} />
       {!!createdAt && (

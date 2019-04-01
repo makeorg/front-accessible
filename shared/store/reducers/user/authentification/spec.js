@@ -145,7 +145,7 @@ describe('Authentification reducer', () => {
 
   describe('Logout action reducers', () => {
     it('Logout user', () => {
-      const action = actionCreators.logout();
+      const action = actionCreators.logoutSuccess();
       const previousState = {
         isLoggedIn: true,
         errors: ['bazError', 'barError'],

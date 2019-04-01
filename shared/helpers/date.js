@@ -42,6 +42,26 @@ export const getDateOfBirthFromAge = (age: number = 0) => {
   return `${birthYear}-01-01`;
 };
 
+export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
+  const today = new Date();
+  const birthDate = new Date(dateOfBirth);
+
+  if (birthDate.toString() === 'Invalid Date') {
+    return null;
+  }
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const mounthDiff = today.getMonth() - birthDate.getMonth();
+  if (
+    mounthDiff < 0 ||
+    (mounthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age -= 1;
+  }
+
+  return age;
+};
+
 export class DateHelperSingleton {
   _language: string;
 

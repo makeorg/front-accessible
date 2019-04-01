@@ -1,27 +1,27 @@
 import React from 'react';
+import { i18n } from 'Shared/i18n';
+import { Passwords } from 'Shared/types/user';
+import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
-import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
-import { i18n } from 'Shared/i18n';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 
 type Props = {
-  handlePassword: () => void,
-  handleNewPassword: () => void,
-  handleSubmit: () => void,
-  disableSubmit: boolean,
-  password?: string,
-  newPassword?: string,
+  passwords: Passwords,
+  /** Boolean to check that for is valid */
+  formIsValid: boolean,
+  /** Method called when field's value changes */
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  /** Method called when field's value is submitted */
+  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 export const UpdatePasswordComponent = ({
-  handlePassword,
-  handleNewPassword,
+  passwords,
+  formIsValid,
+  handleChange,
   handleSubmit,
-  disableSubmit,
-  password,
-  newPassword,
 }: Props) => {
   return (
     <form id={PASSWORD_UPDATE_FORMNAME} onSubmit={handleSubmit}>
@@ -31,30 +31,27 @@ export const UpdatePasswordComponent = ({
       {i18n.t('profile.password_update.password_label')}
       <PasswordInput
         label={i18n.t('profile.password_update.password_placeholder')}
-        name="password"
+        name="oldPassword"
+        id="oldPassword"
         icon={PasswordFieldIcon}
-        value={password}
-        handleChange={handlePassword}
+        value={passwords.oldPassword}
+        handleChange={handleChange}
       />
       {i18n.t('profile.password_update.newpassword_label')}
       <PasswordInput
         label={i18n.t('profile.password_update.newpassword_placeholder')}
-        name="new"
+        name="newPassword"
+        id="newPassword"
         icon={PasswordFieldIcon}
-        value={newPassword}
-        handleChange={handleNewPassword}
+        value={passwords.newPassword}
+        handleChange={handleChange}
       />
       <SubmitButton
-        disabled={disableSubmit}
+        disabled={!formIsValid}
         formName="formName"
         icon={SubmitThumbsUpIcon}
         label={i18n.t('profile.password_update.submit_label')}
       />
     </form>
   );
-};
-
-UpdatePasswordComponent.defaultProps = {
-  password: undefined,
-  newPassword: undefined,
 };

@@ -17,9 +17,9 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
     disabled={false}
     onClick={[Function]}
   >
-    <ThirdLevelTtitleStyle>
+    <ThirdLevelTitleStyle>
       foo
-    </ThirdLevelTtitleStyle>
+    </ThirdLevelTitleStyle>
     <CollapseIconStyle
       aria-hidden={true}
       iscollapsed={true}

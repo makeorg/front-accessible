@@ -10,7 +10,7 @@ import {
   SmallButtonWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import {
-  ThirdLevelTtitleStyle,
+  ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -46,9 +46,9 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
 
   return (
     <ProposalSubmitAuthentificationWrapperStyle id="proposal-submit-authentification">
-      <ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>
         {i18n.t('authentification.title')}
-      </ThirdLevelTtitleStyle>
+      </ThirdLevelTitleStyle>
       <FourthLevelTitleStyle>
         {i18n.t('authentification.description')}
       </FourthLevelTitleStyle>
@@ -80,7 +80,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         </a>
       </CenterParagraphStyle>
       <ProposalSubmitSeparatorStyle aria-hidden />
-      <ThirdLevelTtitleStyle>{i18n.t('login.title')}</ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>{i18n.t('login.title')}</ThirdLevelTitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
           onClick={handleLoginClick}

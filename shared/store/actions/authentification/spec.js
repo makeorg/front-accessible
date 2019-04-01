@@ -214,16 +214,30 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to logout a user', () => {
+      const newStore = mockStore({
+        user: { authentification: {} },
+      });
+
+      const expectedActions = [{ type: actionTypes.LOGOUT }];
+
+      UserService.logout.mockResolvedValue();
+
+      return newStore.dispatch(actions.logout()).then(() => {
+        expect(newStore.getActions()).toEqual(expectedActions);
+      });
+    });
+
+    it('creates an action to logout a user successfully', () => {
       const expectedAction = {
         type: actionTypes.LOGOUT,
       };
 
-      expect(actions.logout()).toEqual(expectedAction);
+      expect(actions.logoutSuccess()).toEqual(expectedAction);
     });
 
     it('creates an action to getUser when modal is open', () => {
       const user = { firstname: 'baz' };
-      const store = mockStore({
+      const newStore = mockStore({
         modal: { isOpen: true },
       });
 
@@ -239,15 +253,15 @@ describe('Authentification Actions', () => {
         { type: actionTypes.FORGOT_PASSWORD_INIT },
       ];
 
-      return store.dispatch(actions.getUser()).then(() => {
+      return newStore.dispatch(actions.getUser()).then(() => {
         expect(Tracking.trackClickCloseModal).toHaveBeenCalled();
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
 
     it('creates an action to getUser when modal is closed', () => {
       const user = { firstname: 'baz' };
-      const store = mockStore({
+      const newStore = mockStore({
         modal: { isOpen: false },
       });
 
@@ -256,8 +270,8 @@ describe('Authentification Actions', () => {
 
       const expectedActions = [{ type: actionTypes.GET_INFO, user }];
 
-      return store.dispatch(actions.getUser()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+      return newStore.dispatch(actions.getUser()).then(() => {
+        expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
   });

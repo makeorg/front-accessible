@@ -8,6 +8,7 @@
   },
   "common": {
     "connexion_label": "Log in",
+    "disconnexion_label": "Log out",
     "register_label": "Sign up",
     "form": {
       "email_label": "E-mail",

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import {
   CollapseWrapperStyle,
@@ -42,7 +42,7 @@ export const CollapseComponent = (props: Props) => {
             : i18n.t('common.shrink_collapse')
         }
       >
-        <ThirdLevelTtitleStyle>{title}</ThirdLevelTtitleStyle>
+        <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>
         {!disableCollapse && (
           <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>
             <SvgAngleArrowRight />

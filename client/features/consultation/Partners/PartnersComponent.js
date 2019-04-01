@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { ThirdLevelTtitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SidebarSeparatorStyle } from 'Client/ui/Elements/SidebarTile/Styled';
@@ -40,9 +40,9 @@ export const PartnersComponent = (props: Props) => {
         </IconWrapperStyle>
         {i18n.t('common.participate')}
       </ParticipateButtonStyle>
-      <ThirdLevelTtitleStyle>
+      <ThirdLevelTitleStyle>
         {i18n.t('consultation.partners.commitment_title')}
-      </ThirdLevelTtitleStyle>
+      </ThirdLevelTitleStyle>
       <SidebarSeparatorStyle />
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}

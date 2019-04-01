@@ -35,3 +35,4 @@ export { SvgUser } from './User';
 export { SvgChild } from './Child';
 export { SvgMapMarker } from './MapMarker';
 export { SvgSuitcase } from './Suitcase';
+export { SvgMarker } from './Marker';
