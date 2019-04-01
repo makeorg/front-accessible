@@ -6,6 +6,7 @@ import {
   MAX_PROPOSAL_LENGTH,
   PROPOSALS_LISTING_LIMIT,
 } from 'Shared/constants/proposal';
+import { type ApiSearchProposalsResponseType } from 'Shared/types/api';
 import { type ProposalType } from 'Shared/types/proposal';
 import { ProposalService } from 'Shared/api/ProposalService';
 import { Logger } from 'Shared/services/Logger';
@@ -51,8 +52,9 @@ export const searchFirstUnvotedProposal = (proposals: Array<ProposalType>) =>
 export const searchProposals = async (
   questionId: string,
   TagIdsArray: string[] = [],
+  seed: ?number = undefined,
   page: number = 1
-) => {
+): ApiSearchProposalsResponseType | Object => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = (page - 1) * limit;
   const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
@@ -60,13 +62,14 @@ export const searchProposals = async (
     const response = await ProposalService.searchProposals(
       questionId,
       tagsIds,
+      seed,
       limit,
       skip
     );
 
-    return response.results;
+    return response;
   } catch (error) {
     Logger.logError('searchProposals error', error);
-    return [];
+    return {};
   }
 };

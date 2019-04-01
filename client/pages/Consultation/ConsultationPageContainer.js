@@ -30,11 +30,6 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
       ? selectedTagIds.filter(selectedTagId => selectedTagId !== tagId)
       : [tagId, ...selectedTagIds];
 
-    /* const proposals = await searchProposals(
-      question.questionId,
-      newSelectedTagIds
-    ); */
-
     this.setState({
       selectedTagIds: newSelectedTagIds,
     });

@@ -127,12 +127,11 @@ describe('Proposal Helper', () => {
   describe('Search Proposals', () => {
     it('transform tagIds to string', async () => {
       jest.spyOn(ProposalService, 'searchProposals');
-
       ProposalHelper.searchProposals('12345', ['foo', 'bar']);
-      expect(ProposalService.searchProposals).toHaveBeenNthCalledWith(
-        1,
+      expect(ProposalService.searchProposals).toHaveBeenCalledWith(
         '12345',
         'foo,bar',
+        undefined,
         PROPOSALS_LISTING_LIMIT,
         0
       );
@@ -141,11 +140,11 @@ describe('Proposal Helper', () => {
     it('calculate skipped proposal', async () => {
       jest.spyOn(ProposalService, 'searchProposals');
 
-      ProposalHelper.searchProposals('12345', ['foo', 'bar'], 3);
-      expect(ProposalService.searchProposals).toHaveBeenNthCalledWith(
-        1,
+      ProposalHelper.searchProposals('12345', ['foo', 'bar'], 999, 3);
+      expect(ProposalService.searchProposals).toHaveBeenCalledWith(
         '12345',
         'foo,bar',
+        999,
         PROPOSALS_LISTING_LIMIT,
         40
       );
@@ -158,7 +157,7 @@ describe('Proposal Helper', () => {
         'foo',
         'bar',
       ]);
-      expect(repsonse).toEqual(['foo']);
+      expect(repsonse).toEqual({ results: ['foo'] });
     });
 
     it('return an empty Array and call Logger when api fail', async () => {
@@ -170,12 +169,11 @@ describe('Proposal Helper', () => {
         'bar',
       ]);
 
-      expect(Logger.logError).toHaveBeenNthCalledWith(
-        1,
+      expect(Logger.logError).toHaveBeenCalledWith(
         'searchProposals error',
         Error('Api error')
       );
-      expect(repsonse).toEqual([]);
+      expect(repsonse).toEqual({});
     });
   });
 });

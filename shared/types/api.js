@@ -10,5 +10,6 @@ export type ApiServiceHeaders = {
 
 export type ApiSearchProposalsResponseType = {
   total: number,
+  seed: number,
   results: ProposalType[],
 };
