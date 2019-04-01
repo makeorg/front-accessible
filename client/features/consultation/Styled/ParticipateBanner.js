@@ -20,7 +20,7 @@ export const ParticipateWrapperStyle = styled.aside`
   margin: 15px 0;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: 0 0 15px;
+    margin: 0 0 35px;
   }
 `;
 

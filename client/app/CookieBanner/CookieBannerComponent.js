@@ -1,8 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgClose } from 'Client/ui/Svg/elements';
+import { CloseBannerButtonStyle } from 'Client/ui/Elements/ButtonElements/';
 import { CookieContentStyle, CookieWrapperStyle } from './Styled';
 
 /**
@@ -27,12 +27,12 @@ export const CookieBannerComponent = ({
         }),
       }}
     />
-    <CloseButtonStyle
+    <CloseBannerButtonStyle
       aria-label={i18n.t('pannel.close')}
       aria-expanded="false"
       onClick={handleClose}
     >
       <SvgClose aria-hidden />
-    </CloseButtonStyle>
+    </CloseBannerButtonStyle>
   </CookieWrapperStyle>
 );
