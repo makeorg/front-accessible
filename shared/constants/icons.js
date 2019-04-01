@@ -10,6 +10,7 @@ import {
   SvgPaperPlane,
   SvgThumbsDown,
   SvgThumbsLeft,
+  SvgPencil,
 } from 'Client/ui/Svg/elements';
 
 /** Form Icons */
@@ -19,6 +20,7 @@ export const AgeFieldIcon = <SvgChild />;
 export const FirstNameFieldIcon = <SvgUser />;
 export const PostalCodeFieldIcon = <SvgMapMarker />;
 export const JobFieldIcon = <SvgSuitcase />;
+export const DescriptionFieldIcon = <SvgPencil />;
 export const SubmitThumbsUpIcon = <SvgThumbsUp />;
 export const SubmitPaperPlaneIcon = <SvgPaperPlane />;
 

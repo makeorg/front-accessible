@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
 import {
-  InputErrorMessageStyle,
+  ErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled/Errors';
@@ -60,9 +60,9 @@ export const LoginFormComponent = (props: Props) => {
         handleChange={handleChange}
       />
       {emailError && (
-        <InputErrorMessageStyle id="authentification-email-error">
+        <ErrorMessageStyle id="authentification-email-error">
           {emailError}
-        </InputErrorMessageStyle>
+        </ErrorMessageStyle>
       )}
       <PasswordInput
         name="password"
@@ -74,9 +74,9 @@ export const LoginFormComponent = (props: Props) => {
         handleChange={handleChange}
       />
       {passwordError && (
-        <InputErrorMessageStyle id="authentification-password-error">
+        <ErrorMessageStyle id="authentification-password-error">
           {passwordError}
-        </InputErrorMessageStyle>
+        </ErrorMessageStyle>
       )}
       <SubmitButton
         formName={LOGIN_FORMNAME}

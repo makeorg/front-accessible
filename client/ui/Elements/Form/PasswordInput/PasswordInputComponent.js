@@ -2,6 +2,7 @@ import * as React from 'react';
 import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
+import { FormLabel } from '../Styled/Content';
 
 type Props = {
   /** Name of the input */
@@ -48,12 +49,12 @@ export const PasswordInputComponent = (props: Props) => {
         type={isPasswordDisplayed ? 'text' : 'password'}
         name={name}
         id={name}
-        placeholder={label}
         value={value}
         aria-required={required}
         required={required}
         onChange={handleChange}
       />
+      <FormLabel>{label}</FormLabel>
       <PasswordButton
         toggleIsPasswordDisplayed={toggleIsPasswordDisplayed}
         isPasswordDisplayed={isPasswordDisplayed}

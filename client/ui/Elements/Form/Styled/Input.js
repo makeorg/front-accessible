@@ -10,14 +10,15 @@ export const NoStyleTextInputStyle = styled.input`
   border: none;
   background: transparent;
   background-color: transparent;
-  padding: 0 10px;
+  padding: 15px 10px 0;
 `;
 
 export const FakeInputStyle = styled.div`
   display: flex;
+  position: relative;
   width: 100%;
   padding: 0 18px;
-  border-radius: 30px;
+  border-radius: 20px;
   background-color: ${BackgroundColors.LightGrey};
   border-width: 1px;
   border-style: solid;
@@ -38,6 +39,11 @@ export const BasicInputStyle = styled(NoStyleTextInputStyle)`
   color: ${TextColors.MediumGrey};
   font-size: 14px;
   line-height: 35px;
+  &:focus ~ label,
+  &:not([value='']) ~ label {
+    top: 10px;
+    font-size: 10px;
+  }
   @media (min-width: ${Breakpoints.Desktop}) {
     font-size: 16px;
     line-height: 40px;

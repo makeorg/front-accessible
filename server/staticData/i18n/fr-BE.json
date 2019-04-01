@@ -218,14 +218,19 @@
     "description": "La page que vous avez demandé n’existe pas ou plus."
   },
   "profile": {
-    "age": "{{age}} ans",
+    "common": {
+      "age": "{{age}} ans",
+      "submit_label": "Enregistrer les modifications"
+    },
+    "informations_update": {
+      "title": "Modifier mon profil"
+    },
     "password_update": {
       "title": "Modifier mon mot de passe",
       "password_label": "Mot de passe actuel",
       "password_placeholder": "Mot de passe actuel (obligatoire)",
       "newpassword_label": "Nouveau mot de passe",
-      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
-      "submit_label": "Enregistrer les modifications"
+      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)"
     }
   },
   "consultation": {

@@ -4,8 +4,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
-export const InputIconStyle = styled.label`
-  width: 30px;
+export const InputIconStyle = styled.span`
   display: flex;
   color: ${MakeThemeColors.Red};
   font-size: 16px;

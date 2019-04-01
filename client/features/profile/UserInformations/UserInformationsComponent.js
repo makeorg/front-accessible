@@ -46,7 +46,7 @@ export const UserInformationsComponent = (props: Props) => {
           )}
           {profile.dateOfBirth && (
             <UserContentStyle>
-              {i18n.t('profile.age', {
+              {i18n.t('profile.common.age', {
                 age: getAgeFromDateOfBrth(profile.dateOfBirth),
               })}
             </UserContentStyle>

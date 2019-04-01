@@ -218,7 +218,9 @@
     "description": "We are sorry, the page you have requested no longer exists."
   },
   "profile": {
-    "age": "{{age}} years",
+    "common": {
+      "age": "{{age}} years"
+    },
     "password_update": {
       "title": "Modify your password",
       "password_label": "Current password",

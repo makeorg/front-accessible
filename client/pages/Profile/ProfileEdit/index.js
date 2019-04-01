@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
@@ -31,6 +32,7 @@ const ProfileEdit = props => {
           <UserInformations user={user} handleLogout={handleLogout} />
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
+          <UpdateInformations user={user} />
           <UpdatePassword />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>

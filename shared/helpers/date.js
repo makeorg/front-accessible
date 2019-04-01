@@ -35,7 +35,7 @@ const localeMonths = {
 
 export const getDateOfBirthFromAge = (age: number = 0) => {
   if (!age) {
-    return null;
+    return '';
   }
   const birthYear = new Date().getFullYear() - Number(age);
 
@@ -47,7 +47,7 @@ export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
   const birthDate = new Date(dateOfBirth);
 
   if (birthDate.toString() === 'Invalid Date') {
-    return null;
+    return '';
   }
 
   let age = today.getFullYear() - birthDate.getFullYear();

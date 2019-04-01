@@ -12,7 +12,7 @@ export const FormErrorStyle = styled.li`
   list-style: none;
 `;
 
-export const InputErrorMessageStyle = styled.p`
+export const ErrorMessageStyle = styled.p`
   color: ${BorderColors.ErrorRed};
   margin-bottom: 10px;
 `;

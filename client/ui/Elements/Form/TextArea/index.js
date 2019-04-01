@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FakeInputStyle } from '../Styled/Input';
-import { BasicTextAreaStyle } from '../Styled/TextArea';
+import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Array containing form errors */
-  errors?: Array<ErrorObject>,
+  errors?: ErrorObject[],
   /** Is input required or optional */
   required?: boolean,
   /** Setting rows attribute for Textarea */
@@ -28,6 +28,8 @@ type Props = {
   spellCheck?: boolean,
   /** Autocomplete spellCheck for Textarea */
   autoComplete?: string,
+  /** Show or not the counter */
+  withCounter?: boolean,
 };
 
 export class TextArea extends React.Component<Props> {
@@ -39,6 +41,7 @@ export class TextArea extends React.Component<Props> {
     maxLength: undefined,
     spellCheck: true,
     autoComplete: 'off',
+    withCounter: false,
   };
 
   render() {
@@ -55,6 +58,7 @@ export class TextArea extends React.Component<Props> {
       maxLength,
       spellCheck,
       autoComplete,
+      withCounter,
     } = this.props;
 
     return (
@@ -76,6 +80,11 @@ export class TextArea extends React.Component<Props> {
           spellCheck={spellCheck}
           autoComplete={autoComplete}
         />
+        {maxLength && value && withCounter && (
+          <TextAreaCounterStyle>
+            {`${value.length}/${maxLength}`}
+          </TextAreaCounterStyle>
+        )}
       </FakeInputStyle>
     );
   }

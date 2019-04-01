@@ -10,7 +10,7 @@ export const PATH_USER_LOGIN = '/oauth/make_access_token';
 export const PATH_USER_GET_TOKEN = '/oauth/access_token';
 export const PATH_USER_LOGOUT = '/logout';
 export const PATH_USER_LOGIN_SOCIAL = '/user/login/social';
-export const PATH_USER_REGISTER = '/user';
+export const PATH_USER = '/user';
 export const PATH_USER_FORGOT_PASSWORD = '/user/reset-password/request-reset';
 export const PATH_USER_VERIFICATION =
   '/user/:userId/validate/:verificationToken';
@@ -104,7 +104,7 @@ export class UserService {
    * @return {Promise}
    */
   static register(user: Object): Promise<Object> {
-    return ApiService.callApi(PATH_USER_REGISTER, {
+    return ApiService.callApi(PATH_USER, {
       method: 'POST',
       body: JSON.stringify({
         email: user.email,
@@ -116,6 +116,30 @@ export class UserService {
         country: ApiService.country,
         language: ApiService.language,
         questionId: ApiService.questionId,
+      }),
+    });
+  }
+
+  /**
+   * Update a user
+   * @param  {Object}  userInformation
+   * @return {Promise}
+   */
+  static update({
+    firstName,
+    dateOfBirth,
+    postalCode,
+    profession,
+    description,
+  }: Object): Promise<void> {
+    return ApiService.callApi(PATH_USER, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        firstName,
+        dateOfBirth,
+        postalCode,
+        profession,
+        description,
       }),
     });
   }

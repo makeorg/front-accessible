@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
 import {
-  InputErrorMessageStyle,
+  ErrorMessageStyle,
   FormErrorsListStyle,
   FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled/Errors';
@@ -55,9 +55,9 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         errors={emailError}
       />
       {emailError && (
-        <InputErrorMessageStyle id="authentification-email-error">
+        <ErrorMessageStyle id="authentification-email-error">
           {emailError}
-        </InputErrorMessageStyle>
+        </ErrorMessageStyle>
       )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}

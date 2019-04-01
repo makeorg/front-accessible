@@ -32,7 +32,7 @@ describe('Date Helper', () => {
 
     it('getDateOfBirthFromAge without age', () => {
       const dateOfBirth = getDateOfBirthFromAge();
-      expect(dateOfBirth).toBeNull();
+      expect(dateOfBirth).toBe('');
     });
   });
 
@@ -40,7 +40,7 @@ describe('Date Helper', () => {
     it('getDateOfBirthFromAge with invalid date', () => {
       MockDate.set('1/1/2019');
       const age = getAgeFromDateOfBrth('fooo-bar');
-      expect(age).toBeNull();
+      expect(age).toBe('');
     });
 
     it('getDateOfBirthFromAge with valid date', () => {
