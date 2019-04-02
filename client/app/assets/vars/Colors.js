@@ -18,6 +18,7 @@ export const IconColors = {
 export const BackgroundColors = {
   LightBlack: 'rgb(51,51,51)',
   Grey: 'rgb(118,118,118)',
+  MediumGrey: 'rgb(178,178,178)',
   LightGrey: 'rgb(242,242,242)',
   ExtraLightGrey: 'rgb(228,228,228)',
   NotFoundPage: 'rgb(230,230,240)',

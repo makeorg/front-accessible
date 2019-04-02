@@ -231,6 +231,13 @@
     }
   },
   "consultation": {
+    "tabs": {
+      "consultation": " Consultation ",
+      "action": " Actions ",
+      "from": " from ",
+      "to": " to ",
+      "datefrom": " from "
+    },
     "presentation": {
       "title": "Why this consultation ?",
       "link_text": "Find out more"

@@ -2,6 +2,9 @@ import React from 'react';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
+import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
+import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
+import { i18n } from 'Shared/i18n';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
@@ -43,13 +46,32 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
     const { question, questionConfiguration } = this.props;
     const { selectedTagIds } = this.state;
 
+    const tabsContent = [
+      {
+        tab: <ConsultationTabContent question={question} />,
+        panel: (
+          <ConsultationPanelContent
+            question={question}
+            questionConfiguration={questionConfiguration}
+            selectedTagIds={selectedTagIds}
+            handleSelectTag={this.handleSelectTag}
+            trackPresentationCollpase={this.trackPresentationCollpase}
+          />
+        ),
+        isDisabled: false,
+      },
+      {
+        tab: `${i18n.t('consultation.tabs.action')}`,
+        pannel: undefined,
+        isDisabled: true,
+      },
+    ];
+
     return (
       <ConsultationPageComponent
         question={question}
         questionConfiguration={questionConfiguration}
-        selectedTagIds={selectedTagIds}
-        handleSelectTag={this.handleSelectTag}
-        trackPresentationCollpase={this.trackPresentationCollpase}
+        tabsContent={tabsContent}
       />
     );
   }

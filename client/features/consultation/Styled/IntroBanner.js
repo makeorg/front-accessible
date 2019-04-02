@@ -7,6 +7,10 @@ import { intToPx } from 'Shared/helpers/styled';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
+
+const SpecialMobilePadding = DefaultPadding.Mobile + TabsOffsetMobile;
+const SpecialDesktopPadding = DefaultPadding.Desktop + TabsOffsetDesktop;
 
 export const IntroWrapperStyle = styled(MiddleColumnStyle)`
   background-color: ${props => props.color};
@@ -15,9 +19,11 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
     ${props => props.gradientStart},
     ${props => props.gradientEnd}
   );
-  padding: ${intToPx(DefaultPadding.Mobile)};
+  padding: ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)}
+    ${intToPx(SpecialMobilePadding)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)};
+    padding: ${intToPx(DefaultPadding.Desktop)}
+      ${intToPx(DefaultPadding.Desktop)} ${intToPx(SpecialDesktopPadding)};
   }
 `;
 

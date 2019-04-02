@@ -2,45 +2,23 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
+import { type TabsContent } from 'Shared/types/tabs';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
-import { Presentation } from 'Client/features/consultation/Presentation';
-import { Partners } from 'Client/features/consultation/Partners';
-import { Sharing } from 'Client/features/sharing';
-import { TagFilter } from 'Client/features/consultation/TagsFilter';
-import { Collapse } from 'Client/ui/Elements/Collapse';
-import {
-  HiddenOnMobileStyle,
-  HiddenOnDesktopStyle,
-} from 'Client/ui/Elements/HiddenElements';
-import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { SkipLink } from 'Client/app/Styled/MainElements';
-import { ConsultationProposal } from 'Client/features/consultation/Proposal';
-import {
-  ConsultationPageWrapperStyle,
-  ConsultationPageContentStyle,
-  ConsultationPageSidebarStyle,
-} from './Styled';
+import { Tabs } from 'Client/ui/Tabs';
+import { MobileSharing } from 'Client/features/consultation/MobileSharing';
+import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
-  selectedTagIds: string[],
-  handleSelectTag: () => void,
-  trackPresentationCollpase: (action: string) => void,
+  tabsContent: TabsContent[],
 };
 
 export const ConsultationPageComponent = (props: Props) => {
-  const {
-    questionConfiguration,
-    question,
-    selectedTagIds,
-    handleSelectTag,
-    trackPresentationCollpase,
-  } = props;
+  const { questionConfiguration, question, tabsContent } = props;
 
   const { metas } = questionConfiguration.wording;
 
@@ -65,68 +43,11 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        {question.canPropose && (
-          <HiddenOnDesktopStyle>
-            <ConsultationProposal
-              question={question}
-              questionConfiguration={questionConfiguration}
-            />
-          </HiddenOnDesktopStyle>
-        )}
-        <ConsultationPageSidebarStyle
-          id="sidebar"
-          as="aside"
-          bottomAffix={questionConfiguration.isGreatCause}
-        >
-          <Collapse
-            title={i18n.t('consultation.presentation.title')}
-            forceExpand
-            trackCollapse={trackPresentationCollpase}
-            questionId={question.questionId}
-          >
-            <Presentation />
-          </Collapse>
-          {questionConfiguration.isGreatCause && (
-            <Collapse
-              title={i18n.t('consultation.partners.intro_title')}
-              forceExpand
-            >
-              <Partners
-                questionConfiguration={questionConfiguration}
-                question={question}
-              />
-            </Collapse>
-          )}
-          <HiddenOnMobileStyle>
-            <SidebarTile title={i18n.t('consultation.sharing.title')}>
-              <Sharing />
-            </SidebarTile>
-          </HiddenOnMobileStyle>
-        </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle id="main">
-          {question.canPropose && (
-            <HiddenOnMobileStyle>
-              <ConsultationProposal
-                question={question}
-                questionConfiguration={questionConfiguration}
-              />
-            </HiddenOnMobileStyle>
-          )}
-          <ParticipateBanner
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-          <TagFilter
-            question={question}
-            handleSelectTag={handleSelectTag}
-            selectedTagIds={selectedTagIds}
-          />
-          <InfiniteProposals question={question} tags={selectedTagIds} />
-        </ConsultationPageContentStyle>
-        <HiddenOnDesktopStyle>
-          <MobileSharing />
-        </HiddenOnDesktopStyle>
+        <Tabs tabsContent={tabsContent} />
       </ConsultationPageWrapperStyle>
+      <HiddenOnDesktopStyle>
+        <MobileSharing />
+      </HiddenOnDesktopStyle>
     </React.Fragment>
   );
 };
