@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { getBaitText } from 'Shared/constants/proposal';
+import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
@@ -44,6 +44,8 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     handleOnSubmit,
   } = props;
 
+  const inputMaxLength: number = MAX_PROPOSAL_LENGTH - getBaitText().length;
+
   return (
     <ProposalSubmitFormStyle isOpen={isOpen}>
       <HiddenItemStyle aria-hidden as="h2">
@@ -64,7 +66,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           autoComplete="off"
           placeholder="..."
           spellCheck
-          maxLength="140"
+          maxLength={inputMaxLength}
           isOpen={isOpen}
         />
       </ProposalInputWrapperStyle>

@@ -10,6 +10,11 @@ import {
   ProposalCharLimitStyle,
 } from './Styled';
 
+jest.mock('Shared/constants/proposal', () => ({
+  getBaitText: () => 'should',
+  MAX_PROPOSAL_LENGTH: 35,
+}));
+
 describe('ProposalSubmitFormComponent', () => {
   it('Renders and Props', () => {
     const props = {
@@ -27,7 +32,9 @@ describe('ProposalSubmitFormComponent', () => {
     );
     expect(wrapper.find(ProposalInputStyle).prop('autoComplete')).toBe('off');
     expect(wrapper.find(ProposalInputStyle).prop('spellCheck')).toBe(true);
-    expect(wrapper.find(ProposalInputStyle).prop('maxLength')).toBe('140');
+    expect(wrapper.find(ProposalInputStyle).prop('maxLength')).toBe(
+      35 - 'should'.length
+    );
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalCharLimitStyle)).toHaveLength(1);
     expect(

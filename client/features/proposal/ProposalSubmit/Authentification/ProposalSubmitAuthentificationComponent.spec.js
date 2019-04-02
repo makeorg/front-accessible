@@ -5,8 +5,6 @@ import { SvgExternalLink, SvgEnvelope } from 'Client/ui/Svg/elements';
 import { ProposalSubmitSeparatorStyle } from '../Styled';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
-// mock
-jest.mock('i18next');
 const defaultProps = {
   question: { country: 'foo', language: 'bar' },
 };
