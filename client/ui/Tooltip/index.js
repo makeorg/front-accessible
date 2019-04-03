@@ -1,3 +1,1 @@
-export {
-  TooltipWithTriggerState as TooltipWithTrigger,
-} from './TooltipWithTriggerState';
+export { TooltipContainer as Tooltip } from './TooltipContainer';

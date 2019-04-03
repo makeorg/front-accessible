@@ -1,1 +1,1 @@
-export { PartnerTooltipContainer as PartnerTooltip } from './TooltipContainer';
+export { PartnerTooltipComponent as PartnerTooltip } from './TooltipComponent';

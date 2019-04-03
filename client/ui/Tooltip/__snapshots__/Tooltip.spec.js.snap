@@ -1,47 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
-.c0 {
-  position: relative;
-  z-index: 0;
-}
-
-.c1 {
-  display: none;
-  position: absolute;
-  padding: 0.3125rem 0.625rem;
-  z-index: 0;
-  background-color: rgb(51,51,51);
-  color: rgb(255,255,255);
-  font-size: 0.75rem;
-  text-align: center;
-}
-
-.c1 >:after {
-  content: '';
-  position: absolute;
-}
-
-<div
-  className="c0 wrvktz-0 c0"
+<span
+  aria-label="common.tooltip_label"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
-  <UnstyledButtonStyle
-    aria-label="common.display_tooltip"
-    as="UnstyledButtonStyle"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    foo
-  </UnstyledButtonStyle>
-  <div
-    aria-hidden={true}
-    className="c1"
-    role="tooltip"
-  >
-    bar
-  </div>
-</div>
+  bar
+</span>
 `;

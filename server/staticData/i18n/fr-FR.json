@@ -38,8 +38,7 @@
     "hide_pannel": "Masquer le contenu du panneau déroulant",
     "display_modal": "Afficher le contenu de la fenêtre de dialogue",
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
-    "display_tooltip": "Afficher le contenu de l'infobulle",
-    "hide_tooltip": "Masquer le contenu de l'infobulle",
+    "tooltip_label": "Survoler pour afficher le contenu de l'infobulle",
     "expand_collapse": "Afficher le contenu de la section déroulante",
     "shrink_collapse": "Masquer le contenu de la section déroulante"
   },

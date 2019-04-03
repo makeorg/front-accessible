@@ -22,8 +22,7 @@ type Props = {
 };
 
 type State = {
-  /** Boolean toggled when tooltip is shown / hidden */
-  isTooltipDisplayed: boolean,
+  /** Boolean to see when action is in progress */
   displayPending: boolean,
 };
 
@@ -32,27 +31,12 @@ type State = {
  */
 export class VoteButtonContainer extends React.Component<Props, State> {
   state = {
-    isTooltipDisplayed: false,
     displayPending: false,
   };
 
   componentDidMount = () => {
     const { displayPending } = this.props;
     this.setState(prevState => ({ ...prevState, displayPending }));
-  };
-
-  displayTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    this.setState({
-      isTooltipDisplayed: true,
-    });
-  };
-
-  hideTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    this.setState({
-      isTooltipDisplayed: false,
-    });
   };
 
   handleVoteAction = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -64,15 +48,8 @@ export class VoteButtonContainer extends React.Component<Props, State> {
   };
 
   render() {
-    const { isTooltipDisplayed } = this.state;
     return (
-      <VoteButtonComponent
-        {...this.props}
-        isTooltipDisplayed={isTooltipDisplayed}
-        handleVote={this.handleVoteAction}
-        displayTooltip={event => this.displayTooltip(event)}
-        hideTooltip={event => this.hideTooltip(event)}
-      />
+      <VoteButtonComponent {...this.props} handleVote={this.handleVoteAction} />
     );
   }
 }

@@ -15,10 +15,6 @@ type Props = {
   buttonType?: React.Node,
   /** When display pending */
   displayPending: boolean,
-  /** Method called onMouseLeave to hide Tooltip */
-  hideTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
-  /** Method called onMouseEnter to  show Tooltip */
-  displayTooltip?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
   handleVote?: (SyntheticEvent<HTMLButtonElement>) => void,
 };
@@ -27,16 +23,7 @@ type Props = {
  * Renders Vote Button element
  */
 export const VoteButtonElement = (props: Props) => {
-  const {
-    color,
-    label,
-    icon,
-    buttonType,
-    handleVote,
-    displayTooltip,
-    hideTooltip,
-    displayPending,
-  } = props;
+  const { color, label, icon, buttonType, handleVote, displayPending } = props;
 
   return (
     <ButtonStyle
@@ -45,10 +32,6 @@ export const VoteButtonElement = (props: Props) => {
       as={buttonType}
       onClick={handleVote}
       onTouchEnd={handleVote}
-      onMouseEnter={displayTooltip}
-      onMouseLeave={hideTooltip}
-      onFocus={displayTooltip}
-      onBlur={hideTooltip}
     >
       {displayPending ? <LoadingDots /> : icon}
     </ButtonStyle>
@@ -57,7 +40,5 @@ export const VoteButtonElement = (props: Props) => {
 
 VoteButtonElement.defaultProps = {
   buttonType: VoteButtonStyle,
-  hideTooltip: undefined,
-  displayTooltip: undefined,
   handleVote: undefined,
 };

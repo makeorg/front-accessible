@@ -1,9 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import {
-  BottomTooltipStyle,
-  TooltipStyle,
-} from 'Client/ui/Elements/TooltipElements';
+import { Tooltip } from 'Client/ui/Tooltip';
 import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
 import { ButtonWrapperStyle } from '../Styled';
 
@@ -16,52 +13,58 @@ type Props = {
   icon: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
-  /** Boolean Toggle when Tooltip is shown / hidden */
-  isTooltipDisplayed: boolean,
   /** When display pending */
   displayPending: boolean,
-  /** Method called onMouseLeave to hide Tooltip */
-  hideTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
-  /** Method called onMouseEnter to  show Tooltip */
-  displayTooltip: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>) => void,
+};
+
+/**
+ * Renders Vote Button element with Tooltip
+ */
+const VoteButtonWithTooltip = ({
+  color,
+  label,
+  icon,
+  buttonType,
+  handleVote,
+  displayPending,
+}) => {
+  const content = <p>{label}</p>;
+  const children = (
+    <VoteButtonElement
+      color={color}
+      label={label}
+      icon={icon}
+      buttonType={buttonType}
+      handleVote={handleVote}
+      displayPending={displayPending}
+    />
+  );
+
+  return (
+    <Tooltip content={content} direction="bottom">
+      {children}
+    </Tooltip>
+  );
 };
 
 /**
  * Renders Vote Button element
  */
 export const VoteButtonComponent = (props: Props) => {
-  const {
-    color,
-    label,
-    icon,
-    buttonType,
-    handleVote,
-    displayTooltip,
-    hideTooltip,
-    isTooltipDisplayed,
-    displayPending,
-  } = props;
+  const { color, label, icon, buttonType, handleVote, displayPending } = props;
 
   return (
     <ButtonWrapperStyle>
-      <VoteButtonElement
+      <VoteButtonWithTooltip
         color={color}
         label={label}
         icon={icon}
         buttonType={buttonType}
         handleVote={handleVote}
-        displayTooltip={displayTooltip}
-        hideTooltip={hideTooltip}
         displayPending={displayPending}
       />
-      <TooltipStyle
-        as={isTooltipDisplayed ? BottomTooltipStyle : ''}
-        aria-hidden
-      >
-        <p>{label}</p>
-      </TooltipStyle>
     </ButtonWrapperStyle>
   );
 };
