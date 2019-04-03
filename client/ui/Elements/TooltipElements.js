@@ -2,13 +2,8 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 
-export const TooltipWrapperStyle = styled.div`
-  position: relative;
-  z-index: ${props => props.zIndex};
-`;
-
 export const TooltipStyle = styled.div`
-  display: none;
+  display: block;
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
@@ -22,11 +17,7 @@ export const TooltipStyle = styled.div`
   }
 `;
 
-export const DisplayedTooltipStyle = styled(TooltipStyle)`
-  display: block;
-`;
-
-export const VerticalTooptipStyle = styled(DisplayedTooltipStyle)`
+export const VerticalTooptipStyle = styled(TooltipStyle)`
   transform: translate(-50%, 0);
   left: 50%;
   > :after {
@@ -37,7 +28,7 @@ export const VerticalTooptipStyle = styled(DisplayedTooltipStyle)`
   }
 `;
 
-export const HorizontalTooltipStyle = styled(DisplayedTooltipStyle)`
+export const HorizontalTooltipStyle = styled(TooltipStyle)`
   transform: translate(0, -50%);
   top: 50%;
   > :after {

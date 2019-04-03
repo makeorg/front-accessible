@@ -18,7 +18,7 @@ export const PartnersListStyle = styled(UnstyledListStyle)`
   grid-gap: 10px;
 `;
 
-export const AvatarWrapperStyle = styled.div`
+export const AvatarWrapperStyle = styled.li`
   position: relative;
   z-index: 1;
 `;

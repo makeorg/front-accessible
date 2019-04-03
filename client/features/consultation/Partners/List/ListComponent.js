@@ -1,15 +1,38 @@
 import React from 'react';
 import { type Partner } from 'Shared/types/partners';
-import { TooltipWithTrigger } from 'Client/ui/Tooltip';
-import { TopTooltipStyle } from 'Client/ui/Elements/TooltipElements';
-import { PartnersListStyle } from 'Client/features/consultation/Styled/Partners';
-import { PartnerAvatar } from '../Avatar';
+import {
+  PartnersListStyle,
+  AvatarWrapperStyle,
+} from 'Client/features/consultation/Styled/Partners';
+import { Tooltip } from 'Client/ui/Tooltip';
 import { PartnerTooltip } from '../Tooltip';
+import { PartnerAvatar } from '../Avatar';
 
 type Props = {
   partners?: Partner[],
 };
 
+/**
+ * Renders Vote Result bar with Tooltip
+ */
+const PartnerAvatarWithTooltip = ({ partner }) => {
+  const content = (
+    <PartnerTooltip partnerName={partner.name} isFounder={partner.isFounder} />
+  );
+  const children = (
+    <PartnerAvatar
+      partnerName={partner.name}
+      partnerLogo={partner.imageUrl}
+      partnerProfile={partner.profileUrl}
+    />
+  );
+
+  return (
+    <Tooltip content={content} direction="top">
+      {children}
+    </Tooltip>
+  );
+};
 export const PartnersListComponent = (props: Props) => {
   const { partners } = props;
   if (!partners) {
@@ -19,23 +42,12 @@ export const PartnersListComponent = (props: Props) => {
   return (
     <PartnersListStyle>
       {partners.map(partner => (
-        <li key={partner.name}>
-          <TooltipWithTrigger
-            tooltipType={TopTooltipStyle}
-            triggerContent={
-              // eslint-disable-next-line react/jsx-wrap-multilines
-              <PartnerAvatar
-                partnerName={partner.name}
-                partnerLogo={partner.imageUrl}
-              />
-            }
-          >
-            <PartnerTooltip
-              partnerName={partner.name}
-              isFounder={partner.isFounder}
-            />
-          </TooltipWithTrigger>
-        </li>
+        <AvatarWrapperStyle key={partner.name}>
+          <PartnerAvatarWithTooltip
+            key={`avatar_with_tooltip_${partner.name}`}
+            partner={partner}
+          />
+        </AvatarWrapperStyle>
       ))}
     </PartnersListStyle>
   );

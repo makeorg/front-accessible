@@ -5,8 +5,7 @@ import { type VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
-import { TooltipWithTrigger } from 'Client/ui/Tooltip';
-import { BottomTooltipStyle } from 'Client/ui/Elements/TooltipElements';
+import { Tooltip } from 'Client/ui/Tooltip';
 import { ResultTooltip } from './Tooltip';
 import * as VoteResult from './Styled';
 import { VoteButton } from '../Button';
@@ -26,6 +25,20 @@ type Props = {
   pending: boolean,
   /** Method called when vote button is clicked */
   handleVote: () => void,
+};
+
+/**
+ * Renders Vote Result bar with Tooltip
+ */
+const VoteResultBarWithTooltip = ({ voteKey, percent, color }) => {
+  const content = <ResultTooltip votePercent={percent} voteKey={voteKey} />;
+  const children = <VoteResult.BarStyle color={color} percent={percent} />;
+
+  return (
+    <Tooltip content={content} direction="bottom">
+      {children}
+    </Tooltip>
+  );
 };
 
 /**
@@ -63,27 +76,14 @@ export const VoteResultComponent = (props: Props) => {
         </HiddenItemStyle>
         <VoteResult.GraphStyle>
           {voteKeys.map(voteKey => (
-            <TooltipWithTrigger
-              key={`${voteKey}_item_${proposalId}`}
-              tooltipWrapper={VoteResult.ItemStyle}
-              tooltipType={BottomTooltipStyle}
-              triggerContent={
-                // eslint-disable-next-line react/jsx-wrap-multilines
-                <VoteResult.BarStyle
-                  color={voteStaticParams[voteKey].color}
-                  percent={votesPercent[voteKey]}
-                />
-              }
-              ariaLabelDisplay={i18n.t(
-                `results.tooltipbutton.display.${voteKey}`
-              )}
-              ariaLabelHide={i18n.t(`results.tooltipbutton.hide.${voteKey}`)}
-            >
-              <ResultTooltip
-                votePercent={votesPercent[voteKey]}
+            <VoteResult.ItemStyle key={`${voteKey}_item_${proposalId}`}>
+              <VoteResultBarWithTooltip
+                key={`${voteKey}_tooltip_${proposalId}`}
                 voteKey={voteKey}
+                percent={votesPercent[voteKey]}
+                color={voteStaticParams[voteKey].color}
               />
-            </TooltipWithTrigger>
+            </VoteResult.ItemStyle>
           ))}
         </VoteResult.GraphStyle>
         <VoteResult.TotalLabelStyle>
