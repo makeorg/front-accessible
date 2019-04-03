@@ -146,3 +146,10 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
     right: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
+
+export const CloseBannerButtonStyle = styled(CloseButtonStyle)`
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    top: 15px;
+    right: 15px;
+  }
+`;

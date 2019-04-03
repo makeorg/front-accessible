@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
@@ -17,14 +17,14 @@ export const CookieWrapperStyle = styled.section`
 
 export const CookieContentStyle = styled.p`
   width: 100%;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  padding: ${pxToRem(DefaultPadding.Mobile)} ${pxToRem('30px')}
-    ${pxToRem(DefaultPadding.Mobile)} ${pxToRem(DefaultPadding.Mobile)};
-  font-size: ${pxToRem('12px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    font-size: ${pxToRem('14px')};
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  padding: ${intToPx(DefaultPadding.Mobile)} 30px
+    ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
+  font-size: 12px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 14px;
   }
-  @media (min-width: ${pxToRem(Layouts.SpecialContainerWidth)}) {
-    padding: ${pxToRem(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Layouts.SpecialContainerWidth)}) {
+    padding: 15px;
   }
 `;

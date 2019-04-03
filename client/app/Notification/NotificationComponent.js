@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgClose } from 'Client/ui/Svg/elements';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { CloseBannerButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { NotificationWrapperStyle, NotificationContentStyle } from './Styled';
 
 type Props = {
@@ -17,13 +17,13 @@ export const NotificationComponent = (props: Props) => {
   return (
     <NotificationWrapperStyle role="banner">
       <NotificationContentStyle>{children}</NotificationContentStyle>
-      <CloseButtonStyle
+      <CloseBannerButtonStyle
         aria-label={i18n.t('modal.close')}
         aria-expanded="false"
         onClick={onClose}
       >
         <SvgClose aria-hidden />
-      </CloseButtonStyle>
+      </CloseBannerButtonStyle>
     </NotificationWrapperStyle>
   );
 };
