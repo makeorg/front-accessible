@@ -28,6 +28,8 @@ const TabListStyle = styled(UnstyledTabList)`
   overflow: auto hidden;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-bottom: ${intToPx(DefaultPadding.Desktop)};
+    border-bottom: 1px solid ${BasicColors.PureBlack};
+    overflow: visible;
   }
 `;
 
@@ -49,6 +51,10 @@ const TabStyle = styled(UnstyledTab).attrs({
   border: 1px solid ${BasicColors.PureBlack};
   border-left: none;
   border-bottom: none;
+  :first-child {
+    border-left: 1px solid ${BackgroundColors.PureBlack};
+    border-right: none;
+  }
   cursor: pointer;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
@@ -59,12 +65,15 @@ const TabStyle = styled(UnstyledTab).attrs({
     background-color: ${BackgroundColors.LightGrey};
     padding: 7px 5px;
     border-top: 4px solid ${BasicColors.PureBlack};
-    border-left: 1px solid ${BackgroundColors.PureBlack};
     border-bottom: 1px solid ${BackgroundColors.LightGrey};
     transform: translateY(1px);
+    border-left: 1px solid ${BackgroundColors.PureBlack};
     cursor: default;
     @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
       padding: 15px;
+    }
+    :first-child {
+      border-right: 1px solid ${BackgroundColors.PureBlack};
     }
   }
   &.disabled {

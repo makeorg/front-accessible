@@ -10,8 +10,8 @@ import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
 
 const MobileOffset = intToPx(TabsOffsetMobile);
 const DesktopOffset = intToPx(TabsOffsetDesktop);
-const SpecialMarginMobile = DefaultPadding.Mobile - TabsOffsetMobile;
-const SpecialMarginDesktop = DefaultPadding.Desktop - TabsOffsetDesktop;
+const MobileMarginWithOffset = DefaultPadding.Mobile - TabsOffsetMobile;
+const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ConsultationPageWrapperStyle = styled.div`
   display: flex;
@@ -20,12 +20,12 @@ export const ConsultationPageWrapperStyle = styled.div`
   flex-flow: column;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  margin: 0 auto ${intToPx(SpecialMarginMobile)};
+  margin: 0 auto ${intToPx(MobileMarginWithOffset)};
   transform: translateY(-${MobileOffset});
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
     justify-content: space-between;
-    margin: 0 auto ${intToPx(SpecialMarginDesktop)};
+    margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
     transform: translateY(-${DesktopOffset});
   }
 `;

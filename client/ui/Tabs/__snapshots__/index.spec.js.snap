@@ -7,7 +7,7 @@ Snapshot Diff:
 
 @@ -7,42 +7,42 @@
     <ul
-      className="sc-1c1pe0e-1 gqwjDh"
+      className="sc-1c1pe0e-1 OaQNo"
       role="tablist"
     >
       <li
@@ -16,9 +16,9 @@ Snapshot Diff:
 +       aria-controls="react-tabs-9"
 +       aria-disabled="true"
         aria-selected="true"
--       className="sc-1c1pe0e-2 kjwiMK selected"
+-       className="sc-1c1pe0e-2 TblS selected"
 -       id="react-tabs-4"
-+       className="sc-1c1pe0e-2 kjwiMK selected disabled"
++       className="sc-1c1pe0e-2 TblS selected disabled"
 +       id="react-tabs-8"
         role="tab"
         tabIndex="0"
@@ -31,9 +31,9 @@ Snapshot Diff:
 +       aria-controls="react-tabs-11"
 +       aria-disabled="true"
         aria-selected="false"
--       className="sc-1c1pe0e-2 kjwiMK"
+-       className="sc-1c1pe0e-2 TblS"
 -       id="react-tabs-6"
-+       className="sc-1c1pe0e-2 kjwiMK disabled"
++       className="sc-1c1pe0e-2 TblS disabled"
 +       id="react-tabs-10"
         role="tab"
         tabIndex={null}
@@ -118,6 +118,11 @@ exports[`Tabs toMatchSnapshot 1`] = `
   cursor: pointer;
 }
 
+.c2:first-child {
+  border-left: 1px solid;
+  border-right: none;
+}
+
 .c2.selected {
   background-color: rgb(242,242,242);
   padding: 7px 5px;
@@ -126,11 +131,12 @@ exports[`Tabs toMatchSnapshot 1`] = `
   -webkit-transform: translateY(1px);
   -ms-transform: translateY(1px);
   transform: translateY(1px);
+  border-left: 1px solid;
   cursor: default;
 }
 
 .c2.selected:first-child {
-  border-left: 1px solid;
+  border-right: 1px solid;
 }
 
 .c2.disabled {
@@ -140,6 +146,8 @@ exports[`Tabs toMatchSnapshot 1`] = `
 @media (min-width:767px) {
   .c1 {
     margin-bottom: 30px;
+    border-bottom: 1px solid rgb(0,0,0);
+    overflow: visible;
   }
 }
 

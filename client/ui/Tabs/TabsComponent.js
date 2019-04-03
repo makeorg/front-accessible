@@ -9,12 +9,13 @@ import {
 
 type Props = {
   tabsContent: TabsContent[],
+  selectedTab?: number,
 };
 
 export const TabsComponent = (props: Props) => {
-  const { tabsContent } = props;
+  const { tabsContent, selectedTab } = props;
   return (
-    <TabsWrapperStyle>
+    <TabsWrapperStyle defaultIndex={selectedTab}>
       <TabListStyle>
         {tabsContent.map(content => (
           <TabStyle key={content.tab} disabled={content.isDisabled}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
+import { type TabsContent } from 'Shared/types/tabs';
 import { Tracking } from 'Shared/services/Tracking';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
@@ -46,7 +47,7 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
     const { question, questionConfiguration } = this.props;
     const { selectedTagIds } = this.state;
 
-    const tabsContent = [
+    const tabsContent: TabsContent[] = [
       {
         tab: <ConsultationTabContent question={question} />,
         panel: (
@@ -58,11 +59,10 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
             trackPresentationCollpase={this.trackPresentationCollpase}
           />
         ),
-        isDisabled: false,
       },
       {
         tab: `${i18n.t('consultation.tabs.action')}`,
-        pannel: undefined,
+        panel: undefined,
         isDisabled: true,
       },
     ];
