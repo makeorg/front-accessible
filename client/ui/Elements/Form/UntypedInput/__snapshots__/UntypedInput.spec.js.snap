@@ -16,11 +16,11 @@ Snapshot Diff:
       id="bar"
       name="bar"
       onChange={[Function handleChange]}
-      placeholder="qux"
 -     required={true}
 +     required={false}
       type="foo"
       value="baz"
     />
-  </MiddleFakeInputStyle>
+    <label
+      className="sc-8buptu-6 bGCBYo"
 `;

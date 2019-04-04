@@ -17,3 +17,9 @@ export const BasicTextAreaStyle = styled.textarea`
     line-height: 20px;
   }
 `;
+
+export const TextAreaCounterStyle = styled.div`
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+`;

@@ -8,7 +8,7 @@ Snapshot Diff:
 @@ -10,11 +10,11 @@
         SvgPencil
       </span>
-    </label>
+    </span>
     <BasicTextAreaStyle
       aria-required={false}
 -     autoComplete="off"
@@ -44,7 +44,7 @@ Snapshot Diff:
 + Second value
 
 @@ -12,10 +12,12 @@
-    </label>
+    </span>
     <BasicTextAreaStyle
       aria-required={false}
       autoComplete="off"
@@ -67,7 +67,7 @@ Snapshot Diff:
       >
         SvgPencil
       </span>
-    </label>
+    </span>
     <BasicTextAreaStyle
 -     aria-required={true}
 +     aria-required={false}

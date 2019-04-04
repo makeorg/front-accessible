@@ -39,3 +39,16 @@ export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
     font-size: 14px;
   }
 `;
+
+export const FormLabel = styled.label`
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 45px;
+  top: 20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+`;

@@ -29,3 +29,19 @@ export type Passwords = {
   newPassword: string,
   oldPassword: string,
 };
+
+export type UserInformationForm = {
+  firstName?: string,
+  age?: number,
+  profession?: string,
+  postalCode?: number,
+  description?: string,
+};
+
+export type UserInformationFormErrors = {
+  firstName?: string,
+  age?: string,
+  profession?: string,
+  postalCode?: string,
+  description?: string,
+};

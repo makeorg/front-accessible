@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
+import { FormLabel } from '../Styled/Content';
 
 type Props = {
   /** Type of the input */
@@ -48,12 +49,12 @@ export class UntypedInput extends React.Component<Props> {
           type={type}
           name={name}
           id={name}
-          placeholder={label}
           value={value}
           aria-required={required}
           required={required}
           onChange={handleChange}
         />
+        <FormLabel>{label}</FormLabel>
       </MiddleFakeInputStyle>
     );
   }

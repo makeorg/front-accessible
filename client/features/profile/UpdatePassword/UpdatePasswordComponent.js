@@ -50,7 +50,7 @@ export const UpdatePasswordComponent = ({
         disabled={!formIsValid}
         formName="formName"
         icon={SubmitThumbsUpIcon}
-        label={i18n.t('profile.password_update.submit_label')}
+        label={i18n.t('profile.common.submit_label')}
       />
     </form>
   );

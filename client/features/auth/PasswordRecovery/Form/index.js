@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { InputErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
+import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
@@ -44,9 +44,9 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
         handleChange={handleChange}
       />
       {error && (
-        <InputErrorMessageStyle id="authentification-email-error">
+        <ErrorMessageStyle id="authentification-email-error">
           {errorMessage}
-        </InputErrorMessageStyle>
+        </ErrorMessageStyle>
       )}
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}
