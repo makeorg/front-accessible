@@ -104,13 +104,14 @@ export class UserService {
    * @return {Promise}
    */
   static register(user: Object): Promise<Object> {
+    const dateOfBirth = getDateOfBirthFromAge(user.age);
     return ApiService.callApi(PATH_USER, {
       method: 'POST',
       body: JSON.stringify({
         email: user.email,
         password: user.password,
         firstName: user.firstname,
-        dateOfBirth: getDateOfBirthFromAge(user.age),
+        dateOfBirth: dateOfBirth !== '' ? dateOfBirth : null,
         postalCode: user.postalcode,
         profession: user.profession,
         country: ApiService.country,
