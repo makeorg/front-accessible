@@ -27,7 +27,7 @@ describe('UserService', () => {
 
   describe('register', () => {
     it('must call ApiService.callApi', async () => {
-      getDateOfBirthFromAge.mockReturnValue(33);
+      getDateOfBirthFromAge.mockReturnValue('1988-03-03');
       await UserService.register({
         email: 'foo',
         password: 'bar',
@@ -42,7 +42,33 @@ describe('UserService', () => {
           email: 'foo',
           password: 'bar',
           firstName: 'baz',
-          dateOfBirth: 33,
+          dateOfBirth: '1988-03-03',
+          postalCode: 12345,
+          profession: 'qux',
+          country: 'FR',
+          language: 'fr',
+          questionId: 'quux',
+        }),
+      });
+    });
+
+    it('must call ApiService.callApi with nullable birdthdate', async () => {
+      getDateOfBirthFromAge.mockReturnValue('');
+      await UserService.register({
+        email: 'foo',
+        password: 'bar',
+        firstname: 'baz',
+        age: 33,
+        postalcode: 12345,
+        profession: 'qux',
+      });
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_USER, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: 'foo',
+          password: 'bar',
+          firstName: 'baz',
+          dateOfBirth: null,
           postalCode: 12345,
           profession: 'qux',
           country: 'FR',

@@ -37,6 +37,7 @@ export const getDateOfBirthFromAge = (age: number = 0) => {
   if (!age) {
     return '';
   }
+
   const birthYear = new Date().getFullYear() - Number(age);
 
   return `${birthYear}-01-01`;
