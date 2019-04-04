@@ -132,6 +132,7 @@ export class UserService {
     postalCode,
     profession,
     description,
+    optInNewsletter,
   }: Object): Promise<void> {
     return ApiService.callApi(PATH_USER, {
       method: 'PATCH',
@@ -141,6 +142,7 @@ export class UserService {
         postalCode,
         profession,
         description,
+        optInNewsletter,
       }),
     });
   }

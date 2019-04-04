@@ -5,8 +5,8 @@ import {
   ROUTE_PROPOSAL,
   ROUTE_PASSWORD_RECOVERY,
   ROUTE_CONSULTATION,
-  // ROUTE_PROFILE,
-  // ROUTE_PROFILE_EDIT,
+  ROUTE_PROFILE,
+  ROUTE_PROFILE_EDIT,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -20,7 +20,7 @@ import { consultationRoute } from './ssr/consultationRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
-// import { profileEditRoute } from './ssr/profile/profileEditRoute';
+import { profileEditRoute } from './ssr/profile/profileEditRoute';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -69,8 +69,8 @@ export const initRoutes = app => {
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);
   app.get(ROUTE_PASSWORD_RECOVERY, frontMiddlewares, passwordRecoveryRoute);
   // TODO: enable profile routes when ready
-  // app.get(ROUTE_PROFILE, frontMiddlewares, profileEditRoute);
-  // app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, profileEditRoute);
+  app.get(ROUTE_PROFILE, frontMiddlewares, profileEditRoute);
+  app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, profileEditRoute);
 
   app.get('*', frontMiddlewares, defaultRoute);
 };

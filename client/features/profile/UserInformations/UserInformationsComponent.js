@@ -38,6 +38,7 @@ export const UserInformationsComponent = (props: Props) => {
         </UserAvatarStyle>
         <UserContentWrapperStyle>
           <UserTitleStyle>{user.firstName}</UserTitleStyle>
+          <UserContentStyle>{user.email}</UserContentStyle>
           {profile.postalCode && (
             <UserContentStyle>
               <SvgMarker />

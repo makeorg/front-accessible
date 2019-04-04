@@ -25,7 +25,8 @@
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
       "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
-      "required_field": "Veuillez renseigner ce champ."
+      "required_field": "Veuillez renseigner ce champ.",
+      "invalid_age": "L'âge doit être compris entre 13 et 120 ans"
     },
     "from": "sur",
     "email": "Email",
@@ -224,7 +225,8 @@
     "common": {
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",
-      "submit_success": "Votre demande a bien été prise en compte."
+      "submit_success": "Votre demande a bien été prise en compte.",
+      "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement."
     },
     "informations_update": {
       "title": "Modifier mon profil"
@@ -235,6 +237,10 @@
       "password_placeholder": "Mot de passe actuel (obligatoire)",
       "newpassword_label": "Nouveau mot de passe",
       "newpassword_placeholder": "Nouveau mot de passe (obligatoire)"
+    },
+    "newsletter_update": {
+      "title": "Gérer mes emails",
+      "optin_label": "J’accepte de recevoir des informations de Make.org (votre adresse ne sera en aucun cas diffusée à des tiers)"
     }
   },
   "consultation": {
