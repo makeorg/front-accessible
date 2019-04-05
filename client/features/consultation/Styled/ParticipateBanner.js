@@ -17,7 +17,7 @@ export const ParticipateWrapperStyle = styled.aside`
     ${props => props.gradientEnd}
   );
   padding: 20px ${intToPx(DefaultPadding.Mobile)};
-  margin: 15px 0;
+  margin: 5px 0 15px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin: 0 0 35px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
 import { Sharing } from 'Client/features/sharing';
@@ -71,9 +71,9 @@ export const ConsultationPanelContent = (props: Props) => {
           </Collapse>
         )}
         <HiddenOnMobileStyle>
-          <SidebarTile title={i18n.t('consultation.sharing.title')}>
+          <TileWithTitle title={i18n.t('consultation.sharing.title')}>
             <Sharing />
-          </SidebarTile>
+          </TileWithTitle>
         </HiddenOnMobileStyle>
       </ConsultationPageSidebarStyle>
       <ConsultationPageContentStyle id="main">

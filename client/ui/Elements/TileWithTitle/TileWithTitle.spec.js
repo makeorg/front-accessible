@@ -1,17 +1,17 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { SidebarTile } from './index';
+import { TileWithTitle } from './index';
 
-jest.mock('Client/ui/Elements/SidebarTile/Styled', () => ({
-  SidebarTileStyle: 'SidebarTileStyle',
-  SidebarSeparatorStyle: 'SidebarSeparatorStyle',
+jest.mock('Client/ui/Elements/TileWithTitle/Styled', () => ({
+  TileWithTitleStyle: 'TileWithTitleStyle',
+  TileSeparatorStyle: 'TileSeparatorStyle',
 }));
 
 jest.mock('Client/ui/Elements/TitleElements', () => ({
   ThirdLevelTitleStyle: 'ThirdLevelTitleStyle',
 }));
 
-describe('SidebarTile', () => {
+describe('TileWithTitle', () => {
   const defaultProps = {
     title: 'foo',
     children: 'bar',
@@ -19,7 +19,7 @@ describe('SidebarTile', () => {
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<SidebarTile {...defaultProps} />)
+      .create(<TileWithTitle {...defaultProps} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

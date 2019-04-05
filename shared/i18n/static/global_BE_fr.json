@@ -269,6 +269,30 @@
       "load_more": "Voir + de propositions"
     }
   },
+  "actions": {
+    "register": {
+      "title": "A la fin de la consultation, citoyens et partenaires de la Grande Cause se réuniront pour construire le plan d'actions issu de vos propositions.",
+      "text": "Vous souhaitez être informé(e) du lancement de la phase actions ou participer aux ateliers ?",
+      "button": "Inscrivez-vous"
+    },
+    "support": {
+      "title": "Soutenez les actions",
+      "text": "Une fois le plan d'action lancé, vous pourrez suivre ici les avancées et succès des différentes actions, les soutenir ou y prendre part à tout moment."
+    },
+    "plan": {
+      "title": "Notre plan d'actions citoyen",
+      "text": "Vous trouverez ici prochainement le plan d'actions citoyen issu de la consultation.",
+      "list-bait": "Qu'est ce qu'une action sur Make.org ?",
+      "list-intro": "Pour nous une action se doit d'être :",
+      "list-first-item": "- citoyenne car issue de vos propositions,",
+      "list-second-item": "- collective, et toujours ouverte à toutes et tous,",
+      "list-third-item": "- avec un impact fort, réel et mesurable."
+    },
+    "partners": {
+      "title": "Nos partenaires actions",
+      "text": "Chez Make.org nous sommes convaincus que c'est en rassemblant tous les acteurs de la société civile (citoyens mais aussi entreprises, associations, institutions, ...) que nous pourrons changer la donne."
+    }
+  },
   "sharing": {
     "facebook": "Partager sur Facebook",
     "twitter": "Partager sur Twitter",

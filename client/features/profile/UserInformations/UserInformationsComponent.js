@@ -4,7 +4,7 @@ import { type User } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgMarker } from 'Client/ui/Svg/elements';
+import { SvgMapMarker } from 'Client/ui/Svg/elements';
 import { GreyButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import {
@@ -41,7 +41,7 @@ export const UserInformationsComponent = (props: Props) => {
           <UserContentStyle>{user.email}</UserContentStyle>
           {profile.postalCode && (
             <UserContentStyle>
-              <SvgMarker />
+              <SvgMapMarker />
               {profile.postalCode}
             </UserContentStyle>
           )}

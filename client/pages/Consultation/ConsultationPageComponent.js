@@ -2,23 +2,40 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import { type TabsContent } from 'Shared/types/tabs';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { SkipLink } from 'Client/app/Styled/MainElements';
-import { Tabs } from 'Client/ui/Tabs';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { TabPanel } from 'react-tabs';
+import {
+  TabsWrapperStyle,
+  TabListStyle,
+  TabStyle,
+} from 'Client/ui/Elements/Tabs';
+import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
+import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
+import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
-  tabsContent: TabsContent[],
+  selectedTagIds: string[],
+  handleSelectTag: () => void,
+  trackPresentationCollpase: () => void,
+  trackMoreLink: () => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
-  const { questionConfiguration, question, tabsContent } = props;
+  const {
+    questionConfiguration,
+    question,
+    selectedTagIds,
+    handleSelectTag,
+    trackPresentationCollpase,
+    trackMoreLink,
+  } = props;
 
   const { metas } = questionConfiguration.wording;
 
@@ -43,7 +60,29 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <Tabs tabsContent={tabsContent} />
+        <TabsWrapperStyle>
+          <TabListStyle>
+            <TabStyle>
+              <ConsultationTabContent question={question} />
+            </TabStyle>
+            <TabStyle>{i18n.t('consultation.tabs.action')}</TabStyle>
+          </TabListStyle>
+          <TabPanel>
+            <ConsultationPanelContent
+              question={question}
+              questionConfiguration={questionConfiguration}
+              selectedTagIds={selectedTagIds}
+              handleSelectTag={handleSelectTag}
+              trackPresentationCollpase={trackPresentationCollpase}
+            />
+          </TabPanel>
+          <TabPanel>
+            <ActionsPanelContent
+              questionConfiguration={questionConfiguration}
+              trackMoreLink={trackMoreLink}
+            />
+          </TabPanel>
+        </TabsWrapperStyle>
       </ConsultationPageWrapperStyle>
       <HiddenOnDesktopStyle>
         <MobileSharing />

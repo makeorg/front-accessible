@@ -6,8 +6,9 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { SidebarSeparatorStyle } from 'Client/ui/Elements/SidebarTile/Styled';
+import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
+import { getPartnerAnchor } from 'Shared/helpers/url';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
 
@@ -43,13 +44,13 @@ export const PartnersComponent = (props: Props) => {
       <ThirdLevelTitleStyle>
         {i18n.t('consultation.partners.commitment_title')}
       </ThirdLevelTitleStyle>
-      <SidebarSeparatorStyle />
+      <TileSeparatorStyle />
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}
       </ParagraphStyle>
       <PartnersList partners={questionConfiguration.partners} />
       <ParagraphRedLinkStyle
-        href={questionConfiguration.aboutUrl}
+        href={getPartnerAnchor(questionConfiguration.aboutUrl)}
         target="_blank"
         onClick={trackMoreLink}
       >

@@ -36,7 +36,7 @@ const {
   SvgChild,
   SvgMapMarker,
   SvgSuitcase,
-  SvgMarker
+  SvgClapping
 } = require('./index.js');
 
 class SvgElementsExample extends React.Component {
@@ -78,7 +78,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px'}}><SvgChild /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgMapMarker /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgSuitcase /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgMarker /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgClapping /></span>
       </React.Fragment>
     );
   }

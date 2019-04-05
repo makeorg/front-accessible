@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { SidebarTileStyle, SidebarSeparatorStyle } from './Styled';
+import { TileWithTitleStyle, TileSeparatorStyle } from './Styled';
 
 type Props = {
   /** Title of the tile */
@@ -9,13 +9,13 @@ type Props = {
   children: React.Node,
 };
 
-export const SidebarTile = (props: Props) => {
+export const TileWithTitle = (props: Props) => {
   const { title, children } = props;
   return (
-    <SidebarTileStyle>
+    <TileWithTitleStyle>
       <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>
-      <SidebarSeparatorStyle />
+      <TileSeparatorStyle />
       {children}
-    </SidebarTileStyle>
+    </TileWithTitleStyle>
   );
 };

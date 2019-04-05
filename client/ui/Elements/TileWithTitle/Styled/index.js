@@ -4,19 +4,19 @@ import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 
-export const SidebarTileStyle = styled.div`
+export const TileWithTitleStyle = styled.div`
   padding: 10px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin-top: 20px;
+  margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 20px;
   }
-  &.no-margin-top {
-    margin-top: 0;
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
 
-export const SidebarSeparatorStyle = styled(SeparatorStyle)`
+export const TileSeparatorStyle = styled(SeparatorStyle)`
   margin: 8px 0 16px;
 `;

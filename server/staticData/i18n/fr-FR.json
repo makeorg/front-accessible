@@ -20,13 +20,11 @@
       "age_label": "Âge (optionnel)",
       "postalcode_label": "Code postal (optionnel)",
       "profession_label": "Profession (optionnel)",
-      "biographie_label": "Biographie",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
       "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
-      "required_field": "Veuillez renseigner ce champ.",
-      "invalid_age": "L'âge doit être compris entre 13 et 120 ans"
+      "required_field": "Veuillez renseigner ce champ."
     },
     "from": "sur",
     "email": "Email",
@@ -40,7 +38,8 @@
     "hide_pannel": "Masquer le contenu du panneau déroulant",
     "display_modal": "Afficher le contenu de la fenêtre de dialogue",
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
-    "tooltip_label": "Survoler pour afficher le contenu de l'infobulle",
+    "display_tooltip": "Afficher le contenu de l'infobulle",
+    "hide_tooltip": "Masquer le contenu de l'infobulle",
     "expand_collapse": "Afficher le contenu de la section déroulante",
     "shrink_collapse": "Masquer le contenu de la section déroulante"
   },
@@ -222,25 +221,13 @@
     "description": "La page que vous avez demandé n’existe pas ou plus."
   },
   "profile": {
-    "common": {
-      "age": "{{age}} ans",
-      "submit_label": "Enregistrer les modifications",
-      "submit_success": "Votre demande a bien été prise en compte.",
-      "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement."
-    },
-    "informations_update": {
-      "title": "Modifier mon profil"
-    },
     "password_update": {
       "title": "Modifier mon mot de passe",
       "password_label": "Mot de passe actuel",
       "password_placeholder": "Mot de passe actuel (obligatoire)",
       "newpassword_label": "Nouveau mot de passe",
-      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)"
-    },
-    "newsletter_update": {
-      "title": "Gérer mes emails",
-      "optin_label": "J’accepte de recevoir des informations de Make.org (votre adresse ne sera en aucun cas diffusée à des tiers)"
+      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
+      "submit_label": "Enregistrer les modifications"
     }
   },
   "consultation": {
@@ -294,5 +281,29 @@
   },
   "modal": {
     "close": "Fermer la fenêtre de dialogue"
+  },
+  "actions": {
+    "register": {
+      "title": "A la fin de la consultation, citoyens et partenaires de la Grande Cause se réuniront pour construire le plan d'actions issu de vos propositions.",
+      "text": "Vous souhaitez être informé(e) du lancement de la phase actions ou participer aux ateliers ?",
+      "button": "Inscrivez-vous"
+    },
+    "support": {
+      "title": "Soutenez les actions",
+      "text": "Une fois le plan d'action lancé, vous pourrez suivre ici les avancées et succès des différentes actions, les soutenir ou y prendre part à tout moment."
+    },
+    "plan": {
+      "title": "Notre plan d'actions citoyen",
+      "text": "Vous trouverez ici prochainement le plan d'actions citoyen issu de la consultation.",
+      "list-bait": "Qu'est ce qu'une action sur Make.org ?",
+      "list-intro": "Pour nous une action se doit d'être :",
+      "list-first-item": "- citoyenne car issue de vos propositions,",
+      "list-second-item": "- collective, et toujours ouverte à toutes et tous,",
+      "list-third-item": "- avec un impact fort, réel et mesurable."
+    },
+    "partners": {
+      "title": "Nos partenaires actions",
+      "text": "Chez Make.org nous sommes convaincus que c'est en rassemblant tous les acteurs de la société civile (citoyens mais aussi entreprises, associations, institutions, ...) que nous pourrons changer la donne."
+    }
   }
 }
