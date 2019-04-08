@@ -82,7 +82,7 @@ export class DateHelperSingleton {
     return this._language;
   }
 
-  proposalCreationDateFormat(date: string) {
+  creationDateFormat(date: string) {
     const objectDate = new Date(date);
 
     if (Number.isNaN(objectDate.getMonth())) {

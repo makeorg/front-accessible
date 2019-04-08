@@ -15,11 +15,11 @@ export const ConsultationTabContent = (props: Props) => {
       <ExtraTabsInformationsStyle>
         {i18n.t('consultation.tabs.from')}
         <time dateTime={question.startDate}>
-          {DateHelper.proposalCreationDateFormat(question.startDate)}
+          {DateHelper.creationDateFormat(question.startDate)}
         </time>
         {i18n.t('consultation.tabs.to')}
         <time dateTime={question.endDate}>
-          {DateHelper.proposalCreationDateFormat(question.endDate)}
+          {DateHelper.creationDateFormat(question.endDate)}
         </time>
       </ExtraTabsInformationsStyle>
     </React.Fragment>

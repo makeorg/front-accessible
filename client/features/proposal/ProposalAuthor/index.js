@@ -33,7 +33,7 @@ export const ProposalAuthor = (props: Props) => {
       {!!createdAt && (
         <React.Fragment>
           <AuthorSeparatorStyle aria-hidden>&bull;</AuthorSeparatorStyle>
-          <span>{DateHelper.proposalCreationDateFormat(createdAt)}</span>
+          <span>{DateHelper.creationDateFormat(createdAt)}</span>
         </React.Fragment>
       )}
     </AuthorInfosStyle>
