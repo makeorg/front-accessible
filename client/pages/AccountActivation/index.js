@@ -12,7 +12,7 @@ const AccountActivation = props => {
     ? `/${match.params.countryLanguage}`
     : `/${match.params.countryLanguage}/consultation/${
         question.slug
-      }/selection`;
+      }/consultation`;
 
   return (
     <Redirect
