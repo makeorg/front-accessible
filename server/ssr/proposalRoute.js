@@ -1,11 +1,8 @@
-import { SequenceService } from 'Shared/api/SequenceService';
 import { createInitialState } from 'Shared/store/initialState';
 import { ProposalService } from 'Shared/api/ProposalService';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
-
-export const getQuestionConfiguration = async questionSlug =>
-  SequenceService.fetchConfiguration(questionSlug);
+import { getQuestionConfiguration } from '../service/QuestionService';
 
 export const proposalRoute = async (req, res) => {
   let routeState = {};
