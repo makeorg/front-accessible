@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
+import { UpdateNewsletter } from 'Client/features/profile/UpdateNewsletter';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
@@ -33,6 +34,7 @@ const ProfileEdit = props => {
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
           <UpdateInformations user={user} />
+          <UpdateNewsletter profile={user.profile} />
           <UpdatePassword />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>

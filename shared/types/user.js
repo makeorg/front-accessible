@@ -36,6 +36,7 @@ export type UserInformationForm = {
   profession?: string,
   postalCode?: number,
   description?: string,
+  optInNewsletter?: boolean,
 };
 
 export type UserInformationFormErrors = {

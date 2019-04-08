@@ -8,44 +8,46 @@ type Props = {
   name: string,
   /** Label of the checkbox */
   label: string,
+  /** Input is checked */
+  isChecked: boolean,
+  /** function to handle check */
+  handleCheck: () => void,
   /** Value of the checkbox */
   value?: string,
   /** Is input required or optional */
   required?: boolean,
 };
 
-type State = {
-  /** Name of the checkbox */
-  isChecked: boolean,
-};
-
 export class CheckBoxState extends React.Component<Props, State> {
   static defaultProps = {
     value: undefined,
     required: false,
-  };
-
-  state = {
     isChecked: false,
   };
 
-  handleLabelClick = () => {
-    const { isChecked } = this.state;
-    this.setState({ isChecked: !isChecked });
+  handleCheck = () => {
+    const { isChecked, handleCheck } = this.props;
+    handleCheck(!isChecked);
   };
 
   handleEnterKey = event => {
     if (event.key === 'Enter') {
-      this.handleLabelClick();
+      this.handleCheck();
     }
   };
 
   render() {
+    const { id, name, label, isChecked, value, required } = this.props;
+
     return (
       <CheckBoxComponent
-        {...this.props}
-        {...this.state}
-        handleLabelClick={this.handleLabelClick}
+        id={id}
+        name={name}
+        label={label}
+        isChecked={isChecked}
+        handleCheck={this.handleCheck}
+        value={value}
+        required={required}
         handleEnterKey={this.handleEnterKey}
       />
     );

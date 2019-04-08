@@ -10,5 +10,12 @@ export const update = async (userInformation: UserInformationForm) => {
     postalCode: userInformation.postalCode,
     profession: userInformation.profession,
     description: userInformation.description,
+    optInNewsletter: userInformation.optInNewsletter,
+  });
+};
+
+export const updateNewsletter = async (optInNewsletter: boolean) => {
+  return UserService.update({
+    optInNewsletter,
   });
 };

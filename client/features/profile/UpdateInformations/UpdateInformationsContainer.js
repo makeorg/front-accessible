@@ -21,11 +21,15 @@ type State = {
   errors: UserInformationFormErrors,
 };
 
-const validateForm = ({ firstName }) => {
+const validateForm = ({ firstName, age }) => {
   return {
     firstName:
       !firstName || firstName.trim().length === 0
         ? i18n.t('common.form.required_field')
+        : false,
+    age:
+      age && (age < 13 || age > 120)
+        ? i18n.t('common.form.invalid_age')
         : false,
   };
 };
