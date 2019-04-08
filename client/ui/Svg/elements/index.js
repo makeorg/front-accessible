@@ -1,6 +1,6 @@
 /* @flow */
 
-export { SvgEmptyAvatar } from './SvgEmptyAvatar';
+export { SvgEmptyAvatar } from './EmptyAvatar';
 export { SvgAngleArrowRight } from './AngleArrowRight';
 export { SvgAngleArrowLeft } from './AngleArrowLeft';
 export { SvgAngleArrowTop } from './AngleArrowTop';

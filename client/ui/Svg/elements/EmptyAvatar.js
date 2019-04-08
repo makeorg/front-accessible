@@ -11,11 +11,9 @@ export const SvgEmptyAvatar = props => (
         cx={15}
         cy={15}
         r={14.5}
-        fill="#000"
-        fillOpacity={0.1}
-        stroke="#000"
+        fill="#E6E6E6"
+        stroke="#CDCDCD"
         strokeLinejoin="square"
-        strokeOpacity={0.2}
       />
       <path
         fill="#FFFFFE"
