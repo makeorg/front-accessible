@@ -39,6 +39,9 @@ export const accountActivationRoute = async (req, res) => {
             question,
           },
         };
+        console.log(routeState);
+      } else {
+        logError(`Question not found on activate account ${questionId}`);
       }
     }
 
