@@ -4,27 +4,33 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { SkipLink } from 'Client/app/Styled/MainElements';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
-import { TabPanel } from 'react-tabs';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { Presentation } from 'Client/features/consultation/Presentation';
+import { Partners } from 'Client/features/consultation/Partners';
+import { Sharing } from 'Client/features/sharing';
+import { TagFilter } from 'Client/features/consultation/TagsFilter';
+import { Collapse } from 'Client/ui/Elements/Collapse';
 import {
-  TabsWrapperStyle,
-  TabListStyle,
-  TabStyle,
-} from 'Client/ui/Elements/Tabs';
-import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
-import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
-import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
-import { ConsultationPageWrapperStyle } from './Styled';
+  HiddenOnMobileStyle,
+  HiddenOnDesktopStyle,
+} from 'Client/ui/Elements/HiddenElements';
+import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
+import { MobileSharing } from 'Client/features/consultation/MobileSharing';
+import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
+import { SkipLink } from 'Client/app/Styled/MainElements';
+import { ConsultationProposal } from 'Client/features/consultation/Proposal';
+import {
+  ConsultationPageWrapperStyle,
+  ConsultationPageContentStyle,
+  ConsultationPageSidebarStyle,
+} from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
   selectedTagIds: string[],
   handleSelectTag: () => void,
-  trackPresentationCollpase: () => void,
-  trackMoreLink: () => void,
+  trackPresentationCollpase: (action: string) => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
@@ -34,7 +40,6 @@ export const ConsultationPageComponent = (props: Props) => {
     selectedTagIds,
     handleSelectTag,
     trackPresentationCollpase,
-    trackMoreLink,
   } = props;
 
   const { metas } = questionConfiguration.wording;
@@ -60,33 +65,68 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <TabsWrapperStyle>
-          <TabListStyle>
-            <TabStyle>
-              <ConsultationTabContent question={question} />
-            </TabStyle>
-            <TabStyle>{i18n.t('consultation.tabs.action')}</TabStyle>
-          </TabListStyle>
-          <TabPanel>
-            <ConsultationPanelContent
+        {question.canPropose && (
+          <HiddenOnDesktopStyle>
+            <ConsultationProposal
               question={question}
               questionConfiguration={questionConfiguration}
-              selectedTagIds={selectedTagIds}
-              handleSelectTag={handleSelectTag}
-              trackPresentationCollpase={trackPresentationCollpase}
             />
-          </TabPanel>
-          <TabPanel>
-            <ActionsPanelContent
-              questionConfiguration={questionConfiguration}
-              trackMoreLink={trackMoreLink}
-            />
-          </TabPanel>
-        </TabsWrapperStyle>
+          </HiddenOnDesktopStyle>
+        )}
+        <ConsultationPageSidebarStyle
+          id="sidebar"
+          as="aside"
+          bottomAffix={questionConfiguration.isGreatCause}
+        >
+          <Collapse
+            title={i18n.t('consultation.presentation.title')}
+            forceExpand
+            trackCollapse={trackPresentationCollpase}
+            questionId={question.questionId}
+          >
+            <Presentation />
+          </Collapse>
+          {questionConfiguration.isGreatCause && (
+            <Collapse
+              title={i18n.t('consultation.partners.intro_title')}
+              forceExpand
+            >
+              <Partners
+                questionConfiguration={questionConfiguration}
+                question={question}
+              />
+            </Collapse>
+          )}
+          <HiddenOnMobileStyle>
+            <TileWithTitle title={i18n.t('consultation.sharing.title')}>
+              <Sharing />
+            </TileWithTitle>
+          </HiddenOnMobileStyle>
+        </ConsultationPageSidebarStyle>
+        <ConsultationPageContentStyle id="main">
+          {question.canPropose && (
+            <HiddenOnMobileStyle>
+              <ConsultationProposal
+                question={question}
+                questionConfiguration={questionConfiguration}
+              />
+            </HiddenOnMobileStyle>
+          )}
+          <ParticipateBanner
+            question={question}
+            questionConfiguration={questionConfiguration}
+          />
+          <TagFilter
+            question={question}
+            handleSelectTag={handleSelectTag}
+            selectedTagIds={selectedTagIds}
+          />
+          <InfiniteProposals question={question} tags={selectedTagIds} />
+        </ConsultationPageContentStyle>
+        <HiddenOnDesktopStyle>
+          <MobileSharing />
+        </HiddenOnDesktopStyle>
       </ConsultationPageWrapperStyle>
-      <HiddenOnDesktopStyle>
-        <MobileSharing />
-      </HiddenOnDesktopStyle>
     </React.Fragment>
   );
 };

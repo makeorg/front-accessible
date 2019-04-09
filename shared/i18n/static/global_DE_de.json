@@ -197,13 +197,6 @@
     }
   },
   "consultation": {
-    "tabs": {
-      "consultation": " Konsultation ",
-      "action": " Maßnahmen ",
-      "from": "vom",
-      "to": "bis zum",
-      "datefrom": "ab dem"
-    },
     "presentation": {
       "title": "Warum diese Konsultation ?",
       "link_text": "Mehr erfahren"

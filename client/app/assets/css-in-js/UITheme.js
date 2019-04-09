@@ -16,7 +16,6 @@ export const UIThemeStylesheet = createGlobalStyle`
     }
   }
 
-  /** Modal */
   .modal-overlay {
     display: flex;
     justify-content: center;
