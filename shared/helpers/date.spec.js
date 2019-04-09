@@ -56,21 +56,21 @@ describe('Date Helper', () => {
     });
   });
 
-  describe('proposalCreationDateFormat', () => {
-    it('proposalCreationDateFormat with valid date', () => {
+  describe('creationDateFormat', () => {
+    it('creationDateFormat with valid date', () => {
       expect(
-        DateHelper.proposalCreationDateFormat('2018-10-24T12:45:25.752Z')
+        DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')
       ).toBe('24 octobre 2018');
     });
 
-    it('proposalCreationDateFormat with invalid date', () => {
-      expect(DateHelper.proposalCreationDateFormat('foo')).toBeNull();
+    it('creationDateFormat with invalid date', () => {
+      expect(DateHelper.creationDateFormat('foo')).toBeNull();
     });
 
-    it('proposalCreationDateFormat with invalid language', () => {
+    it('creationDateFormat with invalid language', () => {
       DateHelper.language = 'de';
       expect(
-        DateHelper.proposalCreationDateFormat('2018-10-24T12:45:25.752Z')
+        DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')
       ).toBeNull();
     });
 

@@ -218,9 +218,6 @@
     "description": "We are sorry, the page you have requested no longer exists."
   },
   "profile": {
-    "common": {
-      "age": "{{age}} years"
-    },
     "password_update": {
       "title": "Modify your password",
       "password_label": "Current password",
@@ -231,6 +228,13 @@
     }
   },
   "consultation": {
+    "tabs": {
+      "consultation": " Consultation ",
+      "action": " Actions ",
+      "from": " from ",
+      "to": " to ",
+      "datefrom": " from "
+    },
     "presentation": {
       "title": "Why this consultation ?",
       "link_text": "Find out more"
@@ -274,5 +278,29 @@
   },
   "modal": {
     "close": "Close the dialog modal"
+  },
+  "actions": {
+    "register": {
+      "title": "At the end of the consultation, citizens and partners of the consultation will meet to elaborate an actions plan built from your proposals.",
+      "text": "You want to stay inform of the actions phase launching or participate to the actions workshops ?",
+      "button": "Sign up"
+    },
+    "support": {
+      "title": "Support the actions",
+      "text": "When the actions plan is launched, you can follow here the progress and achievement of the actions, support or take part in it  at any time."
+    },
+    "plan": {
+      "title": "Our citizens' action plan",
+      "text": "Here, you will find soon the actions plan built from the consultation.",
+      "list-bait": "What is an action on Make.org ?",
+      "list-intro": "For us, an action must be :",
+      "list-first-item": "- civic, because from your proposals,",
+      "list-second-item": "- collective, and open for all,",
+      "list-third-item": "- with a strong impact, real and measurable."
+    },
+    "partners": {
+      "title": "Our actions' partners",
+      "text": "At Make.org we believe in gathering all agents (citizens but also companies, organizations, institutions...) to bring about major change."
+    }
   }
 }

@@ -11,7 +11,7 @@ Compared values have no visual difference.
 `;
 
 exports[`Collapse must match the snapshot with default Props 1`] = `
-<SidebarSeparatorStyle>
+<TileSeparatorStyle>
   <CollapseTriggerStyle
     aria-label="common.expand_collapse"
     disabled={false}
@@ -37,5 +37,5 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
     />
     bar
   </CollapseContentStyle>
-</SidebarSeparatorStyle>
+</TileSeparatorStyle>
 `;

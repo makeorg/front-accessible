@@ -1,6 +1,7 @@
 ##### Vote Button Example :
 ```js
 const { VoteButtonStyle, UnvoteButtonStyle } = require('../Styled');
+const { SvgThumbsUp } = require('../../../Svg/elements');
 
 class VotButtonElementExample extends React.Component {
   constructor() {
@@ -23,7 +24,7 @@ class VotButtonElementExample extends React.Component {
         <VoteButtonElement
           color="rgb(110, 182, 32)"
           label="label"
-          icon="SvgThumbsUp"
+          icon={<SvgThumbsUp/>}
           buttonType={this.state.isVoted ? UnvoteButtonStyle : VoteButtonStyle}
           handleVote={this.handleVote}
         />
@@ -32,6 +33,4 @@ class VotButtonElementExample extends React.Component {
   }
 }
 ;<VotButtonElementExample />
-
-
 ```

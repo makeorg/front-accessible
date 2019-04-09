@@ -1,5 +1,7 @@
 ##### TextArea Example :
 ```js
+const { SvgPencil } = require('../../../Svg/elements');
+
 class TextAreaExample extends React.Component {
   constructor() {
     super()
@@ -21,7 +23,7 @@ class TextAreaExample extends React.Component {
     return (
       <TextArea
         name="biography"
-        icon="SvgPencil"
+        icon={<SvgPencil />}
         value={this.state.value}
         label="textarea placeholder"
         handleChange={this.handleChange}

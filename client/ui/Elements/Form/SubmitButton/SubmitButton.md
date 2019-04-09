@@ -1,8 +1,10 @@
 ##### SubmitButton Example :
 ```js
+const { SvgThumbsUp } = require('../../../Svg/elements');
+
 <SubmitButton
   formName="formName"
-  type="SvgThumbsUp"
+  icon={<SvgThumbsUp />}
   label="Submit Button"
 />
 ```

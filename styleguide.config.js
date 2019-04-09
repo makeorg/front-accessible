@@ -47,7 +47,13 @@ module.exports = {
     },
   ],
   pagePerSection: true,
-  ignore: ['client/ui/**/Styled/*.js'],
+  ignore: [
+    'client/ui/**/Styled/*.js',
+    'client/ui/Cards/index.js',
+    'client/ui/Elements/ButtonElements/index.js',
+    'client/ui/ProgressCircle/index.js',
+    'client/ui/Elements/Form/PasswordInput/Button/index.js',
+  ],
   ribbon: {
     url: 'https://gitlab.com/makeorg/platform/front-accessible',
     text: 'Fork me on GitLab',

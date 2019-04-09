@@ -39,6 +39,10 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
     Tracking.trackOpenLearnMore(action);
   };
 
+  trackMoreLink = () => {
+    Tracking.trackSeeMorePartners();
+  };
+
   render() {
     const { question, questionConfiguration } = this.props;
     const { selectedTagIds } = this.state;
@@ -50,6 +54,7 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
         selectedTagIds={selectedTagIds}
         handleSelectTag={this.handleSelectTag}
         trackPresentationCollpase={this.trackPresentationCollpase}
+        trackMoreLink={this.trackMoreLink}
       />
     );
   }

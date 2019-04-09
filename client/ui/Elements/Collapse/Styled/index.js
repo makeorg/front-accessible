@@ -10,13 +10,10 @@ export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
   padding: 10px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin-top: 10px;
+  margin-bottom: 10px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 20px;
-  }
-  &:first-child {
-    margin-top: 0;
   }
 `;
 

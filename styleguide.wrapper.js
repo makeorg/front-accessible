@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from 'Shared/store';
+import { ModernNormalizeStylesheet } from 'Client/app/assets/css-in-js/ModernNormalize';
 import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
+import { DefaultStylesheet } from 'Client/app/assets/css-in-js/DefaultStyle';
+import { UIThemeStylesheet } from 'Client/app/assets/css-in-js/UITheme';
 import { questionConfigurationFixture } from 'Shared/types/__fixtures__/sequence.fixture';
 import { ThemeProvider } from 'styled-components';
 import { ApiService } from 'Shared/api/ApiService';
@@ -17,7 +20,10 @@ ApiService.strategy = apiClient;
 /* eslint-disable import/no-default-export */
 export default ({ children }) => (
   <div>
+    <ModernNormalizeStylesheet />
     <FontFacesStylesheet />
+    <DefaultStylesheet />
+    <UIThemeStylesheet />
     <BrowserRouter>
       <Provider store={configureStore()}>
         <ThemeProvider theme={questionConfigurationFixture.theme}>

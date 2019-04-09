@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TileWithTitle must match the snapshot with default Props 1`] = `
+<TileWithTitleStyle>
+  <ThirdLevelTitleStyle>
+    foo
+  </ThirdLevelTitleStyle>
+  <TileSeparatorStyle />
+  bar
+</TileWithTitleStyle>
+`;

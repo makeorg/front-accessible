@@ -4,7 +4,7 @@ import snapshotDiff from 'snapshot-diff';
 import { Collapse } from './index';
 
 jest.mock('Client/ui/Elements/Collapse/Styled', () => ({
-  CollapseWrapperStyle: 'SidebarSeparatorStyle',
+  CollapseWrapperStyle: 'TileSeparatorStyle',
   CollapseTriggerStyle: 'CollapseTriggerStyle',
   CollapseIconStyle: 'CollapseIconStyle',
   CollapseContentStyle: 'CollapseContentStyle',

@@ -1,8 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
-import { SidebarTile } from 'Client/ui/Elements/SidebarTile';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
 import { Sharing } from 'Client/features/sharing';
@@ -13,33 +11,33 @@ import {
   HiddenOnDesktopStyle,
 } from 'Client/ui/Elements/HiddenElements';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import {
-  ConsultationPageWrapperStyle,
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
-} from '../Styled';
+} from 'Client/pages/Consultation/Styled';
+import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 
 type Props = {
-  question: Question,
   questionConfiguration: QuestionConfiguration,
+  question: Question,
   selectedTagIds: string[],
   handleSelectTag: () => void,
   trackPresentationCollpase: (action: string) => void,
 };
 
-export const ConsultationTabContent = (props: Props) => {
+export const ConsultationPanelContent = (props: Props) => {
   const {
-    question,
     questionConfiguration,
+    question,
     selectedTagIds,
     handleSelectTag,
     trackPresentationCollpase,
   } = props;
+
   return (
-    <ConsultationPageWrapperStyle>
+    <ConsultationPanelInnerStyle>
       {question.canPropose && (
         <HiddenOnDesktopStyle>
           <ConsultationProposal
@@ -73,9 +71,9 @@ export const ConsultationTabContent = (props: Props) => {
           </Collapse>
         )}
         <HiddenOnMobileStyle>
-          <SidebarTile title={i18n.t('consultation.sharing.title')}>
+          <TileWithTitle title={i18n.t('consultation.sharing.title')}>
             <Sharing />
-          </SidebarTile>
+          </TileWithTitle>
         </HiddenOnMobileStyle>
       </ConsultationPageSidebarStyle>
       <ConsultationPageContentStyle id="main">
@@ -98,9 +96,6 @@ export const ConsultationTabContent = (props: Props) => {
         />
         <InfiniteProposals question={question} tags={selectedTagIds} />
       </ConsultationPageContentStyle>
-      <HiddenOnDesktopStyle>
-        <MobileSharing />
-      </HiddenOnDesktopStyle>
-    </ConsultationPageWrapperStyle>
+    </ConsultationPanelInnerStyle>
   );
 };

@@ -82,3 +82,5 @@ export const getProposalLink = (
   language: string
 ) =>
   `/${country}-${language}/consultation/${questionSlug}/proposal/${proposalId}/${proposalSlug}`;
+
+export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
