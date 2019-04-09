@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { NEWSLETTER_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
-import { SubmitThumbsUpIcon } from 'Shared/constants/icons';
+import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
@@ -49,7 +49,7 @@ export const UpdateNewsletterComponent = ({
       <SubmitButtonWrapperStyle>
         <SubmitButton
           formName={NEWSLETTER_UPDATE_FORMNAME}
-          icon={SubmitThumbsUpIcon}
+          icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}
         />
       </SubmitButtonWrapperStyle>

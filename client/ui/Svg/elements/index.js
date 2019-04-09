@@ -37,3 +37,4 @@ export { SvgMapMarker } from './MapMarker';
 export { SvgSuitcase } from './Suitcase';
 export { SvgClapping } from './Clapping';
 export { SvgSignOut } from './SignOut';
+export { SvgSaveFileOption } from './SaveFileOption';

@@ -11,6 +11,7 @@ import {
   SvgThumbsDown,
   SvgThumbsLeft,
   SvgPencil,
+  SvgSaveFileOption,
 } from 'Client/ui/Svg/elements';
 
 /** Form Icons */
@@ -23,6 +24,7 @@ export const JobFieldIcon = <SvgSuitcase />;
 export const DescriptionFieldIcon = <SvgPencil />;
 export const SubmitThumbsUpIcon = <SvgThumbsUp />;
 export const SubmitPaperPlaneIcon = <SvgPaperPlane />;
+export const SubmitSaveIcon = <SvgSaveFileOption />;
 
 /** Vote Button */
 export const VoteAgreeIcon = <SvgThumbsUp />;

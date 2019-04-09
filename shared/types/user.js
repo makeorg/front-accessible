@@ -27,7 +27,12 @@ export type User = {
 
 export type Passwords = {
   newPassword: string,
-  oldPassword: string,
+  actualPassword: string,
+};
+
+export type PasswordsErrors = {
+  newPassword?: string,
+  actualPassword?: string,
 };
 
 export type UserInformationForm = {

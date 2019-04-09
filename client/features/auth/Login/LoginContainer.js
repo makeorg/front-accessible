@@ -5,7 +5,6 @@ import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { login } from 'Shared/store/actions/authentification';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-
 import {
   modalShowRegister,
   modalShowForgotPassword,
