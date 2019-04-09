@@ -25,6 +25,7 @@ export const BackgroundColors = {
 
 export const BorderColors = {
   MediumGrey: 'rgba(0,0,0,0.5)',
+  Grey: 'rgba(0,0,0,0.3)',
   LightGrey: 'rgba(0,0,0,0.2)',
   ErrorRed: 'rgb(237,24,68)',
 };
@@ -32,6 +33,7 @@ export const BorderColors = {
 export const TextColors = {
   MediumGrey: 'rgba(0,0,0,0.55)',
   LightGrey: 'rgb(242,242,242)',
+  DarkGrey: 'rgb(83,83,83)',
   Success: 'rgb(110,182,31)',
 };
 

@@ -6,18 +6,18 @@ Snapshot Diff:
 + Second value
 
 @@ -10,11 +10,11 @@
-        SvgPencil
-      </span>
-    </span>
-    <BasicTextAreaStyle
-      aria-required={false}
--     autoComplete="off"
-+     autoComplete="on"
-      id="bar"
-      name="bar"
-      onChange={[Function handleChange]}
-      placeholder="qux"
-      required={false}
+    <div
+      className="sc-8buptu-4 cVVWpd"
+    >
+      <BasicTextAreaStyle
+        aria-required={false}
+-       autoComplete="off"
++       autoComplete="on"
+        id="bar"
+        name="bar"
+        onChange={[Function handleChange]}
+        required={false}
+        rows={5}
 `;
 
 exports[`TextArea must return the diff between snapshot when TextArea has a enable vs disable spellchecking 1`] = `
@@ -25,17 +25,19 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -17,9 +17,9 @@
-      name="bar"
-      onChange={[Function handleChange]}
-      placeholder="qux"
-      required={false}
-      rows={5}
--     spellCheck={true}
-+     spellCheck={false}
-      value="baz"
-    />
-  </FakeInputStyle>
+@@ -16,11 +16,11 @@
+        id="bar"
+        name="bar"
+        onChange={[Function handleChange]}
+        required={false}
+        rows={5}
+-       spellCheck={true}
++       spellCheck={false}
+        value="baz"
+      />
+      <label
+        className="sc-8buptu-9 foXlmg"
+        htmlFor="bar"
 `;
 
 exports[`TextArea must return the diff between snapshot when TextArea has a limit of characters or not 1`] = `
@@ -44,18 +46,18 @@ Snapshot Diff:
 + Second value
 
 @@ -12,10 +12,12 @@
-    </span>
-    <BasicTextAreaStyle
-      aria-required={false}
-      autoComplete="off"
-      id="bar"
-+     maxLength="450"
-+     minLength="25"
-      name="bar"
-      onChange={[Function handleChange]}
-      placeholder="qux"
-      required={false}
-      rows={5}
+    >
+      <BasicTextAreaStyle
+        aria-required={false}
+        autoComplete="off"
+        id="bar"
++       maxLength="450"
++       minLength="25"
+        name="bar"
+        onChange={[Function handleChange]}
+        required={false}
+        rows={5}
+        spellCheck={true}
 `;
 
 exports[`TextArea must return the diff between snapshot when TextArea is required or optionnal 1`] = `
@@ -63,24 +65,23 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -9,17 +9,17 @@
-      >
-        SvgPencil
-      </span>
+@@ -9,16 +9,16 @@
     </span>
-    <BasicTextAreaStyle
--     aria-required={true}
-+     aria-required={false}
-      autoComplete="off"
-      id="bar"
-      name="bar"
-      onChange={[Function handleChange]}
-      placeholder="qux"
--     required={true}
-+     required={false}
-      rows={5}
-      spellCheck={true}
-      value="baz"
-    />
-  </FakeInputStyle>
+    <div
+      className="sc-8buptu-4 cVVWpd"
+    >
+      <BasicTextAreaStyle
+-       aria-required={true}
++       aria-required={false}
+        autoComplete="off"
+        id="bar"
+        name="bar"
+        onChange={[Function handleChange]}
+-       required={true}
++       required={false}
+        rows={5}
+        spellCheck={true}
+        value="baz"
+      />
+      <label
 `;

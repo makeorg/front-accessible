@@ -2,6 +2,7 @@ import * as React from 'react';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { HidePasswordIconStyle } from 'Client/ui/Elements/Form/Styled/Icons';
 import { SvgEyeSlash, SvgEye } from 'Client/ui/Svg/elements';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Boolean toggled when password shown / hidden */
@@ -19,7 +20,11 @@ export const PasswordButton = (props: Props) => {
     <UnstyledButtonStyle
       as={isPasswordDisplayed ? HidePasswordIconStyle : UnstyledButtonStyle}
       onClick={toggleIsPasswordDisplayed}
-      aria-hidden
+      aria-label={
+        isPasswordDisplayed
+          ? i18n.t('common.form.hide_password')
+          : i18n.t('common.form.show_password')
+      }
     >
       {isPasswordDisplayed ? (
         <SvgEyeSlash aria-hidden />

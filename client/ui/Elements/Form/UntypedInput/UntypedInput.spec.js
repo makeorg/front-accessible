@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { UntypedInput } from './index';
 
 jest.mock('Client/ui/Elements/Form/Styled/Input', () => ({
-  MiddleFakeInputStyle: 'MiddleFakeInputStyle',
+  MiddleFakeFieldStyle: 'MiddleFakeFieldStyle',
   BasicInputStyle: 'BasicInputStyle',
 }));
 
