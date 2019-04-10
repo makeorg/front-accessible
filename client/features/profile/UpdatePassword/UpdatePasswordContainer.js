@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Passwords } from 'Shared/types/user';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { i18n } from 'Shared/i18n';
 import { UpdatePasswordComponent } from './UpdatePasswordComponent';
 
 type Props = {};
@@ -45,12 +47,14 @@ export class UpdatePasswordContainer extends Component<Props, State> {
   render() {
     const { formIsValid, passwords } = this.state;
     return (
-      <UpdatePasswordComponent
-        passwords={passwords}
-        formIsValid={formIsValid}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <TileWithTitle title={i18n.t('profile.password_update.title')}>
+        <UpdatePasswordComponent
+          passwords={passwords}
+          formIsValid={formIsValid}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </TileWithTitle>
     );
   }
 }
