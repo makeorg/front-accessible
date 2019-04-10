@@ -4,15 +4,17 @@ import { type User } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgMapMarker } from 'Client/ui/Svg/elements';
-import { GreyButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
+import { SvgMapMarker, SvgSignOut } from 'Client/ui/Svg/elements';
+import {
+  IconWrapperStyle,
+  GreyButtonStyle,
+} from 'Client/ui/Elements/ButtonElements';
 import {
   UserAvatarStyle,
-  UserWrapperStyle,
   UserContentWrapperStyle,
   UserTitleStyle,
   UserContentStyle,
+  UserDescriptionStyle,
   UserSeparatorStyle,
   UserAvatarLayoutStyle,
 } from '../Styled/UserInformations';
@@ -27,7 +29,7 @@ export const UserInformationsComponent = (props: Props) => {
   const { profile } = user;
 
   return (
-    <UserWrapperStyle>
+    <React.Fragment>
       <UserAvatarLayoutStyle>
         <UserAvatarStyle>
           <Avatar avatarSize={160}>
@@ -38,7 +40,6 @@ export const UserInformationsComponent = (props: Props) => {
         </UserAvatarStyle>
         <UserContentWrapperStyle>
           <UserTitleStyle>{user.firstName}</UserTitleStyle>
-          <UserContentStyle>{user.email}</UserContentStyle>
           {profile.postalCode && (
             <UserContentStyle>
               <SvgMapMarker />
@@ -57,16 +58,19 @@ export const UserInformationsComponent = (props: Props) => {
           )}
         </UserContentWrapperStyle>
       </UserAvatarLayoutStyle>
-      <UserSeparatorStyle aria-hidden />
       {profile.description && (
-        <UserContentStyle>{profile.description}</UserContentStyle>
+        <React.Fragment>
+          <UserSeparatorStyle aria-hidden />
+          <UserDescriptionStyle>{profile.description}</UserDescriptionStyle>
+          <UserSeparatorStyle aria-hidden />
+        </React.Fragment>
       )}
-      <UserSeparatorStyle aria-hidden />
-      <CenterRowStyle>
-        <GreyButtonStyle onClick={handleLogout}>
-          {i18n.t('common.disconnexion_label')}
-        </GreyButtonStyle>
-      </CenterRowStyle>
-    </UserWrapperStyle>
+      <GreyButtonStyle onClick={handleLogout}>
+        <IconWrapperStyle aria-hidden>
+          <SvgSignOut />
+        </IconWrapperStyle>
+        {i18n.t('common.disconnexion_label')}
+      </GreyButtonStyle>
+    </React.Fragment>
   );
 };

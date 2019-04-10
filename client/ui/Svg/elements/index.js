@@ -1,6 +1,6 @@
 /* @flow */
 
-export { SvgEmptyAvatar } from './SvgEmptyAvatar';
+export { SvgEmptyAvatar } from './EmptyAvatar';
 export { SvgAngleArrowRight } from './AngleArrowRight';
 export { SvgAngleArrowLeft } from './AngleArrowLeft';
 export { SvgAngleArrowTop } from './AngleArrowTop';
@@ -36,3 +36,4 @@ export { SvgChild } from './Child';
 export { SvgMapMarker } from './MapMarker';
 export { SvgSuitcase } from './Suitcase';
 export { SvgClapping } from './Clapping';
+export { SvgSignOut } from './SignOut';

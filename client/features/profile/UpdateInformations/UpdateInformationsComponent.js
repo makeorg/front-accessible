@@ -2,7 +2,6 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PROFILE_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -19,6 +18,7 @@ import {
   type UserInformationForm,
   type UserInformationFormErrors,
 } from 'Shared/types/user';
+import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   values: UserInformationForm,
@@ -39,9 +39,6 @@ export const UpdateInformationsComponent = ({
 }: Props) => {
   return (
     <form id={PROFILE_UPDATE_FORMNAME} onSubmit={handleSubmit}>
-      <ThirdLevelTitleStyle>
-        {i18n.t('profile.informations_update.title')}
-      </ThirdLevelTitleStyle>
       <UntypedInput
         type="text"
         name="firstName"
@@ -118,11 +115,13 @@ export const UpdateInformationsComponent = ({
       {submitError && (
         <ErrorMessageStyle>{i18n.t('common.form.api_error')}</ErrorMessageStyle>
       )}
-      <SubmitButton
-        formName={PROFILE_UPDATE_FORMNAME}
-        icon={SubmitThumbsUpIcon}
-        label={i18n.t('profile.common.submit_label')}
-      />
+      <SubmitButtonWrapperStyle>
+        <SubmitButton
+          formName={PROFILE_UPDATE_FORMNAME}
+          icon={SubmitThumbsUpIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
+      </SubmitButtonWrapperStyle>
     </form>
   );
 };

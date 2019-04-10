@@ -6,7 +6,11 @@ import {
   ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import {
+  Breakpoints,
+  Layouts,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import {
   ColumnToRowElementStyle,
   ColumnElementStyle,
@@ -27,6 +31,7 @@ export const ProfileHeaderStyle = styled.header`
 
 export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
   width: 100%;
+  align-items: flex-start;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   margin: 0 auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -49,9 +54,11 @@ export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   align-items: center;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  padding: 0 ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 360px;
     margin-right: 30px;
-    transform: translateY(-50px);
+    padding: 0 ${intToPx(DefaultPadding.Desktop)}
+      ${intToPx(DefaultPadding.Desktop)};
   }
 `;

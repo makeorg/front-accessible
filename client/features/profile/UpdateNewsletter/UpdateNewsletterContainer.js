@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { type Profile } from 'Shared/types/user';
 import * as UserService from 'Shared/services/User';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { i18n } from 'Shared/i18n';
 import { UpdateNewsletterComponent } from './UpdateNewsletterComponent';
 
 type Props = {
@@ -42,13 +44,15 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
     const { optInNewsletter, submitError, submitDone } = this.state;
 
     return (
-      <UpdateNewsletterComponent
-        optInNewsletter={optInNewsletter}
-        submitDone={submitDone}
-        submitError={submitError}
-        handleCheck={this.handleCheck}
-        handleSubmit={this.handleSubmit}
-      />
+      <TileWithTitle title={i18n.t('profile.newsletter_update.title')}>
+        <UpdateNewsletterComponent
+          optInNewsletter={optInNewsletter}
+          submitDone={submitDone}
+          submitError={submitError}
+          handleCheck={this.handleCheck}
+          handleSubmit={this.handleSubmit}
+        />
+      </TileWithTitle>
     );
   }
 }

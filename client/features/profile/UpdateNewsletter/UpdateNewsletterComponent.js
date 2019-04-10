@@ -1,12 +1,12 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { NEWSLETTER_UPDATE_FORMNAME } from 'Shared/constants/form';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { SubmitThumbsUpIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
+import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   /** Boolean of optin check */
@@ -30,9 +30,6 @@ export const UpdateNewsletterComponent = ({
 }: Props) => {
   return (
     <form id={NEWSLETTER_UPDATE_FORMNAME} onSubmit={handleSubmit}>
-      <ThirdLevelTitleStyle>
-        {i18n.t('profile.newsletter_update.title')}
-      </ThirdLevelTitleStyle>
       <CheckBox
         id="optInNewsletter"
         name="optInNewsletter"
@@ -49,11 +46,13 @@ export const UpdateNewsletterComponent = ({
       {submitError && (
         <ErrorMessageStyle>{i18n.t('common.form.api_error')}</ErrorMessageStyle>
       )}
-      <SubmitButton
-        formName={NEWSLETTER_UPDATE_FORMNAME}
-        icon={SubmitThumbsUpIcon}
-        label={i18n.t('profile.common.submit_label')}
-      />
+      <SubmitButtonWrapperStyle>
+        <SubmitButton
+          formName={NEWSLETTER_UPDATE_FORMNAME}
+          icon={SubmitThumbsUpIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
+      </SubmitButtonWrapperStyle>
     </form>
   );
 };

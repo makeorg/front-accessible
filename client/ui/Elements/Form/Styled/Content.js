@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import * as ColorVars from 'Client/app/assets/vars/Colors';
+import { FlexElementStyle } from '../../FlexElements';
 
 export const FormWrapperStyle = styled.form`
   display: flex;
@@ -51,4 +52,8 @@ export const FormLabel = styled.label`
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
+`;
+
+export const SubmitButtonWrapperStyle = styled(FlexElementStyle)`
+  justify-content: flex-end;
 `;

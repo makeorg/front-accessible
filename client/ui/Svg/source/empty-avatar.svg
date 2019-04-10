@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em" viewBox="0 0 30 30">
     <defs>
         <circle cx="15" cy="15" r="15"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
         <g>
             <use fill="#FFF" xlink:href="#a"/>
-            <circle cx="15" cy="15" r="14.5" fill="#000" fill-opacity=".1" stroke="#000" stroke-linejoin="square" stroke-opacity=".2"/>
+            <circle cx="15" cy="15" r="14.5" fill="#E6E6E6" stroke="#CDCDCD" stroke-linejoin="square" />
         </g>
         <path fill="#FFFFFE" d="M21.472 22.135c0-3.53-2.792-6.392-6.236-6.392S9 18.604 9 22.135c0 .074.008.146.01.219h12.451c.003-.073.011-.145.011-.22"/>
         <path stroke="#4D4E4C" stroke-width=".614" d="M21.472 22.135c0-3.53-2.792-6.392-6.236-6.392S9 18.604 9 22.135c0 .074.008.146.01.219h12.451c.003-.073.011-.145.011-.22z"/>

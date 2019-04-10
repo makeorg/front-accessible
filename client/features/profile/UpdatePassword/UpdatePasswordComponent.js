@@ -2,10 +2,10 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Passwords } from 'Shared/types/user';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
+import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   passwords: Passwords,
@@ -25,9 +25,6 @@ export const UpdatePasswordComponent = ({
 }: Props) => {
   return (
     <form id={PASSWORD_UPDATE_FORMNAME} onSubmit={handleSubmit}>
-      <SecondLevelTitleStyle>
-        {i18n.t('profile.password_update.title')}
-      </SecondLevelTitleStyle>
       {i18n.t('profile.password_update.password_label')}
       <PasswordInput
         label={i18n.t('profile.password_update.password_placeholder')}
@@ -46,12 +43,14 @@ export const UpdatePasswordComponent = ({
         value={passwords.newPassword}
         handleChange={handleChange}
       />
-      <SubmitButton
-        disabled={!formIsValid}
-        formName="formName"
-        icon={SubmitThumbsUpIcon}
-        label={i18n.t('profile.common.submit_label')}
-      />
+      <SubmitButtonWrapperStyle>
+        <SubmitButton
+          disabled={!formIsValid}
+          formName="formName"
+          icon={SubmitThumbsUpIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
+      </SubmitButtonWrapperStyle>
     </form>
   );
 };

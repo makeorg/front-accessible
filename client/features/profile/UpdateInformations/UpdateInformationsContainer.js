@@ -9,6 +9,7 @@ import {
   type UserInformationFormErrors,
 } from 'Shared/types/user';
 import { getUser } from 'Shared/store/actions/authentification';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { UpdateInformationsComponent } from './UpdateInformationsComponent';
 
 type Props = {
@@ -105,14 +106,16 @@ class UpdateInformationsHandler extends Component<Props, State> {
   render() {
     const { values, errors, submitDone, submitError } = this.state;
     return (
-      <UpdateInformationsComponent
-        values={values}
-        errors={errors}
-        submitDone={submitDone}
-        submitError={submitError}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <TileWithTitle title={i18n.t('profile.informations_update.title')}>
+        <UpdateInformationsComponent
+          values={values}
+          errors={errors}
+          submitDone={submitDone}
+          submitError={submitError}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </TileWithTitle>
     );
   }
 }
