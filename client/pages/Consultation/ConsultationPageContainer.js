@@ -54,6 +54,7 @@ export class ConsultationPageContainer extends React.Component<Props, State> {
         selectedTagIds={selectedTagIds}
         handleSelectTag={this.handleSelectTag}
         trackPresentationCollpase={this.trackPresentationCollpase}
+        trackMoreLink={this.trackMoreLink}
       />
     );
   }

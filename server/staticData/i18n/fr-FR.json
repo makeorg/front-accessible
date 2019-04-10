@@ -253,6 +253,13 @@
     }
   },
   "consultation": {
+    "tabs": {
+      "consultation": " Consultation ",
+      "action": " Actions ",
+      "from": " du ",
+      "to": " au ",
+      "datefrom": " à partir du "
+    },
     "presentation": {
       "title": "Pourquoi cette consultation ?",
       "link_text": "En savoir +"
