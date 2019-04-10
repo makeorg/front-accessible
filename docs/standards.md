@@ -334,6 +334,6 @@ apiService.callApi(url); // console.log -> ApiServiceClient call
 1. copy your .svg file into `/client/ui/Svg/svgr`
 2. in the terminal, run `yarn svg`
 4. Export the created component in `/client/ui/Svg/elements/index.js`
-5. import it `import { Svg } from 'Client/ui/Svg';`
-6. Use it `<Svg aria-hidden type="SvgEmptyAvatar" />`
+5. import it `import { SvgLock } from 'Client/ui/Svg/elements';`
+6. Use it `<SvgLock />`
 

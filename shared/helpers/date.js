@@ -44,6 +44,10 @@ export const getDateOfBirthFromAge = (age: number = 0) => {
 };
 
 export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
+  if (!dateOfBirth) {
+    return '';
+  }
+
   const today = new Date();
   const birthDate = new Date(dateOfBirth);
 

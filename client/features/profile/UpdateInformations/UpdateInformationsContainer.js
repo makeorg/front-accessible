@@ -79,7 +79,6 @@ class UpdateInformationsHandler extends Component<Props, State> {
     this.setState(prevState => ({
       ...prevState,
       isDone: false,
-      hasError: false,
       errors: {
         ...prevState.errors,
         ...errors,

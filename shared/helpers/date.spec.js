@@ -43,6 +43,12 @@ describe('Date Helper', () => {
       expect(age).toBe('');
     });
 
+    it('getDateOfBirthFromAge with empty date', () => {
+      MockDate.set('1/1/2019');
+      const age = getAgeFromDateOfBrth();
+      expect(age).toBe('');
+    });
+
     it('getDateOfBirthFromAge with valid date', () => {
       MockDate.set('1/1/2019');
       const age = getAgeFromDateOfBrth('1986-09-29');
@@ -58,9 +64,9 @@ describe('Date Helper', () => {
 
   describe('creationDateFormat', () => {
     it('creationDateFormat with valid date', () => {
-      expect(
-        DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')
-      ).toBe('24 octobre 2018');
+      expect(DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')).toBe(
+        '24 octobre 2018'
+      );
     });
 
     it('creationDateFormat with invalid date', () => {

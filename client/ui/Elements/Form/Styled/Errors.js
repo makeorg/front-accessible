@@ -15,4 +15,7 @@ export const FormErrorStyle = styled.li`
 export const ErrorMessageStyle = styled.p`
   color: ${BorderColors.ErrorRed};
   margin-bottom: 10px;
+  a {
+    color: ${BorderColors.ErrorRed};
+  }
 `;

@@ -18,7 +18,7 @@ export const PATH_USER_RESET_TOKEN_CHECK =
   '/user/reset-password/check-validity/:userId/:resetToken';
 export const PATH_USER_CHANGE_PASSWORD =
   '/user/reset-password/change-password/:userId';
-
+export const PATH_USER_UPDATE_PASSWORD = '/user/:userId/change-password';
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
 
@@ -145,6 +145,27 @@ export class UserService {
         optInNewsletter,
       }),
     });
+  }
+
+  /**
+   * Update the password
+   * @param  {String}  userId
+   * @param  {String}  actualPassword
+   * @param  {String}  newPassword
+   * @return {Promise}
+   */
+  static updatePassword(
+    userId: string,
+    actualPassword?: string,
+    newPassword: string
+  ): Promise<any> {
+    return ApiService.callApi(
+      PATH_USER_UPDATE_PASSWORD.replace(':userId', userId),
+      {
+        method: 'POST',
+        body: JSON.stringify({ actualPassword, newPassword }),
+      }
+    );
   }
 
   /**

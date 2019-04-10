@@ -35,7 +35,7 @@ const ProfileEdit = props => {
         <ProfilePageContentStyle>
           <UpdateInformations user={user} />
           <UpdateNewsletter profile={user.profile} />
-          <UpdatePassword />
+          <UpdatePassword userId={user.userId} hasPassword={user.hasPassword} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
     </ProfileWrapperStyle>

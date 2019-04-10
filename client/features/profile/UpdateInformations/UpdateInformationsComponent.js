@@ -11,7 +11,7 @@ import {
   PostalCodeFieldIcon,
   JobFieldIcon,
   DescriptionFieldIcon,
-  SubmitThumbsUpIcon,
+  SubmitSaveIcon,
 } from 'Shared/constants/icons';
 import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import {
@@ -118,7 +118,7 @@ export const UpdateInformationsComponent = ({
       <SubmitButtonWrapperStyle>
         <SubmitButton
           formName={PROFILE_UPDATE_FORMNAME}
-          icon={SubmitThumbsUpIcon}
+          icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}
         />
       </SubmitButtonWrapperStyle>
