@@ -22,7 +22,7 @@ type Props = {
   /** User's password */
   password: string,
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

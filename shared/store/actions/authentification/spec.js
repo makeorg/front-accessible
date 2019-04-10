@@ -79,7 +79,10 @@ describe('Authentification Actions', () => {
     it('creates an action to login when failure', () => {
       const user = { email: 'baz@make.org', password: 'foo' };
 
-      const error = 'login.email_doesnot_exist';
+      const error = {
+        field: 'email',
+        message: 'login.email_doesnot_exist',
+      };
       const proposalContent = 'foo';
       const questionId = 'bar';
       const newStore = mockStore({

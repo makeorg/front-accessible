@@ -25,7 +25,7 @@ type Props = {
   /** User's password */
   password: string,
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
@@ -38,7 +38,7 @@ type Props = {
 export const LoginFormComponent = (props: Props) => {
   const { email, password, errors, handleChange, handleSubmit } = props;
 
-  const emailError = fieldErrors('email', errors);
+  const emailError = errors.find(error => error.field === 'email');
   const passwordError = fieldErrors('password', errors);
   const globalError = fieldErrors('global', errors);
 
@@ -61,7 +61,7 @@ export const LoginFormComponent = (props: Props) => {
       />
       {emailError && (
         <ErrorMessageStyle id="authentification-email-error">
-          {emailError}
+          {emailError.message}
         </ErrorMessageStyle>
       )}
       <PasswordInput

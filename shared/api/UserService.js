@@ -19,6 +19,8 @@ export const PATH_USER_RESET_TOKEN_CHECK =
 export const PATH_USER_CHANGE_PASSWORD =
   '/user/reset-password/change-password/:userId';
 export const PATH_USER_UPDATE_PASSWORD = '/user/:userId/change-password';
+export const PATH_USER_DELETE_ACCOUNT = '/user/:userId/delete';
+
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
 
@@ -264,5 +266,20 @@ export class UserService {
 
         return error;
       });
+  }
+
+  /**
+   * delete account
+   * @param  {String}  password
+   * @param  {String}  userId
+   */
+  static deleteAccount(password: string, userId: string): Promise<any> {
+    return ApiService.callApi(
+      PATH_USER_DELETE_ACCOUNT.replace(':userId', userId),
+      {
+        method: 'POST',
+        body: JSON.stringify({ password }),
+      }
+    );
   }
 }
