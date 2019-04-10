@@ -22,7 +22,7 @@ export const ButtonsWrapperStyle = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px 0;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
     margin: 20px 0;
   }
@@ -51,7 +51,7 @@ export const BasicButtonStyle = styled.button`
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 15px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
     padding: 10px 20px;
   }
@@ -75,7 +75,7 @@ export const RedButtonStyle = styled(BasicButtonStyle)`
 
 export const TallRedButtonStyle = styled(RedButtonStyle)`
   padding: 8px 15px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 20px;
   }
 `;
@@ -107,7 +107,7 @@ export const GoogleButtonStyle = styled(LargeButtonStyle)`
   svg {
     fill: ${BasicColors.PureWhite};
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-top: 0;
   }
 `;
@@ -118,7 +118,7 @@ export const EmailButtonStyle = styled(LargeButtonStyle)`
   svg {
     fill: ${BasicColors.PureWhite};
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-top: 0;
   }
 `;
@@ -141,14 +141,14 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   right: ${intToPx(DefaultPadding.Mobile)};
   z-index: 1;
   font-size: 16px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: ${intToPx(DefaultPadding.Desktop)};
     right: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
 export const CloseBannerButtonStyle = styled(CloseButtonStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: 15px;
     right: 15px;
   }

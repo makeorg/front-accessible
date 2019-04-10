@@ -33,7 +33,7 @@ export const ProposalSubmitAuthentificationWrapperStyle = styled.div`
 
 export const ProposalSubmitSeparatorStyle = styled(Small)`
   margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('20px')} 0;
   }
 `;
@@ -55,7 +55,7 @@ export const ProposalSubmitFormStyle = styled.form`
     props.isOpen
       ? `
     flex-flow: column;
-    @media (min-width: ${pxToRem(Breakpoints.Desktop)}){
+    @media (min-width: ${pxToRem(Breakpoints.Tablet)}){
       flex-flow: row;
     }`
       : ''};
@@ -69,7 +69,7 @@ export const ProposalButtonWrapperStyle = styled(FlexElementStyle)`
   justify-content: flex-end;
   padding: 7px 0;
   ${props => (props.isOpen ? 'width: 100%;' : '')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     min-width: 230px;
     ${props => (props.isOpen ? 'width: auto;' : '')};
   }
@@ -80,7 +80,7 @@ export const ProposalLabelStyle = styled.label`
   line-height: 40px;
   margin-right: 2.5px;
   white-space: nowrap;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 18px;
     line-height: 50px;
     margin-left: 22px;
@@ -101,7 +101,7 @@ export const ProposalInputStyle = styled(NoStyleTextInputStyle)`
     height: 125px;
     max-height: 100%;`
       : ''};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 18px;
     max-height: 50px;
     padding: 15px 0 0 5px;
@@ -115,7 +115,7 @@ export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
   font-size: 12px;
   line-height: 30px;
   padding: 0 2.5px;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 16px;
     line-height: 30px;
     padding: 0 16px;
@@ -134,7 +134,7 @@ export const ProposalButtonStyle = styled(RedButtonStyle)`
 
 export const ProposalIconStyle = styled(IconWrapperStyle)`
   margin: 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin-right: 5px;
   }
 `;

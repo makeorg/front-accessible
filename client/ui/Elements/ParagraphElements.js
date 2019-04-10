@@ -9,7 +9,7 @@ export const ParagraphStyle = styled.p`
   font-size: 12px;
   line-height: normal;
   color: ${TextColors.MediumGrey};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
 `;

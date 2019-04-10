@@ -17,7 +17,7 @@ export const SequenceProposalFieldStyle = styled.aside`
   max-width: ${intToPx(Layouts.ContainerWidth)};
   margin: 10px auto 0;
   padding: 0 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 25px auto 15px;
   }
 `;

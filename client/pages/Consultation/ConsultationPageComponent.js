@@ -1,4 +1,6 @@
 import React from 'react';
+import { matchPath, type Location } from 'react-router';
+import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
@@ -7,21 +9,20 @@ import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
-import { TabPanel } from 'react-tabs';
-import {
-  TabsWrapperStyle,
-  TabListStyle,
-  TabStyle,
-} from 'Client/ui/Elements/Tabs';
+import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
+import { TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
-import { ConsultationPageWrapperStyle } from './Styled';
+import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
   selectedTagIds: string[],
+  consultationLink: string,
+  actionLink: string,
+  location: Location,
   handleSelectTag: () => void,
   trackPresentationCollpase: () => void,
   trackMoreLink: () => void,
@@ -32,13 +33,21 @@ export const ConsultationPageComponent = (props: Props) => {
     questionConfiguration,
     question,
     selectedTagIds,
+    consultationLink,
+    actionLink,
+    location,
     handleSelectTag,
     trackPresentationCollpase,
     trackMoreLink,
   } = props;
 
-  const { metas } = questionConfiguration.wording;
+  const isConsultationActive = !!matchPath(
+    location.pathname,
+    ROUTE_CONSULTATION
+  );
+  const isActionActive = !!matchPath(location.pathname, ROUTE_ACTION);
 
+  const { metas } = questionConfiguration.wording;
   return (
     <React.Fragment>
       <MetaTags
@@ -60,29 +69,46 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <TabsWrapperStyle>
+        <ConsultationPageNav aria-label={i18n.t('consultation.tabs.label')}>
           <TabListStyle>
-            <TabStyle>
-              <ConsultationTabContent question={question} />
+            <TabStyle selected={isConsultationActive}>
+              <Link to={consultationLink} aria-selected={isConsultationActive}>
+                <ConsultationTabContent question={question} />
+              </Link>
             </TabStyle>
-            <TabStyle>{i18n.t('consultation.tabs.action')}</TabStyle>
+
+            <TabStyle selected={isActionActive}>
+              <Link to={actionLink} aria-selected={isActionActive}>
+                {i18n.t('consultation.tabs.action')}
+              </Link>
+            </TabStyle>
           </TabListStyle>
-          <TabPanel>
-            <ConsultationPanelContent
-              question={question}
-              questionConfiguration={questionConfiguration}
-              selectedTagIds={selectedTagIds}
-              handleSelectTag={handleSelectTag}
-              trackPresentationCollpase={trackPresentationCollpase}
-            />
-          </TabPanel>
-          <TabPanel>
-            <ActionsPanelContent
-              questionConfiguration={questionConfiguration}
-              trackMoreLink={trackMoreLink}
-            />
-          </TabPanel>
-        </TabsWrapperStyle>
+        </ConsultationPageNav>
+        <Switch>
+          <Route
+            path={ROUTE_CONSULTATION}
+            exact
+            component={() => (
+              <ConsultationPanelContent
+                question={question}
+                questionConfiguration={questionConfiguration}
+                selectedTagIds={selectedTagIds}
+                handleSelectTag={handleSelectTag}
+                trackPresentationCollpase={trackPresentationCollpase}
+              />
+            )}
+          />
+          <Route
+            path={ROUTE_ACTION}
+            exact
+            component={() => (
+              <ActionsPanelContent
+                questionConfiguration={questionConfiguration}
+                trackMoreLink={trackMoreLink}
+              />
+            )}
+          />
+        </Switch>
       </ConsultationPageWrapperStyle>
       <HiddenOnDesktopStyle>
         <MobileSharing />

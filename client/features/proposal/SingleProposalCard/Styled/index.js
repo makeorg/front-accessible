@@ -33,7 +33,7 @@ export const DescriptionStyle = styled.p`
     color: ${props => props.theme.color};
     text-decoration: none;
   }
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     text-align: right;
     font-size: ${pxToRem('16px;')};
   }
@@ -42,7 +42,7 @@ export const DescriptionStyle = styled.p`
 export const FooterContentSeparatorStyle = styled(SeparatorStyle)`
   max-width: ${pxToRem('100px')};
   margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     max-width: ${pxToRem('2px')};
     height: ${pxToRem('60px')};
     margin: 0 ${pxToRem('25px')};
@@ -56,7 +56,7 @@ export const ButtonStyle = styled(LinkAsRedButton)`
 export const SharingWrapperStyle = styled(MiddleColumnToRowStyle)`
   width: 100%;
   margin: ${pxToRem('15px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('15px')} 0;
   }
 `;
@@ -65,7 +65,7 @@ export const SharingTitleStyle = styled.h2`
   font-size: ${pxToRem('13px')};
   color: ${TextColors.MediumGrey};
   margin: 0 0 ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('18px')};
     margin: 0 ${pxToRem('20px')};
   }

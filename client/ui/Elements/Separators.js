@@ -17,14 +17,14 @@ export const Small = styled(SeparatorStyle)`
 
 export const SmallWithMargin = styled(Small)`
   margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
   }
 `;
 
 export const Large = styled(SeparatorStyle)`
   margin: ${pxToRem('25px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('35px')} 0;
   }
 `;
@@ -40,7 +40,7 @@ export const Text = styled(MiddleRowStyle)`
 
 export const ContentSeparatorStyle = styled(Large)`
   margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('15px')} 0;
   }
 `;

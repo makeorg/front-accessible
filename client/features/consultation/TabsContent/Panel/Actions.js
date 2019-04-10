@@ -38,7 +38,7 @@ export class ActionsPanelClass extends React.Component<Props> {
     return (
       <ConsultationPanelInnerStyle>
         <ConsultationPageSidebarStyle id="sidebar" as="aside">
-          <TileWithTitle title={i18n.t('actions.partners.title')} noMarginTop>
+          <TileWithTitle title={i18n.t('actions.plan.title')} noMarginTop>
             <PlanTileContent />
           </TileWithTitle>
           <TileWithTitle title={i18n.t('actions.partners.title')}>

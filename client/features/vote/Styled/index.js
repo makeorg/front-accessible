@@ -11,7 +11,7 @@ export const ContainerStyle = styled.form`
   min-width: 275px;
   margin: 10px 0;
   padding: 0 10px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 30px 0;
   }
 `;
@@ -20,7 +20,7 @@ export const WrapperStyle = styled(CenterRowStyle)`
   width: 100%;
   justify-content: space-between;
   max-width: 200px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 250px;
   }
 `;

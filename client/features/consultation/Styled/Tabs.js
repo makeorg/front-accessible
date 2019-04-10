@@ -7,7 +7,7 @@ export const ExtraTabsInformationsStyle = styled.span`
   font-size: 12px;
   font-family: ${MakeFonts.RobotoRegular};
   text-transform: none;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
     padding: 0 10px;
   }

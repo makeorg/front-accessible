@@ -245,7 +245,8 @@
       "action": " Actions ",
       "from": " du ",
       "to": " au ",
-      "datefrom": " à partir du "
+      "datefrom": " à partir du ",
+      "label": "Menu de la page consultation"
     },
     "presentation": {
       "title": "Pourquoi cette consultation ?",

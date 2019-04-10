@@ -6,10 +6,15 @@ import {
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
+import {
+  TabsOffsetMobile,
+  TabsOffsetTablet,
+  TabsOffsetDesktop,
+} from 'Shared/constants/tabs';
 
 const MobileOffset = intToPx(TabsOffsetMobile);
 const DesktopOffset = intToPx(TabsOffsetDesktop);
+const TabletOffset = intToPx(TabsOffsetTablet);
 const MobileMarginWithOffset = DefaultPadding.Mobile - TabsOffsetMobile;
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
@@ -23,9 +28,11 @@ export const ConsultationPageWrapperStyle = styled.div`
   margin: 0 auto ${intToPx(MobileMarginWithOffset)};
   transform: translateY(-${MobileOffset});
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    flex-flow: row;
     justify-content: space-between;
     margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
+    transform: translateY(-${TabletOffset});
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     transform: translateY(-${DesktopOffset});
   }
 `;
@@ -52,4 +59,8 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
         ? `bottom: -${DesktopOffset}; align-self: flex-end`
         : `top: ${DesktopOffset} ; align-self: flex-start`};
   }
+`;
+
+export const ConsultationPageNav = styled.nav`
+  width: 100%;
 `;

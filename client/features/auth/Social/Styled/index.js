@@ -8,7 +8,7 @@ import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 export const AuthentificationStyle = styled(SpaceBetweenColumnToRowStyle)`
   width: 100%;
   margin-top: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin-top: ${pxToRem('15px')};
   }
 `;
@@ -42,7 +42,7 @@ export const GoogleLinkStyle = styled(AuthentificationLinkStyle)`
 
 export const SocialIconStyle = styled(IconWrapperStyle)`
   margin-right: ${pxToRem('5px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin-right: ${pxToRem('5px')};
   }
 `;

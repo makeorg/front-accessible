@@ -258,7 +258,8 @@
       "action": " Actions ",
       "from": " du ",
       "to": " au ",
-      "datefrom": " à partir du "
+      "datefrom": " à partir du ",
+      "label": "Menu de la page consultation"
     },
     "presentation": {
       "title": "Pourquoi cette consultation ?",
@@ -317,7 +318,7 @@
     "plan": {
       "title": "Notre plan d'actions citoyen",
       "text": "Vous trouverez ici prochainement le plan d'actions citoyen issu de la consultation.",
-      "list-bait": "Qu'est ce qu'une action sur Make.org ?",
+      "list-bait": "Qu'est-ce qu'une action sur Make.org ?",
       "list-intro": "Pour nous une action se doit d'être :",
       "list-first-item": "- citoyenne car issue de vos propositions,",
       "list-second-item": "- collective, et toujours ouverte à toutes et tous,",

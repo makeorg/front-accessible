@@ -59,7 +59,7 @@ export const TagButtonStyle = styled.button`
   &.selected {
     ${SelectedTagStyle}
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     &:hover {
       ${SelectedTagStyle}
     }

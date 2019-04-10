@@ -38,7 +38,7 @@ export class CollapseState extends React.Component<Props, State> {
   forceExpandOnDesktop = () => {
     const { forceExpand } = this.props;
     const enabledDesktopExpand =
-      forceExpand && window.innerWidth > Breakpoints.Desktop;
+      forceExpand && window.innerWidth > Breakpoints.Tablet;
     this.setState({
       disableCollapse: enabledDesktopExpand,
     });

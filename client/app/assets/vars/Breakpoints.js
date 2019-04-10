@@ -1,8 +1,8 @@
 /* @flow */
 
 export const Breakpoints = {
-  Desktop: 767,
-  Tablet: 969,
+  Tablet: 767,
+  Desktop: 969,
   LargeDesktop: 1200,
 };
 

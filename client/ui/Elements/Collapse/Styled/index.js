@@ -11,7 +11,7 @@ export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: 20px;
     padding: 20px;
   }
@@ -39,7 +39,7 @@ export const CollapseContentStyle = styled.div`
   width: 100%;
   ${props =>
     props.iscollapsed ? `height: 0; visibility: hidden;` : `height: auto;`};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     ${props => (props.forcedexpand ? `height: auto; visibility: visible;` : '')}
   }
 `;

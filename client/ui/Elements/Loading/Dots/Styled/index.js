@@ -28,7 +28,7 @@ export const DotStyle = styled.span`
   animation-timing-function: ease-in-out;
   padding: 0 2px;
   font-size: 16px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 22px;
   }
 `;

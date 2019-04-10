@@ -16,7 +16,7 @@ export const ProposalWrapperStyle = styled.aside`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin: 0 0 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
+      Breakpoints.Tablet
     )}) {
     margin: 15px 0;
   }

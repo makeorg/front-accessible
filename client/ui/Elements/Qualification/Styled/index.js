@@ -15,7 +15,7 @@ export const ButtonStyle = styled.button`
   padding: 0 10px;
   border-radius: 36px;
   border-color: ${props => props.color};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
     line-height: 28px;
   }
@@ -41,7 +41,7 @@ export const CounterStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 14px;
   margin-left: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
 `;

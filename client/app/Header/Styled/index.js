@@ -19,7 +19,7 @@ export const HeaderStyle = styled.header`
 
 export const HeaderLogoStyle = styled.img`
   max-width: ${pxToRem('70px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     max-width: ${pxToRem('85px')};
   }
 `;

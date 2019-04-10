@@ -29,7 +29,7 @@ export const SequenceStyle = styled.section`
   max-width: ${pxToRem(Layouts.SpecialContainerWidth)};
   transition: transform 0.5s ease-in;
   overflow: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     min-height: 550px;
   }
 `;
@@ -49,7 +49,7 @@ export const BackArrowStyle = styled(UnstyledButtonStyle)`
   svg {
     fill: ${BasicColors.PureWhite};
   }
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     max-width: ${pxToRem('110px')};
     font-size: ${pxToRem('50px')};
     padding: ${pxToRem(DefaultPadding.Desktop)};
@@ -76,7 +76,7 @@ export const ListStyle = styled(UnstyledListStyle)`
     props.isSequenceCollapsed
       ? 'transform: scale(0.95)'
       : 'transform: scale(1)'};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('25px')} ${pxToRem('20px')} 0;
   }
 `;
@@ -91,7 +91,7 @@ export const FooterStyle = styled.footer`
   padding: ${pxToRem('5px')};
   box-shadow: 0 0 16px 6px ${ShadowColors.BlackZeroTwoOpacity};
   background-color: ${props => props.theme.color};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding: ${pxToRem('10px')} ${pxToRem(DefaultPadding.Desktop)};
   }
 `;
@@ -109,13 +109,13 @@ export const FooterTitleStyle = styled.h2`
   font-size: ${pxToRem('11px')};
   margin-bottom: ${pxToRem('5px')};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('20px')};
   }
 `;
 
 export const TitleInnerStyle = styled.span`
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -125,7 +125,7 @@ export const TitleInnerStyle = styled.span`
 export const FooterLinkStyle = styled.a`
   color: ${props => props.color};
   font-size: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('14px')};
   }
   &:hover,
@@ -143,7 +143,7 @@ export const InPartnershipWithStyle = styled.span`
   text-transform: none;
   font-size: ${pxToRem('10px')};
   padding: 0 0 0 ${pxToRem('5px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('14px')};
   }
 `;

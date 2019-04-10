@@ -69,7 +69,7 @@ export const FieldWrapperStyle = styled.div`
 export const InlineParagraphStyle = styled.p`
   display: inline;
   font-size: 14px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
 `;
@@ -86,7 +86,7 @@ export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
   color: ${TextColors.MediumGrey};
   font-size: 12px;
   margin-bottom: 15px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
 `;

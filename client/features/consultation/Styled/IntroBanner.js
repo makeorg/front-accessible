@@ -21,7 +21,7 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
   );
   padding: ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)}
     ${intToPx(MobilePaddingWithOffset)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)}
       ${intToPx(DefaultPadding.Desktop)} ${intToPx(DesktopPaddingWithOffset)};
   }
