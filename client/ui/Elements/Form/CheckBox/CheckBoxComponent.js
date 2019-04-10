@@ -5,7 +5,6 @@ import {
   FakeCheckboxInputStyle,
   CheckboxLabelStyle,
 } from '../Styled/CheckBox';
-import { CheckboxIconStyle } from '../Styled/Icons';
 
 type Props = {
   /** Name of the checkbox */
@@ -44,7 +43,7 @@ export const CheckBoxComponent = (props: Props) => {
         type="checkbox"
         id={id}
         name={name}
-        vale={value}
+        value={value}
         required={required}
         checked={isChecked}
         hidden
@@ -53,15 +52,12 @@ export const CheckBoxComponent = (props: Props) => {
         htmlFor={id}
         onClick={handleCheck}
         onKeyPress={handleEnterKey}
+        tabIndex={0}
       >
         <FakeCheckboxInputStyle aria-hidden>
-          {isChecked ? (
-            <CheckboxIconStyle tabIndex="-1">
-              <SvgCheck />
-            </CheckboxIconStyle>
-          ) : null}
+          {isChecked ? <SvgCheck /> : null}
         </FakeCheckboxInputStyle>
-        {label}
+        <span>{label}</span>
       </CheckboxLabelStyle>
     </CheckboxWrapper>
   );

@@ -6,21 +6,21 @@ Snapshot Diff:
 + Second value
 
 @@ -8,15 +8,15 @@
-      >
-        SvgEnvelope
-      </span>
     </CenterInputIconStyle>
-    <BasicInputStyle
--     aria-required={true}
-+     aria-required={false}
-      id="bar"
-      name="bar"
-      onChange={[Function handleChange]}
--     required={true}
-+     required={false}
-      type="foo"
-      value="baz"
-    />
-    <label
-      className="sc-8buptu-6 bGCBYo"
+    <div
+      className="sc-8buptu-4 cVVWpd"
+    >
+      <BasicInputStyle
+-       aria-required={true}
++       aria-required={false}
+        id="bar"
+        name="bar"
+        onChange={[Function handleChange]}
+-       required={true}
++       required={false}
+        type="foo"
+        value="baz"
+      />
+      <label
+        className="sc-8buptu-9 foXlmg"
 `;

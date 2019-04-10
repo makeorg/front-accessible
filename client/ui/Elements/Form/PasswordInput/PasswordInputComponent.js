@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
+import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
-import { FormLabel } from '../Styled/Content';
+import {
+  MiddleFakeFieldStyle,
+  FloatingLabelStyle,
+  FieldWrapperStyle,
+} from '../Styled/Content';
 
 type Props = {
   /** Name of the input */
@@ -41,24 +45,24 @@ export const PasswordInputComponent = (props: Props) => {
   } = props;
 
   return (
-    <MiddleFakeInputStyle hasError={errors}>
-      <CenterInputIconStyle htmlFor={name} aria-label={label}>
-        <span aria-hidden>{icon}</span>
-      </CenterInputIconStyle>
-      <BasicInputStyle
-        type={isPasswordDisplayed ? 'text' : 'password'}
-        name={name}
-        id={name}
-        value={value}
-        aria-required={required}
-        required={required}
-        onChange={handleChange}
-      />
-      <FormLabel>{label}</FormLabel>
+    <MiddleFakeFieldStyle hasError={errors}>
+      <CenterInputIconStyle>{icon}</CenterInputIconStyle>
+      <FieldWrapperStyle>
+        <BasicInputStyle
+          type={isPasswordDisplayed ? 'text' : 'password'}
+          name={name}
+          id={name}
+          value={value}
+          aria-required={required}
+          required={required}
+          onChange={handleChange}
+        />
+        <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+      </FieldWrapperStyle>
       <PasswordButton
         toggleIsPasswordDisplayed={toggleIsPasswordDisplayed}
         isPasswordDisplayed={isPasswordDisplayed}
       />
-    </MiddleFakeInputStyle>
+    </MiddleFakeFieldStyle>
   );
 };

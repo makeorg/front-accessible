@@ -17,6 +17,7 @@
       "age_label": "Âge (optionnel)",
       "postalcode_label": "Code postal (optionnel)",
       "profession_label": "Profession (optionnel)",
+      "biography_label": "Biographie (optionnel)",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
@@ -221,13 +222,24 @@
     }
   },
   "profile": {
+    "common": {
+      "age": "{{age}} ans",
+      "submit_label": "Enregistrer les modifications",
+      "submit_success": "Votre demande a bien été prise en compte."
+    },
+    "informations_update": {
+      "title": "Modifier mon profil"
+    },
     "password_update": {
       "title": "Modifier mon mot de passe",
       "password_label": "Mot de passe actuel",
       "password_placeholder": "Mot de passe actuel (obligatoire)",
       "newpassword_label": "Nouveau mot de passe",
-      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
-      "submit_label": "Enregistrer les modifications"
+      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)"
+    },
+    "newsletter_update": {
+      "title": "Gérer mes emails",
+      "optin_label": "J’accepte de recevoir des informations de Make.org (votre adresse ne sera en aucun cas diffusée à des tiers)"
     }
   },
   "consultation": {

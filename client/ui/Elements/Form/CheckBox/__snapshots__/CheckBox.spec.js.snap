@@ -11,7 +11,7 @@ Snapshot Diff:
       name="bar"
       required={false}
       type="checkbox"
--     vale="qux"
+-     value="qux"
     />
     <CheckboxLabelStyle
       htmlFor="foo"

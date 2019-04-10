@@ -1,7 +1,11 @@
 import * as React from 'react';
-import { FakeInputStyle } from '../Styled/Input';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
+import {
+  FloatingLabelStyle,
+  FakeFieldStyle,
+  FieldWrapperStyle,
+} from '../Styled/Content';
 
 type Props = {
   /** Name of the TextArea */
@@ -62,30 +66,30 @@ export class TextArea extends React.Component<Props> {
     } = this.props;
 
     return (
-      <FakeInputStyle hasError={errors}>
-        <TextAreaIconStyle htmlFor={name} aria-label={label}>
-          <span aria-hidden>{icon}</span>
-        </TextAreaIconStyle>
-        <BasicTextAreaStyle
-          name={name}
-          id={name}
-          placeholder={label}
-          value={value}
-          aria-required={required}
-          required={required}
-          onChange={handleChange}
-          rows={rows}
-          minLength={minLength}
-          maxLength={maxLength}
-          spellCheck={spellCheck}
-          autoComplete={autoComplete}
-        />
-        {maxLength && value && withCounter && (
-          <TextAreaCounterStyle>
-            {`${value.length}/${maxLength}`}
-          </TextAreaCounterStyle>
-        )}
-      </FakeInputStyle>
+      <FakeFieldStyle hasError={errors}>
+        <TextAreaIconStyle aria-hidden>{icon}</TextAreaIconStyle>
+        <FieldWrapperStyle>
+          <BasicTextAreaStyle
+            name={name}
+            id={name}
+            value={value}
+            aria-required={required}
+            required={required}
+            onChange={handleChange}
+            rows={rows}
+            minLength={minLength}
+            maxLength={maxLength}
+            spellCheck={spellCheck}
+            autoComplete={autoComplete}
+          />
+          <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+          {maxLength && value && withCounter && (
+            <TextAreaCounterStyle>
+              {`${value.length}/${maxLength}`}
+            </TextAreaCounterStyle>
+          )}
+        </FieldWrapperStyle>
+      </FakeFieldStyle>
     );
   }
 }

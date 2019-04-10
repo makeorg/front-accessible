@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { TextArea } from './index';
 
 jest.mock('../Styled/Input', () => ({
-  FakeInputStyle: 'FakeInputStyle',
+  FakeFieldStyle: 'FakeFieldStyle',
 }));
 
 jest.mock('../Styled/TextArea', () => ({

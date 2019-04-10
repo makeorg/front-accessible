@@ -1,7 +1,11 @@
 import * as React from 'react';
-import { MiddleFakeInputStyle, BasicInputStyle } from '../Styled/Input';
+import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
-import { FormLabel } from '../Styled/Content';
+import {
+  MiddleFakeFieldStyle,
+  FloatingLabelStyle,
+  FieldWrapperStyle,
+} from '../Styled/Content';
 
 type Props = {
   /** Type of the input */
@@ -41,21 +45,21 @@ export class UntypedInput extends React.Component<Props> {
     } = this.props;
 
     return (
-      <MiddleFakeInputStyle hasError={errors}>
-        <CenterInputIconStyle htmlFor={name} aria-label={label}>
-          <span aria-hidden>{icon}</span>
-        </CenterInputIconStyle>
-        <BasicInputStyle
-          type={type}
-          name={name}
-          id={name}
-          value={value}
-          aria-required={required}
-          required={required}
-          onChange={handleChange}
-        />
-        <FormLabel>{label}</FormLabel>
-      </MiddleFakeInputStyle>
+      <MiddleFakeFieldStyle hasError={errors} className={errors ? 'error' : ''}>
+        <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
+        <FieldWrapperStyle>
+          <BasicInputStyle
+            type={type}
+            name={name}
+            id={name}
+            value={value}
+            aria-required={required}
+            required={required}
+            onChange={handleChange}
+          />
+          <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+        </FieldWrapperStyle>
+      </MiddleFakeFieldStyle>
     );
   }
 }
