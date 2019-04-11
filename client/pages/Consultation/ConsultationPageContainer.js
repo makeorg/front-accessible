@@ -57,6 +57,7 @@ class ConsultationPage extends React.Component<Props, State> {
       ':countryLanguage',
       countryLanguage
     ).replace(':questionSlug', question.slug);
+
     return (
       <ConsultationPageComponent
         question={question}

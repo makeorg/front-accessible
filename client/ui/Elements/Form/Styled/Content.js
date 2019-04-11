@@ -62,7 +62,7 @@ export const FieldWrapperStyle = styled.div`
   }
   > input:required + label {
     font-size: 14px;
-    line-height: 40px;
+    line-height: 38px;
   }
 `;
 
@@ -95,7 +95,7 @@ export const FloatingLabelStyle = styled.label`
   font-family: ${MakeFonts.RobotoRegular};
   color: ${TextColors.MediumGrey};
   font-size: 14px;
-  line-height: 40px;
+  line-height: 38px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;

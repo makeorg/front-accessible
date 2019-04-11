@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
+import TextareaAutosize from 'react-autosize-textarea';
 import {
   BasicColors,
   BorderColors,
@@ -7,7 +8,6 @@ import {
   ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { NoStyleTextInputStyle } from 'Client/ui/Elements/Form/Styled/Input';
 import {
   MiddleRowStyle,
   FlexElementStyle,
@@ -45,19 +45,16 @@ export const DescriptionWrapperStyle = styled.div`
 export const ProposalSubmitFormStyle = styled.form`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   padding: 0 8px;
   border: 1px solid ${BorderColors.LightGrey};
-  border-radius: 30px;
+  border-radius: 26px;
   background-color: ${BasicColors.PureWhite};
   ${props =>
     props.isOpen
       ? `
-    flex-flow: column;
-    @media (min-width: ${pxToRem(Breakpoints.Tablet)}){
-      flex-flow: row;
-    }`
+    flex-flow: column;`
       : ''};
 `;
 
@@ -67,45 +64,35 @@ export const ProposalInputWrapperStyle = styled(FlexElementStyle)`
 
 export const ProposalButtonWrapperStyle = styled(FlexElementStyle)`
   justify-content: flex-end;
-  padding: 7px 0;
+  padding: 4px 0;
   ${props => (props.isOpen ? 'width: 100%;' : '')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    min-width: 230px;
-    ${props => (props.isOpen ? 'width: auto;' : '')};
-  }
 `;
 
 export const ProposalLabelStyle = styled.label`
-  font-size: 14px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 38px;
   margin-right: 2.5px;
+  margin-left: 8px;
   white-space: nowrap;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 18px;
-    line-height: 50px;
-    margin-left: 22px;
+    line-height: 48px;
   }
 `;
 
-export const ProposalInputStyle = styled(NoStyleTextInputStyle)`
+export const ProposalTextareaStyle = styled(TextareaAutosize)`
   width: 100%;
-  max-width: 780px;
   font-family: ${MakeFonts.RobotoBold};
   font-size: 16px;
-  max-height: 40px;
-  padding: 10px 0 0 5px;
+  line-height: 18px;
+  padding: 10px 5px;
+  border: none;
   resize: none;
-  ${props =>
-    props.isOpen
-      ? `
-    height: 125px;
-    max-height: 100%;`
-      : ''};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
+  margin-right: 15px;
+  background-color: transparent;
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     font-size: 18px;
-    max-height: 50px;
-    padding: 15px 0 0 5px;
-    ${props => (props.isOpen ? `max-height: 50px;` : '')};
+    line-height: 28px;
   }
 `;
 
@@ -118,7 +105,7 @@ export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 16px;
     line-height: 30px;
-    padding: 0 16px;
+    padding: 0 10px;
   }
 `;
 

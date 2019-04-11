@@ -5,19 +5,19 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -10,11 +10,11 @@
-    <div
-      className="sc-8buptu-4 cVVWpd"
+@@ -11,11 +11,11 @@
+      className="sc-8buptu-4 faOwvH"
     >
       <BasicTextAreaStyle
         aria-required={false}
+        async={true}
 -       autoComplete="off"
 +       autoComplete="on"
         id="bar"
+        maxRows={25}
         name="bar"
         onChange={[Function handleChange]}
         required={false}
-        rows={5}
 `;
 
 exports[`TextArea must return the diff between snapshot when TextArea has a enable vs disable spellchecking 1`] = `
@@ -25,18 +25,18 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -16,11 +16,11 @@
-        id="bar"
+@@ -18,11 +18,11 @@
+        maxRows={25}
         name="bar"
         onChange={[Function handleChange]}
         required={false}
-        rows={5}
+        rows={1}
 -       spellCheck={true}
 +       spellCheck={false}
         value="baz"
       />
       <label
-        className="sc-8buptu-9 foXlmg"
+        className="sc-8buptu-9 bGRyeO"
         htmlFor="bar"
 `;
 
@@ -45,18 +45,19 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -12,10 +12,12 @@
-    >
+@@ -13,11 +13,13 @@
       <BasicTextAreaStyle
         aria-required={false}
+        async={true}
         autoComplete="off"
         id="bar"
 +       maxLength="450"
+        maxRows={25}
 +       minLength="25"
         name="bar"
         onChange={[Function handleChange]}
         required={false}
-        rows={5}
+        rows={1}
         spellCheck={true}
 `;
 
@@ -65,21 +66,23 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -9,16 +9,16 @@
+@@ -9,18 +9,18 @@
     </span>
     <div
-      className="sc-8buptu-4 cVVWpd"
+      className="sc-8buptu-4 faOwvH"
     >
       <BasicTextAreaStyle
 -       aria-required={true}
 +       aria-required={false}
+        async={true}
         autoComplete="off"
         id="bar"
+        maxRows={25}
         name="bar"
         onChange={[Function handleChange]}
 -       required={true}
 +       required={false}
-        rows={5}
+        rows={1}
         spellCheck={true}
         value="baz"
       />

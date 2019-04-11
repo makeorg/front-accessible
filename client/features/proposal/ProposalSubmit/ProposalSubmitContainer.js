@@ -100,7 +100,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     }
   };
 
-  handleOnChange = (event: SyntheticEvent<*>) => {
+  handleOnChange = (event: SyntheticEvent<HTMLTextAreaElement>) => {
     const content = event.currentTarget.value;
     const length = getProposalLength(content);
 
@@ -117,7 +117,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     handleFocus();
   };
 
-  handleOnSubmit = (event: SyntheticEvent<*>) => {
+  handleOnSubmit = (event: SyntheticEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
     this.setState({
       isTyping: false,
@@ -133,6 +133,12 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
     if (isLoggedIn && proposalHasValidLength(length)) {
       this.submitProposal();
+    }
+  };
+
+  handleOnKeydown = (event: SyntheticKeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
     }
   };
 
@@ -163,6 +169,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
           handleOnChange={this.handleOnChange}
           handleOnSubmit={this.throttleOnSubmit}
           handleOnFocus={this.handleOnFocus}
+          handleOnKeydown={this.handleOnKeydown}
         />
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent

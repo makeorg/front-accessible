@@ -40,7 +40,7 @@ export class TextArea extends React.Component<Props> {
   static defaultProps = {
     required: false,
     errors: undefined,
-    rows: 5,
+    rows: 1,
     minLength: undefined,
     maxLength: undefined,
     spellCheck: true,
@@ -77,10 +77,12 @@ export class TextArea extends React.Component<Props> {
             required={required}
             onChange={handleChange}
             rows={rows}
+            maxRows={25}
             minLength={minLength}
             maxLength={maxLength}
             spellCheck={spellCheck}
             autoComplete={autoComplete}
+            async
           />
           <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
           {maxLength && value && withCounter && (
