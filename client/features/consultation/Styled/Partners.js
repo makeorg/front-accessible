@@ -6,7 +6,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ParticipateButtonStyle = styled(LinkAsRedButton)`
   margin: 10px 0 15px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 20px 0;
   }
 `;

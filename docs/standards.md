@@ -139,13 +139,13 @@ const PasswordRecoveryStyle = styled.section`
 Good:
 
 ```
-@media (min-width: ${pxToRem(Breakpoints.Desktop)})
+@media (min-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
 Bad:
 
 ```
-@media (max-width: ${pxToRem(Breakpoints.Desktop)})
+@media (max-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
 ## TODO:

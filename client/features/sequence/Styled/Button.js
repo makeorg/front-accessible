@@ -24,7 +24,7 @@ export const BackArrow = styled(UnstyledButtonStyle)`
   z-index: 0;
   transform: translate(-50%, 0);
   font-size: ${pxToRem('35px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     top: ${pxToRem('-85px')};
     font-size: ${pxToRem('50px')};
     padding: ${pxToRem(DefaultPadding.Desktop)};

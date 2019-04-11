@@ -7,6 +7,7 @@ import {
   ROUTE_CONSULTATION,
   ROUTE_PROFILE,
   ROUTE_PROFILE_EDIT,
+  ROUTE_ACTION,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -64,6 +65,7 @@ export const initRoutes = app => {
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
+  app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);

@@ -27,7 +27,7 @@ export const FooterItemStyle = styled.li`
   width: 50%;
   padding: ${pxToRem('5px')};
   text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding: ${pxToRem(DefaultPadding.Mobile)};
     width: auto;
   }

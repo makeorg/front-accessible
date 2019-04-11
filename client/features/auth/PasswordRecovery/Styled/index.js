@@ -16,14 +16,14 @@ import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const PasswordRecoveryWrapperStyle = styled(PageWrapperStyle)`
   padding-bottom: 0;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding-bottom: 0;
   }
 `;
 
 export const PasswordRecoveryContentStyle = styled(PageContainerStyle)`
   min-height: calc(100vh - ${pxToRem(CALC_RECOVERY_HEIGHT_MOBILE)});
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     min-height: calc(100vh - ${pxToRem(CALC_RECOVERY_HEIGHT_DESKTOP)});
   }
 `;

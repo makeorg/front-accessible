@@ -16,6 +16,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     }
   }
 
+  /** Modal */
   .modal-overlay {
     display: flex;
     justify-content: center;
@@ -29,7 +30,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     z-index: 1;
     background-color: ${ShadowColors.BlackZeroEightOpacity};
     padding: ${intToPx(DefaultPadding.Mobile)};
-    @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       padding: ${intToPx(DefaultPadding.Desktop)};
     }
   }
@@ -44,7 +45,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     background-color: ${BasicColors.PureWhite};
     box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
     overflow-y: auto;
-    @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       padding: ${intToPx(DefaultPadding.Desktop)};
     }
   }

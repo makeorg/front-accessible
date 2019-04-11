@@ -36,7 +36,7 @@ export const PageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   flex-grow: 1;
   padding: ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
@@ -52,7 +52,7 @@ export const PageContainerStyle = styled(CenterColumnStyle)`
   background-color: ${BasicColors.PureWhite};
   border: 1px solid ${BorderColors.LightGrey};
   padding: ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;

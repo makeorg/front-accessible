@@ -12,7 +12,7 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 
 export const UserAvatarLayoutStyle = styled(FlexElementStyle)`
   align-self: flex-start;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: column;
     align-self: center;
   }
@@ -25,21 +25,21 @@ export const UserAvatarStyle = styled.div`
 
 export const UserContentWrapperStyle = styled(ColumnElementStyle)`
   align-content: flex-start;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     align-content: center;
   }
 `;
 
 export const UserTitleStyle = styled(ThirdLevelTitleStyle)`
   margin-top: 5px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: center;
   }
 `;
 
 export const UserContentStyle = styled(ParagraphStyle)`
   margin-top: 5px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: center;
   }
   svg {

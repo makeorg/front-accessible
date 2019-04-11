@@ -24,7 +24,7 @@ export const ButtonStyle = styled.button`
     z-index: 0;
     transform: translate(50%, 50%);
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 58px;
     height: 58px;
     font-size: 26px;

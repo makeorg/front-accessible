@@ -20,7 +20,7 @@ export const CardStyle = styled.section`
 `;
 
 export const TallCardStyle = styled(CardStyle)`
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     max-height: 550px;
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }

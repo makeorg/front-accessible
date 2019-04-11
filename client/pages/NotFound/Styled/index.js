@@ -15,7 +15,7 @@ import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
   flex-grow: 1;
   padding: ${pxToRem(DefaultPadding.Mobile)};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;
@@ -27,7 +27,7 @@ export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   max-height: ${pxToRem('550px')};
   background-color: ${BackgroundColors.NotFoundPage};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding: ${pxToRem(DefaultPadding.Desktop)};
   }
 `;
@@ -36,7 +36,7 @@ export const NotFoundIntroStyle = styled.p`
   font-size: ${pxToRem('15px')};
   color: ${MakeThemeColors.Red};
   font-style: italic;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('24px')};
   }
 `;
@@ -45,7 +45,7 @@ export const NotFoundTitleStyle = styled(SecondLevelTitleStyle)`
   font-size: ${pxToRem('30px')};
   line-height: 1;
   margin: ${pxToRem('15px')} 0 ${pxToRem('30px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('60px')};
   }
 `;

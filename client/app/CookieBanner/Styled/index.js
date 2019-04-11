@@ -21,7 +21,7 @@ export const CookieContentStyle = styled.p`
   padding: ${intToPx(DefaultPadding.Mobile)} 30px
     ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
   font-size: 12px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
   @media (min-width: ${intToPx(Layouts.SpecialContainerWidth)}) {

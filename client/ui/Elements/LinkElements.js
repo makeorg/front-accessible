@@ -18,7 +18,7 @@ export const RedLinkStyle = styled.a`
 export const ParagraphRedLinkStyle = styled(RedLinkStyle)`
   font-size: 12px;
   line-height: normal;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
 `;

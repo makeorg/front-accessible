@@ -41,7 +41,7 @@ export const ProposalCardStyle = styled.li`
         props.isCardVisible ? EnableVisibility : DisableVisibility}
       0.75s 1 forwards;
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
@@ -56,7 +56,7 @@ export const SequenceProposalStyle = styled.blockquote`
   line-height: normal;
   font-family: ${MakeFonts.RobotoBold};
   text-align: center;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 22px;
   }
 `;

@@ -24,7 +24,7 @@ export const ProfileHeaderStyle = styled.header`
   height: 40px;
   width: 100%;
   background-color: ${MakeThemeColors.Blue};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     height: 100px;
   }
 `;

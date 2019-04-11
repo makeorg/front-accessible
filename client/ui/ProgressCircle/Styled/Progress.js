@@ -15,7 +15,7 @@ export const WrapperStyle = styled.div`
   align-items: center;
   width: ${pxToRem('58px')};
   height: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     width: ${pxToRem('82px')};
     height: ${pxToRem('82px')};
   }
@@ -55,7 +55,7 @@ export const CounterStyle = styled.h2`
   font-size: ${pxToRem('12px')};
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.RobotoRegular};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('14px')};
   }
 `;
@@ -63,7 +63,7 @@ export const CounterStyle = styled.h2`
 export const ActiveCardStyle = styled.span`
   font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('18px')};
   }
 `;

@@ -8,7 +8,7 @@ import { intToPx } from 'Shared/helpers/styled';
 
 export const TagFilterWrapperStyle = styled.aside`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0;
   }
 `;

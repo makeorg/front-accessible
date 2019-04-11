@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import loadable from '@loadable/component';
 import {
   ROUTE_CONSULTATION,
+  ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
@@ -30,6 +31,7 @@ const ProfileEditPage = loadable(() =>
 export const Routes = () => (
   <Switch>
     <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
+    <Route path={ROUTE_ACTION} component={ConsultationPage} />
     <Route path={ROUTE_SEQUENCE} component={SequencePage} />
     <Route path={ROUTE_ACCOUNT_ACTIVATION} component={AccountActivationPage} />
     <Route path={ROUTE_PROPOSAL} component={ProposalPage} />

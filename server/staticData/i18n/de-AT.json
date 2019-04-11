@@ -202,6 +202,13 @@
     "description": "Die von Ihnen angeforderte Seite existiert nicht oder nicht mehr."
   },
   "consultation": {
+    "tabs": {
+      "consultation": " Konsultation ",
+      "action": " Maßnahmen ",
+      "from": " vom ",
+      "to": " bis zum ",
+      "datefrom": " ab dem "
+    },
     "presentation": {
       "title": "Warum diese Konsultation ?",
       "link_text": "Mehr erfahren"

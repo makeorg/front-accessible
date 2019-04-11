@@ -9,7 +9,7 @@ export const TileWithTitleStyle = styled.div`
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 20px;
   }
   &:last-child {

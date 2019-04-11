@@ -1,0 +1,84 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { type QuestionConfiguration } from 'Shared/types/sequence';
+import {
+  ConsultationPageContentStyle,
+  ConsultationPageSidebarStyle,
+} from 'Client/pages/Consultation/Styled';
+import Logo from 'Client/app/assets/images/logo.svg';
+import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { i18n } from 'Shared/i18n';
+import { PartnersTileContent } from 'Client/features/consultation/Actions/Tiles/Sidebar/Partners';
+import { PlanTileContent } from 'Client/features/consultation/Actions/Tiles/Sidebar/Plan';
+import { RegisterTileContent } from 'Client/features/consultation/Actions/Tiles/Register';
+import { Tracking } from 'Shared/services/Tracking';
+import { modalShowRegister } from 'Shared/store/actions/modal';
+import { SupportContent } from 'Client/features/consultation/Actions/Support';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+
+type Props = {
+  questionConfiguration: QuestionConfiguration,
+  handleRegisterModal: () => void,
+  isLoggedIn: boolean,
+};
+
+export class ActionsPanelClass extends React.Component<Props> {
+  trackMoreLink = () => {
+    Tracking.trackSeeMorePartners();
+  };
+
+  render() {
+    const {
+      questionConfiguration,
+      handleRegisterModal,
+      isLoggedIn,
+    } = this.props;
+
+    return (
+      <ConsultationPanelInnerStyle>
+        <ConsultationPageSidebarStyle id="sidebar" as="aside">
+          <TileWithTitle title={i18n.t('actions.plan.title')} noMarginTop>
+            <PlanTileContent />
+          </TileWithTitle>
+          <TileWithTitle title={i18n.t('actions.partners.title')}>
+            <PartnersTileContent
+              questionConfiguration={questionConfiguration}
+              trackMoreLink={this.trackMoreLink}
+            />
+          </TileWithTitle>
+        </ConsultationPageSidebarStyle>
+        <ConsultationPageContentStyle id="main">
+          {!isLoggedIn && (
+            <TileWithTitle
+              title={<img src={Logo} width={46} alt="Make.org" />}
+              noMarginTop
+            >
+              <RegisterTileContent handleRegisterModal={handleRegisterModal} />
+            </TileWithTitle>
+          )}
+          <SupportContent />
+        </ConsultationPageContentStyle>
+      </ConsultationPanelInnerStyle>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  const { isLoggedIn } = selectAuthentification(state);
+
+  return {
+    isLoggedIn,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  handleRegisterModal: () => {
+    dispatch(modalShowRegister());
+  },
+});
+
+export const ActionsPanelContent = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ActionsPanelClass);

@@ -13,7 +13,7 @@ export const AuthorWithAvatarStyle = styled.cite`
 `;
 
 export const AuthorInfosStyle = styled(AuthorWithAvatarStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
 `;

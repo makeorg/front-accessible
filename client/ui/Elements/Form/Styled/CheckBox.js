@@ -21,7 +21,7 @@ export const CheckboxLabelStyle = styled.label`
   font-family: ${MakeFonts.RobotoRegular};
   font-size: 14px;
   line-height: 18px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
     line-height: 20px;
   }

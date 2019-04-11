@@ -14,7 +14,7 @@ export const ProposalStyle = styled.a`
   align-self: flex-start;
   margin-top: 10px;
   text-decoration: none;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
 `;

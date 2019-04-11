@@ -19,7 +19,7 @@ export const ParticipateWrapperStyle = styled.aside`
   padding: 20px ${intToPx(DefaultPadding.Mobile)};
   margin: 5px 0 15px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 0 35px;
   }
 `;
@@ -33,7 +33,7 @@ export const ParticipateTitle = styled.h3`
   text-align: right;
   width: 100%;
   max-width: 450px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
     line-height: 1.22;
   }
@@ -45,7 +45,7 @@ export const ParticipateSeparatorStyle = styled.div`
   background-color: ${BasicColors.PureWhite};
   opacity: 0.3;
   margin: 0 10px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 20px;
   }
 `;

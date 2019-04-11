@@ -1,36 +1,31 @@
 import React from 'react';
+import { matchPath, type Location } from 'react-router';
+import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { Presentation } from 'Client/features/consultation/Presentation';
-import { Partners } from 'Client/features/consultation/Partners';
-import { Sharing } from 'Client/features/sharing';
-import { TagFilter } from 'Client/features/consultation/TagsFilter';
-import { Collapse } from 'Client/ui/Elements/Collapse';
-import {
-  HiddenOnMobileStyle,
-  HiddenOnDesktopStyle,
-} from 'Client/ui/Elements/HiddenElements';
-import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { SkipLink } from 'Client/app/Styled/MainElements';
-import { ConsultationProposal } from 'Client/features/consultation/Proposal';
-import {
-  ConsultationPageWrapperStyle,
-  ConsultationPageContentStyle,
-  ConsultationPageSidebarStyle,
-} from './Styled';
+import { MobileSharing } from 'Client/features/consultation/MobileSharing';
+import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
+import { TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
+import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
+import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
+import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
+import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
   selectedTagIds: string[],
+  consultationLink: string,
+  actionLink: string,
+  location: Location,
   handleSelectTag: () => void,
-  trackPresentationCollpase: (action: string) => void,
+  trackPresentationCollpase: () => void,
+  trackMoreLink: () => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
@@ -38,12 +33,21 @@ export const ConsultationPageComponent = (props: Props) => {
     questionConfiguration,
     question,
     selectedTagIds,
+    consultationLink,
+    actionLink,
+    location,
     handleSelectTag,
     trackPresentationCollpase,
+    trackMoreLink,
   } = props;
 
-  const { metas } = questionConfiguration.wording;
+  const isConsultationActive = !!matchPath(
+    location.pathname,
+    ROUTE_CONSULTATION
+  );
+  const isActionActive = !!matchPath(location.pathname, ROUTE_ACTION);
 
+  const { metas } = questionConfiguration.wording;
   return (
     <React.Fragment>
       <MetaTags
@@ -65,68 +69,50 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        {question.canPropose && (
-          <HiddenOnDesktopStyle>
-            <ConsultationProposal
-              question={question}
-              questionConfiguration={questionConfiguration}
-            />
-          </HiddenOnDesktopStyle>
-        )}
-        <ConsultationPageSidebarStyle
-          id="sidebar"
-          as="aside"
-          bottomAffix={questionConfiguration.isGreatCause}
-        >
-          <Collapse
-            title={i18n.t('consultation.presentation.title')}
-            forceExpand
-            trackCollapse={trackPresentationCollpase}
-            questionId={question.questionId}
-          >
-            <Presentation />
-          </Collapse>
-          {questionConfiguration.isGreatCause && (
-            <Collapse
-              title={i18n.t('consultation.partners.intro_title')}
-              forceExpand
-            >
-              <Partners
-                questionConfiguration={questionConfiguration}
-                question={question}
-              />
-            </Collapse>
-          )}
-          <HiddenOnMobileStyle>
-            <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-              <Sharing />
-            </TileWithTitle>
-          </HiddenOnMobileStyle>
-        </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle id="main">
-          {question.canPropose && (
-            <HiddenOnMobileStyle>
-              <ConsultationProposal
+        <ConsultationPageNav aria-label={i18n.t('consultation.tabs.label')}>
+          <TabListStyle>
+            <TabStyle selected={isConsultationActive}>
+              <Link to={consultationLink} aria-selected={isConsultationActive}>
+                <ConsultationTabContent question={question} />
+              </Link>
+            </TabStyle>
+
+            <TabStyle selected={isActionActive}>
+              <Link to={actionLink} aria-selected={isActionActive}>
+                {i18n.t('consultation.tabs.action')}
+              </Link>
+            </TabStyle>
+          </TabListStyle>
+        </ConsultationPageNav>
+        <Switch>
+          <Route
+            path={ROUTE_CONSULTATION}
+            exact
+            component={() => (
+              <ConsultationPanelContent
                 question={question}
                 questionConfiguration={questionConfiguration}
+                selectedTagIds={selectedTagIds}
+                handleSelectTag={handleSelectTag}
+                trackPresentationCollpase={trackPresentationCollpase}
               />
-            </HiddenOnMobileStyle>
-          )}
-          <ParticipateBanner
-            question={question}
-            questionConfiguration={questionConfiguration}
+            )}
           />
-          <TagFilter
-            question={question}
-            handleSelectTag={handleSelectTag}
-            selectedTagIds={selectedTagIds}
+          <Route
+            path={ROUTE_ACTION}
+            exact
+            component={() => (
+              <ActionsPanelContent
+                questionConfiguration={questionConfiguration}
+                trackMoreLink={trackMoreLink}
+              />
+            )}
           />
-          <InfiniteProposals question={question} tags={selectedTagIds} />
-        </ConsultationPageContentStyle>
-        <HiddenOnDesktopStyle>
-          <MobileSharing />
-        </HiddenOnDesktopStyle>
+        </Switch>
       </ConsultationPageWrapperStyle>
+      <HiddenOnDesktopStyle>
+        <MobileSharing />
+      </HiddenOnDesktopStyle>
     </React.Fragment>
   );
 };
