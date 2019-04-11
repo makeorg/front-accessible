@@ -4,6 +4,7 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
   matchRoute,
+  ROUTE_ACTION,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -32,6 +33,8 @@ export const getTrackingLocation = (pathname: string): string => {
   // "search_results"
   switch (true) {
     case matchRoute(pathname, ROUTE_CONSULTATION):
+      return `page-operation`;
+    case matchRoute(pathname, ROUTE_ACTION):
       return `page-operation`;
     case matchRoute(pathname, ROUTE_SEQUENCE):
       return `sequence`;
