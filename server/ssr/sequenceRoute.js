@@ -1,11 +1,13 @@
 import { createInitialState } from 'Shared/store/initialState';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
-import {
-  getQuestion,
-  getQuestionConfiguration,
-} from '../service/QuestionService';
+import { getQuestion } from '../service/QuestionService';
+
+async function getQuestionConfiguration(questionSlug) {
+  return SequenceService.fetchConfiguration(questionSlug);
+}
 
 export const sequenceRoute = async (req, res) => {
   let routeState = {};

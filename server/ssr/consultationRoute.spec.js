@@ -1,12 +1,10 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { consultationRoute } from './consultationRoute';
 import { reactRender } from '../reactRender';
 import { logError } from './helpers/ssr.helper';
-import {
-  getQuestionConfiguration,
-  getQuestion,
-} from '../service/QuestionService';
+import { getQuestion } from '../service/QuestionService';
 
 jest.mock('../service/QuestionService', () => ({
   getQuestionConfiguration: jest.fn(),
@@ -46,7 +44,7 @@ describe('Proposal route', () => {
   describe('The route', () => {
     it('construct route initial state and render', async () => {
       getQuestion.mockReturnValue(fooQuestion);
-      getQuestionConfiguration.mockReturnValue('questionconfigData');
+      SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
       createInitialState.mockReturnValue({ sequence: {}, proposal: {} });
 
       await consultationRoute(request, response, () => {});
@@ -64,7 +62,9 @@ describe('Proposal route', () => {
 
     it('throw an error', async () => {
       const error = new Error('fooError');
-      getQuestionConfiguration.mockRejectedValue(error);
+      SequenceService.fetchConfiguration.mockImplementation(() => {
+        throw error;
+      });
 
       await consultationRoute(request, response, () => {});
       expect(logError).toHaveBeenNthCalledWith(1, error);
