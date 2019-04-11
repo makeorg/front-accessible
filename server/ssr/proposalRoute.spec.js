@@ -1,11 +1,12 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
 import { ProposalService } from 'Shared/api/ProposalService';
-import { getQuestionConfiguration } from '../service/QuestionService';
+import { SequenceService } from 'Shared/api/SequenceService';
 import { proposalRoute } from './proposalRoute';
 import { reactRender } from '../reactRender';
 import { logError } from './helpers/ssr.helper';
 
+jest.mock('Shared/api/SequenceService');
 jest.mock('../service/QuestionService', () => ({
   getQuestionConfiguration: jest.fn(),
 }));
@@ -32,7 +33,7 @@ describe('Proposal route', () => {
     it('construct route initial state and render', async () => {
       const questionId = '1234';
       const proposalId = 'abcd';
-      getQuestionConfiguration.mockReturnValue('questionconfigData');
+      SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
       ProposalService.getProposal.mockReturnValue({ questionId, proposalId });
       createInitialState.mockReturnValue({ sequence: {} });
       const request = httpMocks.createRequest({
@@ -59,7 +60,7 @@ describe('Proposal route', () => {
 
     it('throw an error and redirect to 404', async () => {
       const error = new Error('fooError');
-      getQuestionConfiguration.mockImplementation(() => {
+      SequenceService.fetchConfiguration.mockImplementation(() => {
         throw error;
       });
 
