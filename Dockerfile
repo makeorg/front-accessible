@@ -10,7 +10,6 @@ COPY . ./
 RUN yarn build
 RUN yarn version:build
 RUN yarn styleguidist build
-RUN yarn update:i18n
 
 
 ENV PORT 8000

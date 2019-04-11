@@ -228,7 +228,8 @@
     "common": {
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",
-      "submit_success": "Votre demande a bien été prise en compte."
+      "submit_success": "Votre demande a bien été prise en compte.",
+      "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement."
     },
     "informations_update": {
       "title": "Modifier mon profil"
@@ -238,11 +239,19 @@
       "password_label": "Mot de passe actuel",
       "password_placeholder": "Mot de passe actuel (obligatoire)",
       "newpassword_label": "Nouveau mot de passe",
-      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)"
+      "newpassword_placeholder": "Nouveau mot de passe (obligatoire)",
+      "submit_label": "Enregistrer les modifications",
+      "wrong_password": "Le mot de passe actuel que vous avez indiqué est incorrect.",
+      "reset_password_cta": "Avez-vous oublié votre mot de passe?"
     },
     "newsletter_update": {
       "title": "Gérer mes emails",
       "optin_label": "J’accepte de recevoir des informations de Make.org (votre adresse ne sera en aucun cas diffusée à des tiers)"
+    },
+    "delete_account": {
+      "title": "Demander la suppression de mon compte",
+      "description": "Attention, cette action est irréversible. Vous perdrez vos propositions, leurs statistiques détaillées, ainsi que les propositions sur lesquelles vous vous êtes prononcé(e).",
+      "password_label": "Mot de passe (obligatoire)"
     }
   },
   "consultation": {
