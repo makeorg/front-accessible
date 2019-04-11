@@ -9,7 +9,7 @@ import { Tracking } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
-export const loginFailure = (error: string) => ({
+export const loginFailure = (error: Object) => ({
   type: actionTypes.LOGIN_FAILURE,
   error,
 });
@@ -60,7 +60,12 @@ export const login = (email: string, password: string) => (
       return dispatch(getUser());
     })
     .catch(() => {
-      dispatch(loginFailure(i18n.t('login.email_doesnot_exist')));
+      dispatch(
+        loginFailure({
+          field: 'email',
+          message: i18n.t('login.email_doesnot_exist'),
+        })
+      );
       Tracking.trackLoginEmailFailure();
     });
 };

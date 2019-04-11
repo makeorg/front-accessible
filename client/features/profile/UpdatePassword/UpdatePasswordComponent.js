@@ -9,6 +9,7 @@ import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 
 type Props = {
   /** Object of password values */
@@ -40,55 +41,57 @@ export const UpdatePasswordComponent = ({
   handleForgotPasswordModal,
 }: Props) => {
   return (
-    <form id={PASSWORD_UPDATE_FORMNAME} onSubmit={handleSubmit}>
-      {hasPassword && (
-        <React.Fragment>
-          <PasswordInput
-            label={i18n.t('profile.password_update.password_placeholder')}
-            name="actualPassword"
-            id="actualPassword"
-            icon={PasswordFieldIcon}
-            value={passwords.actualPassword}
-            errors={errors.actualPassword}
-            handleChange={handleChange}
-          />
-          {errors.actualPassword && (
-            <React.Fragment>
-              {i18n.t('profile.password_update.wrong_password')}
-              <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
-                {i18n.t('profile.password_update.reset_password_cta')}
-              </RedLinkButtonStyle>
-            </React.Fragment>
-          )}
-        </React.Fragment>
-      )}
-      {errors.newPassword && (
-        <ErrorMessageStyle id="update-password-newPassword-error">
-          {errors.newPassword}
-        </ErrorMessageStyle>
-      )}
-      <PasswordInput
-        label={i18n.t('profile.password_update.newpassword_placeholder')}
-        name="newPassword"
-        id="newPassword"
-        icon={PasswordFieldIcon}
-        value={passwords.newPassword}
-        errors={errors.newPassword}
-        handleChange={handleChange}
-      />
-      {submitDone && (
-        <SuccessMessageStyle>
-          {i18n.t('profile.common.submit_success')}
-        </SuccessMessageStyle>
-      )}
-      <SubmitButtonWrapperStyle>
-        <SubmitButton
-          disabled={!formIsValid}
-          formName={PASSWORD_UPDATE_FORMNAME}
-          icon={SubmitSaveIcon}
-          label={i18n.t('profile.common.submit_label')}
+    <TileWithTitle title={i18n.t('profile.password_update.title')}>
+      <form id={PASSWORD_UPDATE_FORMNAME} onSubmit={handleSubmit}>
+        {hasPassword && (
+          <React.Fragment>
+            <PasswordInput
+              label={i18n.t('profile.password_update.password_placeholder')}
+              name="actualPassword"
+              id="actualPassword"
+              icon={PasswordFieldIcon}
+              value={passwords.actualPassword}
+              errors={errors.actualPassword}
+              handleChange={handleChange}
+            />
+            {errors.actualPassword && (
+              <React.Fragment>
+                {i18n.t('profile.password_update.wrong_password')}
+                <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
+                  {i18n.t('profile.password_update.reset_password_cta')}
+                </RedLinkButtonStyle>
+              </React.Fragment>
+            )}
+          </React.Fragment>
+        )}
+        {errors.newPassword && (
+          <ErrorMessageStyle id="update-password-newPassword-error">
+            {errors.newPassword}
+          </ErrorMessageStyle>
+        )}
+        <PasswordInput
+          label={i18n.t('profile.password_update.newpassword_placeholder')}
+          name="newPassword"
+          id="newPassword"
+          icon={PasswordFieldIcon}
+          value={passwords.newPassword}
+          errors={errors.newPassword}
+          handleChange={handleChange}
         />
-      </SubmitButtonWrapperStyle>
-    </form>
+        {submitDone && (
+          <SuccessMessageStyle>
+            {i18n.t('profile.common.submit_success')}
+          </SuccessMessageStyle>
+        )}
+        <SubmitButtonWrapperStyle>
+          <SubmitButton
+            disabled={!formIsValid}
+            formName={PASSWORD_UPDATE_FORMNAME}
+            icon={SubmitSaveIcon}
+            label={i18n.t('profile.common.submit_label')}
+          />
+        </SubmitButtonWrapperStyle>
+      </form>
+    </TileWithTitle>
   );
 };

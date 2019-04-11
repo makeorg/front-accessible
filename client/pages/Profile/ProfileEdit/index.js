@@ -9,6 +9,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { logout } from 'Shared/store/actions/authentification';
+import { DeleteAccount } from 'Client/features/profile/DeleteAccount';
 import {
   ProfileWrapperStyle,
   ProfileHeaderStyle,
@@ -36,6 +37,7 @@ const ProfileEdit = props => {
           <UpdateInformations user={user} />
           <UpdateNewsletter profile={user.profile} />
           <UpdatePassword userId={user.userId} hasPassword={user.hasPassword} />
+          <DeleteAccount userId={user.userId} handleLogout={handleLogout} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
     </ProfileWrapperStyle>

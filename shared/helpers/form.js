@@ -16,7 +16,7 @@ export const errorTranslation = (apiError: string) => {
   return translatedError;
 };
 
-export const fieldErrors = (field: string, errors: Array<ErrorObject>) => {
+export const fieldErrors = (field: string, errors: ErrorObject[]) => {
   if (errors.length === 0) {
     return null;
   }

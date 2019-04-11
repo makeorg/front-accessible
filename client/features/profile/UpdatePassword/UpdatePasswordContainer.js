@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { i18n } from 'Shared/i18n';
 import { type Passwords, type PasswordsErrors } from 'Shared/types/user';
 import { getUser } from 'Shared/store/actions/authentification';
@@ -133,18 +132,16 @@ class UpdatePasswordHandler extends Component<Props, State> {
     const { passwords, errors, formIsValid, submitDone } = this.state;
 
     return (
-      <TileWithTitle title={i18n.t('profile.password_update.title')}>
-        <UpdatePasswordComponent
-          passwords={passwords}
-          errors={errors}
-          hasPassword={hasPassword}
-          formIsValid={formIsValid}
-          submitDone={submitDone}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleForgotPasswordModal={handleForgotPasswordModal}
-        />
-      </TileWithTitle>
+      <UpdatePasswordComponent
+        passwords={passwords}
+        errors={errors}
+        hasPassword={hasPassword}
+        formIsValid={formIsValid}
+        submitDone={submitDone}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        handleForgotPasswordModal={handleForgotPasswordModal}
+      />
     );
   }
 }

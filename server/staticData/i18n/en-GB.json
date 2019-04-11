@@ -23,7 +23,8 @@
       "Password must be at least 8 characters": "Your password must contain at least 8 characters.",
       "email_already_exist": "This e-mail address is already registered.",
       "api_error": "Oops! We’re having difficulty loading this page. Please try again later.",
-      "required_field": "Please fill in this field."
+      "required_field": "Please fill in this field.",
+      "incorrect_password": "incorrect Password"
     },
     "from": "on",
     "email": "E-mail",

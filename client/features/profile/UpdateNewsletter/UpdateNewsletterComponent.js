@@ -7,6 +7,7 @@ import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 
 type Props = {
   /** Boolean of optin check */
@@ -29,30 +30,34 @@ export const UpdateNewsletterComponent = ({
   handleSubmit,
 }: Props) => {
   return (
-    <form id={NEWSLETTER_UPDATE_FORMNAME} onSubmit={handleSubmit}>
-      <CheckBox
-        id="optInNewsletter"
-        name="optInNewsletter"
-        value="newsletter"
-        handleCheck={handleCheck}
-        label={i18n.t('profile.newsletter_update.optin_label')}
-        isChecked={optInNewsletter}
-      />
-      {submitDone && (
-        <SuccessMessageStyle>
-          {i18n.t('profile.common.submit_success')}
-        </SuccessMessageStyle>
-      )}
-      {submitError && (
-        <ErrorMessageStyle>{i18n.t('common.form.api_error')}</ErrorMessageStyle>
-      )}
-      <SubmitButtonWrapperStyle>
-        <SubmitButton
-          formName={NEWSLETTER_UPDATE_FORMNAME}
-          icon={SubmitSaveIcon}
-          label={i18n.t('profile.common.submit_label')}
+    <TileWithTitle title={i18n.t('profile.newsletter_update.title')}>
+      <form id={NEWSLETTER_UPDATE_FORMNAME} onSubmit={handleSubmit}>
+        <CheckBox
+          id="optInNewsletter"
+          name="optInNewsletter"
+          value="newsletter"
+          handleCheck={handleCheck}
+          label={i18n.t('profile.newsletter_update.optin_label')}
+          isChecked={optInNewsletter}
         />
-      </SubmitButtonWrapperStyle>
-    </form>
+        {submitDone && (
+          <SuccessMessageStyle>
+            {i18n.t('profile.common.submit_success')}
+          </SuccessMessageStyle>
+        )}
+        {submitError && (
+          <ErrorMessageStyle>
+            {i18n.t('common.form.api_error')}
+          </ErrorMessageStyle>
+        )}
+        <SubmitButtonWrapperStyle>
+          <SubmitButton
+            formName={NEWSLETTER_UPDATE_FORMNAME}
+            icon={SubmitSaveIcon}
+            label={i18n.t('profile.common.submit_label')}
+          />
+        </SubmitButtonWrapperStyle>
+      </form>
+    </TileWithTitle>
   );
 };
