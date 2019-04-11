@@ -35,7 +35,7 @@ export const getTrackingLocation = (pathname: string): string => {
     case matchRoute(pathname, ROUTE_CONSULTATION):
       return `page-operation`;
     case matchRoute(pathname, ROUTE_ACTION):
-      return `page-operation`;
+      return `page-action`;
     case matchRoute(pathname, ROUTE_SEQUENCE):
       return `sequence`;
     case matchRoute(pathname, ROUTE_PROPOSAL):

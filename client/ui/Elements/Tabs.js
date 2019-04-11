@@ -34,7 +34,7 @@ const TabStyle = styled.li`
   text-transform: uppercase;
   font-family: ${MakeFonts.RobotoCondensedBold};
   background-color: ${props =>
-    props.selected ? BackgroundColors.LightGrey : BackgroundColors.MediumGrey};
+    props.selected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
   border-top: ${props =>
     props.selected
       ? `4px solid ${BasicColors.PureBlack}`
