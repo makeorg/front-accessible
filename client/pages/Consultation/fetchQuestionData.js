@@ -2,7 +2,7 @@
 import React, { type Node } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { match as TypeMatch } from 'react-router';
+import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type QuestionConfiguration } from 'Shared/types/sequence';

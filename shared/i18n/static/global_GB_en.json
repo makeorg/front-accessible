@@ -42,7 +42,8 @@
     "display_tooltip": "Display the content of the tooltip",
     "hide_tooltip": "Hide the content of the tooltip",
     "expand_collapse": "Display the content of the collapse section",
-    "shrink_collapse": "Hide the content of the collapse section"
+    "shrink_collapse": "Hide the content of the collapse section",
+    "secondary_nav": "Secondary navigation"
   },
   "skip_links": {
     "intro": "Skip to presentation banner",
@@ -225,6 +226,9 @@
     }
   },
   "profile": {
+    "tabs": {
+      "manage_account": "Manage my account"
+    },
     "common": {
       "age": "{{age}} years",
       "submit_label": "Save changes",

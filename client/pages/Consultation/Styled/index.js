@@ -60,7 +60,3 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
         : `top: ${DesktopOffset} ; align-self: flex-start`};
   }
 `;
-
-export const ConsultationPageNav = styled.nav`
-  width: 100%;
-`;

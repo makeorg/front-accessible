@@ -9,13 +9,17 @@ import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
-import { TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
+import {
+  TabNavStyle,
+  TabListStyle,
+  FullWidthTabStyle,
+} from 'Client/ui/Elements/Tabs';
 import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
-import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
+import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
@@ -64,23 +68,23 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <ConsultationPageNav aria-label={i18n.t('consultation.tabs.label')}>
+        <TabNavStyle aria-label={i18n.t('consultation.tabs.label')}>
           <TabListStyle>
-            <TabStyle selected={isConsultationPage}>
+            <FullWidthTabStyle selected={isConsultationPage}>
               <Link to={consultationLink} aria-selected={isConsultationPage}>
                 <ConsultationTabContent question={question} />
               </Link>
-            </TabStyle>
+            </FullWidthTabStyle>
 
             {questionConfiguration.isGreatCause && (
-              <TabStyle selected={isActionPage}>
+              <FullWidthTabStyle selected={isActionPage}>
                 <Link to={actionLink} aria-selected={isActionPage}>
                   {i18n.t('consultation.tabs.action')}
                 </Link>
-              </TabStyle>
+              </FullWidthTabStyle>
             )}
           </TabListStyle>
-        </ConsultationPageNav>
+        </TabNavStyle>
         <ConsultationPanelInnerStyle>
           <Switch>
             <Route

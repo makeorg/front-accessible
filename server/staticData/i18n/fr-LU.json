@@ -41,7 +41,8 @@
     "display_tooltip": "Afficher le contenu de l'infobulle",
     "hide_tooltip": "Masquer le contenu de l'infobulle",
     "expand_collapse": "Afficher le contenu de la section déroulante",
-    "shrink_collapse": "Masquer le contenu de la section déroulante"
+    "shrink_collapse": "Masquer le contenu de la section déroulante",
+    "secondary_nav": "Navigation secondaire"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"
@@ -221,6 +222,9 @@
     "description": "La page que vous avez demandé n’existe pas ou plus."
   },
   "profile": {
+    "tabs": {
+      "manage_account": "Gérer mon compte"
+    },
     "common": {
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",

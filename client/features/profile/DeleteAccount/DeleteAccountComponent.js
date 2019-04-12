@@ -1,13 +1,14 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { PROFILE_DELETE_ACCOUNT_FORMNAME } from 'Shared/constants/form';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { FormParagraphStyle } from '../Styled/Forms';
 
 type Props = {
   password: string,
@@ -30,9 +31,9 @@ export const DeleteAccountComponent = ({
   return (
     <TileWithTitle title={i18n.t('profile.delete_account.title')}>
       <form id={PROFILE_DELETE_ACCOUNT_FORMNAME} onSubmit={handleSubmit}>
-        <ParagraphStyle>
+        <FormParagraphStyle>
           {i18n.t('profile.delete_account.description')}
-        </ParagraphStyle>
+        </FormParagraphStyle>
         <PasswordInput
           label={i18n.t('profile.delete_account.password_label')}
           name="password"
@@ -52,12 +53,14 @@ export const DeleteAccountComponent = ({
             {i18n.t('common.form.incorrect_password')}
           </ErrorMessageStyle>
         )}
-        <SubmitButton
-          disabled={!formIsValid}
-          formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
-          icon={SubmitThumbsUpIcon}
-          label={i18n.t('profile.common.submit_label')}
-        />
+        <SubmitButtonWrapperStyle>
+          <SubmitButton
+            disabled={!formIsValid}
+            formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
+            icon={SubmitThumbsUpIcon}
+            label={i18n.t('profile.common.submit_label')}
+          />
+        </SubmitButtonWrapperStyle>
       </form>
     </TileWithTitle>
   );

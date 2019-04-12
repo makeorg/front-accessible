@@ -44,7 +44,8 @@
     "display_tooltip": "Afficher le contenu de l'infobulle",
     "hide_tooltip": "Masquer le contenu de l'infobulle",
     "expand_collapse": "Afficher le contenu de la section déroulante",
-    "shrink_collapse": "Masquer le contenu de la section déroulante"
+    "shrink_collapse": "Masquer le contenu de la section déroulante",
+    "secondary_nav": "Navigation secondaire"
   },
   "skip_links": {
     "intro": "Aller à la bannière de présentation",
@@ -227,6 +228,9 @@
     }
   },
   "profile": {
+    "tabs": {
+      "manage_account": "Gérer mon compte"
+    },
     "common": {
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",

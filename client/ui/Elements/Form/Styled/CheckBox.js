@@ -19,15 +19,16 @@ export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.RobotoRegular};
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 16px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 18px;
   }
 `;
 
-export const FakeCheckboxInputStyle = styled.span`
+export const FakeCheckboxInputStyle = styled.div`
+  display: inline-flex;
   position: relative;
   width: 14px;
   height: 14px;
