@@ -18,6 +18,8 @@
       "postalcode_label": "Postcode (optional)",
       "profession_label": "Profession (optional)",
       "biography_label": "Biography (optional)",
+      "hide_password": "Hide password",
+      "show_password": "Show password",
       "email is not a valid email": "Invalid e-mail format",
       "Password must be at least 8 characters": "Your password must contain at least 8 characters.",
       "email_already_exist": "This e-mail address is already registered.",
@@ -248,8 +250,7 @@
       "action": " Actions ",
       "from": " from ",
       "to": " to ",
-      "datefrom": " from ",
-      "label": "Menu of the Consultation page"
+      "datefrom": " from "
     },
     "presentation": {
       "title": "Why this consultation ?",
