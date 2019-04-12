@@ -1,4 +1,5 @@
 import React from 'react';
+import { i18n } from 'Shared/i18n';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -21,9 +22,12 @@ export const IntroBannerComponent = (props: Props) => {
       aria-labelledby="header_consultation_title"
       id="intro"
     >
-      {consultation.label && <IntroLabel>{consultation.label}</IntroLabel>}
+      {questionConfiguration.isGreatCause && (
+        <IntroLabel>{i18n.t('consultation.header.label')}</IntroLabel>
+      )}
       <HiddenItemStyle id="header_consultation_title">
-        {consultation.label && `${consultation.label}: `}
+        {consultation.isGreatCause &&
+          `${i18n.t('consultation.header.label')}: `}
         {question.question}
       </HiddenItemStyle>
       <h2>

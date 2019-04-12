@@ -14,6 +14,7 @@ import { ConsultationPanelContent } from 'Client/features/consultation/TabsConte
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
 
 type Props = {
@@ -79,38 +80,44 @@ export const ConsultationPageComponent = (props: Props) => {
               </Link>
             </TabStyle>
 
-            <TabStyle selected={isActionActive}>
-              <Link to={actionLink} aria-selected={isActionActive}>
-                {i18n.t('consultation.tabs.action')}
-              </Link>
-            </TabStyle>
+            {questionConfiguration.isGreatCause && (
+              <TabStyle selected={isActionActive}>
+                <Link to={actionLink} aria-selected={isActionActive}>
+                  {i18n.t('consultation.tabs.action')}
+                </Link>
+              </TabStyle>
+            )}
           </TabListStyle>
         </ConsultationPageNav>
-        <Switch>
-          <Route
-            path={ROUTE_CONSULTATION}
-            exact
-            component={() => (
-              <ConsultationPanelContent
-                question={question}
-                questionConfiguration={questionConfiguration}
-                selectedTagIds={selectedTagIds}
-                handleSelectTag={handleSelectTag}
-                trackPresentationCollpase={trackPresentationCollpase}
+        <ConsultationPanelInnerStyle>
+          <Switch>
+            <Route
+              path={ROUTE_CONSULTATION}
+              exact
+              component={() => (
+                <ConsultationPanelContent
+                  question={question}
+                  questionConfiguration={questionConfiguration}
+                  selectedTagIds={selectedTagIds}
+                  handleSelectTag={handleSelectTag}
+                  trackPresentationCollpase={trackPresentationCollpase}
+                />
+              )}
+            />
+            {questionConfiguration.isGreatCause && (
+              <Route
+                path={ROUTE_ACTION}
+                exact
+                component={() => (
+                  <ActionsPanelContent
+                    questionConfiguration={questionConfiguration}
+                    trackMoreLink={trackMoreLink}
+                  />
+                )}
               />
             )}
-          />
-          <Route
-            path={ROUTE_ACTION}
-            exact
-            component={() => (
-              <ActionsPanelContent
-                questionConfiguration={questionConfiguration}
-                trackMoreLink={trackMoreLink}
-              />
-            )}
-          />
-        </Switch>
+          </Switch>
+        </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       <HiddenOnDesktopStyle>
         <MobileSharing />
