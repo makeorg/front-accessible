@@ -8,7 +8,7 @@ Snapshot Diff:
 @@ -8,15 +8,15 @@
     </CenterInputIconStyle>
     <div
-      className="sc-8buptu-4 cVVWpd"
+      className="sc-8buptu-4 faOwvH"
     >
       <BasicInputStyle
 -       aria-required={true}
@@ -22,5 +22,5 @@ Snapshot Diff:
         value="baz"
       />
       <label
-        className="sc-8buptu-9 foXlmg"
+        className="sc-8buptu-9 bGRyeO"
 `;

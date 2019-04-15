@@ -1,18 +1,18 @@
 import styled from 'styled-components';
+import TextareaAutosize from 'react-autosize-textarea';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const BasicTextAreaStyle = styled.textarea`
+export const BasicTextAreaStyle = styled(TextareaAutosize)`
   width: 100%;
   border: none;
   background: transparent;
   background-color: transparent;
   font-family: ${MakeFonts.RobotoBold};
   color: ${TextColors.DarkGrey};
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
-  padding: 15px 5px 20px;
-  height: 125px;
+  padding: 10px 5px;
   resize: none;
 `;
 

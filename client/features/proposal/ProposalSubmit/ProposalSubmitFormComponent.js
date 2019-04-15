@@ -1,5 +1,4 @@
 /* @flow */
-
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -9,7 +8,7 @@ import {
   ProposalSubmitFormStyle,
   ProposalInputWrapperStyle,
   ProposalLabelStyle,
-  ProposalInputStyle,
+  ProposalTextareaStyle,
   ProposalButtonWrapperStyle,
   ProposalCharLimitStyle,
 } from './Styled';
@@ -24,11 +23,12 @@ type Props = {
   /** Boolean toggled when user is typing a proposal */
   isOpen: boolean,
   /** Method called when field's value changes */
-  handleOnChange: (SyntheticEvent<*>) => void,
+  handleOnChange: (SyntheticEvent<HTMLTextAreaElement>) => void,
   /** Method called when field is focused */
   handleOnFocus: () => void,
   /** Method called when field's value is submitted */
-  handleOnSubmit: (SyntheticEvent<*>) => void,
+  handleOnSubmit: (SyntheticEvent<HTMLTextAreaElement>) => void,
+  handleOnKeydown: (SyntheticKeyboardEvent<HTMLTextAreaElement>) => void,
 };
 /**
  * Render the Proposal Field
@@ -42,6 +42,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
     handleOnChange,
     handleOnFocus,
     handleOnSubmit,
+    handleOnKeydown,
   } = props;
 
   const inputMaxLength: number = MAX_PROPOSAL_LENGTH - getBaitText().length;
@@ -55,8 +56,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         <ProposalLabelStyle htmlFor="proposal">
           {getBaitText()}
         </ProposalLabelStyle>
-        <ProposalInputStyle
-          as="textarea"
+        <ProposalTextareaStyle
           name="proposal"
           id="proposal"
           value={content}
@@ -65,9 +65,12 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           autoCapitalize="none"
           autoComplete="off"
           placeholder="..."
+          rows={1}
+          maxRows={10}
           spellCheck
           maxLength={inputMaxLength}
-          isOpen={isOpen}
+          onKeyDown={handleOnKeydown}
+          async
         />
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>

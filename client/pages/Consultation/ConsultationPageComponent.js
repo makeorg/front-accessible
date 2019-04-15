@@ -6,14 +6,14 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { SkipLink } from 'Client/app/Styled/MainElements';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { SkipLink } from 'Client/app/Styled/MainElements';
 import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
 import { TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
+import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
 
 type Props = {
@@ -26,6 +26,7 @@ type Props = {
   handleSelectTag: () => void,
   trackPresentationCollpase: () => void,
   trackMoreLink: () => void,
+  trackPresentationCollpase: (action: string) => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
@@ -48,6 +49,7 @@ export const ConsultationPageComponent = (props: Props) => {
   const isActionActive = !!matchPath(location.pathname, ROUTE_ACTION);
 
   const { metas } = questionConfiguration.wording;
+
   return (
     <React.Fragment>
       <MetaTags

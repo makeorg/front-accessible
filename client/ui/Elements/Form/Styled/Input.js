@@ -12,7 +12,7 @@ export const BasicInputStyle = styled(NoStyleTextInputStyle)`
   width: 100%;
   font-family: ${MakeFonts.RobotoBold};
   color: ${TextColors.DarkGrey};
-  font-size: 14px;
+  font-size: 16px;
   line-height: 38px;
   padding: 0 5px;
 `;

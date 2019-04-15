@@ -6,7 +6,7 @@ import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
   ProposalLabelStyle,
-  ProposalInputStyle,
+  ProposalTextareaStyle,
   ProposalCharLimitStyle,
 } from './Styled';
 
@@ -26,13 +26,15 @@ describe('ProposalSubmitFormComponent', () => {
     expect(wrapper.find(ProposalSubmitFormStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalLabelStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
-    expect(wrapper.find(ProposalInputStyle)).toHaveLength(1);
-    expect(wrapper.find(ProposalInputStyle).prop('autoCapitalize')).toBe(
+    expect(wrapper.find(ProposalTextareaStyle)).toHaveLength(1);
+    expect(wrapper.find(ProposalTextareaStyle).prop('autoCapitalize')).toBe(
       'none'
     );
-    expect(wrapper.find(ProposalInputStyle).prop('autoComplete')).toBe('off');
-    expect(wrapper.find(ProposalInputStyle).prop('spellCheck')).toBe(true);
-    expect(wrapper.find(ProposalInputStyle).prop('maxLength')).toBe(
+    expect(wrapper.find(ProposalTextareaStyle).prop('autoComplete')).toBe(
+      'off'
+    );
+    expect(wrapper.find(ProposalTextareaStyle).prop('spellCheck')).toBe(true);
+    expect(wrapper.find(ProposalTextareaStyle).prop('maxLength')).toBe(
       35 - 'should'.length
     );
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
