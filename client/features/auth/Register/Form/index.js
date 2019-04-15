@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
+import { CGU_LINK } from 'Shared/constants/url';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import {
   ErrorMessageStyle,
@@ -14,7 +15,7 @@ import {
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
-import * as Helpers from 'Shared/helpers/url';
+import * as UrlHelpers from 'Shared/helpers/url';
 import { REGISTER_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import {
@@ -28,34 +29,30 @@ import {
 } from 'Shared/constants/icons';
 
 type Props = {
-  /** type UserObject = {
-    email: string,
-    password: string,
-    firstname: string,
-    age: string,
-    postalcode: string,
-    profession: string
-  } */
+  /** User form data */
   user: UserObject,
+  /** Current country */
+  country: string,
+  /** Current language */
+  language: string,
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
 };
 
 /**
  * Renders Register Form
  */
 export const RegisterFormComponent = (props: Props) => {
-  const { user, errors, handleChange, handleSubmit } = props;
+  const { country, language, user, errors, handleChange, handleSubmit } = props;
 
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
   const firstnameError = fieldErrors('firstname', errors);
   const globalError = fieldErrors('global', errors);
-  const cguLink = Helpers.localizeCguLink();
 
   return (
     <FormStyle id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
@@ -132,7 +129,11 @@ export const RegisterFormComponent = (props: Props) => {
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
           __html: i18n.t('register.cgu_text', {
-            cgu_link: `<a class="red_link" target="_blank" href="${cguLink}">$t(register.cgu)</a>`, // eslint-disable-line max-len
+            cgu_link: `<a class="red_link" target="_blank" href="${UrlHelpers.localizeExternal(
+              CGU_LINK,
+              country,
+              language
+            )}">$t(register.cgu)</a>`, // eslint-disable-line max-len
             interpolation: { escapeValue: false },
           }),
         }}

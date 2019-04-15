@@ -53,9 +53,9 @@ export const SingleProposalCardComponent = (props: Props) => {
             dangerouslySetInnerHTML={{
               __html: i18n.t('proposal_page.footer_text', {
                 operation_name: `<a href="${getConsultationLink(
-                  questionSlug,
                   proposal.country,
-                  proposal.language
+                  proposal.language,
+                  questionSlug
                 )}">${questionConfiguration.wording.title}</a>`,
               }),
             }}
@@ -65,9 +65,9 @@ export const SingleProposalCardComponent = (props: Props) => {
             <ButtonStyle
               as={Link}
               to={getSequenceLink(
-                questionSlug,
                 proposal.country,
-                proposal.language
+                proposal.language,
+                questionSlug
               )}
             >
               {i18n.t('proposal_page.button_1')}
@@ -75,9 +75,9 @@ export const SingleProposalCardComponent = (props: Props) => {
             <ButtonStyle
               as={Link}
               to={getConsultationLink(
-                questionSlug,
                 proposal.country,
-                proposal.language
+                proposal.language,
+                questionSlug
               )}
             >
               {i18n.t('proposal_page.button_2')}

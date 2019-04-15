@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
-import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
+import { getActionLink, getConsultationLink } from 'Shared/helpers/url';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
@@ -37,26 +37,19 @@ class ConsultationPage extends React.Component<Props, State> {
     });
   };
 
-  trackPresentationCollpase = (action: string) => {
-    Tracking.trackOpenLearnMore(action);
-  };
-
-  trackMoreLink = () => {
-    Tracking.trackSeeMorePartners();
-  };
-
   render() {
-    const { question, questionConfiguration, match, location } = this.props;
-    const { countryLanguage } = match.params;
+    const { question, questionConfiguration, location } = this.props;
     const { selectedTagIds } = this.state;
-    const consultationLink = ROUTE_CONSULTATION.replace(
-      ':countryLanguage',
-      countryLanguage
-    ).replace(':questionSlug', question.slug);
-    const actionLink = ROUTE_ACTION.replace(
-      ':countryLanguage',
-      countryLanguage
-    ).replace(':questionSlug', question.slug);
+    const consultationLink = getConsultationLink(
+      question.country,
+      question.language,
+      question.slug
+    );
+    const actionLink = getActionLink(
+      question.country,
+      question.language,
+      question.slug
+    );
 
     return (
       <ConsultationPageComponent
@@ -67,8 +60,6 @@ class ConsultationPage extends React.Component<Props, State> {
         actionLink={actionLink}
         location={location}
         handleSelectTag={this.handleSelectTag}
-        trackPresentationCollpase={this.trackPresentationCollpase}
-        trackMoreLink={this.trackMoreLink}
       />
     );
   }

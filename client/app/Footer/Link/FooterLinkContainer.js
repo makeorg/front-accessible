@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { FooterLinkComponent } from './LinkComponent';
+import { FooterLinkComponent } from './FooterLinkComponent';
 
 type Props = {
   /** String with Language value */
@@ -13,11 +13,10 @@ type Props = {
 /**
  * Handles Main Footer Business Logic
  */
-class FooterLink extends React.Component<Props> {
-  render() {
-    return <FooterLinkComponent {...this.props} />;
-  }
-}
+const FooterLink = (props: Props) => {
+  const { country, language } = props;
+  return <FooterLinkComponent country={country} language={language} />;
+};
 
 const mapStateToProps = state => {
   const { language, country } = state.appConfig;

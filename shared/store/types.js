@@ -2,6 +2,14 @@
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 
+// Config State
+export type StateConfig = $ReadOnly<{
+  source: string,
+  language: string,
+  country: string,
+  translations: Object,
+}>;
+
 // Proposal State
 export type StateProposal = $ReadOnly<{
   hasProposed: boolean,
@@ -71,6 +79,7 @@ export type StateModal = $ReadOnly<{
 
 // All state
 export type StateRoot = $ReadOnly<{
+  appConfig: StateConfig,
   proposal: StateProposal,
   sequence: StateSequence,
   notification: StateNotification,

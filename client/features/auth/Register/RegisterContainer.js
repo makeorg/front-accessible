@@ -7,11 +7,16 @@ import { connect } from 'react-redux';
 import { register } from 'Shared/store/actions/registration';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { selectRegistration } from 'Shared/store/selectors/user.selector';
+import { selectConfig } from 'Shared/store/selectors/config.selector';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
+  /** Current country */
+  country: string,
+  /** Current language */
+  language: string,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
   /** Method called to render Register Component in Modal */
@@ -19,6 +24,7 @@ type Props = {
 };
 
 type State = {
+  /** User form data */
   user: UserObject,
 };
 
@@ -67,10 +73,22 @@ class RegisterHandler extends React.Component<Props, State> {
   };
 
   render() {
+    const {
+      errors,
+      country,
+      language,
+      handleLoginModal,
+      handleRegister,
+    } = this.props;
+    const { user } = this.state;
     return (
       <RegisterComponent
-        {...this.props}
-        {...this.state}
+        country={country}
+        language={language}
+        errors={errors}
+        user={user}
+        handleLoginModal={handleLoginModal}
+        handleRegister={handleRegister}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
       />
@@ -80,8 +98,9 @@ class RegisterHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { errors } = selectRegistration(state);
+  const { country, language } = selectConfig(state);
 
-  return { errors };
+  return { errors, country, language };
 };
 
 const mapDispatchToProps = dispatch => ({

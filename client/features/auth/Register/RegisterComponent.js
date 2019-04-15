@@ -15,21 +15,18 @@ import { RegisterFormComponent } from './Form';
 import { RegisterStyle } from './Styled';
 
 type Props = {
-  /** type userObject = {
-    email: string,
-    password: string,
-    firstname: string,
-    age: string,
-    postalcode: string,
-    profession: string
-  } */
+  /** Current country */
+  country: string,
+  /** Current language */
+  language: string,
+  /** User form data */
   user: UserObject,
   /** Array with form errors */
   errors: Array<ErrorObject>,
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
 };
@@ -38,7 +35,15 @@ type Props = {
  * Renders Register component
  */
 export const RegisterComponent = (props: Props) => {
-  const { handleLoginModal } = props;
+  const {
+    country,
+    language,
+    user,
+    errors,
+    handleChange,
+    handleSubmit,
+    handleLoginModal,
+  } = props;
 
   return (
     <RegisterStyle role="region" aria-labelledby="register_title">
@@ -61,7 +66,14 @@ export const RegisterComponent = (props: Props) => {
         <Separators.Large />
       </Separators.Wrapper>
       <ThirdLevelTitleStyle>{i18n.t('register.subtitle')}</ThirdLevelTitleStyle>
-      <RegisterFormComponent {...props} />
+      <RegisterFormComponent
+        country={country}
+        language={language}
+        user={user}
+        errors={errors}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
       <ExtraParagraphStyle>
         {i18n.t('register.login_title')}
         <RedLinkButtonStyle onClick={handleLoginModal}>

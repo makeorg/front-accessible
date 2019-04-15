@@ -2,7 +2,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withCookies, Cookies } from 'react-cookie';
-import * as Helpers from 'Shared/helpers/url';
+import * as UrlHelpers from 'Shared/helpers/url';
+import { CGU_LINK, DATA_POLICY_LINK } from 'Shared/constants/url';
 import { CookieBannerComponent } from './CookieBannerComponent';
 
 type Props = {
@@ -42,13 +43,15 @@ export class CookieBanner extends React.Component<Props, State> {
       return null;
     }
     const { country, language } = this.props;
-    const cguLink = Helpers.localizeCguLink(country, language);
-    const policyLink = Helpers.localizeDataPolicyLink(country, language);
 
     return (
       <CookieBannerComponent
-        cguLink={cguLink}
-        policyLink={policyLink}
+        cguLink={UrlHelpers.localizeExternal(CGU_LINK, country, language)}
+        policyLink={UrlHelpers.localizeExternal(
+          DATA_POLICY_LINK,
+          country,
+          language
+        )}
         handleClose={this.handleClose}
       />
     );
