@@ -14,12 +14,17 @@ import { UpdateInformationsComponent } from './UpdateInformationsComponent';
 type Props = {
   user: User,
 };
+
 type State = {
   submitDone: boolean,
   submitError: boolean,
+  formIsValid: boolean,
   values: UserInformationForm,
   errors: UserInformationFormErrors,
 };
+
+const checkFormIsValid = (errors: UserInformationFormErrors) =>
+  Object.values(errors).reduce((sum, next) => sum && !next, true);
 
 const validateForm = ({ firstName, age }) => {
   return {
@@ -40,6 +45,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
     this.state = {
       submitDone: false,
       submitError: false,
+      formIsValid: false,
       values: {
         firstName: props.user.firstName || '',
         age: getAgeFromDateOfBrth(props.user.profile.dateOfBirth) || '',
@@ -60,12 +66,19 @@ class UpdateInformationsHandler extends Component<Props, State> {
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    const { values } = this.state;
-    this.setState({
-      values: {
-        ...values,
+    this.setState(prevState => {
+      const values = {
+        ...prevState.values,
         [name]: value,
-      },
+      };
+
+      const errors = validateForm(values);
+      const formIsValid = checkFormIsValid(errors);
+
+      return {
+        values,
+        formIsValid,
+      };
     });
   };
 
@@ -75,19 +88,17 @@ class UpdateInformationsHandler extends Component<Props, State> {
     const { values } = this.state;
 
     const errors = validateForm(values);
+    const formIsValid = checkFormIsValid(errors);
+
     this.setState(prevState => ({
       ...prevState,
       isDone: false,
+      formIsValid,
       errors: {
         ...prevState.errors,
         ...errors,
       },
     }));
-
-    const formIsValid = Object.values(errors).reduce(
-      (sum, next) => sum && !next,
-      true
-    );
 
     if (formIsValid) {
       const { handleGetUser } = this.props;
@@ -102,7 +113,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
   };
 
   render() {
-    const { values, errors, submitDone, submitError } = this.state;
+    const { values, errors, submitDone, submitError, formIsValid } = this.state;
     return (
       <UpdateInformationsComponent
         values={values}
@@ -111,6 +122,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
         submitError={submitError}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        formIsValid={formIsValid}
       />
     );
   }

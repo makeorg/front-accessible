@@ -6,7 +6,9 @@ import { UpdateNewsletterComponent } from './UpdateNewsletterComponent';
 type Props = {
   profile: Profile,
 };
+
 type State = {
+  formIsValid: boolean,
   submitDone: boolean,
   submitError: boolean,
 };
@@ -16,6 +18,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
     super(props);
     this.state = {
       optInNewsletter: props.profile.optInNewsletter,
+      formIsValid: false,
       submitDone: false,
       submitError: false,
     };
@@ -24,6 +27,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
   handleCheck = () => {
     this.setState(prevState => ({
       optInNewsletter: !prevState.optInNewsletter,
+      formIsValid: true,
     }));
   };
 
@@ -32,14 +36,19 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
     const { optInNewsletter } = this.state;
     try {
       await UserService.updateNewsletter(optInNewsletter);
-      this.setState({ submitDone: true });
+      this.setState({ submitDone: true, formIsValid: false });
     } catch {
-      this.setState({ submitError: true });
+      this.setState({ submitError: true, formIsValid: false });
     }
   };
 
   render() {
-    const { optInNewsletter, submitError, submitDone } = this.state;
+    const {
+      optInNewsletter,
+      submitError,
+      submitDone,
+      formIsValid,
+    } = this.state;
 
     return (
       <UpdateNewsletterComponent
@@ -48,6 +57,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
         submitError={submitError}
         handleCheck={this.handleCheck}
         handleSubmit={this.handleSubmit}
+        formIsValid={formIsValid}
       />
     );
   }

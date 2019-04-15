@@ -20,6 +20,7 @@ type Props = {
   handleCheck: () => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  formIsValid: boolean,
 };
 
 export const UpdateNewsletterComponent = ({
@@ -28,6 +29,7 @@ export const UpdateNewsletterComponent = ({
   submitError,
   handleCheck,
   handleSubmit,
+  formIsValid,
 }: Props) => {
   return (
     <TileWithTitle title={i18n.t('profile.newsletter_update.title')}>
@@ -52,6 +54,7 @@ export const UpdateNewsletterComponent = ({
         )}
         <SubmitButtonWrapperStyle>
           <SubmitButton
+            disabled={!formIsValid}
             formName={NEWSLETTER_UPDATE_FORMNAME}
             icon={SubmitSaveIcon}
             label={i18n.t('profile.common.submit_label')}
