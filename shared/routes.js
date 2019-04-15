@@ -10,6 +10,9 @@ export const ROUTE_ACCOUNT_ACTIVATION = `${ROUTE_COUNTRY_LANG}/account-activatio
 export const ROUTE_PASSWORD_RECOVERY = `${ROUTE_COUNTRY_LANG}/password-recovery/:userId/:resetToken`;
 export const ROUTE_PROFILE = `${ROUTE_COUNTRY_LANG}/profile`;
 export const ROUTE_PROFILE_EDIT = `${ROUTE_PROFILE}/edit`;
+export const ROUTE_PROFILE_PROPOSALS = `${ROUTE_PROFILE}/proposals`;
+export const ROUTE_PROFILE_FAVORITES = `${ROUTE_PROFILE}/favorites`;
+export const ROUTE_PROFILE_FOLLOWING = `${ROUTE_PROFILE}/following`;
 
 const replaceCountryLanguage = (route: string, value: string) =>
   route.replace(':countryLanguage', value);
@@ -106,3 +109,9 @@ export const getRouteProfile = (countryLanguage: string) =>
 
 export const getRouteProfileEdit = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_EDIT, countryLanguage);
+export const getRouteProfileProposals = (countryLanguage: string) =>
+  replaceCountryLanguage(ROUTE_PROFILE_PROPOSALS, countryLanguage);
+export const getRouteProfileFavorites = (countryLanguage: string) =>
+  replaceCountryLanguage(ROUTE_PROFILE_FAVORITES, countryLanguage);
+export const getRouteProfileFollowing = (countryLanguage: string) =>
+  replaceCountryLanguage(ROUTE_PROFILE_FOLLOWING, countryLanguage);

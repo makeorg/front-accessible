@@ -7,16 +7,14 @@ import { type User } from 'Shared/types/user';
 import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
 import { UpdateNewsletter } from 'Client/features/profile/UpdateNewsletter';
+import { DeleteAccount } from 'Client/features/profile/DeleteAccount';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { logout } from 'Shared/store/actions/authentification';
-import { DeleteAccount } from 'Client/features/profile/DeleteAccount';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { ROUTE_PROFILE_EDIT } from 'Shared/routes';
 import { i18n } from 'Shared/i18n';
-import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   ProfileWrapperStyle,
   ProfileHeaderStyle,
@@ -31,32 +29,9 @@ type Props = {
   match: TypeMatch,
 };
 
-type State = {
-  avatarSize: number,
-};
-
-export class ProfileEdit extends React.Component<Props, State> {
-  state = {
-    avatarSize: 60,
-  };
-
-  componentDidMount() {
-    this.setAvatarSize();
-  }
-
-  setAvatarSize = () => {
-    const isMobile = window.matchMedia(
-      `(max-width: ${intToPx(Breakpoints.Tablet)}`
-    ).matches;
-
-    if (!isMobile) {
-      this.setState({ avatarSize: 160 });
-    }
-  };
-
+export class ProfileEdit extends React.Component<Props> {
   render() {
     const { user, handleLogout, match } = this.props;
-    const { avatarSize } = this.state;
     const { countryLanguage } = match.params;
 
     const editProfileLink = ROUTE_PROFILE_EDIT.replace(
@@ -74,14 +49,10 @@ export class ProfileEdit extends React.Component<Props, State> {
         <ProfileHeaderStyle aria-hidden />
         <ProfilePageContentWrapperStyle>
           <ProfilePageSidebarStyle as="aside">
-            <UserInformations
-              user={user}
-              handleLogout={handleLogout}
-              avatarSize={avatarSize}
-            />
+            <UserInformations user={user} handleLogout={handleLogout} />
           </ProfilePageSidebarStyle>
           <ProfilePageContentStyle>
-            <TabNavStyle aria-label={i18n.t('consultation.tabs.label')}>
+            <TabNavStyle aria-label={i18n.t('profile.tabs.label')}>
               <TabListStyle>
                 <TabStyle selected>
                   <Link to={editProfileLink} aria-selected>

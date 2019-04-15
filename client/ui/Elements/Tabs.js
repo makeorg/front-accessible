@@ -45,12 +45,14 @@ const TabStyle = styled.li`
   border-left: ${props =>
     props.selected ? `1px solid ${BasicColors.PureBlack}` : 0};
   border-right: ${props =>
-    props.selected ? 0 : `1px solid ${BasicColors.PureBlack}`};
+    props.selected ? `1px solid ${BasicColors.PureBlack}` : 0};
   :first-child {
-    border-left: ${props =>
-      props.selected ? 0 : `1px solid ${BasicColors.PureBlack}`};
-    border-right: ${props =>
-      props.selected ? `1px solid ${BasicColors.PureBlack}` : 0};
+    border-left: 1px solid ${BasicColors.PureBlack};
+    border-right: 1px solid ${BasicColors.PureBlack};
+  }
+  :last-child {
+    border-left: 1px solid ${BasicColors.PureBlack};
+    border-right: 1px solid ${BasicColors.PureBlack};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
