@@ -27,11 +27,11 @@ export const ProposalCardTagged = (props: Props) => {
   const displayTags = proposal.tags && proposal.tags.length > 0;
   const numberOfTagsToDisplay = 4;
   const proposalLink = getProposalLink(
+    question.country,
+    question.language,
     question.slug,
     proposal.id,
-    proposal.slug,
-    question.country,
-    question.language
+    proposal.slug
   );
 
   return (

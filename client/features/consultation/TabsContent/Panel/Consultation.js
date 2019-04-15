@@ -1,5 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { Tracking } from 'Shared/services/Tracking';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
@@ -22,7 +23,6 @@ type Props = {
   question: Question,
   selectedTagIds: string[],
   handleSelectTag: () => void,
-  trackPresentationCollpase: (action: string) => void,
 };
 
 type State = {
@@ -43,6 +43,10 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
     window.removeEventListener('resize', this.setResponsiveRendering);
   }
 
+  trackPresentationCollpase = (action: string) => {
+    Tracking.trackOpenLearnMore(action);
+  };
+
   setResponsiveRendering = () => {
     const isMobile = window.matchMedia(
       `(max-width: ${intToPx(Breakpoints.Desktop)}`
@@ -56,7 +60,6 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
       question,
       selectedTagIds,
       handleSelectTag,
-      trackPresentationCollpase,
     } = this.props;
 
     const { isMobile } = this.state;
@@ -80,7 +83,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
           <Collapse
             title={i18n.t('consultation.presentation.title')}
             forceExpand
-            trackCollapse={trackPresentationCollpase}
+            trackCollapse={this.trackPresentationCollpase}
             questionId={question.questionId}
           >
             <Presentation />

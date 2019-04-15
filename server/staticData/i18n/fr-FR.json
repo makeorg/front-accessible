@@ -253,6 +253,9 @@
     }
   },
   "consultation": {
+    "header": {
+      "label": "Grande Cause Make.org"
+    },
     "tabs": {
       "consultation": " Consultation ",
       "action": " Actions ",

@@ -2,6 +2,12 @@
 
 exports[`initialState snapshot 1`] = `
 Object {
+  "appConfig": Object {
+    "country": "",
+    "language": "",
+    "source": "",
+    "translations": Object {},
+  },
   "modal": Object {
     "contentType": null,
     "isOpen": false,

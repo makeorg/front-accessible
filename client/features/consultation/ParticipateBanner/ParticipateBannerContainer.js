@@ -19,9 +19,9 @@ export class ParticipateBannerContainer extends React.Component<Props> {
     const { question, questionConfiguration } = this.props;
     const { theme } = questionConfiguration;
     const sequenceLink = getSequenceLink(
-      question.slug,
       question.country,
-      question.language
+      question.language,
+      question.slug
     );
 
     return (

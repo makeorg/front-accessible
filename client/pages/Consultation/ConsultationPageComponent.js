@@ -14,6 +14,7 @@ import { ConsultationPanelContent } from 'Client/features/consultation/TabsConte
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
+import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationPageWrapperStyle, ConsultationPageNav } from './Styled';
 
 type Props = {
@@ -24,9 +25,6 @@ type Props = {
   actionLink: string,
   location: Location,
   handleSelectTag: () => void,
-  trackPresentationCollpase: () => void,
-  trackMoreLink: () => void,
-  trackPresentationCollpase: (action: string) => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
@@ -38,15 +36,10 @@ export const ConsultationPageComponent = (props: Props) => {
     actionLink,
     location,
     handleSelectTag,
-    trackPresentationCollpase,
-    trackMoreLink,
   } = props;
 
-  const isConsultationActive = !!matchPath(
-    location.pathname,
-    ROUTE_CONSULTATION
-  );
-  const isActionActive = !!matchPath(location.pathname, ROUTE_ACTION);
+  const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
+  const isActionPage = !!matchPath(location.pathname, ROUTE_ACTION);
 
   const { metas } = questionConfiguration.wording;
 
@@ -73,44 +66,48 @@ export const ConsultationPageComponent = (props: Props) => {
       <ConsultationPageWrapperStyle>
         <ConsultationPageNav aria-label={i18n.t('consultation.tabs.label')}>
           <TabListStyle>
-            <TabStyle selected={isConsultationActive}>
-              <Link to={consultationLink} aria-selected={isConsultationActive}>
+            <TabStyle selected={isConsultationPage}>
+              <Link to={consultationLink} aria-selected={isConsultationPage}>
                 <ConsultationTabContent question={question} />
               </Link>
             </TabStyle>
 
-            <TabStyle selected={isActionActive}>
-              <Link to={actionLink} aria-selected={isActionActive}>
-                {i18n.t('consultation.tabs.action')}
-              </Link>
-            </TabStyle>
+            {questionConfiguration.isGreatCause && (
+              <TabStyle selected={isActionPage}>
+                <Link to={actionLink} aria-selected={isActionPage}>
+                  {i18n.t('consultation.tabs.action')}
+                </Link>
+              </TabStyle>
+            )}
           </TabListStyle>
         </ConsultationPageNav>
-        <Switch>
-          <Route
-            path={ROUTE_CONSULTATION}
-            exact
-            component={() => (
-              <ConsultationPanelContent
-                question={question}
-                questionConfiguration={questionConfiguration}
-                selectedTagIds={selectedTagIds}
-                handleSelectTag={handleSelectTag}
-                trackPresentationCollpase={trackPresentationCollpase}
+        <ConsultationPanelInnerStyle>
+          <Switch>
+            <Route
+              path={ROUTE_CONSULTATION}
+              exact
+              component={() => (
+                <ConsultationPanelContent
+                  question={question}
+                  questionConfiguration={questionConfiguration}
+                  selectedTagIds={selectedTagIds}
+                  handleSelectTag={handleSelectTag}
+                />
+              )}
+            />
+            {questionConfiguration.isGreatCause && (
+              <Route
+                path={ROUTE_ACTION}
+                exact
+                component={() => (
+                  <ActionsPanelContent
+                    questionConfiguration={questionConfiguration}
+                  />
+                )}
               />
             )}
-          />
-          <Route
-            path={ROUTE_ACTION}
-            exact
-            component={() => (
-              <ActionsPanelContent
-                questionConfiguration={questionConfiguration}
-                trackMoreLink={trackMoreLink}
-              />
-            )}
-          />
-        </Switch>
+          </Switch>
+        </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       <HiddenOnDesktopStyle>
         <MobileSharing />

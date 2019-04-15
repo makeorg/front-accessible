@@ -1,4 +1,5 @@
-/* @flow */
+// @flow
+
 import { type ProposalType } from './proposal';
 
 export type ApiServiceHeaders = {

@@ -2,6 +2,12 @@
 import { type StateRoot } from './types';
 
 export const initialState: StateRoot = {
+  appConfig: {
+    source: '',
+    language: '',
+    country: '',
+    translations: {},
+  },
   proposal: {
     hasProposed: false,
     error: undefined,

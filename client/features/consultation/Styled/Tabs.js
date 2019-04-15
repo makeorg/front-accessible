@@ -14,6 +14,7 @@ export const ExtraTabsInformationsStyle = styled.span`
 `;
 
 export const ConsultationPanelInnerStyle = styled.div`
+  width: 100%;
   display: flex;
   flex-flow: column;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

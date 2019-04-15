@@ -8,7 +8,7 @@ import {
   twitterShareUrl,
   facebookShareUrl,
   linkedinShareUrl,
-} from 'Shared/helpers/url';
+} from 'Shared/helpers/social';
 import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
 import { SharingComponent } from './SharingComponent';
 

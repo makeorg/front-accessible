@@ -1,6 +1,11 @@
 import 'url-search-params-polyfill';
-import * as URL from 'Shared/constants/url';
 import { FRONT_URL } from 'Shared/constants/config';
+import {
+  ROUTE_CONSULTATION,
+  ROUTE_ACTION,
+  ROUTE_SEQUENCE,
+  ROUTE_PROPOSAL,
+} from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -8,79 +13,98 @@ export const getParamsQuery = (searchParams: string) => {
   return params.toString();
 };
 
-export const localizeLink = (
+export const localizeExternal = (
   link: string,
   country: string,
   language: string
 ) => {
   if (!country || !language) {
-    return null;
+    return '';
   }
 
   return `${link}/${country.toLowerCase()}-${language.toLowerCase()}`;
 };
 
-export const localizeCguLink = (country: string, language: string) =>
-  localizeLink(URL.CGU_LINK, country, language);
+export const getRelativeCurrentUrl = (pathName: string) =>
+  `${FRONT_URL}${pathName}`;
 
-export const localizeDataPolicyLink = (country: string, language: string) =>
-  localizeLink(URL.DATA_POLICY_LINK, country, language);
-
-export const localizeModerationCharterLink = (
-  country: string,
-  language: string
-) => localizeLink(URL.MODERATION_CHARTER_LINK, country, language);
-
-export const currentUrl = (pathName: string) => `${FRONT_URL}${pathName}`;
-
-export const twitterShareUrl = (
-  pathName: string = '',
-  message: string = '',
-  hashtags: string = ''
-) =>
-  `https://twitter.com/intent/tweet/?text=${encodeURIComponent(
-    message
-  )}&hashtags=${encodeURIComponent(hashtags)}&url=${encodeURIComponent(
-    currentUrl(pathName)
-  )}`;
-
-export const facebookShareUrl = (pathName: string = '') =>
-  `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    currentUrl(pathName)
-  )}`;
-
-export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
-  `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-    currentUrl(pathName)
-  )}&title=${encodeURIComponent(message)}&summary=${encodeURIComponent(
-    message
-  )}&source=${encodeURIComponent(currentUrl(pathName))}`;
+export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
 
 /**
  * Get the sequence link
+ * @param  {string} country
+ * @param  {string} language
  * @param  {string} questionSlug
  * @return {string}
  */
-
 export const getSequenceLink = (
-  questionSlug: string,
   country: string,
-  language: string
-) => `/${country}-${language}/consultation/${questionSlug}/selection`;
+  language: string,
+  questionSlug: string
+) => {
+  return ROUTE_SEQUENCE.replace(
+    ':countryLanguage',
+    `${country}-${language}`
+  ).replace(':questionSlug', questionSlug);
+};
 
+/**
+ * Get the consultation link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
 export const getConsultationLink = (
-  questionSlug: string,
   country: string,
-  language: string
-) => `/${country}-${language}/consultation/${questionSlug}/consultation`;
+  language: string,
+  questionSlug: string
+) => {
+  return ROUTE_CONSULTATION.replace(
+    ':countryLanguage',
+    `${country}-${language}`
+  ).replace(':questionSlug', questionSlug);
+};
 
+/**
+ * Get the action link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getActionLink = (
+  country: string,
+  language: string,
+  questionSlug: string
+) => {
+  return ROUTE_ACTION.replace(
+    ':countryLanguage',
+    `${country}-${language}`
+  ).replace(':questionSlug', questionSlug);
+};
+
+/**
+ * Get the proposal link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ * @return {string}
+ */
 export const getProposalLink = (
+  country: string,
+  language: string,
   questionSlug: string,
   proposalId: string,
-  proposalSlug: string,
-  country: string,
-  language: string
-) =>
-  `/${country}-${language}/consultation/${questionSlug}/proposal/${proposalId}/${proposalSlug}`;
-
-export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
+  proposalSlug: string
+) => {
+  return ROUTE_PROPOSAL.replace(':countryLanguage', `${country}-${language}`)
+    .replace(':questionSlug', questionSlug)
+    .replace(':proposalId', proposalId)
+    .replace(':proposalSlug', proposalSlug);
+};

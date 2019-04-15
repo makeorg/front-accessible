@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question } from 'Shared/types/question';
+import { DATA_POLICY_LINK } from 'Shared/constants/url';
 import {
   RedButtonStyle,
   EmailButtonStyle,
@@ -16,7 +17,7 @@ import {
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
-import { localizeDataPolicyLink } from 'Shared/helpers/url';
+import * as UrlHelper from 'Shared/helpers/url';
 import { SvgEnvelope, SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
@@ -68,7 +69,11 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
       <CenterParagraphStyle>
         {i18n.t('authentification.commitment')}
         <a
-          href={localizeDataPolicyLink(question.country, question.language)}
+          href={UrlHelper.localizeExternal(
+            DATA_POLICY_LINK,
+            question.country,
+            question.language
+          )}
           target="_blank"
           rel="noopener noreferrer"
           onClick={trackPersonnalDataLink}

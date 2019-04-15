@@ -6,7 +6,6 @@ import {
   ConsultationPageSidebarStyle,
 } from 'Client/pages/Consultation/Styled';
 import Logo from 'Client/app/assets/images/logo.svg';
-import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { i18n } from 'Shared/i18n';
 import { PartnersTileContent } from 'Client/features/consultation/Actions/Tiles/Sidebar/Partners';
@@ -36,7 +35,7 @@ export class ActionsPanelClass extends React.Component<Props> {
     } = this.props;
 
     return (
-      <ConsultationPanelInnerStyle>
+      <React.Fragment>
         <ConsultationPageSidebarStyle id="sidebar" as="aside">
           <TileWithTitle title={i18n.t('actions.plan.title')} noMarginTop>
             <PlanTileContent />
@@ -59,7 +58,7 @@ export class ActionsPanelClass extends React.Component<Props> {
           )}
           <SupportContent />
         </ConsultationPageContentStyle>
-      </ConsultationPanelInnerStyle>
+      </React.Fragment>
     );
   }
 }

@@ -1,3 +1,5 @@
+// @flow
+
 export type Question = {
   questionId: string,
   operationId: string,

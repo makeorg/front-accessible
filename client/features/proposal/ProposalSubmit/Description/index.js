@@ -3,8 +3,9 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import { localizeModerationCharterLink } from 'Shared/helpers/url';
+import * as UrlHelper from 'Shared/helpers/url';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
@@ -42,7 +43,11 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={localizeModerationCharterLink(country, language)}
+            href={UrlHelper.localizeExternal(
+              MODERATION_CHARTER_LINK,
+              country,
+              language
+            )}
             onClick={trackModerationLink}
           >
             {i18n.t('common.click_there')}

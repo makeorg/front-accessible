@@ -1,3 +1,3 @@
-import { FooterLinkContainer } from './LinkContainer';
+import { FooterLinkContainer } from './FooterLinkContainer';
 
 export { FooterLinkContainer as FooterLink };

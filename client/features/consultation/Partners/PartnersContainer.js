@@ -22,9 +22,9 @@ export class PartnersContainer extends React.Component<Props> {
   render() {
     const { question, questionConfiguration } = this.props;
     const sequenceLink = getSequenceLink(
-      question.slug,
       question.country,
-      question.language
+      question.language,
+      question.slug
     );
     return (
       <PartnersComponent
