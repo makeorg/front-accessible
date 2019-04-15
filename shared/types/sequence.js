@@ -49,10 +49,6 @@ export type SharingType = {
   twitter: TwitterType,
 };
 
-export type FooterType = {
-  sentence: string,
-};
-
 export type QuestionConfiguration = {
   wording: Wording,
   sharing: SharingType,
@@ -64,7 +60,6 @@ export type QuestionConfiguration = {
   sequenceUrl: string,
   sequenceConfig: ExtraSlidesConfig,
   sequenceSignUpForm: any,
-  footer?: FooterType,
 };
 
 export type ConfigurationTypes =

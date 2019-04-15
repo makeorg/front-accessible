@@ -97,14 +97,6 @@ export const FooterStyle = styled.footer`
   }
 `;
 
-export const FooterNavStyle = styled.nav`
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
 export const FooterTitleStyle = styled.h2`
   color: ${props => props.color};
   font-size: 11px;
@@ -112,14 +104,6 @@ export const FooterTitleStyle = styled.h2`
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 20px;
-  }
-`;
-
-export const TitleInnerStyle = styled.span`
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
   }
 `;
 
@@ -135,16 +119,5 @@ export const FooterLinkStyle = styled.a`
   }
   &:focus {
     outline-color: ${props => props.color};
-  }
-`;
-
-export const InPartnershipWithStyle = styled.span`
-  color: ${TextColors.LightGrey};
-  font-family: ${MakeFonts.RobotoRegular};
-  text-transform: none;
-  font-size: 10px;
-  padding-bottom: 5px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
   }
 `;
