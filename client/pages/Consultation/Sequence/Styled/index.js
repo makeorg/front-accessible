@@ -14,10 +14,10 @@ export const SequenceProposalFieldStyle = styled.aside`
   display: block;
   flex-grow: 0;
   width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
-  margin: 10px auto 0;
+  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  margin-top: 10px;
   padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 25px auto 15px;
+    margin-top: 25px;
   }
 `;
