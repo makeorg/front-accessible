@@ -36,6 +36,11 @@ export type Wording = {
   metas: Metas,
 };
 
+export type ConsultationType = {
+  presentation: string,
+  logo: string,
+};
+
 export type TwitterType = {
   hashtags: string,
 };
@@ -53,6 +58,7 @@ export type QuestionConfiguration = {
   sharing: SharingType,
   theme: QuestionTheme,
   partners?: Partner[],
+  consultation: ConsultationType,
   isGreatCause: boolean,
   consultationUrl: string,
   sequenceUrl: string,

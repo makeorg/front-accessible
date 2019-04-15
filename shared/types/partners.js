@@ -1,3 +1,5 @@
+// @flow
+
 export type Partner = {
   name: string,
   imageUrl: string,

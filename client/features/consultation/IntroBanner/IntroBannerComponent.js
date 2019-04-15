@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question } from 'Shared/types/question';
@@ -26,7 +28,7 @@ export const IntroBannerComponent = (props: Props) => {
         <IntroLabel>{i18n.t('consultation.header.label')}</IntroLabel>
       )}
       <HiddenItemStyle id="header_consultation_title">
-        {consultation.isGreatCause &&
+        {questionConfiguration.isGreatCause &&
           `${i18n.t('consultation.header.label')}: `}
         {question.question}
       </HiddenItemStyle>

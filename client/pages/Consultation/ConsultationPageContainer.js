@@ -1,5 +1,8 @@
+// @flow
+
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { type Location } from 'react-router';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
@@ -9,6 +12,7 @@ import { ConsultationPageComponent } from './ConsultationPageComponent';
 type Props = {
   question: Question,
   questionConfiguration: QuestionConfiguration,
+  location: Location,
 };
 
 type State = {
