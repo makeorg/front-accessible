@@ -51,6 +51,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     .replace('</body>', `${scriptTags}</body>`);
 };
 
+// @todo test this function!!
 export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
 
@@ -58,13 +59,13 @@ export const reactRender = (req, res, routeState = {}) => {
 
   const state = {
     ...createInitialState(),
+    ...routeState,
     appConfig: {
       source: 'core',
       language,
       country,
       translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE),
     },
-    ...routeState,
   };
 
   const store = configureStore(state);
