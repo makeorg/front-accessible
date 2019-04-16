@@ -46,7 +46,7 @@ export class ProfileEdit extends React.Component<Props, State> {
 
   setAvatarSize = () => {
     const isMobile = window.matchMedia(
-      `(max-width: ${intToPx(Breakpoints.Desktop)}`
+      `(max-width: ${intToPx(Breakpoints.Tablet)}`
     ).matches;
 
     if (!isMobile) {

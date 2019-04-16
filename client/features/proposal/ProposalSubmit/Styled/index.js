@@ -90,7 +90,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
   resize: none;
   margin-right: 15px;
   background-color: transparent;
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: 18px;
     line-height: 28px;
   }

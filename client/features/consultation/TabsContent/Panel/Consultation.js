@@ -49,7 +49,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
 
   setResponsiveRendering = () => {
     const isMobile = window.matchMedia(
-      `(max-width: ${intToPx(Breakpoints.Desktop)}`
+      `(max-width: ${intToPx(Breakpoints.Tablet)}`
     ).matches;
     this.setState({ isMobile });
   };
