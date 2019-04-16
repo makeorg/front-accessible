@@ -16,14 +16,16 @@ type Props = {
 export class SequenceFooterContainer extends React.Component<Props> {
   trackClickConsultation = () => {
     Tracking.trackClickConsultation();
-    return this;
   };
 
   render() {
+    const { questionConfiguration } = this.props;
     return (
       <SequenceFooterComponent
         handleTracking={this.trackClickConsultation}
-        {...this.props}
+        theme={questionConfiguration.theme}
+        consultationUrl={questionConfiguration.consultationUrl}
+        questionTitle={questionConfiguration.wording.question}
       />
     );
   }

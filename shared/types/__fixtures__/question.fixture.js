@@ -71,7 +71,4 @@ export const questionConfigurationTypeFixture = {
       learnMoreTextButton: 'En savoir +',
     },
   },
-  footer: {
-    sentence: 'WeEuropeans, avec MAKE.ORG et CIVICO Europa',
-  },
 };

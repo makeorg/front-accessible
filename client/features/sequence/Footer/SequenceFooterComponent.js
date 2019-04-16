@@ -1,62 +1,37 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import {
-  FooterStyle,
-  FooterNavStyle,
-  FooterTitleStyle,
-  TitleInnerStyle,
-  InPartnershipWithStyle,
-  FooterLinkStyle,
-} from '../Styled';
+import { type QuestionTheme } from 'Shared/types/sequence';
+import { FooterStyle, FooterTitleStyle, FooterLinkStyle } from '../Styled';
 
 type Props = {
-  /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: QuestionConfiguration,
   /** Method called to track Footer */
-  handleTracking: Function,
+  handleTracking: () => void,
+  /** UI theme for the question */
+  theme: QuestionTheme,
+  consultationUrl: string,
+  questionTitle: string,
 };
 
 /**
  * Renders Sequence Footer
  */
 export const SequenceFooterComponent = (props: Props) => {
-  const { questionConfiguration, handleTracking } = props;
+  const { theme, consultationUrl, questionTitle, handleTracking } = props;
 
   return (
-    <FooterStyle>
-      <FooterNavStyle aria-labelledby="footer_title">
-        <MiddleColumnStyle>
-          <FooterTitleStyle
-            color={questionConfiguration.theme.footerFontColor}
-            id="footer_title"
-          >
-            <HiddenItemStyle aria-hidden>
-              {i18n.t('footer_sequence.see_more')}
-            </HiddenItemStyle>
-            <TitleInnerStyle>
-              {questionConfiguration.wording.question}
-              {questionConfiguration.footer &&
-                questionConfiguration.footer.sentence && (
-                  <InPartnershipWithStyle>
-                    {questionConfiguration.footer.sentence}
-                  </InPartnershipWithStyle>
-                )}
-            </TitleInnerStyle>
-          </FooterTitleStyle>
-        </MiddleColumnStyle>
-        <FooterLinkStyle
-          color={questionConfiguration.theme.footerFontColor}
-          target="_blank"
-          href={questionConfiguration.consultationUrl}
-          onClick={handleTracking}
-        >
-          {i18n.t('footer_sequence.link')}
-        </FooterLinkStyle>
-      </FooterNavStyle>
+    <FooterStyle aria-labelledby="footer_title">
+      <FooterTitleStyle color={theme.footerFontColor} id="footer_title">
+        {questionTitle}
+      </FooterTitleStyle>
+      <FooterLinkStyle
+        color={theme.footerFontColor}
+        target="_blank"
+        href={consultationUrl}
+        onClick={handleTracking}
+      >
+        {i18n.t('footer_sequence.link')}
+      </FooterLinkStyle>
     </FooterStyle>
   );
 };
