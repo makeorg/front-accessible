@@ -24,6 +24,7 @@ import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content
 type Props = {
   values: UserInformationForm,
   errors: UserInformationFormErrors,
+  formIsValid: boolean,
   submitDone: boolean,
   submitError: boolean,
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
@@ -33,6 +34,7 @@ type Props = {
 export const UpdateInformationsComponent = ({
   values,
   errors,
+  formIsValid,
   submitDone,
   submitError,
   handleChange,
@@ -121,6 +123,7 @@ export const UpdateInformationsComponent = ({
         )}
         <SubmitButtonWrapperStyle>
           <SubmitButton
+            disabled={!formIsValid}
             formName={PROFILE_UPDATE_FORMNAME}
             icon={SubmitSaveIcon}
             label={i18n.t('profile.common.submit_label')}
