@@ -4,25 +4,22 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
-import { forgotPassword } from 'Shared/store/actions/forgotPassword';
 import { modalShowLogin } from 'Shared/store/actions/modal';
-import { selectForgotPassword } from 'Shared/store/selectors/user.selector';
+import * as UserService from 'Shared/services/User';
 import { PasswordForgotComponent } from './PasswordForgotComponent';
 
 type Props = {
-  /** Array with form errors */
-  errors: Array<ErrorObject>,
-  /** Boolean toggled when Form is succesfully submitted */
-  isSuccess: boolean,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
-  /** Method called to render ForgotPassword Component in Modal */
-  handleForgotpassword: (email: string) => void,
 };
 
 type State = {
   /** User's email */
   email: string,
+  /** Array with form errors */
+  errors: ErrorObject[],
+  /** Boolean toggled when Form is succesfully submitted */
+  isSuccess: boolean,
 };
 
 /**
@@ -35,6 +32,8 @@ class PasswordForgotHandler extends React.Component<Props, State> {
     super(props);
     this.state = {
       email: '',
+      errors: [],
+      isSuccess: false,
     };
 
     this.throttleSubmit = throttle(this.handleSubmit);
@@ -47,19 +46,23 @@ class PasswordForgotHandler extends React.Component<Props, State> {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
     const { email } = this.state;
-    const { handleForgotpassword } = this.props;
-    if (email) {
-      handleForgotpassword(email);
+    if (email.trim() !== '') {
+      try {
+        await UserService.forgotPassword(email.trim());
+        this.setState({ isSuccess: true });
+      } catch (errors) {
+        this.setState({ errors });
+      }
     }
   };
 
   render() {
-    const { email } = this.state;
-    const { errors, isSuccess, handleLoginModal } = this.props;
+    const { email, errors, isSuccess } = this.state;
+    const { handleLoginModal } = this.props;
 
     return (
       <PasswordForgotComponent
@@ -75,7 +78,7 @@ class PasswordForgotHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { errors, isSuccess } = selectForgotPassword(state);
+  const { errors, isSuccess } = state;
 
   return {
     errors,
@@ -84,9 +87,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleForgotpassword: email => {
-    dispatch(forgotPassword(email));
-  },
   handleLoginModal: () => {
     dispatch(modalShowLogin());
   },

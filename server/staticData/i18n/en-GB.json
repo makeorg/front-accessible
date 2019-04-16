@@ -151,7 +151,7 @@
     "forgot_password_link": "forgotten my password.",
     "registration_title": "I don’t have an account,",
     "registration_link": "I want to create one.",
-    "email_doesnot_exist": "We can't find an account associated with this e-mail address."
+    "email_doesnot_exist": "Incorrect email or password."
   },
   "register": {
     "title": "Create an account",
