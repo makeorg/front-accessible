@@ -150,7 +150,6 @@
     "test:cypress": "start-server-and-test start:dev http://localhost:3000 cypress:run",
     "cypress:run": "cypress run",
     "cypress:open": "cypress open",
-    "update:i18n": "node shared/i18n/mergeTrad.js",
     "svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source"
   }
 }
