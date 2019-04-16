@@ -229,6 +229,10 @@
       "favorites": "Mes coup de {{coeur}}",
       "following": "Mes profils suivis"
     },
+    "proposals": {
+      "title": "Mes dernières propositions",
+      "placeholder_text": "Vous n’avez pas encore soumis de proposition sur Make.org."
+    },
     "common": {
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",

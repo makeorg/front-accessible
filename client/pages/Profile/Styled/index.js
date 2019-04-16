@@ -70,3 +70,18 @@ export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
       ${intToPx(DefaultPadding.Desktop)};
   }
 `;
+
+export const ProfileContentHeaderStyle = styled.header`
+  width: 100%;
+  padding: 0 10px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0;
+  }
+`;
+
+export const ProfileTitleSeparatorStyle = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${BackgroundColors.MediumGrey};
+  margin: 5px auto ${intToPx(DefaultPadding.Mobile)};
+`;

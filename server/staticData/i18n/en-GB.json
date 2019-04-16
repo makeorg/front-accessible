@@ -235,6 +235,10 @@
       "submit_label": "Save changes",
       "submit_success": "Your request has been taken into account."
     },
+    "proposals": {
+      "title": "My last proposals",
+      "placeholder_text": "You haven't submit any proposal on Make.org"
+    },
     "informations_update": {
       "title": "Update my profile",
       "link_to_profile": "return to my profile"
