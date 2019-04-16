@@ -18,6 +18,8 @@
       "postalcode_label": "Postcode (optional)",
       "profession_label": "Profession (optional)",
       "biography_label": "Biography (optional)",
+      "hide_password": "Hide password",
+      "show_password": "Show password",
       "email is not a valid email": "Invalid e-mail format",
       "Password must be at least 8 characters": "Your password must contain at least 8 characters.",
       "email_already_exist": "This e-mail address is already registered.",
@@ -39,7 +41,8 @@
     "display_tooltip": "Display the content of the tooltip",
     "hide_tooltip": "Hide the content of the tooltip",
     "expand_collapse": "Display the content of the collapse section",
-    "shrink_collapse": "Hide the content of the collapse section"
+    "shrink_collapse": "Hide the content of the collapse section",
+    "secondary_nav": "Secondary navigation"
   },
   "header": {
     "logo_alt": "Go to the Make.org site"
@@ -219,6 +222,9 @@
     "description": "We are sorry, the page you have requested no longer exists."
   },
   "profile": {
+    "tabs": {
+      "manage_account": "Manage my account"
+    },
     "common": {
       "age": "{{age}} years",
       "submit_label": "Save changes",
@@ -248,8 +254,7 @@
       "action": " Actions ",
       "from": " from ",
       "to": " to ",
-      "datefrom": " from ",
-      "label": "Menu of the Consultation page"
+      "datefrom": " from "
     },
     "presentation": {
       "title": "Why this consultation ?",

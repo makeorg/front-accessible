@@ -16,13 +16,23 @@ type Profile = {
 };
 
 export type User = {
-  userId: string,
+  country: string,
   email: string,
+  emailVerified: boolean,
+  enabled: boolean,
   firstName: string,
-  lastName: string,
-  organisationName: string,
+  followedUsers: string[],
+  hasPassword: boolean,
+  isHardBounce: boolean,
   isOrganisation: boolean,
+  language: string,
+  lastConnection: string,
+  lastMailingError?: string,
+  lastName: string,
+  organisationName?: string,
   profile: Profile,
+  roles: string[],
+  userId: string,
 };
 
 export type Passwords = {

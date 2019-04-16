@@ -15,6 +15,10 @@ import {
   ColumnToRowElementStyle,
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
+import { TabsOffsetDesktop } from 'Shared/constants/tabs';
+
+const DesktopOffset = intToPx(TabsOffsetDesktop);
+const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ProfileWrapperStyle = styled.div`
   background-color: ${BackgroundColors.LightGrey};
@@ -36,16 +40,20 @@ export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
   margin: 0 auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     justify-content: space-between;
+    margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
+    transform: translateY(-${DesktopOffset});
   }
 `;
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
-  flex: 1 1 auto;
+  flex: 1;
 `;
 
 export const ProfilePageContentStyle = styled(ContentElementStyle)`
+  margin: ${intToPx(DefaultPadding.Mobile)} 0 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 0;
     max-width: 750px;
   }
 `;

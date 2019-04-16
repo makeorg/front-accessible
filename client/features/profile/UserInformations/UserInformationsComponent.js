@@ -5,10 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgMapMarker, SvgSignOut } from 'Client/ui/Svg/elements';
-import {
-  IconWrapperStyle,
-  GreyButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   UserAvatarStyle,
   UserContentWrapperStyle,
@@ -17,22 +14,24 @@ import {
   UserDescriptionStyle,
   UserSeparatorStyle,
   UserAvatarLayoutStyle,
+  LogOutButtonStyle,
 } from '../Styled/UserInformations';
 
 type Props = {
   user: User,
   handleLogout: () => void,
+  avatarSize: number,
 };
 
 export const UserInformationsComponent = (props: Props) => {
-  const { user, handleLogout } = props;
+  const { user, handleLogout, avatarSize } = props;
   const { profile } = user;
 
   return (
     <React.Fragment>
       <UserAvatarLayoutStyle>
         <UserAvatarStyle>
-          <Avatar avatarSize={160}>
+          <Avatar avatarSize={avatarSize}>
             {profile.avatarUrl && (
               <img src={profile.avatarUrl} alt={user.firstName} aria-hidden />
             )}
@@ -65,12 +64,12 @@ export const UserInformationsComponent = (props: Props) => {
           <UserSeparatorStyle aria-hidden />
         </React.Fragment>
       )}
-      <GreyButtonStyle onClick={handleLogout}>
+      <LogOutButtonStyle onClick={handleLogout}>
         <IconWrapperStyle aria-hidden>
           <SvgSignOut />
         </IconWrapperStyle>
         {i18n.t('common.disconnexion_label')}
-      </GreyButtonStyle>
+      </LogOutButtonStyle>
     </React.Fragment>
   );
 };

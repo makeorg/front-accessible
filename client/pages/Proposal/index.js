@@ -9,7 +9,7 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
-import { match as TypeMatch } from 'react-router';
+import { type match as TypeMatch } from 'react-router';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
 import { ProposalPageContentLoader } from './ContentLoader';

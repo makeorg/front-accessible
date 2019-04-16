@@ -4,8 +4,6 @@ import { BorderColors } from 'Client/app/assets/vars/Colors';
 
 export const AvatarStyle = styled.div`
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
   svg,
   img {
     border-radius: 50%;

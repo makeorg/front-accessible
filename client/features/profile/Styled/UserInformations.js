@@ -9,6 +9,7 @@ import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { TextColors } from 'Client/app/assets/vars/Colors';
+import { GreyButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const UserAvatarLayoutStyle = styled(FlexElementStyle)`
   align-self: flex-start;
@@ -31,14 +32,14 @@ export const UserContentWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const UserTitleStyle = styled(ThirdLevelTitleStyle)`
-  margin-top: 5px;
+  margin: 5px 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: center;
   }
 `;
 
 export const UserContentStyle = styled(ParagraphStyle)`
-  margin-top: 5px;
+  margin-bottom: 5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: center;
   }
@@ -53,5 +54,9 @@ export const UserDescriptionStyle = styled(ParagraphStyle)`
 `;
 
 export const UserSeparatorStyle = styled(SeparatorStyle)`
-  margin: 15px 0;
+  margin: 10px 0;
+`;
+
+export const LogOutButtonStyle = styled(GreyButtonStyle)`
+  margin: 10px 0 0;
 `;
