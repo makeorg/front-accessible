@@ -97,6 +97,12 @@ const toto: Toto = {
   value: null
 };
 ```
+- when importing type use alias and prefix it with Type:
+
+```ts
+import { type User as TypeUser } from '/file';
+```
+
 
 ## Redux
 

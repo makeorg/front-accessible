@@ -226,7 +226,11 @@
   },
   "profile": {
     "tabs": {
-      "manage_account": "Gérer mon compte"
+      "label": "Votre profile",
+      "manage_account": "Gérer mon compte",
+      "proposals": "Propositions",
+      "favorites": "Mes coup de {{coeur}}",
+      "following": "Mes profils suivis"
     },
     "common": {
       "age": "{{age}} ans",
