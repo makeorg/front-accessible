@@ -31,7 +31,6 @@ const TabStyle = styled.li`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-width: 185px;
   flex-flow: column;
   text-transform: uppercase;
   font-family: ${MakeFonts.RobotoCondensedBold};
