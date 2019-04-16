@@ -11,9 +11,9 @@ export const TileWithTitleStyle = styled.div`
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 20px;
-  }
-  &:last-child {
-    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 

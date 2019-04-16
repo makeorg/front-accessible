@@ -37,7 +37,7 @@ export class ActionsPanelClass extends React.Component<Props> {
     return (
       <React.Fragment>
         <ConsultationPageSidebarStyle id="sidebar" as="aside">
-          <TileWithTitle title={i18n.t('actions.plan.title')} noMarginTop>
+          <TileWithTitle title={i18n.t('actions.plan.title')}>
             <PlanTileContent />
           </TileWithTitle>
           <TileWithTitle title={i18n.t('actions.partners.title')}>
@@ -49,10 +49,7 @@ export class ActionsPanelClass extends React.Component<Props> {
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle id="main">
           {!isLoggedIn && (
-            <TileWithTitle
-              title={<img src={Logo} width={46} alt="Make.org" />}
-              noMarginTop
-            >
+            <TileWithTitle title={<img src={Logo} width={46} alt="Make.org" />}>
               <RegisterTileContent handleRegisterModal={handleRegisterModal} />
             </TileWithTitle>
           )}

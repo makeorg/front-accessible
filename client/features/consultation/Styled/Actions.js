@@ -17,9 +17,11 @@ export const ActionsParagraphStyle = styled(ParagraphStyle)`
 `;
 
 export const SupportWrapperStyle = styled.section`
+  padding: 0 10px;
   margin-top: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-top: ${intToPx(DefaultPadding.Desktop)};
+    padding: 0;
   }
 `;
 
