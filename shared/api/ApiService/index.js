@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 export { NODE_API_BASE } from './ApiService.shared';
 

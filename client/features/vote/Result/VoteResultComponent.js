@@ -19,8 +19,6 @@ type Props = {
   votedKey: string,
   /** Proposal's ID */
   proposalId: string,
-  /** Id of vote button */
-  id: string,
   /** When waiting response from API */
   pending: boolean,
   /** Method called when vote button is clicked */
@@ -51,7 +49,6 @@ export const VoteResultComponent = (props: Props) => {
     votedKey,
     proposalId,
     handleVote,
-    id,
     pending,
   } = props;
   const voteKeys = Object.keys(voteStaticParams);
@@ -62,7 +59,6 @@ export const VoteResultComponent = (props: Props) => {
         {i18n.t('unvote.title')}
       </HiddenItemStyle>
       <VoteButton
-        id={id}
         color={voteStaticParams[votedKey].color}
         label={i18n.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}

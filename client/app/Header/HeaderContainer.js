@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import { Tracking } from 'Shared/services/Tracking';
 import { HeaderComponent } from './HeaderComponent';
@@ -14,7 +14,6 @@ export class HeaderContainer extends React.Component<{}> {
 
   trackMakeLogo = () => {
     Tracking.trackClickMakeLogo();
-    return this;
   };
 
   render() {

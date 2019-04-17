@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import { FooterLink } from './Link';
 import { FooterStyle, FooterNavStyle } from './Styled';

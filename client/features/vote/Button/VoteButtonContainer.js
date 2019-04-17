@@ -9,10 +9,6 @@ type Props = {
   label: string,
   /** Vote key's Icon */
   icon: string,
-  /** Rotate property passed to Styled Component */
-  rotate: number,
-  /** Id of vote button */
-  id: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** When button is in pending mode */
@@ -48,8 +44,17 @@ export class VoteButtonContainer extends React.Component<Props, State> {
   };
 
   render() {
+    const { color, label, icon, buttonType, displayPending } = this.props;
+
     return (
-      <VoteButtonComponent {...this.props} handleVote={this.handleVoteAction} />
+      <VoteButtonComponent
+        color={color}
+        label={label}
+        icon={icon}
+        buttonType={buttonType}
+        displayPending={displayPending}
+        handleVote={this.handleVoteAction}
+      />
     );
   }
 }

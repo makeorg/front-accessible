@@ -1,18 +1,27 @@
+// @flow
+
 import * as React from 'react';
 import { Logger } from 'Shared/services/Logger';
+
+type Props = {
+  children: React.Node,
+};
+
+type State = {
+  hasError: boolean,
+};
 
 /**
  * Handles Error Logger Business Logic
  */
-export class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+export class ErrorBoundary extends React.Component<Props, State> {
+  state = {
+    hasError: false,
+  };
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error) {
     this.setState({ hasError: true });
-    Logger.logError(Error(error, info && info.componentStack));
+    Logger.logError(error);
   }
 
   render() {
