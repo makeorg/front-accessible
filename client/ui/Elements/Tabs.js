@@ -28,12 +28,8 @@ const TabListStyle = styled.ul`
 `;
 
 const TabStyle = styled.li`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  text-transform: uppercase;
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  list-style: none;
+  min-width: 150px;
   background-color: ${props =>
     props.selected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
   border-top: ${props =>
@@ -42,22 +38,15 @@ const TabStyle = styled.li`
       : `1px solid ${BasicColors.PureBlack}`};
   border-bottom: ${props =>
     props.selected ? `1px solid ${BackgroundColors.LightGrey}` : 0};
-  border-left: ${props =>
-    props.selected ? `1px solid ${BasicColors.PureBlack}` : 0};
-  border-right: ${props =>
-    props.selected ? `1px solid ${BasicColors.PureBlack}` : 0};
-  :first-child {
-    border-left: 1px solid ${BasicColors.PureBlack};
-    border-right: 1px solid ${BasicColors.PureBlack};
-  }
-  :last-child {
-    border-left: 1px solid ${BasicColors.PureBlack};
-    border-right: 1px solid ${BasicColors.PureBlack};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    flex-flow: row;
-  }
+  border-left: 1px solid ${BasicColors.PureBlack};
+  border-right: 1px solid ${BasicColors.PureBlack};
   a {
+    display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: ${MakeFonts.RobotoCondensedBold};
     width: 100%;
     font-size: 14px;
     padding: ${props => (props.selected ? '7px 5px' : '5px')};
@@ -66,6 +55,7 @@ const TabStyle = styled.li`
     color: ${BasicColors.PureBlack};
     text-transform: uppercase;
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+      flex-flow: row;
       font-size: 18px;
       padding: ${props => (props.selected ? '15px' : '10px 15px')};
     }

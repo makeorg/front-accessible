@@ -226,12 +226,20 @@
       "label": "Votre profile",
       "manage_account": "Gérer mon compte",
       "proposals": "Propositions",
-      "favorites": "Mes coup de {{coeur}}",
+      "favourites": "Mes coups de cœur",
       "following": "Mes profils suivis"
     },
     "proposals": {
       "title": "Mes dernières propositions",
-      "placeholder_text": "Vous n’avez pas encore soumis de proposition sur Make.org."
+      "text": "Vous n’avez pas encore soumis de proposition sur Make.org."
+    },
+    "favourites": {
+      "title": "Mes coups de cœur",
+      "description": {
+        "introduction": "Vous n’avez pas encore de coup de coeur sur Make.org.",
+        "explanation": "Vous pouvez placer une proposition en coup de cœur juste après avoir voté \" D'accord \" pour cette proposition."
+      },
+      "card_title": "Il faut soutenir des propositions de qualité."
     },
     "common": {
       "age": "{{age}} ans",

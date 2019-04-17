@@ -12,7 +12,7 @@ const ProfileFollowing = props => {
     return <Redirect to={`/${match.params.countryLanguage}`} />;
   }
 
-  return <ProfilePageContentStyle>Profile following</ProfilePageContentStyle>;
+  return <ProfilePageContentStyle>Profile Following</ProfilePageContentStyle>;
 };
 
 const mapStateToProps = state => {

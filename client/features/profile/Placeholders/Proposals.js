@@ -11,7 +11,7 @@ export const ProposalsPlaceholder = () => {
     <React.Fragment>
       <SvgLightBulb aria-hidden style={LightBulbStyle} />
       <PlaceholderParagraphStyle>
-        {i18n.t('profile.proposals.placeholder_text')}
+        {i18n.t('profile.proposals.text')}
       </PlaceholderParagraphStyle>
     </React.Fragment>
   );

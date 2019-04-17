@@ -11,7 +11,7 @@ export const ROUTE_PASSWORD_RECOVERY = `${ROUTE_COUNTRY_LANG}/password-recovery/
 export const ROUTE_PROFILE = `${ROUTE_COUNTRY_LANG}/profile`;
 export const ROUTE_PROFILE_EDIT = `${ROUTE_PROFILE}/edit`;
 export const ROUTE_PROFILE_PROPOSALS = `${ROUTE_PROFILE}/proposals`;
-export const ROUTE_PROFILE_FAVORITES = `${ROUTE_PROFILE}/favorites`;
+export const ROUTE_PROFILE_FAVOURITES = `${ROUTE_PROFILE}/favourites`;
 export const ROUTE_PROFILE_FOLLOWING = `${ROUTE_PROFILE}/following`;
 
 const replaceCountryLanguage = (route: string, value: string) =>
@@ -111,7 +111,7 @@ export const getRouteProfileEdit = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_EDIT, countryLanguage);
 export const getRouteProfileProposals = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_PROPOSALS, countryLanguage);
-export const getRouteProfileFavorites = (countryLanguage: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE_FAVORITES, countryLanguage);
+export const getRouteProfileFavourites = (countryLanguage: string) =>
+  replaceCountryLanguage(ROUTE_PROFILE_FAVOURITES, countryLanguage);
 export const getRouteProfileFollowing = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_FOLLOWING, countryLanguage);

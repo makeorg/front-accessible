@@ -85,3 +85,9 @@ export const ProfileTitleSeparatorStyle = styled.div`
   background-color: ${BackgroundColors.MediumGrey};
   margin: 5px auto ${intToPx(DefaultPadding.Mobile)};
 `;
+
+export const ProfileTabIconStyle = {
+  alignSelf: 'center',
+  marginLeft: '5px',
+  fill: MakeThemeColors.Red,
+};

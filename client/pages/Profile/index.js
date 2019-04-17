@@ -10,7 +10,6 @@ import {
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
 import { type User as TypeUser } from 'Shared/types/user';
-import { SvgLike } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { EditProfileLink } from 'Client/features/profile/UserInformations/Navigation';
@@ -18,26 +17,28 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
   ROUTE_PROFILE_PROPOSALS,
-  ROUTE_PROFILE_FAVORITES,
+  ROUTE_PROFILE_FAVOURITES,
   ROUTE_PROFILE_FOLLOWING,
   getRouteProfileProposals,
-  getRouteProfileFavorites,
+  getRouteProfileFavourites,
   getRouteProfileFollowing,
   getRouteProfileEdit,
 } from 'Shared/routes';
+import { SvgLike } from 'Client/ui/Svg/elements';
 import {
   ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
+  ProfileTabIconStyle,
 } from './Styled';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/ProfileProposals')
 );
-const ProfileFavoritesPage = loadable(() =>
-  import('Client/pages/Profile/ProfileFavorites')
+const ProfileFavouritesPage = loadable(() =>
+  import('Client/pages/Profile/ProfileFavourites')
 );
 const ProfileFollowingPage = loadable(() =>
   import('Client/pages/Profile/ProfileFollowing')
@@ -57,16 +58,16 @@ const Profile = (props: Props) => {
   }
 
   const profileProposalsLink = getRouteProfileProposals(countryLanguage);
-  const profileFavoritesLink = getRouteProfileFavorites(countryLanguage);
+  const profileFavouritesLink = getRouteProfileFavourites(countryLanguage);
   const profileFollowingLink = getRouteProfileFollowing(countryLanguage);
 
   const isProfileProposalsActive = !!matchPath(
     location.pathname,
     ROUTE_PROFILE_PROPOSALS
   );
-  const isProfileFavoritesActive = !!matchPath(
+  const isProfileFavouritesActive = !!matchPath(
     location.pathname,
-    ROUTE_PROFILE_FAVORITES
+    ROUTE_PROFILE_FAVOURITES
   );
   const isProfileFollowingActive = !!matchPath(
     location.pathname,
@@ -96,13 +97,13 @@ const Profile = (props: Props) => {
                   {i18n.t('profile.tabs.proposals')}
                 </Link>
               </TabStyle>
-              <TabStyle selected={isProfileFavoritesActive}>
+              <TabStyle selected={isProfileFavouritesActive}>
                 <Link
-                  to={profileFavoritesLink}
-                  aria-selected={isProfileFavoritesActive}
+                  to={profileFavouritesLink}
+                  aria-selected={isProfileFavouritesActive}
                 >
-                  {i18n.t('profile.tabs.favorites')}
-                  <SvgLike />
+                  {i18n.t('profile.tabs.favourites')}
+                  <SvgLike aria-hidden style={ProfileTabIconStyle} />
                 </Link>
               </TabStyle>
               <TabStyle selected={isProfileFollowingActive}>
@@ -122,9 +123,9 @@ const Profile = (props: Props) => {
               component={ProfileProposalsPage}
             />
             <Route
-              path={ROUTE_PROFILE_FAVORITES}
+              path={ROUTE_PROFILE_FAVOURITES}
               exact
-              component={ProfileFavoritesPage}
+              component={ProfileFavouritesPage}
             />
             <Route
               path={ROUTE_PROFILE_FOLLOWING}

@@ -1,7 +1,7 @@
 // @flow
 export type QualificationType = {
   count: number,
-  hasQualified: false,
+  hasQualified: boolean,
   qualificationKey: string,
 };
 
