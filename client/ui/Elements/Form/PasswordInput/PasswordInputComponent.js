@@ -26,7 +26,7 @@ type Props = {
   /** Boolean toggled when password is shown / hidden */
   isPasswordDisplayed: boolean,
   /** Array containing form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Is input required or optional */
   required: boolean,
 };

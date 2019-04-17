@@ -14,13 +14,13 @@ export const getResultBarIndex = (
 export const getTooltipIndex = (proposalVoteKey: string, proposalId: string) =>
   `Tooltip_${proposalVoteKey}_${proposalId}`;
 
-export const getVotesCount = (votes: Array<VoteType>) =>
+export const getVotesCount = (votes: VoteType[]) =>
   votes.map(vote => vote.count).reduce((total, voteCount) => total + voteCount);
 
-export const getIsVotedProposal = (votes: Array<VoteType>) =>
+export const getIsVotedProposal = (votes: VoteType[]) =>
   votes.map(vote => vote.hasVoted).reduce((reducer, hasVoted) => hasVoted);
 
-export const getVotesPercent = (votes: Array<VoteType>, votesCount: number) => {
+export const getVotesPercent = (votes: VoteType[], votesCount: number) => {
   const agreeVote: ?Object = votes.find(
     vote => vote.voteKey === VOTE_AGREE_KEY
   );

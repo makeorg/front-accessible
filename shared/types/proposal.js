@@ -24,7 +24,7 @@ export type Context = {
 export type VoteType = {
   voteKey: string,
   count: number,
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   hasVoted: boolean,
 };
 

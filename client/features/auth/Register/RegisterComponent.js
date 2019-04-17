@@ -27,7 +27,7 @@ type Props = {
   /** User form data */
   user: UserObject,
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

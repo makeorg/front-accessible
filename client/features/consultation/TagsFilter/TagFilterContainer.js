@@ -8,13 +8,13 @@ import { TagFilterComponent } from './TagFilterComponent';
 
 type Props = {
   question: Question,
-  selectedTagIds?: Array<string>,
+  selectedTagIds?: string[],
   handleSelectTag: () => void,
 };
 
 type State = {
   /** List of tags */
-  tags?: Array<TagType>,
+  tags?: TagType[],
   /** Show all tags in the filter or not */
   showAll: boolean,
 };

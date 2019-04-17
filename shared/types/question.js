@@ -7,7 +7,7 @@ export type Question = {
   question: string,
   country: string,
   language: string,
-  allowedSources: Array<string>,
+  allowedSources: string[],
   startDate: string,
   endDate: string,
   landingSequenceId: string,

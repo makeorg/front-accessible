@@ -54,7 +54,10 @@ export const FavouritesPlaceholder = () => {
                     }
                     direction="bottom"
                   >
-                    <VoteResultBarStyle color={VoteColors.Agree} percent={75} />
+                    <VoteResultBarStyle
+                      color={VoteColors.Agree}
+                      percent={100}
+                    />
                   </Tooltip>
                 </VoteResultItemStyle>
                 <VoteResultItemStyle>
@@ -66,7 +69,7 @@ export const FavouritesPlaceholder = () => {
                   >
                     <VoteResultBarStyle
                       color={VoteColors.Disagree}
-                      percent={15}
+                      percent={0}
                     />
                   </Tooltip>
                 </VoteResultItemStyle>
@@ -79,7 +82,7 @@ export const FavouritesPlaceholder = () => {
                   >
                     <VoteResultBarStyle
                       color={VoteColors.Neutral}
-                      percent={10}
+                      percent={0}
                     />
                   </Tooltip>
                 </VoteResultItemStyle>

@@ -13,7 +13,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Array containing form errors */
-  errors?: Array<ErrorObject>,
+  errors?: ErrorObject[],
   /** Is input required or optional */
   required?: boolean,
 };

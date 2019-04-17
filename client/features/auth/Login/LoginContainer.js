@@ -13,7 +13,7 @@ import { LoginComponent } from './LoginComponent';
 
 type Props = {
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called to render Register Component in Modal */
   handleRegisterModal: () => void,
   /** Method called to render ForgotPassword Component in Modal */

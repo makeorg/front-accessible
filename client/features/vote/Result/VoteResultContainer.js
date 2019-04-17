@@ -1,13 +1,14 @@
+// flow
 import * as React from 'react';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
-import { type VotesType } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/proposal';
 import { VoteResultComponent } from './VoteResultComponent';
 
 type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array with votes received from Api */
-  votes: Array<VotesType>,
+  votes: VoteType[],
   /** Voted key property */
   votedKey: string,
   /** Index of the card */
