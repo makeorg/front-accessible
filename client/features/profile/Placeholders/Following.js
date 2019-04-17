@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { SvgLike } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';

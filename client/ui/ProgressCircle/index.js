@@ -4,7 +4,15 @@ import { i18n } from 'Shared/i18n';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import * as Progress from './Styled/Progress';
+import {
+  ProgressWrapperStyle,
+  ProgressSvgStyle,
+  ProgressBackgroundStyle,
+  ProgressRingStyle,
+  ProgressCircleStyle,
+  ProgressCounterStyle,
+  ProgressActiveCardStyle,
+} from './Styled/Progress';
 
 type Props = {
   /** Index of the card */
@@ -25,37 +33,37 @@ export const ProgressCircleComponent = (props: Props) => {
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <Progress.WrapperStyle role="progressbar">
-      <Progress.SvgStyle viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
-        <Progress.BackgroundStyle
+    <ProgressWrapperStyle role="progressbar">
+      <ProgressSvgStyle viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
+        <ProgressBackgroundStyle
           cx={CardConstant.PROGRESS_SVG_CX}
           cy={CardConstant.PROGRESS_SVG_CY}
           r={CardConstant.PROGRESS_SVG_R}
         />
-        <Progress.RingStyle
+        <ProgressRingStyle
           cx={CardConstant.PROGRESS_SVG_CX}
           cy={CardConstant.PROGRESS_SVG_CY}
           r={CardConstant.PROGRESS_SVG_R}
         />
-        <Progress.CircleStyle
+        <ProgressCircleStyle
           progress={gaugeProgress(activeGaugeIndex, maxGaugeIndex)}
           remain={gaugeRemain(activeGaugeIndex, maxGaugeIndex)}
           cx={CardConstant.PROGRESS_SVG_CX}
           cy={CardConstant.PROGRESS_SVG_CY}
           r={CardConstant.PROGRESS_SVG_R}
         />
-      </Progress.SvgStyle>
-      <Progress.CounterStyle>
+      </ProgressSvgStyle>
+      <ProgressCounterStyle>
         <HiddenItemStyle aria-hidden>
           {i18n.t('proposal_card.number')}
         </HiddenItemStyle>
-        <Progress.ActiveCardStyle aria-valuetext={activeGaugeIndex}>
+        <ProgressActiveCardStyle aria-valuetext={activeGaugeIndex}>
           {activeGaugeIndex}
-        </Progress.ActiveCardStyle>
+        </ProgressActiveCardStyle>
         <span aria-hidden>/</span>
         <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
         <span aria-valuemax={maxGaugeIndex}>{maxGaugeIndex}</span>
-      </Progress.CounterStyle>
-    </Progress.WrapperStyle>
+      </ProgressCounterStyle>
+    </ProgressWrapperStyle>
   );
 };

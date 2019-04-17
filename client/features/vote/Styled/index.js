@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const VoteContainerStyle = styled.form`
