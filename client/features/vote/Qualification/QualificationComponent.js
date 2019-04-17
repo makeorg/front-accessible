@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QualificationType } from 'Shared/types/proposal';

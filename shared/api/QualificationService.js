@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { ApiService } from './ApiService';
 
 export const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';

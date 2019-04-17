@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { connect } from 'react-redux';
@@ -170,7 +170,7 @@ export class VoteHandler extends React.Component<Props, State> {
   hasStartedPending: boolean;
 
   render() {
-    const { proposalId, index, goToNextCard } = this.props;
+    const { proposalId, proposalKey, index, goToNextCard } = this.props;
     const {
       hasVoted,
       votedKey,
@@ -194,6 +194,7 @@ export class VoteHandler extends React.Component<Props, State> {
             <Qualification
               proposalId={proposalId}
               qualifications={qualifications}
+              proposalKey={proposalKey}
               votedKey={votedKey}
               index={index}
               pendingVote={pending}

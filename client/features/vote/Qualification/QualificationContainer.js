@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import { type QualificationType } from 'Shared/types/proposal';
 import {
@@ -12,7 +12,7 @@ import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   /** Proposal's Id */
   proposalId: string,
   /** String containing the hash generate api side for security purpose */
@@ -27,7 +27,7 @@ type Props = {
 
 type State = {
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   /** When waiting qualification response from API */
   pendingQualificationKeys: Set<string>,
 };

@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 export { SvgEmptyAvatar } from './EmptyAvatar';
 export { SvgAngleArrowRight } from './AngleArrowRight';
