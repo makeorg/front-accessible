@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type ErrorObject } from 'Shared/types/form';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import * as Separators from 'Client/ui/Elements/Separators';
+import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ForgotPasswordFormComponent } from './Form';
 import { ForgotPasswordStyle, ForgotPasswordTitleStyle } from './Styled';
@@ -36,7 +36,7 @@ export const PasswordForgotComponent = (props: Props) => {
       <SecondLevelTitleStyle id="forgot_password_title">
         {i18n.t('forgot_password.title')}
       </SecondLevelTitleStyle>
-      <Separators.SmallWithMargin />
+      <SmallSeparatorWithMarginStyle />
       {isSuccess ? (
         <ForgotPasswordTitleStyle>
           {i18n.t('forgot_password.success')}

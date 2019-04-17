@@ -3,7 +3,7 @@ import * as React from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import { SmallWithMargin } from 'Client/ui/Elements/Separators';
+import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
@@ -56,7 +56,7 @@ export const IntroCardComponent = (props: Props) => {
         <ExtraLogo extraLogo={configuration.extraLogo} />
         <IntroTitle title={configuration.title} />
       </header>
-      <SmallWithMargin aria-hidden />
+      <SmallSeparatorWithMarginStyle aria-hidden />
       <IntroDescription description={configuration.description} />
       <IntroButtonStyle
         id="sequence-start-sequence-button"

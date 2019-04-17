@@ -11,34 +11,34 @@ export const SeparatorStyle = styled.div`
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
-export const Small = styled(SeparatorStyle)`
+export const SmallSeparatorStyle = styled(SeparatorStyle)`
   max-width: ${pxToRem('60px')};
 `;
 
-export const SmallWithMargin = styled(Small)`
+export const SmallSeparatorWithMarginStyle = styled(SmallSeparatorStyle)`
   margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
   }
 `;
 
-export const Large = styled(SeparatorStyle)`
+export const LargeSeparatorStyle = styled(SeparatorStyle)`
   margin: ${pxToRem('25px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('35px')} 0;
   }
 `;
 
-export const Wrapper = styled(MiddleRowStyle)`
+export const SeparatorWrapperStyle = styled(MiddleRowStyle)`
   width: 100%;
 `;
 
-export const Text = styled(MiddleRowStyle)`
+export const TextSeparatorStyle = styled(MiddleRowStyle)`
   width: ${pxToRem('60px')};
   font-size: ${pxToRem('14px')};
 `;
 
-export const ContentSeparatorStyle = styled(Large)`
+export const ContentSeparatorStyle = styled(LargeSeparatorStyle)`
   margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('15px')} 0;
