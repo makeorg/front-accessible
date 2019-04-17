@@ -19,8 +19,20 @@ type State = {
   submitError: boolean,
 };
 
-const isFormValid = (password: string) => {
-  return !!password;
+const userCanSubmit = (values: TypeDeletePassword, user: TypeUser) => {
+  if (user.hasPassword) {
+    return values.password !== '';
+  }
+
+  return values.email !== '';
+};
+
+const formIsValid = (values: TypeDeletePassword, user: TypeUser) => {
+  if (user.hasPassword) {
+    return values.password !== '';
+  }
+
+  return values.email === user.email;
 };
 
 export class DeleteAccountContainer extends Component<Props, State> {
@@ -29,13 +41,14 @@ export class DeleteAccountContainer extends Component<Props, State> {
       password: '',
       email: '',
     },
-    formIsValid: false,
+    canSubmit: false,
     submitDone: false,
     submitError: false,
   };
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    const { user } = this.props;
 
     this.setState(prevState => {
       const values = {
@@ -45,7 +58,7 @@ export class DeleteAccountContainer extends Component<Props, State> {
 
       return {
         values,
-        formIsValid: isFormValid(values),
+        canSubmit: userCanSubmit(values, user),
       };
     });
   };
@@ -54,11 +67,9 @@ export class DeleteAccountContainer extends Component<Props, State> {
     event.preventDefault();
     const { values } = this.state;
     const { user, handleLogout } = this.props;
+    const isValid = formIsValid(values, user);
 
-    if (
-      user.hasPassword ||
-      (!user.hasPassword && values.email === user.email)
-    ) {
+    if (isValid) {
       try {
         const password = values.password !== '' ? values.password : null;
         await UserService.deleteAccount(user.userId, password);
@@ -73,13 +84,13 @@ export class DeleteAccountContainer extends Component<Props, State> {
   };
 
   render() {
-    const { values, submitDone, submitError, formIsValid } = this.state;
+    const { values, submitDone, submitError, canSubmit } = this.state;
     const { user } = this.props;
     return (
       <DeleteAccountComponent
         hasPassword={user.hasPassword}
         values={values}
-        formIsValid={formIsValid}
+        canSubmit={canSubmit}
         submitDone={submitDone}
         submitError={submitError}
         handleChange={this.handleChange}

@@ -17,8 +17,8 @@ import { TypeDeletePassword } from './DeleteAccountContainer';
 
 type Props = {
   values: TypeDeletePassword,
-  /** Boolean to check that for is valid */
-  formIsValid: boolean,
+  /** Boolean to check that user can submit */
+  canSubmit: boolean,
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
@@ -28,7 +28,7 @@ type Props = {
 export const DeleteAccountComponent = ({
   hasPassword,
   values,
-  formIsValid,
+  canSubmit,
   submitDone,
   submitError,
   handleChange,
@@ -71,8 +71,9 @@ export const DeleteAccountComponent = ({
           </ErrorMessageStyle>
         )}
         <SubmitButton
-          disabled={!formIsValid}
+          disabled={!canSubmit}
           formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
+          icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.delete_account.submit_label')}
         />
       </form>

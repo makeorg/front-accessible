@@ -67,6 +67,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
           </UserAvatarStyle>
           <UserContentWrapperStyle>
             <UserTitleStyle>{user.firstName}</UserTitleStyle>
+            <UserContentStyle>{user.email}</UserContentStyle>
             {profile.postalCode && (
               <UserContentStyle>
                 <SvgMapMarker style={{ marginRight: '3px' }} />
