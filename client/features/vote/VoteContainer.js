@@ -15,7 +15,7 @@ import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
 import { VoteResult } from './Result';
-import * as VoteStyle from './Styled';
+import { VoteContainerStyle } from './Styled';
 
 type Props = {
   /** Proposal's Id */
@@ -182,7 +182,7 @@ export class VoteHandler extends React.Component<Props, State> {
     if (hasVoted) {
       return (
         <React.Fragment>
-          <VoteStyle.ContainerStyle>
+          <VoteContainerStyle>
             <VoteResult
               proposalId={proposalId}
               votes={votes}
@@ -199,7 +199,7 @@ export class VoteHandler extends React.Component<Props, State> {
               index={index}
               pendingVote={pending}
             />
-          </VoteStyle.ContainerStyle>
+          </VoteContainerStyle>
           {index !== undefined && (
             <NextButtonStyle onClick={goToNextCard} id={`next-button-${index}`}>
               {i18n.t('proposal_card.next')}

@@ -4,8 +4,14 @@ import { SvgLike, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { VoteColors } from 'Client/app/assets/vars/Colors';
 import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
-import * as VoteStyle from 'Client/features/vote/Styled';
-import * as VoteResultStyle from 'Client/features/vote/Result/Styled';
+import { VoteContainerStyle } from 'Client/features/vote/Styled';
+import {
+  VoteResultContainerStyle,
+  VoteResultGraphStyle,
+  VoteResultItemStyle,
+  VoteResultBarStyle,
+  VoteResultTotalLabelStyle,
+} from 'Client/features/vote/Result/Styled';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {
   QualifyButtonStyle,
@@ -35,58 +41,55 @@ export const FavouritesPlaceholder = () => {
         <FavouritesProposalStyle as="p">
           {i18n.t('profile.favourites.card_title')}
         </FavouritesProposalStyle>
-        <VoteStyle.ContainerStyle>
-          <VoteResultStyle.ContainerStyle>
+        <VoteContainerStyle>
+          <VoteResultContainerStyle>
             <UnvoteButtonStyle color={VoteColors.Agree} disabled>
               <SvgThumbsUp />
             </UnvoteButtonStyle>
             <aside>
-              <VoteResultStyle.GraphStyle>
-                <VoteResultStyle.ItemStyle>
+              <VoteResultGraphStyle>
+                <VoteResultItemStyle>
                   <Tooltip
                     content={
                       <ResultTooltip votePercent={100} voteKey="agree" />
                     }
                     direction="bottom"
                   >
-                    <VoteResultStyle.BarStyle
-                      color={VoteColors.Agree}
-                      percent={75}
-                    />
+                    <VoteResultBarStyle color={VoteColors.Agree} percent={75} />
                   </Tooltip>
-                </VoteResultStyle.ItemStyle>
-                <VoteResultStyle.ItemStyle>
+                </VoteResultItemStyle>
+                <VoteResultItemStyle>
                   <Tooltip
                     content={
                       <ResultTooltip votePercent={0} voteKey="disagree" />
                     }
                     direction="bottom"
                   >
-                    <VoteResultStyle.BarStyle
+                    <VoteResultBarStyle
                       color={VoteColors.Disagree}
                       percent={15}
                     />
                   </Tooltip>
-                </VoteResultStyle.ItemStyle>
-                <VoteResultStyle.ItemStyle>
+                </VoteResultItemStyle>
+                <VoteResultItemStyle>
                   <Tooltip
                     content={
                       <ResultTooltip votePercent={0} voteKey="neutral" />
                     }
                     direction="bottom"
                   >
-                    <VoteResultStyle.BarStyle
+                    <VoteResultBarStyle
                       color={VoteColors.Neutral}
                       percent={10}
                     />
                   </Tooltip>
-                </VoteResultStyle.ItemStyle>
-              </VoteResultStyle.GraphStyle>
-              <VoteResultStyle.TotalLabelStyle>
+                </VoteResultItemStyle>
+              </VoteResultGraphStyle>
+              <VoteResultTotalLabelStyle>
                 {i18n.t('vote.label', { count: 4242 })}
-              </VoteResultStyle.TotalLabelStyle>
+              </VoteResultTotalLabelStyle>
             </aside>
-          </VoteResultStyle.ContainerStyle>
+          </VoteResultContainerStyle>
           <SpaceBetweenColumnStyle>
             <UnqualifyButtonStyle color={VoteColors.Agree} disabled>
               <span>{i18n.t('qualification.likeIt')}</span>
@@ -101,7 +104,7 @@ export const FavouritesPlaceholder = () => {
               <CounterStyle>+1</CounterStyle>
             </QualifyButtonStyle>
           </SpaceBetweenColumnStyle>
-        </VoteStyle.ContainerStyle>
+        </VoteContainerStyle>
       </FavouritesCardStyle>
     </React.Fragment>
   );

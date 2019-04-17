@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { VoteButtonElement } from 'Client/ui/Elements/Vote/Button';
-import { ButtonWrapperStyle } from '../Styled';
+import { VoteButtonWrapperStyle } from '../Styled';
 
 type Props = {
   /** Color property passed to Styled Component */
@@ -56,7 +56,7 @@ export const VoteButtonComponent = (props: Props) => {
   const { color, label, icon, buttonType, handleVote, displayPending } = props;
 
   return (
-    <ButtonWrapperStyle>
+    <VoteButtonWrapperStyle>
       <VoteButtonWithTooltip
         color={color}
         label={label}
@@ -65,6 +65,6 @@ export const VoteButtonComponent = (props: Props) => {
         handleVote={handleVote}
         displayPending={displayPending}
       />
-    </ButtonWrapperStyle>
+    </VoteButtonWrapperStyle>
   );
 };
