@@ -2,8 +2,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { i18n } from 'Shared/i18n';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { ProfilePageContentStyle } from '../Styled';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { FollowingPlaceholder } from 'Client/features/profile/Placeholders/Following';
+import {
+  ProfileContentHeaderStyle,
+  ProfileTitleSeparatorStyle,
+} from '../Styled';
 
 const ProfileFollowing = props => {
   const { user, match } = props;
@@ -12,7 +19,17 @@ const ProfileFollowing = props => {
     return <Redirect to={`/${match.params.countryLanguage}`} />;
   }
 
-  return <ProfilePageContentStyle>Profile Following</ProfilePageContentStyle>;
+  return (
+    <CenterColumnStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('profile.proposals.title')}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      <FollowingPlaceholder />
+    </CenterColumnStyle>
+  );
 };
 
 const mapStateToProps = state => {

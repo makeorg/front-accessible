@@ -230,11 +230,6 @@
       "favourites": "My favourites",
       "following": "My followed profiles"
     },
-    "common": {
-      "age": "{{age}} years",
-      "submit_label": "Save changes",
-      "submit_success": "Your request has been taken into account."
-    },
     "proposals": {
       "title": "My last proposals",
       "text": "You haven't submit any proposal on Make.org"
@@ -246,6 +241,19 @@
         "explanation": "You can add a proposal as favourite by voting \" Agree \" on this proposal."
       },
       "card_title": "We should support quality proposals."
+    },
+    "following": {
+      "title": "My followed profiles",
+      "description": {
+        "introduction": "You are not following any organisation on Make.org for the moment.",
+        "explanation_step_one": "Go on the profile page of an organisation.",
+        "explanation_step_two": "Click on \" Follow \" to subscribe to the news feed of this organisation."
+      }
+    },
+    "common": {
+      "age": "{{age}} years",
+      "submit_label": "Save changes",
+      "submit_success": "Your request has been taken into account."
     },
     "informations_update": {
       "title": "Update my profile",
