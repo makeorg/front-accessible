@@ -273,7 +273,7 @@ export class UserService {
    * @param  {String}  password
    * @param  {String}  userId
    */
-  static deleteAccount(password: string, userId: string): Promise<any> {
+  static deleteAccount(userId: string, password?: string): Promise<any> {
     return ApiService.callApi(
       PATH_USER_DELETE_ACCOUNT.replace(':userId', userId),
       {

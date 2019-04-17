@@ -2,15 +2,21 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { PROFILE_DELETE_ACCOUNT_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
+import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
-import { PasswordFieldIcon } from 'Shared/constants/icons';
+import {
+  PasswordFieldIcon,
+  EmailFieldIcon,
+  SubmitThumbsUpIcon,
+} from 'Shared/constants/icons';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormParagraphStyle } from '../Styled/Forms';
+import { TypeDeletePassword } from './DeleteAccountContainer';
 
 type Props = {
-  password: string,
+  values: TypeDeletePassword,
   /** Boolean to check that for is valid */
   formIsValid: boolean,
   /** Method called when field's value changes */
@@ -20,7 +26,8 @@ type Props = {
 };
 
 export const DeleteAccountComponent = ({
-  password,
+  hasPassword,
+  values,
   formIsValid,
   submitDone,
   submitError,
@@ -33,15 +40,26 @@ export const DeleteAccountComponent = ({
         <FormParagraphStyle>
           {i18n.t('profile.delete_account.description')}
         </FormParagraphStyle>
-        <PasswordInput
-          label={i18n.t('profile.delete_account.password_label')}
-          name="password"
-          id="password"
-          required
-          icon={PasswordFieldIcon}
-          value={password}
-          handleChange={handleChange}
-        />
+        {hasPassword ? (
+          <PasswordInput
+            label={i18n.t('profile.delete_account.password_label')}
+            name="password"
+            id="password"
+            required
+            icon={PasswordFieldIcon}
+            value={values.password}
+            handleChange={handleChange}
+          />
+        ) : (
+          <UntypedInput
+            type="email"
+            name="email"
+            icon={EmailFieldIcon}
+            label={i18n.t('common.form.email_label')}
+            required
+            handleChange={handleChange}
+          />
+        )}
         {submitDone && (
           <SuccessMessageStyle>
             {i18n.t('profile.common.submit_success')}
@@ -49,7 +67,7 @@ export const DeleteAccountComponent = ({
         )}
         {submitError && (
           <ErrorMessageStyle>
-            {i18n.t('common.form.incorrect_password')}
+            {i18n.t('login.email_doesnot_exist')}
           </ErrorMessageStyle>
         )}
         <SubmitButton

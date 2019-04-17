@@ -37,8 +37,8 @@ export const updatePassword = async (
   return UserService.updatePassword(userId, actualPassword, newPassword);
 };
 
-export const deleteAccount = async (password: string, userId: string) => {
-  return UserService.deleteAccount(password, userId)
+export const deleteAccount = async (userId: string, password: string) => {
+  return UserService.deleteAccount(userId, password)
     .then(() => HttpStatus.HTTP_NO_CONTENT)
     .catch(error => {
       Logger.logError(

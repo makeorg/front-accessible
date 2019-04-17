@@ -72,7 +72,7 @@ export class ProfileEdit extends React.Component<Props> {
               hasPassword={user.hasPassword}
             />
             <UpdateNewsletter profile={user.profile} />
-            <DeleteAccount userId={user.userId} handleLogout={handleLogout} />
+            <DeleteAccount user={user} handleLogout={handleLogout} />
           </ProfilePageContentStyle>
         </ProfilePageContentWrapperStyle>
       </ProfileWrapperStyle>
