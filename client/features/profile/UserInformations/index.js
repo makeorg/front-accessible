@@ -1,4 +1,4 @@
 // @flow
 export {
-  UserInformationsComponent as UserInformations,
-} from './UserInformationsComponent';
+  UserInformationsContainer as UserInformations,
+} from './UserInformationsContainer';

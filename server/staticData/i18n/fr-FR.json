@@ -239,7 +239,8 @@
       "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement."
     },
     "informations_update": {
-      "title": "Modifier mon profil"
+      "title": "Modifier mon profil",
+      "link_to_profile": "retour à mon profil"
     },
     "password_update": {
       "title": "Modifier mon mot de passe",

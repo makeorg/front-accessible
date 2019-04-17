@@ -57,6 +57,6 @@ export const UserSeparatorStyle = styled(SeparatorStyle)`
   margin: 10px 0;
 `;
 
-export const LogOutButtonStyle = styled(GreyButtonStyle)`
+export const UserInformationButtonStyle = styled(GreyButtonStyle)`
   margin: 10px 0 0;
 `;

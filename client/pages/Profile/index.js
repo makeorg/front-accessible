@@ -13,8 +13,8 @@ import { type User as TypeUser } from 'Shared/types/user';
 import { SvgLike } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
+import { EditProfileLink } from 'Client/features/profile/UserInformations/Navigation';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { logout } from 'Shared/store/actions/authentification';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
   ROUTE_PROFILE_PROPOSALS,
@@ -23,6 +23,7 @@ import {
   getRouteProfileProposals,
   getRouteProfileFavorites,
   getRouteProfileFollowing,
+  getRouteProfileEdit,
 } from 'Shared/routes';
 import {
   ProfileWrapperStyle,
@@ -44,13 +45,12 @@ const ProfileFollowingPage = loadable(() =>
 
 type Props = {
   user: TypeUser,
-  handleLogout: () => void,
   match: TypeMatch,
   location: TypeLocation,
 };
 
 const Profile = (props: Props) => {
-  const { user, handleLogout, match, location } = props;
+  const { user, match, location } = props;
   const { countryLanguage } = match.params;
   if (!user) {
     return <Redirect to={`/${countryLanguage}`} />;
@@ -73,13 +73,17 @@ const Profile = (props: Props) => {
     ROUTE_PROFILE_FOLLOWING
   );
 
+  const NavigationBar = (
+    <EditProfileLink link={getRouteProfileEdit(countryLanguage)} />
+  );
+
   return (
     <ProfileWrapperStyle>
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarStyle>
-          <UserInformations user={user} handleLogout={handleLogout} />
+          <UserInformations user={user} navigationBar={NavigationBar} />
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
           <TabNavStyle aria-label={i18n.t('profile.tabs.label')}>
@@ -139,16 +143,7 @@ const mapStateToProps = state => {
   return { user };
 };
 
-const mapDispatchToProps = dispatch => ({
-  handleLogout: () => {
-    dispatch(logout());
-  },
-});
-
-export const ProfilePage = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile);
+export const ProfilePage = connect(mapStateToProps)(Profile);
 
 // default export needed for loadable component
 export default ProfilePage; // eslint-disable-line import/no-default-export

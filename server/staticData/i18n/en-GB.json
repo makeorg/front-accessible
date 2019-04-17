@@ -236,7 +236,8 @@
       "submit_success": "Your request has been taken into account."
     },
     "informations_update": {
-      "title": "Modifier mon profil"
+      "title": "Update my profile",
+      "link_to_profile": "return to my profile"
     },
     "password_update": {
       "title": "Modify your password",
