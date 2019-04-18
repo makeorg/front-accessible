@@ -13,7 +13,8 @@ import { UserInformations } from 'Client/features/profile/UserInformations';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { logout } from 'Shared/store/actions/authentification';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
-import { ROUTE_PROFILE_EDIT } from 'Shared/routes';
+import { GoToProfileLink } from 'Client/features/profile/UserInformations/Navigation';
+import { ROUTE_PROFILE_EDIT, getRouteProfile } from 'Shared/routes';
 import { i18n } from 'Shared/i18n';
 import {
   ProfileWrapperStyle,
@@ -43,13 +44,17 @@ export class ProfileEdit extends React.Component<Props> {
       return <Redirect to={`/${countryLanguage}`} />;
     }
 
+    const NavigationBar = (
+      <GoToProfileLink link={getRouteProfile(countryLanguage)} />
+    );
+
     return (
       <ProfileWrapperStyle>
         <MetaTags />
         <ProfileHeaderStyle aria-hidden />
         <ProfilePageContentWrapperStyle>
           <ProfilePageSidebarStyle as="aside">
-            <UserInformations user={user} handleLogout={handleLogout} />
+            <UserInformations user={user} navigationBar={NavigationBar} />
           </ProfilePageSidebarStyle>
           <ProfilePageContentStyle>
             <TabNavStyle aria-label={i18n.t('profile.tabs.label')}>

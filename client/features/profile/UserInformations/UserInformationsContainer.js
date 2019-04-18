@@ -1,5 +1,7 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { logout } from 'Shared/store/actions/authentification';
 import { type User } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
@@ -16,11 +18,12 @@ import {
   UserDescriptionStyle,
   UserSeparatorStyle,
   UserAvatarLayoutStyle,
-  LogOutButtonStyle,
+  UserInformationButtonStyle,
 } from '../Styled/UserInformations';
 
 type Props = {
   user: User,
+  navigationBar: React.Element<any>,
   handleLogout: () => void,
 };
 
@@ -28,7 +31,7 @@ type State = {
   avatarSize: number,
 };
 
-export class UserInformationsComponent extends React.Component<Props, State> {
+class UserInformationsHandler extends React.Component<Props, State> {
   state = {
     avatarSize: 60,
   };
@@ -49,7 +52,7 @@ export class UserInformationsComponent extends React.Component<Props, State> {
 
   render() {
     const { avatarSize } = this.state;
-    const { user, handleLogout } = this.props;
+    const { user, navigationBar, handleLogout } = this.props;
     const { profile } = user;
 
     return (
@@ -89,13 +92,25 @@ export class UserInformationsComponent extends React.Component<Props, State> {
             <UserSeparatorStyle aria-hidden />
           </React.Fragment>
         )}
-        <LogOutButtonStyle onClick={handleLogout}>
+        {navigationBar}
+        <UserInformationButtonStyle onClick={handleLogout}>
           <IconWrapperStyle aria-hidden>
             <SvgSignOut />
           </IconWrapperStyle>
           {i18n.t('common.disconnexion_label')}
-        </LogOutButtonStyle>
+        </UserInformationButtonStyle>
       </React.Fragment>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  handleLogout: () => {
+    dispatch(logout());
+  },
+});
+
+export const UserInformationsContainer = connect(
+  null,
+  mapDispatchToProps
+)(UserInformationsHandler);
