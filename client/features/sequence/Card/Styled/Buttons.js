@@ -79,7 +79,6 @@ export const NextButtonStyle = styled(SmallRedButtonStyle)`
 
 export const AltNextButtonStyle = styled(SmallGreyButtonStyle)`
   margin-top: ${pxToRem('20px')};
-  white-space: normal;
 `;
 
 export const FinalLinkStyle = styled(IntroButtonStyle)`

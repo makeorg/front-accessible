@@ -34,11 +34,11 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
         <SvgPencil aria-hidden />
       </IconWrapperStyle>
-      <HiddenOnMobileStyle
+      <ProposalButtonLabelStyle
         as={isOpen ? ProposalButtonLabelStyle : HiddenOnMobileStyle}
       >
         {i18n.t('common.propose')}
-      </HiddenOnMobileStyle>
+      </ProposalButtonLabelStyle>
     </ProposalButtonStyle>
   );
 };

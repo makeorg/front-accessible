@@ -27,6 +27,9 @@ export const TabNavStyle = styled.nav`
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: ${intToPx(DefaultPadding.Desktop)};
+    &::after {
+      display: none;
+    }
   }
 `;
 
@@ -40,8 +43,15 @@ const TabListStyle = styled.ul`
 `;
 
 const TabStyle = styled.li`
-  list-style: none;
+  position: relative;
+  z-index: ${props => (props.selected ? 1 : 0)};
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
   min-width: 150px;
+  text-transform: uppercase;
+  font-family: ${MakeFonts.RobotoCondensedBold};
   background-color: ${props =>
     props.selected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
   border-top: ${props =>
@@ -49,9 +59,14 @@ const TabStyle = styled.li`
       ? `4px solid ${BasicColors.PureBlack}`
       : `1px solid ${BasicColors.PureBlack}`};
   border-bottom: ${props =>
-    props.selected ? `1px solid ${BackgroundColors.LightGrey}` : 0};
+    props.selected
+      ? `1px solid ${BackgroundColors.LightGrey}`
+      : `1px solid ${BasicColors.PureBlack}`};
   border-left: 1px solid ${BasicColors.PureBlack};
   border-right: 1px solid ${BasicColors.PureBlack};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: row;
+  }
   a {
     display: inline-flex;
     flex-flow: column;
