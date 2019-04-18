@@ -2,7 +2,7 @@
 
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
@@ -38,7 +38,7 @@ export const getUser = () => (
   getState: () => StateRoot
 ) => {
   const { isOpen: isModalOpen } = getState().modal;
-  return UserService.me().then(user => {
+  return UserApiService.me().then(user => {
     dispatch(setUserInfo(user));
     if (isModalOpen) {
       dispatch(modalClose());
@@ -52,7 +52,7 @@ export const login = (email: string, password: string) => (
   dispatch: Dispatch
 ) => {
   dispatch(loginRequest());
-  return UserService.login(email, password)
+  return UserApiService.login(email, password)
     .then(() => {
       dispatch(loginSuccess());
       Tracking.trackLoginEmailSuccess();
@@ -74,7 +74,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
   dispatch: Dispatch
 ) => {
   dispatch(loginSocialRequest(provider));
-  return UserService.loginSocial(provider, socialToken)
+  return UserApiService.loginSocial(provider, socialToken)
     .then(() => {
       dispatch(loginSocialSuccess());
       Tracking.trackAuthentificationSocialSuccess(provider);
@@ -88,7 +88,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
 };
 
 export const logout = () => (dispatch: Dispatch) => {
-  return UserService.logout().then(() => {
+  return UserApiService.logout().then(() => {
     return dispatch(logoutSuccess());
   });
 };

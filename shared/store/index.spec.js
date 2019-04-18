@@ -1,13 +1,13 @@
 /* @flow */
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { authenticationState } from './index';
 
-jest.mock('Shared/api/UserService');
+jest.mock('Shared/api/UserApiService');
 
 describe('Client authenticate state', () => {
   it('authenticated state without user', async () => {
     // mocks
-    UserService.me.mockRejectedValue(['Unauthorized']);
+    UserApiService.me.mockRejectedValue(['Unauthorized']);
 
     const state = await authenticationState();
     expect(state.isLoggedIn).toBe(false);
@@ -17,7 +17,7 @@ describe('Client authenticate state', () => {
   it('authenticated state with user', async () => {
     const user = { email: 'mike@make.org', password: 'pass' };
     // mocks
-    UserService.me.mockResolvedValue(user);
+    UserApiService.me.mockResolvedValue(user);
 
     const state = await authenticationState();
     expect(state.isLoggedIn).toBe(true);

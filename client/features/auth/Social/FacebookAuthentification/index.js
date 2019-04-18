@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { loginSocial } from 'Shared/store/actions/authentification';
-import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserService';
+import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 
 type Props = {
   /** Facebook login method callback */

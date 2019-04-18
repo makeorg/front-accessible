@@ -1,5 +1,5 @@
-/* @flow */
-import { UserService } from 'Shared/api/UserService';
+// @flow
+import { UserApiService } from 'Shared/api/UserApiService';
 import { type UserInformationForm, type Passwords } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
@@ -7,7 +7,7 @@ import { Logger } from 'Shared/services/Logger';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
 
 export const update = async (userInformation: UserInformationForm) => {
-  return UserService.update({
+  return UserApiService.update({
     firstName: userInformation.firstName,
     dateOfBirth: getDateOfBirthFromAge(userInformation.age),
     postalCode: userInformation.postalCode,
@@ -18,7 +18,7 @@ export const update = async (userInformation: UserInformationForm) => {
 };
 
 export const updateNewsletter = async (optInNewsletter: boolean) => {
-  return UserService.update({
+  return UserApiService.update({
     optInNewsletter,
   });
 };
@@ -34,11 +34,11 @@ export const updatePassword = async (
       : undefined;
   const { newPassword } = passwords;
 
-  return UserService.updatePassword(userId, actualPassword, newPassword);
+  return UserApiService.updatePassword(userId, actualPassword, newPassword);
 };
 
 export const deleteAccount = async (userId: string, password: string) => {
-  return UserService.deleteAccount(userId, password)
+  return UserApiService.deleteAccount(userId, password)
     .then(() => HttpStatus.HTTP_NO_CONTENT)
     .catch(error => {
       Logger.logError(
@@ -50,7 +50,7 @@ export const deleteAccount = async (userId: string, password: string) => {
 };
 
 export const forgotPassword = (email: string) => {
-  return UserService.forgotPassword(email)
+  return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
       const notExistError: ErrorObject = {
@@ -82,7 +82,7 @@ const getMessageFromApiErrorMessage = (message: string): string => {
 };
 
 export const register = (user: UserObject) => {
-  return UserService.register(user)
+  return UserApiService.register(user)
     .then(() => {})
     .catch(errors => {
       const errorList = Array.isArray(errors)
@@ -99,7 +99,7 @@ export const register = (user: UserObject) => {
 };
 
 export const login = (email: string, password: string) => {
-  return UserService.login(email, password)
+  return UserApiService.login(email, password)
     .then(() => {})
     .catch(() => {
       const error = {
@@ -109,4 +109,14 @@ export const login = (email: string, password: string) => {
 
       throw error;
     });
+};
+
+export const myProposals = (userId: string): ApiSearchProposalsResponseType => {
+  return UserApiService.myProposals(userId);
+};
+
+export const myFavourites = (
+  userId: string
+): ApiSearchProposalsResponseType => {
+  return UserApiService.myFavourites(userId);
 };

@@ -1,13 +1,13 @@
 import httpMocks from 'node-mocks-http';
 import { QuestionService } from 'Shared/api/QuestionService';
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
-jest.mock('Shared/api/UserService');
+jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/api/QuestionService');
 
 const initialState = createInitialState();
@@ -64,7 +64,7 @@ describe('Account activation route', () => {
     const fooQuestion = {
       id: 'foo',
     };
-    UserService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
+    UserApiService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
     QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
@@ -90,7 +90,7 @@ describe('Account activation route', () => {
       },
     };
     await accountActivationRoute(request, response, () => {});
-    expect(UserService.verifyUser).toHaveBeenCalledWith(
+    expect(UserApiService.verifyUser).toHaveBeenCalledWith(
       'foo',
       'bar',
       expectedHeaders
@@ -103,7 +103,7 @@ describe('Account activation route', () => {
       id: 'foo',
     };
 
-    UserService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
+    UserApiService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
     QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
@@ -130,7 +130,7 @@ describe('Account activation route', () => {
     };
 
     await accountActivationRoute(request, response, () => {});
-    expect(UserService.verifyUser).toHaveBeenCalledWith(
+    expect(UserApiService.verifyUser).toHaveBeenCalledWith(
       'foo',
       'bar',
       expectedHeaders

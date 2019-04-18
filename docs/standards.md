@@ -177,8 +177,8 @@ expect(response.redirect).toBeCalledWith('/FR-fr');
 - Initialize a local mock
 
 ```js
-import { UserService } from 'Shared/api/UserService';
-jest.mock('Shared/api/UserService');
+import { UserApiService } from 'Shared/api/UserApiService';
+jest.mock('Shared/api/UserApiService');
 ```
 
 - Initialize a node_modules mock
@@ -195,19 +195,19 @@ module.exports = {
 - Resolve a promise
 
 ```js
-UserService.forgotPassword.mockResolvedValue();
+UserApiService.forgotPassword.mockResolvedValue();
 
 // same as:
-// UserService.forgotPassword.mockImplementation(() => Promise.resolve())
+// UserApiService.forgotPassword.mockImplementation(() => Promise.resolve())
 ```
 
 - Reject a promise
 
 ```js
-UserService.forgotPassword.mockRejectedValue();
+UserApiService.forgotPassword.mockRejectedValue();
 
 // same as:
-// UserService.forgotPassword.mockImplementation(() => Promise.reject())
+// UserApiService.forgotPassword.mockImplementation(() => Promise.reject())
 ```
 
 ### UI test strategy

@@ -106,14 +106,6 @@ const Profile = (props: Props) => {
                   <SvgLike aria-hidden style={ProfileTabIconStyle} />
                 </Link>
               </TabStyle>
-              <TabStyle selected={isProfileFollowingActive}>
-                <Link
-                  to={profileFollowingLink}
-                  aria-selected={isProfileFollowingActive}
-                >
-                  {i18n.t('profile.tabs.following')}
-                </Link>
-              </TabStyle>
             </TabListStyle>
           </TabNavStyle>
           <Switch>

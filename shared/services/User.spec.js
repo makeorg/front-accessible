@@ -1,6 +1,6 @@
 /* @flow */
 
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import {
   update,
   deleteAccount,
@@ -10,7 +10,7 @@ import {
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 
-jest.mock('Shared/api/UserService');
+jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/services/Logger');
 jest.mock('Shared/helpers/date', () => ({
   getDateOfBirthFromAge: () => 30,
@@ -26,11 +26,11 @@ describe('User Service', () => {
       description: 'baz description',
     };
     it('Call UserApi service with right params', async () => {
-      jest.spyOn(UserService, 'update');
+      jest.spyOn(UserApiService, 'update');
 
       await update(userInformation);
 
-      expect(UserService.update).toHaveBeenNthCalledWith(1, {
+      expect(UserApiService.update).toHaveBeenNthCalledWith(1, {
         firstName: userInformation.firstName,
         dateOfBirth: 30,
         postalCode: userInformation.postalCode,
@@ -42,10 +42,10 @@ describe('User Service', () => {
 
   describe('deleteAccount function', () => {
     it('return a no content http status', async () => {
-      jest.spyOn(UserService, 'deleteAccount');
-      UserService.deleteAccount.mockResolvedValue('ok');
+      jest.spyOn(UserApiService, 'deleteAccount');
+      UserApiService.deleteAccount.mockResolvedValue('ok');
       const response = await deleteAccount('barUserId', 'fooPassword');
-      expect(UserService.deleteAccount).toHaveBeenNthCalledWith(
+      expect(UserApiService.deleteAccount).toHaveBeenNthCalledWith(
         1,
         'barUserId',
         'fooPassword'
@@ -57,7 +57,7 @@ describe('User Service', () => {
     it('return a bad request content', async () => {
       jest.spyOn(Logger, 'logError');
 
-      UserService.deleteAccount.mockRejectedValue(404);
+      UserApiService.deleteAccount.mockRejectedValue(404);
       try {
         await deleteAccount('barUserId', 'fooPassword');
       } catch (error) {
@@ -71,10 +71,10 @@ describe('User Service', () => {
 
   describe('forgotPassword function', () => {
     it('success', async () => {
-      jest.spyOn(UserService, 'forgotPassword');
-      UserService.forgotPassword.mockResolvedValue();
+      jest.spyOn(UserApiService, 'forgotPassword');
+      UserApiService.forgotPassword.mockResolvedValue();
       const response = await forgotPassword('foo@example.com');
-      expect(UserService.forgotPassword).toHaveBeenNthCalledWith(
+      expect(UserApiService.forgotPassword).toHaveBeenNthCalledWith(
         1,
         'foo@example.com'
       );
@@ -83,8 +83,8 @@ describe('User Service', () => {
     });
 
     it('return a bad request content', async () => {
-      jest.spyOn(UserService, 'forgotPassword');
-      UserService.forgotPassword.mockRejectedValue([
+      jest.spyOn(UserApiService, 'forgotPassword');
+      UserApiService.forgotPassword.mockRejectedValue([
         { field: 'email', message: 'notok' },
       ]);
       try {
@@ -96,8 +96,8 @@ describe('User Service', () => {
     });
 
     it('return a 404', async () => {
-      jest.spyOn(UserService, 'forgotPassword');
-      UserService.forgotPassword.mockRejectedValue(404);
+      jest.spyOn(UserApiService, 'forgotPassword');
+      UserApiService.forgotPassword.mockRejectedValue(404);
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
@@ -113,18 +113,18 @@ describe('User Service', () => {
       email: 'john@example.com',
     };
     it('success', async () => {
-      jest.spyOn(UserService, 'register');
-      UserService.register.mockResolvedValue();
+      jest.spyOn(UserApiService, 'register');
+      UserApiService.register.mockResolvedValue();
 
       const response = await register(johnData);
-      expect(UserService.register).toHaveBeenNthCalledWith(1, johnData);
+      expect(UserApiService.register).toHaveBeenNthCalledWith(1, johnData);
 
       expect(response).toBe();
     });
 
     it('return a bad request content', async () => {
-      jest.spyOn(UserService, 'register');
-      UserService.register.mockRejectedValue([
+      jest.spyOn(UserApiService, 'register');
+      UserApiService.register.mockRejectedValue([
         { field: 'email', message: 'notok' },
       ]);
       try {
@@ -136,8 +136,8 @@ describe('User Service', () => {
     });
 
     it('return a specific error when email already exist', async () => {
-      jest.spyOn(UserService, 'register');
-      UserService.register.mockRejectedValue([
+      jest.spyOn(UserApiService, 'register');
+      UserApiService.register.mockRejectedValue([
         { field: 'email', message: 'Email azerazer already exist' },
       ]);
       try {
@@ -149,8 +149,8 @@ describe('User Service', () => {
     });
 
     it('return a bad request content with a global error', async () => {
-      jest.spyOn(UserService, 'register');
-      UserService.register.mockRejectedValue({
+      jest.spyOn(UserApiService, 'register');
+      UserApiService.register.mockRejectedValue({
         message: 'global notok',
       });
       try {

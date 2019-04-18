@@ -1,4 +1,4 @@
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 
 /* @flow */
 
@@ -22,7 +22,7 @@ export function configureStore(initialState: Object = {}) {
 export const authenticationState = async () => {
   let authentificationState;
   try {
-    const user = await UserService.me();
+    const user = await UserApiService.me();
     authentificationState = {
       isLoggedIn: !!user,
       user,
