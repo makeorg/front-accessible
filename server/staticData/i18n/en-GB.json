@@ -42,7 +42,8 @@
     "hide_tooltip": "Hide the content of the tooltip",
     "expand_collapse": "Display the content of the collapse section",
     "shrink_collapse": "Hide the content of the collapse section",
-    "secondary_nav": "Secondary navigation"
+    "secondary_nav": "Secondary navigation",
+    "percent": "{{percent}}%"
   },
   "header": {
     "logo_alt": "Go to the Make.org site"
@@ -57,8 +58,15 @@
     "previous": "Previous proposal",
     "next": "Next proposal",
     "number": "Proposal number",
+    "posted_label": "posted in ",
     "author": {
       "age": "{{age}} years"
+    },
+    "status": {
+      "accepted": "Published",
+      "refused": "Refused",
+      "postponed": "Awaiting moderation",
+      "pending":"Awaiting moderation"
     }
   },
   "intro_card": {

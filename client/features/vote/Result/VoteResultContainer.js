@@ -11,8 +11,6 @@ type Props = {
   votes: VoteType[],
   /** Voted key property */
   votedKey: string,
-  /** Index of the card */
-  index: number,
   /** Method called when vote button is clicked */
   handleVote: string => void,
   /** When waiting response from API */
@@ -23,7 +21,7 @@ type Props = {
  * Handles Vote Result Business Logic
  */
 export const VoteResultContainer = (props: Props) => {
-  const { votes, handleVote, votedKey } = props;
+  const { votes, handleVote, votedKey, proposalId, pending } = props;
   const votesCount = VoteResultHelper.getVotesCount(votes);
   const handleVoteWithKey = () => {
     handleVote(votedKey);
@@ -33,8 +31,10 @@ export const VoteResultContainer = (props: Props) => {
     <VoteResultComponent
       votesPercent={VoteResultHelper.getVotesPercent(votes, votesCount)}
       votesCount={votesCount}
+      votedKey={votedKey}
       handleVote={handleVoteWithKey}
-      {...props}
+      proposalId={proposalId}
+      pending={pending}
     />
   );
 };

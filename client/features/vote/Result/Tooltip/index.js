@@ -15,7 +15,7 @@ export const ResultTooltip = (props: Props) => {
   return (
     <React.Fragment>
       <p>{i18n.t(`vote.${voteKey}`)}</p>
-      <p>{`${votePercent} %`}</p>
+      <p>{i18n.t('common.percent', { percent: votePercent })}</p>
     </React.Fragment>
   );
 };

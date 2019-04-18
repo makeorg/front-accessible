@@ -57,7 +57,7 @@ export class ProfileEdit extends React.Component<Props> {
             <UserInformations user={user} navigationBar={NavigationBar} />
           </ProfilePageSidebarStyle>
           <ProfilePageContentStyle>
-            <TabNavStyle aria-label={i18n.t('profile.tabs.label')}>
+            <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
               <TabListStyle>
                 <TabStyle selected>
                   <Link to={editProfileLink} aria-selected>

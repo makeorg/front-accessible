@@ -187,7 +187,6 @@ export class VoteHandler extends React.Component<Props, State> {
               proposalId={proposalId}
               votes={votes}
               votedKey={votedKey}
-              index={index}
               handleVote={() => this.handleVoting(votedKey)}
               pending={pending}
             />

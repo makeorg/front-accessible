@@ -87,7 +87,7 @@ const Profile = (props: Props) => {
           <UserInformations user={user} navigationBar={NavigationBar} />
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
-          <TabNavStyle aria-label={i18n.t('profile.tabs.label')}>
+          <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
             <TabListStyle>
               <TabStyle selected={isProfileProposalsActive}>
                 <Link

@@ -61,10 +61,8 @@ export const VoteComponent = (props: VoteProps) => {
 
   return (
     <VoteContainerStyle>
-      <HiddenItemStyle aria-hidden as="h3">
-        {i18n.t('vote.intro_title')}
-      </HiddenItemStyle>
-      <HiddenItemStyle aria-hidden>{i18n.t('vote.intro_text')}</HiddenItemStyle>
+      <HiddenItemStyle as="h3">{i18n.t('vote.intro_title')}</HiddenItemStyle>
+      <HiddenItemStyle>{i18n.t('vote.intro_text')}</HiddenItemStyle>
       <VoteWrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}

@@ -43,3 +43,7 @@ export const getVotesPercent = (votes: VoteType[], votesCount: number) => {
       : 0,
   };
 };
+
+export const getVotePercent = (count: number, total: number) => {
+  return Math.round((count / total) * 100);
+};
