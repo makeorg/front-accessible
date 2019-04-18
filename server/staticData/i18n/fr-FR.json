@@ -11,7 +11,6 @@
   },
   "common": {
     "connexion_label": "Se connecter",
-    "disconnexion_label": "Se déconnecter",
     "register_label": "S'inscrire",
     "form": {
       "email_label": "E-mail",
@@ -253,6 +252,7 @@
       }
     },
     "common": {
+      "log_out": "Je me déconnecte",
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",
       "submit_success": "Votre demande a bien été prise en compte.",
@@ -279,7 +279,8 @@
     "delete_account": {
       "title": "Demander la suppression de mon compte",
       "description": "Attention, cette action est irréversible. Vous perdrez vos propositions, leurs statistiques détaillées, ainsi que les propositions sur lesquelles vous vous êtes prononcé(e).",
-      "password_label": "Mot de passe (obligatoire)"
+      "password_label": "J'indique mon mot de passe",
+      "submit_label": "Demander la suppression de mon compte"
     }
   },
   "consultation": {

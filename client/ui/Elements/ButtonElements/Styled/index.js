@@ -39,7 +39,6 @@ export const UnstyledButtonStyle = styled.button`
 `;
 
 export const BasicButtonStyle = styled.button`
-  white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;

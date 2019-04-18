@@ -6,7 +6,6 @@ import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
-import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 
 type Props = {
@@ -52,14 +51,12 @@ export const UpdateNewsletterComponent = ({
             {i18n.t('common.form.api_error')}
           </ErrorMessageStyle>
         )}
-        <SubmitButtonWrapperStyle>
-          <SubmitButton
-            disabled={!formIsValid}
-            formName={NEWSLETTER_UPDATE_FORMNAME}
-            icon={SubmitSaveIcon}
-            label={i18n.t('profile.common.submit_label')}
-          />
-        </SubmitButtonWrapperStyle>
+        <SubmitButton
+          disabled={!formIsValid}
+          formName={NEWSLETTER_UPDATE_FORMNAME}
+          icon={SubmitSaveIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
       </form>
     </TileWithTitle>
   );

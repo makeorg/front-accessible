@@ -8,7 +8,6 @@
   },
   "common": {
     "connexion_label": "Log in",
-    "disconnexion_label": "Log out",
     "register_label": "Sign up",
     "form": {
       "email_label": "E-mail",
@@ -251,12 +250,14 @@
       }
     },
     "common": {
+      "log_out": "Log out",
       "age": "{{age}} years",
       "submit_label": "Save changes",
-      "submit_success": "Your request has been taken into account."
+      "submit_success": "Your request has been taken into account.",
+      "error": "Opps ! An error occured during the registering of your informations. Please try again later."
     },
     "informations_update": {
-      "title": "Update my profile",
+      "title": "Modify my profile",
       "link_to_profile": "return to my profile"
     },
     "password_update": {
@@ -264,11 +265,20 @@
       "password_label": "Current password",
       "password_placeholder": "Current password (mandatory)",
       "newpassword_label": "New password",
-      "newpassword_placeholder": "New password (mandatory)"
+      "newpassword_placeholder": "New password (mandatory)",
+      "submit_label": "Save changes",
+      "wrong_password": "The password you entered is incorrect.",
+      "reset_password_cta": "Did you forget your password ?"
     },
     "newsletter_update": {
-      "title": "manage my email",
+      "title": "Manage my email",
       "optin_label": "By clicking I hereby accept receiving informations about Make.org (your email will never be revealed to a third party)"
+    },
+    "delete_account": {
+      "title": "Delete my account",
+      "description": "Be careful, this action is irreversible. You will loose your proposals, detailled statistics about them, and the proposals on which you took position.",
+      "password_label": "I type my password",
+      "submit_label": "Delete my account"
     }
   },
   "consultation": {

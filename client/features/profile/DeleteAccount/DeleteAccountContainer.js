@@ -40,10 +40,10 @@ export class DeleteAccountContainer extends Component<Props, State> {
     const { userId, handleLogout } = this.props;
     try {
       await UserService.deleteAccount(password, userId);
-      this.setState({ submitDone: true });
+      this.setState({ submitDone: true, formIsValid: false });
       handleLogout();
     } catch {
-      this.setState({ submitError: true });
+      this.setState({ submitError: true, formIsValid: false });
     }
   };
 

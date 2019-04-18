@@ -69,7 +69,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
             <UserTitleStyle>{user.firstName}</UserTitleStyle>
             {profile.postalCode && (
               <UserContentStyle>
-                <SvgMapMarker />
+                <SvgMapMarker style={{ marginRight: '3px' }} />
                 {profile.postalCode}
               </UserContentStyle>
             )}
@@ -97,7 +97,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
           <IconWrapperStyle aria-hidden>
             <SvgSignOut />
           </IconWrapperStyle>
-          {i18n.t('common.disconnexion_label')}
+          {i18n.t('profile.common.log_out')}
         </UserInformationButtonStyle>
       </React.Fragment>
     );
