@@ -23,7 +23,7 @@ import {
 type Props = {
   values: UserInformationForm,
   errors: UserInformationFormErrors,
-  formIsValid: boolean,
+  canSubmit: boolean,
   submitDone: boolean,
   submitError: boolean,
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
@@ -33,7 +33,7 @@ type Props = {
 export const UpdateInformationsComponent = ({
   values,
   errors,
-  formIsValid,
+  canSubmit,
   submitDone,
   submitError,
   handleChange,
@@ -121,7 +121,7 @@ export const UpdateInformationsComponent = ({
           </ErrorMessageStyle>
         )}
         <SubmitButton
-          disabled={!formIsValid}
+          disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}

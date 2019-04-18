@@ -73,13 +73,13 @@ export class DeleteAccountContainer extends Component<Props, State> {
       try {
         const password = values.password !== '' ? values.password : null;
         await UserService.deleteAccount(user.userId, password);
-        this.setState({ submitDone: true, formIsValid: false });
+        this.setState({ submitDone: true, canSubmit: false });
         handleLogout();
       } catch {
-        this.setState({ submitError: true, formIsValid: false });
+        this.setState({ submitError: true, canSubmit: false });
       }
     } else {
-      this.setState({ submitError: true, formIsValid: false });
+      this.setState({ submitError: true, canSubmit: false });
     }
   };
 

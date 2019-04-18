@@ -17,8 +17,8 @@ type Props = {
   errors: PasswordsErrors,
   /** Boolean to check if user has password */
   hasPassword: boolean,
-  /** Boolean to check if form is valid */
-  formIsValid: boolean,
+  /** Boolean to check if form can submitted */
+  canSubmit: boolean,
   /** Boolean to check if form is submitted successfully */
   submitDone: boolean,
   /** Method called when field's value changes */
@@ -32,7 +32,7 @@ type Props = {
 export const UpdatePasswordComponent = ({
   passwords,
   errors,
-  formIsValid,
+  canSubmit,
   hasPassword,
   submitDone,
   handleChange,
@@ -83,7 +83,7 @@ export const UpdatePasswordComponent = ({
           </SuccessMessageStyle>
         )}
         <SubmitButton
-          disabled={!formIsValid}
+          disabled={!canSubmit}
           formName={PASSWORD_UPDATE_FORMNAME}
           icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.common.submit_label')}

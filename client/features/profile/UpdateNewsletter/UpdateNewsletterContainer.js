@@ -8,7 +8,7 @@ type Props = {
 };
 
 type State = {
-  formIsValid: boolean,
+  canSubmit: boolean,
   submitDone: boolean,
   submitError: boolean,
 };
@@ -18,7 +18,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
     super(props);
     this.state = {
       optInNewsletter: props.profile.optInNewsletter,
-      formIsValid: false,
+      canSubmit: false,
       submitDone: false,
       submitError: false,
     };
@@ -27,7 +27,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
   handleCheck = () => {
     this.setState(prevState => ({
       optInNewsletter: !prevState.optInNewsletter,
-      formIsValid: true,
+      canSubmit: true,
     }));
   };
 
@@ -36,19 +36,14 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
     const { optInNewsletter } = this.state;
     try {
       await UserService.updateNewsletter(optInNewsletter);
-      this.setState({ submitDone: true, formIsValid: false });
+      this.setState({ submitDone: true, canSubmit: false });
     } catch {
-      this.setState({ submitError: true, formIsValid: false });
+      this.setState({ submitError: true, canSubmit: false });
     }
   };
 
   render() {
-    const {
-      optInNewsletter,
-      submitError,
-      submitDone,
-      formIsValid,
-    } = this.state;
+    const { optInNewsletter, submitError, submitDone, canSubmit } = this.state;
 
     return (
       <UpdateNewsletterComponent
@@ -57,7 +52,7 @@ export class UpdateNewsletterContainer extends Component<Props, State> {
         submitError={submitError}
         handleCheck={this.handleCheck}
         handleSubmit={this.handleSubmit}
-        formIsValid={formIsValid}
+        canSubmit={canSubmit}
       />
     );
   }
