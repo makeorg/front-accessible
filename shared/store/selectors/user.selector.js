@@ -13,13 +13,6 @@ export const selectAuthentification = (state: StateRoot) =>
 export const selectRegistration = (state: StateRoot) => state.user.registration;
 
 /**
- * forgotPassword selector
- * @param {*} state
- */
-export const selectForgotPassword = (state: StateRoot) =>
-  state.user.forgotPassword;
-
-/**
  * passwordRecovery selector
  * @param {*} state
  */

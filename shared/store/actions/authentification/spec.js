@@ -158,7 +158,6 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS },
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.FORGOT_PASSWORD_INIT },
       ];
 
       return store
@@ -253,7 +252,6 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.FORGOT_PASSWORD_INIT },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {

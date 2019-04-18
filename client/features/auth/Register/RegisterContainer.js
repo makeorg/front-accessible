@@ -4,28 +4,32 @@ import * as React from 'react';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
-import { register } from 'Shared/store/actions/registration';
-import { modalShowLogin } from 'Shared/store/actions/modal';
-import { selectRegistration } from 'Shared/store/selectors/user.selector';
+import { modalShowLogin, modalClose } from 'Shared/store/actions/modal';
 import { selectConfig } from 'Shared/store/selectors/config.selector';
+import * as UserService from 'Shared/services/User';
+import { Logger } from 'Shared/services/Logger';
+import { Tracking } from 'Shared/services/Tracking';
+import { getUser } from 'Shared/store/actions/authentification';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
-  /** Array with form errors */
-  errors: ErrorObject[],
   /** Current country */
   country: string,
   /** Current language */
   language: string,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
-  /** Method called to render Register Component in Modal */
-  handleRegister: UserObject => void,
+  /** Method called to close modal */
+  handleModalClose: () => void,
+  /** Method called to load user */
+  handleLoadUser: () => void,
 };
 
 type State = {
   /** User form data */
   user: UserObject,
+  /** Array with form errors */
+  errors: ErrorObject[],
 };
 
 /**
@@ -41,6 +45,7 @@ class RegisterHandler extends React.Component<Props, State> {
       postalcode: '',
       profession: '',
     },
+    errors: [],
   };
 
   throttleSubmit: any = undefined;
@@ -61,26 +66,39 @@ class RegisterHandler extends React.Component<Props, State> {
     });
   };
 
-  handleSubmit = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    event.preventDefault();
+  logAndLoadUser = async (email, password) => {
+    const { handleLoadUser } = this.props;
+    try {
+      await UserService.login(email, password);
+      handleLoadUser();
+    } catch {
+      // @toDo: notify user
+      Logger.logError(`Login fail for ${email}`);
+    }
+  };
 
+  handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
+    event.preventDefault();
     const { user } = this.state;
-    const { handleRegister } = this.props;
 
     if (user.email && user.password && user.firstname) {
-      handleRegister(user);
+      const { handleModalClose } = this.props;
+      try {
+        await UserService.register(user);
+        Tracking.trackSignupEmailSuccess();
+        handleModalClose();
+        this.logAndLoadUser(user.email, user.password);
+      } catch (errors) {
+        Tracking.trackSignupEmailFailure();
+        this.setState({ errors });
+      }
     }
   };
 
   render() {
-    const {
-      errors,
-      country,
-      language,
-      handleLoginModal,
-      handleRegister,
-    } = this.props;
-    const { user } = this.state;
+    const { country, language, handleLoginModal } = this.props;
+    const { errors, user } = this.state;
+
     return (
       <RegisterComponent
         country={country}
@@ -88,7 +106,6 @@ class RegisterHandler extends React.Component<Props, State> {
         errors={errors}
         user={user}
         handleLoginModal={handleLoginModal}
-        handleRegister={handleRegister}
         handleChange={this.handleChange}
         handleSubmit={this.throttleSubmit}
       />
@@ -97,18 +114,20 @@ class RegisterHandler extends React.Component<Props, State> {
 }
 
 const mapStateToProps = state => {
-  const { errors } = selectRegistration(state);
   const { country, language } = selectConfig(state);
 
-  return { errors, country, language };
+  return { country, language };
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleRegister: user => {
-    dispatch(register(user));
-  },
   handleLoginModal: () => {
     dispatch(modalShowLogin());
+  },
+  handleModalClose: () => {
+    dispatch(modalClose());
+  },
+  handleLoadUser: () => {
+    dispatch(getUser());
   },
 });
 

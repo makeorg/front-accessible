@@ -15,10 +15,7 @@ describe('Modal Actions', () => {
   });
 
   it('Creates MODAL_CLOSE when calling action', () => {
-    const expectedActions = [
-      { type: actionTypes.MODAL_CLOSE },
-      { type: actionTypes.FORGOT_PASSWORD_INIT }
-    ];
+    const expectedActions = [{ type: actionTypes.MODAL_CLOSE }];
 
     store.dispatch(actions.modalClose());
 
@@ -26,32 +23,38 @@ describe('Modal Actions', () => {
   });
 
   it('Creates MODAL_SHOW_LOGIN when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.MODAL_SHOW_LOGIN,
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.MODAL_SHOW_LOGIN,
+      },
+    ];
 
     store.dispatch(actions.modalShowLogin());
 
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates MODAL_SHOW_REGISTER when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.MODAL_SHOW_REGISTER,
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.MODAL_SHOW_REGISTER,
+      },
+    ];
 
     store.dispatch(actions.modalShowRegister());
 
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates MODAL_SHOW_FORGOT_PASSWORD when calling action', () => {
-    const expectedActions = [{
-      type: actionTypes.MODAL_SHOW_FORGOT_PASSWORD,
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.MODAL_SHOW_FORGOT_PASSWORD,
+      },
+    ];
 
     store.dispatch(actions.modalShowForgotPassword());
 
-    expect(store.getActions()).toEqual(expectedActions)
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
