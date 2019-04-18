@@ -8,7 +8,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const WrapperStyle = styled.div`
+export const ProgressWrapperStyle = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@ export const WrapperStyle = styled.div`
   }
 `;
 
-export const SvgStyle = styled.svg`
+export const ProgressSvgStyle = styled.svg`
   position: absolute;
   top: 0;
   left: 0;
@@ -30,17 +30,17 @@ export const SvgStyle = styled.svg`
   height: 100%;
 `;
 
-export const BackgroundStyle = styled.circle`
+export const ProgressBackgroundStyle = styled.circle`
   fill: ${BasicColors.PureWhite};
 `;
 
-export const RingStyle = styled.circle`
+export const ProgressRingStyle = styled.circle`
   fill: transparent;
   stroke: ${BackgroundColors.ExtraLightGrey};
   stroke-width: ${pxToRem('3px')};
 `;
 
-export const CircleStyle = styled.circle`
+export const ProgressCircleStyle = styled.circle`
   fill: transparent;
   stroke: ${props => props.theme.color};
   stroke-width: ${pxToRem('3px')};
@@ -49,7 +49,7 @@ export const CircleStyle = styled.circle`
   stroke-dashoffset: 25;
 `;
 
-export const CounterStyle = styled.h2`
+export const ProgressCounterStyle = styled.h2`
   position: relative;
   z-index: 1;
   font-size: ${pxToRem('12px')};
@@ -60,7 +60,7 @@ export const CounterStyle = styled.h2`
   }
 `;
 
-export const ActiveCardStyle = styled.span`
+export const ProgressActiveCardStyle = styled.span`
   font-size: ${pxToRem('12px')};
   color: ${BasicColors.PureBlack};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {

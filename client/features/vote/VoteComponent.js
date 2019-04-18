@@ -6,7 +6,7 @@ import { getVoteKey } from 'Shared/helpers/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { VoteButton } from './Button';
-import * as VoteStyle from './Styled';
+import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
 
 type VoteButtonsProps = {
   /** Proposal's Id */
@@ -60,19 +60,19 @@ export const VoteComponent = (props: VoteProps) => {
   const { proposalId, handleVote, pending, pendingVoteKey } = props;
 
   return (
-    <VoteStyle.ContainerStyle>
+    <VoteContainerStyle>
       <HiddenItemStyle aria-hidden as="h3">
         {i18n.t('vote.intro_title')}
       </HiddenItemStyle>
       <HiddenItemStyle aria-hidden>{i18n.t('vote.intro_text')}</HiddenItemStyle>
-      <VoteStyle.WrapperStyle>
+      <VoteWrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}
           handleVote={handleVote}
           pending={pending}
           pendingVoteKey={pendingVoteKey}
         />
-      </VoteStyle.WrapperStyle>
-    </VoteStyle.ContainerStyle>
+      </VoteWrapperStyle>
+    </VoteContainerStyle>
   );
 };

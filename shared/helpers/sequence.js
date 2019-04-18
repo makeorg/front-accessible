@@ -43,7 +43,7 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
 /**
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
- * @param  {Array<CardType>} cards
+ * @param  {CardType[]} cards
  * @return {number}
  */
 export const findIndexOfFirstUnvotedCard = (
@@ -67,9 +67,9 @@ export const findIndexOfFirstUnvotedCard = (
 
 /**
  * Build cards array
- * @param  {Array<Object>} proposals
+ * @param  {ProposalType[]} proposals
  * @param  {ExtraSlidesConfig} extraSlidesConfig
- * @return {Array<CardType>}
+ * @return {CardType[]}
  */
 export const buildCards = (
   proposals: ProposalType[],

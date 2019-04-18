@@ -11,7 +11,7 @@ import {
   ROUTE_PROFILE,
   ROUTE_PROFILE_EDIT,
   ROUTE_PROFILE_PROPOSALS,
-  ROUTE_PROFILE_FAVORITES,
+  ROUTE_PROFILE_FAVOURITES,
   ROUTE_PROFILE_FOLLOWING,
 } from 'Shared/routes';
 
@@ -43,7 +43,7 @@ export const Routes = () => (
     <Route path={ROUTE_PASSWORD_RECOVERY} component={PasswordRecoveryPage} />
     <Route path={ROUTE_PROFILE_EDIT} component={ProfileEditPage} />
     <Route path={ROUTE_PROFILE_PROPOSALS} component={ProfilePage} />
-    <Route path={ROUTE_PROFILE_FAVORITES} component={ProfilePage} />
+    <Route path={ROUTE_PROFILE_FAVOURITES} component={ProfilePage} />
     <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
     <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
     <Route component={NotFoundPage} />

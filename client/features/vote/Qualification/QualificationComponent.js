@@ -10,13 +10,13 @@ import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   /** Proposal's Id */
   proposalId: string,
   /** Voted key property */
   votedKey: string,
   /** Array with qualifications received from Api */
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   /** When waiting vote response from API */
   pendingVote: boolean,
   /** pending qualification keys property */

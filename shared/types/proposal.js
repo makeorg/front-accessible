@@ -1,7 +1,7 @@
 // @flow
 export type QualificationType = {
   count: number,
-  hasQualified: false,
+  hasQualified: boolean,
   qualificationKey: string,
 };
 
@@ -24,7 +24,7 @@ export type Context = {
 export type VoteType = {
   voteKey: string,
   count: number,
-  qualifications: Array<QualificationType>,
+  qualifications: QualificationType[],
   hasVoted: boolean,
 };
 

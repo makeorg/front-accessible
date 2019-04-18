@@ -11,7 +11,7 @@ import {
 
 type ListProps = {
   /** Array with partners propeties */
-  partners: Array<PartnerItem>,
+  partners: PartnerItem[],
 };
 
 /**
@@ -47,7 +47,7 @@ const PartnersList = (props: ListProps) => {
 
 type Props = {
   /** Array with partners propeties */
-  partners?: Array<PartnerItem>,
+  partners?: PartnerItem[],
 };
 
 /**

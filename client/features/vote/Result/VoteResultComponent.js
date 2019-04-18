@@ -7,7 +7,13 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { ResultTooltip } from './Tooltip';
-import * as VoteResult from './Styled';
+import {
+  VoteResultContainerStyle,
+  VoteResultGraphStyle,
+  VoteResultItemStyle,
+  VoteResultBarStyle,
+  VoteResultTotalLabelStyle,
+} from './Styled';
 import { VoteButton } from '../Button';
 
 type Props = {
@@ -30,7 +36,7 @@ type Props = {
  */
 const VoteResultBarWithTooltip = ({ voteKey, percent, color }) => {
   const content = <ResultTooltip votePercent={percent} voteKey={voteKey} />;
-  const children = <VoteResult.BarStyle color={color} percent={percent} />;
+  const children = <VoteResultBarStyle color={color} percent={percent} />;
 
   return (
     <Tooltip content={content} direction="bottom">
@@ -54,7 +60,7 @@ export const VoteResultComponent = (props: Props) => {
   const voteKeys = Object.keys(voteStaticParams);
 
   return (
-    <VoteResult.ContainerStyle>
+    <VoteResultContainerStyle>
       <HiddenItemStyle aria-hidden as="h3">
         {i18n.t('unvote.title')}
       </HiddenItemStyle>
@@ -70,25 +76,25 @@ export const VoteResultComponent = (props: Props) => {
         <HiddenItemStyle aria-hidden as="h3">
           {i18n.t('results.title')}
         </HiddenItemStyle>
-        <VoteResult.GraphStyle>
+        <VoteResultGraphStyle>
           {voteKeys.map(voteKey => (
-            <VoteResult.ItemStyle key={`${voteKey}_item_${proposalId}`}>
+            <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>
               <VoteResultBarWithTooltip
                 key={`${voteKey}_tooltip_${proposalId}`}
                 voteKey={voteKey}
                 percent={votesPercent[voteKey]}
                 color={voteStaticParams[voteKey].color}
               />
-            </VoteResult.ItemStyle>
+            </VoteResultItemStyle>
           ))}
-        </VoteResult.GraphStyle>
-        <VoteResult.TotalLabelStyle>
+        </VoteResultGraphStyle>
+        <VoteResultTotalLabelStyle>
           <HiddenItemStyle aria-hidden>
             {i18n.t('results.total_text')}
           </HiddenItemStyle>
           {i18n.t('vote.label', { count: votesCount })}
-        </VoteResult.TotalLabelStyle>
+        </VoteResultTotalLabelStyle>
       </aside>
-    </VoteResult.ContainerStyle>
+    </VoteResultContainerStyle>
   );
 };

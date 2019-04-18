@@ -7,7 +7,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { Small } from 'Client/ui/Elements/Separators';
+import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
   MiddleRowStyle,
@@ -57,7 +57,7 @@ export const FinalParagraphStyle = styled.p`
   }
 `;
 
-export const SeparatorStyle = styled(Small)`
+export const SeparatorStyle = styled(SmallSeparatorStyle)`
   margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};

@@ -4,11 +4,11 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 
-export const ContainerStyle = styled(CenterColumnStyle)`
+export const VoteResultContainerStyle = styled(CenterColumnStyle)`
   margin-right: 10px;
 `;
 
-export const GraphStyle = styled(UnstyledListStyle)`
+export const VoteResultGraphStyle = styled(UnstyledListStyle)`
   position: relative;
   display: flex;
   width: 100%;
@@ -18,13 +18,13 @@ export const GraphStyle = styled(UnstyledListStyle)`
   margin-top: 5px;
 `;
 
-export const ItemStyle = styled.li`
+export const VoteResultItemStyle = styled.li`
   display: flex;
   height: 100%;
   align-items: flex-end;
 `;
 
-export const BarStyle = styled.div`
+export const VoteResultBarStyle = styled.div`
   display: flex;
   width: 6px;
   min-height: 5px;
@@ -33,7 +33,7 @@ export const BarStyle = styled.div`
   background-color: ${props => props.color};
 `;
 
-export const TotalLabelStyle = styled.p`
+export const VoteResultTotalLabelStyle = styled.p`
   font-size: 12px;
   color: ${TextColors.MediumGrey};
   text-align: center;

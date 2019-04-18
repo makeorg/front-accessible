@@ -11,7 +11,12 @@ import {
   ExtraParagraphStyle,
   ExtraAltParagraphStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
-import * as Separators from 'Client/ui/Elements/Separators';
+import {
+  SmallSeparatorWithMarginStyle,
+  LargeSeparatorStyle,
+  SeparatorWrapperStyle,
+  TextSeparatorStyle,
+} from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginFormComponent } from './Form';
 import { LoginStyle } from './Styled';
@@ -44,16 +49,16 @@ export const LoginComponent = (props: Props) => {
       <SecondLevelTitleStyle id="login_title">
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>
-      <Separators.SmallWithMargin />
+      <SmallSeparatorWithMarginStyle />
       <ThirdLevelTitleStyle>
         {i18n.t('login.social_connect')}
       </ThirdLevelTitleStyle>
       <AuthentificationSocial />
-      <Separators.Wrapper>
-        <Separators.Large />
-        <Separators.Text>{i18n.t('login.or')}</Separators.Text>
-        <Separators.Large />
-      </Separators.Wrapper>
+      <SeparatorWrapperStyle>
+        <LargeSeparatorStyle />
+        <TextSeparatorStyle>{i18n.t('login.or')}</TextSeparatorStyle>
+        <LargeSeparatorStyle />
+      </SeparatorWrapperStyle>
       <ThirdLevelTitleStyle>
         {i18n.t('login.email_connect')}
       </ThirdLevelTitleStyle>

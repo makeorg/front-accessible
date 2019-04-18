@@ -6,7 +6,12 @@ import {
   SecondLevelTitleStyle,
   ThirdLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
-import * as Separators from 'Client/ui/Elements/Separators';
+import {
+  SmallSeparatorWithMarginStyle,
+  LargeSeparatorStyle,
+  SeparatorWrapperStyle,
+  TextSeparatorStyle,
+} from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Social/FacebookAuthentification/Link';
@@ -22,7 +27,7 @@ type Props = {
   /** User form data */
   user: UserObject,
   /** Array with form errors */
-  errors: Array<ErrorObject>,
+  errors: ErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */
@@ -50,7 +55,7 @@ export const RegisterComponent = (props: Props) => {
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
-      <Separators.SmallWithMargin />
+      <SmallSeparatorWithMarginStyle />
       <ThirdLevelTitleStyle>
         {i18n.t('register.social_connect')}
         &nbsp;
@@ -60,11 +65,11 @@ export const RegisterComponent = (props: Props) => {
         &nbsp;
         <GoogleAuthentificationLinkComponent />
       </ThirdLevelTitleStyle>
-      <Separators.Wrapper>
-        <Separators.Large />
-        <Separators.Text>{i18n.t('register.or')}</Separators.Text>
-        <Separators.Large />
-      </Separators.Wrapper>
+      <SeparatorWrapperStyle>
+        <LargeSeparatorStyle />
+        <TextSeparatorStyle>{i18n.t('register.or')}</TextSeparatorStyle>
+        <LargeSeparatorStyle />
+      </SeparatorWrapperStyle>
       <ThirdLevelTitleStyle>{i18n.t('register.subtitle')}</ThirdLevelTitleStyle>
       <RegisterFormComponent
         country={country}

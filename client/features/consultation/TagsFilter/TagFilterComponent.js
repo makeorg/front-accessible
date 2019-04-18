@@ -13,9 +13,9 @@ import {
 
 type Props = {
   /** List of tags */
-  tags: Array<TagType>,
+  tags: TagType[],
   /** List of select tag id */
-  selectedTagIds: Array<string>,
+  selectedTagIds: string[],
   /** Show all tags in the filter or not */
   showAll: boolean,
   /** Function to toggle show all tags */

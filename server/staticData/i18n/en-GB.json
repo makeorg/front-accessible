@@ -227,8 +227,28 @@
       "label": "My profile",
       "manage_account": "Manage my account",
       "proposals": "Propositions",
-      "favorites": "My favorites {{coeur}}",
+      "favourites": "My favourites",
       "following": "My followed profiles"
+    },
+    "proposals": {
+      "title": "My last proposals",
+      "text": "You haven't submit any proposal on Make.org"
+    },
+    "favourites": {
+      "title": "My favourites",
+      "description": {
+        "introduction": "You do not have any favourite proposal on Make.org.",
+        "explanation": "You can add a proposal as favourite by voting \" Agree \" on this proposal."
+      },
+      "card_title": "We should support quality proposals."
+    },
+    "following": {
+      "title": "My followed profiles",
+      "description": {
+        "introduction": "You are not following any organisation on Make.org for the moment.",
+        "explanation_step_one": "Go on the profile page of an organisation.",
+        "explanation_step_two": "Click on \" Follow \" to subscribe to the news feed of this organisation."
+      }
     },
     "common": {
       "age": "{{age}} years",

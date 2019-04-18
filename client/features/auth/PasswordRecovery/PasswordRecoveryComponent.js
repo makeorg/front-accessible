@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import * as Separators from 'Client/ui/Elements/Separators';
+import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { PasswordRecoveryFormComponent } from './Form';
 import { PasswordRecoveryStyle, PasswordRecoveryTitleStyle } from './Styled';
 
@@ -51,7 +51,7 @@ export const PasswordRecoveryComponent = (props: Props) => {
           <SecondLevelTitleStyle id="password_recovery_title">
             {i18n.t('reset_password.title')}
           </SecondLevelTitleStyle>
-          <Separators.SmallWithMargin />
+          <SmallSeparatorWithMarginStyle />
           <React.Fragment>
             <PasswordRecoveryTitleStyle>
               {i18n.t('reset_password.info')}

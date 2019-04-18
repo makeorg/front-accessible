@@ -8,8 +8,8 @@ export type PartnerItem = {
 export type IntroCardConfig = {
   enabled: boolean,
   title?: string,
-  description?: Array<string>,
-  partners?: Array<PartnerItem>,
+  description?: string[],
+  partners?: PartnerItem[],
   extraLogo?: string,
   id?: string,
 };
@@ -31,7 +31,7 @@ export type FinalCardConfig = {
   enabled: boolean,
   withSharing: boolean,
   title?: string,
-  share?: Array<string>,
+  share?: string[],
   learnMoreTitle?: string,
   learnMoreTextButton?: string,
   linkUrl?: string,

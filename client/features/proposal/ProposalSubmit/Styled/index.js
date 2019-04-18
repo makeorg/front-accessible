@@ -18,7 +18,7 @@ import {
   IconWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { Small } from 'Client/ui/Elements/Separators';
+import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 
 export const ProposalSubmitAuthentificationWrapperStyle = styled.div`
   max-width: 620px;
@@ -31,7 +31,7 @@ export const ProposalSubmitAuthentificationWrapperStyle = styled.div`
   margin: 20px auto 0;
 `;
 
-export const ProposalSubmitSeparatorStyle = styled(Small)`
+export const ProposalSubmitSeparatorStyle = styled(SmallSeparatorStyle)`
   margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('20px')} 0;
