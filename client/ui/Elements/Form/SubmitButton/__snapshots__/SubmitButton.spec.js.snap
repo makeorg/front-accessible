@@ -1,18 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubmitButton must match the snapshot with default Props 1`] = `
-<RedButtonStyle
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+.c0:disabled {
+  background-color: rgb(118,118,118);
+}
+
+.c1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  margin-right: 5px;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+<button
+  className="c0"
   disabled={false}
   form="foo"
   type="submit"
 >
-  <IconWrapperStyle
+  <span
     aria-hidden={true}
+    className="c1"
   >
     SvgThumbsUp
-  </IconWrapperStyle>
+  </span>
   bar
-</RedButtonStyle>
+</button>
 `;
 
 exports[`SubmitButton must return the diff between when disabled 1`] = `
@@ -20,19 +76,14 @@ Snapshot Diff:
 - First value
 + Second value
 
-- <RedButtonStyle
+@@ -1,8 +1,8 @@
+  <button
+    className="vsuex8-6 kfOfEI"
 -   disabled={false}
-+ <GreyButtonStyle
 +   disabled={true}
     form="foo"
     type="submit"
   >
-    <IconWrapperStyle
+    <span
       aria-hidden={true}
-    >
-      SvgThumbsUp
-    </IconWrapperStyle>
-    bar
-- </RedButtonStyle>
-+ </GreyButtonStyle>
 `;

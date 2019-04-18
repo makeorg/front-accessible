@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import {
   UnstyledButtonStyle,
-  RedButtonStyle,
+  SmallRedButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import {
@@ -31,7 +31,7 @@ export const BackArrow = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const BackButton = styled(RedButtonStyle)`
+export const BackButton = styled(SmallRedButtonStyle)`
   position: absolute;
   top: 0;
   left: 50%;

@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import {
   UnstyledButtonStyle,
-  TallRedButtonStyle,
+  SmallRedButtonStyle,
   IconWrapperStyle,
-  RedButtonStyle,
-  GreyButtonStyle,
+  SmallGreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import {
   BackgroundColors,
@@ -26,7 +25,7 @@ export const BackButtonWrapperStyle = styled.div`
   }
 `;
 
-export const IntroButtonStyle = styled(TallRedButtonStyle)`
+export const IntroButtonStyle = styled(SmallRedButtonStyle)`
   margin-top: ${pxToRem('15px')};
   min-width: ${pxToRem('125px')};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
@@ -56,32 +55,29 @@ export const BackIconStyle = styled(IconWrapperStyle)`
   }
 `;
 
-export const PushProposalButtonStyle = styled(RedButtonStyle)`
+export const PushProposalButtonStyle = styled(SmallRedButtonStyle)`
   width: 100%;
   margin: 0 0 ${pxToRem('10px')};
-  white-space: normal;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     width: auto;
     margin: 0 ${pxToRem('10px')};
   }
 `;
 
-export const PushProposalNextButtonStyle = styled(GreyButtonStyle)`
+export const PushProposalNextButtonStyle = styled(SmallGreyButtonStyle)`
   width: 100%;
-  white-space: normal;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     width: auto;
     margin: 0 ${pxToRem('10px')};
   }
 `;
 
-export const NextButtonStyle = styled(RedButtonStyle)`
+export const NextButtonStyle = styled(SmallRedButtonStyle)`
   width: 100%;
   max-width: ${pxToRem('285px')};
-  white-space: normal;
 `;
 
-export const AltNextButtonStyle = styled(GreyButtonStyle)`
+export const AltNextButtonStyle = styled(SmallGreyButtonStyle)`
   margin-top: ${pxToRem('20px')};
   white-space: normal;
 `;

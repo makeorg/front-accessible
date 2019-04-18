@@ -8,7 +8,7 @@ import {
   EmailButtonStyle,
   IconWrapperStyle,
   ButtonsWrapperStyle,
-  SmallButtonWrapperStyle,
+  ButtonSmallWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import {
   ThirdLevelTitleStyle,
@@ -53,7 +53,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
       <FourthLevelTitleStyle>
         {i18n.t('authentification.description')}
       </FourthLevelTitleStyle>
-      <SmallButtonWrapperStyle>
+      <ButtonSmallWrapperStyle>
         <FacebookAuthentificationButtonComponent />
         <GoogleAuthentificationButtonComponent />
         <EmailButtonStyle
@@ -65,7 +65,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
-      </SmallButtonWrapperStyle>
+      </ButtonSmallWrapperStyle>
       <CenterParagraphStyle>
         {i18n.t('authentification.commitment')}
         <a

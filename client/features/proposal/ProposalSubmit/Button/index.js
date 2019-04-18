@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
-import {
-  IconWrapperStyle,
-  BasicButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPencil } from 'Client/ui/Svg/elements';
 import {
   ProposalButtonStyle,
-  DisabledProposalButtonStyle,
   ProposalIconStyle,
   ProposalButtonLabelStyle,
 } from '../Styled';
@@ -29,8 +25,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
   const { handleOnSubmit, canSubmit, isOpen } = props;
 
   return (
-    <BasicButtonStyle
-      as={canSubmit ? ProposalButtonStyle : DisabledProposalButtonStyle}
+    <ProposalButtonStyle
       id="proposal-submit-button"
       type="submit"
       onClick={handleOnSubmit}
@@ -44,6 +39,6 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       >
         {i18n.t('common.propose')}
       </HiddenOnMobileStyle>
-    </BasicButtonStyle>
+    </ProposalButtonStyle>
   );
 };

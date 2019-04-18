@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {
-  RedButtonStyle,
   IconWrapperStyle,
-  GreyButtonStyle,
+  ActiveButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 
 type Props = {
@@ -26,12 +25,16 @@ export class SubmitButton extends React.Component<Props> {
 
   render() {
     const { formName, icon, id, label, disabled } = this.props;
-    const ButtonStyled = disabled ? GreyButtonStyle : RedButtonStyle;
     return (
-      <ButtonStyled type="submit" form={formName} id={id} disabled={disabled}>
+      <ActiveButtonStyle
+        type="submit"
+        form={formName}
+        id={id}
+        disabled={disabled}
+      >
         {icon && <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>}
         {label}
-      </ButtonStyled>
+      </ActiveButtonStyle>
     );
   }
 }

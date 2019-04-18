@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
+exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 .c0 {
-  white-space: nowrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17,12 +16,380 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   align-items: center;
   font-family: 'Roboto Condensed Bold',Arial,serif;
   font-size: 14px;
-  line-height: 1;
+  line-height: 18px;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
-  padding: 5px 15px;
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+.c0:disabled {
+  background-color: rgb(118,118,118);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled ButtonSmallWrapperStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px 0;
+  max-width: 410px;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    margin: 20px 0;
+  }
+}
+
+<div
+  className="3 c0"
+/>
+`;
+
+exports[`ButtonElements/Styled ButtonsWrapperStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    -webkit-flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
+    margin: 20px 0;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled CloseBannerButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  font-size: 16px;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    top: 30px;
+    right: 30px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  font-size: 16px;
+}
+
+@media (min-width:767px) {
+  .c0 {
+    top: 30px;
+    right: 30px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+  width: 100%;
+  margin: 0 5px;
+  color: rgb(255,255,255);
+  margin-top: 10px;
+  background-color: rgb(232,24,68);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+.c0:disabled {
+  background-color: rgb(118,118,118);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    margin-top: 0;
+  }
+}
+
+<button
+  className="1 c0"
+/>
+`;
+
+exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+  width: 100%;
+  margin: 0 5px;
+  color: rgb(255,255,255);
+  background-color: rgb(58,89,152);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+.c0:disabled {
+  background-color: rgb(118,118,118);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+  width: 100%;
+  margin: 0 5px;
+  color: rgb(255,255,255);
+  margin-top: 10px;
+  background-color: rgb(219,68,55);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+.c0:disabled {
+  background-color: rgb(118,118,118);
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    margin-top: 0;
+  }
+}
+
+<button
+  className="0 c0"
+/>
+`;
+
+exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
   color: rgb(255,255,255);
   background-color: rgb(118,118,118);
 }
@@ -34,7 +401,6 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
-    padding: 10px 20px;
   }
 }
 
@@ -66,7 +432,6 @@ exports[`ButtonElements/Styled IconWrapperStyle snapshot by default 1`] = `
 
 exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 .c0 {
-  white-space: nowrap;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,12 +446,12 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   align-items: center;
   font-family: 'Roboto Condensed Bold',Arial,serif;
   font-size: 14px;
-  line-height: 1;
+  line-height: 18px;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
-  padding: 5px 15px;
+  padding: 10px 15px;
   color: rgb(255,255,255);
   background-color: rgb(232,24,68);
 }
@@ -98,8 +463,157 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  font-family: 'Roboto Bold',Arial,sans-serif;
+  color: rgb(232,24,68);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(118,118,118);
+  padding: 5px 15px;
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
     padding: 10px 20px;
   }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Roboto Condensed Bold',Arial,serif;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
+  padding: 10px 15px;
+  color: rgb(255,255,255);
+  background-color: rgb(232,24,68);
+  padding: 5px 15px;
+}
+
+.c0 svg {
+  fill: rgb(255,255,255);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    padding: 10px 20px;
+  }
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`ButtonElements/Styled UnstyledButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
 
 <button
