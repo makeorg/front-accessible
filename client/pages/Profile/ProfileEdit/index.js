@@ -67,11 +67,11 @@ export class ProfileEdit extends React.Component<Props> {
               </TabListStyle>
             </TabNavStyle>
             <UpdateInformations user={user} />
-            <UpdateNewsletter profile={user.profile} />
             <UpdatePassword
               userId={user.userId}
               hasPassword={user.hasPassword}
             />
+            <UpdateNewsletter profile={user.profile} />
             <DeleteAccount userId={user.userId} handleLogout={handleLogout} />
           </ProfilePageContentStyle>
         </ProfilePageContentWrapperStyle>

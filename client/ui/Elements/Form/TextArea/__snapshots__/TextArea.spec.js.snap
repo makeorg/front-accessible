@@ -6,7 +6,7 @@ Snapshot Diff:
 + Second value
 
 @@ -11,11 +11,11 @@
-      className="sc-8buptu-4 faOwvH"
+      className="sc-8buptu-4 lesyOQ"
     >
       <BasicTextAreaStyle
         aria-required={false}
@@ -30,13 +30,13 @@ Snapshot Diff:
         name="bar"
         onChange={[Function handleChange]}
         required={false}
-        rows={1}
+        rows={5}
 -       spellCheck={true}
 +       spellCheck={false}
         value="baz"
       />
       <label
-        className="sc-8buptu-9 bGRyeO"
+        className="sc-8buptu-9 bedup"
         htmlFor="bar"
 `;
 
@@ -57,8 +57,19 @@ Snapshot Diff:
         name="bar"
         onChange={[Function handleChange]}
         required={false}
-        rows={1}
+        rows={5}
         spellCheck={true}
+@@ -27,7 +29,10 @@
+        className="sc-8buptu-9 bedup"
+        htmlFor="bar"
+      >
+        qux
+      </label>
++     <TextAreaCounterStyle>
++       3/450
++     </TextAreaCounterStyle>
+    </div>
+  </div>
 `;
 
 exports[`TextArea must return the diff between snapshot when TextArea is required or optionnal 1`] = `
@@ -69,7 +80,7 @@ Snapshot Diff:
 @@ -9,18 +9,18 @@
     </span>
     <div
-      className="sc-8buptu-4 faOwvH"
+      className="sc-8buptu-4 lesyOQ"
     >
       <BasicTextAreaStyle
 -       aria-required={true}
@@ -82,7 +93,7 @@ Snapshot Diff:
         onChange={[Function handleChange]}
 -       required={true}
 +       required={false}
-        rows={1}
+        rows={5}
         spellCheck={true}
         value="baz"
       />

@@ -7,7 +7,6 @@ import {
   BorderColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const FormWrapperStyle = styled.form`
   display: flex;
@@ -45,6 +44,7 @@ export const MiddleFakeFieldStyle = styled(FakeFieldStyle)`
 export const FieldWrapperStyle = styled.div`
   position: relative;
   width: 100%;
+  overflow: hidden;
   > input:focus,
   > input:invalid,
   > input:required:focus,
@@ -102,8 +102,5 @@ export const FloatingLabelStyle = styled.label`
   left: 5px;
   top: 0;
   transition: 0.25s ease all;
-`;
-
-export const SubmitButtonWrapperStyle = styled(FlexElementStyle)`
-  justify-content: flex-end;
+  white-space: nowrap;
 `;

@@ -3,11 +3,10 @@ import { i18n } from 'Shared/i18n';
 import { PROFILE_DELETE_ACCOUNT_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
-import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
+import { PasswordFieldIcon } from 'Shared/constants/icons';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FormParagraphStyle } from '../Styled/Forms';
 
 type Props = {
@@ -53,14 +52,11 @@ export const DeleteAccountComponent = ({
             {i18n.t('common.form.incorrect_password')}
           </ErrorMessageStyle>
         )}
-        <SubmitButtonWrapperStyle>
-          <SubmitButton
-            disabled={!formIsValid}
-            formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
-            icon={SubmitThumbsUpIcon}
-            label={i18n.t('profile.common.submit_label')}
-          />
-        </SubmitButtonWrapperStyle>
+        <SubmitButton
+          disabled={!formIsValid}
+          formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
+          label={i18n.t('profile.delete_account.submit_label')}
+        />
       </form>
     </TileWithTitle>
   );

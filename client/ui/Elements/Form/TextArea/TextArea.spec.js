@@ -10,6 +10,7 @@ jest.mock('../Styled/Input', () => ({
 jest.mock('../Styled/TextArea', () => ({
   TextAreaIconStyle: 'TextAreaIconStyle',
   BasicTextAreaStyle: 'BasicTextAreaStyle',
+  TextAreaCounterStyle: 'TextAreaCounterStyle',
 }));
 
 const defaultProps = {

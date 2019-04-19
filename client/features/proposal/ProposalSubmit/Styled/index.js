@@ -13,8 +13,7 @@ import {
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import {
-  GreyButtonStyle,
-  RedButtonStyle,
+  ActiveButtonStyle,
   IconWrapperStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -109,12 +108,7 @@ export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
   }
 `;
 
-export const DisabledProposalButtonStyle = styled(GreyButtonStyle)`
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroTwoOpacity};
-  padding: 5px 10px;
-`;
-
-export const ProposalButtonStyle = styled(RedButtonStyle)`
+export const ProposalButtonStyle = styled(ActiveButtonStyle)`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 10px;
 `;

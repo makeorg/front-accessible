@@ -32,6 +32,7 @@ export const FakeCheckboxInputStyle = styled.div`
   position: relative;
   width: 14px;
   height: 14px;
+  min-width: 14px;
   border: 1px solid ${BorderColors.MediumGrey};
   margin: 2px 8px 0 0;
   z-index: 0;

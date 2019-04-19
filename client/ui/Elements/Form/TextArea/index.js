@@ -40,12 +40,12 @@ export class TextArea extends React.Component<Props> {
   static defaultProps = {
     required: false,
     errors: undefined,
-    rows: 1,
+    rows: 5,
     minLength: undefined,
     maxLength: undefined,
     spellCheck: true,
     autoComplete: 'off',
-    withCounter: false,
+    withCounter: true,
   };
 
   render() {
@@ -85,9 +85,9 @@ export class TextArea extends React.Component<Props> {
             async
           />
           <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
-          {maxLength && value && withCounter && (
+          {maxLength && withCounter && (
             <TextAreaCounterStyle>
-              {`${value.length}/${maxLength}`}
+              {`${value ? value.length : '0'}/${maxLength}`}
             </TextAreaCounterStyle>
           )}
         </FieldWrapperStyle>

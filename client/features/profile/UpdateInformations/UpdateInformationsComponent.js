@@ -19,7 +19,6 @@ import {
   type UserInformationForm,
   type UserInformationFormErrors,
 } from 'Shared/types/user';
-import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   values: UserInformationForm,
@@ -121,14 +120,12 @@ export const UpdateInformationsComponent = ({
             {i18n.t('common.form.api_error')}
           </ErrorMessageStyle>
         )}
-        <SubmitButtonWrapperStyle>
-          <SubmitButton
-            disabled={!formIsValid}
-            formName={PROFILE_UPDATE_FORMNAME}
-            icon={SubmitSaveIcon}
-            label={i18n.t('profile.common.submit_label')}
-          />
-        </SubmitButtonWrapperStyle>
+        <SubmitButton
+          disabled={!formIsValid}
+          formName={PROFILE_UPDATE_FORMNAME}
+          icon={SubmitSaveIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
       </form>
     </TileWithTitle>
   );

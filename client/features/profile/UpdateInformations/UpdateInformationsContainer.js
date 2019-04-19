@@ -104,10 +104,10 @@ class UpdateInformationsHandler extends Component<Props, State> {
       const { handleGetUser } = this.props;
       try {
         await UserService.update(values);
-        this.setState({ submitDone: true });
+        this.setState({ submitDone: true, formIsValid: false });
         handleGetUser();
       } catch {
-        this.setState({ submitError: true });
+        this.setState({ submitError: true, formIsValid: false });
       }
     }
   };

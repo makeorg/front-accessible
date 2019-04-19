@@ -34,38 +34,28 @@ export const UnstyledButtonStyle = styled.button`
   align-items: center;
   padding: 0;
   border: none;
-  background: transparent;
   background-color: transparent;
 `;
 
-export const BasicButtonStyle = styled.button`
-  white-space: nowrap;
+const BasicButtonStyle = `
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: ${MakeFonts.RobotoCondensedBold};
   font-size: 14px;
-  line-height: 1;
+  line-height: 18px;
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
   box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: 5px 15px;
+  padding: 10px 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
-    padding: 10px 20px;
   }
 `;
 
-export const GreyButtonStyle = styled(BasicButtonStyle)`
-  color: ${BasicColors.PureWhite};
-  background-color: ${BackgroundColors.Grey};
-  svg {
-    fill: ${BasicColors.PureWhite};
-  }
-`;
-
-export const RedButtonStyle = styled(BasicButtonStyle)`
+export const RedButtonStyle = styled.button`
+  ${BasicButtonStyle};
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
   svg {
@@ -73,10 +63,38 @@ export const RedButtonStyle = styled(BasicButtonStyle)`
   }
 `;
 
-export const TallRedButtonStyle = styled(RedButtonStyle)`
-  padding: 8px 15px;
+export const GreyButtonStyle = styled.button`
+  ${BasicButtonStyle};
+  color: ${BasicColors.PureWhite};
+  background-color: ${BackgroundColors.Grey};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
+`;
+
+export const SmallRedButtonStyle = styled(RedButtonStyle)`
+  padding: 5px 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 20px;
+  }
+`;
+
+export const SmallGreyButtonStyle = styled(GreyButtonStyle)`
+  padding: 5px 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 10px 20px;
+  }
+`;
+
+export const ActiveButtonStyle = styled.button`
+  ${BasicButtonStyle};
+  color: ${BasicColors.PureWhite};
+  background-color: ${MakeThemeColors.Red};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
+  &:disabled {
+    background-color: ${BackgroundColors.Grey};
   }
 `;
 
@@ -87,40 +105,33 @@ export const IconWrapperStyle = styled.span`
   margin-right: 5px;
 `;
 
-export const LargeButtonStyle = styled(BasicButtonStyle)`
+export const SocialButtonStyle = styled(ActiveButtonStyle)`
   width: 100%;
   margin: 0 5px;
+  color: ${BasicColors.PureWhite};
+  svg {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
-export const FacebookButtonStyle = styled(LargeButtonStyle)`
-  color: ${BasicColors.PureWhite};
+const SocialButtonMargin = `
+  margin-top: 10px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-top: 0;
+  }
+`;
+
+export const FacebookButtonStyle = styled(SocialButtonStyle)`
   background-color: ${IconColors.Facebook};
-  svg {
-    fill: ${BasicColors.PureWhite};
-  }
 `;
 
-export const GoogleButtonStyle = styled(LargeButtonStyle)`
-  margin-top: 10px;
-  color: ${BasicColors.PureWhite};
+export const GoogleButtonStyle = styled(SocialButtonStyle)`
+  ${SocialButtonMargin};
   background-color: ${IconColors.Google};
-  svg {
-    fill: ${BasicColors.PureWhite};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-top: 0;
-  }
 `;
-export const EmailButtonStyle = styled(LargeButtonStyle)`
-  margin-top: 10px;
-  color: ${BasicColors.PureWhite};
+export const EmailButtonStyle = styled(SocialButtonStyle)`
+  ${SocialButtonMargin};
   background-color: ${MakeThemeColors.Red};
-  svg {
-    fill: ${BasicColors.PureWhite};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-top: 0;
-  }
 `;
 
 export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
@@ -131,7 +142,7 @@ export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   margin: 0 5px;
 `;
 
-export const SmallButtonWrapperStyle = styled(ButtonsWrapperStyle)`
+export const ButtonSmallWrapperStyle = styled(ButtonsWrapperStyle)`
   max-width: 410px;
 `;
 

@@ -4,8 +4,7 @@ import { Passwords, PasswordsErrors } from 'Shared/types/user';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
-import { PasswordFieldIcon, SubmitSaveIcon } from 'Shared/constants/icons';
-import { SubmitButtonWrapperStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -83,14 +82,12 @@ export const UpdatePasswordComponent = ({
             {i18n.t('profile.common.submit_success')}
           </SuccessMessageStyle>
         )}
-        <SubmitButtonWrapperStyle>
-          <SubmitButton
-            disabled={!formIsValid}
-            formName={PASSWORD_UPDATE_FORMNAME}
-            icon={SubmitSaveIcon}
-            label={i18n.t('profile.common.submit_label')}
-          />
-        </SubmitButtonWrapperStyle>
+        <SubmitButton
+          disabled={!formIsValid}
+          formName={PASSWORD_UPDATE_FORMNAME}
+          icon={SubmitThumbsUpIcon}
+          label={i18n.t('profile.common.submit_label')}
+        />
       </form>
     </TileWithTitle>
   );

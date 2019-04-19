@@ -21,7 +21,11 @@ export const UserAvatarLayoutStyle = styled(FlexElementStyle)`
 
 export const UserAvatarStyle = styled.div`
   transform: translateY(-20px);
-  margin: 0 15px -20px 0;
+  margin-bottom: -20px;
+  margin-right: 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-right: 0;
+  }
 `;
 
 export const UserContentWrapperStyle = styled(ColumnElementStyle)`

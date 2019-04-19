@@ -13,7 +13,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import {
   UnstyledButtonStyle,
-  RedButtonStyle,
+  SmallRedButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 
 export const SequenceStyle = styled.section`
@@ -56,8 +56,7 @@ export const BackArrowStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const BackButtonStyle = styled(RedButtonStyle)`
-  white-space: normal;
+export const BackButtonStyle = styled(SmallRedButtonStyle)`
   margin: 0 auto;
 `;
 

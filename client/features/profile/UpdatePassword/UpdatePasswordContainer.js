@@ -103,6 +103,7 @@ class UpdatePasswordHandler extends Component<Props, State> {
             newPassword: false,
             actualPassword: false,
           },
+          formIsValid: false,
         });
         handleGetUser();
       } catch (exceptions) {
@@ -122,6 +123,7 @@ class UpdatePasswordHandler extends Component<Props, State> {
             newPassword: newPasswordError,
             actualPassword: actualPasswordError,
           },
+          formIsValid: false,
         });
       }
     }

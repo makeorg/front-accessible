@@ -3,12 +3,6 @@ import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import { SubmitButton } from './index';
 
-jest.mock('Client/ui/Elements/ButtonElements', () => ({
-  RedButtonStyle: 'RedButtonStyle',
-  IconWrapperStyle: 'IconWrapperStyle',
-  GreyButtonStyle: 'GreyButtonStyle',
-}));
-
 describe('SubmitButton', () => {
   const defaultProps = {
     formName: 'foo',

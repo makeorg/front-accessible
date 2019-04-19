@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import {
   EmailButtonStyle,
   IconWrapperStyle,
-  SmallButtonWrapperStyle,
+  ButtonSmallWrapperStyle,
   RedLinkButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
@@ -28,7 +28,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
 
   return (
     <CenterColumnStyle>
-      <SmallButtonWrapperStyle>
+      <ButtonSmallWrapperStyle>
         <FacebookAuthentificationButtonComponent />
         <GoogleAuthentificationButtonComponent />
         <EmailButtonStyle
@@ -40,7 +40,7 @@ export const SignUpCardAuthentificationComponent = (props: Props) => {
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>
-      </SmallButtonWrapperStyle>
+      </ButtonSmallWrapperStyle>
       <ExtraAltParagraphStyle>
         {i18n.t('register.login_title')}
         <RedLinkButtonStyle onClick={handleLoginClick}>
