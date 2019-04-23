@@ -1,0 +1,1 @@
+export { ProfileProposalCard } from './ProfileProposalCard';

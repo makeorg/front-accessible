@@ -41,7 +41,8 @@
     "hide_tooltip": "Masquer le contenu de l'infobulle",
     "expand_collapse": "Afficher le contenu de la section déroulante",
     "shrink_collapse": "Masquer le contenu de la section déroulante",
-    "secondary_nav": "Navigation secondaire"
+    "secondary_nav": "Navigation secondaire",
+    "percent": "{{percent}}%"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"
@@ -56,8 +57,15 @@
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
     "number": "Proposition numéro",
+    "posted_label": "postée dans ",
     "author": {
       "age": "{{age}} ans"
+    },
+    "status": {
+      "accepted": "Publiée",
+      "refused": "Refusée",
+      "postponed": "En attente de modération",
+      "pending": "En attente de modération"
     }
   },
   "intro_card": {

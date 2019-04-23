@@ -52,6 +52,12 @@ export const VoteColors = {
   Neutral: 'rgb(118,118,118)',
 };
 
+export const StatusColors = {
+  Accepted: 'rgb(110,182,32)',
+  Refused: 'rgb(218,0,27)',
+  Pending: 'rgb(255, 110, 0)',
+};
+
 export const SocialNetworksColors = {
   Facebook: 'rgb(58,89,152)',
   Twitter: 'rgb(26,145,218)',
