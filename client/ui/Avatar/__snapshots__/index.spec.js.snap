@@ -21,9 +21,10 @@ exports[`Avatar snapshot by default 1`] = `
 }
 
 <div
-  aria-hidden={true}
   className="c0"
 >
-  <SvgEmptyAvatar />
+  <SvgEmptyAvatar
+    aria-hidden={true}
+  />
 </div>
 `;
