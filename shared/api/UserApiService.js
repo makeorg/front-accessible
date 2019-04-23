@@ -2,7 +2,10 @@
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import { Logger } from 'Shared/services/Logger';
 import * as HttpStatus from 'Shared/constants/httpStatus';
-import { type ApiServiceHeaders } from 'Shared/types/api';
+import {
+  type ApiServiceHeaders,
+  type ApiSearchProposalsResponseType,
+} from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
 export const PATH_USER_ME = '/user/me';

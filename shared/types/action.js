@@ -1,8 +1,8 @@
 // @flow
 
-import { type ProposalType } from './proposal';
+import { type Proposal as TypeProposal } from './proposal';
 
-type ProposalLoadAction = { type: 'PROPOSAL_LOAD', payload: ProposalType };
+type ProposalLoadAction = { type: 'PROPOSAL_LOAD', payload: TypeProposal };
 type ProposalProposeSuccessAction = {
   type: 'PROPOSAL_PROPOSE_SUCCESS',
   payload: string,

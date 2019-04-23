@@ -1,4 +1,4 @@
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { logger } from '../logger';
 
 const fs = require('fs');
@@ -6,18 +6,19 @@ const path = require('path');
 const cache = require('memory-cache');
 const { SERVER_DIR } = require('../paths');
 
-export async function getQuestion(questionSlug, headers) {
-  const content = cache.get(questionSlug);
+export async function getQuestion(questionSlugOrId, headers) {
+  const CACHE_KEY = `QUESTION_${questionSlugOrId}`;
+  const content = cache.get(CACHE_KEY);
   if (content) {
     return content;
   }
 
   try {
-    const questionDetail = await QuestionService.getDetail(
-      questionSlug,
+    const questionDetail = await QuestionApiService.getDetail(
+      questionSlugOrId,
       headers
     );
-    cache.put(questionSlug, questionDetail, 300000);
+    cache.put(CACHE_KEY, questionDetail, 300000);
 
     return questionDetail;
   } catch (error) {

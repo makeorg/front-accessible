@@ -21,7 +21,6 @@ import {
   ROUTE_PROFILE_FOLLOWING,
   getRouteProfileProposals,
   getRouteProfileFavourites,
-  getRouteProfileFollowing,
   getRouteProfileEdit,
 } from 'Shared/routes';
 import { SvgLike } from 'Client/ui/Svg/elements';
@@ -59,7 +58,6 @@ const Profile = (props: Props) => {
 
   const profileProposalsLink = getRouteProfileProposals(countryLanguage);
   const profileFavouritesLink = getRouteProfileFavourites(countryLanguage);
-  const profileFollowingLink = getRouteProfileFollowing(countryLanguage);
 
   const isProfileProposalsActive = !!matchPath(
     location.pathname,
@@ -68,10 +66,6 @@ const Profile = (props: Props) => {
   const isProfileFavouritesActive = !!matchPath(
     location.pathname,
     ROUTE_PROFILE_FAVOURITES
-  );
-  const isProfileFollowingActive = !!matchPath(
-    location.pathname,
-    ROUTE_PROFILE_FOLLOWING
   );
 
   const NavigationBar = (

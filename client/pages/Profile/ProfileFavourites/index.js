@@ -4,29 +4,34 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { type match as TypeMatch } from 'react-router';
 import { i18n } from 'Shared/i18n';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as UserService from 'Shared/services/User';
 import { type User as TypeUser } from 'Shared/types/user';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { FavouritesPlaceholder } from 'Client/features/profile/Placeholders/Favourites';
+import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from '../Styled';
 
 type Props = {
-  user?: TypeUser,
+  user: TypeUser,
   match: TypeMatch,
 };
 
 type State = {
-  proposals: ProposalType[],
+  proposals: TypeProposal[],
+  isLoading: boolean,
 };
 
 class ProfileFavourites extends React.Component<Props, State> {
   state = {
     proposals: [],
+    isLoading: true,
   };
 
   async componentDidMount() {
@@ -36,16 +41,18 @@ class ProfileFavourites extends React.Component<Props, State> {
   loadProposals = async () => {
     const { user } = this.props;
 
-    const { results } = await UserService.myFavourites(user.userId);
+    const proposals = await UserService.myFavourites(user.userId);
+
     this.setState({
-      proposals: results,
+      proposals,
+      isLoading: false,
     });
   };
 
   render() {
     const { user, match } = this.props;
-    const { proposals } = this.state;
-    const hasProposals = proposals.length;
+    const { proposals, isLoading } = this.state;
+    const proposalsLength = proposals.length;
 
     if (!user) {
       return <Redirect to={`/${match.params.countryLanguage}`} />;
@@ -59,8 +66,16 @@ class ProfileFavourites extends React.Component<Props, State> {
           </SecondLevelTitleStyle>
           <ProfileTitleSeparatorStyle />
         </ProfileContentHeaderStyle>
-        {hasProposals ? (
-          proposals.map(proposal => <div>{proposal.content}</div>)
+        {isLoading && <Spinner />}
+        {proposalsLength ? (
+          proposals.map((proposal, index) => (
+            <ProfileProposalCard
+              key={proposal.id}
+              proposal={proposal}
+              size={proposalsLength}
+              position={index}
+            />
+          ))
         ) : (
           <FavouritesPlaceholder />
         )}
@@ -70,6 +85,7 @@ class ProfileFavourites extends React.Component<Props, State> {
 }
 const mapStateToProps = state => {
   const { user } = selectAuthentification(state);
+
   return { user };
 };
 

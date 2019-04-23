@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question } from 'Shared/types/question';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -10,7 +10,7 @@ import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 
 type Props = {
   question: Question,
-  proposals: ProposalType[],
+  proposals: TypeProposal[],
   isLoading: boolean,
   initialLoading: boolean,
   clickLoadMore: () => void,

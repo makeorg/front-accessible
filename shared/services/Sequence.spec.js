@@ -1,13 +1,13 @@
-/* @flow */
+// @flow
 
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { startSequence } from 'Shared/services/Sequence';
 
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/QuestionApiService');
 
 describe('Question Service', () => {
   afterEach(() => {
-    QuestionService.startSequence.mockRestore();
+    QuestionApiService.startSequence.mockRestore();
   });
 
   const proposals = [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }];
@@ -15,13 +15,16 @@ describe('Question Service', () => {
   describe('startSequence function', () => {
     it('Call sequence service with right params', async () => {
       const includedProposalIds = [];
-      QuestionService.startSequence.mockResolvedValue({ id: 'foo', proposals });
+      QuestionApiService.startSequence.mockResolvedValue({
+        id: 'foo',
+        proposals,
+      });
 
-      jest.spyOn(QuestionService, 'startSequence');
+      jest.spyOn(QuestionApiService, 'startSequence');
 
       await startSequence('foo', includedProposalIds);
 
-      expect(QuestionService.startSequence).toHaveBeenNthCalledWith(
+      expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
         1,
         'foo',
         includedProposalIds
@@ -30,7 +33,10 @@ describe('Question Service', () => {
 
     it('order only incuded proposal', async () => {
       const includedProposalIds = ['baz', 'foo'];
-      QuestionService.startSequence.mockResolvedValue({ id: 'foo', proposals });
+      QuestionApiService.startSequence.mockResolvedValue({
+        id: 'foo',
+        proposals,
+      });
 
       const result = await startSequence('foo', includedProposalIds);
       expect(result).toEqual([{ id: 'baz' }, { id: 'foo' }, { id: 'bar' }]);
@@ -38,7 +44,10 @@ describe('Question Service', () => {
 
     it('order when incuded proposal contain all proposal', async () => {
       const includedProposalIds = ['baz', 'bar', 'foo'];
-      QuestionService.startSequence.mockResolvedValue({ id: 'foo', proposals });
+      QuestionApiService.startSequence.mockResolvedValue({
+        id: 'foo',
+        proposals,
+      });
 
       const result = await startSequence('foo', includedProposalIds);
       expect(result).toEqual([{ id: 'baz' }, { id: 'bar' }, { id: 'foo' }]);

@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http';
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
@@ -8,7 +8,7 @@ import { accountActivationRoute } from './accountActivationRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('Shared/api/UserApiService');
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
 const requestParams = {
@@ -33,7 +33,7 @@ describe('Account activation route', () => {
     const fooQuestion = {
       id: 'foo',
     };
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       questions: {
@@ -53,7 +53,7 @@ describe('Account activation route', () => {
     });
     const response = httpMocks.createResponse();
     await accountActivationRoute(request, response, () => {});
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+    expect(QuestionApiService.getDetail).toHaveBeenCalledWith(
       fooQuestion.id,
       expectedHeaders
     );
@@ -65,7 +65,7 @@ describe('Account activation route', () => {
       id: 'foo',
     };
     UserApiService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
+    QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -104,7 +104,7 @@ describe('Account activation route', () => {
     };
 
     UserApiService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
+    QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,

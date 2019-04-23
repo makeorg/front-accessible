@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
-import { type ProposalType } from 'Shared/types/proposal';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
@@ -22,9 +22,9 @@ import { SeparatorStyle } from '../../sequence/Card/Styled/Content';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: ProposalType,
+  proposal: TypeProposal,
   /** Object with all question's properties */
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
   questionSlug: string,
 };
 

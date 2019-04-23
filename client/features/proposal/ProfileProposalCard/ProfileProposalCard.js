@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
-import { type Question } from 'Shared/types/question';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
@@ -18,16 +17,16 @@ import {
 } from './Styled';
 
 type Props = {
-  question: Question,
-  proposal: ProposalType,
+  proposal: TypeProposal,
   position: number,
   size: number,
   withStatus?: boolean,
 };
 
 export const ProfileProposalCard = (props: Props) => {
-  const { question, proposal, position, size, withStatus } = props;
-  const { author } = proposal;
+  const { proposal, position, size, withStatus } = props;
+  const { author, question } = proposal;
+
   const proposalLink = getProposalLink(
     question.country,
     question.language,
@@ -70,7 +69,9 @@ export const ProfileProposalCard = (props: Props) => {
       >
         {proposal.content}
       </ProposalStyle>
-      {isProposalAccepted && <DetailledVoteResults votes={proposal.votes} />}
+      {isProposalAccepted && (
+        <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
+      )}
       <ProposalSeparatorStyle />
       <FooterStyle>
         <PostedInLabelStyle>

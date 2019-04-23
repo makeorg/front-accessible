@@ -1,6 +1,10 @@
 /* @flow */
 
-import { VOTE_AGREE_KEY, VOTE_DISAGREE_KEY, VOTE_NEUTRAL_KEY } from 'Shared/constants/vote';
+import {
+  VOTE_AGREE_KEY,
+  VOTE_DISAGREE_KEY,
+  VOTE_NEUTRAL_KEY,
+} from 'Shared/constants/vote';
 import * as VoteResultHelper from './voteResult';
 
 describe('VoteResult Helper', () => {
@@ -14,22 +18,30 @@ describe('VoteResult Helper', () => {
     expect(tooltipIndex).toBe('Tooltip_foo_bar');
   });
 
-  it('test getVotesCount', () => {
-    const votesCount = VoteResultHelper.getVotesCount([{ count: 1 }, { count: 2 }, { count: 3 }]);
+  it('test getTotalVotesCount', () => {
+    const votesCount = VoteResultHelper.getTotalVotesCount([
+      { count: 1 },
+      { count: 2 },
+      { count: 3 },
+    ]);
     expect(votesCount).toBe(6);
   });
 
   it('test getVotesPercent', () => {
-    const votes = [{
-      count: 3,
-      voteKey: VOTE_AGREE_KEY
-    }, {
-      count: 3,
-      voteKey: VOTE_DISAGREE_KEY
-    }, {
-      count: 4,
-      voteKey: VOTE_NEUTRAL_KEY
-    }];
+    const votes = [
+      {
+        count: 3,
+        voteKey: VOTE_AGREE_KEY,
+      },
+      {
+        count: 3,
+        voteKey: VOTE_DISAGREE_KEY,
+      },
+      {
+        count: 4,
+        voteKey: VOTE_NEUTRAL_KEY,
+      },
+    ];
 
     const votesPercent = VoteResultHelper.getVotesPercent(votes, 10);
     expect(votesPercent[VOTE_AGREE_KEY]).toBe(30);

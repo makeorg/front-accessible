@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
@@ -15,7 +15,7 @@ import { ContentSpecialWrapperStyle, SeparatorStyle } from '../Styled/Content';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: ProposalType,
+  proposal: TypeProposal,
   /** Index of the card */
   index: number,
   /** Position of the card */

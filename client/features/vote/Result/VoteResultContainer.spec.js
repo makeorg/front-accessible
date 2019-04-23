@@ -27,7 +27,7 @@ describe('VoteResultContainer', () => {
       [VOTE_NEUTRAL_KEY]: 0,
     };
 
-    VoteResultHelper.getVotesCount.mockReturnValue(votesCount);
+    VoteResultHelper.getTotalVotesCount.mockReturnValue(votesCount);
     VoteResultHelper.getVotesPercent.mockReturnValue(votePercent);
 
     const wrapper = shallow(<VoteResultContainer {...defaultProps} />);

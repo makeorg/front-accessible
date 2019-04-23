@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http';
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
@@ -8,7 +8,7 @@ import { passwordRecoveryRoute } from './passwordRecoveryRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('Shared/api/UserApiService');
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
 const fooQuestion = { id: 'foo' };
@@ -32,7 +32,7 @@ describe('Account activation route', () => {
   });
 
   it('add the question to the initialState and set headers', async () => {
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       user: {
@@ -62,7 +62,7 @@ describe('Account activation route', () => {
 
     await passwordRecoveryRoute(request, response, () => {});
 
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+    expect(QuestionApiService.getDetail).toHaveBeenCalledWith(
       fooQuestion.id,
       expectedHeaders
     );
@@ -71,7 +71,7 @@ describe('Account activation route', () => {
 
   it('activate successfully and add success notification to state', async () => {
     UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -111,7 +111,7 @@ describe('Account activation route', () => {
 
   it('activate fail and add fail notification to state', async () => {
     UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,

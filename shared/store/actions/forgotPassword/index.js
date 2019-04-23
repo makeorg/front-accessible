@@ -1,7 +1,7 @@
 // @flow
 import { i18n } from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { type ErrorObject } from 'Shared/types/form';
 
 export const forgotPasswordRequest = (email: string) => ({
@@ -21,7 +21,7 @@ export const forgotPasswordInit = () => ({
 
 export const forgotPassword = (email: string) => (dispatch: Function) => {
   dispatch(forgotPasswordRequest(email));
-  return UserService.forgotPassword(email)
+  return UserApiService.forgotPassword(email)
     .then(() => {
       dispatch(forgotPasswordSuccess());
     })

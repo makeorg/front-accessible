@@ -3,11 +3,11 @@ import {
   getBaitText,
   PROPOSALS_LISTING_LIMIT,
 } from 'Shared/constants/proposal';
-import { ProposalService } from 'Shared/api/ProposalService';
+import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 import * as ProposalHelper from './proposal';
 
-jest.mock('Shared/api/ProposalService');
+jest.mock('Shared/api/ProposalApiService');
 jest.mock('Shared/services/Logger');
 jest.mock('Shared/constants/proposal', () => ({
   getBaitText: () => 'il faut',
@@ -126,9 +126,9 @@ describe('Proposal Helper', () => {
   });
   describe('Search Proposals', () => {
     it('transform tagIds to string', async () => {
-      jest.spyOn(ProposalService, 'searchProposals');
+      jest.spyOn(ProposalApiService, 'searchProposals');
       ProposalHelper.searchProposals('12345', ['foo', 'bar']);
-      expect(ProposalService.searchProposals).toHaveBeenCalledWith(
+      expect(ProposalApiService.searchProposals).toHaveBeenCalledWith(
         '12345',
         'foo,bar',
         undefined,
@@ -138,10 +138,10 @@ describe('Proposal Helper', () => {
     });
 
     it('calculate skipped proposal', async () => {
-      jest.spyOn(ProposalService, 'searchProposals');
+      jest.spyOn(ProposalApiService, 'searchProposals');
 
       ProposalHelper.searchProposals('12345', ['foo', 'bar'], 999, 3);
-      expect(ProposalService.searchProposals).toHaveBeenCalledWith(
+      expect(ProposalApiService.searchProposals).toHaveBeenCalledWith(
         '12345',
         'foo,bar',
         999,
@@ -150,7 +150,7 @@ describe('Proposal Helper', () => {
       );
     });
     it('return results from api response', async () => {
-      ProposalService.searchProposals.mockResolvedValue({
+      ProposalApiService.searchProposals.mockResolvedValue({
         results: ['foo'],
       });
       const repsonse = await ProposalHelper.searchProposals('12345', [
@@ -161,7 +161,9 @@ describe('Proposal Helper', () => {
     });
 
     it('return an empty Array and call Logger when api fail', async () => {
-      ProposalService.searchProposals.mockRejectedValue(new Error('Api error'));
+      ProposalApiService.searchProposals.mockRejectedValue(
+        new Error('Api error')
+      );
       jest.spyOn(Logger, 'logError');
 
       const repsonse = await ProposalHelper.searchProposals('12345', [

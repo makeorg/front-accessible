@@ -9,10 +9,10 @@ import { Tracking } from 'Shared/services/Tracking';
 import {
   type CardType,
   type ExtraSlidesConfig,
-  type QuestionConfiguration,
+  type QuestionConfiguration as TypeQuestionConfiguration,
 } from 'Shared/types/sequence';
-import { type ProposalType } from 'Shared/types/proposal';
-import { type Question } from 'Shared/types/question';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   type Props as SequenceProps,
   SequenceComponent,
@@ -31,9 +31,9 @@ type Props = {
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Question,
+  question: TypeQuestion,
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isClosed: boolean,
   /** Method called when "Return to proposal" button is clicked */
@@ -148,7 +148,7 @@ class SequenceHandler extends React.Component<Props, State> {
   };
 
   setProposals = (
-    proposals: ProposalType[],
+    proposals: TypeProposal[],
     isLoggedIn: boolean,
     hasProposed: boolean
   ) => {
@@ -167,7 +167,7 @@ class SequenceHandler extends React.Component<Props, State> {
 
     const firstUnvotedProposal:
       | typeof undefined
-      | ProposalType = ProposalHelper.searchFirstUnvotedProposal(proposals);
+      | TypeProposal = ProposalHelper.searchFirstUnvotedProposal(proposals);
     const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(
       firstUnvotedProposal,
       cards

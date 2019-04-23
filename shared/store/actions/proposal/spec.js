@@ -6,7 +6,7 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import * as actions from './index';
 
 // mocks
-jest.mock('Shared/api/ProposalService');
+jest.mock('Shared/api/ProposalApiService');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

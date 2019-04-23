@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
 import { Vote } from 'Client/features/vote';
-import { type Question } from 'Shared/types/question';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { getProposalLink } from 'Shared/helpers/url';
@@ -15,8 +15,8 @@ import {
 } from './Styled';
 
 type Props = {
-  question: Question,
-  proposal: ProposalType,
+  question: TypeQuestion,
+  proposal: TypeProposal,
   position: number,
   size: number,
 };

@@ -1,13 +1,13 @@
 import { ApiService } from 'Shared/api/ApiService';
 import {
-  ProposalService,
+  ProposalApiService,
   PATH_PROPOSALS,
   PATH_PROPOSAL_GET,
-} from './ProposalService';
+} from './ProposalApiService';
 
 jest.mock('./ApiService');
 
-describe('ProposalService', () => {
+describe('ProposalApiService', () => {
   beforeEach(() => {
     ApiService.callApi.mockClear();
     jest.spyOn(ApiService, 'callApi');
@@ -15,7 +15,7 @@ describe('ProposalService', () => {
 
   describe('propose', () => {
     it('must call ApiService.callApi', async () => {
-      await ProposalService.propose('content', '12345');
+      await ProposalApiService.propose('content', '12345');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         method: 'POST',
         body: JSON.stringify({
@@ -28,7 +28,7 @@ describe('ProposalService', () => {
 
   describe('getProposal', () => {
     it('must call ApiService.callApi', async () => {
-      await ProposalService.getProposal('12345');
+      await ProposalApiService.getProposal('12345');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
         PATH_PROPOSAL_GET.replace(':proposalId', '12345'),
@@ -43,7 +43,7 @@ describe('ProposalService', () => {
 
   describe('searchProposals', () => {
     it('must call ApiService.callApi', async () => {
-      await ProposalService.searchProposals('12345');
+      await ProposalApiService.searchProposals('12345');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',
@@ -57,7 +57,7 @@ describe('ProposalService', () => {
       });
     });
     it('must filter by tagIds', async () => {
-      await ProposalService.searchProposals('12345', 'foo, bar');
+      await ProposalApiService.searchProposals('12345', 'foo, bar');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',

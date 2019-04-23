@@ -4,7 +4,9 @@ import { type UserInformationForm, type Passwords } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
+import * as ProposalService from 'Shared/services/Proposal';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
 export const update = async (userInformation: UserInformationForm) => {
   return UserApiService.update({
@@ -111,12 +113,16 @@ export const login = (email: string, password: string) => {
     });
 };
 
-export const myProposals = (userId: string): ApiSearchProposalsResponseType => {
-  return UserApiService.myProposals(userId);
+export const myProposals = async (userId: string): Promise<TypeProposal[]> => {
+  const { results } = await UserApiService.myProposals(userId);
+  const proposals = await ProposalService.enrichProposalsWithQuestion(results);
+
+  return proposals;
 };
 
-export const myFavourites = (
-  userId: string
-): ApiSearchProposalsResponseType => {
-  return UserApiService.myFavourites(userId);
+export const myFavourites = async (userId: string): Promise<TypeProposal[]> => {
+  const { results } = await UserApiService.myFavourites(userId);
+  const proposals = await ProposalService.enrichProposalsWithQuestion(results);
+
+  return proposals;
 };

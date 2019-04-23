@@ -4,8 +4,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { i18n } from 'Shared/i18n';
-import { type ProposalType } from 'Shared/types/proposal';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { fetchProposalData } from 'Shared/store/actions/proposal';
 import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -15,8 +15,8 @@ import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequ
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
-  proposal: ProposalType,
-  questionConfiguration: QuestionConfiguration,
+  proposal: TypeProposal,
+  questionConfiguration: TypeQuestionConfiguration,
   fetchProposal: (proposalId: string, questionSlug: string) => void,
   match: TypeMatch,
 };
@@ -65,7 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchProposal: (proposalId: string, questionSlug: string) => {
-    dispatch(fetchProposalData(proposalId)).then((proposal: ProposalType) => {
+    dispatch(fetchProposalData(proposalId)).then((proposal: TypeProposal) => {
       dispatch(
         fetchQuestionConfigurationData(questionSlug, proposal.questionId)
       );
