@@ -5,10 +5,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -4,11 +4,10 @@
-      hidden={true}
+@@ -5,11 +5,10 @@
       id="foo"
       name="bar"
+      onChange={[Function onChange]}
       required={false}
       type="checkbox"
 -     value="qux"
@@ -24,12 +24,12 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -2,11 +2,11 @@
-    <input
+@@ -3,11 +3,11 @@
       checked={false}
       hidden={true}
       id="foo"
       name="bar"
+      onChange={[Function onChange]}
 -     required={true}
 +     required={false}
       type="checkbox"

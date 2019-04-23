@@ -94,7 +94,9 @@ const initApp = async state => {
         <HeadProvider>
           <Provider store={store}>
             <BrowserRouter>
-              <AppContainer />
+              <React.StrictMode>
+                <AppContainer />
+              </React.StrictMode>
             </BrowserRouter>
           </Provider>
         </HeadProvider>
