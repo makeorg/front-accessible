@@ -18,7 +18,7 @@ type Props = {
 type State = {
   submitDone: boolean,
   submitError: boolean,
-  formIsValid: boolean,
+  canSubmit: boolean,
   values: UserInformationForm,
   errors: UserInformationFormErrors,
 };
@@ -45,7 +45,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
     this.state = {
       submitDone: false,
       submitError: false,
-      formIsValid: false,
+      canSubmit: false,
       values: {
         firstName: props.user.firstName || '',
         age: getAgeFromDateOfBrth(props.user.profile.dateOfBirth) || '',
@@ -73,11 +73,11 @@ class UpdateInformationsHandler extends Component<Props, State> {
       };
 
       const errors = validateForm(values);
-      const formIsValid = checkFormIsValid(errors);
+      const canSubmit = checkFormIsValid(errors);
 
       return {
         values,
-        formIsValid,
+        canSubmit,
       };
     });
   };
@@ -88,19 +88,19 @@ class UpdateInformationsHandler extends Component<Props, State> {
     const { values } = this.state;
 
     const errors = validateForm(values);
-    const formIsValid = checkFormIsValid(errors);
+    const canSubmit = checkFormIsValid(errors);
 
     this.setState(prevState => ({
       ...prevState,
       isDone: false,
-      formIsValid,
+      canSubmit,
       errors: {
         ...prevState.errors,
         ...errors,
       },
     }));
 
-    if (formIsValid) {
+    if (canSubmit) {
       const { handleGetUser } = this.props;
       try {
         await UserService.update(values);
@@ -113,7 +113,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
   };
 
   render() {
-    const { values, errors, submitDone, submitError, formIsValid } = this.state;
+    const { values, errors, submitDone, submitError, canSubmit } = this.state;
     return (
       <UpdateInformationsComponent
         values={values}
@@ -122,7 +122,7 @@ class UpdateInformationsHandler extends Component<Props, State> {
         submitError={submitError}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        formIsValid={formIsValid}
+        canSubmit={canSubmit}
       />
     );
   }

@@ -43,7 +43,7 @@ class UpdatePasswordHandler extends Component<Props, State> {
       newPassword: false,
       actualPassword: false,
     },
-    formIsValid: false,
+    canSubmit: false,
     submitDone: false,
   };
 
@@ -62,18 +62,18 @@ class UpdatePasswordHandler extends Component<Props, State> {
         hasPassword,
       });
 
-      const formIsValid = checkFormIsValid(errors);
+      const canSubmit = checkFormIsValid(errors);
 
       return {
         passwords,
-        formIsValid,
+        canSubmit,
       };
     });
   };
 
   handleSubmit = async (event: SyntheticInputEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const { passwords } = this.state;
+    const { passwords, canSubmit } = this.state;
     const { newPassword, actualPassword } = passwords;
     const { userId, hasPassword, handleGetUser } = this.props;
     const errors = validateForm({
@@ -81,16 +81,14 @@ class UpdatePasswordHandler extends Component<Props, State> {
       actualPassword,
       hasPassword,
     });
-    const formIsValid = checkFormIsValid(errors);
 
     this.setState(prevState => ({
       ...prevState,
-      formIsValid,
       errors,
       submitDone: false,
     }));
 
-    if (formIsValid) {
+    if (canSubmit) {
       try {
         await UserService.updatePassword(userId, passwords, hasPassword);
         this.setState({
@@ -103,7 +101,7 @@ class UpdatePasswordHandler extends Component<Props, State> {
             newPassword: false,
             actualPassword: false,
           },
-          formIsValid: false,
+          canSubmit: false,
         });
         handleGetUser();
       } catch (exceptions) {
@@ -123,7 +121,7 @@ class UpdatePasswordHandler extends Component<Props, State> {
             newPassword: newPasswordError,
             actualPassword: actualPasswordError,
           },
-          formIsValid: false,
+          canSubmit: false,
         });
       }
     }
@@ -131,14 +129,14 @@ class UpdatePasswordHandler extends Component<Props, State> {
 
   render() {
     const { hasPassword, handleForgotPasswordModal } = this.props;
-    const { passwords, errors, formIsValid, submitDone } = this.state;
+    const { passwords, errors, canSubmit, submitDone } = this.state;
 
     return (
       <UpdatePasswordComponent
         passwords={passwords}
         errors={errors}
         hasPassword={hasPassword}
-        formIsValid={formIsValid}
+        canSubmit={canSubmit}
         submitDone={submitDone}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}

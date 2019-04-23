@@ -11,6 +11,8 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 type Props = {
   /** Boolean of optin check */
   optInNewsletter: boolean,
+  /** boolean to check that for can submitted */
+  canSubmit: boolean,
   /** Boolean for form done */
   submitDone: boolean,
   /** Boolean for form error */
@@ -19,7 +21,6 @@ type Props = {
   handleCheck: () => void,
   /** Method called when field's value is submitted */
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  formIsValid: boolean,
 };
 
 export const UpdateNewsletterComponent = ({
@@ -28,7 +29,7 @@ export const UpdateNewsletterComponent = ({
   submitError,
   handleCheck,
   handleSubmit,
-  formIsValid,
+  canSubmit,
 }: Props) => {
   return (
     <TileWithTitle title={i18n.t('profile.newsletter_update.title')}>
@@ -52,7 +53,7 @@ export const UpdateNewsletterComponent = ({
           </ErrorMessageStyle>
         )}
         <SubmitButton
-          disabled={!formIsValid}
+          disabled={!canSubmit}
           formName={NEWSLETTER_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}

@@ -44,11 +44,11 @@ describe('User Service', () => {
     it('return a no content http status', async () => {
       jest.spyOn(UserService, 'deleteAccount');
       UserService.deleteAccount.mockResolvedValue('ok');
-      const response = await deleteAccount('fooPassword', 'barUserId');
+      const response = await deleteAccount('barUserId', 'fooPassword');
       expect(UserService.deleteAccount).toHaveBeenNthCalledWith(
         1,
-        'fooPassword',
-        'barUserId'
+        'barUserId',
+        'fooPassword'
       );
 
       expect(response).toBe(HttpStatus.HTTP_NO_CONTENT);
@@ -59,7 +59,7 @@ describe('User Service', () => {
 
       UserService.deleteAccount.mockRejectedValue(404);
       try {
-        await deleteAccount('fooPassword', 'barUserId');
+        await deleteAccount('barUserId', 'fooPassword');
       } catch (error) {
         expect(Logger.logError).toHaveBeenNthCalledWith(
           1,
