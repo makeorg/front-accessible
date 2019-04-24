@@ -221,6 +221,7 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
   background-color: rgb(232,24,68);
   width: 100%;
   margin: 0 5px;
+  padding: 5px 15px;
   color: rgb(255,255,255);
   margin-top: 10px;
   background-color: rgb(232,24,68);
@@ -241,6 +242,12 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    padding: 10px 20px;
   }
 }
 
@@ -281,6 +288,7 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
   background-color: rgb(232,24,68);
   width: 100%;
   margin: 0 5px;
+  padding: 5px 15px;
   color: rgb(255,255,255);
   background-color: rgb(58,89,152);
 }
@@ -300,6 +308,12 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    padding: 10px 20px;
   }
 }
 
@@ -334,6 +348,7 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
   background-color: rgb(232,24,68);
   width: 100%;
   margin: 0 5px;
+  padding: 5px 15px;
   color: rgb(255,255,255);
   margin-top: 10px;
   background-color: rgb(219,68,55);
@@ -354,6 +369,12 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+  }
+}
+
+@media (min-width:767px) {
+  .c0 {
+    padding: 10px 20px;
   }
 }
 
