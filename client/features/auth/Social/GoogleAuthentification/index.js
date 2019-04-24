@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import GoogleLogin from 'react-google-login';
-import { GOOGLE_PROVIDER_ENUM } from 'Shared/api/UserService';
+import { GOOGLE_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { loginSocial } from 'Shared/store/actions/authentification';
 
 type Props = {

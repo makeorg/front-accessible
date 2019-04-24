@@ -1,6 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { getVotesCount, getVotePercent } from 'Shared/helpers/voteResult';
+import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { voteStaticParams } from 'Shared/constants/vote';
 import {
   VoteProgressContainerStyle,
@@ -14,9 +14,9 @@ type Props = {
 };
 
 export const VoteProgress = (props: Props) => {
-  const { votes } = props;
-  const votesCount = getVotesCount(votes);
-
+  const { votes, proposalId } = props;
+  const votesCount = getTotalVotesCount(votes);
+  const votesPercent = getVotesPercent(votes, votesCount);
   return (
     <VoteProgressContainerStyle>
       <VoteCounterStyle>
@@ -25,8 +25,9 @@ export const VoteProgress = (props: Props) => {
       <VoteProgressWrapperStyle>
         {votes.map(vote => (
           <VoteProgressItemStyle
+            key={`vote_progress_${proposalId}_${vote.voteKey}`}
             color={voteStaticParams[vote.voteKey].color}
-            percent={getVotePercent(vote.count, votesCount)}
+            percent={votesPercent[vote.voteKey]}
           />
         ))}
       </VoteProgressWrapperStyle>

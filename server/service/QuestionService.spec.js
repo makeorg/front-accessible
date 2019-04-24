@@ -1,4 +1,4 @@
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { getQuestion, getQuestionConfiguration } from './QuestionService';
 import { logger } from '../logger';
 
@@ -8,7 +8,7 @@ const { SERVER_DIR } = require('../paths');
 
 jest.mock('memory-cache');
 jest.mock('fs');
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/QuestionApiService');
 
 jest.mock('../logger', () => ({
   logger: { log: jest.fn() },
@@ -27,7 +27,7 @@ describe('Question Service', () => {
 
       const result = await getQuestion('foo');
 
-      expect(cache.get).toHaveBeenCalledWith('foo');
+      expect(cache.get).toHaveBeenCalledWith('QUESTION_foo');
 
       expect(result).toBe('fooCache');
     });
@@ -35,11 +35,15 @@ describe('Question Service', () => {
     it('return content from Api and put it in cache', async () => {
       jest.spyOn(cache, 'put');
 
-      QuestionService.getDetail.mockReturnValueOnce('QuestionFoo');
+      QuestionApiService.getDetail.mockReturnValueOnce('QuestionFoo');
 
       const result = await getQuestion('foo');
 
-      expect(cache.put).toHaveBeenCalledWith('foo', 'QuestionFoo', 300000);
+      expect(cache.put).toHaveBeenCalledWith(
+        'QUESTION_foo',
+        'QuestionFoo',
+        300000
+      );
 
       expect(result).toBe('QuestionFoo');
     });
@@ -47,7 +51,7 @@ describe('Question Service', () => {
     it('thorw error when fetching content from Api and log it', async () => {
       jest.spyOn(logger, 'log');
       const error = new Error('Api error');
-      QuestionService.getDetail.mockRejectedValue(error);
+      QuestionApiService.getDetail.mockRejectedValue(error);
 
       const result = await getQuestion('foo');
 

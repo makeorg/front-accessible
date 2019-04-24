@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import { ApiService } from './ApiService';
 import {
@@ -13,7 +13,7 @@ const SORT_ALGORITHM = {
   TAGGED_FIRST: 'taggedFirst',
 };
 
-export class ProposalService {
+export class ProposalApiService {
   static propose(content: string, questionId: string): Promise<Object> {
     return ApiService.callApi(PATH_PROPOSALS, {
       method: 'POST',

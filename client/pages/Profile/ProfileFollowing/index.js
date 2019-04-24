@@ -2,6 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { type match as TypeMatch } from 'react-router';
+import { type User as TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -12,25 +14,38 @@ import {
   ProfileTitleSeparatorStyle,
 } from '../Styled';
 
-const ProfileFollowing = props => {
-  const { user, match } = props;
-
-  if (!user) {
-    return <Redirect to={`/${match.params.countryLanguage}`} />;
-  }
-
-  return (
-    <CenterColumnStyle>
-      <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
-          {i18n.t('profile.proposals.title')}
-        </SecondLevelTitleStyle>
-        <ProfileTitleSeparatorStyle />
-      </ProfileContentHeaderStyle>
-      <FollowingPlaceholder />
-    </CenterColumnStyle>
-  );
+type Props = {
+  user?: TypeUser,
+  match: TypeMatch,
 };
+
+class ProfileFollowing extends React.Component<Props> {
+  render() {
+    const { user, match } = this.props;
+
+    if (!user) {
+      return <Redirect to={`/${match.params.countryLanguage}`} />;
+    }
+
+    const hasFollowed = user.followedUsers.length;
+
+    return (
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('profile.following.title')}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {hasFollowed ? (
+          user.followedUsers.map(followed => <div>{followed}</div>)
+        ) : (
+          <FollowingPlaceholder />
+        )}
+      </CenterColumnStyle>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   const { user } = selectAuthentification(state);

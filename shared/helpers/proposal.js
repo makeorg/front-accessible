@@ -7,8 +7,8 @@ import {
   PROPOSALS_LISTING_LIMIT,
 } from 'Shared/constants/proposal';
 import { type ApiSearchProposalsResponseType } from 'Shared/types/api';
-import { type ProposalType } from 'Shared/types/proposal';
-import { ProposalService } from 'Shared/api/ProposalService';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 
 export const getProposalLength = (content: string = '') => {
@@ -29,12 +29,12 @@ export const proposalHasValidLength = (length: number = 0) => {
 
 /**
  * Sort proposal by voted first
- * @param  {ProposalType[]} proposals
- * @return {ProposalType[]}
+ * @param  {TypeProposal[]} proposals
+ * @return {TypeProposal[]}
  */
 export const sortProposalsByVoted = (
-  proposals: ProposalType[]
-): ProposalType[] =>
+  proposals: TypeProposal[]
+): TypeProposal[] =>
   proposals.sort((first, second) => {
     const firstHasVoted = first.votes.some(vote => vote.hasVoted);
     const secondHasVoted = second.votes.some(vote => vote.hasVoted);
@@ -46,7 +46,7 @@ export const sortProposalsByVoted = (
  * Search the first no voted proposal
  * @type {Object|undefined}
  */
-export const searchFirstUnvotedProposal = (proposals: ProposalType[]) =>
+export const searchFirstUnvotedProposal = (proposals: TypeProposal[]) =>
   proposals.find(proposal =>
     proposal.votes.every(vote => vote.hasVoted === false)
   );
@@ -61,7 +61,7 @@ export const searchProposals = async (
   const skip = (page - 1) * limit;
   const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
   try {
-    const response = await ProposalService.searchProposals(
+    const response = await ProposalApiService.searchProposals(
       questionId,
       tagsIds,
       seed,

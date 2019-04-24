@@ -1,5 +1,5 @@
 // @flow
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { type ErrorObject } from 'Shared/types/form';
 import * as actionTypes from 'Shared/store/actionTypes';
 import {
@@ -21,7 +21,7 @@ export const registerFailure = (errors: ErrorObject[]) => ({
 
 export const register = (user: Object) => (dispatch: Dispatch) => {
   dispatch(registerRequest());
-  return UserService.register(user)
+  return UserApiService.register(user)
     .then(userResponse => {
       dispatch(registerSuccess());
       Tracking.trackSignupEmailSuccess();
@@ -29,7 +29,7 @@ export const register = (user: Object) => (dispatch: Dispatch) => {
       return userResponse;
     })
     .then(userResponse =>
-      UserService.login(user.email, user.password).then(() => {
+      UserApiService.login(user.email, user.password).then(() => {
         dispatch(loginSuccess());
         dispatch(setUserInfo(userResponse));
         dispatch(modalClose());

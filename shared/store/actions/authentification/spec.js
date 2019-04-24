@@ -3,12 +3,12 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { Tracking } from 'Shared/services/Tracking';
 import * as actions from './index';
 
 // mocks
-jest.mock('Shared/api/UserService');
+jest.mock('Shared/api/UserApiService');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -56,8 +56,8 @@ describe('Authentification Actions', () => {
       });
 
       // mocks
-      UserService.me.mockResolvedValue(user);
-      UserService.login.mockResolvedValue();
+      UserApiService.me.mockResolvedValue(user);
+      UserApiService.login.mockResolvedValue();
 
       // spy
       jest.spyOn(Tracking, 'trackLoginEmailSuccess');
@@ -90,7 +90,7 @@ describe('Authentification Actions', () => {
         sequence: { question: { questionId } },
       });
 
-      UserService.login.mockRejectedValue();
+      UserApiService.login.mockRejectedValue();
 
       // spy
       jest.spyOn(Tracking, 'trackLoginEmailFailure');
@@ -147,8 +147,8 @@ describe('Authentification Actions', () => {
       const socialToken = 'fooToken';
 
       // mock
-      UserService.me.mockResolvedValue(user);
-      UserService.loginSocial.mockResolvedValue();
+      UserApiService.me.mockResolvedValue(user);
+      UserApiService.loginSocial.mockResolvedValue();
 
       // spy
       jest.spyOn(Tracking, 'trackAuthentificationSocialSuccess');
@@ -180,7 +180,7 @@ describe('Authentification Actions', () => {
       const socialToken = 'fooToken';
       const provider = 'barProvider';
 
-      UserService.loginSocial.mockRejectedValue();
+      UserApiService.loginSocial.mockRejectedValue();
 
       // spy
       jest.spyOn(Tracking, 'trackAuthentificationSocialFailure');
@@ -222,7 +222,7 @@ describe('Authentification Actions', () => {
 
       const expectedActions = [{ type: actionTypes.LOGOUT }];
 
-      UserService.logout.mockResolvedValue();
+      UserApiService.logout.mockResolvedValue();
 
       return newStore.dispatch(actions.logout()).then(() => {
         expect(newStore.getActions()).toEqual(expectedActions);
@@ -244,7 +244,7 @@ describe('Authentification Actions', () => {
       });
 
       // mock
-      UserService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue(user);
 
       // spy
       jest.spyOn(Tracking, 'trackClickCloseModal');
@@ -267,7 +267,7 @@ describe('Authentification Actions', () => {
       });
 
       // mock
-      UserService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue(user);
 
       const expectedActions = [{ type: actionTypes.GET_INFO, user }];
 

@@ -1,13 +1,13 @@
 /* @flow */
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { type SequenceType } from 'Shared/types/sequence';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
 export const startSequence = async (
   questionId: string,
   includedProposalIds: string[]
 ) => {
-  const response: SequenceType = await QuestionService.startSequence(
+  const response: SequenceType = await QuestionApiService.startSequence(
     questionId,
     includedProposalIds
   );
@@ -15,7 +15,7 @@ export const startSequence = async (
   const { proposals } = response;
 
   // Order proposal by included first
-  const orderedProposals: ProposalType[] = proposals.sort(
+  const orderedProposals: TypeProposal[] = proposals.sort(
     (firstProposal, secondProposal) => {
       const indexOfFirst = includedProposalIds.indexOf(firstProposal.id);
       const indexOfSecond = includedProposalIds.indexOf(secondProposal.id);

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { getVotesCount, getVotePercent } from 'Shared/helpers/voteResult';
+import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { type VoteType } from 'Shared/types/proposal';
 import { DetailledResultItem } from './Item';
 import { VoteProgress } from './Progress';
@@ -8,20 +8,26 @@ import { DetailledItemListStyle } from './Styled';
 
 type Props = {
   votes: VoteType[],
+  proposalId: string,
 };
 
 export const DetailledVoteResults = (props: Props) => {
-  const { votes } = props;
-  const votesCount = getVotesCount(votes);
+  const { votes, proposalId } = props;
+  const totalVotesCount = getTotalVotesCount(votes);
+  const votesPercent = getVotesPercent(votes, totalVotesCount);
   return (
     <React.Fragment>
-      <VoteProgress votes={votes} />
+      <VoteProgress
+        key={`vote_progress_${proposalId}`}
+        votes={votes}
+        proposalId={proposalId}
+      />
       <DetailledItemListStyle>
         {votes.map(vote => (
           <DetailledResultItem
-            key={vote.voteKey}
+            key={`detail_result_${proposalId}_${vote.voteKey}`}
             vote={vote}
-            votePercent={getVotePercent(vote.count, votesCount)}
+            votePercent={votesPercent[vote.voteKey]}
           />
         ))}
       </DetailledItemListStyle>

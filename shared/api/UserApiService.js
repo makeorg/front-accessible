@@ -1,8 +1,11 @@
-/* @flow */
+// @flow
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import { Logger } from 'Shared/services/Logger';
 import * as HttpStatus from 'Shared/constants/httpStatus';
-import { type ApiServiceHeaders } from 'Shared/types/api';
+import {
+  type ApiServiceHeaders,
+  type ApiSearchProposalsResponseType,
+} from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
 export const PATH_USER_ME = '/user/me';
@@ -20,11 +23,13 @@ export const PATH_USER_CHANGE_PASSWORD =
   '/user/reset-password/change-password/:userId';
 export const PATH_USER_UPDATE_PASSWORD = '/user/:userId/change-password';
 export const PATH_USER_DELETE_ACCOUNT = '/user/:userId/delete';
+export const PATH_USER_PROPOSALS = '/user/:userId/proposals';
+export const PATH_USER_FAVOURITES = '/user/:userId/votes';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
 export const GOOGLE_PROVIDER_ENUM = 'google';
 
-export class UserService {
+export class UserApiService {
   /**
    * Get user info
    * @return {Promise}
@@ -281,5 +286,27 @@ export class UserService {
         body: JSON.stringify({ password }),
       }
     );
+  }
+
+  /**
+   * get user proposals
+   * @param  {String}  userId
+   */
+  static myProposals(userId: string): Promise<ApiSearchProposalsResponseType> {
+    return ApiService.callApi(PATH_USER_PROPOSALS.replace(':userId', userId), {
+      method: 'GET',
+      params: { sort: 'createdAt', order: 'desc' },
+    });
+  }
+
+  /**
+   * get favorites user proposals
+   * @param  {String}  userId
+   */
+  static myFavourites(userId: string): Promise<ApiSearchProposalsResponseType> {
+    return ApiService.callApi(PATH_USER_FAVOURITES.replace(':userId', userId), {
+      method: 'GET',
+      params: { qualifications: 'likeIt' },
+    });
   }
 }

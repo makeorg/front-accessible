@@ -1,4 +1,6 @@
 // @flow
+import { type Question as TypeQuestion } from './question';
+
 export type QualificationType = {
   count: number,
   hasQualified: boolean,
@@ -45,7 +47,7 @@ export type OrganisationType = {
   organisationSlug: string,
 };
 
-export type ProposalType = {
+export type Proposal = {
   id: string,
   userId: string,
   content: string,
@@ -68,4 +70,5 @@ export type ProposalType = {
   questionId: string,
   operationId: string,
   proposalKey: string,
+  question: TypeQuestion,
 };

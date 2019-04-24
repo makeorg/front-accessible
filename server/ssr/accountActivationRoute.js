@@ -1,4 +1,4 @@
-import { UserService } from 'Shared/api/UserService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
@@ -11,7 +11,7 @@ async function postAccountActivation(
   verificationToken: string,
   headers
 ) {
-  return UserService.verifyUser(userId, verificationToken, headers);
+  return UserApiService.verifyUser(userId, verificationToken, headers);
 }
 
 export const accountActivationRoute = async (req, res) => {

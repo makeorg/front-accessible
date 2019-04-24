@@ -1,14 +1,14 @@
 import httpMocks from 'node-mocks-http';
-import { QuestionService } from 'Shared/api/QuestionService';
-import { UserService } from 'Shared/api/UserService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
-jest.mock('Shared/api/UserService');
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/UserApiService');
+jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
 const requestParams = {
@@ -33,7 +33,7 @@ describe('Account activation route', () => {
     const fooQuestion = {
       id: 'foo',
     };
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       questions: {
@@ -53,7 +53,7 @@ describe('Account activation route', () => {
     });
     const response = httpMocks.createResponse();
     await accountActivationRoute(request, response, () => {});
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+    expect(QuestionApiService.getDetail).toHaveBeenCalledWith(
       fooQuestion.id,
       expectedHeaders
     );
@@ -64,8 +64,8 @@ describe('Account activation route', () => {
     const fooQuestion = {
       id: 'foo',
     };
-    UserService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
+    UserApiService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
+    QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -90,7 +90,7 @@ describe('Account activation route', () => {
       },
     };
     await accountActivationRoute(request, response, () => {});
-    expect(UserService.verifyUser).toHaveBeenCalledWith(
+    expect(UserApiService.verifyUser).toHaveBeenCalledWith(
       'foo',
       'bar',
       expectedHeaders
@@ -103,8 +103,8 @@ describe('Account activation route', () => {
       id: 'foo',
     };
 
-    UserService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue({ id: fooQuestion.id });
+    UserApiService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
+    QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -130,7 +130,7 @@ describe('Account activation route', () => {
     };
 
     await accountActivationRoute(request, response, () => {});
-    expect(UserService.verifyUser).toHaveBeenCalledWith(
+    expect(UserApiService.verifyUser).toHaveBeenCalledWith(
       'foo',
       'bar',
       expectedHeaders

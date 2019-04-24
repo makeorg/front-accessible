@@ -22,15 +22,15 @@ type Props = {
  */
 export const VoteResultContainer = (props: Props) => {
   const { votes, handleVote, votedKey, proposalId, pending } = props;
-  const votesCount = VoteResultHelper.getVotesCount(votes);
+  const totalVotesCount = VoteResultHelper.getTotalVotesCount(votes);
   const handleVoteWithKey = () => {
     handleVote(votedKey);
   };
 
   return (
     <VoteResultComponent
-      votesPercent={VoteResultHelper.getVotesPercent(votes, votesCount)}
-      votesCount={votesCount}
+      votesPercent={VoteResultHelper.getVotesPercent(votes, totalVotesCount)}
+      votesCount={totalVotesCount}
       votedKey={votedKey}
       handleVote={handleVoteWithKey}
       proposalId={proposalId}

@@ -1,6 +1,6 @@
 import { ApiService } from 'Shared/api/ApiService';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
-import { UserService, PATH_USER } from './UserService';
+import { UserApiService, PATH_USER } from './UserApiService';
 
 jest.mock('./ApiService');
 Object.defineProperty(ApiService, 'country', {
@@ -19,7 +19,7 @@ jest.mock('Shared/helpers/date', () => ({
   getDateOfBirthFromAge: jest.fn(),
 }));
 
-describe('UserService', () => {
+describe('UserApiService', () => {
   beforeEach(() => {
     ApiService.callApi.mockClear();
     jest.spyOn(ApiService, 'callApi');
@@ -28,7 +28,7 @@ describe('UserService', () => {
   describe('register', () => {
     it('must call ApiService.callApi', async () => {
       getDateOfBirthFromAge.mockReturnValue('1988-03-03');
-      await UserService.register({
+      await UserApiService.register({
         email: 'foo',
         password: 'bar',
         firstname: 'baz',
@@ -54,7 +54,7 @@ describe('UserService', () => {
 
     it('must call ApiService.callApi with nullable birdthdate', async () => {
       getDateOfBirthFromAge.mockReturnValue('');
-      await UserService.register({
+      await UserApiService.register({
         email: 'foo',
         password: 'bar',
         firstname: 'baz',

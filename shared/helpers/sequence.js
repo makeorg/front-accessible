@@ -1,6 +1,6 @@
 // @flow
 import { type ExtraSlidesConfig, type CardType } from 'Shared/types/sequence';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -47,7 +47,7 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  * @return {number}
  */
 export const findIndexOfFirstUnvotedCard = (
-  firstUnvotedProposal?: ProposalType,
+  firstUnvotedProposal?: TypeProposal,
   cards: CardType[]
 ): number => {
   if (!firstUnvotedProposal) {
@@ -67,12 +67,12 @@ export const findIndexOfFirstUnvotedCard = (
 
 /**
  * Build cards array
- * @param  {ProposalType[]} proposals
+ * @param  {TypeProposal[]} proposals
  * @param  {ExtraSlidesConfig} extraSlidesConfig
  * @return {CardType[]}
  */
 export const buildCards = (
-  proposals: ProposalType[],
+  proposals: TypeProposal[],
   extraSlidesConfig: ExtraSlidesConfig,
   isLoggedIn: boolean,
   hasProposed: boolean,

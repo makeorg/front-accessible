@@ -6,7 +6,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { SequenceService } from 'Shared/api/SequenceService';
-import { QuestionService } from 'Shared/api/QuestionService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import { Tracking } from 'Shared/services/Tracking';
 
@@ -62,10 +62,10 @@ export const sequenceUnvote = (
   Tracking.trackUnvote(proposalId, voteKey, index);
 };
 
-export const fetchQuestionData = (questionSlug: string) => (
+export const fetchQuestionData = (questionSlugOrId: string) => (
   dispatch: any => void
 ) =>
-  QuestionService.getDetail(questionSlug)
+  QuestionApiService.getDetail(questionSlugOrId)
     .then(question => {
       dispatch(loadQuestion(question));
       // Important ! Do not remove: use by the parent to use question.questionId

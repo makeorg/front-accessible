@@ -1,14 +1,14 @@
 import httpMocks from 'node-mocks-http';
-import { QuestionService } from 'Shared/api/QuestionService';
-import { UserService } from 'Shared/api/UserService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { reactRender } from '../reactRender';
 import { passwordRecoveryRoute } from './passwordRecoveryRoute';
 
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
-jest.mock('Shared/api/UserService');
-jest.mock('Shared/api/QuestionService');
+jest.mock('Shared/api/UserApiService');
+jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
 const fooQuestion = { id: 'foo' };
@@ -32,7 +32,7 @@ describe('Account activation route', () => {
   });
 
   it('add the question to the initialState and set headers', async () => {
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       user: {
@@ -62,7 +62,7 @@ describe('Account activation route', () => {
 
     await passwordRecoveryRoute(request, response, () => {});
 
-    expect(QuestionService.getDetail).toHaveBeenCalledWith(
+    expect(QuestionApiService.getDetail).toHaveBeenCalledWith(
       fooQuestion.id,
       expectedHeaders
     );
@@ -70,8 +70,8 @@ describe('Account activation route', () => {
   });
 
   it('activate successfully and add success notification to state', async () => {
-    UserService.resetPasswordTokenCheck.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NO_CONTENT);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -101,7 +101,7 @@ describe('Account activation route', () => {
 
     await passwordRecoveryRoute(request, response, () => {});
 
-    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(
+    expect(UserApiService.resetPasswordTokenCheck).toHaveBeenCalledWith(
       requestParams.userId,
       requestParams.resetToken,
       expectedHeaders
@@ -110,8 +110,8 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    UserService.resetPasswordTokenCheck.mockReturnValue(HTTP_NOT_FOUND);
-    QuestionService.getDetail.mockReturnValue(fooQuestion);
+    UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NOT_FOUND);
+    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -144,7 +144,7 @@ describe('Account activation route', () => {
     };
 
     await passwordRecoveryRoute(request, response, () => {});
-    expect(UserService.resetPasswordTokenCheck).toHaveBeenCalledWith(
+    expect(UserApiService.resetPasswordTokenCheck).toHaveBeenCalledWith(
       requestParams.userId,
       requestParams.resetToken,
       expectedHeaders

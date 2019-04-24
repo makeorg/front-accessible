@@ -3,13 +3,13 @@
 import { type ApiServiceHeaders } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
-const PATH_QUESTION_DETAIL = '/questions/:questionSlug/details';
+const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 
-export class QuestionService {
-  static getDetail(questionSlug: string, headers: ApiServiceHeaders = {}) {
+export class QuestionApiService {
+  static getDetail(questionSlugOrId: string, headers: ApiServiceHeaders = {}) {
     return ApiService.callApi(
-      PATH_QUESTION_DETAIL.replace(':questionSlug', questionSlug),
+      PATH_QUESTION_DETAIL.replace(':questionSlugOrId', questionSlugOrId),
       {
         method: 'GET',
         headers,

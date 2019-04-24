@@ -6,7 +6,7 @@ import {
   type FinalCardConfig,
 } from 'Shared/types/card';
 
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
 import { type Partner } from 'Shared/types/partners';
 
@@ -67,7 +67,7 @@ export type ConfigurationTypes =
   | PushProposalCardConfig
   | SignUpCardConfig
   | FinalCardConfig
-  | ProposalType;
+  | TypeProposal;
 
 export type CardType = {
   type: string,
@@ -77,5 +77,5 @@ export type CardType = {
 
 export type SequenceType = {
   id: string,
-  proposals: ProposalType[],
+  proposals: TypeProposal[],
 };

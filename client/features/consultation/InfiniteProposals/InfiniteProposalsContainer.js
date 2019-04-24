@@ -1,18 +1,18 @@
 /* @flow */
 import React from 'react';
-import { type ProposalType } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { searchProposals } from 'Shared/helpers/proposal';
-import { type Question } from 'Shared/types/question';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { InfiniteProposalsComponent } from './InfiniteProposalsComponent';
 
 type Props = {
-  question: Question,
+  question: TypeQuestion,
   tags: string[],
 };
 
 type State = {
-  proposals: ProposalType[],
+  proposals: TypeProposal[],
   total: number,
   seed?: number,
   page: number,

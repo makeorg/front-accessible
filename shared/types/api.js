@@ -1,6 +1,6 @@
 // @flow
 
-import { type ProposalType } from './proposal';
+import { type Proposal as TypeProposal } from './proposal';
 
 export type ApiServiceHeaders = {
   'x-make-country'?: string,
@@ -12,5 +12,5 @@ export type ApiServiceHeaders = {
 export type ApiSearchProposalsResponseType = {
   total: number,
   seed: number,
-  results: ProposalType[],
+  results: TypeProposal[],
 };
