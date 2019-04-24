@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
-import { AccessToProfile } from './AccessToProfile';
+import { HeaderAuthentification } from './Authentification';
 import { HeaderStyle, HeaderInnerStyle, HeaderLogoStyle } from './Styled';
 
 /**
@@ -22,7 +22,7 @@ export const HeaderComponent = () => {
             />
           </h1>
         </a>
-        <AccessToProfile />
+        <HeaderAuthentification />
       </HeaderInnerStyle>
     </HeaderStyle>
   );

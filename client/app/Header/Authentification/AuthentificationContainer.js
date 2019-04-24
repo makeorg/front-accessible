@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { type User as TypeUser } from 'Shared/types/user';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { AccessToProfileComponent } from './AccessToProfileComponent';
+import {
+  AuthentificatedBar,
+  NotAuthentificatedBar,
+} from './AuthentificationComponent';
 
 type Props = {
   user: TypeUser,
@@ -12,13 +15,16 @@ type Props = {
   handleLoginModal: () => void,
 };
 
-export class AccessToProfileClass extends React.Component<Props> {
+export class AuthentificationClass extends React.Component<Props> {
   render() {
     const { user, handleRegisterModal, handleLoginModal } = this.props;
 
+    if (user) {
+      return <AuthentificatedBar user={user} />;
+    }
+
     return (
-      <AccessToProfileComponent
-        user={user}
+      <NotAuthentificatedBar
         handleRegisterModal={handleRegisterModal}
         handleLoginModal={handleLoginModal}
       />
@@ -40,7 +46,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export const AccessToProfileContainer = connect(
+export const AuthentificationContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AccessToProfileClass);
+)(AuthentificationClass);

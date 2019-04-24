@@ -64,13 +64,3 @@ export const ProfileAccessLinkStyle = styled.a`
     margin-right: 5px;
   }
 `;
-
-export const AvatarImgStyle = styled.img`
-  display: flex;
-  width: ${props => intToPx(props.avatarSize)};
-  height: ${props => intToPx(props.avatarSize)};
-  border-radius: 50%;
-  overflow: hidden;
-  width: ${props => intToPx(props.avatarSize)};
-  height: ${props => intToPx(props.avatarSize)};
-`;
