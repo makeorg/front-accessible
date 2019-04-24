@@ -14,6 +14,7 @@ type Props = {
 
 export const IntroBannerComponent = (props: Props) => {
   const { question, questionConfiguration } = props;
+  const { wording } = question;
   const { theme, consultation } = questionConfiguration;
   return (
     <IntroWrapperStyle
@@ -30,10 +31,10 @@ export const IntroBannerComponent = (props: Props) => {
       <HiddenItemStyle id="header_consultation_title">
         {questionConfiguration.isGreatCause &&
           `${i18n.t('consultation.header.label')}: `}
-        {question.question}
+        {wording.question}
       </HiddenItemStyle>
       <h2>
-        <img src={consultation.logo} alt={question.question} />
+        <img src={consultation.logo} alt={wording.question} />
       </h2>
     </IntroWrapperStyle>
   );

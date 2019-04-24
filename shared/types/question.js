@@ -1,10 +1,14 @@
 // @flow
 
+export type QuestionWording = {
+  question: string,
+  title: string,
+};
 export type Question = {
   questionId: string,
   operationId: string,
   slug: string,
-  question: string,
+  wording: QuestionWording,
   country: string,
   language: string,
   allowedSources: string[],

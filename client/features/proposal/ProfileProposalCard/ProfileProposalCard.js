@@ -26,6 +26,7 @@ type Props = {
 export const ProfileProposalCard = (props: Props) => {
   const { proposal, position, size, withStatus } = props;
   const { author, question } = proposal;
+  const { wording } = question;
 
   const proposalLink = getProposalLink(
     question.country,
@@ -82,7 +83,7 @@ export const ProfileProposalCard = (props: Props) => {
             ? { href: consultationLink }
             : { as: 'span' })}
         >
-          {question.question}
+          {wording.question}
         </PostedInLinkStyle>
       </FooterStyle>
     </ProfileProposalCardStyle>
