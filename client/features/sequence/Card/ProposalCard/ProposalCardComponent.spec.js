@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
-import { SeparatorStyle } from '../Styled/Content';
+import { CardSeparatorStyle } from '../Styled/Content';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
 describe('ProposalCardComponent', () => {
@@ -17,6 +17,6 @@ describe('ProposalCardComponent', () => {
     const wrapper = shallow(<ProposalCardComponent proposal={proposal} />);
 
     expect(wrapper.find(SvgArrowLeft).prop('aria-hidden')).toBe(true);
-    expect(wrapper.find(SeparatorStyle).prop('aria-hidden')).toBe(true);
+    expect(wrapper.find(CardSeparatorStyle).prop('aria-hidden')).toBe(true);
   });
 });

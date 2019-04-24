@@ -15,11 +15,11 @@ import {
   UserContentWrapperStyle,
   UserTitleStyle,
   UserContentStyle,
-  UserDescriptionStyle,
   UserSeparatorStyle,
   UserAvatarLayoutStyle,
   UserInformationButtonStyle,
 } from '../Styled/UserInformations';
+import { UserDescription } from './Description';
 
 type Props = {
   user: User,
@@ -89,8 +89,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
         {profile.description && (
           <React.Fragment>
             <UserSeparatorStyle aria-hidden />
-            <UserDescriptionStyle>{profile.description}</UserDescriptionStyle>
-            <UserSeparatorStyle aria-hidden />
+            <UserDescription description={profile.description} />
           </React.Fragment>
         )}
         {navigationBar}

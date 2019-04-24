@@ -11,7 +11,10 @@ import {
   BackButtonStyle,
   BackIconStyle,
 } from '../Styled/Buttons';
-import { ContentSpecialWrapperStyle, SeparatorStyle } from '../Styled/Content';
+import {
+  ContentSpecialWrapperStyle,
+  CardSeparatorStyle,
+} from '../Styled/Content';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -84,7 +87,7 @@ export const ProposalCardComponent = (props: Props) => {
       </BackButtonWrapperStyle>
       <ContentSpecialWrapperStyle as="section">
         <ProposalAuthor author={proposal.author} />
-        <SeparatorStyle aria-hidden />
+        <CardSeparatorStyle aria-hidden />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
           proposalId={proposal.id}

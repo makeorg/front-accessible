@@ -42,7 +42,7 @@ export const IntroParagraphStyle = styled.p`
   }
 `;
 
-export const SeparatorStyle = styled(SmallSeparatorStyle)`
+export const CardSeparatorStyle = styled(SmallSeparatorStyle)`
   margin: ${pxToRem('10px')} 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     margin: ${pxToRem('15px')} 0 ${pxToRem('25px')};
