@@ -108,9 +108,13 @@ export const IconWrapperStyle = styled.span`
 export const SocialButtonStyle = styled(ActiveButtonStyle)`
   width: 100%;
   margin: 0 5px;
+  padding: 5px 15px;
   color: ${BasicColors.PureWhite};
   svg {
     fill: ${BasicColors.PureWhite};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 10px 20px;
   }
 `;
 

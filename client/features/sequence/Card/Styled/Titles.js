@@ -38,6 +38,17 @@ export const AltMainTitleStyle = styled(MainTitleStyle)`
   }
 `;
 
+export const SignUpTitleStyle = styled(MainTitleStyle)`
+  font-size: ${pxToRem('14px')};
+  line-height: ${pxToRem('16px')};
+  margin-bottom: ${pxToRem('10px')};
+  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
+    font-size: ${pxToRem('22px')};
+    line-height: ${pxToRem('30px')};
+    margin-bottom: ${pxToRem('20px')};
+  }
+`;
+
 export const SecondaryTitleStyle = styled.h3`
   font-size: ${pxToRem('16px')};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
