@@ -13,9 +13,7 @@ type Props = {
 export const SignUpTitle = (props: Props) => {
   const { title } = props;
 
-  return <SignUpTitleStyle>{title}</SignUpTitleStyle>;
-};
-
-SignUpTitle.defaultProps = {
-  title: i18n.t('sign_up_card.title'),
+  return (
+    <SignUpTitleStyle>{title || i18n.t('sign_up_card.title')}</SignUpTitleStyle>
+  );
 };

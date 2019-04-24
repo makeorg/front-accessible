@@ -84,12 +84,9 @@ export const FinalCardComponent = (props: Props) => {
         <InnerContentStyle as="section">
           <FinalTitle title={configuration.title} />
           <FinalCardContentWrapperStyle>
-            {configuration.withSharing && (
-              <Sharing text={configuration.share} />
-            )}
+            <Sharing text={configuration.share} />
             <More
               title={configuration.learnMoreTitle}
-              buttonText={configuration.learnMoreTextButton}
               url={configuration.linkUrl}
               handleEndSequence={handleEndSequence}
             />

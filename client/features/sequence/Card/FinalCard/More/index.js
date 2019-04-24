@@ -7,8 +7,6 @@ import { FinalLinkStyle } from '../../Styled/Buttons';
 type Props = {
   /** Title of the More paragraph */
   title?: string,
-  /** Text of the button */
-  buttonText?: string,
   /** Url of show more button */
   url?: string,
   /** Method called when button is clicked */
@@ -19,42 +17,21 @@ type Props = {
  * Renders finalCard More component
  */
 export const More = (props: Props) => {
-  const { title, buttonText, url, handleEndSequence } = props;
-
-  if (!url) {
-    return null;
-  }
-
-  if (title) {
-    return (
-      <MoreWrapperStyle>
-        <IntroParagraphStyle>{title}</IntroParagraphStyle>
-        <FinalLinkStyle
-          as="a"
-          href={url}
-          target="_blank"
-          onClick={handleEndSequence}
-        >
-          {buttonText}
-        </FinalLinkStyle>
-      </MoreWrapperStyle>
-    );
-  }
+  const { title, url, handleEndSequence } = props;
 
   return (
     <MoreWrapperStyle>
+      <IntroParagraphStyle>
+        {title || i18n.t('final_card.more.title')}
+      </IntroParagraphStyle>
       <FinalLinkStyle
         as="a"
         href={url}
         target="_blank"
         onClick={handleEndSequence}
       >
-        {buttonText}
+        {i18n.t('final_card.more.button')}
       </FinalLinkStyle>
     </MoreWrapperStyle>
   );
-};
-
-More.defaultProps = {
-  buttonText: i18n.t('final_card.button'),
 };

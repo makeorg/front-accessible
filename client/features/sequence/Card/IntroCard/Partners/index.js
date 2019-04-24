@@ -9,42 +9,6 @@ import {
   PartnerAvatarStyle,
 } from '../../Styled/Content';
 
-type ListProps = {
-  /** Array with partners propeties */
-  partners: PartnerItem[],
-};
-
-/**
- * Renders PartnersList component
- */
-const PartnersList = (props: ListProps) => {
-  const { partners } = props;
-
-  if (partners.length > 1) {
-    return (
-      <PartnerListStyle>
-        {partners.map(partner => (
-          <MiddleRowStyle as="li" key={partner.name}>
-            <PartnerAvatarStyle
-              key={partner.name}
-              src={partner.imageUrl}
-              alt={partner.name}
-            />
-          </MiddleRowStyle>
-        ))}
-      </PartnerListStyle>
-    );
-  }
-
-  return partners.map(partner => (
-    <PartnerAvatarStyle
-      key={partner.name}
-      src={partner.imageUrl}
-      alt={partner.name}
-    />
-  ));
-};
-
 type Props = {
   /** Array with partners propeties */
   partners?: PartnerItem[],
@@ -63,7 +27,17 @@ export const Partners = (props: Props) => {
   return (
     <PartnerFooterStyle as="footer">
       {i18n.t('intro_card.partnership')}
-      <PartnersList partners={partners} />
+      <PartnerListStyle>
+        {partners.map(partner => (
+          <MiddleRowStyle as="li" key={partner.name}>
+            <PartnerAvatarStyle
+              key={partner.name}
+              src={partner.imageUrl}
+              alt={partner.name}
+            />
+          </MiddleRowStyle>
+        ))}
+      </PartnerListStyle>
     </PartnerFooterStyle>
   );
 };

@@ -23,11 +23,7 @@ export const SkipSignUpButton = (props: Props) => {
       <IconWrapperStyle>
         <SvgStepForward aria-hidden />
       </IconWrapperStyle>
-      {text}
+      {text || i18n.t('sign_up_card.next-cta')}
     </AltNextButtonStyle>
   );
-};
-
-SkipSignUpButton.defaultProps = {
-  text: i18n.t('sign_up_card.next-cta'),
 };

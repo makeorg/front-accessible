@@ -13,26 +13,15 @@ type Props = {
  */
 export const IntroDescription = (props: Props) => {
   const { description } = props;
-
-  if (!description) {
-    return (
-      <div>
-        <IntroParagraphStyle>
-          {i18n.t('intro_card.description_1')}
-        </IntroParagraphStyle>
-        <IntroParagraphStyle>
-          {i18n.t('intro_card.description_2')}
-        </IntroParagraphStyle>
-      </div>
-    );
-  }
+  const descriptionText = description || [
+    i18n.t('intro_card.description_1'),
+    i18n.t('intro_card.description_2'),
+  ];
 
   return (
     <div>
-      {description.map(introDescription => (
-        <IntroParagraphStyle key={introDescription}>
-          {introDescription}
-        </IntroParagraphStyle>
+      {descriptionText.map(text => (
+        <IntroParagraphStyle key={text}>{text}</IntroParagraphStyle>
       ))}
     </div>
   );

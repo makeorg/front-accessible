@@ -77,8 +77,15 @@
     "partnership": "in partnership with"
   },
   "final_card": {
-    "title": "Thank you for your participation, <br/> you can now access the complete consultation.",
-    "button": "See all of the proposals"
+    "title": "Thank you for your participation !",
+    "sharing": {
+      "introduction": "Would you like to go further on this consultation ?",
+      "description" : "Invite your friends/family/community to participate."
+    },
+    "more": {
+      "title": "Discover all the proposals on this consultation",
+      "button": "Find out more"
+    }
   },
   "sign_up_card": {
     "title": "Receive the results of the consultation and be informed about upcoming actions",
