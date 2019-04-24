@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
+import { i18n } from 'Shared/i18n';
 import {
   IntroParagraphStyle,
   SharingInnerStyle,
@@ -17,14 +18,14 @@ type Props = {
  */
 export const Sharing = (props: Props) => {
   const { text } = props;
-
-  if (!text) {
-    return null;
-  }
+  const sharingText = text || [
+    i18n.t('final_card.sharing.introduction'),
+    i18n.t('final_card.sharing.description'),
+  ];
 
   return (
     <SharingInnerStyle>
-      {text.map(paragraph => (
+      {sharingText.map(paragraph => (
         <IntroParagraphStyle key={paragraph}>{paragraph}</IntroParagraphStyle>
       ))}
       <SharingWrapperStyle>

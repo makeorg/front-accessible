@@ -76,8 +76,15 @@
     "partnership": "en partenariat avec"
   },
   "final_card": {
-    "title": "Merci de votre participation, <br/> vous pouvez maintenant accéder à la consultation complète.",
-    "button": "Voir toutes les propositions"
+    "title": "Merci de votre participation !",
+    "sharing": {
+      "introduction": "Vous souhaitez aller plus loin sur cette consultation ?",
+      "description" : "Invitez vos proches et/ou votre communauté à participer."
+    },
+    "more": {
+      "title": "Découvrez toutes les propositions sur cette consultation.",
+      "button": "En savoir +"
+    }
   },
   "sign_up_card": {
     "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",

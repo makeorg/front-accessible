@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import {
-  BackgroundColors,
-  TextColors,
-  BasicColors,
-} from 'Client/app/assets/vars/Colors';
+import { BackgroundColors, TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
@@ -44,16 +39,6 @@ export const IntroParagraphStyle = styled.p`
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     font-size: ${pxToRem('18px')};
     line-height: ${pxToRem('28px')};
-  }
-`;
-
-export const FinalParagraphStyle = styled.p`
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: ${pxToRem('18px')};
-  color: ${BasicColors.PureBlack};
-  text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('24px')};
   }
 `;
 
