@@ -18,7 +18,7 @@ import {
   DescriptionStyle,
   ButtonStyle,
 } from './Styled';
-import { SeparatorStyle } from '../../sequence/Card/Styled/Content';
+import { CardSeparatorStyle } from '../../sequence/Card/Styled/Content';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -38,7 +38,7 @@ export const SingleProposalCardComponent = (props: Props) => {
     <TallCardStyle>
       <InnerProposalStyle>
         <ProposalAuthor author={proposal.author} />
-        <SeparatorStyle aria-hidden />
+        <CardSeparatorStyle aria-hidden />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
           proposalId={proposal.id}

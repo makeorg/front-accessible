@@ -273,7 +273,9 @@
     },
     "informations_update": {
       "title": "Modify my profile",
-      "link_to_profile": "return to my profile"
+      "link_to_profile": "return to my profile",
+      "more": "Show more",
+      "less": "Show less"
     },
     "password_update": {
       "title": "Modify your password",

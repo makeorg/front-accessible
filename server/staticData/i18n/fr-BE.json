@@ -272,7 +272,9 @@
     },
     "informations_update": {
       "title": "Modifier mon profil",
-      "link_to_profile": "retour à mon profil"
+      "link_to_profile": "retour à mon profil",
+      "more": "Voir +",
+      "less": "Voir -"
     },
     "password_update": {
       "title": "Modifier mon mot de passe",
