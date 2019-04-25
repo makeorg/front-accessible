@@ -10,12 +10,14 @@ import { TwitterTracking } from './Trackers/TwitterTracking';
 describe('Tracking Service', () => {
   beforeEach(() => {
     jest.spyOn(Tracking, 'track');
+    jest.spyOn(Tracking, 'trackFrontAPIAndFacebook');
     jest.spyOn(FacebookTracking, 'trackCustom');
     jest.spyOn(TwitterTracking, 'track');
   });
 
   afterEach(() => {
     Tracking.track.mockRestore();
+    Tracking.trackFrontAPIAndFacebook.mockRestore();
     FacebookTracking.trackCustom.mockRestore();
     TwitterTracking.track.mockRestore();
   });
@@ -45,32 +47,29 @@ describe('Tracking Service', () => {
   });
 
   it('track DisplaySequence', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplaySequence();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SEQUENCE);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SEQUENCE);
   });
 
   it('track Display Page Operation', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayConsultation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_PAGE_OPERATION);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_PAGE_OPERATION);
   });
 
 
   it('track trackFacebookPixel', () => {
-    const eventParams = {
-      location: 'foo',
-      source: 'bar',
-      country: 'baz',
-      language: 'qux',
-      referrer: 'quux',
+    const eventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
       url: 'http://localhost/',
     }
     
-    Tracking.trackFacebookPixel('eventName',eventParams);
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, 'eventName', eventParams);
+
+    Tracking.trackFacebookPixel('eventName',eventParameters);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, 'eventName', eventParameters);
   });
 
   it('track trackTwitter', () => {
@@ -79,177 +78,160 @@ describe('Tracking Service', () => {
   });
 
   it('track ClickMakeLogo', () => {
-    Tracking.track.mockRestore();
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickMakeLogo();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_MAKEORG_LOGO);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_MAKEORG_LOGO);
   });
 
   it('track Display Moderation Text', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayModerationText();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_MODERATION_TEXT);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_MODERATION_TEXT);
   });
 
   it('track Click Moderation Text', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickModerationLink();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_MODERATION_LINK);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_MODERATION_LINK);
   });
 
   it('track Display Authentification Form', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayAuthentificationForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_AUTHENTIFICATION_FORM);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_AUTHENTIFICATION_FORM);
   });
 
   it('track Click Personnal DataLink', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickPersonnalDataLink();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PERSONNAL_DATA_LINK);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PERSONNAL_DATA_LINK);
   });
 
   it('track Click Proposal Submit', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickProposalSubmit();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_SUBMIT);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_SUBMIT);
   });
 
   it('track Display Proposal Submit Validation', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayProposalSubmitValidation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION);
   });
 
   it('track Display Forgot Password Form', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayForgotPasswordForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
   });
 
   it('track Click Close Modal', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickCloseModal();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CLOSE_MODAL);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CLOSE_MODAL);
   });
 
   it('track Display Signup Form', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplaySignupForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SIGN_UP_FORM);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SIGN_UP_FORM);
   });
 
   it('track Signup Email Success', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackSignupEmailSuccess();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_UP_EMAIL_SUCCESS);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_UP_EMAIL_SUCCESS);
   });
 
   it('track Signup Email Failure', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackSignupEmailFailure();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_UP_EMAIL_FAILURE);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_UP_EMAIL_FAILURE);
   });
 
   it('track Display Signin Form', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplaySigninForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SIGN_IN_FORM);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_SIGN_IN_FORM);
   });
 
   it('track Authentification Social Success', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackAuthentificationSocialSuccess('foo');
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.AUTHEN_SOCIAL_SUCCESS, { 'social-network': 'foo' });
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.AUTHEN_SOCIAL_SUCCESS, { 'social-network': 'foo' });
   });
 
   it('track Authentification Social Failure', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackAuthentificationSocialFailure('foo');
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.AUTHEN_SOCIAL_FAILURE, { 'social-network': 'foo' });
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.AUTHEN_SOCIAL_FAILURE, { 'social-network': 'foo' });
   });
 
   it('track Login Email Success', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackLoginEmailSuccess();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_IN_EMAIL_SUCCESS);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_IN_EMAIL_SUCCESS);
   });
 
   it('track Login Email Failure', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackLoginEmailFailure();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_IN_EMAIL_FAILURE);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.SIGN_IN_EMAIL_FAILURE);
   });
 
   it('track Click Start Sequence', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickStartSequence();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_START_SEQUENCE);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_START_SEQUENCE);
   });
 
   it('track Click Next Card', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickNextCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
   });
 
   it('track Click Previous Card', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickPreviousCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
   });
 
   it('track Display Final Card', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackDisplayFinalCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_FINAL_CARD);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.DISPLAY_FINAL_CARD);
   });
 
   it('track First Vote', () => {
-    jest.spyOn(Tracking, 'track');
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': '999'
+    }
 
     Tracking.trackFirstVote('foo', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_FIRST_VOTE, {
       proposalId: 'foo',
       nature: 'bar',
-      cardPosition: '999'
+      'card-position': '999'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_SEQUENCE_FIRST_VOTE, fbEventParameters);
   });
 
   it('track Vote', () => {
-    jest.spyOn(Tracking, 'track');
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': '999'
+    }
 
     Tracking.trackVote('foo', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, {
       proposalId: 'foo',
       nature: 'bar',
-      cardPosition: '999'
+      'card-position': '999'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, fbEventParameters);
   });
 
   it('track Unvote', () => {
-    jest.spyOn(Tracking, 'track');
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': '999'
+    }
 
     Tracking.trackUnvote('foo', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNVOTE, {
@@ -257,22 +239,39 @@ describe('Tracking Service', () => {
       nature: 'bar',
       'card-position': '999'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNVOTE, fbEventParameters);
   });
 
   it('track Vote on Single Proposal Card', () => {
-    jest.spyOn(Tracking, 'track');
-
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': 'single-proposal'
+    }
 
     Tracking.trackVote('foo', 'bar', undefined);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, {
       proposalId: 'foo',
       nature: 'bar',
-      cardPosition: 'single-proposal'
+      'card-position': 'single-proposal'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_VOTE, fbEventParameters);
   });
 
   it('track Unvote on Single Proposal Card', () => {
-    jest.spyOn(Tracking, 'track');
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': 'single-proposal'
+    }
 
     Tracking.trackUnvote('foo', 'bar', undefined);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNVOTE, {
@@ -280,11 +279,19 @@ describe('Tracking Service', () => {
       nature: 'bar',
       'card-position': 'single-proposal'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNVOTE, fbEventParameters);
   });
 
   it('track Qualify', () => {
-    jest.spyOn(Tracking, 'track');
-
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': '999'
+    }
     Tracking.trackQualify('foo', 'baz', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_QUALIFY, {
       proposalId: 'foo',
@@ -292,10 +299,19 @@ describe('Tracking Service', () => {
       nature: 'bar',
       'card-position': '999'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_QUALIFY, fbEventParameters);
   });
 
   it('track Unqualify', () => {
-    jest.spyOn(Tracking, 'track');
+    const fbEventParameters = {
+      location: 'unknown',
+      source: 'foo',
+      country: 'foo',
+      language: 'foo',
+      questionId:'foo',
+      url: 'http://localhost/',
+      'card-position': '999'
+    }
 
     Tracking.trackUnqualify('foo', 'baz', 'bar', 999);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNQUALIFY, {
@@ -304,12 +320,11 @@ describe('Tracking Service', () => {
       nature: 'bar',
       'card-position': '999'
     });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_PROPOSAL_UNQUALIFY, fbEventParameters);
   });
 
   it('track Click Consultation', () => {
-    jest.spyOn(Tracking, 'track');
-
     Tracking.trackClickConsultation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CONSULTATION_LINK);
+    expect(Tracking.trackFrontAPIAndFacebook).toHaveBeenNthCalledWith(1, trackingConstants.CLICK_CONSULTATION_LINK);
   });
 });

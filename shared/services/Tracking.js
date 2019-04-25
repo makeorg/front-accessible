@@ -21,6 +21,19 @@ const getPosition = (cardPosition?: number): string => {
   return 'single-proposal';
 };
 
+const getEventParameters = (parameters: Object = {}) => {
+  return {
+    location: `${getTrackingLocation(window.location.pathname)}`,
+    source: ApiService.source,
+    country: ApiService.country,
+    language: ApiService.language,
+    referrer: ApiService.referrer,
+    questionId: ApiService.questionId,
+    url: PARENT_URL,
+    ...parameters,
+  };
+};
+
 let instance = null;
 
 class TrackingSingleton {
@@ -33,16 +46,7 @@ class TrackingSingleton {
   }
 
   track = (eventName: string, parameters: Object = {}) => {
-    const eventParameters = {
-      location: `${getTrackingLocation(window.location.pathname)}`,
-      source: ApiService.source,
-      country: ApiService.country,
-      language: ApiService.language,
-      referrer: ApiService.referrer,
-      questionId: ApiService.questionId,
-      url: PARENT_URL,
-      ...parameters,
-    };
+    const eventParameters = getEventParameters(parameters);
 
     if (env.isDev()) {
       // eslint-disable-next-line no-console
@@ -68,17 +72,14 @@ class TrackingSingleton {
   };
 
   trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
-    const fbEventParameters = {
-      location: `${getTrackingLocation(window.location.pathname)}`,
-      source: ApiService.source,
-      country: ApiService.country,
-      language: ApiService.language,
-      referrer: ApiService.referrer,
-      url: PARENT_URL,
-      ...parameters,
-    };
+    const eventParameters = getEventParameters(parameters);
 
-    FacebookTracking.trackCustom(eventName, fbEventParameters);
+    FacebookTracking.trackCustom(eventName, eventParameters);
+  };
+
+  trackFrontAPIAndFacebook = (eventName: string, parameters: Object = {}) => {
+    this.track(eventName, parameters);
+    this.trackFacebookPixel(eventName, parameters);
   };
 
   trackTwitter = (eventName: string) => {
@@ -89,21 +90,20 @@ class TrackingSingleton {
   trackDisplayConsultation = () => {
     const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   /* LearnMore Tracking */
   trackOpenLearnMore = (actionType: string) => {
     const eventName = trackingConstants.OPEN_BLOCK_LEARN_MORE;
 
-    this.track(eventName, { action: actionType });
+    this.trackFrontAPIAndFacebook(eventName, { action: actionType });
   };
 
   trackClickLearnMore = () => {
     const eventName = trackingConstants.CLICK_BUTTON_LEARN_MORE;
 
-    this.track(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   /* Open Sequence Tracking */
@@ -111,7 +111,7 @@ class TrackingSingleton {
   trackOpenSequence = () => {
     const eventName = trackingConstants.CLICK_SEQUENCE_OPEN;
 
-    this.track(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   /* Partners Block Tracking */
@@ -119,174 +119,177 @@ class TrackingSingleton {
   trackParticipatePartners = () => {
     const eventName = trackingConstants.CLICK_PARTICIPATE_COMMUNITY;
 
-    this.track(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   trackSeeMorePartners = () => {
     const eventName = trackingConstants.CLICK_SEE_MORE_COMMUNITY;
 
-    this.track(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   trackLoadMoreProposals = () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
 
-    this.track(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   /* On Load Sequence Tracking */
   trackDisplaySequence = () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
     this.trackTwitter(eventName);
   };
 
   /* Header Tracking */
   trackClickMakeLogo = () => {
-    this.track(trackingConstants.CLICK_MAKEORG_LOGO);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_MAKEORG_LOGO);
   };
 
   /* Moderation Text Tracking */
   trackDisplayModerationText = () => {
-    this.track(trackingConstants.DISPLAY_MODERATION_TEXT);
+    this.trackFrontAPIAndFacebook(trackingConstants.DISPLAY_MODERATION_TEXT);
   };
 
   trackClickModerationLink = () => {
-    this.track(trackingConstants.CLICK_MODERATION_LINK);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_MODERATION_LINK);
   };
 
   trackDisplayAuthentificationForm = () => {
-    this.track(trackingConstants.DISPLAY_AUTHENTIFICATION_FORM);
+    this.trackFrontAPIAndFacebook(
+      trackingConstants.DISPLAY_AUTHENTIFICATION_FORM
+    );
   };
 
   trackClickPersonnalDataLink = () => {
-    this.track(trackingConstants.CLICK_PERSONNAL_DATA_LINK);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_PERSONNAL_DATA_LINK);
   };
 
   /* Proposal Submit */
   trackClickProposalSubmit = () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_SUBMIT;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   trackDisplayProposalSubmitValidation = () => {
     const eventName = trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
     this.trackTwitter(eventName);
   };
 
   trackDisplayForgotPasswordForm = () => {
-    this.track(trackingConstants.DISPLAY_FORGOTPASSWORD_FORM);
+    this.trackFrontAPIAndFacebook(
+      trackingConstants.DISPLAY_FORGOTPASSWORD_FORM
+    );
   };
 
   trackClickCloseModal = () => {
-    this.track(trackingConstants.CLICK_CLOSE_MODAL);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_CLOSE_MODAL);
   };
 
   /* Sign Up */
   trackDisplaySignupForm = () => {
-    this.track(trackingConstants.DISPLAY_SIGN_UP_FORM);
+    this.trackFrontAPIAndFacebook(trackingConstants.DISPLAY_SIGN_UP_FORM);
   };
 
   trackSignupEmailSuccess = () => {
-    this.track(trackingConstants.SIGN_UP_EMAIL_SUCCESS);
+    this.trackFrontAPIAndFacebook(trackingConstants.SIGN_UP_EMAIL_SUCCESS);
   };
 
   trackSignupEmailFailure = () => {
-    this.track(trackingConstants.SIGN_UP_EMAIL_FAILURE);
+    this.trackFrontAPIAndFacebook(trackingConstants.SIGN_UP_EMAIL_FAILURE);
   };
 
   /* Signin */
   trackDisplaySigninForm = () => {
-    this.track(trackingConstants.DISPLAY_SIGN_IN_FORM);
+    this.trackFrontAPIAndFacebook(trackingConstants.DISPLAY_SIGN_IN_FORM);
   };
 
   trackAuthentificationSocialSuccess = (socialNetwork: string) => {
-    this.track(trackingConstants.AUTHEN_SOCIAL_SUCCESS, {
+    this.trackFrontAPIAndFacebook(trackingConstants.AUTHEN_SOCIAL_SUCCESS, {
       'social-network': socialNetwork,
     });
   };
 
   trackAuthentificationSocialFailure = (socialNetwork: string) => {
-    this.track(trackingConstants.AUTHEN_SOCIAL_FAILURE, {
+    this.trackFrontAPIAndFacebook(trackingConstants.AUTHEN_SOCIAL_FAILURE, {
       'social-network': socialNetwork,
     });
   };
 
   trackLoginEmailSuccess = () => {
-    this.track(trackingConstants.SIGN_IN_EMAIL_SUCCESS);
+    this.trackFrontAPIAndFacebook(trackingConstants.SIGN_IN_EMAIL_SUCCESS);
   };
 
   trackLoginEmailFailure = () => {
-    this.track(trackingConstants.SIGN_IN_EMAIL_FAILURE);
+    this.trackFrontAPIAndFacebook(trackingConstants.SIGN_IN_EMAIL_FAILURE);
   };
 
   /* Sequence */
   trackClickStartSequence = () => {
     const eventName = trackingConstants.CLICK_START_SEQUENCE;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
     this.trackTwitter(eventName);
   };
 
   trackClickNextCard = () => {
-    this.track(trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
   };
 
   trackClickProposalPushCardIgnore = () => {
-    this.track(trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE);
+    this.trackFrontAPIAndFacebook(
+      trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE
+    );
   };
 
   trackSkipSignUpCard = () => {
-    this.track(trackingConstants.SKIP_SIGNUP_CARD);
+    this.trackFrontAPIAndFacebook(trackingConstants.SKIP_SIGNUP_CARD);
   };
 
   trackClickPreviousCard = () => {
-    this.track(trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD);
+    this.trackFrontAPIAndFacebook(
+      trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD
+    );
   };
 
   trackDisplayIntroCard = () => {
     const eventName = trackingConstants.DISPLAY_INTRO_CARD;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   trackDisplayProposalPushCard = () => {
     const eventName = trackingConstants.DISPLAY_PROPOSAL_PUSH_CARD;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
     this.trackTwitter(eventName);
   };
 
   trackDisplaySignUpCard = () => {
     const eventName = trackingConstants.DISPLAY_SIGN_UP_CARD;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
     this.trackTwitter(eventName);
   };
 
   trackDisplayFinalCard = () => {
     const eventName = trackingConstants.DISPLAY_FINAL_CARD;
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.trackFrontAPIAndFacebook(eventName);
   };
 
   /* Tags Tracking */
   trackTag = (label: string, action: string) => {
     const eventName = trackingConstants.CLICK_TAG_ACTION;
 
-    this.track(eventName, { 'tag-name': label, nature: action });
+    this.trackFrontAPIAndFacebook(eventName, {
+      'tag-name': label,
+      nature: action,
+    });
   };
 
   /* Votes */
@@ -294,12 +297,12 @@ class TrackingSingleton {
     const eventName: string = trackingConstants.CLICK_PROPOSAL_VOTE;
     const cardPosition: string = getPosition(position);
     const params = {
-      proposalId,
-      cardPosition,
+      'card-position': cardPosition,
     };
 
     this.track(eventName, {
       ...params,
+      proposalId,
       nature,
     });
     this.trackFacebookPixel(eventName, params);
@@ -310,24 +313,31 @@ class TrackingSingleton {
     const eventName: string = trackingConstants.CLICK_SEQUENCE_FIRST_VOTE;
     const cardPosition = getPosition(position);
     const params = {
-      proposalId,
-      cardPosition,
+      'card-position': cardPosition,
     };
 
     this.track(eventName, {
       ...params,
+      proposalId,
       nature,
     });
     this.trackFacebookPixel(eventName, params);
     this.trackTwitter(eventName);
   };
 
-  trackUnvote = (proposalId: string, nature: string, cardPosition?: number) => {
-    this.track(trackingConstants.CLICK_PROPOSAL_UNVOTE, {
+  trackUnvote = (proposalId: string, nature: string, position?: number) => {
+    const eventName: string = trackingConstants.CLICK_PROPOSAL_UNVOTE;
+    const cardPosition = getPosition(position);
+    const params = {
+      'card-position': cardPosition,
+    };
+
+    this.track(eventName, {
+      ...params,
       proposalId,
       nature,
-      'card-position': getPosition(cardPosition),
     });
+    this.trackFacebookPixel(eventName, params);
   };
 
   /* Qualifications */
@@ -335,33 +345,47 @@ class TrackingSingleton {
     proposalId: string,
     type: string,
     nature: string,
-    cardPosition?: number
+    position?: number
   ) => {
-    this.track(trackingConstants.CLICK_PROPOSAL_QUALIFY, {
+    const eventName: string = trackingConstants.CLICK_PROPOSAL_QUALIFY;
+    const cardPosition = getPosition(position);
+    const params = {
+      'card-position': cardPosition,
+    };
+
+    this.track(eventName, {
+      ...params,
       proposalId,
       type,
       nature,
-      'card-position': getPosition(cardPosition),
     });
+    this.trackFacebookPixel(eventName, params);
   };
 
   trackUnqualify = (
     proposalId: string,
     type: string,
     nature: string,
-    cardPosition?: number
+    position?: number
   ) => {
-    this.track(trackingConstants.CLICK_PROPOSAL_UNQUALIFY, {
+    const eventName: string = trackingConstants.CLICK_PROPOSAL_UNQUALIFY;
+    const cardPosition = getPosition(position);
+    const params = {
+      'card-position': cardPosition,
+    };
+
+    this.track(eventName, {
+      ...params,
       proposalId,
       type,
       nature,
-      'card-position': getPosition(cardPosition),
     });
+    this.trackFacebookPixel(eventName, params);
   };
 
   /* Footer */
   trackClickConsultation = () => {
-    this.track(trackingConstants.CLICK_CONSULTATION_LINK);
+    this.trackFrontAPIAndFacebook(trackingConstants.CLICK_CONSULTATION_LINK);
   };
 }
 
