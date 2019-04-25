@@ -41,17 +41,17 @@ export type ConsultationType = {
   logo: string,
 };
 
-export type TwitterType = {
+export type SharingTwitter = {
   hashtags: string,
 };
 
-export type SharingType = {
-  twitter: TwitterType,
+export type Sharing = {
+  twitter: SharingTwitter,
 };
 
 export type QuestionConfiguration = {
   wording: Wording,
-  sharing: SharingType,
+  sharing: Sharing,
   theme: QuestionTheme,
   partners?: Partner[],
   consultation: ConsultationType,

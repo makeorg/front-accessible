@@ -29,13 +29,6 @@ export const initialState: StateRoot = {
       isLoggedIn: false,
       user: undefined,
     },
-    registration: {
-      errors: [],
-    },
-    forgotPassword: {
-      isSuccess: false,
-      errors: [],
-    },
     passwordRecovery: {
       newPassword: undefined,
       resetToken: undefined,

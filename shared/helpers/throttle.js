@@ -4,7 +4,7 @@ export const throttle = (
   func,
   preventDefault = true,
   time = THROTTLE_DEFAULT_TIME,
-  context = window
+  context = typeof window !== 'undefined' ? window : {}
 ) => {
   let wait = false;
   let timer;

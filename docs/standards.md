@@ -97,10 +97,16 @@ const toto: Toto = {
   value: null
 };
 ```
-- when importing type use alias and prefix it with Type:
+- [Importing Type] use alias and prefix it with Type:
 
+**Good :**
 ```ts
-import { type User as TypeUser } from '/file';
+import { type User as TypeUser } from '/user';
+```
+
+**Bad :**
+```ts
+import { type User } from '/user';
 ```
 
 

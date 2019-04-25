@@ -89,6 +89,7 @@ const initApp = async state => {
   DateHelper.language = state.appConfig.language;
 
   loadableReady(() => {
+    const appDom = document.getElementById('app');
     ReactDOM.hydrate(
       <CookiesProvider>
         <HeadProvider>
@@ -101,7 +102,7 @@ const initApp = async state => {
           </Provider>
         </HeadProvider>
       </CookiesProvider>,
-      document.getElementById('app')
+      appDom
     );
   });
 };

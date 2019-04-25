@@ -1,9 +1,9 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Location } from 'history';
+import { type Location } from 'history';
 import { withRouter } from 'react-router-dom';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   twitterShareUrl,
   facebookShareUrl,
@@ -14,7 +14,7 @@ import { SharingComponent } from './SharingComponent';
 
 type Props = {
   location: Location,
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
 };
 
 /**
@@ -25,15 +25,19 @@ class SharingContainerLinks extends React.Component<Props> {
   render() {
     const { location, questionConfiguration } = this.props;
 
-    let hashtagsProps: string = '';
+    let twitterHashtags: string = '';
 
     if (questionConfiguration.sharing) {
-      hashtagsProps = questionConfiguration.sharing.twitter.hashtags;
+      twitterHashtags = questionConfiguration.sharing.twitter.hashtags;
     }
 
     return (
       <SharingComponent
-        twitterShareUrl={twitterShareUrl(location.pathname, '', hashtagsProps)}
+        twitterShareUrl={twitterShareUrl(
+          location.pathname,
+          '',
+          twitterHashtags
+        )}
         facebookShareUrl={facebookShareUrl(location.pathname)}
         linkedinShareUrl={linkedinShareUrl(location.pathname)}
       />
