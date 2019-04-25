@@ -67,7 +67,11 @@ export const DeleteAccountComponent = ({
         )}
         {submitError && (
           <ErrorMessageStyle>
-            {i18n.t('login.email_doesnot_exist')}
+            {i18n.t(
+              hasPassword
+                ? 'profile.delete_account.wrong_password'
+                : 'profile.delete_account.wrong_email'
+            )}
           </ErrorMessageStyle>
         )}
         <SubmitButton

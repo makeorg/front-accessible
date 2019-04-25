@@ -52,6 +52,7 @@ export const RegisterFormComponent = (props: Props) => {
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
   const firstnameError = fieldErrors('firstname', errors);
+  const ageError = fieldErrors('age', errors);
   const globalError = fieldErrors('global', errors);
 
   return (
@@ -99,6 +100,12 @@ export const RegisterFormComponent = (props: Props) => {
         required
         handleChange={handleChange}
       />
+      {firstnameError && (
+        <ErrorMessageStyle id="authentification-firstname-error">
+          {firstnameError}
+        </ErrorMessageStyle>
+      )}
+
       <UntypedInput
         type="number"
         name="age"
@@ -108,6 +115,12 @@ export const RegisterFormComponent = (props: Props) => {
         required={false}
         handleChange={handleChange}
       />
+      {ageError && (
+        <ErrorMessageStyle id="authentification-age-error">
+          {ageError}
+        </ErrorMessageStyle>
+      )}
+
       <UntypedInput
         type="number"
         name="postalcode"

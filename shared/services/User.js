@@ -8,6 +8,49 @@ import * as ProposalService from 'Shared/services/Proposal';
 import { type UserObject, type ErrorObject } from 'Shared/types/form';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
+/**
+ * Map errors from API to internal error message
+ *
+ * @param {Object}        errorMessageMapping an array of error map object {field: 'value', apiMessage: 'message from API', message: 'internal error key message'}
+ *                                            apiMessage can be a RegExp or a string
+ * @param {ErrorObject[]} errors              an array of ErrorObject
+ */
+const mapErrors = (errorMessageMapping, errors: ErrorObject[]) => {
+  const fieldMatch = (fieldApi, fieldMap) => {
+    return fieldMap === 'any' || fieldApi === fieldMap;
+  };
+  const messageMatch = (messageApi, messageMap) => {
+    if (messageMap instanceof RegExp) {
+      return messageMap.test(messageApi);
+    }
+    return messageMap === messageApi;
+  };
+
+  const errorsMapped = errors.map(apiError => {
+    const errorMatch = errorMessageMapping.find(
+      errorFromMapping =>
+        fieldMatch(apiError.field, errorFromMapping.field) &&
+        messageMatch(apiError.message, errorFromMapping.apiMessage)
+    );
+
+    if (typeof errorMatch !== 'undefined') {
+      return {
+        field: `${apiError.field}`,
+        message: `${errorMatch.message}`,
+      };
+    }
+    Logger.logError(
+      `Unexpected error: "${apiError.field}":"${apiError.message}"`
+    );
+    return {
+      field: 'global',
+      message: 'common.form.api_error',
+    };
+  });
+
+  return errorsMapped;
+};
+
 export const update = async (userInformation: UserInformationForm) => {
   return UserApiService.update({
     firstName: userInformation.firstName,
@@ -55,9 +98,16 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
+      const errorMessageMapping = [
+        {
+          field: 'email',
+          apiMessage: 'email is not a valid email',
+          message: 'common.form.email is not a valid email',
+        },
+      ];
       const notExistError: ErrorObject = {
         field: 'email',
-        message: 'login.email_doesnot_exist',
+        message: 'forgot_password.email_doesnot_exist',
       };
       const unexpectedError: ErrorObject = {
         field: 'global',
@@ -68,35 +118,48 @@ export const forgotPassword = (email: string) => {
         case errors === 404:
           throw Array(notExistError);
         case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
           throw Array(unexpectedError);
         default:
-          throw errors;
+          throw mapErrors(errorMessageMapping, errors);
       }
     });
-};
-
-const getMessageFromApiErrorMessage = (message: string): string => {
-  if (/Email\s(.+)\salready exist/.test(message)) {
-    return 'email_already_exist';
-  }
-
-  return message;
 };
 
 export const register = (user: UserObject) => {
   return UserApiService.register(user)
     .then(() => {})
     .catch(errors => {
-      const errorList = Array.isArray(errors)
-        ? errors.map(error => ({
-            ...error,
-            message: `common.form.${getMessageFromApiErrorMessage(
-              error.message
-            )}`,
-          }))
-        : [{ field: 'global', message: 'common.form.api_error' }];
+      const errorMessageMapping = [
+        {
+          field: 'email',
+          apiMessage: /Email\s(.+)\salready exist/,
+          message: 'common.form.email_already_exist',
+        },
+        {
+          field: 'password',
+          apiMessage: 'Password must be at least 8 characters',
+          message: 'common.form.Password must be at least 8 characters',
+        },
+        {
+          field: 'any',
+          apiMessage: 'required_field',
+          message: 'common.form.required_field',
+        },
+      ];
 
-      throw errorList;
+      const unexpectedError: ErrorObject = {
+        field: 'global',
+        message: 'common.form.api_error',
+      };
+
+      switch (true) {
+        case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
+          throw Array(unexpectedError);
+        default:
+          throw mapErrors(errorMessageMapping, errors);
+      }
     });
 };
 

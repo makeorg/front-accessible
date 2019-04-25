@@ -81,17 +81,47 @@ class RegisterHandler extends React.Component<Props, State> {
     event.preventDefault();
     const { user } = this.state;
 
-    if (user.email && user.password && user.firstname) {
-      const { handleModalClose } = this.props;
-      try {
-        await UserService.register(user);
-        Tracking.trackSignupEmailSuccess();
-        handleModalClose();
-        this.logAndLoadUser(user.email, user.password);
-      } catch (errors) {
-        Tracking.trackSignupEmailFailure();
-        this.setState({ errors });
-      }
+    const errors = [];
+
+    if (!user.email) {
+      errors.push({ field: 'email', message: 'common.form.required_field' });
+    }
+    if (!user.password) {
+      errors.push({
+        field: 'password',
+        message: 'common.form.required_field',
+      });
+    }
+    if (!user.firstname) {
+      errors.push({
+        field: 'firstname',
+        message: 'common.form.required_field',
+      });
+    }
+    const userAge = Number.parseInt(user.age, 10);
+    if (userAge < 13 || userAge > 119) {
+      errors.push({
+        field: 'age',
+        message: 'common.form.age_limit_error',
+      });
+    }
+
+    if (errors.length > 0) {
+      this.setState({
+        errors,
+      });
+      return;
+    }
+
+    const { handleModalClose } = this.props;
+    try {
+      await UserService.register(user);
+      Tracking.trackSignupEmailSuccess();
+      handleModalClose();
+      this.logAndLoadUser(user.email, user.password);
+    } catch (serviceErrors) {
+      Tracking.trackSignupEmailFailure();
+      this.setState({ errors: serviceErrors });
     }
   };
 

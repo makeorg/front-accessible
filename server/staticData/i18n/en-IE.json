@@ -23,7 +23,8 @@
       "Password must be at least 8 characters": "Your password must contain at least 8 characters.",
       "email_already_exist": "This e-mail address is already registered.",
       "api_error": "Oops! We’re having difficulty loading this page. Please try again later.",
-      "required_field": "Please fill in this field."
+      "required_field": "Please fill in this field.",
+      "age_limit_error": "Oops, you must be at least 13 years old to register."
     },
     "from": "on",
     "email": "E-mail",
@@ -164,7 +165,8 @@
     "forgot_password_link": "forgotten my password.",
     "registration_title": "I don’t have an account,",
     "registration_link": "I want to create one.",
-    "email_doesnot_exist": "Incorrect email or password."
+    "email_doesnot_exist": "Invalid login or password.",
+    "wrong_email": "Invalid login or password."
   },
   "register": {
     "title": "Create an account",
@@ -182,7 +184,8 @@
     "success": "Thank you. An e-mail has been sent to you that will allow you to update your password.",
     "return": "Go back to ",
     "login_link": "the login screen",
-    "send_link": "receive the e-mail"
+    "send_link": "receive the e-mail",
+    "email_doesnot_exist": "Account not found."
   },
   "footer_sequence": {
     "with": "with",
@@ -294,7 +297,9 @@
       "title": "Delete my account",
       "description": "Be careful, this action is irreversible. You will loose your proposals, detailled statistics about them, and the proposals on which you took position.",
       "password_label": "I type my password",
-      "submit_label": "Delete my account"
+      "submit_label": "Delete my account",
+      "wrong_email": "Invalid login.",
+      "wrong_password": "Invalid password."
     }
   },
   "consultation": {
