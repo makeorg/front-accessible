@@ -26,6 +26,8 @@ type Props = {
   proposalKey: string,
   /** Index of the card */
   index?: number,
+  /** currentIndex */
+  currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called on vote */
@@ -170,7 +172,13 @@ export class VoteHandler extends React.Component<Props, State> {
   hasStartedPending: boolean;
 
   render() {
-    const { proposalId, proposalKey, index, goToNextCard } = this.props;
+    const {
+      proposalId,
+      proposalKey,
+      index,
+      goToNextCard,
+      currentIndex,
+    } = this.props;
     const {
       hasVoted,
       votedKey,
@@ -179,6 +187,10 @@ export class VoteHandler extends React.Component<Props, State> {
       pending,
       pendingVoteKey,
     } = this.state;
+
+    const renderNextButton =
+      index === currentIndex && currentIndex !== undefined;
+
     if (hasVoted) {
       return (
         <React.Fragment>
@@ -199,8 +211,11 @@ export class VoteHandler extends React.Component<Props, State> {
               pendingVote={pending}
             />
           </VoteContainerStyle>
-          {index !== undefined && (
-            <NextButtonStyle onClick={goToNextCard} id={`next-button-${index}`}>
+          {renderNextButton && (
+            <NextButtonStyle
+              onClick={goToNextCard}
+              id={`next-button-${proposalId}`}
+            >
               {i18n.t('proposal_card.next')}
               {' >'}
             </NextButtonStyle>
