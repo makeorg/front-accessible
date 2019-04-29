@@ -5,51 +5,14 @@ import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import * as ProposalService from 'Shared/services/Proposal';
-import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { mapErrors } from 'Shared/services/ApiErrors';
+import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import {
+  type ErrorObject as TypeErrorObject,
+  type ErrorMapping as TypeErrorMapping,
+} from 'Shared/types/api';
+
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-
-/**
- * Map errors from API to internal error message
- *
- * @param {Object}        errorMessageMapping an array of error map object {field: 'value', apiMessage: 'message from API', message: 'internal error key message'}
- *                                            apiMessage can be a RegExp or a string
- * @param {ErrorObject[]} errors              an array of ErrorObject
- */
-const mapErrors = (errorMessageMapping, errors: ErrorObject[]) => {
-  const fieldMatch = (fieldApi, fieldMap) => {
-    return fieldMap === 'any' || fieldApi === fieldMap;
-  };
-  const messageMatch = (messageApi, messageMap) => {
-    if (messageMap instanceof RegExp) {
-      return messageMap.test(messageApi);
-    }
-    return messageMap === messageApi;
-  };
-
-  const errorsMapped = errors.map(apiError => {
-    const errorMatch = errorMessageMapping.find(
-      errorFromMapping =>
-        fieldMatch(apiError.field, errorFromMapping.field) &&
-        messageMatch(apiError.message, errorFromMapping.apiMessage)
-    );
-
-    if (typeof errorMatch !== 'undefined') {
-      return {
-        field: `${apiError.field}`,
-        message: `${errorMatch.message}`,
-      };
-    }
-    Logger.logError(
-      `Unexpected error: "${apiError.field}":"${apiError.message}"`
-    );
-    return {
-      field: 'global',
-      message: 'common.form.api_error',
-    };
-  });
-
-  return errorsMapped;
-};
 
 export const update = async (userInformation: UserInformationForm) => {
   return UserApiService.update({
@@ -98,18 +61,18 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
-      const errorMessageMapping = [
+      const errorMessageMapping: TypeErrorMapping[] = [
         {
           field: 'email',
           apiMessage: 'email is not a valid email',
           message: 'common.form.email is not a valid email',
         },
       ];
-      const notExistError: ErrorObject = {
+      const notExistError: TypeErrorObject = {
         field: 'email',
         message: 'forgot_password.email_doesnot_exist',
       };
-      const unexpectedError: ErrorObject = {
+      const unexpectedError: TypeErrorObject = {
         field: 'global',
         message: 'common.form.api_error',
       };
@@ -126,11 +89,11 @@ export const forgotPassword = (email: string) => {
     });
 };
 
-export const register = (user: UserObject) => {
+export const register = (user: TypeRegisterFormData) => {
   return UserApiService.register(user)
     .then(() => {})
     .catch(errors => {
-      const errorMessageMapping = [
+      const errorsMapping: TypeErrorMapping[] = [
         {
           field: 'email',
           apiMessage: /Email\s(.+)\salready exist/,
@@ -148,7 +111,7 @@ export const register = (user: UserObject) => {
         },
       ];
 
-      const unexpectedError: ErrorObject = {
+      const unexpectedError: TypeErrorObject = {
         field: 'global',
         message: 'common.form.api_error',
       };
@@ -158,7 +121,7 @@ export const register = (user: UserObject) => {
           Logger.logError(`Unexpected error (array expected): ${errors}`);
           throw Array(unexpectedError);
         default:
-          throw mapErrors(errorMessageMapping, errors);
+          throw mapErrors(errorsMapping, errors);
       }
     });
 };

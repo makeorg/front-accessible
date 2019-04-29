@@ -1,7 +1,8 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import {
   SecondLevelTitleStyle,
   ThirdLevelTitleStyle,
@@ -25,9 +26,9 @@ type Props = {
   /** Current language */
   language: string,
   /** User form data */
-  user: UserObject,
+  user: TypeRegisterFormData,
   /** Array with form errors */
-  errors: ErrorObject[],
+  errors: TypeErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

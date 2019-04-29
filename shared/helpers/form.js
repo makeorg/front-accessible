@@ -1,7 +1,7 @@
 /* @flow */
 
 import { i18n } from 'Shared/i18n';
-import { type ErrorObject } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 
 export const errorTranslation = (message: string) => {
   const translatedError = i18n.t(message);
@@ -12,7 +12,7 @@ export const errorTranslation = (message: string) => {
   return translatedError;
 };
 
-export const fieldErrors = (field: string, errors: ErrorObject[]) => {
+export const fieldErrors = (field: string, errors: TypeErrorObject[]) => {
   if (errors.length === 0) {
     return null;
   }

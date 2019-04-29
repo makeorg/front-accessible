@@ -1,7 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { modalShowLogin, modalClose } from 'Shared/store/actions/modal';
@@ -10,6 +11,7 @@ import * as UserService from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { Tracking } from 'Shared/services/Tracking';
 import { getUser } from 'Shared/store/actions/authentification';
+import { validateRegisterForm } from 'Shared/helpers/validation';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
@@ -27,9 +29,9 @@ type Props = {
 
 type State = {
   /** User form data */
-  user: UserObject,
+  user: TypeRegisterFormData,
   /** Array with form errors */
-  errors: ErrorObject[],
+  errors: TypeErrorObject[],
 };
 
 /**
@@ -81,30 +83,7 @@ class RegisterHandler extends React.Component<Props, State> {
     event.preventDefault();
     const { user } = this.state;
 
-    const errors = [];
-
-    if (!user.email) {
-      errors.push({ field: 'email', message: 'common.form.required_field' });
-    }
-    if (!user.password) {
-      errors.push({
-        field: 'password',
-        message: 'common.form.required_field',
-      });
-    }
-    if (!user.firstname) {
-      errors.push({
-        field: 'firstname',
-        message: 'common.form.required_field',
-      });
-    }
-    const userAge = Number.parseInt(user.age, 10);
-    if (userAge < 13 || userAge > 119) {
-      errors.push({
-        field: 'age',
-        message: 'common.form.age_limit_error',
-      });
-    }
+    const errors = validateRegisterForm(user);
 
     if (errors.length > 0) {
       this.setState({

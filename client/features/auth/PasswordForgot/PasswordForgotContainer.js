@@ -1,8 +1,8 @@
-/* @flow */
+// @flow
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type ErrorObject } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import * as UserService from 'Shared/services/User';
@@ -17,7 +17,7 @@ type State = {
   /** User's email */
   email: string,
   /** Array with form errors */
-  errors: ErrorObject[],
+  errors: TypeErrorObject[],
   /** Boolean toggled when Form is succesfully submitted */
   isSuccess: boolean,
 };

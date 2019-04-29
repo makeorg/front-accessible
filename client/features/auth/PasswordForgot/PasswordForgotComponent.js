@@ -1,8 +1,8 @@
-/* @flow */
+// @flow
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type ErrorObject } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
@@ -14,7 +14,7 @@ type Props = {
   /** User's email */
   email: string,
   /** Array with form errors */
-  errors: ErrorObject[],
+  errors: TypeErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

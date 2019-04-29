@@ -14,3 +14,14 @@ export type ApiSearchProposalsResponseType = {
   seed: number,
   results: TypeProposal[],
 };
+
+export type ErrorObject = {
+  field: string,
+  message: string,
+};
+
+export type ErrorMapping = {
+  field: string,
+  apiMessage: string | RegExp,
+  message: string,
+};

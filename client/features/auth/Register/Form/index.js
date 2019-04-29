@@ -2,7 +2,8 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { CGU_LINK } from 'Shared/constants/url';
-import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import {
   ErrorMessageStyle,
   FormErrorsListStyle,
@@ -30,13 +31,13 @@ import {
 
 type Props = {
   /** User form data */
-  user: UserObject,
+  user: TypeRegisterFormData,
   /** Current country */
   country: string,
   /** Current language */
   language: string,
   /** Array with form errors */
-  errors: ErrorObject[],
+  errors: TypeErrorObject[],
   /** Method called when field's value changes */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Method called when field's value is submitted */

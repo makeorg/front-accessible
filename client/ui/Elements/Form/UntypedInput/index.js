@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -21,7 +22,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Array containing form errors */
-  errors?: ErrorObject[],
+  errors?: TypeErrorObject[],
   /** Is input required or optional */
   required?: boolean,
 };

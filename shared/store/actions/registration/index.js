@@ -1,7 +1,7 @@
 // @flow
 import { UserApiService } from 'Shared/api/UserApiService';
-import { type ErrorObject } from 'Shared/types/form';
 import * as actionTypes from 'Shared/store/actionTypes';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import {
   loginSuccess,
   setUserInfo,
@@ -14,7 +14,7 @@ export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = () => ({
   type: actionTypes.REGISTER_SUCCESS,
 });
-export const registerFailure = (errors: ErrorObject[]) => ({
+export const registerFailure = (errors: TypeErrorObject[]) => ({
   type: actionTypes.REGISTER_FAILURE,
   errors,
 });
