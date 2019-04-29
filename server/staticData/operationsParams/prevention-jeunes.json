@@ -1,0 +1,57 @@
+{
+  "wording": {
+    "title": "Prévention Jeunes",
+    "question": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
+    "metas": {
+      "title": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
+      "description": " Vous avez une idée sur le sujet ? Participez à la consultation initiée par Fondation Ramsay Générale de Santé avec Make.org",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5cc2da023a80e845b263d0d6_meta%20prevention%20sante.jpg"
+    }
+  },
+  "theme": {
+    "color": "#FF5757",
+    "gradientStart": "#FF5757",
+    "gradientEnd": "#FFB662",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "Difficultés financières, consommation d’alcool, de drogues, stress, troubles du sommeil, sexualité à risques, digital intox... Les jeunes sont confrontés à des défis majeurs en termes de santé. Pourtant, ils se déclarent très majoritairement en bonne santé et la prévention ne semble pas être un sujet pour eux. Et si la prévention restait quand même la meilleure réponse pour rester en bonne santé tout au long de sa vie ? ",
+    "logo": "/images/operations/prevention-jeunes/consultation/logo.png"
+  },
+  "partners": [
+    {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://ramsaygds.fr/"}
+  ],
+  "isGreatCause": false,
+  "consultationUrl": "https://app.make.org/FR-fr/consultation/prevention-jeunes/consultation",
+  "aboutUrl": "https://about.make.org/prevention-jeunes",
+  "sequenceConfig": {
+    "introCard": {
+      "enabled": true,
+      "title": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
+      "description": [
+        "Prenez position sur ces solutions et proposez les vôtres !",
+        "C'est pour améliorer la prévention auprès des jeunes que la Fondation Ramsay Générale de Santé a décidé de lancer la première consultation citoyenne dédiée à ce sujet, afin de faire émerger toutes les idées en ce sens."
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Recevez les résultats finaux de cette consultation et soyez informé(e) des actions à venir pour inciter les jeunes à mieux prendre soin de leur santé.",
+      "nextCtaText": "NON MERCI, JE NE SOUHAITE PAS ÊTRE INFORMÉ(E) DES RÉSULTATS"
+    },
+    "finalCard": {
+      "enabled": true,
+      "linkUrl": "https://app.make.org/FR-fr/consultation/prevention-jeunes/consultation",
+      "withSharing": true,
+      "title": "Merci pour votre participation !",
+      "share": [
+        "Vous souhaitez aller plus loin pour inciter les jeunes à mieux prendre soin de leur santé ?",
+        "Invitez vos proches et/ou votre communauté à participer"
+      ],
+      "learnMoreTitle": "Découvrez tout de la consultation sur la prévention santé des jeunes.",
+      "learnMoreTextButton": "En savoir +"
+    }
+  }
+}
