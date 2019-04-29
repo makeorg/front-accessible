@@ -23,7 +23,7 @@
   ],
   "isGreatCause": false,
   "consultationUrl": "https://app.make.org/FR-fr/consultation/prevention-jeunes/consultation",
-  "aboutUrl": "https://about.make.org/prevention-jeunes",
+  "aboutUrl": "https://about.make.org/about-prevention-jeunes",
   "sequenceConfig": {
     "introCard": {
       "enabled": true,
