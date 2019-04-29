@@ -146,7 +146,7 @@ describe('Proposal Helper', () => {
         'foo,bar',
         999,
         PROPOSALS_LISTING_LIMIT,
-        40
+        60
       );
     });
     it('return results from api response', async () => {

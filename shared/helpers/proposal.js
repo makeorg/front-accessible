@@ -55,10 +55,10 @@ export const searchProposals = async (
   questionId: string,
   TagIdsArray: string[] = [],
   seed: ?number = undefined,
-  page: number = 1
+  page: number = 0
 ): ApiSearchProposalsResponseType | Object => {
   const limit = PROPOSALS_LISTING_LIMIT;
-  const skip = (page - 1) * limit;
+  const skip = page * limit;
   const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
   try {
     const response = await ProposalApiService.searchProposals(
