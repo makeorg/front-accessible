@@ -1,6 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
+import { intToPx } from 'Shared/helpers/styled';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
@@ -13,9 +14,12 @@ import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import {
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
+  ConsultationIconStyle,
 } from 'Client/pages/Consultation/Styled';
-import { intToPx } from 'Shared/helpers/styled';
+
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 
 type Props = {
@@ -116,6 +120,12 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             question={question}
             questionConfiguration={questionConfiguration}
           />
+          <ThirdLevelTitleStyle>
+            <ConsultationIconStyle aria-hidden>
+              <SvgThumbsUp />
+            </ConsultationIconStyle>
+            {i18n.t('common.vote_on_proposals')}
+          </ThirdLevelTitleStyle>
           <TagFilter
             question={question}
             handleSelectTag={handleSelectTag}

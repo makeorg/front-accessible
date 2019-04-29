@@ -2,13 +2,10 @@ import React from 'react';
 import { TagType } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import {
   TagFilterWrapperStyle,
   TagSeparatorStyle,
   TagFilterIntroStyle,
-  TagFilterIconStyle,
 } from '../Styled/TagFilter';
 
 type Props = {
@@ -39,12 +36,6 @@ export const TagFilterComponent = (props: Props) => {
 
   return (
     <TagFilterWrapperStyle>
-      <ThirdLevelTitleStyle>
-        <TagFilterIconStyle aria-hidden>
-          <SvgThumbsUp />
-        </TagFilterIconStyle>
-        {i18n.t('common.vote_on_proposals')}
-      </ThirdLevelTitleStyle>
       <TagFilterIntroStyle>
         {i18n.t('consultation.tags.intro')}
       </TagFilterIntroStyle>

@@ -51,3 +51,13 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
         : `top: ${DesktopOffset} ; align-self: flex-start`};
   }
 `;
+
+export const ConsultationIconStyle = styled.div`
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 7.5px;
+  svg {
+    width: 18px;
+  }
+`;

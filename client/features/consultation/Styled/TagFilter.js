@@ -13,16 +13,6 @@ export const TagFilterWrapperStyle = styled.aside`
   }
 `;
 
-export const TagFilterIconStyle = styled.div`
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin-right: 7.5px;
-  svg {
-    width: 18px;
-  }
-`;
-
 export const TagFilterIntroStyle = styled.span`
   margin-right: 15px;
   color: ${TextColors.MediumGrey};
