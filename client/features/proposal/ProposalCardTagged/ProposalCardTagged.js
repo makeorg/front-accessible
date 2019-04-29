@@ -57,6 +57,7 @@ export const ProposalCardTagged = (props: Props) => {
         proposalId={proposal.id}
         votes={proposal.votes}
         proposalKey={proposal.proposalKey}
+        index={position}
       />
       {displayTags && (
         <React.Fragment>

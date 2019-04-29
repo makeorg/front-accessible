@@ -49,7 +49,7 @@ describe('VoteContainer', () => {
 
     expect(NextButtonWrapper.props()).toEqual({
       onClick: defaultProps.goToNextCard,
-      id: 'next-button-1',
+      id: 'next-button-fooId',
       children: ['proposal_card.next', ' >'],
     });
   });
