@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { PasswordInputComponent } from './PasswordInputComponent';
 
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Array containing form errors */
-  errors?: ErrorObject[],
+  errors?: TypeErrorObject[],
   /** Is input required or optional */
   required?: boolean,
 };

@@ -23,7 +23,8 @@
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
       "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
-      "required_field": "Veuillez renseigner ce champ."
+      "required_field": "Veuillez renseigner ce champ.",
+      "age_limit_error": "Oups, vous devez avoir au moins 13 ans pour vous inscrire."
     },
     "from": "sur",
     "email": "Email",
@@ -182,7 +183,8 @@
     "success": "Merci, un email vient de vous être envoyé pour vous permettre de mettre à jour votre mot de passe.",
     "return": "Revenir à ",
     "login_link": "l’écran de connexion",
-    "send_link": "recevoir l'e-mail"
+    "send_link": "recevoir l'e-mail",
+    "email_doesnot_exist": "Nous ne trouvons pas de compte associé à cet email."
   },
   "footer_sequence": {
     "with": "avec",

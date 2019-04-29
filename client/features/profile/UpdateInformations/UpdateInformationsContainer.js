@@ -33,7 +33,7 @@ const validateForm = ({ firstName, age }) => {
         ? i18n.t('common.form.required_field')
         : false,
     age:
-      age && (age < 13 || age > 120)
+      age && (age < 13 || age > 119)
         ? i18n.t('common.form.invalid_age')
         : false,
   };
@@ -72,12 +72,9 @@ class UpdateInformationsHandler extends Component<Props, State> {
         [name]: value,
       };
 
-      const errors = validateForm(values);
-      const canSubmit = checkFormIsValid(errors);
-
       return {
         values,
-        canSubmit,
+        canSubmit: true,
       };
     });
   };

@@ -54,20 +54,16 @@ export const UpdatePasswordComponent = ({
               handleChange={handleChange}
             />
             {errors.actualPassword && (
-              <React.Fragment>
+              <ErrorMessageStyle id="update-password-actualPassword-error">
                 {i18n.t('profile.password_update.wrong_password')}
                 <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
                   {i18n.t('profile.password_update.reset_password_cta')}
                 </RedLinkButtonStyle>
-              </React.Fragment>
+              </ErrorMessageStyle>
             )}
           </React.Fragment>
         )}
-        {errors.newPassword && (
-          <ErrorMessageStyle id="update-password-newPassword-error">
-            {errors.newPassword}
-          </ErrorMessageStyle>
-        )}
+
         <PasswordInput
           label={i18n.t('profile.password_update.newpassword_placeholder')}
           name="newPassword"
@@ -77,6 +73,11 @@ export const UpdatePasswordComponent = ({
           errors={errors.newPassword}
           handleChange={handleChange}
         />
+        {errors.newPassword && (
+          <ErrorMessageStyle id="update-password-newPassword-error">
+            {errors.newPassword}
+          </ErrorMessageStyle>
+        )}
         {submitDone && (
           <SuccessMessageStyle>
             {i18n.t('profile.common.submit_success')}

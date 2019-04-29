@@ -5,7 +5,13 @@ import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import * as ProposalService from 'Shared/services/Proposal';
-import { type UserObject, type ErrorObject } from 'Shared/types/form';
+import { mapErrors } from 'Shared/services/ApiErrors';
+import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import {
+  type ErrorObject as TypeErrorObject,
+  type ErrorMapping as TypeErrorMapping,
+} from 'Shared/types/api';
+
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
 export const update = async (userInformation: UserInformationForm) => {
@@ -55,11 +61,18 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
-      const notExistError: ErrorObject = {
+      const errorMessageMapping: TypeErrorMapping[] = [
+        {
+          field: 'email',
+          apiMessage: 'email is not a valid email',
+          message: 'common.form.email is not a valid email',
+        },
+      ];
+      const notExistError: TypeErrorObject = {
         field: 'email',
-        message: 'login.email_doesnot_exist',
+        message: 'forgot_password.email_doesnot_exist',
       };
-      const unexpectedError: ErrorObject = {
+      const unexpectedError: TypeErrorObject = {
         field: 'global',
         message: 'common.form.api_error',
       };
@@ -68,35 +81,48 @@ export const forgotPassword = (email: string) => {
         case errors === 404:
           throw Array(notExistError);
         case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
           throw Array(unexpectedError);
         default:
-          throw errors;
+          throw mapErrors(errorMessageMapping, errors);
       }
     });
 };
 
-const getMessageFromApiErrorMessage = (message: string): string => {
-  if (/Email\s(.+)\salready exist/.test(message)) {
-    return 'email_already_exist';
-  }
-
-  return message;
-};
-
-export const register = (user: UserObject) => {
+export const register = (user: TypeRegisterFormData) => {
   return UserApiService.register(user)
     .then(() => {})
     .catch(errors => {
-      const errorList = Array.isArray(errors)
-        ? errors.map(error => ({
-            ...error,
-            message: `common.form.${getMessageFromApiErrorMessage(
-              error.message
-            )}`,
-          }))
-        : [{ field: 'global', message: 'common.form.api_error' }];
+      const errorsMapping: TypeErrorMapping[] = [
+        {
+          field: 'email',
+          apiMessage: /Email\s(.+)\salready exist/,
+          message: 'common.form.email_already_exist',
+        },
+        {
+          field: 'password',
+          apiMessage: 'Password must be at least 8 characters',
+          message: 'common.form.Password must be at least 8 characters',
+        },
+        {
+          field: 'any',
+          apiMessage: 'required_field',
+          message: 'common.form.required_field',
+        },
+      ];
 
-      throw errorList;
+      const unexpectedError: TypeErrorObject = {
+        field: 'global',
+        message: 'common.form.api_error',
+      };
+
+      switch (true) {
+        case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
+          throw Array(unexpectedError);
+        default:
+          throw mapErrors(errorsMapping, errors);
+      }
     });
 };
 

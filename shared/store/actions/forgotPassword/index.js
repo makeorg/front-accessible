@@ -2,7 +2,7 @@
 import { i18n } from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserApiService } from 'Shared/api/UserApiService';
-import { type ErrorObject } from 'Shared/types/form';
+import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 
 export const forgotPasswordRequest = (email: string) => ({
   type: actionTypes.FORGOT_PASSWORD_REQUEST,
@@ -11,7 +11,7 @@ export const forgotPasswordRequest = (email: string) => ({
 export const forgotPasswordSuccess = () => ({
   type: actionTypes.FORGOT_PASSWORD_SUCCESS,
 });
-export const forgotPasswordFailure = (errors: ErrorObject[]) => ({
+export const forgotPasswordFailure = (errors: TypeErrorObject[]) => ({
   type: actionTypes.FORGOT_PASSWORD_FAILURE,
   errors,
 });
@@ -26,7 +26,7 @@ export const forgotPassword = (email: string) => (dispatch: Function) => {
       dispatch(forgotPasswordSuccess());
     })
     .catch(errors => {
-      const error: ErrorObject = {
+      const error: TypeErrorObject = {
         field: 'email',
         message: i18n.t('login.email_doesnot_exist'),
       };
