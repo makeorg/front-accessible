@@ -11,8 +11,9 @@ import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 type Props = {
   question: Question,
   proposals: TypeProposal[],
+  page: number,
+  hasMore: boolean,
   isLoading: boolean,
-  initialLoading: boolean,
   clickLoadMore: () => void,
 };
 
@@ -20,12 +21,13 @@ export const InfiniteProposalsComponent = (props: Props) => {
   const {
     question,
     proposals,
+    page,
+    hasMore,
     isLoading,
-    initialLoading,
     clickLoadMore,
   } = props;
   const proposalsLength = proposals.length;
-  const displayLoadMoreButton = initialLoading && !isLoading;
+  const displayLoadMoreButton = hasMore && !isLoading && page <= 1;
 
   return (
     <div role="feed" aria-busy={isLoading}>

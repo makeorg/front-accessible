@@ -14,20 +14,20 @@ type Props = {
 type State = {
   proposals: TypeProposal[],
   total: number,
+  hasMore: boolean,
   seed?: number,
   page: number,
   isLoading: boolean,
-  initialLoading: boolean,
 };
 
 export class InfiniteProposalsContainer extends React.Component<Props, State> {
   state = {
     proposals: [],
     total: 0,
+    hasMore: false,
     seed: undefined,
-    page: 1,
+    page: 0,
     isLoading: false,
-    initialLoading: false,
   };
 
   async componentDidMount() {
@@ -48,14 +48,14 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
   }
 
   onScroll = () => {
-    const { isLoading, total, proposals, initialLoading } = this.state;
+    const { isLoading, total, proposals, page } = this.state;
     const scrollThresold =
       document.body &&
       window.innerHeight + window.scrollY >= document.body.scrollHeight;
 
     if (isLoading || total <= proposals.length) return;
 
-    if (scrollThresold && !initialLoading) {
+    if (scrollThresold && page > 1) {
       this.loadMoreProposals();
     }
   };
@@ -69,11 +69,11 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
     );
     this.setState({
       proposals: results,
+      hasMore: results.length < total,
       seed,
-      page: 2,
+      page: 1,
       total,
       isLoading: false,
-      initialLoading: true,
     });
   };
 
@@ -81,20 +81,23 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
     const { question, tags } = this.props;
     const { page, seed } = this.state;
     this.setState({ isLoading: true });
-    const response = await searchProposals(
+    const { results, total } = await searchProposals(
       question.questionId,
       tags,
       seed,
       page
     );
 
-    this.setState(prevState => ({
-      ...prevState,
-      proposals: [...prevState.proposals, ...response.results],
-      page: prevState.page + 1,
-      isLoading: false,
-      initialLoading: false,
-    }));
+    this.setState(prevState => {
+      const proposals = [...prevState.proposals, ...results];
+      return {
+        ...prevState,
+        proposals,
+        hasMore: proposals.length < total,
+        page: prevState.page + 1,
+        isLoading: false,
+      };
+    });
   };
 
   clickLoadMore = () => {
@@ -104,13 +107,14 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
 
   render() {
     const { question } = this.props;
-    const { proposals, isLoading, initialLoading } = this.state;
+    const { proposals, page, isLoading, hasMore } = this.state;
     return (
       <InfiniteProposalsComponent
         question={question}
         proposals={proposals}
+        page={page}
+        hasMore={hasMore}
         isLoading={isLoading}
-        initialLoading={initialLoading}
         clickLoadMore={this.clickLoadMore}
       />
     );

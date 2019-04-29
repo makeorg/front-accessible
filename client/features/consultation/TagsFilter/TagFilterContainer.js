@@ -56,7 +56,7 @@ class TagFilterClass extends React.Component<Props, State> {
     const { tags, showAll } = this.state;
     const { selectedTagIds, handleSelectTag } = this.props;
 
-    if (!tags) {
+    if (!tags.length) {
       return null;
     }
 
