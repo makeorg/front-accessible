@@ -16,7 +16,7 @@
   },
   "consultation": {
     "presentation": "Difficultés financières, consommation d’alcool, de drogues, stress, troubles du sommeil, sexualité à risques, digital intox... Les jeunes sont confrontés à des défis majeurs en termes de santé. Pourtant, ils se déclarent très majoritairement en bonne santé et la prévention ne semble pas être un sujet pour eux. Et si la prévention restait quand même la meilleure réponse pour rester en bonne santé tout au long de sa vie ? ",
-    "logo": "/images/operations/prevention-jeunes/consultation/logo.png"
+    "logo": "/images/operations/prevention-jeunes/consultation/logo.svg"
   },
   "partners": [
     {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://ramsaygds.fr/"}
