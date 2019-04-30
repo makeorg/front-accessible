@@ -34,7 +34,7 @@ const validateForm = ({ firstName, age }) => {
         : false,
     age:
       age && (age < 13 || age > 119)
-        ? i18n.t('common.form.invalid_age')
+        ? i18n.t('common.form.age_limit_error')
         : false,
   };
 };

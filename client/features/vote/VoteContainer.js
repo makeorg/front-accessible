@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { connect } from 'react-redux';
+import { Tracking } from 'Shared/services/Tracking';
 import { type QualificationType, type VoteType } from 'Shared/types/proposal';
 import {
   doVote,
@@ -84,14 +84,15 @@ export class VoteContainer extends React.Component<Props, State> {
   }
 
   handleUnvote = (voteKey: string) => {
-    const { proposalId, proposalKey, index, onVote } = this.props;
+    const { proposalId, proposalKey, index, onUnvote } = this.props;
 
     VoteService.unvote(proposalId, voteKey, proposalKey)
       .then(vote => {
         this.delayStateUpdateOnEndVote(() =>
           this.setState(prevState => doUnvote(prevState, vote))
         );
-        onVote(proposalId, voteKey, index);
+        onUnvote(proposalId, voteKey, index);
+        Tracking.trackUnvote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -99,14 +100,15 @@ export class VoteContainer extends React.Component<Props, State> {
   };
 
   handleVote = (voteKey: string) => {
-    const { proposalId, proposalKey, index, onUnvote } = this.props;
+    const { proposalId, proposalKey, index, onVote } = this.props;
     VoteService.vote(proposalId, voteKey, proposalKey)
       .then(vote => {
         this.delayStateUpdateOnEndVote(() =>
           this.setState(prevState => doVote(prevState, vote))
         );
 
-        onUnvote(proposalId, voteKey, index);
+        onVote(proposalId, voteKey, index);
+        Tracking.trackVote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);

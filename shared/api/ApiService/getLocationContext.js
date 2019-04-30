@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import {
   ROUTE_CONSULTATION,
   ROUTE_SEQUENCE,
@@ -28,8 +28,9 @@ export const getLocationContext = (
 };
 
 export const getTrackingLocation = (pathname: string): string => {
-  // TODO: missing pages
+  // @TODO: missing pages
   // "homepage"
+  // "organisation_page"
   // "search_results"
   switch (true) {
     case matchRoute(pathname, ROUTE_CONSULTATION):

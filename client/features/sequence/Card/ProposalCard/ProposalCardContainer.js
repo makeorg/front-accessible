@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -37,11 +37,7 @@ type Props = {
     index: number
   ) => void,
   /** Method called when UnVote */
-  handleUnvoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index: number
-  ) => void,
+  handleUnvoteOnSequence: (proposalId: string) => void,
 };
 
 /**
@@ -93,12 +89,8 @@ const mapDispatchToProps = dispatch => ({
   ) => {
     dispatch(sequenceVote(proposalId, voteKey, index));
   },
-  handleUnvoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index: number
-  ) => {
-    dispatch(sequenceUnvote(proposalId, voteKey, index));
+  handleUnvoteOnSequence: (proposalId: string) => {
+    dispatch(sequenceUnvote(proposalId));
   },
 });
 

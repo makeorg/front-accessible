@@ -5,29 +5,19 @@ import {
   selectSequenceQuestion,
   selectSequenceQuestionConfiguration,
 } from 'Shared/store/selectors/sequence.selector';
-import { Tracking } from 'Shared/services/Tracking';
 import { PresentationComponent } from './PresentationComponent';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
 };
 
-class PresentationClass extends React.Component<Props> {
-  trackLearnMore = () => {
-    Tracking.trackClickLearnMore();
-  };
+const PresentationClass = (props: Props) => {
+  const { questionConfiguration } = props;
 
-  render() {
-    const { questionConfiguration } = this.props;
-
-    return (
-      <PresentationComponent
-        questionConfiguration={questionConfiguration}
-        trackLearnMore={this.trackLearnMore}
-      />
-    );
-  }
-}
+  return (
+    <PresentationComponent questionConfiguration={questionConfiguration} />
+  );
+};
 
 const mapStateToProps = state => {
   return {

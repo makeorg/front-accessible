@@ -1,17 +1,18 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { Tracking } from 'Shared/services/Tracking';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { Founders } from '../Founders';
 
 type Props = {
-  questionConfiguration: QuestionConfiguration,
-  trackLearnMore: () => void,
+  questionConfiguration: TypeQuestionConfiguration,
 };
 
 export const PresentationComponent = (props: Props) => {
-  const { questionConfiguration, trackLearnMore } = props;
+  const { questionConfiguration } = props;
   return (
     <React.Fragment>
       <ParagraphStyle
@@ -24,7 +25,7 @@ export const PresentationComponent = (props: Props) => {
       <ParagraphRedLinkStyle
         href={questionConfiguration.aboutUrl}
         target="_blank"
-        onClick={trackLearnMore}
+        onClick={() => Tracking.trackClickLearnMore()}
       >
         {i18n.t('consultation.presentation.link_text')}
       </ParagraphRedLinkStyle>

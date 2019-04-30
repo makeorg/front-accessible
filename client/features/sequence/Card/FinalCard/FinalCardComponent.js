@@ -34,12 +34,10 @@ type Props = {
   scale: number,
   /** Zindex property used by Styled Component */
   zindex: number,
-  /** Method called when previous card button is clicked  */
-  goToPreviousCard: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  /** Method called when button is clicked */
-  handleEndSequence: (event: SyntheticEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
+  /** Method called when previous card button is clicked  */
+  goToPreviousCard: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
@@ -56,7 +54,6 @@ export const FinalCardComponent = (props: Props) => {
     scale,
     zindex,
     goToPreviousCard,
-    handleEndSequence,
   } = props;
 
   return (
@@ -88,7 +85,6 @@ export const FinalCardComponent = (props: Props) => {
             <More
               title={configuration.learnMoreTitle}
               url={configuration.linkUrl}
-              handleEndSequence={handleEndSequence}
             />
           </FinalCardContentWrapperStyle>
         </InnerContentStyle>

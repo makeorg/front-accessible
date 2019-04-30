@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
@@ -44,11 +46,7 @@ type Props = {
     index: number
   ) => void,
   /** Method called when UnVote */
-  handleUnvoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index: number
-  ) => void,
+  handleUnvoteOnSequence: (proposalId: string) => void,
   /** Boolean toggled when card user has skip the card */
   isCardCollapsed: boolean,
   /** Boolean toggled when card is visible / hidden */
