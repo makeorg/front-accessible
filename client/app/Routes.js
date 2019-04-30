@@ -13,6 +13,9 @@ import {
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FAVOURITES,
   ROUTE_PROFILE_FOLLOWING,
+  ROUTE_ORGANISATION_PROFILE,
+  ROUTE_ORGANISATION_PROPOSALS,
+  ROUTE_ORGANISATION_VOTES,
 } from 'Shared/routes';
 
 const ConsultationPage = loadable(() => import('Client/pages/Consultation'));
@@ -33,6 +36,8 @@ const ProfileEditPage = loadable(() =>
 
 const ProfilePage = loadable(() => import('Client/pages/Profile'));
 
+const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
+
 export const Routes = () => (
   <Switch>
     <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
@@ -45,6 +50,12 @@ export const Routes = () => (
     <Route path={ROUTE_PROFILE_PROPOSALS} component={ProfilePage} />
     <Route path={ROUTE_PROFILE_FAVOURITES} component={ProfilePage} />
     <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
+    <Route path={ROUTE_ORGANISATION_PROPOSALS} component={OrganisationPage} />
+    <Route path={ROUTE_ORGANISATION_VOTES} component={OrganisationPage} />
+    <Redirect
+      path={ROUTE_ORGANISATION_PROFILE}
+      to={ROUTE_ORGANISATION_PROPOSALS}
+    />
     <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
     <Route component={NotFoundPage} />
   </Switch>

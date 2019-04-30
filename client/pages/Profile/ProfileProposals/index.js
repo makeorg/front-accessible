@@ -16,7 +16,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
-} from '../Styled';
+} from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
   user: TypeUser,
