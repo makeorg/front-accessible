@@ -61,8 +61,6 @@ export type StateUserPasswordRecovery = $ReadOnly<{
 // User State
 export type StateUser = $ReadOnly<{
   authentification: StateAuthentification,
-  registration: StateRegistration,
-  forgotPassword: StateForgotPassword,
   passwordRecovery: StateUserPasswordRecovery,
 }>;
 

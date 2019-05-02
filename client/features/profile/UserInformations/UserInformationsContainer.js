@@ -37,10 +37,6 @@ class UserInformationsHandler extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    this.setAvatarSize();
-  }
-
-  setAvatarSize = () => {
     const isMobile = window.matchMedia(
       `(max-width: ${intToPx(Breakpoints.Tablet)}`
     ).matches;
@@ -48,7 +44,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
     if (!isMobile) {
       this.setState({ avatarSize: 160 });
     }
-  };
+  }
 
   render() {
     const { avatarSize } = this.state;
