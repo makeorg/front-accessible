@@ -1,4 +1,6 @@
 ##### Spinner Example :
 ```js
-  <Spinner />
+import { Spinner } from './index';
+
+<Spinner />
 ```

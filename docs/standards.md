@@ -31,7 +31,7 @@
   - I really need to use Lifecycle or an handle event methods with params inside my component
 - Declare State with [class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/) rather than in the constructor:
 
-```ts
+```js static
 class MyComp extends React.Component{
     state = {
         value: undefined
@@ -43,7 +43,7 @@ class MyComp extends React.Component{
 
 - Do not use .bind in constructor. Use [class fields syntax] instead(https://reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers)
 
-```ts
+```js static
 class LoggingButton extends React.Component {
   // This syntax ensures `this` is bound within handleClick.
   // This is *experimental* syntax but avalaible in Create React App.
@@ -76,7 +76,7 @@ class LoggingButton extends React.Component {
 
 **Good :**
 
-```ts
+```js static
 type Toto = {
   value?: string;
 };
@@ -88,7 +88,7 @@ const toto: Toto = {
 
 **Bad :**
 
-```ts
+```js static
 type Toto = {
   value?: ?string;
 }
@@ -100,12 +100,12 @@ const toto: Toto = {
 - [Importing Type] use alias and prefix it with Type:
 
 **Good :**
-```ts
+```js static
 import { type User as TypeUser } from '/user';
 ```
 
 **Bad :**
-```ts
+```js static
 import { type User } from '/user';
 ```
 
@@ -118,7 +118,7 @@ import { type User } from '/user';
   https://github.com/redux-utilities/flux-standard-action#design-goals
 
 **Success**
-```ts
+```js static
 {
     type: 'ADD_TODO',
     payload: {
@@ -128,7 +128,7 @@ import { type User } from '/user';
 ```
 
 **Error**
-```ts
+```js static
 {
     type: 'ADD_TODO',
     payload: new Error(),
@@ -142,7 +142,7 @@ import { type User } from '/user';
 
 - All Styled component must be Suffix by `Style`:
 
-```ts
+```js static
 const PasswordRecoveryStyle = styled.section`
 ```
 
@@ -150,13 +150,13 @@ const PasswordRecoveryStyle = styled.section`
 
 Good:
 
-```css
+```css static
 @media (min-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
 Bad:
 
-```css
+```css static
 @media (max-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
@@ -164,7 +164,6 @@ Bad:
 
 - [ ] update all redux Action with FSA standard
 - [ ] remove all .bind in constructor
-- [ ] activate [React.StrictMode](https://reactjs.org/docs/strict-mode.html) on App
 
 ## TESTS:
 
@@ -172,7 +171,7 @@ Bad:
 
 - spyOn
 
-```ts
+```js static
 const response = httpMocks.createResponse();
 jest.spyOn(response, 'redirect');
 expect(response.redirect).toBeCalledWith('/FR-fr');
@@ -182,14 +181,14 @@ expect(response.redirect).toBeCalledWith('/FR-fr');
 
 - Initialize a local mock
 
-```ts
+```js static
 import { UserApiService } from 'Shared/api/UserApiService';
 jest.mock('Shared/api/UserApiService');
 ```
 
 - Initialize a node_modules mock
 
-```ts
+```js static
 // inside root/__mocks__/i18next.js
 module.exports = {
   init: () => jest.fn(),
@@ -200,7 +199,7 @@ module.exports = {
 
 - Resolve a promise
 
-```ts
+```js static
 UserApiService.forgotPassword.mockResolvedValue();
 
 // same as:
@@ -209,7 +208,7 @@ UserApiService.forgotPassword.mockResolvedValue();
 
 - Reject a promise
 
-```ts
+```js static
 UserApiService.forgotPassword.mockRejectedValue();
 
 // same as:
@@ -220,7 +219,7 @@ UserApiService.forgotPassword.mockRejectedValue();
 
 - A client/ui Style component should be tested using snapshot
 
-```ts
+```js static
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { ComponentStyle } from './index';
@@ -244,7 +243,7 @@ describe('ComponentStyle', () => {
 
 - A client/ui component (without style) should be tested using snapshot-diff and jest.mock
 
-```ts
+```js static
 import { Component } from './index';
 import { ComponentStyle } from './Styled';
 

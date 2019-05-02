@@ -1,6 +1,7 @@
 ##### UntypedInput Example :
-```js
-const { SvgEnvelope } = require('../../../Svg/elements');
+```jsx
+import { SvgEnvelope } from '../../../Svg/elements';
+import { UntypedInput } from './index';
 
 class UntypedInputExample extends React.Component {
   constructor() {

@@ -1,7 +1,8 @@
 ##### PasswordInput Example :
 
-```js
-const { SvgLock } = require('../../../Svg/elements');
+```jsx
+import { SvgLock } from '../../../Svg/elements';
+import { PasswordInput } from './index';
 
 class PasswordInputExample extends React.Component {
   constructor() {

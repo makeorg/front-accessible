@@ -1,6 +1,7 @@
 ##### SubmitButton Example :
 ```js
-const { SvgThumbsUp } = require('../../../Svg/elements');
+import { SvgThumbsUp } from '../../../Svg/elements';
+import { SubmitButton } from './index';
 
 <SubmitButton
   formName="formName"

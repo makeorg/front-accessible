@@ -1,5 +1,7 @@
 ##### Tile With Title Example :
 ```js
+import { TileWithTitle } from './index';
+
 class TileWithTitleExample extends React.Component {
   render() {
     return (

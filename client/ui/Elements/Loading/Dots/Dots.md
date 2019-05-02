@@ -1,4 +1,6 @@
 ##### Loading Dots Example :
-```js
-  <LoadingDots />
+```jsx
+import { LoadingDots } from './index';
+
+<LoadingDots />
 ```

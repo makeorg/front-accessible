@@ -9,23 +9,23 @@ module.exports = merge(baseConfig, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     createHtmlWebpackPlugin({ ssr: false }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
-      }
-    })
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
   ],
   devServer: {
     port: 3000,
     contentBase: './dist',
     hot: true,
     host: process.env.HOST || '0.0.0.0',
-    historyApiFallback: true
+    historyApiFallback: true,
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
 });

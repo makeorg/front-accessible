@@ -1,6 +1,7 @@
 ##### TextArea Example :
-```js
-const { SvgPencil } = require('../../../Svg/elements');
+```jsx
+import { SvgPencil } from '../../../Svg/elements';
+import { TextArea } from './index';
 
 class TextAreaExample extends React.Component {
   constructor() {
