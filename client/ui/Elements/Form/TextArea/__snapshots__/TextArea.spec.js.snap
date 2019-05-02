@@ -6,7 +6,7 @@ Snapshot Diff:
 + Second value
 
 @@ -11,11 +11,11 @@
-      className="sc-8buptu-4 lesyOQ"
+      className="sc-1ln9y8s-4 gXgjdc"
     >
       <BasicTextAreaStyle
         aria-required={false}
@@ -36,7 +36,7 @@ Snapshot Diff:
         value="baz"
       />
       <label
-        className="sc-8buptu-9 bedup"
+        className="sc-1ln9y8s-9 ewUCsT"
         htmlFor="bar"
 `;
 
@@ -60,7 +60,7 @@ Snapshot Diff:
         rows={5}
         spellCheck={true}
 @@ -27,7 +29,10 @@
-        className="sc-8buptu-9 bedup"
+        className="sc-1ln9y8s-9 ewUCsT"
         htmlFor="bar"
       >
         qux
@@ -80,7 +80,7 @@ Snapshot Diff:
 @@ -9,18 +9,18 @@
     </span>
     <div
-      className="sc-8buptu-4 lesyOQ"
+      className="sc-1ln9y8s-4 gXgjdc"
     >
       <BasicTextAreaStyle
 -       aria-required={true}

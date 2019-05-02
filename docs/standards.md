@@ -31,7 +31,7 @@
   - I really need to use Lifecycle or an handle event methods with params inside my component
 - Declare State with [class fields syntax](https://babeljs.io/docs/plugins/transform-class-properties/) rather than in the constructor:
 
-```javascript
+```ts
 class MyComp extends React.Component{
     state = {
         value: undefined
@@ -43,7 +43,7 @@ class MyComp extends React.Component{
 
 - Do not use .bind in constructor. Use [class fields syntax] instead(https://reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers)
 
-```javascript
+```ts
 class LoggingButton extends React.Component {
   // This syntax ensures `this` is bound within handleClick.
   // This is *experimental* syntax but avalaible in Create React App.
@@ -117,24 +117,24 @@ import { type User } from '/user';
 - Use FSA (Flux Standard Action)
   https://github.com/redux-utilities/flux-standard-action#design-goals
 
-      **Success**
-      ```js
-      {
-          type: 'ADD_TODO',
-          payload: {
-              anything: 'Do something.'
-          }
-      }
-      ```
+**Success**
+```ts
+{
+    type: 'ADD_TODO',
+    payload: {
+        anything: 'Do something.'
+    }
+}
+```
 
-      **Error**
-      ```js
-      {
-          type: 'ADD_TODO',
-          payload: new Error(),
-          error: true
-      }
-      ```
+**Error**
+```ts
+{
+    type: 'ADD_TODO',
+    payload: new Error(),
+    error: true
+}
+```
 
 ## CSS:
 
@@ -142,7 +142,7 @@ import { type User } from '/user';
 
 - All Styled component must be Suffix by `Style`:
 
-```
+```ts
 const PasswordRecoveryStyle = styled.section`
 ```
 
@@ -150,13 +150,13 @@ const PasswordRecoveryStyle = styled.section`
 
 Good:
 
-```
+```css
 @media (min-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
 Bad:
 
-```
+```css
 @media (max-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
@@ -166,13 +166,13 @@ Bad:
 - [ ] remove all .bind in constructor
 - [ ] activate [React.StrictMode](https://reactjs.org/docs/strict-mode.html) on App
 
-## TESTS: `
+## TESTS:
 
 #### JEST snippets
 
 - spyOn
 
-```js
+```ts
 const response = httpMocks.createResponse();
 jest.spyOn(response, 'redirect');
 expect(response.redirect).toBeCalledWith('/FR-fr');
@@ -182,14 +182,14 @@ expect(response.redirect).toBeCalledWith('/FR-fr');
 
 - Initialize a local mock
 
-```js
+```ts
 import { UserApiService } from 'Shared/api/UserApiService';
 jest.mock('Shared/api/UserApiService');
 ```
 
 - Initialize a node_modules mock
 
-```js
+```ts
 // inside root/__mocks__/i18next.js
 module.exports = {
   init: () => jest.fn(),
@@ -200,7 +200,7 @@ module.exports = {
 
 - Resolve a promise
 
-```js
+```ts
 UserApiService.forgotPassword.mockResolvedValue();
 
 // same as:
@@ -209,7 +209,7 @@ UserApiService.forgotPassword.mockResolvedValue();
 
 - Reject a promise
 
-```js
+```ts
 UserApiService.forgotPassword.mockRejectedValue();
 
 // same as:
@@ -346,6 +346,6 @@ apiService.callApi(url); // console.log -> ApiServiceClient call
 1. copy your .svg file into `/client/ui/Svg/svgr`
 2. in the terminal, run `yarn svg`
 4. Export the created component in `/client/ui/Svg/elements/index.js`
-5. import it `import { SvgLock } from 'Client/ui/Svg/elements';`
-6. Use it `<SvgLock />`
+5. import it ```ts import { SvgLock } from 'Client/ui/Svg/elements';```
+6. Use it ```ts <SvgLock /> ```
 
