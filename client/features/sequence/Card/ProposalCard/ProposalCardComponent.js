@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
@@ -37,6 +39,14 @@ type Props = {
   goToPreviousCard: () => void,
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard: () => void,
+  /** Method called when Vote */
+  handleVoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index: number
+  ) => void,
+  /** Method called when UnVote */
+  handleUnvoteOnSequence: (proposalId: string) => void,
   /** Boolean toggled when card user has skip the card */
   isCardCollapsed: boolean,
   /** Boolean toggled when card is visible / hidden */
@@ -60,6 +70,8 @@ export const ProposalCardComponent = (props: Props) => {
     scale,
     isCardCollapsed,
     isCardVisible,
+    handleVoteOnSequence,
+    handleUnvoteOnSequence,
   } = props;
 
   return (
@@ -95,6 +107,8 @@ export const ProposalCardComponent = (props: Props) => {
           proposalKey={proposal.proposalKey}
           index={index}
           currentIndex={currentIndex}
+          onVote={handleVoteOnSequence}
+          onUnvote={handleUnvoteOnSequence}
           goToNextCard={goToNextCard}
         />
       </ContentSpecialWrapperStyle>

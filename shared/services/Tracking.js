@@ -65,8 +65,8 @@ class TrackingSingleton {
       }),
     }).catch(error =>
       Logger.logError({
-        ...{ source: 'Tracking api call error' },
-        ...{ error },
+        source: 'Tracking api call error',
+        ...error,
       })
     );
   };
@@ -443,12 +443,19 @@ class TrackingSingleton {
     this.trackFacebookPixel(eventName, params);
   };
 
+  /* Sharing */
+  trackClickShare = (socialNetwork: string) => {
+    const params = {
+      'social-network': socialNetwork,
+    };
+    this.track(trackingConstants.CLICK_SHARE, params);
+    this.trackFacebookPixel(trackingConstants.CLICK_SHARE, params);
+  };
+
   /* Footer */
   trackClickConsultation = () => {
-    const eventName = trackingConstants.CLICK_CONSULTATION_LINK;
-
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.track(trackingConstants.CLICK_CONSULTATION_LINK);
+    this.trackFacebookPixel(trackingConstants.CLICK_CONSULTATION_LINK);
   };
 }
 

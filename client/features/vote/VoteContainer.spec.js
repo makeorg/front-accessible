@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { VoteComponent } from './VoteComponent';
-import { VoteHandler } from './VoteContainer';
+import { VoteContainer } from './VoteContainer';
 import { VoteContainerStyle } from './Styled';
 
 describe('VoteContainer', () => {
@@ -18,7 +18,7 @@ describe('VoteContainer', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<VoteHandler {...defaultProps} />);
+    wrapper = shallow(<VoteContainer {...defaultProps} />);
   });
 
   it('render VoteComponent and passed props', () => {
@@ -54,7 +54,7 @@ describe('VoteContainer', () => {
     });
   });
 
-  it('render initialise state from props', () => {
+  it('initialise state from props', () => {
     const props = {
       ...defaultProps,
       votes: [
@@ -79,7 +79,7 @@ describe('VoteContainer', () => {
       ],
     };
 
-    const voteWrapper = shallow(<VoteHandler {...props} />);
+    const voteWrapper = shallow(<VoteContainer {...props} />);
     expect(voteWrapper.state().hasVoted).toBe(true);
     expect(voteWrapper.state().votedKey).toBe('agree');
   });

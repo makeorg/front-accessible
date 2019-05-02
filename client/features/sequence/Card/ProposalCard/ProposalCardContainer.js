@@ -1,6 +1,8 @@
-/* @flow */
+// @flow
 
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
 type Props = {
@@ -20,26 +22,32 @@ type Props = {
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
-  /** Method called when previous card button is clicked  */
-  goToPreviousCard: () => void,
-  /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: () => void,
   /** Boolean toggled when card user has skip the card */
   isCardCollapsed: boolean,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
+  /** Method called when previous card button is clicked  */
+  goToPreviousCard: () => void,
+  /** Method called when next card button is clicked (Incremented currentIndex) */
+  goToNextCard: () => void,
+  /** Method called when Vote */
+  handleVoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index: number
+  ) => void,
+  /** Method called when UnVote */
+  handleUnvoteOnSequence: (proposalId: string) => void,
 };
 
 /**
  * Handles Proposal Card Business Logic
  */
-export const ProposalCardContainer = (props: Props) => {
+const ProposalCardClass = (props: Props) => {
   const {
     proposal,
     cardsCount,
     cardOffset,
-    goToPreviousCard,
-    goToNextCard,
     index,
     position,
     scale,
@@ -47,6 +55,10 @@ export const ProposalCardContainer = (props: Props) => {
     currentIndex,
     isCardCollapsed,
     isCardVisible,
+    goToPreviousCard,
+    goToNextCard,
+    handleVoteOnSequence,
+    handleUnvoteOnSequence,
   } = props;
 
   return (
@@ -59,10 +71,30 @@ export const ProposalCardContainer = (props: Props) => {
       cardsCount={cardsCount}
       currentIndex={currentIndex}
       cardOffset={cardOffset}
-      goToPreviousCard={goToPreviousCard}
-      goToNextCard={goToNextCard}
       isCardCollapsed={isCardCollapsed}
       isCardVisible={isCardVisible}
+      goToPreviousCard={goToPreviousCard}
+      goToNextCard={goToNextCard}
+      handleVoteOnSequence={handleVoteOnSequence}
+      handleUnvoteOnSequence={handleUnvoteOnSequence}
     />
   );
 };
+
+const mapDispatchToProps = dispatch => ({
+  handleVoteOnSequence: (
+    proposalId: string,
+    voteKey: string,
+    index: number
+  ) => {
+    dispatch(sequenceVote(proposalId, voteKey, index));
+  },
+  handleUnvoteOnSequence: (proposalId: string) => {
+    dispatch(sequenceUnvote(proposalId));
+  },
+});
+
+export const ProposalCardContainer = connect(
+  null,
+  mapDispatchToProps
+)(ProposalCardClass);

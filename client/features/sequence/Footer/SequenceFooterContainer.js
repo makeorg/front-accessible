@@ -1,7 +1,6 @@
 /* @flow */
 
 import * as React from 'react';
-import { Tracking } from 'Shared/services/Tracking';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { SequenceFooterComponent } from './SequenceFooterComponent';
 
@@ -13,20 +12,13 @@ type Props = {
 /**
  * Handles Main Footer Business Logic
  */
-export class SequenceFooterContainer extends React.Component<Props> {
-  trackClickConsultation = () => {
-    Tracking.trackClickConsultation();
-  };
-
-  render() {
-    const { questionConfiguration } = this.props;
-    return (
-      <SequenceFooterComponent
-        handleTracking={this.trackClickConsultation}
-        theme={questionConfiguration.theme}
-        consultationUrl={questionConfiguration.consultationUrl}
-        questionTitle={questionConfiguration.wording.question}
-      />
-    );
-  }
-}
+export const SequenceFooterContainer = (props: Props) => {
+  const { questionConfiguration } = props;
+  return (
+    <SequenceFooterComponent
+      theme={questionConfiguration.theme}
+      consultationUrl={questionConfiguration.consultationUrl}
+      questionTitle={questionConfiguration.wording.question}
+    />
+  );
+};

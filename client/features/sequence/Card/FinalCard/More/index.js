@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
+import { Tracking } from 'Shared/services/Tracking';
 import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 
@@ -9,15 +10,13 @@ type Props = {
   title?: string,
   /** Url of show more button */
   url?: string,
-  /** Method called when button is clicked */
-  handleEndSequence: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
 /**
  * Renders finalCard More component
  */
 export const More = (props: Props) => {
-  const { title, url, handleEndSequence } = props;
+  const { title, url } = props;
 
   return (
     <MoreWrapperStyle>
@@ -28,7 +27,7 @@ export const More = (props: Props) => {
         as="a"
         href={url}
         target="_blank"
-        onClick={handleEndSequence}
+        onClick={() => Tracking.trackClickLearnMore()}
       >
         {i18n.t('final_card.more.button')}
       </FinalLinkStyle>

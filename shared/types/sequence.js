@@ -57,6 +57,7 @@ export type QuestionConfiguration = {
   consultation: ConsultationType,
   isGreatCause: boolean,
   consultationUrl: string,
+  aboutUrl: string,
   sequenceUrl: string,
   sequenceConfig: ExtraSlidesConfig,
   sequenceSignUpForm: any,

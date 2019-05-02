@@ -48,18 +48,12 @@ export const sequenceVote = (
   if (isFirstVote) {
     Tracking.trackFirstVote(proposalId, voteKey, index);
   }
-
-  Tracking.trackVote(proposalId, voteKey, index);
 };
 
-export const sequenceUnvote = (
-  proposalId: string,
-  voteKey: string,
-  index: number
-) => (dispatch: any => void) => {
+export const sequenceUnvote = (proposalId: string) => (
+  dispatch: any => void
+) => {
   dispatch(unvoteProposal(proposalId));
-
-  Tracking.trackUnvote(proposalId, voteKey, index);
 };
 
 export const fetchQuestionData = (questionSlugOrId: string) => (

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';

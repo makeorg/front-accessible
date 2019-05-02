@@ -2,6 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import { intToPx } from 'Shared/helpers/styled';
+import { type TagType } from 'Shared/types/proposal';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
@@ -25,17 +26,17 @@ import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
-  selectedTagIds: string[],
-  handleSelectTag: () => void,
 };
 
 type State = {
   isMobile: boolean,
+  selectedTagIds: string[],
 };
 
 export class ConsultationPanelContent extends React.Component<Props, State> {
   state = {
     isMobile: false,
+    selectedTagIds: [],
   };
 
   componentDidMount() {
@@ -46,6 +47,21 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
   componentWillUnmount() {
     window.removeEventListener('resize', this.setResponsiveRendering);
   }
+
+  /** Todo: export to function and Test logic */
+  handleSelectTag = async (tag: TagType) => {
+    const { selectedTagIds } = this.state;
+    const foundTagId = selectedTagIds.includes(tag.tagId);
+    const newSelectedTagIds = foundTagId
+      ? selectedTagIds.filter(selectedTagId => selectedTagId !== tag.tagId)
+      : [tag.tagId, ...selectedTagIds];
+
+    Tracking.trackTag(tag.label, foundTagId ? 'deselect' : 'select');
+
+    this.setState({
+      selectedTagIds: newSelectedTagIds,
+    });
+  };
 
   trackPresentationCollpase = (action: string) => {
     Tracking.trackOpenLearnMore(action);
@@ -59,14 +75,9 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      questionConfiguration,
-      question,
-      selectedTagIds,
-      handleSelectTag,
-    } = this.props;
+    const { questionConfiguration, question } = this.props;
 
-    const { isMobile } = this.state;
+    const { isMobile, selectedTagIds } = this.state;
 
     const renderMobileProposal = question.canPropose && isMobile;
     const renderDesktopProposal = question.canPropose && !isMobile;
@@ -128,7 +139,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
           </ThirdLevelTitleStyle>
           <TagFilter
             question={question}
-            handleSelectTag={handleSelectTag}
+            handleSelectTag={this.handleSelectTag}
             selectedTagIds={selectedTagIds}
           />
           <InfiniteProposals question={question} tags={selectedTagIds} />

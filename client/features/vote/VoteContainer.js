@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { connect } from 'react-redux';
+import { Tracking } from 'Shared/services/Tracking';
 import { type QualificationType, type VoteType } from 'Shared/types/proposal';
 import {
   doVote,
@@ -10,7 +10,6 @@ import {
   finishPendingState,
 } from 'Shared/helpers/vote';
 import { VoteService } from 'Shared/api/VoteService';
-import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { Qualification } from './Qualification';
 import { VoteComponent } from './VoteComponent';
@@ -25,23 +24,15 @@ type Props = {
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Index of the card */
-  index?: number,
+  index: number,
   /** currentIndex */
   currentIndex?: number,
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
-  /** Method called on vote */
-  handleVoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index?: number
-  ) => void,
-  /** Method called on unvote */
-  handleUnvoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index?: number
-  ) => void,
+  /** Method called when Vote */
+  onVote: (proposalId: string, voteKey: string, index: number) => void,
+  /** Method called when Unvote */
+  onUnvote: (proposalId: string, voteKey: string, index: number) => void,
 };
 
 type State = {
@@ -60,14 +51,16 @@ type State = {
 };
 
 /**
- * Handles Vote Business Logic
+ * Vote Business Logic
  */
-export class VoteHandler extends React.Component<Props, State> {
+export class VoteContainer extends React.Component<Props, State> {
   static defaultProps = {
     isSequenceCollapsed: false,
-    index: undefined,
+    index: 0,
     currentIndex: undefined,
     goToNextCard: undefined,
+    onVote: () => {},
+    onUnvote: () => {},
   };
 
   constructor(props: Props) {
@@ -91,19 +84,15 @@ export class VoteHandler extends React.Component<Props, State> {
   }
 
   handleUnvote = (voteKey: string) => {
-    const {
-      proposalId,
-      proposalKey,
-      index,
-      handleUnvoteOnSequence,
-    } = this.props;
+    const { proposalId, proposalKey, index, onUnvote } = this.props;
 
     VoteService.unvote(proposalId, voteKey, proposalKey)
       .then(vote => {
         this.delayStateUpdateOnEndVote(() =>
           this.setState(prevState => doUnvote(prevState, vote))
         );
-        handleUnvoteOnSequence(proposalId, voteKey, index);
+        onUnvote(proposalId, voteKey, index);
+        Tracking.trackUnvote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -111,14 +100,15 @@ export class VoteHandler extends React.Component<Props, State> {
   };
 
   handleVote = (voteKey: string) => {
-    const { proposalId, proposalKey, index, handleVoteOnSequence } = this.props;
+    const { proposalId, proposalKey, index, onVote } = this.props;
     VoteService.vote(proposalId, voteKey, proposalKey)
       .then(vote => {
         this.delayStateUpdateOnEndVote(() =>
           this.setState(prevState => doVote(prevState, vote))
         );
 
-        handleVoteOnSequence(proposalId, voteKey, index);
+        onVote(proposalId, voteKey, index);
+        Tracking.trackVote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -236,25 +226,3 @@ export class VoteHandler extends React.Component<Props, State> {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  handleVoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index: number
-  ) => {
-    dispatch(sequenceVote(proposalId, voteKey, index));
-  },
-  handleUnvoteOnSequence: (
-    proposalId: string,
-    voteKey: string,
-    index: number
-  ) => {
-    dispatch(sequenceUnvote(proposalId, voteKey, index));
-  },
-});
-
-export const VoteContainer = connect(
-  null,
-  mapDispatchToProps
-)(VoteHandler);

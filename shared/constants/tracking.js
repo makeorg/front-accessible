@@ -68,3 +68,6 @@ export const CLICK_MODERATION_LINK: string = 'click-moderation-link';
 
 /** Locations */
 export const LOCATION_SEQUENCE = 'sequence';
+
+/** Sharing */
+export const CLICK_SHARE: string = 'click-share';

@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { type FinalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
@@ -8,6 +9,8 @@ type Props = {
   configuration: FinalCardConfig,
   /** Index of the card */
   index: number,
+  /** Index of the card */
+  currentIndex: number,
   /** Total of cards */
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */

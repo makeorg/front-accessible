@@ -1,6 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
+import { Tracking } from 'Shared/services/Tracking';
 import { type QuestionTheme } from 'Shared/types/sequence';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
@@ -14,11 +15,10 @@ import { SvgPlayButton } from 'Client/ui/Svg/elements';
 type Props = {
   styleTheme: QuestionTheme,
   sequenceLink: string,
-  trackParticipateButton: () => void,
 };
 
 export const ParticipateBannerComponent = (props: Props) => {
-  const { styleTheme, sequenceLink, trackParticipateButton } = props;
+  const { styleTheme, sequenceLink } = props;
   return (
     <ParticipateWrapperStyle
       gradientStart={styleTheme.gradientStart}
@@ -30,7 +30,7 @@ export const ParticipateBannerComponent = (props: Props) => {
       <LinkAsRedButton
         as={Link}
         to={sequenceLink}
-        onClick={trackParticipateButton}
+        onClick={() => Tracking.trackOpenSequence()}
       >
         <IconWrapperStyle aria-hidden>
           <SvgPlayButton />

@@ -24,22 +24,18 @@ import { ConsultationPageWrapperStyle } from './Styled';
 type Props = {
   questionConfiguration: QuestionConfiguration,
   question: Question,
-  selectedTagIds: string[],
   consultationLink: string,
   actionLink: string,
   location: Location,
-  handleSelectTag: () => void,
 };
 
 export const ConsultationPageComponent = (props: Props) => {
   const {
     questionConfiguration,
     question,
-    selectedTagIds,
     consultationLink,
     actionLink,
     location,
-    handleSelectTag,
   } = props;
 
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
@@ -94,8 +90,6 @@ export const ConsultationPageComponent = (props: Props) => {
                 <ConsultationPanelContent
                   question={question}
                   questionConfiguration={questionConfiguration}
-                  selectedTagIds={selectedTagIds}
-                  handleSelectTag={handleSelectTag}
                 />
               )}
             />

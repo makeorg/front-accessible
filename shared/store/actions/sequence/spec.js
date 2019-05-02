@@ -67,9 +67,9 @@ describe('Sequence Actions', () => {
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
-    const questionId =  'baz';
+    const questionId = 'baz';
     const newStore = mockStore({
-      sequence: { votedProposalIds: [], questionId: questionId },
+      sequence: { votedProposalIds: [], questionId },
     });
 
     const expectedActions = [
@@ -81,12 +81,6 @@ describe('Sequence Actions', () => {
 
     newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
-    expect(Tracking.trackVote).toHaveBeenNthCalledWith(
-      1,
-      proposalId,
-      voteKey,
-      index
-    );
     expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(
       1,
       proposalId,
@@ -100,26 +94,18 @@ describe('Sequence Actions', () => {
     const proposalId = 'foo';
     const voteKey = 'bar';
     const index = 0;
-    const questionId =  'baz';
+    const questionId = 'baz';
     const newStore = mockStore({
-      sequence: { votedProposalIds: ['fooId'], questionId: questionId },
+      sequence: { votedProposalIds: ['fooId'], questionId },
     });
 
-    const expectedActions = [
-      {
-        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-        payload: { proposalId },
-      },
-    ];
+    const expectedActions = [{
+      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+      payload: { proposalId }
+    }];
 
     newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 
-    expect(Tracking.trackVote).toHaveBeenNthCalledWith(
-      1,
-      proposalId,
-      voteKey,
-      index
-    );
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
     expect(newStore.getActions()).toEqual(expectedActions);
   });

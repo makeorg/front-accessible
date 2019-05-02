@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   SvgFacebookLogoF,
   SvgTwitterLogo,
@@ -34,6 +35,7 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={facebookShareUrl}
             target="_blank"
+            onClick={() => Tracking.trackClickShare('facebook')}
           >
             <SvgFacebookLogoF aria-hidden />
           </FacebookButtonStyle>
@@ -45,6 +47,7 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={twitterShareUrl}
             target="_blank"
+            onClick={() => Tracking.trackClickShare('twitter')}
           >
             <SvgTwitterLogo aria-hidden />
           </TwitterButtonStyle>
@@ -56,6 +59,7 @@ export class SharingComponent extends React.Component<Props> {
             as="a"
             href={linkedinShareUrl}
             target="_blank"
+            onClick={() => Tracking.trackClickShare('linkedin')}
           >
             <SvgLinkedinLogoIn aria-hidden />
           </LinkedInButtonStyle>

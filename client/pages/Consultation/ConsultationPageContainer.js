@@ -15,35 +15,13 @@ type Props = {
   location: Location,
 };
 
-type State = {
-  selectedTagIds: string[],
-};
-
-class ConsultationPage extends React.Component<Props, State> {
-  state = {
-    selectedTagIds: [],
-  };
-
+class ConsultationPage extends React.Component<Props> {
   componentDidMount() {
     Tracking.trackDisplayConsultation();
   }
 
-  /** Todo: export to function and Test logic */
-  handleSelectTag = async tagId => {
-    const { selectedTagIds } = this.state;
-    const foundTagId = selectedTagIds.includes(tagId);
-    const newSelectedTagIds = foundTagId
-      ? selectedTagIds.filter(selectedTagId => selectedTagId !== tagId)
-      : [tagId, ...selectedTagIds];
-
-    this.setState({
-      selectedTagIds: newSelectedTagIds,
-    });
-  };
-
   render() {
     const { question, questionConfiguration, location } = this.props;
-    const { selectedTagIds } = this.state;
     const consultationLink = getConsultationLink(
       question.country,
       question.language,
@@ -59,11 +37,9 @@ class ConsultationPage extends React.Component<Props, State> {
       <ConsultationPageComponent
         question={question}
         questionConfiguration={questionConfiguration}
-        selectedTagIds={selectedTagIds}
         consultationLink={consultationLink}
         actionLink={actionLink}
         location={location}
-        handleSelectTag={this.handleSelectTag}
       />
     );
   }
