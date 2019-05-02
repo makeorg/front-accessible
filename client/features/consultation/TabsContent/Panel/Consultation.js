@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import { intToPx } from 'Shared/helpers/styled';
-import { type TagType } from 'Shared/types/proposal';
+import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { Partners } from 'Client/features/consultation/Partners';
@@ -49,7 +49,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
   }
 
   /** Todo: export to function and Test logic */
-  handleSelectTag = async (tag: TagType) => {
+  handleSelectTag = async (tag: TypeTag) => {
     const { selectedTagIds } = this.state;
     const foundTagId = selectedTagIds.includes(tag.tagId);
     const newSelectedTagIds = foundTagId

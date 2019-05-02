@@ -1,5 +1,6 @@
 // @flow
 import { type Question as TypeQuestion } from './question';
+import { type Organisation as TypeOrganisation } from './organisation';
 
 export type QualificationType = {
   count: number,
@@ -23,7 +24,7 @@ export type Context = {
   question: string,
 };
 
-export type VoteType = {
+export type Vote = {
   voteKey: string,
   count: number,
   qualifications: QualificationType[],
@@ -36,15 +37,9 @@ export type VotesPercentObject = {
   neutral: number,
 };
 
-export type TagType = {
+export type Tag = {
   tagId: string,
   label: string,
-};
-
-export type OrganisationType = {
-  organisationId: string,
-  organisationName: string,
-  organisationSlug: string,
 };
 
 export type Proposal = {
@@ -55,16 +50,16 @@ export type Proposal = {
   status: string,
   createdAt: string,
   updatedAt: string,
-  votes: VoteType[],
+  votes: Vote[],
   context: Context,
   trending: string,
   labels: any[],
   author: Author,
-  organisations: OrganisationType[],
+  organisations: TypeOrganisation[],
   country: string,
   language: string,
   themeId: string,
-  tags: TagType[],
+  tags: Tag[],
   myProposal: boolean,
   idea: string,
   questionId: string,

@@ -62,7 +62,7 @@ export const QualificationComponent = (props: Props) => {
           label={i18n.t(`qualification.${qualification.qualificationKey}`)}
           qualificationCounter={qualification.count}
           isQualified={qualification.hasQualified}
-          handleQualification={handle(qualification)}
+          handleClick={handle(qualification)}
           pendingQualification={pendingQualificationKeys.has(
             qualification.qualificationKey
           )}

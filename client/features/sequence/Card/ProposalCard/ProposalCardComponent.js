@@ -4,7 +4,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
-import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
+import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { ProposalCardStyle, SequenceProposalStyle } from '../Styled';
@@ -98,7 +98,7 @@ export const ProposalCardComponent = (props: Props) => {
         />
       </BackButtonWrapperStyle>
       <ContentSpecialWrapperStyle as="section">
-        <ProposalAuthor author={proposal.author} />
+        <ProposalAuthorElement author={proposal.author} />
         <CardSeparatorStyle aria-hidden />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote

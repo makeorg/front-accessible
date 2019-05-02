@@ -39,3 +39,4 @@ export { SvgClapping } from './Clapping';
 export { SvgSignOut } from './SignOut';
 export { SvgSaveFileOption } from './SaveFileOption';
 export { SvgLike } from './Like';
+export { SvgCheckedSymbol } from './CheckedSymbol';

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { type Question } from 'Shared/types/question';
-import { type TagType } from 'Shared/types/proposal';
+import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { TagService } from 'Shared/api/TagService';
 import { Logger } from 'Shared/services/Logger';
 import { TagFilterComponent } from './TagFilterComponent';
@@ -9,12 +9,12 @@ import { TagFilterComponent } from './TagFilterComponent';
 type Props = {
   question: Question,
   selectedTagIds: string[],
-  handleSelectTag: TagType => void,
+  handleSelectTag: TypeTag => void,
 };
 
 type State = {
   /** List of tags */
-  tags: TagType[],
+  tags: TypeTag[],
   /** Show all tags in the filter or not */
   showAll: boolean,
 };

@@ -17,7 +17,7 @@ Snapshot Diff:
 
   <ButtonStyle
     aria-label="foo"
--   as="UnvoteButtonStyle"
+-   as="IsVotedButtonStyle"
 +   as="VoteButtonStyle"
     color="red"
   >

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
-import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { CardStyle } from 'Client/ui/Cards';
 
 export const ProposalStyle = styled.a`
@@ -17,17 +16,6 @@ export const ProposalStyle = styled.a`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
-`;
-
-export const FooterStyle = styled.div`
-  display: flex;
-  flex-flow: row;
-  align-self: flex-start;
-  flex-wrap: wrap;
-`;
-
-export const ProposalSeparatorStyle = styled(SeparatorStyle)`
-  margin-top: 10px;
 `;
 
 export const ProposalCardTaggedStyle = styled(CardStyle)`

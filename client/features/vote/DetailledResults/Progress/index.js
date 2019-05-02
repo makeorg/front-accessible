@@ -1,5 +1,7 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { type Vote as TypeVote } from 'Shared/types/proposal';
 import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { voteStaticParams } from 'Shared/constants/vote';
 import {
@@ -10,9 +12,15 @@ import {
 } from '../Styled/Progress';
 
 type Props = {
-  votes: VoteType[],
+  /** Array of votes */
+  votes: TypeVote[],
+  /** Id of the proposal */
+  proposalId: string,
 };
 
+/**
+ * Vote Progress component
+ */
 export const VoteProgress = (props: Props) => {
   const { votes, proposalId } = props;
   const votesCount = getTotalVotesCount(votes);

@@ -14,7 +14,7 @@ export const InnerProposalStyle = styled(MiddleColumnStyle)`
   width: 100%;
 `;
 
-export const FooterStyle = styled.footer`
+export const ProposalFooterStyle = styled.footer`
   width: 100%;
 `;
 

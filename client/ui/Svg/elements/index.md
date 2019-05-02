@@ -1,54 +1,57 @@
 ##### Svg Icons :
-```js
-const { 
-  SvgEmptyAvatar,
-  SvgAngleArrowRight,
-  SvgAngleArrowLeft,
-  SvgAngleArrowTop,
+```jsx
+import { 
   SvgAngleArrowBottom,
-  SvgArrowRight,
-  SvgArrowLeft,
-  SvgArrowTop,
+  SvgAngleArrowLeft,
+  SvgAngleArrowRight,
+  SvgAngleArrowTop,
   SvgArrowBottom,
-  SvgPlayButton,
-  SvgThumbsUp,
-  SvgThumbsDown,
-  SvgThumbsLeft,
-  SvgThumbsRight,
-  SvgShare,
+  SvgArrowLeft,
+  SvgArrowRight,
+  SvgArrowTop,
+  SvgCheck,
+  SvgChild,
+  SvgClapping,
   SvgClose,
-  SvgLightBulb,
-  SvgPencil,
+  SvgEmptyAvatar,
+  SvgEnvelope,
+  SvgExternalLink,
+  SvgEye,
+  SvgEyeSlash,
   SvgFacebookLogo,
   SvgFacebookLogoF,
   SvgGoogleLogoG,
+  SvgLightBulb,
+  SvgLike,
   SvgLinkedinLogoIn,
-  SvgTwitterLogo,
-  SvgEnvelope,
   SvgLock,
-  SvgExternalLink,
-  SvgStepForward,
-  SvgEye,
-  SvgEyeSlash,
-  SvgCheck,
-  SvgPaperPlane,
-  SvgUser,
-  SvgChild,
   SvgMapMarker,
-  SvgSuitcase,
-  SvgClapping,
-  SvgSignOut
-} = require('./index.js');
+  SvgPaperPlane,
+  SvgPencil,
+  SvgPlayButton,
+  SvgSaveFileOption,
+  SvgShare,
+  SvgSignOut,
+  SvgStepForward,
+  SvgSuitcase,  
+  SvgThumbsDown,
+  SvgThumbsLeft,
+  SvgThumbsRight,
+  SvgThumbsUp,
+  SvgTwitterLogo,
+  SvgUser,
+  SvgCheckedSymbol
+} from './index.js';
 
 class SvgElementsExample extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowBottom /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgEmptyAvatar /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowRight /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowLeft /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowTop /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowBottom /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowRight /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowLeft /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowTop /></span>
@@ -81,6 +84,9 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px'}}><SvgSuitcase /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgClapping /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgSignOut /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgLike /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgSaveFileOption /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgCheckedSymbol /></span>
       </React.Fragment>
     );
   }

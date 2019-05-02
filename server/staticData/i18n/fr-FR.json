@@ -303,6 +303,10 @@
       "submit_label": "Demander la suppression de mon compte",
       "wrong_email": "Cet email n'est pas associé à votre compte, merci de bien vouloir saisir votre email à nouveau.",
       "wrong_password": "Votre mot de passe est incorrect."
+    },
+    "organisation": {
+      "proposal_agree": "est d'accord avec cette proposition",
+      "proposal_disagree": "n'est pas d'accord avec cette proposition"
     }
   },
   "organisation": {

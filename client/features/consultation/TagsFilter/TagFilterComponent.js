@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { type TagType } from 'Shared/types/proposal';
+import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
 import {
@@ -12,7 +12,7 @@ import {
 
 type Props = {
   /** List of tags */
-  tags: TagType[],
+  tags: TypeTag[],
   /** List of select tag id */
   selectedTagIds: string[],
   /** Show all tags in the filter or not */
@@ -20,7 +20,7 @@ type Props = {
   /** Function to toggle show all tags */
   toggleShowAll: () => void,
   /** Function to handle tag selection */
-  handleSelectTag: (tag: TagType) => void,
+  handleSelectTag: (tag: TypeTag) => void,
 };
 
 const filterShowAllTags = (index, showAll) => showAll || index < 6;

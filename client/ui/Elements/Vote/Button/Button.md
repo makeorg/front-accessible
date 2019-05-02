@@ -1,6 +1,6 @@
 ##### Vote Button Example :
-```js
-import { VoteButtonStyle, UnvoteButtonStyle } from '../Styled';
+```jsx
+import { VoteButtonStyle, IsVotedButtonStyle } from '../Styled';
 import { SvgThumbsUp } from '../../../Svg/elements';
 import { VoteButtonElement } from './index';
 
@@ -26,7 +26,7 @@ class VotButtonElementExample extends React.Component {
           color="rgb(110, 182, 32)"
           label="label"
           icon={<SvgThumbsUp/>}
-          buttonType={this.state.isVoted ? UnvoteButtonStyle : VoteButtonStyle}
+          buttonType={this.state.isVoted ? IsVotedButtonStyle : VoteButtonStyle}
           handleVote={this.handleVote}
         />
       </div>

@@ -301,6 +301,10 @@
       "submit_label": "Delete my account",
       "wrong_email": "Invalid login.",
       "wrong_password": "Invalid password."
+    },
+    "organisation": {
+      "proposal_agree": "agrees with this proposal",
+      "proposal_disagree": "disagrees with this proposal"
     }
   },
   "organisation": {

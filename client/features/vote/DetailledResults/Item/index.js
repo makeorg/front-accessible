@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import { type VoteType } from 'Shared/types/proposal';
+import { type Vote as TypeVote } from 'Shared/types/proposal';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { QualificationResults } from 'Client/features/vote/Qualification/Results';
@@ -16,7 +16,7 @@ import {
 import { QualificationDataListStyle } from '../../Qualification/Results/Styled';
 
 type Props = {
-  vote: VoteType,
+  vote: TypeVote,
   votePercent: number,
 };
 
@@ -30,13 +30,13 @@ export const DetailledResultItem = (props: Props) => {
     <DetailledItemWrapperStyle className={voteKey}>
       <FlexElementStyle>
         <HiddenItemStyle>{i18n.t('results.title')}</HiddenItemStyle>
-        <UnvoteButtonStyle
+        <IsVotedButtonStyle
           color={voteColor}
           as="div"
           aria-label={i18n.t(`vote.${voteKey}`)}
         >
           {buttonIcon}
-        </UnvoteButtonStyle>
+        </IsVotedButtonStyle>
         <VoteDataListStyle>
           <VoteDataBoldItemStyle>
             {i18n.t('common.percent', { percent: votePercent })}

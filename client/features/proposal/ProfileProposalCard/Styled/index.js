@@ -4,12 +4,6 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { CardStyle } from 'Client/ui/Cards';
-import {
-  TextColors,
-  MakeThemeColors,
-  BasicColors,
-  StatusColors,
-} from 'Client/app/assets/vars/Colors';
 
 export const ProfileProposalCardStyle = styled(CardStyle)`
   margin: 15px 0;
@@ -51,52 +45,6 @@ export const ProposalStyle = styled.a`
   }
 `;
 
-export const FooterStyle = styled.footer`
-  margin-top: 10px;
-`;
-
 export const ProposalSeparatorStyle = styled(SeparatorStyle)`
   margin-top: 10px;
-`;
-
-export const PostedInLabelStyle = styled.span`
-  font-size: 12px;
-  color: ${TextColors.MediumGrey};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
-`;
-
-export const PostedInLinkStyle = styled.a`
-  font-size: 12px;
-  font-family: ${MakeFonts.RobotoCondensedBold};
-  text-decoration: none;
-  text-transform: uppercase;
-  color: ${MakeThemeColors.Red};
-  &:hover,
-  &:focus {
-    color: ${MakeThemeColors.Red};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-  }
-`;
-
-export const ProposalStatusStyle = styled.span`
-  font-size: 12px;
-  color: ${BasicColors.PureWhite};
-  padding: 5px 10px;
-  &.status-accepted {
-    background-color: ${StatusColors.Accepted};
-  }
-  &.status-refused {
-    background-color: ${StatusColors.Refused};
-  }
-  &.status-postponed,
-  &.status-pending {
-    background-color: ${StatusColors.Pending};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
 `;

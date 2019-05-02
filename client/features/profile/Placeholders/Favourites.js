@@ -2,7 +2,7 @@ import React from 'react';
 import { SvgLike, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { VoteColors } from 'Client/app/assets/vars/Colors';
-import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { VoteContainerStyle } from 'Client/features/vote/Styled';
 import {
   VoteResultContainerStyle,
@@ -14,7 +14,7 @@ import {
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {
   QualifyButtonStyle,
-  UnqualifyButtonStyle,
+  IsQualifiedButtonStyle,
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
@@ -42,9 +42,9 @@ export const FavouritesPlaceholder = () => {
         </FavouritesProposalStyle>
         <VoteContainerStyle>
           <VoteResultContainerStyle>
-            <UnvoteButtonStyle color={VoteColors.Agree} disabled>
+            <IsVotedButtonStyle color={VoteColors.Agree} disabled>
               <SvgThumbsUp />
-            </UnvoteButtonStyle>
+            </IsVotedButtonStyle>
             <aside>
               <VoteResultGraphStyle>
                 <VoteResultItemStyle>
@@ -93,10 +93,10 @@ export const FavouritesPlaceholder = () => {
             </aside>
           </VoteResultContainerStyle>
           <SpaceBetweenColumnStyle>
-            <UnqualifyButtonStyle color={VoteColors.Agree} disabled>
+            <IsQualifiedButtonStyle color={VoteColors.Agree} disabled>
               <span>{i18n.t('qualification.likeIt')}</span>
               <CounterStyle>+1</CounterStyle>
-            </UnqualifyButtonStyle>
+            </IsQualifiedButtonStyle>
             <QualifyButtonStyle color={VoteColors.Agree} disabled>
               <span>{i18n.t('qualification.doable')}</span>
               <CounterStyle>+1</CounterStyle>

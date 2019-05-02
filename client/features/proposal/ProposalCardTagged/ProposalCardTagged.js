@@ -3,16 +3,12 @@ import React from 'react';
 import { Vote } from 'Client/features/vote';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { Tag } from 'Client/ui/Elements/Tag';
 import { getProposalLink } from 'Shared/helpers/url';
-import { ProposalAuthorWithAvatar } from '../ProposalAuthor/WithAvatar';
-import {
-  ProposalCardTaggedStyle,
-  ProposalStyle,
-  FooterStyle,
-  ProposalSeparatorStyle,
-} from './Styled';
+import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
+import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { ProposalCardTaggedStyle, ProposalStyle } from './Styled';
 
 type Props = {
   question: TypeQuestion,
@@ -24,8 +20,6 @@ type Props = {
 export const ProposalCardTagged = (props: Props) => {
   const { question, proposal, position, size } = props;
   const { author } = proposal;
-  const displayTags = proposal.tags && proposal.tags.length > 0;
-  const numberOfTagsToDisplay = 4;
   const proposalLink = getProposalLink(
     question.country,
     question.language,
@@ -45,9 +39,10 @@ export const ProposalCardTagged = (props: Props) => {
       <HiddenItemStyle id={`proposal_author_${position}`}>
         {author.firstName}
       </HiddenItemStyle>
-      <ProposalAuthorWithAvatar
+      <ProposalAuthorElement
         author={author}
         createdAt={proposal.createdAt}
+        withAvatar
       />
       <ProposalSeparatorStyle />
       <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
@@ -59,16 +54,7 @@ export const ProposalCardTagged = (props: Props) => {
         proposalKey={proposal.proposalKey}
         index={position}
       />
-      {displayTags && (
-        <React.Fragment>
-          <ProposalSeparatorStyle />
-          <FooterStyle>
-            {proposal.tags.slice(0, numberOfTagsToDisplay).map(tag => (
-              <Tag name={tag.label} key={tag.tagId} />
-            ))}
-          </FooterStyle>
-        </React.Fragment>
-      )}
+      <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardTaggedStyle>
   );
 };
