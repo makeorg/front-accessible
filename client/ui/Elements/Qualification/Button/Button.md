@@ -1,5 +1,7 @@
 ##### Qualification Button Example :
 ```js
+import { QualificationButtonElement } from './index';
+
 class QualificationButtonElementExample extends React.Component {
   constructor() {
     super()
@@ -22,7 +24,7 @@ class QualificationButtonElementExample extends React.Component {
           color="rgb(110, 182, 32)"
           isQualified={this.state.isQualified}
           label="label"
-          qualificationCounter="10"
+          qualificationCounter="1"
           handleQualification={this.handleQualification}
         />
       </div>

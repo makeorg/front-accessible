@@ -19,7 +19,7 @@ type Props = {
   /** Number of qualifications */
   qualificationCounter?: number,
   /** When waiting qualification response from API */
-  pendingQualification: boolean,
+  pendingQualification?: boolean,
   /** Method called when qualification button is clicked */
   handleQualification: () => void,
 };
@@ -63,4 +63,5 @@ export const QualificationButtonElement = (props: Props) => {
 
 QualificationButtonElement.defaultProps = {
   qualificationCounter: 0,
+  pendingQualification: false,
 };

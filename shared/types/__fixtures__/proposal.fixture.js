@@ -6,9 +6,9 @@ export const proposalTypeFixture = {
   },
   createdAt: '2018-10-24T12:45:25.752Z',
   content: 'il faut prendre soin du styleguide',
-  votes: [{ voteKey: '0' }, { voteKey: '0' }],
   country: 'FR',
   language: 'fr',
+  votes: [{ voteKey: '0' }, { voteKey: '0' }],
   tags: [
     {
       tagId: 'atom',

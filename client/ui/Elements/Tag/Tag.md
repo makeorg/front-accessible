@@ -1,9 +1,14 @@
 ##### tag :
+###### Not Selected tag
+```jsx
+import { Tag } from './index';
 
-```js
-  <Tag name="I'm a Tag" isAButton />
+<Tag name="I'm a Tag" isAButton />
 ```
+###### Selected button tag
 
-```js
-  <Tag name="Selected Tag" isAButton isSelected />
+```jsx
+import { Tag } from './index';
+
+<Tag name="Selected Tag" isAButton isSelected />
 ```

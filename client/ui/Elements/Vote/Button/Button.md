@@ -1,7 +1,8 @@
 ##### Vote Button Example :
 ```js
-const { VoteButtonStyle, UnvoteButtonStyle } = require('../Styled');
-const { SvgThumbsUp } = require('../../../Svg/elements');
+import { VoteButtonStyle, UnvoteButtonStyle } from '../Styled';
+import { SvgThumbsUp } from '../../../Svg/elements';
+import { VoteButtonElement } from './index';
 
 class VotButtonElementExample extends React.Component {
   constructor() {
