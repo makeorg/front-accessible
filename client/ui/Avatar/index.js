@@ -13,16 +13,12 @@ export const Avatar = (props: Props) => {
   const { avatarSize, children } = props;
 
   if (children) {
-    return (
-      <AvatarStyle aria-hidden avatarSize={avatarSize}>
-        {children}
-      </AvatarStyle>
-    );
+    return <AvatarStyle avatarSize={avatarSize}>{children}</AvatarStyle>;
   }
 
   return (
-    <AvatarStyle aria-hidden avatarSize={avatarSize}>
-      <SvgEmptyAvatar />
+    <AvatarStyle avatarSize={avatarSize}>
+      <SvgEmptyAvatar aria-hidden />
     </AvatarStyle>
   );
 };

@@ -43,7 +43,8 @@
     "expand_collapse": "Afficher le contenu de la section déroulante",
     "shrink_collapse": "Masquer le contenu de la section déroulante",
     "secondary_nav": "Navigation secondaire",
-    "percent": "{{percent}}%"
+    "percent": "{{percent}}%",
+    "profile_nav": "Naviguer vers mon profil utilisateur"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org"

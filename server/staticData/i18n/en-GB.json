@@ -44,7 +44,8 @@
     "expand_collapse": "Display the content of the collapse section",
     "shrink_collapse": "Hide the content of the collapse section",
     "secondary_nav": "Secondary navigation",
-    "percent": "{{percent}}%"
+    "percent": "{{percent}}%",
+    "profile_nav": "Navigate to my user profile"
   },
   "header": {
     "logo_alt": "Go to the Make.org site"
