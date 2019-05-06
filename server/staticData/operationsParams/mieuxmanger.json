@@ -31,7 +31,6 @@
     {"name": "Action Contre La Faim", "imageUrl": "/images/operations/mieuxmanger/partners/action-contre-la-faim.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/action-contre-la-faim"}
   ],
   "isGreatCause": true,
-  "consultationUrl": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
   "aboutUrl": "https://about.make.org/about-mieuxmanger",
   "sequenceConfig": {
     "introCard": {

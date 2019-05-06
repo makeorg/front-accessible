@@ -1,13 +1,13 @@
 import React from 'react';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { SequenceFooter } from 'Client/features/sequence/Footer';
 import { SequencePageContentLoader } from './ContentLoader';
 import { SequencePageContentStyle } from './Styled';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
+  questionConfiguration: TypeQuestionConfiguration,
 };
 
 export const SequencePageComponent = (props: Props) => {
@@ -20,7 +20,10 @@ export const SequencePageComponent = (props: Props) => {
           questionConfiguration={questionConfiguration}
         />
       </SequencePageContentStyle>
-      <SequenceFooter questionConfiguration={questionConfiguration} />
+      <SequenceFooter
+        question={question}
+        questionConfiguration={questionConfiguration}
+      />
     </React.Fragment>
   );
 };

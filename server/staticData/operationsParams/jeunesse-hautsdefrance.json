@@ -23,7 +23,6 @@
     {"name": "Région Hauts-de-France", "imageUrl": "/images/operations/jeunesse-hautsdefrance/partners/hdf.png", "isFounder": false}
   ],
   "isGreatCause": false,
-  "consultationUrl": "https://make.org/#/FR/consultation/jeunesse-hautsdefrance/consultation",
   "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
   "sequenceConfig": {
     "introCard": {

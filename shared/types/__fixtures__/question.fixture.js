@@ -36,7 +36,6 @@ export const questionConfigurationTypeFixture = {
     'gradient-end': '#3839ca',
     footerFontColor: 'white',
   },
-  consultationUrl: 'https://weeuropeans.eu/fr/fr/about',
   aboutUrl: 'https://weeuropeans.eu/fr/fr/about',
   sequenceConfig: {
     introCard: {
