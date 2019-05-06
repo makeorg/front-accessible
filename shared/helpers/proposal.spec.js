@@ -13,7 +13,7 @@ jest.mock('Shared/constants/proposal', () => ({
   getBaitText: () => 'il faut',
   MIN_PROPOSAL_LENGTH: 12,
   MAX_PROPOSAL_LENGTH: 140,
-  PROPOSALS_LISTING_LIMIT: 20,
+  PROPOSALS_LISTING_LIMIT: 10,
 }));
 
 describe('Proposal Helper', () => {
@@ -146,7 +146,7 @@ describe('Proposal Helper', () => {
         'foo,bar',
         999,
         PROPOSALS_LISTING_LIMIT,
-        60
+        30
       );
     });
     it('return results from api response', async () => {
