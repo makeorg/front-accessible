@@ -17,6 +17,7 @@ import {
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
 import { questionApi } from './api/question';
+import { homeApi } from './api/home';
 import { loggerApi } from './api/logger';
 import * as technicalPages from './technicalPages';
 
@@ -61,6 +62,7 @@ export const initRoutes = app => {
   app.use('/doc', express.static(DOC_DIR));
 
   // API Routes
+  app.get('/api/home', homeApi);
   app.get('/api/questions/:questionSlug', questionApi);
   app.post('/api/logger', loggerApi);
 

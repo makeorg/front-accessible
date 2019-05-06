@@ -1,0 +1,56 @@
+{
+  "featured": [
+    {
+      "label": "Grande cause Make.org",
+      "title": "Comment permettre à chacun de mieux manger ?",
+      "description": "Proposez vos solutions et votez sur celles des autres.",
+      "buttonText": "Votez maintenant",
+      "buttonLink": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
+      "pictureDesktop": "https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg",
+      "pictureMobile": "https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg" 
+    }
+  ],
+  "greatCause": [
+    {
+      "description": "Proposez vos solutions et votez sur celles des autres.",
+      "logo": "https://app.make.org/images/operations/mieuxmanger/consultation/logo.svg",
+      "link": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation"
+    }
+  ],
+  "questions": [
+    {
+      "theme" : { 
+        "colorStart": "rgb(0, 0, 0)", 
+        "colorEnd": "rgb(129, 129, 129)"
+      },
+      "startDate": "2018-10-21",
+      "endDate": "2019-02-01",
+      "slug": "villededemain",
+      "aboutUrl": "https://about.make.org/about-villededemain",
+      "title": "Comment imaginer la ville de demain ?"
+    },
+    {
+      "theme" : { 
+        "colorStart": "#7DB7E3",
+        "colorEnd": "#5DA113"
+      },
+      "startDate": null,
+      "endDate": "2019-02-06",
+      "slug": "european-digital-champions",
+      "aboutUrl": "https://about.make.org/about-european-digital-champions",
+      "title": "Comment faire émerger des champions européens du numérique ?"
+    },
+    {
+      "theme" : { 
+        "colorStart": "#fea8fe",
+        "colorEnd": "#35bfff"
+      },
+      "startDate": "2018-10-07",
+      "endDate": "2019-01-03",
+      "slug": "jeunesse-hautsdefrance",
+      "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
+      "title": "Comment vous aider à construire votre avenir en Hauts de France ?"
+    } 
+  ]
+
+}
