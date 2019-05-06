@@ -300,6 +300,18 @@
       "submit_label": "Demander la suppression de mon compte"
     }
   },
+  "organisation": {
+    "tabs": {
+      "proposals": "Propositions",
+      "votes": "Prises de position"
+    },
+    "proposals": {
+      "title": "Les dernières propositions de {{name}}"
+    },
+    "votes": {
+      "title": "Les dernières prises de position de {{name}}"
+    }
+  },
   "consultation": {
     "header": {
       "label": "Grande Cause Make.org"

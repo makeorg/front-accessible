@@ -31,7 +31,7 @@ import {
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
   ProfileTabIconStyle,
-} from './Styled';
+} from 'Client/ui/Elements/ProfileElements';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/ProfileProposals')

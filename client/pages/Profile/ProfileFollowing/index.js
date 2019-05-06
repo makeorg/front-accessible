@@ -12,7 +12,7 @@ import { FollowingPlaceholder } from 'Client/features/profile/Placeholders/Follo
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
-} from '../Styled';
+} from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
   user?: TypeUser,

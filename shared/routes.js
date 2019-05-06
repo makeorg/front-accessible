@@ -13,6 +13,9 @@ export const ROUTE_PROFILE_EDIT = `${ROUTE_PROFILE}/edit`;
 export const ROUTE_PROFILE_PROPOSALS = `${ROUTE_PROFILE}/proposals`;
 export const ROUTE_PROFILE_FAVOURITES = `${ROUTE_PROFILE}/favourites`;
 export const ROUTE_PROFILE_FOLLOWING = `${ROUTE_PROFILE}/following`;
+export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/:organisationSlug`;
+export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
+export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
 
 const replaceCountryLanguage = (route: string, value: string) =>
   route.replace(':countryLanguage', value);
@@ -34,6 +37,9 @@ const replaceProposalId = (route: string, value: string) =>
 
 const replaceProposalSlug = (route: string, value: string) =>
   route.replace(':proposalSlug', value);
+
+const replaceOrganisationSlug = (route: string, value: string) =>
+  route.replace(':organisationSlug', value);
 
 export const matchRoute = (pathname: string, routePath: string): boolean =>
   !!matchPath(pathname, {
@@ -104,9 +110,33 @@ export const getRouteProposal = (
     proposalSlug
   );
 
+export const getRouteOrganisationProfile = (
+  countryLanguage: string,
+  organisationSlug: string
+) =>
+  replaceOrganisationSlug(
+    replaceCountryLanguage(ROUTE_ORGANISATION_PROFILE, countryLanguage),
+    organisationSlug
+  );
+export const getRouteOrganisationProposals = (
+  countryLanguage: string,
+  organisationSlug: string
+) =>
+  replaceOrganisationSlug(
+    replaceCountryLanguage(ROUTE_ORGANISATION_PROPOSALS, countryLanguage),
+    organisationSlug
+  );
+export const getRouteOrganisationVotes = (
+  countryLanguage: string,
+  organisationSlug: string
+) =>
+  replaceOrganisationSlug(
+    replaceCountryLanguage(ROUTE_ORGANISATION_VOTES, countryLanguage),
+    organisationSlug
+  );
+
 export const getRouteProfile = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE, countryLanguage);
-
 export const getRouteProfileEdit = (countryLanguage: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_EDIT, countryLanguage);
 export const getRouteProfileProposals = (countryLanguage: string) =>

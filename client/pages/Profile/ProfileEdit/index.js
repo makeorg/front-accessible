@@ -22,7 +22,7 @@ import {
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
-} from '../Styled';
+} from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
   user: User,

@@ -303,6 +303,18 @@
       "wrong_password": "Invalid password."
     }
   },
+  "organisation": {
+    "tabs": {
+      "proposals": "Proposals",
+      "votes": "Stances"
+    },
+    "proposals": {
+      "title": "Latest proposals from {{name}}"
+    },
+    "votes": {
+      "title": "Latest stances from {{name}}"
+    }
+  },
   "consultation": {
     "header": {
       "label": "great cause Make.org"

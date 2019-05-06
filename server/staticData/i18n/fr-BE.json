@@ -302,6 +302,18 @@
       "wrong_password": "Votre mot de passe est incorrect."
     }
   },
+  "organisation": {
+    "tabs": {
+      "proposals": "Propositions",
+      "votes": "Prises de position"
+    },
+    "proposals": {
+      "title": "Les dernières propositions de {{name}}"
+    },
+    "votes": {
+      "title": "Les dernières prises de position de {{name}}"
+    }
+  },
   "consultation": {
     "header": {
       "label": "Grande Cause Make.org"
