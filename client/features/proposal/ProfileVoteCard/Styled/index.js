@@ -3,6 +3,7 @@ import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 
 export const ProfileVoteCardStyle = styled.div`
   padding: 20px;
+  margin-bottom: 20px;
   width: 100%;
   box-shadow: 0 1px 1px 0 #00000080;
   background-color: #0000000c;

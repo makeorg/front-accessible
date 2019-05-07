@@ -23,14 +23,14 @@ import {
 type Props = {
   organisation: TypeOrganisation,
   proposal: TypeProposal,
+  voteKey: string,
 };
 
-export const ProfileVoteCard = ({ organisation, proposal }: Props) => {
+export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
   const position = 0;
   const size = 1;
-  const votedKey = 'agree';
   const { author, question } = proposal;
-  const voteAttributes = voteStaticParams[votedKey];
+  const voteAttributes = voteStaticParams[voteKey];
   return (
     <ProfileVoteCardStyle>
       <div>
@@ -47,7 +47,7 @@ export const ProfileVoteCard = ({ organisation, proposal }: Props) => {
             style={{ fontSize: '14px', fill: TextColors.Blue }}
           />
           &nbsp;
-          {i18n.t(`profile.organisation.proposal_${votedKey}`)}
+          {i18n.t(`profile.organisation.proposal_${voteKey}`)}
         </React.Fragment>
       </div>
       <ProposalCardTaggedStyle
@@ -81,7 +81,7 @@ export const ProfileVoteCard = ({ organisation, proposal }: Props) => {
         <VoteResultElement
           proposalId={proposal.id}
           votes={proposal.votes}
-          votedKey={votedKey}
+          votedKey={voteKey}
         />
         <ProposalFooterWithTagElement tags={proposal.tags} />
       </ProposalCardTaggedStyle>

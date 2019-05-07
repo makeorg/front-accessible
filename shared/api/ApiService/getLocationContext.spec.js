@@ -2,7 +2,7 @@ import { getLocationContext } from './getLocationContext';
 
 describe('getLocationContext', () => {
   it('get location context default', () => {
-    expect(getLocationContext('/FR-fr')).toBe('unknown_location /FR-fr');
+    expect(getLocationContext('/FR-fr')).toBe('unknown-location /FR-fr');
   });
 
   it('get location context ROUTE_CONSULTATION', () => {
@@ -24,6 +24,6 @@ describe('getLocationContext', () => {
         undefined,
         'abcd'
       )
-    ).toBe('proposal_page abcd');
+    ).toBe('proposal-page abcd');
   });
 });

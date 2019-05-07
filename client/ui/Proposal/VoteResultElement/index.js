@@ -47,6 +47,9 @@ export const VoteResultElement = ({
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
           <QualificationButtonElement
+            key={`vote_result_${proposalId}_qualifcation_${
+              qualification.qualificationKey
+            }`}
             color={voteStaticParams[votedKey].color}
             label={i18n.t(`qualification.${qualification.qualificationKey}`)}
             qualificationCounter={qualification.count}

@@ -21,9 +21,9 @@ export const getLocationContext = (
     case matchRoute(pathname, ROUTE_SEQUENCE):
       return `sequence ${questionId}`;
     case matchRoute(pathname, ROUTE_PROPOSAL):
-      return `proposal_page ${proposalId}`;
+      return `proposal-page ${proposalId}`;
     default:
-      return `unknown_location ${pathname}`;
+      return `unknown-location ${pathname}`;
   }
 };
 
@@ -42,6 +42,6 @@ export const getTrackingLocation = (pathname: string): string => {
     case matchRoute(pathname, ROUTE_PROPOSAL):
       return `proposal-page`;
     default:
-      return `unknown`;
+      return `unknown-location ${pathname}`;
   }
 };

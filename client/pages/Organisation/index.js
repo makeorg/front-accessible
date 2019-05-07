@@ -97,7 +97,6 @@ class OrganisationPage extends React.Component<Props, State> {
       );
     }
 
-    const { organisationName, organisationId } = organisation;
     return (
       <ProfileWrapperStyle>
         <MetaTags />
@@ -124,20 +123,14 @@ class OrganisationPage extends React.Component<Props, State> {
                 path={ROUTE_ORGANISATION_PROPOSALS}
                 exact
                 component={() => (
-                  <OrganisationProposalsPage
-                    organisationName={organisationName}
-                    organisationId={organisationId}
-                  />
+                  <OrganisationProposalsPage organisation={organisation} />
                 )}
               />
               <Route
                 path={ROUTE_ORGANISATION_VOTES}
                 exact
                 component={() => (
-                  <OrganisationVotesPage
-                    organisationName={organisationName}
-                    organisationId={organisationId}
-                  />
+                  <OrganisationVotesPage organisation={organisation} />
                 )}
               />
             </Switch>
