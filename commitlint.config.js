@@ -12,6 +12,7 @@ module.exports = {
         'sequence',
         'proposal',
         'tracking',
+        'homepage',
         'ui',
         'a11y',
       ],
