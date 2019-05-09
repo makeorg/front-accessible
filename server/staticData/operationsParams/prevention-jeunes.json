@@ -19,7 +19,7 @@
     "logo": "/images/operations/prevention-jeunes/consultation/logo.svg"
   },
   "partners": [
-    {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://ramsaygds.fr/"}
+    {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://make.org/#/FR/profile/fondation-ramsay-generale-de-sante"}
   ],
   "isGreatCause": false,
   "aboutUrl": "https://about.make.org/about-prevention-jeunes",
@@ -28,8 +28,7 @@
       "enabled": true,
       "title": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
       "description": [
-        "Prenez position sur ces solutions et proposez les vôtres !",
-        "C'est pour améliorer la prévention auprès des jeunes que la Fondation Ramsay Générale de Santé a décidé de lancer la première consultation citoyenne dédiée à ce sujet, afin de faire émerger toutes les idées en ce sens."
+        "Prenez position sur ces solutions et proposez les vôtres pour améliorer la prévention auprès des jeunes."
       ]
     },
     "pushProposalCard": {
