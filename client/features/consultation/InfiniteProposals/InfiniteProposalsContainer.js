@@ -106,11 +106,9 @@ export class InfiniteProposalsContainer extends React.Component<Props, State> {
   };
 
   render() {
-    const { question } = this.props;
     const { proposals, page, isLoading, hasMore } = this.state;
     return (
       <InfiniteProposalsComponent
-        question={question}
         proposals={proposals}
         page={page}
         hasMore={hasMore}

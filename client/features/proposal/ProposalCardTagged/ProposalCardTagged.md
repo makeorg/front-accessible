@@ -6,6 +6,5 @@ import { ProposalCardTagged } from './index';
 
 <ProposalCardTagged
   proposal={proposalTypeFixture}
-  question={questionTypeFixture}
 />
 ```

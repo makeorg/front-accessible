@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as OrganisationService from 'Shared/services/Organisation';
 import {
   type OrganisationVote as TypeOrganisationVote,
@@ -18,62 +18,48 @@ type Props = {
   organisation: TypeOrganisation,
 };
 
-type State = {
-  votes: TypeOrganisationVote[],
-};
+const OrganisationVotesPage = (props: Props) => {
+  const [votes, setVotes] = useState<TypeOrganisationVote[]>([]);
+  const { organisation } = props;
 
-class OrganisationVotesPage extends React.Component<Props, State> {
-  state = {
-    votes: [],
-  };
-
-  async componentDidMount() {
-    this.loadOrganisationVotes();
-  }
-
-  loadOrganisationVotes = async () => {
-    const { organisation } = this.props;
-
-    const votes = await OrganisationService.getVotes(
+  const fetchVotes = async () => {
+    const loadedVotes: TypeOrganisationVote[] = await OrganisationService.getVotes(
       organisation.organisationId
     );
 
-    this.setState({
-      votes,
-    });
+    setVotes(loadedVotes);
   };
 
-  render() {
-    const { organisation } = this.props;
-    const { votes } = this.state;
+  useEffect(() => {
+    fetchVotes();
+  }, []);
 
-    if (votes.length > 0) {
-      return (
-        <CenterColumnStyle>
-          <ProfileContentHeaderStyle>
-            <SecondLevelTitleStyle>
-              {i18n.t('organisation.votes.title', {
-                name: organisation.organisationName,
-              })}
-            </SecondLevelTitleStyle>
-            <ProfileTitleSeparatorStyle />
-          </ProfileContentHeaderStyle>
-          {votes &&
-            votes.map(vote => (
-              <ProfileVoteCard
-                key={`organisation_votes_${vote.proposal.id}`}
-                voteKey={vote.vote}
-                proposal={vote.proposal}
-                organisation={organisation}
-              />
-            ))}
-        </CenterColumnStyle>
-      );
-    }
-
-    return null;
+  if (votes.length > 0) {
+    return (
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('organisation.votes.title', {
+              name: organisation.organisationName,
+            })}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {votes &&
+          votes.map(vote => (
+            <ProfileVoteCard
+              key={`organisation_votes_${vote.proposal.id}`}
+              voteKey={vote.vote}
+              proposal={vote.proposal}
+              organisation={organisation}
+            />
+          ))}
+      </CenterColumnStyle>
+    );
   }
-}
+
+  return null;
+};
 
 // default export needed for loadable component
 export default OrganisationVotesPage; // eslint-disable-line import/no-default-export

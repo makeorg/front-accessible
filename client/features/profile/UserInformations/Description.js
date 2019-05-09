@@ -3,12 +3,12 @@ import { i18n } from 'Shared/i18n';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
-  UserDescriptionStyle,
-  UserCollapseWrapperStyle,
-  UserCollapseSeparatorStyle,
-  UserCollapseButtonStyle,
-  UserSeparatorStyle,
-} from '../Styled/UserInformations';
+  ProfileDescriptionStyle,
+  ProfileCollapseWrapperStyle,
+  ProfileCollapseSeparatorStyle,
+  ProfileCollapseButtonStyle,
+  ProfileSeparatorStyle,
+} from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
   description: string,
@@ -58,20 +58,20 @@ export class UserDescription extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <UserDescriptionStyle isCollapsed={isCollapsed}>
+        <ProfileDescriptionStyle isCollapsed={isCollapsed}>
           {description}
-        </UserDescriptionStyle>
+        </ProfileDescriptionStyle>
         {renderCollapseTrigger ? (
-          <UserCollapseWrapperStyle>
-            <UserCollapseSeparatorStyle isCollapsed={isCollapsed} />
-            <UserCollapseButtonStyle onClick={this.toggleCollapse}>
+          <ProfileCollapseWrapperStyle>
+            <ProfileCollapseSeparatorStyle isCollapsed={isCollapsed} />
+            <ProfileCollapseButtonStyle onClick={this.toggleCollapse}>
               {isCollapsed
                 ? i18n.t('profile.informations_update.more')
                 : i18n.t('profile.informations_update.less')}
-            </UserCollapseButtonStyle>
-          </UserCollapseWrapperStyle>
+            </ProfileCollapseButtonStyle>
+          </ProfileCollapseWrapperStyle>
         ) : (
-          <UserSeparatorStyle aria-hidden />
+          <ProfileSeparatorStyle aria-hidden />
         )}
       </React.Fragment>
     );
