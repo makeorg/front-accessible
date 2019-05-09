@@ -1,8 +1,6 @@
 // @flow
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { type match as TypeMatch } from 'react-router';
 import { i18n } from 'Shared/i18n';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as UserService from 'Shared/services/User';
@@ -17,74 +15,70 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 type Props = {
   user: TypeUser,
-  match: TypeMatch,
 };
 
-type State = {
-  proposals: TypeProposal[],
-  isLoading: boolean,
-};
+const ProfileFavourites = (props: Props) => {
+  const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { user } = props;
+  const proposalsLength = proposals.length;
+  const renderProposals = proposalsLength && !isLoading;
+  const renderPlaceholder = !proposalsLength && !isLoading;
 
-class ProfileFavourites extends React.Component<Props, State> {
-  state = {
-    proposals: [],
-    isLoading: true,
+  const fetchProposals = async () => {
+    const loadedProposals: TypeProposal[] = await UserService.myFavourites(
+      user.userId
+    );
+
+    setProposals(loadedProposals);
+    setIsLoading(false);
   };
 
-  async componentDidMount() {
-    this.loadProposals();
-  }
-
-  loadProposals = async () => {
-    const { user } = this.props;
-
-    const proposals = await UserService.myFavourites(user.userId);
-
-    this.setState({
-      proposals,
-      isLoading: false,
-    });
-  };
-
-  render() {
-    const { user, match } = this.props;
-    const { proposals, isLoading } = this.state;
-    const proposalsLength = proposals.length;
-
+  useEffect(() => {
     if (!user) {
-      return <Redirect to={`/${match.params.countryLanguage}`} />;
+      window.location = FRONT_LEGACY_ROOT;
     }
 
+    fetchProposals();
+  }, []);
+
+  if (!user) {
     return (
       <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('profile.favourites.title')}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
-        {isLoading && <Spinner />}
-        {proposalsLength ? (
-          proposals.map((proposal, index) => (
-            <React.Fragment>
-              <ProfileProposalCard
-                key={proposal.id}
-                proposal={proposal}
-                size={proposalsLength}
-                position={index}
-              />
-            </React.Fragment>
-          ))
-        ) : (
-          <FavouritesPlaceholder />
-        )}
+        <Spinner />
       </CenterColumnStyle>
     );
   }
-}
+
+  return (
+    <CenterColumnStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('profile.favourites.title')}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      {isLoading && <Spinner />}
+      {renderProposals &&
+        proposals.map((proposal, index) => (
+          <React.Fragment>
+            <ProfileProposalCard
+              key={proposal.id}
+              proposal={proposal}
+              size={proposalsLength}
+              position={index}
+            />
+          </React.Fragment>
+        ))}
+      {renderPlaceholder && <FavouritesPlaceholder />}
+    </CenterColumnStyle>
+  );
+};
+
 const mapStateToProps = state => {
   const { user } = selectAuthentification(state);
 

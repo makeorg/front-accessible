@@ -1,7 +1,7 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import {
   matchPath,
   type Location as TypeLocation,
@@ -32,6 +32,7 @@ import {
   ProfilePageContentStyle,
   ProfileTabIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/ProfileProposals')
@@ -50,12 +51,16 @@ type Props = {
 };
 
 const Profile = (props: Props) => {
+  useEffect(() => {
+    const { user } = props;
+
+    if (!user) {
+      window.location = FRONT_LEGACY_ROOT;
+    }
+  });
+
   const { user, match, location } = props;
   const { countryLanguage } = match.params;
-  if (!user) {
-    return <Redirect to={`/${countryLanguage}`} />;
-  }
-
   const profileProposalsLink = getRouteProfileProposals(countryLanguage);
   const profileFavouritesLink = getRouteProfileFavourites(countryLanguage);
 
@@ -71,6 +76,10 @@ const Profile = (props: Props) => {
   const NavigationBar = (
     <EditProfileLink link={getRouteProfileEdit(countryLanguage)} />
   );
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <ProfileWrapperStyle>
