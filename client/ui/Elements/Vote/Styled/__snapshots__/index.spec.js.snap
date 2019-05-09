@@ -48,7 +48,7 @@ exports[`ButtonStyle snapshot by default 1`] = `
 />
 `;
 
-exports[`UnvoteButtonStyle snapshot by default 1`] = `
+exports[`IsVotedButtonStyle snapshot by default 1`] = `
 .c0 {
   position: relative;
   z-index: 0;

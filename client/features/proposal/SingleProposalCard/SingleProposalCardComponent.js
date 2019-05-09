@@ -5,14 +5,14 @@ import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
-import { ProposalAuthor } from 'Client/features/proposal/ProposalAuthor';
+import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { TallCardStyle } from 'Client/ui/Cards';
 import { SequenceProposalStyle } from 'Client/features/sequence/Card/Styled';
 import {
   InnerProposalStyle,
-  FooterStyle,
+  ProposalFooterStyle,
   FooterContentSeparatorStyle,
   FooterContentStyle,
   DescriptionStyle,
@@ -37,7 +37,7 @@ export const SingleProposalCardComponent = (props: Props) => {
   return (
     <TallCardStyle>
       <InnerProposalStyle>
-        <ProposalAuthor author={proposal.author} />
+        <ProposalAuthorElement author={proposal.author} />
         <CardSeparatorStyle aria-hidden />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
@@ -46,7 +46,7 @@ export const SingleProposalCardComponent = (props: Props) => {
           proposalKey={proposal.proposalKey}
         />
       </InnerProposalStyle>
-      <FooterStyle>
+      <ProposalFooterStyle>
         <ContentSeparatorStyle />
         <FooterContentStyle>
           <DescriptionStyle
@@ -84,7 +84,7 @@ export const SingleProposalCardComponent = (props: Props) => {
             </ButtonStyle>
           </CenterRowStyle>
         </FooterContentStyle>
-      </FooterStyle>
+      </ProposalFooterStyle>
     </TallCardStyle>
   );
 };

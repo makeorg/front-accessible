@@ -2,14 +2,14 @@ import React from 'react';
 import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import {
-  UnvoteButtonStyle,
+  IsVotedButtonStyle,
   VoteButtonStyle,
 } from 'Client/ui/Elements/Vote/Styled';
 import { VoteButtonElement } from './index';
 
 jest.mock('Client/ui/Elements/Vote/Styled', () => ({
   ButtonStyle: 'ButtonStyle',
-  UnvoteButtonStyle: 'UnvoteButtonStyle',
+  IsVotedButtonStyle: 'IsVotedButtonStyle',
   VoteButtonStyle: 'VoteButtonStyle',
 }));
 
@@ -30,7 +30,7 @@ describe('VoteButtonElement', () => {
   it('must return the diff between snapshot when proposal is qualified or not', () => {
     const ButtonIsVoted = renderer
       .create(
-        <VoteButtonElement {...defaultProps} buttonType={UnvoteButtonStyle} />
+        <VoteButtonElement {...defaultProps} buttonType={IsVotedButtonStyle} />
       )
       .toJSON();
     const ButtonIsNotVoted = renderer

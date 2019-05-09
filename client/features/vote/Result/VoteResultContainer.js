@@ -1,20 +1,20 @@
 // flow
 import * as React from 'react';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
-import { type VoteType } from 'Shared/types/proposal';
+import { type Vote as TypeVote } from 'Shared/types/proposal';
 import { VoteResultComponent } from './VoteResultComponent';
 
 type Props = {
   /** Proposal's Id */
   proposalId: string,
-  /** Array with votes received from Api */
-  votes: VoteType[],
+  /** Array of votes */
+  votes: TypeVote[],
   /** Voted key property */
   votedKey: string,
   /** Method called when vote button is clicked */
-  handleVote: string => void,
+  handleVote?: string => void,
   /** When waiting response from API */
-  pending: boolean,
+  pending?: boolean,
 };
 
 /**
@@ -37,4 +37,9 @@ export const VoteResultContainer = (props: Props) => {
       pending={pending}
     />
   );
+};
+
+VoteResultContainer.defaultProps = {
+  pending: false,
+  handleVote: () => {},
 };

@@ -31,6 +31,9 @@ export class OrganisationService {
       ORGANISATION_VOTES_PATH.replace(':organisationId', organisationId),
       {
         method: 'GET',
+        params: {
+          votes: 'agree,disagree',
+        },
       }
     );
   }

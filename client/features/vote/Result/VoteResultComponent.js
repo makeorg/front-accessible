@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { type VotesPercentObject } from 'Shared/types/proposal';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { UnvoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { ResultTooltip } from './Tooltip';
 import {
@@ -69,7 +69,7 @@ export const VoteResultComponent = (props: Props) => {
         label={i18n.t('unvote.button')}
         icon={voteStaticParams[votedKey].icon}
         handleVote={handleVote}
-        buttonType={UnvoteButtonStyle}
+        buttonType={IsVotedButtonStyle}
         displayPending={pending}
       />
       <aside>

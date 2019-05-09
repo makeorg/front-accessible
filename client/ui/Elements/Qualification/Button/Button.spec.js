@@ -5,7 +5,7 @@ import { QualificationButtonElement } from './index';
 
 jest.mock('Client/ui/Elements/Qualification/Styled', () => ({
   ButtonStyle: 'ButtonStyle',
-  UnqualifyButtonStyle: 'UnqualifyButtonStyle',
+  IsQualifiedButtonStyle: 'IsQualifiedButtonStyle',
   QualifyButtonStyle: 'QualifyButtonStyle',
   CounterStyle: 'CounterStyle',
 }));

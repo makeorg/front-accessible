@@ -1,19 +1,15 @@
-/* @flow */
+// @flow
 import React from 'react';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
-import { i18n } from 'Shared/i18n';
 import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
-import { ProposalAuthorWithAvatar } from '../ProposalAuthor/WithAvatar';
+import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement';
 import {
   ProfileProposalCardStyle,
   ProposalSeparatorStyle,
   ProposalHeaderStyle,
-  ProposalStatusStyle,
   ProposalStyle,
-  FooterStyle,
-  PostedInLabelStyle,
-  PostedInLinkStyle,
 } from './Styled';
 
 type Props = {
@@ -24,22 +20,8 @@ type Props = {
 };
 
 export const ProfileProposalCard = (props: Props) => {
-  const { proposal, position, size, withStatus } = props;
+  const { proposal, position, size } = props;
   const { author, question } = proposal;
-  const { wording } = question;
-
-  const proposalLink = getProposalLink(
-    question.country,
-    question.language,
-    question.slug,
-    proposal.id,
-    proposal.slug
-  );
-  const consultationLink = getConsultationLink(
-    question.country,
-    question.language,
-    question.slug
-  );
   const formattedProposalStatus = proposal.status.toLowerCase();
   const isProposalAccepted = formattedProposalStatus === 'accepted';
 
@@ -53,39 +35,47 @@ export const ProfileProposalCard = (props: Props) => {
       className={`proposal-${formattedProposalStatus}`}
     >
       <ProposalHeaderStyle>
-        <ProposalAuthorWithAvatar
+        <ProposalAuthorElement
           author={author}
           createdAt={proposal.createdAt}
+          withAvatar
+          withStatus
+          formattedProposalStatus={formattedProposalStatus}
         />
-        {withStatus && (
-          <ProposalStatusStyle className={`status-${formattedProposalStatus}`}>
-            {i18n.t(`proposal_card.status.${formattedProposalStatus}`)}
-          </ProposalStatusStyle>
-        )}
       </ProposalHeaderStyle>
       <ProposalSeparatorStyle />
       <ProposalStyle
         id={`proposal_content_${position}`}
-        {...(isProposalAccepted ? { href: proposalLink } : { as: 'p' })}
+        {...(isProposalAccepted
+          ? {
+              href: getProposalLink(
+                question.country,
+                question.language,
+                question.slug,
+                proposal.id,
+                proposal.slug
+              ),
+            }
+          : { as: 'p' })}
       >
         {proposal.content}
       </ProposalStyle>
       {isProposalAccepted && (
         <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
       )}
-      <ProposalSeparatorStyle />
-      <FooterStyle>
-        <PostedInLabelStyle>
-          {i18n.t('proposal_card.posted_label')}
-        </PostedInLabelStyle>
-        <PostedInLinkStyle
-          {...(isProposalAccepted
-            ? { href: consultationLink }
-            : { as: 'span' })}
-        >
-          {wording.question}
-        </PostedInLinkStyle>
-      </FooterStyle>
+      <ProposalFooterWithQuestionElement
+        question={question}
+        consultationLink={getConsultationLink(
+          question.country,
+          question.language,
+          question.slug
+        )}
+        isProposalAccepted={isProposalAccepted}
+      />
     </ProfileProposalCardStyle>
   );
+};
+
+ProfileProposalCard.defaultPropTypes = {
+  withStatus: false,
 };

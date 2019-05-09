@@ -14,7 +14,7 @@ type Props = {
   /** React Element passed to Styled Component to render correct html tag */
   buttonType?: React.Node,
   /** When display pending */
-  displayPending: boolean,
+  displayPending?: boolean,
   /** Method called when vote button is clicked */
   handleVote?: (SyntheticEvent<HTMLButtonElement>) => void,
 };
@@ -41,4 +41,5 @@ export const VoteButtonElement = (props: Props) => {
 VoteButtonElement.defaultProps = {
   buttonType: VoteButtonStyle,
   handleVote: undefined,
+  displayPending: false,
 };

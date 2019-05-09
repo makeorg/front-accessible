@@ -69,12 +69,14 @@ class ProfileFavourites extends React.Component<Props, State> {
         {isLoading && <Spinner />}
         {proposalsLength ? (
           proposals.map((proposal, index) => (
-            <ProfileProposalCard
-              key={proposal.id}
-              proposal={proposal}
-              size={proposalsLength}
-              position={index}
-            />
+            <React.Fragment>
+              <ProfileProposalCard
+                key={proposal.id}
+                proposal={proposal}
+                size={proposalsLength}
+                position={index}
+              />
+            </React.Fragment>
           ))
         ) : (
           <FavouritesPlaceholder />

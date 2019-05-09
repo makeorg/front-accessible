@@ -28,10 +28,10 @@ Snapshot Diff:
 @@ -1,8 +1,8 @@
   <ButtonStyle
     aria-label="foo"
--   as="UnqualifyButtonStyle"
+-   as="IsQualifiedButtonStyle"
 +   as="QualifyButtonStyle"
     color="red"
-    onClick={[Function handleClick]}
+    onClick={[Function onClick]}
   >
     <span
       aria-hidden={true}

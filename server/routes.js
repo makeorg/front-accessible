@@ -83,7 +83,6 @@ export const initRoutes = app => {
   app.get(ROUTE_ORGANISATION_PROPOSALS, frontMiddlewares, organisationRoute);
   app.get(ROUTE_ORGANISATION_VOTES, frontMiddlewares, organisationRoute);
 
-  // TODO: enable profile routes when ready
   app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, profileRoute);
   app.get(ROUTE_PROFILE_PROPOSALS, frontMiddlewares, profileRoute);
   app.get(ROUTE_PROFILE_FAVOURITES, frontMiddlewares, profileRoute);

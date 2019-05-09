@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {
   ButtonStyle,
-  UnqualifyButtonStyle,
+  IsQualifiedButtonStyle,
   QualifyButtonStyle,
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
@@ -21,7 +21,7 @@ type Props = {
   /** When waiting qualification response from API */
   pendingQualification?: boolean,
   /** Method called when qualification button is clicked */
-  handleQualification: () => void,
+  handleClick?: () => void,
 };
 
 /**
@@ -33,18 +33,19 @@ export const QualificationButtonElement = (props: Props) => {
     label,
     isQualified,
     qualificationCounter,
-    handleQualification,
+    handleClick,
     pendingQualification,
   } = props;
-  const handleClick = event => {
+
+  const onClick = event => {
     event.preventDefault();
-    handleQualification();
+    if (handleClick) handleClick();
   };
   return (
     <ButtonStyle
-      as={isQualified ? UnqualifyButtonStyle : QualifyButtonStyle}
+      as={isQualified ? IsQualifiedButtonStyle : QualifyButtonStyle}
       color={color}
-      onClick={handleClick}
+      onClick={onClick}
       aria-label={pendingQualification ? i18n.t('common.loading') : label}
     >
       {pendingQualification ? (
@@ -64,4 +65,5 @@ export const QualificationButtonElement = (props: Props) => {
 QualificationButtonElement.defaultProps = {
   qualificationCounter: 0,
   pendingQualification: false,
+  handleClick: () => {},
 };

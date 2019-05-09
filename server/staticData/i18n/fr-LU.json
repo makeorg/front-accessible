@@ -298,6 +298,10 @@
       "description": "Attention, cette action est irréversible. Vous perdrez vos propositions, leurs statistiques détaillées, ainsi que les propositions sur lesquelles vous vous êtes prononcé(e).",
       "password_label": "J'indique mon mot de passe",
       "submit_label": "Demander la suppression de mon compte"
+    },
+    "organisation": {
+      "proposal_agree": "est d'accord avec cette proposition",
+      "proposal_disagree": "n'est pas d'accord avec cette proposition"
     }
   },
   "organisation": {

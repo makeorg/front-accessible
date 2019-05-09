@@ -36,6 +36,7 @@ export const TextColors = {
   LightGrey: 'rgb(242,242,242)',
   DarkGrey: 'rgb(83,83,83)',
   Success: 'rgb(110,182,31)',
+  Blue: 'rgb(74, 144, 226)',
 };
 
 export const ShadowColors = {

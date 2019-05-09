@@ -1,26 +1,48 @@
-/* @flow */
-import { type VoteType } from 'Shared/types/proposal';
+// @flow
+import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { BadArgumentError } from 'Shared/errors';
 import {
   VOTE_AGREE_KEY,
   VOTE_DISAGREE_KEY,
   VOTE_NEUTRAL_KEY,
 } from 'Shared/constants/vote';
 
-export const getResultBarIndex = (
-  proposalVoteKey: string,
-  proposalId: string
-) => `ResultBar_${proposalVoteKey}_${proposalId}`;
+/**
+ * calculate total number of vote
+ *
+ * @param {TypeVote[]} votes
+ */
+export const getTotalVotesCount = (votes: TypeVote[]): number => {
+  if (!votes.length) {
+    throw new BadArgumentError('votes cannot be an empty array');
+  }
 
-export const getTooltipIndex = (proposalVoteKey: string, proposalId: string) =>
-  `Tooltip_${proposalVoteKey}_${proposalId}`;
+  return votes
+    .map(vote => vote.count)
+    .reduce((total, voteCount) => total + voteCount);
+};
 
-export const getTotalVotesCount = (votes: VoteType[]) =>
-  votes.map(vote => vote.count).reduce((total, voteCount) => total + voteCount);
+/**
+ * check if is voted proposal
+ *
+ * @param {TypeVote[]} votes
+ */
+export const getIsVotedProposal = (votes: TypeVote[]): boolean => {
+  if (!votes.length) {
+    throw new BadArgumentError('votes cannot be an empty array');
+  }
+  return votes
+    .map(vote => vote.hasVoted)
+    .reduce((reducer, hasVoted) => hasVoted);
+};
 
-export const getIsVotedProposal = (votes: VoteType[]) =>
-  votes.map(vote => vote.hasVoted).reduce((reducer, hasVoted) => hasVoted);
-
-export const getVotesPercent = (votes: VoteType[], votesCount: number) => {
+/**
+ * calculate the percent by vote key
+ *
+ * @param {TypeVote} votes
+ * @param {number} votesCount
+ */
+export const getVotesPercent = (votes: TypeVote[], votesCount: number) => {
   const agreeVote: ?Object = votes.find(
     vote => vote.voteKey === VOTE_AGREE_KEY
   );

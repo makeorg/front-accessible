@@ -2,7 +2,10 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
-import { type QualificationType, type VoteType } from 'Shared/types/proposal';
+import {
+  type QualificationType,
+  type Vote as TypeVote,
+} from 'Shared/types/proposal';
 import {
   doVote,
   doUnvote,
@@ -20,7 +23,7 @@ type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array with votes received from Api */
-  votes: VoteType[],
+  votes: TypeVote[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Index of the card */
@@ -41,7 +44,7 @@ type State = {
   /** Voted key property */
   votedKey: string,
   /** Array with votes received from Api */
-  votes: VoteType[],
+  votes: TypeVote[],
   /** Array with qualifications received from Api */
   qualifications: QualificationType[],
   /** When waiting response from API */

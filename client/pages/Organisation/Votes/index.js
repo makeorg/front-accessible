@@ -1,7 +1,10 @@
 // @flow
 import * as React from 'react';
 import * as OrganisationService from 'Shared/services/Organisation';
-import { type OrganisationVote as TypeOrganisationVote } from 'Shared/types/partners';
+import {
+  type OrganisationVote as TypeOrganisationVote,
+  type Organisation as TypeOrganisation,
+} from 'Shared/types/partners';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
@@ -9,10 +12,10 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
 
 type Props = {
-  organisationName: string,
-  organisationId: string,
+  organisation: TypeOrganisation,
 };
 
 type State = {
@@ -29,9 +32,11 @@ class OrganisationVotesPage extends React.Component<Props, State> {
   }
 
   loadOrganisationVotes = async () => {
-    const { organisationId } = this.props;
+    const { organisation } = this.props;
 
-    const votes = await OrganisationService.getVotes(organisationId);
+    const votes = await OrganisationService.getVotes(
+      organisation.organisationId
+    );
 
     this.setState({
       votes,
@@ -39,7 +44,7 @@ class OrganisationVotesPage extends React.Component<Props, State> {
   };
 
   render() {
-    const { organisationName } = this.props;
+    const { organisation } = this.props;
     const { votes } = this.state;
 
     if (votes.length > 0) {
@@ -47,11 +52,21 @@ class OrganisationVotesPage extends React.Component<Props, State> {
         <CenterColumnStyle>
           <ProfileContentHeaderStyle>
             <SecondLevelTitleStyle>
-              {i18n.t('organisation.votes.title', { name: organisationName })}
+              {i18n.t('organisation.votes.title', {
+                name: organisation.organisationName,
+              })}
             </SecondLevelTitleStyle>
             <ProfileTitleSeparatorStyle />
           </ProfileContentHeaderStyle>
-          {votes && votes.map(vote => <h2>{vote.vote}</h2>)}
+          {votes &&
+            votes.map(vote => (
+              <ProfileVoteCard
+                key={`organisation_votes_${vote.proposal.id}`}
+                voteKey={vote.vote}
+                proposal={vote.proposal}
+                organisation={organisation}
+              />
+            ))}
         </CenterColumnStyle>
       );
     }

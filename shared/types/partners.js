@@ -1,5 +1,8 @@
 // @flow
-import { type Proposal as TypePropsal, type VoteType } from './proposal';
+import {
+  type Proposal as TypePropsal,
+  type Vote as TypeVote,
+} from './proposal';
 
 export type Partner = {
   name: string,
@@ -25,5 +28,5 @@ export type OrganisationVote = {
   proposal: TypePropsal,
   vote: string,
   voteDate: string,
-  voteDetails: VoteType,
+  voteDetails: TypeVote,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { ButtonStyle, UnvoteButtonStyle, VoteButtonStyle } from './index';
+import { ButtonStyle, IsVotedButtonStyle, VoteButtonStyle } from './index';
 
 describe('ButtonStyle', () => {
   it('snapshot by default', () => {
@@ -14,15 +14,15 @@ describe('ButtonStyle', () => {
   });
 });
 
-describe('UnvoteButtonStyle', () => {
+describe('IsVotedButtonStyle', () => {
   it('snapshot by default', () => {
-    const component = renderer.create(<UnvoteButtonStyle />).toJSON();
+    const component = renderer.create(<IsVotedButtonStyle />).toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('must set background-color from props', () => {
     const component = renderer
-      .create(<UnvoteButtonStyle color="red" />)
+      .create(<IsVotedButtonStyle color="red" />)
       .toJSON();
     expect(component).toHaveStyleRule('background-color', 'red');
   });
