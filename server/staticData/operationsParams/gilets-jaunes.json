@@ -23,7 +23,6 @@
     {"name": "Make.org", "imageUrl": "/images/operations/default/partners/make.png", "isFounder": false}
   ],
   "isGreatCause": false,
-  "consultationUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "aboutUrl": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
   "sequenceConfig": {
     "introCard": {

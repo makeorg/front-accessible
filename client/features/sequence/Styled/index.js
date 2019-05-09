@@ -70,6 +70,7 @@ export const ListStyle = styled(UnstyledListStyle)`
   position: relative;
   width: 100%;
   margin-top: 35px;
+  min-height: 400px;
   transition: transform 0.25s ease-in;
   ${props =>
     props.isSequenceCollapsed

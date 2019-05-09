@@ -46,6 +46,10 @@ export const ProposalCardStyle = styled.li`
   }
 `;
 
+export const PlaceholderCardStyle = styled(ProposalCardStyle)`
+  position: relative;
+`;
+
 export const ProposalCardCenteredStyle = styled(ProposalCardStyle)`
   justify-content: center;
 `;

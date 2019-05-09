@@ -56,11 +56,8 @@ export type QuestionConfiguration = {
   partners?: Partner[],
   consultation: ConsultationType,
   isGreatCause: boolean,
-  consultationUrl: string,
   aboutUrl: string,
-  sequenceUrl: string,
   sequenceConfig: ExtraSlidesConfig,
-  sequenceSignUpForm: any,
 };
 
 export type ConfigurationTypes =

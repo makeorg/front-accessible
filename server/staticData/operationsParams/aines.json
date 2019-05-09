@@ -32,7 +32,6 @@
     {"name": "Association France Dépendance", "imageUrl": "/images/operations/aines/partners/association-france-dependance.png", "isFounder": false}
   ],
   "isGreatCause": true,
-  "consultationUrl": "https://make.org/#/FR/consultation/aines/consultation",
   "aboutUrl": "https://about.make.org/about-aines",
   "sequenceConfig": {
     "introCard": {

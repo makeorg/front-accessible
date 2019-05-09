@@ -1,23 +1,32 @@
 /* @flow */
 
 import * as React from 'react';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
+import { getConsultationLink } from 'Shared/helpers/url';
 import { SequenceFooterComponent } from './SequenceFooterComponent';
 
 type Props = {
   /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
+  /** Object with operational data of a question * */
+  question: TypeQuestion,
 };
 
 /**
  * Handles Main Footer Business Logic
  */
 export const SequenceFooterContainer = (props: Props) => {
-  const { questionConfiguration } = props;
+  const { questionConfiguration, question } = props;
+  const consultationLink = getConsultationLink(
+    question.country,
+    question.language,
+    question.slug
+  );
   return (
     <SequenceFooterComponent
       theme={questionConfiguration.theme}
-      consultationUrl={questionConfiguration.consultationUrl}
+      consultationLink={consultationLink}
       questionTitle={questionConfiguration.wording.question}
     />
   );

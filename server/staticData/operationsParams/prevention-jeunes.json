@@ -22,7 +22,6 @@
     {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://ramsaygds.fr/"}
   ],
   "isGreatCause": false,
-  "consultationUrl": "https://app.make.org/FR-fr/consultation/prevention-jeunes/consultation",
   "aboutUrl": "https://about.make.org/about-prevention-jeunes",
   "sequenceConfig": {
     "introCard": {
