@@ -38,6 +38,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
+import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -82,7 +83,12 @@ const OrganisationPage = (props: Props) => {
       organisationSlug
     );
 
+    if (!loadedOrganisation) {
+      window.location = FRONT_LEGACY_ROOT;
+    }
+
     setOrganisation(loadedOrganisation);
+    return null;
   };
 
   useEffect(() => {

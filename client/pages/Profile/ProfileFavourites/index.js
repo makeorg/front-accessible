@@ -8,7 +8,7 @@ import { type User as TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { FavouritesPlaceholder } from 'Client/features/profile/Placeholders/Favourites';
+import { ProfileFavouritesPlaceholder } from 'Client/pages/Profile/Placeholders/Favourites';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
@@ -68,7 +68,7 @@ const ProfileFavourites = (props: Props) => {
             />
           </React.Fragment>
         ))}
-      {renderPlaceholder && <FavouritesPlaceholder />}
+      {renderPlaceholder && <ProfileFavouritesPlaceholder />}
     </CenterColumnStyle>
   );
 };

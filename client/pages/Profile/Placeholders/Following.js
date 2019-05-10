@@ -4,9 +4,9 @@ import { i18n } from 'Shared/i18n';
 import {
   SvgLikeStyle,
   PlaceholderParagraphStyle,
-} from '../Styled/Placeholders';
+} from 'Client/ui/Elements/PlaceholdersElements';
 
-export const FollowingPlaceholder = () => {
+export const ProfileFollowingPlaceholder = () => {
   return (
     <React.Fragment>
       <SvgLike aria-hidden style={SvgLikeStyle} />

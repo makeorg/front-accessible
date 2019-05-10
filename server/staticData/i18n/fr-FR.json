@@ -315,10 +315,12 @@
       "votes": "Prises de position"
     },
     "proposals": {
-      "title": "Les dernières propositions de {{name}}"
+      "title": "Les dernières propositions de {{name}}",
+      "text": "{{name}} n'a pas encore soumis de proposition sur Make.org."
     },
     "votes": {
-      "title": "Les dernières prises de position de {{name}}"
+      "title": "Les dernières prises de position de {{name}}",
+      "text": "{{name}} n'a pas encore pris position sur Make.org."
     }
   },
   "consultation": {

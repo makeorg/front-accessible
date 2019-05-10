@@ -9,18 +9,25 @@ import {
   MakeThemeColors,
   BasicColors,
   ShadowColors,
+  VoteColors,
 } from 'Client/app/assets/vars/Colors';
 
 export const SvgLikeStyle = {
   fontSize: '72px',
-  fill: `${MakeThemeColors.Red}`,
   margin: '15px 0 5px',
+  fill: `${MakeThemeColors.Red}`,
 };
 
 export const LightBulbStyle = {
   fontSize: '72px',
-  fill: 'rgb(255, 212, 0)',
   margin: '15px 0 5px',
+  fill: 'rgb(255, 212, 0)',
+};
+
+export const ThumbsUpStyle = {
+  fontSize: '72px',
+  margin: '15px 0 5px',
+  fill: `${VoteColors.Agree}`,
 };
 
 export const PlaceholderParagraphStyle = styled.p`

@@ -313,10 +313,12 @@
       "votes": "Stances"
     },
     "proposals": {
-      "title": "Latest proposals from {{name}}"
+      "title": "Latest proposals from {{name}}",
+      "text": "{{name}} didn't submit any proposals on Make.org."
     },
     "votes": {
-      "title": "Latest stances from {{name}}"
+      "title": "Latest stances from {{name}}",
+      "text": "{{name}} hasn't yet taken a stand on any proposal on Make.org."
     }
   },
   "consultation": {
