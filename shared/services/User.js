@@ -4,7 +4,6 @@ import { type UserInformationForm, type Passwords } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
-import * as ProposalService from 'Shared/services/Proposal';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
 import {
@@ -141,14 +140,12 @@ export const login = (email: string, password: string) => {
 
 export const myProposals = async (userId: string): Promise<TypeProposal[]> => {
   const { results } = await UserApiService.myProposals(userId);
-  const proposals = await ProposalService.enrichProposalsWithQuestion(results);
 
-  return proposals;
+  return results;
 };
 
 export const myFavourites = async (userId: string): Promise<TypeProposal[]> => {
   const { results } = await UserApiService.myFavourites(userId);
-  const proposals = await ProposalService.enrichProposalsWithQuestion(results);
 
-  return proposals;
+  return results;
 };
