@@ -39,7 +39,7 @@ export const ProposalFooterWithTagElement = ({
 type ProposalFooterWithQuestionElementProps = {
   question: TypeQuestion,
   consultationLink: string,
-  isProposalAccepted: boolean,
+  isProposalAccepted?: boolean,
 };
 
 export const ProposalFooterWithQuestionElement = ({
@@ -66,4 +66,8 @@ export const ProposalFooterWithQuestionElement = ({
       </ProposalFooterStyle>
     </React.Fragment>
   );
+};
+
+ProposalFooterWithQuestionElement.defaultProps = {
+  isProposalAccepted: true,
 };

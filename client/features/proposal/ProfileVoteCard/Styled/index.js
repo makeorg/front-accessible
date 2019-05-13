@@ -9,7 +9,8 @@ export const ProfileVoteCardStyle = styled.div`
   background-color: #0000000c;
 `;
 
-export const ProfileHasVotedStyle = styled.span`
+export const ProfileHasVotedStyle = styled.div`
+  display: inline-flex;
   width: 30px;
   height: 30px;
   justify-content: center;

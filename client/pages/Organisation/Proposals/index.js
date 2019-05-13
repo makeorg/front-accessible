@@ -10,8 +10,8 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
@@ -52,9 +52,10 @@ const OrganisationProposalsPage = (props: Props) => {
       {isLoading && <Spinner />}
       {renderProposals &&
         proposals.map((proposal, index) => (
-          <ProposalCardTagged
+          <ProposalCardWithQuestion
             key={proposal.id}
             proposal={proposal}
+            question={proposal.question}
             position={index + 1}
             size={proposalsLength}
           />
