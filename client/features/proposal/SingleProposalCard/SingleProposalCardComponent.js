@@ -25,14 +25,14 @@ type Props = {
   proposal: TypeProposal,
   /** Object with all question's properties */
   questionConfiguration: TypeQuestionConfiguration,
-  questionSlug: string,
 };
 
 /**
  * Renders Single Proposal Card
  */
 export const SingleProposalCardComponent = (props: Props) => {
-  const { proposal, questionConfiguration, questionSlug } = props;
+  const { proposal, questionConfiguration } = props;
+  const { question } = proposal;
 
   return (
     <TallCardStyle>
@@ -55,7 +55,7 @@ export const SingleProposalCardComponent = (props: Props) => {
                 operation_name: `<a href="${getConsultationLink(
                   proposal.country,
                   proposal.language,
-                  questionSlug
+                  question.slug
                 )}">${questionConfiguration.wording.title}</a>`,
               }),
             }}
@@ -67,7 +67,7 @@ export const SingleProposalCardComponent = (props: Props) => {
               to={getSequenceLink(
                 proposal.country,
                 proposal.language,
-                questionSlug
+                question.slug
               )}
             >
               {i18n.t('proposal_page.button_1')}
@@ -77,7 +77,7 @@ export const SingleProposalCardComponent = (props: Props) => {
               to={getConsultationLink(
                 proposal.country,
                 proposal.language,
-                questionSlug
+                question.slug
               )}
             >
               {i18n.t('proposal_page.button_2')}

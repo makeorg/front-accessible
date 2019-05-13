@@ -11,14 +11,13 @@ type Props = {
   proposal: TypeProposal,
   /** Object with Static properties of the question (theme, ...) */
   questionConfiguration: TypeQuestionConfiguration,
-  questionSlug: string,
 };
 
 /**
  * Renders SequenceContainerLoader
  */
 export const ProposalPageContentLoader = (props: Props) => {
-  const { proposal } = props;
+  const { proposal, questionConfiguration } = props;
 
   if (!proposal) {
     return <Spinner />;
@@ -26,7 +25,10 @@ export const ProposalPageContentLoader = (props: Props) => {
 
   return (
     <React.Fragment>
-      <SingleProposalCard {...props} />
+      <SingleProposalCard
+        proposal={proposal}
+        questionConfiguration={questionConfiguration}
+      />
       <SingleProposalSharingComponent />
     </React.Fragment>
   );

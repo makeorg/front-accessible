@@ -35,7 +35,9 @@ describe('Proposal route', () => {
       const proposalId = 'abcd';
       SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
       ProposalApiService.getProposal.mockReturnValue({
-        questionId,
+        question: {
+          questionId,
+        },
         proposalId,
       });
       createInitialState.mockReturnValue({ sequence: {} });
@@ -53,7 +55,9 @@ describe('Proposal route', () => {
       await proposalRoute(request, response, () => {});
 
       expect(reactRender).toHaveBeenCalledWith(request, response, {
-        proposal: { data: { questionId: '1234', proposalId: 'abcd' } },
+        proposal: {
+          data: { question: { questionId: '1234' }, proposalId: 'abcd' },
+        },
         questions: {
           '1234': { questionConfiguration: 'questionconfigData' },
         },

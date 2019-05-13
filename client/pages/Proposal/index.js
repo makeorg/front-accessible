@@ -1,6 +1,6 @@
 /* @flow */
 
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { i18n } from 'Shared/i18n';
@@ -17,42 +17,37 @@ import { ProposalPageContentLoader } from './ContentLoader';
 type Props = {
   proposal: TypeProposal,
   questionConfiguration: TypeQuestionConfiguration,
-  fetchProposal: (proposalId: string, questionSlug: string) => void,
+  fetchProposal: (proposalId: string) => void,
   match: TypeMatch,
 };
 
-class ProposalPageContainer extends React.Component<Props> {
-  componentDidMount() {
-    const { match, proposal, fetchProposal } = this.props;
+const ProposalPageContainer = (props: Props) => {
+  const { match, proposal, fetchProposal, questionConfiguration } = props;
 
+  useEffect(() => {
     if (!proposal) {
-      fetchProposal(match.params.proposalId, match.params.questionSlug);
+      fetchProposal(match.params.proposalId);
     }
+  }, []);
+
+  if (!questionConfiguration) {
+    return null;
   }
 
-  render() {
-    const { match, proposal, questionConfiguration } = this.props;
-
-    if (!questionConfiguration) {
-      return null;
-    }
-
-    return (
-      <ThemeProvider theme={questionConfiguration.theme}>
-        <MiddlePageWrapperStyle>
-          <MetaTags description={i18n.t('meta.proposal.description')} />
-          {proposal && (
-            <ProposalPageContentLoader
-              proposal={proposal}
-              questionConfiguration={questionConfiguration}
-              questionSlug={match.params.questionSlug}
-            />
-          )}
-        </MiddlePageWrapperStyle>
-      </ThemeProvider>
-    );
-  }
-}
+  return (
+    <ThemeProvider theme={questionConfiguration.theme}>
+      <MiddlePageWrapperStyle>
+        <MetaTags description={i18n.t('meta.proposal.description')} />
+        {proposal && (
+          <ProposalPageContentLoader
+            proposal={proposal}
+            questionConfiguration={questionConfiguration}
+          />
+        )}
+      </MiddlePageWrapperStyle>
+    </ThemeProvider>
+  );
+};
 
 const mapStateToProps = state => {
   const { data } = state.proposal;
@@ -64,10 +59,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchProposal: (proposalId: string, questionSlug: string) => {
+  fetchProposal: (proposalId: string) => {
     dispatch(fetchProposalData(proposalId)).then((proposal: TypeProposal) => {
+      const { question } = proposal;
       dispatch(
-        fetchQuestionConfigurationData(questionSlug, proposal.questionId)
+        fetchQuestionConfigurationData(question.slug, question.questionId)
       );
     });
   },

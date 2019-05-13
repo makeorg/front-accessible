@@ -19,13 +19,13 @@ export const proposalRoute = async (req, res) => {
     routeState = {
       sequence: {
         ...initialState.sequence,
-        questionId: proposal.questionId,
+        questionId: proposal.question.questionId,
       },
       proposal: {
         data: proposal,
       },
       questions: {
-        [proposal.questionId]: {
+        [proposal.question.questionId]: {
           questionConfiguration,
         },
       },
