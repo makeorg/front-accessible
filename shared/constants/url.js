@@ -1,3 +1,4 @@
+export const FRONT_LEGACY_ROOT = 'https://make.org';
 export const CGU_LINK = 'https://about.make.org/terms-of-use';
 export const DATA_POLICY_LINK = 'https://about.make.org/data-use-policy';
 export const MODERATION_CHARTER_LINK =

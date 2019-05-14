@@ -1,8 +1,6 @@
 /* @flow */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { type match as TypeMatch } from 'react-router';
 import { type User as TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
@@ -13,39 +11,48 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 
 type Props = {
   user?: TypeUser,
-  match: TypeMatch,
 };
 
-class ProfileFollowing extends React.Component<Props> {
-  render() {
-    const { user, match } = this.props;
+const ProfileFollowing = (props: Props) => {
+  const { user } = props;
 
+  useEffect(() => {
     if (!user) {
-      return <Redirect to={`/${match.params.countryLanguage}`} />;
+      window.location = FRONT_LEGACY_ROOT;
     }
+  });
 
-    const hasFollowed = user.followedUsers.length;
-
+  if (!user) {
     return (
       <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('profile.following.title')}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
-        {hasFollowed ? (
-          user.followedUsers.map(followed => <div>{followed}</div>)
-        ) : (
-          <FollowingPlaceholder />
-        )}
+        <Spinner />
       </CenterColumnStyle>
     );
   }
-}
+
+  const hasFollowed = user.followedUsers.length;
+
+  return (
+    <CenterColumnStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('profile.following.title')}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      {hasFollowed ? (
+        user.followedUsers.map(followed => <div>{followed}</div>)
+      ) : (
+        <FollowingPlaceholder />
+      )}
+    </CenterColumnStyle>
+  );
+};
 
 const mapStateToProps = state => {
   const { user } = selectAuthentification(state);
