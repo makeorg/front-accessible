@@ -3,5 +3,5 @@
 export type Organisation = {
   organisationId: string,
   organisationName: string,
-  slug: string,
+  organisationSlug: string,
 };

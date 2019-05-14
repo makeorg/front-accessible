@@ -55,7 +55,6 @@ const OrganisationProposalsPage = (props: Props) => {
           <ProposalCardWithQuestion
             key={proposal.id}
             proposal={proposal}
-            question={proposal.question}
             position={index + 1}
             size={proposalsLength}
           />

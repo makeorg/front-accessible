@@ -11,6 +11,7 @@ import {
   ProposalCardStyle,
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
+import { OrganisationsVote } from 'Client/features/vote/Organisation';
 
 type Props = {
   proposal: TypeProposal,
@@ -55,6 +56,7 @@ export const ProposalCardTagged = (props: Props) => {
         proposalKey={proposal.proposalKey}
         index={position}
       />
+      <OrganisationsVote proposal={proposal} />
       <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardStyle>
   );
