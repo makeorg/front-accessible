@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { Vote } from 'Client/features/vote';
-import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
@@ -11,18 +10,17 @@ import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProposalCardTaggedStyle, ProposalStyle } from './Styled';
 
 type Props = {
-  question: TypeQuestion,
   proposal: TypeProposal,
   position: number,
   size: number,
 };
 
 export const ProposalCardTagged = (props: Props) => {
-  const { question, proposal, position, size } = props;
-  const { author } = proposal;
+  const { proposal, position, size } = props;
+  const { author, question } = proposal;
   const proposalLink = getProposalLink(
-    question.country,
-    question.language,
+    proposal.country,
+    proposal.language,
     question.slug,
     proposal.id,
     proposal.slug

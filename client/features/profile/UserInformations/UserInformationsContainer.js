@@ -11,14 +11,14 @@ import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
-  UserAvatarStyle,
-  UserContentWrapperStyle,
-  UserTitleStyle,
-  UserContentStyle,
-  UserSeparatorStyle,
-  UserAvatarLayoutStyle,
-  UserInformationButtonStyle,
-} from '../Styled/UserInformations';
+  ProfileAvatarStyle,
+  ProfileContentWrapperStyle,
+  ProfileTitleStyle,
+  ProfileContentStyle,
+  ProfileSeparatorStyle,
+  ProfileAvatarLayoutStyle,
+  ProfileInformationButtonStyle,
+} from 'Client/ui/Elements/ProfileElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -53,48 +53,48 @@ class UserInformationsHandler extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <UserAvatarLayoutStyle>
-          <UserAvatarStyle>
+        <ProfileAvatarLayoutStyle>
+          <ProfileAvatarStyle>
             <Avatar avatarSize={avatarSize}>
               {profile.avatarUrl && (
                 <img src={profile.avatarUrl} alt={user.firstName} aria-hidden />
               )}
             </Avatar>
-          </UserAvatarStyle>
-          <UserContentWrapperStyle>
-            <UserTitleStyle>{user.firstName}</UserTitleStyle>
-            <UserContentStyle>{user.email}</UserContentStyle>
+          </ProfileAvatarStyle>
+          <ProfileContentWrapperStyle>
+            <ProfileTitleStyle>{user.firstName}</ProfileTitleStyle>
+            <ProfileContentStyle>{user.email}</ProfileContentStyle>
             {profile.postalCode && (
-              <UserContentStyle>
+              <ProfileContentStyle>
                 <SvgMapMarker style={{ marginRight: '3px' }} />
                 {profile.postalCode}
-              </UserContentStyle>
+              </ProfileContentStyle>
             )}
             {profile.dateOfBirth && (
-              <UserContentStyle>
+              <ProfileContentStyle>
                 {i18n.t('profile.common.age', {
                   age: getAgeFromDateOfBrth(profile.dateOfBirth),
                 })}
-              </UserContentStyle>
+              </ProfileContentStyle>
             )}
             {profile.profession && (
-              <UserContentStyle>{profile.profession}</UserContentStyle>
+              <ProfileContentStyle>{profile.profession}</ProfileContentStyle>
             )}
-          </UserContentWrapperStyle>
-        </UserAvatarLayoutStyle>
+          </ProfileContentWrapperStyle>
+        </ProfileAvatarLayoutStyle>
         {profile.description && (
           <React.Fragment>
-            <UserSeparatorStyle aria-hidden />
+            <ProfileSeparatorStyle aria-hidden />
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}
         {navigationBar}
-        <UserInformationButtonStyle onClick={handleLogout}>
+        <ProfileInformationButtonStyle onClick={handleLogout}>
           <IconWrapperStyle aria-hidden>
             <SvgSignOut />
           </IconWrapperStyle>
           {i18n.t('profile.common.log_out')}
-        </UserInformationButtonStyle>
+        </ProfileInformationButtonStyle>
       </React.Fragment>
     );
   }

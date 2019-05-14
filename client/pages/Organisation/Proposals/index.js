@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as OrganisationService from 'Shared/services/Organisation';
 import { type Organisation as TypeOrganisation } from 'Shared/types/partners';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
@@ -16,62 +16,48 @@ type Props = {
   organisation: TypeOrganisation,
 };
 
-type State = {
-  proposals: TypeProposal[],
-};
+const OrganisationProposalsPage = (props: Props) => {
+  const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const { organisation } = props;
 
-class OrganisationProposalsPage extends React.Component<Props, State> {
-  state = {
-    proposals: [],
-  };
-
-  async componentDidMount() {
-    this.loadOrganisationVotes();
-  }
-
-  loadOrganisationVotes = async () => {
-    const { organisation } = this.props;
-
-    const proposals = await OrganisationService.getProposals(
+  const fetchProposals = async () => {
+    const loadedProposals: TypeProposal[] = await OrganisationService.getProposals(
       organisation.organisationId
     );
-
-    this.setState({
-      proposals,
-    });
+    setProposals(loadedProposals);
   };
 
-  render() {
-    const { organisation } = this.props;
-    const { proposals } = this.state;
-    const proposalsLength = proposals.length;
-    if (proposalsLength > 0) {
-      return (
-        <CenterColumnStyle>
-          <ProfileContentHeaderStyle>
-            <SecondLevelTitleStyle>
-              {i18n.t('organisation.proposals.title', {
-                name: organisation.organisationName,
-              })}
-            </SecondLevelTitleStyle>
-            <ProfileTitleSeparatorStyle />
-          </ProfileContentHeaderStyle>
-          {proposals &&
-            proposals.map((proposal, index) => (
-              <ProposalCardTagged
-                proposal={proposal}
-                question={proposal.question}
-                position={index + 1}
-                size={proposalsLength}
-              />
-            ))}
-        </CenterColumnStyle>
-      );
-    }
+  useEffect(() => {
+    fetchProposals();
+  }, []);
 
+  const proposalsLength = proposals.length;
+
+  if (!proposalsLength) {
     return null;
   }
-}
+
+  return (
+    <CenterColumnStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('organisation.proposals.title', {
+            name: organisation.organisationName,
+          })}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      {proposals &&
+        proposals.map((proposal, index) => (
+          <ProposalCardTagged
+            proposal={proposal}
+            position={index + 1}
+            size={proposalsLength}
+          />
+        ))}
+    </CenterColumnStyle>
+  );
+};
 
 // default export needed for loadable component
 export default OrganisationProposalsPage; // eslint-disable-line import/no-default-export
