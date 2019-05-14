@@ -49,8 +49,8 @@ export const ProfileProposalCard = (props: Props) => {
         {...(isProposalAccepted
           ? {
               href: getProposalLink(
-                question.country,
-                question.language,
+                proposal.country,
+                proposal.language,
                 question.slug,
                 proposal.id,
                 proposal.slug
@@ -66,8 +66,8 @@ export const ProfileProposalCard = (props: Props) => {
       <ProposalFooterWithQuestionElement
         question={question}
         consultationLink={getConsultationLink(
-          question.country,
-          question.language,
+          proposal.country,
+          proposal.language,
           question.slug
         )}
         isProposalAccepted={isProposalAccepted}

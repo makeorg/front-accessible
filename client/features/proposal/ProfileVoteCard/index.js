@@ -69,8 +69,8 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
         <ProposalStyle
           id={`proposal_content_${position}`}
           href={getProposalLink(
-            question.country,
-            question.language,
+            proposal.country,
+            proposal.language,
             question.slug,
             proposal.id,
             proposal.slug
