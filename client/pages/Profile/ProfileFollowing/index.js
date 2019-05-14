@@ -6,12 +6,12 @@ import { i18n } from 'Shared/i18n';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { FollowingPlaceholder } from 'Client/features/profile/Placeholders/Following';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
+import { ProfileFollowingPlaceholder } from 'Client/pages/Profile/Placeholders/Following';
 
 type Props = {
   user?: TypeUser,
@@ -38,7 +38,7 @@ const ProfileFollowing = (props: Props) => {
       {hasFollowed ? (
         user.followedUsers.map(followed => <div>{followed}</div>)
       ) : (
-        <FollowingPlaceholder />
+        <ProfileFollowingPlaceholder />
       )}
     </CenterColumnStyle>
   );

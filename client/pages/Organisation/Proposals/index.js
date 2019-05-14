@@ -11,6 +11,8 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
   organisation: TypeOrganisation,
@@ -18,24 +20,24 @@ type Props = {
 
 const OrganisationProposalsPage = (props: Props) => {
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { organisation } = props;
+  const proposalsLength = proposals.length;
+  const renderProposals = !!proposalsLength && !isLoading;
+  const renderPlaceholder = !proposalsLength && !isLoading;
 
   const fetchProposals = async () => {
     const loadedProposals: TypeProposal[] = await OrganisationService.getProposals(
       organisation.organisationId
     );
+
     setProposals(loadedProposals);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchProposals();
   }, []);
-
-  const proposalsLength = proposals.length;
-
-  if (!proposalsLength) {
-    return null;
-  }
 
   return (
     <CenterColumnStyle>
@@ -47,14 +49,21 @@ const OrganisationProposalsPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      {proposals &&
+      {isLoading && <Spinner />}
+      {renderProposals &&
         proposals.map((proposal, index) => (
           <ProposalCardTagged
+            key={proposal.id}
             proposal={proposal}
             position={index + 1}
             size={proposalsLength}
           />
         ))}
+      {renderPlaceholder && (
+        <OrganisationProposalsPlaceholder
+          name={organisation.organisationName}
+        />
+      )}
     </CenterColumnStyle>
   );
 };

@@ -7,7 +7,7 @@ import { type User as TypeUser } from 'Shared/types/user';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { ProposalsPlaceholder } from 'Client/features/profile/Placeholders/Proposals';
+import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -66,7 +66,7 @@ const ProfileProposals = (props: Props) => {
             withStatus
           />
         ))}
-      {renderPlaceholder && <ProposalsPlaceholder />}
+      {renderPlaceholder && <ProfileProposalsPlaceholder />}
     </CenterColumnStyle>
   );
 };

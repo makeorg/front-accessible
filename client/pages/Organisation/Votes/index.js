@@ -13,6 +13,8 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { OrganisationVotesPlaceholder } from '../Placeholders/Votes';
 
 type Props = {
   organisation: TypeOrganisation,
@@ -20,7 +22,11 @@ type Props = {
 
 const OrganisationVotesPage = (props: Props) => {
   const [votes, setVotes] = useState<TypeOrganisationVote[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { organisation } = props;
+  const votesLength = votes.length;
+  const renderVotes = !!votesLength && !isLoading;
+  const renderPlaceholder = !votesLength && !isLoading;
 
   const fetchVotes = async () => {
     const loadedVotes: TypeOrganisationVote[] = await OrganisationService.getVotes(
@@ -28,37 +34,38 @@ const OrganisationVotesPage = (props: Props) => {
     );
 
     setVotes(loadedVotes);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchVotes();
   }, []);
 
-  if (votes.length > 0) {
-    return (
-      <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('organisation.votes.title', {
-              name: organisation.organisationName,
-            })}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
-        {votes &&
-          votes.map(vote => (
-            <ProfileVoteCard
-              key={`organisation_votes_${vote.proposal.id}`}
-              voteKey={vote.vote}
-              proposal={vote.proposal}
-              organisation={organisation}
-            />
-          ))}
-      </CenterColumnStyle>
-    );
-  }
-
-  return null;
+  return (
+    <CenterColumnStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('organisation.votes.title', {
+            name: organisation.organisationName,
+          })}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      {isLoading && <Spinner />}
+      {renderVotes &&
+        votes.map(vote => (
+          <ProfileVoteCard
+            key={`organisation_votes_${vote.proposal.id}`}
+            voteKey={vote.vote}
+            proposal={vote.proposal}
+            organisation={organisation}
+          />
+        ))}
+      {renderPlaceholder && (
+        <OrganisationVotesPlaceholder name={organisation.organisationName} />
+      )}
+    </CenterColumnStyle>
+  );
 };
 
 // default export needed for loadable component

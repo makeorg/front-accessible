@@ -24,9 +24,9 @@ import {
   PlaceholderParagraphStyle,
   FavouritesCardStyle,
   FavouritesProposalStyle,
-} from '../Styled/Placeholders';
+} from 'Client/ui/Elements/PlaceholdersElements';
 
-export const FavouritesPlaceholder = () => {
+export const ProfileFavouritesPlaceholder = () => {
   return (
     <React.Fragment>
       <SvgLike aria-hidden style={SvgLikeStyle} />
