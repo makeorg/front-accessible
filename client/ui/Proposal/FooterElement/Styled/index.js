@@ -14,6 +14,7 @@ export const ProposalFooterStyle = styled.div`
 
 export const PostedInLabelStyle = styled.span`
   font-size: 12px;
+  margin-right: 5px;
   color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

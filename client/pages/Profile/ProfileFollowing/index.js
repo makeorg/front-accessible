@@ -1,5 +1,5 @@
 /* @flow */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { type User as TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
@@ -12,7 +12,6 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 
 type Props = {
   user?: TypeUser,
@@ -21,18 +20,9 @@ type Props = {
 const ProfileFollowing = (props: Props) => {
   const { user } = props;
 
-  useEffect(() => {
-    if (!user) {
-      window.location = FRONT_LEGACY_ROOT;
-    }
-  });
-
   if (!user) {
-    return (
-      <CenterColumnStyle>
-        <Spinner />
-      </CenterColumnStyle>
-    );
+    window.location = FRONT_LEGACY_ROOT;
+    return null;
   }
 
   const hasFollowed = user.followedUsers.length;
