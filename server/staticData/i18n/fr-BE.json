@@ -350,7 +350,8 @@
       "commitment_text": "Ils soutiennent la consultation et le plan d'actions citoyen qui suivra.",
       "commitment_link": "Voir tous les  partenaires",
       "founder": "Partenaire Fondateur",
-      "init": "Cette consultation a été initiée par :"
+      "init": "Cette consultation a été initiée par :",
+      "initWith": "Cette consultation a été initiée avec :"
     },
     "tags": {
       "intro": "Filtrer par tags :",

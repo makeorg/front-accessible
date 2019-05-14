@@ -29,9 +29,7 @@ export const PresentationComponent = (props: Props) => {
       >
         {i18n.t('consultation.presentation.link_text')}
       </ParagraphRedLinkStyle>
-      {!questionConfiguration.isGreatCause && (
-        <Founders questionConfiguration={questionConfiguration} />
-      )}
+      <Founders questionConfiguration={questionConfiguration} />
     </React.Fragment>
   );
 };

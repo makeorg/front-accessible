@@ -13,11 +13,26 @@ type Props = {
 
 export const FoundersComponent = (props: Props) => {
   const { questionConfiguration } = props;
+
+  const founders =
+    typeof questionConfiguration.partners === 'undefined'
+      ? []
+      : questionConfiguration.partners.filter(partner => partner.isFounder);
   return (
     <React.Fragment>
-      <TileSeparatorStyle />
-      <ParagraphStyle>{i18n.t('consultation.partners.init')}</ParagraphStyle>
-      <PartnersList partners={questionConfiguration.partners} />
+      {founders.length > 0 && (
+        <React.Fragment>
+          <TileSeparatorStyle />
+          <ParagraphStyle>
+            {i18n.t(
+              questionConfiguration.isGreatCause
+                ? 'consultation.partners.initWith'
+                : 'consultation.partners.init'
+            )}
+          </ParagraphStyle>
+          <PartnersList partners={founders} />
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };
