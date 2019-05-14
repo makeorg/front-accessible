@@ -26,7 +26,7 @@ const ProfileProposals = (props: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { user } = props;
   const proposalsLength = proposals.length;
-  const renderProposals = proposalsLength && !isLoading;
+  const renderProposals = !!proposalsLength && !isLoading;
   const renderPlaceholder = !proposalsLength && !isLoading;
 
   const fetchProposals = async () => {
@@ -39,19 +39,12 @@ const ProfileProposals = (props: Props) => {
   };
 
   useEffect(() => {
-    if (!user) {
-      window.location = FRONT_LEGACY_ROOT;
-    }
-
     fetchProposals();
-  }, []);
+  }, [user]);
 
   if (!user) {
-    return (
-      <CenterColumnStyle>
-        <Spinner />
-      </CenterColumnStyle>
-    );
+    window.location = FRONT_LEGACY_ROOT;
+    return null;
   }
 
   return (

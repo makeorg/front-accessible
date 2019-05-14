@@ -55,18 +55,20 @@ class TrackingSingleton {
       );
       return Promise.resolve();
     }
+    const params = {
+      eventName,
+      eventParameters,
+      eventType: 'trackCustom',
+    };
 
     return ApiService.callApi(PATH_POST_TRACKING, {
       method: 'POST',
-      body: JSON.stringify({
-        eventName,
-        eventParameters,
-        eventType: 'trackCustom',
-      }),
+      body: JSON.stringify(params),
     }).catch(error =>
       Logger.logError({
         source: 'Tracking api call error',
-        error,
+        ...params,
+        ...error,
       })
     );
   };
