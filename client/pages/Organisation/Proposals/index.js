@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import * as OrganisationService from 'Shared/services/Organisation';
-import { type Organisation as TypeOrganisation } from 'Shared/types/partners';
+import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';

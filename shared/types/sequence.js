@@ -8,7 +8,7 @@ import {
 
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
-import { type Partner } from 'Shared/types/partners';
+import { type Partner as TypePartner } from 'Shared/types/organisation';
 
 export type ExtraSlidesConfig = {
   introCard: IntroCardConfig,
@@ -53,7 +53,7 @@ export type QuestionConfiguration = {
   wording: Wording,
   sharing: Sharing,
   theme: QuestionTheme,
-  partners?: Partner[],
+  partners?: TypePartner[],
   consultation: ConsultationType,
   isGreatCause: boolean,
   aboutUrl: string,
