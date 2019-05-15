@@ -78,20 +78,19 @@ const OrganisationPage = (props: Props) => {
     ROUTE_ORGANISATION_VOTES
   );
 
-  const fetchOrganisation = async () => {
-    const loadedOrganisation: ?TypeOrganisation = await OrganisationService.getOrganisationBySlug(
-      organisationSlug
-    );
-
-    if (!loadedOrganisation) {
-      window.location = FRONT_LEGACY_ROOT;
-    }
-
-    setOrganisation(loadedOrganisation);
-    return null;
-  };
-
   useEffect(() => {
+    const fetchOrganisation = async () => {
+      const loadedOrganisation: ?TypeOrganisation = await OrganisationService.getOrganisationBySlug(
+        organisationSlug
+      );
+
+      if (!loadedOrganisation) {
+        window.location = FRONT_LEGACY_ROOT;
+      }
+
+      setOrganisation(loadedOrganisation);
+    };
+
     fetchOrganisation();
 
     const isMobile = window.matchMedia(
@@ -101,7 +100,7 @@ const OrganisationPage = (props: Props) => {
     if (!isMobile) {
       setAvatarSize(160);
     }
-  }, []);
+  }, [organisationSlug]);
 
   if (!organisation) {
     return (

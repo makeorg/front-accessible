@@ -29,16 +29,16 @@ const ProfileFavourites = (props: Props) => {
   const renderProposals = !!proposalsLength && !isLoading;
   const renderPlaceholder = !proposalsLength && !isLoading;
 
-  const fetchProposals = async () => {
-    const loadedProposals: TypeProposal[] = await UserService.myFavourites(
-      user.userId
-    );
-
-    setProposals(loadedProposals);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchProposals = async () => {
+      const loadedProposals: TypeProposal[] = await UserService.myFavourites(
+        user.userId
+      );
+
+      setProposals(loadedProposals);
+      setIsLoading(false);
+    };
+
     fetchProposals();
   }, [user]);
 

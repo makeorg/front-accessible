@@ -45,7 +45,9 @@
       {
         "maxSize": 3
       }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "extends": [
     "plugin:security/recommended",
@@ -61,7 +63,8 @@
     "security",
     "import",
     "jest",
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
   "settings": {
     "import/resolver": {

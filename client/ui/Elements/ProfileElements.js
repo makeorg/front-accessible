@@ -104,7 +104,7 @@ export const ProfileTabIconStyle = {
 };
 
 export const ProfileAvatarLayoutStyle = styled(FlexElementStyle)`
-  align-self: flex-start;
+  align-self: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: column;
     align-self: center;
@@ -127,6 +127,11 @@ export const ProfileContentWrapperStyle = styled(ColumnElementStyle)`
   }
 `;
 
+export const ProfileNavigationStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ProfileTitleStyle = styled(ThirdLevelTitleStyle)`
   margin: 5px 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -135,7 +140,7 @@ export const ProfileTitleStyle = styled(ThirdLevelTitleStyle)`
 `;
 
 export const ProfileContentStyle = styled(ParagraphStyle)`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: center;
   }
