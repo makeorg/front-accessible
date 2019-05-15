@@ -56,7 +56,13 @@ export const ProposalCardTagged = (props: Props) => {
         proposalKey={proposal.proposalKey}
         index={position}
       />
-      <OrganisationsVote proposal={proposal} />
+      {proposal.organisations && (
+        <OrganisationsVote
+          organisations={proposal.organisations}
+          country={proposal.country}
+          language={proposal.country}
+        />
+      )}
       <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardStyle>
   );

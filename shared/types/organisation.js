@@ -31,7 +31,7 @@ export type OrganisationVote = {
   voteDetails: TypeVote,
 };
 
-export type OrganisationStances = {
+export type OrganisationSoft = {
   organisationId: string,
   organisationName: string,
   organisationSlug: string,
