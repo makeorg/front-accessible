@@ -3,9 +3,16 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
-import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
+import { FRONT_LEGACY_ROOT, WHOAREWE_LINK } from 'Shared/constants/url';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
+import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { HeaderAuthentification } from './Authentification';
-import { HeaderStyle, HeaderInnerStyle, HeaderLogoStyle } from './Styled';
+import {
+  HeaderStyle,
+  HeaderInnerStyle,
+  HeaderLogoStyle,
+  WhoAreWeLinkStyle,
+} from './Styled';
 
 /**
  * Renders Main Header
@@ -23,7 +30,14 @@ export const HeaderComponent = () => {
             />
           </h1>
         </a>
-        <HeaderAuthentification />
+        <FlexElementStyle>
+          <HiddenOnMobileStyle>
+            <WhoAreWeLinkStyle href={WHOAREWE_LINK} target="blank_">
+              {i18n.t('header.whoarewe')}
+            </WhoAreWeLinkStyle>
+          </HiddenOnMobileStyle>
+          <HeaderAuthentification />
+        </FlexElementStyle>
       </HeaderInnerStyle>
     </HeaderStyle>
   );

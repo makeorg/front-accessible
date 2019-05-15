@@ -48,7 +48,8 @@
     "profile_nav": "Navigate to my user profile"
   },
   "header": {
-    "logo_alt": "Go to the Make.org site"
+    "logo_alt": "Go to the Make.org site",
+    "whoarewe": "Who are we ?"
   },
   "proposal_page": {
     "button_1": "participate",

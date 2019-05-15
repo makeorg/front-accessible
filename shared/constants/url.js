@@ -5,3 +5,4 @@ export const MODERATION_CHARTER_LINK =
   'https://about.make.org/moderation-charter';
 export const LEGAL_NOTICE_LINK = 'https://about.make.org/legal-notice';
 export const CONTACT_LINK = 'https://about.make.org/contact';
+export const WHOAREWE_LINK = 'https://about.make.org/qui-sommes-nous';
