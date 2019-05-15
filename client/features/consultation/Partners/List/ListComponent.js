@@ -1,5 +1,5 @@
 import React from 'react';
-import { type Partner } from 'Shared/types/partners';
+import { type Partner as TypePartner } from 'Shared/types/organisation';
 import {
   PartnersListStyle,
   AvatarWrapperStyle,
@@ -9,7 +9,7 @@ import { PartnerTooltip } from '../Tooltip';
 import { PartnerAvatar } from '../Avatar';
 
 type Props = {
-  partners?: Partner[],
+  partners?: TypePartner[],
 };
 
 /**

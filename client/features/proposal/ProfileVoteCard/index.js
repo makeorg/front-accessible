@@ -14,11 +14,11 @@ import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { TextColors } from 'Client/app/assets/vars/Colors';
-import { ProfileVoteCardStyle, ProfileHasVotedStyle } from './Styled';
 import {
-  ProposalCardTaggedStyle,
+  ProposalCardStyle,
   ProposalStyle,
-} from '../ProposalCardTagged/Styled';
+} from 'Client/ui/Elements/ProposalCardElements';
+import { ProfileVoteCardStyle, ProfileHasVotedStyle } from './Styled';
 
 type Props = {
   organisation: TypeOrganisation,
@@ -33,24 +33,21 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
   const voteAttributes = voteStaticParams[voteKey];
   return (
     <ProfileVoteCardStyle>
-      <div>
-        <React.Fragment>
-          <ProfileHasVotedStyle
-            aria-label={voteAttributes.label}
-            color={voteAttributes.color}
-          >
-            <SvgThumbsUp />
-          </ProfileHasVotedStyle>
-          <RedLinkStyle href="#">{organisation.organisationName}</RedLinkStyle>
-          &nbsp;
-          <SvgCheckedSymbol
-            style={{ fontSize: '14px', fill: TextColors.Blue }}
-          />
-          &nbsp;
-          {i18n.t(`profile.organisation.proposal_${voteKey}`)}
-        </React.Fragment>
-      </div>
-      <ProposalCardTaggedStyle
+      <React.Fragment>
+        <ProfileHasVotedStyle
+          aria-label={voteAttributes.label}
+          color={voteAttributes.color}
+        >
+          <SvgThumbsUp />
+        </ProfileHasVotedStyle>
+        <RedLinkStyle href="#">{organisation.organisationName}</RedLinkStyle>
+        &nbsp;
+        <SvgCheckedSymbol style={{ fontSize: '14px', fill: TextColors.Blue }} />
+        &nbsp;
+        {i18n.t(`profile.organisation.proposal_${voteKey}`)}
+      </React.Fragment>
+
+      <ProposalCardStyle
         aria-labelledby={`proposal_author_${position}`}
         aria-describedby={`proposal_content_${position}`}
         role="article"
@@ -84,7 +81,7 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
           votedKey={voteKey}
         />
         <ProposalFooterWithTagElement tags={proposal.tags} />
-      </ProposalCardTaggedStyle>
+      </ProposalCardStyle>
     </ProfileVoteCardStyle>
   );
 };

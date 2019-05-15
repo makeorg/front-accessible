@@ -9,7 +9,7 @@ import {
 } from 'react-router';
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
-import { type Organisation as TypeOrganisation } from 'Shared/types/partners';
+import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 import { MetaTags } from 'Client/app/MetaTags';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {

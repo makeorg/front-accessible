@@ -4,7 +4,7 @@ import * as OrganisationService from 'Shared/services/Organisation';
 import {
   type OrganisationVote as TypeOrganisationVote,
   type Organisation as TypeOrganisation,
-} from 'Shared/types/partners';
+} from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';

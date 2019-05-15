@@ -304,7 +304,10 @@
     },
     "organisation": {
       "proposal_agree": "agrees with this proposal",
-      "proposal_disagree": "disagrees with this proposal"
+      "proposal_disagree": "disagrees with this proposal",
+      "and": " and ",
+      "hasVoted": " voted on this proposal.",
+      "hasVoted_plural": " voted on this proposal."
     }
   },
   "organisation": {

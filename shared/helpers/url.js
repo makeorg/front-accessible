@@ -5,6 +5,7 @@ import {
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
+  ROUTE_ORGANISATION_PROFILE,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -107,4 +108,23 @@ export const getProposalLink = (
     .replace(':questionSlug', questionSlug)
     .replace(':proposalId', proposalId)
     .replace(':proposalSlug', proposalSlug);
+};
+
+/**
+ * Get the organisation profile link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} organisationSlug
+ * @return {string}
+ */
+export const getOrganisationProfileLink = (
+  country: string,
+  language: string,
+  organisationSlug: string
+) => {
+  return ROUTE_ORGANISATION_PROFILE.replace(
+    ':countryLanguage',
+    `${country}-${language}`
+  ).replace(':organisationSlug', organisationSlug);
 };

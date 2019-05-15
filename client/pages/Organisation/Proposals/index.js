@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import * as OrganisationService from 'Shared/services/Organisation';
-import { type Organisation as TypeOrganisation } from 'Shared/types/partners';
+import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -10,8 +10,8 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
@@ -52,7 +52,7 @@ const OrganisationProposalsPage = (props: Props) => {
       {isLoading && <Spinner />}
       {renderProposals &&
         proposals.map((proposal, index) => (
-          <ProposalCardTagged
+          <ProposalCardWithQuestion
             key={proposal.id}
             proposal={proposal}
             position={index + 1}

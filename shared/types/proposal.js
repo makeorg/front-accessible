@@ -1,6 +1,6 @@
 // @flow
 import { type Question as TypeQuestion } from './question';
-import { type Organisation as TypeOrganisation } from './organisation';
+import { type OrganisationSoft as TypeOrganisationSoft } from './organisation';
 
 export type QualificationType = {
   count: number,
@@ -55,7 +55,7 @@ export type Proposal = {
   trending: string,
   labels: any[],
   author: Author,
-  organisations: TypeOrganisation[],
+  organisations: TypeOrganisationSoft[],
   country: string,
   language: string,
   themeId: string,
