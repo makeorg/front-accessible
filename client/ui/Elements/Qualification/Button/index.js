@@ -41,6 +41,7 @@ export const QualificationButtonElement = (props: Props) => {
     event.preventDefault();
     if (handleClick) handleClick();
   };
+
   return (
     <ButtonStyle
       as={isQualified ? IsQualifiedButtonStyle : QualifyButtonStyle}
