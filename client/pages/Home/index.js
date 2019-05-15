@@ -3,11 +3,12 @@
 import React from 'react';
 import { MetaTags } from 'Client/app/MetaTags';
 import { PageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { FeaturedConsultations } from 'Client/features/homepage/featured';
 
 const HomePage = () => (
   <PageWrapperStyle>
     <MetaTags />
-    <h1>Homepage</h1>
+    <FeaturedConsultations />
   </PageWrapperStyle>
 );
 

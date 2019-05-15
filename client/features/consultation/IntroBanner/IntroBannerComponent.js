@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { IntroWrapperStyle, IntroLabel } from '../Styled/IntroBanner';
+import { IntroWrapperStyle, IntroLabelStyle } from '../Styled/IntroBanner';
 
 type Props = {
   question: Question,
@@ -26,7 +26,7 @@ export const IntroBannerComponent = (props: Props) => {
       id="intro"
     >
       {questionConfiguration.isGreatCause && (
-        <IntroLabel>{i18n.t('consultation.header.label')}</IntroLabel>
+        <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
       <HiddenItemStyle id="header_consultation_title">
         {questionConfiguration.isGreatCause &&

@@ -405,5 +405,10 @@
       "title": "Nos partenaires actions",
       "text": "Chez Make.org nous sommes convaincus que c'est en rassemblant tous les acteurs de la société civile (citoyens mais aussi entreprises, associations, institutions, ...) que nous pourrons changer la donne."
     }
+  },
+  "homepage": {
+    "featured": {
+      "title": "En ce moment sur Make.org"
+    }
   }
 }

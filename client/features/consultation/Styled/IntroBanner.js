@@ -5,9 +5,8 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
+import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 
 const MobilePaddingWithOffset = DefaultPadding.Mobile + TabsOffsetMobile;
 const DesktopPaddingWithOffset = DefaultPadding.Desktop + TabsOffsetDesktop;
@@ -27,12 +26,6 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
   }
 `;
 
-export const IntroLabel = styled.p`
-  background-color: ${BasicColors.PureBlack};
-  padding: 5px;
-  font-size: 12px;
-  color: ${BasicColors.PureWhite};
-  font-family: ${MakeFonts.RobotoCondensedBold};
-  text-transform: uppercase;
+export const IntroLabelStyle = styled(ConsultationLabelStyle)`
   margin-bottom: 5px;
 `;
