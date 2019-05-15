@@ -53,7 +53,7 @@ export type QuestionConfiguration = {
   wording: Wording,
   sharing: Sharing,
   theme: QuestionTheme,
-  partners?: TypePartner[],
+  partners: TypePartner[],
   consultation: ConsultationType,
   isGreatCause: boolean,
   aboutUrl: string,
