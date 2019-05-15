@@ -9,7 +9,7 @@ import { PartnerTooltip } from '../Tooltip';
 import { PartnerAvatar } from '../Avatar';
 
 type Props = {
-  partners?: TypePartner[],
+  partners: TypePartner[],
 };
 
 /**
@@ -35,9 +35,6 @@ const PartnerAvatarWithTooltip = ({ partner }) => {
 };
 export const PartnersListComponent = (props: Props) => {
   const { partners } = props;
-  if (!partners) {
-    return null;
-  }
 
   return (
     <PartnersListStyle>

@@ -14,12 +14,14 @@ type Props = {
 
 export const PartnersTileContent = (props: Props) => {
   const { questionConfiguration, trackMoreLink } = props;
+  const { partners, aboutUrl } = questionConfiguration;
+
   return (
     <React.Fragment>
       <ParagraphStyle>{i18n.t('actions.partners.text')}</ParagraphStyle>
-      <PartnersList partners={questionConfiguration.partners} />
+      {partners && <PartnersList partners={partners} />}
       <ParagraphRedLinkStyle
-        href={getPartnerAnchor(questionConfiguration.aboutUrl)}
+        href={getPartnerAnchor(aboutUrl)}
         target="_blank"
         onClick={trackMoreLink}
       >

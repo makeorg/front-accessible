@@ -13,6 +13,9 @@ type Props = {
 
 export const PresentationComponent = (props: Props) => {
   const { questionConfiguration } = props;
+  const founders = questionConfiguration.partners.filter(
+    partner => partner.isFounder
+  );
   return (
     <React.Fragment>
       <ParagraphStyle
@@ -29,9 +32,10 @@ export const PresentationComponent = (props: Props) => {
       >
         {i18n.t('consultation.presentation.link_text')}
       </ParagraphRedLinkStyle>
-      {!questionConfiguration.isGreatCause && (
-        <Founders questionConfiguration={questionConfiguration} />
-      )}
+      <Founders
+        founders={founders}
+        isGreatCause={questionConfiguration.isGreatCause}
+      />
     </React.Fragment>
   );
 };

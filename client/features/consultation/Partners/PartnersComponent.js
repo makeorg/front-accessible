@@ -27,6 +27,11 @@ export const PartnersComponent = (props: Props) => {
     trackParticipateButton,
     trackMoreLink,
   } = props;
+
+  const partners = questionConfiguration.partners.filter(
+    partner => !partner.isFounder
+  );
+
   return (
     <React.Fragment>
       <ParagraphStyle>
@@ -49,7 +54,7 @@ export const PartnersComponent = (props: Props) => {
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}
       </ParagraphStyle>
-      <PartnersList partners={questionConfiguration.partners} />
+      {partners && <PartnersList partners={partners} />}
       <ParagraphRedLinkStyle
         href={getPartnerAnchor(questionConfiguration.aboutUrl)}
         target="_blank"
