@@ -18,6 +18,7 @@ import {
   ProfileSeparatorStyle,
   ProfileAvatarLayoutStyle,
   ProfileInformationButtonStyle,
+  ProfileNavigationStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { UserDescription } from './Description';
 
@@ -88,13 +89,15 @@ class UserInformationsHandler extends React.Component<Props, State> {
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}
-        {navigationBar}
-        <ProfileInformationButtonStyle onClick={handleLogout}>
-          <IconWrapperStyle aria-hidden>
-            <SvgSignOut />
-          </IconWrapperStyle>
-          {i18n.t('profile.common.log_out')}
-        </ProfileInformationButtonStyle>
+        <ProfileNavigationStyle>
+          {navigationBar}
+          <ProfileInformationButtonStyle onClick={handleLogout}>
+            <IconWrapperStyle aria-hidden>
+              <SvgSignOut />
+            </IconWrapperStyle>
+            {i18n.t('profile.common.log_out')}
+          </ProfileInformationButtonStyle>
+        </ProfileNavigationStyle>
       </React.Fragment>
     );
   }

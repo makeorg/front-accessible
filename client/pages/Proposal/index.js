@@ -23,12 +23,12 @@ type Props = {
 
 const ProposalPageContainer = (props: Props) => {
   const { match, proposal, fetchProposal, questionConfiguration } = props;
-
+  const { proposalId } = match.params;
   useEffect(() => {
     if (!proposal) {
       fetchProposal(match.params.proposalId);
     }
-  }, []);
+  }, [fetchProposal, match.params.proposalId, proposal, proposalId]);
 
   if (!questionConfiguration) {
     return null;

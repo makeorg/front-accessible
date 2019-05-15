@@ -26,18 +26,18 @@ const OrganisationProposalsPage = (props: Props) => {
   const renderProposals = !!proposalsLength && !isLoading;
   const renderPlaceholder = !proposalsLength && !isLoading;
 
-  const fetchProposals = async () => {
-    const loadedProposals: TypeProposal[] = await OrganisationService.getProposals(
-      organisation.organisationId
-    );
-
-    setProposals(loadedProposals);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchProposals = async () => {
+      const loadedProposals: TypeProposal[] = await OrganisationService.getProposals(
+        organisation.organisationId
+      );
+
+      setProposals(loadedProposals);
+      setIsLoading(false);
+    };
+
     fetchProposals();
-  }, []);
+  }, [organisation]);
 
   return (
     <CenterColumnStyle>

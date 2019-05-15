@@ -28,18 +28,18 @@ const OrganisationVotesPage = (props: Props) => {
   const renderVotes = !!votesLength && !isLoading;
   const renderPlaceholder = !votesLength && !isLoading;
 
-  const fetchVotes = async () => {
-    const loadedVotes: TypeOrganisationVote[] = await OrganisationService.getVotes(
-      organisation.organisationId
-    );
-
-    setVotes(loadedVotes);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchVotes = async () => {
+      const loadedVotes: TypeOrganisationVote[] = await OrganisationService.getVotes(
+        organisation.organisationId
+      );
+
+      setVotes(loadedVotes);
+      setIsLoading(false);
+    };
+
     fetchVotes();
-  }, []);
+  }, [organisation]);
 
   return (
     <CenterColumnStyle>
