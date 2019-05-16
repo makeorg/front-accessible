@@ -17,12 +17,12 @@ import {
 
 export const FeaturedConsultations = () => {
   return (
-    <FeaturedWrapperStyle>
-      <FeaturedWrapperTitleStyle>
+    <FeaturedWrapperStyle aria-labelledby="featured_title">
+      <FeaturedWrapperTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
       </FeaturedWrapperTitleStyle>
       <FeaturedArticleWrapperStyle>
-        <FeaturedArticleStyle>
+        <FeaturedArticleStyle aria-labelledby="article_title_1">
           <FeaturedImageStyle
             src=" https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg"
             srcSet="https://make.org/images/mieux-manger-500x375.c7edda1728d5bba8bf22c70585bef4a9.jpg 500w, https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg 1140w"
@@ -30,7 +30,7 @@ export const FeaturedConsultations = () => {
           />
           <FeaturedInformationsWraperStyle>
             <FeaturedLabelStyle>Grande cause Make.org</FeaturedLabelStyle>
-            <FeaturedArticleTitleStyle>
+            <FeaturedArticleTitleStyle id="article_title_1">
               Comment permettre à chacun de mieux manger ?
             </FeaturedArticleTitleStyle>
             <FeaturedDescriptionStyle>
@@ -42,7 +42,7 @@ export const FeaturedConsultations = () => {
           </FeaturedInformationsWraperStyle>
         </FeaturedArticleStyle>
         <FeaturedArticleColumnStyle>
-          <FeaturedArticleStyle>
+          <FeaturedArticleStyle aria-labelledby="article_title_2">
             <FeaturedImageStyle
               src=" https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg"
               srcSet="https://make.org/images/mieux-manger-500x375.c7edda1728d5bba8bf22c70585bef4a9.jpg 500w, https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg 1140w"
@@ -50,7 +50,7 @@ export const FeaturedConsultations = () => {
             />
             <FeaturedInformationsWraperStyle>
               <FeaturedLabelStyle>Grande cause Make.org</FeaturedLabelStyle>
-              <FeaturedArticleTitleStyle>
+              <FeaturedArticleTitleStyle id="article_title_2">
                 Comment permettre à chacun de mieux manger ?
               </FeaturedArticleTitleStyle>
               <FeaturedDescriptionStyle>
@@ -61,7 +61,7 @@ export const FeaturedConsultations = () => {
               </FeaturedLinkStyle>
             </FeaturedInformationsWraperStyle>
           </FeaturedArticleStyle>
-          <FeaturedArticleStyle>
+          <FeaturedArticleStyle aria-labelledby="article_title_3">
             <FeaturedImageStyle
               src=" https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg"
               srcSet="https://make.org/images/mieux-manger-500x375.c7edda1728d5bba8bf22c70585bef4a9.jpg 500w, https://make.org/images/mieux-manger-1140x440.d46e48757c6468e48920eb239079de79.jpg 1140w"
@@ -69,7 +69,7 @@ export const FeaturedConsultations = () => {
             />
             <FeaturedInformationsWraperStyle>
               <FeaturedLabelStyle>Grande cause Make.org</FeaturedLabelStyle>
-              <FeaturedArticleTitleStyle>
+              <FeaturedArticleTitleStyle id="article_title_3">
                 Comment permettre à chacun de mieux manger ?
               </FeaturedArticleTitleStyle>
               <FeaturedDescriptionStyle>
