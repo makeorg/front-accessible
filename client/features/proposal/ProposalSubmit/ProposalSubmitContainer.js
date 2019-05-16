@@ -23,10 +23,6 @@ type Props = {
   question: Question,
   /** Boolean toggled when user is connected */
   isLoggedIn: boolean,
-  /** Localiszed Language of the app */
-  language: string,
-  /** Localiszed Country of the app */
-  country: string,
   /** Boolean to check if prposal submit can be expanded */
   canBeOpen: boolean,
   /** Method to dispatch propose sucess action */
@@ -142,16 +138,12 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     }
   };
 
-  trackModerationText = () => {
-    Tracking.trackDisplayModerationText();
-  };
-
   trackModerationLink = () => {
     Tracking.trackClickModerationLink();
   };
 
   render() {
-    const { country, language, isLoggedIn, canBeOpen } = this.props;
+    const { isLoggedIn, canBeOpen } = this.props;
     const { content, length, isTyping, isSubmitted, isSucess } = this.state;
     const isDescriptionShown = canBeOpen && isTyping && !isSubmitted;
     const isAuthentificationShown = canBeOpen && isSubmitted && !isLoggedIn;
@@ -174,9 +166,6 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         {isDescriptionShown ? (
           <ProposalSubmitDescriptionComponent
             key="ProposalSubmitDescriptionComponent"
-            country={country}
-            language={language}
-            trackModerationText={this.trackModerationText}
             trackModerationLink={this.trackModerationLink}
           />
         ) : null}
@@ -193,13 +182,10 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
 const mapStateToProps = state => {
   const { isLoggedIn } = selectAuthentification(state);
-  const { country, language } = state.appConfig;
 
   return {
     isLoggedIn,
     question: selectSequenceQuestion(state),
-    country,
-    language,
   };
 };
 const mapDispatchToProps = dispatch => ({

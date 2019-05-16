@@ -6,7 +6,6 @@ import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { modalShowLogin, modalClose } from 'Shared/store/actions/modal';
-import { selectConfig } from 'Shared/store/selectors/config.selector';
 import * as UserService from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { Tracking } from 'Shared/services/Tracking';
@@ -15,10 +14,6 @@ import { validateRegisterForm } from 'Shared/helpers/validation';
 import { RegisterComponent } from './RegisterComponent';
 
 type Props = {
-  /** Current country */
-  country: string,
-  /** Current language */
-  language: string,
   /** Method called to render Login Component in Modal */
   handleLoginModal: () => void,
   /** Method called to close modal */
@@ -105,13 +100,11 @@ class RegisterHandler extends React.Component<Props, State> {
   };
 
   render() {
-    const { country, language, handleLoginModal } = this.props;
+    const { handleLoginModal } = this.props;
     const { errors, user } = this.state;
 
     return (
       <RegisterComponent
-        country={country}
-        language={language}
         errors={errors}
         user={user}
         handleLoginModal={handleLoginModal}
@@ -121,12 +114,6 @@ class RegisterHandler extends React.Component<Props, State> {
     );
   }
 }
-
-const mapStateToProps = state => {
-  const { country, language } = selectConfig(state);
-
-  return { country, language };
-};
 
 const mapDispatchToProps = dispatch => ({
   handleLoginModal: () => {
@@ -141,6 +128,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const RegisterContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(RegisterHandler);

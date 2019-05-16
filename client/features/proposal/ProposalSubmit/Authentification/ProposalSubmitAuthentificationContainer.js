@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type Question } from 'Shared/types/question';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
-import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
 type Props = {
-  question: Question,
-  /** Method called to render Register Component in Sliding Pannel */
   handleRegisterClick: () => void,
   /** Method called to render Register Component in Sliding Pannel */
   handleLoginClick: () => void,
@@ -26,20 +22,16 @@ export class ProposalSubmitAuthentificationClass extends React.Component<Props> 
   };
 
   render() {
+    const { handleRegisterClick, handleLoginClick } = this.props;
     return (
       <ProposalSubmitAuthentificationComponent
-        {...this.props}
+        handleRegisterClick={handleRegisterClick}
+        handleLoginClick={handleLoginClick}
         trackPersonnalDataLink={this.trackPersonnalDataLink}
       />
     );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    question: selectSequenceQuestion(state),
-  };
-};
 
 const mapDispatchToProps = dispatch => ({
   handleRegisterClick: () => {
@@ -51,6 +43,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const ProposalSubmitAuthentificationContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(ProposalSubmitAuthentificationClass);

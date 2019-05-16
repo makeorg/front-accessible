@@ -6,7 +6,6 @@ import { ProposalSubmitAuthentificationClass } from './ProposalSubmitAuthentific
 describe('ProposalSubmitAuthentificationContainer', () => {
   it('renders', () => {
     const props = {
-      question: { questionId: 'foof' },
       handleRegisterClick: () => {},
       handleLoginClick: () => {},
     };

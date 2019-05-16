@@ -64,3 +64,13 @@ export const ProfileAccessLinkStyle = styled.a`
     margin-right: 5px;
   }
 `;
+
+export const WhoAreWeLinkStyle = styled(ProfileAccessLinkStyle)`
+  color: ${MakeThemeColors.Red};
+  justify-self: flex-end;
+  margin-right: ${intToPx(DefaultPadding.Desktop)};
+  &:hover,
+  &:focus {
+    color: ${MakeThemeColors.Red};
+  }
+`;

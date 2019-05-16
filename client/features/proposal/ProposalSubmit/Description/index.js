@@ -3,22 +3,14 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
-import * as UrlHelper from 'Shared/helpers/url';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
+import { Tracking } from 'Shared/services/Tracking';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
-  /** Localiszed Language of the app */
-  language: string,
-  /** Localiszed Country of the app */
-  country: string,
-  /** Method called to track moderation text show */
-  trackModerationText: () => {},
   /** Method called to track link */
   trackModerationLink: () => void,
-  /** Method called to track DescriptionText */
-  trackModerationText: () => void,
 };
 
 /**
@@ -26,12 +18,11 @@ type Props = {
  */
 export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   componentDidMount() {
-    const { trackModerationText } = this.props;
-    trackModerationText();
+    Tracking.trackDisplayModerationText();
   }
 
   render() {
-    const { country, language, trackModerationLink } = this.props;
+    const { trackModerationLink } = this.props;
     return (
       <DescriptionWrapperStyle id="proposal-submit-description">
         <CenterParagraphStyle>
@@ -43,11 +34,7 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={UrlHelper.localizeExternal(
-              MODERATION_CHARTER_LINK,
-              country,
-              language
-            )}
+            href={MODERATION_CHARTER_LINK}
             onClick={trackModerationLink}
           >
             {i18n.t('common.click_there')}

@@ -4,7 +4,6 @@ import { ProposalSubmitDescriptionComponent } from '.';
 
 describe('ProposalSubmitDescriptionComponent', () => {
   const props = {
-    trackModerationText: () => {},
     trackModerationLink: () => {},
   };
 

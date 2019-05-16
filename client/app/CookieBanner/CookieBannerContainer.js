@@ -1,18 +1,12 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { withCookies, Cookies } from 'react-cookie';
-import * as UrlHelpers from 'Shared/helpers/url';
-import { CGU_LINK, DATA_POLICY_LINK } from 'Shared/constants/url';
+import { GTU_LINK, DATA_POLICY_LINK } from 'Shared/constants/url';
 import { CookieBannerComponent } from './CookieBannerComponent';
 
 type Props = {
   /** Cookies object */
   cookies: Cookies,
-  /** Localiszed Language of the app */
-  language: string,
-  /** Localiszed Country of the app */
-  country: string,
 };
 
 type State = {
@@ -42,28 +36,15 @@ export class CookieBanner extends React.Component<Props, State> {
     if (hasAccepted) {
       return null;
     }
-    const { country, language } = this.props;
 
     return (
       <CookieBannerComponent
-        cguLink={UrlHelpers.localizeExternal(CGU_LINK, country, language)}
-        policyLink={UrlHelpers.localizeExternal(
-          DATA_POLICY_LINK,
-          country,
-          language
-        )}
+        cguLink={GTU_LINK}
+        policyLink={DATA_POLICY_LINK}
         handleClose={this.handleClose}
       />
     );
   };
 }
 
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return { country, language };
-};
-
-export const CookieBannerContainer = connect(mapStateToProps)(
-  withCookies(CookieBanner)
-);
+export const CookieBannerContainer = withCookies(CookieBanner);
