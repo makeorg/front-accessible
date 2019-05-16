@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Question } from 'Shared/types/question';
 import { DATA_POLICY_LINK } from 'Shared/constants/url';
 import {
   RedButtonStyle,
@@ -17,7 +16,6 @@ import {
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
-import * as UrlHelper from 'Shared/helpers/url';
 import { SvgEnvelope, SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
@@ -25,7 +23,6 @@ import {
 } from '../Styled';
 
 type Props = {
-  question: Question,
   /** Method called to render Register Component in Modal */
   handleRegisterClick: () => void,
   /** Method called to render Register Component in Modal */
@@ -39,7 +36,6 @@ type Props = {
  */
 export const ProposalSubmitAuthentificationComponent = (props: Props) => {
   const {
-    question,
     handleRegisterClick,
     handleLoginClick,
     trackPersonnalDataLink,
@@ -69,11 +65,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
       <CenterParagraphStyle>
         {i18n.t('authentification.commitment')}
         <a
-          href={UrlHelper.localizeExternal(
-            DATA_POLICY_LINK,
-            question.country,
-            question.language
-          )}
+          href={DATA_POLICY_LINK}
           target="_blank"
           rel="noopener noreferrer"
           onClick={trackPersonnalDataLink}

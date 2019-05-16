@@ -21,10 +21,6 @@ import { RegisterFormComponent } from './Form';
 import { RegisterStyle } from './Styled';
 
 type Props = {
-  /** Current country */
-  country: string,
-  /** Current language */
-  language: string,
   /** User form data */
   user: TypeRegisterFormData,
   /** Array with form errors */
@@ -41,15 +37,7 @@ type Props = {
  * Renders Register component
  */
 export const RegisterComponent = (props: Props) => {
-  const {
-    country,
-    language,
-    user,
-    errors,
-    handleChange,
-    handleSubmit,
-    handleLoginModal,
-  } = props;
+  const { user, errors, handleChange, handleSubmit, handleLoginModal } = props;
 
   return (
     <RegisterStyle role="region" aria-labelledby="register_title">
@@ -73,8 +61,6 @@ export const RegisterComponent = (props: Props) => {
       </SeparatorWrapperStyle>
       <ThirdLevelTitleStyle>{i18n.t('register.subtitle')}</ThirdLevelTitleStyle>
       <RegisterFormComponent
-        country={country}
-        language={language}
         user={user}
         errors={errors}
         handleChange={handleChange}

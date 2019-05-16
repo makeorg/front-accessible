@@ -14,18 +14,6 @@ export const getParamsQuery = (searchParams: string) => {
   return params.toString();
 };
 
-export const localizeExternal = (
-  link: string,
-  country: string,
-  language: string
-) => {
-  if (!country || !language) {
-    return '';
-  }
-
-  return `${link}/${country.toLowerCase()}-${language.toLowerCase()}`;
-};
-
 export const getRelativeCurrentUrl = (pathName: string) =>
   `${FRONT_URL}${pathName}`;
 
@@ -36,6 +24,7 @@ export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
  * @param  {string} country
  * @param  {string} language
  * @param  {string} questionSlug
+ *
  * @return {string}
  */
 export const getSequenceLink = (
@@ -95,6 +84,9 @@ export const getActionLink = (
  * @param  {string} country
  * @param  {string} language
  * @param  {string} questionSlug
+ * @param  {string} proposalId
+ * @param  {string} proposalSlug
+ *
  * @return {string}
  */
 export const getProposalLink = (

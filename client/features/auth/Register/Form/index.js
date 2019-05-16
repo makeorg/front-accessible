@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { CGU_LINK } from 'Shared/constants/url';
+import { GTU_LINK } from 'Shared/constants/url';
 import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
 import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
 import {
@@ -16,7 +16,6 @@ import {
 import { fieldErrors } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
-import * as UrlHelpers from 'Shared/helpers/url';
 import { REGISTER_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import {
@@ -32,10 +31,6 @@ import {
 type Props = {
   /** User form data */
   user: TypeRegisterFormData,
-  /** Current country */
-  country: string,
-  /** Current language */
-  language: string,
   /** Array with form errors */
   errors: TypeErrorObject[],
   /** Method called when field's value changes */
@@ -48,7 +43,7 @@ type Props = {
  * Renders Register Form
  */
 export const RegisterFormComponent = (props: Props) => {
-  const { country, language, user, errors, handleChange, handleSubmit } = props;
+  const { user, errors, handleChange, handleSubmit } = props;
 
   const emailError = fieldErrors('email', errors);
   const passwordError = fieldErrors('password', errors);
@@ -143,11 +138,7 @@ export const RegisterFormComponent = (props: Props) => {
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
           __html: i18n.t('register.cgu_text', {
-            cgu_link: `<a class="red_link" target="_blank" href="${UrlHelpers.localizeExternal(
-              CGU_LINK,
-              country,
-              language
-            )}">$t(register.cgu)</a>`, // eslint-disable-line max-len
+            cgu_link: `<a class="red_link" target="_blank" href="${GTU_LINK}">$t(register.cgu)</a>`,
             interpolation: { escapeValue: false },
           }),
         }}

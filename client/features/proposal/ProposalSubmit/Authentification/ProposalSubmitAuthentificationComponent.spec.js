@@ -5,15 +5,9 @@ import { SvgExternalLink, SvgEnvelope } from 'Client/ui/Svg/elements';
 import { ProposalSubmitSeparatorStyle } from '../Styled';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
-const defaultProps = {
-  question: { country: 'foo', language: 'bar' },
-};
-
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
-    const wrapper = shallow(
-      <ProposalSubmitAuthentificationComponent {...defaultProps} />
-    );
+    const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
     const DescriptionLinkIcon = wrapper.find('a').find(SvgExternalLink);
     const EmailButtonIcon = wrapper.find(EmailButtonStyle).find(SvgEnvelope);
 
@@ -27,9 +21,7 @@ describe('ProposalSubmitAuthentificationComponent', () => {
   });
 
   it('Check link target', () => {
-    const wrapper = shallow(
-      <ProposalSubmitAuthentificationComponent {...defaultProps} />
-    );
+    const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
 
     expect(wrapper.find('a').prop('target')).toBe('_blank');
   });

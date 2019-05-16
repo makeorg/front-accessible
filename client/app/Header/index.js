@@ -31,10 +31,12 @@ export const Header = () => {
           </h1>
         </a>
         <FlexElementStyle>
-          <HiddenOnMobileStyle>
-            <WhoAreWeLinkStyle href={WHOAREWE_FR_LINK} target="blank_">
-              {i18n.t('header.whoarewe')}
-            </WhoAreWeLinkStyle>
+          <HiddenOnMobileStyle
+            as={WhoAreWeLinkStyle}
+            href={WHOAREWE_FR_LINK}
+            target="blank_"
+          >
+            {i18n.t('header.whoarewe')}
           </HiddenOnMobileStyle>
           <HeaderAuthentification />
         </FlexElementStyle>
