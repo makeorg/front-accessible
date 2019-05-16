@@ -197,20 +197,13 @@
     "link": "En savoir + sur cette consultation"
   },
   "main-footer": {
-    "menu": {
-      "item-1": {
-        "label": "Mentions légales"
-      },
-      "item-2": {
-        "label": "Conditions d'utilisation"
-      },
-      "item-3": {
-        "label": "Politique de données"
-      },
-      "item-4": {
-        "label": "Contact"
-      }
-    }
+    "jobs": "Jobs",
+    "whoarewe": "Qui sommes-nous ?",
+    "press": "Espace presse",
+    "legal": "Mentions légales",
+    "terms": "Conditions d'utilisation",
+    "data": "Politique d'utilisation des données",
+    "contact": "Contact"
   },
   "pannel": {
     "close": "Fermer le panneau déroulant"

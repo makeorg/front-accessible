@@ -1,44 +1,62 @@
 import styled from 'styled-components';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { pxToRem } from 'Shared/helpers/styled';
-import {
-  Breakpoints,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const FooterStyle = styled.footer`
   display: flex;
-  flex: 0 0 auto;
+  justify-content: center;
+  flex: 0;
   background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroThreeOpacity};
+  box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  padding: 5px 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 15px;
+  }
+`;
+
+export const FooterLogoStyle = styled.img`
+  max-width: 50px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 60px;
+  }
 `;
 
 export const FooterNavStyle = styled.nav`
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+`;
+
+export const FooterItemListStyle = styled(UnstyledListStyle)`
+  display: flex;
+  flex-flow: column;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: row;
+  }
 `;
 
 export const FooterItemStyle = styled.li`
-  display: inline-block;
-  width: 50%;
-  padding: ${pxToRem('5px')};
-  text-align: center;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    padding: ${pxToRem(DefaultPadding.Mobile)};
-    width: auto;
+  text-align: right;
+  margin: 10px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 0 0 0 30px;
+    &:first-child {
+      margin: 0;
+    }
   }
 `;
 
 export const FooterItemLinkStyle = styled.a`
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.RobotoCondensedBold};
   text-decoration: none;
-  font-size: ${pxToRem('12px')};
-  &:hover,
-  &:focus {
-    text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 13px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 16px;
   }
 `;

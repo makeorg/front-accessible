@@ -195,20 +195,13 @@
     "link": "Find out more about this consultation"
   },
   "main-footer": {
-    "menu": {
-      "item-1": {
-        "label": "Legal notices"
-      },
-      "item-2": {
-        "label": "Terms of service"
-      },
-      "item-3": {
-        "label": "Privacy policy"
-      },
-      "item-4": {
-        "label": "Contact"
-      }
-    }
+    "jobs": "Jobs",
+    "whoarewe": "Who are we ?",
+    "press": "Press",
+    "legal": "Legal notice",
+    "terms": "Terms of use",
+    "data": "Data use policy",
+    "contact": "Contact"
   },
   "pannel": {
     "close": "Close the drop-down panel"
