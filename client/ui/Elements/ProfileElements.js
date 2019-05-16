@@ -105,13 +105,12 @@ export const ProfileTabIconStyle = {
 
 export const ProfileAvatarLayoutStyle = styled(FlexElementStyle)`
   align-self: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    flex-flow: column;
-    align-self: center;
-  }
+  flex-flow: column;
 `;
 
 export const ProfileAvatarStyle = styled.div`
+  display: flex;
+  justify-content: center;
   transform: translateY(-20px);
   margin-bottom: -20px;
   margin-right: 15px;

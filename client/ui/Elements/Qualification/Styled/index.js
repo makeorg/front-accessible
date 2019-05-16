@@ -30,11 +30,6 @@ export const IsQualifiedButtonStyle = styled(ButtonStyle)`
 export const QualifyButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
   background-color: ${BasicColors.PureWhite};
-  &:focus,
-  &:active {
-    color: ${BasicColors.PureWhite};
-    background-color: ${props => props.color};
-  }
 `;
 
 export const CounterStyle = styled.span`

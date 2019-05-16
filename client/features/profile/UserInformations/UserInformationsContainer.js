@@ -10,6 +10,8 @@ import { SvgMapMarker, SvgSignOut } from 'Client/ui/Svg/elements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
@@ -62,6 +64,17 @@ class UserInformationsHandler extends React.Component<Props, State> {
               )}
             </Avatar>
           </ProfileAvatarStyle>
+          {user.isOrganisation && (
+            <ProfileContentWrapperStyle>
+              <ProfileTitleStyle>
+                {user.organisationName}
+                &nbsp;
+                <SvgCheckedSymbol
+                  style={{ fontSize: '14px', fill: TextColors.Blue }}
+                />
+              </ProfileTitleStyle>
+            </ProfileContentWrapperStyle>
+          )}
           <ProfileContentWrapperStyle>
             <ProfileTitleStyle>{user.firstName}</ProfileTitleStyle>
             <ProfileContentStyle>{user.email}</ProfileContentStyle>

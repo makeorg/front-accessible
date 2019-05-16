@@ -25,10 +25,10 @@ describe('QualifyButtonStyle', () => {
       .create(<QualifyButtonStyle color="red" />)
       .toJSON();
     expect(component).toHaveStyleRule('color', 'red');
-    expect(component).toHaveStyleRule('background-color', 'red', {
+    expect(component).not.toHaveStyleRule('background-color', 'red', {
       modifier: ':focus',
     });
-    expect(component).toHaveStyleRule('background-color', 'red', {
+    expect(component).not.toHaveStyleRule('background-color', 'red', {
       modifier: ':active',
     });
   });

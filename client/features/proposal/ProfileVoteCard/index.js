@@ -4,11 +4,14 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
-import { getProposalLink } from 'Shared/helpers/url';
+import {
+  getProposalLink,
+  getOrganisationProfileLink,
+} from 'Shared/helpers/url';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -38,9 +41,17 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
           aria-label={voteAttributes.label}
           color={voteAttributes.color}
         >
-          <SvgThumbsUp />
+          {voteAttributes.icon}
         </ProfileHasVotedStyle>
-        <RedLinkStyle href="#">{organisation.organisationName}</RedLinkStyle>
+        <RedLinkStyle
+          href={getOrganisationProfileLink(
+            organisation.country,
+            organisation.language,
+            organisation.slug
+          )}
+        >
+          {organisation.organisationName}
+        </RedLinkStyle>
         &nbsp;
         <SvgCheckedSymbol style={{ fontSize: '14px', fill: TextColors.Blue }} />
         &nbsp;
