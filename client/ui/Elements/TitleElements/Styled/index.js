@@ -1,26 +1,38 @@
 /* @flow */
 
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
+import {
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 
 export const SecondLevelTitleStyle = styled.h2`
-  font-size: ${pxToRem('16px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('22px')};
+  font-size: 16px;
+  @media (min-width: Breakpoints.Tablet) {
+    font-size: 22px;
   }
 `;
 
 export const ThirdLevelTitleStyle = styled.h3`
-  font-size: ${pxToRem('14px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('18px')};
+  font-size: 14px;
+  @media (min-width: Breakpoints.Tablet) {
+    font-size: 18px;
   }
 `;
 
 export const FourthLevelTitleStyle = styled.h4`
-  font-size: ${pxToRem('12px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('16px')};
+  font-size: 12px;
+  @media (min-width: Breakpoints.Tablet) {
+    font-size: 16px;
+  }
+`;
+
+export const HomeTitleStyle = styled.h2`
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 34px;
   }
 `;

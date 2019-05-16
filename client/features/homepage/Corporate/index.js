@@ -11,7 +11,7 @@ import {
   CorporateListItemStyle,
   CorporateIconStyle,
   CorporateLinkStyle,
-} from 'Client/features/homepage/corporate/Styled';
+} from 'Client/features/homepage/Corporate/Styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
   SvgLightBulb,

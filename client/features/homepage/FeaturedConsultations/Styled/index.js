@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {
-  Layouts,
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
@@ -12,22 +11,6 @@ import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 
 const ArticleHeightMobile = 235;
 const ArticleHeightDesktop = 630;
-
-export const FeaturedWrapperStyle = styled.section`
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
-`;
-
-export const FeaturedWrapperTitleStyle = styled.h2`
-  font-size: 20px;
-  line-height: 1;
-  margin-bottom: ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 34px;
-  }
-`;
 
 export const FeaturedArticleWrapperStyle = styled.div`
   display: flex;
