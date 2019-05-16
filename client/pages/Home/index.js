@@ -2,14 +2,18 @@
 
 import React from 'react';
 import { MetaTags } from 'Client/app/MetaTags';
-import { PageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { FeaturedConsultations } from 'Client/features/homepage/featured';
+import { CorporateBanner } from 'Client/features/homepage/corporate';
+import { HomeWrapperStyle, PaddingContainerStyle } from './Styled';
 
 const HomePage = () => (
-  <PageWrapperStyle>
+  <HomeWrapperStyle>
     <MetaTags />
-    <FeaturedConsultations />
-  </PageWrapperStyle>
+    <PaddingContainerStyle>
+      <FeaturedConsultations />
+    </PaddingContainerStyle>
+    <CorporateBanner />
+  </HomeWrapperStyle>
 );
 
 // default export needed for loadable component
