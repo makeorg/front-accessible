@@ -37,7 +37,7 @@ export const UnstyledButtonStyle = styled.button`
   background-color: transparent;
 `;
 
-const BasicButtonStyle = `
+export const BasicButtonStyle = `
   display: flex;
   justify-content: center;
   align-items: center;

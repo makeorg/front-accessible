@@ -12,14 +12,14 @@ export const FooterStyle = styled.footer`
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 15px;
   }
 `;
 
 export const FooterLogoStyle = styled.img`
   max-width: 50px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     max-width: 60px;
   }
 `;
@@ -35,7 +35,7 @@ export const FooterNavStyle = styled.nav`
 export const FooterItemListStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
   }
 `;
@@ -43,7 +43,7 @@ export const FooterItemListStyle = styled(UnstyledListStyle)`
 export const FooterItemStyle = styled.li`
   text-align: right;
   margin: 10px 0;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin: 0 0 0 30px;
     &:first-child {
       margin: 0;
@@ -56,7 +56,7 @@ export const FooterItemLinkStyle = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   font-size: 13px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
 `;

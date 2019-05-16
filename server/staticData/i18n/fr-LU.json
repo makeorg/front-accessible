@@ -398,6 +398,21 @@
   "homepage": {
     "featured": {
       "title": "En ce moment sur Make.org"
+    },
+    "corporate": {
+      "first-section":{
+        "introduction": "la politique ne suffit plus, faisons bouger les lignes ensemble",
+        "title": "Votez, Proposez, Agissez",
+        "list-item-1": "Votez pour les propositions que vous défendez",
+        "list-item-2": "Proposez vos idées sur les thèmes qui vous inspirent",
+        "list-item-3": "Et demain, initiez des actions concrètes sur le terrain"
+      },
+      "second-section":{
+        "introduction": "qui sommes nous ?",
+        "title": "Make.org, neutre & indépendant",
+        "description": "Make.org est une initiative civique, Européenne et indépendante.",
+        "link-text": "En savoir +"
+      }
     }
   }
 }
