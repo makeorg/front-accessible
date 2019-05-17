@@ -14,6 +14,8 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const HeaderStyle = styled.header`
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   flex: 0 0 auto;
