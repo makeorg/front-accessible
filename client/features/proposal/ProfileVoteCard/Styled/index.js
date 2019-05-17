@@ -9,6 +9,12 @@ export const ProfileVoteCardStyle = styled.div`
   background-color: #0000000c;
 `;
 
+export const ProfileVoteTitleStyle = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ProfileVoteDescriptionStyle = styled.div``;
 export const ProfileHasVotedStyle = styled.div`
   display: inline-flex;
   width: 30px;

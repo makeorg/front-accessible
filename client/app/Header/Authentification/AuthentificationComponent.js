@@ -39,10 +39,16 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
       >
         <Avatar>
           {avatarUrl && (
-            <img src={avatarUrl} alt={user.firstName} aria-hidden />
+            <img
+              src={avatarUrl}
+              alt={user.isOrganisation ? user.organisationName : user.firstName}
+              aria-hidden
+            />
           )}
         </Avatar>
-        <span aria-hidden>{user.firstName}</span>
+        <span aria-hidden>
+          {user.isOrganisation ? user.organisationName : user.firstName}
+        </span>
       </ProfileAccessLinkStyle>
     </ProfileAccessWrapperStyle>
   );

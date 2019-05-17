@@ -98,7 +98,11 @@ export const ProposalCardComponent = (props: Props) => {
         />
       </BackButtonWrapperStyle>
       <ContentSpecialWrapperStyle as="section">
-        <ProposalAuthorElement author={proposal.author} />
+        <ProposalAuthorElement
+          author={proposal.author}
+          country={proposal.country}
+          language={proposal.language}
+        />
         <CardSeparatorStyle aria-hidden />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote

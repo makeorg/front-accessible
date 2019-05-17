@@ -37,6 +37,8 @@ export const ProfileProposalCard = (props: Props) => {
       <ProposalHeaderStyle>
         <ProposalAuthorElement
           author={author}
+          country={proposal.country}
+          language={proposal.language}
           createdAt={proposal.createdAt}
           withAvatar
           withStatus

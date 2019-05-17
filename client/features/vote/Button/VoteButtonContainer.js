@@ -13,6 +13,8 @@ type Props = {
   buttonType: React.Node,
   /** When button is in pending mode */
   displayPending: boolean,
+  /** add tooltip for vote button */
+  showTooltip: boolean,
   /** Method called when vote button is clicked */
   handleVote: () => void,
 };
@@ -26,8 +28,12 @@ type State = {
  * Handles Vote Button Business Logic
  */
 export class VoteButtonContainer extends React.Component<Props, State> {
-  state = {
+  static state = {
     displayPending: false,
+  };
+
+  static defaultProps = {
+    showTooltip: true,
   };
 
   componentDidMount = () => {
@@ -44,7 +50,14 @@ export class VoteButtonContainer extends React.Component<Props, State> {
   };
 
   render() {
-    const { color, label, icon, buttonType, displayPending } = this.props;
+    const {
+      color,
+      label,
+      icon,
+      buttonType,
+      displayPending,
+      showTooltip,
+    } = this.props;
 
     return (
       <VoteButtonComponent
@@ -53,6 +66,7 @@ export class VoteButtonContainer extends React.Component<Props, State> {
         icon={icon}
         buttonType={buttonType}
         displayPending={displayPending}
+        showTooltip={showTooltip}
         handleVote={this.handleVoteAction}
       />
     );
