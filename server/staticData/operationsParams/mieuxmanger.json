@@ -35,10 +35,10 @@
   "sequenceConfig": {
     "introCard": {
       "enabled": true,
-      "title": "Des milliers de citoyens proposent des solutions. Comment permettre à chacun de mieux manger ?",
+      "title": "Comment permettre à chacun de mieux manger ?",
       "description": [
-        "Prenez position sur ces solutions et proposez les vôtres !",
-        "Les meilleures détermineront nos actions"
+        "Prenez position sur les solutions proposées par des milliers de citoyens !",
+        "Les meilleures détermineront nos actions."
       ]
     },
     "pushProposalCard": {
