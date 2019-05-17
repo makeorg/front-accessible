@@ -26,6 +26,7 @@ const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
 );
 const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
+// const HomePage = loadable(() => import('Client/pages/Home'));
 const ProposalPage = loadable(() => import('Client/pages/Proposal'));
 const AccountActivationPage = loadable(() =>
   import('Client/pages/AccountActivation')

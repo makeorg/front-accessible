@@ -1,9 +1,9 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
+import { HomeWrapperStyle } from 'Client/features/homepage/Styled';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
-  FeaturedWrapperStyle,
-  FeaturedWrapperTitleStyle,
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
   FeaturedArticleStyle,
@@ -17,10 +17,10 @@ import {
 
 export const FeaturedConsultations = () => {
   return (
-    <FeaturedWrapperStyle aria-labelledby="featured_title">
-      <FeaturedWrapperTitleStyle id="featured_title">
+    <HomeWrapperStyle aria-labelledby="featured_title">
+      <HomeTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
-      </FeaturedWrapperTitleStyle>
+      </HomeTitleStyle>
       <FeaturedArticleWrapperStyle>
         <FeaturedArticleStyle aria-labelledby="article_title_1">
           <FeaturedImageStyle
@@ -82,6 +82,6 @@ export const FeaturedConsultations = () => {
           </FeaturedArticleStyle>
         </FeaturedArticleColumnStyle>
       </FeaturedArticleWrapperStyle>
-    </FeaturedWrapperStyle>
+    </HomeWrapperStyle>
   );
 };

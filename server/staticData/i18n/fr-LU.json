@@ -413,6 +413,11 @@
         "description": "Make.org est une initiative civique, Européenne et indépendante.",
         "link-text": "En savoir +"
       }
+    },
+    "question_list": {
+      "title": "nos autres consultations",
+      "question_ended": "Consultation en cours",
+      "question_inprogress": "Consultation terminée"
     }
   }
 }
