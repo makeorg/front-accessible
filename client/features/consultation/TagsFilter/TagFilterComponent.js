@@ -37,8 +37,8 @@ export const TagFilterComponent = (props: Props) => {
   const displayShowAll = tags.length > 5;
 
   return (
-    <TagFilterWrapperStyle>
-      <TagFilterIntroStyle>
+    <TagFilterWrapperStyle aria-labelledby="tag_filter_title">
+      <TagFilterIntroStyle id="tag_filter_title">
         {i18n.t('consultation.tags.intro')}
       </TagFilterIntroStyle>
       {tags
