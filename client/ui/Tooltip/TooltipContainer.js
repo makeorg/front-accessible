@@ -70,5 +70,5 @@ export class TooltipContainer extends React.Component<Props, State> {
 
 TooltipContainer.defaultProps = {
   direction: 'top',
-  ariaLabel: i18n.t('common.tooltip_label'),
+  ariaLabel: i18n.t('common.display_tooltip'),
 };

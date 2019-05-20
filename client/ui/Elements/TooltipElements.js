@@ -3,7 +3,6 @@ import { pxToRem } from 'Shared/helpers/styled';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 
 export const TooltipStyle = styled.div`
-  display: block;
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
@@ -14,6 +13,9 @@ export const TooltipStyle = styled.div`
   > :after {
     content: '';
     position: absolute;
+  }
+  &[aria-hidden='true'] {
+    display: none;
   }
 `;
 

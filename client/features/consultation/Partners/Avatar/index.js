@@ -15,7 +15,6 @@ export const PartnerAvatar = (props: Props) => {
 
   return (
     <AvatarStyle
-      aria-hidden
       as="a"
       href={partnerProfile}
       target="_blank"

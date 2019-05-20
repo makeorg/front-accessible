@@ -1,13 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
-<span
-  aria-label="common.tooltip_label"
-  onBlur={[Function]}
-  onFocus={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
->
-  bar
-</span>
+Array [
+  <div
+    aria-label="common.display_tooltip"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    bar
+  </div>,
+  .c0 {
+  position: absolute;
+  padding: 0.3125rem 0.625rem;
+  background-color: rgb(51,51,51);
+  color: rgb(255,255,255);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.c0 >:after {
+  content: '';
+  position: absolute;
+}
+
+.c0[aria-hidden='true'] {
+  display: none;
+}
+
+.c1 {
+  position: absolute;
+  padding: 0.3125rem 0.625rem;
+  background-color: rgb(51,51,51);
+  color: rgb(255,255,255);
+  font-size: 0.75rem;
+  text-align: center;
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+  left: 50%;
+  bottom: calc(100% + 0.625rem);
+}
+
+.c1 >:after {
+  content: '';
+  position: absolute;
+}
+
+.c1[aria-hidden='true'] {
+  display: none;
+}
+
+.c1 >:after {
+  right: 50%;
+  border-left: 0.3125rem solid transparent;
+  border-right: 0.3125rem solid transparent;
+  -webkit-transform: translate(50%,0);
+  -ms-transform: translate(50%,0);
+  transform: translate(50%,0);
+}
+
+.c1 >:after {
+  top: 100%;
+  border-top: 0.3125rem solid rgb(51,51,51);
+}
+
+<div
+    aria-hidden={true}
+    className="sc-12iuwgm-0 c0 c1"
+    role="tooltip"
+  />,
+]
 `;

@@ -38,7 +38,14 @@ type Props = {
  */
 const VoteResultBarWithTooltip = ({ voteKey, percent, color }) => {
   const content = <ResultTooltip votePercent={percent} voteKey={voteKey} />;
-  const children = <VoteResultBarStyle color={color} percent={percent} />;
+  const children = (
+    <VoteResultBarStyle
+      tabIndex={0}
+      aria-label={i18n.t('common.display_tooltip')}
+      color={color}
+      percent={percent}
+    />
+  );
 
   return (
     <Tooltip content={content} direction="bottom">
