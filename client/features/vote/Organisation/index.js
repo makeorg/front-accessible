@@ -16,6 +16,10 @@ type Props = {
 export const OrganisationsVote = (props: Props) => {
   const { organisations, country, language } = props;
 
+  if (!organisations.length) {
+    return null;
+  }
+
   return (
     <OrganisationsVoteWrapperrStyle>
       {organisations.map((organisation, index) => (
@@ -36,7 +40,9 @@ export const OrganisationsVote = (props: Props) => {
           </RedLinkStyle>
         </React.Fragment>
       ))}
-      {i18n.t('profile.organisation.hasVoted', { count: organisations.length })}
+      {i18n.t('profile.organisation.hasVoted', {
+        count: organisations.length,
+      })}
     </OrganisationsVoteWrapperrStyle>
   );
 };
