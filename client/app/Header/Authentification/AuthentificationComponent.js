@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { type User as TypeUser } from 'Shared/types/user';
+import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
 import { SvgUser } from 'Client/ui/Svg/elements';
@@ -10,7 +11,7 @@ import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   ProfileAccessWrapperStyle,
-  ProfileAccessButtonStyle,
+  ProfileAccessButtonLabelStyle,
   ProfileAccessLinkStyle,
 } from '../Styled';
 
@@ -34,6 +35,7 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
     >
       <ProfileAccessLinkStyle
         aria-label={i18n.t('common.profile_nav')}
+        as={Link}
         href={profileLink}
         rel="nofollow"
       >
@@ -60,18 +62,23 @@ export const NotAuthentificatedBar = ({
 }: NotAuthentificatedBarProps) => {
   return (
     <ProfileAccessWrapperStyle>
-      <UnstyledButtonStyle aria-hidden onClick={handleLoginModal}>
-        <SvgUser style={{ fontSize: '16px', fill: TextColors.MediumGrey }} />
-      </UnstyledButtonStyle>
-      <HiddenOnMobileStyle>
-        <ProfileAccessButtonStyle onClick={handleLoginModal}>
+      <UnstyledButtonStyle onClick={handleLoginModal}>
+        <SvgUser
+          style={{
+            fontSize: '16px',
+            fill: TextColors.MediumGrey,
+          }}
+        />
+        <ProfileAccessButtonLabelStyle as="span">
           {i18n.t('common.connexion_label')}
-        </ProfileAccessButtonStyle>
-        /
-        <ProfileAccessButtonStyle onClick={handleRegisterModal}>
+        </ProfileAccessButtonLabelStyle>
+      </UnstyledButtonStyle>
+      <HiddenOnMobileStyle as="span">/</HiddenOnMobileStyle>
+      <UnstyledButtonStyle onClick={handleRegisterModal}>
+        <ProfileAccessButtonLabelStyle as="span">
           {i18n.t('common.register_label')}
-        </ProfileAccessButtonStyle>
-      </HiddenOnMobileStyle>
+        </ProfileAccessButtonLabelStyle>
+      </UnstyledButtonStyle>
     </ProfileAccessWrapperStyle>
   );
 };

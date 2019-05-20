@@ -10,8 +10,8 @@ import {
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 
 export const HeaderStyle = styled.header`
   position: relative;
@@ -44,8 +44,7 @@ export const ProfileAccessWrapperStyle = styled.div`
   align-items: center;
 `;
 
-export const ProfileAccessButtonStyle = styled(UnstyledButtonStyle)`
-  display: inline-block;
+export const ProfileAccessButtonLabelStyle = styled(HiddenOnMobileStyle)`
   font-family: ${MakeFonts.RobotoBold};
   color: ${MakeThemeColors.Red};
   text-transform: uppercase;
