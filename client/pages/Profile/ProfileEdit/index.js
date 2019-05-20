@@ -59,7 +59,7 @@ const ProfileEdit = (props: Props) => {
           <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
             <TabListStyle>
               <TabStyle selected>
-                <Link to={editProfileLink} aria-selected>
+                <Link to={editProfileLink}>
                   {i18n.t('profile.tabs.manage_account')}
                 </Link>
               </TabStyle>

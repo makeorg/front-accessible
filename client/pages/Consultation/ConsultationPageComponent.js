@@ -67,14 +67,14 @@ export const ConsultationPageComponent = (props: Props) => {
         <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
           <TabListStyle>
             <FullWidthTabStyle selected={isConsultationPage}>
-              <Link to={consultationLink} aria-selected={isConsultationPage}>
+              <Link to={consultationLink}>
                 <ConsultationTabContent question={question} />
               </Link>
             </FullWidthTabStyle>
 
             {questionConfiguration.isGreatCause && (
               <FullWidthTabStyle selected={isActionPage}>
-                <Link to={actionLink} aria-selected={isActionPage}>
+                <Link to={actionLink}>
                   {i18n.t('consultation.tabs.action')}
                 </Link>
               </FullWidthTabStyle>
