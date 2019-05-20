@@ -3,9 +3,10 @@ import * as React from 'react'; // eslint-disable-line no-unused-vars
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
+import 'jest-styled-components';
+import 'jest-dom/extend-expect';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceMock } from 'Shared/api/ApiService/ApiService.mock';
-import 'jest-styled-components'
 
 Enzyme.configure({ adapter: new Adapter() });
 

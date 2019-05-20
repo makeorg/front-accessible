@@ -1,11 +1,7 @@
-/* @flow */
+// @flow
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'react-testing-library';
 import { AuthentificationClass } from './AuthentificationContainer';
-import {
-  AuthentificatedBar,
-  NotAuthentificatedBar,
-} from './AuthentificationComponent';
 
 describe('Authentification', () => {
   describe('User is authentificated', () => {
@@ -21,7 +17,7 @@ describe('Authentification', () => {
     const handleLoginModal = () => {};
 
     it('return AuthentificatedBar', () => {
-      const wrapper = shallow(
+      const { container } = render(
         <AuthentificationClass
           user={user}
           handleLoginModal={handleLoginModal}
@@ -29,20 +25,20 @@ describe('Authentification', () => {
         />
       );
 
-      expect(wrapper.find(AuthentificatedBar)).toHaveLength(1);
-      expect(wrapper.find(NotAuthentificatedBar)).toHaveLength(0);
+      expect(container).toHaveTextContent('fooUser');
     });
 
     it('return NotAuthentificatedBar', () => {
-      const wrapper = shallow(
+      const { container } = render(
         <AuthentificationClass
           handleLoginModal={handleLoginModal}
           handleRegisterModal={handleRegisterModal}
         />
       );
 
-      expect(wrapper.find(AuthentificatedBar)).toHaveLength(0);
-      expect(wrapper.find(NotAuthentificatedBar)).toHaveLength(1);
+      expect(container).toHaveTextContent(
+        'common.connexion_label/common.register_label'
+      );
     });
   });
 });
