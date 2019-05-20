@@ -1,0 +1,64 @@
+{
+  "wording": {
+    "title": "Une vraie place pour les personnes handicapées",
+    "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ? ",
+    "metas": {
+      "title": "Vous avez une idée sur le sujet ?",
+      "description": "Participez à la consultation initiée par Klesia et Fondation OCIRP avec Make.org",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5ce2c35c7c5e2f32cd0681e8_meta.jpg"
+    }
+  },
+  "theme": {
+    "color": "#FFFFFF",
+    "gradientStart": "#2639ad",
+    "gradientEnd": "#2639ad",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "Aujourd’hui en France, 12 millions de personnes sont touchées, de manière directe ou indirecte, par le handicap. Soit près d’une sur cinq. Beaucoup se sentent victimes de discriminations dans l’accès à l’emploi, aux transports, au logement, à l’éducation, à la culture… Il est grand temps de construire une société plus accueillante et bienveillante, qui reconnaît les personnes handicapées comme des citoyens à part entière.  ",
+    "logo": "/images/operations/handicap/consultation/handicap.svg"
+  },
+  "partners": [
+    {"name": "Klesia", "imageUrl": "/images/operations/handicap/partners/klesia.png", "isFounder": true, "profileUrl": "https://about.make.org/post/klesia"},
+    {"name": "Fondation OCIRP", "imageUrl": "/images/operations/handicap/partners/ocirp.png", "isFounder": true, "profileUrl": "https://about.make.org/post/ocirp"},
+    {"name": "Spicee", "imageUrl": "/images/operations/handicap/partners/spicee.png", "isFounder": true, "profileUrl": "https://about.make.org/post/spicee"},
+    {"name": "Handirect.fr", "imageUrl": "/images/operations/handicap/partners/handirect.png", "isFounder": true, "profileUrl": "https://about.make.org/post/handirect-fr"},
+    {"name": "TF1 Initiatives", "imageUrl": "/images/operations/handicap/partners/tf1initiatives.png", "isFounder": true, "profileUrl": "https://about.make.org/post/tf1-initiatives"},
+    {"name": "CCAH", "imageUrl": "/images/operations/handicap/partners/ccah.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/Profile/ccah"},
+    {"name": "APF France Handicap", "imageUrl": "/images/operations/handicap/partners/apf.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/apf-france-handicap"},
+    {"name": "Ladapt", "imageUrl": "/images/operations/handicap/partners/ladapt.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/ladapt"},
+    {"name": "Croix-rouge française", "imageUrl": "/images/operations/handicap/partners/croix-rouge.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/croix-rouge"},
+    {"name": "Fédération Française du Handisport", "imageUrl": "/images/operations/handicap/partners/handisport.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/federation-francaise-handisport"}
+  ],
+  "isGreatCause": true,
+  "aboutUrl": "https://about.make.org/about-handicap",
+  "sequenceConfig": {
+    "introCard": {
+      "enabled": true,
+      "title": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?",
+      "description": [
+        "Des milliers de citoyens proposent des solutions. Prenez position sur ces solutions et proposez les vôtres !",
+        "Les meilleures détermineront nos actions"
+      ]
+    },
+    "pushProposalCard": {
+      "enabled": true
+    },
+    "signUpCard": {
+      "enabled": true,
+      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir pour garantir une vraie place aux personnes handicapées dans la société !"
+    },
+    "finalCard": {
+      "enabled": true,
+      "linkUrl": "https://app.make.org/FR-fr/consultation/handicap/consultation",
+      "withSharing": true,
+      "title": "Merci pour votre participation !",
+      "share": [
+        "Vous souhaitez aller plus loin pour garantir une vraie place aux personnes handicapées dans la société ?",
+        "Invitez vos proches et/ou votre communauté à participer"
+      ],
+      "learnMoreTitle": "Découvrez toutes les propositions sur cette Grande Cause.",
+      "learnMoreTextButton": "Invitez vos proches et/ou votre communauté à participer"
+    }
+  }
+}
