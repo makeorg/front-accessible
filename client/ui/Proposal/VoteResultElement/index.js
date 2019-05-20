@@ -18,6 +18,8 @@ type Props = {
   votedKey: string,
   /** Status of vote */
   isPending?: boolean,
+  /** Add label of the vot button */
+  withLabel: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
 };
@@ -27,6 +29,7 @@ export const VoteResultElement = ({
   votes,
   votedKey,
   isPending,
+  withLabel,
   handleVote,
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
@@ -43,6 +46,7 @@ export const VoteResultElement = ({
         votedKey={votedKey}
         handleVote={handleVote}
         pending={isPending}
+        withLabel={withLabel}
       />
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (

@@ -2,7 +2,11 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Author } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
+import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   AuthorInfosStyle,
   AuthorSeparatorStyle,
@@ -12,6 +16,10 @@ import {
 type Props = {
   /** Object with author's properties */
   author: Author,
+  /** Country of the proposal */
+  country: string,
+  /** Language of the proposal */
+  language: string,
   /** Date of creation of proposal */
   createdAt?: string,
   /** Include avatar */
@@ -34,6 +42,8 @@ const ProposalAuthorAge = ({ age }) => {
 export const ProposalAuthorElement = (props: Props) => {
   const {
     author,
+    country,
+    language,
     createdAt,
     withAvatar,
     withStatus,
@@ -51,7 +61,25 @@ export const ProposalAuthorElement = (props: Props) => {
             &nbsp;
           </React.Fragment>
         )}
-        {author.firstName || author.organisationName}
+        {author.organisationName ? (
+          <React.Fragment>
+            <RedLinkStyle
+              href={getOrganisationProfileLink(
+                country,
+                language,
+                author.organisationSlug
+              )}
+            >
+              {author.organisationName}
+            </RedLinkStyle>
+            &nbsp;
+            <SvgCheckedSymbol
+              style={{ fontSize: '14px', fill: TextColors.Blue }}
+            />
+          </React.Fragment>
+        ) : (
+          author.firstName
+        )}
         <ProposalAuthorAge age={author.age} />
         {!!createdAt && (
           <React.Fragment>

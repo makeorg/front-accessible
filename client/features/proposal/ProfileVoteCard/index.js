@@ -21,42 +21,57 @@ import {
   ProposalCardStyle,
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
-import { ProfileVoteCardStyle, ProfileHasVotedStyle } from './Styled';
+import {
+  ProfileVoteCardStyle,
+  ProfileVoteTitleStyle,
+  ProfileVoteDescriptionStyle,
+  ProfileHasVotedStyle,
+} from './Styled';
 
 type Props = {
   organisation: TypeOrganisation,
   proposal: TypeProposal,
   voteKey: string,
+  position: number,
+  size: number,
 };
 
-export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
-  const position = 0;
-  const size = 1;
+export const ProfileVoteCard = ({
+  voteKey,
+  organisation,
+  proposal,
+  position,
+  size,
+}: Props) => {
   const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
     <ProfileVoteCardStyle>
-      <React.Fragment>
+      <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
           aria-label={voteAttributes.label}
           color={voteAttributes.color}
         >
           {voteAttributes.icon}
         </ProfileHasVotedStyle>
-        <RedLinkStyle
-          href={getOrganisationProfileLink(
-            organisation.country,
-            organisation.language,
-            organisation.slug
-          )}
-        >
-          {organisation.organisationName}
-        </RedLinkStyle>
-        &nbsp;
-        <SvgCheckedSymbol style={{ fontSize: '14px', fill: TextColors.Blue }} />
-        &nbsp;
-        {i18n.t(`profile.organisation.proposal_${voteKey}`)}
-      </React.Fragment>
+        <ProfileVoteDescriptionStyle>
+          <RedLinkStyle
+            href={getOrganisationProfileLink(
+              organisation.country,
+              organisation.language,
+              organisation.slug
+            )}
+          >
+            {organisation.organisationName}
+          </RedLinkStyle>
+          &nbsp;
+          <SvgCheckedSymbol
+            style={{ fontSize: '14px', fill: TextColors.Blue }}
+          />
+          &nbsp;
+          {i18n.t(`profile.organisation.proposal_${voteKey}`)}
+        </ProfileVoteDescriptionStyle>
+      </ProfileVoteTitleStyle>
 
       <ProposalCardStyle
         aria-labelledby={`proposal_author_${position}`}
@@ -70,6 +85,8 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
         </HiddenItemStyle>
         <ProposalAuthorElement
           author={author}
+          country={proposal.country}
+          language={proposal.language}
           createdAt={proposal.createdAt}
           withAvatar
         />
@@ -90,6 +107,7 @@ export const ProfileVoteCard = ({ voteKey, organisation, proposal }: Props) => {
           proposalId={proposal.id}
           votes={proposal.votes}
           votedKey={voteKey}
+          withLabel={false}
         />
         <ProposalFooterWithTagElement tags={proposal.tags} />
       </ProposalCardStyle>

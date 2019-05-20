@@ -53,12 +53,14 @@ const OrganisationVotesPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderVotes &&
-        votes.map(vote => (
+        votes.map((vote, index) => (
           <ProfileVoteCard
             key={`organisation_votes_${vote.proposal.id}`}
             voteKey={vote.vote}
             proposal={vote.proposal}
             organisation={organisation}
+            size={votes.length}
+            position={index + 1}
           />
         ))}
       {renderPlaceholder && (

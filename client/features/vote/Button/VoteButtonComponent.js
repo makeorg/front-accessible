@@ -15,6 +15,8 @@ type Props = {
   buttonType: React.Node,
   /** When display pending */
   displayPending: boolean,
+  /** Show Tooltip */
+  showTooltip: boolean,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>) => void,
 };
@@ -53,18 +55,37 @@ const VoteButtonWithTooltip = ({
  * Renders Vote Button element
  */
 export const VoteButtonComponent = (props: Props) => {
-  const { color, label, icon, buttonType, handleVote, displayPending } = props;
+  const {
+    color,
+    label,
+    icon,
+    buttonType,
+    handleVote,
+    displayPending,
+    showTooltip,
+  } = props;
 
   return (
     <VoteButtonWrapperStyle>
-      <VoteButtonWithTooltip
-        color={color}
-        label={label}
-        icon={icon}
-        buttonType={buttonType}
-        handleVote={handleVote}
-        displayPending={displayPending}
-      />
+      {showTooltip ? (
+        <VoteButtonWithTooltip
+          color={color}
+          label={label}
+          icon={icon}
+          buttonType={buttonType}
+          handleVote={handleVote}
+          displayPending={displayPending}
+        />
+      ) : (
+        <VoteButtonElement
+          color={color}
+          label={label}
+          icon={icon}
+          buttonType={buttonType}
+          handleVote={handleVote}
+          displayPending={displayPending}
+        />
+      )}
     </VoteButtonWrapperStyle>
   );
 };
