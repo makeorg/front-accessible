@@ -21,7 +21,7 @@ export const PartnerAvatar = (props: Props) => {
       rel="noopener noreferrer"
       avatarSize={50}
     >
-      {partnerLogo && <img src={partnerLogo} alt={partnerName} aria-hidden />}
+      {partnerLogo && <img src={partnerLogo} alt={partnerName} />}
     </AvatarStyle>
   );
 };
