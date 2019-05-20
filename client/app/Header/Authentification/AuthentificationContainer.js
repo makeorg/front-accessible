@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { type User as TypeUser } from 'Shared/types/user';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
@@ -15,22 +15,27 @@ type Props = {
   handleLoginModal: () => void,
 };
 
-export class AuthentificationClass extends React.Component<Props> {
-  render() {
-    const { user, handleRegisterModal, handleLoginModal } = this.props;
-
-    if (user) {
-      return <AuthentificatedBar user={user} />;
-    }
-
-    return (
-      <NotAuthentificatedBar
-        handleRegisterModal={handleRegisterModal}
-        handleLoginModal={handleLoginModal}
-      />
+export const AuthentificationClass = ({
+  user,
+  handleRegisterModal,
+  handleLoginModal,
+}: Props) => {
+  const [componentToRender, setComponentToRender] = useState(null);
+  useEffect(() => {
+    setComponentToRender(
+      user ? (
+        <AuthentificatedBar user={user} />
+      ) : (
+        <NotAuthentificatedBar
+          handleRegisterModal={handleRegisterModal}
+          handleLoginModal={handleLoginModal}
+        />
+      )
     );
-  }
-}
+  }, [handleLoginModal, handleRegisterModal, user]);
+
+  return componentToRender;
+};
 
 const mapStateToProps = state => {
   const { user } = selectAuthentification(state);
