@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { type User as TypeUser } from 'Shared/types/user';
-import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
 import { SvgUser } from 'Client/ui/Svg/elements';
@@ -35,7 +34,6 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
     >
       <ProfileAccessLinkStyle
         aria-label={i18n.t('common.profile_nav')}
-        as={Link}
         href={profileLink}
         rel="nofollow"
       >
@@ -62,20 +60,27 @@ export const NotAuthentificatedBar = ({
 }: NotAuthentificatedBarProps) => {
   return (
     <ProfileAccessWrapperStyle>
-      <UnstyledButtonStyle onClick={handleLoginModal}>
+      <UnstyledButtonStyle
+        onClick={handleLoginModal}
+        aria-label={i18n.t('common.connexion_label')}
+      >
         <SvgUser
           style={{
             fontSize: '16px',
             fill: TextColors.MediumGrey,
           }}
+          aria-hidden
         />
-        <ProfileAccessButtonLabelStyle as="span">
+        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
           {i18n.t('common.connexion_label')}
         </ProfileAccessButtonLabelStyle>
       </UnstyledButtonStyle>
       <HiddenOnMobileStyle as="span">/</HiddenOnMobileStyle>
-      <UnstyledButtonStyle onClick={handleRegisterModal}>
-        <ProfileAccessButtonLabelStyle as="span">
+      <UnstyledButtonStyle
+        onClick={handleRegisterModal}
+        aria-label={i18n.t('common.register_label')}
+      >
+        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
           {i18n.t('common.register_label')}
         </ProfileAccessButtonLabelStyle>
       </UnstyledButtonStyle>
