@@ -17,9 +17,8 @@ export const CookieBannerComponent = ({
   policyLink: string,
   handleClose: () => void,
 }) => (
-  <CookieWrapperStyle aria-describedby="content_info">
+  <CookieWrapperStyle aria-label={i18n.t('common.cookie_area')}>
     <CookieContentStyle
-      id="content_info"
       dangerouslySetInnerHTML={{
         __html: i18n.t('cookie_alert.text', {
           cgu_link: `<a class="red-link" target="_blank" href="${cguLink}">$t(cookie_alert.cgu)</a>`,

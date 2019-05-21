@@ -49,7 +49,8 @@
     "percent": "{{percent}}%",
     "profile_nav": "Accès à mon profil utilisateur",
     "footer_nav": "Navigation de bas de page",
-    "sidebar_area": "Barre latérale de contenu"
+    "sidebar_area": "Barre latérale de contenu",
+    "cookie_area": "Bannière de notification sur l'utilisation des cookies"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org",

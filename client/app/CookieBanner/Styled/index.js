@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
   Layouts,
@@ -9,10 +9,12 @@ import {
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
+  z-index: 0;
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${BasicColors.PureWhite};
+  border-bottom: 1px solid ${BorderColors.Grey};
 `;
 
 export const CookieContentStyle = styled.p`
