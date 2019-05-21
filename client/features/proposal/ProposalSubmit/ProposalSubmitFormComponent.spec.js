@@ -44,9 +44,7 @@ describe('ProposalSubmitFormComponent', () => {
         .find(ProposalCharLimitStyle)
         .first()
         .text()
-    ).toBe(
-      '15proposal_submit.entred_chars/common.from140proposal_submit.available_chars'
-    );
+    ).toBe('15/140');
     expect(wrapper.find(ProposalSubmitButtonComponent)).toHaveLength(1);
     expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).toBe(
       true
