@@ -31,7 +31,7 @@ const ProposalPageContainer = (props: Props) => {
   }, [fetchProposal, match.params.proposalId, proposal, proposalId]);
 
   if (!questionConfiguration) {
-    return null;
+    return <MetaTags description={i18n.t('meta.proposal.description')} />;
   }
 
   return (
