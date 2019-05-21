@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { type User as TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
@@ -32,7 +33,7 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
       as="nav"
       aria-label={i18n.t('common.profile_nav')}
     >
-      <ProfileAccessLinkStyle href={profileLink} rel="nofollow">
+      <ProfileAccessLinkStyle as={Link} to={profileLink} rel="nofollow">
         <Avatar>{avatarUrl && <img src={avatarUrl} alt="" />}</Avatar>
         <span>
           {user.isOrganisation ? user.organisationName : user.firstName}
