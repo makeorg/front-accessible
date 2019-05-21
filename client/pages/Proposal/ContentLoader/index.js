@@ -19,7 +19,7 @@ type Props = {
 export const ProposalPageContentLoader = (props: Props) => {
   const { proposal, questionConfiguration } = props;
 
-  if (!proposal) {
+  if (!proposal || !questionConfiguration) {
     return <Spinner />;
   }
 
