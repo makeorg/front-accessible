@@ -8,22 +8,22 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 
 export const SecondLevelTitleStyle = styled.h2`
-  font-size: 16px;
-  @media (min-width: Breakpoints.Tablet) {
+  font-size: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 22px;
   }
 `;
 
 export const ThirdLevelTitleStyle = styled.h3`
-  font-size: 14px;
-  @media (min-width: Breakpoints.Tablet) {
+  font-size: 16px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
 `;
 
 export const FourthLevelTitleStyle = styled.h4`
-  font-size: 12px;
-  @media (min-width: Breakpoints.Tablet) {
+  font-size: 14px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
 `;
