@@ -20,7 +20,7 @@
     "label": ""
   },
   "partners": [
-    {"name": "Mouvement pour une Économie Bienveillante", "imageUrl": "/images/operations/economie-bienveillante/partners/meb.jpg", "isFounder": false}
+    {"name": "Mouvement pour une Économie Bienveillante", "imageUrl": "/images/operations/economie-bienveillante/partners/meb.jpg", "isFounder": true}
   ],
   "isGreatCause": false,
   "aboutUrl": "https://about.make.org/about-economiebienveillante",

@@ -14,7 +14,9 @@ type Props = {
 
 export const FoundersComponent = (props: Props) => {
   const { founders, isGreatCause } = props;
-
+  if (!founders || founders.length === 0) {
+    return null;
+  }
   return (
     <React.Fragment>
       <TileSeparatorStyle />
@@ -25,7 +27,7 @@ export const FoundersComponent = (props: Props) => {
             : 'consultation.partners.init'
         )}
       </ParagraphStyle>
-      {founders && <PartnersList partners={founders} />}
+      <PartnersList partners={founders} />
     </React.Fragment>
   );
 };
