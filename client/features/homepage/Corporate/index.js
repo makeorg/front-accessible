@@ -59,7 +59,6 @@ export const CorporateBanner = () => {
           <CorporateLinkStyle
             as="a"
             href="https://about.make.org/qui-sommes-nous"
-            target="_blank"
           >
             {i18n.t('homepage.corporate.second-section.link-text')}
           </CorporateLinkStyle>

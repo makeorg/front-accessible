@@ -5,7 +5,7 @@ import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { HomeWrapperStyle } from 'Client/features/homepage/Styled';
+import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
 import {
   QuestionsListStyle,
   QuestionItemStyle,
@@ -19,8 +19,10 @@ import {
 export const QuestionsListComponent = props => {
   const { questions, country, language } = props;
   return (
-    <HomeWrapperStyle>
-      <HomeTitleStyle>{i18n.t('homepage.question_list.title')}</HomeTitleStyle>
+    <HomepagePaddingContentStyle aria-labelledby="questions_title">
+      <HomeTitleStyle id="questions_title">
+        {i18n.t('homepage.question_list.title')}
+      </HomeTitleStyle>
       <QuestionsListStyle>
         {questions.map(question => (
           <QuestionItemStyle key={question.slug}>
@@ -29,7 +31,7 @@ export const QuestionsListComponent = props => {
                 ? {
                     to: getConsultationLink(country, language, question.slug),
                   }
-                : { href: question.aboutUrl, as: 'a', target: '_blank' })}
+                : { href: question.aboutUrl, as: 'a' })}
             >
               <QuestionBorderStyle
                 colorStart={question.theme.colorStart}
@@ -41,16 +43,14 @@ export const QuestionsListComponent = props => {
                     ? i18n.t('homepage.question_list.question_inprogress')
                     : i18n.t('homepage.question_list.question_ended')}
                 </QuestionStatusStyle>
-                <div>{question.title}</div>
+                {question.title}
               </QuestionStyle>
-              <QuestionArrowStyle>
-                <SvgAngleArrowRight />
-              </QuestionArrowStyle>
+              <SvgAngleArrowRight style={QuestionArrowStyle} />
             </QuestionLinkStyle>
           </QuestionItemStyle>
         ))}
       </QuestionsListStyle>
-    </HomeWrapperStyle>
+    </HomepagePaddingContentStyle>
   );
 };
 

@@ -45,7 +45,7 @@ export const FeaturedArticleStyle = styled.article`
   height: ${intToPx(ArticleHeightMobile)};
   overflow: hidden;
   flex: 1;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {

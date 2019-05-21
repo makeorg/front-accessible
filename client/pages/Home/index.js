@@ -5,7 +5,8 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { QuestionsList } from 'Client/features/homepage/QuestionsList';
-import { HomeWrapperStyle, PaddingContainerStyle } from './Styled';
+import { GreatCausesList } from 'Client/features/homepage/GreatCausesList';
+import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
 
 const questions = [
   {
@@ -44,16 +45,19 @@ const questions = [
 ];
 
 const HomePage = () => (
-  <HomeWrapperStyle>
+  <HomepageWrapperStyle>
     <MetaTags />
-    <PaddingContainerStyle>
+    <HomepageContainerStyle>
       <FeaturedConsultations />
-    </PaddingContainerStyle>
+    </HomepageContainerStyle>
+    <HomepageContainerStyle>
+      <GreatCausesList />
+    </HomepageContainerStyle>
     <CorporateBanner />
-    <PaddingContainerStyle>
+    <HomepageContainerStyle>
       <QuestionsList questions={questions} />
-    </PaddingContainerStyle>
-  </HomeWrapperStyle>
+    </HomepageContainerStyle>
+  </HomepageWrapperStyle>
 );
 
 // default export needed for loadable component

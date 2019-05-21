@@ -6,6 +6,8 @@ import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const FooterStyle = styled.footer`
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   flex: 0;

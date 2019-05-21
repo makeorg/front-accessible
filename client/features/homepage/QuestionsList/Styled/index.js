@@ -1,33 +1,64 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { TextColors } from 'Client/app/assets/vars/Colors';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { intToPx } from 'Shared/helpers/styled';
+import {
+  Breakpoints,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const QuestionsListStyle = styled.ul`
+export const QuestionsListStyle = styled(UnstyledListStyle)`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-flow: column;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: row;
+    justify-content: space-between;
+  }
 `;
 
 export const QuestionItemStyle = styled.li`
   display: flex;
-  width: 30%;
+  border-radius: 8px;
+  background-color: rgb(242, 242, 242);
+  overflow: hidden;
+  margin-bottom: ${intToPx(DefaultPadding.Mobile)};
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 0 15px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 `;
 
 export const QuestionLinkStyle = styled(Link)`
   display: flex;
   text-decoration: none;
+  font-family: ${MakeFonts.RobotoBold};
+  font-size: 13px;
+  line-height: 1.25;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 16px;
+  }
 `;
 
 export const QuestionStyle = styled.div`
-  font-weight: bold;
-  border-radius: 8px;
-  background-color: rgb(242, 242, 242);
   padding: 15px;
 `;
 
-export const QuestionStatusStyle = styled.div`
+export const QuestionStatusStyle = styled.p`
+  font-family: ${MakeFonts.RobotoCondensedBold};
   color: ${TextColors.Grey};
   text-transform: uppercase;
+  margin-bottom: 5px;
+  line-height: 1;
 `;
 
 export const QuestionBorderStyle = styled.div`
@@ -39,7 +70,8 @@ export const QuestionBorderStyle = styled.div`
   );
 `;
 
-export const QuestionArrowStyle = styled.div`
-  display: flex;
-  align-self: center;
-`;
+export const QuestionArrowStyle = {
+  justifySelf: 'center',
+  alignSelf: 'center',
+  marginRight: '5px',
+};

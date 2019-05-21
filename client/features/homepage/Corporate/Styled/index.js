@@ -15,10 +15,8 @@ export const CorporateWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   background-color: ${MakeThemeColors.Red};
   padding: ${intToPx(DefaultPadding.Mobile)};
-  margin: ${intToPx(DefaultPadding.Mobile)} 0;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)};
-    margin: ${intToPx(DefaultPadding.Desktop)} 0;
+    padding: 45px ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 

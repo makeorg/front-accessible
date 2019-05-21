@@ -1,8 +1,8 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
-import { HomeWrapperStyle } from 'Client/features/homepage/Styled';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
@@ -17,7 +17,7 @@ import {
 
 export const FeaturedConsultations = () => {
   return (
-    <HomeWrapperStyle aria-labelledby="featured_title">
+    <HomepageInnerContentStyle aria-labelledby="featured_title">
       <HomeTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
       </HomeTitleStyle>
@@ -82,6 +82,6 @@ export const FeaturedConsultations = () => {
           </FeaturedArticleStyle>
         </FeaturedArticleColumnStyle>
       </FeaturedArticleWrapperStyle>
-    </HomeWrapperStyle>
+    </HomepageInnerContentStyle>
   );
 };

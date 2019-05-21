@@ -404,6 +404,9 @@
     "featured": {
       "title": "En ce moment sur Make.org"
     },
+    "great-causes": {
+      "title": "Nos consultations"
+    },
     "corporate": {
       "first-section":{
         "introduction": "la politique ne suffit plus, faisons bouger les lignes ensemble",
@@ -420,7 +423,7 @@
       }
     },
     "question_list": {
-      "title": "nos autres consultations",
+      "title": "Ils ont lancé une consultation Make.org",
       "question_ended": "Consultation en cours",
       "question_inprogress": "Consultation terminée"
     }
