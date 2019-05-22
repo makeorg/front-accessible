@@ -93,6 +93,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
         <ConsultationPageSidebarStyle
           id="sidebar"
           as="aside"
+          aria-label={i18n.t('common.sidebar_area')}
           bottomAffix={questionConfiguration.isGreatCause}
         >
           <Collapse
@@ -132,8 +133,8 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             questionConfiguration={questionConfiguration}
           />
           <ThirdLevelTitleStyle>
-            <ConsultationIconStyle aria-hidden>
-              <SvgThumbsUp />
+            <ConsultationIconStyle>
+              <SvgThumbsUp aria-hidden />
             </ConsultationIconStyle>
             {i18n.t('common.vote_on_proposals')}
           </ThirdLevelTitleStyle>

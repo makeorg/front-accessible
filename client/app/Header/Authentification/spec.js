@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render } from 'react-testing-library';
 import { AuthentificationClass } from './AuthentificationContainer';
 
@@ -18,11 +19,13 @@ describe('Authentification', () => {
 
     it('return AuthentificatedBar', () => {
       const { container } = render(
-        <AuthentificationClass
-          user={user}
-          handleLoginModal={handleLoginModal}
-          handleRegisterModal={handleRegisterModal}
-        />
+        <BrowserRouter>
+          <AuthentificationClass
+            user={user}
+            handleLoginModal={handleLoginModal}
+            handleRegisterModal={handleRegisterModal}
+          />
+        </BrowserRouter>
       );
 
       expect(container).toHaveTextContent('fooUser');

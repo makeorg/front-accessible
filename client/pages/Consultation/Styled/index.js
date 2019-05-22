@@ -52,7 +52,7 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   }
 `;
 
-export const ConsultationIconStyle = styled.div`
+export const ConsultationIconStyle = styled.span`
   display: inline-flex;
   align-items: flex-end;
   justify-content: flex-end;

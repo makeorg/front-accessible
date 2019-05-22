@@ -75,16 +75,23 @@ export const ProposalSubmitFormComponent = (props: Props) => {
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>
         <ProposalCharLimitStyle>
-          <span aria-valuetext={length}>{length}</span>
-          <HiddenItemStyle>
-            {i18n.t('proposal_submit.entred_chars')}
-          </HiddenItemStyle>
-          <span aria-hidden>/</span>
-          <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
-          <span aria-valuemax="140">140</span>
-          <HiddenItemStyle>
-            {i18n.t('proposal_submit.available_chars')}
-          </HiddenItemStyle>
+          <span
+            aria-label={i18n.t('proposal_submit.entred_chars', {
+              chars: length,
+            })}
+            aria-valuetext={length}
+          >
+            {length}
+          </span>
+          <span aria-label={i18n.t('common.from')}>/</span>
+          <span
+            aria-label={i18n.t('proposal_submit.available_chars', {
+              chars: 140,
+            })}
+            aria-valuemax="140"
+          >
+            140
+          </span>
         </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}

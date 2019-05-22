@@ -4,6 +4,9 @@
       "title": "Make.org, accélérateur d'intérêt général",
       "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires.",
       "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+    },
+    "proposal": {
+      "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
     }
   },
   "common": {
@@ -40,11 +43,18 @@
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
     "display_tooltip": "Afficher le contenu de l'infobulle",
     "hide_tooltip": "Masquer le contenu de l'infobulle",
-    "expand_collapse": "Afficher le contenu de la section déroulante",
-    "shrink_collapse": "Masquer le contenu de la section déroulante",
+    "expand_collapse": "{{name}} - Afficher le contenu de la section déroulante",
+    "shrink_collapse": "{{name}} - Masquer le contenu de la section déroulante",
     "secondary_nav": "Navigation secondaire",
     "percent": "{{percent}}%",
-    "profile_nav": "Naviguer vers mon profil utilisateur"
+    "header_authentification_nav": "Accès à mon profil utilisateur",
+    "footer_nav": "Navigation de bas de page",
+    "sidebar_area": "Barre latérale de contenu",
+    "cookie_area": "Bannière de notification sur l'utilisation des cookies",
+    "consultation_header_area": "Bannière d'introduction de la consultation",
+    "consultation_nav": "Barre de navigation de la consultation",
+    "user_profile_nav": "Barre de navigation de mon profil utilisateur",
+    "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org",
@@ -101,8 +111,8 @@
   "proposal_submit": {
     "bait": "Il faut ",
     "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
-    "entred_chars": "caractères entrés",
-    "available_chars": "caractères disponibles",
+    "entred_chars": "{{chars}} caractères entrés",
+    "available_chars": "{{chars}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
@@ -298,9 +308,9 @@
     "organisation": {
       "proposal_agree": "est d'accord avec cette proposition",
       "proposal_disagree": "n'est pas d'accord avec cette proposition",
-      "and": " et",
-      "hasVoted": "a voté sur cette proposition.",
-      "hasVoted_plural": "ont voté sur cette proposition."
+      "and": " et ",
+      "hasVoted": " a voté sur cette proposition.",
+      "hasVoted_plural": " ont voté sur cette proposition."
     }
   },
   "organisation": {
@@ -386,7 +396,7 @@
     "plan": {
       "title": "Notre plan d'actions citoyen",
       "text": "Vous trouverez ici prochainement le plan d'actions citoyen issu de la consultation.",
-      "list-bait": "Qu'est ce qu'une action sur Make.org ?",
+      "list-bait": "Qu'est-ce qu'une action sur Make.org ?",
       "list-intro": "Pour nous une action se doit d'être :",
       "list-first-item": "- citoyenne car issue de vos propositions,",
       "list-second-item": "- collective, et toujours ouverte à toutes et tous,",

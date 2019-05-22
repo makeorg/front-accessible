@@ -28,7 +28,7 @@ export const AppContainer = () => (
       <UIThemeStylesheet />
       <CookieBanner />
       <Header />
-      <AppMainContentStyle role="main">
+      <AppMainContentStyle>
         <Notification />
         <Routes />
       </AppMainContentStyle>

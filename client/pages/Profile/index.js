@@ -93,18 +93,12 @@ const Profile = (props: Props) => {
           <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
             <TabListStyle>
               <TabStyle selected={isProfileProposalsActive}>
-                <Link
-                  to={profileProposalsLink}
-                  aria-selected={isProfileProposalsActive}
-                >
+                <Link to={profileProposalsLink}>
                   {i18n.t('profile.tabs.proposals')}
                 </Link>
               </TabStyle>
               <TabStyle selected={isProfileFavouritesActive}>
-                <Link
-                  to={profileFavouritesLink}
-                  aria-selected={isProfileFavouritesActive}
-                >
+                <Link to={profileFavouritesLink}>
                   {i18n.t('profile.tabs.favourites')}
                   <SvgLike aria-hidden style={ProfileTabIconStyle} />
                 </Link>

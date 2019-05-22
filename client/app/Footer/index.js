@@ -11,8 +11,8 @@ import { FooterStyle, FooterNavStyle, FooterLogoStyle } from './Styled';
  * Renders Main Footer
  */
 export const Footer = () => (
-  <FooterStyle role="contentinfo">
-    <FooterNavStyle role="navigation">
+  <FooterStyle>
+    <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
       <a href={FRONT_LEGACY_ROOT}>
         <FooterLogoStyle
           onClick={() => Tracking.trackClickMakeLogo()}

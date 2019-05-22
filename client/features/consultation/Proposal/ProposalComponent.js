@@ -16,8 +16,8 @@ type Props = {
 export const ConsultationProposalComponent = (props: Props) => {
   const { question, questionConfiguration } = props;
   return (
-    <ProposalWrapperStyle>
-      <ThirdLevelTitleStyle>
+    <ProposalWrapperStyle aria-labelledby="proposal_aside_title">
+      <ThirdLevelTitleStyle id="proposal_aside_title">
         <IconWrapperStyle aria-hidden>
           <SvgLightBulb />
         </IconWrapperStyle>

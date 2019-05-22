@@ -64,17 +64,21 @@ export const ConsultationPageComponent = (props: Props) => {
         questionConfiguration={questionConfiguration}
       />
       <ConsultationPageWrapperStyle>
-        <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
+        <TabNavStyle
+          aria-label={i18n.t('common.consultation_nav', {
+            name: question.wording.question,
+          })}
+        >
           <TabListStyle>
             <FullWidthTabStyle selected={isConsultationPage}>
-              <Link to={consultationLink} aria-selected={isConsultationPage}>
+              <Link to={consultationLink}>
                 <ConsultationTabContent question={question} />
               </Link>
             </FullWidthTabStyle>
 
             {questionConfiguration.isGreatCause && (
               <FullWidthTabStyle selected={isActionPage}>
-                <Link to={actionLink} aria-selected={isActionPage}>
+                <Link to={actionLink}>
                   {i18n.t('consultation.tabs.action')}
                 </Link>
               </FullWidthTabStyle>

@@ -15,14 +15,13 @@ export const PartnerAvatar = (props: Props) => {
 
   return (
     <AvatarStyle
-      aria-hidden
       as="a"
       href={partnerProfile}
       target="_blank"
       rel="noopener noreferrer"
       avatarSize={50}
     >
-      {partnerLogo && <img src={partnerLogo} alt={partnerName} aria-hidden />}
+      {partnerLogo && <img src={partnerLogo} alt={partnerName} />}
     </AvatarStyle>
   );
 };

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { type User as TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
@@ -10,7 +11,7 @@ import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
   ProfileAccessWrapperStyle,
-  ProfileAccessButtonStyle,
+  ProfileAccessButtonLabelStyle,
   ProfileAccessLinkStyle,
 } from '../Styled';
 
@@ -30,23 +31,11 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
   return (
     <ProfileAccessWrapperStyle
       as="nav"
-      aria-label={i18n.t('common.secondary_nav')}
+      aria-label={i18n.t('common.header_authentification_nav')}
     >
-      <ProfileAccessLinkStyle
-        aria-label={i18n.t('common.profile_nav')}
-        href={profileLink}
-        rel="nofollow"
-      >
-        <Avatar>
-          {avatarUrl && (
-            <img
-              src={avatarUrl}
-              alt={user.isOrganisation ? user.organisationName : user.firstName}
-              aria-hidden
-            />
-          )}
-        </Avatar>
-        <span aria-hidden>
+      <ProfileAccessLinkStyle as={Link} to={profileLink} rel="nofollow">
+        <Avatar>{avatarUrl && <img src={avatarUrl} alt="" />}</Avatar>
+        <span>
           {user.isOrganisation ? user.organisationName : user.firstName}
         </span>
       </ProfileAccessLinkStyle>
@@ -60,18 +49,30 @@ export const NotAuthentificatedBar = ({
 }: NotAuthentificatedBarProps) => {
   return (
     <ProfileAccessWrapperStyle>
-      <UnstyledButtonStyle aria-hidden onClick={handleLoginModal}>
-        <SvgUser style={{ fontSize: '16px', fill: TextColors.MediumGrey }} />
-      </UnstyledButtonStyle>
-      <HiddenOnMobileStyle>
-        <ProfileAccessButtonStyle onClick={handleLoginModal}>
+      <UnstyledButtonStyle
+        onClick={handleLoginModal}
+        aria-label={i18n.t('common.connexion_label')}
+      >
+        <SvgUser
+          style={{
+            fontSize: '16px',
+            fill: TextColors.MediumGrey,
+          }}
+          aria-hidden
+        />
+        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
           {i18n.t('common.connexion_label')}
-        </ProfileAccessButtonStyle>
-        /
-        <ProfileAccessButtonStyle onClick={handleRegisterModal}>
+        </ProfileAccessButtonLabelStyle>
+      </UnstyledButtonStyle>
+      <HiddenOnMobileStyle as="span">/</HiddenOnMobileStyle>
+      <UnstyledButtonStyle
+        onClick={handleRegisterModal}
+        aria-label={i18n.t('common.register_label')}
+      >
+        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
           {i18n.t('common.register_label')}
-        </ProfileAccessButtonStyle>
-      </HiddenOnMobileStyle>
+        </ProfileAccessButtonLabelStyle>
+      </UnstyledButtonStyle>
     </ProfileAccessWrapperStyle>
   );
 };

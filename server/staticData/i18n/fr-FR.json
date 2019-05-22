@@ -43,11 +43,18 @@
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
     "display_tooltip": "Afficher le contenu de l'infobulle",
     "hide_tooltip": "Masquer le contenu de l'infobulle",
-    "expand_collapse": "Afficher le contenu de la section déroulante",
-    "shrink_collapse": "Masquer le contenu de la section déroulante",
+    "expand_collapse": "{{name}} - Afficher le contenu de la section déroulante",
+    "shrink_collapse": "{{name}} - Masquer le contenu de la section déroulante",
     "secondary_nav": "Navigation secondaire",
     "percent": "{{percent}}%",
-    "profile_nav": "Naviguer vers mon profil utilisateur"
+    "header_authentification_nav": "Accès à mon profil utilisateur",
+    "footer_nav": "Navigation de bas de page",
+    "sidebar_area": "Barre latérale de contenu",
+    "cookie_area": "Bannière de notification sur l'utilisation des cookies",
+    "consultation_header_area": "Bannière d'introduction de la consultation",
+    "consultation_nav": "Barre de navigation de la consultation",
+    "user_profile_nav": "Barre de navigation de mon profil utilisateur",
+    "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"
   },
   "header": {
     "logo_alt": "Aller sur le site Make.org",
@@ -104,8 +111,8 @@
   "proposal_submit": {
     "bait": "Il faut ",
     "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
-    "entred_chars": "caractères entrés",
-    "available_chars": "caractères disponibles",
+    "entred_chars": "{{chars}} caractères entrés",
+    "available_chars": "{{chars}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."

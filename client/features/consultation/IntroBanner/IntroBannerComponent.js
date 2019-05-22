@@ -4,7 +4,6 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { IntroWrapperStyle, IntroLabelStyle } from '../Styled/IntroBanner';
 
 type Props = {
@@ -22,18 +21,13 @@ export const IntroBannerComponent = (props: Props) => {
       gradientStart={theme.gradientStart}
       gradientEnd={theme.gradientEnd}
       color={theme.gradientStart}
-      aria-labelledby="header_consultation_title"
+      aria-label={i18n.t('common.consultation_header_area')}
       id="intro"
     >
       {questionConfiguration.isGreatCause && (
         <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
-      <HiddenItemStyle id="header_consultation_title">
-        {questionConfiguration.isGreatCause &&
-          `${i18n.t('consultation.header.label')}: `}
-        {wording.question}
-      </HiddenItemStyle>
-      <h2>
+      <h2 aria-label={wording.question}>
         <img src={consultation.logo} alt={wording.question} />
       </h2>
     </IntroWrapperStyle>

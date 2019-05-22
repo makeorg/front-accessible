@@ -5,7 +5,7 @@ import { type OrganisationSoft as TypeOrganisationSoft } from 'Shared/types/orga
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { OrganisationsVoteWrapperrStyle } from './Styled';
+import { OrganisationsVoteWrapperStyle } from './Styled';
 
 type Props = {
   organisations: TypeOrganisationSoft[],
@@ -21,7 +21,7 @@ export const OrganisationsVote = (props: Props) => {
   }
 
   return (
-    <OrganisationsVoteWrapperrStyle>
+    <OrganisationsVoteWrapperStyle>
       {organisations.map((organisation, index) => (
         <React.Fragment key={organisation.organisationId}>
           {!!index && index + 1 < organisations.length && ', '}
@@ -43,6 +43,6 @@ export const OrganisationsVote = (props: Props) => {
       {i18n.t('profile.organisation.hasVoted', {
         count: organisations.length,
       })}
-    </OrganisationsVoteWrapperrStyle>
+    </OrganisationsVoteWrapperStyle>
   );
 };

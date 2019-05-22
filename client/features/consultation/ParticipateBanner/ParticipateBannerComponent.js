@@ -24,8 +24,11 @@ export const ParticipateBannerComponent = (props: Props) => {
       gradientStart={styleTheme.gradientStart}
       gradientEnd={styleTheme.gradientEnd}
       color={styleTheme.gradientStart}
+      aria-labelledby="participate_aside_title"
     >
-      <ParticipateTitle>{i18n.t('consultation.banner.title')}</ParticipateTitle>
+      <ParticipateTitle id="participate_aside_title">
+        {i18n.t('consultation.banner.title')}
+      </ParticipateTitle>
       <ParticipateSeparatorStyle aria-hidden />
       <LinkAsRedButton
         as={Link}
