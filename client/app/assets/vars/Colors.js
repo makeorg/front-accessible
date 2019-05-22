@@ -32,7 +32,7 @@ export const BorderColors = {
 };
 
 export const TextColors = {
-  Grey: 'rgba(0,0,0,0.3)',
+  Grey: 'rgba(0,0,0,0.6)',
   LightGrey: 'rgb(242,242,242)',
   MediumGrey: 'rgba(0,0,0,0.55)',
   DarkGrey: 'rgb(83,83,83)',

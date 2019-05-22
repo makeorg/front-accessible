@@ -92,6 +92,7 @@ export const GreatCausesOverlayStyle = styled.div`
 
 export const GreatCausesDescriptionStyle = styled.p`
   font-size: 12px;
+  font-weight: bold;
   line-height: 1.5;
   color: ${BasicColors.PureWhite};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

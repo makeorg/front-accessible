@@ -45,7 +45,7 @@ export const QuestionLinkStyle = styled(Link)`
   font-size: 13px;
   line-height: 1.25;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
