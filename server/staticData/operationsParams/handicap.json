@@ -31,7 +31,7 @@
     {"name": "Fédération Française du Handisport", "imageUrl": "/images/operations/handicap/partners/handisport.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/federation-francaise-handisport"}
   ],
   "isGreatCause": true,
-  "aboutUrl": "https://about.make.org/about-handicap",
+  "aboutUrl": "https://about-handicap.make.org",
   "sequenceConfig": {
     "introCard": {
       "enabled": true,
