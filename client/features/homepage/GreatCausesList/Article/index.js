@@ -38,6 +38,8 @@ export const GreatCauseArticle = (props: Props) => {
         {children}
         <GreatCausesLinkStyle
           href={linkUrl}
+          target="_blank"
+          aria-label={i18n.t('common.open_new_window')}
           onFocus={() => setDisplayOverlay(true)}
           onBlur={() => setDisplayOverlay(false)}
           tabIndex={isOverlayDisplayed ? 0 : -1}

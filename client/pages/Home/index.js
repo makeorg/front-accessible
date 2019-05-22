@@ -11,14 +11,14 @@ import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
 const questions = [
   {
     theme: {
-      colorStart: 'rgb(125, 183, 227)',
-      colorEnd: 'rgb(93, 161, 19)',
+      colorStart: 'rgb(255, 182, 98)',
+      colorEnd: 'rgb(255, 87, 87)',
     },
-    startDate: null,
-    endDate: '2019-02-06',
-    slug: 'european-digital-champions',
-    aboutUrl: 'https://about.make.org/about-european-digital-champions',
-    title: 'Comment faire émerger des champions européens du numérique ?',
+    startDate: '2019-05-06',
+    endDate: '2019-06-30',
+    slug: 'prevention-jeunes',
+    aboutUrl: 'https://about.make.org/about-prevention-jeunes',
+    title: 'Comment inciter les jeunes à mieux prendre soin de leur santé ?',
   },
   {
     theme: {
@@ -33,14 +33,14 @@ const questions = [
   },
   {
     theme: {
-      colorStart: 'rgb(255, 182, 98)',
-      colorEnd: 'rgb(255, 87, 87)',
+      colorStart: 'rgb(125, 183, 227)',
+      colorEnd: 'rgb(93, 161, 19)',
     },
-    startDate: '2019-05-06',
-    endDate: '2019-06-30',
-    slug: 'prevention-jeunes',
-    aboutUrl: 'https://about.make.org/about-prevention-jeunes',
-    title: 'Comment inciter les jeunes à mieux prendre soin de leur santé ?',
+    startDate: null,
+    endDate: '2019-02-06',
+    slug: 'european-digital-champions',
+    aboutUrl: 'https://about.make.org/about-european-digital-champions',
+    title: 'Comment faire émerger des champions européens du numérique ?',
   },
 ];
 

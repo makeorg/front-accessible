@@ -16,6 +16,7 @@ import {
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_ORGANISATION_PROPOSALS,
   ROUTE_ORGANISATION_VOTES,
+  ROUTE_COUNTRY_LANG,
 } from 'Shared/routes';
 
 const ConsultationPage = loadable(() => import('Client/pages/Consultation'));
@@ -26,7 +27,7 @@ const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
 );
 const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
-// const HomePage = loadable(() => import('Client/pages/Home'));
+const HomePage = loadable(() => import('Client/pages/Home'));
 const ProposalPage = loadable(() => import('Client/pages/Proposal'));
 const AccountActivationPage = loadable(() =>
   import('Client/pages/AccountActivation')
@@ -58,6 +59,8 @@ export const Routes = () => (
       to={ROUTE_ORGANISATION_PROPOSALS}
     />
     <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
+    <Route path={ROUTE_COUNTRY_LANG} component={HomePage} />
+    <Route path="/" component={HomePage} />
     <Route component={NotFoundPage} />
   </Switch>
 );

@@ -49,6 +49,7 @@ export const CorporateSectionStyle = styled.section`
   flex-flow: column;
   align-items: flex-start;
   flex: 1;
+  font-weight: bold;
 `;
 
 export const CorporateTitleStyle = styled.h2`
