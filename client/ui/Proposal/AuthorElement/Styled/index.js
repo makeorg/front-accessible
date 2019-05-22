@@ -7,7 +7,7 @@ import {
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const AuthorInfosStyle = styled.cite`
+export const AuthorInfosStyle = styled.div`
   display: inline-flex;
   align-items: center;
   font-size: 12px;
