@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const useMedia = (query: String) => {
+export const useMedia = (query: string) => {
   const [value, setValue] = useState(false);
 
   useEffect(() => {
