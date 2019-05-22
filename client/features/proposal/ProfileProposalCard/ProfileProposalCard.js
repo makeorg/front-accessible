@@ -27,8 +27,6 @@ export const ProfileProposalCard = (props: Props) => {
 
   return (
     <ProfileProposalCardStyle
-      aria-labelledby={`proposal_author_${position}`}
-      aria-describedby={`proposal_content_${position}`}
       role="article"
       aria-posinset={position}
       aria-setsize={size}

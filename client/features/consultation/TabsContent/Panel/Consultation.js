@@ -133,8 +133,8 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             questionConfiguration={questionConfiguration}
           />
           <ThirdLevelTitleStyle>
-            <ConsultationIconStyle aria-hidden>
-              <SvgThumbsUp />
+            <ConsultationIconStyle>
+              <SvgThumbsUp aria-hidden />
             </ConsultationIconStyle>
             {i18n.t('common.vote_on_proposals')}
           </ThirdLevelTitleStyle>

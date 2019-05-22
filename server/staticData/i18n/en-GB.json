@@ -41,11 +41,11 @@
     "hide_modal": "Hide the content of the dialog modal",
     "display_tooltip": "Display the content of the tooltip",
     "hide_tooltip": "Hide the content of the tooltip",
-    "expand_collapse": "Display the content of the collapse section",
-    "shrink_collapse": "Hide the content of the collapse section",
+    "expand_collapse": "{{name}} - Display the content of the collapse section",
+    "shrink_collapse": "{{name}} - Hide the content of the collapse section",
     "secondary_nav": "Secondary navigation",
     "percent": "{{percent}}%",
-    "profile_nav": "Navigate to my user profile"
+    "header_authentification_nav": "Navigate to my user profile"
   },
   "header": {
     "logo_alt": "Go to the Make.org site",
@@ -102,7 +102,7 @@
   "proposal_submit": {
     "bait": "We should ",
     "title": "Submit your proposals by filling in this form. Keep your proposal under 140 characters:",
-    "entred_chars": "characters entered",
+    "entred_chars": "{{chars}} characters entered",
     "available_chars": "characters available",
     "description": "Don't worry, we’ll fix any spelling mistakes.",
     "moderation_charter": "To find out more about our moderation guidelines,",

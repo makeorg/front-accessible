@@ -13,7 +13,7 @@ export const HiddenItemStyle = styled.span`
   visibility: hidden;
 `;
 
-export const HiddenOnMobileStyle = styled.div`
+export const HiddenOnMobileStyle = styled.span`
   display: none !important;
   visibility: hidden;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
@@ -22,7 +22,7 @@ export const HiddenOnMobileStyle = styled.div`
   }
 `;
 
-export const HiddenOnDesktopStyle = styled.div`
+export const HiddenOnDesktopStyle = styled.span`
   width: 100%;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     display: none;

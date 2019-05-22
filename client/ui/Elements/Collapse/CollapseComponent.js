@@ -38,8 +38,8 @@ export const CollapseComponent = (props: Props) => {
         disabled={disableCollapse}
         aria-label={
           isCollapsed
-            ? i18n.t('common.expand_collapse')
-            : i18n.t('common.shrink_collapse')
+            ? i18n.t('common.expand_collapse', { name: title })
+            : i18n.t('common.shrink_collapse', { name: title })
         }
       >
         <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>

@@ -13,10 +13,13 @@ export const CollapseToggle = ({ isClosed, handleOpenSequence }) => {
 
   return (
     <React.Fragment>
-      <BackArrowStyle aria-hidden onClick={handleOpenSequence}>
-        <SvgArrowTop />
+      <BackArrowStyle
+        aria-label={i18n.t('sequence.return')}
+        onClick={handleOpenSequence}
+      >
+        <SvgArrowTop aria-hidden />
       </BackArrowStyle>
-      <BackButtonStyle aria-hidden onClick={handleOpenSequence}>
+      <BackButtonStyle onClick={handleOpenSequence}>
         {i18n.t('sequence.return')}
       </BackButtonStyle>
     </React.Fragment>
