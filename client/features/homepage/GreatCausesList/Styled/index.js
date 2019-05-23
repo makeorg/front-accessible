@@ -10,47 +10,19 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const GreatCausesListStyle = styled(UnstyledListStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    display: flex;
-    flex-flow: row;
-    align-content: space-between;
-  }
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
 `;
 
 export const GreatCausesListItemStyle = styled.li`
-  display: inline-flex;
-  width: 100%;
+  margin-right: 15px;
   margin-bottom: 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: calc(50% - 5px);
-    margin-bottom: 15px;
-    &:nth-child(2n + 1) {
-      margin-right: 5px;
-    }
-    &:nth-child(2n) {
-      margin-left: 5px;
-    }
-    &:nth-child(3),
-    &:nth-child(4) {
-      margin-bottom: 0;
-    }
-  }
+  flex: 0 1 calc(50% - 15px);
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    width: 100%;
-    margin: 0 15px;
-    &:nth-child(2n + 1) {
-      margin-right: 15px;
-    }
-    &:nth-child(2n) {
-      margin-left: 15px;
-    }
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
+    flex: 0 1 calc(25% - 15px);
   }
+
 `;
 
 export const GreatCausesArticleStyle = styled.article`
