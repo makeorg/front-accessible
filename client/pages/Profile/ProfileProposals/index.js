@@ -13,6 +13,7 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
   user: TypeUser,
@@ -40,26 +41,29 @@ const ProfileProposalsPage = (props: Props) => {
   }, [user]);
 
   return (
-    <CenterColumnStyle>
-      <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
-          {i18n.t('profile.proposals.title')}
-        </SecondLevelTitleStyle>
-        <ProfileTitleSeparatorStyle />
-      </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
-      {renderProposals &&
-        proposals.map((proposal, index) => (
-          <ProfileProposalCard
-            key={proposal.id}
-            proposal={proposal}
-            size={proposalsLength}
-            position={index}
-            withStatus
-          />
-        ))}
-      {renderPlaceholder && <ProfileProposalsPlaceholder />}
-    </CenterColumnStyle>
+    <React.Fragment>
+      <MetaTags title={i18n.t('meta.profile.proposals.title')} />
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('profile.proposals.title')}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {isLoading && <Spinner />}
+        {renderProposals &&
+          proposals.map((proposal, index) => (
+            <ProfileProposalCard
+              key={proposal.id}
+              proposal={proposal}
+              size={proposalsLength}
+              position={index}
+              withStatus
+            />
+          ))}
+        {renderPlaceholder && <ProfileProposalsPlaceholder />}
+      </CenterColumnStyle>
+    </React.Fragment>
   );
 };
 

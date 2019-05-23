@@ -15,6 +15,7 @@ import { Tracking } from 'Shared/services/Tracking';
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { SupportContent } from 'Client/features/consultation/Actions/Support';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
   questionConfiguration: QuestionConfiguration,
@@ -36,6 +37,11 @@ export class ActionsPanelClass extends React.Component<Props> {
 
     return (
       <React.Fragment>
+        <MetaTags
+          title={i18n.t('meta.actions.title', {
+            question: questionConfiguration.wording.question,
+          })}
+        />
         <ConsultationPageSidebarStyle id="sidebar_content" as="aside">
           <TileWithTitle title={i18n.t('actions.plan.title')}>
             <PlanTileContent />

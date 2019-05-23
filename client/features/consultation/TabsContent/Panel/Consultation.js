@@ -21,6 +21,7 @@ import {
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
+import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 
 type Props = {
@@ -83,69 +84,78 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
     const renderDesktopProposal = question.canPropose && !isMobile;
 
     return (
-      <ConsultationPanelInnerStyle>
-        {renderMobileProposal && (
-          <ConsultationProposal
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-        )}
-        <ConsultationPageSidebarStyle
-          id="sidebar_content"
-          as="aside"
-          aria-label={i18n.t('common.sidebar_area')}
-          bottomAffix={questionConfiguration.isGreatCause}
-        >
-          <Collapse
-            title={i18n.t('consultation.presentation.title')}
-            forceExpand
-            trackCollapse={this.trackPresentationCollpase}
-            questionId={question.questionId}
-          >
-            <Presentation />
-          </Collapse>
-          {questionConfiguration.isGreatCause && (
-            <Collapse
-              title={i18n.t('consultation.partners.intro_title')}
-              forceExpand
-            >
-              <Partners
-                questionConfiguration={questionConfiguration}
-                question={question}
-              />
-            </Collapse>
-          )}
-          {!isMobile && (
-            <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-              <Sharing />
-            </TileWithTitle>
-          )}
-        </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle>
-          {renderDesktopProposal && (
+      <React.Fragment>
+        <MetaTags
+          title={i18n.t('meta.consultation.title', {
+            question: question.wording.question,
+          })}
+          description={questionConfiguration.wording.metas.description}
+          picture={questionConfiguration.wording.metas.picture}
+        />
+        <ConsultationPanelInnerStyle>
+          {renderMobileProposal && (
             <ConsultationProposal
               question={question}
               questionConfiguration={questionConfiguration}
             />
           )}
-          <ParticipateBanner
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-          <ThirdLevelTitleStyle id="tag_list">
-            <ConsultationIconStyle>
-              <SvgThumbsUp aria-hidden />
-            </ConsultationIconStyle>
-            {i18n.t('common.vote_on_proposals')}
-          </ThirdLevelTitleStyle>
-          <TagFilter
-            question={question}
-            handleSelectTag={this.handleSelectTag}
-            selectedTagIds={selectedTagIds}
-          />
-          <InfiniteProposals question={question} tags={selectedTagIds} />
-        </ConsultationPageContentStyle>
-      </ConsultationPanelInnerStyle>
+          <ConsultationPageSidebarStyle
+            id="sidebar_content"
+            as="aside"
+            aria-label={i18n.t('common.sidebar_area')}
+            bottomAffix={questionConfiguration.isGreatCause}
+          >
+            <Collapse
+              title={i18n.t('consultation.presentation.title')}
+              forceExpand
+              trackCollapse={this.trackPresentationCollpase}
+              questionId={question.questionId}
+            >
+              <Presentation />
+            </Collapse>
+            {questionConfiguration.isGreatCause && (
+              <Collapse
+                title={i18n.t('consultation.partners.intro_title')}
+                forceExpand
+              >
+                <Partners
+                  questionConfiguration={questionConfiguration}
+                  question={question}
+                />
+              </Collapse>
+            )}
+            {!isMobile && (
+              <TileWithTitle title={i18n.t('consultation.sharing.title')}>
+                <Sharing />
+              </TileWithTitle>
+            )}
+          </ConsultationPageSidebarStyle>
+          <ConsultationPageContentStyle id="main">
+            {renderDesktopProposal && (
+              <ConsultationProposal
+                question={question}
+                questionConfiguration={questionConfiguration}
+              />
+            )}
+            <ParticipateBanner
+              question={question}
+              questionConfiguration={questionConfiguration}
+            />
+            <ThirdLevelTitleStyle id="tag_list">
+              <ConsultationIconStyle>
+                <SvgThumbsUp aria-hidden />
+              </ConsultationIconStyle>
+              {i18n.t('common.vote_on_proposals')}
+            </ThirdLevelTitleStyle>
+            <TagFilter
+              question={question}
+              handleSelectTag={this.handleSelectTag}
+              selectedTagIds={selectedTagIds}
+            />
+            <InfiniteProposals question={question} tags={selectedTagIds} />
+          </ConsultationPageContentStyle>
+        </ConsultationPanelInnerStyle>
+      </React.Fragment>
     );
   }
 }

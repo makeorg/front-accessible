@@ -48,7 +48,7 @@ const ProfileEdit = (props: Props) => {
 
   return (
     <ProfileWrapperStyle>
-      <MetaTags />
+      <MetaTags title={i18n.t('meta.profile.edit.title')} />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarStyle as="aside">

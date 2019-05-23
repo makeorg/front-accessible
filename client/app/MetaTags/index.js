@@ -18,18 +18,24 @@ export const MetaTags = (props: Props) => {
 
   return (
     <React.Fragment>
-      <Title>{title || i18n.t('meta.home.title')}</Title>
+      <Title>{`${title || i18n.t('meta.home.title')} - Make.org`}</Title>
       <Meta
         name="description"
         content={description || i18n.t('meta.home.description')}
       />
-      <Meta itemProp="name" content={title || i18n.t('meta.home.title')} />
+      <Meta
+        itemProp="name"
+        content={title || `${i18n.t('meta.home.title')} - Make.org`}
+      />
       <Meta
         itemProp="description"
         content={description || i18n.t('meta.home.description')}
       />
       <Meta itemProp="image" content={picture || i18n.t('meta.home.picture')} />
-      <Meta property="og:title" content={title || i18n.t('meta.home.title')} />
+      <Meta
+        property="og:title"
+        content={title || `${i18n.t('meta.home.title')} - Make.org`}
+      />
       <Meta
         property="og:description"
         content={description || i18n.t('meta.home.description')}
@@ -45,7 +51,7 @@ export const MetaTags = (props: Props) => {
       <Meta name="twitter:card" content="summary" />
       <Meta
         property="twitter:title"
-        content={title || i18n.t('meta.home.title')}
+        content={title || `${i18n.t('meta.home.title')} - Make.org`}
       />
       <Meta
         property="twitter:description"

@@ -12,6 +12,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
+import { MetaTags } from 'Client/app/MetaTags';
 import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
@@ -40,31 +41,38 @@ const OrganisationProposalsPage = (props: Props) => {
   }, [organisation]);
 
   return (
-    <CenterColumnStyle>
-      <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
-          {i18n.t('organisation.proposals.title', {
-            name: organisation.organisationName,
-          })}
-        </SecondLevelTitleStyle>
-        <ProfileTitleSeparatorStyle />
-      </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
-      {renderProposals &&
-        proposals.map((proposal, index) => (
-          <ProposalCardWithQuestion
-            key={proposal.id}
-            proposal={proposal}
-            position={index + 1}
-            size={proposalsLength}
+    <React.Fragment>
+      <MetaTags
+        title={i18n.t('meta.organisation.proposals.title', {
+          organisation: organisation.organisationName,
+        })}
+      />
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('organisation.proposals.title', {
+              name: organisation.organisationName,
+            })}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {isLoading && <Spinner />}
+        {renderProposals &&
+          proposals.map((proposal, index) => (
+            <ProposalCardWithQuestion
+              key={proposal.id}
+              proposal={proposal}
+              position={index + 1}
+              size={proposalsLength}
+            />
+          ))}
+        {renderPlaceholder && (
+          <OrganisationProposalsPlaceholder
+            name={organisation.organisationName}
           />
-        ))}
-      {renderPlaceholder && (
-        <OrganisationProposalsPlaceholder
-          name={organisation.organisationName}
-        />
-      )}
-    </CenterColumnStyle>
+        )}
+      </CenterColumnStyle>
+    </React.Fragment>
   );
 };
 

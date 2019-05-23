@@ -4,7 +4,6 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
@@ -42,15 +41,8 @@ export const ConsultationPageComponent = (props: Props) => {
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
   const isActionPage = !!matchPath(location.pathname, ROUTE_ACTION);
 
-  const { metas } = questionConfiguration.wording;
-
   return (
     <React.Fragment>
-      <MetaTags
-        title={metas.title}
-        description={metas.description}
-        picture={metas.picture}
-      />
       {isConsultationPage && <ConsultationSkipLinks />}
       {isActionPage && <ActionsSkipLinks />}
       <IntroBanner

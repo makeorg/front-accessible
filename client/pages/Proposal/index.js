@@ -37,7 +37,10 @@ const ProposalPageContainer = (props: Props) => {
   return (
     <ThemeProvider theme={questionConfiguration.theme}>
       <MiddlePageWrapperStyle>
-        <MetaTags description={i18n.t('meta.proposal.description')} />
+        <MetaTags
+          title={i18n.t('meta.proposal.title', { proposal: proposal.content })}
+          description={i18n.t('meta.proposal.description')}
+        />
         {proposal && (
           <ProposalPageContentLoader
             proposal={proposal}
