@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { type match as TypeMatch } from 'react-router';
+import { Redirect, type match as TypeMatch } from 'react-router';
 import { type User } from 'Shared/types/user';
 import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
@@ -23,7 +23,6 @@ import {
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 type Props = {
   user: User,
@@ -38,14 +37,14 @@ const ProfileEdit = (props: Props) => {
     ':countryLanguage',
     countryLanguage
   );
+
+  if (!user) {
+    return <Redirect to="/" />;
+  }
+
   const NavigationBar = (
     <GoToProfileLink link={getRouteProfile(countryLanguage)} />
   );
-
-  if (!user) {
-    window.location = FRONT_LEGACY_ROOT;
-    return null;
-  }
 
   return (
     <ProfileWrapperStyle>
