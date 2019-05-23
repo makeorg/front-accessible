@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import * as OrganisationService from 'Shared/services/Organisation';
 import {
+  Redirect,
   matchPath,
   type match as TypeMatch,
   type Location as TypeLocation,
@@ -37,7 +38,6 @@ import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
-import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -52,12 +52,10 @@ type Props = {
 };
 
 const OrganisationPage = (props: Props) => {
-  const [organisation, setOrganisation] = useState<?TypeOrganisation>(
-    undefined
-  );
+  const [organisation, setOrganisation] = useState(null);
+  const [isLoading, setIsLoding] = useState<boolean>(true);
   const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
-
   const { match, location } = props;
   const { countryLanguage, organisationSlug } = match.params;
   const organisationProposalsLink = getRouteOrganisationProposals(
@@ -84,11 +82,8 @@ const OrganisationPage = (props: Props) => {
         organisationSlug
       );
 
-      if (!loadedOrganisation) {
-        window.location = FRONT_LEGACY_ROOT;
-      }
-
       setOrganisation(loadedOrganisation);
+      setIsLoding(false);
     };
 
     fetchOrganisation();
@@ -98,12 +93,16 @@ const OrganisationPage = (props: Props) => {
     }
   }, [organisationSlug, isMobile]);
 
-  if (!organisation) {
+  if (!organisation && isLoading) {
     return (
       <MiddlePageWrapperStyle>
         <Spinner />
       </MiddlePageWrapperStyle>
     );
+  }
+
+  if (!organisation) {
+    return <Redirect to="/" />;
   }
 
   return (

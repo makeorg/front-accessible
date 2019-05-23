@@ -27,8 +27,6 @@ import { consultationRoute } from './ssr/consultationRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
-import { profileRoute } from './ssr/profile/profileRoute';
-import { organisationRoute } from './ssr/organisation/organisationRoute';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -79,14 +77,14 @@ export const initRoutes = app => {
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);
   app.get(ROUTE_PASSWORD_RECOVERY, frontMiddlewares, passwordRecoveryRoute);
 
-  app.get(ROUTE_ORGANISATION_PROFILE, frontMiddlewares, organisationRoute);
-  app.get(ROUTE_ORGANISATION_PROPOSALS, frontMiddlewares, organisationRoute);
-  app.get(ROUTE_ORGANISATION_VOTES, frontMiddlewares, organisationRoute);
+  app.get(ROUTE_ORGANISATION_PROFILE, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_ORGANISATION_PROPOSALS, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_ORGANISATION_VOTES, frontMiddlewares, defaultRoute);
 
-  app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, profileRoute);
-  app.get(ROUTE_PROFILE_PROPOSALS, frontMiddlewares, profileRoute);
-  app.get(ROUTE_PROFILE_FAVOURITES, frontMiddlewares, profileRoute);
-  app.get(ROUTE_PROFILE, frontMiddlewares, profileRoute);
+  app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_PROFILE_PROPOSALS, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_PROFILE_FAVOURITES, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_PROFILE, frontMiddlewares, defaultRoute);
 
   app.get('*', frontMiddlewares, defaultRoute);
 };

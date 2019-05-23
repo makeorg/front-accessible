@@ -1,7 +1,7 @@
 // @flow
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import {
   matchPath,
   type Location as TypeLocation,
@@ -32,7 +32,6 @@ import {
   ProfilePageContentStyle,
   ProfileTabIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { FRONT_LEGACY_ROOT } from 'Shared/constants/url';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/ProfileProposals')
@@ -51,14 +50,6 @@ type Props = {
 };
 
 const Profile = (props: Props) => {
-  useEffect(() => {
-    const { user } = props;
-
-    if (!user) {
-      window.location = FRONT_LEGACY_ROOT;
-    }
-  });
-
   const { user, match, location } = props;
   const { countryLanguage } = match.params;
   const profileProposalsLink = getRouteProfileProposals(countryLanguage);
@@ -73,13 +64,13 @@ const Profile = (props: Props) => {
     ROUTE_PROFILE_FAVOURITES
   );
 
+  if (!user) {
+    return <Redirect to="/" />;
+  }
+
   const NavigationBar = (
     <EditProfileLink link={getRouteProfileEdit(countryLanguage)} />
   );
-
-  if (!user) {
-    return null;
-  }
 
   return (
     <ProfileWrapperStyle>
@@ -109,17 +100,17 @@ const Profile = (props: Props) => {
             <Route
               path={ROUTE_PROFILE_PROPOSALS}
               exact
-              component={ProfileProposalsPage}
+              component={() => <ProfileProposalsPage user={user} />}
             />
             <Route
               path={ROUTE_PROFILE_FAVOURITES}
               exact
-              component={ProfileFavouritesPage}
+              component={() => <ProfileFavouritesPage user={user} />}
             />
             <Route
               path={ROUTE_PROFILE_FOLLOWING}
               exact
-              component={ProfileFollowingPage}
+              component={() => <ProfileFollowingPage user={user} />}
             />
           </Switch>
         </ProfilePageContentStyle>

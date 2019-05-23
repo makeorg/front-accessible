@@ -1,4 +1,3 @@
-export const FRONT_LEGACY_ROOT = 'https://make.org';
 export const WHOAREWE_FR_LINK = 'https://about.make.org/qui-sommes-nous';
 export const JOBS_LINK = 'https://about.make.org/jobs';
 export const PRESS_LINK = 'https://about.make.org/category/presse';
