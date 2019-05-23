@@ -71,9 +71,6 @@ export const VoteResultComponent = (props: Props) => {
 
   return (
     <VoteResultContainerStyle>
-      <HiddenItemStyle aria-hidden as="h3">
-        {i18n.t('unvote.title')}
-      </HiddenItemStyle>
       <VoteButton
         color={voteStaticParams[votedKey].color}
         label={i18n.t('unvote.button')}
@@ -84,9 +81,6 @@ export const VoteResultComponent = (props: Props) => {
         showTooltip={withLabel}
       />
       <aside>
-        <HiddenItemStyle aria-hidden as="h3">
-          {i18n.t('results.title')}
-        </HiddenItemStyle>
         <VoteResultGraphStyle>
           {voteKeys.map(voteKey => (
             <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>

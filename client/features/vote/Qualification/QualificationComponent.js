@@ -3,7 +3,6 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QualificationType } from 'Shared/types/proposal';
 import { getQualificationIndex } from 'Shared/helpers/qualification';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
@@ -48,10 +47,7 @@ export const QualificationComponent = (props: Props) => {
   };
 
   return (
-    <SpaceBetweenColumnStyle>
-      <HiddenItemStyle aria-hidden as="h3">
-        {i18n.t('unvote.title')}
-      </HiddenItemStyle>
+    <SpaceBetweenColumnStyle id="qualification_list">
       {qualifications.map(qualification => (
         <QualificationButtonElement
           key={getQualificationIndex(
