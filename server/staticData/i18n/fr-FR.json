@@ -431,8 +431,8 @@
     },
     "question_list": {
       "title": "Ils ont lancé une consultation Make.org",
-      "question_ended": "Consultation en cours",
-      "question_inprogress": "Consultation terminée"
+      "question_ended": "Consultation terminée",
+      "question_inprogress": "Consultation en cours"
     }
   }
 }
