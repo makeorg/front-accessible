@@ -10,6 +10,7 @@ import {
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { useMobile } from 'Client/hooks/useMedia';
 import { MetaTags } from 'Client/app/MetaTags';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
@@ -33,8 +34,6 @@ import {
   ProfileSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { intToPx } from 'Shared/helpers/styled';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
@@ -56,8 +55,9 @@ const OrganisationPage = (props: Props) => {
   const [organisation, setOrganisation] = useState<?TypeOrganisation>(
     undefined
   );
-
   const [avatarSize, setAvatarSize] = useState<number>(60);
+  const isMobile = useMobile();
+
   const { match, location } = props;
   const { countryLanguage, organisationSlug } = match.params;
   const organisationProposalsLink = getRouteOrganisationProposals(
@@ -93,14 +93,10 @@ const OrganisationPage = (props: Props) => {
 
     fetchOrganisation();
 
-    const isMobile = window.matchMedia(
-      `(max-width: ${intToPx(Breakpoints.Tablet)}`
-    ).matches;
-
     if (!isMobile) {
       setAvatarSize(160);
     }
-  }, [organisationSlug]);
+  }, [organisationSlug, isMobile]);
 
   if (!organisation) {
     return (

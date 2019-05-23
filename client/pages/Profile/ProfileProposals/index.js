@@ -30,6 +30,10 @@ const ProfileProposals = (props: Props) => {
   const renderPlaceholder = !proposalsLength && !isLoading;
 
   useEffect(() => {
+    if (!user) {
+      window.location = FRONT_LEGACY_ROOT;
+    }
+
     const fetchProposals = async () => {
       const loadedProposals: TypeProposal[] = await UserService.myProposals(
         user.userId
@@ -43,7 +47,6 @@ const ProfileProposals = (props: Props) => {
   }, [user]);
 
   if (!user) {
-    window.location = FRONT_LEGACY_ROOT;
     return null;
   }
 

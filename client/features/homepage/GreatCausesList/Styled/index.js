@@ -22,7 +22,6 @@ export const GreatCausesListItemStyle = styled.li`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex: 0 1 calc(25% - 15px);
   }
-
 `;
 
 export const GreatCausesArticleStyle = styled.article`

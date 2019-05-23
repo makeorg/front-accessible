@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { type match as TypeMatch } from 'react-router';
@@ -42,8 +42,13 @@ const ProfileEdit = (props: Props) => {
     <GoToProfileLink link={getRouteProfile(countryLanguage)} />
   );
 
+  useEffect(() => {
+    if (!user) {
+      window.location = FRONT_LEGACY_ROOT;
+    }
+  });
+
   if (!user) {
-    window.location = FRONT_LEGACY_ROOT;
     return null;
   }
 
