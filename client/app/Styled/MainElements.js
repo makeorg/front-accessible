@@ -61,8 +61,15 @@ export const SkipLink = styled(LinkAsRedButton)`
   position: fixed;
   top: -200px;
   left: ${intToPx(DefaultPadding.Mobile)};
+  z-index: 5;
   &:active,
   &:focus {
     top: ${intToPx(DefaultPadding.Mobile)};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    &:active,
+    &:focus {
+      top: 100px;
+    }
   }
 `;

@@ -91,7 +91,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
           />
         )}
         <ConsultationPageSidebarStyle
-          id="sidebar"
+          id="sidebar_content"
           as="aside"
           aria-label={i18n.t('common.sidebar_area')}
           bottomAffix={questionConfiguration.isGreatCause}
@@ -121,7 +121,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             </TileWithTitle>
           )}
         </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle id="main">
+        <ConsultationPageContentStyle>
           {renderDesktopProposal && (
             <ConsultationProposal
               question={question}
@@ -132,7 +132,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             question={question}
             questionConfiguration={questionConfiguration}
           />
-          <ThirdLevelTitleStyle>
+          <ThirdLevelTitleStyle id="tag_list">
             <ConsultationIconStyle>
               <SvgThumbsUp aria-hidden />
             </ConsultationIconStyle>

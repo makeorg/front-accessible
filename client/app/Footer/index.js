@@ -11,7 +11,7 @@ import { FooterStyle, FooterNavStyle, FooterLogoStyle } from './Styled';
  * Renders Main Footer
  */
 export const Footer = () => (
-  <FooterStyle>
+  <FooterStyle id="main_footer">
     <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
       <Link to="/">
         <FooterLogoStyle

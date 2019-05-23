@@ -7,7 +7,6 @@ import { type Question } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { SkipLink } from 'Client/app/Styled/MainElements';
 import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
 import {
   TabNavStyle,
@@ -19,6 +18,8 @@ import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Pa
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
+import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
+import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -50,15 +51,8 @@ export const ConsultationPageComponent = (props: Props) => {
         description={metas.description}
         picture={metas.picture}
       />
-      <SkipLink as="a" href="#intro ">
-        {i18n.t('skip_links.intro')}
-      </SkipLink>
-      <SkipLink as="a" href="#main ">
-        {i18n.t('skip_links.main')}
-      </SkipLink>
-      <SkipLink as="a" href="#sidebar">
-        {i18n.t('skip_links.sidebar')}
-      </SkipLink>
+      {isConsultationPage && <ConsultationSkipLinks />}
+      {isActionPage && <ActionsSkipLinks />}
       <IntroBanner
         question={question}
         questionConfiguration={questionConfiguration}
@@ -68,6 +62,7 @@ export const ConsultationPageComponent = (props: Props) => {
           aria-label={i18n.t('common.consultation_nav', {
             name: question.wording.question,
           })}
+          id="consultation_nav"
         >
           <TabListStyle>
             <FullWidthTabStyle selected={isConsultationPage}>
