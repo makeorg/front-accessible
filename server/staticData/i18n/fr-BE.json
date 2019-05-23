@@ -385,6 +385,8 @@
     "tag_list": "Aller à liste des filtres",
     "proposal_list": "Aller à liste des propositions",
     "proposal_submit": "Aller au formulaire de proposition",
+    "proposal_card": "Aller à la proposition",
+    "sharing": "Aller à la section de partage",
     "dynamic_section": "Aller à la section : \"{{name}}\""
   },
   "modal": {

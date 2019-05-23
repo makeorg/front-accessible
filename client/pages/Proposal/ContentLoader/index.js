@@ -5,6 +5,7 @@ import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard';
 import { SingleProposalSharingComponent } from 'Client/features/proposal/SingleProposalCard/Sharing';
+import { ProposalSkipLinks } from 'Client/app/SkipLinks/Proposal';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Proposal (author, id, slug, ...) */
@@ -25,6 +26,7 @@ export const ProposalPageContentLoader = (props: Props) => {
 
   return (
     <React.Fragment>
+      <ProposalSkipLinks />
       <SingleProposalCard
         proposal={proposal}
         questionConfiguration={questionConfiguration}

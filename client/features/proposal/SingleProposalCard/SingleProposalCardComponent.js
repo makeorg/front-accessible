@@ -35,7 +35,7 @@ export const SingleProposalCardComponent = (props: Props) => {
   const { question } = proposal;
 
   return (
-    <TallCardStyle>
+    <TallCardStyle id="proposal_card">
       <InnerProposalStyle>
         <ProposalAuthorElement
           author={proposal.author}
