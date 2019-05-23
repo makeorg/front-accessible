@@ -6,6 +6,7 @@ import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsulta
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { QuestionsList } from 'Client/features/homepage/QuestionsList';
 import { GreatCausesList } from 'Client/features/homepage/GreatCausesList';
+import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
 
 const questions = [
@@ -46,6 +47,7 @@ const questions = [
 
 const HomePage = () => (
   <HomepageWrapperStyle>
+    <HomepageSkipLinks />
     <MetaTags />
     <HomepageContainerStyle>
       <FeaturedConsultations />

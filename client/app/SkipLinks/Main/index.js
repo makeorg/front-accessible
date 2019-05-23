@@ -7,12 +7,12 @@ export const MainSkipLinks = () => {
   return (
     <UnstyledListStyle aria-label={i18n.t('skip_links.main_list')}>
       <li>
-        <SkipLink as="a" href="#main_content" tabIndex={1}>
+        <SkipLink as="a" href="#main_content">
           {i18n.t('skip_links.main_content')}
         </SkipLink>
       </li>
       <li>
-        <SkipLink as="a" href="#main_footer" tabIndex={1}>
+        <SkipLink as="a" href="#main_footer">
           {i18n.t('skip_links.main_footer')}
         </SkipLink>
       </li>

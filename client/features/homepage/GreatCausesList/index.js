@@ -43,7 +43,10 @@ const greatCauseArray = [
 
 export const GreatCausesList = () => {
   return (
-    <HomepagePaddingContentStyle aria-labelledby="great_causes_title">
+    <HomepagePaddingContentStyle
+      id="great_cause_list"
+      aria-labelledby="great_causes_title"
+    >
       <HomeTitleStyle id="great_causes_title">
         {i18n.t('homepage.great-causes.title')}
       </HomeTitleStyle>

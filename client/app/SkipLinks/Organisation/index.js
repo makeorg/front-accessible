@@ -7,7 +7,7 @@ export const OrganisationProfileSkipLinks = () => {
   return (
     <UnstyledListStyle aria-label={i18n.t('skip_links.secondary_list')}>
       <li>
-        <SkipLink as="a" href="#organisation_nav" tabIndex={1}>
+        <SkipLink as="a" href="#organisation_nav">
           {i18n.t('skip_links.secondary_nav')}
         </SkipLink>
       </li>

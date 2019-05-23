@@ -58,7 +58,7 @@ const FeaturedDesktop = () => {
   const featuredsCol2 = featureds.slice(1);
 
   return (
-    <FeaturedArticleWrapperStyle>
+    <FeaturedArticleWrapperStyle id="featured_list">
       <FeaturedArticleColumnStyle>
         <FeaturedArticleCol1Style
           key="article_title_0"

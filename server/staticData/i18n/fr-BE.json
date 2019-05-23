@@ -384,7 +384,8 @@
     "secondary_nav": "Aller à la navigation secondaire",
     "tag_list": "Aller à liste des filtres",
     "proposal_list": "Aller à liste des propositions",
-    "proposal_submit": "Aller au formulaire de proposition"
+    "proposal_submit": "Aller au formulaire de proposition",
+    "dynamic_section": "Aller à la section : \"{{name}}\""
   },
   "modal": {
     "close": "Fermer la fenêtre de dialogue"
