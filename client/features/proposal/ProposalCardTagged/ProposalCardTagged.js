@@ -4,7 +4,6 @@ import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
@@ -32,15 +31,10 @@ export const ProposalCardTagged = (props: Props) => {
 
   return (
     <ProposalCardStyle
-      aria-labelledby={`proposal_author_${position}`}
-      aria-describedby={`proposal_content_${position}`}
       role="article"
       aria-posinset={position}
       aria-setsize={size}
     >
-      <HiddenItemStyle id={`proposal_author_${position}`}>
-        {author.firstName}
-      </HiddenItemStyle>
       <ProposalAuthorElement
         author={author}
         country={proposal.country}

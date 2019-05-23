@@ -25,7 +25,7 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   }
 `;
 
-export const ProposalHeaderStyle = styled.header`
+export const ProposalHeaderStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

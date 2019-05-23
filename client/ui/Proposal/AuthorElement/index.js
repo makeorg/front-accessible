@@ -33,8 +33,7 @@ const ProposalAuthorAge = ({ age }) => {
 
   return (
     <React.Fragment>
-      <span>,&nbsp;</span>
-      <span>{i18n.t('proposal_card.author.age', { age })}</span>
+      {`, ${i18n.t('proposal_card.author.age', { age })}`}
     </React.Fragment>
   );
 };
@@ -72,9 +71,12 @@ export const ProposalAuthorElement = (props: Props) => {
             >
               {author.organisationName}
             </RedLinkStyle>
-            &nbsp;
             <SvgCheckedSymbol
-              style={{ fontSize: '14px', fill: TextColors.Blue }}
+              style={{
+                fontSize: '14px',
+                marginLeft: '5px',
+                fill: TextColors.Blue,
+              }}
             />
           </React.Fragment>
         ) : (
@@ -84,7 +86,7 @@ export const ProposalAuthorElement = (props: Props) => {
         {!!createdAt && (
           <React.Fragment>
             <AuthorSeparatorStyle aria-hidden>&bull;</AuthorSeparatorStyle>
-            <span>{DateHelper.creationDateFormat(createdAt)}</span>
+            {DateHelper.creationDateFormat(createdAt)}
           </React.Fragment>
         )}
       </AuthorInfosStyle>
