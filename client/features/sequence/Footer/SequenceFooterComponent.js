@@ -25,7 +25,6 @@ export const SequenceFooterComponent = (props: Props) => {
       </FooterTitleStyle>
       <FooterLinkStyle
         color={theme.footerFontColor}
-        target="_blank"
         href={consultationLink}
         onClick={() => Tracking.trackClickConsultation()}
       >

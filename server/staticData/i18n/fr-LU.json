@@ -355,7 +355,8 @@
       "commitment_link": "Voir tous les  partenaires",
       "founder": "Partenaire Fondateur",
       "init": "Cette consultation a été initiée par :",
-      "initWith": "Cette consultation a été initiée avec :"
+      "initWith": "Cette consultation a été initiée avec :",
+      "profile_link": "Ouvrir le profil de {{name}} dans une nouvelle fenêtre"
     },
     "tags": {
       "intro": "Filtrer par tags :",

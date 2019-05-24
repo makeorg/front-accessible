@@ -16,7 +16,7 @@ import {
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
-import { SvgEnvelope, SvgExternalLink } from 'Client/ui/Svg/elements';
+import { SvgEnvelope } from 'Client/ui/Svg/elements';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
   ProposalSubmitSeparatorStyle,
@@ -66,14 +66,10 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
         {i18n.t('authentification.commitment')}
         <a
           href={DATA_POLICY_LINK}
-          target="_blank"
           rel="noopener noreferrer"
           onClick={trackPersonnalDataLink}
         >
           {i18n.t('authentification.personal_data')}
-          <IconWrapperStyle>
-            <SvgExternalLink aria-label={i18n.t('common.open_new_window')} />
-          </IconWrapperStyle>
         </a>
       </CenterParagraphStyle>
       <ProposalSubmitSeparatorStyle aria-hidden />

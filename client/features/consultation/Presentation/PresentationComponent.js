@@ -5,6 +5,8 @@ import { Tracking } from 'Shared/services/Tracking';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { Founders } from '../Founders';
 
 type Props = {
@@ -27,10 +29,13 @@ export const PresentationComponent = (props: Props) => {
 
       <ParagraphRedLinkStyle
         href={questionConfiguration.aboutUrl}
-        target="_blank"
         onClick={() => Tracking.trackClickLearnMore()}
       >
         {i18n.t('consultation.presentation.link_text')}
+        <SvgExternalLink
+          aria-label={i18n.t('common.open_new_window')}
+          style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
+        />
       </ParagraphRedLinkStyle>
       <Founders
         founders={founders}

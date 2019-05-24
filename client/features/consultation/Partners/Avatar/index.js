@@ -1,5 +1,6 @@
 import React from 'react';
 import { AvatarStyle } from 'Client/ui/Avatar/Styled';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Partner name */
@@ -23,7 +24,14 @@ export const PartnerAvatar = (props: Props) => {
       rel="noopener noreferrer"
       avatarSize={50}
     >
-      {partnerLogo && <img src={partnerLogo} alt={partnerName} />}
+      {partnerLogo && (
+        <img
+          src={partnerLogo}
+          alt={i18n.t('consultation.partners.profile_link', {
+            name: partnerName,
+          })}
+        />
+      )}
     </AvatarStyle>
   );
 };

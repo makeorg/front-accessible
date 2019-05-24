@@ -26,7 +26,6 @@ export const More = (props: Props) => {
       <FinalLinkStyle
         as="a"
         href={url}
-        target="_blank"
         onClick={() => Tracking.trackClickLearnMore()}
       >
         {i18n.t('final_card.more.button')}

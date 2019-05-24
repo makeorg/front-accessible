@@ -22,7 +22,6 @@ export const PartnersTileContent = (props: Props) => {
       {partners && <PartnersList partners={partners} />}
       <ParagraphRedLinkStyle
         href={getPartnerAnchor(aboutUrl)}
-        target="_blank"
         onClick={trackMoreLink}
       >
         {i18n.t('consultation.partners.commitment_link')}

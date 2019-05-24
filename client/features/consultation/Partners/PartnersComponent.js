@@ -8,8 +8,9 @@ import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
-import { SvgPlayButton } from 'Client/ui/Svg/elements';
+import { SvgPlayButton, SvgExternalLink } from 'Client/ui/Svg/elements';
 import { getPartnerAnchor } from 'Shared/helpers/url';
+import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
 
@@ -61,6 +62,10 @@ export const PartnersComponent = (props: Props) => {
         onClick={trackMoreLink}
       >
         {i18n.t('consultation.partners.commitment_link')}
+        <SvgExternalLink
+          aria-label={i18n.t('common.open_new_window')}
+          style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
+        />
       </ParagraphRedLinkStyle>
     </React.Fragment>
   );
