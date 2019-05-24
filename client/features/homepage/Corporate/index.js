@@ -48,6 +48,7 @@ export const CorporateBanner = () => {
           </CorporateListStyle>
           <CorporateLinkStyle
             as="a"
+            target="_blank"
             href="https://about.make.org/qui-sommes-nous"
           >
             {i18n.t('homepage.corporate.second-section.link-text')}
@@ -66,6 +67,7 @@ export const CorporateBanner = () => {
           </CorporateListItemStyle>
           <CorporateLinkStyle
             as="a"
+            target="_blank"
             href="https://about.make.org/qui-sommes-nous"
           >
             {i18n.t('homepage.corporate.second-section.link-text')}
