@@ -7,20 +7,20 @@ export const BasicColors = {
 
 export const MakeThemeColors = {
   Blue: 'rgb(37,49,134)',
-  Red: 'rgb(232,24,68)',
+  Red: 'rgb(222,26,66)',
 };
 
 export const IconColors = {
   Facebook: 'rgb(58,89,152)',
-  Google: 'rgb(219,68,55)',
+  Google: 'rgb(216,58,44)',
 };
 
 export const BackgroundColors = {
-  LightBlack: 'rgb(51,51,51)',
-  Grey: 'rgb(118,118,118)',
+  DarkGrey: 'rgb(51,51,51)',
+  Grey: 'rgb(117,117,117)',
   MediumGrey: 'rgb(178,178,178)',
   LightGrey: 'rgb(242,242,242)',
-  ExtraLightGrey: 'rgb(228,228,228)',
+  ExtraLightGrey: 'rgb(229,229,229)',
   NotFoundPage: 'rgb(230,230,240)',
 };
 
@@ -32,11 +32,10 @@ export const BorderColors = {
 };
 
 export const TextColors = {
-  Grey: 'rgba(0,0,0,0.6)',
-  LightGrey: 'rgb(242,242,242)',
-  MediumGrey: 'rgba(0,0,0,0.55)',
   DarkGrey: 'rgb(83,83,83)',
-  Success: 'rgb(110,182,31)',
+  MediumGrey: 'rgb(102,102,102)',
+  LightGrey: 'rgb(242,242,242)',
+  Success: 'rgb(104,154,49)',
   Blue: 'rgb(74, 144, 226)',
 };
 
@@ -48,16 +47,15 @@ export const ShadowColors = {
 };
 
 export const VoteColors = {
-  // Todo : update Agree to fit RGAA contrast requirement https://gitlab.com/makeorg/platform/front-accessible/issues/282
-  Agree: 'rgb(110,182,32)',
-  Disagree: 'rgb(218,0,27)',
-  Neutral: 'rgb(118,118,118)',
+  Agree: 'rgb(85,131,34)',
+  Disagree: 'rgb(190,24,44)',
+  Neutral: 'rgb(117,117,117)',
 };
 
 export const StatusColors = {
-  Accepted: 'rgb(110,182,32)',
-  Refused: 'rgb(218,0,27)',
-  Pending: 'rgb(255, 110, 0)',
+  Accepted: 'rgb(85,131,34)',
+  Refused: 'rgb(222,26,66)',
+  Pending: 'rgb(255,118,26)',
 };
 
 export const SocialNetworksColors = {

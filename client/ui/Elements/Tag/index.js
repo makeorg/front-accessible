@@ -1,5 +1,6 @@
 import React from 'react';
-import { TagStyle, TagButtonStyle } from './Styled';
+import { SvgClose } from 'Client/ui/Svg/elements';
+import { TagStyle, TagButtonStyle, TagIconStyle } from './Styled';
 
 type Props = {
   name: string,
@@ -16,6 +17,11 @@ export const Tag = ({ name, onClick, isSelected, isAButton }: Props) => {
       as={isAButton ? TagButtonStyle : TagStyle}
     >
       {name}
+      {isSelected && (
+        <TagIconStyle>
+          <SvgClose />
+        </TagIconStyle>
+      )}
     </TagStyle>
   );
 };

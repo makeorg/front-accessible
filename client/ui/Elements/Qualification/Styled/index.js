@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonStyle = styled.button`
+  font-family: ${MakeFonts.RobotoBold};
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -24,7 +25,6 @@ export const ButtonStyle = styled.button`
 export const IsQualifiedButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
 export const QualifyButtonStyle = styled(ButtonStyle)`

@@ -55,7 +55,7 @@ export const QuestionStyle = styled.div`
 
 export const QuestionStatusStyle = styled.p`
   font-family: ${MakeFonts.RobotoCondensedBold};
-  color: ${TextColors.Grey};
+  color: ${TextColors.MediumGrey};
   text-transform: uppercase;
   margin-bottom: 5px;
   line-height: 1;

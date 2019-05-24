@@ -2,6 +2,7 @@
 
 exports[`ButtonStyle snapshot by default 1`] = `
 .c0 {
+  font-family: 'Roboto Bold',Arial,sans-serif;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33,6 +34,7 @@ exports[`ButtonStyle snapshot by default 1`] = `
 
 exports[`QualifyButtonStyle snapshot by default 1`] = `
 .c0 {
+  font-family: 'Roboto Bold',Arial,sans-serif;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

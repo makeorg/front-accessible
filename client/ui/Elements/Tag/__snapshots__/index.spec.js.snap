@@ -11,6 +11,9 @@ Snapshot Diff:
 +   className="selected"
   >
     Hello
++   <TagIconStyle>
++     <SvgClose />
++   </TagIconStyle>
   </TagStyle>
 `;
 

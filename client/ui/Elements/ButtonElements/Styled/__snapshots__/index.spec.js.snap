@@ -20,10 +20,9 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
 }
 
 .c0 svg {
@@ -31,7 +30,12 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
+}
+
+.c0:disabled svg {
+  fill: rgb(102,102,102);
 }
 
 @media (min-width:767px) {
@@ -215,16 +219,15 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
   color: rgb(255,255,255);
   margin-top: 10px;
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
 }
 
 .c0 svg {
@@ -232,7 +235,12 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
+}
+
+.c0:disabled svg {
+  fill: rgb(102,102,102);
 }
 
 .c0 svg {
@@ -282,10 +290,9 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
@@ -298,7 +305,12 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
+}
+
+.c0:disabled svg {
+  fill: rgb(102,102,102);
 }
 
 .c0 svg {
@@ -342,16 +354,15 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
   color: rgb(255,255,255);
   margin-top: 10px;
-  background-color: rgb(219,68,55);
+  background-color: rgb(216,58,44);
 }
 
 .c0 svg {
@@ -359,7 +370,12 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
+}
+
+.c0:disabled svg {
+  fill: rgb(102,102,102);
 }
 
 .c0 svg {
@@ -409,14 +425,18 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
-  color: rgb(255,255,255);
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
 }
 
 .c0 svg {
-  fill: rgb(255,255,255);
+  fill: rgb(222,26,66);
+}
+
+.c0:hover,
+.c0:focus {
+  color: rgb(102,102,102);
 }
 
 @media (min-width:767px) {
@@ -471,10 +491,9 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
 }
 
 .c0 svg {
@@ -511,7 +530,7 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
   background-color: transparent;
   display: inline-block;
   font-family: 'Roboto Bold',Arial,sans-serif;
-  color: rgb(232,24,68);
+  color: rgb(222,26,66);
   -webkit-text-decoration: underline;
   text-decoration: underline;
   margin: 0 5px;
@@ -542,15 +561,19 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
-  color: rgb(255,255,255);
-  background-color: rgb(118,118,118);
+  color: rgb(102,102,102);
+  background-color: rgb(229,229,229);
   padding: 5px 15px;
 }
 
 .c0 svg {
-  fill: rgb(255,255,255);
+  fill: rgb(222,26,66);
+}
+
+.c0:hover,
+.c0:focus {
+  color: rgb(102,102,102);
 }
 
 @media (min-width:767px) {
@@ -590,10 +613,9 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);
   padding: 10px 15px;
   color: rgb(255,255,255);
-  background-color: rgb(232,24,68);
+  background-color: rgb(222,26,66);
   padding: 5px 15px;
 }
 

@@ -36,7 +36,7 @@ Snapshot Diff:
         value="baz"
       />
       <label
-        className="sc-1ln9y8s-9 ewUCsT"
+        className="sc-1ln9y8s-9 kMUtp"
         htmlFor="bar"
 `;
 
@@ -60,7 +60,7 @@ Snapshot Diff:
         rows={5}
         spellCheck={true}
 @@ -27,7 +29,10 @@
-        className="sc-1ln9y8s-9 ewUCsT"
+        className="sc-1ln9y8s-9 kMUtp"
         htmlFor="bar"
       >
         qux

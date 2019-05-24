@@ -11,7 +11,7 @@ import {
   IconColors,
   MakeThemeColors,
   BackgroundColors,
-  ShadowColors,
+  TextColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -47,7 +47,6 @@ export const BasicButtonStyle = `
   border: none;
   border-radius: 30px;
   text-transform: uppercase;
-  box-shadow: 0 0 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 10px 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
@@ -65,10 +64,14 @@ export const RedButtonStyle = styled.button`
 
 export const GreyButtonStyle = styled.button`
   ${BasicButtonStyle};
-  color: ${BasicColors.PureWhite};
-  background-color: ${BackgroundColors.Grey};
+  color: ${TextColors.MediumGrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   svg {
-    fill: ${BasicColors.PureWhite};
+    fill: ${MakeThemeColors.Red};
+  }
+  &:hover,
+  &:focus {
+    color: ${TextColors.MediumGrey};
   }
 `;
 
@@ -94,7 +97,11 @@ export const ActiveButtonStyle = styled.button`
     fill: ${BasicColors.PureWhite};
   }
   &:disabled {
-    background-color: ${BackgroundColors.Grey};
+    color: ${TextColors.MediumGrey};
+    background-color: ${BackgroundColors.ExtraLightGrey};
+    svg {
+      fill: ${TextColors.MediumGrey};
+    }
   }
 `;
 
