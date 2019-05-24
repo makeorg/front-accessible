@@ -21,7 +21,7 @@ import {
 
 export const CorporateBanner = () => {
   return (
-    <CorporateWrapperStyle>
+    <CorporateWrapperStyle id="corporate">
       <CorporateContainerStyle>
         <CorporateSectionStyle aria-labelledby="corporate_title">
           <CorporateIntroStyle id="corporate_title">

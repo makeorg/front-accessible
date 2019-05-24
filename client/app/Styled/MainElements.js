@@ -58,9 +58,11 @@ export const PageContainerStyle = styled(CenterColumnStyle)`
 `;
 
 export const SkipLink = styled(LinkAsRedButton)`
-  position: fixed;
+  position: absolute;
   top: -200px;
   left: ${intToPx(DefaultPadding.Mobile)};
+  max-width: calc(100% - 15px});
+  z-index: 2;
   &:active,
   &:focus {
     top: ${intToPx(DefaultPadding.Mobile)};

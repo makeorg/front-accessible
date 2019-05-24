@@ -36,10 +36,11 @@ export const ProposalCardStyle = styled.li`
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
   ${props => (props.isCardCollapsed ? 'transform: translateY(125%);' : '')};
   button,
-  a {
+  a,
+  form {
     animation: ${props =>
         props.isCardVisible ? EnableVisibility : DisableVisibility}
-      0.75s 1 forwards;
+      0.75s 1 both;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};

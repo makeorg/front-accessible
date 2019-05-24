@@ -376,9 +376,18 @@
     "linkedin": "Partager sur LinkedIn"
   },
   "skip_links": {
-    "intro": "Aller à la bannière de présentation",
-    "main": "Aller au contenu principal",
-    "sidebar": "Aller au contenu de la barre latérale"
+    "main_list": "Liens d'évitement principaux",
+    "secondary_list": "Liens d'évitement du contenu de page",
+    "main_content": "Aller au contenu principal",
+    "main_footer": "Aller au pied de page principal",
+    "sidebar_content": "Aller à la barre latérale de contenu",
+    "secondary_nav": "Aller à la navigation secondaire",
+    "tag_list": "Aller à liste des filtres",
+    "proposal_list": "Aller à liste des propositions",
+    "proposal_submit": "Aller au formulaire de proposition",
+    "proposal_card": "Aller à la proposition",
+    "sharing": "Aller à la section de partage",
+    "dynamic_section": "Aller à la section : \"{{name}}\""
   },
   "modal": {
     "close": "Fermer la fenêtre de dialogue"

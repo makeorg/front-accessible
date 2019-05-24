@@ -7,7 +7,11 @@ import { SharingWrapperStyle, SharingTitleStyle } from '../Styled';
  * Renders Sharing from Single Proposal Card
  */
 export const SingleProposalSharingComponent = () => (
-  <SharingWrapperStyle as="section" aria-labelledby="sharing_title">
+  <SharingWrapperStyle
+    id="sharing_proposal"
+    as="section"
+    aria-labelledby="sharing_title"
+  >
     <SharingTitleStyle id="sharing_title">
       {i18n.t('proposal_page.share_text')}
     </SharingTitleStyle>

@@ -16,7 +16,10 @@ type Props = {
 export const ConsultationProposalComponent = (props: Props) => {
   const { question, questionConfiguration } = props;
   return (
-    <ProposalWrapperStyle aria-labelledby="proposal_aside_title">
+    <ProposalWrapperStyle
+      aria-labelledby="proposal_aside_title"
+      id="proposal_submit"
+    >
       <ThirdLevelTitleStyle id="proposal_aside_title">
         <IconWrapperStyle aria-hidden>
           <SvgLightBulb />

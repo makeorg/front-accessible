@@ -15,6 +15,7 @@ import { Footer } from './Footer';
 import { Modal } from './Modal';
 import { Routes } from './Routes';
 import { ErrorBoundary } from './Error';
+import { MainSkipLinks } from './SkipLinks/Main';
 
 /**
  * Handles App Business Logic
@@ -27,8 +28,9 @@ export const AppContainer = () => (
       <DefaultStylesheet />
       <UIThemeStylesheet />
       <CookieBanner />
+      <MainSkipLinks />
       <Header />
-      <AppMainContentStyle>
+      <AppMainContentStyle id="main_content">
         <Notification />
         <Routes />
       </AppMainContentStyle>

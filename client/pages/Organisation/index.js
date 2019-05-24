@@ -38,6 +38,7 @@ import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
+import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -107,6 +108,7 @@ const OrganisationPage = (props: Props) => {
 
   return (
     <ProfileWrapperStyle>
+      <OrganisationProfileSkipLinks />
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
@@ -141,7 +143,10 @@ const OrganisationPage = (props: Props) => {
           )}
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
-          <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
+          <TabNavStyle
+            aria-label={i18n.t('common.secondary_nav')}
+            id="organisation_nav"
+          >
             <TabListStyle>
               <TabStyle selected={isOrganisationProposalsActive}>
                 <Link to={organisationProposalsLink}>

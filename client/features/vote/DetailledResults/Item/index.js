@@ -6,7 +6,6 @@ import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { QualificationResults } from 'Client/features/vote/Qualification/Results';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   DetailledItemWrapperStyle,
   VoteDataListStyle,
@@ -29,7 +28,6 @@ export const DetailledResultItem = (props: Props) => {
   return (
     <DetailledItemWrapperStyle className={voteKey}>
       <FlexElementStyle>
-        <HiddenItemStyle>{i18n.t('results.title')}</HiddenItemStyle>
         <IsVotedButtonStyle
           color={voteColor}
           as="div"

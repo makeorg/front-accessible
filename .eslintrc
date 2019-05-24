@@ -29,6 +29,7 @@
     "import/default": 2,
     "import/export": 2,
     "global-require": 0,
+    "jsx-a11y/tabindex-no-positive": 0,
     "no-restricted-imports": [
       "error",
       {

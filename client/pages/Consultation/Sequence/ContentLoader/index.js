@@ -57,7 +57,7 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
     return (
       <React.Fragment>
         {question.canPropose && (
-          <SequenceProposalFieldStyle>
+          <SequenceProposalFieldStyle id="proposal_submit">
             <ProposalSubmit
               question={question}
               handleFocus={this.handleCloseSequence}

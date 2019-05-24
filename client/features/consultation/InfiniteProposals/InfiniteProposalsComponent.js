@@ -21,7 +21,7 @@ export const InfiniteProposalsComponent = (props: Props) => {
   const displayLoadMoreButton = hasMore && !isLoading && page <= 1;
 
   return (
-    <div role="feed" aria-busy={isLoading}>
+    <div id="proposal_list" role="feed" aria-busy={isLoading}>
       {proposals &&
         proposals.map((proposal, index) => (
           <ProposalCardTagged

@@ -36,7 +36,7 @@ export class ActionsPanelClass extends React.Component<Props> {
 
     return (
       <React.Fragment>
-        <ConsultationPageSidebarStyle id="sidebar" as="aside">
+        <ConsultationPageSidebarStyle id="sidebar_content" as="aside">
           <TileWithTitle title={i18n.t('actions.plan.title')}>
             <PlanTileContent />
           </TileWithTitle>

@@ -32,6 +32,7 @@ import {
   ProfilePageContentStyle,
   ProfileTabIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/ProfileProposals')
@@ -74,14 +75,18 @@ const Profile = (props: Props) => {
 
   return (
     <ProfileWrapperStyle>
+      <UserProfileSkipLinks />
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle>
+        <ProfilePageSidebarStyle id="sidebar_content">
           <UserInformations user={user} navigationBar={NavigationBar} />
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>
-          <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
+          <TabNavStyle
+            aria-label={i18n.t('common.secondary_nav')}
+            id="profile_nav"
+          >
             <TabListStyle>
               <TabStyle selected={isProfileProposalsActive}>
                 <Link to={profileProposalsLink}>

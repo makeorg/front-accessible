@@ -19,7 +19,10 @@ import {
 export const QuestionsListComponent = props => {
   const { questions, country, language } = props;
   return (
-    <HomepagePaddingContentStyle aria-labelledby="questions_title">
+    <HomepagePaddingContentStyle
+      id="question_list"
+      aria-labelledby="questions_title"
+    >
       <HomeTitleStyle id="questions_title">
         {i18n.t('homepage.question_list.title')}
       </HomeTitleStyle>
