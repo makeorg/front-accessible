@@ -39,7 +39,7 @@ export const CorporateSeparatorStyle = styled.div`
   margin: ${intToPx(DefaultPadding.Mobile)} 0;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: 2px;
-    height: 165px;
+    height: 190px;
     margin: 0 ${intToPx(DefaultPadding.Mobile)};
   }
 `;

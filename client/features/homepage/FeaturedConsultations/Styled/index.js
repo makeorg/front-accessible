@@ -56,9 +56,9 @@ export const FeaturedInformationsWraperStyle = styled.div`
 `;
 
 export const FeaturedPictureWraperStyle = styled.div`
-  min-width: 121px;
+  min-width: 130px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    min-width: 242px;
+    min-width: 200px;
   }
 `;
 

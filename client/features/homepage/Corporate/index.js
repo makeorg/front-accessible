@@ -32,11 +32,11 @@ export const CorporateBanner = () => {
           </CorporateTitleStyle>
           <UnstyledListStyle>
             <CorporateListItemStyle>
-              <SvgLightBulb aria-hidden style={CorporateIconStyle} />
+              <SvgThumbsUp aria-hidden style={CorporateIconStyle} />
               {i18n.t('homepage.corporate.first-section.list-item-1')}
             </CorporateListItemStyle>
             <CorporateListItemStyle>
-              <SvgThumbsUp aria-hidden style={CorporateIconStyle} />
+              <SvgLightBulb aria-hidden style={CorporateIconStyle} />
               {i18n.t('homepage.corporate.first-section.list-item-2')}
             </CorporateListItemStyle>
             <CorporateListItemStyle>

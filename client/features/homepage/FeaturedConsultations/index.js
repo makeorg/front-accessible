@@ -26,7 +26,7 @@ const featureds = [
       'Le 28 mai 2019, MAKE.ORG et ses partenaires lancent une consultation pour garantir une vraie place aux personnes handicapées.',
     picture: '/images/homepage/handicap_col1.jpg',
     picture_mobile: '/images/homepage/handicap_col2.jpg',
-    cta_text: 'En savoir plus',
+    cta_text: 'En savoir +',
     link: 'http://about-handicap.make.org/',
     is_external_link: true,
   },
@@ -47,7 +47,7 @@ const featureds = [
     description: '',
     picture: '/images/homepage/we-europeans.jpg',
     picture_mobile: '/images/homepage/we-europeans.jpg',
-    cta_text: 'Démarrer le quiz',
+    cta_text: 'Démarrez le quiz',
     link: 'https://weeuropeans.eu/fr/fr/guide',
     is_external_link: true,
   },
@@ -96,10 +96,12 @@ const FeaturedMobile = () => (
 
 const Featured = ({ featured, index }) => {
   const isMobile = useMobile();
-
+  const linkObject = featured.is_external_link
+    ? { as: 'a', href: featured.link, target: '_blank' }
+    : { to: featured.link, as: Link };
   return (
     <React.Fragment>
-      <FeaturedPictureWraperStyle>
+      <FeaturedPictureWraperStyle {...linkObject}>
         <img
           src={isMobile ? featured.picture_mobile : featured.picture}
           alt={featured.title}
@@ -115,11 +117,7 @@ const Featured = ({ featured, index }) => {
             {featured.description}
           </FeaturedDescriptionStyle>
         )}
-        <FeaturedLinkStyle
-          {...(featured.is_external_link
-            ? { as: 'a', href: featured.link, target: '_blank' }
-            : { to: featured.link, as: Link })}
-        >
+        <FeaturedLinkStyle {...linkObject}>
           {featured.cta_text}
         </FeaturedLinkStyle>
       </FeaturedInformationsWraperStyle>
