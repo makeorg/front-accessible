@@ -8,16 +8,12 @@ import {
   CorporateIntroStyle,
   CorporateSeparatorStyle,
   CorporateTitleStyle,
+  CorporateListStyle,
   CorporateListItemStyle,
   CorporateIconStyle,
   CorporateLinkStyle,
 } from 'Client/features/homepage/Corporate/Styled';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import {
-  SvgLightBulb,
-  SvgThumbsUp,
-  SvgUserGroup,
-} from 'Client/ui/Svg/elements';
+import { SvgLightBulb, SvgThumbsUp, SvgUsers } from 'Client/ui/Svg/elements';
 
 export const CorporateBanner = () => {
   return (
@@ -30,20 +26,32 @@ export const CorporateBanner = () => {
           <CorporateTitleStyle>
             {i18n.t('homepage.corporate.first-section.title')}
           </CorporateTitleStyle>
-          <UnstyledListStyle>
+          <CorporateListStyle>
             <CorporateListItemStyle>
               <SvgThumbsUp aria-hidden style={CorporateIconStyle} />
-              {i18n.t('homepage.corporate.first-section.list-item-1')}
+              <div>
+                {i18n.t('homepage.corporate.first-section.list-item-1')}
+              </div>
             </CorporateListItemStyle>
             <CorporateListItemStyle>
               <SvgLightBulb aria-hidden style={CorporateIconStyle} />
-              {i18n.t('homepage.corporate.first-section.list-item-2')}
+              <div>
+                {i18n.t('homepage.corporate.first-section.list-item-2')}
+              </div>
             </CorporateListItemStyle>
             <CorporateListItemStyle>
-              <SvgUserGroup aria-hidden style={CorporateIconStyle} />
-              {i18n.t('homepage.corporate.first-section.list-item-3')}
+              <SvgUsers aria-hidden style={CorporateIconStyle} />
+              <div>
+                {i18n.t('homepage.corporate.first-section.list-item-3')}
+              </div>
             </CorporateListItemStyle>
-          </UnstyledListStyle>
+          </CorporateListStyle>
+          <CorporateLinkStyle
+            as="a"
+            href="https://about.make.org/qui-sommes-nous"
+          >
+            {i18n.t('homepage.corporate.second-section.link-text')}
+          </CorporateLinkStyle>
         </CorporateSectionStyle>
         <CorporateSeparatorStyle />
         <CorporateSectionStyle aria-labelledby="who_are_we_title">

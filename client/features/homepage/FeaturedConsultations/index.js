@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { useMobile } from 'Client/hooks/useMedia';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
+import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
+import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_col2.jpg';
+import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
+import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
+
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
@@ -24,8 +29,8 @@ const featureds = [
       'Comment la société peut-elle garantir une vraie place aux personnes handicapées ?',
     description:
       'Le 28 mai 2019, MAKE.ORG et ses partenaires lancent une consultation pour garantir une vraie place aux personnes handicapées.',
-    picture: '/images/homepage/handicap_col1.jpg',
-    picture_mobile: '/images/homepage/handicap_col2.jpg',
+    picture: HandicapPicture,
+    picture_mobile: HandicapMobilePicture,
     cta_text: 'En savoir +',
     link: 'http://about-handicap.make.org/',
     is_external_link: true,
@@ -34,8 +39,8 @@ const featureds = [
     type: 'Grande cause',
     title: 'Comment permettre à chacun de mieux manger ?',
     description: '',
-    picture: '/images/homepage/alimentation.jpg',
-    picture_mobile: '/images/homepage/alimentation.jpg',
+    picture: AlimentationPicture,
+    picture_mobile: AlimentationPicture,
     cta_text: 'Votez maintenant',
     link: '/FR-fr/consultation/mieuxmanger/consultation',
     is_external_link: false,
@@ -45,8 +50,8 @@ const featureds = [
     title:
       'WeEuropeans : De quel parti politique êtes-vous le/la plus proche ?',
     description: '',
-    picture: '/images/homepage/we-europeans.jpg',
-    picture_mobile: '/images/homepage/we-europeans.jpg',
+    picture: WeeuropeansPicture,
+    picture_mobile: WeeuropeansPicture,
     cta_text: 'Démarrez le quiz',
     link: 'https://weeuropeans.eu/fr/fr/guide',
     is_external_link: true,

@@ -8,7 +8,7 @@ module.exports = function createHtmlWebpackPlugin(options) {
     meta: {
       viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       charset: 'utf-8',
-      'theme-color': '#ed1844'
+      'theme-color': '#ed1844',
     },
     chunks: options.ssr ? [] : undefined, // do not inject scripts in ssr because it's managed by loadable in server/reactRender.js -> extractor.getScriptTags
     minify: {
@@ -21,8 +21,8 @@ module.exports = function createHtmlWebpackPlugin(options) {
       keepClosingSlash: true,
       minifyJS: true,
       minifyCSS: true,
-      minifyURLs: true
+      minifyURLs: true,
     },
-    inlineSource: 'runtime~.+\\.js'
+    inlineSource: 'runtime~.+\\.js',
   });
 };

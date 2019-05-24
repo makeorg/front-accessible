@@ -9,6 +9,7 @@ import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const CorporateWrapperStyle = styled(CenterColumnStyle)`
   justify-content: center;
@@ -40,7 +41,7 @@ export const CorporateSeparatorStyle = styled.div`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: 2px;
     height: 190px;
-    margin: 0 ${intToPx(DefaultPadding.Mobile)};
+    margin: 0 25px;
   }
 `;
 
@@ -69,7 +70,12 @@ export const CorporateIntroStyle = styled.p`
     font-size: 16px;
   }
 `;
+export const CorporateListStyle = styled(UnstyledListStyle)`
+  display: flex;
+  flex-direction: column;
+`;
 export const CorporateListItemStyle = styled.li`
+  display: flex;
   font-size: 14px;
   line-height: 1.5;
   color: ${BasicColors.PureWhite};
@@ -85,6 +91,7 @@ export const CorporateListItemStyle = styled.li`
 export const CorporateIconStyle = {
   marginRight: '10px',
   fill: BasicColors.PureWhite,
+  marginTop: '3px',
 };
 
 export const CorporateLinkStyle = styled(UnstyledButtonStyle)`
@@ -92,6 +99,10 @@ export const CorporateLinkStyle = styled(UnstyledButtonStyle)`
   display: inline-flex;
   text-decoration: none;
   background-color: ${BasicColors.PureWhite};
+  margin-top: 10px;
+  @media (max-width: ${intToPx(Breakpoints.Desktop)}) {
+    align-self: center;
+  }
   &:hover,
   &:focus {
     text-decoration: none;
