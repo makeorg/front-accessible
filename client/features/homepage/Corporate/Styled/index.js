@@ -33,13 +33,13 @@ export const CorporateContainerStyle = styled.div`
 
 export const CorporateSeparatorStyle = styled.div`
   width: 100%;
-  height: 2px;
+  height: 1px;
   align-self: center;
   background-color: ${BasicColors.PureWhite};
   opacity: 0.6;
   margin: ${intToPx(DefaultPadding.Mobile)} 0;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    width: 2px;
+    width: 1px;
     height: 190px;
     margin: 0 25px;
   }
@@ -66,6 +66,7 @@ export const CorporateIntroStyle = styled.p`
   font-style: italic;
   color: ${BasicColors.PureWhite};
   font-size: 14px;
+  margin-bottom: 10px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
