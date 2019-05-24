@@ -12,10 +12,7 @@ export const HomepageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   flex-grow: 1;
   background-color: ${BasicColors.PureWhite};
-  padding: ${intToPx(DefaultPadding.Mobile)} 0;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)} 0;
-  }
+  padding: 30px 0;
 `;
 
 export const HomepageContainerStyle = styled(CenterColumnStyle)`

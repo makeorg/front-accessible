@@ -23,14 +23,14 @@ const questions = [
   },
   {
     theme: {
-      colorStart: 'rgb(254, 168, 254)',
-      colorEnd: 'rgb(53, 191, 255)',
+      colorStart: '#1657ec',
+      colorEnd: '#1657ec',
     },
-    startDate: '2018-10-07',
-    endDate: '2019-01-03',
-    slug: 'jeunesse-hautsdefrance',
-    aboutUrl: 'https://about.make.org/about-jeunesse-hautsdefrance',
-    title: 'Comment vous aider à construire votre avenir en Hauts de France ?',
+    startDate: '2019-030-5',
+    endDate: '2019-04-25',
+    slug: 'economiebienveillante',
+    aboutUrl: 'https://about.make.org/about-economiebienveillante',
+    title: 'Comment agir pour rendre notre économie plus bienveillante ?',
   },
   {
     theme: {

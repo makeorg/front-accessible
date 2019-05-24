@@ -28,7 +28,7 @@ export const GreatCausesArticleStyle = styled.article`
   display: block;
   position: relative;
   width: 100%;
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${BackgroundColors.LightGrey};
   border-radius: 8px;
   overflow: hidden;
   &:hover > .overlay {

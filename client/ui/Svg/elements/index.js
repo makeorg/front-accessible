@@ -40,4 +40,4 @@ export { SvgSignOut } from './SignOut';
 export { SvgSaveFileOption } from './SaveFileOption';
 export { SvgLike } from './Like';
 export { SvgCheckedSymbol } from './CheckedSymbol';
-export { SvgUserGroup } from './UserGroup';
+export { SvgUsers } from './Users';

@@ -13,7 +13,7 @@ export const FeaturedArticleWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-content: space-between;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
   }
 `;
@@ -56,9 +56,9 @@ export const FeaturedInformationsWraperStyle = styled.div`
 `;
 
 export const FeaturedPictureWraperStyle = styled.div`
-  min-width: 121px;
+  min-width: 130px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    min-width: 242px;
+    min-width: 200px;
   }
 `;
 
@@ -90,4 +90,6 @@ export const FeaturedDescriptionStyle = styled.p`
   }
 `;
 
-export const FeaturedLinkStyle = styled(LinkAsRedButton)``;
+export const FeaturedLinkStyle = styled(LinkAsRedButton)`
+  margin-top: auto;
+`;
