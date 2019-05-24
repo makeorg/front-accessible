@@ -5,6 +5,7 @@ import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   QuestionListTitleStyle,
   QuestionsListStyle,
@@ -35,6 +36,7 @@ export const QuestionsListComponent = props => {
                     to: getConsultationLink(country, language, question.slug),
                   }
                 : { href: question.aboutUrl, as: 'a' })}
+              onClick={() => Tracking.trackClickHomepageConsultations()}
             >
               <QuestionBorderStyle
                 colorStart={question.theme.colorStart}

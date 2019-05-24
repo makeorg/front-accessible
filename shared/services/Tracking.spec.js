@@ -8,7 +8,7 @@ import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 
 export const eventParameters = {
-  location: 'unknown-location /',
+  location: 'homepage',
   source: 'foo',
   country: 'foo',
   language: 'foo',

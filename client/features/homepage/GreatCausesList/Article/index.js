@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   GreatCausesArticleStyle,
   GreatCausesOverlayStyle,
@@ -40,6 +41,7 @@ export const GreatCauseArticle = (props: Props) => {
           href={linkUrl}
           onFocus={() => setDisplayOverlay(true)}
           onBlur={() => setDisplayOverlay(false)}
+          onClick={() => Tracking.trackClickHomepageConsultations()}
           tabIndex={isOverlayDisplayed ? 0 : -1}
         >
           {linkText}

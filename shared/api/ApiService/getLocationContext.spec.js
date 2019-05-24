@@ -1,8 +1,9 @@
 import { getLocationContext } from './getLocationContext';
 
 describe('getLocationContext', () => {
-  it('get location context default', () => {
-    expect(getLocationContext('/FR-fr')).toBe('unknown-location /FR-fr');
+  
+  it('get location context /', () => {
+    expect(getLocationContext('/')).toBe('homepage');
   });
 
   it('get location context ROUTE_CONSULTATION', () => {

@@ -9,6 +9,7 @@ import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_co
 import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
 import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
 
+import { Tracking } from 'Shared/services/Tracking';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
@@ -102,8 +103,17 @@ const FeaturedMobile = () => (
 const Featured = ({ featured, index }) => {
   const isMobile = useMobile();
   const linkObject = featured.is_external_link
-    ? { as: 'a', href: featured.link, target: '_blank' }
-    : { to: featured.link, as: Link };
+    ? {
+        as: 'a',
+        href: featured.link,
+        target: '_blank',
+        onClick: () => Tracking.trackClickHomepageFeatured(),
+      }
+    : {
+        to: featured.link,
+        as: Link,
+        onClick: () => Tracking.trackClickHomepageFeatured(),
+      };
   return (
     <React.Fragment>
       <FeaturedPictureWraperStyle {...linkObject}>
