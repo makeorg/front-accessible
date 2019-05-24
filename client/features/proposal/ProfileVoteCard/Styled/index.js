@@ -1,17 +1,30 @@
 import styled from 'styled-components';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  ShadowColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
+import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const ProfileVoteCardStyle = styled.div`
-  padding: 20px;
   margin-bottom: 20px;
   width: 100%;
-  box-shadow: 0 1px 1px 0 #00000080;
-  background-color: #0000000c;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  background-color: ${BackgroundColors.ExtraLightGrey};
+  padding: ${intToPx(DefaultPadding.Mobile)};
 `;
 
 export const ProfileVoteTitleStyle = styled.div`
   display: flex;
   align-items: center;
+  background-color: ${BasicColors.PureWhite};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  width: 100%;
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  + div > section:last-child {
+    margin-top: 0;
+  }
 `;
 
 export const ProfileVoteDescriptionStyle = styled.div``;

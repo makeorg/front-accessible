@@ -46,7 +46,7 @@ export const ProfileVoteCard = ({
   const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
-    <ProfileVoteCardStyle>
+    <React.Fragment>
       <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
           aria-label={voteAttributes.label}
@@ -73,44 +73,46 @@ export const ProfileVoteCard = ({
         </ProfileVoteDescriptionStyle>
       </ProfileVoteTitleStyle>
 
-      <ProposalCardStyle
-        aria-labelledby={`proposal_author_${position}`}
-        aria-describedby={`proposal_content_${position}`}
-        role="article"
-        aria-posinset={position}
-        aria-setsize={size}
-      >
-        <HiddenItemStyle id={`proposal_author_${position}`}>
-          {author.firstName}
-        </HiddenItemStyle>
-        <ProposalAuthorElement
-          author={author}
-          country={proposal.country}
-          language={proposal.language}
-          createdAt={proposal.createdAt}
-          withAvatar
-        />
-        <ProposalSeparatorStyle />
-        <ProposalStyle
-          id={`proposal_content_${position}`}
-          href={getProposalLink(
-            proposal.country,
-            proposal.language,
-            question.slug,
-            proposal.id,
-            proposal.slug
-          )}
+      <ProfileVoteCardStyle>
+        <ProposalCardStyle
+          aria-labelledby={`proposal_author_${position}`}
+          aria-describedby={`proposal_content_${position}`}
+          role="article"
+          aria-posinset={position}
+          aria-setsize={size}
         >
-          {proposal.content}
-        </ProposalStyle>
-        <VoteResultElement
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          votedKey={voteKey}
-          withLabel={false}
-        />
-        <ProposalFooterWithTagElement tags={proposal.tags} />
-      </ProposalCardStyle>
-    </ProfileVoteCardStyle>
+          <HiddenItemStyle id={`proposal_author_${position}`}>
+            {author.firstName}
+          </HiddenItemStyle>
+          <ProposalAuthorElement
+            author={author}
+            country={proposal.country}
+            language={proposal.language}
+            createdAt={proposal.createdAt}
+            withAvatar
+          />
+          <ProposalSeparatorStyle />
+          <ProposalStyle
+            id={`proposal_content_${position}`}
+            href={getProposalLink(
+              proposal.country,
+              proposal.language,
+              question.slug,
+              proposal.id,
+              proposal.slug
+            )}
+          >
+            {proposal.content}
+          </ProposalStyle>
+          <VoteResultElement
+            proposalId={proposal.id}
+            votes={proposal.votes}
+            votedKey={voteKey}
+            withLabel={false}
+          />
+          <ProposalFooterWithTagElement tags={proposal.tags} />
+        </ProposalCardStyle>
+      </ProfileVoteCardStyle>
+    </React.Fragment>
   );
 };

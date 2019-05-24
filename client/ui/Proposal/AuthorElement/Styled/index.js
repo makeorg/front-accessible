@@ -3,6 +3,7 @@ import {
   TextColors,
   BasicColors,
   StatusColors,
+  BackgroundColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -36,7 +37,7 @@ export const ProposalStatusStyle = styled.span`
   }
   &.status-postponed,
   &.status-pending {
-    background-color: ${StatusColors.Pending};
+    background-color: ${BackgroundColors.ExtraLightGrey};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

@@ -41,7 +41,6 @@ export const LinkAsGreyButton = styled(GreyButtonStyle)`
   text-decoration: none;
   &:hover,
   &:focus {
-    color: ${BasicColors.PureWhite};
     text-decoration: none;
   }
 `;

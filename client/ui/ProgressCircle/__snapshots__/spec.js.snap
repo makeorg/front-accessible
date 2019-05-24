@@ -43,7 +43,7 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
 
 .c3 {
   fill: transparent;
-  stroke: rgb(228,228,228);
+  stroke: rgb(229,229,229);
   stroke-width: 0.1875rem;
 }
 
@@ -58,7 +58,7 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
   position: relative;
   z-index: 1;
   font-size: 0.75rem;
-  color: rgba(0,0,0,0.55);
+  color: rgb(102,102,102);
   font-family: 'Roboto Regular',Arial,sans-serif;
 }
 

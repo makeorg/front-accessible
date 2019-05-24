@@ -5,7 +5,6 @@ import {
   BasicColors,
   BorderColors,
   TextColors,
-  ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
@@ -109,7 +108,6 @@ export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
 `;
 
 export const ProposalButtonStyle = styled(ActiveButtonStyle)`
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 10px;
 `;
 

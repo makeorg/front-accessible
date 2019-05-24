@@ -48,7 +48,6 @@ export const GreatCausesOverlayStyle = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${MakeThemeColors.Red};
-  opacity: 0.9;
   padding: 5px;
   transform: translateY(125%);
   transition: transform 0.5s ease-in;

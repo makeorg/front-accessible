@@ -4,6 +4,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { CardStyle } from 'Client/ui/Cards';
+import { TextColors, BasicColors } from 'Client/app/assets/vars/Colors';
 
 export const ProfileProposalCardStyle = styled(CardStyle)`
   margin: 15px 0;
@@ -14,13 +15,11 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &.proposal-postponed,
   &.proposal-pending {
     * {
-      opacity: 0.5;
+      color: ${TextColors.MediumGrey};
     }
     header,
-    .status-refused,
-    .status-postponed,
-    .status-pending {
-      opacity: 1;
+    .status-refused {
+      color: ${BasicColors.PureWhite};
     }
   }
 `;

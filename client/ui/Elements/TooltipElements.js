@@ -6,7 +6,7 @@ export const TooltipStyle = styled.div`
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
-  background-color: ${BackgroundColors.LightBlack};
+  background-color: ${BackgroundColors.DarkGrey};
   color: ${BasicColors.PureWhite};
   font-size: ${pxToRem('12px')};
   text-align: center;
@@ -45,7 +45,7 @@ export const TopTooltipStyle = styled(VerticalTooptipStyle)`
   bottom: calc(100% + ${pxToRem('10px')});
   > :after {
     top: 100%;
-    border-top: ${pxToRem('5px')} solid ${BackgroundColors.LightBlack};
+    border-top: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
   }
 `;
 
@@ -53,7 +53,7 @@ export const BottomTooltipStyle = styled(VerticalTooptipStyle)`
   top: calc(100% + ${pxToRem('10px')});
   > :after {
     bottom: 100%;
-    border-bottom: ${pxToRem('5px')} solid ${BackgroundColors.LightBlack};
+    border-bottom: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
   }
 `;
 
@@ -61,7 +61,7 @@ export const LeftTooltipStyle = styled(HorizontalTooltipStyle)`
   right: calc(100% + ${pxToRem('10px')});
   > :after {
     left: 100%;
-    border-left: ${pxToRem('5px')} solid ${BackgroundColors.LightBlack};
+    border-left: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
   }
 `;
 
@@ -69,6 +69,6 @@ export const RightTooltipStyle = styled(HorizontalTooltipStyle)`
   left: calc(100% + ${pxToRem('10px')});
   > :after {
     right: 100%;
-    border-right: ${pxToRem('5px')} solid ${BackgroundColors.LightBlack};
+    border-right: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
   }
 `;

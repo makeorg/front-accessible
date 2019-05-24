@@ -6,6 +6,11 @@ import { Tag } from './index';
 jest.mock('./Styled', () => ({
   TagStyle: 'TagStyle',
   TagButtonStyle: 'TagButtonStyle',
+  TagIconStyle: 'TagIconStyle',
+}));
+
+jest.mock('Client/ui/Svg/elements', () => ({
+  SvgClose: 'SvgClose',
 }));
 
 describe('ComponentStyle', () => {

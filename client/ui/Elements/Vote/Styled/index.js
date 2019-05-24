@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
@@ -34,7 +34,6 @@ export const ButtonStyle = styled.button`
 export const IsVotedButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   svg {
     fill: ${BasicColors.PureWhite};
   }
