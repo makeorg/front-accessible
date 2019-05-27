@@ -24,6 +24,7 @@ const PartnerAvatarWithTooltip = ({ partner }) => {
       partnerName={partner.name}
       partnerLogo={partner.imageUrl}
       partnerProfile={partner.profileUrl}
+      newWindow={partner.isFounder}
     />
   );
 
