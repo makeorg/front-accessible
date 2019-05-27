@@ -9,6 +9,14 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
+export const QuestionListTitleStyle = styled.h2`
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 25px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 24px;
+  }
+`;
 export const QuestionsListStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
@@ -43,7 +51,7 @@ export const QuestionLinkStyle = styled(Link)`
   text-decoration: none;
   font-family: ${MakeFonts.RobotoBold};
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1.4;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }

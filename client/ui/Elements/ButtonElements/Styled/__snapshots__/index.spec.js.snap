@@ -146,8 +146,8 @@ exports[`ButtonElements/Styled CloseBannerButtonStyle snapshot by default 1`] = 
 
 @media (min-width:767px) {
   .c0 {
-    top: 30px;
-    right: 30px;
+    top: 25px;
+    right: 25px;
   }
 }
 
@@ -189,8 +189,8 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
 
 @media (min-width:767px) {
   .c0 {
-    top: 30px;
-    right: 30px;
+    top: 25px;
+    right: 25px;
   }
 }
 
