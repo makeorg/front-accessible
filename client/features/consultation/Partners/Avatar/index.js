@@ -8,16 +8,18 @@ type Props = {
   partnerLogo: string,
   /** Partner profile url */
   partnerProfile: string,
+  /** Link with blank attribute */
+  newWindow: boolean,
 };
 
 export const PartnerAvatar = (props: Props) => {
-  const { partnerName, partnerLogo, partnerProfile } = props;
+  const { partnerName, partnerLogo, partnerProfile, newWindow = true } = props;
 
   return (
     <AvatarStyle
       as="a"
       href={partnerProfile}
-      target="_blank"
+      target={newWindow ? '_blank' : '_self'}
       rel="noopener noreferrer"
       avatarSize={50}
     >
