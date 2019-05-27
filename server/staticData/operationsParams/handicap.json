@@ -24,11 +24,11 @@
     {"name": "Spicee", "imageUrl": "/images/operations/handicap/partners/spicee.png", "isFounder": true, "profileUrl": "https://about.make.org/post/spicee"},
     {"name": "Handirect.fr", "imageUrl": "/images/operations/handicap/partners/handirect.png", "isFounder": true, "profileUrl": "https://about.make.org/post/handirect-fr"},
     {"name": "TF1 Initiatives", "imageUrl": "/images/operations/handicap/partners/tf1initiatives.png", "isFounder": true, "profileUrl": "https://about.make.org/post/tf1-initiatives"},
-    {"name": "CCAH", "imageUrl": "/images/operations/handicap/partners/ccah.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/Profile/ccah"},
-    {"name": "APF France Handicap", "imageUrl": "/images/operations/handicap/partners/apf.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/apf-france-handicap"},
-    {"name": "Ladapt", "imageUrl": "/images/operations/handicap/partners/ladapt.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/ladapt"},
-    {"name": "Croix-rouge française", "imageUrl": "/images/operations/handicap/partners/croix-rouge.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/croix-rouge"},
-    {"name": "Fédération Française du Handisport", "imageUrl": "/images/operations/handicap/partners/handisport.png", "isFounder": false, "profileUrl": "https://make.org/#/FR/profile/federation-francaise-handisport"}
+    {"name": "CCAH", "imageUrl": "/images/operations/handicap/partners/ccah.png", "isFounder": false, "profileUrl": "/FR-fr/profile/ccah/proposals"},
+    {"name": "APF France Handicap", "imageUrl": "/images/operations/handicap/partners/apf.png", "isFounder": false, "profileUrl": "/FR-fr/profile/apf-france-handicap/proposals"},
+    {"name": "Ladapt", "imageUrl": "/images/operations/handicap/partners/ladapt.png", "isFounder": false, "profileUrl": "/FR-fr/profile/ladapt/proposals"},
+    {"name": "Croix-rouge française", "imageUrl": "/images/operations/handicap/partners/croix-rouge.png", "isFounder": false, "profileUrl": "/FR-fr/profile/croix-rouge/proposals"},
+    {"name": "Fédération Française du Handisport", "imageUrl": "/FR-fr/profile/federation-francaise-handisport/proposals"}
   ],
   "isGreatCause": true,
   "aboutUrl": "https://about-handicap.make.org",
