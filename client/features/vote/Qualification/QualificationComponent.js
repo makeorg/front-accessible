@@ -47,7 +47,7 @@ export const QualificationComponent = (props: Props) => {
   };
 
   return (
-    <SpaceBetweenColumnStyle id="qualification_list">
+    <SpaceBetweenColumnStyle>
       {qualifications.map(qualification => (
         <QualificationButtonElement
           key={getQualificationIndex(
