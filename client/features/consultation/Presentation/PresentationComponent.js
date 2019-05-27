@@ -29,6 +29,7 @@ export const PresentationComponent = (props: Props) => {
 
       <ParagraphRedLinkStyle
         href={questionConfiguration.aboutUrl}
+        target="_blank"
         onClick={() => Tracking.trackClickLearnMore()}
       >
         {i18n.t('consultation.presentation.link_text')}
