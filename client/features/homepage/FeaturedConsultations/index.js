@@ -101,18 +101,17 @@ const FeaturedMobile = () => (
 );
 
 const Featured = ({ featured, index }) => {
+  const blockPosition = index + 1;
   const isMobile = useMobile();
   const linkObject = featured.is_external_link
     ? {
         as: 'a',
         href: featured.link,
         target: '_blank',
-        onClick: () => Tracking.trackClickHomepageFeatured(),
       }
     : {
         to: featured.link,
         as: Link,
-        onClick: () => Tracking.trackClickHomepageFeatured(),
       };
   return (
     <React.Fragment>
@@ -132,7 +131,12 @@ const Featured = ({ featured, index }) => {
             {featured.description}
           </FeaturedDescriptionStyle>
         )}
-        <FeaturedLinkStyle {...linkObject}>
+        <FeaturedLinkStyle
+          onClick={() =>
+            Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
+          }
+          {...linkObject}
+        >
           {featured.cta_text}
         </FeaturedLinkStyle>
       </FeaturedInformationsWraperStyle>

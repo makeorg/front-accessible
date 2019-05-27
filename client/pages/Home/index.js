@@ -49,7 +49,7 @@ const questions = [
 export const HomePage = () => {
   useEffect(() => {
     Tracking.trackDisplayHomepage();
-  });
+  }, []);
 
   return (
     <HomepageWrapperStyle>

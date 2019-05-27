@@ -466,9 +466,15 @@ class TrackingSingleton {
     this.trackFacebookPixel(trackingConstants.DISPLAY_HOMEPAGE);
   };
 
-  trackClickHomepageFeatured = () => {
-    this.track(trackingConstants.CLICK_HOMEPAGE_FEATURED);
-    this.trackFacebookPixel(trackingConstants.CLICK_HOMEPAGE_FEATURED);
+  trackClickHomepageFeatured = (index: number, title: string) => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_FEATURED;
+    const parameters = {
+      'block-position': index.toString(),
+      'block-title': title,
+    };
+
+    this.track(eventName, parameters);
+    this.trackFacebookPixel(eventName, parameters);
   };
 
   trackClickHomepageCorporate = () => {
