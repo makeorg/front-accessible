@@ -31,9 +31,9 @@ const featureds = [
       'Le 28 mai 2019, MAKE.ORG et ses partenaires lancent une consultation pour garantir une vraie place aux personnes handicapées.',
     picture: HandicapPicture,
     picture_mobile: HandicapMobilePicture,
-    cta_text: 'En savoir +',
-    link: 'http://about-handicap.make.org/',
-    is_external_link: true,
+    cta_text: 'Participez à la consultation',
+    link: '/FR-fr/consultation/handicap/selection',
+    is_external_link: false,
   },
   {
     type: 'Grande cause',
