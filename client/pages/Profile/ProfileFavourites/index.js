@@ -13,6 +13,7 @@ import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
   user: TypeUser,
@@ -40,27 +41,30 @@ const ProfileFavouritesPage = (props: Props) => {
   }, [user]);
 
   return (
-    <CenterColumnStyle>
-      <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
-          {i18n.t('profile.favourites.title')}
-        </SecondLevelTitleStyle>
-        <ProfileTitleSeparatorStyle />
-      </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
-      {renderProposals &&
-        proposals.map((proposal, index) => (
-          <React.Fragment>
-            <ProfileProposalCard
-              key={proposal.id}
-              proposal={proposal}
-              size={proposalsLength}
-              position={index}
-            />
-          </React.Fragment>
-        ))}
-      {renderPlaceholder && <ProfileFavouritesPlaceholder />}
-    </CenterColumnStyle>
+    <React.Fragment>
+      <MetaTags title={i18n.t('meta.profile.favorites.title')} />
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('profile.favourites.title')}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {isLoading && <Spinner />}
+        {renderProposals &&
+          proposals.map((proposal, index) => (
+            <React.Fragment>
+              <ProfileProposalCard
+                key={proposal.id}
+                proposal={proposal}
+                size={proposalsLength}
+                position={index}
+              />
+            </React.Fragment>
+          ))}
+        {renderPlaceholder && <ProfileFavouritesPlaceholder />}
+      </CenterColumnStyle>
+    </React.Fragment>
   );
 };
 

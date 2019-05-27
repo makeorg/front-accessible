@@ -14,6 +14,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { MetaTags } from 'Client/app/MetaTags';
 import { OrganisationVotesPlaceholder } from '../Placeholders/Votes';
 
 type Props = {
@@ -42,31 +43,39 @@ const OrganisationVotesPage = (props: Props) => {
   }, [organisation]);
 
   return (
-    <CenterColumnStyle>
-      <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
-          {i18n.t('organisation.votes.title', {
-            name: organisation.organisationName,
-          })}
-        </SecondLevelTitleStyle>
-        <ProfileTitleSeparatorStyle />
-      </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
-      {renderVotes &&
-        votes.map((vote, index) => (
-          <ProfileVoteCard
-            key={`organisation_votes_${vote.proposal.id}`}
-            voteKey={vote.vote}
-            proposal={vote.proposal}
-            organisation={organisation}
-            size={votes.length}
-            position={index + 1}
-          />
-        ))}
-      {renderPlaceholder && (
-        <OrganisationVotesPlaceholder name={organisation.organisationName} />
-      )}
-    </CenterColumnStyle>
+    <React.Fragment>
+      <MetaTags
+        title={i18n.t('meta.organisation.positions.title', {
+          organisation: organisation.organisationName,
+        })}
+      />
+
+      <CenterColumnStyle>
+        <ProfileContentHeaderStyle>
+          <SecondLevelTitleStyle>
+            {i18n.t('organisation.votes.title', {
+              name: organisation.organisationName,
+            })}
+          </SecondLevelTitleStyle>
+          <ProfileTitleSeparatorStyle />
+        </ProfileContentHeaderStyle>
+        {isLoading && <Spinner />}
+        {renderVotes &&
+          votes.map((vote, index) => (
+            <ProfileVoteCard
+              key={`organisation_votes_${vote.proposal.id}`}
+              voteKey={vote.vote}
+              proposal={vote.proposal}
+              organisation={organisation}
+              size={votes.length}
+              position={index + 1}
+            />
+          ))}
+        {renderPlaceholder && (
+          <OrganisationVotesPlaceholder name={organisation.organisationName} />
+        )}
+      </CenterColumnStyle>
+    </React.Fragment>
   );
 };
 

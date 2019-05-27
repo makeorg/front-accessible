@@ -10,9 +10,9 @@ import {
 } from 'react-router';
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
+import { MetaTags } from 'Client/app/MetaTags';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 import { useMobile } from 'Client/hooks/useMedia';
-import { MetaTags } from 'Client/app/MetaTags';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
   ROUTE_ORGANISATION_PROPOSALS,
