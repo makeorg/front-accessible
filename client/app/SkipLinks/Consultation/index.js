@@ -3,7 +3,11 @@ import { i18n } from 'Shared/i18n';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
-export const ConsultationSkipLinks = () => {
+type Props = {
+  canPropose: boolean,
+};
+export const ConsultationSkipLinks = (props: Props) => {
+  const { canPropose } = props;
   return (
     <UnstyledListStyle aria-label={i18n.t('skip_links.secondary_list')}>
       <li>
@@ -16,11 +20,13 @@ export const ConsultationSkipLinks = () => {
           {i18n.t('skip_links.sidebar_content')}
         </SkipLink>
       </li>
-      <li>
-        <SkipLink as="a" href="#proposal_submit">
-          {i18n.t('skip_links.proposal_submit')}
-        </SkipLink>
-      </li>
+      {canPropose && (
+        <li>
+          <SkipLink as="a" href="#proposal_submit">
+            {i18n.t('skip_links.proposal_submit')}
+          </SkipLink>
+        </li>
+      )}
       <li>
         <SkipLink as="a" href="#tag_list">
           {i18n.t('skip_links.tag_list')}
