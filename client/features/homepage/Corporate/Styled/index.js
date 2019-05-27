@@ -50,13 +50,14 @@ export const CorporateSectionStyle = styled.section`
   flex-flow: column;
   align-items: flex-start;
   flex: 1;
-  font-weight: bold;
 `;
 
 export const CorporateTitleStyle = styled.h2`
   font-size: 20px;
   color: ${BasicColors.PureWhite};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  font-weight: bold;
+  margin-bottom: 10px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 34px;
   }
 `;
@@ -67,25 +68,38 @@ export const CorporateIntroStyle = styled.p`
   color: ${BasicColors.PureWhite};
   font-size: 14px;
   margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
+      Breakpoints.Desktop
+    )}) {
+    font-size: 20px;
+    margin-top: 15px;
   }
 `;
 export const CorporateListStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 `;
 export const CorporateListItemStyle = styled.li`
   display: flex;
   font-size: 14px;
   line-height: 1.5;
+  font-weight: bold;
   color: ${BasicColors.PureWhite};
-  margin: 10px 0;
+  margin: 7px 0;
   &:last-child {
     margin-bottom: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
+      Breakpoints.Desktop
+    )}) {
+    font-size: 20px;
   }
 `;
 
@@ -103,6 +117,11 @@ export const CorporateLinkStyle = styled(UnstyledButtonStyle)`
   margin-top: 10px;
   @media (max-width: ${intToPx(Breakpoints.Desktop)}) {
     align-self: center;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
+      Breakpoints.Desktop
+    )}) {
+    margin: 15px 0;
   }
   &:hover,
   &:focus {

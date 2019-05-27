@@ -13,5 +13,5 @@ export const Layouts = {
 
 export const DefaultPadding = {
   Mobile: 15,
-  Desktop: 30,
+  Desktop: 25,
 };

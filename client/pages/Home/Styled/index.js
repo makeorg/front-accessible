@@ -31,8 +31,5 @@ export const HomepageInnerContentStyle = styled.section`
 `;
 
 export const HomepagePaddingContentStyle = styled(HomepageInnerContentStyle)`
-  margin: ${intToPx(DefaultPadding.Mobile)} 0;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: ${intToPx(DefaultPadding.Desktop)} 0;
-  }
+  margin-top: ${intToPx(DefaultPadding.Desktop)};
 `;

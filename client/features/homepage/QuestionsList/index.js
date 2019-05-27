@@ -4,9 +4,9 @@ import { i18n } from 'Shared/i18n';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
 import {
+  QuestionListTitleStyle,
   QuestionsListStyle,
   QuestionItemStyle,
   QuestionLinkStyle,
@@ -23,9 +23,9 @@ export const QuestionsListComponent = props => {
       id="question_list"
       aria-labelledby="questions_title"
     >
-      <HomeTitleStyle id="questions_title">
+      <QuestionListTitleStyle id="questions_title">
         {i18n.t('homepage.question_list.title')}
-      </HomeTitleStyle>
+      </QuestionListTitleStyle>
       <QuestionsListStyle>
         {questions.map(question => (
           <QuestionItemStyle key={question.slug}>
