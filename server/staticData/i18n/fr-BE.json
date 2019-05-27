@@ -385,7 +385,8 @@
       "founder": "Partenaire Fondateur",
       "init": "Cette consultation a été initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
-      "profile_link": "Ouvrir le profil de {{name}} dans une nouvelle fenêtre"
+      "profile_link": "Aller sur la page profil de l'organisation : {{name}}",
+      "profile_link_new_window": "Ouvrir dans une nouvelle fenêtre la page d'information sur l'organisation : {{name}}"
     },
     "tags": {
       "intro": "Filtrer par tags :",

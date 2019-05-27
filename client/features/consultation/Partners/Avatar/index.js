@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AvatarStyle } from 'Client/ui/Avatar/Styled';
 import { i18n } from 'Shared/i18n';
 
@@ -10,26 +11,39 @@ type Props = {
   /** Partner profile url */
   partnerProfile: string,
   /** Link with blank attribute */
-  newWindow: boolean,
+  newWindow?: boolean,
 };
 
 export const PartnerAvatar = (props: Props) => {
-  const { partnerName, partnerLogo, partnerProfile, newWindow = true } = props;
+  const { partnerName, partnerLogo, partnerProfile, newWindow } = props;
 
   return (
     <AvatarStyle
-      as="a"
-      href={partnerProfile}
-      target={newWindow ? '_blank' : '_self'}
-      rel="noopener noreferrer"
+      {...(newWindow
+        ? {
+            as: 'a',
+            href: partnerProfile,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+          }
+        : {
+            as: Link,
+            to: partnerProfile,
+          })}
       avatarSize={50}
     >
       {partnerLogo && (
         <img
           src={partnerLogo}
-          alt={i18n.t('consultation.partners.profile_link', {
-            name: partnerName,
-          })}
+          alt={
+            newWindow
+              ? i18n.t('consultation.partners.profile_link_new_window', {
+                  name: partnerName,
+                })
+              : i18n.t('consultation.partners.profile_link', {
+                  name: partnerName,
+                })
+          }
         />
       )}
     </AvatarStyle>
