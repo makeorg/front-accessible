@@ -24,41 +24,41 @@ export const FooterLinks = () => {
   return (
     <FooterItemListStyle>
       <FooterItemStyle>
-        <FooterItemLinkStyle href={JOBS_LINK} target="blank_">
+        <FooterItemLinkStyle href={JOBS_LINK}>
           {i18n.t('main-footer.jobs')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
       <HiddenOnDesktopStyle as={FooterItemStyle}>
-        <FooterItemLinkStyle href={WHOAREWE_FR_LINK} target="blank_">
+        <FooterItemLinkStyle href={WHOAREWE_FR_LINK}>
           {i18n.t('main-footer.whoarewe')}
         </FooterItemLinkStyle>
       </HiddenOnDesktopStyle>
       <FooterItemStyle>
-        <FooterItemLinkStyle href={PRESS_LINK} target="blank_">
+        <FooterItemLinkStyle href={PRESS_LINK}>
           {i18n.t('main-footer.press')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={LEGAL_NOTICE_LINK} target="blank_">
+        <FooterItemLinkStyle href={LEGAL_NOTICE_LINK}>
           {i18n.t('main-footer.legal')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={GTU_LINK} target="blank_">
+        <FooterItemLinkStyle href={GTU_LINK}>
           {i18n.t('main-footer.terms')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={DATA_POLICY_LINK} target="blank_">
+        <FooterItemLinkStyle href={DATA_POLICY_LINK}>
           {i18n.t('main-footer.data')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={CONTACT_LINK} target="blank_">
+        <FooterItemLinkStyle href={CONTACT_LINK}>
           {i18n.t('main-footer.contact')}
         </FooterItemLinkStyle>
       </FooterItemStyle>

@@ -21,8 +21,8 @@ export const CookieBannerComponent = ({
     <CookieContentStyle
       dangerouslySetInnerHTML={{
         __html: i18n.t('cookie_alert.text', {
-          cgu_link: `<a class="red-link" target="_blank" href="${cguLink}">$t(cookie_alert.cgu)</a>`,
-          policy_link: `<a class="red-link" target="_blank" href="${policyLink}">$t(cookie_alert.policy)</a>`,
+          cgu_link: `<a class="red-link" href="${cguLink}">$t(cookie_alert.cgu)</a>`,
+          policy_link: `<a class="red-link" href="${policyLink}">$t(cookie_alert.policy)</a>`,
         }),
       }}
     />

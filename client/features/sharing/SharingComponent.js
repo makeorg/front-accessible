@@ -34,7 +34,6 @@ export class SharingComponent extends React.Component<Props> {
             aria-label={i18n.t('sharing.facebook')}
             as="a"
             href={facebookShareUrl}
-            target="_blank"
             onClick={() => Tracking.trackClickShare('facebook')}
           >
             <SvgFacebookLogoF aria-hidden />
@@ -46,7 +45,6 @@ export class SharingComponent extends React.Component<Props> {
             aria-label={i18n.t('sharing.twitter')}
             as="a"
             href={twitterShareUrl}
-            target="_blank"
             onClick={() => Tracking.trackClickShare('twitter')}
           >
             <SvgTwitterLogo aria-hidden />
@@ -58,7 +56,6 @@ export class SharingComponent extends React.Component<Props> {
             aria-label={i18n.t('sharing.linkedin')}
             as="a"
             href={linkedinShareUrl}
-            target="_blank"
             onClick={() => Tracking.trackClickShare('linkedin')}
           >
             <SvgLinkedinLogoIn aria-hidden />
