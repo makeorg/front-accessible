@@ -48,12 +48,12 @@ const featureds = [
   {
     type: 'Actualité',
     title:
-      'WeEuropeans : De quel parti politique êtes-vous le/la plus proche ?',
+      'WeEuropeans : 10 propositions sélectionnées par les citoyens européens.',
     description: '',
     picture: WeeuropeansPicture,
     picture_mobile: WeeuropeansPicture,
-    cta_text: 'Démarrez le quiz',
-    link: 'https://weeuropeans.eu/fr/fr/guide',
+    cta_text: 'En savoir +',
+    link: 'https://weeuropeans.eu/',
     is_external_link: true,
   },
 ];
