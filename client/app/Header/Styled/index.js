@@ -42,6 +42,9 @@ export const HeaderLogoStyle = styled.img`
 export const ProfileAccessWrapperStyle = styled.div`
   display: flex;
   align-items: center;
+  button:last-child > span {
+    margin-right: 0;
+  }
 `;
 
 export const ProfileAccessButtonLabelStyle = styled(HiddenOnMobileStyle)`

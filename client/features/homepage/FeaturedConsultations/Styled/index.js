@@ -18,14 +18,14 @@ export const FeaturedArticleWrapperStyle = styled.div`
   }
 `;
 
-export const FeaturedArticleColumnStyle = styled.article`
+export const FeaturedArticleColumnStyle = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   flex: 1;
   margin-right: 20px;
-  & > article:last-child {
-    margin-bottom: 0;
+  &:last-child {
+    margin-right: 0;
   }
 `;
 
