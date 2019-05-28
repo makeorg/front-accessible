@@ -7,7 +7,6 @@ import {
   ProposalSubmitFormStyle,
   ProposalLabelStyle,
   ProposalTextareaStyle,
-  ProposalCharLimitStyle,
 } from './Styled';
 
 jest.mock('Shared/constants/proposal', () => ({
@@ -38,13 +37,6 @@ describe('ProposalSubmitFormComponent', () => {
       35 - 'should'.length
     );
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
-    expect(wrapper.find(ProposalCharLimitStyle)).toHaveLength(1);
-    expect(
-      wrapper
-        .find(ProposalCharLimitStyle)
-        .first()
-        .text()
-    ).toBe('15/140');
     expect(wrapper.find(ProposalSubmitButtonComponent)).toHaveLength(1);
     expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).toBe(
       true
