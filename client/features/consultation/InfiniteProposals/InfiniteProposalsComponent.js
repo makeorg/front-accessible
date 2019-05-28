@@ -24,14 +24,12 @@ export const InfiniteProposalsComponent = (props: Props) => {
     <dl id="proposal_list" role="feed" aria-busy={isLoading}>
       {proposals &&
         proposals.map((proposal, index) => (
-          <React.Fragment>
-            <ProposalCardTagged
-              position={index + 1}
-              size={proposalsLength}
-              key={proposal.id}
-              proposal={proposal}
-            />
-          </React.Fragment>
+          <ProposalCardTagged
+            position={index + 1}
+            size={proposalsLength}
+            key={proposal.id}
+            proposal={proposal}
+          />
         ))}
       {isLoading && <Spinner />}
       {displayLoadMoreButton && (

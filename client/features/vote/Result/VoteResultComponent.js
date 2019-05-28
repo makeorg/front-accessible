@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type VotesPercentObject } from 'Shared/types/proposal';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
@@ -71,35 +71,36 @@ export const VoteResultComponent = (props: Props) => {
 
   return (
     <VoteResultContainerStyle>
+      <ReadableItemStyle as="p">
+        {i18n.t(`results.voted.${votedKey}`)}
+      </ReadableItemStyle>
       <VoteButton
         color={voteStaticParams[votedKey].color}
-        label={i18n.t('unvote.button')}
+        label={i18n.t('unvote.title')}
         icon={voteStaticParams[votedKey].icon}
         handleVote={handleVote}
         buttonType={IsVotedButtonStyle}
         displayPending={pending}
         showTooltip={withLabel}
       />
-      <aside>
-        <VoteResultGraphStyle>
-          {voteKeys.map(voteKey => (
-            <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>
-              <VoteResultBarWithTooltip
-                key={`${voteKey}_tooltip_${proposalId}`}
-                voteKey={voteKey}
-                percent={votesPercent[voteKey]}
-                color={voteStaticParams[voteKey].color}
-              />
-            </VoteResultItemStyle>
-          ))}
-        </VoteResultGraphStyle>
-        <VoteResultTotalLabelStyle>
-          <HiddenItemStyle aria-hidden>
-            {i18n.t('results.total_text')}
-          </HiddenItemStyle>
-          {i18n.t('vote.label', { count: votesCount })}
-        </VoteResultTotalLabelStyle>
-      </aside>
+      <ReadableItemStyle as="p">
+        {i18n.t('results.total', { count: votesCount })}
+      </ReadableItemStyle>
+      <VoteResultGraphStyle>
+        {voteKeys.map(voteKey => (
+          <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>
+            <VoteResultBarWithTooltip
+              key={`${voteKey}_tooltip_${proposalId}`}
+              voteKey={voteKey}
+              percent={votesPercent[voteKey]}
+              color={voteStaticParams[voteKey].color}
+            />
+          </VoteResultItemStyle>
+        ))}
+      </VoteResultGraphStyle>
+      <VoteResultTotalLabelStyle aria-hidden>
+        {i18n.t('vote.label', { count: votesCount })}
+      </VoteResultTotalLabelStyle>
     </VoteResultContainerStyle>
   );
 };

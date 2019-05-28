@@ -70,8 +70,8 @@
     "hide_pannel": "Masquer le contenu du panneau déroulant",
     "display_modal": "Afficher le contenu de la fenêtre de dialogue",
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
-    "display_tooltip": "Afficher le contenu de l'infobulle",
-    "hide_tooltip": "Masquer le contenu de l'infobulle",
+    "display_tooltip": "Afficher le contenu de l'infobulle au survol",
+    "hide_tooltip": "Masquer le contenu de l'infobulle au survol",
     "expand_collapse": "{{name}} - Afficher le contenu de la section déroulante",
     "shrink_collapse": "{{name}} - Masquer le contenu de la section déroulante",
     "secondary_nav": "Navigation secondaire",
@@ -106,6 +106,7 @@
       "date": "postée le : "
     },
     "status": {
+      "title": "Statut de la proposition : ",
       "accepted": "Publiée",
       "refused": "Refusée",
       "postponed": "En attente de modération",
@@ -149,36 +150,43 @@
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
   "vote": {
-    "intro_title": "Je donne mon avis sur cette proposition. ",
-    "intro_text": "Je suis :",
+    "intro_title": "Je donne mon avis sur cette proposition : ",
     "agree": "D'accord",
     "disagree": "Pas d'accord",
-    "neutral": "Vote blanc",
+    "neutral": "Vote neutre",
     "label": "{{count}} vote",
     "label_plural": "{{count}} votes"
   },
   "unvote": {
-    "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",
-    "button": "je retire mon avis"
+    "title": "Je retire mon avis sur cette proposition."
   },
   "results": {
-    "title": "Les avis des autres participants sur cette proposition sont :",
-    "total_text": "Le nombre d'avis total est de : ",
+    "static_total": "Cette proposition a récolté : ",
+    "static_repartition": "Avec pour répartition : ",
+    "total": "Cette proposition a récolté {{count}} vote, avec comme répartition : ",
+    "total_plural": "Cette proposition a récolté {{count}} votes, avec comme répartition : ",
+    "voted": {
+      "agree": "J'ai voté \"D'accord\" sur cette proposition.",
+      "disagree": "J'ai voté \"Pas d'accord\" sur cette proposition.",
+      "neutral": "J'ai voté \"Neutre\" sur cette proposition."
+    },
     "tooltipbutton": {
       "display": {
-        "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
-        "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
-        "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
+        "agree": "Afficher les résultats pour l'avis : \"je suis d'accord\"",
+        "disagree": "Afficher les résultats pour l'avis : \"je ne suis pas d'accord\"",
+        "neutral": "Afficher les résultats pour l'avis : \"je vote neutre'"
       },
       "hide": {
-        "agree": "Masquer les résultats pour l'avis : 'je suis d'accord'",
-        "disagree": "Masquer les résultats pour l'avis : 'je ne suis pas d'accord'",
-        "neutral": "Masquer les résultats pour l'avis : 'je vote blanc'"
+        "agree": "Masquer les résultats pour l'avis : \"je suis d'accord\"",
+        "disagree": "Masquer les résultats pour l'avis : \"je ne suis pas d'accord\"",
+        "neutral": "Masquer les résultats pour l'avis : \"je vote neutre'"
       }
     }
   },
   "qualification": {
-    "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
+    "title": "Je précise mon avis sur cette proposition :",
+    "static_repartition": "Cette proposition a été qualifiée en : ",
+    "times": "fois",
     "likeIt": "Coup de cœur",
     "doable": "Réaliste",
     "platitudeAgree": "Banalité",
@@ -391,6 +399,7 @@
       "initWith": "Cette consultation a été initiée avec :",
       "profile_link": "Aller sur la page profil de l'organisation : {{name}}",
       "profile_link_new_window": "Ouvrir dans une nouvelle fenêtre la page d'information sur l'organisation : {{name}}"
+    
     },
     "tags": {
       "intro": "Filtrer par <span lang=\"en\">tags<span> : ",

@@ -2,6 +2,8 @@
 import React from 'react';
 import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { i18n } from 'Shared/i18n';
 import { DetailledResultItem } from './Item';
 import { VoteProgress } from './Progress';
 import { DetailledItemListStyle } from './Styled';
@@ -23,6 +25,9 @@ export const DetailledVoteResults = (props: Props) => {
         votes={votes}
         proposalId={proposalId}
       />
+      <ReadableItemStyle>
+        {i18n.t('results.static_repartition')}
+      </ReadableItemStyle>
       <DetailledItemListStyle>
         {votes.map(vote => (
           <DetailledResultItem

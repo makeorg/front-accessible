@@ -104,6 +104,9 @@ export const ProposalAuthorElement = (props: Props) => {
       </AuthorInfosStyle>
       {withStatus && (
         <ProposalStatusStyle className={`status-${formattedProposalStatus}`}>
+          <ReadableItemStyle>
+            {i18n.t('proposal_card.status.title')}
+          </ReadableItemStyle>
           {i18n.t(`proposal_card.status.${formattedProposalStatus}`)}
         </ProposalStatusStyle>
       )}

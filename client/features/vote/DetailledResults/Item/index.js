@@ -6,8 +6,9 @@ import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { QualificationResults } from 'Client/features/vote/Qualification/Results';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
-  DetailledItemWrapperStyle,
+  DetailledItemStyle,
   VoteDataListStyle,
   VoteDataBoldItemStyle,
   VoteDataItemStyle,
@@ -26,13 +27,10 @@ export const DetailledResultItem = (props: Props) => {
   const buttonIcon = voteStaticParams[voteKey].icon;
 
   return (
-    <DetailledItemWrapperStyle className={voteKey}>
+    <DetailledItemStyle className={voteKey}>
       <FlexElementStyle>
-        <IsVotedButtonStyle
-          color={voteColor}
-          as="div"
-          aria-label={i18n.t(`vote.${voteKey}`)}
-        >
+        <ReadableItemStyle>{i18n.t(`vote.${voteKey}`)}</ReadableItemStyle>
+        <IsVotedButtonStyle color={voteColor} as="div" aria-hidden>
           {buttonIcon}
         </IsVotedButtonStyle>
         <VoteDataListStyle>
@@ -44,6 +42,9 @@ export const DetailledResultItem = (props: Props) => {
           </VoteDataItemStyle>
         </VoteDataListStyle>
       </FlexElementStyle>
+      <ReadableItemStyle>
+        {i18n.t(`qualification.static_repartition`)}
+      </ReadableItemStyle>
       <QualificationDataListStyle>
         {vote.qualifications.map(qualification => (
           <QualificationResults
@@ -53,6 +54,6 @@ export const DetailledResultItem = (props: Props) => {
           />
         ))}
       </QualificationDataListStyle>
-    </DetailledItemWrapperStyle>
+    </DetailledItemStyle>
   );
 };

@@ -4,6 +4,7 @@ import React from 'react';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
+import { TagStyle, TagButtonStyle } from 'Client/ui/Elements/Tag/Styled';
 import {
   TagFilterWrapperStyle,
   TagSeparatorStyle,
@@ -50,7 +51,7 @@ export const TagFilterComponent = (props: Props) => {
         {tags
           .filter((tag, index) => filterShowAllTags(index, showAll))
           .map(tag => (
-            <TagListItemStyle>
+            <TagListItemStyle key={tag.tagId}>
               <Tag
                 name={tag.label}
                 key={tag.tagId}
@@ -62,17 +63,25 @@ export const TagFilterComponent = (props: Props) => {
           ))}
         {displayShowAll && (
           <TagListItemStyle>
-            <Tag
-              name={
-                showAll
-                  ? i18n.t('consultation.tags.show_less')
-                  : i18n.t('consultation.tags.show_all')
-              }
-              isSelected
+            <TagStyle
               onClick={toggleShowAll}
-              isAButton
-              key="all"
-            />
+              className="selected"
+              as={TagButtonStyle}
+            >
+              {showAll ? (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t('consultation.tags.show_less'),
+                  }}
+                />
+              ) : (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t('consultation.tags.show_all'),
+                  }}
+                />
+              )}
+            </TagStyle>
           </TagListItemStyle>
         )}
       </TagListStyle>
