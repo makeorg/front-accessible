@@ -12,16 +12,16 @@ export function questions(
     case actionTypes.QUESTION_LOAD:
       return {
         ...state,
-        [action.payload.question.questionId]: {
-          ...state[action.payload.question.questionId],
+        [action.payload.question.slug]: {
+          ...state[action.payload.question.slug],
           question: action.payload.question,
         },
       };
     case actionTypes.QUESTION_CONFIGURATION_LOAD:
       return {
         ...state,
-        [action.payload.questionId]: {
-          ...state[action.payload.questionId],
+        [action.payload.questionSlug]: {
+          ...state[action.payload.questionSlug],
           questionConfiguration: action.payload.questionConfiguration,
         },
       };

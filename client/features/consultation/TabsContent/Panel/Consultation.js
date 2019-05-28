@@ -1,7 +1,11 @@
+// @flow
+
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import { intToPx } from 'Shared/helpers/styled';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Presentation } from 'Client/features/consultation/Presentation';
@@ -25,8 +29,8 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 
 type Props = {
-  questionConfiguration: QuestionConfiguration,
-  question: Question,
+  questionConfiguration: TypeQuestionConfiguration,
+  question: TypeQuestion,
 };
 
 type State = {
@@ -50,7 +54,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
   }
 
   /** Todo: export to function and Test logic */
-  handleSelectTag = async (tag: TypeTag) => {
+  handleSelectTag = (tag: TypeTag): void => {
     const { selectedTagIds } = this.state;
     const foundTagId = selectedTagIds.includes(tag.tagId);
     const newSelectedTagIds = foundTagId
@@ -111,7 +115,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
               trackCollapse={this.trackPresentationCollpase}
               questionId={question.questionId}
             >
-              <Presentation />
+              <Presentation questionConfiguration={questionConfiguration} />
             </Collapse>
             {questionConfiguration.isGreatCause && (
               <Collapse
@@ -126,7 +130,7 @@ export class ConsultationPanelContent extends React.Component<Props, State> {
             )}
             {!isMobile && (
               <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-                <Sharing />
+                <Sharing sharingParams={questionConfiguration.sharing} />
               </TileWithTitle>
             )}
           </ConsultationPageSidebarStyle>

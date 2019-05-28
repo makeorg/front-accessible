@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { type Sharing as TypeSharing } from 'Shared/types/sequence';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
 import { i18n } from 'Shared/i18n';
 import {
@@ -11,13 +12,15 @@ import {
 type Props = {
   /** Special wording for Final Card's Sharinng section */
   text?: string[],
+  /** Sharing params */
+  sharingParams?: TypeSharing,
 };
 
 /**
  * Renders finalCard Title component
  */
 export const Sharing = (props: Props) => {
-  const { text } = props;
+  const { text, sharingParams } = props;
   const sharingText = text || [
     i18n.t('final_card.sharing.introduction'),
     i18n.t('final_card.sharing.description'),
@@ -29,7 +32,7 @@ export const Sharing = (props: Props) => {
         <IntroParagraphStyle key={paragraph}>{paragraph}</IntroParagraphStyle>
       ))}
       <SharingWrapperStyle>
-        <SharingProposal />
+        <SharingProposal sharingParams={sharingParams} />
       </SharingWrapperStyle>
     </SharingInnerStyle>
   );

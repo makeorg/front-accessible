@@ -15,12 +15,12 @@ export function sequence(
     case actionTypes.QUESTION_LOAD:
       return {
         ...state,
-        questionId: action.payload.question.questionId,
+        questionSlug: action.payload.question.slug,
       };
     case actionTypes.QUESTION_CONFIGURATION_LOAD:
       return {
         ...state,
-        questionId: action.payload.questionId,
+        questionSlug: action.payload.questionSlug,
       };
     case actionTypes.SEQUENCE_PROPOSAL_VOTE:
       return {

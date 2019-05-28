@@ -31,7 +31,9 @@ export const ProposalPageContentLoader = (props: Props) => {
         proposal={proposal}
         questionConfiguration={questionConfiguration}
       />
-      <SingleProposalSharingComponent />
+      <SingleProposalSharingComponent
+        sharingParams={questionConfiguration.sharing}
+      />
     </React.Fragment>
   );
 };

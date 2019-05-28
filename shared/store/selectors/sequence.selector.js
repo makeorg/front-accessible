@@ -6,19 +6,19 @@ import {
   selectQuestionConfiguration,
 } from './questions.selector';
 /**
- * Sequence questionId selector
+ * Sequence questionSlug selector
  * @param {*} state
  */
-export const selectSequenceQuestionId = (state: StateRoot) =>
-  state.sequence.questionId;
+export const selectSequenceQuestionSlug = (state: StateRoot) =>
+  state.sequence.questionSlug;
 
 /**
  * Sequence question selector
  * @param {*} state
  */
 export const selectSequenceQuestion = (state: StateRoot) => {
-  const questionId = selectSequenceQuestionId(state);
-  return selectQuestion(state, questionId);
+  const questionSlug = selectSequenceQuestionSlug(state);
+  return selectQuestion(state, questionSlug);
 };
 
 /**
@@ -26,8 +26,8 @@ export const selectSequenceQuestion = (state: StateRoot) => {
  * @param {*} state
  */
 export const selectSequenceQuestionConfiguration = (state: StateRoot) => {
-  const questionId = selectSequenceQuestionId(state);
-  return selectQuestionConfiguration(state, questionId);
+  const questionSlug = selectSequenceQuestionSlug(state);
+  return selectQuestionConfiguration(state, questionSlug);
 };
 
 /**

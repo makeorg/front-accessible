@@ -41,12 +41,8 @@ export type ConsultationType = {
   logo: string,
 };
 
-export type SharingTwitter = {
-  hashtags: string,
-};
-
 export type Sharing = {
-  twitter: SharingTwitter,
+  twitterHashtags: string,
 };
 
 export type QuestionConfiguration = {

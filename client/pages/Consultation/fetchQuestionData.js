@@ -11,10 +11,7 @@ import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
 } from 'Shared/store/actions/sequence';
-import {
-  selectSequenceQuestion,
-  selectSequenceQuestionConfiguration,
-} from 'Shared/store/selectors/sequence.selector';
+import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 
 type Props = {
   question: Question,
@@ -63,6 +60,7 @@ const callQuestionData = Component =>
     render() {
       const { question, questionConfiguration } = this.props;
       if (!question || !questionConfiguration) return null;
+
       return (
         <PageQuestionWrapper questionConfiguration={questionConfiguration}>
           <Component
@@ -74,19 +72,14 @@ const callQuestionData = Component =>
     }
   };
 
-const mapStateToProps = state => {
-  return {
-    question: selectSequenceQuestion(state),
-    questionConfiguration: selectSequenceQuestionConfiguration(state),
-  };
+const mapStateToProps = (state, ownProps) => {
+  return { ...selectQuestionData(state, ownProps.match.params.questionSlug) };
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchQuestion: (questionSlug: string) => {
-    dispatch(fetchQuestionData(questionSlug)).then((question: Question) => {
-      dispatch(
-        fetchQuestionConfigurationData(questionSlug, question.questionId)
-      );
+    dispatch(fetchQuestionData(questionSlug)).then(() => {
+      dispatch(fetchQuestionConfigurationData(questionSlug));
     });
   },
 });

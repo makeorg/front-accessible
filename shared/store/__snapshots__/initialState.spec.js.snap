@@ -24,7 +24,7 @@ Object {
   "sequence": Object {
     "firstProposal": undefined,
     "isSequenceCollapsed": false,
-    "questionId": undefined,
+    "questionSlug": undefined,
     "votedProposalIds": Array [],
   },
   "user": Object {
