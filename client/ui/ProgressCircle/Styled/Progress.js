@@ -31,16 +31,25 @@ export const ProgressSvgStyle = styled.svg`
 `;
 
 export const ProgressBackgroundStyle = styled.circle`
+  cx: ${props => props.datacx};
+  cy: ${props => props.datacy};
+  r: ${props => props.datar};
   fill: ${BasicColors.PureWhite};
 `;
 
 export const ProgressRingStyle = styled.circle`
+  cx: ${props => props.datacx};
+  cy: ${props => props.datacy};
+  r: ${props => props.datar};
   fill: transparent;
   stroke: ${BackgroundColors.ExtraLightGrey};
   stroke-width: 3px;
 `;
 
 export const ProgressCircleStyle = styled.circle`
+  cx: ${props => props.datacx};
+  cy: ${props => props.datacy};
+  r: ${props => props.datar};
   fill: transparent;
   stroke: ${props => props.theme.color};
   stroke-width: 3px;

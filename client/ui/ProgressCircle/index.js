@@ -32,23 +32,27 @@ export const ProgressCircleComponent = (props: Props) => {
 
   return (
     <ProgressWrapperStyle aria-hidden>
-      <ProgressSvgStyle viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
+      <ProgressSvgStyle
+        width={42}
+        height={42}
+        viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}
+      >
         <ProgressBackgroundStyle
-          cx={CardConstant.PROGRESS_SVG_CX}
-          cy={CardConstant.PROGRESS_SVG_CY}
-          r={CardConstant.PROGRESS_SVG_R}
+          datacx={CardConstant.PROGRESS_SVG_CX}
+          datacy={CardConstant.PROGRESS_SVG_CY}
+          datar={CardConstant.PROGRESS_SVG_R}
         />
         <ProgressRingStyle
-          cx={CardConstant.PROGRESS_SVG_CX}
-          cy={CardConstant.PROGRESS_SVG_CY}
-          r={CardConstant.PROGRESS_SVG_R}
+          datacx={CardConstant.PROGRESS_SVG_CX}
+          datacy={CardConstant.PROGRESS_SVG_CY}
+          datar={CardConstant.PROGRESS_SVG_R}
         />
         <ProgressCircleStyle
           progress={gaugeProgress(activeGaugeIndex, maxGaugeIndex)}
           remain={gaugeRemain(activeGaugeIndex, maxGaugeIndex)}
-          cx={CardConstant.PROGRESS_SVG_CX}
-          cy={CardConstant.PROGRESS_SVG_CY}
-          r={CardConstant.PROGRESS_SVG_R}
+          datacx={CardConstant.PROGRESS_SVG_CX}
+          datacy={CardConstant.PROGRESS_SVG_CY}
+          datar={CardConstant.PROGRESS_SVG_R}
         />
       </ProgressSvgStyle>
       <ProgressCounterStyle>
