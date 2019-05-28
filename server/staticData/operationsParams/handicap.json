@@ -28,7 +28,7 @@
     {"name": "APF France Handicap", "imageUrl": "/images/operations/handicap/partners/apf.png", "isFounder": false, "profileUrl": "/FR-fr/profile/apf-france-handicap/proposals"},
     {"name": "Ladapt", "imageUrl": "/images/operations/handicap/partners/ladapt.png", "isFounder": false, "profileUrl": "/FR-fr/profile/ladapt/proposals"},
     {"name": "Croix-rouge française", "imageUrl": "/images/operations/handicap/partners/croix-rouge.png", "isFounder": false, "profileUrl": "/FR-fr/profile/croix-rouge/proposals"},
-    {"name": "Fédération Française du Handisport", "imageUrl": "/FR-fr/profile/federation-francaise-handisport/proposals"}
+    {"name": "Fédération Française du Handisport", "imageUrl": "/images/operations/handicap/partners/handisport.png", "isFounder": false, "profileUrl": "/FR-fr/profile/federation-francaise-handisport/proposals"}
   ],
   "isGreatCause": true,
   "aboutUrl": "https://about-handicap.make.org",
