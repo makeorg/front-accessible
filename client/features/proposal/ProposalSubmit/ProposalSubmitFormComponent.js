@@ -2,6 +2,10 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
+import {
+  ReadableItemStyle,
+  HiddenItemStyle,
+} from 'Client/ui/Elements/HiddenElements';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
@@ -47,10 +51,10 @@ export const ProposalSubmitFormComponent = (props: Props) => {
   const inputMaxLength: number = MAX_PROPOSAL_LENGTH - getBaitText().length;
 
   return (
-    <ProposalSubmitFormStyle
-      isOpen={isOpen}
-      aria-label={i18n.t('proposal_submit.title')}
-    >
+    <ProposalSubmitFormStyle isOpen={isOpen}>
+      <ReadableItemStyle as="p">
+        {i18n.t('proposal_submit.title')}
+      </ReadableItemStyle>
       <ProposalInputWrapperStyle>
         <ProposalLabelStyle htmlFor="proposal">
           {getBaitText()}
@@ -75,21 +79,27 @@ export const ProposalSubmitFormComponent = (props: Props) => {
       <ProposalButtonWrapperStyle isOpen={isOpen}>
         <ProposalCharLimitStyle>
           <span
-            aria-label={i18n.t('proposal_submit.entred_chars', {
+            aria-label={i18n.t('proposal_submit.dynamic_entred_chars', {
               chars: length,
             })}
             aria-valuetext={length}
           >
             {length}
+            <HiddenItemStyle>
+              {i18n.t('proposal_submit.entred_chars')}
+            </HiddenItemStyle>
           </span>
           <span aria-label={i18n.t('common.from')}>/</span>
           <span
-            aria-label={i18n.t('proposal_submit.available_chars', {
+            aria-label={i18n.t('proposal_submit.dynamic_available_chars', {
               chars: 140,
             })}
             aria-valuemax="140"
           >
             140
+            <HiddenItemStyle>
+              {i18n.t('proposal_submit.available_chars')}
+            </HiddenItemStyle>
           </span>
         </ProposalCharLimitStyle>
         <ProposalSubmitButtonComponent

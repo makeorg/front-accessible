@@ -113,9 +113,11 @@
   },
   "proposal_submit": {
     "bait": "Il faut ",
-    "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
-    "entred_chars": "{{chars}} caractères entrés",
-    "available_chars": "{{chars}} caractères disponibles",
+    "title": "Soumettez votre proposition en moins de 140 caractères : ",
+    "entred_chars": " caractères entrés ",
+    "available_chars": " caractères disponibles ",
+    "dynamic_entred_chars": "{{chars}} caractères entrés",
+    "dynamic_available_chars": "{{chars}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
