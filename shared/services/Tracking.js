@@ -459,6 +459,33 @@ class TrackingSingleton {
     this.track(trackingConstants.CLICK_CONSULTATION_LINK);
     this.trackFacebookPixel(trackingConstants.CLICK_CONSULTATION_LINK);
   };
+
+  /* Homepage */
+  trackDisplayHomepage = () => {
+    this.track(trackingConstants.DISPLAY_HOMEPAGE);
+    this.trackFacebookPixel(trackingConstants.DISPLAY_HOMEPAGE);
+  };
+
+  trackClickHomepageFeatured = (index: number, title: string) => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_FEATURED;
+    const parameters = {
+      'block-position': index.toString(),
+      'block-title': title,
+    };
+
+    this.track(eventName, parameters);
+    this.trackFacebookPixel(eventName, parameters);
+  };
+
+  trackClickHomepageCorporate = () => {
+    this.track(trackingConstants.CLICK_HOMEPAGE_CORPORATE);
+    this.trackFacebookPixel(trackingConstants.CLICK_HOMEPAGE_CORPORATE);
+  };
+
+  trackClickHomepageConsultations = () => {
+    this.track(trackingConstants.CLICK_HOMEPAGE_CONSULTATION);
+    this.trackFacebookPixel(trackingConstants.CLICK_HOMEPAGE_CONSULTATION);
+  };
 }
 
 export const Tracking = new TrackingSingleton();

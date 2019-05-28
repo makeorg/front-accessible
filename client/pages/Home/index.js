@@ -1,12 +1,13 @@
 /* @flow */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { QuestionsList } from 'Client/features/homepage/QuestionsList';
 import { GreatCausesList } from 'Client/features/homepage/GreatCausesList';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
+import { Tracking } from 'Shared/services/Tracking';
 import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
 
 const questions = [
@@ -45,22 +46,28 @@ const questions = [
   },
 ];
 
-const HomePage = () => (
-  <HomepageWrapperStyle>
-    <HomepageSkipLinks />
-    <MetaTags />
-    <HomepageContainerStyle>
-      <FeaturedConsultations />
-    </HomepageContainerStyle>
-    <HomepageContainerStyle>
-      <GreatCausesList />
-    </HomepageContainerStyle>
-    <CorporateBanner />
-    <HomepageContainerStyle>
-      <QuestionsList questions={questions} />
-    </HomepageContainerStyle>
-  </HomepageWrapperStyle>
-);
+export const HomePage = () => {
+  useEffect(() => {
+    Tracking.trackDisplayHomepage();
+  }, []);
+
+  return (
+    <HomepageWrapperStyle>
+      <HomepageSkipLinks />
+      <MetaTags />
+      <HomepageContainerStyle>
+        <FeaturedConsultations />
+      </HomepageContainerStyle>
+      <HomepageContainerStyle>
+        <GreatCausesList />
+      </HomepageContainerStyle>
+      <CorporateBanner />
+      <HomepageContainerStyle>
+        <QuestionsList questions={questions} />
+      </HomepageContainerStyle>
+    </HomepageWrapperStyle>
+  );
+};
 
 // default export needed for loadable component
 export default HomePage; // eslint-disable-line import/no-default-export

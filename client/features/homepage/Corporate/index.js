@@ -14,6 +14,20 @@ import {
   CorporateLinkStyle,
 } from 'Client/features/homepage/Corporate/Styled';
 import { SvgLightBulb, SvgThumbsUp, SvgUsers } from 'Client/ui/Svg/elements';
+import { Tracking } from 'Shared/services/Tracking';
+
+const CorporateLink = () => {
+  return (
+    <CorporateLinkStyle
+      as="a"
+      target="_blank"
+      href="https://about.make.org/qui-sommes-nous"
+      onClick={() => Tracking.trackClickHomepageCorporate()}
+    >
+      {i18n.t('homepage.corporate.second-section.link-text')}
+    </CorporateLinkStyle>
+  );
+};
 
 export const CorporateBanner = () => {
   return (
@@ -46,13 +60,7 @@ export const CorporateBanner = () => {
               </div>
             </CorporateListItemStyle>
           </CorporateListStyle>
-          <CorporateLinkStyle
-            as="a"
-            target="_blank"
-            href="https://about.make.org/qui-sommes-nous"
-          >
-            {i18n.t('homepage.corporate.second-section.link-text')}
-          </CorporateLinkStyle>
+          <CorporateLink />
         </CorporateSectionStyle>
         <CorporateSeparatorStyle />
         <CorporateSectionStyle aria-labelledby="who_are_we_title">
@@ -65,13 +73,7 @@ export const CorporateBanner = () => {
           <CorporateListItemStyle as="p">
             {i18n.t('homepage.corporate.second-section.description')}
           </CorporateListItemStyle>
-          <CorporateLinkStyle
-            as="a"
-            target="_blank"
-            href="https://about.make.org/qui-sommes-nous"
-          >
-            {i18n.t('homepage.corporate.second-section.link-text')}
-          </CorporateLinkStyle>
+          <CorporateLink />
         </CorporateSectionStyle>
       </CorporateContainerStyle>
     </CorporateWrapperStyle>

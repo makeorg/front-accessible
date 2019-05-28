@@ -8,7 +8,7 @@ import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 
 export const eventParameters = {
-  location: 'unknown-location /',
+  location: 'homepage',
   source: 'foo',
   country: 'foo',
   language: 'foo',
@@ -452,6 +452,63 @@ describe('Tracking Service', () => {
     const eventName = trackingConstants.CLICK_CONSULTATION_LINK;
 
     Tracking.trackClickConsultation();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+  });
+
+
+  it('track Display Homepage', () => {
+    const eventName = trackingConstants.DISPLAY_HOMEPAGE;
+
+    Tracking.trackDisplayHomepage();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+  });
+
+  it('track Click Homepage Featured', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_FEATURED;
+
+    Tracking.trackClickHomepageFeatured(999,'foo');
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+      'block-position': '999',
+      'block-title': 'foo',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      {
+        ...eventParameters,
+        'block-position': '999',
+        'block-title': 'foo',
+      }
+      
+    );
+  });
+
+  it('track Click Homepage Corporate', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_CORPORATE;
+
+    Tracking.trackClickHomepageCorporate();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+  });
+
+  it('track Click Homepage Consultations', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_CONSULTATION;
+
+    Tracking.trackClickHomepageConsultations();
     expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
