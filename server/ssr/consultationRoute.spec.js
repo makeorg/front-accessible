@@ -22,7 +22,7 @@ jest.mock('Shared/store/initialState', () => ({
 const country = 'FR';
 const language = 'fr';
 const fooQuestion = {
-  id: 'foo',
+  id: 'fooId',
   questionId: '1234',
 };
 const questionSlug = 'bar';
@@ -50,12 +50,12 @@ describe('Proposal route', () => {
       await consultationRoute(request, response, () => {});
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
-          '1234': {
+          bar: {
             question: fooQuestion,
             questionConfiguration: 'questionconfigData',
           },
         },
-        sequence: { questionId: '1234' },
+        sequence: { questionSlug: 'bar' },
         proposal: {},
       });
     });

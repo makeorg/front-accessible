@@ -1,56 +1,40 @@
 /* @flow */
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { type Location } from 'history';
 import { withRouter } from 'react-router-dom';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Sharing as TypeSharing } from 'Shared/types/sequence';
 import {
   twitterShareUrl,
   facebookShareUrl,
   linkedinShareUrl,
 } from 'Shared/helpers/social';
-import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
 import { SharingComponent } from './SharingComponent';
 
 type Props = {
   location: Location,
-  questionConfiguration: TypeQuestionConfiguration,
+  sharingParams?: TypeSharing,
 };
 
 /**
  * Handles Sharing Business Logic
  */
 
-class SharingContainerLinks extends React.Component<Props> {
-  render() {
-    const { location, questionConfiguration } = this.props;
+const SharingClass = (props: Props) => {
+  const { location, sharingParams } = props;
 
-    let twitterHashtags: string = '';
+  let hashtags: string = '';
 
-    if (questionConfiguration.sharing) {
-      twitterHashtags = questionConfiguration.sharing.twitter.hashtags;
-    }
-
-    return (
-      <SharingComponent
-        twitterShareUrl={twitterShareUrl(
-          location.pathname,
-          '',
-          twitterHashtags
-        )}
-        facebookShareUrl={facebookShareUrl(location.pathname)}
-        linkedinShareUrl={linkedinShareUrl(location.pathname)}
-      />
-    );
+  if (sharingParams && sharingParams.twitterHashtags) {
+    hashtags = sharingParams.twitterHashtags;
   }
-}
 
-const mapStateToProps = state => {
-  return {
-    questionConfiguration: selectSequenceQuestionConfiguration(state),
-  };
+  return (
+    <SharingComponent
+      twitterShareUrl={twitterShareUrl(location.pathname, '', hashtags)}
+      facebookShareUrl={facebookShareUrl(location.pathname)}
+      linkedinShareUrl={linkedinShareUrl(location.pathname)}
+    />
+  );
 };
 
-export const SharingContainer = withRouter(
-  connect(mapStateToProps)(SharingContainerLinks)
-);
+export const SharingContainer = withRouter(SharingClass);

@@ -17,7 +17,7 @@ export const initialStateDebug = {
   },
   sequence: {
     /* 
-    questionId: '8358bb5d-493c-4ae8-88be-3de613e2e527',
+    questionSlug: 'mieuxmanger',
     */
     votedProposalIds: [],
   },

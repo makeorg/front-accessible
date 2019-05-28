@@ -14,18 +14,18 @@ import {
 describe('sequence selector', () => {
   describe('selectQuestion', () => {
     it('with initialState', () => {
-      expect(selectSequenceQuestion(initialState)).toBe(undefined);
+      expect(selectSequenceQuestion(initialState)).toBe(null);
     });
 
     it('selectQuestion available', () => {
       const state = {
         questions: {
-          '1234': {
+          'weeuropeans-fr': {
             question: questionTypeFixture,
           },
         },
         sequence: {
-          questionId: '1234',
+          questionSlug: 'weeuropeans-fr',
         },
       };
       expect(selectSequenceQuestion(state)).toBe(questionTypeFixture);
@@ -34,18 +34,18 @@ describe('sequence selector', () => {
 
   describe('selectQuestionConfiguration', () => {
     it('with initialState', () => {
-      expect(selectSequenceQuestionConfiguration(initialState)).toBe(undefined);
+      expect(selectSequenceQuestionConfiguration(initialState)).toBe(null);
     });
 
     it('selectQuestion available', () => {
       const state = {
         questions: {
-          '1234': {
+          'weeuropeans-fr': {
             questionConfiguration: questionConfigurationTypeFixture,
           },
         },
         sequence: {
-          questionId: '1234',
+          questionSlug: 'weeuropeans-fr',
         },
       };
       expect(selectSequenceQuestionConfiguration(state)).toBe(

@@ -16,13 +16,13 @@ describe('Questions reducer', () => {
     const action = {
       type: actionTypes.QUESTION_CONFIGURATION_LOAD,
       payload: {
-        questionId: '1234',
+        questionSlug: 'foo-question',
         questionConfiguration: questionConfigurationTypeFixture,
       },
     };
 
     expect(questions(undefined, action)).toEqual({
-      '1234': {
+      'foo-question': {
         questionConfiguration: questionConfigurationTypeFixture,
       },
     });
@@ -37,7 +37,7 @@ describe('Questions reducer', () => {
     };
 
     expect(questions(undefined, action)).toEqual({
-      'c8375a43-81e8-472d-9a3a-f23f8061d21f': {
+      'weeuropeans-fr': {
         question: questionTypeFixture,
       },
     });

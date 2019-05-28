@@ -65,9 +65,7 @@ const mapDispatchToProps = dispatch => ({
   fetchProposal: (proposalId: string) => {
     dispatch(fetchProposalData(proposalId)).then((proposal: TypeProposal) => {
       const { question } = proposal;
-      dispatch(
-        fetchQuestionConfigurationData(question.slug, question.questionId)
-      );
+      dispatch(fetchQuestionConfigurationData(question.slug));
     });
   },
 });

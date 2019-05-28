@@ -30,10 +30,10 @@ export const loadQuestion = (question: Question) => ({
 
 export const loadQuestionConfiguration = (
   questionConfiguration: QuestionConfiguration,
-  questionId: string
+  questionSlug: string
 ) => ({
   type: actionTypes.QUESTION_CONFIGURATION_LOAD,
-  payload: { questionConfiguration, questionId },
+  payload: { questionConfiguration, questionSlug },
 });
 
 export const sequenceVote = (
@@ -72,18 +72,17 @@ export const fetchQuestionData = (questionSlugOrId: string) => (
       });
     });
 
-export const fetchQuestionConfigurationData = (
-  questionSlug: string,
-  questionId: string
-) => (dispatch: any => void) =>
+export const fetchQuestionConfigurationData = (questionSlug: string) => (
+  dispatch: any => void
+) =>
   SequenceService.fetchConfiguration(questionSlug)
     .then(questionConfiguration => {
-      dispatch(loadQuestionConfiguration(questionConfiguration, questionId));
+      dispatch(loadQuestionConfiguration(questionConfiguration, questionSlug));
     })
 
     .catch(error => {
       Logger.logError({
-        ...{ source: 'fetchQuestionConfigurationData api call error' },
+        source: 'fetchQuestionConfigurationData api call error',
         ...{ error },
       });
     });

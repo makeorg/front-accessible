@@ -1,15 +1,15 @@
 import { initialStateDebug } from './initialState.debug';
 
 describe('initialStateDebug', () => {
-  it('question must not be defined', () => {
-    expect(initialStateDebug.sequence.questionId).toBeUndefined();
+  it('questionSlug must not be defined', () => {
+    expect(initialStateDebug.sequence.questionSlug).toBeUndefined();
   });
 
-  it('question must not be defined', () => {
+  it('votedProposalIds must not be defined', () => {
     expect(initialStateDebug.sequence.votedProposalIds).toEqual([]);
   });
 
-  it('question must not be defined', () => {
+  it('passwordRecovery must not be defined', () => {
     expect(initialStateDebug.user.passwordRecovery).toBeUndefined();
   });
 });

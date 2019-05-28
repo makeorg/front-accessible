@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import { type Sharing as TypeSharing } from 'Shared/types/sequence';
 import { Sharing } from 'Client/features/sharing';
 import { SvgClose, SvgShare } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
@@ -11,10 +13,11 @@ import {
 
 type Props = {
   isExpanded: boolean,
+  sharingParams: TypeSharing,
   toggleExpand: (event: SyntheticInputEvent<HTMLInputElement>) => void,
 };
 export const MobileSharingComponent = (props: Props) => {
-  const { isExpanded, toggleExpand } = props;
+  const { isExpanded, sharingParams, toggleExpand } = props;
 
   if (isExpanded) {
     return (
@@ -22,7 +25,7 @@ export const MobileSharingComponent = (props: Props) => {
         <HiddenItemStyle id="mobile_sharing_title">
           {i18n.t('consultation.sharing.title')}
         </HiddenItemStyle>
-        <Sharing />
+        <Sharing sharingParams={sharingParams} />
         <CloseSharingStyle
           onClick={toggleExpand}
           aria-label={i18n.t('consultation.sharing.hide_pannel')}
