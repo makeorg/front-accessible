@@ -19,7 +19,6 @@ import {
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { TabsOffsetDesktop } from 'Shared/constants/tabs';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import {
@@ -131,9 +130,13 @@ export const ProfileNavigationStyle = styled.div`
   flex-direction: column;
 `;
 
-export const ProfileTitleStyle = styled(ThirdLevelTitleStyle)`
+export const ProfileTitleStyle = styled.p`
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-size: 16px;
+  text-transform: uppercase;
   margin: 5px 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 18px;
     text-align: center;
   }
 `;

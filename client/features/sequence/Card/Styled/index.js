@@ -17,7 +17,7 @@ const DisableVisibility = keyframes`
   100% { visibility: hidden; }
 `;
 
-export const ProposalCardStyle = styled.li`
+export const ProposalCardStyle = styled.div`
   position: absolute;
   top: 0;
   left: 0;

@@ -3,18 +3,13 @@ import * as React from 'react';
 import { type SignUpCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { SignUpCardAuthentificationContainer } from 'Client/features/sequence/Card/SignUpCard/Authentification';
-import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { SignUpTitle } from './Title';
 import { SkipSignUpButton } from './Button';
 import { ProposalCardStyle } from '../Styled';
-import {
-  BackButtonWrapperStyle,
-  BackButtonStyle,
-  BackIconStyle,
-} from '../Styled/Buttons';
 import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
 import { SecondaryTitleStyle } from '../Styled/Titles';
+import { CardDescription } from '../../Description';
+import { CardHeader } from '../../Header';
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
@@ -68,33 +63,34 @@ export const SignUpCardComponent = (props: Props) => {
       isCardVisible={isCardVisible}
       aria-hidden={!isCardVisible}
     >
-      <BackButtonWrapperStyle>
-        <BackButtonStyle onClick={goToPreviousCard}>
-          <BackIconStyle>
-            <SvgArrowLeft aria-hidden />
-          </BackIconStyle>
-          {i18n.t('proposal_card.previous')}
-        </BackButtonStyle>
-        <ProgressCircleComponent
-          cardOffset={cardOffset}
+      <CardDescription
+        index={index}
+        cardsCount={cardsCount}
+        cardOffset={cardOffset}
+        goToPreviousCard={goToPreviousCard}
+      />
+      <ContentWrapperStyle as="dd">
+        <CardHeader
           index={index}
           cardsCount={cardsCount}
+          cardOffset={cardOffset}
+          goToPreviousCard={goToPreviousCard}
         />
-      </BackButtonWrapperStyle>
-      <ContentWrapperStyle>
-        <InnerContentStyle as="section">
-          <header>
-            <SignUpTitle title={configuration.title} />
-          </header>
-          <SecondaryTitleStyle>
-            {i18n.t('sign_up_card.authentification-text')}
-          </SecondaryTitleStyle>
-          <SignUpCardAuthentificationContainer />
-          <SkipSignUpButton
-            skipSignUpCard={skipSignUpCard}
-            text={configuration.nextCtaText}
-          />
-        </InnerContentStyle>
+        <ContentWrapperStyle>
+          <InnerContentStyle>
+            <header>
+              <SignUpTitle title={configuration.title} />
+            </header>
+            <SecondaryTitleStyle as="p">
+              {i18n.t('sign_up_card.authentification-text')}
+            </SecondaryTitleStyle>
+            <SignUpCardAuthentificationContainer />
+            <SkipSignUpButton
+              skipSignUpCard={skipSignUpCard}
+              text={configuration.nextCtaText}
+            />
+          </InnerContentStyle>
+        </ContentWrapperStyle>
       </ContentWrapperStyle>
     </ProposalCardStyle>
   );

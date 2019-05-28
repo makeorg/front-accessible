@@ -1,7 +1,6 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
@@ -48,10 +47,10 @@ export const ProposalSubmitFormComponent = (props: Props) => {
   const inputMaxLength: number = MAX_PROPOSAL_LENGTH - getBaitText().length;
 
   return (
-    <ProposalSubmitFormStyle isOpen={isOpen}>
-      <HiddenItemStyle aria-hidden as="h2">
-        {i18n.t('proposal_submit.title')}
-      </HiddenItemStyle>
+    <ProposalSubmitFormStyle
+      isOpen={isOpen}
+      aria-label={i18n.t('proposal_submit.title')}
+    >
       <ProposalInputWrapperStyle>
         <ProposalLabelStyle htmlFor="proposal">
           {getBaitText()}

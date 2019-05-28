@@ -1,15 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
-.c6 {
-  position: absolute;
-  display: none;
-  width: 0;
-  height: 0;
-  z-index: -100;
-  visibility: hidden;
-}
-
 .c0 {
   position: relative;
   display: -webkit-box;
@@ -24,8 +15,8 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 3.625rem;
-  height: 3.625rem;
+  width: 58px;
+  height: 58px;
 }
 
 .c1 {
@@ -44,51 +35,54 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
 .c3 {
   fill: transparent;
   stroke: rgb(229,229,229);
-  stroke-width: 0.1875rem;
+  stroke-width: 3px;
 }
 
 .c4 {
   fill: transparent;
-  stroke-width: 0.1875rem;
-  stroke-dasharray: 0 0;
+  stroke-width: 3px;
+  stroke-dasharray: 23 77;
   stroke-dashoffset: 25;
 }
 
 .c5 {
   position: relative;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
   z-index: 1;
-  font-size: 0.75rem;
+  font-size: 12px;
   color: rgb(102,102,102);
   font-family: 'Roboto Regular',Arial,sans-serif;
 }
 
-.c7 {
-  font-size: 0.75rem;
+.c6 {
+  font-size: 12px;
   color: rgb(0,0,0);
 }
 
-@media (min-width:47.94rem) {
+@media (min-width:767px) {
   .c0 {
-    width: 5.125rem;
-    height: 5.125rem;
+    width: 82px;
+    height: 82px;
   }
 }
 
-@media (min-width:47.94rem) {
+@media (min-width:767px) {
   .c5 {
-    font-size: 0.875rem;
+    font-size: 14px;
   }
 }
 
-@media (min-width:47.94rem) {
-  .c7 {
-    font-size: 1.125rem;
+@media (min-width:767px) {
+  .c6 {
+    font-size: 18px;
   }
 }
 
 <div
+  aria-hidden={true}
   className="c0"
-  role="progressbar"
 >
   <svg
     className="c1"
@@ -113,36 +107,15 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
       r={15.91549430918954}
     />
   </svg>
-  <h2
+  <p
     className="c5"
   >
     <span
-      aria-hidden={true}
       className="c6"
     >
-      proposal_card.number
+      3
     </span>
-    <span
-      aria-valuetext={NaN}
-      className="c7"
-    >
-      NaN
-    </span>
-    <span
-      aria-hidden={true}
-    >
-      /
-    </span>
-    <span
-      className="c6"
-    >
-      common.from
-    </span>
-    <span
-      aria-valuemax={NaN}
-    >
-      NaN
-    </span>
-  </h2>
+    /13
+  </p>
 </div>
 `;

@@ -1,22 +1,16 @@
 // @flow
 
 import * as React from 'react';
-import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
-import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { ProposalCardStyle, SequenceProposalStyle } from '../Styled';
-import {
-  BackButtonWrapperStyle,
-  BackButtonStyle,
-  BackIconStyle,
-} from '../Styled/Buttons';
 import {
   ContentSpecialWrapperStyle,
   CardSeparatorStyle,
 } from '../Styled/Content';
+import { CardDescription } from '../../Description';
+import { CardHeader } from '../../Header';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -84,37 +78,37 @@ export const ProposalCardComponent = (props: Props) => {
       aria-hidden={!isCardVisible}
       id={`proposal-card-${index}`}
     >
-      <BackButtonWrapperStyle>
-        <BackButtonStyle onClick={goToPreviousCard}>
-          <BackIconStyle>
-            <SvgArrowLeft aria-hidden />
-          </BackIconStyle>
-          {i18n.t('proposal_card.previous')}
-        </BackButtonStyle>
-        <ProgressCircleComponent
+      <CardDescription
+        cardOffset={cardOffset}
+        index={index}
+        cardsCount={cardsCount}
+      />
+      <ContentSpecialWrapperStyle as="dd">
+        <CardHeader
           index={index}
-          cardOffset={cardOffset}
           cardsCount={cardsCount}
+          cardOffset={cardOffset}
+          goToPreviousCard={goToPreviousCard}
         />
-      </BackButtonWrapperStyle>
-      <ContentSpecialWrapperStyle as="section">
-        <ProposalAuthorElement
-          author={proposal.author}
-          country={proposal.country}
-          language={proposal.language}
-        />
-        <CardSeparatorStyle aria-hidden />
-        <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
-        <Vote
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          proposalKey={proposal.proposalKey}
-          index={index}
-          currentIndex={currentIndex}
-          onVote={handleVoteOnSequence}
-          onUnvote={handleUnvoteOnSequence}
-          goToNextCard={goToNextCard}
-        />
+        <ContentSpecialWrapperStyle>
+          <ProposalAuthorElement
+            author={proposal.author}
+            country={proposal.country}
+            language={proposal.language}
+          />
+          <CardSeparatorStyle />
+          <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
+          <Vote
+            proposalId={proposal.id}
+            votes={proposal.votes}
+            proposalKey={proposal.proposalKey}
+            index={index}
+            currentIndex={currentIndex}
+            onVote={handleVoteOnSequence}
+            onUnvote={handleUnvoteOnSequence}
+            goToNextCard={goToNextCard}
+          />
+        </ContentSpecialWrapperStyle>
       </ContentSpecialWrapperStyle>
     </ProposalCardStyle>
   );

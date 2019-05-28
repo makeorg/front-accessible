@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import {
   BasicColors,
   TextColors,
@@ -13,11 +13,11 @@ export const ProgressWrapperStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${pxToRem('58px')};
-  height: ${pxToRem('58px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    width: ${pxToRem('82px')};
-    height: ${pxToRem('82px')};
+  width: 58px;
+  height: 58px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 82px;
+    height: 82px;
   }
 `;
 
@@ -37,33 +37,34 @@ export const ProgressBackgroundStyle = styled.circle`
 export const ProgressRingStyle = styled.circle`
   fill: transparent;
   stroke: ${BackgroundColors.ExtraLightGrey};
-  stroke-width: ${pxToRem('3px')};
+  stroke-width: 3px;
 `;
 
 export const ProgressCircleStyle = styled.circle`
   fill: transparent;
   stroke: ${props => props.theme.color};
-  stroke-width: ${pxToRem('3px')};
+  stroke-width: 3px;
   stroke-dasharray: ${props => props.progress || 0}
     ${props => props.remain || 0};
   stroke-dashoffset: 25;
 `;
 
-export const ProgressCounterStyle = styled.h2`
+export const ProgressCounterStyle = styled.p`
   position: relative;
+  align-self: center;
   z-index: 1;
-  font-size: ${pxToRem('12px')};
+  font-size: 12px;
   color: ${TextColors.MediumGrey};
   font-family: ${MakeFonts.RobotoRegular};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('14px')};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 14px;
   }
 `;
 
 export const ProgressActiveCardStyle = styled.span`
-  font-size: ${pxToRem('12px')};
+  font-size: 12px;
   color: ${BasicColors.PureBlack};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('18px')};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 18px;
   }
 `;

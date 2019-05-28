@@ -8,7 +8,7 @@ import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
   ParticipateWrapperStyle,
   ParticipateSeparatorStyle,
-  ParticipateTitle,
+  ParticipateDescription,
 } from 'Client/features/consultation/Styled/ParticipateBanner';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 
@@ -26,9 +26,9 @@ export const ParticipateBannerComponent = (props: Props) => {
       color={styleTheme.gradientStart}
       aria-labelledby="participate_aside_title"
     >
-      <ParticipateTitle id="participate_aside_title">
+      <ParticipateDescription id="participate_aside_title">
         {i18n.t('consultation.banner.title')}
-      </ParticipateTitle>
+      </ParticipateDescription>
       <ParticipateSeparatorStyle aria-hidden />
       <LinkAsRedButton
         as={Link}

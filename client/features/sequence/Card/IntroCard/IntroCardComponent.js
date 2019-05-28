@@ -5,6 +5,8 @@ import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
@@ -52,22 +54,27 @@ export const IntroCardComponent = (props: Props) => {
       isCardVisible={isCardVisible}
       aria-hidden={!isCardVisible}
     >
-      <header>
-        <ExtraLogo extraLogo={configuration.extraLogo} />
-        <IntroTitle title={configuration.title} />
-      </header>
-      <SmallSeparatorWithMarginStyle aria-hidden />
-      <IntroDescription description={configuration.description} />
-      <IntroButtonStyle
-        id="sequence-start-sequence-button"
-        onClick={handleStartSequence}
-      >
-        <IconWrapperStyle aria-hidden>
-          <SvgPlayButton />
-        </IconWrapperStyle>
-        {i18n.t('intro_card.button')}
-      </IntroButtonStyle>
-      <Partners partners={configuration.partners} />
+      <ReadableItemStyle as="dt">
+        {i18n.t('intro_card.purpose')}
+      </ReadableItemStyle>
+      <CenterColumnStyle as="dd">
+        <header>
+          <ExtraLogo extraLogo={configuration.extraLogo} />
+          <IntroTitle title={configuration.title} />
+        </header>
+        <SmallSeparatorWithMarginStyle />
+        <IntroDescription description={configuration.description} />
+        <IntroButtonStyle
+          id="sequence-start-sequence-button"
+          onClick={handleStartSequence}
+        >
+          <IconWrapperStyle aria-hidden>
+            <SvgPlayButton />
+          </IconWrapperStyle>
+          {i18n.t('intro_card.button')}
+        </IntroButtonStyle>
+        <Partners partners={configuration.partners} />
+      </CenterColumnStyle>
     </ProposalCardCenteredStyle>
   );
 };

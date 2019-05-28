@@ -57,7 +57,7 @@
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"
   },
   "header": {
-    "logo_alt": "Aller sur le site Make.org",
+    "logo_alt": "Retourner à l'acceuil du site Make.org",
     "whoarewe": "Qui sommes-nous ?"
   },
   "proposal_page": {
@@ -69,7 +69,7 @@
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
-    "number": "Proposition numéro",
+    "number": "Carte numéro {{current}} sur {{total}}",
     "posted_label": "postée dans ",
     "author": {
       "age": "{{age}} ans"
@@ -82,6 +82,7 @@
     }
   },
   "intro_card": {
+    "purpose": "Carte d'introduction",
     "title": "Des milliers de citoyens proposent des solutions.",
     "description_1": "Prenez position sur ces solutions & proposez les vôtres.",
     "description_2": "Les meilleures détermineront nos actions.",
@@ -159,7 +160,8 @@
     "doNotCare": "Indifférent"
   },
   "sequence": {
-    "return": "Revenir aux propositions"
+    "return": "Revenir aux propositions",
+    "title": "Votez sur les propostions de la consultation : "
   },
   "authentification": {
     "title": "Inscrivez-vous pour valider votre proposition",
@@ -271,6 +273,7 @@
       }
     },
     "common": {
+      "infos": "Mes informations personnelles",
       "log_out": "Je me déconnecte",
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",

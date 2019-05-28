@@ -24,7 +24,7 @@ export const ParticipateWrapperStyle = styled.aside`
   }
 `;
 
-export const ParticipateTitle = styled.h3`
+export const ParticipateDescription = styled.p`
   color: ${BasicColors.PureWhite};
   font-family: ${MakeFonts.RobotoBold};
   font-size: 15px;

@@ -22,6 +22,7 @@ import {
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -74,6 +75,9 @@ class UserInformationsHandler extends React.Component<Props, State> {
             </ProfileContentWrapperStyle>
           )}
           <ProfileContentWrapperStyle>
+            <ReadableItemStyle as="h2">
+              {i18n.t('profile.common.infos')}
+            </ReadableItemStyle>
             <ProfileTitleStyle>{user.firstName}</ProfileTitleStyle>
             <ProfileContentStyle>{user.email}</ProfileContentStyle>
             {profile.postalCode && (
