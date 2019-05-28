@@ -21,15 +21,17 @@ export const InfiniteProposalsComponent = (props: Props) => {
   const displayLoadMoreButton = hasMore && !isLoading && page <= 1;
 
   return (
-    <div id="proposal_list" role="feed" aria-busy={isLoading}>
+    <dl id="proposal_list" role="feed" aria-busy={isLoading}>
       {proposals &&
         proposals.map((proposal, index) => (
-          <ProposalCardTagged
-            position={index + 1}
-            size={proposalsLength}
-            key={proposal.id}
-            proposal={proposal}
-          />
+          <React.Fragment>
+            <ProposalCardTagged
+              position={index + 1}
+              size={proposalsLength}
+              key={proposal.id}
+              proposal={proposal}
+            />
+          </React.Fragment>
         ))}
       {isLoading && <Spinner />}
       {displayLoadMoreButton && (
@@ -39,6 +41,6 @@ export const InfiniteProposalsComponent = (props: Props) => {
           </RedButtonStyle>
         </LoadMoreWrapperStyle>
       )}
-    </div>
+    </dl>
   );
 };

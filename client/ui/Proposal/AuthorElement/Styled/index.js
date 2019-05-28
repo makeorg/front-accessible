@@ -8,6 +8,12 @@ import {
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
+export const AuthorDescriptionStyle = styled.dt`
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
+`;
+
 export const AuthorInfosStyle = styled.div`
   display: inline-flex;
   align-items: center;
@@ -21,7 +27,6 @@ export const AuthorInfosStyle = styled.div`
 `;
 
 export const AuthorSeparatorStyle = styled.span`
-  padding: 0 5px;
   font-size: 24px;
 `;
 

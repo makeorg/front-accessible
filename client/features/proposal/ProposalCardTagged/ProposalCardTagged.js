@@ -4,7 +4,6 @@ import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
-import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
   ProposalCardStyle,
@@ -30,11 +29,7 @@ export const ProposalCardTagged = (props: Props) => {
   );
 
   return (
-    <ProposalCardStyle
-      role="article"
-      aria-posinset={position}
-      aria-setsize={size}
-    >
+    <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
       <ProposalAuthorElement
         author={author}
         country={proposal.country}
@@ -42,24 +37,25 @@ export const ProposalCardTagged = (props: Props) => {
         createdAt={proposal.createdAt}
         withAvatar
       />
-      <ProposalSeparatorStyle />
-      <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
-        {proposal.content}
-      </ProposalStyle>
-      <Vote
-        proposalId={proposal.id}
-        votes={proposal.votes}
-        proposalKey={proposal.proposalKey}
-        index={position}
-      />
-      {proposal.organisations && (
-        <OrganisationsVote
-          organisations={proposal.organisations}
-          country={proposal.country}
-          language={proposal.country}
+      <dd>
+        <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
+          {proposal.content}
+        </ProposalStyle>
+        <Vote
+          proposalId={proposal.id}
+          votes={proposal.votes}
+          proposalKey={proposal.proposalKey}
+          index={position}
         />
-      )}
-      <ProposalFooterWithTagElement tags={proposal.tags} />
+        {proposal.organisations && (
+          <OrganisationsVote
+            organisations={proposal.organisations}
+            country={proposal.country}
+            language={proposal.country}
+          />
+        )}
+        <ProposalFooterWithTagElement tags={proposal.tags} />
+      </dd>
     </ProposalCardStyle>
   );
 };

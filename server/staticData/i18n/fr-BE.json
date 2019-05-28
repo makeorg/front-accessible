@@ -101,7 +101,9 @@
     "number": "Carte numéro {{current}} sur {{total}}",
     "posted_label": "postée dans ",
     "author": {
-      "age": "{{age}} ans"
+      "from": "Proposition de : ",
+      "age": "{{age}} ans",
+      "date": "postée le : "
     },
     "status": {
       "accepted": "Publiée",
@@ -392,9 +394,10 @@
       "profile_link_new_window": "Ouvrir dans une nouvelle fenêtre la page d'information sur l'organisation : {{name}}"
     },
     "tags": {
-      "intro": "Filtrer par tags :",
-      "show_all": "voir tous les tags",
-      "show_less": "masquer"
+      "intro": "Filtrer par <span lang=\"en\">tags<span> : ",
+      "show_all": "voir tous les <span lang=\"en\">tags<span>",
+      "show_less": "masquer",
+      "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : "
     },
     "banner": {
       "title": "Votez sur les dernières propositions issues de la consultation."

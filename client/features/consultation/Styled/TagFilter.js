@@ -5,6 +5,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const TagFilterWrapperStyle = styled.aside`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
@@ -17,6 +18,14 @@ export const TagFilterIntroStyle = styled.span`
   margin-right: 15px;
   color: ${TextColors.MediumGrey};
   font-size: 14px;
+`;
+
+export const TagListStyle = styled(UnstyledListStyle)`
+  display: inline;
+`;
+
+export const TagListItemStyle = styled.li`
+  display: inline-flex;
 `;
 
 export const TagSeparatorStyle = styled.div`
