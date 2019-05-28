@@ -9,6 +9,9 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
 export const AuthorDescriptionStyle = styled.dt`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 5px;
   margin-bottom: 10px;
   border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};

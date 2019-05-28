@@ -4,7 +4,6 @@ import { i18n } from 'Shared/i18n';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tag } from 'Client/ui/Elements/Tag';
-import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { TagListItemStyle } from 'Client/features/consultation/Styled/TagFilter';
 import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {

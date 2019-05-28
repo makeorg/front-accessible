@@ -43,13 +43,13 @@ const ProfileFavouritesPage = (props: Props) => {
   return (
     <React.Fragment>
       <MetaTags title={i18n.t('meta.profile.favorites.title')} />
-      <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('profile.favourites.title')}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('profile.favourites.title')}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      <CenterColumnStyle as="dl">
         {isLoading && <Spinner />}
         {renderProposals &&
           proposals.map((proposal, index) => (

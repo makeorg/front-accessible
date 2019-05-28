@@ -49,16 +49,15 @@ const OrganisationVotesPage = (props: Props) => {
           organisation: organisation.organisationName,
         })}
       />
-
-      <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('organisation.votes.title', {
-              name: organisation.organisationName,
-            })}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('organisation.votes.title', {
+            name: organisation.organisationName,
+          })}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      <CenterColumnStyle as="dl">
         {isLoading && <Spinner />}
         {renderVotes &&
           votes.map((vote, index) => (

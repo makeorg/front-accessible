@@ -47,15 +47,15 @@ const OrganisationProposalsPage = (props: Props) => {
           organisation: organisation.organisationName,
         })}
       />
-      <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('organisation.proposals.title', {
-              name: organisation.organisationName,
-            })}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('organisation.proposals.title', {
+            name: organisation.organisationName,
+          })}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      <CenterColumnStyle as="dl">
         {isLoading && <Spinner />}
         {renderProposals &&
           proposals.map((proposal, index) => (
