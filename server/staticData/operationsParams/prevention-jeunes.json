@@ -19,7 +19,7 @@
     "logo": "/images/operations/prevention-jeunes/consultation/logo.svg"
   },
   "partners": [
-    {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "https://make.org/#/FR/profile/fondation-ramsay-generale-de-sante"}
+    {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "/FR-fr/profile/fondation-ramsay-generale-de-sante"}
   ],
   "isGreatCause": false,
   "aboutUrl": "https://about.make.org/about-prevention-jeunes",
