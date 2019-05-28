@@ -8,7 +8,7 @@ import { TagFilterComponent } from './TagFilterComponent';
 
 type Props = {
   question: Question,
-  selectedTagIds: string[],
+  selectedTagIdList: string[],
   handleSelectTag: TypeTag => void,
 };
 
@@ -45,7 +45,7 @@ class TagFilterClass extends React.Component<Props, State> {
 
   render() {
     const { tags, showAll } = this.state;
-    const { selectedTagIds, handleSelectTag } = this.props;
+    const { selectedTagIdList, handleSelectTag } = this.props;
 
     if (!tags.length) {
       return null;
@@ -55,7 +55,7 @@ class TagFilterClass extends React.Component<Props, State> {
       <TagFilterComponent
         tags={tags}
         showAll={showAll}
-        selectedTagIds={selectedTagIds}
+        selectedTagIdList={selectedTagIdList}
         handleSelectTag={handleSelectTag}
         toggleShowAll={this.toggleShowAll}
       />
