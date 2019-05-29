@@ -49,6 +49,7 @@ const callQuestionData = Component =>
       super(props);
       if (props.question) {
         apiClient.questionId = props.question.questionId;
+        apiClient.operationId = props.question.operationId;
       }
     }
 
@@ -88,6 +89,7 @@ const mapDispatchToProps = dispatch => ({
   fetchQuestion: (questionSlug: string) => {
     dispatch(fetchQuestionData(questionSlug)).then(question => {
       apiClient.questionId = question.questionId;
+      apiClient.operationId = question.operationId;
 
       dispatch(fetchQuestionConfigurationData(questionSlug));
     });
