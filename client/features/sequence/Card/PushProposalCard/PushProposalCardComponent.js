@@ -4,23 +4,17 @@ import { type PushProposalCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
-import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
-import {
-  SvgArrowLeft,
-  SvgPencil,
-  SvgStepForward,
-} from 'Client/ui/Svg/elements';
+import { SvgPencil, SvgStepForward } from 'Client/ui/Svg/elements';
 import { ExtraLogo } from './ExtraLogo';
 import { ProposalCardStyle } from '../Styled';
 import {
-  BackButtonWrapperStyle,
-  BackButtonStyle,
-  BackIconStyle,
   PushProposalButtonStyle,
   PushProposalNextButtonStyle,
 } from '../Styled/Buttons';
 import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
 import { AltMainTitleStyle } from '../Styled/Titles';
+import { CardDescription } from '../../Description';
+import { CardHeader } from '../../Header';
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
@@ -77,42 +71,45 @@ export const PushProposalCardComponent = (props: Props) => {
       isCardVisible={isCardVisible}
       aria-hidden={!isCardVisible}
     >
-      <BackButtonWrapperStyle>
-        <BackButtonStyle onClick={goToPreviousCard}>
-          <BackIconStyle>
-            <SvgArrowLeft aria-hidden />
-          </BackIconStyle>
-          {i18n.t('proposal_card.previous')}
-        </BackButtonStyle>
-        <ProgressCircleComponent
-          cardOffset={cardOffset}
+      <CardDescription
+        cardOffset={cardOffset}
+        index={index}
+        cardsCount={cardsCount}
+      />
+      <ContentWrapperStyle as="dd">
+        <CardHeader
           index={index}
           cardsCount={cardsCount}
+          cardOffset={cardOffset}
+          goToPreviousCard={goToPreviousCard}
         />
-      </BackButtonWrapperStyle>
-      <ContentWrapperStyle>
-        <InnerContentStyle as="section">
-          <header>
-            <ExtraLogo extraLogo={configuration.extraLogo} />
-            <AltMainTitleStyle>
-              {i18n.t('push_proposal_card.title')}
-            </AltMainTitleStyle>
-          </header>
-          <MiddleColumnToRowStyle as="section">
-            <PushProposalButtonStyle type="submit" onClick={focusProposalField}>
-              <IconWrapperStyle>
-                <SvgPencil aria-hidden />
-              </IconWrapperStyle>
-              {i18n.t('common.propose')}
-            </PushProposalButtonStyle>
-            <PushProposalNextButtonStyle onClick={skipProposalPushCard}>
-              <IconWrapperStyle>
-                <SvgStepForward aria-hidden />
-              </IconWrapperStyle>
-              {i18n.t('push_proposal_card.next-cta')}
-            </PushProposalNextButtonStyle>
-          </MiddleColumnToRowStyle>
-        </InnerContentStyle>
+        <ContentWrapperStyle>
+          <InnerContentStyle>
+            <header>
+              <ExtraLogo extraLogo={configuration.extraLogo} />
+              <AltMainTitleStyle>
+                {i18n.t('push_proposal_card.title')}
+              </AltMainTitleStyle>
+            </header>
+            <MiddleColumnToRowStyle>
+              <PushProposalButtonStyle
+                type="submit"
+                onClick={focusProposalField}
+              >
+                <IconWrapperStyle aria-hidden>
+                  <SvgPencil />
+                </IconWrapperStyle>
+                {i18n.t('common.propose')}
+              </PushProposalButtonStyle>
+              <PushProposalNextButtonStyle onClick={skipProposalPushCard}>
+                <IconWrapperStyle aria-hidden>
+                  <SvgStepForward />
+                </IconWrapperStyle>
+                {i18n.t('push_proposal_card.next-cta')}
+              </PushProposalNextButtonStyle>
+            </MiddleColumnToRowStyle>
+          </InnerContentStyle>
+        </ContentWrapperStyle>
       </ContentWrapperStyle>
     </ProposalCardStyle>
   );

@@ -27,7 +27,7 @@ export const IntroBannerComponent = (props: Props) => {
       {questionConfiguration.isGreatCause && (
         <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
-      <h2 aria-label={wording.question}>
+      <h2>
         <img src={consultation.logo} alt={wording.question} />
       </h2>
     </IntroWrapperStyle>

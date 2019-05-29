@@ -1,9 +1,7 @@
 // @flow
 import * as React from 'react';
-import { i18n } from 'Shared/i18n';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   ProgressWrapperStyle,
   ProgressSvgStyle,
@@ -33,7 +31,7 @@ export const ProgressCircleComponent = (props: Props) => {
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <ProgressWrapperStyle role="progressbar">
+    <ProgressWrapperStyle aria-hidden>
       <ProgressSvgStyle viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}>
         <ProgressBackgroundStyle
           cx={CardConstant.PROGRESS_SVG_CX}
@@ -54,15 +52,8 @@ export const ProgressCircleComponent = (props: Props) => {
         />
       </ProgressSvgStyle>
       <ProgressCounterStyle>
-        <HiddenItemStyle aria-hidden>
-          {i18n.t('proposal_card.number')}
-        </HiddenItemStyle>
-        <ProgressActiveCardStyle aria-valuetext={activeGaugeIndex}>
-          {activeGaugeIndex}
-        </ProgressActiveCardStyle>
-        <span aria-hidden>/</span>
-        <HiddenItemStyle>{i18n.t('common.from')}</HiddenItemStyle>
-        <span aria-valuemax={maxGaugeIndex}>{maxGaugeIndex}</span>
+        <ProgressActiveCardStyle>{activeGaugeIndex}</ProgressActiveCardStyle>
+        {`/${maxGaugeIndex}`}
       </ProgressCounterStyle>
     </ProgressWrapperStyle>
   );

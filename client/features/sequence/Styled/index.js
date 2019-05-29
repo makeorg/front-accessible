@@ -5,7 +5,6 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
   ShadowColors,
   BasicColors,
@@ -15,6 +14,7 @@ import {
   UnstyledButtonStyle,
   SmallRedButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const SequenceStyle = styled.section`
   display: flex;
@@ -65,7 +65,7 @@ export const WrapperStyle = styled.div`
   flex: 1;
 `;
 
-export const ListStyle = styled(UnstyledListStyle)`
+export const ListStyle = styled.dl`
   flex: 1;
   position: relative;
   width: 100%;
@@ -97,7 +97,9 @@ export const FooterStyle = styled.footer`
   }
 `;
 
-export const FooterTitleStyle = styled.h2`
+export const FooterTitleStyle = styled.p`
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  text-transform: uppercase;
   color: ${props => props.color};
   font-size: 11px;
   margin-bottom: 5px;

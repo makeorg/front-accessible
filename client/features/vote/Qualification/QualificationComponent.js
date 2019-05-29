@@ -6,6 +6,7 @@ import { getQualificationIndex } from 'Shared/helpers/qualification';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 type Props = {
   /** Array with qualifications received from Api */
@@ -47,22 +48,24 @@ export const QualificationComponent = (props: Props) => {
   };
 
   return (
-    <SpaceBetweenColumnStyle>
+    <SpaceBetweenColumnStyle as={UnstyledListStyle}>
       {qualifications.map(qualification => (
-        <QualificationButtonElement
-          key={getQualificationIndex(
-            qualification.qualificationKey,
-            proposalId
-          )}
-          color={voteStaticParams[votedKey].color}
-          label={i18n.t(`qualification.${qualification.qualificationKey}`)}
-          qualificationCounter={qualification.count}
-          isQualified={qualification.hasQualified}
-          handleClick={handle(qualification)}
-          pendingQualification={pendingQualificationKeys.has(
-            qualification.qualificationKey
-          )}
-        />
+        <li>
+          <QualificationButtonElement
+            key={getQualificationIndex(
+              qualification.qualificationKey,
+              proposalId
+            )}
+            color={voteStaticParams[votedKey].color}
+            label={i18n.t(`qualification.${qualification.qualificationKey}`)}
+            qualificationCounter={qualification.count}
+            isQualified={qualification.hasQualified}
+            handleClick={handle(qualification)}
+            pendingQualification={pendingQualificationKeys.has(
+              qualification.qualificationKey
+            )}
+          />
+        </li>
       ))}
     </SpaceBetweenColumnStyle>
   );

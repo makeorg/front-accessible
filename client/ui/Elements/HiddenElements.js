@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
+export const ReadableItemStyle = styled.span`
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  z-index: -100;
+`;
+
 export const HiddenItemStyle = styled.span`
   position: absolute;
   display: none;

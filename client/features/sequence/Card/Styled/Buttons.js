@@ -1,29 +1,11 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import {
-  UnstyledButtonStyle,
   SmallRedButtonStyle,
-  IconWrapperStyle,
   SmallGreyButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
-import {
-  BackgroundColors,
-  BasicColors,
-  TextColors,
-} from 'Client/app/assets/vars/Colors';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-
-export const BackButtonWrapperStyle = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    top: ${pxToRem('30px')};
-    left: ${pxToRem('30px')};
-  }
-`;
 
 export const IntroButtonStyle = styled(SmallRedButtonStyle)`
   margin-top: ${pxToRem('15px')};
@@ -31,27 +13,6 @@ export const IntroButtonStyle = styled(SmallRedButtonStyle)`
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     min-width: ${pxToRem('150px')};
     margin-top: ${pxToRem('30px')};
-  }
-`;
-
-export const BackButtonStyle = styled(UnstyledButtonStyle)`
-  align-items: center;
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: ${pxToRem('12px')};
-  color: ${TextColors.MediumGrey};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('14px')};
-  }
-`;
-
-export const BackIconStyle = styled(IconWrapperStyle)`
-  font-size: ${pxToRem('15px')};
-  color: ${BackgroundColors.ExtraLightGrey};
-  svg {
-    fill: ${BackgroundColors.ExtraLightGrey};
-  }
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('30px')};
   }
 `;
 

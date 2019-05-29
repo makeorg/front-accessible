@@ -18,9 +18,17 @@ export const GreatCausesListStyle = styled(UnstyledListStyle)`
 export const GreatCausesListItemStyle = styled.li`
   margin-right: 15px;
   margin-bottom: 15px;
-  flex: 0 1 calc(50% - 15px);
+  flex: 0 1 calc(50% - 7.5px);
+  &:nth-child(2),
+  &:last-child {
+    margin: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    flex: 0 1 calc(25% - 15px);
+    flex: 1;
+    margin-right: 15px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 `;
 
