@@ -12,11 +12,7 @@ import {
   fetchQuestionConfigurationData,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
-import { ApiService } from 'Shared/api/ApiService';
-import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
-
-const apiClient = new ApiServiceClient();
-ApiService.strategy = apiClient;
+import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 
 type Props = {
   question: Question,

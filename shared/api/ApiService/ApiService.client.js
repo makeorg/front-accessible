@@ -99,3 +99,5 @@ export class ApiServiceClient implements IApiServiceStrategy {
     return ApiServiceShared.callApi(url, { ...options, headers });
   }
 }
+
+export const apiClient = new ApiServiceClient();

@@ -13,7 +13,7 @@ import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore, authenticationState } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
-import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
+import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { DateHelper } from 'Shared/helpers/date';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
@@ -57,7 +57,6 @@ i18n.init({
 
 FacebookTracking.init();
 
-const apiClient = new ApiServiceClient();
 ApiService.strategy = apiClient;
 
 const initApp = async state => {
