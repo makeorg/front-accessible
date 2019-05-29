@@ -2,6 +2,7 @@
 
 exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
 <ButtonStyle
+  aria-busy={false}
   aria-label="foo"
   as="VoteButtonStyle"
   color="red"
@@ -16,6 +17,7 @@ Snapshot Diff:
 + Second value
 
   <ButtonStyle
+    aria-busy={false}
     aria-label="foo"
 -   as="IsVotedButtonStyle"
 +   as="VoteButtonStyle"

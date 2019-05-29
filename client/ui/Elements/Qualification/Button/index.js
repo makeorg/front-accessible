@@ -48,6 +48,7 @@ export const QualificationButtonElement = (props: Props) => {
       color={color}
       onClick={onClick}
       aria-label={pendingQualification ? i18n.t('common.loading') : label}
+      aria-busy={pendingQualification}
     >
       {pendingQualification ? (
         <LoadingDots />
