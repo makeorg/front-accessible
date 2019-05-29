@@ -7,8 +7,8 @@ import { getRouteProfile } from 'Shared/routes';
 import { SvgUser } from 'Client/ui/Svg/elements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Avatar } from 'Client/ui/Avatar';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { useMobile } from 'Client/hooks/useMedia';
 import {
   ProfileAccessWrapperStyle,
   ProfileAccessButtonLabelStyle,
@@ -47,6 +47,7 @@ export const NotAuthentificatedBar = ({
   handleLoginModal,
   handleRegisterModal,
 }: NotAuthentificatedBarProps) => {
+  const isMobile = useMobile();
   return (
     <ProfileAccessWrapperStyle>
       <UnstyledButtonStyle
@@ -60,19 +61,25 @@ export const NotAuthentificatedBar = ({
           }}
           aria-hidden
         />
-        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
-          {i18n.t('common.connexion_label')}
-        </ProfileAccessButtonLabelStyle>
+        {!isMobile && (
+          <ProfileAccessButtonLabelStyle aria-hidden>
+            {i18n.t('common.connexion_label')}
+          </ProfileAccessButtonLabelStyle>
+        )}
       </UnstyledButtonStyle>
-      <HiddenOnMobileStyle as="span">/</HiddenOnMobileStyle>
-      <UnstyledButtonStyle
-        onClick={handleRegisterModal}
-        aria-label={i18n.t('common.register_label')}
-      >
-        <ProfileAccessButtonLabelStyle as="span" aria-hidden>
-          {i18n.t('common.register_label')}
-        </ProfileAccessButtonLabelStyle>
-      </UnstyledButtonStyle>
+      {!isMobile && (
+        <>
+          <span>/</span>
+          <UnstyledButtonStyle
+            onClick={handleRegisterModal}
+            aria-label={i18n.t('common.register_label')}
+          >
+            <ProfileAccessButtonLabelStyle aria-hidden>
+              {i18n.t('common.register_label')}
+            </ProfileAccessButtonLabelStyle>
+          </UnstyledButtonStyle>
+        </>
+      )}
     </ProfileAccessWrapperStyle>
   );
 };

@@ -15,10 +15,10 @@ import {
 import { ConsultationPanelContent } from 'Client/features/consultation/TabsContent/Panel/Consultation';
 import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Panel/Actions';
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
-import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
+import { useMobile } from 'Client/hooks/useMedia';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -29,17 +29,16 @@ type Props = {
   location: Location,
 };
 
-export const ConsultationPageComponent = (props: Props) => {
-  const {
-    questionConfiguration,
-    question,
-    consultationLink,
-    actionLink,
-    location,
-  } = props;
-
+export const ConsultationPageComponent = ({
+  questionConfiguration,
+  question,
+  consultationLink,
+  actionLink,
+  location,
+}: Props) => {
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
   const isActionPage = !!matchPath(location.pathname, ROUTE_ACTION);
+  const isMobile = useMobile();
 
   return (
     <React.Fragment>
@@ -100,9 +99,7 @@ export const ConsultationPageComponent = (props: Props) => {
           </Switch>
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
-      <HiddenOnDesktopStyle>
-        <MobileSharing />
-      </HiddenOnDesktopStyle>
+      {isMobile && <MobileSharing />}
     </React.Fragment>
   );
 };
