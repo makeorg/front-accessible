@@ -42,9 +42,9 @@ const featureds = [
     description: '',
     picture: AlimentationPicture,
     picture_mobile: AlimentationPicture,
-    cta_text: 'Votez maintenant',
-    link: '/FR-fr/consultation/mieuxmanger/consultation',
-    is_external_link: false,
+    cta_text: 'En savoir +',
+    link: 'https://about.make.org/about-mieuxmanger',
+    is_external_link: true,
   },
   {
     type: 'Actualité',
