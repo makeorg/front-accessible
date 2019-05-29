@@ -5,6 +5,7 @@ import {
   ThumbsUpStyle,
   PlaceholderParagraphStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   name: string,
@@ -13,13 +14,13 @@ type Props = {
 export const OrganisationVotesPlaceholder = (props: Props) => {
   const { name } = props;
   return (
-    <React.Fragment>
+    <CenterColumnStyle>
       <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('organisation.votes.text', {
           name,
         })}
       </PlaceholderParagraphStyle>
-    </React.Fragment>
+    </CenterColumnStyle>
   );
 };

@@ -51,19 +51,20 @@ export const FinalCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCardStyle
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      isCardVisible={isCardVisible}
-      aria-hidden={!isCardVisible}
-    >
+    <React.Fragment>
       <CardDescription
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
       />
-      <ContentWrapperStyle as="dd">
+      <ProposalCardStyle
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        isCardVisible={isCardVisible}
+        aria-hidden={!isCardVisible}
+        as="dd"
+      >
         <CardHeader
           index={index}
           cardsCount={cardsCount}
@@ -82,7 +83,7 @@ export const FinalCardComponent = (props: Props) => {
             </FinalCardContentWrapperStyle>
           </InnerContentStyle>
         </ContentWrapperStyle>
-      </ContentWrapperStyle>
-    </ProposalCardStyle>
+      </ProposalCardStyle>
+    </React.Fragment>
   );
 };

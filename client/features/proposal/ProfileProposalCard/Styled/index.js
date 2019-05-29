@@ -13,6 +13,9 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &:last-child {
     margin: 15px 0 0;
   }
+  &:only-child {
+    margin: 0;
+  }
   &.proposal-refused,
   &.proposal-postponed,
   &.proposal-pending {

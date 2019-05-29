@@ -55,21 +55,22 @@ export const SignUpCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCardStyle
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      isCardCollapsed={isCardCollapsed}
-      isCardVisible={isCardVisible}
-      aria-hidden={!isCardVisible}
-    >
+    <React.Fragment>
       <CardDescription
         index={index}
         cardsCount={cardsCount}
         cardOffset={cardOffset}
         goToPreviousCard={goToPreviousCard}
       />
-      <ContentWrapperStyle as="dd">
+      <ProposalCardStyle
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        isCardCollapsed={isCardCollapsed}
+        isCardVisible={isCardVisible}
+        aria-hidden={!isCardVisible}
+        as="dd"
+      >
         <CardHeader
           index={index}
           cardsCount={cardsCount}
@@ -91,7 +92,7 @@ export const SignUpCardComponent = (props: Props) => {
             />
           </InnerContentStyle>
         </ContentWrapperStyle>
-      </ContentWrapperStyle>
-    </ProposalCardStyle>
+      </ProposalCardStyle>
+    </React.Fragment>
   );
 };

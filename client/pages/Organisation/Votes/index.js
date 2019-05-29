@@ -7,7 +7,6 @@ import {
 } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
@@ -15,6 +14,7 @@ import {
 import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { OrganisationVotesPlaceholder } from '../Placeholders/Votes';
 
 type Props = {
@@ -57,10 +57,10 @@ const OrganisationVotesPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      <CenterColumnStyle as="dl">
-        {isLoading && <Spinner />}
-        {renderVotes &&
-          votes.map((vote, index) => (
+      {isLoading && <Spinner />}
+      {renderVotes && (
+        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+          {votes.map((vote, index) => (
             <ProfileVoteCard
               key={`organisation_votes_${vote.proposal.id}`}
               voteKey={vote.vote}
@@ -70,10 +70,11 @@ const OrganisationVotesPage = (props: Props) => {
               position={index + 1}
             />
           ))}
-        {renderPlaceholder && (
-          <OrganisationVotesPlaceholder name={organisation.organisationName} />
-        )}
-      </CenterColumnStyle>
+        </UnstyledListStyle>
+      )}
+      {renderPlaceholder && (
+        <OrganisationVotesPlaceholder name={organisation.organisationName} />
+      )}
     </React.Fragment>
   );
 };

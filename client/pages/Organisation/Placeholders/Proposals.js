@@ -5,6 +5,7 @@ import {
   LightBulbStyle,
   PlaceholderParagraphStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   name: string,
@@ -13,13 +14,13 @@ type Props = {
 export const OrganisationProposalsPlaceholder = (props: Props) => {
   const { name } = props;
   return (
-    <React.Fragment>
+    <CenterColumnStyle>
       <SvgLightBulb aria-hidden style={LightBulbStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('organisation.proposals.text', {
           name,
         })}
       </PlaceholderParagraphStyle>
-    </React.Fragment>
+    </CenterColumnStyle>
   );
 };

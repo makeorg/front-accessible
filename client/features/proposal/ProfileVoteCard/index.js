@@ -21,6 +21,7 @@ import {
 } from 'Client/ui/Elements/ProposalCardElements';
 import {
   ProfileVoteCardStyle,
+  ProfileVoteWrapperStyle,
   ProfileVoteTitleStyle,
   ProfileVoteDescriptionStyle,
   ProfileHasVotedStyle,
@@ -44,7 +45,11 @@ export const ProfileVoteCard = ({
   const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
-    <React.Fragment>
+    <ProfileVoteWrapperStyle
+      role="article"
+      aria-posinset={position}
+      aria-setsize={size}
+    >
       <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
           aria-label={voteAttributes.label}
@@ -72,13 +77,7 @@ export const ProfileVoteCard = ({
       </ProfileVoteTitleStyle>
 
       <ProfileVoteCardStyle>
-        <ProposalCardStyle
-          aria-labelledby={`proposal_author_${position}`}
-          aria-describedby={`proposal_content_${position}`}
-          role="article"
-          aria-posinset={position}
-          aria-setsize={size}
-        >
+        <ProposalCardStyle as="div">
           <ProposalAuthorElement
             author={author}
             country={proposal.country}
@@ -86,29 +85,27 @@ export const ProfileVoteCard = ({
             createdAt={proposal.createdAt}
             withAvatar
           />
-          <dd>
-            <ProposalStyle
-              id={`proposal_content_${position}`}
-              href={getProposalLink(
-                proposal.country,
-                proposal.language,
-                question.slug,
-                proposal.id,
-                proposal.slug
-              )}
-            >
-              {proposal.content}
-            </ProposalStyle>
-            <VoteResultElement
-              proposalId={proposal.id}
-              votes={proposal.votes}
-              votedKey={voteKey}
-              withLabel={false}
-            />
-            <ProposalFooterWithTagElement tags={proposal.tags} />
-          </dd>
+          <ProposalStyle
+            id={`proposal_content_${position}`}
+            href={getProposalLink(
+              proposal.country,
+              proposal.language,
+              question.slug,
+              proposal.id,
+              proposal.slug
+            )}
+          >
+            {proposal.content}
+          </ProposalStyle>
+          <VoteResultElement
+            proposalId={proposal.id}
+            votes={proposal.votes}
+            votedKey={voteKey}
+            withLabel={false}
+          />
+          <ProposalFooterWithTagElement tags={proposal.tags} />
         </ProposalCardStyle>
       </ProfileVoteCardStyle>
-    </React.Fragment>
+    </ProfileVoteWrapperStyle>
   );
 };

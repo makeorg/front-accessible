@@ -5,7 +5,6 @@ import * as UserService from 'Shared/services/User';
 import { type User as TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ProfileFavouritesPlaceholder } from 'Client/pages/Profile/Placeholders/Favourites';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -14,6 +13,7 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { MetaTags } from 'Client/app/MetaTags';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 type Props = {
   user: TypeUser,
@@ -49,21 +49,20 @@ const ProfileFavouritesPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      <CenterColumnStyle as="dl">
-        {isLoading && <Spinner />}
-        {renderProposals &&
-          proposals.map((proposal, index) => (
-            <React.Fragment>
-              <ProfileProposalCard
-                key={proposal.id}
-                proposal={proposal}
-                size={proposalsLength}
-                position={index}
-              />
-            </React.Fragment>
+      {isLoading && <Spinner />}
+      {renderProposals && (
+        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+          {proposals.map((proposal, index) => (
+            <ProfileProposalCard
+              key={proposal.id}
+              proposal={proposal}
+              size={proposalsLength}
+              position={index}
+            />
           ))}
-        {renderPlaceholder && <ProfileFavouritesPlaceholder />}
-      </CenterColumnStyle>
+        </UnstyledListStyle>
+      )}
+      {renderPlaceholder && <ProfileFavouritesPlaceholder />}
     </React.Fragment>
   );
 };

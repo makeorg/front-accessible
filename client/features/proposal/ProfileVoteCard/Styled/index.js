@@ -7,12 +7,18 @@ import {
 import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const ProfileVoteCardStyle = styled.div`
-  margin-bottom: 20px;
+export const ProfileVoteCardStyle = styled.aside`
   width: 100%;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background-color: ${BackgroundColors.ExtraLightGrey};
   padding: ${intToPx(DefaultPadding.Mobile)};
+`;
+
+export const ProfileVoteWrapperStyle = styled.li`
+  margin-bottom: 15px;
+  &:last-child: {
+    margin-bottom: 0;
+  }
 `;
 
 export const ProfileVoteTitleStyle = styled.div`
@@ -22,9 +28,6 @@ export const ProfileVoteTitleStyle = styled.div`
   padding: ${intToPx(DefaultPadding.Mobile)};
   width: 100%;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  + div > section:last-child {
-    margin-top: 0;
-  }
 `;
 
 export const ProfileVoteDescriptionStyle = styled.div``;

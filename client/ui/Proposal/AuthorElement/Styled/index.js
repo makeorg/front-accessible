@@ -8,7 +8,7 @@ import {
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const AuthorDescriptionStyle = styled.dt`
+export const AuthorDescriptionStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

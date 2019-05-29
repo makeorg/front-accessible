@@ -29,7 +29,11 @@ export const ProposalCardTagged = (props: Props) => {
   );
 
   return (
-    <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
+    <ProposalCardStyle
+      role="article"
+      aria-posinset={position}
+      aria-setsize={size}
+    >
       <ProposalAuthorElement
         author={author}
         country={proposal.country}
@@ -37,25 +41,23 @@ export const ProposalCardTagged = (props: Props) => {
         createdAt={proposal.createdAt}
         withAvatar
       />
-      <dd>
-        <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
-          {proposal.content}
-        </ProposalStyle>
-        <Vote
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          proposalKey={proposal.proposalKey}
-          index={position}
+      <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
+        {proposal.content}
+      </ProposalStyle>
+      <Vote
+        proposalId={proposal.id}
+        votes={proposal.votes}
+        proposalKey={proposal.proposalKey}
+        index={position}
+      />
+      {proposal.organisations && (
+        <OrganisationsVote
+          organisations={proposal.organisations}
+          country={proposal.country}
+          language={proposal.country}
         />
-        {proposal.organisations && (
-          <OrganisationsVote
-            organisations={proposal.organisations}
-            country={proposal.country}
-            language={proposal.country}
-          />
-        )}
-        <ProposalFooterWithTagElement tags={proposal.tags} />
-      </dd>
+      )}
+      <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardStyle>
   );
 };

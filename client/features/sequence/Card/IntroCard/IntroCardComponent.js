@@ -6,7 +6,6 @@ import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
@@ -46,18 +45,19 @@ export const IntroCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCardCenteredStyle
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      isCardCollapsed={isCardCollapsed}
-      isCardVisible={isCardVisible}
-      aria-hidden={!isCardVisible}
-    >
+    <React.Fragment>
       <ReadableItemStyle as="dt">
         {i18n.t('intro_card.purpose')}
       </ReadableItemStyle>
-      <CenterColumnStyle as="dd">
+      <ProposalCardCenteredStyle
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        isCardCollapsed={isCardCollapsed}
+        isCardVisible={isCardVisible}
+        aria-hidden={!isCardVisible}
+        as="dd"
+      >
         <header>
           <ExtraLogo extraLogo={configuration.extraLogo} />
           <IntroTitle title={configuration.title} />
@@ -74,7 +74,7 @@ export const IntroCardComponent = (props: Props) => {
           {i18n.t('intro_card.button')}
         </IntroButtonStyle>
         <Partners partners={configuration.partners} />
-      </CenterColumnStyle>
-    </ProposalCardCenteredStyle>
+      </ProposalCardCenteredStyle>
+    </React.Fragment>
   );
 };

@@ -29,8 +29,6 @@ export const ProposalCardWithQuestion = (props: Props) => {
 
   return (
     <ProposalCardStyle
-      aria-labelledby={`proposal_author_${position}`}
-      aria-describedby={`proposal_content_${position}`}
       role="article"
       aria-posinset={position}
       aria-setsize={size}
@@ -42,25 +40,21 @@ export const ProposalCardWithQuestion = (props: Props) => {
         createdAt={proposal.createdAt}
         withAvatar
       />
-      <dd>
-        <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
-          {proposal.content}
-        </ProposalStyle>
-        <Vote
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          proposalKey={proposal.proposalKey}
-          index={position}
-        />
-        <ProposalFooterWithQuestionElement
-          question={question}
-          consultationLink={getConsultationLink(
-            proposal.country,
-            proposal.language,
-            question.slug
-          )}
-        />
-      </dd>
+      <ProposalStyle href={proposalLink}>{proposal.content}</ProposalStyle>
+      <Vote
+        proposalId={proposal.id}
+        votes={proposal.votes}
+        proposalKey={proposal.proposalKey}
+        index={position}
+      />
+      <ProposalFooterWithQuestionElement
+        question={question}
+        consultationLink={getConsultationLink(
+          proposal.country,
+          proposal.language,
+          question.slug
+        )}
+      />
     </ProposalCardStyle>
   );
 };

@@ -7,13 +7,13 @@ import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { MetaTags } from 'Client/app/MetaTags';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 type Props = {
   user: TypeUser,
@@ -49,10 +49,10 @@ const ProfileProposalsPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      <CenterColumnStyle as="dl">
-        {isLoading && <Spinner />}
-        {renderProposals &&
-          proposals.map((proposal, index) => (
+      {isLoading && <Spinner />}
+      {renderProposals && (
+        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+          {proposals.map((proposal, index) => (
             <ProfileProposalCard
               key={proposal.id}
               proposal={proposal}
@@ -61,8 +61,9 @@ const ProfileProposalsPage = (props: Props) => {
               withStatus
             />
           ))}
-        {renderPlaceholder && <ProfileProposalsPlaceholder />}
-      </CenterColumnStyle>
+        </UnstyledListStyle>
+      )}
+      {renderPlaceholder && <ProfileProposalsPlaceholder />}
     </React.Fragment>
   );
 };
