@@ -86,7 +86,7 @@
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"
   },
   "header": {
-    "logo_alt": "Retourner à l'acceuil du site Make.org",
+    "logo_alt": "Aller à l'acceuil du site Make.org",
     "whoarewe": "Qui sommes-nous ?"
   },
   "proposal_page": {
@@ -397,8 +397,8 @@
       "founder": "Partenaire Fondateur",
       "init": "Cette consultation a été initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
-      "profile_link": "Aller sur la page profil de l'organisation : {{name}}",
-      "profile_link_new_window": "Ouvrir dans une nouvelle fenêtre la page d'information sur l'organisation : {{name}}"
+      "profile_link": "Aller sur le profil de : {{name}}",
+      "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
     
     },
     "tags": {

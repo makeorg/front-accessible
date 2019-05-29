@@ -20,7 +20,6 @@ const CorporateLink = () => {
   return (
     <CorporateLinkStyle
       as="a"
-      target="_blank"
       href="https://about.make.org/qui-sommes-nous"
       onClick={() => Tracking.trackClickHomepageCorporate()}
     >
