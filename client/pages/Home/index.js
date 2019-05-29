@@ -52,9 +52,9 @@ const questions = [
 ];
 
 export const HomePage = () => {
-  useEffect(() => {
-    apiClient.questionId = '';
+  apiClient.questionId = '';
 
+  useEffect(() => {
     Tracking.trackDisplayHomepage();
   }, []);
 

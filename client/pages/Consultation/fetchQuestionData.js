@@ -49,6 +49,13 @@ export const PageQuestionWrapper = ({
 
 const callQuestionData = Component =>
   class FetchQuestionClass extends React.Component<Props> {
+    constructor(props: Props) {
+      super(props);
+      if (props.question) {
+        apiClient.questionId = props.question.questionId;
+      }
+    }
+
     componentDidMount() {
       const {
         match,
