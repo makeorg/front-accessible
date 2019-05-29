@@ -115,7 +115,12 @@ const Featured = ({ featured, index }) => {
       };
   return (
     <React.Fragment>
-      <FeaturedPictureWraperStyle {...linkObject}>
+      <FeaturedPictureWraperStyle
+        onClick={() =>
+          Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
+        }
+        {...linkObject}
+      >
         <img
           src={isMobile ? featured.picture_mobile : featured.picture}
           alt={featured.title}

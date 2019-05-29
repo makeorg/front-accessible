@@ -1,8 +1,19 @@
 import styled from 'styled-components';
-import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import {
+  TextColors,
+  BackgroundColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+
+export const ProposalTagListStyle = styled(UnstyledListStyle)`
+  margin-top: 15px;
+  padding-top: 5px;
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
+`;
 
 export const ProposalFooterStyle = styled.div`
   display: flex;
@@ -10,6 +21,8 @@ export const ProposalFooterStyle = styled.div`
   align-self: flex-start;
   flex-wrap: wrap;
   margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const PostedInLabelStyle = styled.span`

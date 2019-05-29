@@ -4,9 +4,12 @@ import React from 'react';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
+import { TagStyle, TagButtonStyle } from 'Client/ui/Elements/Tag/Styled';
 import {
   TagFilterWrapperStyle,
   TagSeparatorStyle,
+  TagListStyle,
+  TagListItemStyle,
   TagFilterIntroStyle,
 } from '../Styled/TagFilter';
 
@@ -38,34 +41,50 @@ export const TagFilterComponent = (props: Props) => {
 
   return (
     <TagFilterWrapperStyle aria-labelledby="tag_filter_title">
-      <TagFilterIntroStyle id="tag_filter_title">
-        {i18n.t('consultation.tags.intro')}
-      </TagFilterIntroStyle>
-      {tags
-        .filter((tag, index) => filterShowAllTags(index, showAll))
-        .map(tag => (
-          <Tag
-            name={tag.label}
-            key={tag.tagId}
-            isSelected={selectedTagIds.includes(tag.tagId)}
-            onClick={() => handleSelectTag(tag)}
-            isAButton
-          />
-        ))}
-      {displayShowAll && (
-        <Tag
-          name={
-            showAll
-              ? i18n.t('consultation.tags.show_less')
-              : i18n.t('consultation.tags.show_all')
-          }
-          isSelected
-          onClick={toggleShowAll}
-          isAButton
-          key="all"
-        />
-      )}
-
+      <TagFilterIntroStyle
+        id="tag_filter_title"
+        dangerouslySetInnerHTML={{
+          __html: i18n.t('consultation.tags.intro'),
+        }}
+      />
+      <TagListStyle>
+        {tags
+          .filter((tag, index) => filterShowAllTags(index, showAll))
+          .map(tag => (
+            <TagListItemStyle key={tag.tagId}>
+              <Tag
+                name={tag.label}
+                key={tag.tagId}
+                isSelected={selectedTagIds.includes(tag.tagId)}
+                onClick={() => handleSelectTag(tag)}
+                isAButton
+              />
+            </TagListItemStyle>
+          ))}
+        {displayShowAll && (
+          <TagListItemStyle>
+            <TagStyle
+              onClick={toggleShowAll}
+              className="selected"
+              as={TagButtonStyle}
+            >
+              {showAll ? (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t('consultation.tags.show_less'),
+                  }}
+                />
+              ) : (
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: i18n.t('consultation.tags.show_all'),
+                  }}
+                />
+              )}
+            </TagStyle>
+          </TagListItemStyle>
+        )}
+      </TagListStyle>
       <TagSeparatorStyle />
     </TagFilterWrapperStyle>
   );

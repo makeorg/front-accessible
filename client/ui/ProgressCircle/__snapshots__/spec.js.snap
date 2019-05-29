@@ -1,7 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
-.c0 {
+Array [
+  .c0 {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  z-index: -100;
+}
+
+<progress
+    aria-valuemax={13}
+    aria-valuenow={3}
+    className="c0"
+    max={13}
+    value={3}
+  >
+    proposal_card.number
+  </progress>,
+  .c0 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -29,16 +47,25 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
 }
 
 .c2 {
+  cx: 21;
+  cy: 21;
+  r: 15.91549430918954;
   fill: rgb(255,255,255);
 }
 
 .c3 {
+  cx: 21;
+  cy: 21;
+  r: 15.91549430918954;
   fill: transparent;
   stroke: rgb(229,229,229);
   stroke-width: 3px;
 }
 
 .c4 {
+  cx: 21;
+  cy: 21;
+  r: 15.91549430918954;
   fill: transparent;
   stroke-width: 3px;
   stroke-dasharray: 23 77;
@@ -81,41 +108,35 @@ exports[`ProgressCircleComponent toMatchSnapshot 1`] = `
 }
 
 <div
-  aria-hidden={true}
-  className="c0"
->
-  <svg
-    className="c1"
-    viewBox="0 0 42 42"
+    aria-hidden={true}
+    className="c0"
   >
-    <circle
-      className="c2"
-      cx={21}
-      cy={21}
-      r={15.91549430918954}
-    />
-    <circle
-      className="c3"
-      cx={21}
-      cy={21}
-      r={15.91549430918954}
-    />
-    <circle
-      className="c4"
-      cx={21}
-      cy={21}
-      r={15.91549430918954}
-    />
-  </svg>
-  <p
-    className="c5"
-  >
-    <span
-      className="c6"
+    <svg
+      className="c1"
+      height={42}
+      viewBox="0 0 42 42"
+      width={42}
     >
-      3
-    </span>
-    /13
-  </p>
-</div>
+      <circle
+        className="c2"
+      />
+      <circle
+        className="c3"
+      />
+      <circle
+        className="c4"
+      />
+    </svg>
+    <p
+      className="c5"
+    >
+      <span
+        className="c6"
+      >
+        3
+      </span>
+      /13
+    </p>
+  </div>,
+]
 `;

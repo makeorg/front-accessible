@@ -69,21 +69,22 @@ export const ProposalCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCardStyle
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      isCardCollapsed={isCardCollapsed}
-      isCardVisible={isCardVisible}
-      aria-hidden={!isCardVisible}
-      id={`proposal-card-${index}`}
-    >
+    <React.Fragment>
       <CardDescription
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
       />
-      <ContentSpecialWrapperStyle as="dd">
+      <ProposalCardStyle
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        isCardCollapsed={isCardCollapsed}
+        isCardVisible={isCardVisible}
+        aria-hidden={!isCardVisible}
+        id={`proposal-card-${index}`}
+        as="dd"
+      >
         <CardHeader
           index={index}
           cardsCount={cardsCount}
@@ -109,7 +110,7 @@ export const ProposalCardComponent = (props: Props) => {
             goToNextCard={goToNextCard}
           />
         </ContentSpecialWrapperStyle>
-      </ContentSpecialWrapperStyle>
-    </ProposalCardStyle>
+      </ProposalCardStyle>
+    </React.Fragment>
   );
 };

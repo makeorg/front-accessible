@@ -9,13 +9,11 @@ import {
   getOrganisationProfileLink,
 } from 'Shared/helpers/url';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
-import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProposalCardStyle,
@@ -23,6 +21,7 @@ import {
 } from 'Client/ui/Elements/ProposalCardElements';
 import {
   ProfileVoteCardStyle,
+  ProfileVoteWrapperStyle,
   ProfileVoteTitleStyle,
   ProfileVoteDescriptionStyle,
   ProfileHasVotedStyle,
@@ -46,7 +45,11 @@ export const ProfileVoteCard = ({
   const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
-    <React.Fragment>
+    <ProfileVoteWrapperStyle
+      role="article"
+      aria-posinset={position}
+      aria-setsize={size}
+    >
       <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
           aria-label={voteAttributes.label}
@@ -74,16 +77,7 @@ export const ProfileVoteCard = ({
       </ProfileVoteTitleStyle>
 
       <ProfileVoteCardStyle>
-        <ProposalCardStyle
-          aria-labelledby={`proposal_author_${position}`}
-          aria-describedby={`proposal_content_${position}`}
-          role="article"
-          aria-posinset={position}
-          aria-setsize={size}
-        >
-          <HiddenItemStyle id={`proposal_author_${position}`}>
-            {author.firstName}
-          </HiddenItemStyle>
+        <ProposalCardStyle as="div">
           <ProposalAuthorElement
             author={author}
             country={proposal.country}
@@ -91,7 +85,6 @@ export const ProfileVoteCard = ({
             createdAt={proposal.createdAt}
             withAvatar
           />
-          <ProposalSeparatorStyle />
           <ProposalStyle
             id={`proposal_content_${position}`}
             href={getProposalLink(
@@ -113,6 +106,6 @@ export const ProfileVoteCard = ({
           <ProposalFooterWithTagElement tags={proposal.tags} />
         </ProposalCardStyle>
       </ProfileVoteCardStyle>
-    </React.Fragment>
+    </ProfileVoteWrapperStyle>
   );
 };

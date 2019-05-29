@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
-export const DetailledItemWrapperStyle = styled.aside`
+export const DetailledItemStyle = styled.li`
   display: flex;
   flex-flow: column;
   flex: 1;
@@ -18,18 +18,18 @@ export const DetailledItemWrapperStyle = styled.aside`
   }
 `;
 
-export const DetailledItemListStyle = styled(SpaceBetweenRowStyle)`
+export const DetailledItemListStyle = styled(UnstyledListStyle)`
+  display: flex;
+  justify-content: space-between;
   overflow-x: auto;
 `;
 
-export const VoteDataListStyle = styled(UnstyledListStyle)`
-  display: flex;
-  flex-flow: column;
+export const VoteDataListStyle = styled(ColumnElementStyle)`
   margin-left: 10px;
   justify-content: center;
 `;
 
-export const VoteDataItemStyle = styled.li`
+export const VoteDataItemStyle = styled.p`
   font-size: 12px;
   color: ${TextColors.MediumGrey};
   margin: 3px 0;

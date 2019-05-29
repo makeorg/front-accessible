@@ -7,6 +7,7 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 
 type Props = {
   /** Array with qualifications received from Api */
@@ -48,25 +49,35 @@ export const QualificationComponent = (props: Props) => {
   };
 
   return (
-    <SpaceBetweenColumnStyle as={UnstyledListStyle}>
-      {qualifications.map(qualification => (
-        <li>
-          <QualificationButtonElement
+    <React.Fragment>
+      <ReadableItemStyle as="p">
+        {i18n.t('qualification.title')}
+      </ReadableItemStyle>
+      <SpaceBetweenColumnStyle as={UnstyledListStyle}>
+        {qualifications.map(qualification => (
+          <li
             key={getQualificationIndex(
               qualification.qualificationKey,
               proposalId
             )}
-            color={voteStaticParams[votedKey].color}
-            label={i18n.t(`qualification.${qualification.qualificationKey}`)}
-            qualificationCounter={qualification.count}
-            isQualified={qualification.hasQualified}
-            handleClick={handle(qualification)}
-            pendingQualification={pendingQualificationKeys.has(
-              qualification.qualificationKey
-            )}
-          />
-        </li>
-      ))}
-    </SpaceBetweenColumnStyle>
+          >
+            <QualificationButtonElement
+              key={getQualificationIndex(
+                qualification.qualificationKey,
+                proposalId
+              )}
+              color={voteStaticParams[votedKey].color}
+              label={i18n.t(`qualification.${qualification.qualificationKey}`)}
+              qualificationCounter={qualification.count}
+              isQualified={qualification.hasQualified}
+              handleClick={handle(qualification)}
+              pendingQualification={pendingQualificationKeys.has(
+                qualification.qualificationKey
+              )}
+            />
+          </li>
+        ))}
+      </SpaceBetweenColumnStyle>
+    </React.Fragment>
   );
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { type QualificationType } from 'Shared/types/proposal';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { QualificationLabelStyle, QualificationContStyle } from './Styled';
 
 type Props = {
@@ -19,7 +20,9 @@ export const QualificationResults = (props: Props) => {
       <QualificationLabelStyle color={voteColor}>
         {i18n.t(`qualification.${qualificationKey}`)}
       </QualificationLabelStyle>
-      <QualificationContStyle>{count}</QualificationContStyle>
+      <ReadableItemStyle aria-hidden> : </ReadableItemStyle>
+      <QualificationContStyle>{` ${count} `}</QualificationContStyle>
+      <ReadableItemStyle>{i18n.t('qualification.times')}</ReadableItemStyle>
     </SpaceBetweenRowStyle>
   );
 };

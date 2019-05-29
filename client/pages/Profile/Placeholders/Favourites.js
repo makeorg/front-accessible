@@ -11,7 +11,10 @@ import {
   VoteResultBarStyle,
   VoteResultTotalLabelStyle,
 } from 'Client/features/vote/Result/Styled';
-import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
+import {
+  SpaceBetweenColumnStyle,
+  CenterColumnStyle,
+} from 'Client/ui/Elements/FlexElements';
 import {
   QualifyButtonStyle,
   IsQualifiedButtonStyle,
@@ -28,7 +31,7 @@ import {
 
 export const ProfileFavouritesPlaceholder = () => {
   return (
-    <React.Fragment>
+    <CenterColumnStyle>
       <SvgLike aria-hidden style={SvgLikeStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('profile.favourites.description.introduction')}
@@ -108,6 +111,6 @@ export const ProfileFavouritesPlaceholder = () => {
           </SpaceBetweenColumnStyle>
         </VoteContainerStyle>
       </FavouritesCardStyle>
-    </React.Fragment>
+    </CenterColumnStyle>
   );
 };

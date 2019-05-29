@@ -5,14 +5,15 @@ import {
   LightBulbStyle,
   PlaceholderParagraphStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const ProfileProposalsPlaceholder = () => {
   return (
-    <React.Fragment>
+    <CenterColumnStyle>
       <SvgLightBulb aria-hidden style={LightBulbStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('profile.proposals.text')}
       </PlaceholderParagraphStyle>
-    </React.Fragment>
+    </CenterColumnStyle>
   );
 };

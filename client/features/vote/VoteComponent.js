@@ -30,7 +30,7 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
   };
 
   return voteKeys.map<React.Node>((voteKey: string) => (
-    <li>
+    <li key={getVoteKey(voteKey, proposalId)}>
       <VoteButton
         key={getVoteKey(voteKey, proposalId)}
         color={voteStaticParams[voteKey].color}

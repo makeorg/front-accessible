@@ -2,15 +2,6 @@
 
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 Array [
-  <div
-    aria-label="common.display_tooltip"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    bar
-  </div>,
   .c0 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
@@ -71,5 +62,14 @@ Array [
     className="sc-12iuwgm-0 c0 c1"
     role="tooltip"
   />,
+  <div
+    aria-label="common.display_tooltip"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    bar
+  </div>,
 ]
 `;

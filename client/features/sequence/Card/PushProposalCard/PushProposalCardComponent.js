@@ -63,20 +63,21 @@ export const PushProposalCardComponent = (props: Props) => {
   } = props;
 
   return (
-    <ProposalCardStyle
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      isCardCollapsed={isCardCollapsed}
-      isCardVisible={isCardVisible}
-      aria-hidden={!isCardVisible}
-    >
+    <React.Fragment>
       <CardDescription
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
       />
-      <ContentWrapperStyle as="dd">
+      <ProposalCardStyle
+        position={position}
+        scale={scale}
+        zindex={zindex}
+        isCardCollapsed={isCardCollapsed}
+        isCardVisible={isCardVisible}
+        aria-hidden={!isCardVisible}
+        as="dd"
+      >
         <CardHeader
           index={index}
           cardsCount={cardsCount}
@@ -110,7 +111,7 @@ export const PushProposalCardComponent = (props: Props) => {
             </MiddleColumnToRowStyle>
           </InnerContentStyle>
         </ContentWrapperStyle>
-      </ContentWrapperStyle>
-    </ProposalCardStyle>
+      </ProposalCardStyle>
+    </React.Fragment>
   );
 };

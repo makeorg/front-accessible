@@ -5,7 +5,6 @@ import { type Organisation as TypeOrganisation } from 'Shared/types/organisation
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
@@ -13,6 +12,7 @@ import {
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { MetaTags } from 'Client/app/MetaTags';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
@@ -47,18 +47,18 @@ const OrganisationProposalsPage = (props: Props) => {
           organisation: organisation.organisationName,
         })}
       />
-      <CenterColumnStyle>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('organisation.proposals.title', {
-              name: organisation.organisationName,
-            })}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
-        {isLoading && <Spinner />}
-        {renderProposals &&
-          proposals.map((proposal, index) => (
+      <ProfileContentHeaderStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('organisation.proposals.title', {
+            name: organisation.organisationName,
+          })}
+        </SecondLevelTitleStyle>
+        <ProfileTitleSeparatorStyle />
+      </ProfileContentHeaderStyle>
+      {isLoading && <Spinner />}
+      {renderProposals && (
+        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+          {proposals.map((proposal, index) => (
             <ProposalCardWithQuestion
               key={proposal.id}
               proposal={proposal}
@@ -66,12 +66,13 @@ const OrganisationProposalsPage = (props: Props) => {
               size={proposalsLength}
             />
           ))}
-        {renderPlaceholder && (
-          <OrganisationProposalsPlaceholder
-            name={organisation.organisationName}
-          />
-        )}
-      </CenterColumnStyle>
+        </UnstyledListStyle>
+      )}
+      {renderPlaceholder && (
+        <OrganisationProposalsPlaceholder
+          name={organisation.organisationName}
+        />
+      )}
     </React.Fragment>
   );
 };

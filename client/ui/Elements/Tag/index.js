@@ -16,7 +16,11 @@ export const Tag = ({ name, onClick, isSelected, isAButton }: Props) => {
       className={isSelected ? 'selected' : ''}
       as={isAButton ? TagButtonStyle : TagStyle}
     >
-      {name}
+      <span
+        dangerouslySetInnerHTML={{
+          __html: name,
+        }}
+      />
       {isSelected && (
         <TagIconStyle>
           <SvgClose />

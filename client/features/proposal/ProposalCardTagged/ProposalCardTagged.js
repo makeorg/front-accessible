@@ -4,7 +4,6 @@ import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
-import { ProposalSeparatorStyle } from 'Client/ui/Proposal/Styled';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
   ProposalCardStyle,
@@ -42,7 +41,6 @@ export const ProposalCardTagged = (props: Props) => {
         createdAt={proposal.createdAt}
         withAvatar
       />
-      <ProposalSeparatorStyle />
       <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
         {proposal.content}
       </ProposalStyle>

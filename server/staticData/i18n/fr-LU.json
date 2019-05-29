@@ -1,12 +1,41 @@
 {
   "meta": {
     "home": {
-      "title": "Make.org, accélérateur d'intérêt général",
+      "title": "Agir avec Make.org",
       "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires.",
       "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
     },
+    "organisation": {
+      "proposals":  {
+        "title": "{{organisation}} - ses propositions"
+      },
+      "positions":  {
+        "title": "{{organisation}} - ses prises de position"
+      }
+    },
+    "profile": {
+      "proposals":  {
+        "title": "Profil - Mes propositions"
+      },
+      "favorites":  {
+        "title": "Profil - Mes coups de coeur"
+      },
+      "edit": {
+        "title": "Modification de mon profil"
+      }
+    },
     "proposal": {
+      "title": "Proposition '{{proposal}}'",
       "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
+    },
+    "consultation": {
+      "title": "Consultation '{{question}}'"
+    },
+    "actions": {
+      "title": "Actions '{{question}}'"
+    },
+    "sequence": {
+      "title": "Participez à la consultation '{{question}}'"
     }
   },
   "common": {
@@ -41,14 +70,14 @@
     "hide_pannel": "Masquer le contenu du panneau déroulant",
     "display_modal": "Afficher le contenu de la fenêtre de dialogue",
     "hide_modal": "Masquer le contenu de la fenêtre de dialogue",
-    "display_tooltip": "Afficher le contenu de l'infobulle",
-    "hide_tooltip": "Masquer le contenu de l'infobulle",
+    "display_tooltip": "Afficher le contenu de l'infobulle au survol",
+    "hide_tooltip": "Masquer le contenu de l'infobulle au survol",
     "expand_collapse": "{{name}} - Afficher le contenu de la section déroulante",
     "shrink_collapse": "{{name}} - Masquer le contenu de la section déroulante",
-    "secondary_nav": "Barre de navigation secondaire",
+    "secondary_nav": "Navigation secondaire",
     "percent": "{{percent}}%",
     "header_authentification_nav": "Accès à mon profil utilisateur",
-    "footer_nav": "Barre de navigation de bas de page",
+    "footer_nav": "Navigation de bas de page",
     "sidebar_area": "Barre latérale de contenu",
     "cookie_area": "Bannière de notification sur l'utilisation des cookies",
     "consultation_header_area": "Bannière d'introduction de la consultation",
@@ -57,7 +86,7 @@
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"
   },
   "header": {
-    "logo_alt": "Retourner à l'acceuil du site Make.org",
+    "logo_alt": "Aller à l'acceuil du site Make.org",
     "whoarewe": "Qui sommes-nous ?"
   },
   "proposal_page": {
@@ -72,9 +101,12 @@
     "number": "Carte numéro {{current}} sur {{total}}",
     "posted_label": "postée dans ",
     "author": {
-      "age": "{{age}} ans"
+      "from": "Proposition de : ",
+      "age": "{{age}} ans",
+      "date": "postée le : "
     },
     "status": {
+      "title": "Statut de la proposition : ",
       "accepted": "Publiée",
       "refused": "Refusée",
       "postponed": "En attente de modération",
@@ -111,44 +143,50 @@
   },
   "proposal_submit": {
     "bait": "Il faut ",
-    "title": "Soumettez vos propositions en remplissant ce formulaire avec moins de 140 caractères :",
-    "entred_chars": "{{chars}} caractères entrés",
-    "available_chars": "{{chars}} caractères disponibles",
+    "title": "Soumettez votre proposition en moins de 140 caractères : ",
+    "counter": "{{current}} caractères entrés sur {{total}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
   "vote": {
-    "intro_title": "Je donne mon avis sur cette proposition. ",
-    "intro_text": "Je suis :",
+    "intro_title": "Je donne mon avis sur cette proposition : ",
     "agree": "D'accord",
     "disagree": "Pas d'accord",
-    "neutral": "Vote blanc",
+    "neutral": "Vote neutre",
     "label": "{{count}} vote",
     "label_plural": "{{count}} votes"
   },
   "unvote": {
-    "title": "En cliquant sur le bouton ci-dessous, je retire mon avis sur cette proposition :",
-    "button": "je retire mon avis"
+    "title": "Je retire mon avis sur cette proposition."
   },
   "results": {
-    "title": "Les avis des autres participants sur cette proposition sont :",
-    "total_text": "Le nombre d'avis total est de : ",
+    "static_total": "Cette proposition a récolté : ",
+    "static_repartition": "Avec pour répartition : ",
+    "total": "Cette proposition a récolté {{count}} vote, avec comme répartition : ",
+    "total_plural": "Cette proposition a récolté {{count}} votes, avec comme répartition : ",
+    "voted": {
+      "agree": "J'ai voté \"D'accord\" sur cette proposition.",
+      "disagree": "J'ai voté \"Pas d'accord\" sur cette proposition.",
+      "neutral": "J'ai voté \"Neutre\" sur cette proposition."
+    },
     "tooltipbutton": {
       "display": {
-        "agree": "Afficher les résultats pour l'avis : 'je suis d'accord'",
-        "disagree": "Afficher les résultats pour l'avis : 'je ne suis pas d'accord'",
-        "neutral": "Afficher les résultats pour l'avis : 'je vote blanc'"
+        "agree": "Afficher les résultats pour l'avis : \"je suis d'accord\"",
+        "disagree": "Afficher les résultats pour l'avis : \"je ne suis pas d'accord\"",
+        "neutral": "Afficher les résultats pour l'avis : \"je vote neutre'"
       },
       "hide": {
-        "agree": "Masquer les résultats pour l'avis : 'je suis d'accord'",
-        "disagree": "Masquer les résultats pour l'avis : 'je ne suis pas d'accord'",
-        "neutral": "Masquer les résultats pour l'avis : 'je vote blanc'"
+        "agree": "Masquer les résultats pour l'avis : \"je suis d'accord\"",
+        "disagree": "Masquer les résultats pour l'avis : \"je ne suis pas d'accord\"",
+        "neutral": "Masquer les résultats pour l'avis : \"je vote neutre'"
       }
     }
   },
   "qualification": {
-    "title": "En cliquant sur les boutons ci-dessous, je précise mon avis :",
+    "title": "Je précise mon avis sur cette proposition :",
+    "static_repartition": "Cette proposition a été qualifiée en : ",
+    "times": "fois",
     "likeIt": "Coup de cœur",
     "doable": "Réaliste",
     "platitudeAgree": "Banalité",
@@ -359,13 +397,15 @@
       "founder": "Partenaire Fondateur",
       "init": "Cette consultation a été initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
-      "profile_link": "Aller sur la page profil de l'organisation : {{name}}",
-      "profile_link_new_window": "Ouvrir dans une nouvelle fenêtre la page d'information sur l'organisation : {{name}}"
+      "profile_link": "Aller sur le profil de : {{name}}",
+      "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
+    
     },
     "tags": {
-      "intro": "Filtrer par tags :",
-      "show_all": "voir tous les tags",
-      "show_less": "masquer"
+      "intro": "Filtrer par <span lang=\"en\">tags<span> : ",
+      "show_all": "voir tous les <span lang=\"en\">tags<span>",
+      "show_less": "masquer",
+      "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : "
     },
     "banner": {
       "title": "Votez sur les dernières propositions issues de la consultation."

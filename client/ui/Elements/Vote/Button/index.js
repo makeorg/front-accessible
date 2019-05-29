@@ -32,6 +32,7 @@ export const VoteButtonElement = (props: Props) => {
       as={buttonType}
       onClick={handleVote}
       onTouchEnd={handleVote}
+      aria-busy={displayPending}
     >
       {displayPending ? <LoadingDots /> : icon}
     </ButtonStyle>

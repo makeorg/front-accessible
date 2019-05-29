@@ -10,7 +10,13 @@ Snapshot Diff:
 -   className=""
 +   className="selected"
   >
-    Hello
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Hello",
+        }
+      }
+    />
 +   <TagIconStyle>
 +     <SvgClose />
 +   </TagIconStyle>
@@ -22,13 +28,15 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ -1,7 +1,7 @@
   <TagStyle
 -   as="TagStyle"
 +   as="TagButtonStyle"
     className=""
   >
-    Hello
-  </TagStyle>
+    <span
+      dangerouslySetInnerHTML={
+        Object {
 `;
 
 exports[`ComponentStyle snapshot by default 1`] = `
@@ -36,6 +44,12 @@ exports[`ComponentStyle snapshot by default 1`] = `
   as="TagStyle"
   className=""
 >
-  Hello
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Hello",
+      }
+    }
+  />
 </TagStyle>
 `;

@@ -4,6 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { type Vote as TypeVote } from 'Shared/types/proposal';
 import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { voteStaticParams } from 'Shared/constants/vote';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   VoteProgressContainerStyle,
   VoteProgressWrapperStyle,
@@ -28,6 +29,9 @@ export const VoteProgress = (props: Props) => {
   return (
     <VoteProgressContainerStyle>
       <VoteCounterStyle>
+        <ReadableItemStyle as="span">
+          {i18n.t('results.static_total')}
+        </ReadableItemStyle>
         {i18n.t('vote.label', { count: votesCount })}
       </VoteCounterStyle>
       <VoteProgressWrapperStyle>

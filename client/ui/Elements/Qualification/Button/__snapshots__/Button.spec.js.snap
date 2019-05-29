@@ -2,6 +2,7 @@
 
 exports[`QualificationButtonElement must match the snapshot with default Props 1`] = `
 <ButtonStyle
+  aria-busy={false}
   aria-label="foo"
   as="QualifyButtonStyle"
   color="red"
@@ -25,8 +26,9 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,8 +1,8 @@
+@@ -1,9 +1,9 @@
   <ButtonStyle
+    aria-busy={false}
     aria-label="foo"
 -   as="IsQualifiedButtonStyle"
 +   as="QualifyButtonStyle"
@@ -35,7 +37,7 @@ Snapshot Diff:
   >
     <span
       aria-hidden={true}
-@@ -10,8 +10,8 @@
+@@ -11,8 +11,8 @@
       foo
     </span>
     <CounterStyle

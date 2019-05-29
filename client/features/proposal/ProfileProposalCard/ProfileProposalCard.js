@@ -5,12 +5,7 @@ import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement';
-import {
-  ProfileProposalCardStyle,
-  ProposalSeparatorStyle,
-  ProposalHeaderStyle,
-  ProposalStyle,
-} from './Styled';
+import { ProfileProposalCardStyle, ProposalStyle } from './Styled';
 
 type Props = {
   proposal: TypeProposal,
@@ -32,18 +27,15 @@ export const ProfileProposalCard = (props: Props) => {
       aria-setsize={size}
       className={`proposal-${formattedProposalStatus}`}
     >
-      <ProposalHeaderStyle>
-        <ProposalAuthorElement
-          author={author}
-          country={proposal.country}
-          language={proposal.language}
-          createdAt={proposal.createdAt}
-          withAvatar
-          withStatus
-          formattedProposalStatus={formattedProposalStatus}
-        />
-      </ProposalHeaderStyle>
-      <ProposalSeparatorStyle />
+      <ProposalAuthorElement
+        author={author}
+        country={proposal.country}
+        language={proposal.language}
+        createdAt={proposal.createdAt}
+        withAvatar
+        withStatus
+        formattedProposalStatus={formattedProposalStatus}
+      />
       <ProposalStyle
         id={`proposal_content_${position}`}
         {...(isProposalAccepted

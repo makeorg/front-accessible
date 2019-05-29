@@ -7,7 +7,9 @@ import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
+import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
+  AuthorDescriptionStyle,
   AuthorInfosStyle,
   AuthorSeparatorStyle,
   ProposalStatusStyle,
@@ -50,7 +52,7 @@ export const ProposalAuthorElement = (props: Props) => {
   } = props;
 
   return (
-    <React.Fragment>
+    <AuthorDescriptionStyle>
       <AuthorInfosStyle withAvatar={withAvatar}>
         {withAvatar && (
           <React.Fragment>
@@ -60,6 +62,9 @@ export const ProposalAuthorElement = (props: Props) => {
             &nbsp;
           </React.Fragment>
         )}
+        <ReadableItemStyle>
+          {i18n.t('proposal_card.author.from')}
+        </ReadableItemStyle>
         {author.organisationName ? (
           <React.Fragment>
             <RedLinkStyle
@@ -85,17 +90,27 @@ export const ProposalAuthorElement = (props: Props) => {
         <ProposalAuthorAge age={author.age} />
         {!!createdAt && (
           <React.Fragment>
-            <AuthorSeparatorStyle aria-hidden>&bull;</AuthorSeparatorStyle>
-            {DateHelper.creationDateFormat(createdAt)}
+            <AuthorSeparatorStyle aria-hidden>
+              &nbsp;&bull;&nbsp;
+            </AuthorSeparatorStyle>
+            <ReadableItemStyle>
+              {i18n.t('proposal_card.author.date')}
+            </ReadableItemStyle>
+            <time dateTime={createdAt}>
+              {DateHelper.creationDateFormat(createdAt)}
+            </time>
           </React.Fragment>
         )}
       </AuthorInfosStyle>
       {withStatus && (
         <ProposalStatusStyle className={`status-${formattedProposalStatus}`}>
+          <ReadableItemStyle>
+            {i18n.t('proposal_card.status.title')}
+          </ReadableItemStyle>
           {i18n.t(`proposal_card.status.${formattedProposalStatus}`)}
         </ProposalStatusStyle>
       )}
-    </React.Fragment>
+    </AuthorDescriptionStyle>
   );
 };
 

@@ -23,18 +23,10 @@ export const CardDescription = (props: Props) => {
 
   return (
     <ReadableItemStyle as="dt">
-      <p>
-        {i18n.t('proposal_card.number', {
-          current: activeGaugeIndex,
-          total: maxGaugeIndex,
-        })}
-      </p>
-      <progress
-        value={activeGaugeIndex}
-        max={maxGaugeIndex}
-        aria-valuenow={activeGaugeIndex}
-        aria-valuemax={maxGaugeIndex}
-      />
+      {i18n.t('proposal_card.number', {
+        current: activeGaugeIndex,
+        total: maxGaugeIndex,
+      })}
     </ReadableItemStyle>
   );
 };
