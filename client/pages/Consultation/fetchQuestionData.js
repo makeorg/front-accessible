@@ -12,6 +12,11 @@ import {
   fetchQuestionConfigurationData,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
+import { ApiService } from 'Shared/api/ApiService';
+import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
+
+const apiClient = new ApiServiceClient();
+ApiService.strategy = apiClient;
 
 type Props = {
   question: Question,
@@ -78,7 +83,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchQuestion: (questionSlug: string) => {
-    dispatch(fetchQuestionData(questionSlug)).then(() => {
+    dispatch(fetchQuestionData(questionSlug)).then(question => {
+      apiClient.questionId = question.questionId;
+
       dispatch(fetchQuestionConfigurationData(questionSlug));
     });
   },

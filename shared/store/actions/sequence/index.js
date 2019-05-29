@@ -62,6 +62,7 @@ export const fetchQuestionData = (questionSlugOrId: string) => (
   QuestionApiService.getDetail(questionSlugOrId)
     .then(question => {
       dispatch(loadQuestion(question));
+
       // Important ! Do not remove: use by the parent to use question.questionId
       return question;
     })

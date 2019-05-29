@@ -8,7 +8,12 @@ import { QuestionsList } from 'Client/features/homepage/QuestionsList';
 import { GreatCausesList } from 'Client/features/homepage/GreatCausesList';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { Tracking } from 'Shared/services/Tracking';
+import { ApiService } from 'Shared/api/ApiService';
+import { ApiServiceClient } from 'Shared/api/ApiService/ApiService.client';
 import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
+
+const apiClient = new ApiServiceClient();
+ApiService.strategy = apiClient;
 
 const questions = [
   {
@@ -48,6 +53,8 @@ const questions = [
 
 export const HomePage = () => {
   useEffect(() => {
+    apiClient.questionId = '';
+
     Tracking.trackDisplayHomepage();
   }, []);
 
