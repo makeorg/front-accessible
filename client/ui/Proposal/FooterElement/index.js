@@ -5,7 +5,7 @@ import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { TagListItemStyle } from 'Client/features/consultation/Styled/TagFilter';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProposalTagListStyle,
   ProposalFooterStyle,
@@ -28,7 +28,7 @@ export const ProposalFooterWithTagElement = ({
 
   return (
     <React.Fragment>
-      <ReadableItemStyle
+      <ScreenReaderItemStyle
         as="p"
         dangerouslySetInnerHTML={{
           __html: i18n.t('consultation.tags.proposal_list'),

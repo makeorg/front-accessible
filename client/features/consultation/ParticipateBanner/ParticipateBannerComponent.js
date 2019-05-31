@@ -29,7 +29,7 @@ export const ParticipateBannerComponent = (props: Props) => {
       <ParticipateDescription id="participate_aside_title">
         {i18n.t('consultation.banner.title')}
       </ParticipateDescription>
-      <ParticipateSeparatorStyle aria-hidden />
+      <ParticipateSeparatorStyle />
       <LinkAsRedButton
         as={Link}
         to={sequenceLink}

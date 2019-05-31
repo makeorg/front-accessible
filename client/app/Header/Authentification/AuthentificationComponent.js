@@ -68,8 +68,8 @@ export const NotAuthentificatedBar = ({
         )}
       </UnstyledButtonStyle>
       {!isMobile && (
-        <>
-          <span>/</span>
+        <React.Fragment>
+          <span aria-hidden>/</span>
           <UnstyledButtonStyle
             onClick={handleRegisterModal}
             aria-label={i18n.t('common.register_label')}
@@ -78,7 +78,7 @@ export const NotAuthentificatedBar = ({
               {i18n.t('common.register_label')}
             </ProfileAccessButtonLabelStyle>
           </UnstyledButtonStyle>
-        </>
+        </React.Fragment>
       )}
     </ProfileAccessWrapperStyle>
   );

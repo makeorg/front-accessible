@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as CardConstant from 'Shared/constants/card';
 import { gaugeProgress, gaugeRemain } from 'Shared/helpers/sequence';
 import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProgressWrapperStyle,
   ProgressSvgStyle,
@@ -12,7 +13,6 @@ import {
   ProgressCounterStyle,
   ProgressActiveCardStyle,
 } from './Styled/Progress';
-import { ReadableItemStyle } from '../Elements/HiddenElements';
 
 type Props = {
   /** Index of the card */
@@ -34,7 +34,7 @@ export const ProgressCircleComponent = (props: Props) => {
 
   return (
     <React.Fragment>
-      <ReadableItemStyle
+      <ScreenReaderItemStyle
         as="progress"
         value={activeGaugeIndex}
         max={maxGaugeIndex}
@@ -45,7 +45,7 @@ export const ProgressCircleComponent = (props: Props) => {
           current: activeGaugeIndex,
           total: maxGaugeIndex,
         })}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
 
       <ProgressWrapperStyle aria-hidden>
         <ProgressSvgStyle

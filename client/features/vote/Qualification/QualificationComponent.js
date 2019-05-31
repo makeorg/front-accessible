@@ -7,7 +7,7 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 
 type Props = {
   /** Array with qualifications received from Api */
@@ -50,9 +50,9 @@ export const QualificationComponent = (props: Props) => {
 
   return (
     <React.Fragment>
-      <ReadableItemStyle as="p">
+      <ScreenReaderItemStyle as="p">
         {i18n.t('qualification.title')}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <SpaceBetweenColumnStyle as={UnstyledListStyle}>
         {qualifications.map(qualification => (
           <li

@@ -26,9 +26,10 @@ export const FooterLinks = () => {
   return (
     <FooterItemListStyle>
       <FooterItemStyle>
-        <FooterItemLinkStyle lang="en" href={JOBS_LINK}>
-          {i18n.t('main-footer.jobs')}
-        </FooterItemLinkStyle>
+        <FooterItemLinkStyle
+          href={JOBS_LINK}
+          dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
+        />
       </FooterItemStyle>
       {isMobile && (
         <FooterItemStyle>

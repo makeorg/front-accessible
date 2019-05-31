@@ -10,7 +10,7 @@ import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.
 import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
 
 import { Tracking } from 'Shared/services/Tracking';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
@@ -124,9 +124,9 @@ const Featured = ({ featured, index }) => {
       </FeaturedPictureWraperStyle>
       <FeaturedInformationsWraperStyle>
         <FeaturedTypeStyle>
-          <ReadableItemStyle>
+          <ScreenReaderItemStyle>
             {i18n.t('homepage.featured.status')}
-          </ReadableItemStyle>
+          </ScreenReaderItemStyle>
           {featured.type}
         </FeaturedTypeStyle>
         <FeaturedArticleTitleStyle>{featured.title}</FeaturedArticleTitleStyle>

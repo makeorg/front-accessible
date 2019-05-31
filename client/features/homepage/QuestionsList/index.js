@@ -6,7 +6,7 @@ import { getConsultationLink } from 'Shared/helpers/url';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
 import { Tracking } from 'Shared/services/Tracking';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   QuestionListTitleStyle,
   QuestionsListStyle,
@@ -46,9 +46,9 @@ export const QuestionsListComponent = props => {
               />
               <QuestionStyle>
                 <QuestionStatusStyle id={`question_status_${index}`}>
-                  <ReadableItemStyle>
+                  <ScreenReaderItemStyle>
                     {i18n.t('homepage.question_list.status')}
-                  </ReadableItemStyle>
+                  </ScreenReaderItemStyle>
                   {isInProgress(question.startDate, question.endDate)
                     ? i18n.t('homepage.question_list.question_inprogress')
                     : i18n.t('homepage.question_list.question_ended')}

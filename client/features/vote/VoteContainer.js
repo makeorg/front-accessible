@@ -210,7 +210,6 @@ export class VoteContainer extends React.Component<Props, State> {
               id={`next-button-${proposalId}`}
             >
               {i18n.t('proposal_card.next')}
-              {' >'}
             </NextButtonStyle>
           )}
         </React.Fragment>

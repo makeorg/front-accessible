@@ -55,7 +55,7 @@ export const CollapseComponent = (props: Props) => {
         forcedexpand={disableCollapse}
         aria-hidden={disableCollapse ? false : isCollapsed}
       >
-        <CollapseSeparatorStyle aria-hidden />
+        <CollapseSeparatorStyle />
         {children}
       </CollapseContentStyle>
     </CollapseWrapperStyle>

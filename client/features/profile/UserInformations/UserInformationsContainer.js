@@ -22,7 +22,7 @@ import {
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -66,9 +66,9 @@ class UserInformationsHandler extends React.Component<Props, State> {
           {user.isOrganisation && (
             <ProfileContentWrapperStyle>
               <ProfileTitleStyle>
-                <ReadableItemStyle>
+                <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.organisation')}
-                </ReadableItemStyle>
+                </ScreenReaderItemStyle>
                 {user.organisationName}
                 &nbsp;
                 <SvgCheckedSymbol
@@ -78,35 +78,35 @@ class UserInformationsHandler extends React.Component<Props, State> {
             </ProfileContentWrapperStyle>
           )}
           <ProfileContentWrapperStyle>
-            <ReadableItemStyle as="h2">
+            <ScreenReaderItemStyle as="h2">
               {i18n.t('profile.common.infos')}
-            </ReadableItemStyle>
+            </ScreenReaderItemStyle>
             <ProfileTitleStyle>
-              <ReadableItemStyle>
+              <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.firstname')}
-              </ReadableItemStyle>
+              </ScreenReaderItemStyle>
               {user.firstName}
             </ProfileTitleStyle>
             <ProfileContentStyle>
-              <ReadableItemStyle>
+              <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.email')}
-              </ReadableItemStyle>
+              </ScreenReaderItemStyle>
               {user.email}
             </ProfileContentStyle>
             {profile.postalCode && (
               <ProfileContentStyle>
-                <ReadableItemStyle>
+                <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.postal_code')}
-                </ReadableItemStyle>
+                </ScreenReaderItemStyle>
                 <SvgMapMarker aria-hidden style={{ marginRight: '3px' }} />
                 {profile.postalCode}
               </ProfileContentStyle>
             )}
             {profile.dateOfBirth && (
               <ProfileContentStyle>
-                <ReadableItemStyle>
+                <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.age')}
-                </ReadableItemStyle>
+                </ScreenReaderItemStyle>
                 {i18n.t('profile.common.age', {
                   age: getAgeFromDateOfBrth(profile.dateOfBirth),
                 })}
@@ -114,9 +114,9 @@ class UserInformationsHandler extends React.Component<Props, State> {
             )}
             {profile.profession && (
               <ProfileContentStyle>
-                <ReadableItemStyle>
+                <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.profession')}
-                </ReadableItemStyle>
+                </ScreenReaderItemStyle>
                 {profile.profession}
               </ProfileContentStyle>
             )}
@@ -124,10 +124,10 @@ class UserInformationsHandler extends React.Component<Props, State> {
         </ProfileAvatarLayoutStyle>
         {profile.description && (
           <React.Fragment>
-            <ProfileSeparatorStyle aria-hidden />
-            <ReadableItemStyle>
+            <ProfileSeparatorStyle />
+            <ScreenReaderItemStyle>
               {i18n.t('profile.common.labels.biography')}
-            </ReadableItemStyle>
+            </ScreenReaderItemStyle>
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}

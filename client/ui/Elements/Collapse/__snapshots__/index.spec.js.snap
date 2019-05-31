@@ -35,9 +35,7 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
     forcedexpand={false}
     iscollapsed={true}
   >
-    <CollapseSeparatorStyle
-      aria-hidden={true}
-    />
+    <CollapseSeparatorStyle />
     bar
   </CollapseContentStyle>
 </TileSeparatorStyle>

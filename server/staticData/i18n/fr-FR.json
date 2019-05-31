@@ -245,7 +245,7 @@
     "link": "En savoir + sur cette consultation"
   },
   "main-footer": {
-    "jobs": "Jobs",
+    "jobs": "<span lang=\"en\">Jobs</span>",
     "whoarewe": "Qui sommes-nous ?",
     "press": "Espace presse",
     "legal": "Mentions légales",

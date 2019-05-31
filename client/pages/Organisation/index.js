@@ -39,7 +39,7 @@ import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -129,9 +129,9 @@ const OrganisationPage = (props: Props) => {
           </ProfileAvatarLayoutStyle>
           <ProfileContentWrapperStyle>
             <ProfileTitleStyle>
-              <ReadableItemStyle>
+              <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.organisation')}
-              </ReadableItemStyle>
+              </ScreenReaderItemStyle>
               {organisation.organisationName}
               &nbsp;
               <SvgCheckedSymbol
@@ -141,10 +141,10 @@ const OrganisationPage = (props: Props) => {
           </ProfileContentWrapperStyle>
           {organisation.description && (
             <React.Fragment>
-              <ProfileSeparatorStyle aria-hidden />
-              <ReadableItemStyle>
+              <ProfileSeparatorStyle />
+              <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.biography')}
-              </ReadableItemStyle>
+              </ScreenReaderItemStyle>
               <UserDescription description={organisation.description} />
             </React.Fragment>
           )}

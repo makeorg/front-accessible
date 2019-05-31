@@ -72,7 +72,7 @@ export const ProposalSubmitAuthentificationComponent = (props: Props) => {
           {i18n.t('authentification.personal_data')}
         </a>
       </CenterParagraphStyle>
-      <ProposalSubmitSeparatorStyle aria-hidden />
+      <ProposalSubmitSeparatorStyle />
       <ThirdLevelTitleStyle>{i18n.t('login.title')}</ThirdLevelTitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
