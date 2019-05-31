@@ -31,7 +31,7 @@ export const QuestionsListComponent = props => {
         {questions.map(question => (
           <QuestionItemStyle key={question.slug}>
             <QuestionLinkStyle
-              {...(isInProgress(question.endDate)
+              {...(isInProgress(question.startDate, question.endDate)
                 ? {
                     to: getConsultationLink(country, language, question.slug),
                   }
@@ -44,7 +44,7 @@ export const QuestionsListComponent = props => {
               />
               <QuestionStyle>
                 <QuestionStatusStyle>
-                  {isInProgress(question.endDate)
+                  {isInProgress(question.startDate, question.endDate)
                     ? i18n.t('homepage.question_list.question_inprogress')
                     : i18n.t('homepage.question_list.question_ended')}
                 </QuestionStatusStyle>

@@ -17,4 +17,5 @@ export type Question = {
   landingSequenceId: string,
   operationTitle: string,
   canPropose: boolean,
+  aboutUrl: string,
 };
