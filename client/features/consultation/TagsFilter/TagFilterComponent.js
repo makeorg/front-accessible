@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { Tracking } from 'Shared/services/Tracking';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
@@ -17,13 +18,13 @@ type Props = {
   /** List of tags */
   tags: TypeTag[],
   /** List of select tag id */
-  selectedTagIds: string[],
+  selectedTagIdList: string[],
   /** Show all tags in the filter or not */
   showAll: boolean,
   /** Function to toggle show all tags */
   toggleShowAll: () => void,
   /** Function to handle tag selection */
-  handleSelectTag: (tag: TypeTag) => void,
+  handleSelectTag: (tagId: TypeTag) => void,
 };
 
 const filterShowAllTags = (index, showAll) => showAll || index < 6;
@@ -31,7 +32,7 @@ const filterShowAllTags = (index, showAll) => showAll || index < 6;
 export const TagFilterComponent = (props: Props) => {
   const {
     tags,
-    selectedTagIds,
+    selectedTagIdList,
     showAll,
     handleSelectTag,
     toggleShowAll,
@@ -50,17 +51,26 @@ export const TagFilterComponent = (props: Props) => {
       <TagListStyle>
         {tags
           .filter((tag, index) => filterShowAllTags(index, showAll))
-          .map(tag => (
-            <TagListItemStyle key={tag.tagId}>
-              <Tag
-                name={tag.label}
-                key={tag.tagId}
-                isSelected={selectedTagIds.includes(tag.tagId)}
-                onClick={() => handleSelectTag(tag)}
-                isAButton
-              />
-            </TagListItemStyle>
-          ))}
+          .map(tag => {
+            const isSelected = selectedTagIdList.includes(tag.tagId);
+            return (
+              <TagListItemStyle key={tag.tagId}>
+                <Tag
+                  name={tag.label}
+                  key={tag.tagId}
+                  isSelected={isSelected}
+                  onClick={() => {
+                    Tracking.trackTag(
+                      tag.label,
+                      isSelected ? 'deselect' : 'select'
+                    );
+                    handleSelectTag(tag);
+                  }}
+                  isAButton
+                />
+              </TagListItemStyle>
+            );
+          })}
         {displayShowAll && (
           <TagListItemStyle>
             <TagStyle

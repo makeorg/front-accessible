@@ -29,11 +29,3 @@ export const HiddenOnMobileStyle = styled.span`
     visibility: visible;
   }
 `;
-
-export const HiddenOnDesktopStyle = styled.span`
-  width: 100%;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    display: none;
-    visibility: hidden;
-  }
-`;

@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { type Question } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { TagService } from 'Shared/api/TagService';
@@ -8,59 +8,55 @@ import { TagFilterComponent } from './TagFilterComponent';
 
 type Props = {
   question: Question,
-  selectedTagIds: string[],
+  selectedTagIdList: string[],
   handleSelectTag: TypeTag => void,
 };
 
-type State = {
-  /** List of tags */
-  tags: TypeTag[],
-  /** Show all tags in the filter or not */
-  showAll: boolean,
-};
+export const TagFilterContainer = ({
+  question,
+  selectedTagIdList,
+  handleSelectTag,
+}: Props) => {
+  const [tags, setTags] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
-class TagFilterClass extends React.Component<Props, State> {
-  state = {
-    tags: [],
-    showAll: false,
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
   };
 
-  /** Todo: export to function and Test logic */
-  toggleShowAll = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      showAll: !prevState.showAll,
-    }));
-  };
-
-  componentDidMount = () => {
-    const { question } = this.props;
+  useEffect(() => {
+    let isMounted = true;
     const { questionId, country, language } = question;
-    TagService.getList(questionId, country, language)
-      .then(tags => {
-        this.setState({ tags });
-      })
-      .catch(error => Logger.logError(error));
-  };
+    const fetchTags = async () => {
+      try {
+        const result = await TagService.getList(questionId, country, language);
 
-  render() {
-    const { tags, showAll } = this.state;
-    const { selectedTagIds, handleSelectTag } = this.props;
+        if (isMounted) {
+          setTags(result);
+        }
+      } catch (error) {
+        Logger.logError(error);
+      }
+    };
 
-    if (!tags.length) {
-      return null;
-    }
+    fetchTags();
 
-    return (
-      <TagFilterComponent
-        tags={tags}
-        showAll={showAll}
-        selectedTagIds={selectedTagIds}
-        handleSelectTag={handleSelectTag}
-        toggleShowAll={this.toggleShowAll}
-      />
-    );
+    return () => {
+      isMounted = false;
+    };
+  }, [question]);
+
+  if (!tags.length) {
+    return null;
   }
-}
 
-export const TagFilterContainer = TagFilterClass;
+  return (
+    <TagFilterComponent
+      tags={tags}
+      showAll={showAll}
+      selectedTagIdList={selectedTagIdList}
+      handleSelectTag={handleSelectTag}
+      toggleShowAll={toggleShowAll}
+    />
+  );
+};

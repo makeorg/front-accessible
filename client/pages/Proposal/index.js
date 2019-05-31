@@ -26,9 +26,9 @@ const ProposalPageContainer = (props: Props) => {
   const { proposalId } = match.params;
   useEffect(() => {
     if (!proposal) {
-      fetchProposal(match.params.proposalId);
+      fetchProposal(proposalId);
     }
-  }, [fetchProposal, match.params.proposalId, proposal, proposalId]);
+  }, [fetchProposal, proposal, proposalId]);
 
   if (!questionConfiguration) {
     return <MetaTags description={i18n.t('meta.proposal.description')} />;

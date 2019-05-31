@@ -10,17 +10,19 @@ import {
   DATA_POLICY_LINK,
   CONTACT_LINK,
 } from 'Shared/constants/url';
-import { HiddenOnDesktopStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   FooterItemStyle,
   FooterItemListStyle,
   FooterItemLinkStyle,
 } from 'Client/app/Footer/Styled';
+import { useMobile } from 'Client/hooks/useMedia';
 
 /**
  * Renders Main Footer
  */
 export const FooterLinks = () => {
+  const isMobile = useMobile();
+
   return (
     <FooterItemListStyle>
       <FooterItemStyle>
@@ -28,11 +30,13 @@ export const FooterLinks = () => {
           {i18n.t('main-footer.jobs')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
-      <HiddenOnDesktopStyle as={FooterItemStyle}>
-        <FooterItemLinkStyle href={WHOAREWE_FR_LINK}>
-          {i18n.t('main-footer.whoarewe')}
-        </FooterItemLinkStyle>
-      </HiddenOnDesktopStyle>
+      {isMobile && (
+        <FooterItemStyle>
+          <FooterItemLinkStyle href={WHOAREWE_FR_LINK}>
+            {i18n.t('main-footer.whoarewe')}
+          </FooterItemLinkStyle>
+        </FooterItemStyle>
+      )}
       <FooterItemStyle>
         <FooterItemLinkStyle href={PRESS_LINK}>
           {i18n.t('main-footer.press')}

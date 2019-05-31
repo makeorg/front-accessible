@@ -11,7 +11,6 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 
 export const HeaderStyle = styled.header`
   position: relative;
@@ -47,7 +46,7 @@ export const ProfileAccessWrapperStyle = styled.div`
   }
 `;
 
-export const ProfileAccessButtonLabelStyle = styled(HiddenOnMobileStyle)`
+export const ProfileAccessButtonLabelStyle = styled.span`
   font-family: ${MakeFonts.RobotoBold};
   color: ${MakeThemeColors.Red};
   text-transform: uppercase;

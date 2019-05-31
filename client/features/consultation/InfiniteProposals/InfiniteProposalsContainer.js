@@ -1,6 +1,5 @@
 /* @flow */
-import React from 'react';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import React, { useState, useEffect } from 'react';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
@@ -11,110 +10,81 @@ type Props = {
   tags: string[],
 };
 
-type State = {
-  proposals: TypeProposal[],
-  total: number,
-  hasMore: boolean,
-  seed?: number,
-  page: number,
-  isLoading: boolean,
-};
+export const InfiniteProposalsContainer = ({ question, tags }: Props) => {
+  const [proposals, setProposals] = useState([]);
+  const [startInfiniteScroll, setStartInfiniteScroll] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
+  const [seed, setSeed] = useState(undefined);
+  const [page, setPage] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
-export class InfiniteProposalsContainer extends React.Component<Props, State> {
-  state = {
-    proposals: [],
-    total: 0,
-    hasMore: false,
-    seed: undefined,
-    page: 0,
-    isLoading: false,
+  const clickLoadMore = () => {
+    setStartInfiniteScroll(true);
+    Tracking.trackLoadMoreProposals();
   };
 
-  async componentDidMount() {
-    window.addEventListener('scroll', this.onScroll, false);
-    this.initProposals();
-  }
-
-  async componentDidUpdate(prevProps: Props) {
-    const { tags } = this.props;
-
-    if (tags !== prevProps.tags) {
-      this.initProposals();
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
-  }
-
-  onScroll = () => {
-    const { isLoading, total, proposals, page } = this.state;
-    const scrollThresold =
-      document.body &&
-      window.innerHeight + window.scrollY >= document.body.scrollHeight;
-
-    if (isLoading || total <= proposals.length) return;
-
-    if (scrollThresold && page > 1) {
-      this.loadMoreProposals();
-    }
-  };
-
-  initProposals = async () => {
-    const { question, tags } = this.props;
-    this.setState({ isLoading: true });
-    const { results, total, seed } = await searchProposals(
+  const initProposal = async () => {
+    setIsLoading(true);
+    const { results, total, seed: apiSeed } = await searchProposals(
       question.questionId,
       tags
     );
-    this.setState({
-      proposals: results,
-      hasMore: results.length < total,
-      seed,
-      page: 1,
-      total,
-      isLoading: false,
-    });
+    setProposals(results);
+    setHasMore(results.length < total);
+    setSeed(apiSeed);
+    setPage(1);
+    setIsLoading(false);
   };
 
-  loadMoreProposals = async () => {
-    const { question, tags } = this.props;
-    const { page, seed } = this.state;
-    this.setState({ isLoading: true });
-    const { results, total } = await searchProposals(
+  const loadProposals = async () => {
+    setIsLoading(true);
+    const { results, total, seed: apiSeed } = await searchProposals(
       question.questionId,
       tags,
       seed,
       page
     );
-
-    this.setState(prevState => {
-      const proposals = [...prevState.proposals, ...results];
-      return {
-        ...prevState,
-        proposals,
-        hasMore: proposals.length < total,
-        page: prevState.page + 1,
-        isLoading: false,
-      };
-    });
+    const newProposalList = [...proposals, ...results];
+    setProposals(newProposalList);
+    setHasMore(newProposalList.length < total);
+    setSeed(apiSeed);
+    setPage(page + 1);
+    setIsLoading(false);
   };
 
-  clickLoadMore = () => {
-    this.loadMoreProposals();
-    Tracking.trackLoadMoreProposals();
+  const handleOnScroll = () => {
+    const scrollThresold =
+      document.body &&
+      window.innerHeight + window.scrollY >= document.body.scrollHeight;
+
+    if (isLoading || !hasMore) return;
+
+    if (scrollThresold && page > 1) {
+      loadProposals();
+    }
   };
 
-  render() {
-    const { proposals, page, isLoading, hasMore } = this.state;
-    return (
-      <InfiniteProposalsComponent
-        proposals={proposals}
-        page={page}
-        hasMore={hasMore}
-        isLoading={isLoading}
-        clickLoadMore={this.clickLoadMore}
-      />
-    );
-  }
-}
+  useEffect(() => {
+    window.addEventListener('scroll', handleOnScroll, false);
+
+    return () => window.removeEventListener('scroll', handleOnScroll, false);
+  }, [page, isLoading, hasMore]);
+
+  useEffect(() => {
+    if (startInfiniteScroll) loadProposals();
+  }, [startInfiniteScroll]);
+
+  useEffect(() => {
+    initProposal();
+  }, [tags, question]);
+
+  return (
+    <InfiniteProposalsComponent
+      proposals={proposals}
+      page={page}
+      hasMore={hasMore}
+      isLoading={isLoading}
+      clickLoadMore={clickLoadMore}
+    />
+  );
+};

@@ -5,8 +5,8 @@ import { Tracking } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { WHOAREWE_FR_LINK } from 'Shared/constants/url';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
+import { useMobile } from 'Client/hooks/useMedia';
 import { HeaderAuthentification } from './Authentification';
 import {
   HeaderStyle,
@@ -19,6 +19,7 @@ import {
  * Renders Main Header
  */
 export const Header = () => {
+  const isMobile = useMobile();
   return (
     <HeaderStyle>
       <HeaderInnerStyle>
@@ -32,9 +33,11 @@ export const Header = () => {
           </h1>
         </Link>
         <FlexElementStyle>
-          <HiddenOnMobileStyle as={WhoAreWeLinkStyle} href={WHOAREWE_FR_LINK}>
-            {i18n.t('header.whoarewe')}
-          </HiddenOnMobileStyle>
+          {!isMobile && (
+            <WhoAreWeLinkStyle href={WHOAREWE_FR_LINK}>
+              {i18n.t('header.whoarewe')}
+            </WhoAreWeLinkStyle>
+          )}
           <HeaderAuthentification />
         </FlexElementStyle>
       </HeaderInnerStyle>

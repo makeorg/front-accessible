@@ -22,6 +22,7 @@
     "javascript.validate.enable": false,
     "prettier.eslintIntegration": true,
     "eslint.autoFixOnSave": true,
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
   }
 }
