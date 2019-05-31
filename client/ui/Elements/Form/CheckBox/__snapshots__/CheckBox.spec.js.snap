@@ -5,7 +5,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -5,11 +5,10 @@
+@@ -6,11 +6,10 @@
       id="foo"
       name="bar"
       onChange={[Function onChange]}
@@ -24,7 +24,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -3,11 +3,11 @@
+@@ -4,11 +4,11 @@
       checked={false}
       hidden={true}
       id="foo"

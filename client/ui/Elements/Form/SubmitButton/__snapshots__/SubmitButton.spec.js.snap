@@ -60,6 +60,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 <button
+  aria-disabled={false}
   className="c0"
   disabled={false}
   form="foo"
@@ -80,8 +81,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,8 +1,8 @@
+@@ -1,9 +1,9 @@
   <button
+-   aria-disabled={false}
++   aria-disabled={true}
     className="hs2zb-6 evTCto"
 -   disabled={false}
 +   disabled={true}

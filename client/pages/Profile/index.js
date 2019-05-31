@@ -89,12 +89,18 @@ const Profile = (props: Props) => {
           >
             <TabListStyle>
               <TabStyle selected={isProfileProposalsActive}>
-                <Link to={profileProposalsLink}>
+                <Link
+                  to={profileProposalsLink}
+                  aria-current={isProfileProposalsActive}
+                >
                   {i18n.t('profile.tabs.proposals')}
                 </Link>
               </TabStyle>
               <TabStyle selected={isProfileFavouritesActive}>
-                <Link to={profileFavouritesLink}>
+                <Link
+                  to={profileFavouritesLink}
+                  aria-current={isProfileFavouritesActive}
+                >
                   {i18n.t('profile.tabs.favourites')}
                   <SvgLike aria-hidden style={ProfileTabIconStyle} />
                 </Link>

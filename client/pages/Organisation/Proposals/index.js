@@ -57,7 +57,7 @@ const OrganisationProposalsPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderProposals && (
-        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+        <UnstyledListStyle role="feed">
           {proposals.map((proposal, index) => (
             <ProposalCardWithQuestion
               key={proposal.id}

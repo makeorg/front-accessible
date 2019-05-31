@@ -85,6 +85,7 @@ export const UpdatePasswordComponent = ({
         )}
         <SubmitButton
           disabled={!canSubmit}
+          aria-disabled={!canSubmit}
           formName={PASSWORD_UPDATE_FORMNAME}
           icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.common.submit_label')}

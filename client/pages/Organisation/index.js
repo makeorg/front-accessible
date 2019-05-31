@@ -96,7 +96,7 @@ const OrganisationPage = (props: Props) => {
 
   if (!organisation && isLoading) {
     return (
-      <MiddlePageWrapperStyle>
+      <MiddlePageWrapperStyle aria-busy>
         <Spinner />
       </MiddlePageWrapperStyle>
     );
@@ -149,12 +149,18 @@ const OrganisationPage = (props: Props) => {
           >
             <TabListStyle>
               <TabStyle selected={isOrganisationProposalsActive}>
-                <Link to={organisationProposalsLink}>
+                <Link
+                  to={organisationProposalsLink}
+                  aria-current={isOrganisationProposalsActive}
+                >
                   {i18n.t('organisation.tabs.proposals')}
                 </Link>
               </TabStyle>
               <TabStyle selected={isOrganisationVotesActive}>
-                <Link to={organisationFavouritesLink}>
+                <Link
+                  to={organisationFavouritesLink}
+                  aria-current={isOrganisationVotesActive}
+                >
                   {i18n.t('organisation.tabs.votes')}
                 </Link>
               </TabStyle>
