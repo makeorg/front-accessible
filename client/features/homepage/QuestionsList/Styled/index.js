@@ -31,17 +31,14 @@ export const QuestionItemStyle = styled.li`
   border-radius: 8px;
   background-color: rgb(242, 242, 242);
   overflow: hidden;
-  margin-bottom: ${intToPx(DefaultPadding.Mobile)};
+  margin: 0 0 ${intToPx(DefaultPadding.Mobile)};
   &:last-child {
-    margin-bottom: 0;
+    margin: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0 15px;
-    &:first-child {
-      margin-left: 0;
-    }
+    margin: 0 30px 0 0;
     &:last-child {
-      margin-right: 0;
+      margin: 0;
     }
   }
 `;
