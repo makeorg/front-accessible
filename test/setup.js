@@ -24,6 +24,16 @@ jest.mock('Shared/services/Trackers/FacebookTracking')
 jest.mock('Shared/services/Trackers/TwitterTracking')
 jest.mock('Shared/constants/config');
 
+window.matchMedia = jest.fn().mockImplementation(query => {
+  return {
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  };
+});
+
 function storageMock() {
   const storage = {};
 
