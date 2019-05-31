@@ -22,7 +22,7 @@ export const SequencePageComponent = (props: Props) => {
           question: question.wording.question,
         })}
       />
-      <SequenceSkipLinks />
+      {question.canPropose && <SequenceSkipLinks />}
       <SequencePageContentStyle>
         <SequencePageContentLoader
           question={question}
