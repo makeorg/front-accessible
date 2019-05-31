@@ -81,7 +81,7 @@
     "footer_nav": "Navigation de bas de page",
     "sidebar_area": "Barre latérale de contenu",
     "cookie_area": "Bannière de notification sur l'utilisation des cookies",
-    "consultation_header_area": "Bannière d'introduction de la consultation",
+    "consultation_header_area": "Bannière d'introduction de la consultation : {{name}}",
     "consultation_nav": "Barre de navigation de la consultation",
     "user_profile_nav": "Barre de navigation de mon profil utilisateur",
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}"

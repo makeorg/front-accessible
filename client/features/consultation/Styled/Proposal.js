@@ -30,7 +30,5 @@ export const ProposalTitleStyle = styled(FourthLevelTitleStyle)`
 `;
 
 export const LoadMoreWrapperStyle = styled(CenterColumnStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 15px 0 0;
-  }
+  margin-top: 15px;
 `;

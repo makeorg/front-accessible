@@ -21,11 +21,10 @@ import {
   ConsultationPageSidebarStyle,
   ConsultationIconStyle,
 } from 'Client/pages/Consultation/Styled';
-
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
+import { TagSectionTitle } from '../../Styled/TagFilter';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
@@ -119,12 +118,12 @@ export const ConsultationPanelContent = ({
             question={question}
             questionConfiguration={questionConfiguration}
           />
-          <ThirdLevelTitleStyle id="tag_list">
+          <TagSectionTitle id="tag_list">
             <ConsultationIconStyle>
               <SvgThumbsUp aria-hidden />
             </ConsultationIconStyle>
             {i18n.t('common.vote_on_proposals')}
-          </ThirdLevelTitleStyle>
+          </TagSectionTitle>
           <TagFilter
             question={question}
             handleSelectTag={handleSelectTag}
