@@ -463,10 +463,12 @@
   },
   "homepage": {
     "featured": {
-      "title": "En ce moment sur Make.org"
+      "title": "En ce moment sur Make.org",
+      "status": "État de l'opération : "
     },
     "great-causes": {
-      "title": "nos opérations en cours"
+      "title": "Nos opérations en cours",
+      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant"
     },
     "corporate": {
       "first-section":{
