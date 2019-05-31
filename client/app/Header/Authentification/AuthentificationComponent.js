@@ -52,7 +52,7 @@ export const NotAuthentificatedBar = ({
     <ProfileAccessWrapperStyle>
       <UnstyledButtonStyle
         onClick={handleLoginModal}
-        aria-label={i18n.t('common.connexion_label')}
+        aria-label={i18n.t('common.connexion_extended')}
       >
         <SvgUser
           style={{

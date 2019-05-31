@@ -26,7 +26,7 @@ export const FooterLinks = () => {
   return (
     <FooterItemListStyle>
       <FooterItemStyle>
-        <FooterItemLinkStyle href={JOBS_LINK}>
+        <FooterItemLinkStyle lang="en" href={JOBS_LINK}>
           {i18n.t('main-footer.jobs')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
