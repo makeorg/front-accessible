@@ -12,9 +12,6 @@ export const AuthorDescriptionStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const AuthorInfosStyle = styled.div`

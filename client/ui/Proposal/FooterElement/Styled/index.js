@@ -16,6 +16,7 @@ export const ProposalTagListStyle = styled(UnstyledListStyle)`
 `;
 
 export const ProposalFooterStyle = styled.div`
+  width: 100%;
   display: flex;
   flex-flow: row;
   align-self: flex-start;
