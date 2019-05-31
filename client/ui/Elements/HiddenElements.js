@@ -6,10 +6,10 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ReadableItemStyle = styled.span`
   position: absolute;
-  display: none;
-  width: 0;
-  height: 0;
-  z-index: -100;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 `;
 
 export const HiddenItemStyle = styled.span`
