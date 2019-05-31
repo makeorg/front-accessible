@@ -25,7 +25,10 @@ export const GreatCausesListItemStyle = styled.li`
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex: 1;
-    margin-right: 15px;
+    &:nth-child(2) {
+      margin-right: 30px;
+    }
+    margin-right: 30px;
     &:last-child {
       margin-right: 0;
     }

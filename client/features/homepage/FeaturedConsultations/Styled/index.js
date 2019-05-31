@@ -23,7 +23,7 @@ export const FeaturedArticleColumnStyle = styled.div`
   flex-flow: column;
   justify-content: space-between;
   flex: 1;
-  margin-right: 20px;
+  margin-right: 30px;
   &:last-child {
     margin-right: 0;
   }
@@ -34,7 +34,7 @@ export const FeaturedArticleStyle = styled.article`
   flex: 1;
   background-color: ${BackgroundColors.LightGrey};
   color: ${BasicColors.PureBlack};
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   &:last-child {
     margin-bottom: 0;
   }
