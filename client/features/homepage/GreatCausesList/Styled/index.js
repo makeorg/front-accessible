@@ -52,7 +52,7 @@ export const GreatCauseTriggerStyle = styled.input`
   width: 100%;
 `;
 
-export const GreatCausesOverlayStyle = styled.div`
+export const GreatCausesLinkOverlayStyle = styled.a`
   position: absolute;
   top: 0;
   left: 0;
@@ -63,6 +63,7 @@ export const GreatCausesOverlayStyle = styled.div`
   transform: translateY(125%);
   transition: transform 0.5s ease-in;
   border-radius: 8px;
+  text-decoration: none;
   &[aria-hidden='false'] {
     transform: translateY(0);
   }
@@ -81,16 +82,12 @@ export const GreatCausesDescriptionStyle = styled.p`
   }
 `;
 
-export const GreatCausesLinkStyle = styled.a`
+export const GreatCausesTextStyle = styled.p`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 12px;
   color: ${BasicColors.PureWhite};
   text-decoration: underline;
   margin-top: 10px;
-  &:hover,
-  &:focus {
-    color: ${BasicColors.PureWhite};
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
