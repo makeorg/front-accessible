@@ -315,7 +315,16 @@
       "age": "{{age}} ans",
       "submit_label": "Enregistrer les modifications",
       "submit_success": "Votre demande a bien été prise en compte.",
-      "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement."
+      "error": "Oups ! Une erreur est survenue lors de l'enregistrement de vos informations. Veuillez ressayer ultérieurement.",
+      "labels": {
+        "organisation": "Nom de l'organisation : ",
+        "firstname": "Prénom : ",
+        "email": "Adresse e-mail : ",
+        "postal_code": "Code postal : ",
+        "age": "Âge : ",
+        "profession": "Profession : ",
+        "biography": "Biographie : "
+      }
     },
     "informations_update": {
       "title": "Modifier mon profil",

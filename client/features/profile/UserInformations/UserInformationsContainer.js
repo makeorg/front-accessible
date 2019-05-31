@@ -66,6 +66,9 @@ class UserInformationsHandler extends React.Component<Props, State> {
           {user.isOrganisation && (
             <ProfileContentWrapperStyle>
               <ProfileTitleStyle>
+                <ReadableItemStyle>
+                  {i18n.t('profile.common.labels.organisation')}
+                </ReadableItemStyle>
                 {user.organisationName}
                 &nbsp;
                 <SvgCheckedSymbol
@@ -78,29 +81,53 @@ class UserInformationsHandler extends React.Component<Props, State> {
             <ReadableItemStyle as="h2">
               {i18n.t('profile.common.infos')}
             </ReadableItemStyle>
-            <ProfileTitleStyle>{user.firstName}</ProfileTitleStyle>
-            <ProfileContentStyle>{user.email}</ProfileContentStyle>
+            <ProfileTitleStyle>
+              <ReadableItemStyle>
+                {i18n.t('profile.common.labels.firstname')}
+              </ReadableItemStyle>
+              {user.firstName}
+            </ProfileTitleStyle>
+            <ProfileContentStyle>
+              <ReadableItemStyle>
+                {i18n.t('profile.common.labels.email')}
+              </ReadableItemStyle>
+              {user.email}
+            </ProfileContentStyle>
             {profile.postalCode && (
               <ProfileContentStyle>
-                <SvgMapMarker style={{ marginRight: '3px' }} />
+                <ReadableItemStyle>
+                  {i18n.t('profile.common.labels.postal_code')}
+                </ReadableItemStyle>
+                <SvgMapMarker aria-hidden style={{ marginRight: '3px' }} />
                 {profile.postalCode}
               </ProfileContentStyle>
             )}
             {profile.dateOfBirth && (
               <ProfileContentStyle>
+                <ReadableItemStyle>
+                  {i18n.t('profile.common.labels.age')}
+                </ReadableItemStyle>
                 {i18n.t('profile.common.age', {
                   age: getAgeFromDateOfBrth(profile.dateOfBirth),
                 })}
               </ProfileContentStyle>
             )}
             {profile.profession && (
-              <ProfileContentStyle>{profile.profession}</ProfileContentStyle>
+              <ProfileContentStyle>
+                <ReadableItemStyle>
+                  {i18n.t('profile.common.labels.profession')}
+                </ReadableItemStyle>
+                {profile.profession}
+              </ProfileContentStyle>
             )}
           </ProfileContentWrapperStyle>
         </ProfileAvatarLayoutStyle>
         {profile.description && (
           <React.Fragment>
             <ProfileSeparatorStyle aria-hidden />
+            <ReadableItemStyle>
+              {i18n.t('profile.common.labels.biography')}
+            </ReadableItemStyle>
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}
