@@ -20,7 +20,7 @@
   },
   "partners": [
     {"name": "Klesia", "imageUrl": "/images/operations/handicap/partners/klesia.png", "isFounder": true, "profileUrl": "https://about.make.org/post/klesia"},
-    {"name": "Fondation OCIRP", "imageUrl": "/images/operations/handicap/partners/ocirp.png", "isFounder": true, "profileUrl": "https://about.make.org/post/ocirp"},
+    {"name": "Fondation OCIRP", "imageUrl": "/images/operations/handicap/partners/ocirp.png", "isFounder": true, "profileUrl": "https://about.make.org/post/fondation-ocirp"},
     {"name": "Spicee", "imageUrl": "/images/operations/handicap/partners/spicee.png", "isFounder": true, "profileUrl": "https://about.make.org/post/spicee"},
     {"name": "Handirect.fr", "imageUrl": "/images/operations/handicap/partners/handirect.png", "isFounder": true, "profileUrl": "https://about.make.org/post/handirect-fr"},
     {"name": "TF1 Initiatives", "imageUrl": "/images/operations/handicap/partners/tf1initiatives.png", "isFounder": true, "profileUrl": "https://about.make.org/post/tf1-initiatives"},
