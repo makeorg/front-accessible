@@ -6,7 +6,7 @@ import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { QualificationResults } from 'Client/features/vote/Qualification/Results';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   DetailledItemStyle,
   VoteDataListStyle,
@@ -29,7 +29,9 @@ export const DetailledResultItem = (props: Props) => {
   return (
     <DetailledItemStyle className={voteKey}>
       <FlexElementStyle>
-        <ReadableItemStyle>{i18n.t(`vote.${voteKey}`)}</ReadableItemStyle>
+        <ScreenReaderItemStyle>
+          {i18n.t(`vote.${voteKey}`)}
+        </ScreenReaderItemStyle>
         <IsVotedButtonStyle color={voteColor} as="div" aria-hidden>
           {buttonIcon}
         </IsVotedButtonStyle>
@@ -42,9 +44,9 @@ export const DetailledResultItem = (props: Props) => {
           </VoteDataItemStyle>
         </VoteDataListStyle>
       </FlexElementStyle>
-      <ReadableItemStyle>
+      <ScreenReaderItemStyle>
         {i18n.t(`qualification.static_repartition`)}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <QualificationDataListStyle>
         {vote.qualifications.map(qualification => (
           <QualificationResults

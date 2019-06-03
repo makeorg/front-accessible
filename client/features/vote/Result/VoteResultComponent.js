@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type VotesPercentObject } from 'Shared/types/proposal';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
@@ -71,9 +71,9 @@ export const VoteResultComponent = (props: Props) => {
 
   return (
     <VoteResultContainerStyle>
-      <ReadableItemStyle as="p">
+      <ScreenReaderItemStyle as="p">
         {i18n.t(`results.voted.${votedKey}`)}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <VoteButton
         color={voteStaticParams[votedKey].color}
         label={i18n.t('unvote.title')}
@@ -83,9 +83,9 @@ export const VoteResultComponent = (props: Props) => {
         displayPending={pending}
         showTooltip={withLabel}
       />
-      <ReadableItemStyle as="p">
+      <ScreenReaderItemStyle as="p">
         {i18n.t('results.total', { count: votesCount })}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <VoteResultGraphStyle>
         {voteKeys.map(voteKey => (
           <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>

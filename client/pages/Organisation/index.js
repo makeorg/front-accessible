@@ -39,6 +39,7 @@ import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -96,7 +97,7 @@ const OrganisationPage = (props: Props) => {
 
   if (!organisation && isLoading) {
     return (
-      <MiddlePageWrapperStyle>
+      <MiddlePageWrapperStyle aria-busy>
         <Spinner />
       </MiddlePageWrapperStyle>
     );
@@ -128,6 +129,9 @@ const OrganisationPage = (props: Props) => {
           </ProfileAvatarLayoutStyle>
           <ProfileContentWrapperStyle>
             <ProfileTitleStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.organisation')}
+              </ScreenReaderItemStyle>
               {organisation.organisationName}
               &nbsp;
               <SvgCheckedSymbol
@@ -137,7 +141,10 @@ const OrganisationPage = (props: Props) => {
           </ProfileContentWrapperStyle>
           {organisation.description && (
             <React.Fragment>
-              <ProfileSeparatorStyle aria-hidden />
+              <ProfileSeparatorStyle />
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.biography')}
+              </ScreenReaderItemStyle>
               <UserDescription description={organisation.description} />
             </React.Fragment>
           )}
@@ -149,12 +156,18 @@ const OrganisationPage = (props: Props) => {
           >
             <TabListStyle>
               <TabStyle selected={isOrganisationProposalsActive}>
-                <Link to={organisationProposalsLink}>
+                <Link
+                  to={organisationProposalsLink}
+                  aria-current={isOrganisationProposalsActive}
+                >
                   {i18n.t('organisation.tabs.proposals')}
                 </Link>
               </TabStyle>
               <TabStyle selected={isOrganisationVotesActive}>
-                <Link to={organisationFavouritesLink}>
+                <Link
+                  to={organisationFavouritesLink}
+                  aria-current={isOrganisationVotesActive}
+                >
                   {i18n.t('organisation.tabs.votes')}
                 </Link>
               </TabStyle>

@@ -6,6 +6,7 @@ import { getConsultationLink } from 'Shared/helpers/url';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
 import { Tracking } from 'Shared/services/Tracking';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   QuestionListTitleStyle,
   QuestionsListStyle,
@@ -28,7 +29,7 @@ export const QuestionsListComponent = props => {
         {i18n.t('homepage.question_list.title')}
       </QuestionListTitleStyle>
       <QuestionsListStyle>
-        {questions.map(question => (
+        {questions.map((question, index) => (
           <QuestionItemStyle key={question.slug}>
             <QuestionLinkStyle
               {...(isInProgress(question.startDate, question.endDate)
@@ -37,18 +38,27 @@ export const QuestionsListComponent = props => {
                   }
                 : { href: question.aboutUrl, as: 'a' })}
               onClick={() => Tracking.trackClickHomepageConsultations()}
+              aria-flowto={`question_title_${index}`}
             >
               <QuestionBorderStyle
                 colorStart={question.theme.colorStart}
                 colorEnd={question.theme.colorEnd}
               />
               <QuestionStyle>
-                <QuestionStatusStyle>
+                <QuestionStatusStyle id={`question_status_${index}`}>
+                  <ScreenReaderItemStyle>
+                    {i18n.t('homepage.question_list.status')}
+                  </ScreenReaderItemStyle>
                   {isInProgress(question.startDate, question.endDate)
                     ? i18n.t('homepage.question_list.question_inprogress')
                     : i18n.t('homepage.question_list.question_ended')}
                 </QuestionStatusStyle>
-                {question.title}
+                <span
+                  id={`question_title_${index}`}
+                  aria-flowto={`question_status_${index}`}
+                >
+                  {question.title}
+                </span>
               </QuestionStyle>
               <SvgAngleArrowRight style={QuestionArrowStyle} />
             </QuestionLinkStyle>

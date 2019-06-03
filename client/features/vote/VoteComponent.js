@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { getVoteKey } from 'Shared/helpers/vote';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { VoteButton } from './Button';
 import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
@@ -63,7 +63,9 @@ export const VoteComponent = (props: VoteProps) => {
 
   return (
     <VoteContainerStyle>
-      <ReadableItemStyle as="p">{i18n.t('vote.intro_title')}</ReadableItemStyle>
+      <ScreenReaderItemStyle as="p">
+        {i18n.t('vote.intro_title')}
+      </ScreenReaderItemStyle>
       <VoteWrapperStyle>
         <VoteButtonsComponent
           proposalId={proposalId}

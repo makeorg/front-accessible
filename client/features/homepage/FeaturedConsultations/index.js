@@ -10,6 +10,7 @@ import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.
 import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
 
 import { Tracking } from 'Shared/services/Tracking';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWraperStyle,
@@ -66,10 +67,7 @@ const FeaturedDesktop = () => {
   return (
     <FeaturedArticleWrapperStyle id="featured_list">
       <FeaturedArticleColumnStyle>
-        <FeaturedArticleCol1Style
-          key="article_title_0"
-          aria-labelledby="article_title_0"
-        >
+        <FeaturedArticleCol1Style key="article_title_0">
           <Featured featured={featuredsCol1} index={0} />
         </FeaturedArticleCol1Style>
       </FeaturedArticleColumnStyle>
@@ -90,10 +88,7 @@ const FeaturedDesktop = () => {
 const FeaturedMobile = () => (
   <FeaturedArticleWrapperStyle>
     {featureds.map((featured, key) => (
-      <FeaturedArticleStyle
-        key={`article_title_${key + 1}`}
-        aria-labelledby={`article_title_${key + 1}`}
-      >
+      <FeaturedArticleStyle key={`article_title_${key + 1}`}>
         <Featured featured={featured} index={key + 1} />
       </FeaturedArticleStyle>
     ))}
@@ -119,18 +114,22 @@ const Featured = ({ featured, index }) => {
         onClick={() =>
           Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
         }
+        aria-hidden
         {...linkObject}
       >
         <img
           src={isMobile ? featured.picture_mobile : featured.picture}
-          alt={featured.title}
+          alt=""
         />
       </FeaturedPictureWraperStyle>
       <FeaturedInformationsWraperStyle>
-        <FeaturedTypeStyle>{featured.type}</FeaturedTypeStyle>
-        <FeaturedArticleTitleStyle id={`article_title_${index}`}>
-          {featured.title}
-        </FeaturedArticleTitleStyle>
+        <FeaturedTypeStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('homepage.featured.status')}
+          </ScreenReaderItemStyle>
+          {featured.type}
+        </FeaturedTypeStyle>
+        <FeaturedArticleTitleStyle>{featured.title}</FeaturedArticleTitleStyle>
         {featured.description && !isMobile && (
           <FeaturedDescriptionStyle>
             {featured.description}

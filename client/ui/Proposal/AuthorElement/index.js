@@ -7,7 +7,7 @@ import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -62,9 +62,9 @@ export const ProposalAuthorElement = (props: Props) => {
             &nbsp;
           </React.Fragment>
         )}
-        <ReadableItemStyle>
+        <ScreenReaderItemStyle>
           {i18n.t('proposal_card.author.from')}
-        </ReadableItemStyle>
+        </ScreenReaderItemStyle>
         {author.organisationName ? (
           <React.Fragment>
             <RedLinkStyle
@@ -90,12 +90,10 @@ export const ProposalAuthorElement = (props: Props) => {
         <ProposalAuthorAge age={author.age} />
         {!!createdAt && (
           <React.Fragment>
-            <AuthorSeparatorStyle aria-hidden>
-              &nbsp;&bull;&nbsp;
-            </AuthorSeparatorStyle>
-            <ReadableItemStyle>
+            <AuthorSeparatorStyle>&nbsp;&bull;&nbsp;</AuthorSeparatorStyle>
+            <ScreenReaderItemStyle>
               {i18n.t('proposal_card.author.date')}
-            </ReadableItemStyle>
+            </ScreenReaderItemStyle>
             <time dateTime={createdAt}>
               {DateHelper.creationDateFormat(createdAt)}
             </time>
@@ -104,9 +102,9 @@ export const ProposalAuthorElement = (props: Props) => {
       </AuthorInfosStyle>
       {withStatus && (
         <ProposalStatusStyle className={`status-${formattedProposalStatus}`}>
-          <ReadableItemStyle>
+          <ScreenReaderItemStyle>
             {i18n.t('proposal_card.status.title')}
-          </ReadableItemStyle>
+          </ScreenReaderItemStyle>
           {i18n.t(`proposal_card.status.${formattedProposalStatus}`)}
         </ProposalStatusStyle>
       )}

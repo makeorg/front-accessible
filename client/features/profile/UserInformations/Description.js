@@ -71,7 +71,7 @@ export class UserDescription extends React.Component<Props, State> {
             </ProfileCollapseButtonStyle>
           </ProfileCollapseWrapperStyle>
         ) : (
-          <ProfileSeparatorStyle aria-hidden />
+          <ProfileSeparatorStyle />
         )}
       </React.Fragment>
     );

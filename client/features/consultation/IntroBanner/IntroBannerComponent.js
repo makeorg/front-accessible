@@ -21,7 +21,9 @@ export const IntroBannerComponent = (props: Props) => {
       gradientStart={theme.gradientStart}
       gradientEnd={theme.gradientEnd}
       color={theme.gradientStart}
-      aria-label={i18n.t('common.consultation_header_area')}
+      aria-label={i18n.t('common.consultation_header_area', {
+        name: wording.question,
+      })}
       id="intro"
     >
       {questionConfiguration.isGreatCause && (

@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ProposalCharLimitStyle } from '../Styled';
 
 type Props = {
@@ -21,7 +21,7 @@ export const CharsCounter = (props: Props) => {
       <ProposalCharLimitStyle aria-hidden>
         {`${currentLength}/140`}
       </ProposalCharLimitStyle>
-      <ReadableItemStyle
+      <ScreenReaderItemStyle
         as="meter"
         min={minLength}
         max={140}
@@ -31,7 +31,7 @@ export const CharsCounter = (props: Props) => {
           current: currentLength,
           total: 140,
         })}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
     </React.Fragment>
   );
 };

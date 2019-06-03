@@ -76,6 +76,7 @@ export const DeleteAccountComponent = ({
         )}
         <SubmitButton
           disabled={!canSubmit}
+          aria-disabled={!canSubmit}
           formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
           icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.delete_account.submit_label')}

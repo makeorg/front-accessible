@@ -22,7 +22,7 @@ import {
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
 } from 'Client/ui/Elements/ProfileElements';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -66,6 +66,9 @@ class UserInformationsHandler extends React.Component<Props, State> {
           {user.isOrganisation && (
             <ProfileContentWrapperStyle>
               <ProfileTitleStyle>
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.organisation')}
+                </ScreenReaderItemStyle>
                 {user.organisationName}
                 &nbsp;
                 <SvgCheckedSymbol
@@ -75,32 +78,56 @@ class UserInformationsHandler extends React.Component<Props, State> {
             </ProfileContentWrapperStyle>
           )}
           <ProfileContentWrapperStyle>
-            <ReadableItemStyle as="h2">
+            <ScreenReaderItemStyle as="h2">
               {i18n.t('profile.common.infos')}
-            </ReadableItemStyle>
-            <ProfileTitleStyle>{user.firstName}</ProfileTitleStyle>
-            <ProfileContentStyle>{user.email}</ProfileContentStyle>
+            </ScreenReaderItemStyle>
+            <ProfileTitleStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.firstname')}
+              </ScreenReaderItemStyle>
+              {user.firstName}
+            </ProfileTitleStyle>
+            <ProfileContentStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.email')}
+              </ScreenReaderItemStyle>
+              {user.email}
+            </ProfileContentStyle>
             {profile.postalCode && (
               <ProfileContentStyle>
-                <SvgMapMarker style={{ marginRight: '3px' }} />
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.postal_code')}
+                </ScreenReaderItemStyle>
+                <SvgMapMarker aria-hidden style={{ marginRight: '3px' }} />
                 {profile.postalCode}
               </ProfileContentStyle>
             )}
             {profile.dateOfBirth && (
               <ProfileContentStyle>
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.age')}
+                </ScreenReaderItemStyle>
                 {i18n.t('profile.common.age', {
                   age: getAgeFromDateOfBrth(profile.dateOfBirth),
                 })}
               </ProfileContentStyle>
             )}
             {profile.profession && (
-              <ProfileContentStyle>{profile.profession}</ProfileContentStyle>
+              <ProfileContentStyle>
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.profession')}
+                </ScreenReaderItemStyle>
+                {profile.profession}
+              </ProfileContentStyle>
             )}
           </ProfileContentWrapperStyle>
         </ProfileAvatarLayoutStyle>
         {profile.description && (
           <React.Fragment>
-            <ProfileSeparatorStyle aria-hidden />
+            <ProfileSeparatorStyle />
+            <ScreenReaderItemStyle>
+              {i18n.t('profile.common.labels.biography')}
+            </ScreenReaderItemStyle>
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}

@@ -42,7 +42,7 @@ export const SingleProposalCardComponent = (props: Props) => {
           country={proposal.country}
           language={proposal.language}
         />
-        <CardSeparatorStyle aria-hidden />
+        <CardSeparatorStyle />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
         <Vote
           proposalId={proposal.id}

@@ -59,7 +59,7 @@ const OrganisationVotesPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderVotes && (
-        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+        <UnstyledListStyle role="feed">
           {votes.map((vote, index) => (
             <ProfileVoteCard
               key={`organisation_votes_${vote.proposal.id}`}

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 
 type Props = {
   /** Index of the card */
@@ -22,11 +22,11 @@ export const CardDescription = (props: Props) => {
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <ReadableItemStyle as="dt">
+    <ScreenReaderItemStyle as="dt">
       {i18n.t('proposal_card.number', {
         current: activeGaugeIndex,
         total: maxGaugeIndex,
       })}
-    </ReadableItemStyle>
+    </ScreenReaderItemStyle>
   );
 };

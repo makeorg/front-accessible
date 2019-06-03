@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
@@ -50,9 +50,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
 
   return (
     <ProposalSubmitFormStyle isOpen={isOpen}>
-      <ReadableItemStyle as="p">
+      <ScreenReaderItemStyle as="p">
         {i18n.t('proposal_submit.title')}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <ProposalInputWrapperStyle>
         <ProposalLabelStyle htmlFor="proposal">
           {getBaitText()}

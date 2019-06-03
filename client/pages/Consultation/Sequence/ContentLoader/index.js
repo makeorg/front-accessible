@@ -48,7 +48,7 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
 
     if (!question) {
       return (
-        <SequencePageContentStyle>
+        <SequencePageContentStyle aria-busy>
           <Spinner />
         </SequencePageContentStyle>
       );

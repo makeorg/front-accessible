@@ -46,6 +46,7 @@ export const CheckBoxComponent = (props: Props) => {
         value={value}
         required={required}
         checked={isChecked}
+        aria-checked={isChecked}
         onChange={() => {}}
         hidden
       />

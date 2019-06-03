@@ -27,7 +27,7 @@ export const CookieBannerComponent = ({
       }}
     />
     <CloseBannerButtonStyle
-      aria-label={i18n.t('pannel.close')}
+      aria-label={i18n.t('cookie_alert.close')}
       aria-expanded="false"
       onClick={handleClose}
     >

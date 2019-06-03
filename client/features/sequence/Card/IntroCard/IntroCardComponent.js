@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
-import { ReadableItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ExtraLogo } from './ExtraLogo';
 import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
@@ -46,9 +46,9 @@ export const IntroCardComponent = (props: Props) => {
 
   return (
     <React.Fragment>
-      <ReadableItemStyle as="dt">
+      <ScreenReaderItemStyle as="dt">
         {i18n.t('intro_card.purpose')}
-      </ReadableItemStyle>
+      </ScreenReaderItemStyle>
       <ProposalCardCenteredStyle
         position={position}
         scale={scale}

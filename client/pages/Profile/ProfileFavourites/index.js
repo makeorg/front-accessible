@@ -51,7 +51,7 @@ const ProfileFavouritesPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderProposals && (
-        <UnstyledListStyle role="feed" aria-busy={isLoading}>
+        <UnstyledListStyle role="feed">
           {proposals.map((proposal, index) => (
             <ProfileProposalCard
               key={proposal.id}

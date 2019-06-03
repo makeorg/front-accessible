@@ -32,10 +32,11 @@ export const CollapseComponent = (props: Props) => {
     toggleCollapse,
   } = props;
   return (
-    <CollapseWrapperStyle>
+    <CollapseWrapperStyle aria-expanded={disableCollapse ? true : !isCollapsed}>
       <CollapseTriggerStyle
         onClick={toggleCollapse}
         disabled={disableCollapse}
+        aria-disabled={disableCollapse}
         aria-label={
           isCollapsed
             ? i18n.t('common.expand_collapse', { name: title })
@@ -54,7 +55,7 @@ export const CollapseComponent = (props: Props) => {
         forcedexpand={disableCollapse}
         aria-hidden={disableCollapse ? false : isCollapsed}
       >
-        <CollapseSeparatorStyle aria-hidden />
+        <CollapseSeparatorStyle />
         {children}
       </CollapseContentStyle>
     </CollapseWrapperStyle>

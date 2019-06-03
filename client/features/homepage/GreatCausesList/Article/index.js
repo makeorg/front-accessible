@@ -25,7 +25,9 @@ export const GreatCauseArticle = (props: Props) => {
         type="image"
         src={image}
         alt={title}
-        aria-label={i18n.t('common.display_pannel')}
+        aria-label={i18n.t('homepage.great-causes.expand_panel', {
+          name: title,
+        })}
         aria-hidden={isOverlayDisplayed}
         tabIndex={isOverlayDisplayed ? -1 : 0}
         onClick={() => setDisplayOverlay(true)}
