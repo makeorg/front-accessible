@@ -3,9 +3,9 @@ import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import {
   GreatCausesArticleStyle,
-  GreatCausesOverlayStyle,
+  GreatCausesLinkOverlayStyle,
   GreatCauseTriggerStyle,
-  GreatCausesLinkStyle,
+  GreatCausesTextStyle,
 } from '../Styled';
 
 type Props = {
@@ -32,21 +32,18 @@ export const GreatCauseArticle = (props: Props) => {
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
       />
-      <GreatCausesOverlayStyle
+      <GreatCausesLinkOverlayStyle
         className="overlay"
+        href={linkUrl}
         aria-hidden={!isOverlayDisplayed}
+        onFocus={() => setDisplayOverlay(true)}
+        onBlur={() => setDisplayOverlay(false)}
+        onClick={() => Tracking.trackClickHomepageConsultations()}
+        tabIndex={isOverlayDisplayed ? 0 : -1}
       >
         {children}
-        <GreatCausesLinkStyle
-          href={linkUrl}
-          onFocus={() => setDisplayOverlay(true)}
-          onBlur={() => setDisplayOverlay(false)}
-          onClick={() => Tracking.trackClickHomepageConsultations()}
-          tabIndex={isOverlayDisplayed ? 0 : -1}
-        >
-          {linkText}
-        </GreatCausesLinkStyle>
-      </GreatCausesOverlayStyle>
+        <GreatCausesTextStyle>{linkText}</GreatCausesTextStyle>
+      </GreatCausesLinkOverlayStyle>
     </GreatCausesArticleStyle>
   );
 };

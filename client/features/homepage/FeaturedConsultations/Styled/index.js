@@ -98,6 +98,7 @@ export const FeaturedDescriptionStyle = styled.p`
 `;
 
 export const FeaturedLinkStyle = styled(LinkAsRedButton)`
+  text-align: center;
   margin-top: auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
       Breakpoints.Desktop

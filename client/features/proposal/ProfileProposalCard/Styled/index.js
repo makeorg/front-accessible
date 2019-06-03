@@ -3,7 +3,11 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { CardStyle } from 'Client/ui/Cards';
-import { TextColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import {
+  TextColors,
+  BasicColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 
 export const ProfileProposalCardStyle = styled(CardStyle)`
   margin: 15px 0;
@@ -30,14 +34,16 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
 `;
 
 export const ProposalStyle = styled.a`
-  max-width: 100%;
+  width: 100%;
   font-size: 14px;
   line-height: normal;
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 5px;
+  padding-top: 10px;
   text-decoration: none;
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
