@@ -10,19 +10,21 @@ type Props = {
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
+  /** Boolean toggled when card is visible / hidden */
+  isCardVisible: boolean,
 };
 
 /**
  * Renders Progress Bar in each card
  */
 export const CardDescription = (props: Props) => {
-  const { index, cardsCount, cardOffset } = props;
+  const { index, cardsCount, cardOffset, isCardVisible } = props;
 
   const activeGaugeIndex = index + cardOffset;
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <ScreenReaderItemStyle as="dt">
+    <ScreenReaderItemStyle as="dt" aria-hidden={!isCardVisible}>
       {i18n.t('proposal_card.number', {
         current: activeGaugeIndex,
         total: maxGaugeIndex,

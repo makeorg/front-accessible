@@ -86,6 +86,16 @@ export const VoteResultComponent = (props: Props) => {
       <ScreenReaderItemStyle as="p">
         {i18n.t('results.total', { count: votesCount })}
       </ScreenReaderItemStyle>
+      <ScreenReaderItemStyle as="ul">
+        {voteKeys.map(voteKey => (
+          <li key={`${voteKey}_percent_${proposalId}`}>
+            {i18n.t('vote.with_percent', {
+              votedKey: i18n.t(`vote.${voteKey}`),
+              votedPercent: votesPercent[voteKey],
+            })}
+          </li>
+        ))}
+      </ScreenReaderItemStyle>
       <VoteResultGraphStyle>
         {voteKeys.map(voteKey => (
           <VoteResultItemStyle key={`${voteKey}_item_${proposalId}`}>

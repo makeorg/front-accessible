@@ -61,6 +61,7 @@ export const SignUpCardComponent = (props: Props) => {
         cardsCount={cardsCount}
         cardOffset={cardOffset}
         goToPreviousCard={goToPreviousCard}
+        isCardVisible={isCardVisible}
       />
       <ProposalCardStyle
         position={position}

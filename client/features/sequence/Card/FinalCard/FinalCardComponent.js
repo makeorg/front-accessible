@@ -56,6 +56,7 @@ export const FinalCardComponent = (props: Props) => {
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
+        isCardVisible={isCardVisible}
       />
       <ProposalCardStyle
         position={position}
