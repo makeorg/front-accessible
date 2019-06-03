@@ -63,7 +63,6 @@ export const Card = (props: Props) => {
           proposal={card.configuration}
           cardOffset={card.cardOffset}
           index={index}
-          currentIndex={currentIndex}
           position={position}
           scale={scale}
           zindex={zindex}
@@ -80,7 +79,6 @@ export const Card = (props: Props) => {
           configuration={card.configuration}
           position={position}
           index={index}
-          currentIndex={currentIndex}
           scale={scale}
           zindex={zindex}
           isCardCollapsed={isCardCollapsed}

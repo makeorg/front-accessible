@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -27,8 +27,6 @@ type Props = {
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Method called when previous card button is clicked  */
   goToPreviousCard: () => void,
   /** Method called when next card button is clicked (Incremented currentIndex) */
@@ -55,7 +53,6 @@ export const ProposalCardComponent = (props: Props) => {
     proposal,
     index,
     cardsCount,
-    currentIndex,
     cardOffset,
     goToPreviousCard,
     goToNextCard,
@@ -105,7 +102,6 @@ export const ProposalCardComponent = (props: Props) => {
             votes={proposal.votes}
             proposalKey={proposal.proposalKey}
             index={index}
-            currentIndex={currentIndex}
             onVote={handleVoteOnSequence}
             onUnvote={handleUnvoteOnSequence}
             goToNextCard={goToNextCard}

@@ -16,8 +16,6 @@ type Props = {
   scale: number,
   /** Zindex property used by Styled Component */
   zindex: number,
-  /** Incremented / Decremented Index */
-  currentIndex: number,
   /** Total of cards */
   cardsCount: number,
   /** Offset of cards without pagination (introCard) */
@@ -52,7 +50,6 @@ const ProposalCardClass = (props: Props) => {
     position,
     scale,
     zindex,
-    currentIndex,
     isCardCollapsed,
     isCardVisible,
     goToPreviousCard,
@@ -69,7 +66,6 @@ const ProposalCardClass = (props: Props) => {
       scale={scale}
       zindex={zindex}
       cardsCount={cardsCount}
-      currentIndex={currentIndex}
       cardOffset={cardOffset}
       isCardCollapsed={isCardCollapsed}
       isCardVisible={isCardVisible}
