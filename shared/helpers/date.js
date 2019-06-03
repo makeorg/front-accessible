@@ -67,11 +67,12 @@ export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
   return age;
 };
 
-export const isInProgress = (endDate: string) => {
+export const isInProgress = (startDate: string, endDate: string) => {
   const today = new Date();
   const end = new Date(endDate);
+  const start = new Date(startDate);
 
-  return today < end;
+  return start <= today && today < end;
 };
 
 export class DateHelperSingleton {

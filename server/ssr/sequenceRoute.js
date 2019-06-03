@@ -1,5 +1,8 @@
 import { createInitialState } from 'Shared/store/initialState';
 import { SequenceService } from 'Shared/api/SequenceService';
+import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { isInProgress } from 'Shared/helpers/date';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -15,8 +18,15 @@ export const sequenceRoute = async (req, res) => {
   try {
     const initialState = createInitialState();
     const { questionSlug } = req.params;
-    const question = await getQuestion(questionSlug);
-    const questionConfiguration = await getQuestionConfiguration(questionSlug);
+    const question: TypeQuestion = await getQuestion(questionSlug);
+
+    if (!isInProgress(question.startDate, question.endDate)) {
+      return res.redirect(question.aboutUrl);
+    }
+
+    const questionConfiguration: TypeQuestionConfiguration = await getQuestionConfiguration(
+      questionSlug
+    );
     if (questionConfiguration) {
       const { sequenceConfig } = questionConfiguration;
       questionConfiguration.sequenceConfig = disableExtraSlidesByQuery(

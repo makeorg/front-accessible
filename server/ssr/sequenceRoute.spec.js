@@ -2,7 +2,7 @@ import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { isInProgress } from 'Shared/helpers/date';
-import { consultationRoute } from './consultationRoute';
+import { sequenceRoute } from './sequenceRoute';
 import { reactRender } from '../reactRender';
 import { logError } from './helpers/ssr.helper';
 import { getQuestion } from '../service/QuestionService';
@@ -30,6 +30,9 @@ const fooQuestion = {
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
 };
+const fooQuestionConfig = {
+  sequenceConfig: {},
+};
 const questionSlug = 'bar';
 
 const request = httpMocks.createRequest({
@@ -41,7 +44,7 @@ const request = httpMocks.createRequest({
 });
 const response = httpMocks.createResponse();
 
-describe('Consultation page route', () => {
+describe('Sequence page route', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -49,16 +52,16 @@ describe('Consultation page route', () => {
   describe('The route', () => {
     it('construct route initial state and render', async () => {
       getQuestion.mockReturnValue(fooQuestion);
-      SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
+      SequenceService.fetchConfiguration.mockReturnValue(fooQuestionConfig);
       createInitialState.mockReturnValue({ sequence: {}, proposal: {} });
       isInProgress.mockReturnValue(true);
 
-      await consultationRoute(request, response);
+      await sequenceRoute(request, response);
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {
             question: fooQuestion,
-            questionConfiguration: 'questionconfigData',
+            questionConfiguration: fooQuestionConfig,
           },
         },
         sequence: { questionSlug: 'bar' },
@@ -70,7 +73,7 @@ describe('Consultation page route', () => {
       getQuestion.mockReturnValue(fooQuestion);
       jest.spyOn(response, 'redirect');
 
-      await consultationRoute(request, response);
+      await sequenceRoute(request, response);
 
       expect(response.redirect).toHaveBeenCalledWith('http://localhost/goo');
       expect(response.statusCode).toBe(302);
@@ -83,7 +86,7 @@ describe('Consultation page route', () => {
         throw error;
       });
 
-      await consultationRoute(request, response);
+      await sequenceRoute(request, response);
       expect(logError).toHaveBeenNthCalledWith(1, error);
     });
   });
