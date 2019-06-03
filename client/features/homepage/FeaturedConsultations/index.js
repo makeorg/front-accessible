@@ -26,15 +26,15 @@ import {
 
 const featureds = [
   {
-    type: 'Lancement',
+    type: 'Grande Cause',
     title:
       'Comment la société peut-elle garantir une vraie place aux personnes handicapées ?',
     description:
-      'Le 28 mai 2019, MAKE.ORG et ses partenaires lancent une consultation pour garantir une vraie place aux personnes handicapées.',
+      'MAKE.ORG et ses partenaires ont lancé une consultation pour garantir une vraie place aux personnes handicapées. Votez, proposez, agissez !',
     picture: HandicapPicture,
     picture_mobile: HandicapMobilePicture,
     cta_text: 'Participez à la consultation',
-    link: '/FR-fr/consultation/handicap/selection',
+    link: '/FR-fr/consultation/handicap/consultation',
     is_external_link: false,
   },
   {
