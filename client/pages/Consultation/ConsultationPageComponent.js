@@ -59,13 +59,13 @@ export const ConsultationPageComponent = ({
           id="consultation_nav"
         >
           <TabListStyle>
-            <FullWidthTabStyle selected={isConsultationPage}>
+            <FullWidthTabStyle isSelected={isConsultationPage}>
               <Link to={consultationLink} aria-current={isConsultationPage}>
                 <ConsultationTabContent question={question} />
               </Link>
             </FullWidthTabStyle>
             {isGreatCause(question.operationKind) && (
-              <FullWidthTabStyle selected={isActionPage}>
+              <FullWidthTabStyle isSelected={isActionPage}>
                 <Link to={actionLink} aria-current={isActionPage}>
                   {i18n.t('consultation.tabs.action')}
                 </Link>

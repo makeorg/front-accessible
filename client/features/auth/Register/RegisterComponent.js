@@ -40,7 +40,7 @@ export const RegisterComponent = (props: Props) => {
   const { user, errors, handleChange, handleSubmit, handleLoginModal } = props;
 
   return (
-    <RegisterStyle role="region" aria-labelledby="register_title">
+    <RegisterStyle aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>

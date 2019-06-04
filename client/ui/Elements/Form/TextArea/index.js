@@ -83,7 +83,6 @@ export class TextArea extends React.Component<Props> {
             maxLength={maxLength}
             spellCheck={spellCheck}
             autoComplete={autoComplete}
-            async
           />
           <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
           {maxLength && withCounter && (

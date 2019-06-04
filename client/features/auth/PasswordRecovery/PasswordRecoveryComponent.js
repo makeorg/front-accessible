@@ -40,10 +40,7 @@ export const PasswordRecoveryComponent = (props: Props) => {
   const { updated } = props;
 
   return (
-    <PasswordRecoveryStyle
-      role="region"
-      aria-labelledby="password_recovery_title"
-    >
+    <PasswordRecoveryStyle aria-labelledby="password_recovery_title">
       {updated ? (
         <PasswordRecoverySuccess />
       ) : (

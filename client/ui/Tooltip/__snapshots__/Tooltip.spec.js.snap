@@ -63,7 +63,6 @@ Array [
     role="tooltip"
   />,
   <div
-    aria-label="common.display_tooltip"
     onBlur={[Function]}
     onFocus={[Function]}
     onMouseEnter={[Function]}

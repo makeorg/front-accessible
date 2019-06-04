@@ -12,7 +12,6 @@ import {
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { MetaTags } from 'Client/app/MetaTags';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
 
 type Props = {
@@ -57,7 +56,7 @@ const OrganisationProposalsPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderProposals && (
-        <UnstyledListStyle role="feed">
+        <section role="feed">
           {proposals.map((proposal, index) => (
             <ProposalCardWithQuestion
               key={proposal.id}
@@ -66,7 +65,7 @@ const OrganisationProposalsPage = (props: Props) => {
               size={proposalsLength}
             />
           ))}
-        </UnstyledListStyle>
+        </section>
       )}
       {renderPlaceholder && (
         <OrganisationProposalsPlaceholder

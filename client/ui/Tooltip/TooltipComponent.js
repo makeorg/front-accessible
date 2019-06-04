@@ -14,8 +14,6 @@ type Props = {
   hideTooltip: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
   /** Boolean toggled when tooltip is shown / hidden */
   displayTooltip: boolean,
-  /** Custom aria-label */
-  ariaLabel: sting,
 };
 
 export const TooltipComponent = (props: Props) => {
@@ -26,7 +24,6 @@ export const TooltipComponent = (props: Props) => {
     displayTooltip,
     showTooltip,
     hideTooltip,
-    ariaLabel,
   } = props;
 
   return (
@@ -39,7 +36,6 @@ export const TooltipComponent = (props: Props) => {
         onMouseLeave={hideTooltip}
         onFocus={showTooltip}
         onBlur={hideTooltip}
-        aria-label={ariaLabel}
       >
         {children}
       </div>

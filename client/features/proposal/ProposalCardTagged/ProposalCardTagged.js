@@ -29,11 +29,7 @@ export const ProposalCardTagged = (props: Props) => {
   );
 
   return (
-    <ProposalCardStyle
-      role="article"
-      aria-posinset={position}
-      aria-setsize={size}
-    >
+    <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
       <ProposalAuthorElement
         author={author}
         country={proposal.country}

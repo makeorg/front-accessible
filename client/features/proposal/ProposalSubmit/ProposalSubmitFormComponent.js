@@ -71,7 +71,6 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           spellCheck
           maxLength={inputMaxLength}
           onKeyDown={handleOnKeydown}
-          async
         />
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>

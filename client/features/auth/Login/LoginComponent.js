@@ -45,7 +45,7 @@ export const LoginComponent = (props: Props) => {
   const { handleRegisterModal, handleForgotPasswordModal } = props;
 
   return (
-    <LoginStyle role="region" aria-labelledby="login_title">
+    <LoginStyle aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>

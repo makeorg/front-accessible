@@ -29,7 +29,7 @@ export const ProposalCardStyle = styled.div`
   min-height: 345px;
   padding: ${intToPx(DefaultPadding.Mobile)};
   z-index: ${props => props.zindex || 0};
-  transform: scaleX(${props => props.scale || 0})
+  transform: scaleX(${props => props.scaling || 0})
     translateY(-${props => props.position || 0}px);
   background-color: ${BasicColors.PureWhite};
   transition: all 0.75s ease-in;

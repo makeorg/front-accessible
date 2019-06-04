@@ -13,7 +13,6 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { MetaTags } from 'Client/app/MetaTags';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 type Props = {
   user: TypeUser,
@@ -51,7 +50,7 @@ const ProfileFavouritesPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderProposals && (
-        <UnstyledListStyle role="feed">
+        <section role="feed">
           {proposals.map((proposal, index) => (
             <ProfileProposalCard
               key={proposal.id}
@@ -60,7 +59,7 @@ const ProfileFavouritesPage = (props: Props) => {
               position={index}
             />
           ))}
-        </UnstyledListStyle>
+        </section>
       )}
       {renderPlaceholder && <ProfileFavouritesPlaceholder />}
     </React.Fragment>

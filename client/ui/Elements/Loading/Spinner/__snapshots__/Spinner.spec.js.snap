@@ -91,11 +91,11 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   animation-delay: -0.15s;
 }
 
-<div
+<aside
+  aria-label="common.loading"
   className="c0"
 >
   <div
-    aria-label="common.loading"
     className="c1"
   >
     <div
@@ -115,5 +115,5 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
       className="c5"
     />
   </div>
-</div>
+</aside>
 `;

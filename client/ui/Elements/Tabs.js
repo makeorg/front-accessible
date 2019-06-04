@@ -44,7 +44,7 @@ const TabListStyle = styled.ul`
 
 const TabStyle = styled.li`
   position: relative;
-  z-index: ${props => (props.selected ? 1 : 0)};
+  z-index: ${props => (props.isSelected ? 1 : 0)};
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -53,13 +53,13 @@ const TabStyle = styled.li`
   text-transform: uppercase;
   font-family: ${MakeFonts.RobotoCondensedBold};
   background-color: ${props =>
-    props.selected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
+    props.isSelected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
   border-top: ${props =>
-    props.selected
+    props.isSelected
       ? `4px solid ${BasicColors.PureBlack}`
       : `1px solid ${BasicColors.PureBlack}`};
   border-bottom: ${props =>
-    props.selected
+    props.isSelected
       ? `1px solid ${BackgroundColors.LightGrey}`
       : `1px solid ${BasicColors.PureBlack}`};
   border-left: 1px solid ${BasicColors.PureBlack};
@@ -76,7 +76,7 @@ const TabStyle = styled.li`
     font-family: ${MakeFonts.RobotoCondensedBold};
     width: 100%;
     font-size: 14px;
-    padding: ${props => (props.selected ? '7px 5px' : '5px')};
+    padding: ${props => (props.isSelected ? '7px 5px' : '5px')};
     text-decoration: none;
     text-align: center;
     color: ${BasicColors.PureBlack};
@@ -84,7 +84,7 @@ const TabStyle = styled.li`
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       flex-flow: row;
       font-size: 18px;
-      padding: ${props => (props.selected ? '15px' : '10px 15px')};
+      padding: ${props => (props.isSelected ? '15px' : '10px 15px')};
     }
   }
 `;

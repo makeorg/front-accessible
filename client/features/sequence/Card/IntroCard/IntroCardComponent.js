@@ -51,7 +51,7 @@ export const IntroCardComponent = (props: Props) => {
       </ScreenReaderItemStyle>
       <ProposalCardCenteredStyle
         position={position}
-        scale={scale}
+        scaling={scale}
         zindex={zindex}
         isCardCollapsed={isCardCollapsed}
         isCardVisible={isCardVisible}

@@ -9,7 +9,7 @@ import { SequenceStyle, WrapperStyle, ListStyle } from '../Styled';
  */
 export const SequencePlaceholderComponent = () => {
   return (
-    <SequenceStyle role="region">
+    <SequenceStyle>
       <CollapseToggle />
       <WrapperStyle>
         <ListStyle as="div" id="sequence">

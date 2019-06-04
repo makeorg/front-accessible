@@ -23,7 +23,7 @@ export const ParticipateBannerComponent = (props: Props) => {
     <ParticipateWrapperStyle
       gradientStart={styleTheme.gradientStart}
       gradientEnd={styleTheme.gradientEnd}
-      color={styleTheme.gradientStart}
+      backgroundcolor={styleTheme.gradientStart}
       aria-labelledby="participate_aside_title"
     >
       <ParticipateDescription id="participate_aside_title">

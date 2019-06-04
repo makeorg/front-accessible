@@ -88,7 +88,7 @@ const Profile = (props: Props) => {
             id="profile_nav"
           >
             <TabListStyle>
-              <TabStyle selected={isProfileProposalsActive}>
+              <TabStyle isSelected={isProfileProposalsActive}>
                 <Link
                   to={profileProposalsLink}
                   aria-current={isProfileProposalsActive}
@@ -96,7 +96,7 @@ const Profile = (props: Props) => {
                   {i18n.t('profile.tabs.proposals')}
                 </Link>
               </TabStyle>
-              <TabStyle selected={isProfileFavouritesActive}>
+              <TabStyle isSelected={isProfileFavouritesActive}>
                 <Link
                   to={profileFavouritesLink}
                   aria-current={isProfileFavouritesActive}

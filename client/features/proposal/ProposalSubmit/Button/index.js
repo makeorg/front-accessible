@@ -32,7 +32,6 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       type="submit"
       onClick={handleOnSubmit}
       disabled={!canSubmit}
-      aria-disabled={!canSubmit}
       aria-label={i18n.t('common.propose')}
     >
       <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>

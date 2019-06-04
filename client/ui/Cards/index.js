@@ -7,7 +7,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 
-export const CardStyle = styled.li`
+export const CardStyle = styled.article`
   display: flex;
   flex-flow: column;
   justify-content: space-between;

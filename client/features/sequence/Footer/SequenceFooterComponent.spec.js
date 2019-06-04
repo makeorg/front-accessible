@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { SequenceFooterComponent } from './SequenceFooterComponent';
-import { FooterStyle, FooterTitleStyle, FooterLinkStyle } from '../Styled';
+import { FooterStyle, FooterLinkStyle } from '../Styled';
 
 describe('SequenceFooterComponent', () => {
   it('Check a11y rules', () => {
@@ -16,11 +16,5 @@ describe('SequenceFooterComponent', () => {
       'footer_title'
     );
     expect(wrapper.find(FooterLinkStyle).text()).toBe('footer_sequence.link');
-    expect(wrapper.find(FooterTitleStyle).prop('color')).toBe(
-      props.theme.footerFontColor
-    );
-    expect(wrapper.find(FooterLinkStyle).prop('color')).toBe(
-      props.theme.footerFontColor
-    );
   });
 });

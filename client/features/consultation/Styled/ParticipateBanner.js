@@ -10,7 +10,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 export const ParticipateWrapperStyle = styled.aside`
   display: flex;
   align-items: center;
-  background-color: ${props => props.color};
+  background-color: ${props => props.backgroundcolor};
   background: linear-gradient(
     106deg,
     ${props => props.gradientStart},

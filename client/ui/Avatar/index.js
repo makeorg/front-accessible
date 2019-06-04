@@ -3,26 +3,38 @@ import { AvatarStyle } from './Styled';
 import { SvgEmptyAvatar } from '../Svg/elements';
 
 type Props = {
-  /** Children to render */
-  children: React.Node,
+  /** Url of avatar */
+  avatarUrl?: string,
   /** Width of avatar */
   avatarSize?: number,
+  /** Width of avatar */
+  avatarAlt?: string,
 };
 
 export const Avatar = (props: Props) => {
-  const { avatarSize, children } = props;
+  const { avatarSize, avatarUrl, avatarAlt } = props;
 
-  if (children) {
-    return <AvatarStyle avatarSize={avatarSize}>{children}</AvatarStyle>;
+  if (avatarUrl) {
+    return (
+      <AvatarStyle>
+        <img
+          width={avatarSize}
+          height={avatarSize}
+          src={avatarUrl}
+          alt={avatarAlt}
+        />
+      </AvatarStyle>
+    );
   }
 
   return (
-    <AvatarStyle avatarSize={avatarSize}>
-      <SvgEmptyAvatar aria-hidden />
+    <AvatarStyle>
+      <SvgEmptyAvatar width={avatarSize} height={avatarSize} aria-hidden />
     </AvatarStyle>
   );
 };
 
 Avatar.defaultProps = {
   avatarSize: 30,
+  avatarAlt: '',
 };

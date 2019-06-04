@@ -51,7 +51,7 @@ export const CardWithCounter = ({
       />
       <ProposalCardStyle
         position={position}
-        scale={scale}
+        scaling={scale}
         zindex={zindex}
         isCardCollapsed={isCardCollapsed}
         isCardVisible={isCardVisible}
