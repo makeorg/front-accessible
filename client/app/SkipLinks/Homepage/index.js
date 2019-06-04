@@ -5,7 +5,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const HomepageSkipLinks = () => {
   return (
-    <UnstyledListStyle aria-label={i18n.t('skip_links.secondary_list')}>
+    <UnstyledListStyle>
       <li>
         <SkipLink as="a" href="#featured_list">
           {i18n.t('skip_links.dynamic_section', {

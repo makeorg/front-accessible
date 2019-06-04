@@ -24,15 +24,6 @@ export const MetaTags = (props: Props) => {
         content={description || i18n.t('meta.home.description')}
       />
       <Meta
-        itemProp="name"
-        content={title || `${i18n.t('meta.home.title')} - Make.org`}
-      />
-      <Meta
-        itemProp="description"
-        content={description || i18n.t('meta.home.description')}
-      />
-      <Meta itemProp="image" content={picture || i18n.t('meta.home.picture')} />
-      <Meta
         property="og:title"
         content={title || `${i18n.t('meta.home.title')} - Make.org`}
       />

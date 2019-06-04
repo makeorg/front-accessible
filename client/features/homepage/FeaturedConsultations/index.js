@@ -73,10 +73,7 @@ const FeaturedDesktop = () => {
       </FeaturedArticleColumnStyle>
       <FeaturedArticleColumnStyle>
         {featuredsCol2.map((featured, key) => (
-          <FeaturedArticleStyle
-            key={`article_title_${key + 1}`}
-            aria-labelledby={`article_title_${key + 1}`}
-          >
+          <FeaturedArticleStyle key={`article_title_${key + 1}`}>
             <Featured featured={featured} index={key + 1} />
           </FeaturedArticleStyle>
         ))}
