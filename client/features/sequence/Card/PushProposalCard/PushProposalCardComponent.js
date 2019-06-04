@@ -68,6 +68,7 @@ export const PushProposalCardComponent = (props: Props) => {
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
+        isCardVisible={isCardVisible}
       />
       <ProposalCardStyle
         position={position}

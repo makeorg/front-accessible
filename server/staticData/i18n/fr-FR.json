@@ -156,7 +156,8 @@
     "disagree": "Pas d'accord",
     "neutral": "Vote neutre",
     "label": "{{count}} vote",
-    "label_plural": "{{count}} votes"
+    "label_plural": "{{count}} votes",
+    "with_percent": "{{votedKey}} : {{votedPercent}}%"
   },
   "unvote": {
     "title": "Je retire mon avis sur cette proposition."

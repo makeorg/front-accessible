@@ -20,7 +20,7 @@ export const QualificationResults = (props: Props) => {
       <QualificationLabelStyle color={voteColor}>
         {i18n.t(`qualification.${qualificationKey}`)}
       </QualificationLabelStyle>
-      <ScreenReaderItemStyle aria-hidden> : </ScreenReaderItemStyle>
+      <ScreenReaderItemStyle> : </ScreenReaderItemStyle>
       <QualificationContStyle>{` ${count} `}</QualificationContStyle>
       <ScreenReaderItemStyle>
         {i18n.t('qualification.times')}
