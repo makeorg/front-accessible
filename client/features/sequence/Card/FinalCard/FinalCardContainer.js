@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { type FinalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
 import { FinalCardComponent } from './FinalCardComponent';
@@ -14,19 +14,12 @@ type Props = {
 /**
  * Handles Final Card Business Logic
  */
-export class FinalCardContainer extends React.Component<Props> {
-  componentDidUpdate() {
-    const { isCardVisible } = this.props;
+export const FinalCardContainer = ({ configuration, isCardVisible }: Props) => {
+  useEffect(() => {
     if (isCardVisible) {
       Tracking.trackDisplayFinalCard();
     }
-  }
+  }, [isCardVisible]);
 
-  render() {
-    const { configuration } = this.props;
-
-    return (
-      <FinalCardComponent configuration={configuration}/>
-    );
-  }
-}
+  return <FinalCardComponent configuration={configuration} />;
+};

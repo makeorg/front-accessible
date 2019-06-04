@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
 import { IntroCardComponent } from './IntroCardComponent';
@@ -21,37 +21,29 @@ type Props = {
   isCardVisible: boolean,
 };
 
-/**
- * Handles Intro Card Business Logic
- */
-export class IntroCardContainer extends React.Component<Props> {
-  componentDidUpdate = () => {
-    const { isCardVisible } = this.props;
+export const IntroCardContainer = ({
+  configuration,
+  handleStartSequence,
+  isCardCollapsed,
+  isCardVisible,
+  position,
+  scale,
+  zindex,
+}: Props) => {
+  useEffect(() => {
     if (isCardVisible) {
       Tracking.trackDisplayIntroCard();
     }
-  };
-
-  render() {
-    const {
-      configuration,
-      handleStartSequence,
-      isCardCollapsed,
-      isCardVisible,
-      position,
-      scale,
-      zindex,
-    } = this.props;
-    return (
-      <IntroCardComponent
-        configuration={configuration}
-        position={position}
-        scale={scale}
-        zindex={zindex}
-        isCardVisible={isCardVisible}
-        isCardCollapsed={isCardCollapsed}
-        handleStartSequence={handleStartSequence}
-      />
-    );
-  }
-}
+  }, [isCardVisible])
+  return (
+    <IntroCardComponent
+      configuration={configuration}
+      position={position}
+      scale={scale}
+      zindex={zindex}
+      isCardVisible={isCardVisible}
+      isCardCollapsed={isCardCollapsed}
+      handleStartSequence={handleStartSequence}
+    />
+  );
+};
