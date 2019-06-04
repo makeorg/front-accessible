@@ -63,7 +63,7 @@ export type ConfigurationTypes =
   | FinalCardConfig
   | TypeProposal;
 
-export type CardType = {
+export type TypeCard = {
   type: string,
   configuration: ConfigurationTypes,
   cardOffset?: number,

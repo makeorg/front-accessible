@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Tracking } from 'Shared/services/Tracking';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
@@ -10,24 +11,8 @@ type Props = {
   proposal: Object,
   /** Index of the card */
   index: number,
-  /** Position of the card */
-  position: number,
-  /** Scale property used by Styled Component */
-  scale: number,
-  /** Zindex property used by Styled Component */
-  zindex: number,
-  /** Total of cards */
-  cardsCount: number,
-  /** Offset of cards without pagination (introCard) */
-  cardOffset: number,
-  /** Boolean toggled when card user has skip the card */
-  isCardCollapsed: boolean,
-  /** Boolean toggled when card is visible / hidden */
-  isCardVisible: boolean,
-  /** Method called when previous card button is clicked  */
-  goToPreviousCard: () => void,
-  /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: () => void,
+  /** Method called we pass to the next card */
+  incrementCurrentIndex: () => void,
   /** Method called when Vote */
   handleVoteOnSequence: (
     proposalId: string,
@@ -44,32 +29,21 @@ type Props = {
 const ProposalCardClass = (props: Props) => {
   const {
     proposal,
-    cardsCount,
-    cardOffset,
     index,
-    position,
-    scale,
-    zindex,
-    isCardCollapsed,
-    isCardVisible,
-    goToPreviousCard,
-    goToNextCard,
+    incrementCurrentIndex,
     handleVoteOnSequence,
     handleUnvoteOnSequence,
   } = props;
+
+  const goToNextCard = () => {
+    incrementCurrentIndex();
+    Tracking.trackClickNextCard();
+  };
 
   return (
     <ProposalCardComponent
       proposal={proposal}
       index={index}
-      position={position}
-      scale={scale}
-      zindex={zindex}
-      cardsCount={cardsCount}
-      cardOffset={cardOffset}
-      isCardCollapsed={isCardCollapsed}
-      isCardVisible={isCardVisible}
-      goToPreviousCard={goToPreviousCard}
       goToNextCard={goToNextCard}
       handleVoteOnSequence={handleVoteOnSequence}
       handleUnvoteOnSequence={handleUnvoteOnSequence}

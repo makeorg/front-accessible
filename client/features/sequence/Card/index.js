@@ -7,81 +7,77 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
 } from 'Shared/constants/card';
+import { type TypeCard } from 'Shared/types/sequence';
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ProposalCard } from './ProposalCard';
 import { SignUpCard } from './SignUpCard';
 import { IntroCard } from './IntroCard';
 import { FinalCard } from './FinalCard';
 import { PushProposalCard } from './PushProposalCard';
+import { CardWithCounter } from './CardWithCounter';
 
 type Props = {
-  card: Object,
+  /** Attribute of the card */
+  card: TypeCard,
   /** Index of the card */
   index: number,
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Total of cards */
   cardsCount: number,
-  /** Method called when previous card button is clicked  */
-  goToPreviousCard: () => void,
-  /** Method called when next card button is clicked  */
-  goToNextCard: () => void,
-  /** Method called when next card button in Sign Up Card is clicked  */
-  skipSignUpCard: () => void,
-  /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: () => void,
+  /** Method called we pass to the next card */
+  incrementCurrentIndex: () => void,
+  /** Method called when return to previous card */
+  decrementCurrentIndex: () => void,
   /** Method called when next card button in Intro Card is clicked  */
   handleStartSequence: () => void,
 };
 
+type CardTypeProps = {
+  /** Attribute of the card */
+  card: TypeCard,
+  /** Index of the card */
+  index: number,
+  /** Incremented / Decremented Index */
+  currentIndex: number,
+  /** Is Card is shown to the user */
+  isCardVisible: boolean,
+  /** Method called we pass to the next card */
+  incrementCurrentIndex: () => void,
+  /** Method called when next card button in Intro Card is clicked  */
+  handleStartSequence: () => void,
+};
 /**
  * Renders Card
  */
-export const Card = (props: Props) => {
+const CardType = (props: CardTypeProps) => {
   const {
     card,
     index,
     currentIndex,
-    cardsCount,
-    goToNextCard,
-    goToPreviousCard,
-    skipSignUpCard,
-    skipProposalPushCard,
+    isCardVisible,
+    incrementCurrentIndex,
     handleStartSequence,
   } = props;
-
-  const position = getPosition(index, currentIndex);
-  const scale = getScale(index, currentIndex);
-  const zindex = getZIndex(index, currentIndex);
-  const isCardCollapsed = index < currentIndex;
-  const isCardVisible = index === currentIndex;
 
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
       return (
         <ProposalCard
           proposal={card.configuration}
-          cardOffset={card.cardOffset}
           index={index}
-          position={position}
-          scale={scale}
-          zindex={zindex}
-          cardsCount={cardsCount}
-          isCardCollapsed={isCardCollapsed}
-          isCardVisible={isCardVisible}
-          goToNextCard={goToNextCard}
-          goToPreviousCard={goToPreviousCard}
+          incrementCurrentIndex={incrementCurrentIndex}
         />
       );
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return (
         <IntroCard
           configuration={card.configuration}
-          position={position}
+          position={getPosition(index, currentIndex)}
           index={index}
-          scale={scale}
-          zindex={zindex}
-          isCardCollapsed={isCardCollapsed}
+          scale={getScale(index, currentIndex)}
+          zindex={getZIndex(index, currentIndex)}
+          isCardCollapsed={index < currentIndex}
           isCardVisible={isCardVisible}
           handleStartSequence={handleStartSequence}
         />
@@ -90,50 +86,85 @@ export const Card = (props: Props) => {
       return (
         <SignUpCard
           configuration={card.configuration}
-          cardOffset={card.cardOffset}
-          index={index}
-          position={position}
-          scale={scale}
-          zindex={zindex}
-          cardsCount={cardsCount}
-          isCardCollapsed={isCardCollapsed}
           isCardVisible={isCardVisible}
-          goToPreviousCard={goToPreviousCard}
-          skipSignUpCard={skipSignUpCard}
+          incrementCurrentIndex={incrementCurrentIndex}
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL:
       return (
         <PushProposalCard
           configuration={card.configuration}
-          cardOffset={card.cardOffset}
-          index={index}
-          position={position}
-          scale={scale}
-          zindex={zindex}
-          isCardCollapsed={isCardCollapsed}
           isCardVisible={isCardVisible}
-          cardsCount={cardsCount}
-          goToPreviousCard={goToPreviousCard}
-          skipProposalPushCard={skipProposalPushCard}
+          incrementCurrentIndex={incrementCurrentIndex}
         />
       );
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:
       return (
         <FinalCard
           configuration={card.configuration}
-          cardOffset={card.cardOffset}
-          index={index}
-          position={position}
-          scale={scale}
-          zindex={zindex}
           isCardVisible={isCardVisible}
-          cardsCount={cardsCount}
-          currentIndex={currentIndex}
-          goToPreviousCard={goToPreviousCard}
         />
       );
     default:
       return null;
   }
+};
+
+export const Card = ({
+  card,
+  index,
+  currentIndex,
+  cardsCount,
+  incrementCurrentIndex,
+  decrementCurrentIndex,
+  skipProposalPushCard,
+  handleStartSequence,
+}: Props) => {
+  const position = getPosition(index, currentIndex);
+  const scale = getScale(index, currentIndex);
+  const zindex = getZIndex(index, currentIndex);
+  const isCardCollapsed = index < currentIndex;
+  const isCardVisible = index === currentIndex;
+
+  if (card.type === CARD_TYPE_EXTRASLIDE_INTRO) {
+    return (
+      <IntroCard
+        configuration={card.configuration}
+        position={getPosition(index, currentIndex)}
+        index={index}
+        scale={getScale(index, currentIndex)}
+        zindex={getZIndex(index, currentIndex)}
+        isCardCollapsed={index < currentIndex}
+        isCardVisible={isCardVisible}
+        handleStartSequence={handleStartSequence}
+      />
+    );
+  }
+
+  return (
+    <CardWithCounter
+      cardOffset={card.cardOffset}
+      index={index}
+      currentIndex={currentIndex}
+      cardsCount={cardsCount}
+      position={position}
+      scale={scale}
+      zindex={zindex}
+      isCardCollapsed={isCardCollapsed}
+      isCardVisible={isCardVisible}
+      decrementCurrentIndex={decrementCurrentIndex}
+    >
+      <CardType
+        card={card}
+        index={index}
+        currentIndex={currentIndex}
+        isCardVisible={isCardVisible}
+        isCardCollapsed={isCardCollapsed}
+        incrementCurrentIndex={incrementCurrentIndex}
+        decrementCurrentIndex={decrementCurrentIndex}
+        skipProposalPushCard={skipProposalPushCard}
+        handleStartSequence={handleStartSequence}
+      />
+    </CardWithCounter>
+  );
 };
