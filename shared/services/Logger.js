@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { env } from 'Shared/env';
 import { NODE_API_BASE } from 'Shared/api/ApiService';
 
 const LOG_INFO = 'info';
@@ -45,8 +46,12 @@ class LoggerSingleton {
     this.log({ message: data }, LOG_WARNING);
   };
 
-  log = (data, level) =>
-    axios({
+  log = (data, level) => {
+    if (env.isDev()) {
+      console.log(level, data);
+    }
+
+    return axios({
       method: 'POST',
       url: `${NODE_API_BASE}/api/logger`,
       proxy: {
@@ -62,6 +67,7 @@ class LoggerSingleton {
         // eslint-disable-next-line no-console
         console.log('Error on logger', e);
       });
+  };
 }
 
 export const Logger = new LoggerSingleton();
