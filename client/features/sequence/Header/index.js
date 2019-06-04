@@ -5,9 +5,11 @@ import { i18n } from 'Shared/i18n';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import {
-  BackButtonWrapperStyle,
   BackButtonStyle,
   BackIconStyle,
+  CardHeaderStyle,
+  SpaceBetweenHeaderStyle,
+  FlexEndHeaderStyle,
 } from './Styled';
 
 type Props = {
@@ -26,20 +28,25 @@ type Props = {
  */
 export const CardHeader = (props: Props) => {
   const { index, cardsCount, cardOffset, goToPreviousCard } = props;
+  const proposalAsFirstCard = index === 0;
 
   return (
-    <BackButtonWrapperStyle>
-      <BackButtonStyle onClick={goToPreviousCard}>
-        <BackIconStyle aria-hidden>
-          <SvgArrowLeft />
-        </BackIconStyle>
-        {i18n.t('proposal_card.previous')}
-      </BackButtonStyle>
+    <CardHeaderStyle
+      as={proposalAsFirstCard ? FlexEndHeaderStyle : SpaceBetweenHeaderStyle}
+    >
+      {!proposalAsFirstCard && (
+        <BackButtonStyle onClick={goToPreviousCard}>
+          <BackIconStyle aria-hidden>
+            <SvgArrowLeft />
+          </BackIconStyle>
+          {i18n.t('proposal_card.previous')}
+        </BackButtonStyle>
+      )}
       <ProgressCircleComponent
         cardOffset={cardOffset}
         index={index}
         cardsCount={cardsCount}
       />
-    </BackButtonWrapperStyle>
+    </CardHeaderStyle>
   );
 };

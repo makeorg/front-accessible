@@ -46,7 +46,6 @@ export const ProgressCircleComponent = (props: Props) => {
           total: maxGaugeIndex,
         })}
       </ScreenReaderItemStyle>
-
       <ProgressWrapperStyle aria-hidden>
         <ProgressSvgStyle
           width={42}
