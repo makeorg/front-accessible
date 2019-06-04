@@ -1,5 +1,4 @@
 const path = require('path');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
@@ -10,10 +9,6 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
-    new FaviconsWebpackPlugin({
-      logo: path.join(__dirname, '../client/app/assets/images/favicon.png'),
-      prefix: 'favicon/',
-    }),
     new WebpackPwaManifest({
       short_name: 'Make.org',
       name: 'Make.org',
