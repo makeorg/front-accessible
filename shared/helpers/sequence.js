@@ -1,5 +1,6 @@
 // @flow
-import { type ExtraSlidesConfig, type TypeCard } from 'Shared/types/sequence';
+import { type ExtraSlidesConfig } from 'Shared/types/sequence';
+import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
@@ -78,12 +79,6 @@ export const buildCards = (
   hasProposed: boolean,
   canPropose: boolean
 ): TypeCard[] => {
-  let cards: TypeCard[] = proposals.map(proposal => ({
-    type: CARD_TYPE_PROPOSAL,
-    configuration: proposal,
-  }));
-  let cardOffset = 0;
-
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
     extraSlidesConfig.pushProposalCard.enabled &&
@@ -98,10 +93,19 @@ export const buildCards = (
   const withFinalCard: boolean =
     extraSlidesConfig.finalCard && extraSlidesConfig.finalCard.enabled;
 
+  const cardOffset = withIntroCard ? 0 : 1;
+
+  const cards: TypeCard[] = proposals.map(proposal => ({
+    type: CARD_TYPE_PROPOSAL,
+    configuration: proposal,
+    offset: cardOffset,
+  }));
+
   if (withPushProposalCard) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposalCard,
+      offset: cardOffset,
     });
   }
 
@@ -109,15 +113,15 @@ export const buildCards = (
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
+      offset: cardOffset,
     });
-  } else {
-    cardOffset = 1;
   }
 
   if (withSignupCard) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
+      offset: cardOffset,
     });
   }
 
@@ -125,12 +129,9 @@ export const buildCards = (
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,
+      offset: cardOffset,
     });
   }
 
-  cards = cards.map(card => ({
-    ...card,
-    cardOffset,
-  }));
   return cards;
 };

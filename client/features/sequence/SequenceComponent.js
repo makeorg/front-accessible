@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import * as sequenceHelper from 'Shared/helpers/sequence';
-import { type TypeCard } from 'Shared/types/sequence';
+import { type TypeCard } from 'Shared/types/card';
 import { CollapseToggle } from './Button';
 import { Card } from './Card';
 import { SequenceStyle, WrapperStyle, ListStyle } from './Styled';
@@ -25,8 +25,6 @@ export type Props = {
   handleOpenSequence: () => void,
   /** Method called when "Stard Sequence" button is clicked */
   handleStartSequence: () => void,
-  /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: () => void,
 };
 
 /**
@@ -42,7 +40,6 @@ export const SequenceComponent = (props: Props) => {
     decrementCurrentIndex,
     handleOpenSequence,
     handleStartSequence,
-    skipProposalPushCard,
     cardOffset,
   } = props;
 
@@ -68,7 +65,6 @@ export const SequenceComponent = (props: Props) => {
               currentIndex={currentIndex}
               incrementCurrentIndex={incrementCurrentIndex}
               decrementCurrentIndex={decrementCurrentIndex}
-              skipProposalPushCard={skipProposalPushCard}
               handleStartSequence={handleStartSequence}
             />
           ))}

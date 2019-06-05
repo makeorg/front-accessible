@@ -18,9 +18,7 @@ type Props = {
 /**
  * Renders Final Card of the Sequence
  */
-export const FinalCardComponent = (props: Props) => {
-  const { configuration } = props;
-
+export const FinalCardComponent = ({ configuration }: Props) => {
   return (
     <ContentWrapperStyle>
       <InnerContentStyle>

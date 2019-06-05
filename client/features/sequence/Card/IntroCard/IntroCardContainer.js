@@ -34,7 +34,7 @@ export const IntroCardContainer = ({
     if (isCardVisible) {
       Tracking.trackDisplayIntroCard();
     }
-  }, [isCardVisible])
+  }, [isCardVisible]);
   return (
     <IntroCardComponent
       configuration={configuration}

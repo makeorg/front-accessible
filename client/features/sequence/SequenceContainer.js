@@ -6,15 +6,12 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
-import {
-  type TypeCard,
-  type QuestionConfiguration as TypeQuestionConfiguration,
-} from 'Shared/types/sequence';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { SequenceComponent } from './SequenceComponent';
 import { SequencePlaceholderComponent } from './SequencePlaceholder';
-
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */

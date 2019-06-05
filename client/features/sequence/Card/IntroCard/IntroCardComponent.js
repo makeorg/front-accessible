@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
 import { i18n } from 'Shared/i18n';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';

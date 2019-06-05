@@ -45,8 +45,9 @@ export const CardWithCounter = ({
     <React.Fragment>
       <CardDescription
         cardOffset={cardOffset}
-        index={index}
         cardsCount={cardsCount}
+        index={index}
+        isCardVisible={isCardVisible}
       />
       <ProposalCardStyle
         position={position}
