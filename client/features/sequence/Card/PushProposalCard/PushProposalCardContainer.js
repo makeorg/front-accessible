@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
@@ -16,36 +16,34 @@ type Props = {
 /**
  * Handles Push Proposal Card Business Logic
  */
-export class PushProposalCardContainer extends React.Component<Props> {
-  componentDidUpdate = () => {
-    const { isCardVisible } = this.props;
+export const PushProposalCardContainer = ({
+  configuration,
+  isCardVisible,
+  incrementCurrentIndex,
+}: Props) => {
+  useEffect(() => {
     if (isCardVisible) {
       Tracking.trackDisplayProposalPushCard();
     }
-  };
+  }, [isCardVisible]);
 
-  skipProposalPushCard = () => {
-    const { incrementCurrentIndex } = this.props;
+  const skipProposalPushCard = () => {
     incrementCurrentIndex();
     Tracking.trackClickProposalPushCardIgnore();
   };
 
-  focusProposalField = (): void => {
+  const focusProposalField = (): void => {
     const proposalInput = document.getElementById('proposal');
     if (proposalInput !== null) {
       proposalInput.focus();
     }
   };
 
-  render() {
-    const { configuration } = this.props;
-
-    return (
-      <PushProposalCardComponent
-        configuration={configuration}
-        focusProposalField={this.focusProposalField}
-        skipProposalPushCard={this.skipProposalPushCard}
-      />
-    );
-  }
-}
+  return (
+    <PushProposalCardComponent
+      configuration={configuration}
+      focusProposalField={focusProposalField}
+      skipProposalPushCard={skipProposalPushCard}
+    />
+  );
+};
