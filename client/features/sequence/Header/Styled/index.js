@@ -8,15 +8,18 @@ import { BackgroundColors, TextColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const BackButtonWrapperStyle = styled.div`
+export const CardHeaderStyle = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    top: 30px;
-    left: 30px;
-  }
+`;
+
+export const SpaceBetweenHeaderStyle = styled(CardHeaderStyle)`
+  justify-content: space-between;
+`;
+
+export const FlexEndHeaderStyle = styled(CardHeaderStyle)`
+  justify-content: flex-end;
 `;
 
 export const BackButtonStyle = styled(UnstyledButtonStyle)`
