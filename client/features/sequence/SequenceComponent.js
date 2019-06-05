@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import * as sequenceHelper from 'Shared/helpers/sequence';
-import { type CardType } from 'Shared/types/sequence';
+import { type TypeCard } from 'Shared/types/card';
 import { CollapseToggle } from './Button';
 import { Card } from './Card';
 import { SequenceStyle, WrapperStyle, ListStyle } from './Styled';
@@ -10,25 +10,21 @@ export type Props = {
   /** Number of cards */
   cardsCount: number,
   /** Array with cards */
-  cards: CardType[],
+  cards: TypeCard[],
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isClosed: boolean,
+  /** Method called we pass to the next card */
+  incrementCurrentIndex: () => void,
+  /** Method called when pass previous card */
+  decrementCurrentIndex: () => void,
   /** Method called when "Return to proposal" button is clicked */
   handleOpenSequence: () => void,
   /** Method called when "Stard Sequence" button is clicked */
   handleStartSequence: () => void,
-  /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard: () => void,
-  /** Method called when previous card button is clicked  */
-  goToPreviousCard: () => void,
-  /** Method called when next button in Sign Up Card is clicked  */
-  skipSignUpCard: () => void,
-  /** Method called when next card button in Push Proposal Card is clicked  */
-  skipProposalPushCard: () => void,
 };
 
 /**
@@ -40,12 +36,10 @@ export const SequenceComponent = (props: Props) => {
     cards,
     currentIndex,
     isClosed,
+    incrementCurrentIndex,
+    decrementCurrentIndex,
     handleOpenSequence,
     handleStartSequence,
-    goToPreviousCard,
-    goToNextCard,
-    skipSignUpCard,
-    skipProposalPushCard,
     cardOffset,
   } = props;
 
@@ -69,10 +63,8 @@ export const SequenceComponent = (props: Props) => {
               cardsCount={cardsCount}
               cardOffset={cardOffset}
               currentIndex={currentIndex}
-              goToPreviousCard={goToPreviousCard}
-              goToNextCard={goToNextCard}
-              skipSignUpCard={skipSignUpCard}
-              skipProposalPushCard={skipProposalPushCard}
+              incrementCurrentIndex={incrementCurrentIndex}
+              decrementCurrentIndex={decrementCurrentIndex}
               handleStartSequence={handleStartSequence}
             />
           ))}

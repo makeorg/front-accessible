@@ -9,7 +9,6 @@ describe('SequenceFooterComponent', () => {
     const props = {
       wording: { question: 'foo' },
       theme: { footerFontColor: 'bar' },
-      consultationLink: 'baz',
     };
     const wrapper = shallow(<SequenceFooterComponent {...props} />);
 
@@ -22,9 +21,6 @@ describe('SequenceFooterComponent', () => {
     );
     expect(wrapper.find(FooterLinkStyle).prop('color')).toBe(
       props.theme.footerFontColor
-    );
-    expect(wrapper.find(FooterLinkStyle).prop('href')).toBe(
-      props.consultationLink
     );
   });
 });

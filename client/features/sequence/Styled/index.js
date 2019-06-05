@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import {
   Breakpoints,
   Layouts,
@@ -109,7 +110,7 @@ export const FooterTitleStyle = styled.p`
   }
 `;
 
-export const FooterLinkStyle = styled.a`
+export const FooterLinkStyle = styled(Link)`
   color: ${props => props.color};
   font-size: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

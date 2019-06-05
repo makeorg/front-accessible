@@ -1,5 +1,6 @@
 // @flow
-import { type ExtraSlidesConfig, type CardType } from 'Shared/types/sequence';
+import { type ExtraSlidesConfig } from 'Shared/types/sequence';
+import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
@@ -43,12 +44,12 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
 /**
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
- * @param  {CardType[]} cards
+ * @param  {TypeCard[]} cards
  * @return {number}
  */
 export const findIndexOfFirstUnvotedCard = (
   firstUnvotedProposal?: TypeProposal,
-  cards: CardType[]
+  cards: TypeCard[]
 ): number => {
   if (!firstUnvotedProposal) {
     return cards.length - 1;
@@ -69,7 +70,7 @@ export const findIndexOfFirstUnvotedCard = (
  * Build cards array
  * @param  {TypeProposal[]} proposals
  * @param  {ExtraSlidesConfig} extraSlidesConfig
- * @return {CardType[]}
+ * @return {TypeCard[]}
  */
 export const buildCards = (
   proposals: TypeProposal[],
@@ -77,13 +78,7 @@ export const buildCards = (
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean
-): CardType[] => {
-  let cards: CardType[] = proposals.map(proposal => ({
-    type: CARD_TYPE_PROPOSAL,
-    configuration: proposal,
-  }));
-  let cardOffset = 0;
-
+): TypeCard[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
     extraSlidesConfig.pushProposalCard.enabled &&
@@ -98,10 +93,19 @@ export const buildCards = (
   const withFinalCard: boolean =
     extraSlidesConfig.finalCard && extraSlidesConfig.finalCard.enabled;
 
+  const cardOffset = withIntroCard ? 0 : 1;
+
+  const cards: TypeCard[] = proposals.map(proposal => ({
+    type: CARD_TYPE_PROPOSAL,
+    configuration: proposal,
+    offset: cardOffset,
+  }));
+
   if (withPushProposalCard) {
     cards.splice(cards.length / 2, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposalCard,
+      offset: cardOffset,
     });
   }
 
@@ -109,15 +113,15 @@ export const buildCards = (
     cards.splice(0, 0, {
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
+      offset: cardOffset,
     });
-  } else {
-    cardOffset = 1;
   }
 
   if (withSignupCard) {
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
+      offset: cardOffset,
     });
   }
 
@@ -125,12 +129,9 @@ export const buildCards = (
     cards.splice(cards.length, 0, {
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,
+      offset: cardOffset,
     });
   }
 
-  cards = cards.map(card => ({
-    ...card,
-    cardOffset,
-  }));
   return cards;
 };

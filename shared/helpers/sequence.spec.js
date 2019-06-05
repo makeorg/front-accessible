@@ -112,7 +112,7 @@ describe('Sequence Helper', () => {
 
       expect(cards.length).toBe(1);
       expect(cards[0]).toEqual({
-        cardOffset: 0,
+        offset: 0,
         type: CARD_TYPE_EXTRASLIDE_INTRO,
         configuration: extraSlidesConfig.introCard,
       });

@@ -56,19 +56,6 @@ export type QuestionConfiguration = {
   sequenceConfig: ExtraSlidesConfig,
 };
 
-export type ConfigurationTypes =
-  | IntroCardConfig
-  | PushProposalCardConfig
-  | SignUpCardConfig
-  | FinalCardConfig
-  | TypeProposal;
-
-export type CardType = {
-  type: string,
-  configuration: ConfigurationTypes,
-  cardOffset?: number,
-};
-
 export type SequenceType = {
   id: string,
   proposals: TypeProposal[],
