@@ -9,6 +9,8 @@ import {
   ProposalCardStyle,
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
+import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
+import { isInProgress } from 'Shared/helpers/date';
 
 type Props = {
   proposal: TypeProposal,
@@ -26,6 +28,7 @@ export const ProposalCardWithQuestion = (props: Props) => {
     proposal.id,
     proposal.slug
   );
+  const canVote = isInProgress(question.startDate, question.endDate);
 
   return (
     <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
@@ -37,11 +40,16 @@ export const ProposalCardWithQuestion = (props: Props) => {
         withAvatar
       />
       <ProposalStyle href={proposalLink}>{proposal.content}</ProposalStyle>
-      <Vote
-        proposalId={proposal.id}
-        votes={proposal.votes}
-        proposalKey={proposal.proposalKey}
-      />
+      {canVote ? (
+        <Vote
+          proposalId={proposal.id}
+          votes={proposal.votes}
+          proposalKey={proposal.proposalKey}
+          index={position}
+        />
+      ) : (
+        <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
+      )}
       <ProposalFooterWithQuestionElement
         question={question}
         consultationLink={getConsultationLink(

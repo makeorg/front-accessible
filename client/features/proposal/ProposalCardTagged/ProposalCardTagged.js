@@ -10,6 +10,8 @@ import {
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
+import { isInProgress } from 'Shared/helpers/date';
+import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
 
 type Props = {
   proposal: TypeProposal,
@@ -27,6 +29,7 @@ export const ProposalCardTagged = (props: Props) => {
     proposal.id,
     proposal.slug
   );
+  const canVote = isInProgress(question.startDate, question.endDate);
 
   return (
     <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
@@ -40,11 +43,16 @@ export const ProposalCardTagged = (props: Props) => {
       <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
         {proposal.content}
       </ProposalStyle>
-      <Vote
-        proposalId={proposal.id}
-        votes={proposal.votes}
-        proposalKey={proposal.proposalKey}
-      />
+      {canVote ? (
+        <Vote
+          proposalId={proposal.id}
+          votes={proposal.votes}
+          proposalKey={proposal.proposalKey}
+          index={position}
+        />
+      ) : (
+        <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
+      )}
       {proposal.organisations && (
         <OrganisationsVote
           organisations={proposal.organisations}

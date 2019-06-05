@@ -9,6 +9,8 @@ import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { TallCardStyle } from 'Client/ui/Cards';
 import { SequenceProposalStyle } from 'Client/features/sequence/Card/Styled';
+import { isInProgress } from 'Shared/helpers/date';
+import { DetailledVoteResults } from 'Client/features/vote/DetailledResults';
 import {
   InnerProposalStyle,
   ProposalFooterStyle,
@@ -30,6 +32,7 @@ type Props = {
 export const SingleProposalCardComponent = (props: Props) => {
   const { proposal } = props;
   const { question } = proposal;
+  const canVote = isInProgress(question.startDate, question.endDate);
 
   return (
     <TallCardStyle id="proposal_card">
@@ -41,11 +44,19 @@ export const SingleProposalCardComponent = (props: Props) => {
         />
         <CardSeparatorStyle />
         <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
-        <Vote
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          proposalKey={proposal.proposalKey}
-        />
+
+        {canVote ? (
+          <Vote
+            proposalId={proposal.id}
+            votes={proposal.votes}
+            proposalKey={proposal.proposalKey}
+          />
+        ) : (
+          <DetailledVoteResults
+            votes={proposal.votes}
+            proposalId={proposal.id}
+          />
+        )}
       </InnerProposalStyle>
       <ProposalFooterStyle>
         <ContentSeparatorStyle />

@@ -7,6 +7,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { DetailledContainer } from '.';
 
 const ProgessAnim = keyframes`
   0% { width: 0; }
@@ -15,6 +16,7 @@ const ProgessAnim = keyframes`
 
 export const VoteProgressContainerStyle = styled(CenterColumnStyle)`
   margin: 20px 0;
+  ${DetailledContainer};
 `;
 
 export const VoteCounterStyle = styled.p`

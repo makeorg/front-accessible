@@ -1,5 +1,8 @@
 export const proposalTypeFixture = {
-  id: '3b8f5300-a6e5-4e8a-92a9-99a4334a2136',
+  id: '123456789',
+  userId: '123456789',
+  content: 'Il faut prendre soin du styleguide',
+  slug: 'il-faut-prendre-soin-du-styleguide',
   author: {
     firstName: 'Mickael',
     age: 31,
@@ -31,4 +34,23 @@ export const proposalTypeFixture = {
       display: true,
     },
   ],
+  status: 'Accepted',
+  createdAt: '2019-05-28T10:12:16.783Z',
+  updatedAt: '2019-06-05T09:15:51.685Z',
+  votes: {},
+  context: {},
+  trending: 'popular',
+  labels: {},
+  author: {},
+  organisations: {},
+  country: 'FR',
+  language: 'fr',
+  themeId: null,
+  tags: {},
+  myProposal: false,
+  idea: '5323198f-a0f0-469a-ac27-2bf32904ae58',
+  question: {},
+  operationId: '7b88606c-2d75-4c9f-8855-7092aadc34b9',
+  proposalKey:
+    'f8b9af5fd4d86e43fc375a01ffd8e641420ca0e001082f6f8c7c075b6dac7b0aa4312b1d2f80134be017d2dc14447f9bb28222eab337c85a506f62b1a6bdbf6e',
 };
