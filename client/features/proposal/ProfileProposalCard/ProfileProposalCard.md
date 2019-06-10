@@ -1,12 +1,12 @@
-##### ProposalCardTagged Example :
+##### ProfileProposalCard Example :
 ```jsx
 import { proposalTypeFixture } from '../../../../shared/types/__fixtures__/proposal.fixture.js';
-import { questionTypeFixture } from '../../../../shared/types/__fixtures__/sequence.fixture.js';
-import { ProposalCardTagged } from './index';
+import { ProfileProposalCard } from './index';
 
 <ul style={{listStyle: 'none', padding: '15px', background: '#f2f2f2'}}>
-  <ProposalCardTagged
+  <ProfileProposalCard 
     proposal={proposalTypeFixture}
+    withStatus
   />
 </ul>
 ```

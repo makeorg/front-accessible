@@ -1,6 +1,6 @@
 export const questionConfigurationFixture = {
   wording: {
-    title: "l'operation Cleaner Code",
+    title: 'Styleguide',
   },
   theme: {
     color: 'red',
@@ -11,11 +11,11 @@ export const questionConfigurationFixture = {
 };
 
 export const questionTypeFixture = {
-  questionId: 'abcdeefg',
-  operationId: 'ijklmno',
-  slug: 'question-slug',
+  questionId: '123456789',
+  operationId: '123456789',
+  slug: 'styleguide',
   wording: {
-    title: 'la question Cleaner Code',
+    title: 'Styleguide',
     question: 'Est ce que cette documentation est bonne?',
   },
   country: 'FR',
@@ -24,6 +24,6 @@ export const questionTypeFixture = {
   startDate: '',
   endDate: '',
   landingSequenceId: 'azertyui',
-  operationTitle: 'title operation',
+  operationTitle: 'styleguide',
   canPropose: true,
 };

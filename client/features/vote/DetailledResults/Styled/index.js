@@ -8,7 +8,7 @@ import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const DetailledContainer = `
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
 `;
 
 export const DetailledItemStyle = styled.li`

@@ -8,10 +8,86 @@ export const proposalTypeFixture = {
     age: 31,
   },
   createdAt: '2018-10-24T12:45:25.752Z',
-  content: 'il faut prendre soin du styleguide',
+  updatedAt: '2019-06-05T09:15:51.685Z',
   country: 'FR',
   language: 'fr',
-  votes: [{ voteKey: '0' }, { voteKey: '0' }],
+  votes: [
+    {
+      count: 18,
+      hasVoted: false,
+      qualifications: [
+        {
+          count: 4,
+          countVerified: 4,
+          hasQualified: true,
+          qualificationKey: 'likeIt',
+        },
+        {
+          count: 2,
+          countVerified: 2,
+          hasQualified: false,
+          qualificationKey: 'doable',
+        },
+        {
+          count: 2,
+          countVerified: 2,
+          hasQualified: false,
+          qualificationKey: 'platitudeAgree',
+        },
+      ],
+      voteKey: 'agree',
+    },
+    {
+      count: 5,
+      hasVoted: false,
+      qualifications: [
+        {
+          count: 0,
+          countVerified: 0,
+          hasQualified: false,
+          qualificationKey: 'noWay',
+        },
+        {
+          count: 2,
+          countVerified: 2,
+          hasQualified: false,
+          qualificationKey: 'impossible',
+        },
+        {
+          count: 3,
+          countVerified: 3,
+          hasQualified: false,
+          qualificationKey: 'platitudeDisagree',
+        },
+      ],
+      voteKey: 'disagree',
+    },
+    {
+      count: 7,
+      hasVoted: false,
+      qualifications: [
+        {
+          count: 4,
+          countVerified: 4,
+          hasQualified: false,
+          qualificationKey: 'doNotUnderstand',
+        },
+        {
+          count: 1,
+          countVerified: 1,
+          hasQualified: false,
+          qualificationKey: 'noOpinion',
+        },
+        {
+          count: 2,
+          countVerified: 2,
+          hasQualified: false,
+          qualificationKey: 'doNotCare',
+        },
+      ],
+      voteKey: 'neutral',
+    },
+  ],
   tags: [
     {
       tagId: 'atom',
@@ -35,22 +111,43 @@ export const proposalTypeFixture = {
     },
   ],
   status: 'Accepted',
-  createdAt: '2019-05-28T10:12:16.783Z',
-  updatedAt: '2019-06-05T09:15:51.685Z',
-  votes: {},
-  context: {},
   trending: 'popular',
-  labels: {},
-  author: {},
-  organisations: {},
-  country: 'FR',
-  language: 'fr',
+  labels: [],
+  organisations: [
+    {
+      organisationId: '12345',
+      organisationName: 'Make.org',
+      organisationSlug: 'makeorg',
+    },
+    {
+      organisationId: '123456',
+      organisationName: 'Foo',
+      organisationSlug: 'foo',
+    },
+    {
+      organisationId: '1234567',
+      organisationName: 'Bar',
+      organisationSlug: 'bar',
+    },
+    {
+      organisationId: '12345678',
+      organisationName: 'Baz',
+      organisationSlug: 'baz',
+    },
+  ],
   themeId: null,
-  tags: {},
   myProposal: false,
-  idea: '5323198f-a0f0-469a-ac27-2bf32904ae58',
-  question: {},
-  operationId: '7b88606c-2d75-4c9f-8855-7092aadc34b9',
-  proposalKey:
-    'f8b9af5fd4d86e43fc375a01ffd8e641420ca0e001082f6f8c7c075b6dac7b0aa4312b1d2f80134be017d2dc14447f9bb28222eab337c85a506f62b1a6bdbf6e',
+  idea: '123456789',
+  operationId: '123456789',
+  question: {
+    questionId: '123456789',
+    slug: 'styleguide',
+    startDate: '2019-05-15T00:00:00.000Z',
+    endDate: '2055-08-31T00:00:00.000Z',
+    wording: {
+      title: 'Styleguide',
+      question: 'Est ce que cette documentation est bonne ?',
+    },
+  },
+  proposalKey: '123456789',
 };
