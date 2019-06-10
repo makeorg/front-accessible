@@ -11,7 +11,7 @@ import {
 
 type Props = {
   /** Special wording for Final Card's Sharinng section */
-  text?: string[],
+  text?: string,
   /** Sharing params */
   sharingParams?: TypeSharing,
 };
@@ -21,14 +21,11 @@ type Props = {
  */
 export const Sharing = (props: Props) => {
   const { text, sharingParams } = props;
-  const sharingText = text || [
-    i18n.t('final_card.sharing.introduction'),
-    i18n.t('final_card.sharing.description'),
-  ];
+  const sharingText = text || i18n.t('final_card.sharing_text');
 
   return (
     <SharingInnerStyle>
-      {sharingText.map(paragraph => (
+      {sharingText.split('\n').map(paragraph => (
         <IntroParagraphStyle key={paragraph}>{paragraph}</IntroParagraphStyle>
       ))}
       <SharingWrapperStyle>

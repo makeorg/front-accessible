@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { startSequence } from 'Shared/services/Sequence';
@@ -6,7 +6,6 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { Tracking } from 'Shared/services/Tracking';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
@@ -16,8 +15,6 @@ import { SequencePlaceholderComponent } from './SequencePlaceholder';
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: TypeQuestion,
-  /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: TypeQuestionConfiguration,
   /** Offset of cards without pagination (introCard) */
   cardOffset: number,
   /** Id of the first proposal to display */
@@ -36,7 +33,6 @@ type Props = {
 
 const SequenceHandler = ({
   question,
-  questionConfiguration,
   cardOffset,
   firstProposal,
   votedProposalIds,
@@ -76,7 +72,7 @@ const SequenceHandler = ({
 
         const buildedCards: TypeCard[] = SequenceHelper.buildCards(
           proposals,
-          questionConfiguration.sequenceConfig,
+          question.sequenceConfig,
           isLoggedIn,
           hasProposed,
           question.canPropose

@@ -2,18 +2,6 @@ export const questionTypeFixture = {
   questionId: 'c8375a43-81e8-472d-9a3a-f23f8061d21f',
   operationId: '0546bc34-4282-43b0-872d-a39f26c9848d',
   slug: 'weeuropeans-fr',
-  question: "Comment réinventer l'Europe, concrètement ?",
-  country: 'FR',
-  language: 'fr',
-  allowedSources: ['core'],
-  startDate: null,
-  endDate: null,
-  landingSequenceId: '58c8a7d3-6065-4ffc-842b-72d8d6d14368',
-  operationTitle: 'WeEuropeans',
-  canPropose: false,
-};
-
-export const questionConfigurationTypeFixture = {
   wording: {
     title: 'We Europeans',
     question: "Comment réinventer l'Europe, concrètement ?",
@@ -25,17 +13,14 @@ export const questionConfigurationTypeFixture = {
         'https://assets.make.org/assets/images/meta-we-europeans-no-copy.png',
     },
   },
-  sharing: {
-    twitter: {
-      hashtags: 'weeuropeans',
-    },
-  },
-  theme: {
-    color: '#3839ca',
-    'gradient-start': '#3839ca',
-    'gradient-end': '#3839ca',
-    footerFontColor: 'white',
-  },
+  country: 'FR',
+  language: 'fr',
+  allowedSources: ['core'],
+  startDate: null,
+  endDate: null,
+  landingSequenceId: '58c8a7d3-6065-4ffc-842b-72d8d6d14368',
+  operationTitle: 'WeEuropeans',
+  canPropose: false,
   aboutUrl: 'https://weeuropeans.eu/fr/fr/about',
   sequenceConfig: {
     introCard: {
@@ -69,5 +54,19 @@ export const questionConfigurationTypeFixture = {
       learnMoreTitle: 'Découvrez tout du projet We Europeans',
       learnMoreTextButton: 'En savoir +',
     },
+  },
+};
+
+export const questionConfigurationTypeFixture = {
+  sharing: {
+    twitter: {
+      hashtags: 'weeuropeans',
+    },
+  },
+  theme: {
+    color: '#3839ca',
+    'gradient-start': '#3839ca',
+    'gradient-end': '#3839ca',
+    footerFontColor: 'white',
   },
 };

@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tuhanded kodanikud pakuvad välja lahendusi.",
-    "description_1": "Võtke nendes lahendustes seisukoht ja esitage oma lahendusi.",
-    "description_2": "Otsustame oma meetmed parimate põhjal.",
+    "description": "Võtke nendes lahendustes seisukoht ja esitage oma lahendusi.\nOtsustame oma meetmed parimate põhjal.",
     "button": "Alustamine",
     "partnership": "koostöös järgmiste partneritega:"
   },

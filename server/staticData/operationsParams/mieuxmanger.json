@@ -20,34 +20,5 @@
     {"name": "Too Good To Go", "imageUrl": "/images/operations/mieuxmanger/partners/too-good-to-go.png", "isFounder": false, "profileUrl": "/FR-fr/profile/too-good-to-go/proposals"},
     {"name": "La Ruche Qui Dit Oui !", "imageUrl": "/images/operations/mieuxmanger/partners/la-ruche-qui-dit-oui.png", "isFounder": false, "profileUrl": "/FR-fr/profile/la-ruche-qui-dit-oui/proposals"},
     {"name": "Action Contre La Faim", "imageUrl": "/images/operations/mieuxmanger/partners/action-contre-la-faim.png", "isFounder": false, "profileUrl": "/FR-fr/profile/action-contre-la-faim/proposals"}
-  ],
-  "sequenceConfig": {
-    "introCard": {
-      "enabled": true,
-      "title": "Comment permettre à chacun de mieux manger ?",
-      "description": [
-        "Prenez position sur les solutions proposées par des milliers de citoyens !",
-        "Les meilleures détermineront nos actions."
-      ]
-    },
-    "pushProposalCard": {
-      "enabled": true
-    },
-    "signUpCard": {
-      "enabled": true,
-      "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir pour permettre à chacun de mieux manger !"
-    },
-    "finalCard": {
-      "enabled": true,
-      "linkUrl": "https://app.make.org/FR-fr/consultation/mieuxmanger/consultation",
-      "withSharing": true,
-      "title": "Merci pour votre participation !",
-      "share": [
-        "Vous souhaitez aller plus loin pour permettre à chacun de mieux manger ?",
-        "Invitez vos proches et/ou votre communauté à participer"
-      ],
-      "learnMoreTitle": "Découvrez tout de la Grande Cause Alimentation",
-      "learnMoreTextButton": "En savoir +"
-    }
-  }
+  ]
 }

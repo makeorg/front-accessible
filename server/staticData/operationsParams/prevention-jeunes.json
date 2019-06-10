@@ -11,34 +11,5 @@
   },
   "partners": [
     {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "/FR-fr/profile/fondation-ramsay-generale-de-sante"}
-  ],
-  "sequenceConfig": {
-    "introCard": {
-      "enabled": true,
-      "title": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
-      "description": [
-        "Prenez position sur ces solutions et proposez les vôtres pour améliorer la prévention auprès des jeunes."
-      ]
-    },
-    "pushProposalCard": {
-      "enabled": true
-    },
-    "signUpCard": {
-      "enabled": true,
-      "title": "Recevez les résultats finaux de cette consultation et soyez informé(e) des actions à venir pour inciter les jeunes à mieux prendre soin de leur santé.",
-      "nextCtaText": "NON MERCI, JE NE SOUHAITE PAS ÊTRE INFORMÉ(E) DES RÉSULTATS"
-    },
-    "finalCard": {
-      "enabled": true,
-      "linkUrl": "https://app.make.org/FR-fr/consultation/prevention-jeunes/consultation",
-      "withSharing": true,
-      "title": "Merci pour votre participation !",
-      "share": [
-        "Vous souhaitez aller plus loin pour inciter les jeunes à mieux prendre soin de leur santé ?",
-        "Invitez vos proches et/ou votre communauté à participer"
-      ],
-      "learnMoreTitle": "Découvrez tout de la consultation sur la prévention santé des jeunes.",
-      "learnMoreTextButton": "En savoir +"
-    }
-  }
+  ]
 }

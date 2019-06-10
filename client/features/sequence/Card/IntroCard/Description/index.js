@@ -5,7 +5,7 @@ import { IntroParagraphStyle } from '../../Styled/Content';
 
 type Props = {
   /** Object with description paragraphs */
-  description?: string[],
+  description?: string,
 };
 
 /**
@@ -13,14 +13,12 @@ type Props = {
  */
 export const IntroDescription = (props: Props) => {
   const { description } = props;
-  const descriptionText = description || [
-    i18n.t('intro_card.description_1'),
-    i18n.t('intro_card.description_2'),
-  ];
+
+  const descriptionText = description || i18n.t('intro_card.description');
 
   return (
     <div>
-      {descriptionText.map(text => (
+      {descriptionText.split('\n').map(text => (
         <IntroParagraphStyle key={text}>{text}</IntroParagraphStyle>
       ))}
     </div>

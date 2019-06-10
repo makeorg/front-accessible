@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tisíce občanů navrhují řešení.",
-    "description_1": "Zaujměte stanovisko k těmto řešením a navrhněte své vlastní řešení.",
-    "description_2": "Nejlepší řešení se stanou podkladem pro naše aktivity.",
+    "description": "Zaujměte stanovisko k těmto řešením a navrhněte své vlastní řešení.\nNejlepší řešení se stanou podkladem pro naše aktivity.",
     "button": "Spustit",
     "partnership": "ve spolupráci s"
   },

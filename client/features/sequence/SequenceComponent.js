@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as React from 'react';
 import * as sequenceHelper from 'Shared/helpers/sequence';
 import { type TypeCard } from 'Shared/types/card';

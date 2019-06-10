@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tuhannet kansalaiset esittävät ratkaisuja.",
-    "description_1": "Kerro mielipiteesi niistä ja ehdota omaasi.",
-    "description_2": "Valitsemme parhaat ratkaisut ja toteutamme ne.",
+    "description": "Kerro mielipiteesi niistä ja ehdota omaasi.\nValitsemme parhaat ratkaisut ja toteutamme ne.",
     "button": "Aloita",
     "partnership": "yhteistyökumppaninaan"
   },

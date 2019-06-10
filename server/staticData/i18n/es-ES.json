@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Miles de ciudadanos proponen soluciones.",
-    "description_1": "Vote las soluciones propuestas y proponga las suyas.",
-    "description_2": "Las mejores determinarán nuestras acciones.",
+    "description": "Vote las soluciones propuestas y proponga las suyas.\nLas mejores determinarán nuestras acciones.",
     "button": "Comenzar",
     "partnership": "en asociación con"
   },
