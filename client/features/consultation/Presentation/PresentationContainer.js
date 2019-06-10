@@ -1,15 +1,20 @@
 import React from 'react';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { isGreatCause } from 'Shared/helpers/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { PresentationComponent } from './PresentationComponent';
 
 type Props = {
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
+  questionConfiguration: TypeQuestionConfiguration,
 };
 
-export const PresentationContainer = (props: Props) => {
-  const { questionConfiguration } = props;
-
-  return (
-    <PresentationComponent questionConfiguration={questionConfiguration} />
-  );
-};
+export const PresentationContainer = ({
+  question,
+  questionConfiguration,
+}: Props) => (
+  <PresentationComponent
+    questionConfiguration={questionConfiguration}
+    isGreatCause={isGreatCause(question.operationKind)}
+  />
+);

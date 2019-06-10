@@ -21,7 +21,6 @@
     {"name": "La Ruche Qui Dit Oui !", "imageUrl": "/images/operations/mieuxmanger/partners/la-ruche-qui-dit-oui.png", "isFounder": false, "profileUrl": "/FR-fr/profile/la-ruche-qui-dit-oui/proposals"},
     {"name": "Action Contre La Faim", "imageUrl": "/images/operations/mieuxmanger/partners/action-contre-la-faim.png", "isFounder": false, "profileUrl": "/FR-fr/profile/action-contre-la-faim/proposals"}
   ],
-  "isGreatCause": true,
   "aboutUrl": "https://about.make.org/about-mieuxmanger",
   "sequenceConfig": {
     "introCard": {

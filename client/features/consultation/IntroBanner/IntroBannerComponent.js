@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { isGreatCause } from 'Shared/helpers/question';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { IntroWrapperStyle, IntroLabelStyle } from '../Styled/IntroBanner';
@@ -26,7 +27,7 @@ export const IntroBannerComponent = (props: Props) => {
       })}
       id="intro"
     >
-      {questionConfiguration.isGreatCause && (
+      {isGreatCause(question.operationKind) && (
         <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
       <h2>

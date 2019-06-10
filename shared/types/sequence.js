@@ -38,7 +38,6 @@ export type QuestionConfiguration = {
   theme: QuestionTheme,
   partners: TypePartner[],
   consultation: ConsultationType,
-  isGreatCause: boolean,
   aboutUrl: string,
   sequenceConfig: ExtraSlidesConfig,
 };

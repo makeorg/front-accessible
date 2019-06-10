@@ -9,13 +9,17 @@ import { SidebarNewWindowLink } from '../SidebarLink';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
+  isGreatCause: boolean,
 };
 
-export const PresentationComponent = (props: Props) => {
-  const { questionConfiguration } = props;
+export const PresentationComponent = ({
+  questionConfiguration,
+  isGreatCause,
+}: Props) => {
   const founders = questionConfiguration.partners.filter(
     partner => partner.isFounder
   );
+
   return (
     <React.Fragment>
       <ParagraphStyle
@@ -29,10 +33,7 @@ export const PresentationComponent = (props: Props) => {
         linkText={i18n.t('consultation.presentation.link_text')}
         tracking={() => Tracking.trackClickLearnMore()}
       />
-      <Founders
-        founders={founders}
-        isGreatCause={questionConfiguration.isGreatCause}
-      />
+      <Founders founders={founders} isGreatCause={isGreatCause} />
     </React.Fragment>
   );
 };
