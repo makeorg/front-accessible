@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Sprendimus siūlo tūkstančiai piliečių.",
-    "description_1": "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savus sprendimus.",
-    "description_2": "Geriausi sprendimai nulems mūsų veiksmus.",
+    "description": "Pareikškite nuomonę apie šiuos pasiūlymus bei siūlykite savus sprendimus.\nGeriausi sprendimai nulems mūsų veiksmus.",
     "button": "Pradėti",
     "partnership": "bendradarbiaujant su"
   },

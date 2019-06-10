@@ -1,13 +1,4 @@
 {
-  "wording": {
-    "title": "Pour une économie bienveillante",
-    "question": "Comment agir pour rendre notre économie plus bienveillante ?",
-    "metas": {
-      "title": "Comment agir pour rendre notre économie plus bienveillante ?",
-      "description": "Le MEB et Make.org lancent ensemble une vaste consultation citoyenne autour de la question : \"Comment agir pour rendre notre économie plus bienveillante ?\". Vous aussi, votez et proposez des actions pour rendre notre économie plus bienveillante.",
-      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5c73f3da2d05ce61a79a8ff0_meta%20meb%20fr.jpg"
-    }
-  },
   "theme": {
     "color": "#1657ec",
     "gradientStart": "#1657ec",
@@ -21,34 +12,5 @@
   },
   "partners": [
     {"name": "Mouvement pour une Économie Bienveillante", "imageUrl": "/images/operations/economie-bienveillante/partners/meb.jpg", "isFounder": true}
-  ],
-  "isGreatCause": false,
-  "aboutUrl": "https://about.make.org/about-economiebienveillante",
-  "sequenceConfig": {
-    "introCard": {
-      "enabled": true,
-      "title": "Pour une économie bienveillante : comment réconcilier le profit et la générosité ? La finance et l'entreprise ? La performance et le lien social ?",
-      "description": [
-        "Les idées les plus plébiscitées deviendront des solutions concrètes proposées aux entreprises et portées au prochain sommet du G7."
-      ]
-    },
-    "pushProposalCard": {
-      "enabled": true
-    },
-    "signUpCard": {
-      "enabled": true
-    },
-    "finalCard": {
-      "enabled": true,
-      "linkUrl": "http://www.mouvementeconomiebienveillante.com/",
-      "withSharing": true,
-      "title": "Merci pour votre participation !",
-      "share": [
-        "Vous souhaitez aller plus loin pour rendre notre économie plus bienveillante ?",
-        "Invitez vos proches et/ou votre communauté à participer"
-      ],
-      "learnMoreTitle": "Découvrez le manifeste du Mouvement pour une Économie Bienveillante.",
-      "learnMoreTextButton": "En savoir +"
-    }
-  }
+  ]
 }

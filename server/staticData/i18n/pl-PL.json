@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tysiące obywateli proponuje swoje rozwiązania.",
-    "description_1": "Wyraź opinię na temat tych rozwiązań i zaproponuj własne.",
-    "description_2": "Najlepsze pomysły przekujemy w działania.",
+    "description": "Wyraź opinię na temat tych rozwiązań i zaproponuj własne.\nNajlepsze pomysły przekujemy w działania.",
     "button": "Start",
     "partnership": "we współpracy z"
   },

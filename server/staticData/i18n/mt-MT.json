@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Eluf ta’ ċittadini qed jipproponu s-soluzzjonijiet tagħhom.",
-    "description_1": "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet u pproponi tiegħek.",
-    "description_2": "L-aħjar soluzzjonijiet ser jiddeterminaw l-azzjonijiet tagħna.",
+    "description": "Agħti l-fehma tiegħek dwar dawn is-soluzzjonijiet u pproponi tiegħek.\nL-aħjar soluzzjonijiet ser jiddeterminaw l-azzjonijiet tagħna.",
     "button": "Ibda",
     "partnership": "fi sħubija ma’"
   },

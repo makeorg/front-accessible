@@ -1,12 +1,12 @@
-/* @flow */
+// @flow
 import React, { type Node } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
@@ -15,8 +15,8 @@ import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
+  questionConfiguration: TypeQuestionConfiguration,
   fetchQuestion: (questionSlug: string) => void,
   match: TypeMatch,
 };
@@ -24,11 +24,13 @@ type Props = {
 export const PageQuestionWrapper = ({
   children,
   questionConfiguration,
+  question,
 }: {
   children: Node,
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
+  question: TypeQuestion,
 }) => {
-  const { metas } = questionConfiguration.wording;
+  const { metas } = question.wording;
   return (
     <ThemeProvider theme={questionConfiguration.theme}>
       <React.Fragment>
@@ -71,7 +73,10 @@ const callQuestionData = Component =>
       if (!question || !questionConfiguration) return null;
 
       return (
-        <PageQuestionWrapper questionConfiguration={questionConfiguration}>
+        <PageQuestionWrapper
+          questionConfiguration={questionConfiguration}
+          question={question}
+        >
           <Component
             question={question}
             questionConfiguration={questionConfiguration}

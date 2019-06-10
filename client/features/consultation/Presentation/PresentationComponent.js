@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { Tracking } from 'Shared/services/Tracking';
 import { Founders } from '../Founders';
@@ -9,13 +11,17 @@ import { SidebarNewWindowLink } from '../SidebarLink';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
+  question: TypeQuestion,
 };
 
-export const PresentationComponent = (props: Props) => {
-  const { questionConfiguration } = props;
+export const PresentationComponent = ({
+  questionConfiguration,
+  question,
+}: Props) => {
   const founders = questionConfiguration.partners.filter(
     partner => partner.isFounder
   );
+
   return (
     <React.Fragment>
       <ParagraphStyle
@@ -25,13 +31,13 @@ export const PresentationComponent = (props: Props) => {
         }}
       />
       <SidebarNewWindowLink
-        linkUrl={questionConfiguration.aboutUrl}
+        linkUrl={question.aboutUrl}
         linkText={i18n.t('consultation.presentation.link_text')}
         tracking={() => Tracking.trackClickLearnMore()}
       />
       <Founders
         founders={founders}
-        isGreatCause={questionConfiguration.isGreatCause}
+        isGreatCause={isGreatCause(question.operationKind)}
       />
     </React.Fragment>
   );

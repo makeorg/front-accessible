@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tusentals medborgare föreslår lösningar.",
-    "description_1": "Ta ställning till lösningarna och ge egna förslag.",
-    "description_2": "De bästa kommer att ligga till grund för våra åtgärder.",
+    "description": "Ta ställning till lösningarna och ge egna förslag.\nDe bästa kommer att ligga till grund för våra åtgärder.",
     "button": "Starta",
     "partnership": "i samarbete med"
   },

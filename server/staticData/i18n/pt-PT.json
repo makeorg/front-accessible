@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Milhares de cidadãos propõem soluções.",
-    "description_1": "Tome uma posição sobre estas soluções e apresente as suas.",
-    "description_2": "As melhores definirão as nossas ações futuras.",
+    "description": "Tome uma posição sobre estas soluções e apresente as suas.\nAs melhores definirão as nossas ações futuras.",
     "button": "Iniciar",
     "partnership": "em parceria com"
   },

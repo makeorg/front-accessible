@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Na tisoče državljanov predlaga rešitve.",
-    "description_1": "Zavzemite se za te rešitve in predlagajte svoje.",
-    "description_2": "Najboljše bo določilo naša dejanja.",
+    "description": "Zavzemite se za te rešitve in predlagajte svoje.\nNajboljše bo določilo naša dejanja.",
     "button": "začetek",
     "partnership": "v partnerstvu z"
   },

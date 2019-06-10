@@ -24,10 +24,7 @@ export const SequencePageComponent = (props: Props) => {
       />
       {question.canPropose && <SequenceSkipLinks />}
       <SequencePageContentStyle>
-        <SequencePageContentLoader
-          question={question}
-          questionConfiguration={questionConfiguration}
-        />
+        <SequencePageContentLoader question={question} />
       </SequencePageContentStyle>
       <SequenceFooter
         question={question}

@@ -73,8 +73,7 @@
   },
   "intro_card": {
     "title": "Thousands of citizens are proposing solutions.",
-    "description_1": "Give your opinion on these solutions & propose your own.",
-    "description_2": "The best ones will determine the actions we take.",
+    "description": "Give your opinion on these solutions & propose your own.\nThe best ones will determine the actions we take.",
     "button": "Start",
     "partnership": "in partnership with"
   },

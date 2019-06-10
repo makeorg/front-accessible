@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
+import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
@@ -64,8 +65,8 @@ export const ConsultationPanelContent = ({
         title={i18n.t('meta.consultation.title', {
           question: question.wording.question,
         })}
-        description={questionConfiguration.wording.metas.description}
-        picture={questionConfiguration.wording.metas.picture}
+        description={question.wording.metas.description}
+        picture={question.wording.metas.picture}
       />
       <ConsultationPanelInnerStyle>
         {renderMobileProposal && (
@@ -78,7 +79,7 @@ export const ConsultationPanelContent = ({
           id="sidebar_content"
           as="aside"
           aria-label={i18n.t('common.sidebar_area')}
-          bottomAffix={questionConfiguration.isGreatCause}
+          bottomAffix={isGreatCause(question.operationKind)}
         >
           <Collapse
             title={i18n.t('consultation.presentation.title')}
@@ -88,9 +89,12 @@ export const ConsultationPanelContent = ({
             }
             questionId={question.questionId}
           >
-            <Presentation questionConfiguration={questionConfiguration} />
+            <Presentation
+              questionConfiguration={questionConfiguration}
+              question={question}
+            />
           </Collapse>
-          {questionConfiguration.isGreatCause && (
+          {isGreatCause(question.operationKind) && (
             <Collapse
               title={i18n.t('consultation.partners.intro_title')}
               forceExpand

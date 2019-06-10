@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tūkstošiem pilsoņu piedāvā risinājumus.",
-    "description_1": "Paudiet viedokli par šiem risinājumiem un sniedziet savus.",
-    "description_2": "Labākie noteiks mūsu darbības.",
+    "description": "Paudiet viedokli par šiem risinājumiem un sniedziet savus.\nLabākie noteiks mūsu darbības.",
     "button": "Uzsākt",
     "partnership": "sadarbībā ar"
   },

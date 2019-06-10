@@ -2,6 +2,7 @@ import React from 'react';
 import { matchPath, type Location } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
+import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
@@ -63,8 +64,7 @@ export const ConsultationPageComponent = ({
                 <ConsultationTabContent question={question} />
               </Link>
             </FullWidthTabStyle>
-
-            {questionConfiguration.isGreatCause && (
+            {isGreatCause(question.operationKind) && (
               <FullWidthTabStyle selected={isActionPage}>
                 <Link to={actionLink} aria-current={isActionPage}>
                   {i18n.t('consultation.tabs.action')}
@@ -85,12 +85,13 @@ export const ConsultationPageComponent = ({
                 />
               )}
             />
-            {questionConfiguration.isGreatCause && (
+            {isGreatCause(question.operationKind) && (
               <Route
                 path={ROUTE_ACTION}
                 exact
                 component={() => (
                   <ActionsPanelContent
+                    question={question}
                     questionConfiguration={questionConfiguration}
                   />
                 )}

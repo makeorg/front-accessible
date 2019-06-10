@@ -1,5 +1,5 @@
 // @flow
-import { type ExtraSlidesConfig } from 'Shared/types/sequence';
+import { type QuestionExtraSlidesConfig as TypeQuestionExtraSlidesConfig } from 'Shared/types/question';
 import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
@@ -69,12 +69,12 @@ export const findIndexOfFirstUnvotedCard = (
 /**
  * Build cards array
  * @param  {TypeProposal[]} proposals
- * @param  {ExtraSlidesConfig} extraSlidesConfig
+ * @param  {TypeQuestionExtraSlidesConfig} extraSlidesConfig
  * @return {TypeCard[]}
  */
 export const buildCards = (
   proposals: TypeProposal[],
-  extraSlidesConfig: ExtraSlidesConfig,
+  extraSlidesConfig: TypeQuestionExtraSlidesConfig,
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean

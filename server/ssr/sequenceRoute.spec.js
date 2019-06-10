@@ -30,9 +30,6 @@ const fooQuestion = {
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
 };
-const fooQuestionConfig = {
-  sequenceConfig: {},
-};
 const questionSlug = 'bar';
 
 const request = httpMocks.createRequest({
@@ -52,7 +49,7 @@ describe('Sequence page route', () => {
   describe('The route', () => {
     it('construct route initial state and render', async () => {
       getQuestion.mockReturnValue(fooQuestion);
-      SequenceService.fetchConfiguration.mockReturnValue(fooQuestionConfig);
+      SequenceService.fetchConfiguration.mockReturnValue({});
       createInitialState.mockReturnValue({ sequence: {}, proposal: {} });
       isInProgress.mockReturnValue(true);
 
@@ -61,7 +58,7 @@ describe('Sequence page route', () => {
         questions: {
           bar: {
             question: fooQuestion,
-            questionConfiguration: fooQuestionConfig,
+            questionConfiguration: {},
           },
         },
         sequence: { questionSlug: 'bar' },

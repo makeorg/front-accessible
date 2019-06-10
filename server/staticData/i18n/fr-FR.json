@@ -117,17 +117,13 @@
   "intro_card": {
     "purpose": "Carte d'introduction",
     "title": "Des milliers de citoyens proposent des solutions.",
-    "description_1": "Prenez position sur ces solutions & proposez les vôtres.",
-    "description_2": "Les meilleures détermineront nos actions.",
+    "description": "Prenez position sur ces solutions & proposez les vôtres.\nLes meilleures détermineront nos actions.",
     "button": "Démarrer",
     "partnership": "en partenariat avec"
   },
   "final_card": {
     "title": "Merci de votre participation !",
-    "sharing": {
-      "introduction": "Vous souhaitez aller plus loin sur cette consultation ?",
-      "description" : "Invitez vos proches et/ou votre communauté à participer."
-    },
+    "sharing_text": "Vous souhaitez aller plus loin sur cette consultation ?\nInvitez vos proches et/ou votre communauté à participer.",
     "more": {
       "title": "Découvrez toutes les propositions sur cette consultation.",
       "button": "En savoir +"

@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Több ezer polgár javasol megoldásokat.",
-    "description_1": "Foglaljon álláspontot ezekben a megoldásokban és nyújtson be javaslatot Ön is.",
-    "description_2": "A legjobb javaslatok alkotják majd az intézkedéseink alapját.",
+    "description": "Foglaljon álláspontot ezekben a megoldásokban és nyújtson be javaslatot Ön is.\nA legjobb javaslatok alkotják majd az intézkedéseink alapját.",
     "button": "Kezdje el",
     "partnership": "az együttműködést"
   },

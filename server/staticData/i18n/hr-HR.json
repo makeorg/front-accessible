@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tisuće građana predlaže rješenja.",
-    "description_1": "Zauzmite svoj stav o navedenim rješenjima i predložite vlastita rješenja.",
-    "description_2": "Najboljim se rješenjima određuje naše djelovanje.",
+    "description": "Zauzmite svoj stav o navedenim rješenjima i predložite vlastita rješenja.\nNajboljim se rješenjima određuje naše djelovanje.",
     "button": "Pokreni",
     "partnership": "u suradnji s"
   },

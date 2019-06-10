@@ -48,8 +48,7 @@
   },
   "intro_card": {
     "title": "Tusindvis af borgere foreslår løsninger.",
-    "description_1": "Tag stilling til disse løsninger & foreslå dine egne løsninger.",
-    "description_2": "De bedste vil bestemme vores handlinger.",
+    "description": "Tag stilling til disse løsninger & foreslå dine egne løsninger.\nDe bedste vil bestemme vores handlinger.",
     "button": "Start",
     "partnership": "i partnerskab med"
   },

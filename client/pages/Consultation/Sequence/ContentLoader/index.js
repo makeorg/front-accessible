@@ -3,7 +3,6 @@ import * as React from 'react';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import {
   SequencePageContentStyle,
@@ -13,8 +12,6 @@ import {
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
   question: Question,
-  /** Object with Static properties used to configure the Sequence (theme, extra cards, ...) */
-  questionConfiguration: QuestionConfiguration,
 };
 
 type State = {
@@ -43,7 +40,7 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
   };
 
   render() {
-    const { question, questionConfiguration } = this.props;
+    const { question } = this.props;
     const { isClosed } = this.state;
 
     if (!question) {
@@ -69,7 +66,6 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
           question={question}
           isClosed={isClosed}
           handleOpenSequence={this.handleOpenSequence}
-          questionConfiguration={questionConfiguration}
         />
       </React.Fragment>
     );
