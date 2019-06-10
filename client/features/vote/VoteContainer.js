@@ -56,7 +56,6 @@ type State = {
  */
 export class VoteContainer extends React.Component<Props, State> {
   static defaultProps = {
-    isSequenceCollapsed: false,
     index: 0,
     goToNextCard: undefined,
     onVote: () => {},
@@ -192,12 +191,14 @@ export class VoteContainer extends React.Component<Props, State> {
               pendingVote={pending}
             />
           </VoteContainerStyle>
-          <NextButtonStyle
-            onClick={goToNextCard}
-            id={`next-button-${proposalId}`}
-          >
-            {i18n.t('proposal_card.next')}
-          </NextButtonStyle>
+          {goToNextCard && (
+            <NextButtonStyle
+              onClick={goToNextCard}
+              id={`next-button-${proposalId}`}
+            >
+              {i18n.t('proposal_card.next')}
+            </NextButtonStyle>
+          )}
         </React.Fragment>
       );
     }

@@ -45,7 +45,6 @@ export const ProposalCardWithQuestion = (props: Props) => {
         proposalId={proposal.id}
         votes={proposal.votes}
         proposalKey={proposal.proposalKey}
-        index={position}
       />
       <ProposalFooterWithQuestionElement
         question={question}

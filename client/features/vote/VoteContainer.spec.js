@@ -11,7 +11,6 @@ describe('VoteContainer', () => {
   const defaultProps = {
     proposalId: 'fooId',
     votes: [],
-    isSequenceCollapsed: true,
     index: 1,
     currentIndex: 1,
     goToNextCard: () => {},
@@ -34,9 +33,21 @@ describe('VoteContainer', () => {
     );
   });
 
-  it('NextButtonStyle should not be rendered', () => {
+  it('NextButtonStyle should not be rendered if user has not voted yet', () => {
     // check next button is not visible
     const NextButtonWrapper = wrapper.find(NextButtonStyle);
+    expect(NextButtonWrapper).toHaveLength(0);
+  });
+
+  it('NextButtonStyle should not be rendered if goToNextCard Props is undefined', () => {
+    const wrapperWithUndefinedGoToNextCardProps = shallow(
+      <VoteContainer proposalId="fooId" votes={[]} />
+    );
+
+    // check next button is not visible
+    const NextButtonWrapper = wrapperWithUndefinedGoToNextCardProps.find(
+      NextButtonStyle
+    );
     expect(NextButtonWrapper).toHaveLength(0);
   });
 
