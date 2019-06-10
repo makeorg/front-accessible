@@ -91,6 +91,7 @@ export const ConsultationPageComponent = ({
                 exact
                 component={() => (
                   <ActionsPanelContent
+                    question={question}
                     questionConfiguration={questionConfiguration}
                   />
                 )}

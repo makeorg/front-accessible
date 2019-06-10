@@ -64,8 +64,8 @@ export const ConsultationPanelContent = ({
         title={i18n.t('meta.consultation.title', {
           question: question.wording.question,
         })}
-        description={questionConfiguration.wording.metas.description}
-        picture={questionConfiguration.wording.metas.picture}
+        description={question.wording.metas.description}
+        picture={question.wording.metas.picture}
       />
       <ConsultationPanelInnerStyle>
         {renderMobileProposal && (

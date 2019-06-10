@@ -1,13 +1,4 @@
 {
-  "wording": {
-    "title": "Une vraie place pour les personnes handicapées",
-    "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ? ",
-    "metas": {
-      "title": "Vous avez une idée sur le sujet ?",
-      "description": "Participez à la consultation initiée par Klesia et Fondation OCIRP avec Make.org",
-      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5ce2c35c7c5e2f32cd0681e8_meta.jpg"
-    }
-  },
   "theme": {
     "color": "#2639ad",
     "gradientStart": "#2639ad",

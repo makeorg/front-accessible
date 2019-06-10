@@ -18,16 +18,18 @@ type Props = {
  */
 export const SequenceFooterContainer = (props: Props) => {
   const { questionConfiguration, question } = props;
+  const { wording } = question;
   const consultationLink = getConsultationLink(
     question.country,
     question.language,
     question.slug
   );
+
   return (
     <SequenceFooterComponent
       theme={questionConfiguration.theme}
       consultationLink={consultationLink}
-      questionTitle={questionConfiguration.wording.question}
+      questionTitle={wording.question}
     />
   );
 };

@@ -1,13 +1,4 @@
 {
-  "wording": {
-    "title": "Prévention Jeunes",
-    "question": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
-    "metas": {
-      "title": "Comment inciter les jeunes à mieux prendre soin de leur santé ?",
-      "description": " Vous avez une idée sur le sujet ? Participez à la consultation initiée par Fondation Ramsay Générale de Santé avec Make.org",
-      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5cc2da023a80e845b263d0d6_meta%20prevention%20sante.jpg"
-    }
-  },
   "theme": {
     "color": "#FF5757",
     "gradientStart": "#FF5757",

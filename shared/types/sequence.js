@@ -24,18 +24,6 @@ export type QuestionTheme = {
   gradientEnd: string,
 };
 
-export type Metas = {
-  title: string,
-  description: string,
-  picture: string,
-};
-
-export type Wording = {
-  title: string,
-  question: string,
-  metas: Metas,
-};
-
 export type ConsultationType = {
   presentation: string,
   logo: string,
@@ -46,7 +34,6 @@ export type Sharing = {
 };
 
 export type QuestionConfiguration = {
-  wording: Wording,
   sharing: Sharing,
   theme: QuestionTheme,
   partners: TypePartner[],

@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
@@ -18,40 +19,42 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
+  question: TypeQuestion,
   handleRegisterModal: () => void,
   isLoggedIn: boolean,
 };
 
-export const ActionsPanel = (props: Props) => {
-  const { questionConfiguration, handleRegisterModal, isLoggedIn } = props;
-
-  return (
-    <React.Fragment>
-      <MetaTags
-        title={i18n.t('meta.actions.title', {
-          question: questionConfiguration.wording.question,
-        })}
-      />
-      <ConsultationPageSidebarStyle id="sidebar_content" as="aside">
-        <TileWithTitle title={i18n.t('actions.plan.title')}>
-          <PlanTileContent />
+export const ActionsPanel = ({
+  questionConfiguration,
+  question,
+  handleRegisterModal,
+  isLoggedIn,
+}: Props) => (
+  <React.Fragment>
+    <MetaTags
+      title={i18n.t('meta.actions.title', {
+        question: question.wording.question,
+      })}
+    />
+    <ConsultationPageSidebarStyle id="sidebar_content" as="aside">
+      <TileWithTitle title={i18n.t('actions.plan.title')}>
+        <PlanTileContent />
+      </TileWithTitle>
+      <TileWithTitle title={i18n.t('actions.partners.title')}>
+        <PartnersTileContent questionConfiguration={questionConfiguration} />
+      </TileWithTitle>
+    </ConsultationPageSidebarStyle>
+    <ConsultationPageContentStyle id="main">
+      {!isLoggedIn && (
+        <TileWithTitle title={<img src={Logo} width={46} alt="Make.org" />}>
+          <RegisterTileContent handleRegisterModal={handleRegisterModal} />
         </TileWithTitle>
-        <TileWithTitle title={i18n.t('actions.partners.title')}>
-          <PartnersTileContent questionConfiguration={questionConfiguration} />
-        </TileWithTitle>
-      </ConsultationPageSidebarStyle>
-      <ConsultationPageContentStyle id="main">
-        {!isLoggedIn && (
-          <TileWithTitle title={<img src={Logo} width={46} alt="Make.org" />}>
-            <RegisterTileContent handleRegisterModal={handleRegisterModal} />
-          </TileWithTitle>
-        )}
-        <SupportContent />
-      </ConsultationPageContentStyle>
-    </React.Fragment>
-  );
-};
+      )}
+      <SupportContent />
+    </ConsultationPageContentStyle>
+  </React.Fragment>
+);
 
 const mapStateToProps = state => {
   const { isLoggedIn } = selectAuthentification(state);
