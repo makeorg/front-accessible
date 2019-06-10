@@ -12,7 +12,6 @@
   "partners": [
     {"name": "Ramsay Générale de Santé", "imageUrl": "/images/operations/prevention-jeunes/partners/rgds.png", "isFounder": true, "profileUrl": "/FR-fr/profile/fondation-ramsay-generale-de-sante"}
   ],
-  "aboutUrl": "https://about.make.org/about-prevention-jeunes",
   "sequenceConfig": {
     "introCard": {
       "enabled": true,

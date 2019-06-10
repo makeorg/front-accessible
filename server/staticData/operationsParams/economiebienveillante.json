@@ -13,7 +13,6 @@
   "partners": [
     {"name": "Mouvement pour une Économie Bienveillante", "imageUrl": "/images/operations/economie-bienveillante/partners/meb.jpg", "isFounder": true}
   ],
-  "aboutUrl": "https://about.make.org/about-economiebienveillante",
   "sequenceConfig": {
     "introCard": {
       "enabled": true,

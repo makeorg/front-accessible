@@ -57,7 +57,7 @@ export const Partners = (props: Props) => {
       </ParagraphStyle>
       {partners && <PartnersList partners={partners} />}
       <SidebarNewWindowLink
-        linkUrl={getPartnerAnchor(questionConfiguration.aboutUrl)}
+        linkUrl={getPartnerAnchor(question.aboutUrl)}
         linkText={i18n.t('consultation.partners.commitment_link')}
         tracking={() => Tracking.trackSeeMorePartners()}
       />

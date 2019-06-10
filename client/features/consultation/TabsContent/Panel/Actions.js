@@ -42,7 +42,10 @@ export const ActionsPanel = ({
         <PlanTileContent />
       </TileWithTitle>
       <TileWithTitle title={i18n.t('actions.partners.title')}>
-        <PartnersTileContent questionConfiguration={questionConfiguration} />
+        <PartnersTileContent
+          partners={questionConfiguration.partners}
+          aboutUrl={question.aboutUrl}
+        />
       </TileWithTitle>
     </ConsultationPageSidebarStyle>
     <ConsultationPageContentStyle id="main">

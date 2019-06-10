@@ -21,7 +21,6 @@
     {"name": "Croix-rouge française", "imageUrl": "/images/operations/handicap/partners/croix-rouge.png", "isFounder": false, "profileUrl": "/FR-fr/profile/croix-rouge/proposals"},
     {"name": "Fédération Française du Handisport", "imageUrl": "/images/operations/handicap/partners/handisport.png", "isFounder": false, "profileUrl": "/FR-fr/profile/federation-francaise-handisport/proposals"}
   ],
-  "aboutUrl": "https://about-handicap.make.org",
   "sequenceConfig": {
     "introCard": {
       "enabled": true,
