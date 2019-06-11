@@ -1,7 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useDesktop } from 'Client/hooks/useMedia';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
 import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
@@ -13,7 +13,7 @@ import { Tracking } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   FeaturedArticleWrapperStyle,
-  FeaturedInformationsWraperStyle,
+  FeaturedInformationsWrapperStyle,
   FeaturedPictureWraperStyle,
   FeaturedArticleColumnStyle,
   FeaturedArticleStyle,
@@ -33,7 +33,7 @@ const featureds = [
       'MAKE.ORG et ses partenaires ont lancé une consultation pour garantir une vraie place aux personnes handicapées. Votez, proposez, agissez !',
     picture: HandicapPicture,
     picture_mobile: HandicapMobilePicture,
-    cta_text: 'Participez à la consultation',
+    cta_text: 'Participez',
     link: '/FR-fr/consultation/handicap/consultation',
     is_external_link: false,
   },
@@ -97,7 +97,7 @@ const FeaturedMobile = () => (
 
 const Featured = ({ featured, index }) => {
   const blockPosition = index + 1;
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
   const linkObject = featured.is_external_link
     ? {
         as: 'a',
@@ -118,23 +118,27 @@ const Featured = ({ featured, index }) => {
         {...linkObject}
       >
         <img
-          src={isMobile ? featured.picture_mobile : featured.picture}
-          alt=""
+          src={isDesktop ? featured.picture : featured.picture_mobile}
+          alt={i18n.t('homepage.featured.link', { name: featured.title })}
         />
       </FeaturedPictureWraperStyle>
-      <FeaturedInformationsWraperStyle>
-        <FeaturedTypeStyle>
-          <ScreenReaderItemStyle>
-            {i18n.t('homepage.featured.status')}
-          </ScreenReaderItemStyle>
-          {featured.type}
-        </FeaturedTypeStyle>
-        <FeaturedArticleTitleStyle>{featured.title}</FeaturedArticleTitleStyle>
-        {featured.description && !isMobile && (
-          <FeaturedDescriptionStyle>
-            {featured.description}
-          </FeaturedDescriptionStyle>
-        )}
+      <FeaturedInformationsWrapperStyle>
+        <div>
+          <FeaturedTypeStyle>
+            <ScreenReaderItemStyle>
+              {i18n.t('homepage.featured.status')}
+            </ScreenReaderItemStyle>
+            {featured.type}
+          </FeaturedTypeStyle>
+          <FeaturedArticleTitleStyle>
+            {featured.title}
+          </FeaturedArticleTitleStyle>
+          {featured.description && isDesktop && (
+            <FeaturedDescriptionStyle>
+              {featured.description}
+            </FeaturedDescriptionStyle>
+          )}
+        </div>
         <FeaturedLinkStyle
           onClick={() =>
             Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
@@ -143,20 +147,20 @@ const Featured = ({ featured, index }) => {
         >
           {featured.cta_text}
         </FeaturedLinkStyle>
-      </FeaturedInformationsWraperStyle>
+      </FeaturedInformationsWrapperStyle>
     </React.Fragment>
   );
 };
 
 export const FeaturedConsultations = () => {
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
 
   return (
     <HomepageInnerContentStyle aria-labelledby="featured_title">
       <HomeTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
       </HomeTitleStyle>
-      {isMobile ? <FeaturedMobile /> : <FeaturedDesktop />}
+      {isDesktop ? <FeaturedDesktop /> : <FeaturedMobile />}
     </HomepageInnerContentStyle>
   );
 };

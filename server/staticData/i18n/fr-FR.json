@@ -469,7 +469,8 @@
   "homepage": {
     "featured": {
       "title": "En ce moment sur Make.org",
-      "status": "Label de l'opération : "
+      "status": "Label de l'opération : ",
+      "link": "Aller sur la page de la consultation : {{name}}"
     },
     "great-causes": {
       "title": "Nos opérations en cours",

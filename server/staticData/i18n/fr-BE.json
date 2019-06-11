@@ -242,7 +242,7 @@
     "link": "En savoir + sur cette consultation"
   },
   "main-footer": {
-    "jobs": "Jobs",
+    "jobs": "<span lang=\"en\">Jobs</span>",
     "whoarewe": "Qui sommes-nous ?",
     "press": "Espace presse",
     "legal": "Mentions légales",
@@ -469,7 +469,8 @@
   "homepage": {
     "featured": {
       "title": "En ce moment sur Make.org",
-      "status": "Label de l'opération : "
+      "status": "Label de l'opération : ",
+      "link": "Aller sur la page de la consultation : {{name}}"
     },
     "great-causes": {
       "title": "Nos opérations en cours",
