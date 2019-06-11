@@ -23,15 +23,13 @@ import { CardSeparatorStyle } from '../../sequence/Card/Styled/Content';
 type Props = {
   /** Object with all proposal's properties */
   proposal: TypeProposal,
-  /** Object with all question's properties */
-  questionConfiguration: TypeQuestionConfiguration,
 };
 
 /**
  * Renders Single Proposal Card
  */
 export const SingleProposalCardComponent = (props: Props) => {
-  const { proposal, questionConfiguration } = props;
+  const { proposal } = props;
   const { question } = proposal;
 
   return (
@@ -60,7 +58,7 @@ export const SingleProposalCardComponent = (props: Props) => {
                   proposal.country,
                   proposal.language,
                   question.slug
-                )}">${questionConfiguration.wording.title}</a>`,
+                )}">${question.wording.title}</a>`,
               }),
             }}
           />
