@@ -49,12 +49,13 @@ export const FeaturedArticleCol1Style = styled(FeaturedArticleStyle)`
   }
 `;
 
-export const FeaturedInformationsWraperStyle = styled.div`
+export const FeaturedInformationsWrapperStyle = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
+  justify-content: space-between;
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
@@ -99,11 +100,9 @@ export const FeaturedDescriptionStyle = styled.p`
 
 export const FeaturedLinkStyle = styled(LinkAsRedButton)`
   text-align: center;
-  margin-top: auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
       Breakpoints.Desktop
     )}) {
-    margin-top: auto;
     font-size: 22px;
     padding: 12px 25px;
   }
