@@ -797,7 +797,7 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.4.0", "@babel/runtime@^7.4.5":
+"@babel/runtime@^7.4.0", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
@@ -1197,11 +1197,12 @@
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
 
-"@loadable/component@~5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.9.0.tgz#9b3e983f14c730d1c8894c352b78ebc401091f76"
-  integrity sha512-6nnIm8VthaakyCX7fQVy/nTqtIv0NZwaTJpkL0BiB9msm4mXc5v+7elq4f9LJVmSpw/xIpJMeUbYwZtBYxmlEg==
+"@loadable/component@~5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.10.1.tgz#09613e46d409ffacb3b4403658ed90adbc01ba24"
+  integrity sha512-nYb38UbPWCWB9R8US4Za0JzgjS1QaY13STJhU7ZUsfO2qG3k5huppVF92eX2iauhfpdrRkCDQqi+Fg/US4FXIg==
   dependencies:
+    "@babel/runtime" "^7.4.4"
     hoist-non-react-statics "^3.3.0"
 
 "@loadable/server@~5.9.0":
