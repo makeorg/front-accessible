@@ -54,8 +54,8 @@
 		"ua-parser-js": "~0.7.19",
 		"universal-cookie": "~4.0.0",
 		"universal-cookie-express": "~4.0.0",
-		"winston": "~3.1.0"
-	},
+    "winston": "~3.2.1"
+  },
 	"devDependencies": {
 		"@babel/core": "~7.1.2",
 		"@babel/plugin-proposal-class-properties": "~7.1.0",
