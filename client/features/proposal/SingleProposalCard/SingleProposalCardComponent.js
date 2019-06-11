@@ -2,7 +2,6 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
