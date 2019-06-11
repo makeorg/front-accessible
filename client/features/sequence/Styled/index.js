@@ -100,8 +100,8 @@ export const FooterStyle = styled.footer`
 
 export const FooterTitleStyle = styled.p`
   font-family: ${MakeFonts.RobotoCondensedBold};
+  color: ${props => props.fontColor};
   text-transform: uppercase;
-  color: ${props => props.color};
   font-size: 11px;
   margin-bottom: 5px;
   text-align: center;
@@ -111,16 +111,24 @@ export const FooterTitleStyle = styled.p`
 `;
 
 export const FooterLinkStyle = styled(Link)`
-  color: ${props => props.color};
   font-size: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
-  &:hover,
-  &:focus {
-    color: ${props => props.color};
+  &.white,
+  &.white:hover,
+  &.white:focus {
+    color: ${BasicColors.PureWhite};
   }
-  &:focus {
-    outline-color: ${props => props.color};
+  &.white:focus {
+    outline-color: ${BasicColors.PureWhite};
+  }
+  &.black,
+  &.black:hover,
+  &.black:focus {
+    color: ${BasicColors.PureBlack};
+  }
+  &.black:focus {
+    outline-color: ${BasicColors.PureBlack};
   }
 `;

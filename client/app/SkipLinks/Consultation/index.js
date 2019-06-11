@@ -9,7 +9,7 @@ type Props = {
 export const ConsultationSkipLinks = (props: Props) => {
   const { canPropose } = props;
   return (
-    <UnstyledListStyle aria-label={i18n.t('skip_links.secondary_list')}>
+    <UnstyledListStyle>
       <li>
         <SkipLink as="a" href="#consultation_nav">
           {i18n.t('skip_links.secondary_nav')}

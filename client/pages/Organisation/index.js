@@ -116,15 +116,10 @@ const OrganisationPage = (props: Props) => {
         <ProfilePageSidebarStyle>
           <ProfileAvatarLayoutStyle>
             <ProfileAvatarStyle>
-              <Avatar avatarSize={avatarSize}>
-                {organisation.avatarUrl && (
-                  <img
-                    src={organisation.avatarUrl}
-                    alt={organisation.organisationName}
-                    aria-hidden
-                  />
-                )}
-              </Avatar>
+              <Avatar
+                avatarSize={avatarSize}
+                avatarUrl={organisation.avatarUrl}
+              />
             </ProfileAvatarStyle>
           </ProfileAvatarLayoutStyle>
           <ProfileContentWrapperStyle>
@@ -155,7 +150,7 @@ const OrganisationPage = (props: Props) => {
             id="organisation_nav"
           >
             <TabListStyle>
-              <TabStyle selected={isOrganisationProposalsActive}>
+              <TabStyle isSelected={isOrganisationProposalsActive}>
                 <Link
                   to={organisationProposalsLink}
                   aria-current={isOrganisationProposalsActive}
@@ -163,7 +158,7 @@ const OrganisationPage = (props: Props) => {
                   {i18n.t('organisation.tabs.proposals')}
                 </Link>
               </TabStyle>
-              <TabStyle selected={isOrganisationVotesActive}>
+              <TabStyle isSelected={isOrganisationVotesActive}>
                 <Link
                   to={organisationFavouritesLink}
                   aria-current={isOrganisationVotesActive}

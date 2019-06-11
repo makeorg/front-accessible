@@ -8,11 +8,9 @@ import { Layouts, DefaultPadding, Breakpoints } from '../vars/Breakpoints';
 export const UIThemeStylesheet = createGlobalStyle`
   .red-link {
     color: ${MakeThemeColors.Red};
-    text-decoration: none;
     &:hover,
     &:focus {
       color: ${MakeThemeColors.Red};
-      text-decoration: underline;
     }
   }
 

@@ -48,7 +48,7 @@ export const SequenceComponent = (props: Props) => {
   }
 
   return (
-    <SequenceStyle role="region">
+    <SequenceStyle>
       <CollapseToggle
         handleOpenSequence={handleOpenSequence}
         isClosed={isClosed}

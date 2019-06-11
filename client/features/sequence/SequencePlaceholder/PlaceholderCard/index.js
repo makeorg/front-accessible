@@ -12,7 +12,7 @@ import {
  * Renders Proposal Placeholder used when the Sequence is loading
  */
 export const PlaceholderCardComponent = () => (
-  <PlaceholderCardStyle as="div" scale="1" zindex="1">
+  <PlaceholderCardStyle as="div" scaling="1" zindex="1">
     <PlaceholderWrapperStyle>
       <PlaceholderTitleSTyle />
       <PlaceholderSeparatorStyle />

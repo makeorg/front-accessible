@@ -34,7 +34,7 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
       aria-label={i18n.t('common.header_authentification_nav')}
     >
       <ProfileAccessLinkStyle as={Link} to={profileLink} rel="nofollow">
-        <Avatar>{avatarUrl && <img src={avatarUrl} alt="" />}</Avatar>
+        <Avatar avatarUrl={avatarUrl} />
         <span>
           {user.isOrganisation ? user.organisationName : user.firstName}
         </span>

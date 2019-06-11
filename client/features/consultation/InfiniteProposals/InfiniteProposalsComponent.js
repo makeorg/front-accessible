@@ -5,7 +5,6 @@ import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged'
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 
 type Props = {
@@ -22,7 +21,7 @@ export const InfiniteProposalsComponent = (props: Props) => {
   const displayLoadMoreButton = hasMore && !isLoading && page <= 1;
 
   return (
-    <UnstyledListStyle id="proposal_list" role="feed" aria-busy={isLoading}>
+    <section id="proposal_list" role="feed" aria-busy={isLoading}>
       {proposals &&
         proposals.map((proposal, index) => (
           <ProposalCardTagged
@@ -40,6 +39,6 @@ export const InfiniteProposalsComponent = (props: Props) => {
           </RedButtonStyle>
         </LoadMoreWrapperStyle>
       )}
-    </UnstyledListStyle>
+    </section>
   );
 };

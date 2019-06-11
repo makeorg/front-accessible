@@ -45,11 +45,7 @@ export const ProfileVoteCard = ({
   const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
-    <ProfileVoteWrapperStyle
-      role="article"
-      aria-posinset={position}
-      aria-setsize={size}
-    >
+    <ProfileVoteWrapperStyle aria-posinset={position} aria-setsize={size}>
       <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
           aria-label={voteAttributes.label}

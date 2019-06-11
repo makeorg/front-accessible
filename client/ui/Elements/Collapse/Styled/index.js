@@ -3,6 +3,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { UnstyledButtonStyle } from '../../ButtonElements';
 import { MiddleColumnStyle } from '../../FlexElements';
 
@@ -18,17 +19,23 @@ export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
 `;
 
 export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  font-size: 16px;
   &:disabled {
     color: ${BasicColors.PureBlack};
     cursor: text;
   }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 18px;
+  }
 `;
 
-export const CollapseIconStyle = styled.div`
+export const CollapseIconStyle = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;

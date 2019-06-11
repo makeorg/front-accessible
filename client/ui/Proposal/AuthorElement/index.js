@@ -56,9 +56,7 @@ export const ProposalAuthorElement = (props: Props) => {
       <AuthorInfosStyle withAvatar={withAvatar}>
         {withAvatar && (
           <React.Fragment>
-            <Avatar>
-              {author.avatarUrl && <img src={author.avatarUrl} alt="" />}
-            </Avatar>
+            <Avatar avatarUrl={author.avatarUrl} />
             &nbsp;
           </React.Fragment>
         )}

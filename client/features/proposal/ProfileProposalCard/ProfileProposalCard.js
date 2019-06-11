@@ -22,7 +22,6 @@ export const ProfileProposalCard = (props: Props) => {
 
   return (
     <ProfileProposalCardStyle
-      role="article"
       aria-posinset={position}
       aria-setsize={size}
       className={`proposal-${formattedProposalStatus}`}

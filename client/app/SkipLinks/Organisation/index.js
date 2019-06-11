@@ -5,7 +5,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const OrganisationProfileSkipLinks = () => {
   return (
-    <UnstyledListStyle aria-label={i18n.t('skip_links.secondary_list')}>
+    <UnstyledListStyle>
       <li>
         <SkipLink as="a" href="#organisation_nav">
           {i18n.t('skip_links.secondary_nav')}

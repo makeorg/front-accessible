@@ -3,7 +3,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const ModernNormalizeStylesheet = createGlobalStyle`
-  /*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
+  /* modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
 
   /* Document
    ========================================================================== */
@@ -11,7 +11,6 @@ export const ModernNormalizeStylesheet = createGlobalStyle`
   /**
   * Use a better box model (opinionated).
   */
-
   html {
   box-sizing: border-box;
   }

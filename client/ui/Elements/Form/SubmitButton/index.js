@@ -31,7 +31,6 @@ export class SubmitButton extends React.Component<Props> {
         form={formName}
         id={id}
         disabled={disabled}
-        aria-disabled={disabled}
       >
         {icon && <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>}
         {label}

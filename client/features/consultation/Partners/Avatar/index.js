@@ -30,7 +30,6 @@ export const PartnerAvatar = (props: Props) => {
             as: Link,
             to: partnerProfile,
           })}
-      avatarSize={50}
     >
       {partnerLogo && (
         <img
@@ -44,6 +43,8 @@ export const PartnerAvatar = (props: Props) => {
                   name: partnerName,
                 })
           }
+          width={50}
+          height={50}
         />
       )}
     </AvatarStyle>

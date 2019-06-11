@@ -59,9 +59,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
       <React.Fragment>
         <ProfileAvatarLayoutStyle>
           <ProfileAvatarStyle>
-            <Avatar avatarSize={avatarSize}>
-              {profile.avatarUrl && <img src={profile.avatarUrl} alt="" />}
-            </Avatar>
+            <Avatar avatarSize={avatarSize} avatarUrl={profile.avatarUrl} />
           </ProfileAvatarStyle>
           {user.isOrganisation && (
             <ProfileContentWrapperStyle>

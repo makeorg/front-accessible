@@ -1,6 +1,5 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import {
   CollapseWrapperStyle,
@@ -32,18 +31,18 @@ export const CollapseComponent = (props: Props) => {
     toggleCollapse,
   } = props;
   return (
-    <CollapseWrapperStyle aria-expanded={disableCollapse ? true : !isCollapsed}>
+    <CollapseWrapperStyle>
       <CollapseTriggerStyle
         onClick={toggleCollapse}
         disabled={disableCollapse}
-        aria-disabled={disableCollapse}
+        aria-expanded={disableCollapse ? false : isCollapsed}
         aria-label={
           isCollapsed
             ? i18n.t('common.expand_collapse', { name: title })
             : i18n.t('common.shrink_collapse', { name: title })
         }
       >
-        <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>
+        {title}
         {!disableCollapse && (
           <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>
             <SvgAngleArrowRight />

@@ -14,7 +14,7 @@ export const ProfileVoteCardStyle = styled.aside`
   padding: ${intToPx(DefaultPadding.Mobile)};
 `;
 
-export const ProfileVoteWrapperStyle = styled.li`
+export const ProfileVoteWrapperStyle = styled.article`
   margin-bottom: 15px;
   &:last-child: {
     margin-bottom: 0;

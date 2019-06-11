@@ -20,11 +20,14 @@ export const SequenceFooterComponent = (props: Props) => {
 
   return (
     <FooterStyle aria-labelledby="footer_title">
-      <FooterTitleStyle color={theme.footerFontColor} id="footer_title">
+      <FooterTitleStyle
+        style={{ color: theme.footerFontColor }}
+        id="footer_title"
+      >
         {questionTitle}
       </FooterTitleStyle>
       <FooterLinkStyle
-        color={theme.footerFontColor}
+        className={theme.footerFontColor}
         to={consultationLink}
         onClick={() => Tracking.trackClickConsultation()}
       >

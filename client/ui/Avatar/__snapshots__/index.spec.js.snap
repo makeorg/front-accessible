@@ -12,13 +12,8 @@ exports[`Avatar snapshot by default 1`] = `
 .c0 img {
   border-radius: 50%;
   overflow: hidden;
-  width: 30px;
-  height: 30px;
-  background-color: rgb(255,255,255);
-}
-
-.c0 img {
   border: 1px solid rgba(0,0,0,0.5);
+  background-color: rgb(255,255,255);
 }
 
 <span
@@ -26,6 +21,8 @@ exports[`Avatar snapshot by default 1`] = `
 >
   <SvgEmptyAvatar
     aria-hidden={true}
+    height={30}
+    width={30}
   />
 </span>
 `;

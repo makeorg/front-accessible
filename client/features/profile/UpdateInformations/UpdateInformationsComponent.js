@@ -122,7 +122,6 @@ export const UpdateInformationsComponent = ({
         )}
         <SubmitButton
           disabled={!canSubmit}
-          aria-disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}

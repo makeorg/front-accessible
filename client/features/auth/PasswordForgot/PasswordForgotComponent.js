@@ -32,7 +32,7 @@ export const PasswordForgotComponent = (props: Props) => {
   const { isSuccess, handleLoginModal } = props;
 
   return (
-    <ForgotPasswordStyle role="region" aria-labelledby="forgot_password_title">
+    <ForgotPasswordStyle aria-labelledby="forgot_password_title">
       <SecondLevelTitleStyle id="forgot_password_title">
         {i18n.t('forgot_password.title')}
       </SecondLevelTitleStyle>

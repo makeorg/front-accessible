@@ -47,9 +47,8 @@ export const DefaultStylesheet = createGlobalStyle`
   }
 
   img {
-    display: block;
+    display: flex;
     max-width: 100%;
-    height: auto;
   }
 
   label {

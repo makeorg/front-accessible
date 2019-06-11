@@ -14,7 +14,6 @@ import {
 import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { OrganisationVotesPlaceholder } from '../Placeholders/Votes';
 
 type Props = {
@@ -59,7 +58,7 @@ const OrganisationVotesPage = (props: Props) => {
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}
       {renderVotes && (
-        <UnstyledListStyle role="feed">
+        <section role="feed">
           {votes.map((vote, index) => (
             <ProfileVoteCard
               key={`organisation_votes_${vote.proposal.id}`}
@@ -70,7 +69,7 @@ const OrganisationVotesPage = (props: Props) => {
               position={index + 1}
             />
           ))}
-        </UnstyledListStyle>
+        </section>
       )}
       {renderPlaceholder && (
         <OrganisationVotesPlaceholder name={organisation.organisationName} />

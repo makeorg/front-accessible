@@ -12,7 +12,7 @@ const MobilePaddingWithOffset = DefaultPadding.Mobile + TabsOffsetMobile;
 const DesktopPaddingWithOffset = DefaultPadding.Desktop + TabsOffsetDesktop;
 
 export const IntroWrapperStyle = styled(MiddleColumnStyle)`
-  background-color: ${props => props.color};
+  background-color: ${props => props.backgroundcolor};
   background: linear-gradient(
     115deg,
     ${props => props.gradientStart},

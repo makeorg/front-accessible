@@ -1,5 +1,4 @@
 import React from 'react';
-import { i18n } from 'Shared/i18n';
 import {
   TopTooltipStyle,
   BottomTooltipStyle,
@@ -15,8 +14,6 @@ type Props = {
   children: React.Component | string,
   /** Styled Component Element */
   direction?: string,
-  /** Custom aria-label for display event */
-  ariaLabel?: sting,
 };
 
 type State = {
@@ -51,14 +48,13 @@ export class TooltipContainer extends React.Component<Props, State> {
   };
 
   render() {
-    const { content, children, direction, ariaLabel } = this.props;
+    const { content, children, direction } = this.props;
     const { displayTooltip } = this.state;
     return (
       <TooltipComponent
         type={TooltipType[direction]}
         content={content}
         displayTooltip={displayTooltip}
-        ariaLabel={ariaLabel}
         showTooltip={this.showTooltip}
         hideTooltip={this.hideTooltip}
       >
@@ -70,5 +66,4 @@ export class TooltipContainer extends React.Component<Props, State> {
 
 TooltipContainer.defaultProps = {
   direction: 'top',
-  ariaLabel: i18n.t('common.display_tooltip'),
 };
