@@ -16,6 +16,7 @@ module.exports = {
       display: 'standalone',
       theme_color: '#ed1844',
       background_color: '#ffffff',
+      fingerprints: false,
       icons: [
         {
           src: path.join(__dirname, '../client/app/assets/images/favicon.png'),
@@ -35,7 +36,7 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ttf|eot|woff|woff2)$/,
+        test: /\.(jpe?g|png|gif|svg|ttf|eot|woff|woff2|manifest|ico)$/,
         use: [
           {
             loader: 'file-loader',
