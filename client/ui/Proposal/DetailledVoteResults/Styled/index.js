@@ -52,3 +52,7 @@ export const VoteDataBoldItemStyle = styled(VoteDataItemStyle)`
     font-size: 16px;
   }
 `;
+
+export const QualificationDataListStyle = styled(UnstyledListStyle)`
+  margin-top: 10px;
+`;

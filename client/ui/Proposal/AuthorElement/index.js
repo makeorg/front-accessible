@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Author } from 'Shared/types/proposal';
@@ -25,7 +26,9 @@ type Props = {
   /** Date of creation of proposal */
   createdAt?: string,
   /** Include avatar */
-  withAvatar: boolean,
+  withAvatar?: boolean,
+  /** Include formatted proposal status */
+  formattedProposalStatus?: string,
 };
 
 const ProposalAuthorAge = ({ age }) => {
@@ -47,7 +50,6 @@ export const ProposalAuthorElement = (props: Props) => {
     language,
     createdAt,
     withAvatar,
-    withStatus,
     formattedProposalStatus,
   } = props;
 
@@ -98,7 +100,7 @@ export const ProposalAuthorElement = (props: Props) => {
           </React.Fragment>
         )}
       </AuthorInfosStyle>
-      {withStatus && (
+      {formattedProposalStatus && (
         <ProposalStatusStyle className={`status-${formattedProposalStatus}`}>
           <ScreenReaderItemStyle>
             {i18n.t('proposal_card.status.title')}
@@ -112,6 +114,5 @@ export const ProposalAuthorElement = (props: Props) => {
 
 ProposalAuthorElement.defaultProps = {
   withAvatar: false,
-  withStatus: false,
   formattedProposalStatus: undefined,
 };

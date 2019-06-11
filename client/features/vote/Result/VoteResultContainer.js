@@ -15,15 +15,13 @@ type Props = {
   handleVote?: string => void,
   /** When waiting response from API */
   pending?: boolean,
-  /** Show the label of the vote */
-  withLabel: boolean,
 };
 
 /**
  * Handles Vote Result Business Logic
  */
 export const VoteResultContainer = (props: Props) => {
-  const { votes, handleVote, votedKey, proposalId, pending, withLabel } = props;
+  const { votes, handleVote, votedKey, proposalId, pending } = props;
   const totalVotesCount = VoteResultHelper.getTotalVotesCount(votes);
   const handleVoteWithKey = () => {
     handleVote(votedKey);
@@ -37,7 +35,6 @@ export const VoteResultContainer = (props: Props) => {
       handleVote={handleVoteWithKey}
       proposalId={proposalId}
       pending={pending}
-      withLabel={withLabel}
     />
   );
 };

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProposalAuthorElement must match the diff snapshot between default vs custom avatar 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,9 +1,11 @@
+  <AuthorDescriptionStyle>
+    <AuthorInfosStyle
+-     withAvatar={false}
++     withAvatar={true}
+    >
++     <Avatar />
++      
+      <ScreenReaderItemStyle>
+        proposal_card.author.from
+      </ScreenReaderItemStyle>
+      Mickael
+      , proposal_card.author.age
+`;

@@ -5,10 +5,6 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const QualificationDataListStyle = styled(UnstyledListStyle)`
-  margin-top: 10px;
-`;
-
 export const QualificationDataItemStyle = styled(UnstyledListStyle)`
   margin-top: 10px;
 `;

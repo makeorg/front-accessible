@@ -28,10 +28,15 @@ import {
 } from './Styled';
 
 type Props = {
+  /** Object with all organisation's properties */
   organisation: TypeOrganisation,
+  /** Object with all proposal's properties */
   proposal: TypeProposal,
+  /** Nature of the organisation's vote */
   voteKey: string,
+  /** Proposal's position in list */
   position: number,
+  /** Size of proposals list */
   size: number,
 };
 
@@ -97,7 +102,6 @@ export const ProfileVoteCard = ({
             proposalId={proposal.id}
             votes={proposal.votes}
             votedKey={voteKey}
-            withLabel={false}
           />
           <ProposalFooterWithTagElement tags={proposal.tags} />
         </ProposalCardStyle>

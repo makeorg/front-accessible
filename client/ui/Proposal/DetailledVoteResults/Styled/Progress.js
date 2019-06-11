@@ -7,7 +7,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { DetailledContainer } from '.';
+import { DetailledContainer } from './index';
 
 const ProgessAnim = keyframes`
   0% { width: 0; }

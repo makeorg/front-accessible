@@ -27,8 +27,6 @@ type Props = {
   proposalId: string,
   /** When waiting response from API */
   pending: boolean,
-  /** Show the label of the vote result */
-  withLabel: boolean,
   /** Method called when vote button is clicked */
   handleVote: () => void,
 };
@@ -65,7 +63,6 @@ export const VoteResultComponent = (props: Props) => {
     proposalId,
     handleVote,
     pending,
-    withLabel,
   } = props;
   const voteKeys = Object.keys(voteStaticParams);
 
@@ -81,7 +78,6 @@ export const VoteResultComponent = (props: Props) => {
         handleVote={handleVote}
         buttonType={IsVotedButtonStyle}
         displayPending={pending}
-        showTooltip={withLabel}
       />
       <ScreenReaderItemStyle as="p">
         {i18n.t('results.total', { count: votesCount })}

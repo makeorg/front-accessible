@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VoteProgress must match the snapshot with default Props 1`] = `
+<VoteProgressContainerStyle>
+  <VoteCounterStyle>
+    <ScreenReaderItemStyle
+      as="span"
+    >
+      results.static_total
+    </ScreenReaderItemStyle>
+    vote.label
+  </VoteCounterStyle>
+  <VoteProgressWrapperStyle>
+    <VoteProgressItemStyle
+      color="rgb(85,131,34)"
+      percent={60}
+    />
+    <VoteProgressItemStyle
+      color="rgb(190,24,44)"
+      percent={17}
+    />
+    <VoteProgressItemStyle
+      color="rgb(117,117,117)"
+      percent={23}
+    />
+  </VoteProgressWrapperStyle>
+</VoteProgressContainerStyle>
+`;
