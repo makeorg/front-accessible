@@ -2,7 +2,6 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -25,12 +24,10 @@ import {
 type Props = {
   /** Object with all proposal's properties */
   proposal: TypeProposal,
-  /** Object with all question's properties */
-  questionConfiguration: TypeQuestionConfiguration,
 };
 
 export const SingleProposalCard = (props: Props) => {
-  const { proposal, questionConfiguration } = props;
+  const { proposal } = props;
   const { question } = proposal;
   const canVote = isInProgress(question.startDate, question.endDate);
 
@@ -68,7 +65,7 @@ export const SingleProposalCard = (props: Props) => {
                   proposal.country,
                   proposal.language,
                   question.slug
-                )}">${questionConfiguration.wording.title}</a>`,
+                )}">${question.wording.title}</a>`,
               }),
             }}
           />
