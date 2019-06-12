@@ -27,10 +27,7 @@ export const ProposalPageContentLoader = (props: Props) => {
   return (
     <React.Fragment>
       <ProposalSkipLinks />
-      <SingleProposalCard
-        proposal={proposal}
-        questionConfiguration={questionConfiguration}
-      />
+      <SingleProposalCard proposal={proposal} />
       <SingleProposalSharingComponent
         sharingParams={questionConfiguration.sharing}
       />

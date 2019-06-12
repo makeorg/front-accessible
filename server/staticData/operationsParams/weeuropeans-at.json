@@ -1,0 +1,13 @@
+{
+  "theme": {
+    "color": "#3839ca",
+    "gradientStart": "#6973ff",
+    "gradientEnd": "#1d19ad",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "WeEuropeans ist eine demokratische, parteiunabhängige Bürgerkampagne. Sie bringt europäische Bürgerinnen und Bürger unabhängig von ihren Meinungen zusammen, indem sie an der größten öffentlichen europäischen Umfrage teilnehmen können, die je durchgeführt wurde. Europa ohne uns geht nicht mehr.",
+    "logo": "/images/operations/we-europeans/consultation/we-europeans.svg",
+    "label": ""
+  }
+}
