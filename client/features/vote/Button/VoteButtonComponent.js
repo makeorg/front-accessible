@@ -16,7 +16,7 @@ type Props = {
   /** When display pending */
   displayPending: boolean,
   /** Show Tooltip */
-  showTooltip: boolean,
+  showTooltip: ?boolean,
   /** Method called when vote button is clicked */
   handleVote: (SyntheticEvent<HTMLButtonElement>) => void,
 };

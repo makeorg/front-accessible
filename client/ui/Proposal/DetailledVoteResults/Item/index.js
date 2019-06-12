@@ -12,11 +12,13 @@ import {
   VoteDataListStyle,
   VoteDataBoldItemStyle,
   VoteDataItemStyle,
+  QualificationDataListStyle,
 } from '../Styled';
-import { QualificationDataListStyle } from '../../Qualification/Results/Styled';
 
 type Props = {
+  /** Object with vote's properties */
   vote: TypeVote,
+  /** Vote percentage */
   votePercent: number,
 };
 

@@ -6,7 +6,7 @@ import { type User as TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
-import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard/ProfileProposalCard';
+import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
   ProfileContentHeaderStyle,

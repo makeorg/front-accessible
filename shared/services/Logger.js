@@ -48,6 +48,7 @@ class LoggerSingleton {
 
   log = (data, level) => {
     if (env.isDev()) {
+      // eslint-disable-next-line no-console
       console.log(level, data);
     }
 

@@ -13,10 +13,10 @@ type Props = {
   buttonType: React.Node,
   /** When button is in pending mode */
   displayPending: boolean,
-  /** add tooltip for vote button */
-  showTooltip: boolean,
   /** Method called when vote button is clicked */
   handleVote: () => void,
+  /** add tooltip for vote button */
+  showTooltip?: boolean,
 };
 
 type State = {

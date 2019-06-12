@@ -40,7 +40,9 @@ module.exports = {
       components: [
         'client/features/proposal/SingleProposalCard/index.js',
         'client/features/proposal/ProposalCardTagged/index.js',
-        'client/features/sequence/Card/ProposalCard/index.js',
+        'client/features/proposal/ProfileProposalCard/index.js',
+        'client/features/proposal/ProfileVoteCard/index.js',
+        'client/features/proposal/ProposalCardWithQuestion/index.js',
       ],
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
@@ -52,6 +54,7 @@ module.exports = {
     'client/ui/Cards/index.js',
     'client/ui/Elements/ButtonElements/index.js',
     'client/ui/ProgressCircle/index.js',
+    'client/ui/Proposal/DetailledVoteResults/Item/index.js',
     'client/ui/Elements/Form/PasswordInput/Button/index.js',
   ],
   ribbon: {

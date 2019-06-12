@@ -4,8 +4,11 @@ import { proposalTypeFixture } from '../../../../shared/types/__fixtures__/propo
 import { questionConfigurationFixture }  from '../../../../shared/types/__fixtures__/sequence.fixture.js';
 import { SingleProposalCard } from './index';
 
-<SingleProposalCard
-  proposal={proposalTypeFixture}
-  questionConfiguration={questionConfigurationFixture}
-/>
+
+<div style={{listStyle: 'none', padding: '15px', background: '#f2f2f2'}}>
+  <SingleProposalCard
+    proposal={proposalTypeFixture}
+    questionConfiguration={questionConfigurationFixture}
+  />
+</div>
 ```

@@ -3,7 +3,9 @@
 ```jsx
 import { Tooltip } from './index';
 
-<Tooltip content="I'm a good tooltip">
-  <button>TooltipButton</button>
+<div style={{position: 'relative', width: '200px', textAlign: 'center'}}>
+<Tooltip content="I'm a good tooltip" direction="bottom">
+  Tooltip Trigger
 </Tooltip>
+</div>
 ```

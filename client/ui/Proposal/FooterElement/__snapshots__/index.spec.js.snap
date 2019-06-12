@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProposalFooterWithQuestionElement must match the diff snapshot between default vs custom avatar 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+  <ProposalFooterStyle>
+    <PostedInLabelStyle>
+      proposal_card.posted_label
+    </PostedInLabelStyle>
+    <PostedInLinkStyle
+-     href="fooLink"
++     as="span"
+    >
+      Est ce que cette documentation est bonne ?
+    </PostedInLinkStyle>
+  </ProposalFooterStyle>
+`;
+
+exports[`ProposalFooterWithTagElement must match the snapshot with default Props 1`] = `
+Array [
+  <ScreenReaderItemStyle
+    as="p"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "consultation.tags.proposal_list",
+      }
+    }
+  />,
+  <ProposalTagListStyle>
+    <TagListItemStyle>
+      <Tag
+        name="atom"
+      />
+    </TagListItemStyle>
+    <TagListItemStyle>
+      <Tag
+        name="molecules"
+      />
+    </TagListItemStyle>
+    <TagListItemStyle>
+      <Tag
+        name="templates"
+      />
+    </TagListItemStyle>
+    <TagListItemStyle>
+      <Tag
+        name="pages"
+      />
+    </TagListItemStyle>
+  </ProposalTagListStyle>,
+]
+`;

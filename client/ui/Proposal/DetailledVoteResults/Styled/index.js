@@ -6,6 +6,11 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
+export const DetailledContainer = `
+  width: 100%;
+  max-width: 900px;
+`;
+
 export const DetailledItemStyle = styled.li`
   display: flex;
   flex-flow: column;
@@ -22,6 +27,8 @@ export const DetailledItemListStyle = styled(UnstyledListStyle)`
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
+  margin-bottom: 20px;
+  ${DetailledContainer};
 `;
 
 export const VoteDataListStyle = styled(ColumnElementStyle)`
@@ -44,4 +51,8 @@ export const VoteDataBoldItemStyle = styled(VoteDataItemStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
+`;
+
+export const QualificationDataListStyle = styled(UnstyledListStyle)`
+  margin-top: 10px;
 `;
