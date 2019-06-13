@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
+import { isInProgress } from 'Shared/helpers/date';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
@@ -71,6 +72,11 @@ const callQuestionData = Component =>
     render() {
       const { question, questionConfiguration } = this.props;
       if (!question || !questionConfiguration) return null;
+
+      if (!isInProgress(question.startDate, question.endDate)) {
+        window.location = question.aboutUrl;
+        return null;
+      }
 
       return (
         <PageQuestionWrapper
