@@ -53,21 +53,21 @@ export const ProgressCircleComponent = (props: Props) => {
           viewBox={CardConstant.PROGRESS_SVG_VIEWBOX}
         >
           <ProgressBackgroundStyle
-            datacx={CardConstant.PROGRESS_SVG_CX}
-            datacy={CardConstant.PROGRESS_SVG_CY}
-            datar={CardConstant.PROGRESS_SVG_R}
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
           <ProgressRingStyle
-            datacx={CardConstant.PROGRESS_SVG_CX}
-            datacy={CardConstant.PROGRESS_SVG_CY}
-            datar={CardConstant.PROGRESS_SVG_R}
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
           <ProgressCircleStyle
             progress={gaugeProgress(activeGaugeIndex, maxGaugeIndex)}
             remain={gaugeRemain(activeGaugeIndex, maxGaugeIndex)}
-            datacx={CardConstant.PROGRESS_SVG_CX}
-            datacy={CardConstant.PROGRESS_SVG_CY}
-            datar={CardConstant.PROGRESS_SVG_R}
+            cx={CardConstant.PROGRESS_SVG_CX}
+            cy={CardConstant.PROGRESS_SVG_CY}
+            r={CardConstant.PROGRESS_SVG_R}
           />
         </ProgressSvgStyle>
         <ProgressCounterStyle>
