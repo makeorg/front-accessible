@@ -48,25 +48,16 @@ Array [
 }
 
 .c2 {
-  cx: 21;
-  cy: 21;
-  r: 15.91549430918954;
   fill: rgb(255,255,255);
 }
 
 .c3 {
-  cx: 21;
-  cy: 21;
-  r: 15.91549430918954;
   fill: transparent;
   stroke: rgb(229,229,229);
   stroke-width: 3px;
 }
 
 .c4 {
-  cx: 21;
-  cy: 21;
-  r: 15.91549430918954;
   fill: transparent;
   stroke-width: 3px;
   stroke-dasharray: 23 77;
@@ -120,12 +111,21 @@ Array [
     >
       <circle
         className="c2"
+        cx={21}
+        cy={21}
+        r={15.91549430918954}
       />
       <circle
         className="c3"
+        cx={21}
+        cy={21}
+        r={15.91549430918954}
       />
       <circle
         className="c4"
+        cx={21}
+        cy={21}
+        r={15.91549430918954}
       />
     </svg>
     <p

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { useDesktop } from 'Client/hooks/useMedia';
@@ -11,6 +11,7 @@ import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.j
 
 import { Tracking } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedInformationsWrapperStyle,
@@ -149,15 +150,24 @@ const Featured = ({ featured, index }) => {
   );
 };
 
+export const FeaturedBlock = isDesktop => {
+  return isDesktop ? <FeaturedDesktop /> : <FeaturedMobile />;
+};
+
 export const FeaturedConsultations = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const isDesktop = useDesktop();
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   return (
     <HomepageInnerContentStyle aria-labelledby="featured_title">
       <HomeTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
       </HomeTitleStyle>
-      {isDesktop ? <FeaturedDesktop /> : <FeaturedMobile />}
+      {isLoading ? <Spinner /> : FeaturedBlock(isDesktop)}
     </HomepageInnerContentStyle>
   );
 };

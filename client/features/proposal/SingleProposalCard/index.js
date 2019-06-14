@@ -3,7 +3,6 @@ import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
-import { CenterRowStyle } from 'Client/ui/Elements/FlexElements';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
@@ -18,6 +17,7 @@ import {
   FooterContentSeparatorStyle,
   FooterContentStyle,
   DescriptionStyle,
+  ButtonWrapperStyle,
   ButtonStyle,
 } from './Styled';
 
@@ -70,7 +70,7 @@ export const SingleProposalCard = (props: Props) => {
             }}
           />
           <FooterContentSeparatorStyle />
-          <CenterRowStyle>
+          <ButtonWrapperStyle>
             <ButtonStyle
               as={Link}
               to={getSequenceLink(
@@ -91,7 +91,7 @@ export const SingleProposalCard = (props: Props) => {
             >
               {i18n.t('proposal_page.button_2')}
             </ButtonStyle>
-          </CenterRowStyle>
+          </ButtonWrapperStyle>
         </FooterContentStyle>
       </ProposalFooterStyle>
     </TallCardStyle>
