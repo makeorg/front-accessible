@@ -4,7 +4,10 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', 'client', 'index.js'),
+  entry: [
+    '@babel/polyfill',
+    path.resolve(__dirname, '..', 'client', 'index.js'),
+  ],
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
