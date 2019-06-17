@@ -24,7 +24,6 @@ import {
 } from 'Client/pages/Consultation/Styled';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
-import { ConsultationPanelInnerStyle } from '../../Styled/Tabs';
 import { TagSectionTitle } from '../../Styled/TagFilter';
 
 type Props = {
@@ -68,74 +67,72 @@ export const ConsultationPanelContent = ({
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      <ConsultationPanelInnerStyle>
-        {renderMobileProposal && (
+      {renderMobileProposal && (
+        <ConsultationProposal
+          question={question}
+          questionConfiguration={questionConfiguration}
+        />
+      )}
+      <ConsultationPageSidebarStyle
+        id="sidebar_content"
+        as="aside"
+        aria-label={i18n.t('common.sidebar_area')}
+        bottomAffix={isGreatCause(question.operationKind)}
+      >
+        <Collapse
+          title={i18n.t('consultation.presentation.title')}
+          forceExpand
+          trackCollapse={(action: string) =>
+            Tracking.trackOpenLearnMore(action)
+          }
+          questionId={question.questionId}
+        >
+          <Presentation
+            questionConfiguration={questionConfiguration}
+            question={question}
+          />
+        </Collapse>
+        {isGreatCause(question.operationKind) && (
+          <Collapse
+            title={i18n.t('consultation.partners.intro_title')}
+            forceExpand
+          >
+            <Partners
+              questionConfiguration={questionConfiguration}
+              question={question}
+            />
+          </Collapse>
+        )}
+        {!isMobile && (
+          <TileWithTitle title={i18n.t('consultation.sharing.title')}>
+            <Sharing />
+          </TileWithTitle>
+        )}
+      </ConsultationPageSidebarStyle>
+      <ConsultationPageContentStyle id="main">
+        {renderDesktopProposal && (
           <ConsultationProposal
             question={question}
             questionConfiguration={questionConfiguration}
           />
         )}
-        <ConsultationPageSidebarStyle
-          id="sidebar_content"
-          as="aside"
-          aria-label={i18n.t('common.sidebar_area')}
-          bottomAffix={isGreatCause(question.operationKind)}
-        >
-          <Collapse
-            title={i18n.t('consultation.presentation.title')}
-            forceExpand
-            trackCollapse={(action: string) =>
-              Tracking.trackOpenLearnMore(action)
-            }
-            questionId={question.questionId}
-          >
-            <Presentation
-              questionConfiguration={questionConfiguration}
-              question={question}
-            />
-          </Collapse>
-          {isGreatCause(question.operationKind) && (
-            <Collapse
-              title={i18n.t('consultation.partners.intro_title')}
-              forceExpand
-            >
-              <Partners
-                questionConfiguration={questionConfiguration}
-                question={question}
-              />
-            </Collapse>
-          )}
-          {!isMobile && (
-            <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-              <Sharing />
-            </TileWithTitle>
-          )}
-        </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle id="main">
-          {renderDesktopProposal && (
-            <ConsultationProposal
-              question={question}
-              questionConfiguration={questionConfiguration}
-            />
-          )}
-          <ParticipateBanner
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-          <TagSectionTitle id="tag_list">
-            <ConsultationIconStyle>
-              <SvgThumbsUp aria-hidden />
-            </ConsultationIconStyle>
-            {i18n.t('common.vote_on_proposals')}
-          </TagSectionTitle>
-          <TagFilter
-            question={question}
-            handleSelectTag={handleSelectTag}
-            selectedTagIdList={selectedTagIdList}
-          />
-          <InfiniteProposals question={question} tags={selectedTagIdList} />
-        </ConsultationPageContentStyle>
-      </ConsultationPanelInnerStyle>
+        <ParticipateBanner
+          question={question}
+          questionConfiguration={questionConfiguration}
+        />
+        <TagSectionTitle id="tag_list">
+          <ConsultationIconStyle>
+            <SvgThumbsUp aria-hidden />
+          </ConsultationIconStyle>
+          {i18n.t('common.vote_on_proposals')}
+        </TagSectionTitle>
+        <TagFilter
+          question={question}
+          handleSelectTag={handleSelectTag}
+          selectedTagIdList={selectedTagIdList}
+        />
+        <InfiniteProposals question={question} tags={selectedTagIdList} />
+      </ConsultationPageContentStyle>
     </React.Fragment>
   );
 };
