@@ -22,6 +22,7 @@ import {
   FeaturedArticleTitleStyle,
   FeaturedDescriptionStyle,
   FeaturedLinkStyle,
+  FeaturedInnerContent,
   FeaturedArticleCol1Style,
 } from './Styled';
 
@@ -121,7 +122,7 @@ const Featured = ({ featured, index }) => {
         />
       </FeaturedPictureWraperStyle>
       <FeaturedInformationsWrapperStyle>
-        <div>
+        <FeaturedInnerContent>
           <FeaturedTypeStyle>
             <ScreenReaderItemStyle>
               {i18n.t('homepage.featured.status')}
@@ -136,7 +137,7 @@ const Featured = ({ featured, index }) => {
               {featured.description}
             </FeaturedDescriptionStyle>
           )}
-        </div>
+        </FeaturedInnerContent>
         <FeaturedLinkStyle
           onClick={() =>
             Tracking.trackClickHomepageFeatured(blockPosition, featured.title)

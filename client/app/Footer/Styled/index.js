@@ -10,7 +10,7 @@ export const FooterStyle = styled.footer`
   z-index: 1;
   display: flex;
   justify-content: center;
-  flex: 0;
+  flex-shrink: 0;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 5px 15px;
@@ -21,6 +21,7 @@ export const FooterStyle = styled.footer`
 
 export const FooterLogoStyle = styled.img`
   max-width: 50px;
+  height: 100%;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     max-width: 60px;
   }

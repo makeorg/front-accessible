@@ -17,7 +17,7 @@ export const HeaderStyle = styled.header`
   z-index: 1;
   display: flex;
   justify-content: center;
-  flex: 0 0 auto;
+  flex-shrink: 0;
   padding: ${intToPx(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background-color: ${BasicColors.PureWhite};

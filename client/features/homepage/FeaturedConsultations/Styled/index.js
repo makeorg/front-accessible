@@ -31,7 +31,8 @@ export const FeaturedArticleColumnStyle = styled.div`
 
 export const FeaturedArticleStyle = styled.article`
   display: flex;
-  flex: 1;
+  height: 100%;
+  justify-content: space-between;
   background-color: ${BackgroundColors.LightGrey};
   color: ${BasicColors.PureBlack};
   margin-bottom: 30px;
@@ -42,7 +43,7 @@ export const FeaturedArticleStyle = styled.article`
 
 export const FeaturedArticleCol1Style = styled(FeaturedArticleStyle)`
   div {
-    height: 100%;
+    max-width: 100%;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-direction: column;
@@ -56,10 +57,18 @@ export const FeaturedInformationsWrapperStyle = styled.div`
   flex-flow: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
+`;
+
+export const FeaturedInnerContent = styled.div`
+  display: flex;
+  flex-flow: column;
+  max-width: 100%;
+  align-items: flex-start;
 `;
 
 export const FeaturedPictureWraperStyle = styled.div`
@@ -82,6 +91,7 @@ export const FeaturedArticleTitleStyle = styled.h3`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 18px;
   text-transform: none;
+  width: 100%;
   margin: ${intToPx(DefaultPadding.Mobile)} 0;
   line-height: 1.3;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -93,6 +103,7 @@ export const FeaturedDescriptionStyle = styled.p`
   font-size: 13px;
   margin-bottom: ${intToPx(DefaultPadding.Mobile)};
   line-height: 1.5;
+  width: 100%;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
