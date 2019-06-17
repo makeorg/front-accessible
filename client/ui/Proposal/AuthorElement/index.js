@@ -59,7 +59,6 @@ export const ProposalAuthorElement = (props: Props) => {
         {withAvatar && (
           <React.Fragment>
             <Avatar avatarUrl={author.avatarUrl} />
-            &nbsp;
           </React.Fragment>
         )}
         <ScreenReaderItemStyle>

@@ -22,6 +22,7 @@ export const ProposalStyle = styled.a`
 `;
 
 export const ProposalCardStyle = styled(CardStyle)`
+  border-radius: 8px;
   margin: 15px 0 0;
   &:only-child {
     margin: 0;

@@ -14,22 +14,18 @@ type Props = {
 export const Avatar = (props: Props) => {
   const { avatarSize, avatarUrl, avatarAlt } = props;
 
-  if (avatarUrl) {
-    return (
-      <AvatarStyle>
+  return (
+    <AvatarStyle>
+      {avatarUrl ? (
         <img
           width={avatarSize}
           height={avatarSize}
           src={avatarUrl}
           alt={avatarAlt}
         />
-      </AvatarStyle>
-    );
-  }
-
-  return (
-    <AvatarStyle>
-      <SvgEmptyAvatar width={avatarSize} height={avatarSize} aria-hidden />
+      ) : (
+        <SvgEmptyAvatar width={avatarSize} height={avatarSize} aria-hidden />
+      )}
     </AvatarStyle>
   );
 };
