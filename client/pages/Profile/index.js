@@ -52,9 +52,9 @@ type Props = {
 
 const Profile = (props: Props) => {
   const { user, match, location } = props;
-  const { countryLanguage } = match.params;
-  const profileProposalsLink = getRouteProfileProposals(countryLanguage);
-  const profileFavouritesLink = getRouteProfileFavourites(countryLanguage);
+  const { country, language } = match.params;
+  const profileProposalsLink = getRouteProfileProposals(country, language);
+  const profileFavouritesLink = getRouteProfileFavourites(country, language);
 
   const isProfileProposalsActive = !!matchPath(
     location.pathname,
@@ -70,7 +70,7 @@ const Profile = (props: Props) => {
   }
 
   const NavigationBar = (
-    <EditProfileLink link={getRouteProfileEdit(countryLanguage)} />
+    <EditProfileLink link={getRouteProfileEdit(country, language)} />
   );
 
   return (

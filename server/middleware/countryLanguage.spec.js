@@ -1,10 +1,6 @@
-import Assert from 'assert';
 import httpMocks from 'node-mocks-http';
 import { i18n } from 'Shared/i18n';
-import {
-  isCountryLanguage,
-  countryLanguageMiddleware,
-} from './countryLanguage';
+import { countryLanguageMiddleware } from './countryLanguage';
 
 jest.mock('Shared/i18n');
 
@@ -15,21 +11,10 @@ describe('Country Language middelware', () => {
     i18n.changeLanguage.mockRestore();
   });
 
-  describe('isCountryLanguage country-language (FR-fr)', () => {
-    it('return false when params is an invalid string', () =>
-      Assert.equal(isCountryLanguage('foo'), false));
-    it('return true when params is FR-fr', () =>
-      Assert.equal(isCountryLanguage('FR-fr'), true));
-    it('return false when params is fr-fr', () =>
-      Assert.equal(isCountryLanguage('fr-fr'), true));
-    it('return false when params is null', () =>
-      Assert.equal(isCountryLanguage(), false));
-  });
-
   describe('countryLanguageMiddleware function', () => {
     it('country Uppercase and language Lowercase into Request params', () => {
       const request = httpMocks.createRequest({
-        params: { countryLanguage: 'FR-fr' },
+        params: { country: 'FR', language: 'fr' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
@@ -42,7 +27,7 @@ describe('Country Language middelware', () => {
     });
     it('country Lowercase and language Uppercase into Request params', () => {
       const request = httpMocks.createRequest({
-        params: { countryLanguage: 'fr-FR' },
+        params: { country: 'fr', language: 'FR' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
@@ -55,7 +40,7 @@ describe('Country Language middelware', () => {
     });
     it('country Capitalize and language Capitalize into Request params', () => {
       const request = httpMocks.createRequest({
-        params: { countryLanguage: 'Fr-Fr' },
+        params: { country: 'Fr', language: 'Fr' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
@@ -65,9 +50,20 @@ describe('Country Language middelware', () => {
       expect(request.params.language).toBe('fr');
       expect(response.redirect).toHaveBeenCalledTimes(0);
     });
+    it('redirect to FR-fr on unknow language', () => {
+      const request = httpMocks.createRequest({
+        params: { country: 'FR' },
+      });
+      const response = httpMocks.createResponse();
+      jest.spyOn(response, 'redirect');
+
+      countryLanguageMiddleware(request, response, () => {});
+
+      expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
+    });
     it('redirect to FR-fr on unknow country', () => {
       const request = httpMocks.createRequest({
-        params: { countryLanguage: 'FR' },
+        params: { language: 'fr' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
@@ -80,7 +76,7 @@ describe('Country Language middelware', () => {
       jest.spyOn(i18n, 'changeLanguage');
       jest.spyOn(i18n, 'cloneInstance');
       const request = httpMocks.createRequest({
-        params: { countryLanguage: 'GB-en' },
+        params: { country: 'GB', language: 'en' },
       });
       const response = httpMocks.createResponse();
 

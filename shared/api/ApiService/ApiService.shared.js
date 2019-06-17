@@ -14,17 +14,18 @@ const HOSTNAME =
     window.location.hostname) ||
   null;
 const LOCATION_PARAMS =
-  typeof window !== 'undefined' &&
-  window &&
-  window.location &&
-  window.location.search;
+  (typeof window !== 'undefined' &&
+    window &&
+    window.location &&
+    window.location.search) ||
+  '';
 const BROWSER_API_URL =
-  typeof window !== 'undefined' &&
-  window &&
-  window.API_URL &&
-  window.API_URL !== '__API_URL__'
-    ? window.API_URL
-    : null;
+  (typeof window !== 'undefined' &&
+    window &&
+    window.API_URL &&
+    window.API_URL !== '__API_URL__' &&
+    window.API_URL) ||
+  null;
 
 export const API_URL =
   BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';

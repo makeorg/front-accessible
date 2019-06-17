@@ -7,16 +7,15 @@ import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector
 
 const AccountActivation = props => {
   const { question, match } = props;
+  const countryLanguage = `${match.params.country}-${match.params.language}`;
 
   const redirectPath = !question
-    ? `/${match.params.countryLanguage}`
-    : `/${match.params.countryLanguage}/consultation/${
-        question.slug
-      }/consultation`;
+    ? `/${countryLanguage}`
+    : `/${countryLanguage}/consultation/${question.slug}/consultation`;
 
   return (
     <Redirect
-      path="/:countryLanguage/account-activation/:userId/:verificationToken"
+      path="/:country-language/account-activation/:userId/:verificationToken"
       to={redirectPath}
     />
   );

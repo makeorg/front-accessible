@@ -1,9 +1,4 @@
 import {
-  getRouteConsultation,
-  getRouteSequence,
-  getRouteProposal,
-  getRouteAccountActivation,
-  getRoutePasswordRecovery,
   getRouteProfile,
   getRouteProfileEdit,
   formatCountryLanguage,
@@ -32,42 +27,12 @@ describe('Shared routes', () => {
   });
 
   describe('build Routes', () => {
-    it('getRouteConsultation', () => {
-      expect(getRouteConsultation('FR-fr', '1234')).toBe(
-        '/FR-fr/consultation/1234/consultation'
-      );
-    });
-
-    it('getRouteSequence', () => {
-      expect(getRouteSequence('FR-fr', '1234')).toBe(
-        '/FR-fr/consultation/1234/selection'
-      );
-    });
-
-    it('getRouteProposal', () => {
-      expect(getRouteProposal('FR-fr', '1234', 'abcd', 'prop-slug')).toBe(
-        '/FR-fr/consultation/1234/proposal/abcd/prop-slug'
-      );
-    });
-
-    it('getRouteAccountActivation', () => {
-      expect(getRouteAccountActivation('FR-fr', '1234', 'abcd')).toBe(
-        '/FR-fr/account-activation/1234/abcd'
-      );
-    });
-
-    it('getRoutePasswordRecovery', () => {
-      expect(getRoutePasswordRecovery('FR-fr', '1234', 'abcd')).toBe(
-        '/FR-fr/password-recovery/1234/abcd'
-      );
-    });
-
     it('getRouteProfile', () => {
-      expect(getRouteProfile('FR-fr')).toBe('/FR-fr/profile');
+      expect(getRouteProfile('FR', 'fr')).toBe('/FR-fr/profile');
     });
 
     it('getRouteProfileEdit', () => {
-      expect(getRouteProfileEdit('FR-fr')).toBe('/FR-fr/profile/edit');
+      expect(getRouteProfileEdit('FR', 'fr')).toBe('/FR-fr/profile/edit');
     });
   });
 });

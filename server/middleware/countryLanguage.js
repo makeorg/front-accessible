@@ -1,29 +1,24 @@
 import { i18n } from 'Shared/i18n';
 import { METRIC_PATH } from './metrics';
 
-export const isCountryLanguage = (countryLanguage = null) =>
-  countryLanguage !== null &&
-  /^[a-z]{2,3}-[a-z]{2,3}$/.test(countryLanguage.toLowerCase());
-
 export const countryLanguageMiddleware = (req, res, next) => {
   if (req.url === METRIC_PATH) {
     return next();
   }
 
-  const { countryLanguage } = req.params;
+  const { country, language } = req.params;
 
-  if (!isCountryLanguage(countryLanguage)) {
+  if (!country || !language) {
     return res.redirect('/FR-fr');
   }
 
-  const [countryRaw, languageRaw] = countryLanguage.split('-');
-  const language = languageRaw.toLowerCase();
-  const country = countryRaw.toUpperCase();
+  const languageLowerCsed = language.toLowerCase();
+  const countryUpperCased = country.toUpperCase();
 
-  req.params.country = country;
-  req.params.language = language;
+  req.params.country = countryUpperCased;
+  req.params.language = languageLowerCsed;
   i18n.cloneInstance();
-  i18n.changeLanguage(`${language}-${country}`);
+  i18n.changeLanguage(`${languageLowerCsed}-${countryUpperCased}`);
 
   return next();
 };

@@ -1,3 +1,5 @@
+// @flow
+
 import 'url-search-params-polyfill';
 import { FRONT_URL } from 'Shared/constants/config';
 import {
@@ -32,10 +34,9 @@ export const getSequenceLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_SEQUENCE.replace(
-    ':countryLanguage',
-    `${country}-${language}`
-  ).replace(':questionSlug', questionSlug);
+  return ROUTE_SEQUENCE.replace(':country', country)
+    .replace(':language', language)
+    .replace(':questionSlug', questionSlug);
 };
 
 /**
@@ -52,10 +53,9 @@ export const getConsultationLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_CONSULTATION.replace(
-    ':countryLanguage',
-    `${country}-${language}`
-  ).replace(':questionSlug', questionSlug);
+  return ROUTE_CONSULTATION.replace(':country', country)
+    .replace(':language', language)
+    .replace(':questionSlug', questionSlug);
 };
 
 /**
@@ -72,10 +72,9 @@ export const getActionLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_ACTION.replace(
-    ':countryLanguage',
-    `${country}-${language}`
-  ).replace(':questionSlug', questionSlug);
+  return ROUTE_ACTION.replace(':country', country)
+    .replace(':language', language)
+    .replace(':questionSlug', questionSlug);
 };
 
 /**
@@ -96,7 +95,8 @@ export const getProposalLink = (
   proposalId: string,
   proposalSlug: string
 ) => {
-  return ROUTE_PROPOSAL.replace(':countryLanguage', `${country}-${language}`)
+  return ROUTE_PROPOSAL.replace(':country', country)
+    .replace(':language', language)
     .replace(':questionSlug', questionSlug)
     .replace(':proposalId', proposalId)
     .replace(':proposalSlug', proposalSlug);
@@ -115,8 +115,7 @@ export const getOrganisationProfileLink = (
   language: string,
   organisationSlug: string
 ) => {
-  return ROUTE_ORGANISATION_PROFILE.replace(
-    ':countryLanguage',
-    `${country}-${language}`
-  ).replace(':organisationSlug', organisationSlug);
+  return ROUTE_ORGANISATION_PROFILE.replace(':country', country)
+    .replace(':language', language)
+    .replace(':organisationSlug', organisationSlug);
 };
