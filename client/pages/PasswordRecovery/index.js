@@ -25,15 +25,16 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
 
     if (!validToken) {
       const { question, match } = this.props;
+      const countryLanguage = `${match.params.country}-${
+        match.params.language
+      }`;
       const redirectPath = !question
-        ? `/${match.params.countryLanguage}`
-        : `/${match.params.countryLanguage}/consultation/${
-            question.slug
-          }/selection`;
+        ? `/${countryLanguage}`
+        : `/${countryLanguage}/consultation/${question.slug}/selection`;
 
       return (
         <Redirect
-          path="/:countryLanguage/password-recovery/:userId/:resetToken"
+          path="/:country-:language/password-recovery/:userId/:resetToken"
           to={redirectPath}
         />
       );

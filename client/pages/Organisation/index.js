@@ -59,13 +59,15 @@ const OrganisationPage = (props: Props) => {
   const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
   const { match, location } = props;
-  const { countryLanguage, organisationSlug } = match.params;
+  const { country, language, organisationSlug } = match.params;
   const organisationProposalsLink = getRouteOrganisationProposals(
-    countryLanguage,
+    country,
+    language,
     organisationSlug
   );
   const organisationFavouritesLink = getRouteOrganisationVotes(
-    countryLanguage,
+    country,
+    language,
     organisationSlug
   );
 

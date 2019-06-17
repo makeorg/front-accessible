@@ -59,8 +59,8 @@ export const Routes = () => (
       to={ROUTE_ORGANISATION_PROPOSALS}
     />
     <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
-    <Route path={ROUTE_COUNTRY_LANG} component={HomePage} />
-    <Route path="/" component={HomePage} />
+    <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
+    <Route exact path="/" component={HomePage} />
     <Route component={NotFoundPage} />
   </Switch>
 );

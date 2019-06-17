@@ -26,8 +26,8 @@ type NotAuthentificatedBarProps = {
 
 export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
   const { avatarUrl } = user.profile;
-  const countryLanguage = `${user.country}-${user.language}`;
-  const profileLink = getRouteProfile(countryLanguage);
+  const profileLink = getRouteProfile(user.country, user.language);
+
   return (
     <ProfileAccessWrapperStyle
       as="nav"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { matchPath, type Location } from 'react-router';
+import { matchPath, Redirect, type Location } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
@@ -40,6 +40,7 @@ export const ConsultationPageComponent = ({
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
   const isActionPage = !!matchPath(location.pathname, ROUTE_ACTION);
   const isMobile = useMobile();
+  const questionIsGreatCause = isGreatCause(question.operationKind);
 
   return (
     <React.Fragment>
@@ -64,7 +65,7 @@ export const ConsultationPageComponent = ({
                 <ConsultationTabContent question={question} />
               </Link>
             </FullWidthTabStyle>
-            {isGreatCause(question.operationKind) && (
+            {questionIsGreatCause && (
               <FullWidthTabStyle isSelected={isActionPage}>
                 <Link to={actionLink} aria-current={isActionPage}>
                   {i18n.t('consultation.tabs.action')}
@@ -85,18 +86,21 @@ export const ConsultationPageComponent = ({
                 />
               )}
             />
-            {isGreatCause(question.operationKind) && (
-              <Route
-                path={ROUTE_ACTION}
-                exact
-                component={() => (
+            <Route
+              path={ROUTE_ACTION}
+              exact
+              component={() => {
+                if (!questionIsGreatCause) {
+                  return <Redirect to="/notfound" />;
+                }
+                return (
                   <ActionsPanelContent
                     question={question}
                     questionConfiguration={questionConfiguration}
                   />
-                )}
-              />
-            )}
+                );
+              }}
+            />
           </Switch>
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>

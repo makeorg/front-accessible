@@ -32,18 +32,18 @@ type Props = {
 
 const ProfileEdit = (props: Props) => {
   const { user, handleLogout, match } = props;
-  const { countryLanguage } = match.params;
+  const { country, language } = match.params;
   const editProfileLink = ROUTE_PROFILE_EDIT.replace(
-    ':countryLanguage',
-    countryLanguage
-  );
+    ':country',
+    country
+  ).replace(':language', language);
 
   if (!user) {
     return <Redirect to="/" />;
   }
 
   const NavigationBar = (
-    <GoToProfileLink link={getRouteProfile(countryLanguage)} />
+    <GoToProfileLink link={getRouteProfile(country, language)} />
   );
 
   return (
