@@ -57,7 +57,7 @@ export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
-  flex: 1;
+  flex: 1 1 auto;
 `;
 
 export const ProfilePageContentStyle = styled(ContentElementStyle)`

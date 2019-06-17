@@ -34,7 +34,7 @@ export const AppMainContentStyle = styled.main`
 
 export const PageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
-  flex-grow: 1;
+  flex: 1 1 auto;
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
@@ -47,7 +47,7 @@ export const MiddlePageWrapperStyle = styled(PageWrapperStyle)`
 
 export const PageContainerStyle = styled(CenterColumnStyle)`
   width: 100%;
-  flex-grow: 1;
+  flex: 1 1 auto;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   background-color: ${BasicColors.PureWhite};
   border: 1px solid ${BorderColors.LightGrey};

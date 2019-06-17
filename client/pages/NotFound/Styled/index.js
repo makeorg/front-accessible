@@ -13,7 +13,7 @@ import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
-  flex-grow: 1;
+  flex: 1 1 auto;
   padding: ${pxToRem(DefaultPadding.Mobile)};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
     padding: ${pxToRem(DefaultPadding.Desktop)};
@@ -22,7 +22,7 @@ export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
 
 export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
   width: 100%;
-  flex-grow: 1;
+  flex: 1 1 auto;
   padding: ${pxToRem(DefaultPadding.Mobile)};
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   max-height: ${pxToRem('550px')};

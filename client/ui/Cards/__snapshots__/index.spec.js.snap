@@ -14,10 +14,9 @@ exports[`CardStyle snapshot by default 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   max-width: 71.25rem;
   padding: 0.9375rem;
   background-color: rgb(255,255,255);

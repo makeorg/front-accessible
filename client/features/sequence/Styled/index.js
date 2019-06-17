@@ -20,7 +20,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 export const SequenceStyle = styled.section`
   display: flex;
   flex-flow: column;
-  flex: 1;
+  flex: 1 1 auto;
   z-index: 0;
   position: relative;
   width: 100%;
@@ -63,11 +63,12 @@ export const BackButtonStyle = styled(SmallRedButtonStyle)`
 
 export const WrapperStyle = styled.div`
   display: flex;
-  flex: 1;
+  flex: 1 1 auto;
 `;
 
 export const ListStyle = styled.dl`
-  flex: 1;
+  display: flex;
+  flex: 1 1 auto;
   position: relative;
   width: 100%;
   margin-top: 35px;
@@ -85,7 +86,7 @@ export const ListStyle = styled.dl`
 export const FooterStyle = styled.footer`
   display: flex;
   flex-direction: column;
-  flex: 0;
+  flex: 0 1 auto;
   z-index: 2;
   align-items: center;
   justify-content: center;

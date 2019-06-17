@@ -11,6 +11,7 @@ import { IntroTitle } from './Title';
 import { IntroDescription } from './Description';
 import { Partners } from './Partners';
 import { ProposalCardCenteredStyle } from '../Styled';
+import { TitleWrapperStyle } from '../Styled/Titles';
 import { IntroButtonStyle } from '../Styled/Buttons';
 
 type Props = {
@@ -58,10 +59,10 @@ export const IntroCardComponent = (props: Props) => {
         aria-hidden={!isCardVisible}
         as="dd"
       >
-        <header>
+        <TitleWrapperStyle>
           <ExtraLogo extraLogo={configuration.extraLogo} />
           <IntroTitle title={configuration.title} />
-        </header>
+        </TitleWrapperStyle>
         <SmallSeparatorWithMarginStyle />
         <IntroDescription description={configuration.description} />
         <IntroButtonStyle

@@ -23,6 +23,10 @@ export const ExtraLogoStyle = styled.img`
   }
 `;
 
+export const TitleWrapperStyle = styled.header`
+  width: 100%;
+`;
+
 export const IntroTitleStyle = styled(MainTitleStyle)`
   color: ${props => props.theme.color};
 `;
