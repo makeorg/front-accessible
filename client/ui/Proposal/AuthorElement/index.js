@@ -27,6 +27,8 @@ type Props = {
   createdAt?: string,
   /** Include avatar */
   withAvatar?: boolean,
+  /** Include creation date */
+  withCreationDate?: boolean,
   /** Include formatted proposal status */
   formattedProposalStatus?: string,
 };
@@ -50,16 +52,16 @@ export const ProposalAuthorElement = (props: Props) => {
     language,
     createdAt,
     withAvatar,
+    withCreationDate,
     formattedProposalStatus,
   } = props;
 
   return (
     <AuthorDescriptionStyle>
-      <AuthorInfosStyle withAvatar={withAvatar}>
+      <AuthorInfosStyle>
         {withAvatar && (
           <React.Fragment>
             <Avatar avatarUrl={author.avatarUrl} />
-            &nbsp;
           </React.Fragment>
         )}
         <ScreenReaderItemStyle>
@@ -88,7 +90,7 @@ export const ProposalAuthorElement = (props: Props) => {
           author.firstName
         )}
         <ProposalAuthorAge age={author.age} />
-        {!!createdAt && (
+        {withCreationDate && !!createdAt && (
           <React.Fragment>
             <AuthorSeparatorStyle>&nbsp;&bull;&nbsp;</AuthorSeparatorStyle>
             <ScreenReaderItemStyle>
@@ -114,5 +116,6 @@ export const ProposalAuthorElement = (props: Props) => {
 
 ProposalAuthorElement.defaultProps = {
   withAvatar: false,
+  withCreationDate: false,
   formattedProposalStatus: undefined,
 };

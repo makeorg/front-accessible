@@ -1,38 +1,45 @@
 import React from 'react';
 
 export const SvgEmptyAvatar = props => (
-  <svg width="1em" height="1em" {...props} viewBox="0 0 30 30">
+  <svg width="1em" height="1em" viewBox="0 0 30 30" {...props}>
     <defs>
-      <circle cx={15} cy={15} r={15} />
+      <circle id="empty-avatar_svg__a" cx={15} cy={15} r={15} />
+      <path
+        id="empty-avatar_svg__c"
+        d="M17 15.24c0 .757-.228 1.406-.684 1.947-.455.542-1.004.813-1.646.813H5.33c-.642 0-1.19-.27-1.646-.813C3.228 16.646 3 15.998 3 15.24c0-.59.031-1.148.093-1.672a8.612 8.612 0 0 1 .345-1.584c.167-.53.38-.986.64-1.364a3.005 3.005 0 0 1 1.027-.927c.427-.24.917-.36 1.472-.36.955.89 2.096 1.334 3.423 1.334s2.468-.445 3.423-1.334c.555 0 1.045.12 1.472.36.426.24.769.548 1.028.927.259.378.472.833.64 1.364.167.532.282 1.06.344 1.584S17 14.649 17 15.24zM12.964 3.177C13.788 3.955 14.2 4.896 14.2 6c0 1.104-.41 2.047-1.23 2.828C12.15 9.61 11.16 10 10 10c-1.16 0-2.15-.39-2.97-1.172C6.21 8.047 5.8 7.104 5.8 6c0-1.104.41-2.047 1.23-2.828C7.85 2.39 8.84 2 10 2c1.16 0 2.147.392 2.964 1.177z"
+      />
     </defs>
     <g fill="none" fillRule="evenodd">
-      <use fill="#FFF" xlinkHref="#EmptyAvatar_svg__a" />
+      <mask id="empty-avatar_svg__b" fill="#fff">
+        <use xlinkHref="#empty-avatar_svg__a" />
+      </mask>
+      <use fill="#FFF" xlinkHref="#empty-avatar_svg__a" />
       <circle
         cx={15}
         cy={15}
         r={14.5}
-        fill="#E6E6E6"
-        stroke="#CDCDCD"
+        fill="#000"
+        fillOpacity={0.1}
+        stroke="#000"
         strokeLinejoin="square"
+        strokeOpacity={0.2}
       />
-      <path
-        fill="#FFFFFE"
-        d="M21.472 22.135c0-3.53-2.792-6.392-6.236-6.392S9 18.604 9 22.135c0 .074.008.146.01.219h12.451c.003-.073.011-.145.011-.22"
-      />
-      <path
-        stroke="#4D4E4C"
-        strokeWidth={0.614}
-        d="M21.472 22.135c0-3.53-2.792-6.392-6.236-6.392S9 18.604 9 22.135c0 .074.008.146.01.219h12.451c.003-.073.011-.145.011-.22z"
-      />
-      <path
-        fill="#FFFFFE"
-        d="M19.564 11.935c0 2.45-1.938 4.436-4.328 4.436-2.39 0-4.327-1.986-4.327-4.436S12.846 7.5 15.236 7.5c2.39 0 4.328 1.986 4.328 4.435"
-      />
-      <path
-        stroke="#4D4E4C"
-        strokeWidth={0.614}
-        d="M19.564 11.935c0 2.45-1.938 4.436-4.328 4.436-2.39 0-4.327-1.986-4.327-4.436S12.846 7.5 15.236 7.5c2.39 0 4.328 1.986 4.328 4.435z"
-      />
+      <g mask="url(#empty-avatar_svg__b)">
+        <g transform="translate(5 5)">
+          <mask id="empty-avatar_svg__d" fill="#fff">
+            <use xlinkHref="#empty-avatar_svg__c" />
+          </mask>
+          <use
+            fill="#000"
+            fillOpacity={0.3}
+            fillRule="nonzero"
+            xlinkHref="#empty-avatar_svg__c"
+          />
+          <g mask="url(#empty-avatar_svg__d)">
+            <path fill="#6A6A6A" d="M0 0h20v20H0z" />
+          </g>
+        </g>
+      </g>
     </g>
   </svg>
 );

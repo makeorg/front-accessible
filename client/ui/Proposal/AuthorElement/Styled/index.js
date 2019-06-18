@@ -22,7 +22,7 @@ export const AuthorInfosStyle = styled.div`
   color: ${TextColors.MediumGrey};
   font-style: normal;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: ${props => (props.withAvatar ? '14px' : '18px')};
+    font-size: 16px;
   }
 `;
 

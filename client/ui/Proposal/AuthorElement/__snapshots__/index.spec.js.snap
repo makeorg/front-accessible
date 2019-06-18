@@ -5,14 +5,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,9 +1,11 @@
+@@ -1,7 +1,8 @@
   <AuthorDescriptionStyle>
-    <AuthorInfosStyle
--     withAvatar={false}
-+     withAvatar={true}
-    >
+    <AuthorInfosStyle>
 +     <Avatar />
-+      
       <ScreenReaderItemStyle>
         proposal_card.author.from
       </ScreenReaderItemStyle>

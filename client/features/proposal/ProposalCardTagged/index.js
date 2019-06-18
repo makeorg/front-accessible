@@ -46,6 +46,7 @@ export const ProposalCardTagged = (props: Props) => {
         language={proposal.language}
         createdAt={proposal.createdAt}
         withAvatar
+        withCreationDate
       />
       <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
         {proposal.content}
