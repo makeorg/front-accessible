@@ -12,7 +12,7 @@ export const CardStyle = styled.article`
   flex-flow: column;
   justify-content: space-between;
   width: 100%;
-  flex-grow: 1;
+  flex: 1 1 auto;
   max-width: ${pxToRem(Layouts.ContainerWidth)};
   padding: ${pxToRem(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};

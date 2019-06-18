@@ -90,7 +90,7 @@ const TabStyle = styled.li`
 `;
 
 export const FullWidthTabStyle = styled(TabStyle)`
-  flex: 1;
+  flex: 1 1 auto;
 `;
 
 export { TabStyle, TabListStyle };

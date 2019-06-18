@@ -10,7 +10,6 @@ import { BasicColors } from 'Client/app/assets/vars/Colors';
 
 export const HomepageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
-  flex-grow: 1;
   background-color: ${BasicColors.PureWhite};
   padding: 30px 0;
 `;

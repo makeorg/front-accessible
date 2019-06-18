@@ -15,7 +15,7 @@ export const DetailledContainer = `
 export const DetailledItemStyle = styled.li`
   display: flex;
   flex-flow: column;
-  flex: 1;
+  flex: 1 1 auto;
   padding: 0 15px;
   min-width: 200px;
   &.disagree {

@@ -6,7 +6,7 @@ import { SignUpCardAuthentificationContainer } from 'Client/features/sequence/Ca
 import { SignUpTitle } from './Title';
 import { SkipSignUpButton } from './Button';
 import { ContentWrapperStyle, InnerContentStyle } from '../Styled/Content';
-import { SecondaryTitleStyle } from '../Styled/Titles';
+import { TitleWrapperStyle, SecondaryTitleStyle } from '../Styled/Titles';
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
@@ -24,9 +24,9 @@ export const SignUpCardComponent = (props: Props) => {
   return (
     <ContentWrapperStyle>
       <InnerContentStyle>
-        <header>
+        <TitleWrapperStyle>
           <SignUpTitle title={configuration.title} />
-        </header>
+        </TitleWrapperStyle>
         <SecondaryTitleStyle as="p">
           {i18n.t('sign_up_card.authentification-text')}
         </SecondaryTitleStyle>

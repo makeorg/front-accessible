@@ -49,7 +49,7 @@ export const CorporateSectionStyle = styled.section`
   display: flex;
   flex-flow: column;
   align-items: flex-start;
-  flex: 1;
+  flex: 1 1 auto;
 `;
 
 export const CorporateTitleStyle = styled.h2`

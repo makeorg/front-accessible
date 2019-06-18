@@ -6,13 +6,13 @@ import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 export const SequencePageContentStyle = styled(MiddleColumnStyle)`
   width: 100%;
   display: flex;
-  flex-grow: 1;
+  flex: 1 1 auto;
   overflow: auto;
 `;
 
 export const SequenceProposalFieldStyle = styled.aside`
   display: block;
-  flex-grow: 0;
+  flex: 0 0 auto;
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin-top: 10px;

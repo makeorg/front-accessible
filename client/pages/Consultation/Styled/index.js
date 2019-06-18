@@ -14,10 +14,6 @@ const MobileMarginWithOffset = DefaultPadding.Mobile - TabsOffsetMobile;
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ConsultationPageWrapperStyle = styled.div`
-  display: flex;
-  flex: 1;
-  align-items: flex-start;
-  flex-flow: column;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   margin: 0 auto ${intToPx(MobileMarginWithOffset)};
@@ -30,13 +26,11 @@ export const ConsultationPageWrapperStyle = styled.div`
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
-  flex: 1;
 `;
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 750px;
-    margin-right: 15px;
   }
 `;
 

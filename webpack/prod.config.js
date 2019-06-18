@@ -7,7 +7,6 @@ const baseConfig = require('./base.config.js');
 const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 
 module.exports = merge(baseConfig, {
-  entry: path.resolve(__dirname, '..', 'client', 'index.js'),
   mode: 'production',
   output: {
     filename: '[name].[hash].js',

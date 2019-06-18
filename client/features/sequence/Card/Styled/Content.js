@@ -32,6 +32,7 @@ export const InnerContentStyle = styled(CenterColumnStyle)`
 `;
 
 export const IntroParagraphStyle = styled.p`
+  width: 100%;
   font-size: ${pxToRem('12px')};
   line-height: ${pxToRem('18px')};
   color: ${TextColors.MediumGrey};
