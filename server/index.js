@@ -1,30 +1,31 @@
 import './browserPolyfill';
+import express from 'express';
+import bodyParser from 'body-parser';
+import compression from 'compression';
+import cookiesMiddleware from 'universal-cookie-express';
+import favicon from 'serve-favicon';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceServer } from 'Shared/api/ApiService/ApiService.server';
-import { headersResponseMiddleware } from './middleware/headers';
-import { cspMiddleware } from './middleware/contentSecurityPolicy';
-
-import { serverInitI18n } from './i18n';
 import { initRoutes } from './routes';
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const compression = require('compression');
-const cookiesMiddleware = require('universal-cookie-express');
-const favicon = require('serve-favicon');
+import { serverInitI18n } from './i18n';
+import { cspMiddleware } from './middleware/contentSecurityPolicy';
+import { headersResponseMiddleware } from './middleware/headers';
+import { FAVICON_PATH } from './paths';
+import { nonceUuidMiddleware } from './middleware/nonceUuid';
 
 serverInitI18n();
 ApiService.strategy = new ApiServiceServer();
 
-const { FAVICON_PATH } = require('./paths');
-
 // App
 const app = express();
+
+app.use(nonceUuidMiddleware);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(favicon(FAVICON_PATH));
 app.use(cookiesMiddleware());
 app.use(headersResponseMiddleware);
+
 // apply csp everywhere except on styleguide /doc
 app.use(/^(?!.*doc).*$/, cspMiddleware);
 

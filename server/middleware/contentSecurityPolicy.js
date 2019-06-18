@@ -1,19 +1,20 @@
-const csp = require('helmet-csp');
+import csp from 'helmet-csp';
 
 export const cspMiddleware = csp({
   // Specify directives as normal.
   directives: {
+    baseUri: ["'self'"],
     defaultSrc: ["'self'"],
     scriptSrc: [
       "'self'",
-      'https://*.facebook.net',
-      'https://*.facebook.com',
-      'http://*.twitter.com',
-      'https://*.ads-twitter.com',
-      'https://*.google.com',
-      "'unsafe-inline'",
+      'https://connect.facebook.net',
+      'https://staticxx.facebook.com',
+      'http://platform.twitter.com',
+      'https://static.ads-twitter.com',
+      'https://apis.google.com',
+      (req, res) => `'nonce-${res.locals.nonce}'`,
     ],
-    styleSrc: ["'unsafe-inline'"],
+    styleSrc: ["'self'", "'unsafe-inline'"],
     imgSrc: ['*'],
     connectSrc: [
       "'self'",
