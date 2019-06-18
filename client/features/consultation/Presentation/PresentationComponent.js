@@ -18,18 +18,20 @@ export const PresentationComponent = ({
   questionConfiguration,
   question,
 }: Props) => {
-  const founders = questionConfiguration.partners.filter(
-    partner => partner.isFounder
-  );
+  const founders = questionConfiguration.partners
+    ? questionConfiguration.partners.filter(partner => partner.isFounder)
+    : [];
 
   return (
     <React.Fragment>
-      <ParagraphStyle
-        id="presentation_text"
-        dangerouslySetInnerHTML={{
-          __html: questionConfiguration.consultation.presentation,
-        }}
-      />
+      {questionConfiguration.consultation && (
+        <ParagraphStyle
+          id="presentation_text"
+          dangerouslySetInnerHTML={{
+            __html: questionConfiguration.consultation.presentation,
+          }}
+        />
+      )}
       <SidebarNewWindowLink
         linkUrl={question.aboutUrl}
         linkText={i18n.t('consultation.presentation.link_text')}

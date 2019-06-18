@@ -28,7 +28,10 @@ export const IntroBannerComponent = (props: Props) => {
         <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
       <h2>
-        <img src={consultation.logo} alt={wording.question} />
+        <img
+          src={consultation ? consultation.logo : ''}
+          alt={wording.question}
+        />
       </h2>
     </IntroWrapperStyle>
   );

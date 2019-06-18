@@ -29,9 +29,9 @@ export const Partners = (props: Props) => {
     question.slug
   );
 
-  const partners = questionConfiguration.partners.filter(
-    partner => !partner.isFounder
-  );
+  const partners = questionConfiguration.partners
+    ? questionConfiguration.partners.filter(partner => !partner.isFounder)
+    : [];
 
   return (
     <React.Fragment>
