@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AvatarStyle } from 'Client/ui/Avatar/Styled';
+import { PartnerAvatarStyle } from 'Client/ui/Avatar/Styled';
 import { i18n } from 'Shared/i18n';
 
 type Props = {
@@ -18,7 +18,7 @@ export const PartnerAvatar = (props: Props) => {
   const { partnerName, partnerLogo, partnerProfile, newWindow } = props;
 
   return (
-    <AvatarStyle
+    <PartnerAvatarStyle
       {...(newWindow
         ? {
             as: 'a',
@@ -47,6 +47,6 @@ export const PartnerAvatar = (props: Props) => {
           height={50}
         />
       )}
-    </AvatarStyle>
+    </PartnerAvatarStyle>
   );
 };
