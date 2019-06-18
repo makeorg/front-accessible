@@ -11,7 +11,7 @@ jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
-const fooQuestion = { id: 'foo' };
+const fooQuestion = { id: 'foo', slug: 'bar' };
 const queryParams = { question: fooQuestion.id };
 const requestParams = {
   resetToken: 'bar',
@@ -44,13 +44,13 @@ describe('Account activation route', () => {
         },
       },
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
 
@@ -89,13 +89,13 @@ describe('Account activation route', () => {
         },
       },
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
 
@@ -133,13 +133,13 @@ describe('Account activation route', () => {
         status: HTTP_NOT_FOUND,
       },
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
 
