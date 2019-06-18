@@ -30,7 +30,7 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
       }`;
       const redirectPath = !question
         ? `/${countryLanguage}`
-        : `/${countryLanguage}/consultation/${question.slug}/selection`;
+        : `/${countryLanguage}/consultation/${question.slug}/consultation`;
 
       return (
         <Redirect

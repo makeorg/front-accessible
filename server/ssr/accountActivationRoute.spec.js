@@ -24,26 +24,28 @@ const expectedHeaders = {
   'x-make-language': 'fr',
 };
 
+const fooQuestion = {
+  id: 'foo',
+  slug: 'bar',
+};
+
 describe('Account activation route', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('add the question to the initialState and set headers', async () => {
-    const fooQuestion = {
-      id: 'foo',
-    };
     QuestionApiService.getDetail.mockReturnValue(fooQuestion);
     const routeState = {
       ...initialState,
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
 
@@ -61,9 +63,6 @@ describe('Account activation route', () => {
   });
 
   it('activate successfully and add success notification to state', async () => {
-    const fooQuestion = {
-      id: 'foo',
-    };
     UserApiService.verifyUser.mockReturnValue(HTTP_NO_CONTENT);
     QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
@@ -80,13 +79,13 @@ describe('Account activation route', () => {
         contentType: 'ACTIVATION_SUCCESS_CONTENT',
       },
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
     await accountActivationRoute(request, response, () => {});
@@ -99,10 +98,6 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    const fooQuestion = {
-      id: 'foo',
-    };
-
     UserApiService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
     QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
@@ -119,13 +114,13 @@ describe('Account activation route', () => {
         contentType: 'ACTIVATION_FAILURE_CONTENT',
       },
       questions: {
-        foo: {
+        [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
       sequence: {
         ...initialState.sequence,
-        questionId: fooQuestion.id,
+        questionSlug: fooQuestion.slug,
       },
     };
 

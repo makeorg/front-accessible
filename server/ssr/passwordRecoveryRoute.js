@@ -41,9 +41,9 @@ export const passwordRecoveryRoute = async (req, res) => {
       });
 
       if (question) {
-        routeState.sequence.questionId = questionId;
+        routeState.sequence.questionSlug = question.slug;
         routeState.questions = {
-          [questionId]: {
+          [question.slug]: {
             question,
           },
         };
