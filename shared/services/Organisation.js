@@ -1,10 +1,10 @@
 // @flow
-import { OrganisationService } from 'Shared/api/OrganisationService';
+import { OrganisationApiService } from 'Shared/api/OrganisationApiService';
 import { Logger } from 'Shared/services/Logger';
 
 export const getOrganisationBySlug = async (slug: string) => {
   try {
-    const response = await OrganisationService.getOrganisations(slug);
+    const response = await OrganisationApiService.getOrganisations(slug);
     const organisation = response.results.find(result => result.slug === slug);
 
     if (!organisation) {
@@ -20,7 +20,7 @@ export const getOrganisationBySlug = async (slug: string) => {
 
 export const getProposals = async (organisationId: string) => {
   try {
-    const { results } = await OrganisationService.getOrganisationProposals(
+    const { results } = await OrganisationApiService.getOrganisationProposals(
       organisationId
     );
 
@@ -37,7 +37,7 @@ export const getProposals = async (organisationId: string) => {
 
 export const getVotes = async (organisationId: string) => {
   try {
-    const { results } = await OrganisationService.getOrganisationVotes(
+    const { results } = await OrganisationApiService.getOrganisationVotes(
       organisationId
     );
 
