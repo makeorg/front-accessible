@@ -1,6 +1,8 @@
 /* @flow */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { type TypeHome } from 'Shared/types/views';
+import { getHome } from 'Shared/services/Views';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
@@ -49,11 +51,24 @@ const questions = [
 ];
 
 export const HomePage = () => {
+  const [data, setData] = useState<TypeHome>({
+    popularProposals: [],
+    controverseProposals: [],
+    businessConsultations: [],
+    featuredConsultations: [],
+    currentConsultations: [],
+  });
   apiClient.questionId = '';
   apiClient.operationId = '';
 
   useEffect(() => {
+    async function fetchData() {
+      const response = await getHome();
+      setData(response);
+    }
+
     Tracking.trackDisplayHomepage();
+    fetchData();
   }, []);
 
   return (
@@ -61,7 +76,7 @@ export const HomePage = () => {
       <HomepageSkipLinks />
       <MetaTags />
       <HomepageContainerStyle>
-        <FeaturedConsultations />
+        <FeaturedConsultations featureds={data.featuredConsultations} />
       </HomepageContainerStyle>
       <HomepageContainerStyle>
         <GreatCausesList />

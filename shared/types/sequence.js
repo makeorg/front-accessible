@@ -1,13 +1,7 @@
 // @flow
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Partner as TypePartner } from 'Shared/types/organisation';
-
-export type QuestionTheme = {
-  color: string,
-  footerFontColor: string,
-  gradientStart: string,
-  gradientEnd: string,
-};
+import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
 
 export type ConsultationType = {
   presentation: string,
@@ -20,7 +14,7 @@ export type Sharing = {
 
 export type QuestionConfiguration = {
   sharing: Sharing,
-  theme: QuestionTheme,
+  theme: TypeQuestionTheme,
   partners: TypePartner[],
   consultation: ConsultationType,
 };

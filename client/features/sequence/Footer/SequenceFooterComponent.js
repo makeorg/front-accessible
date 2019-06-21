@@ -2,12 +2,12 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
-import { type QuestionTheme } from 'Shared/types/sequence';
+import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
 import { FooterStyle, FooterTitleStyle, FooterLinkStyle } from '../Styled';
 
 type Props = {
   /** UI theme for the question */
-  theme: QuestionTheme,
+  theme: TypeQuestionTheme,
   consultationLink: string,
   questionTitle: string,
 };
