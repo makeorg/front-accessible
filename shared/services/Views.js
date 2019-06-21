@@ -9,7 +9,7 @@ import {
 import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
 import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_col2.jpg';
 import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
-import ReportersEspoirsPicture from 'Client/app/assets/images/homepage/medias-citoyens.jpg';
+import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
 import CulturePicture from 'Client/app/assets/images/homepage/great-causes/cta-culture.svg';
 import JeunePicture from 'Client/app/assets/images/homepage/great-causes/cta-jeune.svg';
 import VffPicture from 'Client/app/assets/images/homepage/great-causes/cta-vff.svg';
@@ -44,16 +44,18 @@ const featuredConsultations: TypeFeaturedConsultation[] = [
     externalLink: 'https://about.make.org/about-mieuxmanger',
   },
   {
-    questionSlug: 'medias-citoyens',
-    title: 'Comment les médias peuvent-ils améliorer la société ?',
+    questionSlug: 'we-europeans',
+    title:
+      'WeEuropeans : 10 propositions sélectionnées par les citoyens européens.',
     description: null,
-    landscapePicture: ReportersEspoirsPicture,
-    portraitPicture: ReportersEspoirsPicture,
-    altPicture: 'Comment les médias peuvent-ils améliorer la société ?',
-    label: 'Lancement',
+    landscapePicture: WeeuropeansPicture,
+    portraitPicture: WeeuropeansPicture,
+    altPicture:
+      'WeEuropeans : 10 propositions sélectionnées par les citoyens européens.',
+    label: 'Actualité',
     buttonLabel: 'En savoir +',
-    internalLink: 'consultation',
-    externalLink: null,
+    internalLink: null,
+    externalLink: 'https://weeuropeans.eu/',
   },
 ];
 
