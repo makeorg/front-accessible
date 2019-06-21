@@ -21,6 +21,13 @@ export const getRelativeCurrentUrl = (pathName: string) =>
 
 export const getPartnerAnchor = (aboutUrl: string) => `${aboutUrl}#partenaires`;
 
+export const buildInternalConsultationLink = (
+  target: string,
+  questionSlug: string,
+  country: string,
+  language: string
+) => `/${country}-${language}/consultation/${questionSlug}/${target}`;
+
 /**
  * Get the sequence link
  * @param  {string} country

@@ -7,7 +7,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { QuestionsList } from 'Client/features/homepage/QuestionsList';
-import { GreatCausesList } from 'Client/features/homepage/GreatCausesList';
+import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { Tracking } from 'Shared/services/Tracking';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
@@ -79,7 +79,7 @@ export const HomePage = () => {
         <FeaturedConsultations featureds={data.featuredConsultations} />
       </HomepageContainerStyle>
       <HomepageContainerStyle>
-        <GreatCausesList />
+        <CurrentConsultations consultations={data.currentConsultations} />
       </HomepageContainerStyle>
       <CorporateBanner />
       <HomepageContainerStyle>

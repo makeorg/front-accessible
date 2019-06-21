@@ -2,26 +2,31 @@ import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import {
-  GreatCausesArticleStyle,
-  GreatCausesLinkOverlayStyle,
-  GreatCauseTriggerStyle,
-  GreatCausesTextStyle,
+  CurrentConsultationArticleStyle,
+  CurrentConsultationLinkOverlayStyle,
+  CurrentConsultationTriggerStyle,
+  CurrentConsultationTextStyle,
 } from '../Styled';
 
 type Props = {
   image: HTMLImageElement,
   title: string,
   linkText: string,
-  linkUrl: string,
+  linkObject: Object,
   children: React.Node,
 };
 
-export const GreatCauseArticle = (props: Props) => {
+export const CurrentConsultationArticle = ({
+  image,
+  title,
+  linkText,
+  linkObject,
+  children,
+}: Props) => {
   const [isOverlayDisplayed, setDisplayOverlay] = useState(false);
-  const { image, title, linkText, linkUrl, children } = props;
   return (
-    <GreatCausesArticleStyle>
-      <GreatCauseTriggerStyle
+    <CurrentConsultationArticleStyle>
+      <CurrentConsultationTriggerStyle
         type="image"
         src={image}
         alt={title}
@@ -34,9 +39,9 @@ export const GreatCauseArticle = (props: Props) => {
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
       />
-      <GreatCausesLinkOverlayStyle
+      <CurrentConsultationLinkOverlayStyle
         className="overlay"
-        href={linkUrl}
+        {...linkObject}
         aria-hidden={!isOverlayDisplayed}
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
@@ -44,8 +49,8 @@ export const GreatCauseArticle = (props: Props) => {
         tabIndex={isOverlayDisplayed ? 0 : -1}
       >
         {children}
-        <GreatCausesTextStyle>{linkText}</GreatCausesTextStyle>
-      </GreatCausesLinkOverlayStyle>
-    </GreatCausesArticleStyle>
+        <CurrentConsultationTextStyle>{linkText}</CurrentConsultationTextStyle>
+      </CurrentConsultationLinkOverlayStyle>
+    </CurrentConsultationArticleStyle>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
+import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -21,13 +22,6 @@ import {
   FeaturedInnerContent,
   FeaturedArticleCol1Style,
 } from './Styled';
-
-const buildInternalLink = (
-  target: string,
-  questionSlug: string,
-  country: string,
-  language: string
-) => `${country}-${language}/consultation/${questionSlug}/${target}`;
 
 const Featured = ({
   featured,
@@ -49,7 +43,7 @@ const Featured = ({
         target: '_blank',
       }
     : {
-        to: buildInternalLink(
+        to: buildInternalConsultationLink(
           featured.internalLink,
           featured.questionSlug,
           country,
