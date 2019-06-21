@@ -82,7 +82,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="hs2zb-6 gvjgWh"
+    className="hs2zb-6"
 -   disabled={false}
 +   disabled={true}
     form="foo"

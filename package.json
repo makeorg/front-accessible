@@ -104,7 +104,7 @@
 		"install": "~0.12.1",
 		"jest": "~24.7.1",
 		"jest-dom": "^3.2.2",
-		"jest-styled-components": "~6.3.1",
+		"jest-styled-components": "~7.0.0-beta.1",
 		"jsdom": "~12.2.0",
 		"json-server": "^0.15.0",
 		"mockdate": "~2.0.2",

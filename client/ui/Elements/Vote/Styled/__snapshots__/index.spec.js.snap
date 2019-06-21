@@ -97,7 +97,7 @@ exports[`IsVotedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="sc-1gs43wt-0 c0"
 />
 `;
 
@@ -156,6 +156,6 @@ exports[`VoteButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="sc-1gs43wt-0 c0"
 />
 `;

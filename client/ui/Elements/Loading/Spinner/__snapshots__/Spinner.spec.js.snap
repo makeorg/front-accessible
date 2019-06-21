@@ -38,8 +38,8 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   margin: 0.375rem;
   border: 0.375rem solid rgb(117,117,117);
   border-radius: 50%;
-  -webkit-animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   border-color: rgb(117,117,117) transparent transparent transparent;
 }
 
@@ -52,8 +52,8 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   margin: 0.375rem;
   border: 0.375rem solid rgb(117,117,117);
   border-radius: 50%;
-  -webkit-animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   border-color: rgb(117,117,117) transparent transparent transparent;
   -webkit-animation-delay: -0.45s;
   animation-delay: -0.45s;
@@ -68,8 +68,8 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   margin: 0.375rem;
   border: 0.375rem solid rgb(117,117,117);
   border-radius: 50%;
-  -webkit-animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   border-color: rgb(117,117,117) transparent transparent transparent;
   -webkit-animation-delay: -0.3s;
   animation-delay: -0.3s;
@@ -84,8 +84,8 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   margin: 0.375rem;
   border: 0.375rem solid rgb(117,117,117);
   border-radius: 50%;
-  -webkit-animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  animation: iECmZH 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   border-color: rgb(117,117,117) transparent transparent transparent;
   -webkit-animation-delay: -0.15s;
   animation-delay: -0.15s;
@@ -93,7 +93,7 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
 
 <aside
   aria-label="common.loading"
-  className="c0"
+  className="f9ghfa-0 f9ghfa-2 f9ghfa-6 f9ghfa-7 c0"
 >
   <div
     className="c1"
@@ -104,15 +104,15 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
     />
     <div
       aria-hidden={true}
-      className="c3"
+      className="c2 c3"
     />
     <div
       aria-hidden={true}
-      className="c4"
+      className="c2 c4"
     />
     <div
       aria-hidden={true}
-      className="c5"
+      className="c2 c5"
     />
   </div>
 </aside>

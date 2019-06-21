@@ -11,6 +11,18 @@ Array [
   clip: rect(1px,1px,1px,1px);
 }
 
+@media (min-width:767px) {
+
+}
+
+@media (min-width:767px) {
+
+}
+
+@media (min-width:767px) {
+
+}
+
 <progress
     aria-valuemax={13}
     aria-valuenow={3}

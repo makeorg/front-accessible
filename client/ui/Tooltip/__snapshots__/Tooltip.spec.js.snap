@@ -2,7 +2,7 @@
 
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 Array [
-  .c0 {
+  .c1 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
   background-color: rgb(51,51,51);
@@ -11,16 +11,16 @@ Array [
   text-align: center;
 }
 
-.c0 >:after {
+.c1 >:after {
   content: '';
   position: absolute;
 }
 
-.c0[aria-hidden='true'] {
+.c1[aria-hidden='true'] {
   display: none;
 }
 
-.c1 {
+.c0 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
   background-color: rgb(51,51,51);
@@ -34,16 +34,16 @@ Array [
   bottom: calc(100% + 0.625rem);
 }
 
-.c1 >:after {
+.c0 >:after {
   content: '';
   position: absolute;
 }
 
-.c1[aria-hidden='true'] {
+.c0[aria-hidden='true'] {
   display: none;
 }
 
-.c1 >:after {
+.c0 >:after {
   right: 50%;
   border-left: 0.3125rem solid transparent;
   border-right: 0.3125rem solid transparent;
@@ -52,14 +52,14 @@ Array [
   transform: translate(50%,0);
 }
 
-.c1 >:after {
+.c0 >:after {
   top: 100%;
   border-top: 0.3125rem solid rgb(51,51,51);
 }
 
 <div
     aria-hidden={true}
-    className="sc-12iuwgm-0 c0 c1"
+    className="sc-12iuwgm-1 c0 sc-12iuwgm-0 c1"
     role="tooltip"
   />,
   <div
