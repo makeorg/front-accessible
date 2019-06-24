@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React from 'react';
+import fs from 'fs';
+import path from 'path';
 import { ChunkExtractor } from '@loadable/server';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -12,19 +14,16 @@ import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
+import configuration from './configuration';
+import { BUILD_DIR } from './paths';
 
 deepFreeze(initialState);
-
-const fs = require('fs');
-const path = require('path');
-const { BUILD_DIR } = require('./paths');
-const configuration = require('./configuration.js');
 
 const statsFile = path.resolve(__dirname, '..', 'dist', 'loadable-stats.json');
 
 const htmlContent = fs.readFileSync(path.join(BUILD_DIR, 'index.html'), 'utf8');
 
-const renderHtml = (reactApp, reduxStore, metaTags) => {
+const renderHtml = (reactApp, reduxStore, metaTags, res) => {
   if (!htmlContent) {
     return false;
   }
@@ -39,6 +38,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
   const styles = sheet.getStyleTags();
   const reduxState = reduxStore.getState();
   const scriptTags = extractor.getScriptTags();
+  const nonceId = res.locals.nonce;
 
   return htmlContent
     .replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`)
@@ -48,6 +48,7 @@ const renderHtml = (reactApp, reduxStore, metaTags) => {
     .replace('__LANG__', reduxState.appConfig.language)
     .replace('__API_URL__', apiUrl)
     .replace('__FRONT_URL__', frontUrl)
+    .replace('___NONCE_ID___', nonceId)
     .replace('</body>', `${scriptTags}</body>`);
 };
 
@@ -84,7 +85,7 @@ export const reactRender = (req, res, routeState = {}) => {
     </CookiesProvider>
   );
 
-  const reactHtml = renderHtml(ReactApp, store, headTags);
+  const reactHtml = renderHtml(ReactApp, store, headTags, res);
 
   if (!reactHtml) {
     return res.status(404).end();
