@@ -23,15 +23,15 @@ export const Header = () => {
   return (
     <HeaderStyle>
       <HeaderInnerStyle>
-        <Link to="/">
-          <h1>
+        <h1>
+          <Link to="/">
             <HeaderLogoStyle
               onClick={() => Tracking.trackClickMakeLogo()}
               src={Logo}
               alt={i18n.t('header.logo_alt')}
             />
-          </h1>
-        </Link>
+          </Link>
+        </h1>
         <FlexElementStyle>
           {!isMobile && (
             <WhoAreWeLinkStyle href={WHOAREWE_FR_LINK}>
