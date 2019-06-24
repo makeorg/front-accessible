@@ -7,7 +7,7 @@ import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
 import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
 import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_col2.jpg';
 import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
-import ReportersEspoirsPicture from 'Client/app/assets/images/homepage/medias-citoyens.jpg';
+import WeeuropeansPicture from 'Client/app/assets/images/homepage/we-europeans.jpg';
 import { Tracking } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -49,14 +49,15 @@ const featureds = [
     is_external_link: true,
   },
   {
-    type: 'Lancement',
-    title: 'Comment les médias peuvent-ils améliorer la société ?',
+    type: 'Actualité',
+    title:
+      'WeEuropeans : 10 propositions sélectionnées par les citoyens européens.',
     description: '',
-    picture: ReportersEspoirsPicture,
-    picture_mobile: ReportersEspoirsPicture,
+    picture: WeeuropeansPicture,
+    picture_mobile: WeeuropeansPicture,
     cta_text: 'En savoir +',
-    link: '/FR-fr/consultation/medias-citoyens/consultation',
-    is_external_link: false,
+    link: 'https://weeuropeans.eu/',
+    is_external_link: true,
   },
 ];
 
