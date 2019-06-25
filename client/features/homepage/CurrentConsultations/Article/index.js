@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+// @flow
+
+import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Tracking } from 'Shared/services/Tracking';
 import {
@@ -8,11 +10,18 @@ import {
   CurrentConsultationTextStyle,
 } from '../Styled';
 
+type TypeLinkObject = {
+  as: React.Node,
+  to?: ?string,
+  href?: string,
+  target?: string,
+};
+
 type Props = {
-  image: HTMLImageElement,
+  image: string,
   title: string,
   linkText: string,
-  linkObject: Object,
+  linkObject: TypeLinkObject,
   children: React.Node,
 };
 
@@ -23,7 +32,7 @@ export const CurrentConsultationArticle = ({
   linkObject,
   children,
 }: Props) => {
-  const [isOverlayDisplayed, setDisplayOverlay] = useState(false);
+  const [isOverlayDisplayed, setDisplayOverlay] = React.useState(false);
   return (
     <CurrentConsultationArticleStyle>
       <CurrentConsultationTriggerStyle

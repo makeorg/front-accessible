@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -104,7 +106,12 @@ const FeaturedDesktop = ({ featureds, country, language }) => {
     <FeaturedArticleWrapperStyle id="featured_list">
       <FeaturedArticleColumnStyle>
         <FeaturedArticleCol1Style key="article_title_0">
-          <Featured featured={featuredsCol1} index={0} />
+          <Featured
+            featured={featuredsCol1}
+            index={0}
+            country={country}
+            language={language}
+          />
         </FeaturedArticleCol1Style>
       </FeaturedArticleColumnStyle>
       <FeaturedArticleColumnStyle>

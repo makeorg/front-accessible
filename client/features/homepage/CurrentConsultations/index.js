@@ -1,8 +1,11 @@
+// @flow
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
+import { type TypeCurrentConsultation } from 'Shared/types/views';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
 import {
@@ -13,7 +16,7 @@ import {
 import { CurrentConsultationArticle } from './Article';
 
 type Props = {
-  consultations: ?(TypeCurrentConsultation[]),
+  consultations: TypeCurrentConsultation[],
   country: string,
   language: string,
 };

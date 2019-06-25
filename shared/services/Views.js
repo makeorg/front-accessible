@@ -1,5 +1,4 @@
 // @flow
-//  import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import {
   type TypeFeaturedConsultation,
   type TypeCurrentConsultation,
