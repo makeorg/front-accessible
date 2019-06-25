@@ -67,8 +67,8 @@ class TrackingSingleton {
     }).catch(error =>
       Logger.logError({
         source: 'Tracking api call error',
+        error,
         ...params,
-        ...error,
       })
     );
   };

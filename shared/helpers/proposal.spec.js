@@ -161,9 +161,7 @@ describe('Proposal Helper', () => {
     });
 
     it('return an empty Array and call Logger when api fail', async () => {
-      ProposalApiService.searchProposals.mockRejectedValue(
-        new Error('Api error')
-      );
+      ProposalApiService.searchProposals.mockRejectedValue('Api error');
       jest.spyOn(Logger, 'logError');
 
       const repsonse = await ProposalHelper.searchProposals('12345', [
@@ -171,10 +169,7 @@ describe('Proposal Helper', () => {
         'bar',
       ]);
 
-      expect(Logger.logError).toHaveBeenCalledWith(
-        'searchProposals error',
-        Error('Api error')
-      );
+      expect(Logger.logError).toHaveBeenCalledWith(Error('Api error'));
       expect(repsonse).toEqual({});
     });
   });

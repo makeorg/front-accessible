@@ -15,8 +15,5 @@ export const fetchProposalData = (proposalId: string) => (dispatch: Dispatch) =>
       return proposal;
     })
     .catch(error => {
-      Logger.logError({
-        source: 'fetchProposalData api call error',
-        ...error,
-      });
+      Logger.logError(Error(error));
     });

@@ -67,10 +67,7 @@ export const fetchQuestionData = (questionSlugOrId: string) => (
       return question;
     })
     .catch(error => {
-      Logger.logError({
-        ...{ source: 'fetchQuestionData api call error' },
-        ...{ error },
-      });
+      Logger.logError(Error(error));
     });
 
 export const fetchQuestionConfigurationData = (questionSlug: string) => (
@@ -82,8 +79,5 @@ export const fetchQuestionConfigurationData = (questionSlug: string) => (
     })
 
     .catch(error => {
-      Logger.logError({
-        source: 'fetchQuestionConfigurationData api call error',
-        ...{ error },
-      });
+      Logger.logError(Error(error));
     });

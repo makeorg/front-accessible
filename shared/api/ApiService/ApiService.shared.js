@@ -46,14 +46,14 @@ export const handleErrors = (error: ErrorResponse) => {
       case 400:
         throw error.response.data;
       case 500:
-        Logger.logError('Api Response');
-        throw error.response.status;
+        Logger.logError('Api Response 500');
+        throw Error(error.response.headers);
       default:
-        throw error.response.status;
+        throw Error(error.response.status.toString());
     }
   }
 
-  throw error.message;
+  throw Error(error.message);
 };
 
 class ApiServiceSharedClass {
