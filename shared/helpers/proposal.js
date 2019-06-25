@@ -71,7 +71,7 @@ export const searchProposals = async (
 
     return response;
   } catch (error) {
-    Logger.logError('searchProposals error', error);
+    Logger.logError(error);
     return {};
   }
 };
