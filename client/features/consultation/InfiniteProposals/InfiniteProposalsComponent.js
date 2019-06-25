@@ -1,10 +1,10 @@
-/* @flow */
+// @flow
 import React from 'react';
+import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { i18n } from 'Shared/i18n';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 
 type Props = {
