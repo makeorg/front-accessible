@@ -13,7 +13,7 @@ export const getOrganisationBySlug = async (slug: string) => {
 
     return organisation;
   } catch (error) {
-    Logger.logError('getOrganisationBySlug error', error);
+    Logger.logError(Error(error));
     return null;
   }
 };
@@ -30,7 +30,7 @@ export const getProposals = async (organisationId: string) => {
 
     return [];
   } catch (error) {
-    Logger.logError('getOrganisationProposals error', error);
+    Logger.logError(Error(error));
     return [];
   }
 };
@@ -59,7 +59,7 @@ export const getVotes = async (organisationId: string) => {
 
     return [];
   } catch (error) {
-    Logger.logError('getOrganisationVotes error', error);
+    Logger.logError(Error(error));
     return [];
   }
 };

@@ -54,7 +54,7 @@ describe('ApiServiceShared', () => {
       try {
         await ApiServiceShared.callApi('/url');
       } catch (error) {
-        expect(error).toBe('error');
+        expect(error).toEqual(Error('error'));
       }
     });
   });
@@ -84,10 +84,17 @@ describe('ApiServiceShared', () => {
       const error = {
         response: {
           status: 500,
+          headers: {
+            'x-headers': 'foo',
+          },
         },
       };
-      expect(() => handleErrors(error)).toThrow('500');
-      expect(Logger.logError).toHaveBeenNthCalledWith(1, 'Api Response');
+      expect(() => handleErrors(error)).toThrow(
+        Error({
+          'x-headers': 'foo',
+        })
+      );
+      expect(Logger.logError).toHaveBeenNthCalledWith(1, 'Api Response 500');
     });
   });
 });

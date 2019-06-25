@@ -49,7 +49,7 @@ export const handleErrors = (error: ErrorResponse) => {
         Logger.logError('Api Response 500');
         throw Error(error.response.headers);
       default:
-        throw Error(error.response.status);
+        throw Error(error.response.status.toString());
     }
   }
 
