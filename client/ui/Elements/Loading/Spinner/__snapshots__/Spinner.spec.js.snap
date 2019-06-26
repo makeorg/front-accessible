@@ -104,15 +104,15 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
     />
     <div
       aria-hidden={true}
-      className="c2 c3"
+      className="c3"
     />
     <div
       aria-hidden={true}
-      className="c2 c4"
+      className="c4"
     />
     <div
       aria-hidden={true}
-      className="c2 c5"
+      className="c5"
     />
   </div>
 </aside>

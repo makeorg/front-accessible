@@ -67,13 +67,13 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   justify-content: center;
 }
 
-.c3 {
+.c4 {
   font-size: 12px;
   color: rgb(74,74,74);
   margin: 3px 0;
 }
 
-.c4 {
+.c3 {
   font-size: 12px;
   color: rgb(74,74,74);
   margin: 3px 0;
@@ -100,19 +100,19 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
 }
 
 @media (min-width:767px) {
+  .c4 {
+    font-size: 14px;
+  }
+}
+
+@media (min-width:767px) {
   .c3 {
     font-size: 14px;
   }
 }
 
 @media (min-width:767px) {
-  .c4 {
-    font-size: 14px;
-  }
-}
-
-@media (min-width:767px) {
-  .c4 {
+  .c3 {
     font-size: 16px;
   }
 }
@@ -142,15 +142,15 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </svg>
     </IsVotedButtonStyle>
     <div
-      className="c1 f9ghfa-2 c2"
+      className="f9ghfa-2 c2"
     >
       <p
-        className="c3 c4"
+        className="c3"
       >
         common.percent
       </p>
       <p
-        className="c3"
+        className="c4"
       >
         vote.label
       </p>
@@ -163,7 +163,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     className="qfibtu-0 c5"
   >
     <li
-      className="c1 c6"
+      className="c6"
     >
       <span
         className="c7"
@@ -184,7 +184,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c1 c6"
+      className="c6"
     >
       <span
         className="c7"
@@ -205,7 +205,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c1 c6"
+      className="c6"
     >
       <span
         className="c7"

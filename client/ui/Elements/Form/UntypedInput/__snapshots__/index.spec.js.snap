@@ -8,7 +8,7 @@ Snapshot Diff:
 @@ -8,15 +8,15 @@
     </CenterInputIconStyle>
     <div
-      className="sc-1ln9y8s-4"
+      className="sc-1ln9y8s-4 iLpdKT"
     >
       <BasicInputStyle
         id="bar"
@@ -20,5 +20,5 @@ Snapshot Diff:
         value="baz"
       />
       <label
-        className="sc-1ln9y8s-9"
+        className="sc-1ln9y8s-9 ifldCj"
 `;

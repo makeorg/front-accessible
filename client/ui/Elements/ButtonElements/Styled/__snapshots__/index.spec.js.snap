@@ -45,7 +45,7 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="hs2zb-2 c0"
 />
 `;
 
@@ -223,7 +223,7 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="hs2zb-6 hs2zb-8 c0"
+  className="hs2zb-2 hs2zb-7 hs2zb-9 c0"
 />
 `;
 
@@ -287,7 +287,7 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="hs2zb-6 hs2zb-8 c0"
+  className="hs2zb-2 hs2zb-7 hs2zb-9 c0"
 />
 `;
 
@@ -358,7 +358,7 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="hs2zb-6 hs2zb-8 c0"
+  className="hs2zb-2 hs2zb-7 hs2zb-9 c0"
 />
 `;
 
@@ -403,7 +403,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="hs2zb-2 c0"
 />
 `;
 
@@ -464,7 +464,7 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="hs2zb-2 c0"
 />
 `;
 
@@ -546,7 +546,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="hs2zb-3 c0"
+  className="hs2zb-2 hs2zb-4 c0"
 />
 `;
 
@@ -593,7 +593,7 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="hs2zb-2 c0"
+  className="hs2zb-2 hs2zb-3 c0"
 />
 `;
 

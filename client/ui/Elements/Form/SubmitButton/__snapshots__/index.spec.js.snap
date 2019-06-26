@@ -60,7 +60,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 <button
-  className="c0"
+  className="hs2zb-2 c0"
   disabled={false}
   form="foo"
   type="submit"
@@ -82,7 +82,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="hs2zb-6"
+    className="hs2zb-2 hs2zb-7 kdtGhQ"
 -   disabled={false}
 +   disabled={true}
     form="foo"
