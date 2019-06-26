@@ -2,8 +2,6 @@
 
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import * as ProposalService from 'Shared/services/Proposal';
-import * as QuestionService from 'Shared/services/Question';
-import { Logger } from 'Shared/services/Logger';
 
 jest.mock('Shared/api/ProposalApiService');
 jest.mock('Shared/services/Question');

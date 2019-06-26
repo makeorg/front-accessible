@@ -9,7 +9,7 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const QuestionListTitleStyle = styled.h2`
+export const BusinessConsultationsTitleStyle = styled.h2`
   font-size: 20px;
   line-height: 1;
   margin-bottom: 25px;
@@ -17,7 +17,7 @@ export const QuestionListTitleStyle = styled.h2`
     font-size: 24px;
   }
 `;
-export const QuestionsListStyle = styled(UnstyledListStyle)`
+export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -26,7 +26,7 @@ export const QuestionsListStyle = styled(UnstyledListStyle)`
   }
 `;
 
-export const QuestionItemStyle = styled.li`
+export const BusinessConsultationsItemStyle = styled.li`
   display: flex;
   border-radius: 8px;
   background-color: rgb(242, 242, 242);
@@ -43,7 +43,7 @@ export const QuestionItemStyle = styled.li`
   }
 `;
 
-export const QuestionLinkStyle = styled(Link)`
+export const BusinessConsultationsItemLinkStyle = styled(Link)`
   display: flex;
   text-decoration: none;
   font-family: ${MakeFonts.RobotoBold};
@@ -54,11 +54,11 @@ export const QuestionLinkStyle = styled(Link)`
   }
 `;
 
-export const QuestionStyle = styled.div`
+export const BusinessConsultationStyle = styled.div`
   padding: 15px;
 `;
 
-export const QuestionStatusStyle = styled.p`
+export const BusinessConsultationsItemStatusStyle = styled.p`
   font-family: ${MakeFonts.RobotoCondensedBold};
   color: ${TextColors.MediumGrey};
   text-transform: uppercase;
@@ -66,7 +66,7 @@ export const QuestionStatusStyle = styled.p`
   line-height: 1;
 `;
 
-export const QuestionBorderStyle = styled.div`
+export const BusinessConsultationsItemBorderStyle = styled.div`
   width: 6px;
   background: linear-gradient(
     352deg,
@@ -75,7 +75,7 @@ export const QuestionBorderStyle = styled.div`
   );
 `;
 
-export const QuestionArrowStyle = {
+export const BusinessConsultationsItemArrowStyle = {
   justifySelf: 'center',
   alignSelf: 'center',
   marginRight: '5px',

@@ -6,6 +6,13 @@ import {
   type FinalCardConfig,
 } from 'Shared/types/card';
 
+export type QuestionTheme = {
+  color?: string,
+  footerFontColor?: string,
+  gradientStart: string,
+  gradientEnd: string,
+};
+
 export type Metas = {
   title: string,
   description: string,

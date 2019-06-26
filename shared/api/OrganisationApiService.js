@@ -7,7 +7,7 @@ export const ORGANISATION_PROPOSALS_PATH =
   '/organisations/:organisationId/proposals';
 export const ORGANISATION_VOTES_PATH = '/organisations/:organisationId/votes';
 
-export class OrganisationService {
+export class OrganisationApiService {
   static getOrganisations(slug: string) {
     return ApiService.callApi(ORGANISATIONS_PATH, {
       method: 'GET',

@@ -1,10 +1,10 @@
 import { ApiService } from 'Shared/api/ApiService';
 import {
-  OrganisationService,
+  OrganisationApiService,
   ORGANISATIONS_PATH,
   ORGANISATION_PROPOSALS_PATH,
   ORGANISATION_VOTES_PATH,
-} from './OrganisationService';
+} from './OrganisationApiService';
 
 jest.mock('./ApiService');
 
@@ -16,7 +16,7 @@ describe('OrganisationService', () => {
 
   describe('getOrganisations', () => {
     it('must call ApiService.callApi', async () => {
-      await OrganisationService.getOrganisations('foo');
+      await OrganisationApiService.getOrganisations('foo');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
         ORGANISATIONS_PATH,
@@ -32,7 +32,7 @@ describe('OrganisationService', () => {
 
   describe('getOrganisationProposals', () => {
     it('must call ApiService.callApi', async () => {
-      await OrganisationService.getOrganisationProposals('foo');
+      await OrganisationApiService.getOrganisationProposals('foo');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
         ORGANISATION_PROPOSALS_PATH.replace(':organisationId', 'foo'),
@@ -45,7 +45,7 @@ describe('OrganisationService', () => {
 
   describe('getOrganisationsVotes', () => {
     it('must call ApiService.callApi', async () => {
-      await OrganisationService.getOrganisationVotes('foo');
+      await OrganisationApiService.getOrganisationVotes('foo');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
         ORGANISATION_VOTES_PATH.replace(':organisationId', 'foo'),

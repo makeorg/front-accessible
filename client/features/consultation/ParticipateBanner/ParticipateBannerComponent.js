@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { Tracking } from 'Shared/services/Tracking';
-import { type QuestionTheme } from 'Shared/types/sequence';
+import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
@@ -13,7 +13,7 @@ import {
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 
 type Props = {
-  styleTheme: QuestionTheme,
+  styleTheme: TypeQuestionTheme,
   sequenceLink: string,
 };
 

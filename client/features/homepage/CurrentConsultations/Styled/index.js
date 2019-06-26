@@ -9,13 +9,13 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const GreatCausesListStyle = styled(UnstyledListStyle)`
+export const CurrentConsultationsStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: wrap;
   justify-content: center;
 `;
 
-export const GreatCausesListItemStyle = styled.li`
+export const CurrentConsultationItemStyle = styled.li`
   margin-right: 15px;
   margin-bottom: 15px;
   flex: 0 1 calc(50% - 7.5px);
@@ -35,7 +35,7 @@ export const GreatCausesListItemStyle = styled.li`
   }
 `;
 
-export const GreatCausesArticleStyle = styled.article`
+export const CurrentConsultationArticleStyle = styled.article`
   display: block;
   position: relative;
   width: 100%;
@@ -47,12 +47,12 @@ export const GreatCausesArticleStyle = styled.article`
   }
 `;
 
-export const GreatCauseTriggerStyle = styled.input`
+export const CurrentConsultationTriggerStyle = styled.input`
   display: block;
   width: 100%;
 `;
 
-export const GreatCausesLinkOverlayStyle = styled.a`
+export const CurrentConsultationLinkOverlayStyle = styled.a`
   position: absolute;
   top: 0;
   left: 0;
@@ -72,7 +72,7 @@ export const GreatCausesLinkOverlayStyle = styled.a`
   }
 `;
 
-export const GreatCausesDescriptionStyle = styled.p`
+export const CurrentConsultationDescriptionStyle = styled.p`
   font-size: 12px;
   font-weight: bold;
   line-height: 1.5;
@@ -82,7 +82,7 @@ export const GreatCausesDescriptionStyle = styled.p`
   }
 `;
 
-export const GreatCausesTextStyle = styled.p`
+export const CurrentConsultationTextStyle = styled.p`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 12px;
   color: ${BasicColors.PureWhite};
