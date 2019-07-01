@@ -38,7 +38,7 @@ const featuredConsultations: TypeFeaturedConsultation[] = [
     portraitPicture: AlimentationPicture,
     altPicture: 'Comment permettre à chacun de mieux manger ?',
     label: 'Grande cause',
-    buttonLabel: 'En savoir +',
+    buttonLabel: 'Voir les résultats',
     internalLink: null,
     externalLink: 'https://about.make.org/about-mieuxmanger',
   },
