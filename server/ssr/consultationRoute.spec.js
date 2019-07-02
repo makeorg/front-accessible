@@ -50,7 +50,7 @@ describe('Consultation page route', () => {
     it('construct route initial state and render', async () => {
       getQuestion.mockReturnValue(fooQuestion);
       SequenceService.fetchConfiguration.mockReturnValue('questionconfigData');
-      createInitialState.mockReturnValue({ sequence: {}, proposal: {} });
+      createInitialState.mockReturnValue({});
       isInProgress.mockReturnValue(true);
 
       await consultationRoute(request, response);
@@ -61,7 +61,7 @@ describe('Consultation page route', () => {
             questionConfiguration: 'questionconfigData',
           },
         },
-        sequence: { questionSlug: 'bar' },
+        currentQuestion: 'bar',
       });
     });
 

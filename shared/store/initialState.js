@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { type StateRoot } from './types';
 
 export const initialState: StateRoot = {
@@ -20,6 +20,7 @@ export const initialState: StateRoot = {
     votedProposalIds: [],
   },
   questions: {},
+  currentQuestion: undefined,
   notification: {
     contentType: undefined,
   },
@@ -44,5 +45,5 @@ export const initialState: StateRoot = {
   },
 };
 
-export const createInitialState = () =>
+export const createInitialState = (): StateRoot =>
   JSON.parse(JSON.stringify(initialState));

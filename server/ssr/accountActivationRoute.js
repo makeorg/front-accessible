@@ -1,6 +1,6 @@
 import { UserApiService } from 'Shared/api/UserApiService';
 import { notificationConstants } from 'Shared/constants/notification';
-import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
+import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -29,7 +29,7 @@ export const accountActivationRoute = async (req, res) => {
       });
 
       if (question) {
-        routeState.sequence.questionSlug = question.slug;
+        routeState.currentQuestion = question.slug;
         routeState.questions = {
           [question.slug]: {
             question,
@@ -51,14 +51,10 @@ export const accountActivationRoute = async (req, res) => {
       routeState.notification.contentType =
         notificationConstants.ACTIVATION_SUCCESS_CONTENT;
     }
-
-    if (status === HTTP_NOT_FOUND) {
-      routeState.notification.contentType =
-        notificationConstants.ACTIVATION_FAILURE_CONTENT;
-    }
   } catch (error) {
     logError(error);
-    res.send(error);
+    routeState.notification.contentType =
+      notificationConstants.ACTIVATION_FAILURE_CONTENT;
   }
 
   return reactRender(req, res, routeState);

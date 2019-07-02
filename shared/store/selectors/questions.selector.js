@@ -6,19 +6,19 @@ import { type StateRoot } from '../types';
  * @param {*} state
  */
 
-export const selectQuestionData = (state: StateRoot, questionSlug?: string) => {
-  if (questionSlug) {
-    return state.questions[questionSlug];
+export const selectQuestionData = (state: StateRoot, questionSlug: ?string) => {
+  if (!questionSlug) {
+    return null;
   }
 
-  return null;
+  return state.questions[questionSlug];
 };
 
 /**
  * question selector
  * @param {*} state
  */
-export const selectQuestion = (state: StateRoot, questionSlug?: string) => {
+export const selectQuestion = (state: StateRoot, questionSlug: ?string) => {
   const data = selectQuestionData(state, questionSlug);
   return data && data.question;
 };
@@ -29,8 +29,26 @@ export const selectQuestion = (state: StateRoot, questionSlug?: string) => {
  */
 export const selectQuestionConfiguration = (
   state: StateRoot,
-  questionSlug?: string
+  questionSlug: ?string
 ) => {
   const data = selectQuestionData(state, questionSlug);
   return data && data.questionConfiguration;
+};
+
+/**
+ * Sequence question selector
+ * @param {*} state
+ */
+export const selectCurrentQuestion = (state: StateRoot) => {
+  const questionSlug = state.currentQuestion;
+  return selectQuestion(state, questionSlug);
+};
+
+/**
+ * Sequence questionConfiguration selector
+ * @param {*} state
+ */
+export const selectCurrentQuestionConfiguration = (state: StateRoot) => {
+  const questionSlug = state.currentQuestion;
+  return selectQuestionConfiguration(state, questionSlug);
 };

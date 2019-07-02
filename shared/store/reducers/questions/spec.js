@@ -22,6 +22,7 @@ describe('Questions reducer', () => {
     };
 
     expect(questions(undefined, action)).toEqual({
+      currentQuestion: 'foo-question',
       'foo-question': {
         questionConfiguration: questionConfigurationTypeFixture,
       },
@@ -37,6 +38,7 @@ describe('Questions reducer', () => {
     };
 
     expect(questions(undefined, action)).toEqual({
+      currentQuestion: 'weeuropeans-fr',
       'weeuropeans-fr': {
         question: questionTypeFixture,
       },

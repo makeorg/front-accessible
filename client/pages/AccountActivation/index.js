@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 
 const AccountActivation = props => {
   const { question, match } = props;
@@ -22,7 +22,7 @@ const AccountActivation = props => {
 };
 
 const mapStateToProps = state => {
-  return { question: selectSequenceQuestion(state) };
+  return { question: selectCurrentQuestion(state) };
 };
 
 export const AccountActivationPage = connect(mapStateToProps)(

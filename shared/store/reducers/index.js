@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import { appConfig } from './appConfig';
 import { proposal } from './proposal';
 import { modal } from './modal';
+import { currentQuestion } from './currentQuestion';
 import { sequence } from './sequence';
 import { notificationReducer } from './notification';
 import { user } from './user';
@@ -15,6 +16,7 @@ export const rootReducer = combineReducers({
   modal,
   sequence,
   questions,
+  currentQuestion,
   notification: notificationReducer,
   user,
 });

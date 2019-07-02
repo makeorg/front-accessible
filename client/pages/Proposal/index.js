@@ -11,7 +11,7 @@ import { fetchQuestionConfigurationData } from 'Shared/store/actions/sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type match as TypeMatch } from 'react-router';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-import { selectSequenceQuestionConfiguration } from 'Shared/store/selectors/sequence.selector';
+import { selectCurrentQuestionConfiguration } from 'Shared/store/selectors/questions.selector';
 import { ProposalPageContentLoader } from './ContentLoader';
 
 type Props = {
@@ -57,7 +57,7 @@ const mapStateToProps = state => {
 
   return {
     proposal: data,
-    questionConfiguration: selectSequenceQuestionConfiguration(state),
+    questionConfiguration: selectCurrentQuestionConfiguration(state),
   };
 };
 

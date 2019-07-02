@@ -43,10 +43,7 @@ describe('Account activation route', () => {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
 
     const request = httpMocks.createRequest({
@@ -83,10 +80,7 @@ describe('Account activation route', () => {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
     await accountActivationRoute(request, response, () => {});
     expect(UserApiService.verifyUser).toHaveBeenCalledWith(
@@ -98,7 +92,7 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    UserApiService.verifyUser.mockReturnValue(HTTP_NOT_FOUND);
+    UserApiService.verifyUser.mockRejectedValue(HTTP_NOT_FOUND);
     QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
 
     const request = httpMocks.createRequest({
@@ -118,10 +112,7 @@ describe('Account activation route', () => {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
 
     await accountActivationRoute(request, response, () => {});

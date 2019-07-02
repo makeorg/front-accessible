@@ -12,16 +12,6 @@ export function sequence(
         ...state,
         isSequenceCollapsed: true,
       };
-    case actionTypes.QUESTION_LOAD:
-      return {
-        ...state,
-        questionSlug: action.payload.question.slug,
-      };
-    case actionTypes.QUESTION_CONFIGURATION_LOAD:
-      return {
-        ...state,
-        questionSlug: action.payload.questionSlug,
-      };
     case actionTypes.SEQUENCE_PROPOSAL_VOTE:
       return {
         ...state,

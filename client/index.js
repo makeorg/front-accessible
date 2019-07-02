@@ -73,13 +73,9 @@ const initApp = async state => {
     },
   });
 
-  if (
-    state.sequence &&
-    state.sequence.questionSlug &&
-    state.questions[state.sequence.questionSlug]
-  ) {
-    const { questionSlug } = state.sequence;
-    const { questionId } = state.questions[questionSlug];
+  const { currentQuestion } = state;
+  if (currentQuestion && state.questions[currentQuestion]) {
+    const { questionId } = state.questions[currentQuestion];
 
     apiClient.questionId = questionId;
     apiClient.operationId =

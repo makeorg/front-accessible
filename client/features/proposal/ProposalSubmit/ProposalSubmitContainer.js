@@ -11,7 +11,7 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type Question } from 'Shared/types/question';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
 import { Tracking } from 'Shared/services/Tracking';
-import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { propose } from 'Shared/services/Proposal';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
@@ -185,7 +185,7 @@ const mapStateToProps = state => {
 
   return {
     isLoggedIn,
-    question: selectSequenceQuestion(state),
+    question: selectCurrentQuestion(state),
   };
 };
 const mapDispatchToProps = dispatch => ({
