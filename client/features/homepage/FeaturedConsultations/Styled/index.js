@@ -57,6 +57,7 @@ export const FeaturedInformationsWrapperStyle = styled.div`
   flex-flow: column;
   align-items: flex-start;
   justify-content: space-between;
+  flex: 1;
   width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
