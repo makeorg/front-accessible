@@ -11,20 +11,17 @@ export const ProposalsWrapperStyle = styled.div`
   background-color: #f2f2f2;
 `;
 
-export const ProposalsContentStyle = styled.div`
+export const ProposalsContentStyle = styled.section`
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     width: ${intToPx(Layouts.ContainerWidth)};
   }
 `;
 
-export const ProposalsIntroStyle = styled.p`
+export const ProposalsIntroStyle = styled.span`
+  display: block;
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: 16px;
-`;
-
-export const ProposalsTitleStyle = styled.h3`
-  font-size: 24px;
 `;
 
 export const ProposalsListStyle = styled.div`

@@ -3,12 +3,12 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProposalsList } from '../List';
 import {
   ProposalsWrapperStyle,
   ProposalsContentStyle,
   ProposalsIntroStyle,
-  ProposalsTitleStyle,
 } from '../Styled';
 
 type PopularProposalsProps = {
@@ -31,13 +31,14 @@ export const PopularProposals = ({
 
   return (
     <ProposalsWrapperStyle>
-      <ProposalsContentStyle>
-        <ProposalsIntroStyle>
-          {i18n.t('homepage.proposals.popular.intro')}
-        </ProposalsIntroStyle>
-        <ProposalsTitleStyle>
+      <ProposalsContentStyle aria-labelledby="popular_proposals_title">
+        <HomeTitleStyle id="popular_proposals_title">
+          <ProposalsIntroStyle>
+            {i18n.t('homepage.proposals.popular.intro')}
+            <React.Fragment> </React.Fragment>
+          </ProposalsIntroStyle>
           {i18n.t('homepage.proposals.popular.title')}
-        </ProposalsTitleStyle>
+        </HomeTitleStyle>
         <ProposalsList proposals={proposals} />
       </ProposalsContentStyle>
     </ProposalsWrapperStyle>

@@ -2,13 +2,13 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalsList } from '../List';
 import {
   ProposalsWrapperStyle,
   ProposalsContentStyle,
   ProposalsIntroStyle,
-  ProposalsTitleStyle,
 } from '../Styled';
 
 type ControversialProposalsProps = {
@@ -30,13 +30,14 @@ export const ControversialProposals = ({
   }
   return (
     <ProposalsWrapperStyle>
-      <ProposalsContentStyle>
-        <ProposalsIntroStyle>
-          {i18n.t('homepage.proposals.controversial.intro')}
-        </ProposalsIntroStyle>
-        <ProposalsTitleStyle>
+      <ProposalsContentStyle aria-labelledby="controversial_proposals_title">
+        <HomeTitleStyle id="controversial_proposals_title">
+          <ProposalsIntroStyle>
+            {i18n.t('homepage.proposals.controversial.intro')}
+            <React.Fragment> </React.Fragment>
+          </ProposalsIntroStyle>
           {i18n.t('homepage.proposals.controversial.title')}
-        </ProposalsTitleStyle>
+        </HomeTitleStyle>
         <ProposalsList proposals={proposals} />
       </ProposalsContentStyle>
     </ProposalsWrapperStyle>
