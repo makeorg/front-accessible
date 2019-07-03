@@ -1,15 +1,14 @@
 /* @flow */
 import * as actionTypes from 'Shared/store/actionTypes';
-import { initialState } from 'Shared/store/initialState';
 import {
   questionConfigurationTypeFixture,
   questionTypeFixture,
 } from 'Shared/types/__fixtures__/question.fixture';
-import { questions } from './index';
+import { currentQuestion } from './index';
 
 describe('Questions reducer', () => {
   it('Return the initial state', () => {
-    expect(questions(undefined, {})).toEqual(initialState.questions);
+    expect(currentQuestion(undefined, {})).toEqual(null);
   });
 
   it('action QUESTION_CONFIGURATION_LOAD', () => {
@@ -21,11 +20,7 @@ describe('Questions reducer', () => {
       },
     };
 
-    expect(questions(undefined, action)).toEqual({
-      'foo-question': {
-        questionConfiguration: questionConfigurationTypeFixture,
-      },
-    });
+    expect(currentQuestion(undefined, action)).toEqual('foo-question');
   });
 
   it('action QUESTION_LOAD', () => {
@@ -36,10 +31,8 @@ describe('Questions reducer', () => {
       },
     };
 
-    expect(questions(undefined, action)).toEqual({
-      'weeuropeans-fr': {
-        question: questionTypeFixture,
-      },
-    });
+    expect(currentQuestion(undefined, action)).toEqual(
+      questionTypeFixture.slug
+    );
   });
 });
