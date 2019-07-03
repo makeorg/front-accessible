@@ -19,7 +19,6 @@ export type StateProposal = $ReadOnly<{
 export type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
-  questionSlug?: string,
   votedProposalIds: string[],
 }>;
 
@@ -80,6 +79,7 @@ export type StateRoot = $ReadOnly<{
   appConfig: StateConfig,
   proposal: StateProposal,
   sequence: StateSequence,
+  currentQuestion: ?string,
   notification: StateNotification,
   user: StateUser,
   questions: StateQuestions,

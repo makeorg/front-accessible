@@ -211,7 +211,7 @@ export class UserApiService {
       .catch(error => {
         Logger.logError(`Error in verifyUser for 
       userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
-        return error;
+        throw error;
       });
   }
 
@@ -242,7 +242,7 @@ export class UserApiService {
           `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
         );
 
-        return error;
+        throw error;
       });
   }
 
@@ -269,7 +269,7 @@ export class UserApiService {
           `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
         );
 
-        return error;
+        throw error;
       });
   }
 

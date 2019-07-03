@@ -48,10 +48,7 @@ describe('Account activation route', () => {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
 
     const request = httpMocks.createRequest({
@@ -93,10 +90,7 @@ describe('Account activation route', () => {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
 
     await passwordRecoveryRoute(request, response, () => {});
@@ -110,7 +104,7 @@ describe('Account activation route', () => {
   });
 
   it('activate fail and add fail notification to state', async () => {
-    UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NOT_FOUND);
+    UserApiService.resetPasswordTokenCheck.mockRejectedValue(HTTP_NOT_FOUND);
     QuestionApiService.getDetail.mockReturnValue(fooQuestion);
 
     const request = httpMocks.createRequest({
@@ -130,17 +124,13 @@ describe('Account activation route', () => {
       },
       notification: {
         contentType: 'PASSWORD_RECOVERY_FAILURE_CONTENT',
-        status: HTTP_NOT_FOUND,
       },
       questions: {
         [fooQuestion.slug]: {
           question: fooQuestion,
         },
       },
-      sequence: {
-        ...initialState.sequence,
-        questionSlug: fooQuestion.slug,
-      },
+      currentQuestion: fooQuestion.slug,
     };
 
     await passwordRecoveryRoute(request, response, () => {});

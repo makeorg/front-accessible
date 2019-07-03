@@ -9,7 +9,7 @@ import {
   PasswordRecoveryWrapperStyle,
   PasswordRecoveryContentStyle,
 } from 'Client/features/auth/PasswordRecovery/Styled';
-import { selectSequenceQuestion } from 'Shared/store/selectors/sequence.selector';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 
 type Props = {
@@ -53,7 +53,7 @@ export class PasswordRecoveryRedirect extends React.Component<Props> {
 const mapStateToProps = state => {
   return {
     passwordRecovery: selectPasswordRecovery(state),
-    question: selectSequenceQuestion(state),
+    question: selectCurrentQuestion(state),
   };
 };
 

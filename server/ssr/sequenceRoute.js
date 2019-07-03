@@ -13,10 +13,9 @@ async function getQuestionConfiguration(questionSlug) {
 }
 
 export const sequenceRoute = async (req, res) => {
-  let routeState = {};
+  const routeState = createInitialState();
 
   try {
-    const initialState = createInitialState();
     const { questionSlug } = req.params;
     const question: TypeQuestion = await getQuestion(questionSlug);
 
@@ -37,16 +36,11 @@ export const sequenceRoute = async (req, res) => {
 
     const { firstProposal } = req.query;
 
-    routeState = {
-      sequence: {
-        ...initialState.sequence,
-        questionSlug,
-      },
-      questions: {
-        [questionSlug]: {
-          question,
-          questionConfiguration,
-        },
+    routeState.currentQuestion = questionSlug;
+    routeState.questions = {
+      [questionSlug]: {
+        question,
+        questionConfiguration,
       },
     };
 
