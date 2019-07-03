@@ -68,9 +68,13 @@ export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
 };
 
 export const isInProgress = (startDate: string, endDate: string) => {
+  if (endDate === null) {
+    return true;
+  }
+
   const today = new Date();
-  const end = new Date(endDate);
   const start = new Date(startDate);
+  const end = new Date(endDate);
 
   return start <= today && today < end;
 };

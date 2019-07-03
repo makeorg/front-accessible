@@ -5,6 +5,7 @@ import {
   DateHelper,
   getDateOfBirthFromAge,
   getAgeFromDateOfBrth,
+  isInProgress,
 } from './date';
 
 describe('Date Helper', () => {
@@ -83,6 +84,28 @@ describe('Date Helper', () => {
     it('getLanguage', () => {
       const { language } = DateHelper;
       expect(language).toBe('de');
+    });
+  });
+
+  describe('isInProgress', () => {
+    const startDate = '1980-01-01';
+    let endDate = '2075-01-01';
+
+    it('isInProgress with startDate is null', () => {
+      expect(isInProgress(null, endDate)).toBe(true);
+    });
+
+    it('isInProgress with endDate is null', () => {
+      expect(isInProgress(startDate, null)).toBe(true);
+    });
+
+    it('consultation is open', () => {
+      expect(isInProgress(startDate, endDate)).toBe(true);
+    });
+
+    it('consultation is closed', () => {
+      endDate = '1980-01-02';
+      expect(isInProgress(startDate, endDate)).toBe(false);
     });
   });
 });
