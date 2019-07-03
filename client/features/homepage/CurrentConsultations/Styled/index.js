@@ -1,36 +1,45 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import {
+  Breakpoints,
+  Layouts,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import {
   BackgroundColors,
   MakeThemeColors,
   BasicColors,
+  TextColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
-export const CurrentConsultationsStyle = styled(UnstyledListStyle)`
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
+export const CurrentConsultationContainerStyle = styled.div`
+  width: 100%;
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  margin: ${intToPx(DefaultPadding.Desktop)} 0;
 `;
 
-export const CurrentConsultationItemStyle = styled.li`
-  margin-right: 15px;
-  margin-bottom: 15px;
-  flex: 0 1 calc(50% - 7.5px);
-  &:nth-child(2),
-  &:last-child {
-    margin: 0;
+export const CurrentConsultationArrowsStyle = styled(UnstyledButtonStyle)`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: ${TextColors.MediumGrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
+  font-size: 15px;
+  margin-left: 15px;
+  svg {
+    fill: ${TextColors.MediumGrey};
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    flex: 1;
-    &:nth-child(2) {
-      margin-right: 30px;
-    }
-    margin-right: 30px;
-    &:last-child {
-      margin-right: 0;
+  &:hover,
+  &:focus {
+    color: ${BasicColors.PureWhite};
+    background-color: ${BasicColors.PureBlack};
+    svg {
+      fill: ${BasicColors.PureWhite};
     }
   }
 `;
@@ -38,7 +47,6 @@ export const CurrentConsultationItemStyle = styled.li`
 export const CurrentConsultationArticleStyle = styled.article`
   display: block;
   position: relative;
-  width: 100%;
   background-color: ${BackgroundColors.LightGrey};
   border-radius: 8px;
   overflow: hidden;

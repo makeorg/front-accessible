@@ -64,6 +64,7 @@
     "@babel/register": "~7.0.0",
     "@commitlint/cli": "~7.3.2",
     "@commitlint/config-conventional": "~7.3.1",
+    "@glidejs/glide": "^3.3.0",
     "@loadable/babel-plugin": "~5.5.0",
     "@loadable/webpack-plugin": "~5.5.0",
     "@svgr/cli": "~4.1.0",
