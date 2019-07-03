@@ -5,6 +5,7 @@ import {
   type TypeBusinessConsultation,
   type TypeHome,
 } from 'Shared/types/views';
+import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
 import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_col2.jpg';
 import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
@@ -143,9 +144,11 @@ const businessConsultations: TypeBusinessConsultation[] = [
 ];
 
 export const getHome = async (): Promise<TypeHome> => {
+  const response = await ViewsApiService.getHome();
+
   return {
-    popularProposals: [],
-    controverseProposals: [],
+    popularProposals: response.popularProposals,
+    controverseProposals: response.controverseProposals,
     businessConsultations,
     featuredConsultations,
     currentConsultations,
