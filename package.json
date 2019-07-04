@@ -150,8 +150,8 @@
 		"test-with-coverage": "npm run test:unit:all -- --coverage",
 		"test-with-coverage-codacy": "npm run test-with-coverage && cat ./coverage/lcov.info | codacy-coverage --token=$CODACY_TOKEN",
 		"flow": "flow",
-		"test:cypress": "start-server-and-test start:dev http://localhost:3000 cypress:run",
-		"cypress:run": "cypress run",
+		"test:cypress": "start-server-and-test server:dev http://localhost:9009 cypress:run",
+    "cypress:run": "cypress run",
 		"cypress:open": "cypress open",
 		"svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source"
 	}
