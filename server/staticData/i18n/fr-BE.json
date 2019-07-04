@@ -497,6 +497,16 @@
         "link-text": "En savoir +"
       }
     },
+    "proposals": {
+      "controversial": {
+        "intro": "Départagez-les !",
+        "title": "Les propositions les + débattues du moment"
+      },
+      "popular": {
+        "intro": "Exprimez-vous !",
+        "title": "Les propositions les + populaires du moment"
+      }
+    },
     "question_list": {
       "title": "Ils ont lancé une consultation Make.org",
       "status": "Statut : ",

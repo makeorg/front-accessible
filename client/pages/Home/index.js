@@ -3,18 +3,20 @@
 import React, { useEffect, useState } from 'react';
 import { type TypeHome } from 'Shared/types/views';
 import { getHome } from 'Shared/services/Views';
+import { Tracking } from 'Shared/services/Tracking';
+import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { BusinessConsultations } from 'Client/features/homepage/BusinessConsultations';
 import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
-import { Tracking } from 'Shared/services/Tracking';
-import { apiClient } from 'Shared/api/ApiService/ApiService.client';
-
+import { PopularProposals } from 'Client/features/homepage/Proposals/Popular';
+import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
 import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
 
 export const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<TypeHome>({
     popularProposals: [],
     controverseProposals: [],
@@ -30,9 +32,10 @@ export const HomePage = () => {
       const response = await getHome();
       setData(response);
     }
-
+    setIsLoading(true);
     Tracking.trackDisplayHomepage();
     fetchData();
+    setIsLoading(false);
   }, []);
 
   return (
@@ -45,7 +48,15 @@ export const HomePage = () => {
       <HomepageContainerStyle>
         <CurrentConsultations consultations={data.currentConsultations} />
       </HomepageContainerStyle>
+      <PopularProposals
+        proposals={data.popularProposals}
+        isLoading={isLoading}
+      />
       <CorporateBanner />
+      <ControversialProposals
+        proposals={data.controverseProposals}
+        isLoading={isLoading}
+      />
       <HomepageContainerStyle>
         <BusinessConsultations consultations={data.businessConsultations} />
       </HomepageContainerStyle>

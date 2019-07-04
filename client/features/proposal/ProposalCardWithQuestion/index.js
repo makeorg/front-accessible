@@ -3,6 +3,7 @@ import React from 'react';
 import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
+import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
@@ -15,6 +16,8 @@ import { isInProgress } from 'Shared/helpers/date';
 type Props = {
   /** Object with all proposal's properties */
   proposal: TypeProposal,
+  /** Show or not organisation who voted */
+  withOrganisations?: boolean,
   /** Proposal's position in list */
   position: number,
   /** Size of proposals list */
@@ -22,7 +25,7 @@ type Props = {
 };
 
 export const ProposalCardWithQuestion = (props: Props) => {
-  const { proposal, position, size } = props;
+  const { proposal, withOrganisations, position, size } = props;
   const { author, question } = proposal;
   const proposalLink = getProposalLink(
     proposal.country,
@@ -57,6 +60,13 @@ export const ProposalCardWithQuestion = (props: Props) => {
       ) : (
         <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
       )}
+      {withOrganisations && proposal.organisations && (
+        <OrganisationsVote
+          organisations={proposal.organisations}
+          country={proposal.country}
+          language={proposal.country}
+        />
+      )}
       <ProposalFooterWithQuestionElement
         question={question}
         consultationLink={getConsultationLink(
@@ -67,4 +77,8 @@ export const ProposalCardWithQuestion = (props: Props) => {
       />
     </ProposalCardStyle>
   );
+};
+
+ProposalCardWithQuestion.defaultProps = {
+  withOrganisations: false,
 };
