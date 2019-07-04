@@ -7,7 +7,6 @@ import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
 import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
 import { FacebookTracking } from './Trackers/FacebookTracking';
-import { TwitterTracking } from './Trackers/TwitterTracking';
 
 const PARENT_URL =
   typeof window !== 'undefined' && window && window.location
@@ -79,10 +78,6 @@ class TrackingSingleton {
     FacebookTracking.trackCustom(eventName, eventParameters);
   };
 
-  trackTwitter = (eventName: string) => {
-    TwitterTracking.track(eventName);
-  };
-
   /* On Load Consultation Tracking */
   trackDisplayConsultation = () => {
     const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
@@ -145,7 +140,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   /* Header Tracking */
@@ -198,7 +192,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   trackDisplayForgotPasswordForm = () => {
@@ -281,7 +274,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   trackClickNextCard = () => {
@@ -324,7 +316,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   trackDisplaySignUpCard = () => {
@@ -332,7 +323,6 @@ class TrackingSingleton {
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
-    this.trackTwitter(eventName);
   };
 
   trackDisplayFinalCard = () => {
@@ -368,7 +358,6 @@ class TrackingSingleton {
       nature,
     });
     this.trackFacebookPixel(eventName, params);
-    this.trackTwitter(eventName);
   };
 
   trackFirstVote = (proposalId: string, nature: string, position?: number) => {
@@ -384,7 +373,6 @@ class TrackingSingleton {
       nature,
     });
     this.trackFacebookPixel(eventName, params);
-    this.trackTwitter(eventName);
   };
 
   trackUnvote = (proposalId: string, nature: string, position?: number) => {

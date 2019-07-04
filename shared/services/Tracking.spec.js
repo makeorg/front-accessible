@@ -56,11 +56,6 @@ describe('Tracking Service', () => {
     );
   });
 
-  it('track trackTwitter', () => {
-    Tracking.trackTwitter('eventName');
-    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, 'eventName');
-  });
-
   it('track DisplaySequence', () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
 
@@ -460,7 +455,6 @@ describe('Tracking Service', () => {
     );
   });
 
-
   it('track Display Homepage', () => {
     const eventName = trackingConstants.DISPLAY_HOMEPAGE;
 
@@ -476,21 +470,16 @@ describe('Tracking Service', () => {
   it('track Click Homepage Featured', () => {
     const eventName = trackingConstants.CLICK_HOMEPAGE_FEATURED;
 
-    Tracking.trackClickHomepageFeatured(999,'foo');
+    Tracking.trackClickHomepageFeatured(999, 'foo');
     expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
       'block-position': '999',
       'block-title': 'foo',
     });
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
-      1,
-      eventName,
-      {
-        ...eventParameters,
-        'block-position': '999',
-        'block-title': 'foo',
-      }
-      
-    );
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      'block-position': '999',
+      'block-title': 'foo',
+    });
   });
 
   it('track Click Homepage Corporate', () => {
