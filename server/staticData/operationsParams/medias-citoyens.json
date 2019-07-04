@@ -11,7 +11,8 @@
   },
   "partners": [
     {"name": "Reporters d'Espoirs", "imageUrl": "/images/operations/medias-citoyens/partners/reporters-espoirs.png", "isFounder": true},
-    {"name": "France Télévisions", "imageUrl": "/images/operations/medias-citoyens/partners/france-tv.png", "isFounder": true},
+    {"name": "France Infos", "imageUrl": "/images/operations/medias-citoyens/partners/france-infos.png", "isFounder": true},
+    {"name": "L'Express", "imageUrl": "/images/operations/medias-citoyens/partners/express.png", "isFounder": true},
     {"name": "L'Obs", "imageUrl": "/images/operations/medias-citoyens/partners/obs.png", "isFounder": true},
     {"name": "La Voix du Nord", "imageUrl": "/images/operations/medias-citoyens/partners/voix-du-nord.png", "isFounder": true}
   ]
