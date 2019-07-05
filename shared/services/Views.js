@@ -32,18 +32,6 @@ const featuredConsultations: TypeFeaturedConsultation[] = [
     externalLink: null,
   },
   {
-    questionSlug: null,
-    title: 'Comment permettre à chacun de mieux manger ?',
-    description: null,
-    landscapePicture: AlimentationPicture,
-    portraitPicture: AlimentationPicture,
-    altPicture: 'Comment permettre à chacun de mieux manger ?',
-    label: 'Grande cause',
-    buttonLabel: 'Voir les résultats',
-    internalLink: null,
-    externalLink: 'https://about.make.org/about-mieuxmanger',
-  },
-  {
     questionSlug: 'medias-citoyens',
     title: 'Comment les médias peuvent-ils améliorer la société ?',
     description: null,
@@ -54,6 +42,18 @@ const featuredConsultations: TypeFeaturedConsultation[] = [
     buttonLabel: 'Participer',
     internalLink: 'consultation',
     externalLink: null,
+  },
+  {
+    questionSlug: null,
+    title: 'Comment permettre à chacun de mieux manger ?',
+    description: null,
+    landscapePicture: AlimentationPicture,
+    portraitPicture: AlimentationPicture,
+    altPicture: 'Comment permettre à chacun de mieux manger ?',
+    label: 'Grande cause',
+    buttonLabel: 'Voir les résultats',
+    internalLink: null,
+    externalLink: 'https://about.make.org/about-mieuxmanger',
   },
 ];
 
