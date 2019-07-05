@@ -12,6 +12,7 @@ export const ProposalsWrapperStyle = styled.div`
 `;
 
 export const ProposalsContentStyle = styled.section`
+  width: 100%;
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     width: ${intToPx(Layouts.ContainerWidth)};
   }
@@ -22,6 +23,8 @@ export const ProposalsIntroStyle = styled.span`
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: 16px;
+  text-transform: none;
+  margin-bottom: 10px;
 `;
 
 export const ProposalsListStyle = styled.div`

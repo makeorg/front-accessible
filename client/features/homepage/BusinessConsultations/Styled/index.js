@@ -67,7 +67,7 @@ export const BusinessConsultationsItemStatusStyle = styled.p`
 `;
 
 export const BusinessConsultationsItemBorderStyle = styled.div`
-  width: 6px;
+  width: 10px;
   background: linear-gradient(
     352deg,
     ${props => props.colorStart},
