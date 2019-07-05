@@ -51,7 +51,7 @@ const featuredConsultations: TypeFeaturedConsultation[] = [
     portraitPicture: MediasCitoyensPicture,
     altPicture: 'Comment les médias peuvent-ils améliorer la société ?',
     label: 'Actualité',
-    buttonLabel: 'En savoir +',
+    buttonLabel: 'Participer',
     internalLink: 'consultation',
     externalLink: null,
   },
