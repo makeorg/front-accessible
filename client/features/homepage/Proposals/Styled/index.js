@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import {
+  Breakpoints,
+  Layouts,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ProposalsWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
   width: 100%;
-  padding: 30px 21px;
-  background-color: #f2f2f2;
+  padding: 30px 0;
+  background-color: ${BackgroundColors.LightGrey};
 `;
 
 export const ProposalsContentStyle = styled.section`
@@ -16,6 +22,10 @@ export const ProposalsContentStyle = styled.section`
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     width: ${intToPx(Layouts.ContainerWidth)};
   }
+`;
+
+export const ProposalsTitleWrapperStyle = styled(HomeTitleStyle)`
+  padding: 0 ${intToPx(DefaultPadding.Mobile)};
 `;
 
 export const ProposalsIntroStyle = styled.span`

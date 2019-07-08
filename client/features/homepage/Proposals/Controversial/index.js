@@ -1,106 +1,18 @@
 // @flow
 import React, { useEffect } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import Glide from '@glidejs/glide';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { useMobile } from 'Client/hooks/useMedia';
+import { ControversialSlider, ControversialStylesheet } from '../Styled/slider';
 import {
   ProposalsWrapperStyle,
+  ProposalsTitleWrapperStyle,
   ProposalsContentStyle,
   ProposalsIntroStyle,
   ProposalsListStyle,
 } from '../Styled';
-
-export const ControversialStylesheet = createGlobalStyle`
-  .controversial_proposal_wrapper{
-    overflow: hidden;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    width: 100%;
-  }
-  .controversial_proposal {
-    position: relative;
-    width: 100%;
-    box-sizing: border-box; 
-  }
-  .controversial_proposal * {
-    box-sizing: inherit; 
-  }
-  .controversial_proposal__track {
-    overflow: hidden; 
-  }
-  .controversial_proposal__slides {
-    position: relative;
-    width: 100%;
-    list-style: none;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    touch-action: pan-Y;
-    overflow: hidden;
-    padding: 0;
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap;
-    will-change: transform; 
-  }
-  .controversial_proposal__slides--dragging {
-    user-select: none; 
-  }
-  .controversial_proposal__slide {
-    display: flex;
-    width: 100%;
-    height: auto;
-    white-space: normal;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent; 
-  }
-  .controversial_proposal__slide a {
-    user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    -ms-user-select: none; 
-  }
-  .controversial_proposal__arrows {
-    -webkit-touch-callout: none;
-    user-select: none; 
-  }
-  .controversial_proposal__bullets {
-    -webkit-touch-callout: none;
-    user-select: none; 
-  }
-  .controversial_proposal--rtl {
-    direction: rtl; 
-  }
-`;
-
-const slider = new Glide('.controversial_proposal', {
-  type: 'carousel',
-  rewind: false,
-  peek: {
-    before: 0,
-    after: 70,
-  },
-  classes: {
-    direction: {
-      ltr: 'controversial_proposal--ltr',
-      rtl: 'controversial_proposal--rtl',
-    },
-    slider: 'controversial_proposal--slider',
-    carousel: 'controversial_proposal--carousel',
-    swipeable: 'controversial_proposal--swipeable',
-    dragging: 'controversial_proposal--dragging',
-    cloneSlide: 'controversial_proposal__slide--clone',
-    activeNav: 'controversial_proposal__bullet--active',
-    activeSlide: 'controversial_proposal__slide--active',
-    disabledArrow: 'controversial_proposal__arrow--disabled',
-  },
-});
 
 type ControversialProposalsProps = {
   proposals: TypeProposal[],
@@ -120,10 +32,10 @@ export const ControversialProposals = ({
     }
 
     if (isMobile) {
-      slider.mount();
+      ControversialSlider.mount();
     }
 
-    return () => slider.destroy();
+    return () => ControversialSlider.destroy();
   }, [proposalsLength, isMobile]);
 
   if (isLoading) {
@@ -137,13 +49,13 @@ export const ControversialProposals = ({
   return (
     <ProposalsWrapperStyle>
       <ProposalsContentStyle aria-labelledby="controversial_proposals_title">
-        <HomeTitleStyle id="controversial_proposals_title">
+        <ProposalsTitleWrapperStyle id="controversial_proposals_title">
           <ProposalsIntroStyle>
             {i18n.t('homepage.proposals.controversial.intro')}
             <React.Fragment> </React.Fragment>
           </ProposalsIntroStyle>
           {i18n.t('homepage.proposals.controversial.title')}
-        </HomeTitleStyle>
+        </ProposalsTitleWrapperStyle>
         {isMobile ? (
           <div className="controversial_proposal_wrapper">
             <ControversialStylesheet />

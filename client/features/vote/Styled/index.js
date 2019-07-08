@@ -7,10 +7,10 @@ export const VoteContainerStyle = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  min-width: 275px;
   margin: 35px 0 50px;
   padding: 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    min-width: 275px;
     margin: 30px 0 60px;
   }
 `;
@@ -19,7 +19,7 @@ export const VoteWrapperStyle = styled(UnstyledListStyle)`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 200px;
+  max-width: 175px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 250px;
   }
