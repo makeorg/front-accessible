@@ -11,8 +11,7 @@ export const ProposalStyle = styled.a`
   font-family: ${MakeFonts.RobotoBold};
   font-weight: bold;
   align-self: flex-start;
-  margin-top: 5px;
-  padding-top: 10px;
+  margin-top: 15px;
   text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
