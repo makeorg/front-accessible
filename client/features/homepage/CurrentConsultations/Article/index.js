@@ -10,6 +10,8 @@ import {
   CurrentConsultationLinkOverlayStyle,
   CurrentConsultationTriggerStyle,
   CurrentConsultationTextStyle,
+  ProposalsCountWrapperStyle,
+  ProposalsNumber,
 } from '../Styled';
 
 type TypeLinkObject = {
@@ -22,6 +24,7 @@ type TypeLinkObject = {
 type CurrentConsultationArticleDesktopProps = {
   image: string,
   title: string,
+  proposalsNumber: number,
   linkText: string,
   linkObject: TypeLinkObject,
   children: React.Node,
@@ -32,6 +35,7 @@ export const CurrentConsultationArticleDesktop = ({
   title,
   linkText,
   linkObject,
+  proposalsNumber,
   children,
 }: CurrentConsultationArticleDesktopProps) => {
   const [isOverlayDisplayed, setDisplayOverlay] = React.useState(false);
@@ -50,6 +54,13 @@ export const CurrentConsultationArticleDesktop = ({
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
       />
+      <ProposalsCountWrapperStyle>
+        <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
+        <React.Fragment>
+          {' '}
+          {i18n.t('common.proposal', { count: proposalsNumber })}
+        </React.Fragment>
+      </ProposalsCountWrapperStyle>
       <CurrentConsultationLinkOverlayStyle
         className="overlay"
         {...linkObject}
@@ -77,20 +88,31 @@ export const CurrentConsultationArticleDesktop = ({
 type CurrentConsultationArticleMobileProps = {
   image: string,
   title: string,
+  proposalsNumber: number,
   linkObject: TypeLinkObject,
 };
 
 export const CurrentConsultationArticleMobile = ({
   image,
   title,
+  proposalsNumber,
   linkObject,
 }: CurrentConsultationArticleMobileProps) => {
   return (
-    <CurrentConsultationArticleStyle {...linkObject}>
-      <img
-        src={image}
-        alt={linkObject.target ? i18n.t('common.new_tab', { title }) : title}
-      />
+    <CurrentConsultationArticleStyle>
+      <a {...linkObject}>
+        <img
+          src={image}
+          alt={linkObject.target ? i18n.t('common.new_tab', { title }) : title}
+        />
+      </a>
+      <ProposalsCountWrapperStyle>
+        <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
+        <React.Fragment>
+          {' '}
+          {i18n.t('common.proposal', { count: proposalsNumber })}
+        </React.Fragment>
+      </ProposalsCountWrapperStyle>
     </CurrentConsultationArticleStyle>
   );
 };

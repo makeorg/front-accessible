@@ -60,10 +60,30 @@ export const CurrentConsultationTriggerStyle = styled.input`
   width: 100%;
 `;
 
+export const ProposalsCountWrapperStyle = styled.div`
+  width: 100%;
+  background-color: #ffd978;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  }
+`;
+
+export const ProposalsNumber = styled.span`
+  font-family: ${MakeFonts.RobotoBold};
+`;
+
 export const CurrentConsultationLinkOverlayStyle = styled.a`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   background-color: ${MakeThemeColors.Red};

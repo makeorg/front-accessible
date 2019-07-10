@@ -67,7 +67,7 @@ const currentConsultations: TypeCurrentConsultation[] = [
     linkLabel: 'Découvrir les résultats',
     internalLink: null,
     externalLink: 'https://about.make.org/about-culture',
-    proposalsNumber: 1001,
+    proposalsNumber: 2500,
   },
   {
     questionSlug: null,
@@ -78,7 +78,7 @@ const currentConsultations: TypeCurrentConsultation[] = [
     linkLabel: 'Découvrir',
     internalLink: null,
     externalLink: 'https://about.make.org/about-chance-aux-jeunes',
-    proposalsNumber: 1001,
+    proposalsNumber: 1663,
   },
   {
     questionSlug: null,
@@ -89,7 +89,7 @@ const currentConsultations: TypeCurrentConsultation[] = [
     linkLabel: "Voir le plan d'actions",
     internalLink: null,
     externalLink: 'https://about.make.org/about-vff',
-    proposalsNumber: 1001,
+    proposalsNumber: 4300,
   },
   {
     questionSlug: null,
@@ -101,7 +101,7 @@ const currentConsultations: TypeCurrentConsultation[] = [
     linkLabel: 'Découvrir les résultats',
     internalLink: null,
     externalLink: 'https://about.make.org/about-aines',
-    proposalsNumber: 1001,
+    proposalsNumber: 18300,
   },
 ];
 
