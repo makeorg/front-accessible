@@ -13,16 +13,22 @@ export const BusinessConsultationsTitleStyle = styled.h2`
   font-size: 20px;
   line-height: 1;
   margin-bottom: 25px;
+  padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 24px;
+    padding: 0;
   }
 `;
 export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
+  padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
     justify-content: space-between;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
   }
 `;
 

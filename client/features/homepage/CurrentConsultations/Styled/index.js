@@ -30,7 +30,7 @@ export const CurrentConsultationArrowsStyle = styled(UnstyledButtonStyle)`
   color: ${TextColors.MediumGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
   font-size: 15px;
-  margin-left: 15px;
+  margin-right: 15px;
   svg {
     fill: ${TextColors.MediumGrey};
   }
@@ -41,6 +41,9 @@ export const CurrentConsultationArrowsStyle = styled(UnstyledButtonStyle)`
     svg {
       fill: ${BasicColors.PureWhite};
     }
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    margin: 0 0 0 15px;
   }
 `;
 

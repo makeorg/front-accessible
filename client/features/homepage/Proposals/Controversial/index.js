@@ -1,98 +1,62 @@
 // @flow
-import React, { useEffect } from 'react';
+import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
-import { useMobile } from 'Client/hooks/useMedia';
-import { ControversialSlider, ControversialStylesheet } from '../Styled/slider';
+import { useSlider } from 'Client/hooks/useSlider';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  ShowcaseSliderParams,
+  ControversialShowcaseStylesheet,
+} from '../Styled/slider';
 import {
   ProposalsWrapperStyle,
-  ProposalsTitleWrapperStyle,
+  ProposalsSliderWrapperStyle,
   ProposalsContentStyle,
   ProposalsIntroStyle,
-  ProposalsListStyle,
 } from '../Styled';
 
 type ControversialProposalsProps = {
   proposals: TypeProposal[],
-  isLoading: boolean,
 };
 
 export const ControversialProposals = ({
   proposals,
-  isLoading,
 }: ControversialProposalsProps) => {
-  const isMobile = useMobile();
-  const proposalsLength = proposals.length;
+  const proposalsLength = proposals.length <= 0;
 
-  useEffect(() => {
-    if (!proposalsLength) {
-      return undefined;
-    }
-
-    if (isMobile) {
-      ControversialSlider.mount();
-    }
-
-    return () => ControversialSlider.destroy();
-  }, [proposalsLength, isMobile]);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  if (proposalsLength === 0) {
-    return null;
-  }
+  useSlider('controversial', ShowcaseSliderParams, proposalsLength);
 
   return (
     <ProposalsWrapperStyle>
       <ProposalsContentStyle aria-labelledby="controversial_proposals_title">
-        <ProposalsTitleWrapperStyle id="controversial_proposals_title">
+        <HomeTitleStyle id="controversial_proposals_title">
           <ProposalsIntroStyle>
             {i18n.t('homepage.proposals.controversial.intro')}
             <React.Fragment> </React.Fragment>
           </ProposalsIntroStyle>
           {i18n.t('homepage.proposals.controversial.title')}
-        </ProposalsTitleWrapperStyle>
-        {isMobile ? (
-          <div className="controversial_proposal_wrapper">
-            <ControversialStylesheet />
-            <div className="controversial_proposal">
-              <div
-                className="controversial_proposal__track"
-                data-glide-el="track"
-              >
-                <ul className="controversial_proposal__slides">
-                  {proposals.map((proposal, index) => (
-                    <li
-                      key={proposal.id}
-                      className="controversial_proposal__slide"
-                    >
-                      <ProposalCardWithQuestion
-                        proposal={proposal}
-                        position={index + 1}
-                        size={2}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+        </HomeTitleStyle>
+        <ScreenReaderItemStyle>
+          {i18n.t('common.slider.introduction')}
+        </ScreenReaderItemStyle>
+        <ControversialShowcaseStylesheet />
+        <ProposalsSliderWrapperStyle className="controversial">
+          <div className="controversial__track" data-glide-el="track">
+            <ul className="controversial__slides">
+              {proposals.map((proposal, index) => (
+                <li key={proposal.id} className="controversial__slide">
+                  <ProposalCardWithQuestion
+                    proposal={proposal}
+                    position={index + 1}
+                    size={2}
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
-        ) : (
-          <ProposalsListStyle>
-            {proposals.map((proposal, index) => (
-              <ProposalCardWithQuestion
-                key={proposal.id}
-                proposal={proposal}
-                position={index + 1}
-                size={2}
-              />
-            ))}
-          </ProposalsListStyle>
-        )}
+        </ProposalsSliderWrapperStyle>
       </ProposalsContentStyle>
     </ProposalsWrapperStyle>
   );

@@ -6,7 +6,6 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ProposalsWrapperStyle = styled.div`
   display: flex;
@@ -24,10 +23,6 @@ export const ProposalsContentStyle = styled.section`
   }
 `;
 
-export const ProposalsTitleWrapperStyle = styled(HomeTitleStyle)`
-  padding: 0 ${intToPx(DefaultPadding.Mobile)};
-`;
-
 export const ProposalsIntroStyle = styled.span`
   display: block;
   font-family: 'Times New Roman', Times, serif;
@@ -37,13 +32,11 @@ export const ProposalsIntroStyle = styled.span`
   margin-bottom: 10px;
 `;
 
-export const ProposalsListStyle = styled.div`
-  display: flex;
-  width: 100%;
-  & > article {
-    margin-right: 16px;
-    @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-      max-width: 50%;
-    }
+export const ProposalsSliderWrapperStyle = styled.div`
+  padding: 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)} and max-width: ${intToPx(
+  Breakpoints.LargeDesktop
+)}) {
+    padding: 0 ${intToPx(DefaultPadding.Mobile)};
   }
 `;

@@ -44,3 +44,17 @@ export type TypeHome = {
   featuredConsultations: TypeFeaturedConsultation[],
   currentConsultations: TypeCurrentConsultation[],
 };
+
+export type TypeSliderPeek = {
+  before: number,
+  after: number,
+};
+
+export type TypeSliderParams = {
+  type: string,
+  rewind: boolean,
+  perView: number,
+  gap: number,
+  breakpoints?: any,
+  peek: TypeSliderPeek,
+};

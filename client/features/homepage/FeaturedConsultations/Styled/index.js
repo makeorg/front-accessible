@@ -13,7 +13,9 @@ export const FeaturedArticleWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-content: space-between;
+  padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
     flex-flow: row;
   }
 `;
