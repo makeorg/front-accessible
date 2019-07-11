@@ -1,0 +1,14 @@
+{
+  "theme": {
+    "color": "#f16481",
+    "gradientStart": "#EE6380",
+    "gradientEnd": "#77C4D1",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "Les nouveaux modes de vie tendent à créer une fragmentation de la société en une multitude de groupes qui n'interagissent plus ensemble tandis que la solitude et l’isolement des citoyens sont des problématiques grandissantes. Ces évolutions mettent en péril notre capacité à “faire société” et nous poussent à imaginer ensemble de nouvelles manières de recréer du lien social.",
+    "logo": "/images/operations/mieux-vivre-ensemble/consultation/logo.svg"
+  },
+  "partners": [
+  ]
+}
