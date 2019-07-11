@@ -13,7 +13,7 @@ import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultati
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { PopularProposals } from 'Client/features/homepage/Proposals/Popular';
 import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
-import { HomepageWrapperStyle, HomepageContainerStyle } from './Styled';
+import { HomepageWrapperStyle } from './Styled';
 
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,12 +42,8 @@ export const HomePage = () => {
     <HomepageWrapperStyle>
       <HomepageSkipLinks />
       <MetaTags />
-      <HomepageContainerStyle>
-        <FeaturedConsultations featureds={data.featuredConsultations} />
-      </HomepageContainerStyle>
-      <HomepageContainerStyle>
-        <CurrentConsultations consultations={data.currentConsultations} />
-      </HomepageContainerStyle>
+      <FeaturedConsultations featureds={data.featuredConsultations} />
+      <CurrentConsultations consultations={data.currentConsultations} />
       <PopularProposals
         proposals={data.popularProposals}
         isLoading={isLoading}
@@ -57,9 +53,7 @@ export const HomePage = () => {
         proposals={data.controverseProposals}
         isLoading={isLoading}
       />
-      <HomepageContainerStyle>
-        <BusinessConsultations consultations={data.businessConsultations} />
-      </HomepageContainerStyle>
+      <BusinessConsultations consultations={data.businessConsultations} />
     </HomepageWrapperStyle>
   );
 };

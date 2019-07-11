@@ -6,9 +6,9 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeCurrentConsultation } from 'Shared/types/views';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
+import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
   SpaceBetweenRowStyle,
   FlexElementStyle,
@@ -25,20 +25,7 @@ import {
   CurrentConsultationArticleDesktop,
   CurrentConsultationArticleMobile,
 } from './Article';
-import {
-  setCurrentAria,
-  setBusyAria,
-  removeBusyAria,
-  removeCurrentAria,
-} from './Slider';
-
-const mountedCallback = () => setCurrentAria();
-const moveCallback = () => setBusyAria();
-const afterMoveCallback = () => {
-  removeBusyAria();
-  removeCurrentAria();
-  setCurrentAria();
-};
+import { CurrentConsultationSliderParams } from './sliderParams';
 
 export const getConsultationLink = (
   consultation: TypeCurrentConsultation,
@@ -79,7 +66,8 @@ export const CurrentConsultationsComponent = ({
 }: CurrentConsultationsProps) => {
   const isMobile = useMobile();
   const noConsultations = consultations.length <= 0;
-  useSlider(noConsultations, mountedCallback, moveCallback, afterMoveCallback);
+
+  useSlider('glide', CurrentConsultationSliderParams, noConsultations);
 
   if (noConsultations) {
     return <Spinner />;

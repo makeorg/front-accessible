@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import {
-  Layouts,
-  Breakpoints,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
+import { Layouts, DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 
@@ -12,14 +8,6 @@ export const HomepageWrapperStyle = styled(CenterColumnStyle)`
   width: 100%;
   background-color: ${BasicColors.PureWhite};
   padding: 30px 0;
-`;
-
-export const HomepageContainerStyle = styled(CenterColumnStyle)`
-  width: 100%;
-  padding: 0 ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 0 ${intToPx(DefaultPadding.Desktop)};
-  }
 `;
 
 export const HomepageInnerContentStyle = styled.section`
