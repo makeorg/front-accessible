@@ -2,7 +2,7 @@
 import { type TypeSliderParams } from 'Shared/types/views';
 
 export const CurrentConsultationSliderParams: TypeSliderParams = {
-  type: 'slider',
+  type: 'carousel',
   rewind: false,
   perView: 4,
   gap: 30,
@@ -16,6 +16,7 @@ export const CurrentConsultationSliderParams: TypeSliderParams = {
       },
     },
     '767': {
+      type: 'slider',
       perView: 2,
       gap: 10,
       peek: {
