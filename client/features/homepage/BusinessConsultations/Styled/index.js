@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { TextColors } from 'Client/app/assets/vars/Colors';
+import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -19,13 +20,15 @@ export const BusinessConsultationsTitleStyle = styled.h2`
     padding: 0;
   }
 `;
+
 export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    flex-flow: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
@@ -42,10 +45,7 @@ export const BusinessConsultationsItemStyle = styled.li`
     margin: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0 30px 0 0;
-    &:last-child {
-      margin: 0;
-    }
+    margin: 0;
   }
 `;
 
@@ -85,4 +85,20 @@ export const BusinessConsultationsItemArrowStyle = {
   justifySelf: 'center',
   alignSelf: 'center',
   marginRight: '5px',
+};
+
+export const BusinessConsultationsMoreStyle = styled(UnstyledButtonStyle)`
+  display: flex;
+  flex-direction: column;
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-size: 14px;
+  color: ${MakeThemeColors.Red};
+  text-transform: uppercase;
+  margin-top: 20px;
+`;
+
+export const BusinessConsultationsMoreArrowStyle = {
+  display: 'flex',
+  marginTop: '5px',
+  fill: MakeThemeColors.Red,
 };

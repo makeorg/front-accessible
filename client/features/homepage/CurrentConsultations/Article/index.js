@@ -45,7 +45,7 @@ export const CurrentConsultationArticleDesktop = ({
         type="image"
         src={image}
         alt={title}
-        aria-label={i18n.t('homepage.great-causes.expand_panel', {
+        aria-label={i18n.t('homepage.current_consultations.expand_panel', {
           name: title,
         })}
         aria-hidden={isOverlayDisplayed}

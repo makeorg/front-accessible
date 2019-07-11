@@ -75,14 +75,14 @@ export const CurrentConsultationsComponent = ({
 
   return (
     <CurrentConsultationContainerStyle
-      id="great_cause_list"
-      aria-labelledby="great_causes_title"
+      id="current_consultations"
+      aria-labelledby="current_consultations_title"
       className="glide"
     >
       <GliderStylesheet />
       <SpaceBetweenRowStyle>
-        <HomeTitleStyle id="great_causes_title">
-          {i18n.t('homepage.great-causes.title')}
+        <HomeTitleStyle id="current_consultations_title">
+          {i18n.t('homepage.current_consultations.title')}
         </HomeTitleStyle>
         <ScreenReaderItemStyle>
           {i18n.t('common.slider.introduction')}

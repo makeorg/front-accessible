@@ -481,7 +481,7 @@
       "status": "Label de l'opération : ",
       "link": "Aller sur la page de la consultation : {{name}}"
     },
-    "great-causes": {
+    "current_consultations": {
       "title": "Nos opérations en cours",
       "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant"
     },
@@ -510,11 +510,13 @@
         "title": "Les propositions les + populaires du moment"
       }
     },
-    "question_list": {
+    "business_consultations": {
       "title": "Ils ont lancé une consultation Make.org",
       "status": "Statut : ",
       "question_ended": "Consultation terminée",
-      "question_inprogress": "Consultation en cours"
+      "question_inprogress": "Consultation en cours",
+      "more": "En voir plus",
+      "less": "En voir moins"
     }
   }
 }

@@ -14,9 +14,9 @@ export const HomepageSkipLinks = () => {
         </SkipLink>
       </li>
       <li>
-        <SkipLink as="a" href="#great_cause_list">
+        <SkipLink as="a" href="#current_consultations">
           {i18n.t('skip_links.dynamic_section', {
-            name: i18n.t('homepage.great-causes.title'),
+            name: i18n.t('homepage.current_consultations.title'),
           })}
         </SkipLink>
       </li>
@@ -28,9 +28,9 @@ export const HomepageSkipLinks = () => {
         </SkipLink>
       </li>
       <li>
-        <SkipLink as="a" href="#question_list">
+        <SkipLink as="a" href="#business_consultations">
           {i18n.t('skip_links.dynamic_section', {
-            name: i18n.t('homepage.question_list.title'),
+            name: i18n.t('homepage.business_consultations.title'),
           })}
         </SkipLink>
       </li>
