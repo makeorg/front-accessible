@@ -483,7 +483,9 @@
     },
     "current_consultations": {
       "title": "Nos opérations en cours",
-      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant"
+      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant",
+      "proposal": "proposition",
+      "proposal_plural": "propositions"
     },
     "corporate": {
       "first-section":{

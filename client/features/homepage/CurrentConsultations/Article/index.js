@@ -58,7 +58,9 @@ export const CurrentConsultationArticleDesktop = ({
         <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
         <React.Fragment>
           {' '}
-          {i18n.t('common.proposal', { count: proposalsNumber })}
+          {i18n.t('homepage.current_consultations.proposal', {
+            count: proposalsNumber,
+          })}
         </React.Fragment>
       </ProposalsCountWrapperStyle>
       <CurrentConsultationLinkOverlayStyle
@@ -110,7 +112,9 @@ export const CurrentConsultationArticleMobile = ({
         <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
         <React.Fragment>
           {' '}
-          {i18n.t('common.proposal', { count: proposalsNumber })}
+          {i18n.t('homepage.current_consultations.proposal', {
+            count: proposalsNumber,
+          })}
         </React.Fragment>
       </ProposalsCountWrapperStyle>
     </CurrentConsultationArticleStyle>

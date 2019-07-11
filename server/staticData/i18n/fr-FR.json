@@ -87,8 +87,6 @@
     "user_profile_nav": "Barre de navigation de mon profil utilisateur",
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}",
     "new_tab": "{{title}} - Ouvrir dans une nouvelle fenêtre",
-    "proposal": "proposition",
-    "proposal_plural": "propositions",
     "slider": {
       "introduction": "Utiliser les boutons de contrôle, les flêches \"gauches\" et \"droite\" ou la touche de tabulation de votre clavier pour interragir avec le carrousel ci dessous.",
       "previous": "Aller à l'élement précédent",
@@ -483,7 +481,9 @@
     },
     "current_consultations": {
       "title": "Nos opérations en cours",
-      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant"
+      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant",
+      "proposal": "proposition",
+      "proposal_plural": "propositions"
     },
     "corporate": {
       "first-section":{
