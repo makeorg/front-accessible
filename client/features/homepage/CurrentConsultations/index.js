@@ -128,6 +128,7 @@ export const CurrentConsultationsComponent = ({
                 <CurrentConsultationArticleMobile
                   image={consultation.picture}
                   title={consultation.title}
+                  proposalsNumber={consultation.proposalsNumber}
                   linkObject={getConsultationLink(
                     consultation,
                     country,
@@ -138,6 +139,7 @@ export const CurrentConsultationsComponent = ({
                 <CurrentConsultationArticleDesktop
                   image={consultation.picture}
                   title={consultation.title}
+                  proposalsNumber={consultation.proposalsNumber}
                   linkText={consultation.linkLabel}
                   linkObject={getConsultationLink(
                     consultation,
