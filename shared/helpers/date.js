@@ -1,5 +1,4 @@
 /* @flow */
-
 let instance = null;
 
 const localeMonths = {

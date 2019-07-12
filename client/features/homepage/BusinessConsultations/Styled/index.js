@@ -55,6 +55,7 @@ export const BusinessConsultationsItemLinkStyle = styled(Link)`
   font-family: ${MakeFonts.RobotoBold};
   font-size: 13px;
   line-height: 1.4;
+  width: 100%;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
@@ -62,6 +63,7 @@ export const BusinessConsultationsItemLinkStyle = styled(Link)`
 
 export const BusinessConsultationStyle = styled.div`
   padding: 15px;
+  flex: 1;
 `;
 
 export const BusinessConsultationsItemStatusStyle = styled.p`

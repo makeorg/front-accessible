@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeBusinessConsultation } from 'Shared/types/views';
 import { isInProgress } from 'Shared/helpers/date';
+import { sortConsultationsByLatestDate } from 'Shared/helpers/views';
 import { getConsultationLink } from 'Shared/helpers/url';
 import {
   SvgAngleArrowRight,
@@ -36,21 +37,25 @@ export const BusinessConsultationsComponent = ({
   country,
   language,
 }: Props) => {
-  const [consultationsArray, setConsultationsArray] = useState([]);
-  const [limitedConsultations, setConsultationsLimit] = useState(3);
-  const consultationsPropsLength = consultations.length;
-  const consultationsStateLength = consultationsArray.length;
+  const initialDisplayedConsultationsLength = 3;
+  const sortedConsultations = sortConsultationsByLatestDate(consultations);
+  const [displayedConsultations, setDisplayedConsultations] = useState([]);
+  const [limitedConsultations, setConsultationsLimit] = useState(
+    initialDisplayedConsultationsLength
+  );
 
   const displayViewMore =
-    consultationsPropsLength > 3 && consultationsStateLength === 3;
+    displayedConsultations.length === initialDisplayedConsultationsLength;
   const displayViewLess =
-    consultationsStateLength > 3 &&
-    consultationsStateLength === consultationsPropsLength;
+    displayedConsultations.length > initialDisplayedConsultationsLength;
 
   useEffect(() => {
-    const slicedConsultations = consultations.slice(0, limitedConsultations);
+    const slicedConsultations = sortedConsultations.slice(
+      0,
+      limitedConsultations
+    );
 
-    return setConsultationsArray(slicedConsultations);
+    return setDisplayedConsultations(slicedConsultations);
   });
 
   const expandConsultations = () => setConsultationsLimit(consultations.length);
@@ -66,7 +71,7 @@ export const BusinessConsultationsComponent = ({
         {i18n.t('homepage.business_consultations.title')}
       </BusinessConsultationsTitleStyle>
       <BusinessConsultationsStyle>
-        {consultationsArray.map((consultation, index) => (
+        {displayedConsultations.map((consultation, index) => (
           <BusinessConsultationsItemStyle key={consultation.slug}>
             <BusinessConsultationsItemLinkStyle
               {...(isInProgress(consultation.startDate, consultation.endDate)
