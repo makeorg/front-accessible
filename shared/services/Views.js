@@ -1,61 +1,14 @@
 // @flow
 import {
-  type TypeFeaturedConsultation,
   type TypeCurrentConsultation,
   type TypeBusinessConsultation,
   type TypeHome,
 } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
-import HandicapPicture from 'Client/app/assets/images/homepage/handicap_col1.jpg';
-import HandicapMobilePicture from 'Client/app/assets/images/homepage/handicap_col2.jpg';
-import AlimentationPicture from 'Client/app/assets/images/homepage/alimentation.jpg';
-import MediasCitoyensPicture from 'Client/app/assets/images/homepage/medias-citoyens.jpg';
 import CulturePicture from 'Client/app/assets/images/homepage/great-causes/cta-culture.svg';
 import JeunePicture from 'Client/app/assets/images/homepage/great-causes/cta-jeune.svg';
 import VffPicture from 'Client/app/assets/images/homepage/great-causes/cta-vff.svg';
 import AinesPicture from 'Client/app/assets/images/homepage/great-causes/cta-aines.svg';
-
-const featuredConsultations: TypeFeaturedConsultation[] = [
-  {
-    questionSlug: 'handicap',
-    title:
-      'Comment la société peut-elle garantir une vraie place aux personnes handicapées ?',
-    description:
-      'MAKE.ORG et ses partenaires ont lancé une consultation pour garantir une vraie place aux personnes handicapées. Votez, proposez, agissez !',
-    landscapePicture: HandicapPicture,
-    portraitPicture: HandicapMobilePicture,
-    altPicture:
-      'Comment la société peut-elle garantir une vraie place aux personnes handicapées ?',
-    label: 'Grande cause',
-    buttonLabel: 'Participez',
-    internalLink: 'consultation',
-    externalLink: null,
-  },
-  {
-    questionSlug: 'medias-citoyens',
-    title: 'Comment les médias peuvent-ils améliorer la société ?',
-    description: null,
-    landscapePicture: MediasCitoyensPicture,
-    portraitPicture: MediasCitoyensPicture,
-    altPicture: 'Comment les médias peuvent-ils améliorer la société ?',
-    label: 'Actualité',
-    buttonLabel: 'Participez',
-    internalLink: 'consultation',
-    externalLink: null,
-  },
-  {
-    questionSlug: null,
-    title: 'Comment permettre à chacun de mieux manger ?',
-    description: null,
-    landscapePicture: AlimentationPicture,
-    portraitPicture: AlimentationPicture,
-    altPicture: 'Comment permettre à chacun de mieux manger ?',
-    label: 'Grande cause',
-    buttonLabel: 'Voir les résultats',
-    internalLink: null,
-    externalLink: 'https://about.make.org/about-mieuxmanger',
-  },
-];
 
 const currentConsultations: TypeCurrentConsultation[] = [
   {
@@ -148,7 +101,7 @@ export const getHome = async (): Promise<TypeHome> => {
     popularProposals: response.popularProposals,
     controverseProposals: response.controverseProposals,
     businessConsultations,
-    featuredConsultations,
+    featuredConsultations: response.featuredConsultations,
     currentConsultations,
   };
 };

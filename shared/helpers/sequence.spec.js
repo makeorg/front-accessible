@@ -1,11 +1,5 @@
 /* @flow */
-import {
-  CARD_TYPE_EXTRASLIDE_FINAL_CARD,
-  CARD_TYPE_EXTRASLIDE_INTRO,
-  CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
-  CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
-  CARD_TYPE_PROPOSAL,
-} from 'Shared/constants/card';
+import { CARD_TYPE_EXTRASLIDE_INTRO } from 'Shared/constants/card';
 import * as helpers from './sequence';
 
 describe('Sequence Helper', () => {

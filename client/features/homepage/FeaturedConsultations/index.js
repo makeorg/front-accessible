@@ -2,159 +2,23 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
-import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
-import { Tracking } from 'Shared/services/Tracking';
-import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import {
-  FeaturedArticleWrapperStyle,
-  FeaturedInformationsWrapperStyle,
-  FeaturedPictureWraperStyle,
-  FeaturedArticleColumnStyle,
-  FeaturedArticleStyle,
-  FeaturedTypeStyle,
-  FeaturedArticleTitleStyle,
-  FeaturedDescriptionStyle,
-  FeaturedLinkStyle,
-  FeaturedInnerContent,
-  FeaturedArticleCol1Style,
-} from './Styled';
+import { DesktopOneColumn } from './Layouts/DesktopOneColumn';
+import { DesktopTwoColumns } from './Layouts/DesktopTwoColumns';
+import { FeaturedMobile } from './Layouts/Mobile';
 
-const Featured = ({
-  featured,
-  country,
-  language,
-  index,
-}: {
-  featured: TypeFeaturedConsultation,
-  country: string,
-  language: string,
-  index: number,
-}) => {
-  const isDesktop = useDesktop();
-  const blockPosition = index + 1;
-  const linkObject = featured.externalLink
-    ? {
-        as: 'a',
-        href: featured.externalLink,
-        target: '_blank',
-      }
-    : {
-        to: buildInternalConsultationLink(
-          featured.internalLink,
-          featured.questionSlug,
-          country,
-          language
-        ),
-        as: Link,
-      };
-
-  return (
-    <React.Fragment>
-      <FeaturedPictureWraperStyle
-        onClick={() =>
-          Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
-        }
-        aria-hidden
-        {...linkObject}
-      >
-        <img
-          src={isDesktop ? featured.landscapePicture : featured.portraitPicture}
-          alt={i18n.t('homepage.featured.link', { name: featured.altPicture })}
-        />
-      </FeaturedPictureWraperStyle>
-      <FeaturedInformationsWrapperStyle>
-        <FeaturedInnerContent>
-          <FeaturedTypeStyle>
-            <ScreenReaderItemStyle>
-              {i18n.t('homepage.featured.status')}
-            </ScreenReaderItemStyle>
-            {featured.label}
-          </FeaturedTypeStyle>
-          <FeaturedArticleTitleStyle>
-            {featured.title}
-          </FeaturedArticleTitleStyle>
-          {isDesktop && featured.description && (
-            <FeaturedDescriptionStyle>
-              {featured.description}
-            </FeaturedDescriptionStyle>
-          )}
-        </FeaturedInnerContent>
-        <FeaturedLinkStyle
-          onClick={() =>
-            Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
-          }
-          {...linkObject}
-        >
-          {featured.buttonLabel}
-        </FeaturedLinkStyle>
-      </FeaturedInformationsWrapperStyle>
-    </React.Fragment>
-  );
-};
-
-const FeaturedDesktop = ({ featureds, country, language }) => {
-  const featuredsCol1 = featureds[0];
-  const featuredsCol2 = featureds.slice(1);
-
-  return (
-    <FeaturedArticleWrapperStyle id="featured_list">
-      <FeaturedArticleColumnStyle>
-        <FeaturedArticleCol1Style key="article_title_0">
-          <Featured
-            featured={featuredsCol1}
-            index={0}
-            country={country}
-            language={language}
-          />
-        </FeaturedArticleCol1Style>
-      </FeaturedArticleColumnStyle>
-      <FeaturedArticleColumnStyle>
-        {featuredsCol2.map((featured, key) => (
-          <FeaturedArticleStyle key={`article_title_${key + 1}`}>
-            <Featured
-              featured={featured}
-              index={key + 1}
-              country={country}
-              language={language}
-            />
-          </FeaturedArticleStyle>
-        ))}
-      </FeaturedArticleColumnStyle>
-    </FeaturedArticleWrapperStyle>
-  );
-};
-
-const FeaturedMobile = ({ featureds, country, language }) => (
-  <FeaturedArticleWrapperStyle>
-    {featureds.map((featured, key) => (
-      <FeaturedArticleStyle key={`article_title_${key + 1}`}>
-        <Featured
-          featured={featured}
-          index={key + 1}
-          country={country}
-          language={language}
-        />
-      </FeaturedArticleStyle>
-    ))}
-  </FeaturedArticleWrapperStyle>
-);
-
-type Props = {
+export type TypeFeaturedsProps = {
   featureds: TypeFeaturedConsultation[],
   country: string,
   language: string,
 };
-const FeaturedConsultationsComponent = ({
-  featureds,
-  country,
-  language,
-}: Props) => {
+
+const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
+  const { featureds, country, language } = props;
   const isDesktop = useDesktop();
 
   if (featureds.length <= 0) {
@@ -180,6 +44,27 @@ const FeaturedConsultationsComponent = ({
         />
       )}
     </HomepageInnerContentStyle>
+  );
+};
+
+const FeaturedDesktop = (props: TypeFeaturedsProps) => {
+  const { featureds, country, language } = props;
+  if (featureds.length === 1) {
+    return (
+      <DesktopOneColumn
+        featureds={featureds}
+        country={country}
+        language={language}
+      />
+    );
+  }
+
+  return (
+    <DesktopTwoColumns
+      featureds={featureds}
+      country={country}
+      language={language}
+    />
   );
 };
 
