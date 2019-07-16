@@ -23,6 +23,7 @@ export type TypeFeaturedConsultation = {
   buttonLabel: string,
   internalLink: 'consultation' | 'action' | 'sequence' | null,
   externalLink: string | null,
+  slot: number,
 };
 
 export type TypeCurrentConsultation = {
