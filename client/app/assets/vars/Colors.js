@@ -35,7 +35,6 @@ export const TextColors = {
   DarkGrey: 'rgb(83,83,83)',
   MediumGrey: 'rgb(102,102,102)',
   LightGrey: 'rgb(242,242,242)',
-  Success: 'rgb(104,154,49)',
   Blue: 'rgb(74, 144, 226)',
 };
 
@@ -62,4 +61,11 @@ export const SocialNetworksColors = {
   Facebook: 'rgb(58,89,152)',
   Twitter: 'rgb(26,145,218)',
   LinkedIn: 'rgb(0,119,181)',
+};
+
+export const FormColors = {
+  Success: 'rgb(104,154,49)',
+  SuccessBackground: 'rgb(239, 246, 231)',
+  Error: 'rgb(190, 24, 44);',
+  ErrorBackground: 'rgb(248, 231, 233)',
 };

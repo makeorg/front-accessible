@@ -7,7 +7,7 @@ import { Logger } from 'Shared/services/Logger';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
 import {
-  type ErrorObject as TypeErrorObject,
+  type TypeErrorObject,
   type ErrorMapping as TypeErrorMapping,
 } from 'Shared/types/api';
 

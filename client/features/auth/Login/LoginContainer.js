@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { login } from 'Shared/store/actions/authentification';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';

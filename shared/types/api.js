@@ -15,7 +15,7 @@ export type ApiSearchProposalsResponseType = {
   results: TypeProposal[],
 };
 
-export type ErrorObject = {
+export type TypeErrorObject = {
   field: string,
   message: string,
 };

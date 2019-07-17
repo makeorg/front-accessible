@@ -2,7 +2,7 @@
 import { i18n } from 'Shared/i18n';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserApiService } from 'Shared/api/UserApiService';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 
 export const forgotPasswordRequest = (email: string) => ({
   type: actionTypes.FORGOT_PASSWORD_REQUEST,
