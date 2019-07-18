@@ -1,5 +1,6 @@
 // @flow
-import React from 'react';
+import React, { useRef } from 'react';
+import { useFieldValidation } from 'Client/hooks/useFieldValidation';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -37,11 +38,14 @@ export const UntypedInput = ({
   required,
   handleChange,
 }: Props) => {
+  const inputRef = useRef(null);
+  const isNotValid = useFieldValidation(inputRef, errors);
   return (
-    <MiddleFakeFieldStyle hasError={errors} className={errors ? 'error' : ''}>
+    <MiddleFakeFieldStyle hasError={isNotValid}>
       <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
       <FieldWrapperStyle>
         <BasicInputStyle
+          ref={inputRef}
           type={type}
           name={name}
           id={name}

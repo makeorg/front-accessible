@@ -1,6 +1,6 @@
 // @flow
-import React, { useState } from 'react';
-import { type TypeErrorObject } from 'Shared/types/api';
+import React, { useState, useRef } from 'react';
+import { useFieldValidation } from 'Client/hooks/useFieldValidation';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
@@ -37,12 +37,15 @@ export const PasswordInput = ({
   handleChange,
 }: Props) => {
   const [isPasswordDisplayed, displayPassword] = useState<boolean>(false);
+  const inputRef = useRef(null);
+  const isNotValid = useFieldValidation(inputRef, errors) || errors.length;
 
   return (
-    <MiddleFakeFieldStyle hasError={errors}>
+    <MiddleFakeFieldStyle hasError={isNotValid}>
       <CenterInputIconStyle>{icon}</CenterInputIconStyle>
       <FieldWrapperStyle>
         <BasicInputStyle
+          ref={inputRef}
           type={isPasswordDisplayed ? 'text' : 'password'}
           name={name}
           id={name}

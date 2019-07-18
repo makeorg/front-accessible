@@ -13,9 +13,7 @@ type Props = {
   errors: TypeErrorObject[],
 };
 
-export const FormErrors = (props: Props) => {
-  const { errors } = props;
-
+export const FormErrors = ({ errors }: Props) => {
   if (!errors || !errors.length) {
     return null;
   }
