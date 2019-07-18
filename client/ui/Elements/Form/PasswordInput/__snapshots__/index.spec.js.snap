@@ -79,7 +79,7 @@ exports[`PasswordInput must match the snapshot with default Props 1`] = `
 
 .c3 {
   font-family: 'Roboto Regular',Arial,sans-serif;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   font-size: 14px;
   line-height: 38px;
   font-weight: normal;
@@ -104,8 +104,8 @@ exports[`PasswordInput must match the snapshot with default Props 1`] = `
     className="c2"
   >
     <BasicInputStyle
-      aria-required={true}
       id="bar"
+      minLength={8}
       name="bar"
       onChange={[Function]}
       required={true}
@@ -136,15 +136,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -8,15 +8,15 @@
-    </span>
-    <div
-      className="sc-1ln9y8s-4 gXgjdc"
-    >
+@@ -12,11 +12,11 @@
       <BasicInputStyle
--       aria-required={true}
-+       aria-required={false}
         id="bar"
+        minLength={8}
         name="bar"
         onChange={[Function handleChange]}
 -       required={true}
@@ -153,5 +148,5 @@ Snapshot Diff:
         value="baz"
       />
       <label
-        className="sc-1ln9y8s-9 kMUtp"
+        className="sc-1ln9y8s-9 dqqhma"
 `;

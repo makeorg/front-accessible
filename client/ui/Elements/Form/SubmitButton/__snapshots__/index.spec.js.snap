@@ -30,12 +30,12 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 .c0:disabled {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
 .c0:disabled svg {
-  fill: rgb(102,102,102);
+  fill: rgb(74,74,74);
 }
 
 .c1 {
@@ -82,7 +82,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="hs2zb-6 evTCto"
+    className="hs2zb-6 gvjgWh"
 -   disabled={false}
 +   disabled={true}
     form="foo"

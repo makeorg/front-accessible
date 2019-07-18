@@ -7,7 +7,7 @@ import {
   FormErrorsContainerStyle,
   FormErrorsIntroStyle,
   FormErrorsListItemStyle,
-} from '../Styled';
+} from '../Styled/Errors';
 
 type Props = {
   errors: TypeErrorObject[],

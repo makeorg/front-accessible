@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
@@ -37,61 +37,56 @@ type Props = {
   withCounter?: boolean,
 };
 
-export class TextArea extends React.Component<Props> {
-  static defaultProps = {
-    required: false,
-    errors: undefined,
-    rows: 5,
-    minLength: undefined,
-    maxLength: undefined,
-    spellCheck: true,
-    autoComplete: 'off',
-    withCounter: true,
-  };
+export const TextArea = ({
+  name,
+  icon,
+  errors,
+  value,
+  label,
+  required,
+  handleChange,
+  rows,
+  minLength,
+  maxLength,
+  spellCheck,
+  autoComplete,
+  withCounter,
+}: Props) => {
+  return (
+    <FakeFieldStyle hasError={errors}>
+      <TextAreaIconStyle aria-hidden>{icon}</TextAreaIconStyle>
+      <FieldWrapperStyle>
+        <BasicTextAreaStyle
+          name={name}
+          id={name}
+          value={value}
+          required={required}
+          onChange={handleChange}
+          rows={rows}
+          maxRows={25}
+          minLength={minLength}
+          maxLength={maxLength}
+          spellCheck={spellCheck}
+          autoComplete={autoComplete}
+        />
+        <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+        {maxLength && withCounter && (
+          <TextAreaCounterStyle>
+            {`${value ? value.length : '0'}/${maxLength}`}
+          </TextAreaCounterStyle>
+        )}
+      </FieldWrapperStyle>
+    </FakeFieldStyle>
+  );
+};
 
-  render() {
-    const {
-      name,
-      icon,
-      errors,
-      value,
-      label,
-      required,
-      handleChange,
-      rows,
-      minLength,
-      maxLength,
-      spellCheck,
-      autoComplete,
-      withCounter,
-    } = this.props;
-
-    return (
-      <FakeFieldStyle hasError={errors}>
-        <TextAreaIconStyle aria-hidden>{icon}</TextAreaIconStyle>
-        <FieldWrapperStyle>
-          <BasicTextAreaStyle
-            name={name}
-            id={name}
-            value={value}
-            aria-required={required}
-            required={required}
-            onChange={handleChange}
-            rows={rows}
-            maxRows={25}
-            minLength={minLength}
-            maxLength={maxLength}
-            spellCheck={spellCheck}
-            autoComplete={autoComplete}
-          />
-          <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
-          {maxLength && withCounter && (
-            <TextAreaCounterStyle>
-              {`${value ? value.length : '0'}/${maxLength}`}
-            </TextAreaCounterStyle>
-          )}
-        </FieldWrapperStyle>
-      </FakeFieldStyle>
-    );
-  }
-}
+TextArea.defaultProps = {
+  required: false,
+  errors: undefined,
+  rows: 5,
+  minLength: undefined,
+  maxLength: undefined,
+  spellCheck: true,
+  autoComplete: 'off',
+  withCounter: true,
+};

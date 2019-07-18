@@ -8,16 +8,19 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
-export const FormWrapperStyle = styled.form`
+export const FormStyle = styled.form`
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
-export const FormStyle = styled(FormWrapperStyle)`
-  width: 100%;
-  margin: 10px 0 0;
+export const FormRequirementsStyle = styled.p`
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 2.5px 0 15px;
+  color: ${TextColors.MediumGrey};
 `;
 
 export const FakeFieldStyle = styled.div`
