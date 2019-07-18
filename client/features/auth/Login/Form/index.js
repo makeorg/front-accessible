@@ -3,16 +3,14 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type TypeErrorObject } from 'Shared/types/api';
 import {
-  ErrorMessageStyle,
-  FormErrorsListStyle,
-  FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled/Errors';
-import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import { fieldErrors } from 'Shared/helpers/form';
+  FormStyle,
+  FormRequirementsStyle,
+} from 'Client/ui/Elements/Form/Styled/Content';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { LOGIN_FORMNAME } from 'Shared/constants/form';
+import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import {
   EmailFieldIcon,
   PasswordFieldIcon,
@@ -32,23 +30,19 @@ type Props = {
   handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
 };
 
-/**
- * Renders Login Form
- */
-export const LoginFormComponent = (props: Props) => {
-  const { email, password, errors, handleChange, handleSubmit } = props;
-
-  const emailError = errors.find(error => error.field === 'email');
-  const passwordError = fieldErrors('password', errors);
-  const globalError = fieldErrors('global', errors);
-
+export const LoginFormComponent = ({
+  email,
+  password,
+  errors,
+  handleChange,
+  handleSubmit,
+}: Props) => {
   return (
     <FormStyle id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
-      {globalError && (
-        <FormErrorsListStyle id="authentification-login-error">
-          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-        </FormErrorsListStyle>
-      )}
+      <FormRequirementsStyle>
+        {i18n.t('common.form.requirements')}
+      </FormRequirementsStyle>
+      <FormErrors errors={errors} />
       <UntypedInput
         type="email"
         name="email"
@@ -56,28 +50,18 @@ export const LoginFormComponent = (props: Props) => {
         value={email}
         label={i18n.t('common.form.email_label')}
         required
-        errors={emailError}
+        errors={errors.length}
         handleChange={handleChange}
       />
-      {emailError && (
-        <ErrorMessageStyle id="authentification-email-error">
-          {emailError.message}
-        </ErrorMessageStyle>
-      )}
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
         value={password}
         label={i18n.t('common.form.password_label')}
         required
-        errors={passwordError}
+        errors={errors.length}
         handleChange={handleChange}
       />
-      {passwordError && (
-        <ErrorMessageStyle id="authentification-password-error">
-          {passwordError}
-        </ErrorMessageStyle>
-      )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
         icon={SubmitThumbsUpIcon}
