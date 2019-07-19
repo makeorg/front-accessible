@@ -9,7 +9,7 @@ export type TypeBusinessConsultation = {
   endDate: string | null,
   slug: string,
   aboutUrl: string,
-  title: string,
+  question: string,
 };
 
 export type TypeFeaturedConsultation = {

@@ -104,10 +104,10 @@ export const BusinessConsultationsComponent = ({
                     : i18n.t('homepage.business_consultations.question_ended')}
                 </BusinessConsultationsItemStatusStyle>
                 <span
-                  id={`consultation_title_${index}`}
+                  id={`consultation_question_${index}`}
                   aria-flowto={`consultation_status_${index}`}
                 >
-                  {consultation.title}
+                  {consultation.question}
                 </span>
               </BusinessConsultationStyle>
               <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
