@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
 import {

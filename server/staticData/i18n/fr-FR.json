@@ -52,6 +52,7 @@
       "biography_label": "Biographie (optionnel)",
       "hide_password": "Masquer le mot de passe",
       "show_password": "Afficher le mot de passe",
+      "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",

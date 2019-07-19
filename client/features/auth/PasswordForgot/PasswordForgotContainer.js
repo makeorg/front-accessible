@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import * as UserService from 'Shared/services/User';

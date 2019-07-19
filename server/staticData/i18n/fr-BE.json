@@ -52,6 +52,7 @@
       "biography_label": "Biographie (optionnel)",
       "hide_password": "Masquer le mot de passe",
       "show_password": "Afficher le mot de passe",
+      "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
@@ -86,6 +87,8 @@
     "user_profile_nav": "Barre de navigation de mon profil utilisateur",
     "organisation_profile_nav": "Barre de navigation du profil de l'organisation : {{name}}",
     "new_tab": "{{title}} - Ouvrir dans une nouvelle fenêtre",
+    "proposal": "proposition",
+    "proposal_plural": "propositions",
     "slider": {
       "introduction": "Utiliser les boutons de contrôle, les flêches \"gauches\" et \"droite\" ou la touche de tabulation de votre clavier pour interragir avec le carrousel ci dessous.",
       "previous": "Aller à l'élement précédent",

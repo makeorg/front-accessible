@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormErrors snapshot FormErrors with errors 1`] = `
+.c2 {
+  padding: 0;
+  list-style: none;
+}
+
+.c0 {
+  width: 100%;
+  padding: 15px;
+  background-color: rgb(248,231,233);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.c1 {
+  font-family: 'Roboto Bold',Arial,sans-serif;
+  margin: 0 0 10px;
+}
+
+.c3 {
+  margin: 0 0 5px;
+}
+
+.c3:last-child {
+  margin: 0;
+}
+
+.c3:before {
+  content: '-  ';
+}
+
+<div
+  className="c0"
+>
+  <p
+    className="c1"
+  >
+    common.form.errors_notification
+  </p>
+  <ul
+    className="c2"
+  >
+    <li
+      className="c3"
+    >
+      fooMEssage
+    </li>
+    <li
+      className="c3"
+    >
+      barMessage
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`FormErrors snapshot FormErrors without errors 1`] = `null`;

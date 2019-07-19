@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { throttle } from 'Shared/helpers/throttle';
 import { connect } from 'react-redux';
 import { modalShowLogin, modalClose } from 'Shared/store/actions/modal';

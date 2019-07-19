@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { GTU_LINK } from 'Shared/constants/url';
 import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import {
   ErrorMessageStyle,
   FormErrorsListStyle,

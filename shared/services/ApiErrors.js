@@ -1,7 +1,7 @@
 // @flow
 import { Logger } from 'Shared/services/Logger';
 import {
-  type ErrorObject as TypeErrorObject,
+  type TypeErrorObject,
   type ErrorMapping as TypeErrorMapping,
 } from 'Shared/types/api';
 

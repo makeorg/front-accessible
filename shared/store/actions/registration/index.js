@@ -1,7 +1,7 @@
 // @flow
 import { UserApiService } from 'Shared/api/UserApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import {
   loginSuccess,
   setUserInfo,

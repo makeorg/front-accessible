@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { type ErrorObject as TypeErrorObject } from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { PasswordInputComponent } from './PasswordInputComponent';
 
 type Props = {
