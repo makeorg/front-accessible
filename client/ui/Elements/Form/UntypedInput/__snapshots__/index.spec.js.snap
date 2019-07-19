@@ -5,8 +5,8 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -11,11 +11,11 @@
-    >
+@@ -9,11 +9,11 @@
+    <FieldWrapperStyle>
       <BasicInputStyle
         id="bar"
         name="bar"
@@ -16,6 +16,6 @@ Snapshot Diff:
         type="foo"
         value="baz"
       />
-      <label
-        className="sc-1ln9y8s-9 dqqhma"
+      <FloatingLabelStyle
+        htmlFor="bar"
 `;

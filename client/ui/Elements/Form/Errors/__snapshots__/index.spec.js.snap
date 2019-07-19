@@ -35,6 +35,7 @@ exports[`FormErrors snapshot FormErrors with errors 1`] = `
 
 <div
   className="c0"
+  tabIndex={0}
 >
   <p
     className="c1"
@@ -46,14 +47,20 @@ exports[`FormErrors snapshot FormErrors with errors 1`] = `
   >
     <li
       className="c3"
-    >
-      fooMEssage
-    </li>
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "fooMEssage",
+        }
+      }
+    />
     <li
       className="c3"
-    >
-      barMessage
-    </li>
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "barMessage",
+        }
+      }
+    />
   </ul>
 </div>
 `;

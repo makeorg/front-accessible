@@ -1,6 +1,9 @@
 // @flow
-import * as React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import { login } from 'Shared/store/actions/authentification';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type TypeErrorObject } from 'Shared/types/api';
 import {
   FormStyle,
@@ -16,29 +19,42 @@ import {
   PasswordFieldIcon,
   SubmitThumbsUpIcon,
 } from 'Shared/constants/icons';
+import { throttle } from 'Shared/helpers/throttle';
+import { getFieldError } from 'Shared/helpers/form';
 
 type Props = {
-  /** User's email */
-  email: string,
-  /** User's password */
-  password: string,
   /** Array with form errors */
   errors: TypeErrorObject[],
-  /** Method called when field's value changes */
-  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  /** Method called when login form is submit */
+  handleLogin: (string, string) => void,
 };
 
-export const LoginFormComponent = ({
-  email,
-  password,
-  errors,
-  handleChange,
-  handleSubmit,
-}: Props) => {
+export const LoginFormComponent = ({ errors, handleLogin }: Props) => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const globalError = getFieldError('email', errors);
+
+  const handleChange = event => {
+    const { id, value } = event.target;
+
+    if (id === 'email') {
+      setEmail(value);
+    }
+
+    if (id === 'password') {
+      setPassword(value);
+    }
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (email && password) {
+      handleLogin(email, password);
+    }
+  };
+
   return (
-    <FormStyle id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
+    <FormStyle id={LOGIN_FORMNAME} onSubmit={throttle(handleSubmit)}>
       <FormRequirementsStyle>
         {i18n.t('common.form.requirements')}
       </FormRequirementsStyle>
@@ -50,8 +66,8 @@ export const LoginFormComponent = ({
         value={email}
         label={i18n.t('common.form.email_label')}
         required
-        errors={errors.length}
-        handleChange={handleChange}
+        errors={globalError}
+        handleChange={throttle(handleChange)}
       />
       <PasswordInput
         name="password"
@@ -59,8 +75,8 @@ export const LoginFormComponent = ({
         value={password}
         label={i18n.t('common.form.password_label')}
         required
-        errors={errors.length}
-        handleChange={handleChange}
+        errors={globalError}
+        handleChange={throttle(handleChange)}
       />
       <SubmitButton
         formName={LOGIN_FORMNAME}
@@ -71,3 +87,20 @@ export const LoginFormComponent = ({
     </FormStyle>
   );
 };
+
+const mapStateToProps = state => {
+  const { errors } = selectAuthentification(state);
+
+  return { errors };
+};
+
+const mapDispatchToProps = dispatch => ({
+  handleLogin: (email, password) => {
+    dispatch(login(email, password));
+  },
+});
+
+export const LoginForm = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginFormComponent);

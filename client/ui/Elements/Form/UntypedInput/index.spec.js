@@ -4,8 +4,13 @@ import renderer from 'react-test-renderer';
 import { UntypedInput } from './index';
 
 jest.mock('Client/ui/Elements/Form/Styled/Input', () => ({
-  MiddleFakeFieldStyle: 'MiddleFakeFieldStyle',
   BasicInputStyle: 'BasicInputStyle',
+}));
+
+jest.mock('Client/ui/Elements/Form/Styled/Content', () => ({
+  MiddleFakeFieldStyle: 'MiddleFakeFieldStyle',
+  FloatingLabelStyle: 'FloatingLabelStyle',
+  FieldWrapperStyle: 'FieldWrapperStyle',
 }));
 
 jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
@@ -27,7 +32,7 @@ describe('UntypedInput', () => {
       .create(<UntypedInput {...defaultProps} required />)
       .toJSON();
     const OptionnalInput = renderer
-      .create(<UntypedInput {...defaultProps} required={false} />)
+      .create(<UntypedInput {...defaultProps} />)
       .toJSON();
     expect(snapshotDiff(RequiredInput, OptionnalInput)).toMatchSnapshot();
   });

@@ -223,7 +223,7 @@
     "forgot_password_link": "oublié mon mot de passe ?",
     "registration_title": "Je n’ai pas de compte,",
     "registration_link": "je m’en crée un.",
-    "email_doesnot_exist": "Votre email ou votre mot de passe est incorrect."
+    "email_doesnot_exist": "Votre <a href=\"#email\">email</a> ou <a href=\"#password\">votre mot de passe</a> est incorrect."
   },
   "register": {
     "title": "Créer un compte",

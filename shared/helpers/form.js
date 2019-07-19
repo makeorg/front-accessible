@@ -12,6 +12,9 @@ export const errorTranslation = (message: string) => {
   return translatedError;
 };
 
+//  TODO must be replaced by getFieldError() during these refactoring tasks
+//  https://makeorg.atlassian.net/browse/MP-42
+//  https://makeorg.atlassian.net/browse/MP-43
 export const fieldErrors = (field: string, errors: TypeErrorObject[]) => {
   if (errors.length === 0) {
     return null;
@@ -25,4 +28,19 @@ export const fieldErrors = (field: string, errors: TypeErrorObject[]) => {
   return Object.keys(fieldError).length === 0
     ? undefined
     : errorTranslation(fieldError.message);
+};
+
+export const getFieldError = (
+  field: string,
+  errors: TypeErrorObject[]
+): TypeErrorObject => {
+  let fieldError = errors.find(error => error.field === field);
+
+  if (fieldError === undefined) {
+    fieldError = {
+      field: '',
+      message: '',
+    };
+  }
+  return fieldError;
 };

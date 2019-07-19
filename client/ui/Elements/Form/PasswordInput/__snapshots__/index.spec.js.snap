@@ -1,108 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PasswordInput must match the snapshot with default Props 1`] = `
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  color: rgb(222,26,66);
-  font-size: 18px;
-  margin-right: 5px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c1 svg {
-  fill: rgb(222,26,66);
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  width: 100%;
-  padding: 0 15px;
-  border-radius: 30px;
-  background-color: rgb(242,242,242);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0,0,0,0.2);
-  margin-bottom: 15px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c0:last-child {
-  margin-bottom: 0;
-}
-
-.c2 {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.c2 > input:focus,
-.c2 > input:invalid,
-.c2 > input:required:focus,
-.c2 > input:required:not([value='']),
-.c2 > input:not([value='']),
-.c2 > textarea:not(:empty),
-.c2 > textarea:focus {
-  padding-top: 15px;
-  line-height: 20px;
-  padding-bottom: 3px;
-}
-
-.c2 > input:focus + label,
-.c2 > input:invalid + label,
-.c2 > input:required:focus + label,
-.c2 > input:required:not([value='']) + label,
-.c2 > input:not([value='']) + label,
-.c2 > textarea:not(:empty) + label,
-.c2 > textarea:focus + label {
-  font-size: 10px;
-  line-height: 20px;
-}
-
-.c2 > input:required + label {
-  font-size: 14px;
-  line-height: 38px;
-}
-
-.c3 {
-  font-family: 'Roboto Regular',Arial,sans-serif;
-  color: rgb(74,74,74);
-  font-size: 14px;
-  line-height: 38px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 0;
-  -webkit-transition: 0.25s ease all;
-  transition: 0.25s ease all;
-  white-space: nowrap;
-}
-
-<div
-  className="c0"
+<MiddleFakeFieldStyle
+  hasError={false}
 >
-  <span
-    className="c1"
-  >
+  <CenterInputIconStyle>
     SvgLock
-  </span>
-  <div
-    className="c2"
-  >
+  </CenterInputIconStyle>
+  <FieldWrapperStyle>
     <BasicInputStyle
       id="bar"
       minLength={8}
@@ -112,18 +17,17 @@ exports[`PasswordInput must match the snapshot with default Props 1`] = `
       type="password"
       value="baz"
     />
-    <label
-      className="c3"
+    <FloatingLabelStyle
       htmlFor="bar"
     >
       qux
-    </label>
-  </div>
+    </FloatingLabelStyle>
+  </FieldWrapperStyle>
   <PasswordButton
     isPasswordDisplayed={false}
     toggleIsPasswordDisplayed={[Function]}
   />
-</div>
+</MiddleFakeFieldStyle>
 `;
 
 exports[`PasswordInput must return the diff between snapshot when password is displayed vs hidden 1`] = `
@@ -133,20 +37,5 @@ Compared values have no visual difference.
 
 exports[`PasswordInput must return the diff between snapshot when password is required or optionnal 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ -12,11 +12,11 @@
-      <BasicInputStyle
-        id="bar"
-        minLength={8}
-        name="bar"
-        onChange={[Function handleChange]}
--       required={true}
-+       required={false}
-        type="password"
-        value="baz"
-      />
-      <label
-        className="sc-1ln9y8s-9 dqqhma"
+Compared values have no visual difference.
 `;

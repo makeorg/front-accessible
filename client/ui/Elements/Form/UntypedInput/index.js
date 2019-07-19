@@ -1,6 +1,7 @@
 // @flow
 import React, { useRef } from 'react';
-import { useFieldValidation } from 'Client/hooks/useFieldValidation';
+import { type TypeErrorObject } from 'Shared/types/api';
+import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -22,8 +23,8 @@ type Props = {
   label: string,
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Has errors */
-  errors?: any,
+  /** Object containing field errors */
+  errors?: TypeErrorObject,
   /** Is input required or optional */
   required?: boolean,
 };
@@ -32,16 +33,16 @@ export const UntypedInput = ({
   type,
   name,
   icon,
-  errors,
   value,
   label,
-  required,
   handleChange,
+  errors = { field: '', message: '' },
+  required = false,
 }: Props) => {
   const inputRef = useRef(null);
-  const isNotValid = useFieldValidation(inputRef, errors);
+  const isFieldValid = useIsFieldValid(inputRef, errors);
   return (
-    <MiddleFakeFieldStyle hasError={isNotValid}>
+    <MiddleFakeFieldStyle hasError={!isFieldValid}>
       <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
       <FieldWrapperStyle>
         <BasicInputStyle
@@ -57,9 +58,4 @@ export const UntypedInput = ({
       </FieldWrapperStyle>
     </MiddleFakeFieldStyle>
   );
-};
-
-UntypedInput.defaultProps = {
-  required: false,
-  errors: false,
 };

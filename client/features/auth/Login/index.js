@@ -1,11 +1,8 @@
 // @flow
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeErrorObject } from 'Shared/types/api';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
-import { login } from 'Shared/store/actions/authentification';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import {
   modalShowRegister,
   modalShowForgotPassword,
@@ -25,46 +22,20 @@ import {
   TextSeparatorStyle,
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { throttle } from 'Shared/helpers/throttle';
-import { LoginFormComponent } from './Form';
+import { LoginForm } from './Form';
 import { LoginStyle } from './Styled';
 
 type Props = {
-  /** Array with form errors */
-  errors: TypeErrorObject[],
   /** Method called to display Register Form Modal */
   handleRegisterModal: () => void,
   /** Method called to display Forgot Password Form Modal */
   handleForgotPasswordModal: () => void,
-  /** Method called when login form is submit */
-  handleLogin: (string, string) => void,
 };
 
-export const LoginComponent = (props: Props) => {
-  const { errors, handleRegisterModal, handleForgotPasswordModal } = props;
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-
-  const handleChange = event => {
-    const { id, value } = event.target;
-
-    if (id === 'email') {
-      setEmail(value);
-    }
-
-    if (id === 'password') {
-      setPassword(value);
-    }
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    const { handleLogin } = props;
-    if (email && password) {
-      handleLogin(email, password);
-    }
-  };
-
+export const LoginComponent = ({
+  handleRegisterModal,
+  handleForgotPasswordModal,
+}: Props) => {
   return (
     <LoginStyle aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
@@ -83,13 +54,7 @@ export const LoginComponent = (props: Props) => {
       <ThirdLevelTitleStyle>
         {i18n.t('login.email_connect')}
       </ThirdLevelTitleStyle>
-      <LoginFormComponent
-        email={email}
-        password={password}
-        errors={errors}
-        handleChange={handleChange}
-        handleSubmit={throttle(handleSubmit)}
-      />
+      <LoginForm />
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}
         <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
@@ -106,16 +71,7 @@ export const LoginComponent = (props: Props) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { errors } = selectAuthentification(state);
-
-  return { errors };
-};
-
 const mapDispatchToProps = dispatch => ({
-  handleLogin: (email, password) => {
-    dispatch(login(email, password));
-  },
   handleRegisterModal: () => {
     dispatch(modalShowRegister());
   },
@@ -125,6 +81,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const Login = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(LoginComponent);

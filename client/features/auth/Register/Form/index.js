@@ -62,7 +62,6 @@ export const RegisterFormComponent = (props: Props) => {
         type="email"
         name="email"
         icon={EmailFieldIcon}
-        errors={emailError}
         value={user.email}
         label={i18n.t('common.form.email_label')}
         required
@@ -76,7 +75,6 @@ export const RegisterFormComponent = (props: Props) => {
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
-        errors={passwordError}
         value={user.password}
         label={i18n.t('common.form.password_label')}
         handleChange={handleChange}
@@ -90,7 +88,6 @@ export const RegisterFormComponent = (props: Props) => {
         type="text"
         name="firstname"
         icon={FirstNameFieldIcon}
-        errors={firstnameError}
         value={user.firstname}
         label={i18n.t('common.form.firstname_label')}
         required

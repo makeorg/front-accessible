@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useRef } from 'react';
-import { useFieldValidation } from 'Client/hooks/useFieldValidation';
+import { type TypeErrorObject } from 'Shared/types/api';
+import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
@@ -21,8 +22,8 @@ type Props = {
   label: string,
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Has errors */
-  errors?: any,
+  /** Object containing field errors */
+  errors?: TypeErrorObject,
   /** Is input required or optional */
   required?: boolean,
 };
@@ -30,18 +31,18 @@ type Props = {
 export const PasswordInput = ({
   name,
   icon,
-  errors,
   value,
   label,
-  required,
   handleChange,
+  errors = { field: '', message: '' },
+  required = true,
 }: Props) => {
   const [isPasswordDisplayed, displayPassword] = useState<boolean>(false);
   const inputRef = useRef(null);
-  const isNotValid = useFieldValidation(inputRef, errors) || errors.length;
+  const isFieldValid = useIsFieldValid(inputRef, errors);
 
   return (
-    <MiddleFakeFieldStyle hasError={isNotValid}>
+    <MiddleFakeFieldStyle hasError={!isFieldValid}>
       <CenterInputIconStyle>{icon}</CenterInputIconStyle>
       <FieldWrapperStyle>
         <BasicInputStyle
@@ -62,9 +63,4 @@ export const PasswordInput = ({
       />
     </MiddleFakeFieldStyle>
   );
-};
-
-PasswordInput.defaultProps = {
-  errors: undefined,
-  required: true,
 };

@@ -7,10 +7,18 @@ jest.mock('./Button', () => ({
   PasswordButton: 'PasswordButton',
 }));
 
-jest.mock('../Styled/Input', () => ({
-  MiddleFakeFieldStyle: 'MiddleFakeFieldStyle',
-  CenterInputIconStyle: 'CenterInputIconStyle',
+jest.mock('Client/ui/Elements/Form/Styled/Input', () => ({
   BasicInputStyle: 'BasicInputStyle',
+}));
+
+jest.mock('Client/ui/Elements/Form/Styled/Content', () => ({
+  MiddleFakeFieldStyle: 'MiddleFakeFieldStyle',
+  FloatingLabelStyle: 'FloatingLabelStyle',
+  FieldWrapperStyle: 'FieldWrapperStyle',
+}));
+
+jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
+  CenterInputIconStyle: 'CenterInputIconStyle',
 }));
 
 describe('PasswordInput', () => {
@@ -45,7 +53,7 @@ describe('PasswordInput', () => {
       .create(<PasswordInput {...defaultProps} required />)
       .toJSON();
     const OptionnalPassword = renderer
-      .create(<PasswordInput {...defaultProps} required={false} />)
+      .create(<PasswordInput {...defaultProps} />)
       .toJSON();
     expect(snapshotDiff(RequiredPassword, OptionnalPassword)).toMatchSnapshot();
   });
