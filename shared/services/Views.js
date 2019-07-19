@@ -1,7 +1,6 @@
 // @flow
 import {
   type TypeCurrentConsultation,
-  type TypeBusinessConsultation,
   type TypeHome,
 } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
@@ -58,50 +57,14 @@ const currentConsultations: TypeCurrentConsultation[] = [
   },
 ];
 
-const businessConsultations: TypeBusinessConsultation[] = [
-  {
-    theme: {
-      gradientStart: 'rgb(255, 182, 98)',
-      gradientEnd: 'rgb(255, 87, 87)',
-    },
-    startDate: '2019-05-06',
-    endDate: '2019-07-07',
-    slug: 'prevention-jeunes',
-    aboutUrl: 'https://about.make.org/about-prevention-jeunes',
-    title: 'Comment inciter les jeunes à mieux prendre soin de leur santé ?',
-  },
-  {
-    theme: {
-      gradientStart: '#1657ec',
-      gradientEnd: '#1657ec',
-    },
-    startDate: '2019-03-05',
-    endDate: '2019-04-25',
-    slug: 'economiebienveillante',
-    aboutUrl: 'https://about.make.org/about-economiebienveillante',
-    title: 'Comment agir pour rendre notre économie plus bienveillante ?',
-  },
-  {
-    theme: {
-      gradientStart: 'rgb(125, 183, 227)',
-      gradientEnd: 'rgb(93, 161, 19)',
-    },
-    startDate: '2018-10-18',
-    endDate: '2019-02-06',
-    slug: 'european-digital-champions',
-    aboutUrl: 'https://about.make.org/about-european-digital-champions',
-    title: 'Comment faire émerger des champions européens du numérique ?',
-  },
-];
-
 export const getHome = async (): Promise<TypeHome> => {
   const response = await ViewsApiService.getHome();
 
   return {
     popularProposals: response.popularProposals,
     controverseProposals: response.controverseProposals,
-    businessConsultations,
     featuredConsultations: response.featuredConsultations,
+    businessConsultations: response.businessConsultations,
     currentConsultations,
   };
 };

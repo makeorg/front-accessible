@@ -45,7 +45,7 @@ export const CurrentConsultationArticleDesktop = ({
         type="image"
         src={image}
         alt={title}
-        aria-label={i18n.t('homepage.great-causes.expand_panel', {
+        aria-label={i18n.t('homepage.current_consultations.expand_panel', {
           name: title,
         })}
         aria-hidden={isOverlayDisplayed}
@@ -58,7 +58,9 @@ export const CurrentConsultationArticleDesktop = ({
         <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
         <React.Fragment>
           {' '}
-          {i18n.t('common.proposal', { count: proposalsNumber })}
+          {i18n.t('homepage.current_consultations.proposal', {
+            count: proposalsNumber,
+          })}
         </React.Fragment>
       </ProposalsCountWrapperStyle>
       <CurrentConsultationLinkOverlayStyle
@@ -110,7 +112,9 @@ export const CurrentConsultationArticleMobile = ({
         <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
         <React.Fragment>
           {' '}
-          {i18n.t('common.proposal', { count: proposalsNumber })}
+          {i18n.t('homepage.current_consultations.proposal', {
+            count: proposalsNumber,
+          })}
         </React.Fragment>
       </ProposalsCountWrapperStyle>
     </CurrentConsultationArticleStyle>
