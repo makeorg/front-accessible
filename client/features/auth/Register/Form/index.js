@@ -18,6 +18,7 @@ import {
 } from 'Client/ui/Elements/Form/Styled/Content';
 import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
+import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { REGISTER_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -134,8 +135,7 @@ export const RegisterFormComponent = ({
         required
         handleChange={throttle(handleChange)}
       />
-      <UntypedInput
-        type="number"
+      <NumberInput
         name="age"
         icon={AgeFieldIcon}
         errors={ageError}
@@ -143,15 +143,17 @@ export const RegisterFormComponent = ({
         label={i18n.t('common.form.age_label')}
         required={false}
         handleChange={throttle(handleChange)}
+        min={13}
+        max={120}
       />
-      <UntypedInput
-        type="number"
+      <NumberInput
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
         label={i18n.t('common.form.postalcode_label')}
         required={false}
         handleChange={throttle(handleChange)}
+        max={99999}
       />
       <UntypedInput
         type="text"

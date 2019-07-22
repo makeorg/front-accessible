@@ -19,6 +19,7 @@ import {
   type UserInformationForm,
   type UserInformationFormErrors,
 } from 'Shared/types/user';
+import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 
 type Props = {
   values: UserInformationForm,
@@ -57,14 +58,15 @@ export const UpdateInformationsComponent = ({
             {errors.firstName}
           </ErrorMessageStyle>
         )}
-        <UntypedInput
-          type="number"
+        <NumberInput
           name="age"
           icon={AgeFieldIcon}
           value={values.age}
           label={i18n.t('common.form.age_label')}
           required={false}
           handleChange={handleChange}
+          min={13}
+          max={120}
         />
         {errors.age && (
           <ErrorMessageStyle id="update-information-age-error">
@@ -85,14 +87,14 @@ export const UpdateInformationsComponent = ({
             {errors.profession}
           </ErrorMessageStyle>
         )}
-        <UntypedInput
-          type="number"
+        <NumberInput
           name="postalCode"
           icon={PostalCodeFieldIcon}
           value={values.postalCode}
           label={i18n.t('common.form.postalcode_label')}
           required={false}
           handleChange={handleChange}
+          max={99999}
         />
         {errors.postalCode && (
           <ErrorMessageStyle id="update-information-postalcode-error">
