@@ -91,7 +91,7 @@ describe('User Service', () => {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
         expect(errors[0].message).toBe(
-          'common.form.email is not a valid email'
+          'common.form.email_is_not_a_valid_email'
         );
         expect(errors[0].field).toBe('email');
       }
@@ -105,8 +105,8 @@ describe('User Service', () => {
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
-        expect(errors[0].message).toBe('common.form.api_error');
-        expect(errors[0].field).toBe('global');
+        expect(errors[0].message).toBe('common.form.notok');
+        expect(errors[0].field).toBe('email');
       }
     });
 
@@ -153,13 +153,13 @@ describe('User Service', () => {
     it('return a global error if error message is not referenced', async () => {
       jest.spyOn(UserApiService, 'register');
       UserApiService.register.mockRejectedValue([
-        { field: 'email', message: 'unknow error message' },
+        { field: 'email', message: 'Api error' },
       ]);
       try {
         await register(johnData);
       } catch (errors) {
         expect(errors[0].message).toBe('common.form.api_error');
-        expect(errors[0].field).toBe('global');
+        expect(errors[0].field).toBe('email');
       }
     });
 

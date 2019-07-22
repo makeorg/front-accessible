@@ -1,5 +1,5 @@
 // @flow
-
+import { i18n } from 'Shared/i18n';
 import * as validationHelper from './validation';
 
 describe('Validation Helper', () => {
@@ -9,9 +9,30 @@ describe('Validation Helper', () => {
         age: 20,
       };
       const expectedErrors = [
-        { field: 'email', message: 'common.form.required_field' },
-        { field: 'password', message: 'common.form.required_field' },
-        { field: 'firstname', message: 'common.form.required_field' },
+        {
+          field: 'email',
+          message: i18n.t('common.form.dynamic_required_field', {
+            name: `<a href="#firstname">${i18n.t(
+              'common.form.email_label'
+            )}</a>`,
+          }),
+        },
+        {
+          field: 'password',
+          message: i18n.t('common.form.dynamic_required_field', {
+            name: `<a href="#firstname">${i18n.t(
+              'common.form.password_label'
+            )}</a>`,
+          }),
+        },
+        {
+          field: 'firstname',
+          message: i18n.t('common.form.dynamic_required_field', {
+            name: `<a href="#firstname">${i18n.t(
+              'common.form.firstname_label'
+            )}</a>`,
+          }),
+        },
       ];
       const errors = validationHelper.validateRegisterForm(user);
       expect(errors).toEqual(expectedErrors);

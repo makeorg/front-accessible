@@ -5,13 +5,14 @@ import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import { mapErrors } from 'Shared/services/ApiErrors';
-import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type TypeRegisterFormData } from 'Shared/types/form';
 import {
   type TypeErrorObject,
   type ErrorMapping as TypeErrorMapping,
 } from 'Shared/types/api';
 
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { i18n } from 'Shared/i18n';
 
 export const update = async (userInformation: UserInformationForm) => {
   return UserApiService.update({
@@ -64,7 +65,7 @@ export const forgotPassword = (email: string) => {
         {
           field: 'email',
           apiMessage: 'email is not a valid email',
-          message: 'common.form.email is not a valid email',
+          message: 'common.form.email_is_not_a_valid_email',
         },
       ];
       const notExistError: TypeErrorObject = {
@@ -96,17 +97,22 @@ export const register = (user: TypeRegisterFormData) => {
         {
           field: 'email',
           apiMessage: /Email\s(.+)\salready exist/,
-          message: 'common.form.email_already_exist',
+          message: i18n.t('common.form.email_already_exist'),
+        },
+        {
+          field: 'email',
+          apiMessage: 'Email is not a valid email',
+          message: i18n.t('common.form.email_is_not_a_valid_email'),
         },
         {
           field: 'password',
           apiMessage: 'Password must be at least 8 characters',
-          message: 'common.form.Password must be at least 8 characters',
+          message: i18n.t('common.form.password_must_be_at_least_8_characters'),
         },
         {
-          field: 'any',
-          apiMessage: 'required_field',
-          message: 'common.form.required_field',
+          field: 'firstname',
+          apiMessage: 'FirstName is mandatory',
+          message: i18n.t('common.form.firstname_is_mandatory'),
         },
       ];
 
