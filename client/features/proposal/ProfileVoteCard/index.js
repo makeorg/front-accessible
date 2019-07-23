@@ -19,6 +19,7 @@ import {
   ProposalCardStyle,
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -79,13 +80,15 @@ export const ProfileVoteCard = ({
 
       <ProfileVoteCardStyle>
         <ProposalCardStyle as="div">
-          <ProposalAuthorElement
-            author={author}
-            country={proposal.country}
-            language={proposal.language}
-            createdAt={proposal.createdAt}
-            withAvatar
-          />
+          <AuthorWrapperStyle>
+            <ProposalAuthorElement
+              author={author}
+              country={proposal.country}
+              language={proposal.language}
+              createdAt={proposal.createdAt}
+              withAvatar
+            />
+          </AuthorWrapperStyle>
           <ProposalStyle
             id={`proposal_content_${position}`}
             href={getProposalLink(

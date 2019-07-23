@@ -12,6 +12,7 @@ import {
 } from 'Client/ui/Elements/ProposalCardElements';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { isInProgress } from 'Shared/helpers/date';
+import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -42,13 +43,15 @@ export const ProposalCardWithQuestion = (props: Props) => {
       aria-posinset={position}
       aria-setsize={size}
     >
-      <ProposalAuthorElement
-        author={author}
-        country={proposal.country}
-        language={proposal.language}
-        createdAt={proposal.createdAt}
-        withAvatar
-      />
+      <AuthorWrapperStyle>
+        <ProposalAuthorElement
+          author={author}
+          country={proposal.country}
+          language={proposal.language}
+          createdAt={proposal.createdAt}
+          withAvatar
+        />
+      </AuthorWrapperStyle>
       <ProposalStyle href={proposalLink}>{proposal.content}</ProposalStyle>
       {canVote ? (
         <Vote
