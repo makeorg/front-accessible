@@ -116,7 +116,7 @@ describe('User Service', () => {
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
-        expect(errors[0].message).toBe('forgot_password.email_doesnot_exist');
+        expect(errors[0].message).toBe('common.form.email_doesnot_exist');
         expect(errors[0].field).toBe('email');
       }
     });

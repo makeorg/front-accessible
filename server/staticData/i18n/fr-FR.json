@@ -56,6 +56,7 @@
       "requirements": "Tous les champs sont obligatoires sauf indication contraire.",
       "email_is_not_a_valid_email":  "Veuillez respecter le format <a href=\"#email\">email</a>.",
       "email_already_exist": "Cet <a href=\"#email\">email</a> existe déjà.",
+      "email_doesnot_exist": "Cet <a href=\"#email\">email</a> n'est pas associé à votre compte, merci de bien vouloir saisir votre email à nouveau.",
       "password_must_be_at_least_8_characters": "Votre <a href=\"#password\">mot de passe</a> doit contenir au moins 8 caractères.",
       "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
       "required_field": "Veuillez renseigner ce champs.",

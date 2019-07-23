@@ -46,7 +46,10 @@ describe('Validation Helper', () => {
         age: 10,
       };
       const expectedErrors = [
-        { field: 'age', message: 'common.form.age_limit_error' },
+        {
+          field: 'age',
+          message: 'common.form.invalid_date_age_must_be_between_13_and_120',
+        },
       ];
       const errors = validationHelper.validateRegisterForm(user);
       expect(errors).toEqual(expectedErrors);

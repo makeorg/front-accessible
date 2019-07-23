@@ -59,7 +59,7 @@ export const UpdateInformationsComponent = ({
           </ErrorMessageStyle>
         )}
         <NumberInput
-          name="dateofbirth"
+          name="age"
           icon={AgeFieldIcon}
           value={values.age}
           label={i18n.t('common.form.age_label')}

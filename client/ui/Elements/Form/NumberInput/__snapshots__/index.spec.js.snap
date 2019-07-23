@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`NumberInput must return the diff between snapshot when input is required or optionnal 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -11,11 +11,11 @@
+        id="bar"
+        max={100000}
+        min={0}
+        name="bar"
+        onChange={[Function handleChange]}
+-       required={true}
++       required={false}
+        type="number"
+        value="baz"
+      />
+      <FloatingLabelStyle
+        htmlFor="bar"
+`;
+
 exports[`UntypedInput must return the diff between snapshot when input is required or optionnal 1`] = `
 Snapshot Diff:
 - First value

@@ -1,49 +1,58 @@
 // @flow
-import * as React from 'react';
+import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
+import * as UserService from 'Shared/services/User';
 import { type TypeErrorObject } from 'Shared/types/api';
-import {
-  ErrorMessageStyle,
-  FormErrorsListStyle,
-  FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled/Errors';
-import { fieldErrors } from 'Shared/helpers/form';
+import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
 import { EmailFieldIcon, SubmitPaperPlaneIcon } from 'Shared/constants/icons';
-import { ForgotPasswordFormStyle } from '../Styled';
-
-type Props = {
-  /** User email value */
-  email: string,
-  /** Array with form errors */
-  errors: TypeErrorObject[],
-  /** Method called when field's value changes */
-  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
-};
+import { FormErrors } from 'Client/ui/Elements/Form/Errors';
+import { ForgotPasswordFormStyle, ForgotPasswordTitleStyle } from '../Styled';
 
 /**
  * Renders ForgotPassword Form
  */
-export const ForgotPasswordFormComponent = (props: Props) => {
-  const { email, errors, handleChange, handleSubmit } = props;
+export const ForgotPasswordForm = () => {
+  const [email, setEmail] = useState<string>('');
+  const [isSuccess, setSuccess] = useState<oolean>(false);
+  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const emailError = getFieldError('email', errors);
 
-  const emailError = fieldErrors('email', errors);
-  const globalError = fieldErrors('global', errors);
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    if (email.trim() !== '') {
+      try {
+        await UserService.forgotPassword(email.trim());
+        setSuccess(true);
+      } catch (serviceErrors) {
+        setErrors(serviceErrors);
+      }
+    }
+  };
+
+  if (isSuccess) {
+    return (
+      <ForgotPasswordTitleStyle>
+        {i18n.t('forgot_password.success')}
+      </ForgotPasswordTitleStyle>
+    );
+  }
 
   return (
     <ForgotPasswordFormStyle
       id={FORGOT_PASSWORD_FORMNAME}
       onSubmit={handleSubmit}
     >
-      {globalError && (
-        <FormErrorsListStyle id="authentification-forgotpassword-error">
-          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-        </FormErrorsListStyle>
-      )}
+      <ForgotPasswordTitleStyle>
+        {i18n.t('forgot_password.description')}
+      </ForgotPasswordTitleStyle>
+      <FormErrors errors={errors} />
       <UntypedInput
         type="email"
         name="email"
@@ -52,12 +61,8 @@ export const ForgotPasswordFormComponent = (props: Props) => {
         label={i18n.t('common.form.email_label')}
         required
         handleChange={handleChange}
+        errors={emailError}
       />
-      {emailError && (
-        <ErrorMessageStyle id="authentification-email-error">
-          {emailError}
-        </ErrorMessageStyle>
-      )}
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}
         icon={SubmitPaperPlaneIcon}

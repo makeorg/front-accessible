@@ -61,30 +61,35 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
-      const errorMessageMapping: TypeErrorMapping[] = [
+      const errorsMapping: TypeErrorMapping[] = [
         {
           field: 'email',
-          apiMessage: 'email is not a valid email',
-          message: 'common.form.email_is_not_a_valid_email',
+          apiMessage: 'Email is not a valid email',
+          message: i18n.t('common.form.email_is_not_a_valid_email'),
+        },
+        {
+          field: 'email',
+          apiMessage: 'Error: 404',
+          message: i18n.t('common.form.email_doesnot_exist'),
         },
       ];
       const notExistError: TypeErrorObject = {
         field: 'email',
-        message: 'forgot_password.email_doesnot_exist',
+        message: i18n.t('common.form.email_doesnot_exist'),
       };
       const unexpectedError: TypeErrorObject = {
         field: 'global',
-        message: 'common.form.api_error',
+        message: i18n.t('common.form.api_error'),
       };
 
       switch (true) {
-        case errors === 404:
+        case errors === 404 || errors.toString() === 'Error: 404':
           throw Array(notExistError);
         case !Array.isArray(errors):
           Logger.logError(`Unexpected error (array expected): ${errors}`);
           throw Array(unexpectedError);
         default:
-          throw mapErrors(errorMessageMapping, errors);
+          throw mapErrors(errorsMapping, errors);
       }
     });
 };
@@ -125,7 +130,7 @@ export const register = (user: TypeRegisterFormData) => {
 
       const unexpectedError: TypeErrorObject = {
         field: 'global',
-        message: 'common.form.api_error',
+        message: i18n.t('common.form.api_error'),
       };
 
       switch (true) {
