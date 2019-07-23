@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PasswordInput must match the snapshot with default Props 1`] = `
+<MiddleFakeFieldStyle
+  hasError={false}
+>
+  <CenterInputIconStyle>
+    SvgLock
+  </CenterInputIconStyle>
+  <FieldWrapperStyle>
+    <BasicInputStyle
+      id="bar"
+      minLength={8}
+      name="bar"
+      onChange={[Function]}
+      required={true}
+      type="password"
+      value="baz"
+    />
+    <FloatingLabelStyle
+      htmlFor="bar"
+    >
+      qux
+    </FloatingLabelStyle>
+  </FieldWrapperStyle>
+  <PasswordButton
+    isPasswordDisplayed={false}
+    toggleIsPasswordDisplayed={[Function]}
+  />
+</MiddleFakeFieldStyle>
+`;
+
+exports[`PasswordInput must return the diff between snapshot when password is displayed vs hidden 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`PasswordInput must return the diff between snapshot when password is required or optionnal 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;

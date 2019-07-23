@@ -17,24 +17,27 @@ type Props = {
   icon?: IconDefinition,
 };
 
-export class SubmitButton extends React.Component<Props> {
-  static defaultProps = {
-    id: undefined,
-    disabled: false,
-  };
+export const SubmitButton = ({
+  formName,
+  icon,
+  id,
+  label,
+  disabled,
+}: Props) => {
+  return (
+    <ActiveButtonStyle
+      type="submit"
+      form={formName}
+      id={id}
+      disabled={disabled}
+    >
+      {icon && <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>}
+      {label}
+    </ActiveButtonStyle>
+  );
+};
 
-  render() {
-    const { formName, icon, id, label, disabled } = this.props;
-    return (
-      <ActiveButtonStyle
-        type="submit"
-        form={formName}
-        id={id}
-        disabled={disabled}
-      >
-        {icon && <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>}
-        {label}
-      </ActiveButtonStyle>
-    );
-  }
-}
+SubmitButton.defaultProps = {
+  id: undefined,
+  disabled: false,
+};

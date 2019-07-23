@@ -1,4 +1,5 @@
 /* @flow */
+import { type TypeErrorObject } from 'Shared/types/api';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 
@@ -30,7 +31,7 @@ export type StateNotification = $ReadOnly<{
 // Authentification State
 export type StateAuthentification = $ReadOnly<{
   isLoggedIn: boolean,
-  errors: [],
+  errors: TypeErrorObject[],
   user?: {
     userId: string,
   },

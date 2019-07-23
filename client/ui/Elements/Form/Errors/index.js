@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useRef, useLayoutEffect } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
@@ -7,29 +7,36 @@ import {
   FormErrorsContainerStyle,
   FormErrorsIntroStyle,
   FormErrorsListItemStyle,
-} from '../Styled';
+} from '../Styled/Errors';
 
 type Props = {
   errors: TypeErrorObject[],
 };
 
-export const FormErrors = (props: Props) => {
-  const { errors } = props;
+export const FormErrors = ({ errors }: Props) => {
+  const formRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (formRef.current) {
+      formRef.current.focus();
+    }
+  }, [errors]);
 
   if (!errors || !errors.length) {
     return null;
   }
 
   return (
-    <FormErrorsContainerStyle>
+    <FormErrorsContainerStyle ref={formRef} tabIndex={0}>
       <FormErrorsIntroStyle>
         {i18n.t('common.form.errors_notification')}
       </FormErrorsIntroStyle>
       <UnstyledListStyle>
         {errors.map(error => (
-          <FormErrorsListItemStyle key={error.field}>
-            {error.message}
-          </FormErrorsListItemStyle>
+          <FormErrorsListItemStyle
+            key={error.field}
+            dangerouslySetInnerHTML={{ __html: error.message }}
+          />
         ))}
       </UnstyledListStyle>
     </FormErrorsContainerStyle>

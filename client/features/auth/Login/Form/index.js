@@ -1,54 +1,64 @@
 // @flow
-import * as React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import { login } from 'Shared/store/actions/authentification';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type TypeErrorObject } from 'Shared/types/api';
 import {
-  ErrorMessageStyle,
-  FormErrorsListStyle,
-  FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled/Errors';
-import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import { fieldErrors } from 'Shared/helpers/form';
+  FormStyle,
+  FormRequirementsStyle,
+} from 'Client/ui/Elements/Form/Styled/Content';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { LOGIN_FORMNAME } from 'Shared/constants/form';
+import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import {
   EmailFieldIcon,
   PasswordFieldIcon,
   SubmitThumbsUpIcon,
 } from 'Shared/constants/icons';
+import { throttle } from 'Shared/helpers/throttle';
+import { getFieldError } from 'Shared/helpers/form';
 
 type Props = {
-  /** User's email */
-  email: string,
-  /** User's password */
-  password: string,
   /** Array with form errors */
   errors: TypeErrorObject[],
-  /** Method called when field's value changes */
-  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  /** Method called when login form is submit */
+  handleLogin: (string, string) => void,
 };
 
-/**
- * Renders Login Form
- */
-export const LoginFormComponent = (props: Props) => {
-  const { email, password, errors, handleChange, handleSubmit } = props;
+export const LoginFormComponent = ({ errors, handleLogin }: Props) => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const globalError = getFieldError('email', errors);
 
-  const emailError = errors.find(error => error.field === 'email');
-  const passwordError = fieldErrors('password', errors);
-  const globalError = fieldErrors('global', errors);
+  const handleChange = event => {
+    const { id, value } = event.target;
+
+    if (id === 'email') {
+      setEmail(value);
+    }
+
+    if (id === 'password') {
+      setPassword(value);
+    }
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (email && password) {
+      handleLogin(email, password);
+    }
+  };
 
   return (
-    <FormStyle id={LOGIN_FORMNAME} onSubmit={handleSubmit}>
-      {globalError && (
-        <FormErrorsListStyle id="authentification-login-error">
-          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-        </FormErrorsListStyle>
-      )}
+    <FormStyle id={LOGIN_FORMNAME} onSubmit={throttle(handleSubmit)}>
+      <FormRequirementsStyle>
+        {i18n.t('common.form.requirements')}
+      </FormRequirementsStyle>
+      <FormErrors errors={errors} />
       <UntypedInput
         type="email"
         name="email"
@@ -56,28 +66,18 @@ export const LoginFormComponent = (props: Props) => {
         value={email}
         label={i18n.t('common.form.email_label')}
         required
-        errors={emailError}
-        handleChange={handleChange}
+        errors={globalError}
+        handleChange={throttle(handleChange)}
       />
-      {emailError && (
-        <ErrorMessageStyle id="authentification-email-error">
-          {emailError.message}
-        </ErrorMessageStyle>
-      )}
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
         value={password}
         label={i18n.t('common.form.password_label')}
         required
-        errors={passwordError}
-        handleChange={handleChange}
+        errors={globalError}
+        handleChange={throttle(handleChange)}
       />
-      {passwordError && (
-        <ErrorMessageStyle id="authentification-password-error">
-          {passwordError}
-        </ErrorMessageStyle>
-      )}
       <SubmitButton
         formName={LOGIN_FORMNAME}
         icon={SubmitThumbsUpIcon}
@@ -87,3 +87,20 @@ export const LoginFormComponent = (props: Props) => {
     </FormStyle>
   );
 };
+
+const mapStateToProps = state => {
+  const { errors } = selectAuthentification(state);
+
+  return { errors };
+};
+
+const mapDispatchToProps = dispatch => ({
+  handleLogin: (email, password) => {
+    dispatch(login(email, password));
+  },
+});
+
+export const LoginForm = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginFormComponent);

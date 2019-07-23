@@ -5,14 +5,9 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -8,15 +8,15 @@
-    </CenterInputIconStyle>
-    <div
-      className="sc-1ln9y8s-4 gXgjdc"
-    >
+@@ -9,11 +9,11 @@
+    <FieldWrapperStyle>
       <BasicInputStyle
--       aria-required={true}
-+       aria-required={false}
         id="bar"
         name="bar"
         onChange={[Function handleChange]}
@@ -21,6 +16,6 @@ Snapshot Diff:
         type="foo"
         value="baz"
       />
-      <label
-        className="sc-1ln9y8s-9 kMUtp"
+      <FloatingLabelStyle
+        htmlFor="bar"
 `;

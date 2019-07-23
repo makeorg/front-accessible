@@ -7,7 +7,7 @@ import {
   FormErrorsListStyle,
   FormErrorStyle,
 } from 'Client/ui/Elements/Form/Styled/Errors';
-import { fieldErrors } from 'Shared/helpers/form';
+import { fieldErrors, getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
@@ -31,7 +31,7 @@ type Props = {
 export const ForgotPasswordFormComponent = (props: Props) => {
   const { email, errors, handleChange, handleSubmit } = props;
 
-  const emailError = fieldErrors('email', errors);
+  const emailError = getFieldError('email', errors);
   const globalError = fieldErrors('global', errors);
 
   return (

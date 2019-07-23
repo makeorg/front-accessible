@@ -30,12 +30,12 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
 .c0:disabled svg {
-  fill: rgb(102,102,102);
+  fill: rgb(74,74,74);
 }
 
 @media (min-width:767px) {
@@ -235,12 +235,12 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
 .c0:disabled svg {
-  fill: rgb(102,102,102);
+  fill: rgb(74,74,74);
 }
 
 .c0 svg {
@@ -305,12 +305,12 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
 .c0:disabled svg {
-  fill: rgb(102,102,102);
+  fill: rgb(74,74,74);
 }
 
 .c0 svg {
@@ -370,12 +370,12 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
 .c0:disabled svg {
-  fill: rgb(102,102,102);
+  fill: rgb(74,74,74);
 }
 
 .c0 svg {
@@ -426,7 +426,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   border-radius: 30px;
   text-transform: uppercase;
   padding: 10px 15px;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
 
@@ -436,7 +436,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 
 .c0:hover,
 .c0:focus {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
 }
 
 @media (min-width:767px) {
@@ -562,7 +562,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   border-radius: 30px;
   text-transform: uppercase;
   padding: 10px 15px;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   background-color: rgb(229,229,229);
   padding: 5px 15px;
 }
@@ -573,7 +573,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 
 .c0:hover,
 .c0:focus {
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
 }
 
 @media (min-width:767px) {

@@ -15,8 +15,8 @@ Snapshot Diff:
     />
     <CheckboxLabelStyle
       htmlFor="foo"
-      onClick={[Function anonymous]}
-      onKeyPress={[Function anonymous]}
+      onClick={[Function onClick]}
+      onKeyPress={[Function onKeyPress]}
 `;
 
 exports[`CheckBox must return the diff between snapshot when checkbox is required or optionnal 1`] = `
@@ -36,5 +36,5 @@ Snapshot Diff:
     />
     <CheckboxLabelStyle
       htmlFor="foo"
-      onClick={[Function anonymous]}
+      onClick={[Function onClick]}
 `;

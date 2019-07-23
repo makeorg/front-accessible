@@ -29,7 +29,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
 .c8 {
   font-size: 12px;
   line-height: 22px;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
 }
 
 .c0 {
@@ -69,13 +69,13 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
 
 .c4 {
   font-size: 12px;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   margin: 3px 0;
 }
 
 .c3 {
   font-size: 12px;
-  color: rgb(102,102,102);
+  color: rgb(74,74,74);
   margin: 3px 0;
   font-size: 14px;
   font-family: 'Roboto Bold',Arial,sans-serif;

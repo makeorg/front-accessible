@@ -53,6 +53,7 @@
       "hide_password": "Masquer le mot de passe",
       "show_password": "Afficher le mot de passe",
       "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
+      "requirements": "Tous les champs sont obligatoires sauf indication contraire.",
       "email is not a valid email": "Format d'email non reconnu",
       "Password must be at least 8 characters": "Votre mot de passe doit contenir au moins 8 caractères.",
       "email_already_exist": "Cet email existe déjà.",
@@ -222,7 +223,7 @@
     "forgot_password_link": "oublié mon mot de passe ?",
     "registration_title": "Je n’ai pas de compte,",
     "registration_link": "je m’en crée un.",
-    "email_doesnot_exist": "Votre email ou votre mot de passe est incorrect."
+    "email_doesnot_exist": "Votre <a href=\"#email\">email</a> ou <a href=\"#password\">votre mot de passe</a> est incorrect."
   },
   "register": {
     "title": "Créer un compte",

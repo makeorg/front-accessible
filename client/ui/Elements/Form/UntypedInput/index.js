@@ -1,5 +1,7 @@
-import * as React from 'react';
+// @flow
+import React, { useRef } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
+import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -14,53 +16,46 @@ type Props = {
   /** Name of the input */
   name: string,
   /** Icon of the input */
-  icon: IconDefinition,
+  icon: HTMLElement,
   /** Value of the input */
   value: string,
   /** Label of the input */
   label: string,
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Array containing form errors */
-  errors?: TypeErrorObject[],
+  /** Object containing field errors */
+  errors?: TypeErrorObject,
   /** Is input required or optional */
   required?: boolean,
 };
 
-export class UntypedInput extends React.Component<Props> {
-  static defaultProps = {
-    required: false,
-    errors: undefined,
-  };
-
-  render() {
-    const {
-      type,
-      name,
-      icon,
-      errors,
-      value,
-      label,
-      required,
-      handleChange,
-    } = this.props;
-
-    return (
-      <MiddleFakeFieldStyle hasError={errors} className={errors ? 'error' : ''}>
-        <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
-        <FieldWrapperStyle>
-          <BasicInputStyle
-            type={type}
-            name={name}
-            id={name}
-            value={value}
-            aria-required={required}
-            required={required}
-            onChange={handleChange}
-          />
-          <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
-        </FieldWrapperStyle>
-      </MiddleFakeFieldStyle>
-    );
-  }
-}
+export const UntypedInput = ({
+  type,
+  name,
+  icon,
+  value,
+  label,
+  handleChange,
+  errors = { field: '', message: '' },
+  required = false,
+}: Props) => {
+  const inputRef = useRef(null);
+  const isFieldValid = useIsFieldValid(inputRef, errors);
+  return (
+    <MiddleFakeFieldStyle hasError={!isFieldValid}>
+      <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>
+      <FieldWrapperStyle>
+        <BasicInputStyle
+          ref={inputRef}
+          type={type}
+          name={name}
+          id={name}
+          value={value}
+          required={required}
+          onChange={handleChange}
+        />
+        <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
+      </FieldWrapperStyle>
+    </MiddleFakeFieldStyle>
+  );
+};

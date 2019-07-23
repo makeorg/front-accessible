@@ -38,7 +38,6 @@ export const PasswordRecoveryFormComponent = (props: Props) => {
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
-        errors={error}
         value={password}
         label={i18n.t('common.form.password_label')}
         handleChange={handleChange}
