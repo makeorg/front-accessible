@@ -112,7 +112,7 @@ describe('User Service', () => {
 
     it('return a 404', async () => {
       jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue(404);
+      UserApiService.forgotPassword.mockRejectedValue('Error: 404');
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {

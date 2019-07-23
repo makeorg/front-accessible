@@ -16,7 +16,7 @@ import { ForgotPasswordFormStyle, ForgotPasswordTitleStyle } from '../Styled';
  */
 export const ForgotPasswordForm = () => {
   const [email, setEmail] = useState<string>('');
-  const [isSuccess, setSuccess] = useState<oolean>(false);
+  const [isSuccess, setSuccess] = useState<boolean>(false);
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
   const emailError = getFieldError('email', errors);
 

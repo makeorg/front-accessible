@@ -83,7 +83,7 @@ export const forgotPassword = (email: string) => {
       };
 
       switch (true) {
-        case errors === 404 || errors.toString() === 'Error: 404':
+        case errors.toString() === 'Error: 404':
           throw Array(notExistError);
         case !Array.isArray(errors):
           Logger.logError(`Unexpected error (array expected): ${errors}`);

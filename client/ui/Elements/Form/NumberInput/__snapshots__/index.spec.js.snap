@@ -19,23 +19,3 @@ Snapshot Diff:
       <FloatingLabelStyle
         htmlFor="bar"
 `;
-
-exports[`UntypedInput must return the diff between snapshot when input is required or optionnal 1`] = `
-Snapshot Diff:
-- First value
-+ Second value
-
-@@ -9,11 +9,11 @@
-    <FieldWrapperStyle>
-      <BasicInputStyle
-        id="bar"
-        name="bar"
-        onChange={[Function handleChange]}
--       required={true}
-+       required={false}
-        type="foo"
-        value="baz"
-      />
-      <FloatingLabelStyle
-        htmlFor="bar"
-`;

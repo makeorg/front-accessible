@@ -29,7 +29,7 @@ export const passwordRecovery = (newPassword: string) => (
   if (newPassword.length < 8) {
     return dispatch(
       passwordRecoveryFailure(
-        i18n.t('common.form.Password must be at least 8 characters')
+        i18n.t('common.form.password_must_be_at_least_8_characters')
       )
     );
   }
