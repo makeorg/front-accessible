@@ -23,7 +23,7 @@ class NumberInputExample extends React.Component {
   render() {
     return (
       <NumberInput
-        name="age"
+        name="dateofbirth"
         icon={<SvgChild />}
         value={this.state.value}
         label="placeholder"

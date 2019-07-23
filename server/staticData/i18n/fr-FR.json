@@ -60,7 +60,7 @@
       "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
       "required_field": "Veuillez renseigner ce champs.",
       "dynamic_required_field": "Le champ {{name}} est obligatoire.",
-      "age_limit_error": "<a href=\"#age\">Age :</a> Nos utilisateurs doivent avoir entre 13 et 120 ans.",
+      "invalid_date_age_must_be_between_13_and_120": "<a href=\"#age\">Age :</a> Nos utilisateurs doivent avoir entre 13 et 120 ans.",
       "postal_code_error": "Le code postal doit être composé de 5 chiffres",
       "the_field_[email]_is_missing": "Le champ <a href=\"#email\">email</a> est obligatoire.",
       "the_field_[password]_is_missing": "Le champ <a href=\"#password\">mot de passe</a> est obligatoire.",

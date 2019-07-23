@@ -114,6 +114,13 @@ export const register = (user: TypeRegisterFormData) => {
           apiMessage: 'FirstName is mandatory',
           message: i18n.t('common.form.firstname_is_mandatory'),
         },
+        {
+          field: 'dateofbirth',
+          apiMessage: 'Invalid date: age must be between 13 and 120"',
+          message: i18n.t(
+            'common.form.invalid_date_age_must_be_between_13_and_120'
+          ),
+        },
       ];
 
       const unexpectedError: TypeErrorObject = {

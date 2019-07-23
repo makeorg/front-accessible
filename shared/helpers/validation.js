@@ -38,8 +38,10 @@ export const validateRegisterForm: TypeErrorObject[] = (
   const userAge = Number.parseInt(user.age, 10);
   if (userAge < 13 || userAge > 119) {
     errors.push({
-      field: 'age',
-      message: i18n.t('common.form.age_limit_error'),
+      field: 'dateofbirth',
+      message: i18n.t(
+        'common.form.invalid_date_age_must_be_between_13_and_120'
+      ),
     });
   }
 

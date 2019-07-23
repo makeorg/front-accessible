@@ -32,6 +32,7 @@ export const mapErrors = (
       const field = apiError.field.toLowerCase();
       const message = apiError.message
         .replace(/\./g, '')
+        .replace(/:/g, '')
         .replace(/ /g, '_')
         .toLowerCase();
 

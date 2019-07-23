@@ -52,7 +52,7 @@ export const RegisterFormComponent = ({
     email: '',
     password: '',
     firstname: '',
-    age: '',
+    dateofbirth: '',
     postalcode: '',
     profession: '',
   });
@@ -102,7 +102,11 @@ export const RegisterFormComponent = ({
   const ageError = getFieldError('age', errors);
 
   return (
-    <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
+    <FormStyle
+      noValidate
+      id={REGISTER_FORMNAME}
+      onSubmit={throttle(handleSubmit)}
+    >
       <FormRequirementsStyle>
         {i18n.t('common.form.requirements')}
       </FormRequirementsStyle>
@@ -136,14 +140,14 @@ export const RegisterFormComponent = ({
         handleChange={throttle(handleChange)}
       />
       <NumberInput
-        name="age"
+        name="dateofbirth"
         icon={AgeFieldIcon}
         errors={ageError}
         value={user.age}
         label={i18n.t('common.form.age_label')}
         required={false}
         handleChange={throttle(handleChange)}
-        min={13}
+        min={1}
         max={120}
       />
       <NumberInput
