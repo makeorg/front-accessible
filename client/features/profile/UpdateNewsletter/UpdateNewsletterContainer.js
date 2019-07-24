@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { type Profile } from 'Shared/types/user';
+import { type TypeProfile } from 'Shared/types/user';
 import * as UserService from 'Shared/services/User';
 import { UpdateNewsletterComponent } from './UpdateNewsletterComponent';
 
 type Props = {
-  profile: Profile,
+  profile: TypeProfile,
 };
 
 type State = {

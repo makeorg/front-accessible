@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as UserService from 'Shared/services/User';
-import { type User as TypeUser } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { DeleteAccountComponent } from './DeleteAccountComponent';
 
 export type TypeDeletePassword = {

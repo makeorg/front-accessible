@@ -101,12 +101,12 @@ const toto: Toto = {
 
 **Good :**
 ```js static
-import { type User as TypeUser } from '/user';
+import { type TypeUser } from '/user';
 ```
 
 **Bad :**
 ```js static
-import { type User } from '/user';
+import { type TypeUser } from '/user';
 ```
 
 

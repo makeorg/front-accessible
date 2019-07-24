@@ -1,6 +1,9 @@
 // @flow
 import { UserApiService } from 'Shared/api/UserApiService';
-import { type UserInformationForm, type Passwords } from 'Shared/types/user';
+import {
+  type TypeUserInformationForm,
+  type Passwords,
+} from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
@@ -14,7 +17,7 @@ import {
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 
-export const update = async (userInformation: UserInformationForm) => {
+export const update = async (userInformation: TypeUserInformationForm) => {
   return UserApiService.update({
     firstName: userInformation.firstName,
     dateOfBirth: getDateOfBirthFromAge(userInformation.age),
@@ -22,7 +25,39 @@ export const update = async (userInformation: UserInformationForm) => {
     profession: userInformation.profession,
     description: userInformation.description,
     optInNewsletter: userInformation.optInNewsletter,
-  });
+  })
+    .then(() => {})
+    .catch(errors => {
+      const errorsMapping: TypeErrorMapping[] = [
+        {
+          field: 'firstname',
+          apiMessage: 'FirstName should not be an empty string',
+          message: i18n.t(
+            'common.form.firstname_should_not_be_an_empty_string'
+          ),
+        },
+        {
+          field: 'dateofbirth',
+          apiMessage: 'Invalid date: age must be between 13 and 120"',
+          message: i18n.t(
+            'common.form.invalid_date_age_must_be_between_13_and_120'
+          ),
+        },
+      ];
+
+      const unexpectedError: TypeErrorObject = {
+        field: 'global',
+        message: i18n.t('common.form.api_error'),
+      };
+
+      switch (true) {
+        case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
+          throw Array(unexpectedError);
+        default:
+          throw mapErrors(errorsMapping, errors);
+      }
+    });
 };
 
 export const updateNewsletter = async (optInNewsletter: boolean) => {

@@ -70,15 +70,9 @@
       "dynamic_required_field": "Le champ {{label}} est obligatoire.",
       "invalid_date_age_must_be_between_13_and_120": "{{label}}: Nos utilisateurs doivent avoir entre 13 et 120 ans.",
       "postal_code_error": "Le code postal doit être composé de 5 chiffres",
-<<<<<<< HEAD
       "the_field_[email]_is_missing": "Le champ {{label}} est obligatoire.",
       "the_field_[password]_is_missing": "Le champ {{label}} est obligatoire.",
       "firstname_is_mandatory": "Le champ {{label}} est obligatoire.",
-=======
-      "the_field_[email]_is_missing": "Le champ <a href=\"#email\">email</a> est obligatoire.",
-      "the_field_[password]_is_missing": "Le champ <a href=\"#password\">mot de passe</a> est obligatoire.",
-      "firstname_is_mandatory": "Le champ <a href=\"#firstname\">prénom</a> est obligatoire.",
->>>>>>> feat(ui): add custom pattern input
       "invalid_postal_code": "Le code postal doit être composé de 5 chiffres."
     },
     "from": "sur",

@@ -1,38 +1,45 @@
 // @flow
-
-type Profile = {
+export type TypeProfile = {
   dateOfBirth: string,
   avatarUrl: string,
   profession: string,
   phoneNumber: string,
   description: string,
+  twitterId: string,
+  facebookId: string,
+  googleId: string,
+  gender: string,
+  genderName: string,
   postalCode: string,
+  karmaLevel: 0,
+  locale: string,
   optInNewsletter: boolean,
   socioProfessionalCategory: string,
+  registerQuestionId: string,
   optInPartner: boolean,
-  country: string,
-  language: string,
-  hasPassword: boolean,
 };
 
-export type User = {
-  country: string,
-  email: string,
-  emailVerified: boolean,
-  enabled: boolean,
-  firstName: string,
-  followedUsers: string[],
-  hasPassword: boolean,
-  isHardBounce: boolean,
-  isOrganisation: boolean,
-  language: string,
-  lastConnection: string,
-  lastMailingError?: string,
-  lastName: string,
-  organisationName?: string,
-  profile: Profile,
-  roles: string[],
+export type TypeUser = {
   userId: string,
+  email: string,
+  firstName: string,
+  lastName: string,
+  organisationName: string,
+  enabled: boolea,
+  emailVerified: boolean,
+  isOrganisation: boolean,
+  lastConnection: string,
+  roles: Array<string>,
+  profile: TypeProfile,
+  country: string,
+  language: string,
+  isHardBounce: boolean,
+  lastMailingError: {
+    error: string,
+    date: string,
+  },
+  hasPassword: boolean,
+  followedUsers: Array<string>,
 };
 
 export type Passwords = {
@@ -45,7 +52,7 @@ export type PasswordsErrors = {
   actualPassword?: string,
 };
 
-export type UserInformationForm = {
+export type TypeUserInformationForm = {
   firstName?: string,
   age?: number,
   profession?: string,

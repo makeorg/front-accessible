@@ -24,30 +24,23 @@ export const useIsFieldValid = (
 
   useEffect(() => {
     let validationStatus = true;
+
+    if (!isInitialErrorEmpty) {
+      validationStatus = false;
+    }
+
     if (!isRefEmpty) {
       validationStatus = inputField.checkValidity();
     }
 
     if (!isRefEmpty && inputField.name === 'postalcode') {
-<<<<<<< HEAD
       if (inputField.validity.patternMismatch) {
         inputField.setCustomValidity(i18n.t('common.form.invalid_postal_code'));
         validationStatus = false;
       } else {
         inputField.setCustomValidity('');
-=======
-      validationStatus = inputField.setCustomValidity(
-        i18n.t('common.form.invalid_postal_code')
-      );
-
-      if (!inputField.validity.patternMismatch) {
->>>>>>> feat(ui): add custom pattern input
         validationStatus = true;
       }
-    }
-
-    if (!isInitialErrorEmpty) {
-      validationStatus = false;
     }
 
     return setFieldValidation(validationStatus);

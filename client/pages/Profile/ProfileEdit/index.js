@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Redirect, type match as TypeMatch } from 'react-router';
-import { type User } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
 import { UpdateNewsletter } from 'Client/features/profile/UpdateNewsletter';
@@ -25,7 +25,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
-  user: User,
+  user: TypeUser,
   handleLogout: () => void,
   match: TypeMatch,
 };
