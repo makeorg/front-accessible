@@ -28,7 +28,11 @@ export const forgotPassword = (email: string) => (dispatch: Function) => {
     .catch(errors => {
       const error: TypeErrorObject = {
         field: 'email',
-        message: i18n.t('login.email_doesnot_exist'),
+        message: i18n.t('common.form.email_doesnot_exist', {
+          label: `<strong for="email">${i18n.t(
+            'common.form.email_label'
+          )}</strong>`,
+        }),
       };
       const errorMessages = errors === 404 ? [error] : errors;
       dispatch(forgotPasswordFailure(errorMessages));

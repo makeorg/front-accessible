@@ -63,7 +63,14 @@ export const login = (email: string, password: string) => (
       dispatch(
         loginFailure({
           field: 'email',
-          message: i18n.t('login.email_doesnot_exist'),
+          message: i18n.t('login.email_doesnot_exist', {
+            emailLabel: `<label for="email">${i18n.t(
+              'common.form.email_label'
+            )}</label>`,
+            passwordLabel: `<label for="password">${i18n.t(
+              'common.form.password_label'
+            )}</label>`,
+          }),
         })
       );
       Tracking.trackLoginEmailFailure();

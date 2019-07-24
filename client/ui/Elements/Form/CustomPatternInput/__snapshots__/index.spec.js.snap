@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomPatternInput must return the diff between snapshot when input is required or optionnal 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -12,11 +12,11 @@
+        maxLength={100000}
+        minLength={0}
+        name="bar"
+        onChange={[Function handleChange]}
+        pattern="[0-9]{5}"
+-       required={true}
++       required={false}
+        type="foo"
+        value="baz"
+      />
+      <FloatingLabelStyle
+        htmlFor="bar"
+`;

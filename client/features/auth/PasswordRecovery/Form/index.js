@@ -6,6 +6,7 @@ import { i18n } from 'Shared/i18n';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PASSWORD_RECOVERY_FORMNAME } from 'Shared/constants/form';
+import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import {
   PasswordFieldIcon,
   SubmitPaperPlaneIcon,
@@ -68,6 +69,9 @@ export const PasswordRecoveryFormComponent = ({
       id={PASSWORD_RECOVERY_FORMNAME}
       onSubmit={throttle(handleSubmit)}
     >
+      <FormRequirementsStyle>
+        {i18n.t('common.form.requirements')}
+      </FormRequirementsStyle>
       <FormErrors errors={errors} />
       <PasswordInput
         name="password"

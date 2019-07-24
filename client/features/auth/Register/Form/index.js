@@ -33,6 +33,7 @@ import {
 } from 'Shared/constants/icons';
 import { throttle } from 'Shared/helpers/throttle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
+import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 
 type Props = {
   /** Method called to close modal */
@@ -140,28 +141,27 @@ export const RegisterFormComponent = ({
         icon={AgeFieldIcon}
         errors={ageError}
         value={user.age}
-        label={i18n.t('common.form.age_label')}
-        required={false}
+        label={i18n.t('common.form.age_label', { context: 'optional' })}
         handleChange={throttle(handleChange)}
         min={1}
         max={120}
       />
-      <NumberInput
+      <CustomPatternInput
+        type="text"
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
-        label={i18n.t('common.form.postalcode_label')}
-        required={false}
+        label={i18n.t('common.form.postalcode_label', { context: 'optional' })}
         handleChange={throttle(handleChange)}
-        max={99999}
+        maxLength={5}
+        pattern="^[0-9]{5}"
       />
       <UntypedInput
         type="text"
         name="profession"
         icon={JobFieldIcon}
         value={user.profession}
-        label={i18n.t('common.form.profession_label')}
-        required={false}
+        label={i18n.t('common.form.profession_label', { context: 'optional' })}
         handleChange={throttle(handleChange)}
       />
       <ConditionParagraphStyle

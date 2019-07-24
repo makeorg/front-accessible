@@ -11,7 +11,7 @@ export const validateRegisterForm: TypeErrorObject[] = (
     errors.push({
       field: 'email',
       message: i18n.t('common.form.dynamic_required_field', {
-        name: `<a href="#firstname">${i18n.t('common.form.email_label')}</a>`,
+        label: `<a href="#firstname">${i18n.t('common.form.email_label')}</a>`,
       }),
     });
   }
@@ -19,7 +19,7 @@ export const validateRegisterForm: TypeErrorObject[] = (
     errors.push({
       field: 'password',
       message: i18n.t('common.form.dynamic_required_field', {
-        name: `<a href="#firstname">${i18n.t(
+        label: `<a href="#firstname">${i18n.t(
           'common.form.password_label'
         )}</a>`,
       }),
@@ -29,7 +29,7 @@ export const validateRegisterForm: TypeErrorObject[] = (
     errors.push({
       field: 'firstname',
       message: i18n.t('common.form.dynamic_required_field', {
-        name: `<a href="#firstname">${i18n.t(
+        label: `<a href="#firstname">${i18n.t(
           'common.form.firstname_label'
         )}</a>`,
       }),
@@ -40,7 +40,10 @@ export const validateRegisterForm: TypeErrorObject[] = (
     errors.push({
       field: 'age',
       message: i18n.t(
-        'common.form.invalid_date_age_must_be_between_13_and_120'
+        'common.form.invalid_date_age_must_be_between_13_and_120',
+        {
+          label: `<a href="#age">${i18n.t('common.form.age_label')}</a>`,
+        }
       ),
     });
   }
