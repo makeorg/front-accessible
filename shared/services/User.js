@@ -77,7 +77,30 @@ export const updatePassword = async (
       : undefined;
   const { newPassword } = passwords;
 
-  return UserApiService.updatePassword(userId, actualPassword, newPassword);
+  return UserApiService.updatePassword(userId, actualPassword, newPassword)
+    .then(() => {})
+    .catch(errors => {
+      const errorsMapping: TypeErrorMapping[] = [
+        {
+          field: 'newPassword',
+          apiMessage: 'Password must be at least 8 characters',
+          message: i18n.t('common.form.password_must_be_at_least_8_characters'),
+        },
+      ];
+
+      const unexpectedError: TypeErrorObject = {
+        field: 'global',
+        message: i18n.t('common.form.api_error'),
+      };
+
+      switch (true) {
+        case !Array.isArray(errors):
+          Logger.logError(`Unexpected error (array expected): ${errors}`);
+          throw Array(unexpectedError);
+        default:
+          throw mapErrors(errorsMapping, errors);
+      }
+    });
 };
 
 export const deleteAccount = async (userId: string, password: string) => {
