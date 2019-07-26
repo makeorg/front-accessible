@@ -28,6 +28,8 @@ type CurrentConsultationArticleDesktopProps = {
   linkText: string,
   linkObject: TypeLinkObject,
   children: React.Node,
+  country: string,
+  language: string,
 };
 
 export const CurrentConsultationArticleDesktop = ({
@@ -37,6 +39,8 @@ export const CurrentConsultationArticleDesktop = ({
   linkObject,
   proposalsNumber,
   children,
+  country,
+  language,
 }: CurrentConsultationArticleDesktopProps) => {
   const [isOverlayDisplayed, setDisplayOverlay] = React.useState(false);
   return (
@@ -55,7 +59,9 @@ export const CurrentConsultationArticleDesktop = ({
         onBlur={() => setDisplayOverlay(false)}
       />
       <ProposalsCountWrapperStyle>
-        <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
+        <ProposalsNumber>
+          {proposalsNumber.toLocaleString(`${language}-${country}`)}
+        </ProposalsNumber>
         <React.Fragment>
           {' '}
           {i18n.t('homepage.current_consultations.proposal', {
@@ -92,6 +98,8 @@ type CurrentConsultationArticleMobileProps = {
   title: string,
   proposalsNumber: number,
   linkObject: TypeLinkObject,
+  country: string,
+  language: string,
 };
 
 export const CurrentConsultationArticleMobile = ({
@@ -99,6 +107,8 @@ export const CurrentConsultationArticleMobile = ({
   title,
   proposalsNumber,
   linkObject,
+  country,
+  language,
 }: CurrentConsultationArticleMobileProps) => {
   return (
     <CurrentConsultationArticleStyle>
@@ -109,7 +119,9 @@ export const CurrentConsultationArticleMobile = ({
         />
       </a>
       <ProposalsCountWrapperStyle>
-        <ProposalsNumber>{proposalsNumber.toLocaleString()}</ProposalsNumber>
+        <ProposalsNumber>
+          {proposalsNumber.toLocaleString(`${language}-${country}`)}
+        </ProposalsNumber>
         <React.Fragment>
           {' '}
           {i18n.t('homepage.current_consultations.proposal', {
