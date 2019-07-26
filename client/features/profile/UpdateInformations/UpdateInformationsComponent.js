@@ -19,6 +19,7 @@ import {
   type UserInformationForm,
   type UserInformationFormErrors,
 } from 'Shared/types/user';
+import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 
 type Props = {
   values: UserInformationForm,
@@ -57,14 +58,15 @@ export const UpdateInformationsComponent = ({
             {errors.firstName}
           </ErrorMessageStyle>
         )}
-        <UntypedInput
-          type="number"
+        <NumberInput
           name="age"
           icon={AgeFieldIcon}
           value={values.age}
-          label={i18n.t('common.form.age_label')}
+          label={i18n.t('common.form.age_label', { context: 'optional' })}
           required={false}
           handleChange={handleChange}
+          min={13}
+          max={120}
         />
         {errors.age && (
           <ErrorMessageStyle id="update-information-age-error">
@@ -76,7 +78,9 @@ export const UpdateInformationsComponent = ({
           name="profession"
           icon={JobFieldIcon}
           value={values.profession}
-          label={i18n.t('common.form.profession_label')}
+          label={i18n.t('common.form.profession_label', {
+            context: 'optional',
+          })}
           required={false}
           handleChange={handleChange}
         />
@@ -85,14 +89,16 @@ export const UpdateInformationsComponent = ({
             {errors.profession}
           </ErrorMessageStyle>
         )}
-        <UntypedInput
-          type="number"
+        <NumberInput
           name="postalCode"
           icon={PostalCodeFieldIcon}
           value={values.postalCode}
-          label={i18n.t('common.form.postalcode_label')}
+          label={i18n.t('common.form.postalcode_label', {
+            context: 'optional',
+          })}
           required={false}
           handleChange={handleChange}
+          max={99999}
         />
         {errors.postalCode && (
           <ErrorMessageStyle id="update-information-postalcode-error">
@@ -103,7 +109,7 @@ export const UpdateInformationsComponent = ({
           name="description"
           icon={DescriptionFieldIcon}
           value={values.description}
-          label={i18n.t('common.form.biography_label')}
+          label={i18n.t('common.form.biography_label', { context: 'optional' })}
           errors={errors.description}
           required={false}
           maxLength={450}

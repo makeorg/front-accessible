@@ -4,6 +4,7 @@ import {
   type TypeErrorObject,
   type ErrorMapping as TypeErrorMapping,
 } from 'Shared/types/api';
+import { i18n } from 'Shared/i18n';
 
 /**
  * Map errors from API to internal error message
@@ -28,26 +29,31 @@ export const mapErrors = (
 
   const errorsMapped: TypeErrorObject[] = errors.map(
     (apiError: TypeErrorObject) => {
+      const field = apiError.field.toLowerCase();
+      const message = apiError.message
+        .replace(/\./g, '')
+        .replace(/:/g, '')
+        .replace(/ /g, '_')
+        .toLowerCase();
+
       const errorMatch = errorsMapping.find(
         (errorMapping: TypeErrorMapping) =>
-          fieldMatch(apiError.field, errorMapping.field) &&
+          fieldMatch(field, errorMapping.field) &&
           messageMatch(apiError.message, errorMapping.apiMessage)
       );
 
       if (typeof errorMatch !== 'undefined') {
         return {
-          field: `${apiError.field}`,
+          field: `${field}`,
           message: `${errorMatch.message}`,
         };
       }
 
-      Logger.logError(
-        `Unexpected error: "${apiError.field}":"${apiError.message}"`
-      );
+      Logger.logError(`Unexpected error: "${field}":"${message}"`);
 
       return {
-        field: 'global',
-        message: 'common.form.api_error',
+        field,
+        message: i18n.t(`common.form.${message}`),
       };
     }
   );

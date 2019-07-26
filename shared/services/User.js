@@ -5,13 +5,14 @@ import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import { mapErrors } from 'Shared/services/ApiErrors';
-import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type TypeRegisterFormData } from 'Shared/types/form';
 import {
   type TypeErrorObject,
   type ErrorMapping as TypeErrorMapping,
 } from 'Shared/types/api';
 
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { i18n } from 'Shared/i18n';
 
 export const update = async (userInformation: UserInformationForm) => {
   return UserApiService.update({
@@ -60,30 +61,47 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
-      const errorMessageMapping: TypeErrorMapping[] = [
+      const errorsMapping: TypeErrorMapping[] = [
         {
           field: 'email',
-          apiMessage: 'email is not a valid email',
-          message: 'common.form.email is not a valid email',
+          apiMessage: 'Email is not a valid email',
+          message: i18n.t('common.form.email_is_not_a_valid_email', {
+            label: `<label for="email">${i18n.t(
+              'common.form.email_label'
+            )}</label>`,
+          }),
+        },
+        {
+          field: 'email',
+          apiMessage: 'Error: 404',
+          message: i18n.t('common.form.email_doesnot_exist', {
+            label: `<label for="email">${i18n.t(
+              'common.form.email_label'
+            )}</label>`,
+          }),
         },
       ];
       const notExistError: TypeErrorObject = {
         field: 'email',
-        message: 'forgot_password.email_doesnot_exist',
+        message: i18n.t('common.form.email_doesnot_exist', {
+          label: `<label for="email">${i18n.t(
+            'common.form.email_label'
+          )}</label>`,
+        }),
       };
       const unexpectedError: TypeErrorObject = {
         field: 'global',
-        message: 'common.form.api_error',
+        message: i18n.t('common.form.api_error'),
       };
 
       switch (true) {
-        case errors === 404:
+        case errors.toString() === 'Error: 404':
           throw Array(notExistError);
         case !Array.isArray(errors):
           Logger.logError(`Unexpected error (array expected): ${errors}`);
           throw Array(unexpectedError);
         default:
-          throw mapErrors(errorMessageMapping, errors);
+          throw mapErrors(errorsMapping, errors);
       }
     });
 };
@@ -96,23 +114,59 @@ export const register = (user: TypeRegisterFormData) => {
         {
           field: 'email',
           apiMessage: /Email\s(.+)\salready exist/,
-          message: 'common.form.email_already_exist',
+          message: i18n.t('common.form.email_already_exist', {
+            label: `<label for="email">${i18n.t(
+              'common.form.email_label'
+            )}</label>`,
+          }),
+        },
+        {
+          field: 'email',
+          apiMessage: 'Email is not a valid email',
+          message: i18n.t('common.form.email_is_not_a_valid_email', {
+            label: `<label for="email">${i18n.t(
+              'common.form.email_label'
+            )}</label>`,
+          }),
         },
         {
           field: 'password',
           apiMessage: 'Password must be at least 8 characters',
-          message: 'common.form.Password must be at least 8 characters',
+          message: i18n.t(
+            'common.form.password_must_be_at_least_8_characters',
+            {
+              label: `<label for="password">${i18n.t(
+                'common.form.password_label'
+              )}</label>`,
+            }
+          ),
         },
         {
-          field: 'any',
-          apiMessage: 'required_field',
-          message: 'common.form.required_field',
+          field: 'firstname',
+          apiMessage: 'FirstName is mandatory',
+          message: i18n.t('common.form.firstname_is_mandatory', {
+            label: `<label for="firstname">${i18n.t(
+              'common.form.firstname_label'
+            )}</label>`,
+          }),
+        },
+        {
+          field: 'dateofbirth',
+          apiMessage: 'Invalid date: age must be between 13 and 120"',
+          message: i18n.t(
+            'common.form.invalid_date_age_must_be_between_13_and_120',
+            {
+              label: `<label for="age">${i18n.t(
+                'common.form.age_label'
+              )}</label>`,
+            }
+          ),
         },
       ];
 
       const unexpectedError: TypeErrorObject = {
         field: 'global',
-        message: 'common.form.api_error',
+        message: i18n.t('common.form.api_error'),
       };
 
       switch (true) {
@@ -131,7 +185,11 @@ export const login = (email: string, password: string) => {
     .catch(() => {
       const error = {
         field: 'email',
-        message: 'login.email_doesnot_exist',
+        message: i18n.t('common.form.email_doesnot_exist', {
+          label: `<label for="email">${i18n.t(
+            'common.form.email_label'
+          )}</label>`,
+        }),
       };
 
       throw error;

@@ -1,20 +1,24 @@
 // @flow
-import * as React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { GTU_LINK } from 'Shared/constants/url';
-import { type RegisterFormData as TypeRegisterFormData } from 'Shared/types/form';
+import { type TypeRegisterFormData } from 'Shared/types/form';
 import { type TypeErrorObject } from 'Shared/types/api';
-import {
-  ErrorMessageStyle,
-  FormErrorsListStyle,
-  FormErrorStyle,
-} from 'Client/ui/Elements/Form/Styled/Errors';
+import * as UserService from 'Shared/services/User';
+import { Logger } from 'Shared/services/Logger';
+import { getUser } from 'Shared/store/actions/authentification';
+import { modalClose } from 'Shared/store/actions/modal';
+import { validateRegisterForm } from 'Shared/helpers/validation';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   FormStyle,
   ConditionParagraphStyle,
+  FormRequirementsStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
-import { fieldErrors } from 'Shared/helpers/form';
+import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
+import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { REGISTER_FORMNAME } from 'Shared/constants/form';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -27,37 +31,83 @@ import {
   JobFieldIcon,
   SubmitThumbsUpIcon,
 } from 'Shared/constants/icons';
+import { throttle } from 'Shared/helpers/throttle';
+import { FormErrors } from 'Client/ui/Elements/Form/Errors';
+import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 
 type Props = {
-  /** User form data */
-  user: TypeRegisterFormData,
-  /** Array with form errors */
-  errors: TypeErrorObject[],
-  /** Method called when field's value changes */
-  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
-  /** Method called when field's value is submitted */
-  handleSubmit: (event: SyntheticInputEvent<HTMLButtonElement>) => void,
+  /** Method called to close modal */
+  handleModalClose: () => void,
+  /** Method called to load user */
+  handleLoadUser: () => void,
 };
 
 /**
  * Renders Register Form
  */
-export const RegisterFormComponent = (props: Props) => {
-  const { user, errors, handleChange, handleSubmit } = props;
+export const RegisterFormComponent = ({
+  handleModalClose,
+  handleLoadUser,
+}: Props) => {
+  const [user, setUser] = useState<TypeRegisterFormData>({
+    email: '',
+    password: '',
+    firstname: '',
+    age: '',
+    postalcode: '',
+    profession: '',
+  });
+  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
 
-  const emailError = fieldErrors('email', errors);
-  const passwordError = fieldErrors('password', errors);
-  const firstnameError = fieldErrors('firstname', errors);
-  const ageError = fieldErrors('age', errors);
-  const globalError = fieldErrors('global', errors);
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    const { id, value } = event.target;
+    setUser({
+      ...user,
+      [id]: value,
+    });
+  };
+
+  const logAndLoadUser = async (email, password) => {
+    try {
+      await UserService.login(email, password);
+      handleLoadUser();
+    } catch {
+      // @toDo: notify user
+      Logger.logError(`Login fail for ${email}`);
+    }
+  };
+
+  const handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
+    event.preventDefault();
+
+    if (errors.length > 0) {
+      return setErrors(validateRegisterForm(user));
+    }
+
+    try {
+      await UserService.register(user);
+
+      Tracking.trackSignupEmailSuccess();
+      handleModalClose();
+
+      return logAndLoadUser(user.email, user.password);
+    } catch (serviceErrors) {
+      Tracking.trackSignupEmailFailure();
+      return setErrors(serviceErrors);
+    }
+  };
+
+  const emailError = getFieldError('email', errors);
+  const passwordError = getFieldError('password', errors);
+  const firstnameError = getFieldError('firstname', errors);
+  const ageError = getFieldError('dateofbirth', errors);
 
   return (
-    <FormStyle id={REGISTER_FORMNAME} onSubmit={handleSubmit}>
-      {globalError && (
-        <FormErrorsListStyle id="authentification-register-error">
-          <FormErrorStyle key={globalError}>{globalError}</FormErrorStyle>
-        </FormErrorsListStyle>
-      )}
+    <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
+      <FormRequirementsStyle>
+        {i18n.t('common.form.requirements')}
+      </FormRequirementsStyle>
+      <FormErrors errors={errors} />
       <UntypedInput
         type="email"
         name="email"
@@ -65,72 +115,54 @@ export const RegisterFormComponent = (props: Props) => {
         value={user.email}
         label={i18n.t('common.form.email_label')}
         required
-        handleChange={handleChange}
+        errors={emailError}
+        handleChange={throttle(handleChange)}
       />
-      {emailError && (
-        <ErrorMessageStyle id="authentification-email-error">
-          {emailError}
-        </ErrorMessageStyle>
-      )}
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
         value={user.password}
+        errors={passwordError}
         label={i18n.t('common.form.password_label')}
-        handleChange={handleChange}
+        handleChange={throttle(handleChange)}
       />
-      {passwordError && (
-        <ErrorMessageStyle id="authentification-password-error">
-          {passwordError}
-        </ErrorMessageStyle>
-      )}
       <UntypedInput
         type="text"
         name="firstname"
         icon={FirstNameFieldIcon}
+        errors={firstnameError}
         value={user.firstname}
         label={i18n.t('common.form.firstname_label')}
         required
-        handleChange={handleChange}
+        handleChange={throttle(handleChange)}
       />
-      {firstnameError && (
-        <ErrorMessageStyle id="authentification-firstname-error">
-          {firstnameError}
-        </ErrorMessageStyle>
-      )}
-
-      <UntypedInput
-        type="number"
+      <NumberInput
         name="age"
         icon={AgeFieldIcon}
+        errors={ageError}
         value={user.age}
-        label={i18n.t('common.form.age_label')}
-        required={false}
-        handleChange={handleChange}
+        label={i18n.t('common.form.age_label', { context: 'optional' })}
+        handleChange={throttle(handleChange)}
+        min={1}
+        max={120}
       />
-      {ageError && (
-        <ErrorMessageStyle id="authentification-age-error">
-          {ageError}
-        </ErrorMessageStyle>
-      )}
-
-      <UntypedInput
-        type="number"
+      <CustomPatternInput
+        type="text"
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
-        label={i18n.t('common.form.postalcode_label')}
-        required={false}
-        handleChange={handleChange}
+        label={i18n.t('common.form.postalcode_label', { context: 'optional' })}
+        handleChange={throttle(handleChange)}
+        maxLength={5}
+        pattern="^[0-9]{5}"
       />
       <UntypedInput
         type="text"
         name="profession"
         icon={JobFieldIcon}
         value={user.profession}
-        label={i18n.t('common.form.profession_label')}
-        required={false}
-        handleChange={handleChange}
+        label={i18n.t('common.form.profession_label', { context: 'optional' })}
+        handleChange={throttle(handleChange)}
       />
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
@@ -149,3 +181,17 @@ export const RegisterFormComponent = (props: Props) => {
     </FormStyle>
   );
 };
+
+const mapDispatchToProps = dispatch => ({
+  handleModalClose: () => {
+    dispatch(modalClose());
+  },
+  handleLoadUser: () => {
+    dispatch(getUser());
+  },
+});
+
+export const RegisterForm = connect(
+  null,
+  mapDispatchToProps
+)(RegisterFormComponent);
