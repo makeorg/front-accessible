@@ -25,7 +25,7 @@ export type TypeUser = {
   firstName: string,
   lastName: string,
   organisationName: string,
-  enabled: boolea,
+  enabled: boolean,
   emailVerified: boolean,
   isOrganisation: boolean,
   lastConnection: string,
@@ -42,23 +42,18 @@ export type TypeUser = {
   followedUsers: Array<string>,
 };
 
-export type Passwords = {
+export type TypePasswords = {
   newPassword: string,
   actualPassword: string,
 };
 
-export type PasswordsErrors = {
-  newPassword?: string,
-  actualPassword?: string,
-};
-
 export type TypeUserInformationForm = {
-  firstName?: string,
-  age?: number,
-  profession?: string,
-  postalCode?: number,
-  description?: string,
-  optInNewsletter?: boolean,
+  firstName: string,
+  age: string,
+  profession: string,
+  postalCode: string,
+  description: string,
+  optInNewsletter: boolean,
 };
 
 export type UserInformationFormErrors = {

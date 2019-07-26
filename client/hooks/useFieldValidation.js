@@ -24,11 +24,6 @@ export const useIsFieldValid = (
 
   useEffect(() => {
     let validationStatus = true;
-
-    if (!isInitialErrorEmpty) {
-      validationStatus = false;
-    }
-
     if (!isRefEmpty) {
       validationStatus = inputField.checkValidity();
     }
@@ -41,6 +36,10 @@ export const useIsFieldValid = (
         inputField.setCustomValidity('');
         validationStatus = true;
       }
+    }
+
+    if (!isInitialErrorEmpty) {
+      validationStatus = false;
     }
 
     return setFieldValidation(validationStatus);

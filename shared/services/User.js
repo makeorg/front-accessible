@@ -2,20 +2,24 @@
 import { UserApiService } from 'Shared/api/UserApiService';
 import {
   type TypeUserInformationForm,
-  type Passwords,
+  type TypePasswords,
 } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { type TypeRegisterFormData } from 'Shared/types/form';
-import {
-  type TypeErrorObject,
-  type ErrorMapping as TypeErrorMapping,
-} from 'Shared/types/api';
-
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { i18n } from 'Shared/i18n';
+import {
+  loginErrors,
+  registerErrors,
+  updateUserErrors,
+  updatePasswordErrors,
+  forgotPasswordErrors,
+  emailNotExistError,
+} from 'Shared/errors/Messages/User';
+import { defaultApiError } from 'Shared/errors/Messages';
+import { getErrorMessages } from 'Shared/helpers/form';
 
 export const update = async (userInformation: TypeUserInformationForm) => {
   return UserApiService.update({
@@ -26,49 +30,25 @@ export const update = async (userInformation: TypeUserInformationForm) => {
     description: userInformation.description,
     optInNewsletter: userInformation.optInNewsletter,
   })
-    .then(() => {})
+    .then(() => HttpStatus.HTTP_NO_CONTENT)
     .catch(errors => {
-      const errorsMapping: TypeErrorMapping[] = [
-        {
-          field: 'firstname',
-          apiMessage: 'FirstName should not be an empty string',
-          message: i18n.t(
-            'common.form.firstname_should_not_be_an_empty_string'
-          ),
-        },
-        {
-          field: 'dateofbirth',
-          apiMessage: 'Invalid date: age must be between 13 and 120"',
-          message: i18n.t(
-            'common.form.invalid_date_age_must_be_between_13_and_120'
-          ),
-        },
-      ];
-
-      const unexpectedError: TypeErrorObject = {
-        field: 'global',
-        message: i18n.t('common.form.api_error'),
-      };
-
-      switch (true) {
-        case !Array.isArray(errors):
-          Logger.logError(`Unexpected error (array expected): ${errors}`);
-          throw Array(unexpectedError);
-        default:
-          throw mapErrors(errorsMapping, errors);
-      }
+      getErrorMessages(updateUserErrors, errors);
     });
 };
 
 export const updateNewsletter = async (optInNewsletter: boolean) => {
   return UserApiService.update({
     optInNewsletter,
-  });
+  })
+    .then(() => HttpStatus.HTTP_NO_CONTENT)
+    .catch(errors => {
+      throw errors;
+    });
 };
 
 export const updatePassword = async (
   userId: string,
-  passwords: Passwords,
+  passwords: TypePasswords,
   hasPassword: boolean
 ) => {
   const actualPassword =
@@ -80,26 +60,7 @@ export const updatePassword = async (
   return UserApiService.updatePassword(userId, actualPassword, newPassword)
     .then(() => {})
     .catch(errors => {
-      const errorsMapping: TypeErrorMapping[] = [
-        {
-          field: 'newPassword',
-          apiMessage: 'Password must be at least 8 characters',
-          message: i18n.t('common.form.password_must_be_at_least_8_characters'),
-        },
-      ];
-
-      const unexpectedError: TypeErrorObject = {
-        field: 'global',
-        message: i18n.t('common.form.api_error'),
-      };
-
-      switch (true) {
-        case !Array.isArray(errors):
-          Logger.logError(`Unexpected error (array expected): ${errors}`);
-          throw Array(unexpectedError);
-        default:
-          throw mapErrors(errorsMapping, errors);
-      }
+      getErrorMessages(updatePasswordErrors, errors);
     });
 };
 
@@ -119,47 +80,14 @@ export const forgotPassword = (email: string) => {
   return UserApiService.forgotPassword(email)
     .then(() => {})
     .catch(errors => {
-      const errorsMapping: TypeErrorMapping[] = [
-        {
-          field: 'email',
-          apiMessage: 'Email is not a valid email',
-          message: i18n.t('common.form.email_is_not_a_valid_email', {
-            label: `<label for="email">${i18n.t(
-              'common.form.email_label'
-            )}</label>`,
-          }),
-        },
-        {
-          field: 'email',
-          apiMessage: 'Error: 404',
-          message: i18n.t('common.form.email_doesnot_exist', {
-            label: `<label for="email">${i18n.t(
-              'common.form.email_label'
-            )}</label>`,
-          }),
-        },
-      ];
-      const notExistError: TypeErrorObject = {
-        field: 'email',
-        message: i18n.t('common.form.email_doesnot_exist', {
-          label: `<label for="email">${i18n.t(
-            'common.form.email_label'
-          )}</label>`,
-        }),
-      };
-      const unexpectedError: TypeErrorObject = {
-        field: 'global',
-        message: i18n.t('common.form.api_error'),
-      };
-
       switch (true) {
         case errors.toString() === 'Error: 404':
-          throw Array(notExistError);
+          throw Array(emailNotExistError);
         case !Array.isArray(errors):
           Logger.logError(`Unexpected error (array expected): ${errors}`);
-          throw Array(unexpectedError);
+          throw Array(defaultApiError);
         default:
-          throw mapErrors(errorsMapping, errors);
+          throw mapErrors(forgotPasswordErrors, errors);
       }
     });
 };
@@ -168,72 +96,7 @@ export const register = (user: TypeRegisterFormData) => {
   return UserApiService.register(user)
     .then(() => {})
     .catch(errors => {
-      const errorsMapping: TypeErrorMapping[] = [
-        {
-          field: 'email',
-          apiMessage: /Email\s(.+)\salready exist/,
-          message: i18n.t('common.form.email_already_exist', {
-            label: `<label for="email">${i18n.t(
-              'common.form.email_label'
-            )}</label>`,
-          }),
-        },
-        {
-          field: 'email',
-          apiMessage: 'Email is not a valid email',
-          message: i18n.t('common.form.email_is_not_a_valid_email', {
-            label: `<label for="email">${i18n.t(
-              'common.form.email_label'
-            )}</label>`,
-          }),
-        },
-        {
-          field: 'password',
-          apiMessage: 'Password must be at least 8 characters',
-          message: i18n.t(
-            'common.form.password_must_be_at_least_8_characters',
-            {
-              label: `<label for="password">${i18n.t(
-                'common.form.password_label'
-              )}</label>`,
-            }
-          ),
-        },
-        {
-          field: 'firstname',
-          apiMessage: 'FirstName is mandatory',
-          message: i18n.t('common.form.firstname_is_mandatory', {
-            label: `<label for="firstname">${i18n.t(
-              'common.form.firstname_label'
-            )}</label>`,
-          }),
-        },
-        {
-          field: 'dateofbirth',
-          apiMessage: 'Invalid date: age must be between 13 and 120"',
-          message: i18n.t(
-            'common.form.invalid_date_age_must_be_between_13_and_120',
-            {
-              label: `<label for="age">${i18n.t(
-                'common.form.age_label'
-              )}</label>`,
-            }
-          ),
-        },
-      ];
-
-      const unexpectedError: TypeErrorObject = {
-        field: 'global',
-        message: i18n.t('common.form.api_error'),
-      };
-
-      switch (true) {
-        case !Array.isArray(errors):
-          Logger.logError(`Unexpected error (array expected): ${errors}`);
-          throw Array(unexpectedError);
-        default:
-          throw mapErrors(errorsMapping, errors);
-      }
+      getErrorMessages(registerErrors, errors);
     });
 };
 
@@ -241,16 +104,7 @@ export const login = (email: string, password: string) => {
   return UserApiService.login(email, password)
     .then(() => {})
     .catch(() => {
-      const error = {
-        field: 'email',
-        message: i18n.t('common.form.email_doesnot_exist', {
-          label: `<label for="email">${i18n.t(
-            'common.form.email_label'
-          )}</label>`,
-        }),
-      };
-
-      throw error;
+      throw loginErrors;
     });
 };
 

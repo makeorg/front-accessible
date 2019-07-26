@@ -1,33 +1,7 @@
 import styled from 'styled-components';
-import { BorderColors, FormColors } from 'Client/app/assets/vars/Colors';
-import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { FormColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-
-export const FormErrorsListStyle = styled.ul`
-  font-size: 12px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: ${BorderColors.ErrorRed};
-`;
-
-export const FormErrorStyle = styled.li`
-  list-style: none;
-`;
-
-export const ErrorMessageStyle = styled.p`
-  color: ${BorderColors.ErrorRed};
-  margin-bottom: 10px;
-  a {
-    color: ${BorderColors.ErrorRed};
-  }
-  font-size: 12px;
-  line-height: 16px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-    line-height: 18px;
-  }
-`;
+import { UnstyledButtonStyle } from '../../ButtonElements';
 
 export const FormErrorsContainerStyle = styled.div`
   width: 100%;
@@ -52,4 +26,10 @@ export const FormErrorsListItemStyle = styled.li`
   &:before {
     content: '-  ';
   }
+`;
+
+export const CustomErrorTriggerStyle = styled(UnstyledButtonStyle)`
+  display: inline-flex;
+  font-family: ${MakeFonts.RobotoBold};
+  margin-left: 5px;
 `;

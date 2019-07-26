@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { login } from 'Shared/store/actions/authentification';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import * as UserService from 'Shared/services/User';
+import { Tracking } from 'Shared/services/Tracking';
 import { type TypeErrorObject } from 'Shared/types/api';
 import {
   FormStyle,
@@ -21,35 +21,55 @@ import {
 } from 'Shared/constants/icons';
 import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
+import { loginSuccess, getUser } from 'Shared/store/actions/authentification';
 
 type Props = {
-  /** Array with form errors */
-  errors: TypeErrorObject[],
-  /** Method called when login form is submit */
-  handleLogin: (string, string) => void,
+  /** Method called when login form succeed */
+  handleLoginSuccess: () => void,
+  /** Method called to load user after login */
+  handleGetUser: () => void,
 };
 
-export const LoginFormComponent = ({ errors, handleLogin }: Props) => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const globalError = getFieldError('email', errors);
+type TypeLoginValues = {
+  email: string,
+  password: string,
+};
 
-  const handleChange = event => {
+export const LoginFormComponent = ({
+  handleLoginSuccess,
+  handleGetUser,
+}: Props) => {
+  const defaultFormValues = {
+    email: '',
+    password: '',
+  };
+  const [formValues, setFormValues] = useState<TypeLoginValues>(
+    defaultFormValues
+  );
+  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const globalError = getFieldError('global', errors);
+
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
-
-    if (id === 'email') {
-      setEmail(value);
-    }
-
-    if (id === 'password') {
-      setPassword(value);
-    }
+    setFormValues({
+      ...formValues,
+      [id]: value,
+    });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if (email && password) {
-      handleLogin(email, password);
+
+    try {
+      await UserService.login(formValues.email, formValues.password);
+      handleLoginSuccess();
+      Tracking.trackLoginEmailSuccess();
+      handleLoginSuccess();
+      setErrors([]);
+      return handleGetUser();
+    } catch (serviceErrors) {
+      setErrors(serviceErrors);
+      return Tracking.trackSignupEmailFailure();
     }
   };
 
@@ -63,19 +83,19 @@ export const LoginFormComponent = ({ errors, handleLogin }: Props) => {
         type="email"
         name="email"
         icon={EmailFieldIcon}
-        value={email}
-        label={i18n.t('common.form.email_label')}
+        value={formValues.email}
+        label={i18n.t('common.form.label.email')}
         required
-        errors={globalError}
+        error={globalError}
         handleChange={throttle(handleChange)}
       />
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
-        value={password}
-        label={i18n.t('common.form.password_label')}
+        value={formValues.password}
+        label={i18n.t('common.form.label.password')}
         required
-        errors={globalError}
+        error={globalError}
         handleChange={throttle(handleChange)}
       />
       <SubmitButton
@@ -88,19 +108,16 @@ export const LoginFormComponent = ({ errors, handleLogin }: Props) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { errors } = selectAuthentification(state);
-
-  return { errors };
-};
-
 const mapDispatchToProps = dispatch => ({
-  handleLogin: (email, password) => {
-    dispatch(login(email, password));
+  handleLoginSuccess: () => {
+    dispatch(loginSuccess());
+  },
+  handleGetUser: () => {
+    dispatch(getUser());
   },
 });
 
 export const LoginForm = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(LoginFormComponent);

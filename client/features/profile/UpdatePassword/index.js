@@ -2,20 +2,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
-import { ErrorMessageStyle } from 'Client/ui/Elements/Form/Styled/Errors';
 import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
-import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { getUser } from 'Shared/store/actions/authentification';
-import { modalShowForgotPassword } from 'Shared/store/actions/modal';
 import * as UserService from 'Shared/services/User';
 import { throttle } from 'Shared/helpers/throttle';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
+import { getFieldError } from 'Shared/helpers/form';
 
 type Props = {
   /** Id of the User */
@@ -24,8 +23,6 @@ type Props = {
   hasPassword: boolean,
   /** Method to handle User update */
   handleGetUser: () => void,
-  /** Method to handle forgot password modal */
-  handleForgotPasswordModal: () => void,
 };
 
 type TypePasswordValues = {
@@ -37,18 +34,19 @@ export const UpdatePasswordComponent = ({
   userId,
   hasPassword,
   handleGetUser,
-  handleForgotPasswordModal,
 }: Props) => {
-  const [formValues, setFormValues] = useState<TypePasswordValues>({
+  const defaultFormValues = {
     newPassword: '',
     actualPassword: '',
-  });
+  };
+  const [formValues, setFormValues] = useState<TypePasswordValues>(
+    defaultFormValues
+  );
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>({
-    field: '',
-    message: '',
-  });
+  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const actualPasswordError = getFieldError('password', errors);
+  const newPasswordError = getFieldError('newPassword', errors);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -58,6 +56,7 @@ export const UpdatePasswordComponent = ({
     });
 
     setCanSubmit(true);
+    setIsSubmitSuccessful(false);
   };
 
   const handleSubmit = async (
@@ -65,59 +64,41 @@ export const UpdatePasswordComponent = ({
   ) => {
     event.preventDefault();
 
-    if (canSubmit) {
-      try {
-        await UserService.updatePassword(userId, formValues, hasPassword);
-        setFormValues({
-          newPassword: '',
-          actualPassword: '',
-        });
-        handleGetUser();
-        setCanSubmit(false);
-      } catch (serviceErrors) {
-        console.log(serviceErrors);
-        setErrors(serviceErrors);
-      }
+    try {
+      await UserService.updatePassword(userId, formValues, hasPassword);
+      setFormValues(defaultFormValues);
+      setErrors([]);
+      setIsSubmitSuccessful(true);
+      setCanSubmit(false);
+      handleGetUser();
+    } catch (serviceErrors) {
+      setErrors(serviceErrors);
     }
   };
 
   return (
     <TileWithTitle title={i18n.t('profile.password_update.title')}>
-      <form
-        noValidate
-        id={PASSWORD_UPDATE_FORMNAME}
-        onSubmit={throttle(handleSubmit)}
-      >
+      <form id={PASSWORD_UPDATE_FORMNAME} onSubmit={throttle(handleSubmit)}>
         <FormRequirementsStyle>
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
         <FormErrors errors={errors} />
         {hasPassword && (
-          <React.Fragment>
-            <PasswordInput
-              label={i18n.t('profile.password_update.password_placeholder')}
-              name="actualPassword"
-              id="actualPassword"
-              icon={PasswordFieldIcon}
-              value={formValues.actualPassword}
-              handleChange={throttle(handleChange)}
-            />
-            {errors.actualPassword && (
-              <ErrorMessageStyle id="update-password-actualPassword-error">
-                {i18n.t('profile.password_update.wrong_password')}
-                <RedLinkButtonStyle onClick={handleForgotPasswordModal}>
-                  {i18n.t('profile.password_update.reset_password_cta')}
-                </RedLinkButtonStyle>
-              </ErrorMessageStyle>
-            )}
-          </React.Fragment>
+          <PasswordInput
+            label={i18n.t('profile.password_update.actual_password.label')}
+            name="actualPassword"
+            icon={PasswordFieldIcon}
+            value={formValues.actualPassword}
+            error={actualPasswordError}
+            handleChange={throttle(handleChange)}
+          />
         )}
         <PasswordInput
-          label={i18n.t('profile.password_update.newpassword_placeholder')}
+          label={i18n.t('profile.password_update.newpassword')}
           name="newPassword"
-          id="newPassword"
           icon={PasswordFieldIcon}
           value={formValues.newPassword}
+          error={newPasswordError}
           handleChange={throttle(handleChange)}
         />
         {isSubmitSuccessful && (
@@ -139,9 +120,6 @@ export const UpdatePasswordComponent = ({
 const mapDispatchToProps = dispatch => ({
   handleGetUser: () => {
     dispatch(getUser());
-  },
-  handleForgotPasswordModal: () => {
-    dispatch(modalShowForgotPassword());
   },
 });
 

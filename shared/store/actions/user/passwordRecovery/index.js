@@ -29,10 +29,11 @@ export const passwordRecovery = (newPassword: string) => (
   if (newPassword.length < 8) {
     return dispatch(
       passwordRecoveryFailure(
-        i18n.t('common.form.password_must_be_at_least_8_characters', {
-          label: `<strong for="password">${i18n.t(
-            'common.form.password_label'
-          )}</strong>`,
+        i18n.t('common.form.invalid_password', {
+          context: 'dynamic',
+          label: `<label for="password">${i18n.t(
+            'common.form.label.password'
+          )}</label>`,
         })
       )
     );

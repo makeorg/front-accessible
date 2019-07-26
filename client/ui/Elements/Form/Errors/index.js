@@ -29,14 +29,13 @@ export const FormErrors = ({ errors }: Props) => {
   return (
     <FormErrorsContainerStyle ref={formRef} tabIndex={0}>
       <FormErrorsIntroStyle>
-        {i18n.t('common.form.errors_notification')}
+        {i18n.t('common.form.messages.errors_notification')}
       </FormErrorsIntroStyle>
       <UnstyledListStyle>
         {errors.map(error => (
-          <FormErrorsListItemStyle
-            key={error.field}
-            dangerouslySetInnerHTML={{ __html: error.message }}
-          />
+          <FormErrorsListItemStyle key={`${error.field}_${error.key}`}>
+            {error.message}
+          </FormErrorsListItemStyle>
         ))}
       </UnstyledListStyle>
     </FormErrorsContainerStyle>

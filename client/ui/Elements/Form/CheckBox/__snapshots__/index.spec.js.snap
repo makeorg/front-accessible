@@ -6,7 +6,7 @@ Snapshot Diff:
 + Second value
 
 @@ -6,11 +6,10 @@
-      id="foo"
+      id="bar"
       name="bar"
       onChange={[Function onChange]}
       required={false}
@@ -14,9 +14,9 @@ Snapshot Diff:
 -     value="qux"
     />
     <CheckboxLabelStyle
-      htmlFor="foo"
-      onClick={[Function onClick]}
-      onKeyPress={[Function onKeyPress]}
+      htmlFor="bar"
+      onKeyPress={[Function handleEnterKey]}
+      tabIndex={0}
 `;
 
 exports[`CheckBox must return the diff between snapshot when checkbox is required or optionnal 1`] = `
@@ -27,7 +27,7 @@ Snapshot Diff:
 @@ -4,11 +4,11 @@
       checked={false}
       hidden={true}
-      id="foo"
+      id="bar"
       name="bar"
       onChange={[Function onChange]}
 -     required={true}
@@ -35,6 +35,6 @@ Snapshot Diff:
       type="checkbox"
     />
     <CheckboxLabelStyle
-      htmlFor="foo"
-      onClick={[Function onClick]}
+      htmlFor="bar"
+      onKeyPress={[Function handleEnterKey]}
 `;

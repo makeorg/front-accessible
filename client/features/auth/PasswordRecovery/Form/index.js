@@ -43,7 +43,8 @@ export const PasswordRecoveryFormComponent = ({
     setErrors([
       {
         field: 'password',
-        message: errorMessage,
+        key: 'password_message',
+        message: <span>{errorMessage}</span>,
       },
     ]);
   }
@@ -77,9 +78,9 @@ export const PasswordRecoveryFormComponent = ({
         name="password"
         icon={PasswordFieldIcon}
         value={password}
-        label={i18n.t('common.form.password_label')}
+        label={i18n.t('common.form.label.password')}
         handleChange={throttle(handleChange)}
-        errors={passwordError}
+        error={passwordError}
       />
       <SubmitButton
         formName={PASSWORD_RECOVERY_FORMNAME}

@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @flow
+import React from 'react';
 import { SvgCheck } from 'Client/ui/Svg/elements';
 import {
   CheckboxWrapper,
@@ -8,15 +9,13 @@ import {
 
 type Props = {
   /** Name of the checkbox */
-  id: string,
-  /** Name of the checkbox */
   name: string,
   /** Label of the checkbox */
   label: string,
   /** handleLabelClick of the checkbox */
   handleCheck: (event: SyntheticEvent<HTMLLabelElement>) => void,
   /** Value of the checkbox */
-  value?: string,
+  value: string,
   /** Default value of the checkbox */
   isChecked?: boolean,
   /** Is input required or optional */
@@ -25,16 +24,15 @@ type Props = {
 
 export const CheckBox = ({
   name,
-  id,
-  value,
   label,
-  required,
-  isChecked,
   handleCheck,
+  value,
+  required = false,
+  isChecked = false,
 }: Props) => {
-  const handleEnterKey = event => {
+  const handleEnterKey = (event: SyntheticKeyboardEvent<HTMLLabelElement>) => {
     if (event.key === 'Enter') {
-      handleCheck();
+      handleCheck(event);
     }
   };
 
@@ -42,7 +40,7 @@ export const CheckBox = ({
     <CheckboxWrapper>
       <input
         type="checkbox"
-        id={id}
+        id={name}
         name={name}
         value={value}
         required={required}
@@ -52,9 +50,9 @@ export const CheckBox = ({
         hidden
       />
       <CheckboxLabelStyle
-        htmlFor={id}
-        onClick={() => handleCheck(!isChecked)}
-        onKeyPress={() => handleEnterKey()}
+        htmlFor={name}
+        onClick={handleCheck}
+        onKeyPress={handleEnterKey}
         tabIndex={0}
       >
         <FakeCheckboxInputStyle aria-hidden>
@@ -64,10 +62,4 @@ export const CheckBox = ({
       </CheckboxLabelStyle>
     </CheckboxWrapper>
   );
-};
-
-CheckBox.defaultProps = {
-  value: undefined,
-  required: false,
-  isChecked: false,
 };

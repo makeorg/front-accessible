@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
+import { emptyError } from 'Shared/errors/Messages';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
@@ -23,7 +24,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Object containing field errors */
-  errors?: TypeErrorObject,
+  error?: TypeErrorObject,
   /** Is input required or optional */
   required?: boolean,
 };
@@ -34,12 +35,12 @@ export const PasswordInput = ({
   value,
   label,
   handleChange,
-  errors = { field: '', message: '' },
+  error = emptyError,
   required = true,
 }: Props) => {
   const [isPasswordDisplayed, displayPassword] = useState<boolean>(false);
   const inputRef = useRef(null);
-  const isFieldValid = useIsFieldValid(inputRef, errors);
+  const isFieldValid = useIsFieldValid(inputRef, error);
 
   return (
     <MiddleFakeFieldStyle hasError={!isFieldValid}>

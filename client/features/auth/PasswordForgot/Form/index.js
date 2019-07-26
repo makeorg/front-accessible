@@ -58,10 +58,10 @@ export const ForgotPasswordForm = () => {
         name="email"
         icon={EmailFieldIcon}
         value={email}
-        label={i18n.t('common.form.email_label')}
+        label={i18n.t('common.form.label.email')}
         required
         handleChange={handleChange}
-        errors={emailError}
+        error={emailError}
       />
       <SubmitButton
         formName={FORGOT_PASSWORD_FORMNAME}

@@ -53,13 +53,13 @@ describe('Date Helper', () => {
     it('getDateOfBirthFromAge with valid date', () => {
       MockDate.set('1/1/2019');
       const age = getAgeFromDateOfBrth('1986-09-29');
-      expect(age).toBe(32);
+      expect(age).toBe('32');
     });
 
     it('getDateOfBirthFromAge with valid date and mounth in future', () => {
       MockDate.set('1/10/2019');
       const age = getAgeFromDateOfBrth('1986-09-29');
-      expect(age).toBe(32);
+      expect(age).toBe('32');
     });
   });
 

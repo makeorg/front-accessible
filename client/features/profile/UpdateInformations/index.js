@@ -26,6 +26,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
+import { getFieldError } from 'Shared/helpers/form';
 
 type Props = {
   /** User */
@@ -36,16 +37,16 @@ type Props = {
 
 export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: user.firstName || '',
-    age: getAgeFromDateOfBrth(user.profile.dateOfBirth) || undefined,
-    profession: user.profile.profession || '',
-    postalCode: user.profile.postalCode || undefined,
-    description: user.profile.description || '',
-    optInNewsletter: user.profile.optInNewsletter || false,
+    firstName: user.firstName,
+    age: getAgeFromDateOfBrth(user.profile.dateOfBirth),
+    profession: user.profile.profession,
+    postalCode: user.profile.postalCode,
+    description: user.profile.description,
+    optInNewsletter: user.profile.optInNewsletter,
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>();
+  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -65,11 +66,16 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
     try {
       await UserService.update(formValues);
       setIsSubmitSuccessful(true);
+      setErrors([]);
       handleGetUser();
     } catch (serviceErrors) {
+      setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
     }
   };
+
+  const firstnameError = getFieldError('firstname', errors);
+  const ageError = getFieldError('dateofbirth', errors);
 
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
@@ -83,7 +89,8 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           name="firstName"
           icon={FirstNameFieldIcon}
           value={formValues.firstName}
-          label={i18n.t('common.form.firstname_label')}
+          label={i18n.t('common.form.label.firstname')}
+          error={firstnameError}
           required
           handleChange={throttle(handleChange)}
         />
@@ -91,8 +98,8 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           name="age"
           icon={AgeFieldIcon}
           value={formValues.age}
-          label={i18n.t('common.form.age_label')}
-          required={false}
+          label={i18n.t('common.form.label.age', { context: 'optional' })}
+          error={ageError}
           handleChange={throttle(handleChange)}
           min={13}
           max={120}
@@ -102,16 +109,19 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           name="profession"
           icon={JobFieldIcon}
           value={formValues.profession}
-          label={i18n.t('common.form.profession_label')}
-          required={false}
+          label={i18n.t('common.form.label.profession', {
+            context: 'optional',
+          })}
           handleChange={throttle(handleChange)}
         />
         <CustomPatternInput
           type="text"
           name="postalCode"
           icon={PostalCodeFieldIcon}
-          value={user.postalcode}
-          label={i18n.t('common.form.postalcode_label')}
+          value={formValues.postalCode}
+          label={i18n.t('common.form.label.postalcode', {
+            context: 'optional',
+          })}
           handleChange={throttle(handleChange)}
           maxLength={5}
           pattern="^[0-9]{5}"
@@ -120,7 +130,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           name="description"
           icon={DescriptionFieldIcon}
           value={formValues.description}
-          label={i18n.t('common.form.biography_label')}
+          label={i18n.t('common.form.label.biography', { context: 'optional' })}
           maxLength={450}
           withCounter
           handleChange={throttle(handleChange)}
@@ -140,8 +150,6 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
     </TileWithTitle>
   );
 };
-
-UpdateInformationsComponent.defaultProps = {};
 
 const mapDispatchToProps = dispatch => ({
   handleGetUser: () => {

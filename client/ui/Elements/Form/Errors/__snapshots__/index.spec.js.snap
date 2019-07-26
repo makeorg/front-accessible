@@ -40,27 +40,21 @@ exports[`FormErrors snapshot FormErrors with errors 1`] = `
   <p
     className="c1"
   >
-    common.form.errors_notification
+    common.form.messages.errors_notification
   </p>
   <ul
     className="c2"
   >
     <li
       className="c3"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "fooMEssage",
-        }
-      }
-    />
+    >
+      fooMEssage
+    </li>
     <li
       className="c3"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "barMessage",
-        }
-      }
-    />
+    >
+      barMessage
+    </li>
   </ul>
 </div>
 `;

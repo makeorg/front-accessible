@@ -1,62 +1,49 @@
 // @flow
 import { Logger } from 'Shared/services/Logger';
-import {
-  type TypeErrorObject,
-  type ErrorMapping as TypeErrorMapping,
-} from 'Shared/types/api';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 
 /**
  * Map errors from API to internal error message
  *
- * @param {TypeErrorMapping[]} errorMessageMapping an array of error map object {field: 'value', apiMessage: 'message from API', message: 'internal error key message'}
- *                                            apiMessage can be a RegExp or a string
- * @param {TypeErrorObject[]}  errors              an array of ErrorObject
+ * @param {TypeErrorObject[]} errors an array of error map object {field: 'value', key: 'key of the error', message: 'error message to display'}
  */
 export const mapErrors = (
-  errorsMapping: TypeErrorMapping[],
-  errors: TypeErrorObject[]
+  internalErrors: TypeErrorObject[],
+  apiErrors: TypeErrorObject[]
 ) => {
-  const fieldMatch = (fieldApi, fieldMap) => {
-    return fieldMap === 'any' || fieldApi === fieldMap;
-  };
-  const messageMatch = (messageApi, messageMap) => {
-    if (messageMap instanceof RegExp) {
-      return messageMap.test(messageApi);
-    }
-    return messageMap === messageApi;
-  };
-
-  const errorsMapped: TypeErrorObject[] = errors.map(
+  const errors: TypeErrorObject[] = apiErrors.map(
     (apiError: TypeErrorObject) => {
-      const field = apiError.field.toLowerCase();
-      const message = apiError.message
-        .replace(/\./g, '')
-        .replace(/:/g, '')
-        .replace(/ /g, '_')
-        .toLowerCase();
+      const apiErrorField = apiError.field.toLowerCase();
+      const apiErrorMessage = i18n.t(`common.form.messages.${apiError.key}`);
 
-      const errorMatch = errorsMapping.find(
-        (errorMapping: TypeErrorMapping) =>
-          fieldMatch(field, errorMapping.field) &&
-          messageMatch(apiError.message, errorMapping.apiMessage)
+      const errorMatch = internalErrors.find(
+        (internalError: TypeErrorObject) =>
+          apiErrorField === internalError.field &&
+          apiError.key === internalError.key
       );
 
       if (typeof errorMatch !== 'undefined') {
         return {
-          field: `${field}`,
-          message: `${errorMatch.message}`,
+          field: errorMatch.field,
+          key: errorMatch.key,
+          message: errorMatch.message,
         };
       }
 
-      Logger.logError(`Unexpected error: "${field}":"${message}"`);
+      Logger.logError(
+        `Unexpected error: "field": "${apiErrorField}", "key": "${
+          apiError.key
+        }", "message": "${apiError.message}"`
+      );
 
       return {
-        field,
-        message: i18n.t(`common.form.${message}`),
+        field: apiErrorField,
+        key: apiError.key,
+        message: apiErrorMessage,
       };
     }
   );
 
-  return errorsMapped;
+  return errors;
 };

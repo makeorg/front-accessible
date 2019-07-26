@@ -9,7 +9,6 @@ import * as UserService from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { getUser } from 'Shared/store/actions/authentification';
 import { modalClose } from 'Shared/store/actions/modal';
-import { validateRegisterForm } from 'Shared/helpers/validation';
 import { Tracking } from 'Shared/services/Tracking';
 import {
   FormStyle,
@@ -80,27 +79,23 @@ export const RegisterFormComponent = ({
   const handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
 
-    if (errors.length > 0) {
-      return setErrors(validateRegisterForm(user));
-    }
-
     try {
       await UserService.register(user);
 
       Tracking.trackSignupEmailSuccess();
       handleModalClose();
-
-      return logAndLoadUser(user.email, user.password);
+      setErrors([]);
+      logAndLoadUser(user.email, user.password);
     } catch (serviceErrors) {
       Tracking.trackSignupEmailFailure();
-      return setErrors(serviceErrors);
+      setErrors(serviceErrors);
     }
   };
 
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
   const firstnameError = getFieldError('firstname', errors);
-  const ageError = getFieldError('dateofbirth', errors);
+  const ageError = getFieldError('age', errors);
 
   return (
     <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
@@ -113,37 +108,37 @@ export const RegisterFormComponent = ({
         name="email"
         icon={EmailFieldIcon}
         value={user.email}
-        label={i18n.t('common.form.email_label')}
+        label={i18n.t('common.form.label.email')}
         required
-        errors={emailError}
+        error={emailError}
         handleChange={throttle(handleChange)}
       />
       <PasswordInput
         name="password"
         icon={PasswordFieldIcon}
         value={user.password}
-        errors={passwordError}
-        label={i18n.t('common.form.password_label')}
+        error={passwordError}
+        label={i18n.t('common.form.label.password')}
         handleChange={throttle(handleChange)}
       />
       <UntypedInput
         type="text"
         name="firstname"
         icon={FirstNameFieldIcon}
-        errors={firstnameError}
+        error={firstnameError}
         value={user.firstname}
-        label={i18n.t('common.form.firstname_label')}
+        label={i18n.t('common.form.label.firstname')}
         required
         handleChange={throttle(handleChange)}
       />
       <NumberInput
         name="age"
         icon={AgeFieldIcon}
-        errors={ageError}
         value={user.age}
-        label={i18n.t('common.form.age_label', { context: 'optional' })}
+        error={ageError}
+        label={i18n.t('common.form.label.age', { context: 'optional' })}
         handleChange={throttle(handleChange)}
-        min={1}
+        min={13}
         max={120}
       />
       <CustomPatternInput
@@ -151,7 +146,7 @@ export const RegisterFormComponent = ({
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
-        label={i18n.t('common.form.postalcode_label', { context: 'optional' })}
+        label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
         handleChange={throttle(handleChange)}
         maxLength={5}
         pattern="^[0-9]{5}"
@@ -161,7 +156,7 @@ export const RegisterFormComponent = ({
         name="profession"
         icon={JobFieldIcon}
         value={user.profession}
-        label={i18n.t('common.form.profession_label', { context: 'optional' })}
+        label={i18n.t('common.form.label.profession', { context: 'optional' })}
         handleChange={throttle(handleChange)}
       />
       <ConditionParagraphStyle
