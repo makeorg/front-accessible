@@ -4,6 +4,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - ~/.cache
+    - node_modules
 
 stages:
   - check
@@ -35,7 +36,7 @@ test:
 
 e2e-test:
   stage: e2e
-  image: node:11.14
+  image: cypress/base:10
   script:
     - yarn install
     - yarn build
