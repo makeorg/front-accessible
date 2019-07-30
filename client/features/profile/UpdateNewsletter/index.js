@@ -8,10 +8,10 @@ import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { type TypeProfile } from 'Shared/types/user';
 import * as UserService from 'Shared/services/User';
-import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
+import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 
 type Props = {
   /** User Profile */
@@ -57,17 +57,13 @@ export const UpdateNewsletter = ({ profile }: Props) => {
           label={i18n.t('profile.newsletter_update.optin_label')}
           isChecked={optInNewsletter}
         />
-        {isSubmitSuccessful && (
-          <SuccessMessageStyle>
-            {i18n.t('profile.common.submit_success')}
-          </SuccessMessageStyle>
-        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={NEWSLETTER_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}
         />
+        {isSubmitSuccessful && <FormSuccessMessage />}
       </form>
     </TileWithTitle>
   );

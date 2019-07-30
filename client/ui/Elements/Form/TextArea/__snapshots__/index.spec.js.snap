@@ -8,7 +8,7 @@ Snapshot Diff:
 @@ -9,11 +9,11 @@
     </span>
     <div
-      className="sc-1ln9y8s-4 gXgjdc"
+      className="sc-1ln9y8s-4 gGCpFE"
     >
       <BasicTextAreaStyle
 -       autoComplete="off"
@@ -46,7 +46,7 @@ Snapshot Diff:
 + Second value
 
 @@ -11,11 +11,13 @@
-      className="sc-1ln9y8s-4 gXgjdc"
+      className="sc-1ln9y8s-4 gGCpFE"
     >
       <BasicTextAreaStyle
         autoComplete="off"
@@ -66,7 +66,7 @@ Snapshot Diff:
         qux
       </label>
 +     <TextAreaCounterStyle>
-+       3/450
++       3/450 common.max_characters
 +     </TextAreaCounterStyle>
     </div>
   </div>

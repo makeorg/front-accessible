@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Error Messages snapshot LoginErrorMessage 1`] = `
+<span
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "login.email_doesnot_exist",
+    }
+  }
+/>
+`;
+
+exports[`Form Error Messages snapshot MessageWithDynamicLabel 1`] = `
+<span
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "foo_message_key",
+    }
+  }
+/>
+`;

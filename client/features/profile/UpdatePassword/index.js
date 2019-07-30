@@ -7,7 +7,6 @@ import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
-import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { getUser } from 'Shared/store/actions/authentification';
 import * as UserService from 'Shared/services/User';
@@ -15,6 +14,7 @@ import { throttle } from 'Shared/helpers/throttle';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { getFieldError } from 'Shared/helpers/form';
+import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 
 type Props = {
   /** Id of the User */
@@ -47,6 +47,10 @@ export const UpdatePasswordComponent = ({
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
   const actualPasswordError = getFieldError('password', errors);
   const newPasswordError = getFieldError('newPassword', errors);
+  const actualPasswordIsEmptyAndWrong =
+    actualPasswordError && formValues.actualPassword.length <= 1;
+  const newPasswordIsEmptyAndWrong =
+    newPasswordError && formValues.newPassword.length <= 1;
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -56,6 +60,12 @@ export const UpdatePasswordComponent = ({
     });
 
     setCanSubmit(true);
+
+    if (actualPasswordIsEmptyAndWrong || newPasswordIsEmptyAndWrong) {
+      setCanSubmit(false);
+      setErrors([]);
+    }
+
     setIsSubmitSuccessful(false);
   };
 
@@ -90,7 +100,7 @@ export const UpdatePasswordComponent = ({
             icon={PasswordFieldIcon}
             value={formValues.actualPassword}
             error={actualPasswordError}
-            handleChange={throttle(handleChange)}
+            handleChange={handleChange}
           />
         )}
         <PasswordInput
@@ -99,19 +109,15 @@ export const UpdatePasswordComponent = ({
           icon={PasswordFieldIcon}
           value={formValues.newPassword}
           error={newPasswordError}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
-        {isSubmitSuccessful && (
-          <SuccessMessageStyle>
-            {i18n.t('profile.common.submit_success')}
-          </SuccessMessageStyle>
-        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={PASSWORD_UPDATE_FORMNAME}
           icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.common.submit_label')}
         />
+        {isSubmitSuccessful && <FormSuccessMessage />}
       </form>
     </TileWithTitle>
   );

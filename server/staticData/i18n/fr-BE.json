@@ -73,17 +73,15 @@
         "invalid_password": "Votre mot de passe doit contenir au moins 8 caractères.",
         "invalid_password_dynamic": "Votre {{label}} doit contenir au moins 8 caractères.",
         "api_error": "Oups ! Nous rencontrons quelques difficultés avec le chargement de cette page. Merci de bien vouloir réessayer ultérieurement.",
-        "required_field": "Veuillez renseigner ce champ.",
-        "required_field_dynamic": "Le champ {{label}} est obligatoire.",
         "mandatory": "Veuillez renseigner ce champ.",
         "mandatory_dynamic": "Le champ {{label}} est obligatoire.",
         "invalid_age": "Nos utilisateurs doivent avoir entre 13 et 120 ans.",
         "invalid_age_dynamic": "{{label}}: Nos utilisateurs doivent avoir entre 13 et 120 ans.",
-        "postal_code_error": "Le code postal doit être composé de 5 chiffres",
         "the_field_[email]_is_missing": "Le champ {{label}} est obligatoire.",
         "the_field_[password]_is_missing": "Le champ {{label}} est obligatoire.",
         "firstname_is_mandatory": "Le champ {{label}} est obligatoire.",
-        "invalid_postal_code": "Le code postal doit être composé de 5 chiffres."
+        "invalid_postal_code": "Le code postal doit être composé de 5 chiffres.",
+        "submit_success": "La modification a bien été enregistrée."
       }
     },
     "from": "sur",
@@ -117,7 +115,8 @@
       "introduction": "Utiliser les boutons de contrôle, les flêches \"gauches\" et \"droite\" ou la touche de tabulation de votre clavier pour interragir avec le carrousel ci dessous.",
       "previous": "Aller à l'élement précédent",
       "next": "Aller à l'élement suivant"
-    }
+    },
+    "max_characters": "caractères maximum"
   },
   "header": {
     "logo_alt": "Aller à l'acceuil du site Make.org",

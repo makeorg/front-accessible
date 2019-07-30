@@ -28,18 +28,20 @@ export const useIsFieldValid = (
       validationStatus = inputField.checkValidity();
     }
 
-    if (!isRefEmpty && inputField.name === 'postalcode') {
+    if (!isInitialErrorEmpty) {
+      validationStatus = false;
+    }
+
+    if (!isRefEmpty && inputField.name.toLowerCase() === 'postalcode') {
       if (inputField.validity.patternMismatch) {
-        inputField.setCustomValidity(i18n.t('common.form.invalid_postal_code'));
+        inputField.setCustomValidity(
+          i18n.t('common.form.messages.invalid_postal_code')
+        );
         validationStatus = false;
       } else {
         inputField.setCustomValidity('');
         validationStatus = true;
       }
-    }
-
-    if (!isInitialErrorEmpty) {
-      validationStatus = false;
     }
 
     return setFieldValidation(validationStatus);

@@ -63,6 +63,10 @@ export const FieldWrapperStyle = styled.div`
       line-height: 20px;
     }
   }
+  > textarea:not(:empty),
+  > textarea:focus {
+    padding-bottom: 15px;
+  }
   > input:required + label {
     font-size: 14px;
     line-height: 38px;

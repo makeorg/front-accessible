@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
-import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PROFILE_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -27,6 +26,7 @@ import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { getFieldError } from 'Shared/helpers/form';
+import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 
 type Props = {
   /** User */
@@ -135,17 +135,13 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           withCounter
           handleChange={throttle(handleChange)}
         />
-        {isSubmitSuccessful && (
-          <SuccessMessageStyle>
-            {i18n.t('profile.common.submit_success')}
-          </SuccessMessageStyle>
-        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}
         />
+        {isSubmitSuccessful && <FormSuccessMessage />}
       </form>
     </TileWithTitle>
   );

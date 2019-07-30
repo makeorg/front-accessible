@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error Message Forgot Password snapshot ErrorMessageForgotPasswordComponent 1`] = `
+Array [
+  <span
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "profile.password_update.actual_password.invalid_password",
+      }
+    }
+  />,
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-family: 'Roboto Bold',Arial,sans-serif;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+<button
+    className="c0"
+    onClick={[Function]}
+  >
+    profile.password_update.actual_password.trigger
+  </button>,
+]
+`;
+
+exports[`Error Message Forgot Password snapshot ErrorMessageForgotPasswordComponent default vs custom label 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;

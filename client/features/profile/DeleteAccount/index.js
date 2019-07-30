@@ -13,7 +13,6 @@ import {
   EmailFieldIcon,
   SubmitThumbsUpIcon,
 } from 'Shared/constants/icons';
-import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { logout } from 'Shared/store/actions/authentification';
 import * as UserService from 'Shared/services/User';
@@ -21,6 +20,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { getFieldError } from 'Shared/helpers/form';
 import { ErrorMessageForgotPassword } from 'Client/ui/Elements/Form/Errors/Message/Password';
+import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import { FormParagraphStyle } from '../Styled/Forms';
 
 type Props = {
@@ -129,17 +129,13 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
             handleChange={handleChange}
           />
         )}
-        {isSubmitSuccessful && (
-          <SuccessMessageStyle>
-            {i18n.t('profile.common.submit_success')}
-          </SuccessMessageStyle>
-        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={PROFILE_DELETE_ACCOUNT_FORMNAME}
           icon={SubmitThumbsUpIcon}
           label={i18n.t('profile.delete_account.submit_label')}
         />
+        {isSubmitSuccessful && <FormSuccessMessage />}
       </form>
     </TileWithTitle>
   );

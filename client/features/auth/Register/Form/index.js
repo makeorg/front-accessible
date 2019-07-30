@@ -51,7 +51,7 @@ export const RegisterFormComponent = ({
   const [user, setUser] = useState<TypeRegisterFormData>({
     email: '',
     password: '',
-    firstname: '',
+    firstname: undefined,
     age: '',
     postalcode: '',
     profession: '',

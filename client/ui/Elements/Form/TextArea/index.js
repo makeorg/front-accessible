@@ -1,5 +1,6 @@
 import React from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
+import { i18n } from 'Shared/i18n';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
 import {
@@ -72,7 +73,9 @@ export const TextArea = ({
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>
         {maxLength && withCounter && (
           <TextAreaCounterStyle>
-            {`${value ? value.length : '0'}/${maxLength}`}
+            {`${value ? value.length : '0'}/${maxLength} ${i18n.t(
+              'common.max_characters'
+            )}`}
           </TextAreaCounterStyle>
         )}
       </FieldWrapperStyle>
