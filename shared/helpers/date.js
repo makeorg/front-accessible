@@ -32,7 +32,7 @@ const localeMonths = {
   ],
 };
 
-export const getDateOfBirthFromAge = (age: number = 0) => {
+export const getDateOfBirthFromAge = (age: string = '') => {
   if (!age) {
     return '';
   }
@@ -63,7 +63,7 @@ export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
     age -= 1;
   }
 
-  return age;
+  return age.toString();
 };
 
 export const isInProgress = (startDate: string, endDate: string) => {

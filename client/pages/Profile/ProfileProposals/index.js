@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
-import { type User as TypeUser } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';

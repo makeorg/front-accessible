@@ -106,7 +106,7 @@ import { type User as TypeUser } from '/user';
 
 **Bad :**
 ```js static
-import { type User } from '/user';
+import { type User as TypeUser } from '/user';
 ```
 
 

@@ -81,6 +81,7 @@ describe('Authentification Actions', () => {
 
       const error = {
         field: 'email',
+        key: 'email_doesnot_exist',
         message: 'login.email_doesnot_exist',
       };
       const proposalContent = 'foo';

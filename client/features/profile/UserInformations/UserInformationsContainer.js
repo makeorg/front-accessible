@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { logout } from 'Shared/store/actions/authentification';
-import { type User } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
@@ -26,7 +26,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { UserDescription } from './Description';
 
 type Props = {
-  user: User,
+  user: TypeUser,
   navigationBar: React.Element<any>,
   handleLogout: () => void,
 };

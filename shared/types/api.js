@@ -1,5 +1,4 @@
 // @flow
-
 import { type Proposal as TypeProposal } from './proposal';
 
 export type ApiServiceHeaders = {
@@ -17,11 +16,6 @@ export type ApiSearchProposalsResponseType = {
 
 export type TypeErrorObject = {
   field: string,
-  message: string,
-};
-
-export type ErrorMapping = {
-  field: string,
-  apiMessage: string | RegExp,
-  message: string,
+  key: string,
+  message: any,
 };

@@ -2,6 +2,7 @@
 import React, { useRef } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
+import { emptyError } from 'Shared/errors/Messages';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -24,7 +25,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Object containing field errors */
-  errors?: TypeErrorObject,
+  error?: TypeErrorObject,
   /** Is input required or optional */
   required?: boolean,
 };
@@ -36,11 +37,11 @@ export const UntypedInput = ({
   value,
   label,
   handleChange,
-  errors = { field: '', message: '' },
+  error = emptyError,
   required = false,
 }: Props) => {
   const inputRef = useRef(null);
-  const isFieldValid = useIsFieldValid(inputRef, errors);
+  const isFieldValid = useIsFieldValid(inputRef, error);
   return (
     <MiddleFakeFieldStyle hasError={!isFieldValid}>
       <CenterInputIconStyle aria-hidden>{icon}</CenterInputIconStyle>

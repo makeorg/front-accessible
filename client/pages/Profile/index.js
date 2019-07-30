@@ -10,7 +10,7 @@ import {
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type User as TypeUser } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { EditProfileLink } from 'Client/features/profile/UserInformations/Navigation';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';

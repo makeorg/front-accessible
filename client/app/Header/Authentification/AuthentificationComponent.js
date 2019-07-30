@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { type User as TypeUser } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
 import { SvgUser } from 'Client/ui/Svg/elements';

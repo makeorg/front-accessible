@@ -2,6 +2,7 @@
 
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
+import { type TypeErrorObject } from 'Shared/types/api';
 import { UserApiService } from 'Shared/api/UserApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
@@ -9,7 +10,7 @@ import { Tracking } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
-export const loginFailure = (error: Object) => ({
+export const loginFailure = (error: TypeErrorObject) => ({
   type: actionTypes.LOGIN_FAILURE,
   error,
 });
@@ -63,12 +64,13 @@ export const login = (email: string, password: string) => (
       dispatch(
         loginFailure({
           field: 'email',
+          key: 'email_doesnot_exist',
           message: i18n.t('login.email_doesnot_exist', {
             emailLabel: `<label for="email">${i18n.t(
-              'common.form.email_label'
+              'common.form.label.email'
             )}</label>`,
             passwordLabel: `<label for="password">${i18n.t(
-              'common.form.password_label'
+              'common.form.label.password'
             )}</label>`,
           }),
         })

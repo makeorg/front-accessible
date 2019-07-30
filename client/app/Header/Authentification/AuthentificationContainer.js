@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { type User as TypeUser } from 'Shared/types/user';
+import { type TypeUser } from 'Shared/types/user';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import {

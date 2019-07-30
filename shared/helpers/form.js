@@ -1,33 +1,17 @@
-/* @flow */
-
+// @flow
 import { i18n } from 'Shared/i18n';
 import { type TypeErrorObject } from 'Shared/types/api';
+import { defaultApiError } from 'Shared/errors/Messages';
+import { mapErrors } from 'Shared/services/ApiErrors';
+import { Logger } from 'Shared/services/Logger';
 
-export const errorTranslation = (message: string) => {
+export const errorTranslation = (message: string): string => {
   const translatedError = i18n.t(message);
   if (translatedError === undefined) {
     return message;
   }
 
   return translatedError;
-};
-
-//  TODO must be replaced by getFieldError() during these refactoring tasks
-//  https://makeorg.atlassian.net/browse/MP-42
-//  https://makeorg.atlassian.net/browse/MP-43
-export const fieldErrors = (field: string, errors: TypeErrorObject[]) => {
-  if (errors.length === 0) {
-    return null;
-  }
-  const fieldError = errors.find(error => error.field === field);
-
-  if (fieldError === undefined) {
-    return null;
-  }
-
-  return Object.keys(fieldError).length === 0
-    ? undefined
-    : errorTranslation(fieldError.message);
 };
 
 export const getFieldError = (
@@ -39,8 +23,22 @@ export const getFieldError = (
   if (fieldError === undefined) {
     fieldError = {
       field: '',
+      key: '',
       message: '',
     };
   }
   return fieldError;
+};
+
+export const getErrorMessages = (
+  internalErrors: TypeErrorObject[],
+  serviceErrors: any
+) => {
+  switch (true) {
+    case !Array.isArray(serviceErrors):
+      Logger.logError(`Unexpected error (array expected): ${serviceErrors}`);
+      throw Array(defaultApiError);
+    default:
+      throw mapErrors(internalErrors, serviceErrors);
+  }
 };

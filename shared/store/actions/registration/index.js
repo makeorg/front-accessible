@@ -9,6 +9,7 @@ import {
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
 import { type Dispatch } from 'redux';
+import { defaultApiError } from 'Shared/errors/Messages';
 
 export const registerRequest = () => ({ type: actionTypes.REGISTER_REQUEST });
 export const registerSuccess = () => ({
@@ -37,11 +38,7 @@ export const register = (user: Object) => (dispatch: Dispatch) => {
     )
     .catch(errors => {
       dispatch(
-        registerFailure(
-          Array.isArray(errors)
-            ? errors
-            : [{ field: 'global', message: 'api_error' }]
-        )
+        registerFailure(Array.isArray(errors) ? errors : [defaultApiError])
       );
       Tracking.trackSignupEmailFailure();
     });

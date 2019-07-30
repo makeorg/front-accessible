@@ -9,6 +9,13 @@ import {
 } from 'Shared/services/User';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
+import {
+  updateUserErrors,
+  emailNotExistError,
+  forgotPasswordErrors,
+  registerErrors,
+} from 'Shared/errors/Messages/User';
+import { defaultApiError } from 'Shared/errors/Messages';
 
 jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/services/Logger');
@@ -20,15 +27,17 @@ describe('User Service', () => {
   describe('update function', () => {
     const userInformation = {
       firstName: 'foo',
-      age: 33,
+      age: '33',
       profession: 'bar',
-      postalCode: 77000,
+      postalCode: '77000',
       description: 'baz description',
+      optInNewsletter: false,
     };
     it('Call UserApi service with right params', async () => {
       jest.spyOn(UserApiService, 'update');
+      UserApiService.update.mockResolvedValue('ok');
 
-      await update(userInformation);
+      const response = await update(userInformation);
 
       expect(UserApiService.update).toHaveBeenNthCalledWith(1, {
         firstName: userInformation.firstName,
@@ -36,7 +45,25 @@ describe('User Service', () => {
         postalCode: userInformation.postalCode,
         profession: userInformation.profession,
         description: userInformation.description,
+        optInNewsletter: userInformation.optInNewsletter,
       });
+      expect(response).toBe(HttpStatus.HTTP_NO_CONTENT);
+    });
+
+    it('return a bad request content', async () => {
+      jest.spyOn(UserApiService, 'update');
+      UserApiService.update.mockRejectedValue(updateUserErrors);
+      try {
+        await update({});
+      } catch (errors) {
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(updateUserErrors[index].message);
+          expect(errors[index].key).toBe(updateUserErrors[index].key);
+          return expect(errors[index].field).toBe(
+            updateUserErrors[index].field
+          );
+        });
+      }
     });
   });
 
@@ -84,29 +111,33 @@ describe('User Service', () => {
 
     it('return a bad request content', async () => {
       jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue([
-        { field: 'email', message: 'email is not a valid email' },
-      ]);
+      UserApiService.forgotPassword.mockRejectedValue(forgotPasswordErrors);
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
-        expect(errors[0].message).toBe(
-          'common.form.email_is_not_a_valid_email'
-        );
-        expect(errors[0].field).toBe('email');
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(
+            forgotPasswordErrors[index].message
+          );
+          expect(errors[index].key).toBe(forgotPasswordErrors[index].key);
+          return expect(errors[index].field).toBe(
+            forgotPasswordErrors[index].field
+          );
+        });
       }
     });
 
     it('return an unexpected error message content', async () => {
       jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue([
-        { field: 'email', message: 'notok' },
-      ]);
+      UserApiService.forgotPassword.mockRejectedValue(defaultApiError);
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
-        expect(errors[0].message).toBe('common.form.notok');
-        expect(errors[0].field).toBe('email');
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(defaultApiError.message);
+          expect(errors[index].key).toBe(defaultApiError.key);
+          return expect(errors[index].field).toBe(defaultApiError.field);
+        });
       }
     });
 
@@ -116,8 +147,11 @@ describe('User Service', () => {
       try {
         await forgotPassword('foo2@example.com');
       } catch (errors) {
-        expect(errors[0].message).toBe('common.form.email_doesnot_exist');
-        expect(errors[0].field).toBe('email');
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(emailNotExistError.message);
+          expect(errors[index].key).toBe(emailNotExistError.key);
+          return expect(errors[index].field).toBe(emailNotExistError.field);
+        });
       }
     });
   });
@@ -139,53 +173,29 @@ describe('User Service', () => {
 
     it('return a bad request content', async () => {
       jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue([
-        { field: 'email', message: 'required_field' },
-      ]);
+      UserApiService.register.mockRejectedValue(registerErrors);
       try {
         await register(johnData);
       } catch (errors) {
-        expect(errors[0].message).toBe('common.form.required_field');
-        expect(errors[0].field).toBe('email');
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(registerErrors[index].message);
+          expect(errors[index].key).toBe(registerErrors[index].key);
+          return expect(errors[index].field).toBe(registerErrors[index].field);
+        });
       }
     });
 
     it('return a global error if error message is not referenced', async () => {
       jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue([
-        { field: 'email', message: 'Api error' },
-      ]);
+      UserApiService.register.mockRejectedValue(defaultApiError);
       try {
         await register(johnData);
       } catch (errors) {
-        expect(errors[0].message).toBe('common.form.api_error');
-        expect(errors[0].field).toBe('email');
-      }
-    });
-
-    it('return a specific error when email already exist', async () => {
-      jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue([
-        { field: 'email', message: 'Email azerazer already exist' },
-      ]);
-      try {
-        await register(johnData);
-      } catch (errors) {
-        expect(errors[0].message).toBe('common.form.email_already_exist');
-        expect(errors[0].field).toBe('email');
-      }
-    });
-
-    it('return a bad request content with a global error', async () => {
-      jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue({
-        message: 'global notok',
-      });
-      try {
-        await register(johnData);
-      } catch (errors) {
-        expect(errors[0].message).toBe('common.form.api_error');
-        expect(errors[0].field).toBe('global');
+        errors.map((error, index) => {
+          expect(errors[index].message).toBe(defaultApiError.message);
+          expect(errors[index].key).toBe(defaultApiError.key);
+          return expect(errors[index].field).toBe(defaultApiError.field);
+        });
       }
     });
   });
