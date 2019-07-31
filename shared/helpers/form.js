@@ -43,10 +43,19 @@ export const getErrorMessages = (
   }
 };
 
-export const avoidEmptyStringValue = (initialValue?: string) => {
+export const setEmptyStringToNull = (initialValue: string): string | null => {
   let value = initialValue;
-  if (!initialValue || initialValue === '') {
-    value = undefined;
+  if (initialValue === '') {
+    value = null;
+  }
+
+  return value;
+};
+
+export const setNullToEmptyString = (initialValue: string): string => {
+  let value = initialValue;
+  if (initialValue === null) {
+    value = '';
   }
 
   return value;

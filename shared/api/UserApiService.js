@@ -6,6 +6,7 @@ import {
   type ApiServiceHeaders,
   type ApiSearchProposalsResponseType,
 } from 'Shared/types/api';
+import { setEmptyStringToNull } from 'Shared/helpers/form';
 import { ApiService } from './ApiService';
 
 export const PATH_USER_ME = '/user/me';
@@ -117,9 +118,9 @@ export class UserApiService {
       body: JSON.stringify({
         email: user.email,
         password: user.password,
-        firstName: user.firstname,
-        dateOfBirth: dateOfBirth !== '' ? dateOfBirth : null,
-        postalCode: user.postalcode,
+        firstName: setEmptyStringToNull(user.firstname),
+        dateOfBirth: setEmptyStringToNull(dateOfBirth),
+        postalCode: setEmptyStringToNull(user.postalcode),
         profession: user.profession,
         country: ApiService.country,
         language: ApiService.language,

@@ -25,7 +25,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
-import { getFieldError } from 'Shared/helpers/form';
+import { getFieldError, setNullToEmptyString } from 'Shared/helpers/form';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 
 type Props = {
@@ -37,11 +37,11 @@ type Props = {
 
 export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: user.firstName,
-    age: getAgeFromDateOfBrth(user.profile.dateOfBirth),
-    profession: user.profile.profession,
-    postalCode: user.profile.postalCode,
-    description: user.profile.description,
+    firstName: setNullToEmptyString(user.firstName),
+    age: setNullToEmptyString(getAgeFromDateOfBrth(user.profile.dateOfBirth)),
+    profession: setNullToEmptyString(user.profile.profession),
+    postalCode: setNullToEmptyString(user.profile.postalCode),
+    description: setNullToEmptyString(user.profile.description),
     optInNewsletter: user.profile.optInNewsletter,
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);

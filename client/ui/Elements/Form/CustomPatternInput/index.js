@@ -20,7 +20,7 @@ type Props = {
   /** Icon of the input */
   icon: HTMLElement,
   /** Value of the input */
-  value?: string,
+  value: string,
   /** Label of the input */
   label: string,
   /** Custom validation pattern */

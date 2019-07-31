@@ -15,7 +15,7 @@ import {
   ConditionParagraphStyle,
   FormRequirementsStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
-import { getFieldError, avoidEmptyStringValue } from 'Shared/helpers/form';
+import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
@@ -51,9 +51,9 @@ export const RegisterFormComponent = ({
   const [user, setUser] = useState<TypeRegisterFormData>({
     email: '',
     password: '',
-    firstname: undefined,
+    firstname: '',
     age: '',
-    postalcode: undefined,
+    postalcode: '',
     profession: '',
   });
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
@@ -127,7 +127,7 @@ export const RegisterFormComponent = ({
         name="firstname"
         icon={FirstNameFieldIcon}
         error={firstnameError}
-        value={avoidEmptyStringValue(user.firstname)}
+        value={user.firstname}
         label={i18n.t('common.form.label.firstname')}
         required
         handleChange={handleChange}
@@ -146,7 +146,7 @@ export const RegisterFormComponent = ({
         type="text"
         name="postalcode"
         icon={PostalCodeFieldIcon}
-        value={avoidEmptyStringValue(user.postalcode)}
+        value={user.postalcode}
         error={postalcodeError}
         label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
         handleChange={handleChange}
