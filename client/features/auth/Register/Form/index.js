@@ -96,6 +96,7 @@ export const RegisterFormComponent = ({
   const passwordError = getFieldError('password', errors);
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('age', errors);
+  const postalcodeError = getFieldError('postalcode', errors);
 
   return (
     <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
@@ -146,6 +147,7 @@ export const RegisterFormComponent = ({
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
+        error={postalcodeError}
         label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
         handleChange={throttle(handleChange)}
         maxLength={5}

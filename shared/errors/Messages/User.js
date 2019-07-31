@@ -72,6 +72,17 @@ export const registerErrors: TypeErrorObject[] = [
       />
     ),
   },
+  {
+    field: 'postalcode',
+    key: 'invalid_postal_code',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.invalid_postal_code"
+        field="postalcode"
+        labelKey="common.form.label.postalcode"
+      />
+    ),
+  },
 ];
 
 export const updateUserErrors: TypeErrorObject[] = [
@@ -94,6 +105,17 @@ export const updateUserErrors: TypeErrorObject[] = [
         messageKey="common.form.messages.invalid_age"
         field="age"
         labelKey="common.form.label.age"
+      />
+    ),
+  },
+  {
+    field: 'postalcode',
+    key: 'invalid_postal_code',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.invalid_postal_code"
+        field="postalCode"
+        labelKey="common.form.label.postalcode"
       />
     ),
   },

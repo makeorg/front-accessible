@@ -76,6 +76,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
 
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('dateofbirth', errors);
+  const postalcodeError = getFieldError('postalCode', errors);
 
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
@@ -122,6 +123,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.postalcode', {
             context: 'optional',
           })}
+          error={postalcodeError}
           handleChange={throttle(handleChange)}
           maxLength={5}
           pattern="^[0-9]{5}"

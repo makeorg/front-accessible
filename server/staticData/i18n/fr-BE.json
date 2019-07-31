@@ -81,6 +81,7 @@
         "the_field_[password]_is_missing": "Le champ {{label}} est obligatoire.",
         "firstname_is_mandatory": "Le champ {{label}} est obligatoire.",
         "invalid_postal_code": "Le code postal doit être composé de 5 chiffres.",
+        "invalid_postal_code_dynamic": "Le {{label}} doit être composé de 5 chiffres.",
         "submit_success": "La modification a bien été enregistrée."
       }
     },
