@@ -1,46 +1,68 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
 import {
   Breakpoints,
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
-  CALC_WIDTH_MOBILE,
-  CALC_WIDTH_DESKTOP,
-} from 'Client/app/constants/elements';
+  BasicColors,
+  ShadowColors,
+  FormColors,
+} from 'Client/app/assets/vars/Colors';
+import { intToPx } from 'Shared/helpers/styled';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const NotificationWrapperStyle = styled.section`
-  position: absolute;
-  z-index: 2;
+  position: sticky;
   display: flex;
   justify-content: center;
-  width: calc(100% - ${pxToRem(CALC_WIDTH_MOBILE)});
-  min-height: ${pxToRem('20px')};
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  top: ${pxToRem(DefaultPadding.Mobile)};
-  left: ${pxToRem(DefaultPadding.Mobile)};
+  align-items: flex-start;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  padding: ${intToPx(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background-color: ${BasicColors.PureWhite};
-  border-radius: ${pxToRem('10px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    top: ${pxToRem(DefaultPadding.Desktop)};
+  box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroOneOpacity};
+  &.success {
+    background-color: ${FormColors.SuccessBackground};
   }
-  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}) {
-    width: calc(100% - ${pxToRem(CALC_WIDTH_DESKTOP)});
-    left: ${pxToRem(DefaultPadding.Desktop)};
+  &.error {
+    background-color: ${FormColors.ErrorBackground};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 25px ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
-export const NotificationContentStyle = styled.div`
+export const NotificationContentStyle = styled.p`
   display: flex;
-  flex-flow: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  padding-right: ${pxToRem(DefaultPadding.Desktop)};
-  @media (min-width: ${pxToRem(Breakpoints.LargeDesktop)}) {
-    padding-right: ${pxToRem(DefaultPadding.Mobile)};
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  padding-right: ${intToPx(DefaultPadding.Mobile)};
+  font-size: 16px;
+  line-height: 24px;
+  color: ${BasicColors.PureBlack};
+  &.success {
+    font-family: ${MakeFonts.RobotoBold};
   }
 `;
+
+export const NotificationCloseButtonStyle = styled(CloseButtonStyle)`
+  top: 20px;
+  right: 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    top: 30px;
+    right: 30px;
+  }
+`;
+
+export const SvgCheckStyle = {
+  display: 'inline-flex',
+  fill: FormColors.Success,
+  fontSize: '28px',
+  marginRight: '10px',
+};

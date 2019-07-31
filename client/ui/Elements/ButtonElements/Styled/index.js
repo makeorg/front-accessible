@@ -1,5 +1,3 @@
-/* @flow */
-
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import {
@@ -166,12 +164,5 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: ${intToPx(DefaultPadding.Desktop)};
     right: ${intToPx(DefaultPadding.Desktop)};
-  }
-`;
-
-export const CloseBannerButtonStyle = styled(CloseButtonStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    top: 15px;
-    right: 15px;
   }
 `;

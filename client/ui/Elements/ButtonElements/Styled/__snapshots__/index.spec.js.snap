@@ -120,49 +120,6 @@ exports[`ButtonElements/Styled ButtonsWrapperStyle snapshot by default 1`] = `
 />
 `;
 
-exports[`ButtonElements/Styled CloseBannerButtonStyle snapshot by default 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 1;
-  font-size: 16px;
-}
-
-@media (min-width:767px) {
-  .c0 {
-    top: 25px;
-    right: 25px;
-  }
-}
-
-@media (min-width:767px) {
-  .c0 {
-    top: 15px;
-    right: 15px;
-  }
-}
-
-<button
-  className="c0"
-/>
-`;
-
 exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
 .c0 {
   display: -webkit-box;

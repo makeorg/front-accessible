@@ -2,8 +2,11 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgClose } from 'Client/ui/Svg/elements';
-import { CloseBannerButtonStyle } from 'Client/ui/Elements/ButtonElements/';
-import { CookieContentStyle, CookieWrapperStyle } from './Styled';
+import {
+  CookieContentStyle,
+  CookieWrapperStyle,
+  CookieCloseButtonStyle,
+} from './Styled';
 
 /**
  * Renders Cookie Banner component
@@ -26,12 +29,12 @@ export const CookieBannerComponent = ({
         }),
       }}
     />
-    <CloseBannerButtonStyle
+    <CookieCloseButtonStyle
       aria-label={i18n.t('cookie_alert.close')}
       aria-expanded="false"
       onClick={handleClose}
     >
       <SvgClose aria-hidden />
-    </CloseBannerButtonStyle>
+    </CookieCloseButtonStyle>
   </CookieWrapperStyle>
 );

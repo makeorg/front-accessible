@@ -66,6 +66,7 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS },
         { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
       ];
 
       return newStore
@@ -138,9 +139,10 @@ describe('Authentification Actions', () => {
     });
 
     it('creates an action to login social when success', () => {
-      const store = mockStore({
+      const loginStore = mockStore({
         proposal: { canSubmit: false },
         authentification: { isLoggedIn: false },
+        notification: { level: undefined, contentType: undefined },
         modal: { isOpen: true },
       });
       const user = { firstname: 'baz' };
@@ -159,15 +161,16 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS },
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
+        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
       ];
 
-      return store
+      return loginStore
         .dispatch(actions.loginSocial(provider, socialToken))
         .then(() => {
           expect(
             Tracking.trackAuthentificationSocialSuccess
           ).toHaveBeenCalled();
-          expect(store.getActions()).toEqual(expectedActions);
+          expect(loginStore.getActions()).toEqual(expectedActions);
         });
     });
 
@@ -212,7 +215,6 @@ describe('Authentification Actions', () => {
         type: actionTypes.GET_INFO,
         user,
       };
-
       expect(actions.setUserInfo(user)).toEqual(expectedAction);
     });
 
@@ -221,7 +223,10 @@ describe('Authentification Actions', () => {
         user: { authentification: {} },
       });
 
-      const expectedActions = [{ type: actionTypes.LOGOUT }];
+      const expectedActions = [
+        { type: actionTypes.LOGOUT },
+        { type: actionTypes.NOTIFICATION_LOGOUT_SUCCESS },
+      ];
 
       UserApiService.logout.mockResolvedValue();
 
@@ -253,6 +258,7 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
+        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
@@ -270,7 +276,10 @@ describe('Authentification Actions', () => {
       // mock
       UserApiService.me.mockResolvedValue(user);
 
-      const expectedActions = [{ type: actionTypes.GET_INFO, user }];
+      const expectedActions = [
+        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
+      ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
         expect(newStore.getActions()).toEqual(expectedActions);

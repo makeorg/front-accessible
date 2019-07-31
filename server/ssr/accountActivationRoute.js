@@ -1,7 +1,10 @@
 import { UserApiService } from 'Shared/api/UserApiService';
-import { notificationConstants } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import {
+  ACTIVATION_SUCCESS_MESSAGE,
+  ACTIVATION_FAILURE_MESSAGE,
+} from 'Shared/constants/notification';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 import { getQuestion } from '../service/QuestionService';
@@ -48,13 +51,11 @@ export const accountActivationRoute = async (req, res) => {
     });
 
     if (status === HTTP_NO_CONTENT) {
-      routeState.notification.contentType =
-        notificationConstants.ACTIVATION_SUCCESS_CONTENT;
+      routeState.notification.contentType = ACTIVATION_SUCCESS_MESSAGE;
     }
   } catch (error) {
     logError(error);
-    routeState.notification.contentType =
-      notificationConstants.ACTIVATION_FAILURE_CONTENT;
+    routeState.notification.contentType = ACTIVATION_FAILURE_MESSAGE;
   }
 
   return reactRender(req, res, routeState);
