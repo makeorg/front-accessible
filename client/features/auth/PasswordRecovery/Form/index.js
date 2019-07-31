@@ -79,7 +79,7 @@ export const PasswordRecoveryFormComponent = ({
         icon={PasswordFieldIcon}
         value={password}
         label={i18n.t('common.form.label.password')}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
         error={passwordError}
       />
       <SubmitButton

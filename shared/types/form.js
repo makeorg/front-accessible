@@ -5,6 +5,6 @@ export type TypeRegisterFormData = {
   password: string,
   firstname?: string,
   age: string,
-  postalcode: string,
+  postalcode?: string,
   profession: string,
 };

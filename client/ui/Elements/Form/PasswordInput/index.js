@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { emptyError } from 'Shared/errors/Messages';
+import { throttle } from 'Shared/helpers/throttle';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import { PasswordButton } from './Button';
@@ -53,7 +54,7 @@ export const PasswordInput = ({
           id={name}
           value={value}
           required={required}
-          onChange={handleChange}
+          onChange={throttle(handleChange)}
           minLength={8}
         />
         <FloatingLabelStyle htmlFor={name}>{label}</FloatingLabelStyle>

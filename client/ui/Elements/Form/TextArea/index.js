@@ -1,6 +1,7 @@
 import React from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
+import { throttle } from 'Shared/helpers/throttle';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
 import { TextAreaIconStyle } from '../Styled/Icons';
 import {
@@ -62,7 +63,7 @@ export const TextArea = ({
           id={name}
           value={value}
           required={required}
-          onChange={handleChange}
+          onChange={throttle(handleChange)}
           rows={rows}
           maxRows={25}
           minLength={minLength}

@@ -1,10 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { LoginErrorMessage, MessageWithDynamicLabel } from './index';
+import {
+  LoginErrorMessage,
+  MessageWithDynamicLabel,
+  DefaultApiErrorMessage,
+} from './index';
 
 describe('Form Error Messages', () => {
   it('snapshot LoginErrorMessage', () => {
     const component = renderer.create(<LoginErrorMessage />).toJSON();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('snapshot DefaultApiErrorMessage', () => {
+    const component = renderer.create(<DefaultApiErrorMessage />).toJSON();
     expect(component).toMatchSnapshot();
   });
 

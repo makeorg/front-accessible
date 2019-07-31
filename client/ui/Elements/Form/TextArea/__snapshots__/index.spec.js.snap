@@ -16,7 +16,7 @@ Snapshot Diff:
         id="bar"
         maxRows={25}
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
         required={false}
 `;
 
@@ -28,7 +28,7 @@ Snapshot Diff:
 @@ -16,11 +16,11 @@
         maxRows={25}
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
         required={false}
         rows={5}
 -       spellCheck={true}
@@ -55,7 +55,7 @@ Snapshot Diff:
         maxRows={25}
 +       minLength="25"
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
         required={false}
         rows={5}
         spellCheck={true}
@@ -82,7 +82,7 @@ Snapshot Diff:
         id="bar"
         maxRows={25}
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
 -       required={true}
 +       required={false}
         rows={5}

@@ -14,3 +14,10 @@ import { MessageWithDynamicLabel } from './index';
 import { LoginErrorMessage } from './index';
   <LoginErrorMessage />
 ```
+
+
+##### DefaultApiErrorMessage Example :
+```jsx
+import { DefaultApiErrorMessage } from './index';
+  <DefaultApiErrorMessage />
+```

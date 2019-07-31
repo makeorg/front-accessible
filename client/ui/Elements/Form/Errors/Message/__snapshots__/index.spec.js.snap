@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Form Error Messages snapshot DefaultApiErrorMessage 1`] = `"common.form.messages.api_error"`;
+
 exports[`Form Error Messages snapshot LoginErrorMessage 1`] = `
 <span
   dangerouslySetInnerHTML={

@@ -12,6 +12,7 @@ export const useIsFieldValid = (
   let isInitialErrorEmpty = true;
   let isRefEmpty = true;
   let inputField;
+  let filledPostalCode;
 
   if (initialError) {
     isInitialErrorEmpty = !initialError.message;
@@ -20,6 +21,9 @@ export const useIsFieldValid = (
   if (ref.current) {
     inputField = ref.current;
     isRefEmpty = inputField.value.length === 0;
+    filledPostalCode =
+      (inputField.value !== undefined || inputField.value !== '') &&
+      inputField.name.toLowerCase() === 'postalcode';
   }
 
   useEffect(() => {
@@ -28,20 +32,20 @@ export const useIsFieldValid = (
       validationStatus = inputField.checkValidity();
     }
 
-    if (!isInitialErrorEmpty) {
-      validationStatus = false;
-    }
+    if (filledPostalCode) {
+      inputField.setCustomValidity('');
+      validationStatus = true;
 
-    if (!isRefEmpty && inputField.name.toLowerCase() === 'postalcode') {
       if (inputField.validity.patternMismatch) {
         inputField.setCustomValidity(
           i18n.t('common.form.messages.invalid_postal_code')
         );
-        validationStatus = false;
-      } else {
-        inputField.setCustomValidity('');
-        validationStatus = true;
+        validationStatus = !inputField.validity.patternMismatch;
       }
+    }
+
+    if (!isInitialErrorEmpty) {
+      validationStatus = false;
     }
 
     return setFieldValidation(validationStatus);

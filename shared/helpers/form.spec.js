@@ -1,7 +1,7 @@
 // @flow
 import { type TypeErrorObject } from 'Shared/types/api';
 import { defaultApiError, emptyError } from 'Shared/errors/Messages';
-import { getFieldError, getErrorMessages } from './form';
+import { getFieldError, getErrorMessages, avoidEmptyStringValue } from './form';
 
 describe('getFieldError', () => {
   const errors: TypeErrorObject[] = [
@@ -88,5 +88,14 @@ describe('getErrorMessages', () => {
     expect(() => getErrorMessages(internalErrors, apiObjectError)).toThrow(
       defaultApiError.toString()
     );
+  });
+});
+
+describe('avoidEmptyStringValue', () => {
+  it('getMessage with an array of Errors returned from Api', () => {
+    expect(avoidEmptyStringValue('')).toEqual(undefined);
+  });
+  it('getMessage with an single object error returned from Api', () => {
+    expect(avoidEmptyStringValue('foo')).toEqual('foo');
   });
 });

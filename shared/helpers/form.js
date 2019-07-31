@@ -42,3 +42,12 @@ export const getErrorMessages = (
       throw mapErrors(internalErrors, serviceErrors);
   }
 };
+
+export const avoidEmptyStringValue = (initialValue?: string) => {
+  let value = initialValue;
+  if (!initialValue || initialValue === '') {
+    value = undefined;
+  }
+
+  return value;
+};

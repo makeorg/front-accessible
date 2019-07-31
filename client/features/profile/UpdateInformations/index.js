@@ -80,7 +80,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
 
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
-      <form id={PROFILE_UPDATE_FORMNAME} onSubmit={handleSubmit}>
+      <form id={PROFILE_UPDATE_FORMNAME} onSubmit={throttle(handleSubmit)}>
         <FormRequirementsStyle>
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
@@ -93,7 +93,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.firstname')}
           error={firstnameError}
           required
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
         <NumberInput
           name="age"
@@ -101,7 +101,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           value={formValues.age}
           label={i18n.t('common.form.label.age', { context: 'optional' })}
           error={ageError}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
           min={13}
           max={120}
         />
@@ -113,7 +113,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.profession', {
             context: 'optional',
           })}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
         <CustomPatternInput
           type="text"
@@ -124,7 +124,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
             context: 'optional',
           })}
           error={postalcodeError}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
           maxLength={5}
           pattern="^[0-9]{5}"
         />
@@ -135,7 +135,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.biography', { context: 'optional' })}
           maxLength={450}
           withCounter
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
         <SubmitButton
           disabled={!canSubmit}

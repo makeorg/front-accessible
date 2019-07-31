@@ -10,7 +10,7 @@ Snapshot Diff:
         max={100000}
         min={0}
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
 -       required={true}
 +       required={false}
         type="number"

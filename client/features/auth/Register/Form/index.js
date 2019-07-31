@@ -15,7 +15,7 @@ import {
   ConditionParagraphStyle,
   FormRequirementsStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
-import { getFieldError } from 'Shared/helpers/form';
+import { getFieldError, avoidEmptyStringValue } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
@@ -53,7 +53,7 @@ export const RegisterFormComponent = ({
     password: '',
     firstname: undefined,
     age: '',
-    postalcode: '',
+    postalcode: undefined,
     profession: '',
   });
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
@@ -112,7 +112,7 @@ export const RegisterFormComponent = ({
         label={i18n.t('common.form.label.email')}
         required
         error={emailError}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <PasswordInput
         name="password"
@@ -120,17 +120,17 @@ export const RegisterFormComponent = ({
         value={user.password}
         error={passwordError}
         label={i18n.t('common.form.label.password')}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <UntypedInput
         type="text"
         name="firstname"
         icon={FirstNameFieldIcon}
         error={firstnameError}
-        value={user.firstname}
+        value={avoidEmptyStringValue(user.firstname)}
         label={i18n.t('common.form.label.firstname')}
         required
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <NumberInput
         name="age"
@@ -138,7 +138,7 @@ export const RegisterFormComponent = ({
         value={user.age}
         error={ageError}
         label={i18n.t('common.form.label.age', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
         min={13}
         max={120}
       />
@@ -146,10 +146,10 @@ export const RegisterFormComponent = ({
         type="text"
         name="postalcode"
         icon={PostalCodeFieldIcon}
-        value={user.postalcode}
+        value={avoidEmptyStringValue(user.postalcode)}
         error={postalcodeError}
         label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
         maxLength={5}
         pattern="^[0-9]{5}"
       />
@@ -159,7 +159,7 @@ export const RegisterFormComponent = ({
         icon={JobFieldIcon}
         value={user.profession}
         label={i18n.t('common.form.label.profession', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
