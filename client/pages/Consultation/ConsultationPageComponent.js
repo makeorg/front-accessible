@@ -20,6 +20,7 @@ import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
+import { Tracking } from 'Shared/services/Tracking';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -67,7 +68,13 @@ export const ConsultationPageComponent = ({
             </FullWidthTabStyle>
             {questionIsGreatCause && (
               <FullWidthTabStyle isSelected={isActionPage}>
-                <Link to={actionLink} aria-current={isActionPage}>
+                <Link
+                  to={actionLink}
+                  aria-current={isActionPage}
+                  onClick={() => {
+                    Tracking.trackClickActionsTab();
+                  }}
+                >
                   {i18n.t('consultation.tabs.action')}
                 </Link>
               </FullWidthTabStyle>

@@ -80,6 +80,18 @@ describe('Tracking Service', () => {
     );
   });
 
+  it('track Click Actions Tab', () => {
+    const eventName = trackingConstants.CLICK_ACTIONS_TAB;
+
+    Tracking.trackClickActionsTab();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+  });
+
   it('track ClickMakeLogo', () => {
     const eventName = trackingConstants.CLICK_MAKEORG_LOGO;
 
@@ -498,6 +510,18 @@ describe('Tracking Service', () => {
     const eventName = trackingConstants.CLICK_HOMEPAGE_CONSULTATION;
 
     Tracking.trackClickHomepageConsultations();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+  });
+
+  it('track Click Homepage Arrow Slider', () => {
+    const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+
+    Tracking.trackClickHomepageSliderArrows();
     expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
