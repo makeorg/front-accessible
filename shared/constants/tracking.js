@@ -9,6 +9,7 @@ export const CLICK_CLOSE_MODAL: string = 'click-close-modal';
 /* Consultation */
 export const DISPLAY_PAGE_OPERATION: string = 'display-page-operation';
 export const OPEN_BLOCK_LEARN_MORE: string = 'open-block-learn-more';
+export const CLICK_ACTIONS_TAB: string = 'click-actions-tab';
 export const CLICK_BUTTON_LEARN_MORE: string = 'click-button-learn-more';
 export const CLICK_SEQUENCE_OPEN: string = 'click-sequence-open';
 export const CLICK_PARTICIPATE_COMMUNITY: string =

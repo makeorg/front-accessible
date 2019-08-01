@@ -16,6 +16,7 @@ import {
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { useSlider } from 'Client/hooks/useSlider';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   CurrentConsultationContainerStyle,
   CurrentConsultationArrowsStyle,
@@ -94,6 +95,7 @@ export const CurrentConsultationsComponent = ({
               data-glide-dir="<"
               aria-label={i18n.t('common.slider.previous')}
               aria-controls="glide_translator"
+              onClick={() => Tracking.trackClickHomepageSliderArrows()}
             >
               <SvgArrowLeft aria-hidden />
             </CurrentConsultationArrowsStyle>
@@ -102,6 +104,7 @@ export const CurrentConsultationsComponent = ({
               data-glide-dir=">"
               aria-label={i18n.t('common.slider.next')}
               aria-controls="glide_translator"
+              onClick={() => Tracking.trackClickHomepageSliderArrows()}
             >
               <SvgArrowRight aria-hidden />
             </CurrentConsultationArrowsStyle>
