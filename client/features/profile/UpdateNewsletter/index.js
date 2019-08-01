@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { NEWSLETTER_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { type TypeErrorObject } from 'Shared/types/api';
@@ -12,13 +13,19 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
+import { getUser } from 'Shared/store/actions/authentification';
 
 type Props = {
   /** User Profile */
   profile: TypeProfile,
+  /** Dispatch method for user after submit */
+  handleGetUser: () => void,
 };
 
-export const UpdateNewsletter = ({ profile }: Props) => {
+export const UpdateNewsletterComponent = ({
+  profile,
+  handleGetUser,
+}: Props) => {
   const [optInNewsletter, setOptInNewsletter] = useState<boolean>(
     profile.optInNewsletter
   );
@@ -40,6 +47,7 @@ export const UpdateNewsletter = ({ profile }: Props) => {
       await UserService.updateNewsletter(optInNewsletter);
       setIsSubmitSuccessful(true);
       setCanSubmit(false);
+      handleGetUser();
     } catch {
       setErrors([defaultApiError]);
       setIsSubmitSuccessful(false);
@@ -68,3 +76,14 @@ export const UpdateNewsletter = ({ profile }: Props) => {
     </TileWithTitle>
   );
 };
+
+const mapDispatchToProps = dispatch => ({
+  handleGetUser: () => {
+    dispatch(getUser());
+  },
+});
+
+export const UpdateNewsletter = connect(
+  null,
+  mapDispatchToProps
+)(UpdateNewsletterComponent);
