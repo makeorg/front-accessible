@@ -56,6 +56,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
       [name]: value,
     });
     setCanSubmit(true);
+    setIsSubmitSuccessful(false);
   };
 
   const handleSubmit = async (
