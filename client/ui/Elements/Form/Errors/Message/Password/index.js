@@ -23,7 +23,7 @@ export const ErrorMessageForgotPasswordComponent = ({
           __html: i18n.t(
             'profile.password_update.actual_password.invalid_password',
             {
-              label: `<label for="${inputId}">${labelText}</label>`,
+              label: `<label for="${inputId}">${labelText.toLowerCase()}</label>`,
             }
           ),
         }}

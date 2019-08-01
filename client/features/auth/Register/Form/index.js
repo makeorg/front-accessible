@@ -96,6 +96,7 @@ export const RegisterFormComponent = ({
   const passwordError = getFieldError('password', errors);
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('age', errors);
+  const postalcodeError = getFieldError('postalcode', errors);
 
   return (
     <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
@@ -111,7 +112,7 @@ export const RegisterFormComponent = ({
         label={i18n.t('common.form.label.email')}
         required
         error={emailError}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <PasswordInput
         name="password"
@@ -119,7 +120,7 @@ export const RegisterFormComponent = ({
         value={user.password}
         error={passwordError}
         label={i18n.t('common.form.label.password')}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <UntypedInput
         type="text"
@@ -129,7 +130,7 @@ export const RegisterFormComponent = ({
         value={user.firstname}
         label={i18n.t('common.form.label.firstname')}
         required
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <NumberInput
         name="age"
@@ -137,7 +138,7 @@ export const RegisterFormComponent = ({
         value={user.age}
         error={ageError}
         label={i18n.t('common.form.label.age', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
         min={13}
         max={120}
       />
@@ -146,8 +147,9 @@ export const RegisterFormComponent = ({
         name="postalcode"
         icon={PostalCodeFieldIcon}
         value={user.postalcode}
+        error={postalcodeError}
         label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
         maxLength={5}
         pattern="^[0-9]{5}"
       />
@@ -157,7 +159,7 @@ export const RegisterFormComponent = ({
         icon={JobFieldIcon}
         value={user.profession}
         label={i18n.t('common.form.label.profession', { context: 'optional' })}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{

@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { emptyError } from 'Shared/errors/Messages';
+import { throttle } from 'Shared/helpers/throttle';
 import { BasicInputStyle } from '../Styled/Input';
 import { CenterInputIconStyle } from '../Styled/Icons';
 import {
@@ -62,7 +63,7 @@ export const CustomPatternInput = ({
           id={name}
           value={value}
           required={required}
-          onChange={handleChange}
+          onChange={throttle(handleChange)}
           pattern={pattern}
           minLength={minLength}
           maxLength={maxLength}

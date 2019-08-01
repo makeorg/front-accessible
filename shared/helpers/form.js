@@ -42,3 +42,21 @@ export const getErrorMessages = (
       throw mapErrors(internalErrors, serviceErrors);
   }
 };
+
+export const setEmptyStringToNull = (initialValue: string): string | null => {
+  let value = initialValue;
+  if (initialValue === '') {
+    value = null;
+  }
+
+  return value;
+};
+
+export const setNullToEmptyString = (initialValue: string): string => {
+  let value = initialValue;
+  if (initialValue === null) {
+    value = '';
+  }
+
+  return value;
+};

@@ -1,7 +1,12 @@
 // @flow
 import { type TypeErrorObject } from 'Shared/types/api';
 import { defaultApiError, emptyError } from 'Shared/errors/Messages';
-import { getFieldError, getErrorMessages } from './form';
+import {
+  getFieldError,
+  getErrorMessages,
+  setNullToEmptyString,
+  setEmptyStringToNull,
+} from './form';
 
 describe('getFieldError', () => {
   const errors: TypeErrorObject[] = [
@@ -88,5 +93,23 @@ describe('getErrorMessages', () => {
     expect(() => getErrorMessages(internalErrors, apiObjectError)).toThrow(
       defaultApiError.toString()
     );
+  });
+});
+
+describe('setEmptyStringToNull', () => {
+  it('empty string should return null', () => {
+    expect(setEmptyStringToNull('')).toEqual(null);
+  });
+  it('value should be returned', () => {
+    expect(setEmptyStringToNull('foo')).toEqual('foo');
+  });
+});
+
+describe('setNullToEmptyString', () => {
+  it('null should return empty string', () => {
+    expect(setNullToEmptyString(null)).toEqual('');
+  });
+  it('value should be returned', () => {
+    expect(setNullToEmptyString('foo')).toEqual('foo');
   });
 });

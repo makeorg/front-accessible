@@ -31,5 +31,6 @@ export const FormErrorsListItemStyle = styled.li`
 export const CustomErrorTriggerStyle = styled(UnstyledButtonStyle)`
   display: inline-flex;
   font-family: ${MakeFonts.RobotoBold};
+  text-decoration: underline;
   margin-left: 5px;
 `;

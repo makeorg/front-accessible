@@ -87,7 +87,7 @@ export const LoginFormComponent = ({
         label={i18n.t('common.form.label.email')}
         required
         error={globalError}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <PasswordInput
         name="password"
@@ -96,7 +96,7 @@ export const LoginFormComponent = ({
         label={i18n.t('common.form.label.password')}
         required
         error={globalError}
-        handleChange={throttle(handleChange)}
+        handleChange={handleChange}
       />
       <SubmitButton
         formName={LOGIN_FORMNAME}

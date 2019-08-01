@@ -1,6 +1,7 @@
 // @flow
+import React from 'react';
 import { type TypeErrorObject } from 'Shared/types/api';
-import { i18n } from 'Shared/i18n';
+import { DefaultApiErrorMessage } from 'Client/ui/Elements/Form/Errors/Message';
 
 export const emptyError: TypeErrorObject = {
   field: '',
@@ -11,5 +12,5 @@ export const emptyError: TypeErrorObject = {
 export const defaultApiError: TypeErrorObject = {
   field: 'global',
   key: 'api_error',
-  message: i18n.t('common.form.messages.api_error'),
+  message: <DefaultApiErrorMessage />,
 };

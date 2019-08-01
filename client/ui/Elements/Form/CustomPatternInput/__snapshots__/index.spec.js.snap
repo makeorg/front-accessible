@@ -9,7 +9,7 @@ Snapshot Diff:
         maxLength={100000}
         minLength={0}
         name="bar"
-        onChange={[Function handleChange]}
+        onChange={[Function anonymous]}
         pattern="[0-9]{5}"
 -       required={true}
 +       required={false}

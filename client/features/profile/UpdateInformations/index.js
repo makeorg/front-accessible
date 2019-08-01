@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
-import { SuccessMessageStyle } from 'Client/ui/Elements/Form/Styled/Success';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PROFILE_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -26,7 +25,8 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
-import { getFieldError } from 'Shared/helpers/form';
+import { getFieldError, setNullToEmptyString } from 'Shared/helpers/form';
+import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 
 type Props = {
   /** User */
@@ -37,11 +37,11 @@ type Props = {
 
 export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: user.firstName,
-    age: getAgeFromDateOfBrth(user.profile.dateOfBirth),
-    profession: user.profile.profession,
-    postalCode: user.profile.postalCode,
-    description: user.profile.description,
+    firstName: setNullToEmptyString(user.firstName),
+    age: setNullToEmptyString(getAgeFromDateOfBrth(user.profile.dateOfBirth)),
+    profession: setNullToEmptyString(user.profile.profession),
+    postalCode: setNullToEmptyString(user.profile.postalCode),
+    description: setNullToEmptyString(user.profile.description),
     optInNewsletter: user.profile.optInNewsletter,
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
@@ -76,10 +76,11 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
 
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('dateofbirth', errors);
+  const postalcodeError = getFieldError('postalCode', errors);
 
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
-      <form id={PROFILE_UPDATE_FORMNAME} onSubmit={handleSubmit}>
+      <form id={PROFILE_UPDATE_FORMNAME} onSubmit={throttle(handleSubmit)}>
         <FormRequirementsStyle>
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
@@ -92,7 +93,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.firstname')}
           error={firstnameError}
           required
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
         <NumberInput
           name="age"
@@ -100,7 +101,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           value={formValues.age}
           label={i18n.t('common.form.label.age', { context: 'optional' })}
           error={ageError}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
           min={13}
           max={120}
         />
@@ -112,7 +113,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.profession', {
             context: 'optional',
           })}
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
         <CustomPatternInput
           type="text"
@@ -122,7 +123,8 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.postalcode', {
             context: 'optional',
           })}
-          handleChange={throttle(handleChange)}
+          error={postalcodeError}
+          handleChange={handleChange}
           maxLength={5}
           pattern="^[0-9]{5}"
         />
@@ -133,19 +135,15 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           label={i18n.t('common.form.label.biography', { context: 'optional' })}
           maxLength={450}
           withCounter
-          handleChange={throttle(handleChange)}
+          handleChange={handleChange}
         />
-        {isSubmitSuccessful && (
-          <SuccessMessageStyle>
-            {i18n.t('profile.common.submit_success')}
-          </SuccessMessageStyle>
-        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}
           icon={SubmitSaveIcon}
           label={i18n.t('profile.common.submit_label')}
         />
+        {isSubmitSuccessful && <FormSuccessMessage />}
       </form>
     </TileWithTitle>
   );

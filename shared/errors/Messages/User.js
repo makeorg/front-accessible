@@ -52,7 +52,7 @@ export const registerErrors: TypeErrorObject[] = [
   },
   {
     field: 'firstname',
-    key: 'FirstName is mandatory',
+    key: 'mandatory',
     message: (
       <MessageWithDynamicLabel
         messageKey="common.form.messages.firstname_is_mandatory"
@@ -62,13 +62,24 @@ export const registerErrors: TypeErrorObject[] = [
     ),
   },
   {
-    field: 'age',
+    field: 'dateofbirth',
     key: 'invalid_age',
     message: (
       <MessageWithDynamicLabel
         messageKey="common.form.messages.invalid_age"
         field="age"
-        labelKey="common.form.label.age_label"
+        labelKey="common.form.label.age"
+      />
+    ),
+  },
+  {
+    field: 'postalcode',
+    key: 'invalid_postal_code',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.invalid_postal_code"
+        field="postalcode"
+        labelKey="common.form.label.postalcode"
       />
     ),
   },
@@ -94,6 +105,17 @@ export const updateUserErrors: TypeErrorObject[] = [
         messageKey="common.form.messages.invalid_age"
         field="age"
         labelKey="common.form.label.age"
+      />
+    ),
+  },
+  {
+    field: 'postalcode',
+    key: 'invalid_postal_code',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.invalid_postal_code"
+        field="postalCode"
+        labelKey="common.form.label.postalcode"
       />
     ),
   },
