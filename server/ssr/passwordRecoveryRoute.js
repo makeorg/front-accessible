@@ -1,5 +1,5 @@
 import { UserApiService } from 'Shared/api/UserApiService';
-import { notificationConstants } from 'Shared/constants/notification';
+import { PASSWORD_RECOVERY_FAILURE_MESSAGE } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { logError } from './helpers/ssr.helper';
@@ -63,8 +63,7 @@ export const passwordRecoveryRoute = async (req, res) => {
     }
   } catch (error) {
     logError(error);
-    routeState.notification.contentType =
-      notificationConstants.PASSWORD_RECOVERY_FAILURE_CONTENT;
+    routeState.notification.contentType = PASSWORD_RECOVERY_FAILURE_MESSAGE;
   }
 
   return reactRender(req, res, routeState);

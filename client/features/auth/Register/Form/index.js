@@ -33,6 +33,7 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
+import { showRegisterSuccess } from 'Shared/store/actions/notification';
 
 type Props = {
   /** Method called to close modal */
@@ -185,6 +186,7 @@ const mapDispatchToProps = dispatch => ({
   },
   handleLoadUser: () => {
     dispatch(getUser());
+    dispatch(showRegisterSuccess());
   },
 });
 

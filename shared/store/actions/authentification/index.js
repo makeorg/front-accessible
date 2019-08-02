@@ -8,6 +8,7 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
+import { showLoginSuccess, showLogoutSuccess } from '../notification';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: TypeErrorObject) => ({
@@ -45,7 +46,7 @@ export const getUser = () => (
       dispatch(modalClose());
     }
 
-    Promise.resolve();
+    return dispatch(showLoginSuccess());
   });
 };
 
@@ -58,7 +59,7 @@ export const login = (email: string, password: string) => (
       dispatch(loginSuccess());
       Tracking.trackLoginEmailSuccess();
 
-      return dispatch(getUser());
+      dispatch(getUser());
     })
     .catch(() => {
       dispatch(
@@ -98,6 +99,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
 
 export const logout = () => (dispatch: Dispatch) => {
   return UserApiService.logout().then(() => {
-    return dispatch(logoutSuccess());
+    dispatch(logoutSuccess());
+    return dispatch(showLogoutSuccess());
   });
 };

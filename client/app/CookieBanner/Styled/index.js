@@ -6,6 +6,7 @@ import {
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
+import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
@@ -28,5 +29,12 @@ export const CookieContentStyle = styled.p`
   }
   @media (min-width: ${intToPx(Layouts.SpecialContainerWidth)}) {
     padding: 15px;
+  }
+`;
+
+export const CookieCloseButtonStyle = styled(CloseButtonStyle)`
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    top: 15px;
+    right: 15px;
   }
 `;

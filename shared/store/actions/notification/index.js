@@ -1,3 +1,20 @@
-import { NOTIFICATION_CLOSE } from 'Shared/store/actionTypes';
+import {
+  NOTIFICATION_CLOSE,
+  NOTIFICATION_LOGIN_SUCCESS,
+  NOTIFICATION_LOGOUT_SUCCESS,
+  NOTIFICATION_REGISTER_SUCCESS,
+} from 'Shared/store/actionTypes';
 
 export const clearNotification = () => ({ type: NOTIFICATION_CLOSE });
+
+export const showLoginSuccess = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_LOGIN_SUCCESS });
+};
+
+export const showLogoutSuccess = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_LOGOUT_SUCCESS });
+};
+
+export const showRegisterSuccess = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_REGISTER_SUCCESS });
+};

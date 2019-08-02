@@ -73,7 +73,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       notification: {
-        contentType: 'ACTIVATION_SUCCESS_CONTENT',
+        contentType: 'ACTIVATION_SUCCESS_MESSAGE',
       },
       questions: {
         [fooQuestion.slug]: {
@@ -105,7 +105,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       notification: {
-        contentType: 'ACTIVATION_FAILURE_CONTENT',
+        contentType: 'ACTIVATION_FAILURE_MESSAGE',
       },
       questions: {
         [fooQuestion.slug]: {

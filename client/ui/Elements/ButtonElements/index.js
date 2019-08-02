@@ -14,5 +14,4 @@ export {
   RedLinkButtonStyle,
   ButtonSmallWrapperStyle,
   CloseButtonStyle,
-  CloseBannerButtonStyle,
 } from './Styled';

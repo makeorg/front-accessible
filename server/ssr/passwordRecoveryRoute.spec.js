@@ -123,7 +123,7 @@ describe('Account activation route', () => {
         },
       },
       notification: {
-        contentType: 'PASSWORD_RECOVERY_FAILURE_CONTENT',
+        contentType: 'PASSWORD_RECOVERY_FAILURE_MESSAGE',
       },
       questions: {
         [fooQuestion.slug]: {

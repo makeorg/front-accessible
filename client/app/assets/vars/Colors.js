@@ -43,6 +43,7 @@ export const ShadowColors = {
   BlackZeroFiveOpacity: 'rgba(0,0,0,0.5)',
   BlackZeroThreeOpacity: 'rgba(0,0,0,0.3)',
   BlackZeroTwoOpacity: 'rgba(0,0,0,0.2)',
+  BlackZeroOneOpacity: 'rgba(0,0,0,0.1)',
 };
 
 export const VoteColors = {

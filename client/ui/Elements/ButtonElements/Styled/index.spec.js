@@ -15,7 +15,6 @@ import {
   RedLinkButtonStyle,
   ButtonSmallWrapperStyle,
   CloseButtonStyle,
-  CloseBannerButtonStyle,
 } from '.';
 
 describe('ButtonElements/Styled', () => {
@@ -113,13 +112,6 @@ describe('ButtonElements/Styled', () => {
   describe('CloseButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<CloseButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('CloseBannerButtonStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<CloseBannerButtonStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });
