@@ -19,6 +19,7 @@ export const cspMiddleware = csp({
     imgSrc: ['*'],
     connectSrc: [
       "'self'",
+      'http://localhost:9000',
       'https://*.makeorg.tech',
       'https://*.make.org',
       'https://*.facebook.com',
