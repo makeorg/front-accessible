@@ -39,11 +39,11 @@ class LoggerSingleton {
   };
 
   logInfo = data => {
-    this.log({ message: data }, LOG_INFO);
+    this.log(data, LOG_INFO);
   };
 
   logWarning = data => {
-    this.log({ message: data }, LOG_WARNING);
+    this.log(data, LOG_WARNING);
   };
 
   log = (data, level) => {
@@ -60,7 +60,7 @@ class LoggerSingleton {
       },
       data: {
         level: level || 'error',
-        data: { ...data },
+        data,
       },
     })
       .then(() => {})

@@ -144,6 +144,7 @@ class TrackingSingleton {
   /* On Load Sequence Tracking */
   trackDisplaySequence = () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
+    Logger.logInfo({ ...getEventParameters(), trackingEvent: eventName });
 
     this.track(eventName);
     this.trackFacebookPixel(eventName);
