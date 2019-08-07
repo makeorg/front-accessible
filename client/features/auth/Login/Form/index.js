@@ -22,7 +22,6 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
 import { loginSuccess, getUser } from 'Shared/store/actions/authentification';
-import { showLoginSuccess } from 'Shared/store/actions/notification';
 
 type Props = {
   /** Method called when login form succeed */
@@ -112,7 +111,6 @@ export const LoginFormComponent = ({
 const mapDispatchToProps = dispatch => ({
   handleLoginSuccess: () => {
     dispatch(loginSuccess());
-    dispatch(showLoginSuccess());
   },
   handleGetUser: () => {
     dispatch(getUser());

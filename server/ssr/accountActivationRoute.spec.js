@@ -3,6 +3,10 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import {
+  NOTIFICATION_LEVEL_SUCCESS,
+  NOTIFICATION_LEVEL_ERROR,
+} from 'Shared/constants/notification';
 import { reactRender } from '../reactRender';
 import { accountActivationRoute } from './accountActivationRoute';
 
@@ -73,6 +77,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       notification: {
+        level: NOTIFICATION_LEVEL_SUCCESS,
         contentType: 'ACTIVATION_SUCCESS_MESSAGE',
       },
       questions: {
@@ -105,6 +110,7 @@ describe('Account activation route', () => {
     const routeState = {
       ...initialState,
       notification: {
+        level: NOTIFICATION_LEVEL_ERROR,
         contentType: 'ACTIVATION_FAILURE_MESSAGE',
       },
       questions: {

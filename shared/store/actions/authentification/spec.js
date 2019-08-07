@@ -235,6 +235,23 @@ describe('Authentification Actions', () => {
       });
     });
 
+    it('creates an action to logout a user after account deletion', () => {
+      const newStore = mockStore({
+        user: { authentification: {} },
+      });
+
+      const expectedActions = [
+        { type: actionTypes.LOGOUT },
+        { type: actionTypes.NOTIFICATION_ACCOUNT_DELETION_SUCCESS },
+      ];
+
+      UserApiService.logout.mockResolvedValue();
+
+      return newStore.dispatch(actions.logout(true)).then(() => {
+        expect(newStore.getActions()).toEqual(expectedActions);
+      });
+    });
+
     it('creates an action to logout a user successfully', () => {
       const expectedAction = {
         type: actionTypes.LOGOUT,
@@ -282,6 +299,30 @@ describe('Authentification Actions', () => {
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
+        expect(newStore.getActions()).toEqual(expectedActions);
+      });
+    });
+
+    it('creates an action to getUser after registration', () => {
+      const user = { firstname: 'baz' };
+      const newStore = mockStore({
+        modal: { isOpen: true },
+      });
+
+      // mock
+      UserApiService.me.mockResolvedValue(user);
+
+      // spy
+      jest.spyOn(Tracking, 'trackClickCloseModal');
+
+      const expectedActions = [
+        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.MODAL_CLOSE },
+        { type: actionTypes.NOTIFICATION_REGISTER_SUCCESS },
+      ];
+
+      return newStore.dispatch(actions.getUser(true)).then(() => {
+        expect(Tracking.trackClickCloseModal).toHaveBeenCalled();
         expect(newStore.getActions()).toEqual(expectedActions);
       });
     });

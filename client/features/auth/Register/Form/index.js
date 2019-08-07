@@ -33,7 +33,6 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
-import { showRegisterSuccess } from 'Shared/store/actions/notification';
 
 type Props = {
   /** Method called to close modal */
@@ -82,11 +81,11 @@ export const RegisterFormComponent = ({
 
     try {
       await UserService.register(user);
+      await logAndLoadUser(user.email, user.password);
 
       Tracking.trackSignupEmailSuccess();
       handleModalClose();
       setErrors([]);
-      logAndLoadUser(user.email, user.password);
     } catch (serviceErrors) {
       Tracking.trackSignupEmailFailure();
       setErrors(serviceErrors);
@@ -185,8 +184,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(modalClose());
   },
   handleLoadUser: () => {
-    dispatch(getUser());
-    dispatch(showRegisterSuccess());
+    dispatch(getUser(true));
   },
 });
 

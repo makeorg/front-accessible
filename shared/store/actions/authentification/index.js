@@ -8,7 +8,12 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import { Tracking } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
-import { showLoginSuccess, showLogoutSuccess } from '../notification';
+import {
+  showLoginSuccess,
+  showLogoutSuccess,
+  showAccountDeletionSuccess,
+  showRegisterSuccess,
+} from '../notification';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
 export const loginFailure = (error: TypeErrorObject) => ({
@@ -35,7 +40,7 @@ export const setUserInfo = (user: Object) => ({
 
 export const logoutSuccess = () => ({ type: actionTypes.LOGOUT });
 
-export const getUser = () => (
+export const getUser = (afterRegistration?: boolean) => (
   dispatch: Dispatch,
   getState: () => StateRoot
 ) => {
@@ -45,7 +50,9 @@ export const getUser = () => (
     if (isModalOpen) {
       dispatch(modalClose());
     }
-
+    if (afterRegistration) {
+      return dispatch(showRegisterSuccess());
+    }
     return dispatch(showLoginSuccess());
   });
 };
@@ -89,7 +96,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
       dispatch(loginSocialSuccess());
       Tracking.trackAuthentificationSocialSuccess(provider);
 
-      return dispatch(getUser());
+      dispatch(getUser());
     })
     .catch(() => {
       dispatch(loginSocialFailure());
@@ -97,9 +104,14 @@ export const loginSocial = (provider: string, socialToken: string) => (
     });
 };
 
-export const logout = () => (dispatch: Dispatch) => {
+export const logout = (afterAccountDeletion?: boolean) => (
+  dispatch: Dispatch
+) => {
   return UserApiService.logout().then(() => {
     dispatch(logoutSuccess());
+    if (afterAccountDeletion) {
+      return dispatch(showAccountDeletionSuccess());
+    }
     return dispatch(showLogoutSuccess());
   });
 };
