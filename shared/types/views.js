@@ -27,6 +27,7 @@ export type TypeFeaturedConsultation = {
 };
 
 export type TypeCurrentConsultation = {
+  questionId: string | null,
   questionSlug: string | null,
   title: string,
   picture: string,

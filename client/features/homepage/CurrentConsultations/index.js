@@ -114,22 +114,24 @@ export const CurrentConsultationsComponent = ({
       <div data-glide-el="track" className="glide__track">
         <ul id="glide_translator" className="glide__slides">
           {consultations.map(consultation => (
-            <li key={consultation.title} className="glide__slide">
+            <li key={consultation.questionId} className="glide__slide">
               {isMobile ? (
                 <CurrentConsultationArticleMobile
                   image={consultation.picture}
-                  title={consultation.title}
+                  title={consultation.altPicture}
                   proposalsNumber={consultation.proposalsNumber}
                   linkObject={getConsultationLink(
                     consultation,
                     country,
                     language
                   )}
+                  country={country}
+                  language={language}
                 />
               ) : (
                 <CurrentConsultationArticleDesktop
                   image={consultation.picture}
-                  title={consultation.title}
+                  title={consultation.altPicture}
                   proposalsNumber={consultation.proposalsNumber}
                   linkText={consultation.linkLabel}
                   linkObject={getConsultationLink(
@@ -137,6 +139,8 @@ export const CurrentConsultationsComponent = ({
                     country,
                     language
                   )}
+                  country={country}
+                  language={language}
                 >
                   <CurrentConsultationDescriptionStyle>
                     {consultation.description}
