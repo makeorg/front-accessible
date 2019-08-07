@@ -16,6 +16,7 @@ import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
+import { logger } from './logger';
 
 deepFreeze(initialState);
 
@@ -90,6 +91,13 @@ export const reactRender = (req, res, routeState = {}) => {
   if (!reactHtml) {
     return res.status(404).end();
   }
-
+  // add log here
+  logger.log(
+    'info',
+    JSON.stringify({
+      message: 'App served to the client',
+      url: req.originalUrl,
+    })
+  );
   return res.send(reactHtml);
 };

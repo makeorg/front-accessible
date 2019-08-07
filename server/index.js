@@ -10,8 +10,8 @@ import { initRoutes } from './routes';
 import { serverInitI18n } from './i18n';
 import { cspMiddleware } from './middleware/contentSecurityPolicy';
 import { headersResponseMiddleware } from './middleware/headers';
-import { FAVICON_PATH } from './paths';
 import { nonceUuidMiddleware } from './middleware/nonceUuid';
+import { FAVICON_PATH } from './paths';
 
 serverInitI18n();
 ApiService.strategy = new ApiServiceServer();

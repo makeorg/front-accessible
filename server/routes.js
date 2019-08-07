@@ -27,6 +27,7 @@ import { consultationRoute } from './ssr/consultationRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
+import { loggerMiddleware } from './middleware/logger';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -64,7 +65,11 @@ export const initRoutes = app => {
   app.get('/api/questions/:questionSlug', questionApi);
   app.post('/api/logger', loggerApi);
 
-  const frontMiddlewares = [countryLanguageMiddleware, metricsMiddleware];
+  const frontMiddlewares = [
+    countryLanguageMiddleware,
+    metricsMiddleware,
+    loggerMiddleware,
+  ];
 
   // Front Routes
   app.get('/robot.txt', technicalPages.renderRobot);

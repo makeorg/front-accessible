@@ -90,6 +90,11 @@ const initApp = async state => {
   DateHelper.language = state.appConfig.language;
 
   loadableReady(() => {
+    Logger.logInfo({
+      trackingEvent: 'application-loading',
+      referrer: window.document.referrer,
+      url: window.location.href,
+    });
     const appDom = document.getElementById('app');
     ReactDOM.hydrate(
       <CookiesProvider>
@@ -105,6 +110,12 @@ const initApp = async state => {
       </CookiesProvider>,
       appDom
     );
+
+    Logger.logInfo({
+      trackingEvent: 'application-loaded',
+      referrer: window.document.referrer,
+      url: window.location.href,
+    });
   });
 };
 
