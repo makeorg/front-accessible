@@ -14,6 +14,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import { getUser } from 'Shared/store/actions/authentification';
+import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   /** User Profile */
@@ -57,6 +58,9 @@ export const UpdateNewsletterComponent = ({
   return (
     <TileWithTitle title={i18n.t('profile.newsletter_update.title')}>
       <form id={NEWSLETTER_UPDATE_FORMNAME} onSubmit={handleSubmit}>
+        <FormRequirementsStyle>
+          {i18n.t('common.form.requirements')}
+        </FormRequirementsStyle>
         <FormErrors errors={errors} />
         <CheckBox
           name="optInNewsletter"

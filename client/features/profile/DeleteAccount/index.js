@@ -77,13 +77,6 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
 
     try {
       await UserService.deleteAccount(user.userId, formValues.password);
-      setFormValues({
-        password: '',
-        email: '',
-      });
-      setErrors([]);
-      setIsSubmitSuccessful(true);
-      setCanSubmit(false);
       handleLogout();
     } catch {
       if (formValues.password === '') {
@@ -143,7 +136,7 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
 
 const mapDispatchToProps = dispatch => ({
   handleLogout: () => {
-    dispatch(logout());
+    dispatch(logout(true));
   },
 });
 

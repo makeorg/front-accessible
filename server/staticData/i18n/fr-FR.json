@@ -89,9 +89,10 @@
       "close": "Fermer la bannière de notification",
       "bad_link": "Ce lien n'est plus valable.",
       "activate_account_success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
+      "delete_account_success": "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt sur Make.org !",
       "login_success": "Vous avez été connecté avec succès.",
       "logout_success": "Vous avez été déconnecté avec succès.",
-      "register_success": "Vous avez été inscrit avec succès."
+      "register_success": "Bienvenue ! Vous avez été inscrit avec succès."
     },
     "from": "sur",
     "email": "Email",

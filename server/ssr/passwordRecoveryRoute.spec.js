@@ -3,6 +3,7 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT, HTTP_NOT_FOUND } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import { NOTIFICATION_LEVEL_ERROR } from 'Shared/constants/notification';
 import { reactRender } from '../reactRender';
 import { passwordRecoveryRoute } from './passwordRecoveryRoute';
 
@@ -123,6 +124,7 @@ describe('Account activation route', () => {
         },
       },
       notification: {
+        level: NOTIFICATION_LEVEL_ERROR,
         contentType: 'PASSWORD_RECOVERY_FAILURE_MESSAGE',
       },
       questions: {

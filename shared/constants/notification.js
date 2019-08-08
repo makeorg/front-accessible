@@ -6,9 +6,12 @@ import { PasswordRecoveryFailureMessage } from 'Client/features/auth/PasswordRec
 import { RegisterSuccessMessage } from 'Client/app/Notification/Messages/Authentification/RegisterSuccess';
 import { LoginSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LoginSuccess';
 import { LogoutSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LogoutSuccess';
+import { AccountDeletionSuccessMessage } from 'Client/app/Notification/Messages/Authentification/AccountDeletionSuccess';
 
 export const ACTIVATION_SUCCESS_MESSAGE: string = 'ACTIVATION_SUCCESS_MESSAGE';
 export const ACTIVATION_FAILURE_MESSAGE: string = 'ACTIVATION_FAILURE_MESSAGE';
+export const ACCOUNT_DELETION_SUCCESS_MESSAGE: string =
+  'ACCOUNT_DELETION_SUCCESS_MESSAGE';
 export const PASSWORD_RECOVERY_FAILURE_MESSAGE: string =
   'PASSWORD_RECOVERY_FAILURE_MESSAGE';
 export const LOGIN_SUCCESS_MESSAGE: string = 'LOGIN_SUCCESS_MESSAGE';
@@ -18,6 +21,7 @@ export const REGISTER_SUCCESS_MESSAGE: string = 'REGISTER_SUCCESS_MESSAGE';
 export const notifcationContent = {
   [ACTIVATION_SUCCESS_MESSAGE]: <AccountActivationSuccessMessage />,
   [ACTIVATION_FAILURE_MESSAGE]: <AccountActivationFailureMessage />,
+  [ACCOUNT_DELETION_SUCCESS_MESSAGE]: <AccountDeletionSuccessMessage />,
   [PASSWORD_RECOVERY_FAILURE_MESSAGE]: <PasswordRecoveryFailureMessage />,
   [LOGIN_SUCCESS_MESSAGE]: <LoginSuccessMessage />,
   [LOGOUT_SUCCESS_MESSAGE]: <LogoutSuccessMessage />,
@@ -26,3 +30,4 @@ export const notifcationContent = {
 
 export const NOTIFICATION_LEVEL_INFORMATION: string = 'information';
 export const NOTIFICATION_LEVEL_SUCCESS: string = 'success';
+export const NOTIFICATION_LEVEL_ERROR: string = 'error';

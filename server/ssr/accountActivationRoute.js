@@ -4,6 +4,8 @@ import { createInitialState } from 'Shared/store/initialState';
 import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
+  NOTIFICATION_LEVEL_SUCCESS,
+  NOTIFICATION_LEVEL_ERROR,
 } from 'Shared/constants/notification';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -51,11 +53,17 @@ export const accountActivationRoute = async (req, res) => {
     });
 
     if (status === HTTP_NO_CONTENT) {
-      routeState.notification.contentType = ACTIVATION_SUCCESS_MESSAGE;
+      routeState.notification = {
+        level: NOTIFICATION_LEVEL_SUCCESS,
+        contentType: ACTIVATION_SUCCESS_MESSAGE,
+      };
     }
   } catch (error) {
     logError(error);
-    routeState.notification.contentType = ACTIVATION_FAILURE_MESSAGE;
+    routeState.notification = {
+      level: NOTIFICATION_LEVEL_ERROR,
+      contentType: ACTIVATION_FAILURE_MESSAGE,
+    };
   }
 
   return reactRender(req, res, routeState);
