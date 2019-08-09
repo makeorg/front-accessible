@@ -14,6 +14,14 @@
 *   yarn start:dev
 *   visit `http://localhost:3000`
 
+#### Start api mock server
+To be independant of the preproduction api you can launch the mock api server:
+`yarn api-mock:start`
+
+Then you can lauch the dev server using this local api
+`yarn server:dev`
+
+
 ## Style Guide
 *   To start development Server : `npx styleguidist server`
 *   visit `http://localhost:6060`
