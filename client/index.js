@@ -16,6 +16,10 @@ import { ApiService } from 'Shared/api/ApiService';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { DateHelper } from 'Shared/helpers/date';
 import { detected as adBlockerDetected } from 'adblockdetect';
+import {
+  cookieIsEnabled,
+  thirdCookieEnabled,
+} from 'Client/helper/cookieDetect';
 import { Tracking } from 'Shared/services/Tracking';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
@@ -61,6 +65,18 @@ FacebookTracking.init();
 
 ApiService.strategy = apiClient;
 
+const logAndTrackEvent = (eventName: string) => {
+  Logger.logInfo({
+    trackingEvent: eventName,
+    referrer: window.document.referrer,
+    url: window.location.href,
+  });
+  Tracking.track(eventName, {
+    referrer: window.document.referrer,
+    url: window.location.href,
+  });
+};
+
 const initApp = async state => {
   const authentificationState = await authenticationState();
 
@@ -92,15 +108,14 @@ const initApp = async state => {
   DateHelper.language = state.appConfig.language;
 
   if (adBlockerDetected()) {
-    Logger.logInfo({
-      trackingEvent: 'adblocker-detected',
-      referrer: window.document.referrer,
-      url: window.location.href,
-    });
-    Tracking.track('adblocker-detected', {
-      referrer: window.document.referrer,
-      url: window.location.href,
-    });
+    logAndTrackEvent('adblocker-detected');
+  }
+  if (!cookieIsEnabled()) {
+    logAndTrackEvent('cookie-is-disabled');
+  }
+  const thirdCookieNameToCheck: string = 'make-session-id-expiration';
+  if (!thirdCookieEnabled(thirdCookieNameToCheck)) {
+    logAndTrackEvent('third-cookie-is-disabled');
   }
 
   loadableReady(() => {
