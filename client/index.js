@@ -15,6 +15,8 @@ import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { DateHelper } from 'Shared/helpers/date';
+import { detected as adBlockerDetected } from 'adblockdetect';
+import { Tracking } from 'Shared/services/Tracking';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -88,6 +90,18 @@ const initApp = async state => {
   apiClient.country = state.appConfig.country;
   apiClient.language = state.appConfig.language;
   DateHelper.language = state.appConfig.language;
+
+  if (adBlockerDetected()) {
+    Logger.logInfo({
+      trackingEvent: 'adblocker-detected',
+      referrer: window.document.referrer,
+      url: window.location.href,
+    });
+    Tracking.track('adblocker-detected', {
+      referrer: window.document.referrer,
+      url: window.location.href,
+    });
+  }
 
   loadableReady(() => {
     Logger.logInfo({
