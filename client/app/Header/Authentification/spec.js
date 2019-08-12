@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { AuthentificationClass } from './AuthentificationContainer';
 
 describe('Authentification', () => {
