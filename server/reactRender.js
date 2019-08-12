@@ -14,6 +14,10 @@ import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
+import {
+  SESSION_EXPIRED_MESSAGE,
+  NOTIFICATION_LEVEL_INFORMATION,
+} from 'Shared/constants/notification';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logger } from './logger';
@@ -56,6 +60,7 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
 // @todo test this function!!
 export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
+  const { sessionExpired } = req.query;
 
   const tradLanguage = `${language}-${country}`;
 
@@ -70,6 +75,12 @@ export const reactRender = (req, res, routeState = {}) => {
     },
   };
 
+  if (sessionExpired) {
+    state.notification = {
+      level: NOTIFICATION_LEVEL_INFORMATION,
+      contentType: SESSION_EXPIRED_MESSAGE,
+    };
+  }
   const store = configureStore(state);
   const context = {};
   const headTags = [];
