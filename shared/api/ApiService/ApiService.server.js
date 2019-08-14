@@ -6,7 +6,7 @@ export class ApiServiceServer implements IApiServiceStrategy {
   // eslint-disable-next-line class-methods-use-this
   callApi(url: string, options: Object = {}): Promise<any> {
     const headers = {
-      'x-make-location': 'core',
+      'x-make-source': 'core',
       ...options.headers,
     };
 
