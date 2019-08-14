@@ -14,6 +14,10 @@ import { TRANSLATION_NAMESPACE } from 'Shared/i18n/constants';
 import { configureStore } from 'Shared/store';
 import { AppContainer } from 'Client/app';
 import { createInitialState, initialState } from 'Shared/store/initialState';
+import {
+  SECURE_EXPIRED_MESSAGE,
+  NOTIFICATION_LEVEL_INFORMATION,
+} from 'Shared/constants/notification';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logger } from './logger';
@@ -60,6 +64,8 @@ export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const ua = parser(req.headers['user-agent']);
 
+  const { secureExpired } = req.query;
+
   const tradLanguage = `${language}-${country}`;
 
   const state = {
@@ -73,6 +79,12 @@ export const reactRender = (req, res, routeState = {}) => {
     },
   };
 
+  if (secureExpired) {
+    state.notification = {
+      level: NOTIFICATION_LEVEL_INFORMATION,
+      contentType: SECURE_EXPIRED_MESSAGE,
+    };
+  }
   const store = configureStore(state);
   const context = {};
   const headTags = [];

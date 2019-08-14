@@ -41,3 +41,4 @@ export { SvgSaveFileOption } from './SaveFileOption';
 export { SvgLike } from './Like';
 export { SvgCheckedSymbol } from './CheckedSymbol';
 export { SvgUsers } from './Users';
+export { SvgSadEmoji } from './SadEmoji';

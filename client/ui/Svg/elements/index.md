@@ -41,7 +41,8 @@ import {
   SvgTwitterLogo,
   SvgUser,
   SvgCheckedSymbol,
-  SvgUsers
+  SvgUsers,
+  SvgSadEmoji,
 } from './index.js';
 
 class SvgElementsExample extends React.Component {
@@ -89,6 +90,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px'}}><SvgSaveFileOption /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgCheckedSymbol /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgUsers /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSadEmoji /></span>
       </React.Fragment>
     );
   }
