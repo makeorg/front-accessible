@@ -2,6 +2,10 @@ import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import loadable from '@loadable/component';
 import {
+  ROUTE_SEARCH,
+  ROUTE_SEARCH_PROPOSALS,
+  ROUTE_SEARCH_ORGANISATIONS,
+  ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_CONSULTATION,
   ROUTE_ACTION,
   ROUTE_SEQUENCE,
@@ -39,6 +43,7 @@ const ProfileEditPage = loadable(() =>
 const ProfilePage = loadable(() => import('Client/pages/Profile'));
 
 const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
+const SearchPage = loadable(() => import('Client/pages/Search'));
 
 export const Routes = () => (
   <Switch>
@@ -54,6 +59,10 @@ export const Routes = () => (
     <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
     <Route path={ROUTE_ORGANISATION_PROPOSALS} component={OrganisationPage} />
     <Route path={ROUTE_ORGANISATION_VOTES} component={OrganisationPage} />
+    <Route path={ROUTE_SEARCH} component={SearchPage} />
+    <Route path={ROUTE_SEARCH_PROPOSALS} component={SearchPage} />
+    <Route path={ROUTE_SEARCH_ORGANISATIONS} component={SearchPage} />
+    <Route path={ROUTE_SEARCH_CONSULTATIONS} component={SearchPage} />
     <Redirect
       path={ROUTE_ORGANISATION_PROFILE}
       to={ROUTE_ORGANISATION_PROPOSALS}
