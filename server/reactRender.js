@@ -22,6 +22,8 @@ import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logger } from './logger';
 
+const parser = require('ua-parser-js');
+
 deepFreeze(initialState);
 
 const statsFile = path.resolve(__dirname, '..', 'dist', 'loadable-stats.json');
@@ -61,6 +63,7 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
 export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const { sessionExpired } = req.query;
+  const ua = parser(req.headers['user-agent']);
 
   const tradLanguage = `${language}-${country}`;
 
@@ -106,8 +109,11 @@ export const reactRender = (req, res, routeState = {}) => {
   logger.log(
     'info',
     JSON.stringify({
-      message: 'App served to the client',
+      message: { name: 'app-served-from-server' },
       url: req.originalUrl,
+      browser: ua.browser,
+      os: ua.os,
+      device: ua.device,
     })
   );
   return res.send(reactHtml);
