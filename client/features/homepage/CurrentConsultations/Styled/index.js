@@ -64,6 +64,25 @@ export const CurrentConsultationTriggerStyle = styled.input`
   width: 100%;
 `;
 
+export const CurrentConsultationLabelStyle = styled.span`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  font-size: 12px;
+  background-color: ${BasicColors.PureBlack};
+  color: ${BasicColors.PureWhite};
+  font-family: ${MakeFonts.RobotoCondensedBold};
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4px;
+  white-space: nowrap;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 4px 8px;
+  }
+`;
+
 export const ProposalsCountWrapperStyle = styled.div`
   width: 100%;
   background-color: #ffd978;
