@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookiesMiddleware from 'universal-cookie-express';
 import favicon from 'serve-favicon';
+import cors from 'cors';
+import { env } from 'Shared/env';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceServer } from 'Shared/api/ApiService/ApiService.server';
 import { initRoutes } from './routes';
@@ -29,6 +31,7 @@ app.use(headersResponseMiddleware);
 // apply csp everywhere except on styleguide /doc
 app.use(/^(?!.*doc).*$/, cspMiddleware);
 
+if (env.isDev()) app.use(cors());
 initRoutes(app);
 
 module.exports = app;
