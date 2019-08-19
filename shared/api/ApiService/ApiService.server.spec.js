@@ -1,4 +1,3 @@
-import https from 'https';
 import { ApiServiceShared } from './ApiService.shared';
 import { ApiServiceServer } from './ApiService.server';
 
@@ -24,7 +23,7 @@ describe('ApiServiceServer', () => {
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
       headers: {
         ...options.headers,
-        'x-make-location': 'core',
+        'x-make-source': 'core',
       },
       httpsAgent: {},
     });
@@ -38,7 +37,7 @@ describe('ApiServiceServer', () => {
     apiServer.callApi(url, options);
     // then
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
-      headers: { 'x-make-location': 'custom' },
+      headers: { 'x-make-location': 'custom', 'x-make-source': 'core' },
       httpsAgent: {},
     });
   });
