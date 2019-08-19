@@ -13,6 +13,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const CurrentConsultationContainerStyle = styled.div`
   width: 100%;
@@ -51,7 +52,7 @@ export const CurrentConsultationArticleStyle = styled.article`
   display: block;
   position: relative;
   background-color: ${BackgroundColors.LightGrey};
-  border-radius: 8px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
   overflow: hidden;
   &:hover > .overlay {
     transform: translateY(0);
@@ -93,7 +94,7 @@ export const CurrentConsultationLinkOverlayStyle = styled.a`
   padding: 5px;
   transform: translateY(125%);
   transition: transform 0.5s ease-in;
-  border-radius: 8px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
   text-decoration: none;
   &[aria-hidden='false'] {
     transform: translateY(0);
