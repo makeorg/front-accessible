@@ -60,6 +60,7 @@ export const FeaturedArticle = ({
           Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
         }
         aria-hidden
+        tabIndex={-1}
         {...linkObject}
       >
         <img

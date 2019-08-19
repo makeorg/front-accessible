@@ -71,7 +71,7 @@ export const BusinessConsultationsComponent = ({
         {i18n.t('homepage.business_consultations.title')}
       </BusinessConsultationsTitleStyle>
       <BusinessConsultationsStyle>
-        {displayedConsultations.map((consultation, index) => (
+        {displayedConsultations.map(consultation => (
           <BusinessConsultationsItemStyle key={consultation.slug}>
             <BusinessConsultationsItemLinkStyle
               {...(isInProgress(consultation.startDate, consultation.endDate)
@@ -84,16 +84,13 @@ export const BusinessConsultationsComponent = ({
                   }
                 : { href: consultation.aboutUrl, as: 'a' })}
               onClick={() => Tracking.trackClickHomepageConsultations()}
-              aria-flowto={`consultation_title_${index}`}
             >
               <BusinessConsultationsItemBorderStyle
                 colorStart={consultation.theme.gradientStart}
                 colorEnd={consultation.theme.gradientEnd}
               />
               <BusinessConsultationStyle>
-                <BusinessConsultationsItemStatusStyle
-                  id={`consultation_status_${index}`}
-                >
+                <BusinessConsultationsItemStatusStyle>
                   <ScreenReaderItemStyle>
                     {i18n.t('homepage.business_consultations.status')}
                   </ScreenReaderItemStyle>
@@ -103,12 +100,7 @@ export const BusinessConsultationsComponent = ({
                       )
                     : i18n.t('homepage.business_consultations.question_ended')}
                 </BusinessConsultationsItemStatusStyle>
-                <span
-                  id={`consultation_question_${index}`}
-                  aria-flowto={`consultation_status_${index}`}
-                >
-                  {consultation.question}
-                </span>
+                {consultation.question}
               </BusinessConsultationStyle>
               <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
             </BusinessConsultationsItemLinkStyle>
