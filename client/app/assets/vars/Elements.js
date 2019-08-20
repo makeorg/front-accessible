@@ -5,4 +5,5 @@ export const Elements = {
   FooterHeightDesktop: 48,
   SequenceFooterHeightMobile: 74,
   SequenceFooterHeightDesktop: 87,
+  BorderRadius: 8,
 };

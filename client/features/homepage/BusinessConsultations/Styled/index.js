@@ -9,6 +9,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const BusinessConsultationsTitleStyle = styled.h2`
   font-size: 20px;
@@ -37,7 +38,7 @@ export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
 
 export const BusinessConsultationsItemStyle = styled.li`
   display: flex;
-  border-radius: 8px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
   background-color: rgb(242, 242, 242);
   overflow: hidden;
   margin: 0 0 ${intToPx(DefaultPadding.Mobile)};

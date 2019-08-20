@@ -3,6 +3,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { CardStyle } from 'Client/ui/Cards';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const ProposalStyle = styled.a`
   width: 100%;
@@ -19,7 +20,7 @@ export const ProposalStyle = styled.a`
 `;
 
 export const ProposalCardStyle = styled(CardStyle)`
-  border-radius: 8px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
   margin: 15px 0 0;
   &:only-child {
     margin: 0;

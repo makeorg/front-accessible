@@ -8,6 +8,7 @@ import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements'
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const FeaturedArticleWrapperStyle = styled.div`
   display: flex;
@@ -38,6 +39,8 @@ export const FeaturedArticleStyle = styled.article`
   background-color: ${BackgroundColors.LightGrey};
   color: ${BasicColors.PureBlack};
   margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: ${intToPx(Elements.BorderRadius)};
   &:last-child {
     margin-bottom: 0;
   }
