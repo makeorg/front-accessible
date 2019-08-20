@@ -8,15 +8,17 @@ import { env } from 'Shared/env';
 import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 
-const PARENT_URL =
-  typeof window !== 'undefined' && window && window.location
+const parentUrl = () => {
+  return typeof window !== 'undefined' && window && window.location
     ? window.location.href
     : undefined;
+};
 
 const getPosition = (cardPosition?: number): string => {
   if (cardPosition !== undefined) {
     return cardPosition.toString();
   }
+
   return 'single-proposal';
 };
 
@@ -28,7 +30,7 @@ const getEventParameters = (parameters: Object = {}) => {
     language: ApiService.language,
     referrer: ApiService.referrer,
     questionId: ApiService.questionId,
-    url: PARENT_URL,
+    url: parentUrl(),
     ...parameters,
   };
 };
