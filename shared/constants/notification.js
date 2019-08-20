@@ -7,7 +7,6 @@ import { RegisterSuccessMessage } from 'Client/app/Notification/Messages/Authent
 import { LoginSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LoginSuccess';
 import { LogoutSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LogoutSuccess';
 import { AccountDeletionSuccessMessage } from 'Client/app/Notification/Messages/Authentification/AccountDeletionSuccess';
-import { SessionExpiredMessage } from 'Client/app/Notification/Messages/SessionExpired';
 
 export const ACTIVATION_SUCCESS_MESSAGE: string = 'ACTIVATION_SUCCESS_MESSAGE';
 export const ACTIVATION_FAILURE_MESSAGE: string = 'ACTIVATION_FAILURE_MESSAGE';
@@ -18,7 +17,6 @@ export const PASSWORD_RECOVERY_FAILURE_MESSAGE: string =
 export const LOGIN_SUCCESS_MESSAGE: string = 'LOGIN_SUCCESS_MESSAGE';
 export const LOGOUT_SUCCESS_MESSAGE: string = 'LOGOUT_SUCCESS_MESSAGE';
 export const REGISTER_SUCCESS_MESSAGE: string = 'REGISTER_SUCCESS_MESSAGE';
-export const SESSION_EXPIRED_MESSAGE: string = 'SESSION_EXPIRED_MESSAGE';
 
 export const notifcationContent = {
   [ACTIVATION_SUCCESS_MESSAGE]: <AccountActivationSuccessMessage />,
@@ -28,7 +26,6 @@ export const notifcationContent = {
   [LOGIN_SUCCESS_MESSAGE]: <LoginSuccessMessage />,
   [LOGOUT_SUCCESS_MESSAGE]: <LogoutSuccessMessage />,
   [REGISTER_SUCCESS_MESSAGE]: <RegisterSuccessMessage />,
-  [SESSION_EXPIRED_MESSAGE]: <SessionExpiredMessage />,
 };
 
 export const NOTIFICATION_LEVEL_INFORMATION: string = 'information';

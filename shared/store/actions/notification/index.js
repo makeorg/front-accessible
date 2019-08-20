@@ -4,7 +4,6 @@ import {
   NOTIFICATION_LOGOUT_SUCCESS,
   NOTIFICATION_REGISTER_SUCCESS,
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
-  NOTIFICATION_SESSION_EXPIRED,
 } from 'Shared/store/actionTypes';
 
 export const clearNotification = () => ({ type: NOTIFICATION_CLOSE });
@@ -23,8 +22,4 @@ export const showLogoutSuccess = () => (dispatch: Function) => {
 
 export const showRegisterSuccess = () => (dispatch: Function) => {
   dispatch({ type: NOTIFICATION_REGISTER_SUCCESS });
-};
-
-export const showSessionExpired = () => (dispatch: Function) => {
-  dispatch({ type: NOTIFICATION_SESSION_EXPIRED });
 };

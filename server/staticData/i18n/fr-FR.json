@@ -92,8 +92,7 @@
       "delete_account_success": "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt sur Make.org !",
       "login_success": "Vous avez été connecté avec succès.",
       "logout_success": "Vous avez été déconnecté avec succès.",
-      "register_success": "Bienvenue ! Vous avez été inscrit avec succès.",
-      "session_expired": "Votre session a expiré, nous avons rechargé votre page."
+      "register_success": "Bienvenue ! Vous avez été inscrit avec succès."
     },
     "from": "sur",
     "email": "Email",

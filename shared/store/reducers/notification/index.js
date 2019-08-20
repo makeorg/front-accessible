@@ -5,16 +5,13 @@ import {
   NOTIFICATION_LOGOUT_SUCCESS,
   NOTIFICATION_REGISTER_SUCCESS,
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
-  NOTIFICATION_SESSION_EXPIRED,
 } from 'Shared/store/actionTypes';
 import {
-  NOTIFICATION_LEVEL_SUCCESS,
-  NOTIFICATION_LEVEL_INFORMATION,
   LOGIN_SUCCESS_MESSAGE,
   LOGOUT_SUCCESS_MESSAGE,
   REGISTER_SUCCESS_MESSAGE,
+  NOTIFICATION_LEVEL_SUCCESS,
   ACCOUNT_DELETION_SUCCESS_MESSAGE,
-  SESSION_EXPIRED_MESSAGE,
 } from 'Shared/constants/notification';
 
 type NotificationState = {
@@ -53,12 +50,6 @@ export function notification(
         ...state,
         level: NOTIFICATION_LEVEL_SUCCESS,
         contentType: REGISTER_SUCCESS_MESSAGE,
-      };
-    case NOTIFICATION_SESSION_EXPIRED:
-      return {
-        ...state,
-        level: NOTIFICATION_LEVEL_INFORMATION,
-        contentType: SESSION_EXPIRED_MESSAGE,
       };
     default:
       return state;
