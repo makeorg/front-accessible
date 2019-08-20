@@ -136,11 +136,12 @@ class TrackingSingleton {
     this.trackFacebookPixel(eventName);
   };
 
-  trackLoadMoreProposals = () => {
+  trackLoadMoreProposals = (pageNumber?: number) => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+    const parameters = { page: pageNumber };
 
-    this.track(eventName);
-    this.trackFacebookPixel(eventName);
+    this.track(eventName, parameters);
+    this.trackFacebookPixel(eventName, parameters);
   };
 
   /* On Load Sequence Tracking */
