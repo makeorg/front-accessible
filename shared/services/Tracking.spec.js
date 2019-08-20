@@ -455,6 +455,32 @@ describe('Tracking Service', () => {
     });
   });
 
+  it('track Load More Proposals without page number', () => {
+    const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+
+    Tracking.trackLoadMoreProposals();
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+      page: undefined,
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      page: undefined,
+    });
+  });
+
+  it('track Load More Proposals with page number', () => {
+    const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+
+    Tracking.trackLoadMoreProposals(9);
+    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+      page: 9,
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      page: 9,
+    });
+  });
+
   it('track Click Consultation', () => {
     const eventName = trackingConstants.CLICK_CONSULTATION_LINK;
 
