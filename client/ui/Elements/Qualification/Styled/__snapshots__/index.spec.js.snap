@@ -61,6 +61,6 @@ exports[`QualifyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="c0"
+  className="cjkow5-0 c0"
 />
 `;

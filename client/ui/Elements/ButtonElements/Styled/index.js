@@ -35,7 +35,7 @@ export const UnstyledButtonStyle = styled.button`
   background-color: transparent;
 `;
 
-export const BasicButtonStyle = `
+export const BasicButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,8 +51,7 @@ export const BasicButtonStyle = `
   }
 `;
 
-export const RedButtonStyle = styled.button`
-  ${BasicButtonStyle};
+export const RedButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
   svg {
@@ -60,8 +59,7 @@ export const RedButtonStyle = styled.button`
   }
 `;
 
-export const GreyButtonStyle = styled.button`
-  ${BasicButtonStyle};
+export const GreyButtonStyle = styled(BasicButtonStyle)`
   color: ${TextColors.MediumGrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
   svg {
@@ -87,8 +85,7 @@ export const SmallGreyButtonStyle = styled(GreyButtonStyle)`
   }
 `;
 
-export const ActiveButtonStyle = styled.button`
-  ${BasicButtonStyle};
+export const ActiveButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
   svg {

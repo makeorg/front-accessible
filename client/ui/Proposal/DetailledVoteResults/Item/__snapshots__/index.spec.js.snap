@@ -118,7 +118,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
 }
 
 <li
-  className="agree c0"
+  className="c0 agree"
 >
   <div
     className="c1"
@@ -142,7 +142,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </svg>
     </IsVotedButtonStyle>
     <div
-      className="c2"
+      className="f9ghfa-2 c2"
     >
       <p
         className="c3"
@@ -160,7 +160,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     qualification.static_repartition
   </ScreenReaderItemStyle>
   <ul
-    className="c5"
+    className="qfibtu-0 c5"
   >
     <li
       className="c6"

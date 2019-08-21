@@ -7,7 +7,6 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
@@ -109,8 +108,7 @@ export const CorporateIconStyle = {
   marginTop: '3px',
 };
 
-export const CorporateLinkStyle = styled(UnstyledButtonStyle)`
-  ${BasicButtonStyle};
+export const CorporateLinkStyle = styled(BasicButtonStyle)`
   display: inline-flex;
   text-decoration: none;
   background-color: ${BasicColors.PureWhite};

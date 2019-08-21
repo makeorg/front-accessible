@@ -23,8 +23,8 @@ exports[`LoadingDots must match the snapshot with default Props 1`] = `
   animation-delay: 0s;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-name: kRnyBP;
-  animation-name: kRnyBP;
+  -webkit-animation-name: jQkVrX;
+  animation-name: jQkVrX;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
@@ -38,8 +38,8 @@ exports[`LoadingDots must match the snapshot with default Props 1`] = `
   animation-delay: 0.2s;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-name: kRnyBP;
-  animation-name: kRnyBP;
+  -webkit-animation-name: jQkVrX;
+  animation-name: jQkVrX;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
@@ -53,8 +53,8 @@ exports[`LoadingDots must match the snapshot with default Props 1`] = `
   animation-delay: 0.45s;
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-name: kRnyBP;
-  animation-name: kRnyBP;
+  -webkit-animation-name: jQkVrX;
+  animation-name: jQkVrX;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
