@@ -12,6 +12,7 @@ import {
   CurrentConsultationTextStyle,
   ProposalsCountWrapperStyle,
   ProposalsNumber,
+  CurrentConsultationLabelStyle,
 } from '../Styled';
 
 type TypeLinkObject = {
@@ -24,6 +25,7 @@ type TypeLinkObject = {
 type CurrentConsultationArticleDesktopProps = {
   image: string,
   title: string,
+  label: string,
   proposalsNumber: number,
   linkText: string,
   linkObject: TypeLinkObject,
@@ -36,6 +38,7 @@ export const CurrentConsultationArticleDesktop = ({
   image,
   title,
   linkText,
+  label,
   linkObject,
   proposalsNumber,
   children,
@@ -45,6 +48,7 @@ export const CurrentConsultationArticleDesktop = ({
   const [isOverlayDisplayed, setDisplayOverlay] = React.useState(false);
   return (
     <CurrentConsultationArticleStyle>
+      <CurrentConsultationLabelStyle>{label}</CurrentConsultationLabelStyle>
       <CurrentConsultationTriggerStyle
         type="image"
         src={image}
@@ -96,6 +100,7 @@ export const CurrentConsultationArticleDesktop = ({
 type CurrentConsultationArticleMobileProps = {
   image: string,
   title: string,
+  label: string,
   proposalsNumber: number,
   linkObject: TypeLinkObject,
   country: string,
@@ -105,6 +110,7 @@ type CurrentConsultationArticleMobileProps = {
 export const CurrentConsultationArticleMobile = ({
   image,
   title,
+  label,
   proposalsNumber,
   linkObject,
   country,
@@ -112,6 +118,7 @@ export const CurrentConsultationArticleMobile = ({
 }: CurrentConsultationArticleMobileProps) => {
   return (
     <CurrentConsultationArticleStyle>
+      <CurrentConsultationLabelStyle>{label}</CurrentConsultationLabelStyle>
       <a {...linkObject}>
         <img
           src={image}
