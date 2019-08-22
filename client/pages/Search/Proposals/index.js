@@ -9,10 +9,10 @@ import {
   SearchPageWrapperStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
-  SearchPageSidebarStyle,
   SearchBackStyle,
   SearchBackArrowStyle,
 } from '../Styled';
+import { SearchSidebar } from '../Sidebar';
 
 export const SearchProposals = () => (
   <React.Fragment>
@@ -30,7 +30,7 @@ export const SearchProposals = () => (
       </SearchPageTitleStyle>
       <SearchPageContentStyle>
         <SearchPageResultsStyle>Results content</SearchPageResultsStyle>
-        <SearchPageSidebarStyle>Sidebar content</SearchPageSidebarStyle>
+        <SearchSidebar />
       </SearchPageContentStyle>
     </SearchPageWrapperStyle>
   </React.Fragment>

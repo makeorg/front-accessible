@@ -576,6 +576,12 @@
       "consultations_plural": "{{count}} consultations pour « {{term}} »",
       "organisations": "{{count}} organisations pour « {{term}} »",
       "organisations_plural": "{{count}} organisations pour « {{term}} »"
+    },
+    "sidebar": {
+      "register": {
+       "title":"Suivez l’actualité de make.org en vous inscrivant.",
+       "button": "je m'inscris"
+      }
     }
   }
 }
