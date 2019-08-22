@@ -473,11 +473,11 @@ describe('Tracking Service', () => {
 
     Tracking.trackLoadMoreProposals(9);
     expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
-      page: 9,
+      page: '9',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
-      page: 9,
+      page: '9',
     });
   });
 
