@@ -36,6 +36,16 @@
     },
     "sequence": {
       "title": "Participez à la consultation '{{question}}'"
+    },
+    "search": {
+      "main_results": "Recherche - {{count}} résultat pour « {{term}} »",
+      "main_results_plural": "Recherche - {{count}} résultats pour « {{term}} »",
+      "proposals": "Recherche - {{count}} proposition pour « {{term}} »",
+      "proposals_plural": "Recherche - {{count}} propositions pour « {{term}} »",
+      "consultations": "Recherche - {{count}} consultation pour « {{term}} »",
+      "consultations_plural": "Recherche - {{count}} consultations pour « {{term}} »",
+      "organisations": "Recherche - {{count}} organisations pour « {{term}} »",
+      "organisations_plural": "Recherche - {{count}} organisations pour « {{term}} »"
     }
   },
   "common": {
@@ -92,7 +102,8 @@
       "delete_account_success": "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt sur Make.org !",
       "login_success": "Vous avez été connecté avec succès.",
       "logout_success": "Vous avez été déconnecté avec succès.",
-      "register_success": "Bienvenue ! Vous avez été inscrit avec succès."
+      "register_success": "Bienvenue ! Vous avez été inscrit avec succès.",
+      "session_expired": "Votre session a expiré, nous avons rechargé votre page."
     },
     "from": "sur",
     "email": "Email",
@@ -126,7 +137,8 @@
       "previous": "Aller à l'élement précédent",
       "next": "Aller à l'élement suivant"
     },
-    "max_characters": "caractères maximum"
+    "max_characters": "caractères maximum",
+    "back": "Retour"
   },
   "header": {
     "logo_alt": "Aller à l'acceuil du site Make.org",
@@ -548,6 +560,18 @@
       "question_inprogress": "Consultation en cours",
       "more": "En voir plus",
       "less": "En voir moins"
+    }
+  },
+  "search": {
+    "titles": {
+      "main_results": "{{count}} résultat pour « {{term}} »",
+      "main_results_plural": "{{count}} résultats pour « {{term}} »",
+      "proposals": "{{count}} proposition pour « {{term}} »",
+      "proposals_plural": "{{count}} propositions pour « {{term}} »",
+      "consultations": "{{count}} consultation pour « {{term}} »",
+      "consultations_plural": "{{count}} consultations pour « {{term}} »",
+      "organisations": "{{count}} organisations pour « {{term}} »",
+      "organisations_plural": "{{count}} organisations pour « {{term}} »"
     }
   }
 }
