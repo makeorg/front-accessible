@@ -568,14 +568,25 @@
   },
   "search": {
     "titles": {
+      "loading": "Recherche en cours...",
+      "no_results": "Aucun résultat",
       "main_results": "{{count}} résultat pour « {{term}} »",
       "main_results_plural": "{{count}} résultats pour « {{term}} »",
       "proposals": "{{count}} proposition pour « {{term}} »",
       "proposals_plural": "{{count}} propositions pour « {{term}} »",
-      "consultations": "{{count}} consultation pour « {{term}} »",
-      "consultations_plural": "{{count}} consultations pour « {{term}} »",
+      "operations": "{{count}} operation pour « {{term}} »",
+      "operations_plural": "{{count}} operations pour « {{term}} »",
       "organisations": "{{count}} organisations pour « {{term}} »",
       "organisations_plural": "{{count}} organisations pour « {{term}} »"
+    },
+    "main_results": {
+      "proposal": "Proposition",
+      "organisation": "Organisation",
+      "operation": "Opération",
+      "results": "{{count}} résultat",
+      "results_plural": "{{count}} résultats",
+      "view_all": "Voir tout",
+      "no_results": "Nous n'avons trouvé aucun résultat pour votre recherche « {{term}} »"
     },
     "sidebar": {
       "register": {

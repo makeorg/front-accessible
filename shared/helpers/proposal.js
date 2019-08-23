@@ -8,7 +8,10 @@ import {
 } from 'Shared/constants/proposal';
 import { type ApiSearchProposalsResponseType } from 'Shared/types/api';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { ProposalApiService } from 'Shared/api/ProposalApiService';
+import {
+  ProposalApiService,
+  SORT_ALGORITHM,
+} from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 
 export const getProposalLength = (content: string = '') => {
@@ -52,21 +55,59 @@ export const searchFirstUnvotedProposal = (proposals: TypeProposal[]) =>
   );
 
 export const searchProposals = async (
+  country: string,
+  language: string,
+  content: string,
+  page: number = 0,
+  limit?: number = PROPOSALS_LISTING_LIMIT,
+  seed: ?number = null,
+  questionId?: string,
+  tagsIds?: string,
+  sortAlgorithm?: string
+): ApiSearchProposalsResponseType | Object => {
+  const skip = page * limit;
+  try {
+    const response = await ProposalApiService.searchProposals(
+      country,
+      language,
+      questionId,
+      tagsIds,
+      seed,
+      limit,
+      skip,
+      sortAlgorithm,
+      content
+    );
+
+    return response;
+  } catch (error) {
+    Logger.logError(Error(error));
+    return {};
+  }
+};
+
+export const searchTaggedProposals = async (
+  country: string,
+  language: string,
   questionId: string,
   TagIdsArray: string[] = [],
   seed: ?number = undefined,
-  page: number = 0
+  page: number = 0,
+  sortAlgorithm?: string = SORT_ALGORITHM.TAGGED_FIRST
 ): ApiSearchProposalsResponseType | Object => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
   const tagsIds = TagIdsArray.length ? TagIdsArray.join(',') : undefined;
   try {
     const response = await ProposalApiService.searchProposals(
+      country,
+      language,
       questionId,
       tagsIds,
       seed,
       limit,
-      skip
+      skip,
+      sortAlgorithm
     );
 
     return response;

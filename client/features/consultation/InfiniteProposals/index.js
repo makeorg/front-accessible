@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { searchProposals } from 'Shared/helpers/proposal';
+import { connect } from 'react-redux';
+import { searchTaggedProposals } from 'Shared/helpers/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tracking } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
@@ -11,11 +12,18 @@ import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 
 type Props = {
+  country: string,
+  language: string,
   question: TypeQuestion,
   tags: string[],
 };
 
-export const InfiniteProposals = ({ question, tags }: Props) => {
+const InfiniteProposalsComponent = ({
+  country,
+  language,
+  question,
+  tags,
+}: Props) => {
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState<?number>(undefined);
@@ -24,7 +32,9 @@ export const InfiniteProposals = ({ question, tags }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const { results, total, seed: apiSeed } = await searchProposals(
+    const { results, total, seed: apiSeed } = await searchTaggedProposals(
+      country,
+      language,
       question.questionId,
       tags
     );
@@ -37,7 +47,9 @@ export const InfiniteProposals = ({ question, tags }: Props) => {
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const { results, total, seed: apiSeed } = await searchProposals(
+    const { results, total, seed: apiSeed } = await searchTaggedProposals(
+      country,
+      language,
       question.questionId,
       tags,
       seed,
@@ -85,3 +97,16 @@ export const InfiniteProposals = ({ question, tags }: Props) => {
     </section>
   );
 };
+
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
+
+export const InfiniteProposals = connect(mapStateToProps)(
+  InfiniteProposalsComponent
+);

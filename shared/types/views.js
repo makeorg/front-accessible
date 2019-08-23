@@ -1,6 +1,10 @@
 // @flow
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
+import {
+  type QuestionTheme as TypeQuestionTheme,
+  type Question as TypeQuestion,
+} from 'Shared/types/question';
+import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 
 // Home view
 export type TypeBusinessConsultation = {
@@ -45,6 +49,21 @@ export type TypeHome = {
   businessConsultations: TypeBusinessConsultation[],
   featuredConsultations: TypeFeaturedConsultation[],
   currentConsultations: TypeCurrentConsultation[],
+};
+
+export type TypeSearchViews = {
+  proposals: {
+    total: number,
+    results: TypeProposal[],
+  },
+  questions: {
+    total: number,
+    results: TypeQuestion[],
+  },
+  organisations: {
+    total: number,
+    results: TypeOrganisation[],
+  },
 };
 
 export type TypeSliderPeek = {
