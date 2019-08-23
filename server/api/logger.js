@@ -13,6 +13,7 @@ export function loggerApi(req, res) {
       browser: ua.browser,
       os: ua.os,
       device: ua.device,
+      raw: ua.ua,
     })
   );
 

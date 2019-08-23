@@ -115,6 +115,7 @@ export const reactRender = (req, res, routeState = {}) => {
       browser: ua.browser,
       os: ua.os,
       device: ua.device,
+      raw: ua.ua,
     })
   );
   return res.send(reactHtml);
