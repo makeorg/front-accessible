@@ -4,6 +4,7 @@ import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const SearchPageWrapperStyle = styled.div`
   width: 100%;
@@ -30,7 +31,9 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 `;
 
 export const SearchPageResultsStyle = styled(ContentElementStyle)`
+  margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 0;
     max-width: 750px;
   }
 `;
@@ -68,3 +71,14 @@ export const SearchBackArrowStyle = {
   marginRight: '4px',
   fill: MakeThemeColors.Red,
 };
+
+export const SearchResultsProposalItemStyle = styled.li`
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const SearchMoreProposalsButtonStyle = styled(RedButtonStyle)`
+  margin: 20px auto 0;
+`;
