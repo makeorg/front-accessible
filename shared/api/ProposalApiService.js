@@ -9,7 +9,7 @@ import {
 export const PATH_PROPOSALS = '/proposals';
 export const PATH_PROPOSAL_GET = '/proposals/:proposalId';
 
-const SORT_ALGORITHM = {
+export const SORT_ALGORITHM = {
   TAGGED_FIRST: 'taggedFirst',
 };
 
@@ -38,23 +38,30 @@ export class ProposalApiService {
   }
 
   static searchProposals(
-    questionId: string,
+    country: string,
+    language: string,
+    questionId?: string,
     tagsIds?: string,
     seed?: ?number,
     limit?: number = 20,
     skip?: number = 0,
+    sortAlgorithm?: string,
+    content?: string,
     headers?: ApiServiceHeaders = {}
   ): Promise<ApiSearchProposalsResponseType> {
     return ApiService.callApi(PATH_PROPOSALS, {
       method: 'GET',
       headers,
       params: {
-        sortAlgorithm: SORT_ALGORITHM.TAGGED_FIRST,
+        sortAlgorithm,
         questionId,
+        content,
         seed,
         limit,
         skip,
         tagsIds,
+        country,
+        language,
       },
     });
   }

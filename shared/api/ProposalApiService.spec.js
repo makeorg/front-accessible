@@ -43,30 +43,81 @@ describe('ProposalApiService', () => {
 
   describe('searchProposals', () => {
     it('must call ApiService.callApi', async () => {
-      await ProposalApiService.searchProposals('12345');
+      await ProposalApiService.searchProposals();
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',
         params: {
-          questionId: '12345',
+          questionId: undefined,
           limit: 20,
+          seed: undefined,
           skip: 0,
-          sortAlgorithm: 'taggedFirst',
+          sortAlgorithm: undefined,
           tagsIds: undefined,
         },
       });
     });
-    it('must filter by tagIds', async () => {
-      await ProposalApiService.searchProposals('12345', 'foo, bar');
+    it('must filter by questionId', async () => {
+      await ProposalApiService.searchProposals('FR', 'fr', '12345');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',
         params: {
+          country: 'FR',
+          language: 'fr',
           questionId: '12345',
+          content: undefined,
           limit: 20,
+          seed: undefined,
           skip: 0,
-          sortAlgorithm: 'taggedFirst',
+          sortAlgorithm: undefined,
+          tagsIds: undefined,
+        },
+      });
+    });
+    it('must filter by questionId && tagIds', async () => {
+      await ProposalApiService.searchProposals('FR', 'fr', '12345', 'foo, bar');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
+        headers: {},
+        method: 'GET',
+        params: {
+          country: 'FR',
+          language: 'fr',
+          questionId: '12345',
+          content: undefined,
+          limit: 20,
+          seed: undefined,
+          skip: 0,
+          sortAlgorithm: undefined,
           tagsIds: 'foo, bar',
+        },
+      });
+    });
+    it('must filter by content', async () => {
+      await ProposalApiService.searchProposals(
+        'FR',
+        'fr',
+        undefined,
+        undefined,
+        undefined,
+        20,
+        0,
+        undefined,
+        'foo'
+      );
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
+        headers: {},
+        method: 'GET',
+        params: {
+          country: 'FR',
+          language: 'fr',
+          questionId: undefined,
+          content: 'foo',
+          limit: 20,
+          seed: undefined,
+          skip: 0,
+          sortAlgorithm: undefined,
+          tagsIds: undefined,
         },
       });
     });
