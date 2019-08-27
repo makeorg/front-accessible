@@ -31,7 +31,10 @@ export const CookieBanner = () => {
   return (
     <CookieWrapperStyle aria-label={i18n.t('common.cookie_area')}>
       <CookieContentStyle>
-        <SvgInfos style={{ marginRight: '10px' }} />
+        <SvgInfos
+          aria-label={i18n.t('common.notifications.icons.information')}
+          style={{ marginRight: '10px' }}
+        />
         <CookieParagraphStyle
           dangerouslySetInnerHTML={{
             __html: i18n.t('cookie_alert.text', {

@@ -1,27 +1,49 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { SvgCheck } from 'Client/ui/Svg/elements';
+import { SvgCheck, SvgInfos, SvgAlert } from 'Client/ui/Svg/elements';
 import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
+  NOTIFICATION_LEVEL_ERROR,
 } from 'Shared/constants/notification';
-import { SvgCheckStyle } from '../Styled';
+import { i18n } from 'Shared/i18n';
+import { SvgCheckStyle, SvgIconStyle } from '../Styled';
 
 type Props = {
   /** Level of the Notification */
   level?: string,
 };
 
-const NotificationIconComponent = ({
+function NotificationIconComponent({
   level = NOTIFICATION_LEVEL_INFORMATION,
-}: Props) => {
-  if (level === NOTIFICATION_LEVEL_SUCCESS) {
-    return <SvgCheck style={SvgCheckStyle} />;
+}: Props) {
+  switch (level) {
+    case NOTIFICATION_LEVEL_INFORMATION:
+      return (
+        <SvgInfos
+          aria-label={i18n.t('common.notifications.icons.information')}
+          style={SvgIconStyle}
+        />
+      );
+    case NOTIFICATION_LEVEL_SUCCESS:
+      return (
+        <SvgCheck
+          aria-label={i18n.t('common.notifications.icons.success')}
+          style={SvgCheckStyle}
+        />
+      );
+    case NOTIFICATION_LEVEL_ERROR:
+      return (
+        <SvgAlert
+          aria-label={i18n.t('common.notifications.icons.error')}
+          style={SvgIconStyle}
+        />
+      );
+    default:
+      return null;
   }
-
-  return null;
-};
+}
 
 const mapStateToProps = state => {
   const { level } = state.notification;

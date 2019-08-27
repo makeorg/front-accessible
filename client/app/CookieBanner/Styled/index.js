@@ -31,12 +31,14 @@ export const CookieContentStyle = styled.div`
 
 export const CookieParagraphStyle = styled.p`
   font-size: 14px;
+  line-height: 21px;
   flex: 1;
   a {
     color: ${BasicColors.PureWhite};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
+    line-height: 24px;
   }
 `;
 

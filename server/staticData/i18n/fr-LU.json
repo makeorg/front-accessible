@@ -96,7 +96,6 @@
       }
     },
     "notifications": {
-      "close": "Fermer la bannière de notification",
       "bad_link": "Ce lien n'est plus valable.",
       "activate_account_success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
       "delete_account_success": "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt sur Make.org !",
@@ -107,6 +106,12 @@
         "first_sentence": "Nous sommes désolés, vous avez été déconnecté car il nous semble que vous êtes parti",
         "second_sentence": "Connectez-vous à nouveau pour continuer à voter, proposer et agir sur Make.org.",
         "emoji": "emoji visage triste avec larme"
+      },
+      "icons": {
+        "close": "Fermer la bannière de notification",
+        "information": "Message d'information : ",
+        "success": "Message de succès : ",
+        "error": "Message d'erreur : "
       }
     },
     "from": "sur",
