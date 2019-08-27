@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import {
+  Breakpoints,
+  Layouts,
+  DefaultPadding,
+} from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const FooterStyle = styled.footer`
@@ -13,10 +17,7 @@ export const FooterStyle = styled.footer`
   flex-shrink: 0;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: 5px 15px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 15px;
-  }
+  padding: ${intToPx(DefaultPadding.Mobile)};
 `;
 
 export const FooterLogoStyle = styled.img`

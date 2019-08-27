@@ -22,6 +22,7 @@ export const BackgroundColors = {
   LightGrey: 'rgb(242,242,242)',
   ExtraLightGrey: 'rgb(229,229,229)',
   NotFoundPage: 'rgb(230,230,240)',
+  Notifications: 'rgb(51, 67, 91)',
 };
 
 export const BorderColors = {
