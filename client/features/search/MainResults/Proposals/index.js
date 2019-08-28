@@ -8,11 +8,9 @@ import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardW
 import { i18n } from 'Shared/i18n';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { SearchMoreProposalsButtonStyle } from 'Client/pages/Search/Styled';
 import { MainResultsProposalsMobile } from './Mobile';
-import {
-  MainResultsProposalsItemStyle,
-  MainResultsMoreProposalsStyle,
-} from './Styled';
+import { MainResultsProposalsItemStyle } from './Styled';
 
 type Props = {
   country: string,
@@ -71,9 +69,9 @@ export const MainResultsProposalsComponent = ({
       </UnstyledListStyle>
       {isLoading && <Spinner />}
       {getMoreButton && (
-        <MainResultsMoreProposalsStyle onClick={loadMoreProposals}>
+        <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>
           {i18n.t('consultation.proposal.load_more')}
-        </MainResultsMoreProposalsStyle>
+        </SearchMoreProposalsButtonStyle>
       )}
     </div>
   );

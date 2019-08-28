@@ -8,14 +8,18 @@ import {
   ROUTE_SEARCH_CONSULTATIONS,
 } from 'Shared/routes';
 import { SearchMainResults } from './MainResults';
-import { SearchProposals } from './Proposals';
+import { SearchResultsProposals } from './Proposals';
 import { SearchOrganisations } from './Organisations';
 import { SearchConsultations } from './Consultations';
 
 export const SearchPage = () => (
   <Switch>
     <Route path={ROUTE_SEARCH} exact component={SearchMainResults} />
-    <Route path={ROUTE_SEARCH_PROPOSALS} exact component={SearchProposals} />
+    <Route
+      path={ROUTE_SEARCH_PROPOSALS}
+      exact
+      component={SearchResultsProposals}
+    />
     <Route
       path={ROUTE_SEARCH_ORGANISATIONS}
       exact
