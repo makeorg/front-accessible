@@ -137,7 +137,7 @@
     "login_title": "Já tenho uma conta.",
     "login_link": "Autenticação",
     "gtu_link": "Ao efetuar o seu registo, aceita as nossas {{gtu_link}} e aceita receber e-mails (que serão poucos) da Make.org.",
-    "cgu": "condições gerais de utilização"
+    "gtu": "condições gerais de utilização"
   },
   "forgot_password": {
     "title": "recuperar a minha palavra-passe",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Ao continuar a navegação, está a aceitar as nossas {{gtu_link}}, a nossa {{policy_link}}, bem como a utilização de cookies no nosso site com o objetivo de melhorar o nosso serviço.",
-    "cgu": "condições de utilização",
+    "gtu": "condições de utilização",
     "policy": "política de dados pessoais"
   },
   "activate_account": {

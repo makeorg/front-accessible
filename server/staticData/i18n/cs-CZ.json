@@ -136,8 +136,8 @@
     "subtitle": "Registruji se pomocí tohoto formuláře",
     "login_title": "Už mám účet",
     "login_link": "Připojení",
-    "cgu_text": "Registrací souhlasíte s našimi {{gtu_link}} a se zasíláním (ne příliš častých) e-mailů od Make.org.",
-    "cgu": "všeobecnými podmínkami používání"
+    "gtu_text": "Registrací souhlasíte s našimi {{gtu_link}} a se zasíláním (ne příliš častých) e-mailů od Make.org.",
+    "gtu": "všeobecnými podmínkami používání"
   },
   "forgot_password": {
     "title": "obnovuji své heslo",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Pokračováním v navigaci vyjadřujete souhlas s našimi {{gtu_link}}, s našimi {{policy_link}} a také s používáním cookies na našich stránkách, které mají pomoci zkvalitnit naše služby.",
-    "cgu": "podmínkami používání",
+    "gtu": "podmínkami používání",
     "policy": "pravidly ochrany osobních údajů"
   },
   "activate_account": {

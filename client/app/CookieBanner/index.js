@@ -38,7 +38,7 @@ export const CookieBanner = () => {
         <CookieParagraphStyle
           dangerouslySetInnerHTML={{
             __html: i18n.t('cookie_alert.text', {
-              gtu_link: `<a href="${GTU_LINK}">$t(cookie_alert.cgu)</a>`,
+              gtu_link: `<a href="${GTU_LINK}">$t(cookie_alert.gtu)</a>`,
               policy_link: `<a href="${DATA_POLICY_LINK}">$t(cookie_alert.policy)</a>`,
             }),
           }}

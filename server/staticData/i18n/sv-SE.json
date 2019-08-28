@@ -136,8 +136,8 @@
     "subtitle": "Jag registrerar mig med detta formulär",
     "login_title": "Jag har redan ett konto.",
     "login_link": "Inloggning",
-    "cgu_text": "När du registrerar dig, innebär det att du godkänner våra {{gtu_link}}, och du accepterar att få e-post (ytterst få) från Make.org.",
-    "cgu": "allmänna användarvillkor"
+    "gtu_text": "När du registrerar dig, innebär det att du godkänner våra {{gtu_link}}, och du accepterar att få e-post (ytterst få) från Make.org.",
+    "gtu": "allmänna användarvillkor"
   },
   "forgot_password": {
     "title": "jag återställer mitt lösenord",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Genom att fortsätta navigera på webbplatsen godkänner du våra {{gtu_link}}, vår {{policy_link}}, samt användningen av kakor på vår webbplats i syfte att förbättra vår service.",
-    "cgu": "användarvillkor",
+    "gtu": "användarvillkor",
     "policy": "personuppgiftspolicy"
   },
   "activate_account": {

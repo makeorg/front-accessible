@@ -136,8 +136,8 @@
     "subtitle": "Qed nirreġistra b’din il-formola",
     "login_title": "Diġà għandi kont.",
     "login_link": "għall-iskrin tal-login",
-    "cgu_text": "B’din ir-reġistrazzjoni, qed taqbel {{gtu_link}} tagħna u qed taċċetta li tirċievi (għadd żgħir) ta’ emails mingħand Make.org.",
-    "cgu": "mal-kundizzjonijiet ġenerali"
+    "gtu_text": "B’din ir-reġistrazzjoni, qed taqbel {{gtu_link}} tagħna u qed taċċetta li tirċievi (għadd żgħir) ta’ emails mingħand Make.org.",
+    "gtu": "mal-kundizzjonijiet ġenerali"
   },
   "forgot_password": {
     "title": "qed nibdel il-password tiegħi",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Billi qed tkompli n-navigazzjoni tiegħek taqbel mal-{{gtu_link}}, mal-{{policy_link}} tagħna, u mal-użu tal-cookies fuq is-sit web tagħna sabiex jittejjeb is-servizz tagħna.",
-    "cgu": "kundizzjonijiet tal-użu",
+    "gtu": "kundizzjonijiet tal-użu",
     "policy": "karta dwar id-data personali"
   },
   "activate_account": {

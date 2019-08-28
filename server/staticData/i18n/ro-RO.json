@@ -136,8 +136,8 @@
     "subtitle": "Mă înscriu cu acest formular",
     "login_title": "Am deja cont.",
     "login_link": "Conectare ",
-    "cgu_text": "Prin înscriere, acceptați {{gtu_link}} și acceptați să primiți e-mailuri (puține) din partea Make.org.",
-    "cgu": "condițiile generale de utilizare"
+    "gtu_text": "Prin înscriere, acceptați {{gtu_link}} și acceptați să primiți e-mailuri (puține) din partea Make.org.",
+    "gtu": "condițiile generale de utilizare"
   },
   "forgot_password": {
     "title": "reinițializez parola mea",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Continuând navigarea, sunteți de acord cu {{gtu_link}}, {{policy_link}}, precum și cu utilizarea cookie-urilor pe site-ul nostru în scopul îmbunătățirii serviciului nostru.",
-    "cgu": "condițiile de utilizare",
+    "gtu": "condițiile de utilizare",
     "policy": "carta datelor personale"
   },
   "activate_account": {

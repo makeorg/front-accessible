@@ -287,8 +287,8 @@
     "subtitle": "Je m'inscris avec ce formulaire",
     "login_title": "J‘ai déjà un compte.",
     "login_link": "Connexion",
-    "cgu_text": "En vous inscrivant, vous acceptez nos {{gtu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
-    "cgu": "conditions générales d’utilisation"
+    "gtu_text": "En vous inscrivant, vous acceptez nos {{gtu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
+    "gtu": "conditions générales d’utilisation"
   },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",
@@ -315,7 +315,7 @@
   },
   "cookie_alert": {
     "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
-    "cgu": "conditions d’utilisation",
+    "gtu": "conditions d’utilisation",
     "policy": "charte de données personnelles",
     "close": "Fermer le bandeau d'information sur les cookies"
   },

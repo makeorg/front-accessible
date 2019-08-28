@@ -136,8 +136,8 @@
     "subtitle": "Chcę się zarejestrować za pomocą tego formularza",
     "login_title": "Mam już konto.",
     "login_link": "Logowanie",
-    "cgu_text": "Rejestrując się, akceptujesz nasz {{gtu_link}} oraz wyrażasz zgodę na otrzymywanie (rozsądnej ilości) e-maili od Make.org.",
-    "cgu": "regulamin użytkowania"
+    "gtu_text": "Rejestrując się, akceptujesz nasz {{gtu_link}} oraz wyrażasz zgodę na otrzymywanie (rozsądnej ilości) e-maili od Make.org.",
+    "gtu": "regulamin użytkowania"
   },
   "forgot_password": {
     "title": "chcę zresetować hasło",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Kontynuując przeglądanie tej strony, akceptujesz nasze {{gtu_link}}, {{policy_link}} oraz wyrażasz zgodę na wykorzystywanie plików cookie przez naszą witrynę w celu optymalizacji świadczonych usług.",
-    "cgu": "warunki użytkowania",
+    "gtu": "warunki użytkowania",
     "policy": "zasady ochrony danych oobowych"
   },
   "activate_account": {

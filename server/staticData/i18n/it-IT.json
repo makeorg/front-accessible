@@ -136,8 +136,8 @@
     "subtitle": "Iscrizione tramite modulo",
     "login_title": "Ho già un account.",
     "login_link": "pagina di connessione",
-    "cgu_text": "Iscrivendoti, accetti le nostre {{gtu_link}} e accetti di ricevere le (sporadiche) e-mail di Make.org.",
-    "cgu": "condizioni generali di utilizzo"
+    "gtu_text": "Iscrivendoti, accetti le nostre {{gtu_link}} e accetti di ricevere le (sporadiche) e-mail di Make.org.",
+    "gtu": "condizioni generali di utilizzo"
   },
   "forgot_password": {
     "title": "ripristina la password",
@@ -173,7 +173,7 @@
   },
   "cookie_alert": {
     "text": "Continuando la navigazione, accetti le {{gtu_link}}, la {{policy_link}} e l’uso dei cookie sul nostro sito al fine di migliorare il servizio.",
-    "cgu": "condizioni di utilizzo",
+    "gtu": "condizioni di utilizzo",
     "policy": "politica sui dati personali"
   },
   "activate_account": {
