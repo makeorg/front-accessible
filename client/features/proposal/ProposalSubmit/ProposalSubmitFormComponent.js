@@ -87,7 +87,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         />
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>
-        <CharsCounter minLength={baitLength} currentLength={length} />
+        <CharsCounter currentLength={length} />
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}

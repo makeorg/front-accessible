@@ -45,7 +45,7 @@ export const ProposalSubmitAuthentificationComponent = ({
     if (authetificationRef.current) {
       authetificationRef.current.focus();
     }
-  }, []);
+  }, [authetificationRef.current]);
 
   return (
     <ProposalSubmitAuthentificationWrapperStyle

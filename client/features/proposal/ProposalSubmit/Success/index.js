@@ -14,7 +14,7 @@ export const ProposalSubmitSuccessComponent = () => {
     if (successRef.current) {
       successRef.current.focus();
     }
-  }, []);
+  }, [successRef.current]);
   return (
     <DescriptionWrapperStyle ref={successRef} tabIndex={0}>
       <ParagraphStyle id="proposal-submit-success">
