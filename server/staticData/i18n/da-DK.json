@@ -136,8 +136,8 @@
     "subtitle": "Jeg tilmelder mig med denne formular",
     "login_title": "Jeg har allerede en konto.",
     "login_link": "Tilslutning",
-    "cgu_text": "Når du tilmelder dig, accepterer du vores {{cgu_link}} og du accepterer at modtage e-mails (ganske få) fra Make.org.",
-    "cgu": "generelle brugsbetingelser"
+    "gtu_text": "Når du tilmelder dig, accepterer du vores {{gtu_link}} og du accepterer at modtage e-mails (ganske få) fra Make.org.",
+    "gtu": "generelle brugsbetingelser"
   },
   "forgot_password": {
     "title": "jeg nulstiller min adgangskode",
@@ -172,8 +172,8 @@
     "close": "Luk rullepanelet"
   },
   "cookie_alert": {
-    "text": "Når du fortsætter din navigation, samtykker du i vores {{cgu_link}}, vores {{policy_link}}, samt i brugen af cookies på webstedet i den hensigt at forbedre vores tjeneste.",
-    "cgu": "brugsbetingelser",
+    "text": "Når du fortsætter din navigation, samtykker du i vores {{gtu_link}}, vores {{policy_link}}, samt i brugen af cookies på webstedet i den hensigt at forbedre vores tjeneste.",
+    "gtu": "brugsbetingelser",
     "policy": "charter om personoplysninger"
   },
   "activate_account": {

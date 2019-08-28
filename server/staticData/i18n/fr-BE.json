@@ -96,7 +96,6 @@
       }
     },
     "notifications": {
-      "close": "Fermer la bannière de notification",
       "bad_link": "Ce lien n'est plus valable.",
       "activate_account_success": "Votre compte vient d'être activé. Vous pouvez vous connecter dès maintenant",
       "delete_account_success": "Votre compte a bien été supprimé. Nous espérons vous revoir bientôt sur Make.org !",
@@ -107,6 +106,12 @@
         "first_sentence": "Nous sommes désolés, vous avez été déconnecté car il nous semble que vous êtes parti",
         "second_sentence": "Connectez-vous à nouveau pour continuer à voter, proposer et agir sur Make.org.",
         "emoji": "emoji visage triste avec larme"
+      },
+      "icons": {
+        "close": "Fermer la bannière de notification",
+        "information": "Message d'information : ",
+        "success": "Message de succès : ",
+        "error": "Message d'erreur : "
       }
     },
     "from": "sur",
@@ -282,8 +287,8 @@
     "subtitle": "Je m'inscris avec ce formulaire",
     "login_title": "J‘ai déjà un compte.",
     "login_link": "Connexion",
-    "cgu_text": "En vous inscrivant, vous acceptez nos {{cgu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
-    "cgu": "conditions générales d’utilisation"
+    "gtu_text": "En vous inscrivant, vous acceptez nos {{gtu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
+    "gtu": "conditions générales d’utilisation"
   },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",
@@ -309,8 +314,8 @@
     "contact": "Contact"
   },
   "cookie_alert": {
-    "text": "En poursuivant votre navigation vous consentez à nos {{cgu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
-    "cgu": "conditions d’utilisation",
+    "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
+    "gtu": "conditions d’utilisation",
     "policy": "charte de données personnelles",
     "close": "Fermer le bandeau d'information sur les cookies"
   },

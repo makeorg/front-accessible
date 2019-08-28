@@ -136,8 +136,8 @@
     "subtitle": "Registreerun selle vormiga",
     "login_title": "Mul on juba konto.",
     "login_link": "Ühendamine",
-    "cgu_text": "Registreerudes te nõustute meie {{cgu_link}} ja (väheste) e-kirjade saamisega Make orgilt.",
-    "cgu": "kasutamise üldtingimustega"
+    "gtu_text": "Registreerudes te nõustute meie {{gtu_link}} ja (väheste) e-kirjade saamisega Make orgilt.",
+    "gtu": "kasutamise üldtingimustega"
   },
   "forgot_password": {
     "title": "lähtestan oma salasõna",
@@ -172,8 +172,8 @@
     "close": "Rippmenüü sulgemine"
   },
   "cookie_alert": {
-    "text": "Jätkates surfamist, nõustute meie järgmiste tingimuste ja eeskirjadega: {{cgu_link}} ja {{policy_link}}, samuti küpsiste kasutamisega meie saidil, mille eesmärk on parandada meie teenuse kvaliteeti.",
-    "cgu": "kasutamistingimused",
+    "text": "Jätkates surfamist, nõustute meie järgmiste tingimuste ja eeskirjadega: {{gtu_link}} ja {{policy_link}}, samuti küpsiste kasutamisega meie saidil, mille eesmärk on parandada meie teenuse kvaliteeti.",
+    "gtu": "kasutamistingimused",
     "policy": "isikuandmete kaitse eeskirjad"
   },
   "activate_account": {

@@ -136,8 +136,8 @@
     "subtitle": "Ik schrijf mij in met dit formulier",
     "login_title": "Ik heb reeds een account.",
     "login_link": "Inloggen",
-    "cgu_text": "Door u in te schrijven, stemt u in met onze {{cgu_link}} en accepteert u om (af en toe) e-mailberichten te ontvangen van Make.org.",
-    "cgu": "algemene gebruiksvoorwaarden"
+    "gtu_text": "Door u in te schrijven, stemt u in met onze {{gtu_link}} en accepteert u om (af en toe) e-mailberichten te ontvangen van Make.org.",
+    "gtu": "algemene gebruiksvoorwaarden"
   },
   "forgot_password": {
     "title": "ik stel mijn wachtwoord opnieuw in",
@@ -172,8 +172,8 @@
     "close": "Het dropdownmenu sluiten"
   },
   "cookie_alert": {
-    "text": "Als u doorgaat met surfen op deze site, gaat u akkoord met onze {{cgu_link}}, onze {{policy_link}} en met het gebruik van cookies op onze site die dienen om onze dienstverlening te verbeteren.",
-    "cgu": "gebruiksvoorwaarden",
+    "text": "Als u doorgaat met surfen op deze site, gaat u akkoord met onze {{gtu_link}}, onze {{policy_link}} en met het gebruik van cookies op onze site die dienen om onze dienstverlening te verbeteren.",
+    "gtu": "gebruiksvoorwaarden",
     "policy": "richtlijnen voor persoonsgegevens"
   },
   "activate_account": {

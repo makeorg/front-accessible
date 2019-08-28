@@ -163,8 +163,8 @@ export const RegisterFormComponent = ({
       />
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
-          __html: i18n.t('register.cgu_text', {
-            cgu_link: `<a class="red_link" href="${GTU_LINK}">$t(register.cgu)</a>`,
+          __html: i18n.t('register.gtu_text', {
+            gtu_link: `<a class="red_link" href="${GTU_LINK}">$t(register.gtu)</a>`,
             interpolation: { escapeValue: false },
           }),
         }}

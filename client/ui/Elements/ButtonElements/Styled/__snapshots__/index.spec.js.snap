@@ -138,16 +138,16 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   border: none;
   background-color: transparent;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   z-index: 1;
   font-size: 16px;
 }
 
 @media (min-width:767px) {
   .c0 {
-    top: 25px;
-    right: 25px;
+    top: 30px;
+    right: 30px;
   }
 }
 

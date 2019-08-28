@@ -42,3 +42,6 @@ export { SvgLike } from './Like';
 export { SvgCheckedSymbol } from './CheckedSymbol';
 export { SvgUsers } from './Users';
 export { SvgSadEmoji } from './SadEmoji';
+export { SvgInfos } from './Infos';
+export { SvgDisconnect } from './Disconnect';
+export { SvgAlert } from './Alert';

@@ -136,8 +136,8 @@
     "subtitle": "Registriram se uporabom ovog obrasca",
     "login_title": "Već imam račun.",
     "login_link": "Prijavi se",
-    "cgu_text": "Registriranjem prihvaćate naše {{cgu_link}} i primanje elektroničkih poruka (maleni broj) s platforme Make.org.",
-    "cgu": "opće uvjete uporabe"
+    "gtu_text": "Registriranjem prihvaćate naše {{gtu_link}} i primanje elektroničkih poruka (maleni broj) s platforme Make.org.",
+    "gtu": "opće uvjete uporabe"
   },
   "forgot_password": {
     "title": "ponovno postavljanje lozinke",
@@ -172,8 +172,8 @@
     "close": "Zatvori pokretnu oglasnu ploču"
   },
   "cookie_alert": {
-    "text": "Nastavkom pregledavanja slažete se s {{cgu_link}} i {{policy_link}} te uporabom kolačića na našem mrežnom mjestu radi poboljšavanja naše usluge.",
-    "cgu": "uvjetima uporabe",
+    "text": "Nastavkom pregledavanja slažete se s {{gtu_link}} i {{policy_link}} te uporabom kolačića na našem mrežnom mjestu radi poboljšavanja naše usluge.",
+    "gtu": "uvjetima uporabe",
     "policy": "pravilnikom za osobne podatke"
   },
   "activate_account": {

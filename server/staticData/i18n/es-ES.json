@@ -136,8 +136,8 @@
     "subtitle": "Me registro con este formulario",
     "login_title": "Ya dispongo de una cuenta.",
     "login_link": "Conexión",
-    "cgu_text": "Al registrarse, acepta nuestras {{cgu_link}}, así como recibir correos electrónicos (poco frecuentes) de Make.org.",
-    "cgu": "condiciones generales de uso"
+    "gtu_text": "Al registrarse, acepta nuestras {{gtu_link}}, así como recibir correos electrónicos (poco frecuentes) de Make.org.",
+    "gtu": "condiciones generales de uso"
   },
   "forgot_password": {
     "title": "restablezco mi contraseña",
@@ -172,8 +172,8 @@
     "close": "Cerrar el panel desplegable"
   },
   "cookie_alert": {
-    "text": "Al continuar navegando, acepta nuestras {{cgu_link}}, nuestra {{policy_link}}, así como el uso de cookies en nuestro sitio web con el objetivo de mejorar nuestro servicio.",
-    "cgu": "condiciones de uso",
+    "text": "Al continuar navegando, acepta nuestras {{gtu_link}}, nuestra {{policy_link}}, así como el uso de cookies en nuestro sitio web con el objetivo de mejorar nuestro servicio.",
+    "gtu": "condiciones de uso",
     "policy": "política de privacidad"
   },
   "activate_account": {

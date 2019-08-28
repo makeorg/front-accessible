@@ -136,8 +136,8 @@
     "subtitle": "Pierakstīties ar šo formu",
     "login_title": "Man jau ir konts.",
     "login_link": "Pieslēgšanās",
-    "cgu_text": "Pierakstoties jūs piekrītat mūsu {{cgu_link}} un jūs piekrītat saņemt e-pastus (nelielā skaitā) no Make.org.",
-    "cgu": "vispārējiem lietošanas noteikumiem"
+    "gtu_text": "Pierakstoties jūs piekrītat mūsu {{gtu_link}} un jūs piekrītat saņemt e-pastus (nelielā skaitā) no Make.org.",
+    "gtu": "vispārējiem lietošanas noteikumiem"
   },
   "forgot_password": {
     "title": "Paroles Atjaunošana",
@@ -172,8 +172,8 @@
     "close": "Aizvērt nolaižamo izvēlni"
   },
   "cookie_alert": {
-    "text": "Turpinot pārlūkošanu, jūs piekrītat mūsu {{cgu_link}}, mūsu {{policy_link}}, kā arī sīkdatņu izmantošanai mūsu vietnē pakalpojuma uzlabošanas nolūkā.",
-    "cgu": "lietošanas noteikumi",
+    "text": "Turpinot pārlūkošanu, jūs piekrītat mūsu {{gtu_link}}, mūsu {{policy_link}}, kā arī sīkdatņu izmantošanai mūsu vietnē pakalpojuma uzlabošanas nolūkā.",
+    "gtu": "lietošanas noteikumi",
     "policy": "personas datu noteikumi"
   },
   "activate_account": {

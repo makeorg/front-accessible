@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { SvgClose } from 'Client/ui/Svg/elements';
+import { SvgDisconnect } from 'Client/ui/Svg/elements';
 import { clearNotification } from 'Shared/store/actions/notification';
 import {
   notifcationContent,
@@ -40,22 +40,17 @@ const NotificationComponent = ({
   if (!contentType) return null;
 
   return (
-    <NotificationWrapperStyle
-      ref={notificationRef}
-      role="banner"
-      className={level}
-      tabIndex={0}
-    >
+    <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
       <NotificationContentStyle className={level}>
         <NotificationIcon />
         {notifcationContent[contentType]}
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
-        aria-label={i18n.t('common.notifications.close')}
+        aria-label={i18n.t('common.notifications.icons.close')}
         aria-expanded="false"
         onClick={closeNotification}
       >
-        <SvgClose aria-hidden />
+        <SvgDisconnect aria-hidden />
       </NotificationCloseButtonStyle>
     </NotificationWrapperStyle>
   );

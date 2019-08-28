@@ -136,8 +136,8 @@
     "subtitle": "Prijavim se s tem obrazcem",
     "login_title": ".Že imam račun.",
     "login_link": "Povezava",
-    "cgu_text": "Z registracijo se strinjate z našimi {{cgu_link}} in se strinjate, da boste prejeli e-pošto (nekaj) Make.org.",
-    "cgu": "pogoji storitve"
+    "gtu_text": "Z registracijo se strinjate z našimi {{gtu_link}} in se strinjate, da boste prejeli e-pošto (nekaj) Make.org.",
+    "gtu": "pogoji storitve"
   },
   "forgot_password": {
     "title": "Ponastavim geslo",
@@ -172,8 +172,8 @@
     "close": "Zaprite spustni meni"
   },
   "cookie_alert": {
-    "text": "Z nadaljevanjem navigacije soglašate z našimi {{cgu_link}}, našo {{policy_link}} in uporabo piškotkov na naši spletni strani, da bi izboljšali naše storitve.",
-    "cgu": "pogoji za uporabo",
+    "text": "Z nadaljevanjem navigacije soglašate z našimi {{gtu_link}}, našo {{policy_link}} in uporabo piškotkov na naši spletni strani, da bi izboljšali naše storitve.",
+    "gtu": "pogoji za uporabo",
     "policy": "listino o osebnih podatkih "
   },
   "activate_account": {

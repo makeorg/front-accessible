@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeBusinessConsultation } from 'Shared/types/views';
@@ -39,24 +39,18 @@ export const BusinessConsultationsComponent = ({
 }: Props) => {
   const initialDisplayedConsultationsLength = 3;
   const sortedConsultations = sortConsultationsByLatestDate(consultations);
-  const [displayedConsultations, setDisplayedConsultations] = useState([]);
   const [limitedConsultations, setConsultationsLimit] = useState(
     initialDisplayedConsultationsLength
   );
+  const slicedConsultations = sortedConsultations.slice(
+    0,
+    limitedConsultations
+  );
 
   const displayViewMore =
-    displayedConsultations.length === initialDisplayedConsultationsLength;
+    slicedConsultations.length === initialDisplayedConsultationsLength;
   const displayViewLess =
-    displayedConsultations.length > initialDisplayedConsultationsLength;
-
-  useEffect(() => {
-    const slicedConsultations = sortedConsultations.slice(
-      0,
-      limitedConsultations
-    );
-
-    return setDisplayedConsultations(slicedConsultations);
-  });
+    slicedConsultations.length > initialDisplayedConsultationsLength;
 
   const expandConsultations = () => setConsultationsLimit(consultations.length);
 
@@ -71,7 +65,7 @@ export const BusinessConsultationsComponent = ({
         {i18n.t('homepage.business_consultations.title')}
       </BusinessConsultationsTitleStyle>
       <BusinessConsultationsStyle>
-        {displayedConsultations.map(consultation => (
+        {slicedConsultations.map(consultation => (
           <BusinessConsultationsItemStyle key={consultation.slug}>
             <BusinessConsultationsItemLinkStyle
               {...(isInProgress(consultation.startDate, consultation.endDate)

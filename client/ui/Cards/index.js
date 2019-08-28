@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
@@ -13,15 +13,15 @@ export const CardStyle = styled.article`
   justify-content: space-between;
   width: 100%;
   flex: 1 1 auto;
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  padding: ${pxToRem(DefaultPadding.Mobile)};
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
 export const TallCardStyle = styled(CardStyle)`
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-height: 550px;
-    padding: ${pxToRem(DefaultPadding.Desktop)};
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
