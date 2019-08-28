@@ -136,7 +136,7 @@
     "subtitle": "Rekisteröidy tällä lomakkeella",
     "login_title": "Minulla on jo tili.",
     "login_link": "Kirjaudu sisään",
-    "cgu_text": "Rekisteröityessäsi hyväksyt {{cgu_link}} ja suostut vastaanottamaan sähköpostiviestejä (kohtuullisuuden rajoissa) Make.orgilta.",
+    "cgu_text": "Rekisteröityessäsi hyväksyt {{gtu_link}} ja suostut vastaanottamaan sähköpostiviestejä (kohtuullisuuden rajoissa) Make.orgilta.",
     "cgu": "palveluehtomme"
   },
   "forgot_password": {
@@ -172,7 +172,7 @@
     "close": "Sulje avattava valikko"
   },
   "cookie_alert": {
-    "text": "Jatkamalla tämän sivuston käyttöä hyväksyt {{cgu_link}} ja {{policy_link}} sekä sivustolla käytettävät evästeet, joiden avulla voimme kehittää palveluamme.",
+    "text": "Jatkamalla tämän sivuston käyttöä hyväksyt {{gtu_link}} ja {{policy_link}} sekä sivustolla käytettävät evästeet, joiden avulla voimme kehittää palveluamme.",
     "cgu": "palveluehdot",
     "policy": "tietosuojakäytännön"
   },

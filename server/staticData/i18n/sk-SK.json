@@ -136,7 +136,7 @@
     "subtitle": "Registrujem sa prostredníctvom tohto formulára",
     "login_title": "Už mám účet.",
     "login_link": "Pripojenie",
-    "cgu_text": "Svojou registráciou súhlasíte s našimi {{cgu_link}} a so zasielaním (nie početných) e-mailov od Make.org.",
+    "cgu_text": "Svojou registráciou súhlasíte s našimi {{gtu_link}} a so zasielaním (nie početných) e-mailov od Make.org.",
     "cgu": "všeobecnými podmienkami používania"
   },
   "forgot_password": {
@@ -172,7 +172,7 @@
     "close": "Zatvoriť rozbaľovacie menu"
   },
   "cookie_alert": {
-    "text": "Pokračovaním v navigácii súhlasíte s našimi {{cgu_link}} s našimi pravidlami {{policy_link}}, ako aj s používaním cookies na našej stránke s cieľom zlepšiť našu službu.",
+    "text": "Pokračovaním v navigácii súhlasíte s našimi {{gtu_link}} s našimi pravidlami {{policy_link}}, ako aj s používaním cookies na našej stránke s cieľom zlepšiť našu službu.",
     "cgu": "podmienkami používania",
     "policy": "ochrany osobných údajov"
   },

@@ -136,7 +136,7 @@
     "subtitle": "Registruojuosi užpildydamas šią formą",
     "login_title": "Jau turiu paskyrą.",
     "login_link": "Prisijungti",
-    "cgu_text": "Registruodamiesi sutinkate su mūsų {{cgu_link}} ir sutinkate gauti Make.org el. laiškus (siunčiami retai).",
+    "cgu_text": "Registruodamiesi sutinkate su mūsų {{gtu_link}} ir sutinkate gauti Make.org el. laiškus (siunčiami retai).",
     "cgu": "bendrosiomis naudojimo sąlygomis"
   },
   "forgot_password": {
@@ -172,7 +172,7 @@
     "close": "Uždaryti išskleidžiamąjį meniu"
   },
   "cookie_alert": {
-    "text": "Tęsdami naršymą sutinkate su mūsų {{cgu_link}}, mūsų {{policy_link}} bei su slapukų naudojimu mūsų svetainėje, kuriuo siekiama pagerinti mūsų teikiamų paslaugų kokybę.",
+    "text": "Tęsdami naršymą sutinkate su mūsų {{gtu_link}}, mūsų {{policy_link}} bei su slapukų naudojimu mūsų svetainėje, kuriuo siekiama pagerinti mūsų teikiamų paslaugų kokybę.",
     "cgu": "Naudojimo sąlygomis",
     "policy": "Asmens duomenų chartija"
   },

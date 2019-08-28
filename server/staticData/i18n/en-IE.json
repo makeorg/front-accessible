@@ -176,7 +176,7 @@
     "subtitle": "Sign up using this form",
     "login_title": "I already have an account.",
     "login_link": "Log in",
-    "cgu_text": "By signing up, you are agreeing to our {{cgu_link}} and consent to receive e-mails (not too many!) from Make.org.",
+    "cgu_text": "By signing up, you are agreeing to our {{gtu_link}} and consent to receive e-mails (not too many!) from Make.org.",
     "cgu": "terms of service"
   },
   "forgot_password": {
@@ -206,7 +206,7 @@
     "close": "Close the drop-down panel"
   },
   "cookie_alert": {
-    "text": "By continuing to browse this site, you agree to our {{cgu_link}}, our {{policy_link}}, as well as to the use of cookies on our site in order to improve our service.",
+    "text": "By continuing to browse this site, you agree to our {{gtu_link}}, our {{policy_link}}, as well as to the use of cookies on our site in order to improve our service.",
     "cgu": "terms of service",
     "policy": "privacy policy"
   },

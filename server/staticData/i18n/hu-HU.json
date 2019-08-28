@@ -136,7 +136,7 @@
     "subtitle": "Az űrlappal szeretnék regisztrálni",
     "login_title": "Már van fiókom.",
     "login_link": "Bejelentkezés",
-    "cgu_text": "A regisztrációval elfogadja az {{cgu_link}}, és beleegyezik abba, hogy e-maileket küldhet Önnek (néhányat) a Make.org.",
+    "cgu_text": "A regisztrációval elfogadja az {{gtu_link}}, és beleegyezik abba, hogy e-maileket küldhet Önnek (néhányat) a Make.org.",
     "cgu": "általános felhasználási feltételeinket"
   },
   "forgot_password": {
@@ -172,7 +172,7 @@
     "close": "A legördülő lista bezárása"
   },
   "cookie_alert": {
-    "text": "Az oldal további használatával elfogadja a {{cgu_link}} és {{policy_link}} szabályzatot, illetve a sütik használatát az oldalon.",
+    "text": "Az oldal további használatával elfogadja a {{gtu_link}} és {{policy_link}} szabályzatot, illetve a sütik használatát az oldalon.",
     "cgu": "felhasználási feltételeket",
     "policy": "a adatkezelési"
   },
