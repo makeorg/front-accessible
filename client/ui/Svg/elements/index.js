@@ -45,3 +45,4 @@ export { SvgSadEmoji } from './SadEmoji';
 export { SvgInfos } from './Infos';
 export { SvgDisconnect } from './Disconnect';
 export { SvgAlert } from './Alert';
+export { SvgSearch } from './Search';

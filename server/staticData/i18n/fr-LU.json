@@ -598,6 +598,14 @@
        "title":"Suivez l’actualité de make.org en vous inscrivant.",
        "button": "je m'inscris"
       }
+    },
+    "form": {
+      "introduction": "Pour effectuer une recherche, votre requête doit être comprise entre 3 et 140 caratères. Saisissez là dans le champ de recherche puis cliquez sur le bouton \"Rechercher\"",
+      "introduction_searched": "Pour vider le champ de recherche, cliquez sur le bouton \"Effacer le champ de recherche\"",
+      "label": "Champ de recherche",
+      "placeholder": "Recherchez une idée, un thème, un sujet",
+      "submit": "Rechercher",
+      "flush": "Effacer le champ de recherche"
     }
   }
 }

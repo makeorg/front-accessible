@@ -6,3 +6,4 @@ export const PASSWORD_UPDATE_FORMNAME = 'password_update';
 export const PROFILE_UPDATE_FORMNAME = 'profile_update';
 export const NEWSLETTER_UPDATE_FORMNAME = 'newsletter_update';
 export const PROFILE_DELETE_ACCOUNT_FORMNAME = 'profile_delete_account';
+export const SEARCH_FORMNAME = 'search';
