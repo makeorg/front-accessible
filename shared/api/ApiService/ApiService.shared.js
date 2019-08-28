@@ -28,7 +28,7 @@ const BROWSER_API_URL =
   null;
 
 export const API_URL =
-  BROWSER_API_URL || process.env.API_URL || 'http://localhost:9000';
+  BROWSER_API_URL || process.env.API_URL || 'https://api.preprod.makeorg.tech';
 export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
 
 axiosRetry(axios, {
