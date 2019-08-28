@@ -203,7 +203,7 @@
   },
   "proposal_submit": {
     "bait": "Il faut ",
-    "title": "Soumettez votre proposition en moins de 140 caractères : ",
+    "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de propsition puis validez en cliquant sur le bouton \"Proposer\"",
     "counter": "{{current}} caractères entrés sur {{total}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
