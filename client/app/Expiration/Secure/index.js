@@ -29,7 +29,7 @@ const SecureExpirationHandler = ({ children, cookies, location }: Props) => {
     const FiveMinutesInMilliseconds = 5 * 60 * 1000;
     const timeBeforeExpire =
       secureExpirationDate.getTime() -
-      currentDate.getTime() +
+      currentDate.getTime() -
       FiveMinutesInMilliseconds;
 
     if (Number.isNaN(timeBeforeExpire) || timeBeforeExpire < 0) {

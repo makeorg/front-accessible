@@ -6,7 +6,7 @@ import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { WHOAREWE_FR_LINK } from 'Shared/constants/url';
 import { useDesktop } from 'Client/hooks/useMedia';
-// import { SearchInput } from 'Client/features/search/Form';
+import { SearchInput } from 'Client/features/search/Form';
 import { HeaderAuthentification } from './Authentification';
 import {
   HeaderStyle,
@@ -35,7 +35,7 @@ export const Header = () => {
               />
             </Link>
           </h1>
-          {/* Todo uncomment in  https://makeorg.atlassian.net/browse/MP-148 to render Search Input <SearchInput /> */}
+          <SearchInput />
         </HeaderFlexLeftStyle>
         <HeaderFlexRightStyle>
           {isDesktop && (
