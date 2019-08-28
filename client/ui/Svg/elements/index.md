@@ -46,6 +46,7 @@ import {
   SvgDisconnect,
   SvgInfos,
   SvgAlert,
+  SvgSearch,
 } from './index.js';
 
 class SvgElementsExample extends React.Component {
@@ -97,6 +98,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgDisconnect /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInfos /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgAlert /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSearch /></span>
       </React.Fragment>
     );
   }

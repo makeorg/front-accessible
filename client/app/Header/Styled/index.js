@@ -11,6 +11,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const HeaderStyle = styled.header`
   position: relative;
@@ -29,6 +30,17 @@ export const HeaderInnerStyle = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
+`;
+
+export const HeaderFlexLeftStyle = styled(FlexElementStyle)`
+  flex: 1;
+  justify-items: flex-start;
+  align-items: center;
+`;
+
+export const HeaderFlexRightStyle = styled(FlexElementStyle)`
+  justify-items: flex-end;
+  align-items: center;
 `;
 
 export const HeaderLogoStyle = styled.img`

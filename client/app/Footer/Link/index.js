@@ -15,13 +15,13 @@ import {
   FooterItemListStyle,
   FooterItemLinkStyle,
 } from 'Client/app/Footer/Styled';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useDesktop } from 'Client/hooks/useMedia';
 
 /**
  * Renders Main Footer
  */
 export const FooterLinks = () => {
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
 
   return (
     <FooterItemListStyle>
@@ -31,7 +31,7 @@ export const FooterLinks = () => {
           dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
         />
       </FooterItemStyle>
-      {isMobile && (
+      {!isDesktop && (
         <FooterItemStyle>
           <FooterItemLinkStyle href={WHOAREWE_FR_LINK}>
             {i18n.t('main-footer.whoarewe')}

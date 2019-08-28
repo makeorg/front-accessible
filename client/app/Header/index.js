@@ -5,13 +5,15 @@ import { Tracking } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { WHOAREWE_FR_LINK } from 'Shared/constants/url';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useDesktop } from 'Client/hooks/useMedia';
+// import { SearchInput } from 'Client/features/search/Form';
 import { HeaderAuthentification } from './Authentification';
 import {
   HeaderStyle,
   HeaderInnerStyle,
   HeaderLogoStyle,
+  HeaderFlexLeftStyle,
+  HeaderFlexRightStyle,
   WhoAreWeLinkStyle,
 } from './Styled';
 
@@ -19,27 +21,30 @@ import {
  * Renders Main Header
  */
 export const Header = () => {
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
   return (
     <HeaderStyle>
       <HeaderInnerStyle>
-        <h1>
-          <Link to="/">
-            <HeaderLogoStyle
-              onClick={() => Tracking.trackClickMakeLogo()}
-              src={Logo}
-              alt={i18n.t('header.logo_alt')}
-            />
-          </Link>
-        </h1>
-        <FlexElementStyle>
-          {!isMobile && (
+        <HeaderFlexLeftStyle>
+          <h1>
+            <Link to="/">
+              <HeaderLogoStyle
+                onClick={() => Tracking.trackClickMakeLogo()}
+                src={Logo}
+                alt={i18n.t('header.logo_alt')}
+              />
+            </Link>
+          </h1>
+          {/* Todo uncomment in  https://makeorg.atlassian.net/browse/MP-148 to render Search Input <SearchInput /> */}
+        </HeaderFlexLeftStyle>
+        <HeaderFlexRightStyle>
+          {isDesktop && (
             <WhoAreWeLinkStyle href={WHOAREWE_FR_LINK}>
               {i18n.t('header.whoarewe')}
             </WhoAreWeLinkStyle>
           )}
           <HeaderAuthentification />
-        </FlexElementStyle>
+        </HeaderFlexRightStyle>
       </HeaderInnerStyle>
     </HeaderStyle>
   );

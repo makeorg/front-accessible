@@ -19,7 +19,7 @@ export const BackgroundColors = {
   DarkGrey: 'rgb(51,51,51)',
   Grey: 'rgb(117,117,117)',
   MediumGrey: 'rgb(178,178,178)',
-  LightGrey: 'rgb(242,242,242)',
+  LightGrey: 'rgb(247,247,247)',
   ExtraLightGrey: 'rgb(229,229,229)',
   NotFoundPage: 'rgb(230,230,240)',
   Notifications: 'rgb(51, 67, 91)',
@@ -28,14 +28,14 @@ export const BackgroundColors = {
 export const BorderColors = {
   MediumGrey: 'rgba(0,0,0,0.5)',
   Grey: 'rgba(0,0,0,0.3)',
-  LightGrey: 'rgba(0,0,0,0.2)',
+  LightGrey: 'rgb(204, 204, 204)',
   ErrorRed: 'rgb(237,24,68)',
 };
 
 export const TextColors = {
   DarkGrey: 'rgb(83,83,83)',
   MediumGrey: 'rgb(74,74,74)',
-  LightGrey: 'rgb(242,242,242)',
+  LightGrey: 'rgb(247,247,247)',
   Blue: 'rgb(74, 144, 226)',
 };
 
