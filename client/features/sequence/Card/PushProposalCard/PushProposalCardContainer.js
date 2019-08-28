@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
 import { Tracking } from 'Shared/services/Tracking';
+import { focusProposalField } from 'Client/app/SkipLinks/Consultation';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
 
 type Props = {
@@ -30,13 +31,6 @@ export const PushProposalCardContainer = ({
   const skipProposalPushCard = () => {
     incrementCurrentIndex();
     Tracking.trackClickProposalPushCardIgnore();
-  };
-
-  const focusProposalField = (): void => {
-    const proposalInput = document.getElementById('proposal');
-    if (proposalInput !== null) {
-      proposalInput.focus();
-    }
   };
 
   return (
