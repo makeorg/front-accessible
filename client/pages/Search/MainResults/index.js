@@ -9,7 +9,8 @@ import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { getSearchProposalsLink } from 'Shared/helpers/url';
+import { getRouteSearchProposals } from 'Shared/routes';
+
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -28,7 +29,8 @@ export type Props = {
   language: string,
 };
 
-const SearchMainResultsComponent = ({ country, language }: Props) => {
+const SearchMainResultsComponent = ({ location, country, language }: Props) => {
+  const params = new URLSearchParams(location.search);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<TypeSearchViews>({
     proposals: { total: 0, results: [] },
@@ -42,26 +44,25 @@ const SearchMainResultsComponent = ({ country, language }: Props) => {
   const withProposals = proposalsCount > 0;
   const noResults = responseCount === 0;
 
-  const mockSearchTerm = 'croix rouge';
-
   useEffect(() => {
     async function fetchData() {
       const response = await ViewsApiService.searchViews(
-        mockSearchTerm,
+        params.get('query'),
         country,
         language
       );
       setData(response);
+      setIsLoading(false);
     }
+
     fetchData();
-    setIsLoading(false);
-  }, []);
+  }, [params.get('query')]);
 
   return (
     <MainResultsWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.main_results', {
-          term: mockSearchTerm,
+          term: params.get('query'),
           count: proposalsCount,
         })}
       />
@@ -69,39 +70,45 @@ const SearchMainResultsComponent = ({ country, language }: Props) => {
         {isLoading
           ? i18n.t('search.titles.loading')
           : i18n.t('search.titles.main_results', {
-              term: mockSearchTerm,
+              term: params.get('query'),
               count: proposalsCount,
             })}
       </SearchPageTitleStyle>
       <SearchPageContentStyle>
         <SearchPageResultsStyle>
           {isLoading && <Spinner />}
-          {noResults && (
+          {!isLoading && noResults && (
             <React.Fragment>
               <HiddenItemStyle>
                 <h2>{i18n.t('search.titles.no_results')}</h2>
               </HiddenItemStyle>
               <NoResultsStyle>
-                {i18n.t('search.main_results.no_results', {
-                  term: mockSearchTerm,
-                })}
+                {params.get('query')
+                  ? i18n.t('search.main_results.no_results', {
+                      term: params.get('query'),
+                    })
+                  : i18n.t('search.main_results.no_query')}
               </NoResultsStyle>
             </React.Fragment>
           )}
-          {withProposals && (
+          {!isLoading && withProposals && (
             <MainResultsSectionStyle>
               <MainResultsContainerStyle>
                 <MainResultsHeader
                   title={i18n.t('search.main_results.proposal', {
-                    term: mockSearchTerm,
+                    term: params.get('query'),
                     count: proposalsCount,
                   })}
                   count={proposalsCount}
-                  link={getSearchProposalsLink(country, language)}
+                  link={getRouteSearchProposals(
+                    country,
+                    language,
+                    params.get('query')
+                  )}
                 />
               </MainResultsContainerStyle>
               <MainResultsProposals
-                searchTerm={mockSearchTerm}
+                searchTerm={params.get('query')}
                 proposals={data.proposals.results}
                 count={proposalsCount}
               />

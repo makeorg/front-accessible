@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
+import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
 import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { getSearchLink } from 'Shared/helpers/url';
 import {
   SearchPageTitleStyle,
   SearchPageWrapperStyle,
@@ -24,17 +24,18 @@ import {
 import { SearchSidebar } from '../Sidebar';
 
 type Props = {
-  searchTerm: string,
   country: string,
   language: string,
 };
 const PROPOSALS_LIMIT = 10;
 
 export const SearchResultsProposalsComponent = ({
-  searchTerm = 'croix rouge',
+  location,
   country,
   language,
 }: Props) => {
+  const params = new URLSearchParams(location.search);
+
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState<number>(0);
   const [proposalsCount, setProposalsCount] = useState<number>(0);
@@ -48,7 +49,7 @@ export const SearchResultsProposalsComponent = ({
     const { results, total } = await searchProposals(
       country,
       language,
-      searchTerm,
+      params.get('query'),
       page
     );
     setProposalsResult(results);
@@ -62,7 +63,7 @@ export const SearchResultsProposalsComponent = ({
     const { results } = await searchProposals(
       country,
       language,
-      searchTerm,
+      params.get('query'),
       page,
       PROPOSALS_LIMIT
     );
@@ -74,18 +75,21 @@ export const SearchResultsProposalsComponent = ({
 
   useEffect(() => {
     initProposal();
-  }, [searchTerm]);
+  }, [params.get('query')]);
 
   return (
     <React.Fragment>
       <MetaTags
         title={i18n.t('meta.search.proposals', {
-          term: searchTerm,
+          term: params.get('query'),
           count: proposalsCount,
         })}
       />
       <SearchPageWrapperStyle>
-        <SearchBackStyle as={Link} to={getSearchLink(country, language)}>
+        <SearchBackStyle
+          as={Link}
+          to={getRouteSearch(country, language, params.get('query'))}
+        >
           <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
           {i18n.t('common.back')}
         </SearchBackStyle>
@@ -93,7 +97,7 @@ export const SearchResultsProposalsComponent = ({
           {isLoading
             ? i18n.t('search.titles.loading')
             : i18n.t('search.titles.proposals', {
-                term: searchTerm,
+                term: params.get('query'),
                 count: proposalsCount,
               })}
         </SearchPageTitleStyle>

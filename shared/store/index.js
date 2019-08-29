@@ -1,12 +1,12 @@
+// @flow
+
 import { UserApiService } from 'Shared/api/UserApiService';
-
-/* @flow */
-
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducers';
+import { type StateRoot } from './types';
 
-export function configureStore(initialState: Object = {}) {
+export function configureStore(initialState: StateRoot = {}) {
   const composeEnhancers =
     (typeof window !== 'undefined' &&
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||

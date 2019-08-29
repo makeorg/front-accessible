@@ -66,3 +66,57 @@ export const getRouteProfileFavourites = (country: string, language: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_FAVOURITES, country, language);
 export const getRouteProfileFollowing = (country: string, language: string) =>
   replaceCountryLanguage(ROUTE_PROFILE_FOLLOWING, country, language);
+
+/**
+ * Get the search main results route
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} query
+ * @return {string}
+ */
+export const getRouteSearch = (
+  country: string,
+  language: string,
+  query: string
+) =>
+  `${replaceCountryLanguage(ROUTE_SEARCH, country, language)}?query=${query}`;
+
+/**
+ * Get the search proposals results route
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} query
+ * @return {string}
+ */
+export const getRouteSearchProposals = (
+  country: string,
+  language: string,
+  query: string
+) =>
+  `${replaceCountryLanguage(
+    ROUTE_SEARCH_PROPOSALS,
+    country,
+    language
+  )}?query=${query}`;
+
+/**
+ * Get the search organisations results route
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} query
+ * @return {string}
+ */
+
+export const getRouteSearchOrganisations = (
+  country: string,
+  language: string,
+  query: string
+) =>
+  `${replaceCountryLanguage(
+    ROUTE_SEARCH_ORGANISATIONS,
+    country,
+    language
+  )}?query=${query}`;

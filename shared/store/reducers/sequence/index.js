@@ -1,3 +1,5 @@
+// @flow
+
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { type StateSequence } from 'Shared/store/types';
@@ -17,7 +19,7 @@ export function sequence(
         ...state,
         votedProposalIds: [
           ...state.votedProposalIds,
-          ...[action.payload.proposalId],
+          action.payload.proposalId,
         ],
       };
     case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
