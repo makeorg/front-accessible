@@ -4,7 +4,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const MainTitleStyle = styled.h2`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: ${pxToRem('18px')};
   line-height: ${pxToRem('26px')};
   text-transform: none;

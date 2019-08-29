@@ -8,7 +8,7 @@ export const BasicTextAreaStyle = styled(TextareaAutosize)`
   border: none;
   background: transparent;
   background-color: transparent;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   color: ${TextColors.DarkGrey};
   font-size: 16px;
   line-height: 18px;
@@ -17,7 +17,7 @@ export const BasicTextAreaStyle = styled(TextareaAutosize)`
 `;
 
 export const TextAreaCounterStyle = styled.div`
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.MediumGrey};
   font-size: 10px;
   line-height: 10px;

@@ -7,7 +7,9 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   as="VoteButtonStyle"
   color="red"
 >
-  SvgThumbsup
+  <ButtonIconWrapperStyle>
+    SvgThumbsup
+  </ButtonIconWrapperStyle>
 </ButtonStyle>
 `;
 
@@ -16,6 +18,7 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ -1,9 +1,9 @@
   <ButtonStyle
     aria-busy={false}
     aria-label="foo"
@@ -23,6 +26,7 @@ Snapshot Diff:
 +   as="VoteButtonStyle"
     color="red"
   >
-    SvgThumbsup
-  </ButtonStyle>
+    <ButtonIconWrapperStyle>
+      SvgThumbsup
+    </ButtonIconWrapperStyle>
 `;

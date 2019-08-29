@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
 import { type TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -43,9 +43,9 @@ const ProfileProposalsPage = (props: Props) => {
     <React.Fragment>
       <MetaTags title={i18n.t('meta.profile.proposals.title')} />
       <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
+        <ThirdLevelTitleStyle as="h2">
           {i18n.t('profile.proposals.title')}
-        </SecondLevelTitleStyle>
+        </ThirdLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
       {isLoading && <Spinner />}

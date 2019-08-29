@@ -7,6 +7,7 @@ import { modalShowRegister } from 'Shared/store/actions/modal';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import RegisterBackground from 'Client/app/assets/images/search_register.jpg';
+import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SearchSidebarTileStyle } from '../Styled';
 import { SeachRegisterButtonStyle } from './Styled';
 
@@ -31,7 +32,9 @@ const SearchRegisterComponent = ({
         {i18n.t('search.sidebar.register.title')}
       </FourthLevelTitleStyle>
       <SeachRegisterButtonStyle onClick={handleRegisterModal}>
-        <SvgThumbsUp aria-hidden />
+        <IconWrapperStyle aria-hidden>
+          <SvgThumbsUp aria-hidden />
+        </IconWrapperStyle>
         {i18n.t('search.sidebar.register.button')}
       </SeachRegisterButtonStyle>
     </SearchSidebarTileStyle>

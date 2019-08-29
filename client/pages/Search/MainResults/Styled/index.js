@@ -26,14 +26,14 @@ export const MainResultsSectionStyle = styled.section`
 `;
 
 export const MainResultsContainerStyle = styled.div`
-  padding: 0 15px;
+  padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
   }
 `;
 
 export const NoResultsStyle = styled.p`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: 14px;
   line-height: 21px;
 `;

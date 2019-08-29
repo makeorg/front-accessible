@@ -2,7 +2,7 @@
 import React from 'react';
 import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import {
   ProfileContentHeaderStyle,
@@ -22,9 +22,9 @@ const ProfileFollowingPage = (props: Props) => {
   return (
     <CenterColumnStyle>
       <ProfileContentHeaderStyle>
-        <SecondLevelTitleStyle>
+        <ThirdLevelTitleStyle as="h2">
           {i18n.t('profile.following.title')}
-        </SecondLevelTitleStyle>
+        </ThirdLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
       {hasFollowed ? (

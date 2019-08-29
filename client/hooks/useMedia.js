@@ -32,6 +32,10 @@ export const useDesktop = () => {
   return useMedia(`(min-width: ${intToPx(Breakpoints.Desktop)})`);
 };
 
+export const useTablet = () => {
+  return useMedia(`(min-width: ${intToPx(Breakpoints.Tablet)})`);
+};
+
 export const useMobile = () => {
   return useMedia(
     `only screen and (max-device-width: ${intToPx(Breakpoints.Tablet)})`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { TileWithTitleStyle, TileSeparatorStyle } from './Styled';
 
 type Props = {
@@ -13,7 +13,7 @@ export const TileWithTitle = (props: Props) => {
   const { title, children } = props;
   return (
     <TileWithTitleStyle>
-      <ThirdLevelTitleStyle>{title}</ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">{title}</FourthLevelTitleStyle>
       <TileSeparatorStyle />
       {children}
     </TileWithTitleStyle>

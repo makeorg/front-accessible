@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { HiddenOnMobileStyle } from 'Client/ui/Elements/HiddenElements';
+import { HiddenOnTablet } from 'Client/ui/Elements/HiddenElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPencil } from 'Client/ui/Svg/elements';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
   ProposalButtonStyle,
   ProposalIconStyle,
@@ -24,7 +24,7 @@ type Props = {
  */
 export const ProposalSubmitButtonComponent = (props: Props) => {
   const { handleOnSubmit, canSubmit, isOpen } = props;
-  const isMobile = useMobile();
+  const isDesktop = useDesktop();
 
   return (
     <ProposalButtonStyle
@@ -37,11 +37,9 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
         <SvgPencil aria-hidden />
       </IconWrapperStyle>
-      {(isOpen || !isMobile) && (
+      {(isOpen || isDesktop) && (
         <ProposalButtonLabelStyle
-          as={
-            isOpen && !isMobile ? ProposalButtonLabelStyle : HiddenOnMobileStyle
-          }
+          as={isOpen || isDesktop ? ProposalButtonLabelStyle : HiddenOnTablet}
           aria-hidden
         >
           {i18n.t('common.propose')}

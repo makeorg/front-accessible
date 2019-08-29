@@ -9,32 +9,49 @@ export const ButtonStyle = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   border-width: 2px;
-  font-size: 22px;
   border-style: solid;
   border-radius: 50%;
   border-color: ${props => props.color};
   overflow: hidden;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    width: 43px;
+    height: 43px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    width: 48px;
+    height: 48px;
+  }
+`;
+
+export const ButtonIconWrapperStyle = styled.span`
+  transform: ${props => props.transform};
   svg {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     z-index: 0;
-    transform: translate(50%, 50%);
+    transform: translate(-50%, -50%);
+    width: 16px;
   }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: 58px;
-    height: 58px;
-    font-size: 26px;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    svg {
+      width: 22px;
+    }
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    svg {
+      width: 25px;
+    }
   }
 `;
 
 export const IsVotedButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
-  svg {
+  path.tofill {
     fill: ${BasicColors.PureWhite};
   }
 `;
@@ -42,14 +59,14 @@ export const IsVotedButtonStyle = styled(ButtonStyle)`
 export const VoteButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
   background-color: ${BasicColors.PureWhite};
-  svg {
+  path.tofill {
     fill: ${props => props.color};
   }
   &:focus,
   &:active {
     color: ${BasicColors.PureWhite};
     background-color: ${props => props.color};
-    svg {
+    path.tofill {
       fill: ${BasicColors.PureWhite};
     }
   }

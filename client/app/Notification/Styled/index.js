@@ -7,11 +7,12 @@ import {
 import {
   BasicColors,
   ShadowColors,
-  FormColors,
   BackgroundColors,
+  VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const NotificationWrapperStyle = styled.section`
   position: sticky;
@@ -30,14 +31,12 @@ export const NotificationWrapperStyle = styled.section`
   }
 `;
 
-export const NotificationContentStyle = styled.p`
+export const NotificationContentStyle = styled(ParagraphStyle)`
   display: flex;
   align-items: end;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding-right: ${intToPx(DefaultPadding.Mobile)};
-  font-size: 16px;
-  line-height: 24px;
   color: ${BasicColors.PureWhite};
 `;
 
@@ -57,7 +56,7 @@ export const SvgIconStyle = {
 };
 
 export const SvgCheckStyle = {
-  fill: FormColors.Success,
-  fontSize: '28px',
+  fill: VoteColors.Agree,
+  fontSize: '22px',
   marginRight: '10px',
 };

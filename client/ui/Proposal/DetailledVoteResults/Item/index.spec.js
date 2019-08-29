@@ -18,6 +18,7 @@ jest.mock('../Styled/Progress', () => ({
 
 jest.mock('Client/ui/Elements/Vote/Styled', () => ({
   IsVotedButtonStyle: 'IsVotedButtonStyle',
+  ButtonIconWrapperStyle: 'ButtonIconWrapperStyle',
 }));
 
 const totalVotesCount = getTotalVotesCount(proposalTypeFixture.votes);

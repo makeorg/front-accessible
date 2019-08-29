@@ -11,17 +11,16 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const RedLinkStyle = styled.a`
   color: ${MakeThemeColors.Red};
+  font-size: 12px;
   &:hover,
   &:focus {
     color: ${MakeThemeColors.Red};
   }
-`;
-
-export const ParagraphRedLinkStyle = styled(RedLinkStyle)`
-  font-size: 12px;
-  line-height: normal;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 16px;
   }
 `;
 

@@ -38,16 +38,20 @@ export const UnstyledButtonStyle = styled.button`
 export const BasicButtonStyle = styled.button`
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  align-items: baseline;
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 18px;
   }
 `;
 
@@ -72,14 +76,14 @@ export const GreyButtonStyle = styled(BasicButtonStyle)`
 `;
 
 export const SmallRedButtonStyle = styled(RedButtonStyle)`
-  padding: 5px 15px;
+  padding: 5px 15px 2.5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 20px;
   }
 `;
 
 export const SmallGreyButtonStyle = styled(GreyButtonStyle)`
-  padding: 5px 15px;
+  padding: 5px 15px 2.5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 20px;
   }
@@ -104,7 +108,18 @@ export const IconWrapperStyle = styled.span`
   display: inline-flex;
   justify-content: flex-start;
   align-content: center;
+  font-size: 12px;
   margin-right: 5px;
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
 `;
 
 export const SocialButtonStyle = styled(ActiveButtonStyle)`
@@ -142,7 +157,6 @@ export const EmailButtonStyle = styled(SocialButtonStyle)`
 
 export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
-  font-family: ${MakeFonts.RobotoBold};
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
   margin: 0 5px;
@@ -161,5 +175,16 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: ${intToPx(DefaultPadding.Desktop)};
     right: ${intToPx(DefaultPadding.Desktop)};
+  }
+`;
+
+export const NavButtonStyle = styled(UnstyledButtonStyle)`
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
+  font-size: 14px;
+  line-height: 20px;
+  color: ${MakeThemeColors.Red};
+  text-transform: uppercase;
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 16px;
   }
 `;

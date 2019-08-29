@@ -2,11 +2,15 @@
 import React from 'react';
 import { type Vote as TypeVote } from 'Shared/types/proposal';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import {
+  IsVotedButtonStyle,
+  ButtonIconWrapperStyle,
+} from 'Client/ui/Elements/Vote/Styled';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { QualificationResults } from 'Client/features/vote/Qualification/Results';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import {
   DetailledItemStyle,
   VoteDataListStyle,
@@ -26,7 +30,8 @@ export const DetailledResultItem = (props: Props) => {
   const { vote, votePercent } = props;
   const { voteKey, count } = vote;
   const voteColor = voteStaticParams[voteKey].color;
-  const buttonIcon = voteStaticParams[voteKey].icon;
+  const voteTransform = voteStaticParams[voteKey].transform;
+  const buttonIcon = <SvgThumbsUp />;
 
   return (
     <DetailledItemStyle className={voteKey}>
@@ -35,7 +40,9 @@ export const DetailledResultItem = (props: Props) => {
           {i18n.t(`vote.${voteKey}`)}
         </ScreenReaderItemStyle>
         <IsVotedButtonStyle color={voteColor} as="div" aria-hidden>
-          {buttonIcon}
+          <ButtonIconWrapperStyle transform={voteTransform}>
+            {buttonIcon}
+          </ButtonIconWrapperStyle>
         </IsVotedButtonStyle>
         <VoteDataListStyle>
           <VoteDataBoldItemStyle>

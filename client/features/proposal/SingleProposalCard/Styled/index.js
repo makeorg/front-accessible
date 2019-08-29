@@ -10,6 +10,7 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const InnerProposalStyle = styled(MiddleColumnStyle)`
   width: 100%;
@@ -23,20 +24,18 @@ export const FooterContentStyle = styled(MiddleColumnToRowStyle)`
   width: 100%;
 `;
 
-export const DescriptionStyle = styled.p`
+export const DescriptionStyle = styled(ParagraphStyle)`
   width: 100%;
   max-width: 650px;
   color: ${TextColors.MediumGrey};
-  font-size: 13px};
   > span,
   > a {
-    font-family: ${MakeFonts.RobotoBold};
+    font-family: ${MakeFonts.CircularStandardBold};
     color: ${props => props.theme.color};
     text-decoration: none;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     text-align: right;
-    font-size: 16px;
   }
 `;
 

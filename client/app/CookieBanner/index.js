@@ -33,7 +33,7 @@ export const CookieBanner = () => {
       <CookieContentStyle>
         <SvgInfos
           aria-label={i18n.t('common.notifications.icons.information')}
-          style={{ marginRight: '10px' }}
+          style={{ marginTop: '4px', marginRight: '10px' }}
         />
         <CookieParagraphStyle
           dangerouslySetInnerHTML={{

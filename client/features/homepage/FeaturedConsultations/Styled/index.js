@@ -7,17 +7,19 @@ import { intToPx } from 'Shared/helpers/styled';
 import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
-import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const FeaturedArticleWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-content: space-between;
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: row;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
-    flex-flow: row;
   }
 `;
 
@@ -50,7 +52,7 @@ export const FeaturedArticleCol1Style = styled(FeaturedArticleStyle)`
   div {
     max-width: 100%;
   }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-direction: column;
   }
 `;
@@ -64,9 +66,15 @@ export const FeaturedInformationsWrapperStyle = styled.div`
   justify-content: space-between;
   flex: 1;
   width: 100%;
-  padding: ${intToPx(DefaultPadding.Mobile)};
+  padding: 12px;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    padding: 17px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)};
+    padding: 25px;
   }
 `;
 
@@ -78,31 +86,22 @@ export const FeaturedInnerContent = styled.div`
 `;
 
 export const FeaturedPictureWraperStyle = styled.div`
-  min-width: 145px;
+  width: 105px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    min-width: 195px;
+    min-width: 112px;
+    width: auto;
   }
 `;
 
 export const FeaturedTypeStyle = styled(ConsultationLabelStyle)`
   display: inline-flex;
-  padding: 5px 10px;
-  font-size: 13px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
-  }
 `;
 
-export const FeaturedArticleTitleStyle = styled.h3`
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: 18px;
+export const FeaturedArticleTitleStyle = styled(ThirdLevelTitleStyle)`
+  font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
   width: 100%;
   margin: ${intToPx(DefaultPadding.Mobile)} 0;
-  line-height: 1.3;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 27px;
-  }
 `;
 
 export const FeaturedDescriptionStyle = styled.p`
@@ -112,15 +111,5 @@ export const FeaturedDescriptionStyle = styled.p`
   width: 100%;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
-  }
-`;
-
-export const FeaturedLinkStyle = styled(LinkAsRedButton)`
-  text-align: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
-    )}) {
-    font-size: 22px;
-    padding: 12px 25px;
   }
 `;

@@ -12,6 +12,7 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
+import { NavButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 
 export const HeaderStyle = styled.header`
   position: relative;
@@ -46,7 +47,7 @@ export const HeaderFlexRightStyle = styled(FlexElementStyle)`
 export const HeaderLogoStyle = styled.img`
   max-width: 50px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 90px;
+    max-width: 78px;
   }
 `;
 
@@ -58,20 +59,19 @@ export const ProfileAccessWrapperStyle = styled.div`
   }
 `;
 
-export const ProfileAccessButtonLabelStyle = styled.span`
-  font-family: ${MakeFonts.RobotoBold};
-  color: ${MakeThemeColors.Red};
-  text-transform: uppercase;
+export const ProfileAccessButtonLabelStyle = styled(NavButtonStyle)`
   margin: 0 5px;
 `;
 
 export const ProfileAccessLinkStyle = styled.a`
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   display: inline-flex;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 12px;
   align-items: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  font-size: 14px;
+  line-height: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
   img,

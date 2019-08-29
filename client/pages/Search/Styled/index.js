@@ -5,15 +5,14 @@ import { intToPx } from 'Shared/helpers/styled';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const SearchPageWrapperStyle = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 0 auto;
-  padding: 20px 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 20px;
-  }
+  padding: 20px 0;
 `;
 
 export const SearchPageContentStyle = styled.div`
@@ -32,36 +31,39 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 
 export const SearchPageResultsStyle = styled(ContentElementStyle)`
   margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
     margin-bottom: 0;
     max-width: 750px;
   }
 `;
 
 export const SearchPageSidebarStyle = styled(ContentElementStyle)`
+  padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     position: sticky;
     top: 0;
     z-index: 2;
     order: 1;
     max-width: 360px;
-  }
-`;
-
-export const SearchPageTitleStyle = styled.h2`
-  font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 35px;
-  padding: 0 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 28px;
-    line-height: 34px;
     padding: 0;
   }
 `;
 
+export const SearchPageTitleStyle = styled(SecondLevelTitleStyle)`
+  margin-bottom: 16px;
+  padding: 0 20px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+`;
+
 export const SearchBackStyle = styled(RedLinkStyle)`
-  margin-bottom: 10px;
+  margin: 0 0 10px 20px;
   display: flex;
   align-items: flex-end;
 `;
@@ -71,6 +73,13 @@ export const SearchBackArrowStyle = {
   marginRight: '4px',
   fill: MakeThemeColors.Red,
 };
+
+export const SearchResultsProposalListStyle = styled(UnstyledListStyle)`
+  padding: 0 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0;
+  }
+`;
 
 export const SearchResultsProposalItemStyle = styled.li`
   margin-bottom: 15px;

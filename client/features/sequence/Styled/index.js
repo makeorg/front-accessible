@@ -100,7 +100,7 @@ export const FooterStyle = styled.footer`
 `;
 
 export const FooterTitleStyle = styled.p`
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${props => props.fontColor};
   text-transform: uppercase;
   font-size: 11px;

@@ -7,8 +7,10 @@ type Props = {
   color: string,
   /** Vote key's Label */
   label: string,
+  /** Vote key's tranform properties */
+  transform: string,
   /** Vote key's Icon */
-  icon: string,
+  icon: React.Node,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** When button is in pending mode */
@@ -54,6 +56,7 @@ export class VoteButtonContainer extends React.Component<Props, State> {
       color,
       label,
       icon,
+      transform,
       buttonType,
       displayPending,
       showTooltip,
@@ -63,6 +66,7 @@ export class VoteButtonContainer extends React.Component<Props, State> {
       <VoteButtonComponent
         color={color}
         label={label}
+        transform={transform}
         icon={icon}
         buttonType={buttonType}
         displayPending={displayPending}

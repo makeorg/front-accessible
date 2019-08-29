@@ -18,7 +18,7 @@ export const CheckboxWrapper = styled(FlexElementStyle)`
 export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
   color: ${TextColors.MediumGrey};
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.CircularStandardBook};
   font-size: 12px;
   line-height: 16px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

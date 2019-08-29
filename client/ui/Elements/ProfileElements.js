@@ -26,6 +26,7 @@ import {
   UnstyledButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -71,6 +72,7 @@ export const ProfilePageContentStyle = styled(ContentElementStyle)`
 export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   align-items: center;
   background-color: ${BasicColors.PureWhite};
+  border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 0 ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -131,7 +133,7 @@ export const ProfileNavigationStyle = styled.div`
 `;
 
 export const ProfileTitleStyle = styled.p`
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: 16px;
   text-transform: uppercase;
   margin: 5px 0;
@@ -200,7 +202,7 @@ export const ProfileCollapseButtonStyle = styled(UnstyledButtonStyle)`
   position: relative;
   z-index: 1;
   background-color: ${BasicColors.PureWhite};
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${MakeThemeColors.Red};
   text-transform: uppercase;
   text-decoration: none;

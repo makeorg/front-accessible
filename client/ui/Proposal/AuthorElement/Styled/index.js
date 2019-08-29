@@ -7,6 +7,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const AuthorWrapperStyle = styled.div`
   width: 100%;
@@ -20,7 +21,7 @@ export const AuthorDescriptionStyle = styled.div`
   align-items: center;
 `;
 
-export const AuthorInfosStyle = styled.div`
+export const AuthorInfosStyle = styled(ParagraphStyle)`
   display: inline-flex;
   align-items: center;
   font-size: 12px;
@@ -30,10 +31,6 @@ export const AuthorInfosStyle = styled.div`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
-`;
-
-export const AuthorSeparatorStyle = styled.span`
-  font-size: 24px;
 `;
 
 export const ProposalStatusStyle = styled.span`

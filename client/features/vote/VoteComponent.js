@@ -5,6 +5,7 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { getVoteKey } from 'Shared/helpers/vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteButton } from './Button';
 import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
 
@@ -34,8 +35,9 @@ export const VoteButtonsComponent = (props: VoteButtonsProps) => {
       <VoteButton
         key={getVoteKey(voteKey, proposalId)}
         color={voteStaticParams[voteKey].color}
+        transform={voteStaticParams[voteKey].transform}
         label={i18n.t(`vote.${voteKey}`)}
-        icon={voteStaticParams[voteKey].icon}
+        icon={<SvgThumbsUp />}
         buttonType={VoteButtonStyle}
         handleVote={handleVoteIfAnyPending(voteKey)}
         displayPending={pendingVoteKey === voteKey}

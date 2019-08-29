@@ -12,7 +12,6 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
-  AuthorSeparatorStyle,
   ProposalStatusStyle,
 } from './Styled';
 
@@ -58,7 +57,7 @@ export const ProposalAuthorElement = (props: Props) => {
 
   return (
     <AuthorDescriptionStyle>
-      <AuthorInfosStyle>
+      <AuthorInfosStyle as="div">
         {withAvatar && (
           <React.Fragment>
             <Avatar avatarUrl={author.avatarUrl} />
@@ -93,7 +92,7 @@ export const ProposalAuthorElement = (props: Props) => {
         <ProposalAuthorAge age={author.age} />
         {withCreationDate && !!createdAt && (
           <React.Fragment>
-            <AuthorSeparatorStyle>&nbsp;&bull;&nbsp;</AuthorSeparatorStyle>
+            &nbsp;&bull;&nbsp;
             <ScreenReaderItemStyle>
               {i18n.t('proposal_card.author.date')}
             </ScreenReaderItemStyle>

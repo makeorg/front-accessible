@@ -5,16 +5,20 @@ Snapshot Diff:
 - First value
 + Second value
 
-  <ProposalFooterStyle>
-    <PostedInLabelStyle>
+@@ -2,12 +2,11 @@
+    <PostedInLabelStyle
+      as="span"
+    >
       proposal_card.posted_label
     </PostedInLabelStyle>
-    <PostedInLinkStyle
+-   <a
++   <span
+      className="mk121c-0 bgUjBF"
 -     href="fooLink"
-+     as="span"
     >
       Est ce que cette documentation est bonne ?
-    </PostedInLinkStyle>
+-   </a>
++   </span>
   </ProposalFooterStyle>
 `;
 

@@ -12,7 +12,7 @@ export const QualificationDataItemStyle = styled(UnstyledListStyle)`
 export const QualificationLabelStyle = styled.span`
   font-size: 12px;
   line-height: 22px;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   color: ${props => props.color};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

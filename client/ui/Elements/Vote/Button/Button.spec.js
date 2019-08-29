@@ -11,6 +11,7 @@ jest.mock('Client/ui/Elements/Vote/Styled', () => ({
   ButtonStyle: 'ButtonStyle',
   IsVotedButtonStyle: 'IsVotedButtonStyle',
   VoteButtonStyle: 'VoteButtonStyle',
+  ButtonIconWrapperStyle: 'ButtonIconWrapperStyle',
 }));
 
 describe('VoteButtonElement', () => {

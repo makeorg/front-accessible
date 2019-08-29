@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -10,6 +8,8 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { NavButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 
 export const BusinessConsultationsTitleStyle = styled.h2`
   font-size: 20px;
@@ -50,16 +50,11 @@ export const BusinessConsultationsItemStyle = styled.li`
   }
 `;
 
-export const BusinessConsultationsItemLinkStyle = styled(Link)`
+export const BusinessConsultationsItemLinkStyle = styled(ParagraphStyle)`
   display: flex;
   text-decoration: none;
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: 13px;
-  line-height: 1.4;
+  font-family: ${MakeFonts.CircularStandardBold};
   width: 100%;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
 `;
 
 export const BusinessConsultationStyle = styled.div`
@@ -68,11 +63,16 @@ export const BusinessConsultationStyle = styled.div`
 `;
 
 export const BusinessConsultationsItemStatusStyle = styled.p`
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   color: ${TextColors.MediumGrey};
+  font-size: 12px;
+  line-height: 16px;
   text-transform: uppercase;
-  margin-bottom: 5px;
-  line-height: 1;
+  margin-bottom: 4px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 14px;
+    line-height: 21px;
+  }
 `;
 
 export const BusinessConsultationsItemBorderStyle = styled.div`
@@ -90,18 +90,13 @@ export const BusinessConsultationsItemArrowStyle = {
   marginRight: '5px',
 };
 
-export const BusinessConsultationsMoreStyle = styled(UnstyledButtonStyle)`
+export const BusinessConsultationsMoreStyle = styled(NavButtonStyle)`
   display: flex;
   flex-direction: column;
-  font-family: ${MakeFonts.RobotoCondensedBold};
-  font-size: 14px;
-  color: ${MakeThemeColors.Red};
-  text-transform: uppercase;
   margin-top: 20px;
 `;
 
 export const BusinessConsultationsMoreArrowStyle = {
   display: 'flex',
-  marginTop: '5px',
   fill: MakeThemeColors.Red,
 };

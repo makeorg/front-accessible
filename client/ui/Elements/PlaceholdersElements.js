@@ -11,6 +11,7 @@ import {
   ShadowColors,
   VoteColors,
 } from 'Client/app/assets/vars/Colors';
+import { ParagraphStyle } from './ParagraphElements';
 
 export const SvgLikeStyle = {
   fontSize: '72px',
@@ -30,14 +31,12 @@ export const ThumbsUpStyle = {
   fill: `${VoteColors.Agree}`,
 };
 
-export const PlaceholderParagraphStyle = styled.p`
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: 14px;
+export const PlaceholderParagraphStyle = styled(ParagraphStyle)`
+  font-family: ${MakeFonts.CircularStandardBold};
   margin: ${intToPx(DefaultPadding.Mobile)} 0 0;
   padding: 0 10px;
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
     padding: 0;
   }
 `;
@@ -52,7 +51,7 @@ export const FavouritesCardStyle = styled.aside`
 export const FavouritesProposalStyle = styled.p`
   font-size: 12px;
   line-height: normal;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-weight: bold;
   text-align: center;
   margin-top: 15px;

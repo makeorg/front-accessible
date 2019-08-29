@@ -10,8 +10,9 @@ export const CurrentConsultationSliderParams: TypeSliderParams = {
     '969': {
       type: 'carousel',
       gap: 15,
+      perView: 3,
       peek: {
-        before: 15,
+        before: 20,
         after: 30,
       },
     },
@@ -20,7 +21,7 @@ export const CurrentConsultationSliderParams: TypeSliderParams = {
       perView: 2,
       gap: 10,
       peek: {
-        before: 15,
+        before: 20,
         after: 30,
       },
     },

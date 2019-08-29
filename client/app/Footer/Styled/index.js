@@ -56,11 +56,9 @@ export const FooterItemStyle = styled.li`
 `;
 
 export const FooterItemLinkStyle = styled.a`
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 13px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-  }
+  font-size: 14px;
+  line-height: 20px;
 `;

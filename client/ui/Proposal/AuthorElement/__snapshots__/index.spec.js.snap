@@ -5,9 +5,11 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,7 +1,9 @@
+@@ -1,9 +1,11 @@
   <AuthorDescriptionStyle>
-    <AuthorInfosStyle>
+    <AuthorInfosStyle
+      as="div"
+    >
 +     <Avatar />
 +      
       <ScreenReaderItemStyle>

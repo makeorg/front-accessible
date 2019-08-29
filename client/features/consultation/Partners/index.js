@@ -5,7 +5,7 @@ import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
@@ -48,9 +48,9 @@ export const Partners = (props: Props) => {
         </IconWrapperStyle>
         {i18n.t('common.participate')}
       </ParticipateButtonStyle>
-      <ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
         {i18n.t('consultation.partners.commitment_title')}
-      </ThirdLevelTitleStyle>
+      </FourthLevelTitleStyle>
       <TileSeparatorStyle />
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}

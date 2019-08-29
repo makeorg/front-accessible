@@ -16,7 +16,7 @@ export const FormErrorsContainerStyle = styled.div`
 `;
 
 export const FormErrorsIntroStyle = styled.p`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   margin: 0 0 10px;
 `;
 
@@ -32,7 +32,7 @@ export const FormErrorsListItemStyle = styled.li`
 
 export const CustomErrorTriggerStyle = styled(UnstyledButtonStyle)`
   display: inline-flex;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   text-decoration: underline;
   margin-left: 5px;
 `;
