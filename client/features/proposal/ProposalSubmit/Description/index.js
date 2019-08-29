@@ -29,11 +29,7 @@ export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
         <CenterParagraphStyle>
           {i18n.t('proposal_submit.moderation_charter')}
           &nbsp;
-          <a
-            rel="noopener noreferrer"
-            href={MODERATION_CHARTER_LINK}
-            onClick={trackModerationLink}
-          >
+          <a href={MODERATION_CHARTER_LINK} onClick={trackModerationLink}>
             {i18n.t('common.click_there')}
           </a>
         </CenterParagraphStyle>

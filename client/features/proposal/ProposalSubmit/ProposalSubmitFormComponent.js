@@ -3,6 +3,8 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
@@ -10,6 +12,7 @@ import {
   ProposalLabelStyle,
   ProposalTextareaStyle,
   ProposalButtonWrapperStyle,
+  DescriptionWrapperStyle,
 } from './Styled';
 import { CharsCounter } from './Counter';
 
@@ -50,8 +53,18 @@ export const ProposalSubmitFormComponent = (props: Props) => {
 
   return (
     <ProposalSubmitFormStyle isOpen={isOpen}>
-      <ScreenReaderItemStyle as="p">
+      <ScreenReaderItemStyle as="div">
         {i18n.t('proposal_submit.title')}
+        <DescriptionWrapperStyle id="proposal-submit-description">
+          <CenterParagraphStyle>
+            {i18n.t('proposal_submit.description')}
+          </CenterParagraphStyle>
+          <CenterParagraphStyle>
+            {i18n.t('proposal_submit.moderation_charter')}
+            &nbsp;
+            <a href={MODERATION_CHARTER_LINK}>{i18n.t('common.click_there')}</a>
+          </CenterParagraphStyle>
+        </DescriptionWrapperStyle>
       </ScreenReaderItemStyle>
       <ProposalInputWrapperStyle>
         <ProposalLabelStyle htmlFor="proposal">
@@ -74,7 +87,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         />
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>
-        <CharsCounter minLength={baitLength} currentLength={length} />
+        <CharsCounter currentLength={length} />
         <ProposalSubmitButtonComponent
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}

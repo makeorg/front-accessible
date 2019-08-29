@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { DATA_POLICY_LINK } from 'Shared/constants/url';
 import {
@@ -34,15 +34,25 @@ type Props = {
 /**
  * Renders authentification component after proposal submit button is clicked
  */
-export const ProposalSubmitAuthentificationComponent = (props: Props) => {
-  const {
-    handleRegisterClick,
-    handleLoginClick,
-    trackPersonnalDataLink,
-  } = props;
+export const ProposalSubmitAuthentificationComponent = ({
+  handleRegisterClick,
+  handleLoginClick,
+  trackPersonnalDataLink,
+}: Props) => {
+  const authetificationRef = useRef(null);
+
+  useEffect(() => {
+    if (authetificationRef.current) {
+      authetificationRef.current.focus();
+    }
+  }, [authetificationRef.current]);
 
   return (
-    <ProposalSubmitAuthentificationWrapperStyle id="proposal-submit-authentification">
+    <ProposalSubmitAuthentificationWrapperStyle
+      id="proposal-submit-authentification"
+      ref={authetificationRef}
+      tabIndex={0}
+    >
       <ThirdLevelTitleStyle>
         {i18n.t('authentification.title')}
       </ThirdLevelTitleStyle>

@@ -6,8 +6,18 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 type Props = {
   canPropose: boolean,
 };
-export const ConsultationSkipLinks = (props: Props) => {
-  const { canPropose } = props;
+
+export const focusProposalField = (
+  event: SyntheticEvent<HTMLButtonElement>
+) => {
+  event.preventDefault();
+  const proposalInput = document.getElementById('proposal');
+  if (proposalInput !== null) {
+    proposalInput.focus();
+  }
+};
+
+export const ConsultationSkipLinks = ({ canPropose }: Props) => {
   return (
     <UnstyledListStyle>
       <li>
@@ -22,7 +32,7 @@ export const ConsultationSkipLinks = (props: Props) => {
       </li>
       {canPropose && (
         <li>
-          <SkipLink as="a" href="#proposal_submit">
+          <SkipLink onClick={focusProposalField}>
             {i18n.t('skip_links.proposal_submit')}
           </SkipLink>
         </li>
