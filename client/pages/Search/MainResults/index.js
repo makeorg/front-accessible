@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { type Location } from 'history';
 import { type TypeSearchViews } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { i18n } from 'Shared/i18n';
@@ -25,12 +26,15 @@ import {
 import { SearchSidebar } from '../Sidebar';
 
 export type Props = {
+  location: Location,
   country: string,
   language: string,
 };
 
 const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   const params = new URLSearchParams(location.search);
+  const term = params.get('query') || '';
+
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<TypeSearchViews>({
     proposals: { total: 0, results: [] },
@@ -47,7 +51,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   useEffect(() => {
     async function fetchData() {
       const response = await ViewsApiService.searchViews(
-        params.get('query'),
+        term,
         country,
         language
       );
@@ -56,13 +60,13 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
     }
 
     fetchData();
-  }, [params.get('query')]);
+  }, [term]);
 
   return (
     <MainResultsWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.main_results', {
-          term: params.get('query'),
+          term,
           count: proposalsCount,
         })}
       />
@@ -70,7 +74,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
         {isLoading
           ? i18n.t('search.titles.loading')
           : i18n.t('search.titles.main_results', {
-              term: params.get('query'),
+              term,
               count: proposalsCount,
             })}
       </SearchPageTitleStyle>
@@ -83,9 +87,9 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
                 <h2>{i18n.t('search.titles.no_results')}</h2>
               </HiddenItemStyle>
               <NoResultsStyle>
-                {params.get('query')
+                {term
                   ? i18n.t('search.main_results.no_results', {
-                      term: params.get('query'),
+                      term,
                     })
                   : i18n.t('search.main_results.no_query')}
               </NoResultsStyle>
@@ -96,19 +100,15 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
               <MainResultsContainerStyle>
                 <MainResultsHeader
                   title={i18n.t('search.main_results.proposal', {
-                    term: params.get('query'),
+                    term,
                     count: proposalsCount,
                   })}
                   count={proposalsCount}
-                  link={getRouteSearchProposals(
-                    country,
-                    language,
-                    params.get('query')
-                  )}
+                  link={getRouteSearchProposals(country, language, term)}
                 />
               </MainResultsContainerStyle>
               <MainResultsProposals
-                searchTerm={params.get('query')}
+                searchTerm={term}
                 proposals={data.proposals.results}
                 count={proposalsCount}
               />

@@ -25,11 +25,11 @@ export function sequence(
     case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
       return {
         ...state,
-        votedProposalIds:
-          state.votedProposalIds &&
-          state.votedProposalIds.filter(
+        votedProposalIds: [
+          ...state.votedProposalIds.filter(
             item => item !== action.payload.proposalId
           ),
+        ],
       };
     default:
       return state;

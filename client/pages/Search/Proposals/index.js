@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { type Location } from 'history';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
@@ -24,6 +25,7 @@ import {
 import { SearchSidebar } from '../Sidebar';
 
 type Props = {
+  location: Location,
   country: string,
   language: string,
 };
@@ -35,7 +37,7 @@ export const SearchResultsProposalsComponent = ({
   language,
 }: Props) => {
   const params = new URLSearchParams(location.search);
-
+  const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState<number>(0);
   const [proposalsCount, setProposalsCount] = useState<number>(0);
@@ -49,7 +51,7 @@ export const SearchResultsProposalsComponent = ({
     const { results, total } = await searchProposals(
       country,
       language,
-      params.get('query'),
+      term,
       page
     );
     setProposalsResult(results);
@@ -63,7 +65,7 @@ export const SearchResultsProposalsComponent = ({
     const { results } = await searchProposals(
       country,
       language,
-      params.get('query'),
+      term,
       page,
       PROPOSALS_LIMIT
     );
@@ -75,21 +77,18 @@ export const SearchResultsProposalsComponent = ({
 
   useEffect(() => {
     initProposal();
-  }, [params.get('query')]);
+  }, [term]);
 
   return (
     <React.Fragment>
       <MetaTags
         title={i18n.t('meta.search.proposals', {
-          term: params.get('query'),
+          term,
           count: proposalsCount,
         })}
       />
       <SearchPageWrapperStyle>
-        <SearchBackStyle
-          as={Link}
-          to={getRouteSearch(country, language, params.get('query'))}
-        >
+        <SearchBackStyle as={Link} to={getRouteSearch(country, language, term)}>
           <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
           {i18n.t('common.back')}
         </SearchBackStyle>
@@ -97,7 +96,7 @@ export const SearchResultsProposalsComponent = ({
           {isLoading
             ? i18n.t('search.titles.loading')
             : i18n.t('search.titles.proposals', {
-                term: params.get('query'),
+                term,
                 count: proposalsCount,
               })}
         </SearchPageTitleStyle>
