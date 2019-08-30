@@ -2,10 +2,10 @@ import React from 'react';
 import { type Question } from 'Shared/types/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
 import { SvgLightBulb } from 'Client/ui/Svg/elements';
+import { ConsultationIconStyle } from 'Client/pages/Consultation/Styled';
 import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
 type Props = {
@@ -20,12 +20,12 @@ export const ConsultationProposalComponent = (props: Props) => {
       aria-labelledby="proposal_aside_title"
       id="proposal_submit"
     >
-      <ThirdLevelTitleStyle id="proposal_aside_title">
-        <IconWrapperStyle aria-hidden>
-          <SvgLightBulb />
-        </IconWrapperStyle>
+      <FourthLevelTitleStyle as="h3" id="proposal_aside_title">
+        <ConsultationIconStyle aria-hidden>
+          <SvgLightBulb style={{ fontSize: '16px' }} />
+        </ConsultationIconStyle>
         {i18n.t('consultation.proposal.title')}
-      </ThirdLevelTitleStyle>
+      </FourthLevelTitleStyle>
       <ProposalTitleStyle fontColor={questionConfiguration.theme.color}>
         {question.question}
       </ProposalTitleStyle>

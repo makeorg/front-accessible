@@ -6,6 +6,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { voteStaticParams } from 'Shared/constants/vote';
 import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { ResultTooltip } from './Tooltip';
 import {
   VoteResultContainerStyle,
@@ -74,7 +75,8 @@ export const VoteResultComponent = (props: Props) => {
       <VoteButton
         color={voteStaticParams[votedKey].color}
         label={i18n.t('unvote.title')}
-        icon={voteStaticParams[votedKey].icon}
+        icon={<SvgThumbsUp />}
+        transform={voteStaticParams[votedKey].transform}
         handleVote={handleVote}
         buttonType={IsVotedButtonStyle}
         displayPending={pending}

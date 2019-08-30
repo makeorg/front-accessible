@@ -62,7 +62,7 @@ export const NotAuthentificatedBar = ({
           aria-hidden
         />
         {!isMobile && (
-          <ProfileAccessButtonLabelStyle aria-hidden>
+          <ProfileAccessButtonLabelStyle as="span" aria-hidden>
             {i18n.t('common.connexion_label')}
           </ProfileAccessButtonLabelStyle>
         )}

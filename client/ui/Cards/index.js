@@ -6,6 +6,7 @@ import {
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const CardStyle = styled.article`
   display: flex;
@@ -15,6 +16,7 @@ export const CardStyle = styled.article`
   flex: 1 1 auto;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding: ${intToPx(DefaultPadding.Mobile)};
+  border-radius: ${intToPx(Elements.BorderRadius)};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;

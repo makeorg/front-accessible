@@ -7,6 +7,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 
 const MobileOffset = intToPx(TabsOffsetMobile);
 const DesktopOffset = intToPx(TabsOffsetDesktop);
@@ -15,7 +16,7 @@ const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ConsultationPageWrapperStyle = styled.div`
   width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
+  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 0 auto ${intToPx(MobileMarginWithOffset)};
   transform: translateY(-${MobileOffset});
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -30,12 +31,14 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 10px 0 20px;
     max-width: 750px;
   }
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px 0 10px;
     order: 1;
     max-width: 360px;
     position: sticky;
@@ -48,10 +51,8 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
 
 export const ConsultationIconStyle = styled.span`
   display: inline-flex;
-  align-items: flex-end;
-  justify-content: flex-end;
   margin-right: 7.5px;
-  svg {
-    width: 18px;
+  path.tofill {
+    fill: ${BasicColors.PureBlack};
   }
 `;

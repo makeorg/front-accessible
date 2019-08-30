@@ -24,7 +24,7 @@ export const FlexEndHeaderStyle = styled(CardHeaderStyle)`
 
 export const BackButtonStyle = styled(UnstyledButtonStyle)`
   align-items: center;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: 12px;
   color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

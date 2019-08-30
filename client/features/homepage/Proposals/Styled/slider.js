@@ -9,7 +9,7 @@ export const ShowcaseSliderParams = {
     '969': {
       gap: 15,
       peek: {
-        before: 15,
+        before: 20,
         after: 15,
       },
     },
@@ -17,7 +17,7 @@ export const ShowcaseSliderParams = {
       perView: 1,
       gap: 10,
       peek: {
-        before: 15,
+        before: 20,
         after: 30,
       },
     },

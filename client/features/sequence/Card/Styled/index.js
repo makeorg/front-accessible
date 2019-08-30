@@ -59,7 +59,7 @@ export const SequenceProposalStyle = styled.blockquote`
   max-width: 100%;
   font-size: 12px;
   line-height: normal;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 22px;

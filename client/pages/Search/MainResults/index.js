@@ -20,7 +20,6 @@ import {
 import {
   MainResultsWrapperStyle,
   MainResultsSectionStyle,
-  MainResultsContainerStyle,
   NoResultsStyle,
 } from './Styled';
 import { SearchSidebar } from '../Sidebar';
@@ -97,16 +96,14 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
           )}
           {!isLoading && withProposals && (
             <MainResultsSectionStyle>
-              <MainResultsContainerStyle>
-                <MainResultsHeader
-                  title={i18n.t('search.main_results.proposal', {
-                    term,
-                    count: proposalsCount,
-                  })}
-                  count={proposalsCount}
-                  link={getRouteSearchProposals(country, language, term)}
-                />
-              </MainResultsContainerStyle>
+              <MainResultsHeader
+                title={i18n.t('search.main_results.proposal', {
+                  term,
+                  count: proposalsCount,
+                })}
+                count={proposalsCount}
+                link={getRouteSearchProposals(country, language, term)}
+              />
               <MainResultsProposals
                 searchTerm={term}
                 proposals={data.proposals.results}
@@ -115,9 +112,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
             </MainResultsSectionStyle>
           )}
         </SearchPageResultsStyle>
-        <MainResultsContainerStyle>
-          <SearchSidebar />
-        </MainResultsContainerStyle>
+        <SearchSidebar />
       </SearchPageContentStyle>
     </MainResultsWrapperStyle>
   );

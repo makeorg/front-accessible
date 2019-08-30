@@ -7,6 +7,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
@@ -16,9 +17,6 @@ export const CookieWrapperStyle = styled.section`
   color: ${BasicColors.PureWhite};
   padding: ${intToPx(DefaultPadding.Mobile)} 35px
     ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: ${intToPx(DefaultPadding.Mobile)};
-  }
 `;
 
 export const CookieContentStyle = styled.div`
@@ -29,16 +27,11 @@ export const CookieContentStyle = styled.div`
   max-width: ${intToPx(Layouts.ContainerWidth)};
 `;
 
-export const CookieParagraphStyle = styled.p`
-  font-size: 14px;
-  line-height: 21px;
+export const CookieParagraphStyle = styled(ParagraphStyle)`
+  color: ${BasicColors.PureWhite};
   flex: 1;
   a {
     color: ${BasicColors.PureWhite};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-    line-height: 24px;
   }
 `;
 

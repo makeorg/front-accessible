@@ -42,21 +42,15 @@ export const CorporateBanner = () => {
           <CorporateListStyle>
             <CorporateListItemStyle>
               <SvgThumbsUp aria-hidden style={CorporateIconStyle} />
-              <div>
-                {i18n.t('homepage.corporate.first-section.list-item-1')}
-              </div>
+              {i18n.t('homepage.corporate.first-section.list-item-1')}
             </CorporateListItemStyle>
             <CorporateListItemStyle>
               <SvgLightBulb aria-hidden style={CorporateIconStyle} />
-              <div>
-                {i18n.t('homepage.corporate.first-section.list-item-2')}
-              </div>
+              {i18n.t('homepage.corporate.first-section.list-item-2')}
             </CorporateListItemStyle>
             <CorporateListItemStyle>
               <SvgUsers aria-hidden style={CorporateIconStyle} />
-              <div>
-                {i18n.t('homepage.corporate.first-section.list-item-3')}
-              </div>
+              {i18n.t('homepage.corporate.first-section.list-item-3')}
             </CorporateListItemStyle>
           </CorporateListStyle>
           <CorporateLink />

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
   Layouts,
@@ -14,38 +14,38 @@ import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const NotFoundPageContentStyle = styled(MiddleColumnStyle)`
   flex: 1 1 auto;
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    padding: ${pxToRem(DefaultPadding.Desktop)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
 export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
   width: 100%;
   flex: 1 1 auto;
-  padding: ${pxToRem(DefaultPadding.Mobile)};
-  max-width: ${pxToRem(Layouts.ContainerWidth)};
-  max-height: ${pxToRem('550px')};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  max-height: 550px;
   background-color: ${BackgroundColors.NotFoundPage};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    padding: ${pxToRem(DefaultPadding.Desktop)};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: ${intToPx(DefaultPadding.Desktop)};
   }
 `;
 
 export const NotFoundIntroStyle = styled.p`
-  font-size: ${pxToRem('15px')};
+  font-size: 15px;
   color: ${MakeThemeColors.Red};
   font-style: italic;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('24px')};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 24px;
   }
 `;
 
 export const NotFoundTitleStyle = styled(SecondLevelTitleStyle)`
-  font-size: ${pxToRem('30px')};
+  font-size: 30px;
   line-height: 1;
-  margin: ${pxToRem('15px')} 0 ${pxToRem('30px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    font-size: ${pxToRem('60px')};
+  margin: 15px 0 30px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 60px;
   }
 `;

@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import {
-  BasicColors,
-  TextColors,
-  BackgroundColors,
-} from 'Client/app/assets/vars/Colors';
+import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const ProgressWrapperStyle = styled.div`
   position: relative;
@@ -49,16 +46,11 @@ export const ProgressCircleStyle = styled.circle`
   stroke-dashoffset: 25;
 `;
 
-export const ProgressCounterStyle = styled.p`
+export const ProgressCounterStyle = styled(ParagraphStyle)`
   position: relative;
   align-self: center;
   z-index: 1;
-  font-size: 12px;
-  color: ${TextColors.MediumGrey};
-  font-family: ${MakeFonts.RobotoRegular};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
+  font-family: ${MakeFonts.CircularStandardBook};
 `;
 
 export const ProgressActiveCardStyle = styled.span`

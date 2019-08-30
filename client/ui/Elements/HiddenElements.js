@@ -13,10 +13,10 @@ export const HiddenItemStyle = styled.span`
   visibility: hidden;
 `;
 
-export const HiddenOnMobileStyle = styled.span`
+export const HiddenOnTablet = styled.span`
   display: none !important;
   visibility: hidden;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
+  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     display: flex !important;
     visibility: visible;
   }

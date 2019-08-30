@@ -9,6 +9,12 @@ import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  ParagraphStyle,
+  PlayfairParagraphStyle,
+} from 'Client/ui/Elements/ParagraphElements';
 
 export const CorporateWrapperStyle = styled(CenterColumnStyle)`
   justify-content: center;
@@ -16,7 +22,7 @@ export const CorporateWrapperStyle = styled(CenterColumnStyle)`
   background-color: ${MakeThemeColors.Red};
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 45px ${intToPx(DefaultPadding.Desktop)};
+    padding: 45px 20px;
   }
 `;
 
@@ -51,54 +57,28 @@ export const CorporateSectionStyle = styled.section`
   flex: 1;
 `;
 
-export const CorporateTitleStyle = styled.h2`
-  font-size: 20px;
+export const CorporateTitleStyle = styled(SecondLevelTitleStyle)`
   color: ${BasicColors.PureWhite};
-  font-weight: bold;
   margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 34px;
-  }
 `;
 
-export const CorporateIntroStyle = styled.p`
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
+export const CorporateIntroStyle = styled(PlayfairParagraphStyle)`
   color: ${BasicColors.PureWhite};
-  font-size: 14px;
   margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
-    )}) {
-    font-size: 20px;
-    margin-top: 15px;
-  }
 `;
+
 export const CorporateListStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 `;
-export const CorporateListItemStyle = styled.li`
+export const CorporateListItemStyle = styled(ParagraphStyle)`
   display: flex;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: bold;
+  font-family: ${MakeFonts.CircularStandardBold};
   color: ${BasicColors.PureWhite};
   margin: 7px 0;
   &:last-child {
     margin-bottom: 0;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
-    )}) {
-    font-size: 20px;
   }
 `;
 
@@ -113,13 +93,11 @@ export const CorporateLinkStyle = styled(BasicButtonStyle)`
   text-decoration: none;
   background-color: ${BasicColors.PureWhite};
   margin-top: 10px;
-  @media (max-width: ${intToPx(Breakpoints.Desktop)}) {
-    align-self: center;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-top: 15px;
   }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
-    )}) {
-    margin: 15px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-top: 25px;
   }
   &:hover,
   &:focus {

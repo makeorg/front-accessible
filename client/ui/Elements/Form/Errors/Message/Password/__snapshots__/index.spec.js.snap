@@ -29,7 +29,7 @@ Array [
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-family: 'Roboto Bold',Arial,sans-serif;
+  font-family: 'Circular Standard Bold',Arial,sans-serif;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   margin-left: 5px;

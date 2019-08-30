@@ -4,9 +4,7 @@ import {
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { TextColors } from 'Client/app/assets/vars/Colors';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { intToPx } from 'Shared/helpers/styled';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { DetailledContainer } from './index';
 
 const ProgessAnim = keyframes`
@@ -19,13 +17,8 @@ export const VoteProgressContainerStyle = styled(CenterColumnStyle)`
   ${DetailledContainer};
 `;
 
-export const VoteCounterStyle = styled.p`
-  font-size: 14px;
-  font-family: ${MakeFonts.RobotoBold};
-  color: ${TextColors.MediumGrey};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-  }
+export const VoteCounterStyle = styled(ParagraphStyle)`
+  font-family: ${MakeFonts.CircularStandardBold};
 `;
 
 export const VoteProgressWrapperStyle = styled(FlexElementStyle)`

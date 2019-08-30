@@ -2,9 +2,11 @@
 
 exports[`TileWithTitle must match the snapshot with default Props 1`] = `
 <TileWithTitleStyle>
-  <ThirdLevelTitleStyle>
+  <FourthLevelTitleStyle
+    as="h3"
+  >
     foo
-  </ThirdLevelTitleStyle>
+  </FourthLevelTitleStyle>
   <TileSeparatorStyle />
   bar
 </TileWithTitleStyle>

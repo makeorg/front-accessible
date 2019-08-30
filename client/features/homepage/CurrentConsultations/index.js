@@ -8,7 +8,6 @@ import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeCurrentConsultation } from 'Shared/types/views';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
   SpaceBetweenRowStyle,
   FlexElementStyle,
@@ -17,6 +16,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { useSlider } from 'Client/hooks/useSlider';
 import { Tracking } from 'Shared/services/Tracking';
+import { HomeTitleStyle } from 'Client/pages/Home/Styled';
 import {
   CurrentConsultationContainerStyle,
   CurrentConsultationArrowsStyle,

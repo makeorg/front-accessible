@@ -7,7 +7,7 @@ export const BasicInputStyle = styled.input`
   background: transparent;
   background-color: transparent;
   width: 100%;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   color: ${TextColors.DarkGrey};
   font-size: 16px;
   line-height: 38px;

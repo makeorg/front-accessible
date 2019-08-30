@@ -1,37 +1,48 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
-import RobotoCondensedBoldWoff from '../fonts/RobotoCondensed-Bold.woff';
-import RobotoCondensedBoldWoff2 from '../fonts/RobotoCondensed-Bold.woff2';
-import RobotoBoldWoff from '../fonts/Roboto-Bold.woff';
-import RobotoBoldWoff2 from '../fonts/Roboto-Bold.woff2';
-import RobotoRegularWoff from '../fonts/Roboto-Regular.woff';
-import RobotoRegularWoff2 from '../fonts/Roboto-Regular.woff2';
+import TradeGothicBoldCondensed from '../fonts/TradeGothicBoldCondensed.woff';
+import TradeGothicBoldCondensed2 from '../fonts/TradeGothicBoldCondensed.woff2';
+import CircularStandardBook from '../fonts/CircularStandardBook.woff';
+import CircularStandardBook2 from '../fonts/CircularStandardBook.woff2';
+import CircularStandardBold from '../fonts/CircularStandardBold.woff';
+import CircularStandardBold2 from '../fonts/CircularStandardBold.woff2';
+import PlayfairDisplayRegularItalic from '../fonts/PlayfairDisplayRegularItalic.woff';
+import PlayfairDisplayRegularItalic2 from '../fonts/PlayfairDisplayRegularItalic.woff2';
 
 export const FontFacesStylesheet = createGlobalStyle`
   @font-face {
-      font-family: 'Roboto Condensed Bold';
+      font-family: 'Trade Gothic Bold Condensed';
       font-display: swap;
-      src: url(${RobotoCondensedBoldWoff}) format("woff"),
-           url(${RobotoCondensedBoldWoff2}) format("woff2");
+      src: url(${TradeGothicBoldCondensed}) format("woff"),
+           url(${TradeGothicBoldCondensed2}) format("woff2");
       font-weight: normal;
       font-style: normal;
   }
 
   @font-face {
-      font-family: 'Roboto Bold';
+      font-family: 'Circular Standard Book';
       font-display: swap;
-      src: url(${RobotoBoldWoff}) format("woff"),
-           url(${RobotoBoldWoff2}) format("woff2");
-      font-weight: bold;
+      src: url(${CircularStandardBook}) format("woff"),
+           url(${CircularStandardBook2}) format("woff2");
+      font-weight: normal;
       font-style: normal;
   }
 
   @font-face {
-      font-family: 'Roboto Regular';
+      font-family: 'Circular Standard Bold';
       font-display: swap;
-      src: url(${RobotoRegularWoff}) format("woff"),
-           url(${RobotoRegularWoff2}) format("woff2");
+      src: url(${CircularStandardBold}) format("woff"),
+           url(${CircularStandardBold2}) format("woff2");
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'Playfair Display Regular Italic';
+      font-display: swap;
+      src: url(${PlayfairDisplayRegularItalic}) format("woff"),
+           url(${PlayfairDisplayRegularItalic2}) format("woff2");
       font-weight: normal;
       font-style: normal;
   }

@@ -23,7 +23,7 @@ jest.mock('./Styled', () => ({
   ProposalTagListStyle: 'ProposalTagListStyle',
   ProposalFooterStyle: 'ProposalFooterStyle',
   PostedInLabelStyle: 'PostedInLabelStyle',
-  PostedInLinkStyle: 'PostedInLinkStyle',
+  RedLinkStyle: 'RedLinkStyle',
 }));
 
 describe('ProposalFooterWithTagElement', () => {

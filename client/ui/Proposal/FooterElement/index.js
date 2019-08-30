@@ -6,11 +6,11 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { TagListItemStyle } from 'Client/features/consultation/Styled/TagFilter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import {
   ProposalTagListStyle,
   ProposalFooterStyle,
   PostedInLabelStyle,
-  PostedInLinkStyle,
 } from './Styled';
 
 const NUMBER_OF_TAGS_TO_DISPLAY = 4;
@@ -57,22 +57,20 @@ export const ProposalFooterWithQuestionElement = ({
   isProposalAccepted,
 }: ProposalFooterWithQuestionElementProps) => {
   return (
-    <React.Fragment>
-      <ProposalFooterStyle>
-        <PostedInLabelStyle>
-          {i18n.t('proposal_card.posted_label')}
-        </PostedInLabelStyle>
-        <PostedInLinkStyle
-          {...(isProposalAccepted
-            ? {
-                href: consultationLink,
-              }
-            : { as: 'span' })}
-        >
-          {question.wording.question}
-        </PostedInLinkStyle>
-      </ProposalFooterStyle>
-    </React.Fragment>
+    <ProposalFooterStyle>
+      <PostedInLabelStyle as="span">
+        {i18n.t('proposal_card.posted_label')}
+      </PostedInLabelStyle>
+      <RedLinkStyle
+        {...(isProposalAccepted
+          ? {
+              href: consultationLink,
+            }
+          : { as: 'span' })}
+      >
+        {question.wording.question}
+      </RedLinkStyle>
+    </ProposalFooterStyle>
   );
 };
 

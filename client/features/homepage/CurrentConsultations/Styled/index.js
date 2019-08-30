@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import {
-  Breakpoints,
-  Layouts,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
   BackgroundColors,
   MakeThemeColors,
@@ -14,11 +10,16 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
-export const CurrentConsultationContainerStyle = styled.div`
+export const CurrentConsultationContainerStyle = styled.section`
   width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
-  margin: ${intToPx(DefaultPadding.Desktop)} 0;
+  margin: 30px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+    padding: 0 20px;
+  }
 `;
 
 export const CurrentConsultationArrowsStyle = styled(UnstyledButtonStyle)`
@@ -54,6 +55,7 @@ export const CurrentConsultationArticleStyle = styled.article`
   background-color: ${BackgroundColors.LightGrey};
   border-radius: ${intToPx(Elements.BorderRadius)};
   overflow: hidden;
+  padding: 0 0 10px;
   &:hover > .overlay {
     transform: translateY(0);
   }
@@ -64,42 +66,42 @@ export const CurrentConsultationTriggerStyle = styled.input`
   width: 100%;
 `;
 
-export const CurrentConsultationLabelStyle = styled.span`
+export const CurrentConsultationLabelStyle = styled(ConsultationLabelStyle)`
   position: absolute;
   top: 0;
   left: 50%;
   z-index: 1;
   transform: translateX(-50%);
-  font-size: 12px;
-  background-color: ${BasicColors.PureBlack};
-  color: ${BasicColors.PureWhite};
-  font-family: ${MakeFonts.RobotoCondensedBold};
-  text-transform: uppercase;
-  text-align: center;
-  padding: 4px;
   white-space: nowrap;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 4px 8px;
+  padding: 3px 10px 1px;
+  font-size: 12px;
+  line-height: 16px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 6px 12px 4px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 8px 18px 5px;
   }
 `;
 
-export const ProposalsCountWrapperStyle = styled.div`
+export const ProposalsCountWrapperStyle = styled(ParagraphStyle)`
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
   background-color: #ffd978;
-  padding: 10px;
+  color: ${BasicColors.PureBlack};
   text-align: center;
-  font-size: 14px;
-  line-height: 1;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-  }
+  padding: 5px 0;
 `;
 
 export const ProposalsNumber = styled.span`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
 `;
 
 export const CurrentConsultationLinkOverlayStyle = styled.a`
@@ -124,8 +126,8 @@ export const CurrentConsultationLinkOverlayStyle = styled.a`
 `;
 
 export const CurrentConsultationDescriptionStyle = styled.p`
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: 12px;
-  font-weight: bold;
   line-height: 1.5;
   color: ${BasicColors.PureWhite};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -134,7 +136,7 @@ export const CurrentConsultationDescriptionStyle = styled.p`
 `;
 
 export const CurrentConsultationTextStyle = styled.p`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: 12px;
   color: ${BasicColors.PureWhite};
   text-decoration: underline;

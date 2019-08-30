@@ -37,6 +37,7 @@ const TabListStyle = styled.ul`
   display: flex;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
+  margin: 0 auto;
   justify-content: flex-start;
   align-items: flex-end;
   padding: 0;
@@ -51,7 +52,7 @@ const TabStyle = styled.li`
   flex-flow: column;
   min-width: 150px;
   text-transform: uppercase;
-  font-family: ${MakeFonts.RobotoCondensedBold};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
   background-color: ${props =>
     props.isSelected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
   border-top: ${props =>
@@ -73,7 +74,7 @@ const TabStyle = styled.li`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-family: ${MakeFonts.RobotoCondensedBold};
+    font-family: ${MakeFonts.TradeGothicBoldCondensed};
     width: 100%;
     font-size: 14px;
     padding: ${props => (props.isSelected ? '7px 5px' : '5px')};

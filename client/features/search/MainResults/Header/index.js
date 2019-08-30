@@ -7,6 +7,7 @@ import {
   MainResultsHeaderStyle,
   MainResultsTitleStyle,
   MainResultsTitleWrapperStyle,
+  MainResultsHeaderContentStyle,
 } from './Styled';
 
 type Props = {
@@ -18,15 +19,17 @@ type Props = {
 export const MainResultsHeader = ({ title, count, link }: Props) => {
   return (
     <MainResultsHeaderStyle>
-      <MainResultsTitleWrapperStyle>
-        <MainResultsTitleStyle>{title}</MainResultsTitleStyle>
-        {i18n.t('search.main_results.results', { count })}
-      </MainResultsTitleWrapperStyle>
-      {count > 4 && (
-        <RedLinkStyle as={Link} to={link}>
-          {i18n.t('search.main_results.view_all')}
-        </RedLinkStyle>
-      )}
+      <MainResultsHeaderContentStyle>
+        <MainResultsTitleWrapperStyle>
+          <MainResultsTitleStyle>{title}</MainResultsTitleStyle>
+          {i18n.t('search.main_results.results', { count })}
+        </MainResultsTitleWrapperStyle>
+        {count > 4 && (
+          <RedLinkStyle as={Link} to={link}>
+            {i18n.t('search.main_results.view_all')}
+          </RedLinkStyle>
+        )}
+      </MainResultsHeaderContentStyle>
     </MainResultsHeaderStyle>
   );
 };

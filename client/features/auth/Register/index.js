@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import {
   SecondLevelTitleStyle,
-  ThirdLevelTitleStyle,
+  FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import {
   SmallSeparatorWithMarginStyle,
@@ -18,7 +18,7 @@ import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Soci
 import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { RegisterForm } from './Form';
-import { RegisterStyle } from './Styled';
+import { AuthentificationWrapperStyle } from '../Login/Styled';
 
 type Props = {
   /** Method called to close modal */
@@ -27,12 +27,12 @@ type Props = {
 
 export const RegisterComponent = ({ handleLoginModal }: Props) => {
   return (
-    <RegisterStyle aria-labelledby="register_title">
+    <AuthentificationWrapperStyle aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
       <SmallSeparatorWithMarginStyle />
-      <ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
         {i18n.t('register.social_connect')}
         &nbsp;
         <FacebookAuthentificationLinkComponent />
@@ -40,13 +40,15 @@ export const RegisterComponent = ({ handleLoginModal }: Props) => {
         {i18n.t('register.or')}
         &nbsp;
         <GoogleAuthentificationLinkComponent />
-      </ThirdLevelTitleStyle>
+      </FourthLevelTitleStyle>
       <SeparatorWrapperStyle>
         <LargeSeparatorStyle />
         <TextSeparatorStyle>{i18n.t('register.or')}</TextSeparatorStyle>
         <LargeSeparatorStyle />
       </SeparatorWrapperStyle>
-      <ThirdLevelTitleStyle>{i18n.t('register.subtitle')}</ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
+        {i18n.t('register.subtitle')}
+      </FourthLevelTitleStyle>
       <RegisterForm />
       <ExtraParagraphStyle>
         {i18n.t('register.login_title')}
@@ -54,7 +56,7 @@ export const RegisterComponent = ({ handleLoginModal }: Props) => {
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
-    </RegisterStyle>
+    </AuthentificationWrapperStyle>
   );
 };
 

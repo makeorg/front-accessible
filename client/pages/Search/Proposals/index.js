@@ -9,7 +9,6 @@ import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
 import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
@@ -21,6 +20,7 @@ import {
   SearchBackArrowStyle,
   SearchResultsProposalItemStyle,
   SearchMoreProposalsButtonStyle,
+  SearchResultsProposalListStyle,
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
@@ -106,7 +106,7 @@ export const SearchResultsProposalsComponent = ({
             role="feed"
             aria-busy={isLoading}
           >
-            <UnstyledListStyle>
+            <SearchResultsProposalListStyle>
               {proposalsResult.map((proposal, index) => (
                 <SearchResultsProposalItemStyle key={proposal.id}>
                   <ProposalCardWithQuestion
@@ -116,7 +116,7 @@ export const SearchResultsProposalsComponent = ({
                   />
                 </SearchResultsProposalItemStyle>
               ))}
-            </UnstyledListStyle>
+            </SearchResultsProposalListStyle>
             {isLoading && <Spinner />}
             {getMoreButton && (
               <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>

@@ -8,6 +8,7 @@ import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { Tracking } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
   FeaturedInformationsWrapperStyle,
   FeaturedPictureWraperStyle,
@@ -16,7 +17,6 @@ import {
   FeaturedArticleCol1Style,
   FeaturedArticleTitleStyle,
   FeaturedDescriptionStyle,
-  FeaturedLinkStyle,
   FeaturedInnerContent,
 } from '../Styled';
 
@@ -85,14 +85,14 @@ export const FeaturedArticle = ({
             </FeaturedDescriptionStyle>
           )}
         </FeaturedInnerContent>
-        <FeaturedLinkStyle
+        <LinkAsRedButton
           onClick={() =>
             Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
           }
           {...linkObject}
         >
           {featured.buttonLabel}
-        </FeaturedLinkStyle>
+        </LinkAsRedButton>
       </FeaturedInformationsWrapperStyle>
     </FeaturedArticleStyle>
   );

@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { ParagraphRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 
 type Props = {
   linkUrl: string,
@@ -15,7 +15,7 @@ export const SidebarNewWindowLink = (props: Props) => {
   const { linkUrl, linkText, tracking } = props;
 
   return (
-    <ParagraphRedLinkStyle
+    <RedLinkStyle
       href={linkUrl}
       target="_blank"
       rel="noopener noreferrer"
@@ -26,6 +26,6 @@ export const SidebarNewWindowLink = (props: Props) => {
         aria-label={i18n.t('common.open_new_window')}
         style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
       />
-    </ParagraphRedLinkStyle>
+    </RedLinkStyle>
   );
 };

@@ -61,7 +61,7 @@
     "previous": "Previous proposal",
     "next": "Next proposal",
     "number": "Proposal number",
-    "posted_label": "posted in ",
+    "posted_label": "Posted in ",
     "author": {
       "age": "{{age}} years"
     },

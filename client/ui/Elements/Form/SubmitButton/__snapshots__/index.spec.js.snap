@@ -10,17 +10,17 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
 }
@@ -50,12 +50,32 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+  font-size: 12px;
   margin-right: 5px;
+}
+
+.c1 svg {
+  width: 12px;
+  height: 12px;
 }
 
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c1 svg {
+    width: 14px;
+    height: 14px;
   }
 }
 
@@ -82,7 +102,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="hs2zb-2 hs2zb-7 bTnpjI"
+    className="hs2zb-2 hs2zb-7 bNvVHR"
 -   disabled={false}
 +   disabled={true}
     form="foo"

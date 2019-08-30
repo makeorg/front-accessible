@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const DetailledContainer = `
   width: 100%;
@@ -37,18 +38,13 @@ export const VoteDataListStyle = styled(ColumnElementStyle)`
   justify-content: center;
 `;
 
-export const VoteDataItemStyle = styled.p`
-  font-size: 12px;
-  color: ${TextColors.MediumGrey};
+export const VoteDataItemStyle = styled(ParagraphStyle)`
   margin: 3px 0;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
 `;
 
 export const VoteDataBoldItemStyle = styled(VoteDataItemStyle)`
   font-size: 14px;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }

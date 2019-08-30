@@ -17,7 +17,7 @@ exports[`FormErrors snapshot FormErrors with errors 1`] = `
 }
 
 .c1 {
-  font-family: 'Roboto Bold',Arial,sans-serif;
+  font-family: 'Circular Standard Bold',Arial,sans-serif;
   margin: 0 0 10px;
 }
 

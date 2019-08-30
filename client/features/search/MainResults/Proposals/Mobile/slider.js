@@ -6,7 +6,7 @@ export const SearchSliderParams = {
   perView: 1,
   gap: 10,
   peek: {
-    before: 15,
+    before: 20,
     after: 30,
   },
 };

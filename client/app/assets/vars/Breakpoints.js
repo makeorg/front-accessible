@@ -1,9 +1,10 @@
 /* @flow */
 
 export const Breakpoints = {
+  LargeMobile: 360,
   Tablet: 767,
   Desktop: 969,
-  LargeDesktop: 1200,
+  LargeDesktop: 1140,
 };
 
 export const Layouts = {

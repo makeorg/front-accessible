@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   TextColors,
   BackgroundColors,
   BorderColors,
+  MakeThemeColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { ParagraphStyle } from '../../ParagraphElements';
 
 export const FormStyle = styled.form`
   display: flex;
@@ -73,12 +73,8 @@ export const FieldWrapperStyle = styled.div`
   }
 `;
 
-export const InlineParagraphStyle = styled.p`
+export const InlineParagraphStyle = styled(ParagraphStyle)`
   display: inline;
-  font-size: 14px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-  }
 `;
 
 export const ExtraParagraphStyle = styled(InlineParagraphStyle)`
@@ -90,16 +86,14 @@ export const ExtraAltParagraphStyle = styled(InlineParagraphStyle)`
 `;
 
 export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
-  color: ${TextColors.MediumGrey};
-  font-size: 12px;
   margin-bottom: 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
+  a {
+    color: ${MakeThemeColors.Red};
   }
 `;
 
 export const FloatingLabelStyle = styled.label`
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.MediumGrey};
   font-size: 14px;
   line-height: 38px;

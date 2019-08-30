@@ -20,8 +20,8 @@ export const VoteWrapperStyle = styled(UnstyledListStyle)`
   justify-content: space-between;
   width: 100%;
   max-width: 175px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 250px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 200px;
   }
 `;
 

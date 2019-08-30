@@ -4,9 +4,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
-import { useDesktop } from 'Client/hooks/useMedia';
-import { HomeTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { HomepageInnerContentStyle } from 'Client/pages/Home/Styled';
+import { useTablet } from 'Client/hooks/useMedia';
+import {
+  HomepageInnerContentStyle,
+  HomeTitleStyle,
+} from 'Client/pages/Home/Styled';
 import { DesktopOneColumn } from './Layouts/DesktopOneColumn';
 import { DesktopTwoColumns } from './Layouts/DesktopTwoColumns';
 import { FeaturedMobile } from './Layouts/Mobile';
@@ -19,7 +21,7 @@ export type TypeFeaturedsProps = {
 
 const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
   const { featureds, country, language } = props;
-  const isDesktop = useDesktop();
+  const isTablet = useTablet();
 
   if (featureds.length <= 0) {
     return null;
@@ -30,7 +32,7 @@ const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
       <HomeTitleStyle id="featured_title">
         {i18n.t('homepage.featured.title')}
       </HomeTitleStyle>
-      {isDesktop ? (
+      {isTablet ? (
         <FeaturedDesktop
           featureds={featureds}
           country={country}

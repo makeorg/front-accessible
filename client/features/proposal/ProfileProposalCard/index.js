@@ -6,7 +6,8 @@ import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
-import { ProfileProposalCardStyle, ProposalStyle } from './Styled';
+import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
+import { ProfileProposalCardStyle } from './Styled';
 
 type Props = {
   /** Object with all proposal's properties */

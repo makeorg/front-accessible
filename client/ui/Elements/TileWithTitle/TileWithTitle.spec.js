@@ -8,7 +8,7 @@ jest.mock('Client/ui/Elements/TileWithTitle/Styled', () => ({
 }));
 
 jest.mock('Client/ui/Elements/TitleElements', () => ({
-  ThirdLevelTitleStyle: 'ThirdLevelTitleStyle',
+  FourthLevelTitleStyle: 'FourthLevelTitleStyle',
 }));
 
 describe('TileWithTitle', () => {

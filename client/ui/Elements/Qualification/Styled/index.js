@@ -5,20 +5,24 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ButtonStyle = styled.button`
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   display: flex;
   justify-content: space-between;
   width: 100%;
   border-width: 2px;
-  font-size: 12px;
-  line-height: 26px;
+  font-size: 11.2px;
+  line-height: 20px;
   border-style: solid;
   padding: 0 10px;
   border-radius: 36px;
   border-color: ${props => props.color};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: 12.6px;
+    line-height: 23px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 14px;
-    line-height: 28px;
+    line-height: 26px;
   }
 `;
 
@@ -33,10 +37,12 @@ export const QualifyButtonStyle = styled(ButtonStyle)`
 `;
 
 export const CounterStyle = styled.span`
-  font-family: ${MakeFonts.RobotoBold};
-  font-size: 14px;
+  font-size: 14.4px;
   margin-left: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: 16.2px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 18px;
   }
 `;

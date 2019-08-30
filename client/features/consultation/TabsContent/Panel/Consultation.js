@@ -120,9 +120,9 @@ export const ConsultationPanelContent = ({
           question={question}
           questionConfiguration={questionConfiguration}
         />
-        <TagSectionTitle id="tag_list">
-          <ConsultationIconStyle>
-            <SvgThumbsUp aria-hidden />
+        <TagSectionTitle as="h3" id="tag_list">
+          <ConsultationIconStyle aria-hidden>
+            <SvgThumbsUp style={{ width: '18px', height: '18px' }} />
           </ConsultationIconStyle>
           {i18n.t('common.vote_on_proposals')}
         </TagSectionTitle>

@@ -1,9 +1,20 @@
 import styled from 'styled-components';
-import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { TextColors, BorderColors } from 'Client/app/assets/vars/Colors';
+import {
+  PlayfairParagraphStyle,
+  ParagraphStyle,
+} from 'Client/ui/Elements/ParagraphElements';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
 
 export const MainResultsHeaderStyle = styled.div`
+  padding: 0 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0;
+  }
+`;
+
+export const MainResultsHeaderContentStyle = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -12,23 +23,11 @@ export const MainResultsHeaderStyle = styled.div`
   margin-bottom: 20px;
 `;
 
-export const MainResultsTitleWrapperStyle = styled.span`
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  font-size: 14px;
-  line-height: 18px;
+export const MainResultsTitleWrapperStyle = styled(ParagraphStyle)`
   color: ${TextColors.DarkGrey};
 `;
 
-export const MainResultsTitleStyle = styled.h3`
+export const MainResultsTitleStyle = styled(PlayfairParagraphStyle)`
   display: inline-flex;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 24px;
   margin-right: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 18px;
-    line-height: 1;
-  }
 `;

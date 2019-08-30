@@ -9,7 +9,7 @@ import {
 } from 'Shared/store/actions/modal';
 import {
   SecondLevelTitleStyle,
-  ThirdLevelTitleStyle,
+  FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import {
   ExtraParagraphStyle,
@@ -23,7 +23,7 @@ import {
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginForm } from './Form';
-import { LoginStyle } from './Styled';
+import { AuthentificationWrapperStyle } from './Styled';
 
 type Props = {
   /** Method called to display Register Form Modal */
@@ -37,23 +37,23 @@ export const LoginComponent = ({
   handleForgotPasswordModal,
 }: Props) => {
   return (
-    <LoginStyle aria-labelledby="login_title">
+    <AuthentificationWrapperStyle aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
         {i18n.t('login.title')}
       </SecondLevelTitleStyle>
       <SmallSeparatorWithMarginStyle />
-      <ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
         {i18n.t('login.social_connect')}
-      </ThirdLevelTitleStyle>
+      </FourthLevelTitleStyle>
       <AuthentificationSocial />
       <SeparatorWrapperStyle>
         <LargeSeparatorStyle />
         <TextSeparatorStyle>{i18n.t('login.or')}</TextSeparatorStyle>
         <LargeSeparatorStyle />
       </SeparatorWrapperStyle>
-      <ThirdLevelTitleStyle>
+      <FourthLevelTitleStyle as="h3">
         {i18n.t('login.email_connect')}
-      </ThirdLevelTitleStyle>
+      </FourthLevelTitleStyle>
       <LoginForm />
       <ExtraParagraphStyle>
         {i18n.t('login.forgot_password_title')}
@@ -67,7 +67,7 @@ export const LoginComponent = ({
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
-    </LoginStyle>
+    </AuthentificationWrapperStyle>
   );
 };
 

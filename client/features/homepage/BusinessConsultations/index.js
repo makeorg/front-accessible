@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type TypeBusinessConsultation } from 'Shared/types/views';
 import { isInProgress } from 'Shared/helpers/date';
@@ -75,6 +76,7 @@ export const BusinessConsultationsComponent = ({
                       language,
                       consultation.slug
                     ),
+                    as: Link,
                   }
                 : { href: consultation.aboutUrl, as: 'a' })}
               onClick={() => Tracking.trackClickHomepageConsultations()}

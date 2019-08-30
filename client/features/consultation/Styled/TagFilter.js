@@ -6,7 +6,7 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const TagFilterWrapperStyle = styled.aside`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
@@ -21,7 +21,7 @@ export const TagFilterIntroStyle = styled.span`
   font-size: 14px;
 `;
 
-export const TagSectionTitle = styled(ThirdLevelTitleStyle)`
+export const TagSectionTitle = styled(FourthLevelTitleStyle)`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0;

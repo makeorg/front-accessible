@@ -13,7 +13,7 @@ export const DefaultStylesheet = createGlobalStyle`
   }
 
   body {
-    font-family: ${MakeFonts.RobotoRegular};
+    font-family: ${MakeFonts.CircularStandardBook};
     color: ${BasicColors.PureBlack};
     background-color: ${BasicColors.PureWhite};
   }
@@ -24,7 +24,7 @@ export const DefaultStylesheet = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: ${MakeFonts.RobotoCondensedBold}, Arial;
+    font-family: ${MakeFonts.TradeGothicBoldCondensed};
     text-transform: uppercase;
     font-style: normal;
     font-weight: normal;
@@ -35,7 +35,7 @@ export const DefaultStylesheet = createGlobalStyle`
   }
 
   a {
-    font-family: ${MakeFonts.RobotoBold}, Arial;
+    font-family: ${MakeFonts.CircularStandardBook};
     color: ${BasicColors.PureBlack};
     text-decoration: underline;
   }
@@ -52,7 +52,7 @@ export const DefaultStylesheet = createGlobalStyle`
   }
 
   label {
-    font-family: ${MakeFonts.RobotoBold}, Arial;
+    font-family: ${MakeFonts.CircularStandardBold};
     color: ${BasicColors.PureBlack};
   }
 

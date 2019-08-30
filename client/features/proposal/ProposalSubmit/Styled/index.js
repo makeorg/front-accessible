@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import TextareaAutosize from 'react-autosize-textarea';
 import {
   BasicColors,
   BorderColors,
   TextColors,
+  MakeThemeColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
@@ -30,14 +31,19 @@ export const ProposalSubmitAuthentificationWrapperStyle = styled.div`
 `;
 
 export const ProposalSubmitSeparatorStyle = styled(SmallSeparatorStyle)`
-  margin: ${pxToRem('10px')} 0;
+  margin: 10px 0;
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin: ${pxToRem('20px')} 0;
+    margin: 20px 0;
   }
 `;
 
 export const DescriptionWrapperStyle = styled.div`
   margin: 20px auto 0;
+  a,
+  a:hover,
+  a:focus {
+    color: ${MakeThemeColors.Red};
+  }
 `;
 
 export const ProposalSubmitFormStyle = styled.form`
@@ -80,7 +86,7 @@ export const ProposalLabelStyle = styled.label`
 
 export const ProposalTextareaStyle = styled(TextareaAutosize)`
   width: 100%;
-  font-family: ${MakeFonts.RobotoBold};
+  font-family: ${MakeFonts.CircularStandardBold};
   font-size: 16px;
   line-height: 18px;
   padding: 10px 5px;
@@ -95,7 +101,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
 `;
 
 export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.MediumGrey};
   font-size: 12px;
   line-height: 30px;
@@ -108,7 +114,15 @@ export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
 `;
 
 export const ProposalButtonStyle = styled(ActiveButtonStyle)`
-  padding: 5px 10px;
+  font-size: 14px;
+  padding: 6px 12px 2px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 16px;
+    padding: 11px 12px 8px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 16px;
+  }
 `;
 
 export const ProposalIconStyle = styled(IconWrapperStyle)`

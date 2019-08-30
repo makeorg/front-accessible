@@ -163,7 +163,7 @@
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
     "number": "Carte numéro {{current}} sur {{total}}",
-    "posted_label": "postée dans ",
+    "posted_label": "Postée dans ",
     "author": {
       "from": "Proposition de : ",
       "age": "{{age}} ans",
@@ -203,7 +203,7 @@
   },
   "proposal_submit": {
     "bait": "Il faut ",
-    "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de propsition puis validez en cliquant sur le bouton \"Proposer\"",
+    "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
     "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
     "moderation_charter": "Pour en savoir plus sur notre charte de modération,",

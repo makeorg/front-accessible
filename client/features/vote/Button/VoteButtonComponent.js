@@ -10,7 +10,9 @@ type Props = {
   /** Vote key's Label */
   label: string,
   /** Vote key's Icon */
-  icon: string,
+  icon: React.Node,
+  /** Vote key's tranform properties */
+  transform: string,
   /** React Element passed to Styled Component to render correct html tag */
   buttonType: React.Node,
   /** When display pending */
@@ -28,6 +30,7 @@ const VoteButtonWithTooltip = ({
   color,
   label,
   icon,
+  transform,
   buttonType,
   handleVote,
   displayPending,
@@ -38,6 +41,7 @@ const VoteButtonWithTooltip = ({
       color={color}
       label={label}
       icon={icon}
+      transform={transform}
       buttonType={buttonType}
       handleVote={handleVote}
       displayPending={displayPending}
@@ -59,6 +63,7 @@ export const VoteButtonComponent = (props: Props) => {
     color,
     label,
     icon,
+    transform,
     buttonType,
     handleVote,
     displayPending,
@@ -72,6 +77,7 @@ export const VoteButtonComponent = (props: Props) => {
           color={color}
           label={label}
           icon={icon}
+          transform={transform}
           buttonType={buttonType}
           handleVote={handleVote}
           displayPending={displayPending}
@@ -81,6 +87,7 @@ export const VoteButtonComponent = (props: Props) => {
           color={color}
           label={label}
           icon={icon}
+          transform={transform}
           buttonType={buttonType}
           handleVote={handleVote}
           displayPending={displayPending}

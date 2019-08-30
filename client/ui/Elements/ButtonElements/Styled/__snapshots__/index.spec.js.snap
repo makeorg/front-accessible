@@ -10,17 +10,17 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
 }
@@ -41,6 +41,13 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -166,17 +173,17 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
   width: 100%;
@@ -207,6 +214,13 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -237,17 +251,17 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
   width: 100%;
@@ -277,6 +291,13 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -301,17 +322,17 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
   width: 100%;
@@ -342,6 +363,13 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -372,17 +400,17 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(74,74,74);
   background-color: rgb(229,229,229);
 }
@@ -399,6 +427,13 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -420,7 +455,20 @@ exports[`ButtonElements/Styled IconWrapperStyle snapshot by default 1`] = `
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+  font-size: 12px;
   margin-right: 5px;
+}
+
+.c0 svg {
+  width: 12px;
+  height: 12px;
+}
+
+@media (min-width:1140px) {
+  .c0 svg {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 <span
@@ -438,17 +486,17 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
 }
@@ -460,6 +508,13 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -486,7 +541,6 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
   border: none;
   background-color: transparent;
   display: inline-block;
-  font-family: 'Roboto Bold',Arial,sans-serif;
   color: rgb(222,26,66);
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -508,20 +562,20 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(74,74,74);
   background-color: rgb(229,229,229);
-  padding: 5px 15px;
+  padding: 5px 15px 2.5px;
 }
 
 .c0 svg {
@@ -536,6 +590,13 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 
@@ -560,20 +621,20 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: 'Roboto Condensed Bold',Arial,serif;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 12px 25px 8px;
   color: rgb(255,255,255);
   background-color: rgb(222,26,66);
-  padding: 5px 15px;
+  padding: 5px 15px 2.5px;
 }
 
 .c0 svg {
@@ -583,6 +644,13 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
   }
 }
 

@@ -15,7 +15,11 @@ Array [
 
 }
 
-@media (min-width:767px) {
+@media (min-width:360px) {
+
+}
+
+@media (min-width:969px) {
 
 }
 
@@ -77,14 +81,15 @@ Array [
 }
 
 .c5 {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgb(74,74,74);
   position: relative;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   z-index: 1;
-  font-size: 12px;
-  color: rgb(74,74,74);
-  font-family: 'Roboto Regular',Arial,sans-serif;
+  font-family: 'Circular Standard Book',Arial,sans-serif;
 }
 
 .c6 {
@@ -99,9 +104,17 @@ Array [
   }
 }
 
-@media (min-width:767px) {
+@media (min-width:360px) {
   .c5 {
     font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+@media (min-width:969px) {
+  .c5 {
+    font-size: 16px;
+    line-height: 22px;
   }
 }
 
@@ -141,7 +154,7 @@ Array [
       />
     </svg>
     <p
-      className="c5"
+      className="sc-1nc0118-0 c5"
     >
       <span
         className="c6"

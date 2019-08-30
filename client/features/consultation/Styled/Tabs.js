@@ -5,7 +5,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ExtraTabsInformationsStyle = styled.span`
   font-size: 12px;
-  font-family: ${MakeFonts.RobotoRegular};
+  font-family: ${MakeFonts.CircularStandardBook};
   text-transform: none;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

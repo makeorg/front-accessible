@@ -8,8 +8,6 @@ import {
   SvgMapMarker,
   SvgSuitcase,
   SvgPaperPlane,
-  SvgThumbsDown,
-  SvgThumbsLeft,
   SvgPencil,
   SvgSaveFileOption,
 } from 'Client/ui/Svg/elements';
@@ -25,8 +23,3 @@ export const DescriptionFieldIcon = <SvgPencil />;
 export const SubmitThumbsUpIcon = <SvgThumbsUp />;
 export const SubmitPaperPlaneIcon = <SvgPaperPlane />;
 export const SubmitSaveIcon = <SvgSaveFileOption />;
-
-/** Vote Button */
-export const VoteAgreeIcon = <SvgThumbsUp />;
-export const VoteDisagreeIcon = <SvgThumbsDown />;
-export const VoteNeutralIcon = <SvgThumbsLeft />;
