@@ -8,10 +8,6 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
-  ROUTE_SEARCH_PROPOSALS,
-  ROUTE_SEARCH_ORGANISATIONS,
-  ROUTE_SEARCH_CONSULTATIONS,
-  ROUTE_SEARCH,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -37,6 +33,8 @@ export const buildInternalConsultationLink = (
 
   return `/${country}-${language}/consultation/${questionSlug}/${target}`;
 };
+
+/** @todo move all this stuff to Shared/routes file or create a route helper */
 /**
  * Get the sequence link
  * @param  {string} country
@@ -134,66 +132,4 @@ export const getOrganisationProfileLink = (
   return ROUTE_ORGANISATION_PROFILE.replace(':country', country)
     .replace(':language', language)
     .replace(':organisationSlug', organisationSlug);
-};
-
-/**
- * Get the search main results link
- *
- * @param  {string} country
- * @param  {string} language
- * @return {string}
- */
-export const getSearchLink = (country: string, language: string) => {
-  return ROUTE_SEARCH.replace(':country', country).replace(
-    ':language',
-    language
-  );
-};
-
-/**
- * Get the search proposals link
- *
- * @param  {string} country
- * @param  {string} language
- * @return {string}
- */
-export const getSearchProposalsLink = (country: string, language: string) => {
-  return ROUTE_SEARCH_PROPOSALS.replace(':country', country).replace(
-    ':language',
-    language
-  );
-};
-
-/**
- * Get the search organisations link
- *
- * @param  {string} country
- * @param  {string} language
- * @return {string}
- */
-export const getSearchOrganisationsLink = (
-  country: string,
-  language: string
-) => {
-  return ROUTE_SEARCH_ORGANISATIONS.replace(':country', country).replace(
-    ':language',
-    language
-  );
-};
-
-/**
- * Get the search consultations link
- *
- * @param  {string} country
- * @param  {string} language
- * @return {string}
- */
-export const getSearchConsultationsLink = (
-  country: string,
-  language: string
-) => {
-  return ROUTE_SEARCH_CONSULTATIONS.replace(':country', country).replace(
-    ':language',
-    language
-  );
 };

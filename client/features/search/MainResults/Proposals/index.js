@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -29,11 +29,13 @@ export const MainResultsProposalsComponent = ({
   const isMobile = useMobile();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>(
-    proposals
-  );
+  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>([]);
   const getMoreButton =
     count > 4 && count !== proposalsResult.length && !isLoading;
+
+  useEffect(() => {
+    setProposalsResult(proposals);
+  }, [proposals]);
 
   const loadMoreProposals = async () => {
     setIsLoading(true);

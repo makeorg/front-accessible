@@ -591,7 +591,8 @@
       "results": "{{count}} résultat",
       "results_plural": "{{count}} résultats",
       "view_all": "Voir tout",
-      "no_results": "Nous n'avons trouvé aucun résultat pour votre recherche « {{term}} »"
+      "no_results": "Nous n'avons trouvé aucun résultat pour votre recherche « {{term}} »",
+      "no_query": "Vous cherchez une proposition, une idée, une consultation ? Tapez votre recherche !"
     },
     "sidebar": {
       "register": {

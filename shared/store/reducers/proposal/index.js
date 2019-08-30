@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
