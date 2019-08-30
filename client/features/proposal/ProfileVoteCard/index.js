@@ -10,7 +10,7 @@ import {
 } from 'Shared/helpers/url';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -20,6 +20,7 @@ import {
   ProposalStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -57,7 +58,9 @@ export const ProfileVoteCard = ({
           aria-label={voteAttributes.label}
           color={voteAttributes.color}
         >
-          {voteAttributes.icon}
+          <ButtonIconWrapperStyle transform={voteAttributes.transform}>
+            <SvgThumbsUp aria-hidden />
+          </ButtonIconWrapperStyle>
         </ProfileHasVotedStyle>
         <ProfileVoteDescriptionStyle>
           <RedLinkStyle

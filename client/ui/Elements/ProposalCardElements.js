@@ -11,6 +11,7 @@ export const ProposalStyle = styled.a`
   line-height: normal;
   font-family: ${MakeFonts.CircularStandardBold};
   align-self: flex-start;
+  flex: 1;
   margin-top: 15px;
   text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
