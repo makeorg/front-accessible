@@ -11,7 +11,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const AuthorWrapperStyle = styled.div`
   width: 100%;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 

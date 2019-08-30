@@ -4,6 +4,10 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { CardStyle } from 'Client/ui/Cards';
 
+export const ProposalInnerStyle = styled.div`
+  margin-top: 10px;
+`;
+
 export const ProposalStyle = styled.a`
   width: 100%;
   font-size: 12px;

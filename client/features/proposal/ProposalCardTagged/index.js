@@ -8,6 +8,7 @@ import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
   ProposalCardStyle,
   ProposalStyle,
+  ProposalInnerStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { isInProgress } from 'Shared/helpers/date';
@@ -51,27 +52,32 @@ export const ProposalCardTagged = (props: Props) => {
           withCreationDate
         />
       </AuthorWrapperStyle>
+      <ProposalInnerStyle>
+        <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
+          {proposal.content}
+        </ProposalStyle>
+        {canVote ? (
+          <Vote
+            proposalId={proposal.id}
+            votes={proposal.votes}
+            proposalKey={proposal.proposalKey}
+            index={position}
+          />
+        ) : (
+          <DetailledVoteResults
+            votes={proposal.votes}
+            proposalId={proposal.id}
+          />
+        )}
+        {proposal.organisations && (
+          <OrganisationsVote
+            organisations={proposal.organisations}
+            country={proposal.country}
+            language={proposal.country}
+          />
+        )}
+      </ProposalInnerStyle>
 
-      <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
-        {proposal.content}
-      </ProposalStyle>
-      {canVote ? (
-        <Vote
-          proposalId={proposal.id}
-          votes={proposal.votes}
-          proposalKey={proposal.proposalKey}
-          index={position}
-        />
-      ) : (
-        <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
-      )}
-      {proposal.organisations && (
-        <OrganisationsVote
-          organisations={proposal.organisations}
-          country={proposal.country}
-          language={proposal.country}
-        />
-      )}
       <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardStyle>
   );

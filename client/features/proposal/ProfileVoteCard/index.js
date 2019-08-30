@@ -18,6 +18,7 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProposalCardStyle,
   ProposalStyle,
+  ProposalInnerStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
@@ -92,23 +93,26 @@ export const ProfileVoteCard = ({
               withAvatar
             />
           </AuthorWrapperStyle>
-          <ProposalStyle
-            id={`proposal_content_${position}`}
-            href={getProposalLink(
-              proposal.country,
-              proposal.language,
-              question.slug,
-              proposal.id,
-              proposal.slug
-            )}
-          >
-            {proposal.content}
-          </ProposalStyle>
-          <VoteResultElement
-            proposalId={proposal.id}
-            votes={proposal.votes}
-            votedKey={voteKey}
-          />
+          <ProposalInnerStyle>
+            <ProposalStyle
+              id={`proposal_content_${position}`}
+              href={getProposalLink(
+                proposal.country,
+                proposal.language,
+                question.slug,
+                proposal.id,
+                proposal.slug
+              )}
+            >
+              {proposal.content}
+            </ProposalStyle>
+            <VoteResultElement
+              proposalId={proposal.id}
+              votes={proposal.votes}
+              votedKey={voteKey}
+            />
+          </ProposalInnerStyle>
+
           <ProposalFooterWithTagElement tags={proposal.tags} />
         </ProposalCardStyle>
       </ProfileVoteCardStyle>
