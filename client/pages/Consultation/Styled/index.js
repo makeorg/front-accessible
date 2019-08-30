@@ -32,7 +32,7 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 10px 0 20px;
-    max-width: 750px;
+    max-width: 780px;
   }
 `;
 
@@ -40,7 +40,7 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 20px 0 10px;
     order: 1;
-    max-width: 360px;
+    max-width: 390px;
     position: sticky;
     ${props =>
       props.bottomAffix
