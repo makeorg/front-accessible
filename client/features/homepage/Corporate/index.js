@@ -40,15 +40,15 @@ export const CorporateBanner = () => {
             {i18n.t('homepage.corporate.first-section.title')}
           </CorporateTitleStyle>
           <CorporateListStyle>
-            <CorporateListItemStyle>
+            <CorporateListItemStyle as="li">
               <SvgThumbsUp aria-hidden style={CorporateIconStyle} />
               {i18n.t('homepage.corporate.first-section.list-item-1')}
             </CorporateListItemStyle>
-            <CorporateListItemStyle>
+            <CorporateListItemStyle as="li">
               <SvgLightBulb aria-hidden style={CorporateIconStyle} />
               {i18n.t('homepage.corporate.first-section.list-item-2')}
             </CorporateListItemStyle>
-            <CorporateListItemStyle>
+            <CorporateListItemStyle as="li">
               <SvgUsers aria-hidden style={CorporateIconStyle} />
               {i18n.t('homepage.corporate.first-section.list-item-3')}
             </CorporateListItemStyle>

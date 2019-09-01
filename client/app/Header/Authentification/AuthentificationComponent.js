@@ -74,7 +74,7 @@ export const NotAuthentificatedBar = ({
             onClick={handleRegisterModal}
             aria-label={i18n.t('common.register_label')}
           >
-            <ProfileAccessButtonLabelStyle aria-hidden>
+            <ProfileAccessButtonLabelStyle as="span" aria-hidden>
               {i18n.t('common.register_label')}
             </ProfileAccessButtonLabelStyle>
           </UnstyledButtonStyle>
