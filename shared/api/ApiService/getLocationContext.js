@@ -5,6 +5,10 @@ import {
   ROUTE_PROPOSAL,
   matchRoute,
   ROUTE_ACTION,
+  ROUTE_SEARCH,
+  ROUTE_SEARCH_PROPOSALS,
+  ROUTE_SEARCH_ORGANISATIONS,
+  ROUTE_SEARCH_CONSULTATIONS,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -22,6 +26,14 @@ export const getLocationContext = (
       return `sequence ${questionId}`;
     case matchRoute(pathname, ROUTE_PROPOSAL):
       return `proposal-page ${proposalId}`;
+    case matchRoute(pathname, ROUTE_SEARCH_PROPOSALS):
+      return `search-proposals-page`;
+    case matchRoute(pathname, ROUTE_SEARCH_ORGANISATIONS):
+      return `search-organisations-page`;
+    case matchRoute(pathname, ROUTE_SEARCH_CONSULTATIONS):
+      return `search-consultations-page`;
+    case matchRoute(pathname, ROUTE_SEARCH):
+      return `search-page`;
     case matchRoute(pathname, '/'):
       return `homepage`;
     default:
@@ -42,6 +54,14 @@ export const getTrackingLocation = (pathname: string): string => {
       return `sequence`;
     case matchRoute(pathname, ROUTE_PROPOSAL):
       return `proposal-page`;
+    case matchRoute(pathname, ROUTE_SEARCH):
+      return `search-page`;
+    case matchRoute(pathname, ROUTE_SEARCH_PROPOSALS):
+      return `search-proposals-page`;
+    case matchRoute(pathname, ROUTE_SEARCH_ORGANISATIONS):
+      return `search-organisations-page`;
+    case matchRoute(pathname, ROUTE_SEARCH_CONSULTATIONS):
+      return `search-consultations-page`;
     case matchRoute(pathname, '/'):
       return `homepage`;
     default:

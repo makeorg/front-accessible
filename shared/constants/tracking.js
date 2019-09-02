@@ -78,3 +78,11 @@ export const DISPLAY_HOMEPAGE: string = 'display-page-home';
 export const CLICK_HOMEPAGE_FEATURED: string = 'click-homepage-header';
 export const CLICK_HOMEPAGE_CORPORATE: string = 'click-button-whoweare';
 export const CLICK_HOMEPAGE_CONSULTATION: string = 'click-button-consultation';
+
+/** Search */
+export const CLICK_NAVBAR_SEARCH = 'click-navbar-search';
+export const DISPLAY_SEARCH_MAIN_RESULTS = 'display-search-main-results';
+export const DISPLAY_SEARCH_PROPOSALS = 'display-search-proposals';
+export const DISPLAY_SEARCH_ORGANISATIONS = 'display-search-organisations';
+export const DISPLAY_SEARCH_CONSULTATIONS = 'display-search-consultations';
+export const CLICK_SEARCH_RETURN = 'click-search-return';

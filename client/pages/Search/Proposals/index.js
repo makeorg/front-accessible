@@ -1,9 +1,8 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { type Location } from 'history';
+import { type Location, type History } from 'history';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -11,6 +10,7 @@ import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { Tracking } from 'Shared/services/Tracking';
 import {
   SearchPageTitleStyle,
   SearchPageWrapperStyle,
@@ -26,6 +26,7 @@ import { SearchSidebar } from '../Sidebar';
 
 type Props = {
   location: Location,
+  history: History,
   country: string,
   language: string,
 };
@@ -33,6 +34,7 @@ const PROPOSALS_LIMIT = 10;
 
 export const SearchResultsProposalsComponent = ({
   location,
+  history,
   country,
   language,
 }: Props) => {
@@ -79,6 +81,15 @@ export const SearchResultsProposalsComponent = ({
     initProposal();
   }, [term]);
 
+  useEffect(() => {
+    Tracking.trackDisplaySearchProposalsResult();
+  }, []);
+
+  const handleReturn = () => {
+    Tracking.trackClickSearchReturn();
+    history.push(getRouteSearch(country, language, term));
+  };
+
   return (
     <React.Fragment>
       <MetaTags
@@ -88,7 +99,7 @@ export const SearchResultsProposalsComponent = ({
         })}
       />
       <SearchPageWrapperStyle>
-        <SearchBackStyle as={Link} to={getRouteSearch(country, language, term)}>
+        <SearchBackStyle onClick={() => handleReturn()}>
           <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
           {i18n.t('common.back')}
         </SearchBackStyle>
