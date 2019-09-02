@@ -12,12 +12,10 @@ import { SearchFormStyle, SearchInputStyle, SearchButtonStyle } from './Styled';
 
 const SearchInputHandler = ({ location, history, country, language }) => {
   const params = new URLSearchParams(location.search);
-
-  const [searchTerm, setSearchTerm] = useState<string>(
-    params.get('query') || ''
-  );
+  const term = params.get('query');
+  const [searchTerm, setSearchTerm] = useState<string>(term || '');
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [hasSubmit, setHasSubmit] = useState<boolean>(false);
+  const [hasSubmit, setHasSubmit] = useState<boolean>(!!term);
 
   const flushSearchValue = () => {
     setSearchTerm('');
