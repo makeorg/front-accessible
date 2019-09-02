@@ -582,7 +582,8 @@
       "operations": "{{count}} operation pour « {{term}} »",
       "operations_plural": "{{count}} operations pour « {{term}} »",
       "organisations": "{{count}} organisations pour « {{term}} »",
-      "organisations_plural": "{{count}} organisations pour « {{term}} »"
+      "organisations_plural": "{{count}} organisations pour « {{term}} »",
+      "main_results_empty_term": "0 résultat"
     },
     "main_results": {
       "proposal": "Proposition",
