@@ -24,7 +24,7 @@ const getPosition = (cardPosition?: number): string => {
 
 const getEventParameters = (parameters: Object = {}) => {
   return {
-    location: `${getTrackingLocation(window.location.pathname)}`,
+    location: getTrackingLocation(window.location.pathname),
     source: ApiService.source,
     country: ApiService.country,
     language: ApiService.language,
@@ -493,6 +493,31 @@ class TrackingSingleton {
   trackClickHomepageSliderArrows = () => {
     this.track(trackingConstants.CLICK_PROPOSAL_VIEW_MORE);
     this.trackFacebookPixel(trackingConstants.CLICK_PROPOSAL_VIEW_MORE);
+  };
+
+  /** Search */
+  trackClickSubmitSearch = () => {
+    this.track(trackingConstants.CLICK_NAVBAR_SEARCH);
+  };
+
+  trackDisplaySearchMainResult = () => {
+    this.track(trackingConstants.DISPLAY_SEARCH_MAIN_RESULTS);
+  };
+
+  trackDisplaySearchProposalsResult = () => {
+    this.track(trackingConstants.DISPLAY_SEARCH_PROPOSALS);
+  };
+
+  trackDisplaySearchOragnisationsResult = () => {
+    this.track(trackingConstants.DISPLAY_SEARCH_ORGANISATIONS);
+  };
+
+  trackDisplaySearchConsultationsResult = () => {
+    this.track(trackingConstants.DISPLAY_SEARCH_CONSULTATIONS);
+  };
+
+  trackClickSearchReturn = () => {
+    this.track(trackingConstants.CLICK_SEARCH_RETURN);
   };
 }
 

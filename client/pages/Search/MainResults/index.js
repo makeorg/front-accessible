@@ -12,6 +12,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { getRouteSearchProposals } from 'Shared/routes';
 
+import { Tracking } from 'Shared/services/Tracking';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -46,6 +47,10 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   const responseCount = proposalsCount + questionsCount + organisationsCount;
   const withProposals = proposalsCount > 0;
   const noResults = responseCount === 0;
+
+  useEffect(() => {
+    Tracking.trackDisplaySearchMainResult();
+  }, []);
 
   useEffect(() => {
     async function fetchData() {

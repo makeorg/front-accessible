@@ -606,6 +606,7 @@
       "introduction_searched": "Pour vider le champ de recherche, cliquez sur le bouton \"Effacer le champ de recherche\"",
       "label": "Champ de recherche",
       "placeholder": "Recherchez une idée, un thème, un sujet",
+      "placeholder_mobile": "Recherchez...",
       "submit": "Rechercher",
       "flush": "Effacer le champ de recherche"
     }

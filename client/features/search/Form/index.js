@@ -6,13 +6,16 @@ import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { SvgSearch, SvgDisconnect } from 'Client/ui/Svg/elements';
 import { getRouteSearch } from 'Shared/routes';
 import { SEARCH_FORMNAME } from 'Shared/constants/form';
+import { Tracking } from 'Shared/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 import { i18n } from 'Shared/i18n';
+import { useMobile } from 'Client/hooks/useMedia';
 import { SearchFormStyle, SearchInputStyle, SearchButtonStyle } from './Styled';
 
 const SearchInputHandler = ({ location, history, country, language }) => {
   const params = new URLSearchParams(location.search);
   const term = params.get('query');
+  const isMobile = useMobile();
   const [searchTerm, setSearchTerm] = useState<string>(term || '');
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const [hasSubmit, setHasSubmit] = useState<boolean>(!!term);
@@ -35,6 +38,7 @@ const SearchInputHandler = ({ location, history, country, language }) => {
 
   const handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    Tracking.trackClickSubmitSearch();
     setHasSubmit(true);
     history.push(getRouteSearch(country, language, searchTerm));
   };
@@ -65,7 +69,11 @@ const SearchInputHandler = ({ location, history, country, language }) => {
         type="text"
         name="search"
         id="search_input"
-        placeholder={i18n.t('search.form.placeholder')}
+        placeholder={
+          isMobile
+            ? i18n.t('search.form.placeholder_mobile')
+            : i18n.t('search.form.placeholder')
+        }
         value={searchTerm}
         minLength={3}
         maxLength={140}
