@@ -498,26 +498,32 @@ class TrackingSingleton {
   /** Search */
   trackClickSubmitSearch = () => {
     this.track(trackingConstants.CLICK_NAVBAR_SEARCH);
+    this.trackFacebookPixel(trackingConstants.CLICK_NAVBAR_SEARCH);
   };
 
   trackDisplaySearchMainResult = () => {
     this.track(trackingConstants.DISPLAY_SEARCH_MAIN_RESULTS);
+    this.trackFacebookPixel(trackingConstants.DISPLAY_SEARCH_MAIN_RESULTS);
   };
 
   trackDisplaySearchProposalsResult = () => {
     this.track(trackingConstants.DISPLAY_SEARCH_PROPOSALS);
+    this.trackFacebookPixel(trackingConstants.DISPLAY_SEARCH_PROPOSALS);
   };
 
   trackDisplaySearchOragnisationsResult = () => {
     this.track(trackingConstants.DISPLAY_SEARCH_ORGANISATIONS);
+    this.trackFacebookPixel(trackingConstants.DISPLAY_SEARCH_ORGANISATIONS);
   };
 
   trackDisplaySearchConsultationsResult = () => {
     this.track(trackingConstants.DISPLAY_SEARCH_CONSULTATIONS);
+    this.trackFacebookPixel(trackingConstants.DISPLAY_SEARCH_CONSULTATIONS);
   };
 
   trackClickSearchReturn = () => {
     this.track(trackingConstants.CLICK_SEARCH_RETURN);
+    this.trackFacebookPixel(trackingConstants.CLICK_SEARCH_RETURN);
   };
 }
 
