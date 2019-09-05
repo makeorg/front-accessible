@@ -12,6 +12,7 @@ Object {
   "modal": Object {
     "contentType": null,
     "isOpen": false,
+    "showExpirationSession": false,
   },
   "notification": Object {
     "contentType": undefined,

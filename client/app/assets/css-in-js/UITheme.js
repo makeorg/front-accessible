@@ -43,6 +43,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     background-color: ${BasicColors.PureWhite};
     box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
     overflow-y: auto;
+    border-radius: 8px;
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       padding: ${intToPx(DefaultPadding.Desktop)};
     }

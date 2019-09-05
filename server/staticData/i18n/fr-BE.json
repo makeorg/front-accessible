@@ -107,6 +107,11 @@
         "second_sentence": "Connectez-vous à nouveau pour continuer à voter, proposer et agir sur Make.org.",
         "emoji": "emoji visage triste avec larme"
       },
+      "session_expired": {
+        "title": "Temps limite d'inactivité",
+        "description": "Pour assurer la qualité de notre service, nous allons recharger la page.",
+        "button_text": "J'ai compris"
+      },
       "icons": {
         "close": "Fermer la bannière de notification",
         "information": "Message d'information : ",

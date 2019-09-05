@@ -8,6 +8,7 @@ describe('Modal reducer', () => {
     const expectedState = {
       isOpen: false,
       contentType: null,
+      showExpirationSession: false,
     };
 
     expect(modal(undefined, {})).toEqual(expectedState);

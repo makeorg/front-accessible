@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { type TypeErrorObject } from 'Shared/types/api';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
@@ -73,6 +73,7 @@ export type StateQuestions = $ReadOnly<{
 
 export type StateModal = $ReadOnly<{
   isOpen: boolean,
+  showExpirationSession: boolean,
 }>;
 
 // All state

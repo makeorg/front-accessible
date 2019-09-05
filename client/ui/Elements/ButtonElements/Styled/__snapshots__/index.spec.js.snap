@@ -147,6 +147,7 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   position: absolute;
   top: 20px;
   right: 20px;
+  fill: rgb(222,26,66);
   z-index: 1;
   font-size: 16px;
 }

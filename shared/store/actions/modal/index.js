@@ -21,3 +21,10 @@ export const modalShowForgotPassword = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_FORGOT_PASSWORD });
   Tracking.trackDisplayForgotPasswordForm();
 };
+
+export const showSessionExpirationModal = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_SHOW_SESSION_EXPIRATION });
+};
+export const closeSessionExpirationModal = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_CLOSE_SESSION_EXPIRATION });
+};

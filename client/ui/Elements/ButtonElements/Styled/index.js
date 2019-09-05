@@ -170,6 +170,7 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${intToPx(DefaultPadding.Mobile)};
   right: ${intToPx(DefaultPadding.Mobile)};
+  fill: ${MakeThemeColors.Red};
   z-index: 1;
   font-size: 16px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

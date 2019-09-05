@@ -42,6 +42,7 @@ export const initialState: StateRoot = {
   modal: {
     isOpen: false,
     contentType: null,
+    showExpirationSession: false,
   },
 };
 
