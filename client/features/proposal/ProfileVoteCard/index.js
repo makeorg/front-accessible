@@ -12,7 +12,7 @@ import { voteStaticParams } from 'Shared/constants/vote';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
-import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
+import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import {

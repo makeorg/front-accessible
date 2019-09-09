@@ -3,7 +3,7 @@ import React from 'react';
 import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink } from 'Shared/helpers/url';
-import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement';
+import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
   ProposalCardStyle,

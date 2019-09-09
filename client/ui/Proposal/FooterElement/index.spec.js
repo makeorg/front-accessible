@@ -2,10 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
 import { proposalTypeFixture } from 'Shared/types/__fixtures__/proposal.fixture';
-import {
-  ProposalFooterWithTagElement,
-  ProposalFooterWithQuestionElement,
-} from './index';
+import { ProposalFooterWithTagElement } from './ProposalWithTag/index';
+import { ProposalFooterWithQuestionElement } from './index';
 
 jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
