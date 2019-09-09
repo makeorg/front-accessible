@@ -1,10 +1,12 @@
-/* @flow */
+// @flow
 
 import {
   MODAL_SHOW_LOGIN,
   MODAL_SHOW_REGISTER,
   MODAL_SHOW_FORGOT_PASSWORD,
   MODAL_CLOSE,
+  MODAL_SHOW_SESSION_EXPIRATION,
+  MODAL_CLOSE_SESSION_EXPIRATION,
 } from 'Shared/store/actionTypes';
 import {
   MODAL_LOGIN_CONTENT,
@@ -38,6 +40,18 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
       return {
         ...state,
         isOpen: false,
+      };
+    case MODAL_SHOW_SESSION_EXPIRATION:
+      return {
+        ...state,
+        isOpen: false,
+        showExpirationSession: true,
+      };
+    case MODAL_CLOSE_SESSION_EXPIRATION:
+      return {
+        ...state,
+        isOpen: false,
+        showExpirationSession: false,
       };
     default:
       return state;

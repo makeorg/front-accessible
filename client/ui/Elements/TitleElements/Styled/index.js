@@ -3,6 +3,14 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+
+export const ThirdLevelTitleCircularStyle = styled.h3`
+  font-size: 22px;
+  line-height: 30px;
+  font-family: ${MakeFonts.CircularStandardBold};
+  text-transform: none;
+`;
 
 export const SecondLevelTitleStyle = styled.h2`
   font-size: 20px;

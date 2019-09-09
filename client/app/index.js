@@ -15,6 +15,7 @@ import { Footer } from './Footer';
 import { Modal } from './Modal';
 import { Routes } from './Routes';
 import { SecureExpiration } from './Expiration/Secure';
+import { SessionExpiration } from './Expiration/Session';
 import { ErrorBoundary } from './Error';
 import { MainSkipLinks } from './SkipLinks/Main';
 
@@ -23,22 +24,24 @@ import { MainSkipLinks } from './SkipLinks/Main';
  */
 export const AppContainer = () => (
   <SecureExpiration>
-    <ErrorBoundary>
-      <AppWrapperStyle>
-        <ModernNormalizeStylesheet />
-        <FontFacesStylesheet />
-        <DefaultStylesheet />
-        <UIThemeStylesheet />
-        <CookieBanner />
-        <MainSkipLinks />
-        <Header />
-        <AppMainContentStyle id="main_content">
-          <Notification />
-          <Routes />
-        </AppMainContentStyle>
-        <Modal />
-        <Footer />
-      </AppWrapperStyle>
-    </ErrorBoundary>
+    <SessionExpiration>
+      <ErrorBoundary>
+        <AppWrapperStyle>
+          <ModernNormalizeStylesheet />
+          <FontFacesStylesheet />
+          <DefaultStylesheet />
+          <UIThemeStylesheet />
+          <CookieBanner />
+          <MainSkipLinks />
+          <Header />
+          <AppMainContentStyle id="main_content">
+            <Notification />
+            <Routes />
+          </AppMainContentStyle>
+          <Modal />
+          <Footer />
+        </AppWrapperStyle>
+      </ErrorBoundary>
+    </SessionExpiration>
   </SecureExpiration>
 );
