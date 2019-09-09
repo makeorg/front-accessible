@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackDisplaySearchOragnisationsResult } from 'Shared/services/Tracking';
 import {
   SearchPageTitleStyle,
   SearchPageWrapperStyle,
@@ -17,7 +17,7 @@ import { SearchSidebar } from '../Sidebar';
 
 export const SearchOrganisations = () => {
   useEffect(() => {
-    Tracking.trackDisplaySearchOragnisationsResult();
+    trackDisplaySearchOragnisationsResult();
   }, []);
   return (
     <React.Fragment>

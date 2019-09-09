@@ -1,7 +1,10 @@
 // @flow
 import React, { useEffect } from 'react';
 import { type PushProposalCardConfig } from 'Shared/types/card';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackDisplayProposalPushCard,
+  trackClickProposalPushCardIgnore,
+} from 'Shared/services/Tracking';
 import { focusProposalField } from 'Client/app/SkipLinks/Consultation';
 import { PushProposalCardComponent } from './PushProposalCardComponent';
 
@@ -24,13 +27,13 @@ export const PushProposalCardContainer = ({
 }: Props) => {
   useEffect(() => {
     if (isCardVisible) {
-      Tracking.trackDisplayProposalPushCard();
+      trackDisplayProposalPushCard();
     }
   }, [isCardVisible]);
 
   const skipProposalPushCard = () => {
     incrementCurrentIndex();
-    Tracking.trackClickProposalPushCardIgnore();
+    trackClickProposalPushCardIgnore();
   };
 
   return (

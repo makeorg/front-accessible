@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackOpenLearnMore } from 'Shared/services/Tracking';
 import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
@@ -82,9 +82,7 @@ export const ConsultationPanelContent = ({
         <Collapse
           title={i18n.t('consultation.presentation.title')}
           forceExpand
-          trackCollapse={(action: string) =>
-            Tracking.trackOpenLearnMore(action)
-          }
+          trackCollapse={(action: string) => trackOpenLearnMore(action)}
           questionId={question.questionId}
         >
           <Presentation

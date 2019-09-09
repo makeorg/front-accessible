@@ -6,7 +6,7 @@ import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { useDesktop } from 'Client/hooks/useMedia';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickHomepageFeatured } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
@@ -57,7 +57,7 @@ export const FeaturedArticle = ({
     >
       <FeaturedPictureWraperStyle
         onClick={() =>
-          Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
+          trackClickHomepageFeatured(blockPosition, featured.title)
         }
         aria-hidden
         tabIndex={-1}
@@ -87,7 +87,7 @@ export const FeaturedArticle = ({
         </FeaturedInnerContent>
         <LinkAsRedButton
           onClick={() =>
-            Tracking.trackClickHomepageFeatured(blockPosition, featured.title)
+            trackClickHomepageFeatured(blockPosition, featured.title)
           }
           {...linkObject}
         >

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackDisplayModerationText } from 'Shared/services/Tracking';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
  */
 export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
   componentDidMount() {
-    Tracking.trackDisplayModerationText();
+    trackDisplayModerationText();
   }
 
   render() {

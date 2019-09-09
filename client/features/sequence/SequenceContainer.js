@@ -5,7 +5,7 @@ import { startSequence } from 'Shared/services/Sequence';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickStartSequence } from 'Shared/services/Tracking';
 import { type TypeCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
@@ -51,7 +51,7 @@ const SequenceHandler = ({
     setCurrentIndex(currentIndex + 1);
 
     setHasStarted(true);
-    Tracking.trackClickStartSequence();
+    trackClickStartSequence();
   };
 
   const incrementCurrentIndex = () => {

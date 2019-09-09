@@ -1,7 +1,7 @@
 /* @flow */
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickConsultation } from 'Shared/services/Tracking';
 import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
 import { FooterStyle, FooterTitleStyle, FooterLinkStyle } from '../Styled';
 
@@ -29,7 +29,7 @@ export const SequenceFooterComponent = (props: Props) => {
       <FooterLinkStyle
         className={theme.footerFontColor}
         to={consultationLink}
-        onClick={() => Tracking.trackClickConsultation()}
+        onClick={() => trackClickConsultation()}
       >
         {i18n.t('footer_sequence.link')}
       </FooterLinkStyle>

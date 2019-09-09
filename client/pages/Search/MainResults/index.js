@@ -5,6 +5,7 @@ import { type Location } from 'history';
 import { type TypeSearchViews } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { i18n } from 'Shared/i18n';
+import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
@@ -14,8 +15,6 @@ import {
   getRouteSearchProposals,
   getRouteSearchConsultations,
 } from 'Shared/routes';
-
-import { Tracking } from 'Shared/services/Tracking';
 import { MainResultsConsultations } from 'Client/features/search/MainResults/Consultations';
 import {
   SearchPageTitleStyle,
@@ -52,7 +51,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   const noResults = responseCount === 0;
 
   useEffect(() => {
-    Tracking.trackDisplaySearchMainResult();
+    trackDisplaySearchMainResult();
   }, []);
 
   useEffect(() => {

@@ -10,7 +10,11 @@ import {
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { type Question } from 'Shared/types/question';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackDisplayProposalSubmitValidation,
+  trackClickProposalSubmit,
+  trackClickModerationLink,
+} from 'Shared/services/Tracking';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { propose } from 'Shared/services/Proposal';
 import { ProposalSubmitAuthentification } from './Authentification';
@@ -88,7 +92,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         content: '',
         length: getProposalLength(),
       });
-      Tracking.trackDisplayProposalSubmitValidation();
+      trackDisplayProposalSubmitValidation();
     } catch {
       this.setState({
         isSucess: false,
@@ -125,7 +129,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
 
     if (!canBeOpen) handleFocus();
 
-    Tracking.trackClickProposalSubmit();
+    trackClickProposalSubmit();
 
     if (isLoggedIn && proposalHasValidLength(length)) {
       this.submitProposal();
@@ -139,7 +143,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
   };
 
   trackModerationLink = () => {
-    Tracking.trackClickModerationLink();
+    trackClickModerationLink();
   };
 
   render() {

@@ -4,7 +4,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { UserApiService } from 'Shared/api/UserApiService';
-import { Tracking } from 'Shared/services/Tracking';
+import * as Tracking from 'Shared/services/Tracking';
 import * as actions from './index';
 
 // mocks

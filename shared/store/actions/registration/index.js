@@ -7,7 +7,10 @@ import {
   setUserInfo,
 } from 'Shared/store/actions/authentification';
 import { modalClose } from 'Shared/store/actions/modal';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackSignupEmailSuccess,
+  trackSignupEmailFailure,
+} from 'Shared/services/Tracking';
 import { type Dispatch } from 'redux';
 import { defaultApiError } from 'Shared/errors/Messages';
 
@@ -25,7 +28,7 @@ export const register = (user: Object) => (dispatch: Dispatch) => {
   return UserApiService.register(user)
     .then(userResponse => {
       dispatch(registerSuccess());
-      Tracking.trackSignupEmailSuccess();
+      trackSignupEmailSuccess();
 
       return userResponse;
     })
@@ -40,6 +43,6 @@ export const register = (user: Object) => (dispatch: Dispatch) => {
       dispatch(
         registerFailure(Array.isArray(errors) ? errors : [defaultApiError])
       );
-      Tracking.trackSignupEmailFailure();
+      trackSignupEmailFailure();
     });
 };

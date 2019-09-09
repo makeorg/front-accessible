@@ -3,7 +3,44 @@
 import { ApiService } from 'Shared/api/ApiService';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
-import { Tracking } from './Tracking';
+import TrackingService, {
+  trackClickMakeLogo,
+  trackDisplaySequence,
+  trackClickActionsTab,
+  trackDisplayConsultation,
+  trackClickHomepageSliderArrows,
+  trackClickHomepageConsultations,
+  trackDisplaySignupForm,
+  trackDisplayModerationText,
+  trackDisplayAuthentificationForm,
+  trackClickPersonnalDataLink,
+  trackClickProposalSubmit,
+  trackDisplayForgotPasswordForm,
+  trackClickCloseModal,
+  trackClickModerationLink,
+  trackClickHomepageCorporate,
+  trackClickHomepageFeatured,
+  trackDisplayHomepage,
+  trackClickConsultation,
+  trackLoadMoreProposals,
+  trackUnqualify,
+  trackQualify,
+  trackUnvote,
+  trackVote,
+  trackFirstVote,
+  trackDisplayFinalCard,
+  trackClickPreviousCard,
+  trackClickNextCard,
+  trackLoginEmailFailure,
+  trackLoginEmailSuccess,
+  trackAuthentificationSocialFailure,
+  trackAuthentificationSocialSuccess,
+  trackDisplaySigninForm,
+  trackSignupEmailFailure,
+  trackSignupEmailSuccess,
+  trackDisplayProposalSubmitValidation,
+  trackClickStartSequence,
+} from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 
@@ -19,13 +56,13 @@ export const eventParameters = {
 
 describe('Tracking Service', () => {
   beforeEach(() => {
-    jest.spyOn(Tracking, 'track');
+    jest.spyOn(TrackingService, 'track');
     jest.spyOn(FacebookTracking, 'trackCustom');
     jest.spyOn(TwitterTracking, 'track');
   });
 
   afterEach(() => {
-    Tracking.track.mockRestore();
+    TrackingService.track.mockRestore();
     FacebookTracking.trackCustom.mockRestore();
     TwitterTracking.track.mockRestore();
   });
@@ -40,7 +77,7 @@ describe('Tracking Service', () => {
 
     jest.spyOn(ApiService, 'callApi');
 
-    Tracking.track(eventName, eventParameters);
+    TrackingService.track(eventName, eventParameters);
     expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_POST_TRACKING, {
       body: expectedBody,
       method: 'POST',
@@ -48,7 +85,7 @@ describe('Tracking Service', () => {
   });
 
   it('track trackFacebookPixel', () => {
-    Tracking.trackFacebookPixel('eventName', eventParameters);
+    TrackingService.trackFacebookPixel('eventName', eventParameters);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       'eventName',
@@ -59,8 +96,8 @@ describe('Tracking Service', () => {
   it('track DisplaySequence', () => {
     const eventName = trackingConstants.DISPLAY_SEQUENCE;
 
-    Tracking.trackDisplaySequence();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplaySequence();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -71,8 +108,8 @@ describe('Tracking Service', () => {
   it('track Display Page Operation', () => {
     const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
 
-    Tracking.trackDisplayConsultation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayConsultation();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -83,8 +120,8 @@ describe('Tracking Service', () => {
   it('track Click Actions Tab', () => {
     const eventName = trackingConstants.CLICK_ACTIONS_TAB;
 
-    Tracking.trackClickActionsTab();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickActionsTab();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -95,8 +132,8 @@ describe('Tracking Service', () => {
   it('track ClickMakeLogo', () => {
     const eventName = trackingConstants.CLICK_MAKEORG_LOGO;
 
-    Tracking.trackClickMakeLogo();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickMakeLogo();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -107,8 +144,8 @@ describe('Tracking Service', () => {
   it('track Display Moderation Text', () => {
     const eventName = trackingConstants.DISPLAY_MODERATION_TEXT;
 
-    Tracking.trackDisplayModerationText();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayModerationText();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -119,8 +156,8 @@ describe('Tracking Service', () => {
   it('track Click Moderation Text', () => {
     const eventName = trackingConstants.CLICK_MODERATION_LINK;
 
-    Tracking.trackClickModerationLink();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickModerationLink();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -131,8 +168,8 @@ describe('Tracking Service', () => {
   it('track Display Authentification Form', () => {
     const eventName = trackingConstants.DISPLAY_AUTHENTIFICATION_FORM;
 
-    Tracking.trackDisplayAuthentificationForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayAuthentificationForm();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -142,9 +179,9 @@ describe('Tracking Service', () => {
 
   it('track Click Personnal DataLink', () => {
     const eventName = trackingConstants.CLICK_PERSONNAL_DATA_LINK;
-    Tracking.trackClickPersonnalDataLink();
 
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickPersonnalDataLink();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -155,8 +192,8 @@ describe('Tracking Service', () => {
   it('track Click Proposal Submit', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_SUBMIT;
 
-    Tracking.trackClickProposalSubmit();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickProposalSubmit();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -167,8 +204,8 @@ describe('Tracking Service', () => {
   it('track Display Proposal Submit Validation', () => {
     const eventName = trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION;
 
-    Tracking.trackDisplayProposalSubmitValidation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayProposalSubmitValidation();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -179,8 +216,8 @@ describe('Tracking Service', () => {
   it('track Display Forgot Password Form', () => {
     const eventName = trackingConstants.DISPLAY_FORGOTPASSWORD_FORM;
 
-    Tracking.trackDisplayForgotPasswordForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayForgotPasswordForm();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -191,8 +228,8 @@ describe('Tracking Service', () => {
   it('track Click Close Modal', () => {
     const eventName = trackingConstants.CLICK_CLOSE_MODAL;
 
-    Tracking.trackClickCloseModal();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickCloseModal();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -203,8 +240,8 @@ describe('Tracking Service', () => {
   it('track Display Signup Form', () => {
     const eventName = trackingConstants.DISPLAY_SIGN_UP_FORM;
 
-    Tracking.trackDisplaySignupForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplaySignupForm();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -215,8 +252,8 @@ describe('Tracking Service', () => {
   it('track Signup Email Success', () => {
     const eventName = trackingConstants.SIGN_UP_EMAIL_SUCCESS;
 
-    Tracking.trackSignupEmailSuccess();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackSignupEmailSuccess();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -227,8 +264,8 @@ describe('Tracking Service', () => {
   it('track Signup Email Failure', () => {
     const eventName = trackingConstants.SIGN_UP_EMAIL_FAILURE;
 
-    Tracking.trackSignupEmailFailure();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackSignupEmailFailure();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -239,8 +276,8 @@ describe('Tracking Service', () => {
   it('track Display Signin Form', () => {
     const eventName = trackingConstants.DISPLAY_SIGN_IN_FORM;
 
-    Tracking.trackDisplaySigninForm();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplaySigninForm();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -253,8 +290,12 @@ describe('Tracking Service', () => {
     const trackParams = { 'social-network': 'foo' };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    Tracking.trackAuthentificationSocialSuccess('foo');
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, trackParams);
+    trackAuthentificationSocialSuccess('foo');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      trackParams
+    );
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -267,8 +308,12 @@ describe('Tracking Service', () => {
     const trackParams = { 'social-network': 'foo' };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    Tracking.trackAuthentificationSocialFailure('foo');
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, trackParams);
+    trackAuthentificationSocialFailure('foo');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      trackParams
+    );
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -279,8 +324,8 @@ describe('Tracking Service', () => {
   it('track Login Email Success', () => {
     const eventName = trackingConstants.SIGN_IN_EMAIL_SUCCESS;
 
-    Tracking.trackLoginEmailSuccess();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackLoginEmailSuccess();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -291,8 +336,8 @@ describe('Tracking Service', () => {
   it('track Login Email Failure', () => {
     const eventName = trackingConstants.SIGN_IN_EMAIL_FAILURE;
 
-    Tracking.trackLoginEmailFailure();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackLoginEmailFailure();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -303,8 +348,8 @@ describe('Tracking Service', () => {
   it('track Click Start Sequence', () => {
     const eventName = trackingConstants.CLICK_START_SEQUENCE;
 
-    Tracking.trackClickStartSequence();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickStartSequence();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -315,8 +360,8 @@ describe('Tracking Service', () => {
   it('track Click Next Card', () => {
     const eventName = trackingConstants.CLICK_SEQUENCE_NEXT_CARD;
 
-    Tracking.trackClickNextCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickNextCard();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -327,8 +372,8 @@ describe('Tracking Service', () => {
   it('track Click Previous Card', () => {
     const eventName = trackingConstants.CLICK_SEQUENCE_PREVIOUS_CARD;
 
-    Tracking.trackClickPreviousCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickPreviousCard();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -339,8 +384,8 @@ describe('Tracking Service', () => {
   it('track Display Final Card', () => {
     const eventName = trackingConstants.DISPLAY_FINAL_CARD;
 
-    Tracking.trackDisplayFinalCard();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayFinalCard();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -351,8 +396,8 @@ describe('Tracking Service', () => {
   it('track First Vote', () => {
     const eventName = trackingConstants.CLICK_SEQUENCE_FIRST_VOTE;
 
-    Tracking.trackFirstVote('foo', 'bar', 999);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackFirstVote('foo', 'bar', 999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': '999',
@@ -366,8 +411,8 @@ describe('Tracking Service', () => {
   it('track Vote', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VOTE;
 
-    Tracking.trackVote('foo', 'bar', 999);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackVote('foo', 'bar', 999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': '999',
@@ -381,8 +426,8 @@ describe('Tracking Service', () => {
   it('track Unvote', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_UNVOTE;
 
-    Tracking.trackUnvote('foo', 'bar', 999);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackUnvote('foo', 'bar', 999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': '999',
@@ -396,8 +441,8 @@ describe('Tracking Service', () => {
   it('track Vote on Single Proposal Card', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VOTE;
 
-    Tracking.trackVote('foo', 'bar', undefined);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackVote('foo', 'bar', undefined);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': 'single-proposal',
@@ -411,8 +456,8 @@ describe('Tracking Service', () => {
   it('track Unvote on Single Proposal Card', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_UNVOTE;
 
-    Tracking.trackUnvote('foo', 'bar', undefined);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackUnvote('foo', 'bar', undefined);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': 'single-proposal',
@@ -426,8 +471,8 @@ describe('Tracking Service', () => {
   it('track Qualify', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_QUALIFY;
 
-    Tracking.trackQualify('foo', 'baz', 'bar', 999);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackQualify('foo', 'baz', 'bar', 999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       type: 'baz',
       nature: 'bar',
@@ -442,8 +487,8 @@ describe('Tracking Service', () => {
   it('track Unqualify', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_UNQUALIFY;
 
-    Tracking.trackUnqualify('foo', 'baz', 'bar', 999);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackUnqualify('foo', 'baz', 'bar', 999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       type: 'baz',
       nature: 'bar',
@@ -458,8 +503,8 @@ describe('Tracking Service', () => {
   it('track Load More Proposals without page number', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
 
-    Tracking.trackLoadMoreProposals();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackLoadMoreProposals();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       page: undefined,
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
@@ -471,8 +516,8 @@ describe('Tracking Service', () => {
   it('track Load More Proposals with page number', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
 
-    Tracking.trackLoadMoreProposals(9);
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackLoadMoreProposals(9);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       page: '9',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
@@ -484,8 +529,8 @@ describe('Tracking Service', () => {
   it('track Click Consultation', () => {
     const eventName = trackingConstants.CLICK_CONSULTATION_LINK;
 
-    Tracking.trackClickConsultation();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickConsultation();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -496,8 +541,8 @@ describe('Tracking Service', () => {
   it('track Display Homepage', () => {
     const eventName = trackingConstants.DISPLAY_HOMEPAGE;
 
-    Tracking.trackDisplayHomepage();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackDisplayHomepage();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -508,8 +553,8 @@ describe('Tracking Service', () => {
   it('track Click Homepage Featured', () => {
     const eventName = trackingConstants.CLICK_HOMEPAGE_FEATURED;
 
-    Tracking.trackClickHomepageFeatured(999, 'foo');
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName, {
+    trackClickHomepageFeatured(999, 'foo');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       'block-position': '999',
       'block-title': 'foo',
     });
@@ -523,8 +568,8 @@ describe('Tracking Service', () => {
   it('track Click Homepage Corporate', () => {
     const eventName = trackingConstants.CLICK_HOMEPAGE_CORPORATE;
 
-    Tracking.trackClickHomepageCorporate();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickHomepageCorporate();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -535,8 +580,8 @@ describe('Tracking Service', () => {
   it('track Click Homepage Consultations', () => {
     const eventName = trackingConstants.CLICK_HOMEPAGE_CONSULTATION;
 
-    Tracking.trackClickHomepageConsultations();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickHomepageConsultations();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -547,8 +592,8 @@ describe('Tracking Service', () => {
   it('track Click Homepage Arrow Slider', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
 
-    Tracking.trackClickHomepageSliderArrows();
-    expect(Tracking.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickHomepageSliderArrows();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { type Location } from 'react-router';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { getActionLink, getConsultationLink } from 'Shared/helpers/url';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
@@ -17,7 +17,7 @@ type Props = {
 
 class ConsultationPage extends React.Component<Props> {
   componentDidMount() {
-    Tracking.trackDisplayConsultation();
+    trackDisplayConsultation();
   }
 
   render() {

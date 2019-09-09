@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackVote, trackUnvote } from 'Shared/services/Tracking';
 import {
   type QualificationType,
   type Vote as TypeVote,
@@ -91,7 +91,7 @@ export class VoteContainer extends React.Component<Props, State> {
           this.setState(prevState => doUnvote(prevState, vote))
         );
         onUnvote(proposalId, voteKey, index);
-        Tracking.trackUnvote(proposalId, voteKey, index);
+        trackUnvote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -107,7 +107,7 @@ export class VoteContainer extends React.Component<Props, State> {
         );
 
         onVote(proposalId, voteKey, index);
-        Tracking.trackVote(proposalId, voteKey, index);
+        trackVote(proposalId, voteKey, index);
       })
       .catch(() => {
         this.setState(finishPendingState);

@@ -9,7 +9,10 @@ import * as UserService from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { getUser } from 'Shared/store/actions/authentification';
 import { modalClose } from 'Shared/store/actions/modal';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackSignupEmailSuccess,
+  trackSignupEmailFailure,
+} from 'Shared/services/Tracking';
 import {
   FormStyle,
   ConditionParagraphStyle,
@@ -83,11 +86,11 @@ export const RegisterFormComponent = ({
       await UserService.register(user);
       await logAndLoadUser(user.email, user.password);
 
-      Tracking.trackSignupEmailSuccess();
+      trackSignupEmailSuccess();
       handleModalClose();
       setErrors([]);
     } catch (serviceErrors) {
-      Tracking.trackSignupEmailFailure();
+      trackSignupEmailFailure();
       setErrors(serviceErrors);
     }
   };

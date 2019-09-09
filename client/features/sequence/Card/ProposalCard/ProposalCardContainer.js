@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickNextCard } from 'Shared/services/Tracking';
 import { sequenceVote, sequenceUnvote } from 'Shared/store/actions/sequence';
 import { ProposalCardComponent } from './ProposalCardComponent';
 
@@ -37,7 +37,7 @@ const ProposalCardClass = (props: Props) => {
 
   const goToNextCard = () => {
     incrementCurrentIndex();
-    Tracking.trackClickNextCard();
+    trackClickNextCard();
   };
 
   return (
