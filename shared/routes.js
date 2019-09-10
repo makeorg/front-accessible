@@ -102,6 +102,25 @@ export const getRouteSearchProposals = (
   )}?query=${query}`;
 
 /**
+ * Get the search proposals results route
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} query
+ * @return {string}
+ */
+export const getRouteSearchConsultations = (
+  country: string,
+  language: string,
+  query: string
+) =>
+  `${replaceCountryLanguage(
+    ROUTE_SEARCH_CONSULTATIONS,
+    country,
+    language
+  )}?query=${query}`;
+
+/**
  * Get the search organisations results route
  *
  * @param  {string} country

@@ -29,7 +29,9 @@ export const MainResultsProposalsComponent = ({
   const isMobile = useMobile();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>([]);
+  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>(
+    proposals
+  );
   const getMoreButton =
     count > 4 && count !== proposalsResult.length && !isLoading;
 

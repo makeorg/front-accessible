@@ -36,6 +36,8 @@ export type Question = {
   operationId: string,
   slug: string,
   operationKind: string,
+  question: string,
+  theme: QuestionTheme,
   wording: QuestionWording,
   country: string,
   language: string,

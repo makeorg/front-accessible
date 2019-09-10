@@ -10,9 +10,13 @@ import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { getRouteSearchProposals } from 'Shared/routes';
+import {
+  getRouteSearchProposals,
+  getRouteSearchConsultations,
+} from 'Shared/routes';
 
 import { Tracking } from 'Shared/services/Tracking';
+import { MainResultsConsultations } from 'Client/features/search/MainResults/Consultations';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -45,7 +49,6 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   const questionsCount = data.questions.total;
   const organisationsCount = data.organisations.total;
   const responseCount = proposalsCount + questionsCount + organisationsCount;
-  const withProposals = proposalsCount > 0;
   const noResults = responseCount === 0;
 
   useEffect(() => {
@@ -71,7 +74,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
       <MetaTags
         title={i18n.t('meta.search.main_results', {
           term,
-          count: proposalsCount,
+          count: responseCount,
         })}
       />
       <SearchPageTitleStyle>
@@ -79,7 +82,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
         {!isLoading && !!term
           ? i18n.t('search.titles.main_results', {
               term,
-              count: proposalsCount,
+              count: responseCount,
             })
           : i18n.t('search.titles.main_results_empty_term')}
       </SearchPageTitleStyle>
@@ -100,22 +103,42 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
               </NoResultsStyle>
             </React.Fragment>
           )}
-          {!isLoading && withProposals && (
-            <MainResultsSectionStyle>
-              <MainResultsHeader
-                title={i18n.t('search.main_results.proposal', {
-                  term,
-                  count: proposalsCount,
-                })}
-                count={proposalsCount}
-                link={getRouteSearchProposals(country, language, term)}
-              />
-              <MainResultsProposals
-                searchTerm={term}
-                proposals={data.proposals.results}
-                count={proposalsCount}
-              />
-            </MainResultsSectionStyle>
+          {!isLoading && responseCount && (
+            <React.Fragment>
+              {!!proposalsCount && (
+                <MainResultsSectionStyle>
+                  <MainResultsHeader
+                    title={i18n.t('search.main_results.proposal', {
+                      term,
+                      count: proposalsCount,
+                    })}
+                    count={proposalsCount}
+                    link={getRouteSearchProposals(country, language, term)}
+                  />
+
+                  <MainResultsProposals
+                    searchTerm={term}
+                    proposals={data.proposals.results}
+                    count={proposalsCount}
+                  />
+                </MainResultsSectionStyle>
+              )}
+              {!!questionsCount && (
+                <MainResultsSectionStyle>
+                  <MainResultsHeader
+                    title={i18n.t('search.main_results.operation', {
+                      term,
+                      count: questionsCount,
+                    })}
+                    count={questionsCount}
+                    link={getRouteSearchConsultations(country, language, term)}
+                  />
+                  <MainResultsConsultations
+                    questions={data.questions.results}
+                  />
+                </MainResultsSectionStyle>
+              )}
+            </React.Fragment>
           )}
         </SearchPageResultsStyle>
         <SearchSidebar />
