@@ -8,7 +8,7 @@ import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
 import { CorporateBanner } from 'Client/features/homepage/Corporate';
-import { BusinessConsultations } from 'Client/features/homepage/BusinessConsultations';
+import { BusinessConsultations } from 'Client/features/consultation/Business';
 import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { PopularProposals } from 'Client/features/homepage/Proposals/Popular';
