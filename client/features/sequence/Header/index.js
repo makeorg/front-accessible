@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickPreviousCard } from 'Shared/services/Tracking';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import {
@@ -33,7 +33,7 @@ export const CardHeader = (props: Props) => {
 
   const goToPreviousCard = () => {
     decrementCurrentIndex();
-    Tracking.trackClickPreviousCard();
+    trackClickPreviousCard();
   };
 
   return (

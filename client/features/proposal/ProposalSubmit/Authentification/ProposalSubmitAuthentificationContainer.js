@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackDisplayAuthentificationForm,
+  trackClickPersonnalDataLink,
+} from 'Shared/services/Tracking';
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
 type Props = {
@@ -14,12 +17,8 @@ type Props = {
  */
 export class ProposalSubmitAuthentificationClass extends React.Component<Props> {
   componentDidMount() {
-    Tracking.trackDisplayAuthentificationForm();
+    trackDisplayAuthentificationForm();
   }
-
-  trackPersonnalDataLink = () => {
-    Tracking.trackClickPersonnalDataLink();
-  };
 
   render() {
     const { handleRegisterClick, handleLoginClick } = this.props;
@@ -27,7 +26,7 @@ export class ProposalSubmitAuthentificationClass extends React.Component<Props> 
       <ProposalSubmitAuthentificationComponent
         handleRegisterClick={handleRegisterClick}
         handleLoginClick={handleLoginClick}
-        trackPersonnalDataLink={this.trackPersonnalDataLink}
+        trackPersonnalDataLink={() => trackClickPersonnalDataLink()}
       />
     );
   }

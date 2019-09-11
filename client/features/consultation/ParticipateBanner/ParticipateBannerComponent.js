@@ -1,7 +1,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackOpenSequence } from 'Shared/services/Tracking';
 import { type QuestionTheme as TypeQuestionTheme } from 'Shared/types/question';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
@@ -33,7 +33,7 @@ export const ParticipateBannerComponent = (props: Props) => {
       <LinkAsRedButton
         as={Link}
         to={sequenceLink}
-        onClick={() => Tracking.trackOpenSequence()}
+        onClick={() => trackOpenSequence()}
       >
         <IconWrapperStyle aria-hidden>
           <SvgPlayButton />

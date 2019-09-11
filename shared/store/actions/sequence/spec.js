@@ -3,7 +3,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { Tracking } from 'Shared/services/Tracking';
+import * as Tracking from 'Shared/services/Tracking';
 
 import * as actions from './index';
 
@@ -99,10 +99,12 @@ describe('Sequence Actions', () => {
       sequence: { votedProposalIds: ['fooId'], questionId },
     });
 
-    const expectedActions = [{
-      type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-      payload: { proposalId }
-    }];
+    const expectedActions = [
+      {
+        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+        payload: { proposalId },
+      },
+    ];
 
     newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
 

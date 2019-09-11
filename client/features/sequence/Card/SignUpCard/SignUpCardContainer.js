@@ -2,7 +2,10 @@
 
 import React, { useEffect } from 'react';
 import { type SignUpCardConfig } from 'Shared/types/card';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackDisplayProposalPushCard,
+  trackSkipSignUpCard,
+} from 'Shared/services/Tracking';
 import { SignUpCardComponent } from './SignUpCardComponent';
 
 type Props = {
@@ -24,12 +27,12 @@ export const SignUpCardContainer = ({
 }: Props) => {
   useEffect(() => {
     if (isCardVisible) {
-      Tracking.trackDisplayProposalPushCard();
+      trackDisplayProposalPushCard();
     }
   }, [isCardVisible]);
 
   const skipSignUpCard = () => {
-    Tracking.trackSkipSignUpCard();
+    trackSkipSignUpCard();
     incrementCurrentIndex();
   };
 

@@ -26,30 +26,6 @@ describe('VoteResult Helper', () => {
     });
   });
 
-  describe('test getIsVotedProposal', () => {
-    it('throw a badArgumentError if params is empty', () => {
-      expect(() => {
-        VoteResultHelper.getIsVotedProposal([]);
-      }).toThrow(BadArgumentError);
-    });
-    it('return true when at least on is voted', () => {
-      const hasVoted = VoteResultHelper.getIsVotedProposal([
-        { count: 1, hasVoted: false },
-        { count: 2, hasVoted: false },
-        { count: 3, hasVoted: true },
-      ]);
-      expect(hasVoted).toBe(true);
-    });
-    it('return false when all hasVote are false', () => {
-      const hasVoted = VoteResultHelper.getIsVotedProposal([
-        { count: 1, hasVoted: false },
-        { count: 2, hasVoted: false },
-        { count: 3, hasVoted: false },
-      ]);
-      expect(hasVoted).toBe(false);
-    });
-  });
-
   describe('test getVotesPercent', () => {
     it('calculate percent per vote Type', () => {
       const votes = [

@@ -6,7 +6,7 @@ import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { SvgSearch, SvgDisconnect } from 'Client/ui/Svg/elements';
 import { getRouteSearch } from 'Shared/routes';
 import { SEARCH_FORMNAME } from 'Shared/constants/form';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickSubmitSearch } from 'Shared/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -38,7 +38,7 @@ const SearchInputHandler = ({ location, history, country, language }) => {
 
   const handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    Tracking.trackClickSubmitSearch();
+    trackClickSubmitSearch();
     setHasSubmit(true);
     history.push(getRouteSearch(country, language, searchTerm));
   };

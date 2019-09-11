@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackTag } from 'Shared/services/Tracking';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { Tag } from 'Client/ui/Elements/Tag';
 import { i18n } from 'Shared/i18n';
@@ -60,10 +60,7 @@ export const TagFilterComponent = (props: Props) => {
                   key={tag.tagId}
                   isSelected={isSelected}
                   onClick={() => {
-                    Tracking.trackTag(
-                      tag.label,
-                      isSelected ? 'deselect' : 'select'
-                    );
+                    trackTag(tag.label, isSelected ? 'deselect' : 'select');
                     handleSelectTag(tag);
                   }}
                   isAButton

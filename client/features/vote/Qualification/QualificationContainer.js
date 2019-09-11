@@ -7,7 +7,7 @@ import {
   finishPendingState,
 } from 'Shared/helpers/qualification';
 import { QualificationService } from 'Shared/api/QualificationService';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackQualify, trackUnqualify } from 'Shared/services/Tracking';
 import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
@@ -66,7 +66,7 @@ export class QualificationContainer extends React.Component<Props, State> {
           finishPendingState(prevState, qualificationKey)
         );
       });
-    Tracking.trackUnqualify(proposalId, qualificationKey, voteKey, index);
+    trackUnqualify(proposalId, qualificationKey, voteKey, index);
   };
 
   handleQualify = (qualificationKey: string, voteKey: string) => {
@@ -87,7 +87,7 @@ export class QualificationContainer extends React.Component<Props, State> {
           finishPendingState(prevState, qualificationKey)
         );
       });
-    Tracking.trackQualify(proposalId, qualificationKey, voteKey, index);
+    trackQualify(proposalId, qualificationKey, voteKey, index);
   };
 
   handleQualification = (qualification: Object, voteKey: string) => {

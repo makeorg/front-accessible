@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickMakeLogo } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { WHOAREWE_FR_LINK } from 'Shared/constants/url';
@@ -29,7 +29,7 @@ export const Header = () => {
           <h1>
             <Link to="/">
               <HeaderLogoStyle
-                onClick={() => Tracking.trackClickMakeLogo()}
+                onClick={() => trackClickMakeLogo()}
                 src={Logo}
                 alt={i18n.t('header.logo_alt')}
               />

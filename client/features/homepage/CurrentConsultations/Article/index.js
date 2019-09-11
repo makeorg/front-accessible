@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import {
@@ -79,7 +79,7 @@ export const CurrentConsultationArticleDesktop = ({
         aria-hidden={!isOverlayDisplayed}
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
-        onClick={() => Tracking.trackClickHomepageConsultations()}
+        onClick={() => trackClickHomepageConsultations()}
         tabIndex={isOverlayDisplayed ? 0 : -1}
       >
         {children}

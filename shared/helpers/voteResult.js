@@ -23,20 +23,6 @@ export const getTotalVotesCount = (votes: TypeVote[]): number => {
 };
 
 /**
- * check if is voted proposal
- *
- * @param {TypeVote[]} votes
- */
-export const getIsVotedProposal = (votes: TypeVote[]): boolean => {
-  if (!votes.length) {
-    throw new BadArgumentError('votes cannot be an empty array');
-  }
-  return votes
-    .map(vote => vote.hasVoted)
-    .reduce((reducer, hasVoted) => hasVoted);
-};
-
-/**
  * calculate the percent by vote key
  *
  * @param {TypeVote} votes

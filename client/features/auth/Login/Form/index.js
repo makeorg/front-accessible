@@ -3,7 +3,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackLoginEmailSuccess,
+  trackSignupEmailFailure,
+} from 'Shared/services/Tracking';
 import { type TypeErrorObject } from 'Shared/types/api';
 import {
   FormStyle,
@@ -63,13 +66,13 @@ export const LoginFormComponent = ({
     try {
       await UserService.login(formValues.email, formValues.password);
       handleLoginSuccess();
-      Tracking.trackLoginEmailSuccess();
+      trackLoginEmailSuccess();
       handleLoginSuccess();
       setErrors([]);
       return handleGetUser();
     } catch (serviceErrors) {
       setErrors(serviceErrors);
-      return Tracking.trackSignupEmailFailure();
+      return trackSignupEmailFailure();
     }
   };
 

@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect } from 'react';
 import { type IntroCardConfig } from 'Shared/types/card';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackDisplayIntroCard } from 'Shared/services/Tracking';
 import { IntroCardComponent } from './IntroCardComponent';
 
 type Props = {
@@ -32,7 +32,7 @@ export const IntroCardContainer = ({
 }: Props) => {
   useEffect(() => {
     if (isCardVisible) {
-      Tracking.trackDisplayIntroCard();
+      trackDisplayIntroCard();
     }
   }, [isCardVisible]);
   return (

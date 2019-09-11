@@ -10,7 +10,10 @@ import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackDisplaySearchProposalsResult,
+  trackClickSearchReturn,
+} from 'Shared/services/Tracking';
 import {
   SearchPageTitleStyle,
   SearchPageWrapperStyle,
@@ -82,11 +85,11 @@ export const SearchResultsProposalsComponent = ({
   }, [term]);
 
   useEffect(() => {
-    Tracking.trackDisplaySearchProposalsResult();
+    trackDisplaySearchProposalsResult();
   }, []);
 
   const handleReturn = () => {
-    Tracking.trackClickSearchReturn();
+    trackClickSearchReturn();
     history.push(getRouteSearch(country, language, term));
   };
 

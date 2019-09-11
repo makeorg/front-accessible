@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickLearnMore } from 'Shared/services/Tracking';
 import { IntroParagraphStyle, MoreWrapperStyle } from '../../Styled/Content';
 import { FinalLinkStyle } from '../../Styled/Buttons';
 
@@ -23,11 +23,7 @@ export const More = (props: Props) => {
       <IntroParagraphStyle>
         {title || i18n.t('final_card.more.title')}
       </IntroParagraphStyle>
-      <FinalLinkStyle
-        as="a"
-        href={url}
-        onClick={() => Tracking.trackClickLearnMore()}
-      >
+      <FinalLinkStyle as="a" href={url} onClick={() => trackClickLearnMore()}>
         {i18n.t('final_card.more.button')}
       </FinalLinkStyle>
     </MoreWrapperStyle>

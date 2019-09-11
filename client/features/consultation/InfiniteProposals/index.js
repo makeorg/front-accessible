@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { searchTaggedProposals } from 'Shared/helpers/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
@@ -65,7 +65,7 @@ const InfiniteProposalsComponent = ({
 
   const clickLoadMore = () => {
     loadProposals();
-    Tracking.trackLoadMoreProposals(page);
+    trackLoadMoreProposals(page);
   };
 
   useEffect(() => {

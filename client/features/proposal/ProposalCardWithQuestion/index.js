@@ -4,7 +4,7 @@ import { Vote } from 'Client/features/vote';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
-import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement';
+import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import {
   ProposalCardStyle,

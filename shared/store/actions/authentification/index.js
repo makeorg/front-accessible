@@ -6,7 +6,12 @@ import { type TypeErrorObject } from 'Shared/types/api';
 import { UserApiService } from 'Shared/api/UserApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackLoginEmailSuccess,
+  trackLoginEmailFailure,
+  trackAuthentificationSocialSuccess,
+  trackAuthentificationSocialFailure,
+} from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 import {
   showLoginSuccess,
@@ -64,7 +69,7 @@ export const login = (email: string, password: string) => (
   return UserApiService.login(email, password)
     .then(() => {
       dispatch(loginSuccess());
-      Tracking.trackLoginEmailSuccess();
+      trackLoginEmailSuccess();
 
       dispatch(getUser());
     })
@@ -83,7 +88,7 @@ export const login = (email: string, password: string) => (
           }),
         })
       );
-      Tracking.trackLoginEmailFailure();
+      trackLoginEmailFailure();
     });
 };
 
@@ -94,13 +99,13 @@ export const loginSocial = (provider: string, socialToken: string) => (
   return UserApiService.loginSocial(provider, socialToken)
     .then(() => {
       dispatch(loginSocialSuccess());
-      Tracking.trackAuthentificationSocialSuccess(provider);
+      trackAuthentificationSocialSuccess(provider);
 
       dispatch(getUser());
     })
     .catch(() => {
       dispatch(loginSocialFailure());
-      Tracking.trackAuthentificationSocialFailure(provider);
+      trackAuthentificationSocialFailure(provider);
     });
 };
 

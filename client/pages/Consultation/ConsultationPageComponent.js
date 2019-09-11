@@ -5,9 +5,10 @@ import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
+import { trackClickActionsTab } from 'Shared/services/Tracking';
+import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
-import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
 import {
   TabNavStyle,
   TabListStyle,
@@ -20,7 +21,6 @@ import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
-import { Tracking } from 'Shared/services/Tracking';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -72,7 +72,7 @@ export const ConsultationPageComponent = ({
                   to={actionLink}
                   aria-current={isActionPage}
                   onClick={() => {
-                    Tracking.trackClickActionsTab();
+                    trackClickActionsTab();
                   }}
                 >
                   {i18n.t('consultation.tabs.action')}

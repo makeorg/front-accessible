@@ -10,7 +10,10 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { getPartnerAnchor, getSequenceLink } from 'Shared/helpers/url';
-import { Tracking } from 'Shared/services/Tracking';
+import {
+  trackParticipatePartners,
+  trackSeeMorePartners,
+} from 'Shared/services/Tracking';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
 import { SidebarNewWindowLink } from '../SidebarLink';
@@ -41,7 +44,7 @@ export const Partners = (props: Props) => {
       <ParticipateButtonStyle
         as={Link}
         to={sequenceLink}
-        onClick={() => Tracking.trackParticipatePartners()}
+        onClick={() => trackParticipatePartners()}
       >
         <IconWrapperStyle aria-hidden>
           <SvgPlayButton />
@@ -59,7 +62,7 @@ export const Partners = (props: Props) => {
       <SidebarNewWindowLink
         linkUrl={getPartnerAnchor(question.aboutUrl)}
         linkText={i18n.t('consultation.partners.commitment_link')}
-        tracking={() => Tracking.trackSeeMorePartners()}
+        tracking={() => trackSeeMorePartners()}
       />
     </React.Fragment>
   );

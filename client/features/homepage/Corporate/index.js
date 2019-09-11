@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { trackClickHomepageCorporate } from 'Shared/services/Tracking';
 import {
   CorporateWrapperStyle,
   CorporateContainerStyle,
@@ -14,14 +15,13 @@ import {
   CorporateLinkStyle,
 } from 'Client/features/homepage/Corporate/Styled';
 import { SvgLightBulb, SvgThumbsUp, SvgUsers } from 'Client/ui/Svg/elements';
-import { Tracking } from 'Shared/services/Tracking';
 
 const CorporateLink = () => {
   return (
     <CorporateLinkStyle
       as="a"
       href="https://about.make.org/qui-sommes-nous"
-      onClick={() => Tracking.trackClickHomepageCorporate()}
+      onClick={() => trackClickHomepageCorporate()}
     >
       {i18n.t('homepage.corporate.second-section.link-text')}
     </CorporateLinkStyle>

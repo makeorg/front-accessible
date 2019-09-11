@@ -12,7 +12,7 @@ import {
   SvgAngleArrowTop,
 } from 'Client/ui/Svg/elements';
 import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   BusinessConsultationsTitleStyle,
@@ -79,7 +79,7 @@ export const BusinessConsultationsComponent = ({
                     as: Link,
                   }
                 : { href: consultation.aboutUrl, as: 'a' })}
-              onClick={() => Tracking.trackClickHomepageConsultations()}
+              onClick={() => trackClickHomepageConsultations()}
             >
               <BusinessConsultationsItemBorderStyle
                 colorStart={consultation.theme.gradientStart}

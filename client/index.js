@@ -20,7 +20,7 @@ import {
   cookieIsEnabled,
   thirdCookieEnabled,
 } from 'Client/helper/cookieDetect';
-import { Tracking } from 'Shared/services/Tracking';
+import { track } from 'Shared/services/Tracking';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -71,7 +71,7 @@ const logAndTrackEvent = (eventName: string) => {
     referrer: window.document.referrer,
     url: window.location.href,
   });
-  Tracking.track(eventName, {
+  track(eventName, {
     referrer: window.document.referrer,
     url: window.location.href,
   });

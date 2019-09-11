@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { type TypeHome } from 'Shared/types/views';
 import { getHome } from 'Shared/services/Views';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
@@ -33,7 +33,7 @@ export const HomePage = () => {
       setData(response);
     }
     setIsLoading(true);
-    Tracking.trackDisplayHomepage();
+    trackDisplayHomepage();
     fetchData();
     setIsLoading(false);
   }, []);

@@ -8,7 +8,7 @@ import { type Question } from 'Shared/types/question';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
-import { Tracking } from 'Shared/services/Tracking';
+import { trackFirstVote } from 'Shared/services/Tracking';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
@@ -46,7 +46,7 @@ export const sequenceVote = (
   dispatch(voteProposal(proposalId));
 
   if (isFirstVote) {
-    Tracking.trackFirstVote(proposalId, voteKey, index);
+    trackFirstVote(proposalId, voteKey, index);
   }
 };
 
