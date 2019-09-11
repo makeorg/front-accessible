@@ -42,7 +42,7 @@ e2e-test:
     - yarn build
     - yarn test:cypress
   artifacts:
-    when: always
+    when: on_failure
     paths:
       - cypress/videos/**/*.mp4
       - cypress/screenshots/**/*.png

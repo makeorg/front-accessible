@@ -5,7 +5,7 @@ const questionsRouter = require('./routes/questions');
 const userRouter = require('./routes/user');
 
 const server = jsonServer.create();
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({ logger: false });
 
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
