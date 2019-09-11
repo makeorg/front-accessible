@@ -36,17 +36,18 @@ test:
 
 e2e-test:
   stage: e2e
-  image: cypress/base:10
+  image: cypress/base:11.13.0
   script:
     - yarn install
     - yarn build
+    - yarn cypress install
     - yarn test:cypress
   artifacts:
-    when: on_failure
+    expire_in: 1 week
+    when: always
     paths:
-      - cypress/videos/**/*.mp4
-      - cypress/screenshots/**/*.png
-    expire_in: 1 day
+      - cypress/screenshots
+      - cypress/videos
 
 build:
   stage: build
