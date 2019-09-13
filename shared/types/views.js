@@ -36,6 +36,7 @@ export type TypeCurrentConsultation = {
   title: string,
   picture: string,
   altPicture: string,
+  label: string,
   description: string,
   linkLabel: string,
   internalLink: 'consultation' | 'action' | 'sequence' | null,

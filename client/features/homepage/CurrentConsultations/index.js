@@ -133,7 +133,7 @@ export const CurrentConsultationsComponent = ({
                 <CurrentConsultationArticleDesktop
                   image={consultation.picture}
                   title={consultation.altPicture}
-                  label={consultation.linkLabel}
+                  label={consultation.label}
                   proposalsNumber={consultation.proposalsNumber}
                   linkText={consultation.linkLabel}
                   linkObject={getConsultationLink(
