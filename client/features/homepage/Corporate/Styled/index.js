@@ -11,10 +11,7 @@ import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import {
-  ParagraphStyle,
-  PlayfairParagraphStyle,
-} from 'Client/ui/Elements/ParagraphElements';
+import { PlayfairParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const CorporateWrapperStyle = styled(CenterColumnStyle)`
   justify-content: center;
@@ -72,17 +69,25 @@ export const CorporateListStyle = styled(UnstyledListStyle)`
   flex-direction: column;
   margin-bottom: 10px;
 `;
-export const CorporateListItemStyle = styled(ParagraphStyle)`
+export const CorporateListItemStyle = styled.li`
   display: flex;
   font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 14px;
+  line-height: 21px;
   color: ${BasicColors.PureWhite};
   margin: 7px 0;
   &:last-child {
     margin-bottom: 0;
   }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 `;
 
 export const CorporateIconStyle = {
+  width: '14px',
+  height: '14px',
   marginRight: '10px',
   fill: BasicColors.PureWhite,
   marginTop: '3px',
