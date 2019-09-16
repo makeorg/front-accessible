@@ -52,10 +52,10 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
     .replace('<head>', `<head>${ReactDOMServer.renderToString(metaTags)}`)
     .replace('</head>', `${styles}</head>`)
     .replace('"__REDUX__"', JSON.stringify(reduxState))
-    .replace('__LANG__', reduxState.appConfig.language)
-    .replace('__API_URL__', apiUrl)
-    .replace('__FRONT_URL__', frontUrl)
-    .replace('___NONCE_ID___', nonceId)
+    .replace(new RegExp('__LANG__', 'gi'), reduxState.appConfig.language)
+    .replace(new RegExp('__API_URL__', 'gi'), apiUrl)
+    .replace(new RegExp('__FRONT_URL__', 'gi'), frontUrl)
+    .replace(new RegExp('___NONCE_ID___', 'gi'), nonceId)
     .replace('</body>', `${scriptTags}</body>`);
 };
 
