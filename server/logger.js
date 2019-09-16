@@ -16,10 +16,12 @@ const logFormat = printf(info => {
   )} - ${info.level}: ${message} - stackTrace: ${info.stack}`;
 });
 
+const isTestEnv = env.isTest();
 /**
  * Instantiate the logger
  */
 export const logger = winston.createLogger({
+  silent: isTestEnv,
   format: combine(
     label({ label: 'front-accessible' }),
     timestamp(),
@@ -28,11 +30,3 @@ export const logger = winston.createLogger({
   ),
   transports: [new winston.transports.Console()],
 });
-
-if (env.isDev()) {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple(),
-    })
-  );
-}

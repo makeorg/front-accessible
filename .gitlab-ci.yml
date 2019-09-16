@@ -1,11 +1,14 @@
 image: makeorg/docker-arch-docker:latest
 
 cache:
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
-  - node_modules/
+    - ~/.cache
+    - node_modules
 
 stages:
   - check
+  - e2e
   - build
   - deploy
   - merge
@@ -30,6 +33,21 @@ test:
   script:
     - yarn install
     - yarn test-with-coverage-codacy
+
+e2e-test:
+  stage: e2e
+  image: cypress/base:11.13.0
+  script:
+    - yarn install
+    - yarn build
+    - yarn cypress install
+    - yarn test:cypress
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+      - cypress/screenshots
+      - cypress/videos
 
 build:
   stage: build
