@@ -22,7 +22,6 @@ export const SearchFormStyle = styled.form`
   border-radius: 15px;
   background-color: ${BackgroundColors.LightGrey};
   border: 0.5px solid ${BorderColors.LightGrey};
-  max-height: 40px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 430px;
     padding: 0 20px;
@@ -37,30 +36,11 @@ export const SearchInputWrapperStyle = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    background-color: ${BasicColors.PureWhite};
-    font-size: 16px;
-    line-height: 29px;
-    transition: 0.25s ease all;
-    content: '...';
-  }
-  &.hide::after {
-    opacity: 0;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    &:after {
-      display: none;
-    }
-  }
 `;
 
 export const SearchInputStyle = styled.input`
   border: none;
-  background: transparent;
+  padding: 0px;
   background-color: transparent;
   width: 100%;
   color: ${BasicColors.PureBlack};
@@ -76,13 +56,13 @@ export const SearchLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.DarkGrey};
   font-size: 16px;
-  line-height: 30px;
+  line-height: 29px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
   left: 0;
   top: 0;
-  transition: 0.25s ease all;
+  transition: 0.25s ease opacity;
   white-space: nowrap;
   z-index: 1;
   &.hide {
@@ -90,7 +70,7 @@ export const SearchLabelStyle = styled.label`
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
-    line-height: 40px;
+    line-height: 39px;
   }
 `;
 

@@ -10,7 +10,13 @@ import { trackClickSubmitSearch } from 'Shared/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
-import { SearchFormStyle, SearchInputStyle, SearchButtonStyle } from './Styled';
+import {
+  SearchLabelStyle,
+  SearchFormStyle,
+  SearchInputStyle,
+  SearchButtonStyle,
+  SearchInputWrapperStyle,
+} from './Styled';
 
 const SearchInputHandler = ({ location, history, country, language }) => {
   const params = new URLSearchParams(location.search);
@@ -62,23 +68,25 @@ const SearchInputHandler = ({ location, history, country, language }) => {
           context: searchTerm ? 'searched' : '',
         })}
       </HiddenItemStyle>
-      <HiddenItemStyle as="label" htmlFor="search_input">
-        {i18n.t('search.form.label')}
-      </HiddenItemStyle>
-      <SearchInputStyle
-        type="text"
-        name="search"
-        id="search_input"
-        placeholder={
-          isMobile
+      <SearchInputWrapperStyle>
+        <SearchLabelStyle
+          className={searchTerm.length > 0 ? 'hide' : ''}
+          htmlFor="search_input"
+        >
+          {isMobile
             ? i18n.t('search.form.placeholder_mobile')
-            : i18n.t('search.form.placeholder')
-        }
-        value={searchTerm}
-        minLength={3}
-        maxLength={140}
-        onChange={handleChange}
-      />
+            : i18n.t('search.form.placeholder')}
+        </SearchLabelStyle>
+        <SearchInputStyle
+          type="text"
+          name="search"
+          id="search_input"
+          value={searchTerm}
+          minLength={3}
+          maxLength={140}
+          onChange={handleChange}
+        />
+      </SearchInputWrapperStyle>
       {hasSubmit ? (
         <SearchButtonStyle
           aria-label={i18n.t('search.form.flush')}
