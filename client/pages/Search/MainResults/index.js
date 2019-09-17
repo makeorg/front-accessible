@@ -102,7 +102,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
               </NoResultsStyle>
             </React.Fragment>
           )}
-          {!isLoading && responseCount && (
+          {!isLoading && !!responseCount && (
             <React.Fragment>
               {!!proposalsCount && (
                 <MainResultsSectionStyle>
