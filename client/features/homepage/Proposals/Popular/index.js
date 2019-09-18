@@ -21,9 +21,13 @@ type PopularProposalsProps = {
 };
 
 export const PopularProposals = ({ proposals }: PopularProposalsProps) => {
-  const proposalsLength = proposals.length <= 0;
+  const proposalsIsEmpty = proposals.length <= 0;
 
-  useSlider('popular', ShowcaseSliderParams, proposalsLength);
+  useSlider('popular', ShowcaseSliderParams, proposalsIsEmpty);
+
+  if (proposalsIsEmpty) {
+    return null;
+  }
 
   return (
     <ProposalsContentStyle aria-labelledby="popular_proposals_title">

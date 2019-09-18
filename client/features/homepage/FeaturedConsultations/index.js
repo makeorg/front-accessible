@@ -23,7 +23,7 @@ const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
   const { featureds, country, language } = props;
   const isTablet = useTablet();
 
-  if (featureds.length <= 0) {
+  if (featureds.length === 0) {
     return null;
   }
 

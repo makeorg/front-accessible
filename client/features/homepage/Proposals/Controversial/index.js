@@ -23,9 +23,13 @@ type ControversialProposalsProps = {
 export const ControversialProposals = ({
   proposals,
 }: ControversialProposalsProps) => {
-  const proposalsLength = proposals.length <= 0;
+  const proposalsIsEmpty = proposals.length <= 0;
 
-  useSlider('controversial', ShowcaseSliderParams, proposalsLength);
+  useSlider('controversial', ShowcaseSliderParams, proposalsIsEmpty);
+
+  if (proposalsIsEmpty) {
+    return null;
+  }
 
   return (
     <ProposalsContentStyle aria-labelledby="controversial_proposals_title">

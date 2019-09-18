@@ -13,7 +13,6 @@ import {
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { useSlider } from 'Client/hooks/useSlider';
 import { trackClickHomepageSliderArrows } from 'Shared/services/Tracking';
 import { HomeTitleStyle } from 'Client/pages/Home/Styled';
@@ -67,11 +66,10 @@ export const CurrentConsultationsComponent = ({
 }: CurrentConsultationsProps) => {
   const isMobile = useMobile();
   const noConsultations = consultations.length <= 0;
-
   useSlider('glide', CurrentConsultationSliderParams, noConsultations);
 
   if (noConsultations) {
-    return <Spinner />;
+    return null;
   }
 
   return (

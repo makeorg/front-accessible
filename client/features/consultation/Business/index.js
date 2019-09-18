@@ -43,6 +43,11 @@ export const BusinessConsultationsComponent = ({
   const [limitedConsultations, setConsultationsLimit] = useState(
     initialDisplayedConsultationsLength
   );
+
+  if (consultations.length === 0) {
+    return null;
+  }
+
   const slicedConsultations = sortedConsultations.slice(
     0,
     limitedConsultations
