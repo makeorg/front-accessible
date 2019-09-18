@@ -36,4 +36,7 @@ export const NoResultsStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 14px;
   line-height: 21px;
+  @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 0 20px;
+  }
 `;

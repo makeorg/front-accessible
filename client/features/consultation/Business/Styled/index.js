@@ -29,7 +29,7 @@ export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+    grid-gap: 0 30px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
@@ -39,15 +39,9 @@ export const BusinessConsultationsStyle = styled(UnstyledListStyle)`
 export const BusinessConsultationsItemStyle = styled.li`
   display: flex;
   border-radius: ${intToPx(Elements.BorderRadius)};
-  background-color: rgb(242, 242, 242);
+  background-color: ${props => props.backgroundColor || 'rgb(242, 242, 242)'};
   overflow: hidden;
   margin: 0 0 ${intToPx(DefaultPadding.Mobile)};
-  &:last-child {
-    margin: 0;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0;
-  }
 `;
 
 export const BusinessConsultationsItemLinkStyle = styled(ParagraphStyle)`

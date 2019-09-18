@@ -7,8 +7,8 @@ import { isInProgress } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   BusinessConsultationsItemStyle,
@@ -18,6 +18,8 @@ import {
   BusinessConsultationsItemArrowStyle,
   BusinessConsultationsItemBorderStyle,
 } from 'Client/features/consultation/Business/Styled';
+
+import { SearchResultsConsultationListStyle } from '../../Styled';
 
 type Props = {
   country: string,
@@ -31,9 +33,12 @@ const MainResultsConsultationsComponent = ({
 }: Props) => {
   return (
     <div id="consultations_list" role="feed">
-      <UnstyledListStyle>
+      <SearchResultsConsultationListStyle>
         {questions.map(question => (
-          <BusinessConsultationsItemStyle key={question.slug}>
+          <BusinessConsultationsItemStyle
+            key={question.slug}
+            backgroundColor={BasicColors.PureWhite}
+          >
             <BusinessConsultationsItemLinkStyle
               {...(isInProgress(question.startDate, question.endDate)
                 ? {
@@ -64,7 +69,7 @@ const MainResultsConsultationsComponent = ({
             </BusinessConsultationsItemLinkStyle>
           </BusinessConsultationsItemStyle>
         ))}
-      </UnstyledListStyle>
+      </SearchResultsConsultationListStyle>
     </div>
   );
 };

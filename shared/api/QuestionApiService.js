@@ -1,8 +1,12 @@
 // @flow
 
-import { type ApiServiceHeaders } from 'Shared/types/api';
+import {
+  type ApiServiceHeaders,
+  type ApiSearchQuestionsResponseType,
+} from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
+const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 
@@ -33,5 +37,26 @@ export class QuestionApiService {
     startSequenceUrl += includeParams ? `?${includeParams}` : '';
 
     return ApiService.callApi(startSequenceUrl, { method: 'GET' });
+  }
+
+  static searchQuestions(
+    country: string,
+    language: string,
+    content: string,
+    sort?: string = 'endDate',
+    order?: string = 'DESC',
+    headers?: ApiServiceHeaders = {}
+  ): Promise<ApiSearchQuestionsResponseType> {
+    return ApiService.callApi(PATH_QUESTIONS_SEARCH, {
+      method: 'GET',
+      headers,
+      params: {
+        questionContent: content,
+        country,
+        language,
+        sort,
+        order,
+      },
+    });
   }
 }

@@ -1,10 +1,32 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { type Location, type History } from 'history';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
+import { getRouteSearch } from 'Shared/routes';
+import { type Question as TypeQuestion } from 'Shared/types/question';
+import { searchQuestions } from 'Shared/services/Question';
+import { isInProgress } from 'Shared/helpers/date';
+import { getConsultationLink } from 'Shared/helpers/url';
+import {
+  trackDisplaySearchConsultationsResult,
+  trackClickSearchReturn,
+  trackClickHomepageConsultations,
+} from 'Shared/services/Tracking';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MetaTags } from 'Client/app/MetaTags';
-import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
-import { trackDisplaySearchConsultationsResult } from 'Shared/services/Tracking';
+import { SvgAngleArrowLeft, SvgAngleArrowRight } from 'Client/ui/Svg/elements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import {
+  BusinessConsultationsItemStyle,
+  BusinessConsultationStyle,
+  BusinessConsultationsItemLinkStyle,
+  BusinessConsultationsItemStatusStyle,
+  BusinessConsultationsItemArrowStyle,
+  BusinessConsultationsItemBorderStyle,
+} from 'Client/features/consultation/Business/Styled';
+import { SearchResultsConsultationListStyle } from 'Client/features/search/Styled';
 import {
   SearchPageTitleStyle,
   SearchPageWrapperStyle,
@@ -15,29 +37,130 @@ import {
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
-export const SearchConsultations = () => {
+type Props = {
+  location: Location,
+  history: History,
+  country: string,
+  language: string,
+};
+
+export const SearchConsultationsComponent = ({
+  location,
+  history,
+  country,
+  language,
+}: Props) => {
+  const params = new URLSearchParams(location.search);
+  const term = params.get('query') || '';
+  const [isLoading, setIsLoading] = useState(true);
+  const [count, setCount] = useState<number>(0);
+  const [consultations, setConsultations] = useState<TypeQuestion[]>([]);
+
+  const initQuestions = async () => {
+    setIsLoading(true);
+    const { results, total } = await searchQuestions(country, language, term);
+    setConsultations(results);
+    setCount(total);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    initQuestions();
+  }, [term]);
+
+  const handleReturn = () => {
+    trackClickSearchReturn();
+    history.push(getRouteSearch(country, language, term));
+  };
+
   useEffect(() => {
     trackDisplaySearchConsultationsResult();
   }, []);
   return (
     <React.Fragment>
-      {/* @Todo add result count and term in translation */}
-      <MetaTags title={i18n.t('meta.search.consultations')} />
+      <MetaTags
+        title={i18n.t('meta.search.consultations', {
+          term,
+          count,
+        })}
+      />
       <SearchPageWrapperStyle>
-        {/* @Todo add Link Path to main results page */}
-        <SearchBackStyle as={Link}>
+        <SearchBackStyle onClick={() => handleReturn()}>
           <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
           {i18n.t('common.back')}
         </SearchBackStyle>
         <SearchPageTitleStyle>
-          {/* @Todo add result count and term in translation */}
-          {i18n.t('search.titles.consultations')}
+          {isLoading
+            ? i18n.t('search.titles.loading')
+            : i18n.t('search.titles.operations', {
+                term,
+                count,
+              })}
         </SearchPageTitleStyle>
         <SearchPageContentStyle>
-          <SearchPageResultsStyle>Results content</SearchPageResultsStyle>
+          <SearchPageResultsStyle>
+            <SearchResultsConsultationListStyle>
+              {consultations.map(question => (
+                <BusinessConsultationsItemStyle
+                  key={question.slug}
+                  backgroundColor={BasicColors.PureWhite}
+                >
+                  <BusinessConsultationsItemLinkStyle
+                    {...(isInProgress(question.startDate, question.endDate)
+                      ? {
+                          to: getConsultationLink(
+                            country,
+                            language,
+                            question.slug
+                          ),
+                          as: Link,
+                        }
+                      : { href: question.aboutUrl, as: 'a' })}
+                    onClick={() => trackClickHomepageConsultations()}
+                  >
+                    <BusinessConsultationsItemBorderStyle
+                      colorStart={question.theme.gradientStart}
+                      colorEnd={question.theme.gradientEnd}
+                    />
+                    <BusinessConsultationStyle>
+                      <BusinessConsultationsItemStatusStyle>
+                        <ScreenReaderItemStyle>
+                          {i18n.t('homepage.business_consultations.status')}
+                        </ScreenReaderItemStyle>
+                        {isInProgress(question.startDate, question.endDate)
+                          ? i18n.t(
+                              'homepage.business_consultations.question_inprogress'
+                            )
+                          : i18n.t(
+                              'homepage.business_consultations.question_ended'
+                            )}
+                      </BusinessConsultationsItemStatusStyle>
+                      {question.question}
+                    </BusinessConsultationStyle>
+                    <SvgAngleArrowRight
+                      style={BusinessConsultationsItemArrowStyle}
+                    />
+                  </BusinessConsultationsItemLinkStyle>
+                </BusinessConsultationsItemStyle>
+              ))}
+            </SearchResultsConsultationListStyle>
+          </SearchPageResultsStyle>
           <SearchSidebar />
         </SearchPageContentStyle>
       </SearchPageWrapperStyle>
     </React.Fragment>
   );
 };
+
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
+
+export const SearchConsultations = connect(mapStateToProps)(
+  SearchConsultationsComponent
+);
