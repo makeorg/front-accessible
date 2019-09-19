@@ -48,7 +48,7 @@ const ProfileEdit = ({ user, match }: Props) => {
       <MetaTags title={i18n.t('meta.profile.edit.title')} />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle as="aside">
+        <ProfilePageSidebarStyle>
           <UserInformations user={user} navigationBar={NavigationBar} />
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>

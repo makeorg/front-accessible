@@ -8,7 +8,7 @@ import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 
-export const ParticipateWrapperStyle = styled.aside`
+export const ParticipateWrapperStyle = styled.div`
   display: flex;
   align-items: center;
   background-color: ${props => props.backgroundcolor};

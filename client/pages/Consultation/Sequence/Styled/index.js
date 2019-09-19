@@ -10,7 +10,7 @@ export const SequencePageContentStyle = styled(MiddleColumnStyle)`
   overflow: auto;
 `;
 
-export const SequenceProposalFieldStyle = styled.aside`
+export const SequenceProposalFieldStyle = styled.div`
   display: block;
   flex: 0 0 auto;
   width: 100%;

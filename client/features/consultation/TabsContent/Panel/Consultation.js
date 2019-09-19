@@ -75,7 +75,6 @@ export const ConsultationPanelContent = ({
       )}
       <ConsultationPageSidebarStyle
         id="sidebar_content"
-        as="aside"
         aria-label={i18n.t('common.sidebar_area')}
         bottomAffix={isGreatCause(question.operationKind)}
       >
