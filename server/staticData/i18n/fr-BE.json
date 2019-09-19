@@ -211,7 +211,8 @@
     "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
     "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
     "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
-    "moderation_charter": "Pour en savoir plus sur notre charte de modération,",
+    "moderation_charter": "Pour en savoir plus sur ",
+    "moderation_charter_label": "notre charte de modération",
     "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
   },
   "vote": {
@@ -551,10 +552,10 @@
         "list-item-3": "Et demain, initiez des actions concrètes sur le terrain"
       },
       "second-section":{
-        "introduction": "qui sommes-nous ?",
+        "introduction": "nous découvrir",
         "title": "Make.org, neutre & indépendant",
         "description": "Make.org est une initiative civique, Européenne et indépendante.",
-        "link-text": "En savoir +"
+        "link-text": "qui sommes nous ?"
       }
     },
     "proposals": {
@@ -605,6 +606,15 @@
        "title":"Suivez l’actualité de make.org en vous inscrivant.",
        "button": "je m'inscris"
       }
+    },
+    "form": {
+      "introduction": "Pour effectuer une recherche, votre requête doit être comprise entre 3 et 140 caratères. Saisissez là dans le champ de recherche puis cliquez sur le bouton \"Rechercher\"",
+      "introduction_searched": "Pour vider le champ de recherche, cliquez sur le bouton \"Effacer le champ de recherche\"",
+      "label": "Champ de recherche",
+      "placeholder": "Recherchez une idée, un thème, un sujet",
+      "placeholder_mobile": "Recherchez...",
+      "submit": "Rechercher",
+      "flush": "Effacer le champ de recherche"
     }
   }
 }
