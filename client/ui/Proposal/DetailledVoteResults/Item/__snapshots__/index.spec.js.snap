@@ -8,7 +8,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   display: flex;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19,17 +19,26 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   justify-content: space-between;
 }
 
-.c7 {
+.c8 {
   font-size: 12px;
   line-height: 22px;
   font-family: 'Circular Standard Bold',Arial,sans-serif;
   color: rgb(85,131,34);
 }
 
-.c8 {
+.c9 {
   font-size: 12px;
   line-height: 22px;
   color: rgb(74,74,74);
+}
+
+.c4 {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  z-index: -100;
+  visibility: hidden;
 }
 
 .c0 {
@@ -67,7 +76,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   justify-content: center;
 }
 
-.c4 {
+.c5 {
   font-size: 12px;
   line-height: 18px;
   color: rgb(74,74,74);
@@ -83,16 +92,10 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   font-family: 'Circular Standard Bold',Arial,sans-serif;
 }
 
-.c5 {
+.c6 {
   padding: 0;
   list-style: none;
   margin-top: 10px;
-}
-
-@media (min-width:767px) {
-  .c7 {
-    font-size: 14px;
-  }
 }
 
 @media (min-width:767px) {
@@ -101,15 +104,21 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   }
 }
 
+@media (min-width:767px) {
+  .c9 {
+    font-size: 14px;
+  }
+}
+
 @media (min-width:360px) {
-  .c4 {
+  .c5 {
     font-size: 14px;
     line-height: 21px;
   }
 }
 
 @media (min-width:969px) {
-  .c4 {
+  .c5 {
     font-size: 16px;
     line-height: 22px;
   }
@@ -143,10 +152,11 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   >
     <ScreenReaderItemStyle>
       vote.agree
+       : 
     </ScreenReaderItemStyle>
     <IsVotedButtonStyle
       aria-hidden={true}
-      as="div"
+      as="span"
       color="rgb(85,131,34)"
     >
       <ButtonIconWrapperStyle
@@ -173,32 +183,44 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
         </svg>
       </ButtonIconWrapperStyle>
     </IsVotedButtonStyle>
-    <div
+    <span
       className="f9ghfa-2 c2"
     >
-      <p
-        className="sc-1nc0118-0 c3"
+      <span
+        className="c3"
       >
         common.percent
-      </p>
-      <p
-        className="sc-1nc0118-0 c4"
+      </span>
+      <span
+        aria-hidden={true}
+        className="c4"
+      >
+         (
+      </span>
+      <span
+        className="c5"
       >
         vote.label
-      </p>
-    </div>
+      </span>
+      <span
+        aria-hidden={true}
+        className="c4"
+      >
+        ) 
+      </span>
+    </span>
   </div>
   <ScreenReaderItemStyle>
     qualification.static_repartition
   </ScreenReaderItemStyle>
   <ul
-    className="qfibtu-0 c5"
+    className="qfibtu-0 c6"
   >
     <li
-      className="c6"
+      className="c7"
     >
       <span
-        className="c7"
+        className="c8"
         color="rgb(85,131,34)"
       >
         qualification.likeIt
@@ -207,7 +229,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c8"
+        className="c9"
       >
          4 
       </span>
@@ -216,10 +238,10 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c6"
+      className="c7"
     >
       <span
-        className="c7"
+        className="c8"
         color="rgb(85,131,34)"
       >
         qualification.doable
@@ -228,7 +250,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c8"
+        className="c9"
       >
          2 
       </span>
@@ -237,10 +259,10 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c6"
+      className="c7"
     >
       <span
-        className="c7"
+        className="c8"
         color="rgb(85,131,34)"
       >
         qualification.platitudeAgree
@@ -249,7 +271,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c8"
+        className="c9"
       >
          2 
       </span>

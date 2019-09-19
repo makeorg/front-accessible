@@ -14,6 +14,8 @@ import {
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { isInProgress } from 'Shared/helpers/date';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -54,6 +56,9 @@ export const ProposalCardWithQuestion = (props: Props) => {
         />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
+        <ScreenReaderItemStyle>
+          {i18n.t('proposal_card.content')}
+        </ScreenReaderItemStyle>
         <ProposalStyle href={proposalLink}>{proposal.content}</ProposalStyle>
         {canVote ? (
           <Vote
@@ -76,7 +81,6 @@ export const ProposalCardWithQuestion = (props: Props) => {
           />
         )}
       </ProposalInnerStyle>
-
       <ProposalFooterWithQuestionElement
         question={question}
         consultationLink={getConsultationLink(

@@ -54,6 +54,7 @@ export const CurrentConsultationArticleDesktop = ({
         src={image}
         alt={title}
         aria-label={i18n.t('homepage.current_consultations.expand_panel', {
+          type: label,
           name: title,
         })}
         aria-hidden={isOverlayDisplayed}

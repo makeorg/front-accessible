@@ -92,13 +92,15 @@ export const SmallGreyButtonStyle = styled(GreyButtonStyle)`
 export const ActiveButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
-  svg {
+  svg,
+  .tofill {
     fill: ${BasicColors.PureWhite};
   }
   &:disabled {
     color: ${TextColors.MediumGrey};
     background-color: ${BackgroundColors.ExtraLightGrey};
-    svg {
+    svg,
+    .tofill {
       fill: ${TextColors.MediumGrey};
     }
   }

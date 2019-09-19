@@ -37,7 +37,7 @@ export const ActionsPanel = ({
         question: question.wording.question,
       })}
     />
-    <ConsultationPageSidebarStyle id="sidebar_content" as="aside">
+    <ConsultationPageSidebarStyle id="sidebar_content">
       <TileWithTitle title={i18n.t('actions.plan.title')}>
         <PlanTileContent />
       </TileWithTitle>

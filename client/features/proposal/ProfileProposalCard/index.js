@@ -7,6 +7,8 @@ import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { i18n } from 'Shared/i18n';
 import { ProfileProposalCardStyle } from './Styled';
 
 type Props = {
@@ -43,6 +45,9 @@ export const ProfileProposalCard = (props: Props) => {
           formattedProposalStatus={formattedProposalStatus}
         />
       </AuthorWrapperStyle>
+      <ScreenReaderItemStyle>
+        {i18n.t('proposal_card.content')}
+      </ScreenReaderItemStyle>
       <ProposalStyle
         id={`proposal_content_${position}`}
         {...(isProposalAccepted

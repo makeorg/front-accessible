@@ -20,7 +20,7 @@ then('I see the first corporate bloc', () => {
   cy.get('#corporate_title').should('have.text', 'la politique ne suffit plus, faisons bouger les lignes ensemble');
 });
 then('I see the second corporate bloc', () => {
-  cy.get('#who_are_we_title').should('have.text', 'qui sommes-nous ?');
+  cy.get('#who_are_we_title').should('have.text', 'nous découvrir');
 });
 then('I see a list of consultation', () => {
   cy.get('#business_consultations').find('ul>li').should(($lis) => {

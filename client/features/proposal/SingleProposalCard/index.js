@@ -11,6 +11,7 @@ import { SequenceProposalStyle } from 'Client/features/sequence/Card/Styled';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { CardSeparatorStyle } from 'Client/features/sequence/Card/Styled/Content';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   InnerProposalStyle,
   ProposalFooterStyle,
@@ -40,8 +41,12 @@ export const SingleProposalCard = (props: Props) => {
           language={proposal.language}
         />
         <CardSeparatorStyle />
-        <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
-
+        <SequenceProposalStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('proposal_card.content')}
+          </ScreenReaderItemStyle>
+          {proposal.content}
+        </SequenceProposalStyle>
         {canVote ? (
           <Vote
             proposalId={proposal.id}

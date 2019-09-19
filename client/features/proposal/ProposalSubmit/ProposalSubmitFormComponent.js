@@ -61,8 +61,9 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           </CenterParagraphStyle>
           <CenterParagraphStyle>
             {i18n.t('proposal_submit.moderation_charter')}
-            &nbsp;
-            <a href={MODERATION_CHARTER_LINK}>{i18n.t('common.click_there')}</a>
+            <a href={MODERATION_CHARTER_LINK}>
+              {i18n.t('common.moderation_charter_label')}
+            </a>
           </CenterParagraphStyle>
         </DescriptionWrapperStyle>
       </ScreenReaderItemStyle>

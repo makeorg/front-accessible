@@ -8,7 +8,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
-export const TagFilterWrapperStyle = styled.aside`
+export const TagFilterWrapperStyle = styled.div`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0;

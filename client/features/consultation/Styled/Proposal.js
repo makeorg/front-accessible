@@ -10,7 +10,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
 
-export const ProposalWrapperStyle = styled.aside`
+export const ProposalWrapperStyle = styled.div`
   width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};

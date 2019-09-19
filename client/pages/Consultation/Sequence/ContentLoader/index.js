@@ -4,6 +4,8 @@ import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { type Question } from 'Shared/types/question';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
+import { i18n } from 'Shared/i18n';
 import {
   SequencePageContentStyle,
   SequenceProposalFieldStyle,
@@ -55,6 +57,9 @@ export class SequencePageContentLoader extends React.Component<Props, State> {
       <React.Fragment>
         {question.canPropose && (
           <SequenceProposalFieldStyle id="proposal_submit">
+            <HiddenItemStyle as="h2">
+              {i18n.t('consultation.proposal.title')}
+            </HiddenItemStyle>
             <ProposalSubmit
               question={question}
               handleFocus={this.handleCloseSequence}
