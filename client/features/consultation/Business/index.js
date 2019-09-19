@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
@@ -38,6 +38,7 @@ export const BusinessConsultationsComponent = ({
   country,
   language,
 }: Props) => {
+  const ListRef = useRef(null);
   const initialDisplayedConsultationsLength = 3;
   const sortedConsultations = sortConsultationsByLatestDate(consultations);
   const [limitedConsultations, setConsultationsLimit] = useState(
@@ -58,9 +59,14 @@ export const BusinessConsultationsComponent = ({
   const displayViewLess =
     slicedConsultations.length > initialDisplayedConsultationsLength;
 
-  const expandConsultations = () => setConsultationsLimit(consultations.length);
-
-  const collapseConsultations = () => setConsultationsLimit(3);
+  const expandConsultations = () => {
+    setConsultationsLimit(consultations.length);
+    ListRef.current.focus();
+  };
+  const collapseConsultations = () => {
+    setConsultationsLimit(3);
+    ListRef.current.focus();
+  };
 
   return (
     <HomepagePaddingContentStyle
@@ -70,7 +76,7 @@ export const BusinessConsultationsComponent = ({
       <BusinessConsultationsTitleStyle id="consultations_title">
         {i18n.t('homepage.business_consultations.title')}
       </BusinessConsultationsTitleStyle>
-      <BusinessConsultationsStyle>
+      <BusinessConsultationsStyle ref={ListRef} tabIndex={0}>
         {slicedConsultations.map(consultation => (
           <BusinessConsultationsItemStyle key={consultation.slug}>
             <BusinessConsultationsItemLinkStyle
