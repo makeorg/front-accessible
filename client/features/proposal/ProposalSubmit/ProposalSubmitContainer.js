@@ -112,6 +112,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     this.setState({
       isTyping: true,
       isSubmitted: false,
+      isSucess: false,
     });
 
     handleFocus();
