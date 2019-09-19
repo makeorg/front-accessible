@@ -14,6 +14,8 @@ import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { i18n } from 'Shared/i18n';
 
 type Props = {
   /** Object with all organisation's properties */
@@ -53,6 +55,9 @@ export const ProposalCardTagged = (props: Props) => {
         />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
+        <ScreenReaderItemStyle>
+          {i18n.t('proposal_card.content')}
+        </ScreenReaderItemStyle>
         <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
           {proposal.content}
         </ProposalStyle>

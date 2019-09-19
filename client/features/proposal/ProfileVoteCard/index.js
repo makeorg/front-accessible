@@ -22,6 +22,7 @@ import {
 } from 'Client/ui/Elements/ProposalCardElements';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -94,6 +95,9 @@ export const ProfileVoteCard = ({
             />
           </AuthorWrapperStyle>
           <ProposalInnerStyle>
+            <ScreenReaderItemStyle>
+              {i18n.t('proposal_card.content')}
+            </ScreenReaderItemStyle>
             <ProposalStyle
               id={`proposal_content_${position}`}
               href={getProposalLink(

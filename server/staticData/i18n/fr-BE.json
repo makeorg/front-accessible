@@ -167,6 +167,7 @@
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
+    "content": "Contenu de la proposition : ",
     "number": "Carte numéro {{current}} sur {{total}}",
     "posted_label": "Postée dans ",
     "author": {
@@ -539,7 +540,7 @@
     },
     "current_consultations": {
       "title": "Nos opérations en cours",
-      "expand_panel": "Consultation : {{name}} - Afficher le contenu du panneau déroulant",
+      "expand_panel": "{{type}} : {{name}} - Afficher le contenu du panneau déroulant",
       "proposal": "proposition",
       "proposal_plural": "propositions"
     },

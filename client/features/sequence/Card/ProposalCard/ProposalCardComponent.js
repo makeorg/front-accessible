@@ -4,6 +4,8 @@ import React from 'react';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Vote } from 'Client/features/vote';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SequenceProposalStyle } from '../Styled';
 import {
   ContentSpecialWrapperStyle,
@@ -47,6 +49,9 @@ export const ProposalCardComponent = (props: Props) => {
         language={proposal.language}
       />
       <CardSeparatorStyle />
+      <ScreenReaderItemStyle>
+        {i18n.t('proposal_card.content')}
+      </ScreenReaderItemStyle>
       <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
       <Vote
         proposalId={proposal.id}
