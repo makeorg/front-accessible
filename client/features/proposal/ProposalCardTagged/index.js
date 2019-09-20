@@ -16,6 +16,7 @@ import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
+import { Link } from 'react-router-dom';
 
 type Props = {
   /** Object with all organisation's properties */
@@ -58,7 +59,11 @@ export const ProposalCardTagged = (props: Props) => {
         <ScreenReaderItemStyle>
           {i18n.t('proposal_card.content')}
         </ScreenReaderItemStyle>
-        <ProposalStyle id={`proposal_content_${position}`} href={proposalLink}>
+        <ProposalStyle
+          id={`proposal_content_${position}`}
+          to={proposalLink}
+          as={Link}
+        >
           {proposal.content}
         </ProposalStyle>
         {canVote ? (

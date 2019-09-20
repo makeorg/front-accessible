@@ -9,6 +9,7 @@ import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
+import { Link } from 'react-router-dom';
 import { ProfileProposalCardStyle } from './Styled';
 
 type Props = {
@@ -52,13 +53,14 @@ export const ProfileProposalCard = (props: Props) => {
         id={`proposal_content_${position}`}
         {...(isProposalAccepted
           ? {
-              href: getProposalLink(
+              to: getProposalLink(
                 proposal.country,
                 proposal.language,
                 question.slug,
                 proposal.id,
                 proposal.slug
               ),
+              as: Link,
             }
           : { as: 'p' })}
       >

@@ -16,6 +16,7 @@ import { isInProgress } from 'Shared/helpers/date';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
+import { Link } from 'react-router-dom';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -59,7 +60,9 @@ export const ProposalCardWithQuestion = (props: Props) => {
         <ScreenReaderItemStyle>
           {i18n.t('proposal_card.content')}
         </ScreenReaderItemStyle>
-        <ProposalStyle href={proposalLink}>{proposal.content}</ProposalStyle>
+        <ProposalStyle to={proposalLink} as={Link}>
+          {proposal.content}
+        </ProposalStyle>
         {canVote ? (
           <Vote
             proposalId={proposal.id}
