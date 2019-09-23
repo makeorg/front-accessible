@@ -21,6 +21,10 @@ import {
   ROUTE_ORGANISATION_PROPOSALS,
   ROUTE_ORGANISATION_VOTES,
   ROUTE_COUNTRY_LANG,
+  ROUTE_STATIC_LEGAL,
+  ROUTE_STATIC_GTU,
+  ROUTE_STATIC_DATA,
+  ROUTE_STATIC_CONTACT,
 } from 'Shared/routes';
 
 const ConsultationPage = loadable(() => import('Client/pages/Consultation'));
@@ -44,6 +48,11 @@ const ProfilePage = loadable(() => import('Client/pages/Profile'));
 
 const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
 const SearchPage = loadable(() => import('Client/pages/Search'));
+
+const LegalPage = loadable(() => import('Client/pages/Static/Legal'));
+const TermsOfUse = loadable(() => import('Client/pages/Static/TermsOfUse'));
+const Data = loadable(() => import('Client/pages/Static/Data'));
+const Contact = loadable(() => import('Client/pages/Static/Contact'));
 
 export const Routes = () => (
   <Switch>
@@ -69,6 +78,10 @@ export const Routes = () => (
     />
     <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
     <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
+    <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
+    <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
+    <Route path={ROUTE_STATIC_DATA} component={Data} />
+    <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
     <Route exact path="/" component={HomePage} />
     <Route component={NotFoundPage} />
   </Switch>

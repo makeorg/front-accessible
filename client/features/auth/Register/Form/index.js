@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { GTU_LINK } from 'Shared/constants/url';
 import { type TypeRegisterFormData } from 'Shared/types/form';
 import { type TypeErrorObject } from 'Shared/types/api';
 import * as UserService from 'Shared/services/User';
@@ -36,8 +35,11 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
+import { getGTUPageLink } from 'Shared/helpers/url';
 
 type Props = {
+  country: string,
+  language: string,
   /** Method called to close modal */
   handleModalClose: () => void,
   /** Method called to load user */
@@ -48,6 +50,8 @@ type Props = {
  * Renders Register Form
  */
 export const RegisterFormComponent = ({
+  country,
+  language,
   handleModalClose,
   handleLoadUser,
 }: Props) => {
@@ -167,7 +171,10 @@ export const RegisterFormComponent = ({
       <ConditionParagraphStyle
         dangerouslySetInnerHTML={{
           __html: i18n.t('register.gtu_text', {
-            gtu_link: `<a href="${GTU_LINK}">$t(register.gtu)</a>`,
+            gtu_link: `<a href="${getGTUPageLink(
+              country,
+              language
+            )}">$t(register.gtu)</a>`,
             interpolation: { escapeValue: false },
           }),
         }}
@@ -182,6 +189,15 @@ export const RegisterFormComponent = ({
   );
 };
 
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
+
 const mapDispatchToProps = dispatch => ({
   handleModalClose: () => {
     dispatch(modalClose());
@@ -192,6 +208,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const RegisterForm = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RegisterFormComponent);

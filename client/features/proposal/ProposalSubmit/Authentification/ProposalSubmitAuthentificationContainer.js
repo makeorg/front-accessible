@@ -8,6 +8,8 @@ import {
 import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthentificationComponent';
 
 type Props = {
+  country: string,
+  language: string,
   handleRegisterClick: () => void,
   /** Method called to render Register Component in Sliding Pannel */
   handleLoginClick: () => void,
@@ -21,9 +23,16 @@ export class ProposalSubmitAuthentificationClass extends React.Component<Props> 
   }
 
   render() {
-    const { handleRegisterClick, handleLoginClick } = this.props;
+    const {
+      country,
+      language,
+      handleRegisterClick,
+      handleLoginClick,
+    } = this.props;
     return (
       <ProposalSubmitAuthentificationComponent
+        country={country}
+        language={language}
         handleRegisterClick={handleRegisterClick}
         handleLoginClick={handleLoginClick}
         trackPersonnalDataLink={() => trackClickPersonnalDataLink()}
@@ -31,6 +40,15 @@ export class ProposalSubmitAuthentificationClass extends React.Component<Props> 
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   handleRegisterClick: () => {
@@ -42,6 +60,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const ProposalSubmitAuthentificationContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ProposalSubmitAuthentificationClass);

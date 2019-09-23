@@ -20,6 +20,10 @@ export const ROUTE_PROFILE_FOLLOWING = `${ROUTE_PROFILE}/following`;
 export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/:organisationSlug`;
 export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
 export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
+export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
+export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
+export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
+export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
 
 const replaceCountryLanguage = (
   route: string,

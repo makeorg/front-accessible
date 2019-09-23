@@ -8,6 +8,10 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
+  ROUTE_STATIC_CONTACT,
+  ROUTE_STATIC_DATA,
+  ROUTE_STATIC_GTU,
+  ROUTE_STATIC_LEGAL,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -132,4 +136,60 @@ export const getOrganisationProfileLink = (
   return ROUTE_ORGANISATION_PROFILE.replace(':country', country)
     .replace(':language', language)
     .replace(':organisationSlug', organisationSlug);
+};
+
+/**
+ * Get the contact page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getContactPageLink = (country: string, language: string) => {
+  return ROUTE_STATIC_CONTACT.replace(':country', country).replace(
+    ':language',
+    language
+  );
+};
+
+/**
+ * Get the data page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getDataPageLink = (country: string, language: string) => {
+  return ROUTE_STATIC_DATA.replace(':country', country).replace(
+    ':language',
+    language
+  );
+};
+
+/**
+ * Get the GTU page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getGTUPageLink = (country: string, language: string) => {
+  return ROUTE_STATIC_GTU.replace(':country', country).replace(
+    ':language',
+    language
+  );
+};
+
+/**
+ * Get the GTU page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getLegalPageLink = (country: string, language: string) => {
+  return ROUTE_STATIC_LEGAL.replace(':country', country).replace(
+    ':language',
+    language
+  );
 };
