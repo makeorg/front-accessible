@@ -1,6 +1,6 @@
 // @flow
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
@@ -100,13 +100,14 @@ export const ProfileVoteCard = ({
             </ScreenReaderItemStyle>
             <ProposalStyle
               id={`proposal_content_${position}`}
-              href={getProposalLink(
+              to={getProposalLink(
                 proposal.country,
                 proposal.language,
                 question.slug,
                 proposal.id,
                 proposal.slug
               )}
+              as={Link}
             >
               {proposal.content}
             </ProposalStyle>

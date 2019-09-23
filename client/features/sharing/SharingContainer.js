@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { type Location } from 'history';
 import { withRouter } from 'react-router-dom';
-import { type Sharing as TypeSharing } from 'Shared/types/sequence';
 import {
   twitterShareUrl,
   facebookShareUrl,
@@ -12,7 +11,6 @@ import { SharingComponent } from './SharingComponent';
 
 type Props = {
   location: Location,
-  sharingParams?: TypeSharing,
 };
 
 /**
@@ -20,17 +18,11 @@ type Props = {
  */
 
 const SharingClass = (props: Props) => {
-  const { location, sharingParams } = props;
-
-  let hashtags: string = '';
-
-  if (sharingParams && sharingParams.twitterHashtags) {
-    hashtags = sharingParams.twitterHashtags;
-  }
+  const { location } = props;
 
   return (
     <SharingComponent
-      twitterShareUrl={twitterShareUrl(location.pathname, '', hashtags)}
+      twitterShareUrl={twitterShareUrl(location.pathname, '', '')}
       facebookShareUrl={facebookShareUrl(location.pathname)}
       linkedinShareUrl={linkedinShareUrl(location.pathname)}
     />
