@@ -1,9 +1,10 @@
 // @flow
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { SvgDisconnect, SvgInfos } from 'Client/ui/Svg/elements';
 import { useCookies } from 'react-cookie';
-import { GTU_LINK, DATA_POLICY_LINK } from 'Shared/constants/url';
+import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
 import {
   CookieContentStyle,
   CookieWrapperStyle,
@@ -11,9 +12,13 @@ import {
   CookieCloseButtonStyle,
 } from './Styled';
 
+type Props = {
+  country: string,
+  language: string,
+};
 const acceptCookieName: string = 'make-cookie';
 
-export const CookieBanner = () => {
+const CookieBannerComponent = ({ country, language }: Props) => {
   const [cookies, setCookies] = useCookies([acceptCookieName]);
   const [hasAccepted, setAccepted] = useState<boolean>(
     cookies[acceptCookieName] !== undefined
@@ -38,8 +43,14 @@ export const CookieBanner = () => {
         <CookieParagraphStyle
           dangerouslySetInnerHTML={{
             __html: i18n.t('cookie_alert.text', {
-              gtu_link: `<a href="${GTU_LINK}">$t(cookie_alert.gtu)</a>`,
-              policy_link: `<a href="${DATA_POLICY_LINK}">$t(cookie_alert.policy)</a>`,
+              gtu_link: `<a href="${getGTUPageLink(
+                country,
+                language
+              )}">$t(cookie_alert.gtu)</a>`,
+              policy_link: `<a href="${getDataPageLink(
+                country,
+                language
+              )}">$t(cookie_alert.policy)</a>`,
             }),
           }}
         />
@@ -54,3 +65,14 @@ export const CookieBanner = () => {
     </CookieWrapperStyle>
   );
 };
+
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
+
+export const CookieBanner = connect(mapStateToProps)(CookieBannerComponent);
