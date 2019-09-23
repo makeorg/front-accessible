@@ -17,6 +17,10 @@ import {
   ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
+  ROUTE_STATIC_LEGAL,
+  ROUTE_STATIC_CONTACT,
+  ROUTE_STATIC_DATA,
+  ROUTE_STATIC_GTU,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -96,6 +100,10 @@ export const initRoutes = app => {
   app.get(ROUTE_SEARCH_PROPOSALS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_ORGANISATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_CONSULTATIONS, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_LEGAL, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_CONTACT, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_DATA, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_GTU, frontMiddlewares, defaultRoute);
 
   app.get('*', frontMiddlewares, defaultRoute);
 };
