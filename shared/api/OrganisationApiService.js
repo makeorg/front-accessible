@@ -17,6 +17,17 @@ export class OrganisationApiService {
     });
   }
 
+  static search(country: string, language: string, query: string) {
+    return ApiService.callApi(ORGANISATIONS_PATH, {
+      method: 'GET',
+      params: {
+        country,
+        language,
+        organisationName: query,
+      },
+    });
+  }
+
   static getOrganisationProposals(organisationId: string) {
     return ApiService.callApi(
       ORGANISATION_PROPOSALS_PATH.replace(':organisationId', organisationId),

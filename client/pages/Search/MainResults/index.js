@@ -9,13 +9,15 @@ import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
+import { MainResultsConsultations } from 'Client/features/search/MainResults/Consultations';
+import { MainResultsOrganisations } from 'Client/features/search/MainResults/Organisations';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   getRouteSearchProposals,
   getRouteSearchConsultations,
+  getRouteSearchOrganisations,
 } from 'Shared/routes';
-import { MainResultsConsultations } from 'Client/features/search/MainResults/Consultations';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -119,6 +121,21 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
                     searchTerm={term}
                     proposals={data.proposals.results}
                     count={proposalsCount}
+                  />
+                </MainResultsSectionStyle>
+              )}
+              {!!organisationsCount && (
+                <MainResultsSectionStyle>
+                  <MainResultsHeader
+                    title={i18n.t('search.main_results.organisation', {
+                      term,
+                      count: organisationsCount,
+                    })}
+                    count={organisationsCount}
+                    link={getRouteSearchOrganisations(country, language, term)}
+                  />
+                  <MainResultsOrganisations
+                    organisations={data.organisations.results}
                   />
                 </MainResultsSectionStyle>
               )}

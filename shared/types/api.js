@@ -1,6 +1,7 @@
 // @flow
 import { type Proposal as TypeProposal } from './proposal';
 import { type Question as TypeQuestion } from './question';
+import { type Organisation as TypeOrganisation } from './organisation';
 
 export type ApiServiceHeaders = {
   'x-make-country'?: string,
@@ -18,6 +19,11 @@ export type ApiSearchProposalsResponseType = {
 export type ApiSearchQuestionsResponseType = {
   total: number,
   results: TypeQuestion[],
+};
+
+export type ApiSearchOrganisationsResponseType = {
+  total: number,
+  results: TypeOrganisation[],
 };
 
 export type TypeErrorObject = {
