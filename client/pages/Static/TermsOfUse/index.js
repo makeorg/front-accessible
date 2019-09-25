@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
+import { connect } from 'react-redux';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { getDataPageLink } from 'Shared/helpers/url';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -17,7 +19,12 @@ import {
   StaticStrongStyle,
 } from '../Styled';
 
-export const TermsOfUse = () => {
+type Props = {
+  country: string,
+  language: string,
+};
+
+export const TermsOfUseComponent = ({ country, language }: Props) => {
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
@@ -124,8 +131,11 @@ export const TermsOfUse = () => {
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             {
-              "L’utilisation du Service implique également l’acceptation entière et sans réserve de la Politique d'utilisation des données de Make.org qui fait partie intégrante des présentes CGUS et est disponible ici."
+              "L’utilisation du Service implique également l’acceptation entière et sans réserve de la Politique d'utilisation des données de Make.org qui fait partie intégrante des présentes CGUS et est disponible "
             }
+            <RedLinkStyle href={getDataPageLink(country, language)}>
+              ici.
+            </RedLinkStyle>
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Les présentes CGUS sont modifiables à tout moment et sans préavis
@@ -1106,6 +1116,17 @@ export const TermsOfUse = () => {
     </StaticPageWrapperStyle>
   );
 };
+
+const mapStateToProps = state => {
+  const { country, language } = state.appConfig;
+
+  return {
+    country,
+    language,
+  };
+};
+
+const TermsOfUse = connect(mapStateToProps)(TermsOfUseComponent);
 
 // default export needed for loadable component
 export default TermsOfUse; // eslint-disable-line import/no-default-export
