@@ -39,7 +39,11 @@ export const SearchOrganisationsListStyle = styled(UnstyledListStyle)`
 `;
 
 export const SearchOrganisationItemStyle = styled(ProfilePageSidebarStyle)`
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 40px;
+  }
   text-decoration: none;
 `;
 

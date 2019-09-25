@@ -31,13 +31,13 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 
 export const SearchPageResultsStyle = styled(ContentElementStyle)`
   margin-bottom: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 0 20px;
-  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
     margin-bottom: 0;
     max-width: 750px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px 0 0;
   }
 `;
 

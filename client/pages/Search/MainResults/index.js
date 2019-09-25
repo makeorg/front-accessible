@@ -80,12 +80,13 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
       />
       <SearchPageTitleStyle>
         {isLoading && i18n.t('search.titles.loading')}
-        {!isLoading && !!term
-          ? i18n.t('search.titles.main_results', {
-              term,
-              count: responseCount,
-            })
-          : i18n.t('search.titles.main_results_empty_term')}
+        {!isLoading &&
+          !!term &&
+          i18n.t('search.titles.main_results', {
+            term,
+            count: responseCount,
+          })}
+        {!isLoading && !term && i18n.t('search.titles.main_results_empty_term')}
       </SearchPageTitleStyle>
       <SearchPageContentStyle>
         <SearchPageResultsStyle>
