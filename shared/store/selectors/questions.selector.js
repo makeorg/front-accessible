@@ -36,6 +36,18 @@ export const selectQuestionConfiguration = (
 };
 
 /**
+ * questionResults selector
+ * @param {*} state
+ */
+export const selectQuestionResults = (
+  state: StateRoot,
+  questionSlug: ?string
+) => {
+  const data = selectQuestionData(state, questionSlug);
+  return data && data.questionResults;
+};
+
+/**
  * Sequence question selector
  * @param {*} state
  */
@@ -51,4 +63,13 @@ export const selectCurrentQuestion = (state: StateRoot) => {
 export const selectCurrentQuestionConfiguration = (state: StateRoot) => {
   const questionSlug = state.currentQuestion;
   return selectQuestionConfiguration(state, questionSlug);
+};
+
+/**
+ * Sequence questionConfiguration selector
+ * @param {*} state
+ */
+export const selectCurrentQuestionResults = (state: StateRoot) => {
+  const questionSlug = state.currentQuestion;
+  return selectQuestionResults(state, questionSlug);
 };

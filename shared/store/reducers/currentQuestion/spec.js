@@ -3,6 +3,7 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import {
   questionConfigurationTypeFixture,
   questionTypeFixture,
+  questionResultsTypeFixture,
 } from 'Shared/types/__fixtures__/question.fixture';
 import { currentQuestion } from './index';
 
@@ -17,6 +18,18 @@ describe('Questions reducer', () => {
       payload: {
         questionSlug: 'foo-question',
         questionConfiguration: questionConfigurationTypeFixture,
+      },
+    };
+
+    expect(currentQuestion(undefined, action)).toEqual('foo-question');
+  });
+
+  it('action QUESTION_RESULTS_LOAD', () => {
+    const action = {
+      type: actionTypes.QUESTION_RESULTS_LOAD,
+      payload: {
+        questionSlug: 'foo-question',
+        questionResults: questionResultsTypeFixture,
       },
     };
 

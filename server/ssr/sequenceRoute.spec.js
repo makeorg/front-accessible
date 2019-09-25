@@ -11,7 +11,6 @@ jest.mock('Shared/helpers/date', () => ({
   isInProgress: jest.fn(),
 }));
 jest.mock('../service/QuestionService', () => ({
-  getQuestionConfiguration: jest.fn(),
   getQuestion: jest.fn(),
 }));
 jest.mock('Shared/api/SequenceService');

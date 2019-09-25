@@ -1,10 +1,8 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { getQuestion, getQuestionConfiguration } from './QuestionService';
+import { getQuestion } from './QuestionService';
 import { logger } from '../logger';
 
-const fs = require('fs');
 const cache = require('memory-cache');
-const { SERVER_DIR } = require('../paths');
 
 jest.mock('memory-cache');
 jest.mock('fs');
@@ -59,37 +57,6 @@ describe('Question Service', () => {
       expect(logger.log).toHaveBeenCalledWith('error', error);
 
       expect(result).toBeNull();
-    });
-  });
-  describe('getQuestionConfiguration', () => {
-    it('return content from cache', async () => {
-      jest.spyOn(cache, 'get');
-
-      cache.get.mockReturnValueOnce('fooCache');
-
-      const result = await getQuestionConfiguration('foo');
-
-      expect(cache.get).toHaveBeenCalledWith(
-        `${SERVER_DIR}/staticData/operationsParams/foo.json`
-      );
-      expect(result).toBe('fooCache');
-    });
-
-    it('return content from File, parse it and put it in cache', async () => {
-      jest.spyOn(cache, 'put');
-      const fileContent = '{\n"toto": "bar"}';
-      const expectedResult = { toto: 'bar' };
-      fs.readFileSync.mockReturnValueOnce(fileContent);
-
-      const result = await getQuestionConfiguration('foo');
-
-      expect(cache.put).toHaveBeenCalledWith(
-        `${SERVER_DIR}/staticData/operationsParams/foo.json`,
-        expectedResult,
-        300000
-      );
-
-      expect(result).toEqual(expectedResult);
     });
   });
 });

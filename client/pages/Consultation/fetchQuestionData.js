@@ -7,10 +7,14 @@ import { ThemeProvider } from 'styled-components';
 import { isInProgress } from 'Shared/helpers/date';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import {
+  type Question as TypeQuestion,
+  type QuestionResults as TypeQuestionResults,
+} from 'Shared/types/question';
 import {
   fetchQuestionData,
   fetchQuestionConfigurationData,
+  fetchQuestionResults,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
@@ -18,6 +22,7 @@ import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 type Props = {
   question: TypeQuestion,
   questionConfiguration: TypeQuestionConfiguration,
+  questionResults: TypeQuestionResults,
   fetchQuestion: (questionSlug: string) => void,
   match: TypeMatch,
 };
@@ -67,25 +72,30 @@ const callQuestionData = Component =>
       if (!question || !questionConfiguration) {
         fetchQuestion(match.params.questionSlug);
       }
+
+      if (
+        question &&
+        !isInProgress(question.startDate, question.endDate) &&
+        !question.displayResults
+      ) {
+        window.location = question.aboutUrl;
+      }
     }
 
     render() {
-      const { question, questionConfiguration } = this.props;
+      const { question, questionConfiguration, questionResults } = this.props;
       if (!question || !questionConfiguration) return null;
-
-      if (!isInProgress(question.startDate, question.endDate)) {
-        window.location = question.aboutUrl;
-        return null;
-      }
 
       return (
         <PageQuestionWrapper
+          questionResults={questionResults}
           questionConfiguration={questionConfiguration}
           question={question}
         >
           <Component
             question={question}
             questionConfiguration={questionConfiguration}
+            questionResults={questionResults}
           />
         </PageQuestionWrapper>
       );
@@ -101,6 +111,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchQuestionData(questionSlug)).then(question => {
       apiClient.questionId = question.questionId;
       apiClient.operationId = question.operationId;
+
+      if (question.displayResults) {
+        dispatch(fetchQuestionResults(questionSlug));
+      }
 
       dispatch(fetchQuestionConfigurationData(questionSlug));
     });
