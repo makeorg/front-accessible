@@ -27,9 +27,17 @@ export const LightBulbStyle = {
 
 export const ThumbsUpStyle = {
   fontSize: '72px',
+  width: '72px',
+  height: '72px',
   margin: '15px 0 5px',
   fill: `${VoteColors.Agree}`,
 };
+
+export const ThumbsUpWrapperStyle = styled.span`
+  .tofill {
+    fill: ${VoteColors.Agree};
+  }
+`;
 
 export const PlaceholderParagraphStyle = styled(ParagraphStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
