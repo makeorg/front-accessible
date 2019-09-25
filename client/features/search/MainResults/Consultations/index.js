@@ -6,7 +6,6 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink } from 'Shared/helpers/url';
-import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -46,7 +45,6 @@ const MainResultsConsultationsComponent = ({
                     as: Link,
                   }
                 : { href: question.aboutUrl, as: 'a' })}
-              onClick={() => trackClickHomepageConsultations()}
             >
               <BusinessConsultationsItemBorderStyle
                 colorStart={question.theme.gradientStart}

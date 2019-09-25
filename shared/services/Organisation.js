@@ -1,7 +1,26 @@
 // @flow
 import { OrganisationApiService } from 'Shared/api/OrganisationApiService';
 import { Logger } from 'Shared/services/Logger';
+import { type ApiSearchOrganisationsResponseType } from 'Shared/types/api';
 
+export const searchOrganisations = async (
+  country: string,
+  language: string,
+  content: string
+): ApiSearchOrganisationsResponseType | Object => {
+  try {
+    const response = await OrganisationApiService.search(
+      country,
+      language,
+      content
+    );
+
+    return response;
+  } catch (error) {
+    Logger.logError(Error(error));
+    return {};
+  }
+};
 export const getOrganisationBySlug = async (slug: string) => {
   try {
     const response = await OrganisationApiService.getOrganisations(slug);

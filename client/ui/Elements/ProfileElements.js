@@ -114,7 +114,6 @@ export const ProfileAvatarStyle = styled.div`
   justify-content: center;
   transform: translateY(-20px);
   margin-bottom: -20px;
-  margin-right: 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-right: 0;
   }
@@ -137,9 +136,9 @@ export const ProfileTitleStyle = styled.p`
   font-size: 16px;
   text-transform: uppercase;
   margin: 5px 0;
+  text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
-    text-align: center;
   }
 `;
 

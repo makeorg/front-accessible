@@ -4,6 +4,10 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import {
+  ProfileAvatarStyle,
+  ProfilePageSidebarStyle,
+} from 'Client/ui/Elements/ProfileElements';
 
 export const SearchSidebarTileStyle = styled.div`
   width: 100%;
@@ -21,4 +25,24 @@ export const SearchResultsConsultationListStyle = styled(UnstyledListStyle)`
   @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 20px;
   }
+`;
+
+export const SearchOrganisationsListStyle = styled(UnstyledListStyle)`
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 30px;
+  }
+  @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px;
+  }
+`;
+
+export const SearchOrganisationItemStyle = styled(ProfilePageSidebarStyle)`
+  margin-top: 40px;
+  text-decoration: none;
+`;
+
+export const SearchOrganisationAvatarStyle = styled(ProfileAvatarStyle)`
+  margin-bottom: 10px;
 `;

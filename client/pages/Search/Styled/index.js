@@ -12,7 +12,7 @@ export const SearchPageWrapperStyle = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 20px;
 `;
 
 export const SearchPageContentStyle = styled.div`
@@ -63,9 +63,13 @@ export const SearchPageTitleStyle = styled(SecondLevelTitleStyle)`
 `;
 
 export const SearchBackStyle = styled(RedLinkStyle)`
-  margin: 0 0 10px 20px;
   display: flex;
   align-items: flex-end;
+  margin-bottom: 10px;
+  margin-left: 0;
+  @media (max-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-left: 20px;
+  }
 `;
 
 export const SearchBackArrowStyle = {
