@@ -1,48 +1,55 @@
 // @flow
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { type Location } from 'react-router';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import {
+  type Question as TypeQuestion,
+  type QuestionResults as TypeQuestionResults,
+} from 'Shared/types/question';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { getActionLink, getConsultationLink } from 'Shared/helpers/url';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
+  questionConfiguration: TypeQuestionConfiguration,
+  questionResults: TypeQuestionResults,
   location: Location,
 };
 
-class ConsultationPage extends React.Component<Props> {
-  componentDidMount() {
+const ConsultationPage = ({
+  question,
+  questionConfiguration,
+  location,
+  questionResults,
+}: Props) => {
+  useEffect(() => {
     trackDisplayConsultation();
-  }
+  }, []);
 
-  render() {
-    const { question, questionConfiguration, location } = this.props;
-    const consultationLink = getConsultationLink(
-      question.country,
-      question.language,
-      question.slug
-    );
-    const actionLink = getActionLink(
-      question.country,
-      question.language,
-      question.slug
-    );
+  const consultationLink = getConsultationLink(
+    question.country,
+    question.language,
+    question.slug
+  );
+  const actionLink = getActionLink(
+    question.country,
+    question.language,
+    question.slug
+  );
 
-    return (
-      <ConsultationPageComponent
-        question={question}
-        questionConfiguration={questionConfiguration}
-        consultationLink={consultationLink}
-        actionLink={actionLink}
-        location={location}
-      />
-    );
-  }
-}
+  return (
+    <ConsultationPageComponent
+      question={question}
+      questionConfiguration={questionConfiguration}
+      questionResults={questionResults}
+      consultationLink={consultationLink}
+      actionLink={actionLink}
+      location={location}
+    />
+  );
+};
 
 export const ConsultationPageContainer = withRouter(ConsultationPage);

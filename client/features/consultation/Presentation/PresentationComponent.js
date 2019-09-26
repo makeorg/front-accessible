@@ -7,7 +7,7 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
 import { Founders } from '../Founders';
-import { SidebarNewWindowLink } from '../SidebarLink';
+import { SidebarNewWindowLink } from '../Sidebar/SidebarLink';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,

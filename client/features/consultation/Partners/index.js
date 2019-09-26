@@ -14,9 +14,10 @@ import {
   trackParticipatePartners,
   trackSeeMorePartners,
 } from 'Shared/services/Tracking';
+import { isInProgress } from 'Shared/helpers/date';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
-import { SidebarNewWindowLink } from '../SidebarLink';
+import { SidebarNewWindowLink } from '../Sidebar/SidebarLink';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
@@ -38,23 +39,27 @@ export const Partners = (props: Props) => {
 
   return (
     <React.Fragment>
-      <ParagraphStyle>
-        {i18n.t('consultation.partners.intro_text')}
-      </ParagraphStyle>
-      <ParticipateButtonStyle
-        as={Link}
-        to={sequenceLink}
-        onClick={() => trackParticipatePartners()}
-      >
-        <IconWrapperStyle aria-hidden>
-          <SvgPlayButton />
-        </IconWrapperStyle>
-        {i18n.t('common.participate')}
-      </ParticipateButtonStyle>
-      <FourthLevelTitleStyle as="h3">
-        {i18n.t('consultation.partners.commitment_title')}
-      </FourthLevelTitleStyle>
-      <TileSeparatorStyle />
+      {isInProgress(question.startDate, question.endDate) && (
+        <React.Fragment>
+          <ParagraphStyle>
+            {i18n.t('consultation.partners.intro_text')}
+          </ParagraphStyle>
+          <ParticipateButtonStyle
+            as={Link}
+            to={sequenceLink}
+            onClick={() => trackParticipatePartners()}
+          >
+            <IconWrapperStyle aria-hidden>
+              <SvgPlayButton />
+            </IconWrapperStyle>
+            {i18n.t('common.participate')}
+          </ParticipateButtonStyle>
+          <FourthLevelTitleStyle as="h3">
+            {i18n.t('consultation.partners.commitment_title')}
+          </FourthLevelTitleStyle>
+          <TileSeparatorStyle />
+        </React.Fragment>
+      )}
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}
       </ParagraphStyle>

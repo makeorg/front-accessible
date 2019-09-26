@@ -2,29 +2,22 @@
 
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { trackOpenLearnMore } from 'Shared/services/Tracking';
-import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
-import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { Presentation } from 'Client/features/consultation/Presentation';
-import { Partners } from 'Client/features/consultation/Partners';
-import { Sharing } from 'Client/features/sharing';
 import { TagFilter } from 'Client/features/consultation/TagsFilter';
-import { Collapse } from 'Client/ui/Elements/Collapse';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import {
   ConsultationPageContentStyle,
-  ConsultationPageSidebarStyle,
   ConsultationIconStyle,
 } from 'Client/pages/Consultation/Styled';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { TagSectionTitle } from '../../Styled/TagFilter';
+import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
@@ -73,39 +66,10 @@ export const ConsultationPanelContent = ({
           questionConfiguration={questionConfiguration}
         />
       )}
-      <ConsultationPageSidebarStyle
-        id="sidebar_content"
-        aria-label={i18n.t('common.sidebar_area')}
-        bottomAffix={isGreatCause(question.operationKind)}
-      >
-        <Collapse
-          title={i18n.t('consultation.presentation.title')}
-          forceExpand
-          trackCollapse={(action: string) => trackOpenLearnMore(action)}
-          questionId={question.questionId}
-        >
-          <Presentation
-            questionConfiguration={questionConfiguration}
-            question={question}
-          />
-        </Collapse>
-        {isGreatCause(question.operationKind) && (
-          <Collapse
-            title={i18n.t('consultation.partners.intro_title')}
-            forceExpand
-          >
-            <Partners
-              questionConfiguration={questionConfiguration}
-              question={question}
-            />
-          </Collapse>
-        )}
-        {!isMobile && (
-          <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-            <Sharing />
-          </TileWithTitle>
-        )}
-      </ConsultationPageSidebarStyle>
+      <ConsultationPannelSidebar
+        question={question}
+        questionConfiguration={questionConfiguration}
+      />
       <ConsultationPageContentStyle id="main">
         {renderDesktopProposal && (
           <ConsultationProposal
