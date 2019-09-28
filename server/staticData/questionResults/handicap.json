@@ -4,5 +4,22 @@
     "participants": 23415,
     "proposals": 143500,
     "votes": 12341234
-  }
+  },
+  "top_ideas": [
+    {
+      "name": "first theme",
+      "ideas": [
+        "first idea",
+        "second idea",
+        "third idea"
+      ]
+    },{
+      "name": "second theme",
+      "ideas": [
+        "first idea",
+        "second idea",
+        "third idea"
+      ]
+    }
+  ]
 }

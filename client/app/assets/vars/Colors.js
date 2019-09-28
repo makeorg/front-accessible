@@ -1,4 +1,6 @@
-/* @flow */
+const Green = 'rgb(85,131,34)';
+const MakeRed = 'rgb(222,26,66)';
+const LightGrey = 'rgb(247,247,247)';
 
 export const BasicColors = {
   PureWhite: 'rgb(255,255,255)',
@@ -7,7 +9,7 @@ export const BasicColors = {
 
 export const MakeThemeColors = {
   Blue: 'rgb(37,49,134)',
-  Red: 'rgb(222,26,66)',
+  Red: MakeRed,
 };
 
 export const IconColors = {
@@ -17,17 +19,16 @@ export const IconColors = {
 
 export const BackgroundColors = {
   DarkGrey: 'rgb(51,51,51)',
-  Grey: 'rgb(117,117,117)',
   MediumGrey: 'rgb(178,178,178)',
-  LightGrey: 'rgb(247,247,247)',
+  LightGrey,
   ExtraLightGrey: 'rgb(229,229,229)',
+  TaintedWhite: 'rgb(242 242 242)',
   NotFoundPage: 'rgb(230,230,240)',
   Notifications: 'rgb(51, 67, 91)',
 };
 
 export const BorderColors = {
   MediumGrey: 'rgba(0,0,0,0.5)',
-  Grey: 'rgba(0,0,0,0.3)',
   LightGrey: 'rgb(204, 204, 204)',
   ErrorRed: 'rgb(237,24,68)',
 };
@@ -35,7 +36,7 @@ export const BorderColors = {
 export const TextColors = {
   DarkGrey: 'rgb(83,83,83)',
   MediumGrey: 'rgb(74,74,74)',
-  LightGrey: 'rgb(247,247,247)',
+  LightGrey,
   Blue: 'rgb(74, 144, 226)',
 };
 
@@ -48,14 +49,14 @@ export const ShadowColors = {
 };
 
 export const VoteColors = {
-  Agree: 'rgb(85,131,34)',
+  Agree: Green,
   Disagree: 'rgb(190,24,44)',
   Neutral: 'rgb(117,117,117)',
 };
 
 export const StatusColors = {
-  Accepted: 'rgb(85,131,34)',
-  Refused: 'rgb(222,26,66)',
+  Accepted: Green,
+  Refused: MakeRed,
   Pending: 'rgb(255,118,26)',
 };
 

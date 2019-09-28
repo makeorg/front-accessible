@@ -13,12 +13,21 @@ export type QuestionTheme = {
   gradientEnd: string,
 };
 
+export type TypeThemeItem = {
+  name: string,
+  ideas: string[],
+};
+
 export type QuestionResults = {
   context: string,
   key_figures: {
     participants: number,
     proposals: number,
     votes: number,
+  },
+  top_ideas: {
+    first_theme: TypeThemeItem,
+    second_theme: TypeThemeItem,
   },
 };
 

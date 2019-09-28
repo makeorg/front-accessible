@@ -36,11 +36,11 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   width: 3.188rem;
   height: 3.188rem;
   margin: 0.375rem;
-  border: 0.375rem solid rgb(117,117,117);
+  border: 0.375rem solid rgb(178,178,178);
   border-radius: 50%;
   -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  border-color: rgb(117,117,117) transparent transparent transparent;
+  border-color: rgb(178,178,178) transparent transparent transparent;
 }
 
 .c3 {
@@ -50,11 +50,11 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   width: 3.188rem;
   height: 3.188rem;
   margin: 0.375rem;
-  border: 0.375rem solid rgb(117,117,117);
+  border: 0.375rem solid rgb(178,178,178);
   border-radius: 50%;
   -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  border-color: rgb(117,117,117) transparent transparent transparent;
+  border-color: rgb(178,178,178) transparent transparent transparent;
   -webkit-animation-delay: -0.45s;
   animation-delay: -0.45s;
 }
@@ -66,11 +66,11 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   width: 3.188rem;
   height: 3.188rem;
   margin: 0.375rem;
-  border: 0.375rem solid rgb(117,117,117);
+  border: 0.375rem solid rgb(178,178,178);
   border-radius: 50%;
   -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  border-color: rgb(117,117,117) transparent transparent transparent;
+  border-color: rgb(178,178,178) transparent transparent transparent;
   -webkit-animation-delay: -0.3s;
   animation-delay: -0.3s;
 }
@@ -82,11 +82,11 @@ exports[`Spinner must match the snapshot with default Props 1`] = `
   width: 3.188rem;
   height: 3.188rem;
   margin: 0.375rem;
-  border: 0.375rem solid rgb(117,117,117);
+  border: 0.375rem solid rgb(178,178,178);
   border-radius: 50%;
   -webkit-animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
   animation: zdZhV 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
-  border-color: rgb(117,117,117) transparent transparent transparent;
+  border-color: rgb(178,178,178) transparent transparent transparent;
   -webkit-animation-delay: -0.15s;
   animation-delay: -0.15s;
 }
