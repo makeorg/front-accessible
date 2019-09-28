@@ -490,7 +490,13 @@
     },
     "results": {
       "title": "Résultats de la consultation {{question}}",
-      "context": "Le contexte"
+      "context": "Le contexte",
+      "key_figures": {
+        "title": "Chiffres-clés",
+        "participants": "Participants",
+        "proposals": "Propositions",
+        "votes": "Votes"
+      }
     }
   },
   "sharing": {

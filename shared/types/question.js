@@ -15,6 +15,11 @@ export type QuestionTheme = {
 
 export type QuestionResults = {
   context: string,
+  key_figures: {
+    participants: number,
+    proposals: number,
+    votes: number,
+  },
 };
 
 export type Metas = {
