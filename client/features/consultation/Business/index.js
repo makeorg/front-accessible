@@ -80,7 +80,7 @@ export const BusinessConsultationsComponent = ({
         {slicedConsultations.map(consultation => (
           <BusinessConsultationsItemStyle key={consultation.slug}>
             <BusinessConsultationsItemLinkStyle
-              {...(isInProgress(consultation.startDate, consultation.endDate)
+              {...(isInProgress(consultation)
                 ? {
                     to: getConsultationLink(
                       country,
@@ -101,7 +101,7 @@ export const BusinessConsultationsComponent = ({
                   <ScreenReaderItemStyle>
                     {i18n.t('homepage.business_consultations.status')}
                   </ScreenReaderItemStyle>
-                  {isInProgress(consultation.startDate, consultation.endDate)
+                  {isInProgress(consultation)
                     ? i18n.t(
                         'homepage.business_consultations.question_inprogress'
                       )

@@ -29,7 +29,10 @@
       "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
     },
     "consultation": {
-      "title": "Consultation '{{question}}'"
+      "title": "Consultation '{{question}}'",
+      "results": {
+        "title": "Résultats de la consultation '{{question}}'"
+      }
     },
     "actions": {
       "title": "Actions '{{question}}'"
@@ -484,6 +487,10 @@
     "proposal": {
       "title": "Proposez une solution",
       "load_more": "Voir + de propositions"
+    },
+    "results": {
+      "title": "Résultats de la consultation {{question}}",
+      "context": "Le contexte"
     }
   },
   "sharing": {

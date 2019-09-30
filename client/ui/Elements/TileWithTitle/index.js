@@ -1,19 +1,27 @@
 import React from 'react';
-import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { TileWithTitleStyle, TileSeparatorStyle } from './Styled';
+import {
+  TileWithTitleStyle,
+  TileTitleStyle,
+  TileSeparatorStyle,
+} from './Styled';
 
 type Props = {
   /** Title of the tile */
   title: string,
   /** Chidlren to render */
   children: React.Node,
+  /** Optional icon as prop to render */
+  icon?: React.Node,
 };
 
 export const TileWithTitle = (props: Props) => {
-  const { title, children } = props;
+  const { title, children, icon } = props;
   return (
     <TileWithTitleStyle>
-      <FourthLevelTitleStyle as="h3">{title}</FourthLevelTitleStyle>
+      <TileTitleStyle as="h3">
+        {icon}
+        {title}
+      </TileTitleStyle>
       <TileSeparatorStyle />
       {children}
     </TileWithTitleStyle>

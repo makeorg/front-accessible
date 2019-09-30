@@ -39,7 +39,7 @@ const MainResultsConsultationsComponent = ({
             backgroundColor={BasicColors.PureWhite}
           >
             <BusinessConsultationsItemLinkStyle
-              {...(isInProgress(question.startDate, question.endDate)
+              {...(isInProgress(question)
                 ? {
                     to: getConsultationLink(country, language, question.slug),
                     as: Link,
@@ -55,7 +55,7 @@ const MainResultsConsultationsComponent = ({
                   <ScreenReaderItemStyle>
                     {i18n.t('homepage.business_consultations.status')}
                   </ScreenReaderItemStyle>
-                  {isInProgress(question.startDate, question.endDate)
+                  {isInProgress(question)
                     ? i18n.t(
                         'homepage.business_consultations.question_inprogress'
                       )

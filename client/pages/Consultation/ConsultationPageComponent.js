@@ -3,8 +3,11 @@ import { matchPath, Redirect, type Location } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import {
+  type Question as TypeQuestion,
+  type QuestionResults as TypeQuestionResults,
+} from 'Shared/types/question';
 import { trackClickActionsTab } from 'Shared/services/Tracking';
 import { ROUTE_CONSULTATION, ROUTE_ACTION } from 'Shared/routes';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
@@ -21,17 +24,20 @@ import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
+import { ResultsPannel } from 'Client/features/consultation/TabsContent/Panel/Results';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
-  questionConfiguration: QuestionConfiguration,
-  question: Question,
+  questionResults: TypeQuestionResults,
+  questionConfiguration: TypeQuestionConfiguration,
+  question: TypeQuestion,
   consultationLink: string,
   actionLink: string,
   location: Location,
 };
 
 export const ConsultationPageComponent = ({
+  questionResults,
   questionConfiguration,
   question,
   consultationLink,
@@ -87,10 +93,20 @@ export const ConsultationPageComponent = ({
               path={ROUTE_CONSULTATION}
               exact
               component={() => (
-                <ConsultationPanelContent
-                  question={question}
-                  questionConfiguration={questionConfiguration}
-                />
+                <React.Fragment>
+                  {questionResults ? (
+                    <ResultsPannel
+                      question={question}
+                      questionConfiguration={questionConfiguration}
+                      questionResults={questionResults}
+                    />
+                  ) : (
+                    <ConsultationPanelContent
+                      question={question}
+                      questionConfiguration={questionConfiguration}
+                    />
+                  )}
+                </React.Fragment>
               )}
             />
             <Route

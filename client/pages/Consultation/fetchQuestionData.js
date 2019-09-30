@@ -73,11 +73,7 @@ const callQuestionData = Component =>
         fetchQuestion(match.params.questionSlug);
       }
 
-      if (
-        question &&
-        !isInProgress(question.startDate, question.endDate) &&
-        !question.displayResults
-      ) {
+      if (question && !isInProgress(question) && !question.displayResults) {
         window.location = question.aboutUrl;
       }
     }
