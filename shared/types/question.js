@@ -13,6 +13,10 @@ export type QuestionTheme = {
   gradientEnd: string,
 };
 
+export type QuestionResults = {
+  context: string,
+};
+
 export type Metas = {
   title: string,
   description: string,
@@ -47,6 +51,7 @@ export type Question = {
   landingSequenceId: string,
   operationTitle: string,
   canPropose: boolean,
+  displayResults: boolean,
   aboutUrl: string,
   sequenceConfig: QuestionExtraSlidesConfig,
 };

@@ -24,7 +24,7 @@ import {
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
-import { questionApi } from './api/question';
+import { questionApi, questionResults } from './api/question';
 import { loggerApi } from './api/logger';
 import * as technicalPages from './technicalPages';
 
@@ -69,6 +69,7 @@ export const initRoutes = app => {
 
   // API Routes
   app.get('/api/questions/:questionSlug', questionApi);
+  app.get('/api/results/:questionSlug', questionResults);
   app.post('/api/logger', loggerApi);
 
   const frontMiddlewares = [

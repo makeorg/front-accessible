@@ -3,12 +3,16 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import {
+  type Question as TypeQuestion,
+  type QuestionResults as TypeQuestionResults,
+} from 'Shared/types/question';
 import { SequenceService } from 'Shared/api/SequenceService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import { trackFirstVote } from 'Shared/services/Tracking';
+import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
@@ -23,17 +27,25 @@ export const unvoteProposal = (proposalId: string) => ({
   payload: { proposalId },
 });
 
-export const loadQuestion = (question: Question) => ({
+export const loadQuestion = (question: TypeQuestion) => ({
   type: actionTypes.QUESTION_LOAD,
   payload: { question },
 });
 
 export const loadQuestionConfiguration = (
-  questionConfiguration: QuestionConfiguration,
+  questionConfiguration: TypeQuestionConfiguration,
   questionSlug: string
 ) => ({
   type: actionTypes.QUESTION_CONFIGURATION_LOAD,
   payload: { questionConfiguration, questionSlug },
+});
+
+export const loadQuestionResults = (
+  questionResults: TypeQuestionResults,
+  questionSlug: string
+) => ({
+  type: actionTypes.QUESTION_RESULTS_LOAD,
+  payload: { questionResults, questionSlug },
 });
 
 export const sequenceVote = (
@@ -78,6 +90,17 @@ export const fetchQuestionConfigurationData = (questionSlug: string) => (
       dispatch(loadQuestionConfiguration(questionConfiguration, questionSlug));
     })
 
+    .catch(error => {
+      Logger.logError(Error(error));
+    });
+
+export const fetchQuestionResults = (questionSlug: string) => (
+  dispatch: any => void
+) =>
+  QuestionNodeService.fetchResults(questionSlug)
+    .then(questionResults => {
+      dispatch(loadQuestionResults(questionResults, questionSlug));
+    })
     .catch(error => {
       Logger.logError(Error(error));
     });

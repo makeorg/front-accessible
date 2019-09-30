@@ -1,7 +1,10 @@
 // @flow
 import { type TypeErrorObject } from 'Shared/types/api';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
-import { type Question } from 'Shared/types/question';
+import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
+import {
+  type Question as TypeQuestion,
+  type QuestionResults as TypeQuestionResults,
+} from 'Shared/types/question';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -66,8 +69,9 @@ export type StateUser = $ReadOnly<{
 
 export type StateQuestions = $ReadOnly<{
   [string]: {
-    question: Question,
-    questionConfiguration: QuestionConfiguration,
+    question: TypeQuestion,
+    questionConfiguration: TypeQuestionConfiguration,
+    questionResults: TypeQuestionResults,
   },
 }>;
 
@@ -77,7 +81,7 @@ export type StateModal = $ReadOnly<{
 }>;
 
 // All state
-export type StateRoot = $ReadOnly<{
+export type StateRoot = {
   appConfig: StateConfig,
   proposal: StateProposal,
   sequence: StateSequence,
@@ -86,4 +90,4 @@ export type StateRoot = $ReadOnly<{
   user: StateUser,
   questions: StateQuestions,
   modal: StateModal,
-}>;
+};

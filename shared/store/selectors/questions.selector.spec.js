@@ -3,6 +3,7 @@
 import {
   questionTypeFixture,
   questionConfigurationTypeFixture,
+  questionResultsTypeFixture,
 } from 'Shared/types/__fixtures__/question.fixture';
 import { initialState } from '../initialState';
 import {
@@ -10,6 +11,8 @@ import {
   selectCurrentQuestionConfiguration,
   selectQuestion,
   selectQuestionConfiguration,
+  selectQuestionResults,
+  selectCurrentQuestionResults,
 } from './questions.selector';
 
 describe('Questions selector', () => {
@@ -53,6 +56,27 @@ describe('Questions selector', () => {
       );
     });
   });
+
+  describe('select Curent Question Results', () => {
+    it('with initialState', () => {
+      expect(selectCurrentQuestionResults(initialState)).toBe(null);
+    });
+
+    it('selectQuestion available', () => {
+      const state = {
+        questions: {
+          'weeuropeans-fr': {
+            questionResults: questionResultsTypeFixture,
+          },
+        },
+        currentQuestion: 'weeuropeans-fr',
+      };
+      expect(selectCurrentQuestionResults(state)).toBe(
+        questionResultsTypeFixture
+      );
+    });
+  });
+
   describe('selectQuestion', () => {
     it('with initialState', () => {
       expect(selectQuestion(initialState)).toBe(null);
@@ -85,6 +109,25 @@ describe('Questions selector', () => {
       };
       expect(selectQuestionConfiguration(state, 'weeuropeans-fr')).toBe(
         questionConfigurationTypeFixture
+      );
+    });
+  });
+
+  describe('selectQuestionResults', () => {
+    it('with initialState', () => {
+      expect(selectQuestionResults(initialState)).toBe(null);
+    });
+
+    it('selectQuestionResults available', () => {
+      const state = {
+        questions: {
+          'weeuropeans-fr': {
+            questionResults: questionResultsTypeFixture,
+          },
+        },
+      };
+      expect(selectQuestionResults(state, 'weeuropeans-fr')).toBe(
+        questionResultsTypeFixture
       );
     });
   });

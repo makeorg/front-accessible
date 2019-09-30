@@ -8,10 +8,6 @@ import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 import { getQuestion } from '../service/QuestionService';
 
-async function getQuestionConfiguration(questionSlug) {
-  return SequenceService.fetchConfiguration(questionSlug);
-}
-
 export const sequenceRoute = async (req, res) => {
   const routeState = createInitialState();
 
@@ -19,11 +15,12 @@ export const sequenceRoute = async (req, res) => {
     const { questionSlug } = req.params;
     const question: TypeQuestion = await getQuestion(questionSlug);
 
+    // @TODO add !questionResults when results will be ready
     if (!isInProgress(question.startDate, question.endDate)) {
       return res.redirect(question.aboutUrl);
     }
 
-    const questionConfiguration: TypeQuestionConfiguration = await getQuestionConfiguration(
+    const questionConfiguration: TypeQuestionConfiguration = await SequenceService.fetchConfiguration(
       questionSlug
     );
     if (question) {

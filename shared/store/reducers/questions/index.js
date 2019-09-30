@@ -25,6 +25,14 @@ export function questions(
           questionConfiguration: action.payload.questionConfiguration,
         },
       };
+    case actionTypes.QUESTION_RESULTS_LOAD:
+      return {
+        ...state,
+        [action.payload.questionSlug]: {
+          ...state[action.payload.questionSlug],
+          questionResults: action.payload.questionResults,
+        },
+      };
     default:
       return state;
   }
