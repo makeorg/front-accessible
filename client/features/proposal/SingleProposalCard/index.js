@@ -30,7 +30,7 @@ type Props = {
 export const SingleProposalCard = (props: Props) => {
   const { proposal } = props;
   const { question } = proposal;
-  const canVote = isInProgress(question.startDate, question.endDate);
+  const canVote = isInProgress(question);
 
   return (
     <TallCardStyle id="proposal_card">

@@ -44,7 +44,7 @@ export const ConsultationPannelSidebar = ({
       {isGreatCause(question.operationKind) && (
         <Collapse
           title={
-            isInProgress(question.startDate, question.endDate)
+            isInProgress(question)
               ? i18n.t('consultation.partners.intro_title')
               : i18n.t('consultation.partners.commitment_title')
           }

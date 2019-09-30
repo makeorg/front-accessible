@@ -39,7 +39,7 @@ export const ProposalCardWithQuestion = (props: Props) => {
     proposal.id,
     proposal.slug
   );
-  const canVote = isInProgress(question.startDate, question.endDate);
+  const canVote = isInProgress(question);
 
   return (
     <ProposalCardStyle

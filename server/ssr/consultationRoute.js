@@ -20,10 +20,7 @@ export const consultationRoute = async (req: any, res: any) => {
     let questionResults: TypeQuestionResults;
     const question: TypeQuestion = await getQuestion(questionSlug);
 
-    if (
-      !isInProgress(question.startDate, question.endDate) &&
-      !question.displayResults
-    ) {
+    if (!isInProgress(question) && !question.displayResults) {
       return res.redirect(question.aboutUrl);
     }
 

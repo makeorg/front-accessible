@@ -39,7 +39,7 @@ export const Partners = (props: Props) => {
 
   return (
     <React.Fragment>
-      {isInProgress(question.startDate, question.endDate) && (
+      {isInProgress(question) && (
         <React.Fragment>
           <ParagraphStyle>
             {i18n.t('consultation.partners.intro_text')}

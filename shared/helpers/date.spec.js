@@ -92,20 +92,20 @@ describe('Date Helper', () => {
     let endDate = '2075-01-01';
 
     it('isInProgress with startDate is null', () => {
-      expect(isInProgress(null, endDate)).toBe(true);
+      expect(isInProgress({ startDate: null, endDate })).toBe(true);
     });
 
     it('isInProgress with endDate is null', () => {
-      expect(isInProgress(startDate, null)).toBe(true);
+      expect(isInProgress({ startDate, endDate: null })).toBe(true);
     });
 
     it('consultation is open', () => {
-      expect(isInProgress(startDate, endDate)).toBe(true);
+      expect(isInProgress({ startDate, endDate })).toBe(true);
     });
 
     it('consultation is closed', () => {
       endDate = '1980-01-02';
-      expect(isInProgress(startDate, endDate)).toBe(false);
+      expect(isInProgress({ startDate, endDate })).toBe(false);
     });
   });
 });

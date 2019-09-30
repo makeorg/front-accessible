@@ -16,7 +16,7 @@ export const sequenceRoute = async (req, res) => {
     const question: TypeQuestion = await getQuestion(questionSlug);
 
     // @TODO add !questionResults when results will be ready
-    if (!isInProgress(question.startDate, question.endDate)) {
+    if (!isInProgress(question)) {
       return res.redirect(question.aboutUrl);
     }
 
