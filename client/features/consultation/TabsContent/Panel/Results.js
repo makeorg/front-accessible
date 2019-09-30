@@ -10,10 +10,11 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { SvgInfos } from 'Client/ui/Svg/elements';
+import { SvgInfos, SvgCalculator } from 'Client/ui/Svg/elements';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import { ResultsIconsStyle } from '../../Results/Styled';
+import { KeyFigures } from '../../Results/KeyFigures';
 
 type Props = {
   questionResults: TypeQuestionResults,
@@ -49,6 +50,15 @@ export const ResultsPannel = ({
         <ResultsContext
           context={questionResults.context}
           aboutUrl={question.aboutUrl}
+        />
+      </TileWithTitle>
+      <TileWithTitle
+        title={i18n.t('consultation.results.key_figures.title')}
+        icon={<SvgCalculator aria-hidden style={ResultsIconsStyle} />}
+      >
+        <KeyFigures
+          results={questionResults.key_figures}
+          themeColor={questionConfiguration.theme.color}
         />
       </TileWithTitle>
     </ConsultationPageContentStyle>
