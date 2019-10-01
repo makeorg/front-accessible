@@ -44,3 +44,4 @@ export { SvgDisconnect } from './Disconnect';
 export { SvgAlert } from './Alert';
 export { SvgSearch } from './Search';
 export { SvgCalculator } from './Calculator';
+export { SvgLightning } from './Lightning';

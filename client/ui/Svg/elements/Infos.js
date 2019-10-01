@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const SvgInfos = props => (
-  <svg width={20} height={20} {...props}>
+  <svg width={20} height={20} viewBox="0 0 20 20" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
         className="tofill"

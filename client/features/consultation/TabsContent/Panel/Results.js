@@ -10,12 +10,19 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { SvgInfos, SvgCalculator, SvgLightBulb } from 'Client/ui/Svg/elements';
+import {
+  SvgInfos,
+  SvgCalculator,
+  SvgLightBulb,
+  SvgLightning,
+  SvgThumbsUp,
+} from 'Client/ui/Svg/elements';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import { ResultsIconsStyle } from '../../Results/Styled';
 import { KeyFigures } from '../../Results/KeyFigures';
 import { TopIdeas } from '../../Results/TopIdeas';
+import { ProposalsResults } from '../../Results/Proposals';
 
 type Props = {
   questionResults: TypeQuestionResults,
@@ -67,6 +74,18 @@ export const ResultsPannel = ({
         icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
       >
         <TopIdeas topIdeas={questionResults.top_ideas} />
+      </TileWithTitle>
+      <TileWithTitle
+        title={i18n.t('consultation.results.proposals.controversials')}
+        icon={<SvgLightning aria-hidden style={ResultsIconsStyle} />}
+      >
+        <ProposalsResults proposals={questionResults.controversials} />
+      </TileWithTitle>
+      <TileWithTitle
+        title={i18n.t('consultation.results.proposals.rejected')}
+        icon={<SvgThumbsUp aria-hidden style={ResultsIconsStyle} />}
+      >
+        <ProposalsResults proposals={questionResults.rejected} isRejected />
       </TileWithTitle>
     </ConsultationPageContentStyle>
   </React.Fragment>
