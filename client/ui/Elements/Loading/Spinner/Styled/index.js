@@ -34,10 +34,11 @@ export const SpinnerFirstRingStyle = styled.div`
   width: ${pxToRem('51px')};
   height: ${pxToRem('51px')};
   margin: ${pxToRem('6px')};
-  border: ${pxToRem('6px')} solid ${BackgroundColors.Grey};
+  border: ${pxToRem('6px')} solid ${BackgroundColors.MediumGrey};
   border-radius: 50%;
   animation: ${Spinning} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: ${BackgroundColors.Grey} transparent transparent transparent;
+  border-color: ${BackgroundColors.MediumGrey} transparent transparent
+    transparent;
 `;
 
 export const SpinnerSecondRingStyle = styled(SpinnerFirstRingStyle)`

@@ -10,11 +10,12 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { SvgInfos, SvgCalculator } from 'Client/ui/Svg/elements';
+import { SvgInfos, SvgCalculator, SvgLightBulb } from 'Client/ui/Svg/elements';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import { ResultsIconsStyle } from '../../Results/Styled';
 import { KeyFigures } from '../../Results/KeyFigures';
+import { TopIdeas } from '../../Results/TopIdeas';
 
 type Props = {
   questionResults: TypeQuestionResults,
@@ -60,6 +61,12 @@ export const ResultsPannel = ({
           results={questionResults.key_figures}
           themeColor={questionConfiguration.theme.color}
         />
+      </TileWithTitle>
+      <TileWithTitle
+        title={i18n.t('consultation.results.top_ideas.title')}
+        icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
+      >
+        <TopIdeas topIdeas={questionResults.top_ideas} />
       </TileWithTitle>
     </ConsultationPageContentStyle>
   </React.Fragment>
