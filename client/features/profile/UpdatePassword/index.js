@@ -52,6 +52,11 @@ export const UpdatePasswordComponent = ({
   const newPasswordIsEmptyAndWrong =
     newPasswordError && formValues.newPassword.length <= 1;
 
+  const disableSubmitAndErrors = () => {
+    setCanSubmit(false);
+    setErrors([]);
+  };
+
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     setFormValues({
@@ -61,9 +66,15 @@ export const UpdatePasswordComponent = ({
 
     setCanSubmit(true);
 
-    if (actualPasswordIsEmptyAndWrong || newPasswordIsEmptyAndWrong) {
-      setCanSubmit(false);
-      setErrors([]);
+    if (
+      hasPassword &&
+      (actualPasswordIsEmptyAndWrong || newPasswordIsEmptyAndWrong)
+    ) {
+      disableSubmitAndErrors();
+    }
+
+    if (newPasswordIsEmptyAndWrong) {
+      disableSubmitAndErrors();
     }
 
     setIsSubmitSuccessful(false);
