@@ -508,6 +508,18 @@
         "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
         "controversials_like_it": "{{count}}% coups de coeur",
         "controversials_no_way": "{{count}}% surtout pas"
+      },
+      "cartography": {
+        "title": "La cartographie du débat"
+      },
+      "participation": {
+        "title": "Qui a participé à cette consultation ?"
+      },
+      "table": {
+        "name": "Nom",
+        "value": "Valeur",
+        "value_with_unit": "Valeur (en {{unit}})",
+        "percent": "pourcentage"
       }
     }
   },

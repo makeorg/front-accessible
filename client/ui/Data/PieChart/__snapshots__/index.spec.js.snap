@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardStyle snapshot by default 1`] = `
+<WrapperStyle>
+  <HiddenItemStyle>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    </p>
+    <table>
+      <caption>
+        Pie Chart n° 1
+      </caption>
+      <thead>
+        <th>
+          consultation.results.table.name
+        </th>
+        <th>
+          consultation.results.table.value_with_unit
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Justice sociale
+          </td>
+          <td>
+            21%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            RSE et politique
+          </td>
+          <td>
+            12%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Conditions
+          </td>
+          <td>
+            9%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Intêret général
+          </td>
+          <td>
+            7%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Méthodes
+          </td>
+          <td>
+            6%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Emploi
+          </td>
+          <td>
+            6%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Croissance
+          </td>
+          <td>
+            6%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Code du
+          </td>
+          <td>
+            5%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Autre
+          </td>
+          <td>
+            28%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </HiddenItemStyle>
+  <PieChartCanvasStyle
+    aria-hidden={true}
+  />
+</WrapperStyle>
+`;

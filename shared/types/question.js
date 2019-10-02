@@ -32,6 +32,19 @@ export type TypeRejectedProposals = {
   no_way: number,
 };
 
+export type TypePieChartData = {
+  label: string,
+  sublabel?: string,
+  percent: number,
+  color: string,
+  adjustLabel?: {
+    hidePercent?: boolean,
+    textAlign?: string,
+    xAxis?: number,
+    yAxis?: number,
+  },
+};
+
 export type QuestionResults = {
   context: string,
   key_figures: {
