@@ -47,7 +47,8 @@ import {
   SvgInfos,
   SvgAlert,
   SvgSearch,
-  SvgCalculator
+  SvgCalculator,
+  SvgLightning
 } from './index.js';
 
 class SvgElementsExample extends React.Component {
@@ -101,6 +102,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgAlert /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSearch /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgCalculator /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLightning /></span>
       </React.Fragment>
     );
   }

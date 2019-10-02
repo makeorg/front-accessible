@@ -18,6 +18,20 @@ export type TypeThemeItem = {
   ideas: string[],
 };
 
+export type TypeControversialProposals = {
+  author: string,
+  content: string,
+  like_it: number,
+  no_way: number,
+};
+
+export type TypeRejectedProposals = {
+  author: string,
+  content: string,
+  disagree: number,
+  no_way: number,
+};
+
 export type QuestionResults = {
   context: string,
   key_figures: {
@@ -25,10 +39,9 @@ export type QuestionResults = {
     proposals: number,
     votes: number,
   },
-  top_ideas: {
-    first_theme: TypeThemeItem,
-    second_theme: TypeThemeItem,
-  },
+  top_ideas: TypeThemeItem[],
+  controversials: TypeControversialProposals[],
+  rejected: TypeRejectedProposals[],
 };
 
 export type Metas = {

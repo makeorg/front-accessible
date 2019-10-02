@@ -21,5 +21,33 @@
         "third idea"
       ]
     }
-  ]
+  ],
+  "controversials": [
+    {
+      "author": "Controversial Proposal 1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.",
+      "like_it": 96,
+      "no_way": 30
+    }, 
+    {
+      "author": "Controversial Proposal 2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.",
+      "like_it": 96,
+      "no_way": 30
+    }
+  ],
+  "rejected": [
+    {
+      "author": "Rejected Proposal 1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "disagree": 96,
+      "no_way": 30
+    }, 
+    {
+      "author": "Rejected Proposal 2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.",
+      "disagree": 96,
+      "no_way": 30
+    }
+  ] 
 }
