@@ -93,7 +93,7 @@ export const ActiveButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
   svg,
-  .tofill {
+  > .tofill {
     fill: ${BasicColors.PureWhite};
   }
   &:disabled {
