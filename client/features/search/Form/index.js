@@ -37,7 +37,7 @@ const SearchInputHandler = ({ location, history, country, language }) => {
     setHasSubmit(false);
     setCanSubmit(false);
     setSearchTerm(value);
-    if (value.length > 3 && value.length <= 140) {
+    if (value.length > 2 && value.length <= 140) {
       setCanSubmit(true);
     }
   };
