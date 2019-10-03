@@ -1,53 +1,165 @@
 {
-  "context": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.",
+  "context": "Consultation citoyenne réalisée par Make.org dans le cadre de la Grande cause sur le Handicap du 28/05/2019 au 17/09/2019, autour de la question : \"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?",
   "key_figures": {
-    "participants": 23415,
-    "proposals": 143500,
-    "votes": 12341234
+      "reach": 5100000,
+      "participants": 274600,
+      "proposals": 7172,
+      "votes": 953000
   },
   "top_ideas": [
-    {
-      "name": "first theme",
-      "ideas": [
-        "first idea",
-        "second idea",
-        "third idea"
-      ]
-    },{
-      "name": "second theme",
-      "ideas": [
-        "first idea",
-        "second idea",
-        "third idea"
-      ]
-    }
+      {
+          "name": "Sensibilisation et formation",
+          "ideas": [
+              {
+                  "idea": "Sensibiliser et mieux prendre en compte la diversité des handicaps, notamment ceux invisibles",
+                  "agreement": 90,
+                  "adhesion": 13,
+                  "realistic": 37
+              },
+              {
+                  "idea": "Sensibiliser et former l'ensemble du personnel éducatif au handicap",
+                  "agreement": 89,
+                  "adhesion": 16,
+                  "realistic": 32
+              }
+          ]
+      },
+      {
+          "name": "Simplification des démarches",
+          "ideas": [
+              {
+                  "idea": "Simplifier les démarches administratives et les délais de traitement, en particulier au sein des MDPH",
+                  "agreement": 90,
+                  "adhesion": 24,
+                  "realistic": 33
+              },
+              {
+                  "idea": "Offrir une meilleure prise en charge des soins et dépenses liées au handicap et encadrer le cout des équipements",
+                  "agreement": 88,
+                  "adhesion": 20,
+                  "realistic": 32
+              }
+          ]
+      },
+      {
+          "name": "Prise en charge financière",
+          "ideas": [
+              {
+                  "idea": "Développer les structures d'accueil en fonction des handicaps et maintenir les capacités de ceux existant",
+                  "agreement": 89,
+                  "adhesion": 18,
+                  "realistic": 30
+              },
+              {
+                  "idea": "Révaluer le montant et le calcul des pensions d'invalidité, des retraites et de l'AAH",
+                  "agreement": 93,
+                  "adhesion": 18,
+                  "realistic": 34
+              }
+          ]
+      },
+      {
+          "name": "Accompagnement humain",
+          "ideas": [
+              {
+                  "idea": "Mieux accompagner les aidants",
+                  "agreement": 93,
+                  "adhesion": 15,
+                  "realistic": 35
+              },
+              {
+                  "idea": "Valoriser les métiers de l'accompagnement par la reconnaissance, la formation et la rémunération",
+                  "agreement": 88,
+                  "adhesion": 20,
+                  "realistic": 29
+              }
+          ]
+      },
+      {
+          "name": "Accessibilité urbaine",
+          "ideas": [
+              {
+                  "idea": "Améliorer l'accès aux infrastructures, notamment aux batiments publics",
+                  "agreement": 89,
+                  "adhesion": 15,
+                  "realistic": 35
+              },
+              {
+                  "idea": "Rendre la ville et les transports plus accessibles pour les personnes handicapées",
+                  "agreement": 91,
+                  "adhesion": 15,
+                  "realistic": 32
+              }
+          ]
+      },
+      {
+          "name": "Accès au travail et à l'école",
+          "ideas": [
+              {
+                  "idea": "Renforcer les moyens d'accueil humains et financiers dans les écoles",
+                  "agreement": 87,
+                  "adhesion": 16,
+                  "realistic": 36
+              },
+              {
+                  "idea": "Améliorer la formation et l'accompagnement des Ph dans leur parcours professionnel",
+                  "agreement": 86,
+                  "adhesion": 15,
+                  "realistic": 37
+              },
+              {
+                  "idea": "Adapter les entreprises pour favoriser l'inclusions des PH au travail",
+                  "agreement": 88,
+                  "adhesion": 11,
+                  "realistic": 35
+              }
+          ]
+      }
   ],
   "controversials": [
-    {
-      "author": "Controversial Proposal 1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.",
-      "like_it": 96,
-      "no_way": 30
-    }, 
-    {
-      "author": "Controversial Proposal 2",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales.",
-      "like_it": 96,
-      "no_way": 30
-    }
+      {
+          "author": "Marie",
+          "content": "Il faut qu'un handicapé français puisse garder ses aides sociales, s'il choisit de vivre dans un autre pays de l'Europe",
+          "like_it": 18,
+          "no_way": 37
+      },
+      {
+          "author": "Philippe",
+          "content": "Il faut légaliser le canabis, pour arrêter tout ces médicament bien chimiques qui nous rendent encore plus malades et qui nous coûtent cher",
+          "like_it": 27,
+          "no_way": 49
+      },
+      {
+          "author": "Laurence",
+          "content": "Il faut faire des écoles parallèles avec des niveaux différents, qui doivent s'adapter aux publics concernés",
+          "like_it": 18,
+          "no_way": 53
+      },
+      {
+          "author": "Christelle",
+          "content": "Il faut forcer les entreprises à employer des personnes handicapées et ne pas les autoriser à payer des amendes ou des pénalités.",
+          "like_it": 23,
+          "no_way": 35
+      },
+      {
+          "author": "Juliette",
+          "content": "Il faut supprimer ce logo de fauteuil qui ne représente qu'une minorité des personnes en situation de handicap",
+          "like_it": 21,
+          "no_way": 42
+      }
   ],
   "rejected": [
-    {
-      "author": "Rejected Proposal 1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "disagree": 96,
-      "no_way": 30
-    }, 
-    {
-      "author": "Rejected Proposal 2",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis fermentum libero, non volutpat.",
-      "disagree": 96,
-      "no_way": 30
-    }
-  ] 
+      {
+          "author": "Olivier",
+          "content": "Il faut fermer tous les établissements spécialisés et transférer les budgets du médico-social vers l'Education Nationale",
+          "disagree": 51,
+          "no_way": 57
+      },
+      {
+          "author": "Thierry",
+          "content": "Il faut développer les lieux de vie pour personnes handicapées, et que ces lieux de vie soient financés par les pensionnaires eux-mêmes",
+          "disagree": 32,
+          "no_way": 34
+      }
+  ]
 }

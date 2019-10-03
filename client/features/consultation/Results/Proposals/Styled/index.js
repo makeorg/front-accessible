@@ -16,7 +16,9 @@ export const ProposalsListStyle = styled(UnstyledListStyle)`
   width: 100%;
   flex-flow: column;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    flex-flow: row;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
 `;
 
@@ -35,10 +37,6 @@ export const ProposalsListItemStyle = styled.li`
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-bottom: 0;
-    margin-right: 30px;
-    &:last-child {
-      margin-right: 0;
-    }
   }
 `;
 
