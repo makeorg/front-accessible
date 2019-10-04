@@ -4,5 +4,12 @@
     "gradientStart": "#000000",
     "gradientEnd": "#000000",
     "footerFontColor": "white"
-  }
+  },
+  "consultation": {
+    "presentation": "La population mondiale continue de croître à un rythme important. On estime ainsi à 7 milliards le nombre de personnes qui habiteront en zones urbaines à horizon 2050, soit 70% de la totalité des êtres humains (contre 50% actuellement). Demain se vivra donc en ville, mais comment ?",
+    "logo": "/images/operations/villededemain/consultation/logo.svg"
+  },
+  "partners": [
+    {"name": "MIPIM", "imageUrl": "/images/operations/villededemain/partners/mipim.svg", "isFounder": true}
+  ]
 }
