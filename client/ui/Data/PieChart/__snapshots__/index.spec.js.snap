@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardStyle snapshot by default 1`] = `
-<WrapperStyle>
+exports[`PieChart snapshot by default 1`] = `
+<PieChartWrapperStyle>
+  <PieChartTitleStyle>
+    Pie Chart n° 1
+  </PieChartTitleStyle>
   <HiddenItemStyle>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
@@ -11,12 +14,14 @@ exports[`CardStyle snapshot by default 1`] = `
         Pie Chart n° 1
       </caption>
       <thead>
-        <th>
-          consultation.results.table.name
-        </th>
-        <th>
-          consultation.results.table.value_with_unit
-        </th>
+        <tr>
+          <th>
+            consultation.results.table.name
+          </th>
+          <th>
+            consultation.results.table.value_with_unit
+          </th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -24,7 +29,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Justice sociale
           </td>
           <td>
-            21%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -32,7 +37,7 @@ exports[`CardStyle snapshot by default 1`] = `
             RSE et politique
           </td>
           <td>
-            12%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -40,7 +45,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Conditions
           </td>
           <td>
-            9%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -48,7 +53,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Intêret général
           </td>
           <td>
-            7%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -56,7 +61,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Méthodes
           </td>
           <td>
-            6%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -64,7 +69,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Emploi
           </td>
           <td>
-            6%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -72,7 +77,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Croissance
           </td>
           <td>
-            6%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -80,7 +85,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Code du
           </td>
           <td>
-            5%
+            undefined%
           </td>
         </tr>
         <tr>
@@ -88,7 +93,7 @@ exports[`CardStyle snapshot by default 1`] = `
             Autre
           </td>
           <td>
-            28%
+            undefined%
           </td>
         </tr>
       </tbody>
@@ -97,5 +102,10 @@ exports[`CardStyle snapshot by default 1`] = `
   <PieChartCanvasStyle
     aria-hidden={true}
   />
-</WrapperStyle>
+  <PieChartLegendStyle
+    aria-hidden={true}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+  </PieChartLegendStyle>
+</PieChartWrapperStyle>
 `;

@@ -45,6 +45,40 @@ export type TypePieChartData = {
   },
 };
 
+export type TypePieChart = {
+  type: string,
+  unit: string,
+  name: string,
+  legend?: string,
+  data: TypePieChartData[],
+};
+
+export type TypeHistogramLegend = {
+  title: string,
+  dimensions: {
+    first: string,
+    second?: string,
+  },
+};
+
+export type TypeHistogramData = {
+  label: string,
+  color?: string,
+  bars: {
+    first: number,
+    second?: number,
+  },
+};
+
+export type TypeHistogram = {
+  type: string,
+  name: string,
+  unit: string,
+  legend: TypeHistogramLegend,
+  forcedHigherValue?: number,
+  data: TypeHistogramData[],
+};
+
 export type QuestionResults = {
   context: string,
   key_figures: {
@@ -55,6 +89,8 @@ export type QuestionResults = {
   top_ideas: TypeThemeItem[],
   controversials: TypeControversialProposals[],
   rejected: TypeRejectedProposals[],
+  cartography: TypePieChart[],
+  participation: Array<TypeHistogram | TypePieChart>,
 };
 
 export type Metas = {

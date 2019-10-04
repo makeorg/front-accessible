@@ -518,8 +518,8 @@
       "table": {
         "name": "Nom",
         "value": "Valeur",
-        "value_with_unit": "Valeur (en {{unit}})",
-        "percent": "pourcentage"
+        "value_with_unit": "valeur en {{unit}}",
+        "percentage": "pourcentage"
       }
     }
   },

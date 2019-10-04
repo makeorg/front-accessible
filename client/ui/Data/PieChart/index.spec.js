@@ -1,10 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { MockedResults } from 'Shared/types/__fixtures__/results.fixture';
+import { MockedPieChartResults } from 'Shared/types/__fixtures__/results.fixture';
 import { PieChart } from './index';
 
 jest.mock('./Styled', () => ({
-  WrapperStyle: 'WrapperStyle',
+  PieChartWrapperStyle: 'PieChartWrapperStyle',
+  PieChartTitleStyle: 'PieChartTitleStyle',
+  PieChartLegendStyle: 'PieChartLegendStyle',
   PieChartCanvasStyle: 'PieChartCanvasStyle',
 }));
 
@@ -12,14 +14,15 @@ jest.mock('Client/ui/Elements/HiddenElements', () => ({
   HiddenItemStyle: 'HiddenItemStyle',
 }));
 
-describe('CardStyle', () => {
+describe('PieChart', () => {
   it('snapshot by default', () => {
     const component = renderer
       .create(
         <PieChart
-          name={MockedResults.name}
-          legend={MockedResults.legend}
-          data={MockedResults.data}
+          name={MockedPieChartResults.name}
+          unit={MockedPieChartResults.unit}
+          legend={MockedPieChartResults.legend}
+          data={MockedPieChartResults.data}
         />
       )
       .toJSON();

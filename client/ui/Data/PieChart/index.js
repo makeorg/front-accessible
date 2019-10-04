@@ -3,16 +3,22 @@ import { type TypePieChartData } from 'Shared/types/question';
 import { useMobile } from 'Client/hooks/useMedia';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { i18n } from 'Shared/i18n';
-import { WrapperStyle, PieChartCanvasStyle } from './Styled';
+import {
+  PieChartWrapperStyle,
+  PieChartTitleStyle,
+  PieChartCanvasStyle,
+  PieChartLegendStyle,
+} from './Styled';
 import { buildPieChart } from './Build';
 
 type Props = {
+  unit: string,
   name: string,
-  legend: string,
+  legend?: string,
   data: TypePieChartData[],
 };
 
-export const PieChart = ({ name, legend, data }: Props) => {
+export const PieChart = ({ unit, name, legend, data }: Props) => {
   const canvasRef = useRef(null);
   const isMobile = useMobile();
 
@@ -23,30 +29,36 @@ export const PieChart = ({ name, legend, data }: Props) => {
   }, [canvasRef.current]);
 
   return (
-    <WrapperStyle>
+    <PieChartWrapperStyle>
+      <PieChartTitleStyle>{name}</PieChartTitleStyle>
       <HiddenItemStyle>
-        <p>{legend}</p>
+        {legend && <p>{legend}</p>}
         <table>
           <caption>{name}</caption>
           <thead>
-            <th>{i18n.t('consultation.results.table.name')}</th>
-            <th>
-              {i18n.t('consultation.results.table.value_with_unit', {
-                unit: i18n.t('consultation.results.table.percent'),
-              })}
-            </th>
+            <tr>
+              <th>{i18n.t('consultation.results.table.name')}</th>
+              <th>
+                {i18n.t('consultation.results.table.value_with_unit', {
+                  unit: i18n.t(`consultation.results.table.${unit}`),
+                })}
+              </th>
+            </tr>
           </thead>
           <tbody>
             {data.map(item => (
               <tr key={item.label}>
                 <td>{item.label}</td>
-                <td>{`${item.percent}%`}</td>
+                <td>{`${item.percentage}%`}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </HiddenItemStyle>
       <PieChartCanvasStyle aria-hidden ref={canvasRef} />
-    </WrapperStyle>
+      {legend && (
+        <PieChartLegendStyle aria-hidden>{legend}</PieChartLegendStyle>
+      )}
+    </PieChartWrapperStyle>
   );
 };

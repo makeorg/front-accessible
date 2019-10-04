@@ -16,9 +16,9 @@ import {
   // SvgLightBulb,
   SvgLightning,
   SvgThumbsUp,
-  // SvgMap,
+  SvgMap,
 } from 'Client/ui/Svg/elements';
-// import { PieChart } from 'Client/ui/Data/PieChart';
+import { ChartType } from 'Client/ui/Data';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import {
@@ -74,17 +74,15 @@ export const ResultsPannel = ({
         icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
       >
         <TopIdeas topIdeas={questionResults.top_ideas} />
-      </TileWithTitle>  
+      </TileWithTitle> */}
       <TileWithTitle
         title={i18n.t('consultation.results.cartography.title')}
         icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
       >
-        <PieChart
-          name={Results.name}
-          legend={Results.legend}
-          data={Results.data}
-        />
-      </TileWithTitle> */}
+        {questionResults.cartography.map(chart => (
+          <ChartType chart={chart} />
+        ))}
+      </TileWithTitle>
       <TileWithTitle
         title={i18n.t('consultation.results.proposals.controversials')}
         icon={<SvgLightning aria-hidden style={ResultsIconsStyle} />}
@@ -98,7 +96,9 @@ export const ResultsPannel = ({
         <ProposalsResults proposals={questionResults.rejected} isRejected />
       </TileWithTitle>
       <TileWithTitle title={i18n.t('consultation.results.participation.title')}>
-        participation
+        {questionResults.participation.map(chart => (
+          <ChartType chart={chart} />
+        ))}
       </TileWithTitle>
     </ConsultationPageContentStyle>
   </React.Fragment>
