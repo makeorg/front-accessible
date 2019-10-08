@@ -173,7 +173,7 @@ Snapshot Diff:
 +     <HistogramLegendLabelStyle>
 +       population générale
 +       <HistogramLegendColorsStyle
-+         background="#D4D4D4"
++         background="population générale"
 +       />
 +     </HistogramLegendLabelStyle>
     </HistogramLegendStyle>
@@ -186,7 +186,7 @@ Snapshot Diff:
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={Infinity}
+            barHeight={1600}
 -           barWidth={100}
 +           barWidth={50}
           >
@@ -195,8 +195,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={19}
++           barHeight={1900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -211,7 +211,7 @@ Snapshot Diff:
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={Infinity}
+            barHeight={1300}
 -           barWidth={100}
 +           barWidth={50}
           >
@@ -220,8 +220,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={12}
++           barHeight={1200}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -236,7 +236,7 @@ Snapshot Diff:
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={Infinity}
+            barHeight={1000}
 -           barWidth={100}
 +           barWidth={50}
           >
@@ -245,8 +245,8 @@ Snapshot Diff:
             </HistogramPercentStyle>
           </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={9}
++           barHeight={900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -263,7 +263,7 @@ Snapshot Diff:
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={Infinity}
+            barHeight={1000}
 -           barWidth={100}
 +           barWidth={50}
           >
@@ -272,8 +272,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={9}
++           barHeight={900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -291,7 +291,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -299,8 +299,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={8}
++           barHeight={800}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -318,7 +318,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={800}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -326,8 +326,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={9}
++           barHeight={900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -345,7 +345,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={800}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -353,8 +353,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={9}
++           barHeight={900}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -372,7 +372,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={600}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -380,8 +380,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={5}
++           barHeight={500}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -399,7 +399,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={600}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -407,8 +407,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={6}
++           barHeight={600}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -426,7 +426,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={500}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -434,8 +434,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={5}
++           barHeight={500}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -453,7 +453,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={400}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -461,8 +461,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={4}
++           barHeight={400}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -480,7 +480,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={400}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -488,8 +488,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={4}
++           barHeight={400}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -507,7 +507,7 @@ Snapshot Diff:
 +       </HistogramLabelStyle>
 +       <HistogramBarContainerStyle>
 +         <HistogramBarStyle
-+           barHeight={Infinity}
++           barHeight={100}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -515,8 +515,8 @@ Snapshot Diff:
 +           </HistogramPercentStyle>
 +         </HistogramBarStyle>
 +         <HistogramBarStyle
-+           background="#D4D4D4"
-+           barHeight={Infinity}
++           background={1}
++           barHeight={100}
 +           barWidth={50}
 +         >
 +           <HistogramPercentStyle>
@@ -607,7 +607,7 @@ exports[`Histogram snapshot by default 1`] = `
       </HistogramLabelStyle>
       <HistogramBarContainerStyle>
         <HistogramBarStyle
-          barHeight={Infinity}
+          barHeight={1600}
           barWidth={100}
         >
           <HistogramPercentStyle>
@@ -625,7 +625,7 @@ exports[`Histogram snapshot by default 1`] = `
       </HistogramLabelStyle>
       <HistogramBarContainerStyle>
         <HistogramBarStyle
-          barHeight={Infinity}
+          barHeight={1300}
           barWidth={100}
         >
           <HistogramPercentStyle>
@@ -643,7 +643,7 @@ exports[`Histogram snapshot by default 1`] = `
       </HistogramLabelStyle>
       <HistogramBarContainerStyle>
         <HistogramBarStyle
-          barHeight={Infinity}
+          barHeight={1000}
           barWidth={100}
         >
           <HistogramPercentStyle>
@@ -661,7 +661,7 @@ exports[`Histogram snapshot by default 1`] = `
       </HistogramLabelStyle>
       <HistogramBarContainerStyle>
         <HistogramBarStyle
-          barHeight={Infinity}
+          barHeight={1000}
           barWidth={100}
         >
           <HistogramPercentStyle>

@@ -14,7 +14,7 @@ import { buildPieChart } from './Build';
 type Props = {
   unit: string,
   name: string,
-  legend?: string,
+  legend: string,
   data: TypePieChartData[],
 };
 

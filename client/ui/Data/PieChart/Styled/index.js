@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {
-  BackgroundColors,
   ShadowColors,
   BasicColors,
   TextColors,
@@ -12,13 +11,8 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const PieChartWrapperStyle = styled.div`
-  display: flex;
   width: 100%;
-  flex-flow: column;
-  background-color: ${BackgroundColors.TaintedWhite};
   padding: 20px;
-  border-radius: ${intToPx(Elements.BorderRadius)};
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
 export const PieChartTitleStyle = styled(FourthLevelTitleStyle)`

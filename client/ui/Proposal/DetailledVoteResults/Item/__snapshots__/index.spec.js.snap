@@ -23,7 +23,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   font-size: 12px;
   line-height: 22px;
   font-family: 'Circular Standard Bold',Arial,sans-serif;
-  color: rgb(85,131,34);
+  color: rgb(80,122,31);
 }
 
 .c9 {
@@ -157,7 +157,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     <IsVotedButtonStyle
       aria-hidden={true}
       as="span"
-      color="rgb(85,131,34)"
+      color="rgb(80,122,31)"
     >
       <ButtonIconWrapperStyle
         transform="none"
@@ -221,7 +221,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c8"
-        color="rgb(85,131,34)"
+        color="rgb(80,122,31)"
       >
         qualification.likeIt
       </span>
@@ -242,7 +242,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c8"
-        color="rgb(85,131,34)"
+        color="rgb(80,122,31)"
       >
         qualification.doable
       </span>
@@ -263,7 +263,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c8"
-        color="rgb(85,131,34)"
+        color="rgb(80,122,31)"
       >
         qualification.platitudeAgree
       </span>

@@ -19,6 +19,11 @@ import {
   HistogramLegendLabelStyle,
   HistogramLegendColorsStyle,
 } from './Styled';
+import {
+  getHistogramBarWidth,
+  getHistogramBarMargin,
+  getHistogramBarHeight,
+} from './helpers';
 
 type Props = {
   unit: string,
@@ -26,22 +31,6 @@ type Props = {
   legend: TypeHistogramLegend,
   forcedHigherValue?: number,
   data: TypeHistogramData[],
-};
-
-const getBarHeight = (itemValue, maxValue) => {
-  const value = (itemValue * 100) / maxValue;
-  return Math.round(value);
-};
-
-const getBarWidth = (parentWidth, arrayLength) => {
-  const value = parentWidth / arrayLength;
-  const barWidth = (value * 100) / parentWidth;
-  return Math.floor(barWidth);
-};
-
-const getBarMargin = (parentWidth, arrayLength) => {
-  const value = parentWidth / arrayLength;
-  return Math.floor(value / 1.75);
 };
 
 export const Histogram = ({
@@ -58,29 +47,29 @@ export const Histogram = ({
   const valuesArray = [];
 
   useEffect(() => {
-    data.map(item => {
+    data.forEach(item => {
       const secondBarValue = item.bars.second;
       if (secondBarValue) {
         valuesArray.push(secondBarValue);
       }
-      return valuesArray.push(item.bars.first);
+      valuesArray.push(item.bars.first);
     });
     if (forcedHigherValue) {
       valuesArray.push(forcedHigherValue);
     }
-    return setMaxValue(Math.max(...valuesArray));
+    setMaxValue(Math.max(...valuesArray));
   }, [data]);
 
   useEffect(() => {
     if (listRef.current) {
-      const itemWidthValue = getBarWidth(
+      const itemWidthValue = getHistogramBarWidth(
         listRef.current.offsetWidth,
         data.length
       );
       setItemWidth(itemWidthValue);
     }
 
-    const itemGapValue = getBarMargin(itemWidth, data.length);
+    const itemGapValue = getHistogramBarMargin(itemWidth, data.length);
     setItemGap(itemGapValue);
   }, [listRef.current]);
 
@@ -129,7 +118,7 @@ export const Histogram = ({
         {legend.dimensions.second && (
           <HistogramLegendLabelStyle>
             {legend.dimensions.second}
-            <HistogramLegendColorsStyle background={data[0].color} />
+            <HistogramLegendColorsStyle background={legend.dimensions.second} />
           </HistogramLegendLabelStyle>
         )}
       </HistogramLegendStyle>
@@ -144,7 +133,7 @@ export const Histogram = ({
             <HistogramBarContainerStyle>
               <HistogramBarStyle
                 barWidth={item.bars.second ? 50 : 100}
-                barHeight={getBarHeight(item.bars.first, maxValue)}
+                barHeight={getHistogramBarHeight(item.bars.first, maxValue)}
               >
                 <HistogramPercentStyle>
                   {`${item.bars.first}%`}
@@ -152,9 +141,9 @@ export const Histogram = ({
               </HistogramBarStyle>
               {item.bars.second && (
                 <HistogramBarStyle
-                  background={item.color}
+                  background={item.bars.second}
                   barWidth={50}
-                  barHeight={getBarHeight(item.bars.second, maxValue)}
+                  barHeight={getHistogramBarHeight(item.bars.second, maxValue)}
                 >
                   <HistogramPercentStyle>
                     {`${item.bars.second}%`}

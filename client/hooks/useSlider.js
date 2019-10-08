@@ -43,6 +43,15 @@ const removeBusyAria = (sliderName: string) => {
   }
 };
 
+const setCounter = (sliderName: string, index: number) => {
+  const counter: Element | null = document.querySelector(
+    `.${sliderName}_counter_index`
+  );
+  if (counter) {
+    counter.innerHTML = `${index + 1}`;
+  }
+};
+
 export const useSlider = (
   sliderName: string,
   sliderParams: TypeSliderParams,
@@ -87,6 +96,7 @@ export const useSlider = (
       removeBusyAria(sliderName);
       removeCurrentAria(sliderName);
       setCurrentAria(sliderName);
+      setCounter(sliderName, slider.index);
     });
 
     return () => slider.destroy();

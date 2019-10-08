@@ -1,22 +1,14 @@
 import styled from 'styled-components';
-import {
-  BackgroundColors,
-  BasicColors,
-  ShadowColors,
-} from 'Client/app/assets/vars/Colors';
+import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { Elements } from 'Client/app/assets/vars/Elements';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const HistogramWrapperStyle = styled.div`
   width: 100%;
-  background-color: ${BackgroundColors.TaintedWhite};
   padding: 20px 20px 175px;
-  border-radius: ${intToPx(Elements.BorderRadius)};
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
 export const HistogramTitleStyle = styled(FourthLevelTitleStyle)`
@@ -45,7 +37,13 @@ export const HistogramLegendColorsStyle = styled.span`
   height: 12.5px;
   margin-left: 10px;
   background-color: ${props =>
-    props.background ? props.background : props.theme.color};
+    props.background ? BackgroundColors.MediumGrey : props.theme.color};
+  ${props =>
+    props.background
+      ? `background: repeating-linear-gradient(
+          45deg, rgb(175, 175,175), rgb(175, 175,175) 5px, rgba(0, 0, 0, 0.45) 5px, rgba(0, 0, 0, 0.45) 10px
+        )`
+      : ``};
 `;
 
 export const HistogramListStyle = styled(UnstyledListStyle)`
@@ -79,6 +77,13 @@ export const HistogramBarStyle = styled.div`
   height: ${props => props.barHeight}%;
   background-color: ${props =>
     props.background ? props.background : props.theme.color};
+  ${props =>
+    props.background
+      ? `background: repeating-linear-gradient(
+          45deg, rgb(175, 175,175), rgb(175, 175,175) 5px, rgba(0, 0, 0, 0.45) 5px, rgba(0, 0, 0, 0.45) 10px
+        )`
+      : ``};
+  transition: height 0.25s ease-in;
 `;
 
 export const HistogramCommonLabelStyle = styled.p`

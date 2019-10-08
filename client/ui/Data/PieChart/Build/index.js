@@ -4,7 +4,7 @@ import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 const offsetCanvasValue = (canvasValue: number, offset: number) => {
-  const value = canvasValue / offset;
+  const value = offset > 0 ? canvasValue / offset : 0;
   return value;
 };
 
