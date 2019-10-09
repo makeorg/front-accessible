@@ -152,7 +152,8 @@
     "slider": {
       "introduction": "Utiliser les boutons de contrôle, les flêches \"gauches\" et \"droite\" ou la touche de tabulation de votre clavier pour interragir avec le carrousel ci dessous.",
       "previous": "Aller à l'élement précédent",
-      "next": "Aller à l'élement suivant"
+      "next": "Aller à l'élement suivant",
+      "index_count": "Élément {{index}} sur {{total}}"
     },
     "max_characters": "caractères maximum",
     "back": "Retour"
@@ -508,6 +509,18 @@
         "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
         "controversials_like_it": "{{count}}% coups de coeur",
         "controversials_no_way": "{{count}}% surtout pas"
+      },
+      "cartography": {
+        "title": "La cartographie du débat"
+      },
+      "participation": {
+        "title": "Qui a participé à cette consultation ?"
+      },
+      "table": {
+        "name": "Nom",
+        "value": "Valeur",
+        "value_with_unit": "valeur en {{unit}}",
+        "percentage": "pourcentage"
       }
     }
   },

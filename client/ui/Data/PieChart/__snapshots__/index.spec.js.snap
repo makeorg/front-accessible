@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PieChart snapshot by default 1`] = `
+<PieChartWrapperStyle>
+  <PieChartTitleStyle>
+    Pie Chart n° 1
+  </PieChartTitleStyle>
+  <HiddenItemStyle>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    </p>
+    <table>
+      <caption>
+        Pie Chart n° 1
+      </caption>
+      <thead>
+        <tr>
+          <th>
+            consultation.results.table.name
+          </th>
+          <th>
+            consultation.results.table.value_with_unit
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Justice sociale
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            RSE et politique
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Conditions
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Intêret général
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Méthodes
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Emploi
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Croissance
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Code du
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Autre
+          </td>
+          <td>
+            undefined%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </HiddenItemStyle>
+  <PieChartCanvasStyle
+    aria-hidden={true}
+  />
+  <PieChartLegendStyle
+    aria-hidden={true}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+  </PieChartLegendStyle>
+</PieChartWrapperStyle>
+`;

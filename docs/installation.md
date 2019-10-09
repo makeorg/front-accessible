@@ -18,8 +18,8 @@
 To be independant of the preproduction api you can launch the mock api server:
 `yarn api-mock:start`
 
-Then you can lauch the dev server using this local api
-`yarn server:dev`
+Then you can lauch the dev server using this preprod api
+`yarn server:preprod`
 
 
 ## Style Guide
