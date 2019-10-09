@@ -105,16 +105,30 @@ describe('Tracking Service', () => {
     );
   });
 
-  it('track Display Page Operation', () => {
+  it('track Display Page Operation with consultation type', () => {
     const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
 
-    trackDisplayConsultation();
-    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
-      1,
-      eventName,
-      eventParameters
-    );
+    trackDisplayConsultation('consultation');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      type: 'consultation',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      type: 'consultation',
+    });
+  });
+
+  it('track Display Page Operation with restults type', () => {
+    const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
+
+    trackDisplayConsultation('results');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      type: 'results',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      type: 'results',
+    });
   });
 
   it('track Click Actions Tab', () => {

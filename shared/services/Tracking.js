@@ -63,7 +63,10 @@ export const track = (eventName: string, parameters: Object = {}) => {
   );
 };
 
-const trackFacebookPixel = (eventName: string, parameters: Object = {}) => {
+export const trackFacebookPixel = (
+  eventName: string,
+  parameters: Object = {}
+) => {
   const eventParameters = getEventParameters(parameters);
 
   FacebookTracking.trackCustom(eventName, eventParameters);
@@ -75,11 +78,12 @@ const TrackingService = {
 };
 
 /* On Load Consultation Tracking */
-export const trackDisplayConsultation = () => {
+export const trackDisplayConsultation = (pageType: string) => {
   const eventName = trackingConstants.DISPLAY_PAGE_OPERATION;
+  const parameters = { type: pageType };
 
-  TrackingService.track(eventName);
-  TrackingService.trackFacebookPixel(eventName);
+  TrackingService.track(eventName, parameters);
+  TrackingService.trackFacebookPixel(eventName, parameters);
 };
 
 export const trackClickActionsTab = () => {

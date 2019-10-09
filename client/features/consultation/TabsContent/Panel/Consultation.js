@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
@@ -16,6 +16,7 @@ import {
 } from 'Client/pages/Consultation/Styled';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
+import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { TagSectionTitle } from '../../Styled/TagFilter';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 
@@ -50,6 +51,10 @@ export const ConsultationPanelContent = ({
 
     setSelectedTagIdList(newSelectedTagIdList);
   };
+
+  useEffect(() => {
+    trackDisplayConsultation('consultation');
+  }, []);
 
   return (
     <React.Fragment>

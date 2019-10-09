@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { type Location } from 'react-router';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
@@ -8,7 +8,6 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { getActionLink, getConsultationLink } from 'Shared/helpers/url';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
@@ -25,10 +24,6 @@ const ConsultationPage = ({
   location,
   questionResults,
 }: Props) => {
-  useEffect(() => {
-    trackDisplayConsultation();
-  }, []);
-
   const consultationLink = getConsultationLink(
     question.country,
     question.language,
