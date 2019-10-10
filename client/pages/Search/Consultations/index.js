@@ -27,13 +27,14 @@ import {
   BusinessConsultationsItemBorderStyle,
 } from 'Client/features/consultation/Business/Styled';
 import { SearchResultsConsultationListStyle } from 'Client/features/search/Styled';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
   SearchPageTitleStyle,
-  SearchPageWrapperStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
   SearchBackStyle,
   SearchBackArrowStyle,
+  SearchPageWrapperStyle,
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
@@ -55,6 +56,7 @@ export const SearchConsultationsComponent = ({
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
   const [consultations, setConsultations] = useState<TypeQuestion[]>([]);
+  const isDesktop = useDesktop();
 
   const initQuestions = async () => {
     setIsLoading(true);
@@ -77,78 +79,76 @@ export const SearchConsultationsComponent = ({
     trackDisplaySearchConsultationsResult();
   }, []);
   return (
-    <React.Fragment>
+    <SearchPageWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.consultations', {
           term,
           count,
         })}
       />
-      <SearchPageWrapperStyle>
-        <SearchBackStyle onClick={() => handleReturn()}>
-          <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
-          {i18n.t('common.back')}
-        </SearchBackStyle>
-        <SearchPageTitleStyle>
-          {isLoading
-            ? i18n.t('search.titles.loading')
-            : i18n.t('search.titles.operations', {
-                term,
-                count,
-              })}
-        </SearchPageTitleStyle>
-        <SearchPageContentStyle>
-          <SearchPageResultsStyle>
-            <SearchResultsConsultationListStyle>
-              {consultations.map(question => (
-                <BusinessConsultationsItemStyle
-                  key={question.slug}
-                  backgroundColor={BasicColors.PureWhite}
+      <SearchBackStyle onClick={() => handleReturn()}>
+        <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
+        {i18n.t('common.back')}
+      </SearchBackStyle>
+      <SearchPageTitleStyle>
+        {isLoading
+          ? i18n.t('search.titles.loading')
+          : i18n.t('search.titles.operations', {
+              term,
+              count,
+            })}
+      </SearchPageTitleStyle>
+      <SearchPageContentStyle>
+        <SearchPageResultsStyle>
+          <SearchResultsConsultationListStyle>
+            {consultations.map(question => (
+              <BusinessConsultationsItemStyle
+                key={question.slug}
+                backgroundColor={BasicColors.PureWhite}
+              >
+                <BusinessConsultationsItemLinkStyle
+                  {...(isInProgress(question)
+                    ? {
+                        to: getConsultationLink(
+                          country,
+                          language,
+                          question.slug
+                        ),
+                        as: Link,
+                      }
+                    : { href: question.aboutUrl, as: 'a' })}
+                  onClick={() => trackClickHomepageConsultations()}
                 >
-                  <BusinessConsultationsItemLinkStyle
-                    {...(isInProgress(question)
-                      ? {
-                          to: getConsultationLink(
-                            country,
-                            language,
-                            question.slug
-                          ),
-                          as: Link,
-                        }
-                      : { href: question.aboutUrl, as: 'a' })}
-                    onClick={() => trackClickHomepageConsultations()}
-                  >
-                    <BusinessConsultationsItemBorderStyle
-                      colorStart={question.theme.gradientStart}
-                      colorEnd={question.theme.gradientEnd}
-                    />
-                    <BusinessConsultationStyle>
-                      <BusinessConsultationsItemStatusStyle>
-                        <ScreenReaderItemStyle>
-                          {i18n.t('homepage.business_consultations.status')}
-                        </ScreenReaderItemStyle>
-                        {isInProgress(question)
-                          ? i18n.t(
-                              'homepage.business_consultations.question_inprogress'
-                            )
-                          : i18n.t(
-                              'homepage.business_consultations.question_ended'
-                            )}
-                      </BusinessConsultationsItemStatusStyle>
-                      {question.question}
-                    </BusinessConsultationStyle>
-                    <SvgAngleArrowRight
-                      style={BusinessConsultationsItemArrowStyle}
-                    />
-                  </BusinessConsultationsItemLinkStyle>
-                </BusinessConsultationsItemStyle>
-              ))}
-            </SearchResultsConsultationListStyle>
-          </SearchPageResultsStyle>
-          <SearchSidebar />
-        </SearchPageContentStyle>
-      </SearchPageWrapperStyle>
-    </React.Fragment>
+                  <BusinessConsultationsItemBorderStyle
+                    colorStart={question.theme.gradientStart}
+                    colorEnd={question.theme.gradientEnd}
+                  />
+                  <BusinessConsultationStyle>
+                    <BusinessConsultationsItemStatusStyle>
+                      <ScreenReaderItemStyle>
+                        {i18n.t('homepage.business_consultations.status')}
+                      </ScreenReaderItemStyle>
+                      {isInProgress(question)
+                        ? i18n.t(
+                            'homepage.business_consultations.question_inprogress'
+                          )
+                        : i18n.t(
+                            'homepage.business_consultations.question_ended'
+                          )}
+                    </BusinessConsultationsItemStatusStyle>
+                    {question.question}
+                  </BusinessConsultationStyle>
+                  <SvgAngleArrowRight
+                    style={BusinessConsultationsItemArrowStyle}
+                  />
+                </BusinessConsultationsItemLinkStyle>
+              </BusinessConsultationsItemStyle>
+            ))}
+          </SearchResultsConsultationListStyle>
+        </SearchPageResultsStyle>
+        {isDesktop && <SearchSidebar />}
+      </SearchPageContentStyle>
+    </SearchPageWrapperStyle>
   );
 };
 

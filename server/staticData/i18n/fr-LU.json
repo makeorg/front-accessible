@@ -646,8 +646,7 @@
     },
     "sidebar": {
       "register": {
-       "title":"Suivez l’actualité de make.org en vous inscrivant.",
-       "button": "je m'inscris"
+       "title":"Suivez l’actualité de make.org en vous inscrivant."
       }
     },
     "form": {

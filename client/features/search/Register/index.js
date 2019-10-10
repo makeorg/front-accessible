@@ -35,7 +35,7 @@ const SearchRegisterComponent = ({
         <IconWrapperStyle aria-hidden>
           <SvgThumbsUp aria-hidden />
         </IconWrapperStyle>
-        {i18n.t('search.sidebar.register.button')}
+        {i18n.t('common.register_label')}
       </SeachRegisterButtonStyle>
     </SearchSidebarTileStyle>
   );
