@@ -5,6 +5,7 @@ import {
 } from 'Shared/types/question';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { i18n } from 'Shared/i18n';
+import { SvgLightning } from 'Client/ui/Svg/elements';
 import {
   ProposalsListStyle,
   ProposalsListItemStyle,
@@ -12,6 +13,7 @@ import {
   ResultsPositionStyle,
   ResultsLikeItStyle,
   ResultsNoWayStyle,
+  ResultsProposalIconStyle,
 } from './Styled';
 
 type Props = {
@@ -45,7 +47,7 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
                   }
                 )}
               </ResultsLikeItStyle>
-              {' . '}
+              <SvgLightning style={ResultsProposalIconStyle} />
               <ResultsNoWayStyle>
                 {i18n.t(
                   'consultation.results.proposals.controversials_no_way',

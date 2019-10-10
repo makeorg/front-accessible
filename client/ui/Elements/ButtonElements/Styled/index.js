@@ -100,7 +100,7 @@ export const ActiveButtonStyle = styled(BasicButtonStyle)`
     color: ${TextColors.MediumGrey};
     background-color: ${BackgroundColors.ExtraLightGrey};
     svg,
-    .tofill {
+    > .tofill {
       fill: ${TextColors.MediumGrey};
     }
   }

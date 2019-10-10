@@ -5,7 +5,7 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
 import { ConsultationPageSidebarStyle } from 'Client/pages/Consultation/Styled';
-import { Collapse } from 'Client/ui/Elements/Collapse';
+import { TileWithCollapse } from 'Client/ui/Elements/TileWithCollapse';
 import { trackOpenLearnMore } from 'Shared/services/Tracking';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
@@ -31,7 +31,7 @@ export const ConsultationPannelSidebar = ({
       aria-label={i18n.t('common.sidebar_area')}
       bottomAffix={isGreatCause(question.operationKind)}
     >
-      <Collapse
+      <TileWithCollapse
         title={i18n.t('consultation.presentation.title')}
         forceExpand
         trackCollapse={(action: string) => trackOpenLearnMore(action)}
@@ -41,9 +41,9 @@ export const ConsultationPannelSidebar = ({
           questionConfiguration={questionConfiguration}
           question={question}
         />
-      </Collapse>
+      </TileWithCollapse>
       {isGreatCause(question.operationKind) && (
-        <Collapse
+        <TileWithCollapse
           title={
             isInProgress(question)
               ? i18n.t('consultation.partners.intro_title')
@@ -55,7 +55,7 @@ export const ConsultationPannelSidebar = ({
             questionConfiguration={questionConfiguration}
             question={question}
           />
-        </Collapse>
+        </TileWithCollapse>
       )}
       {question.displayResults && (
         <TileWithTitle title={i18n.t('consultation.results.methodology.title')}>

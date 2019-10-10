@@ -12,7 +12,7 @@ export const TileWithTitleStyle = styled.div`
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
-  .tofill {
+  > .tofill {
     fill: ${BasicColors.PureBlack};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

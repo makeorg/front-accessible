@@ -33,7 +33,6 @@ export const ProfileVoteTitleStyle = styled.div`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
 
-export const ProfileVoteDescriptionStyle = styled.div``;
 export const ProfileHasVotedStyle = styled.div`
   display: inline-flex;
   position: relative;
@@ -43,9 +42,8 @@ export const ProfileHasVotedStyle = styled.div`
   align-items: center;
   padding: 5px;
   margin-right: 5px;
-  border-radius: 50%;
-  bordemin-r-width: 2px;
-  font-size: 12px;
+  font-size: 18px;
+  border-width: 2px;
   border-style: solid;
   border-radius: 50%;
   border-color: ${props => props.color};
@@ -53,7 +51,9 @@ export const ProfileHasVotedStyle = styled.div`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-
+  .tofill {
+    fill: ${BasicColors.PureWhite};
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     min-width: 43px;
     height: 43px;

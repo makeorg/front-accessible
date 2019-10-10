@@ -11,8 +11,7 @@ export const ProposalInnerStyle = styled.div`
 export const ProposalStyle = styled.a`
   width: 100%;
   font-size: 12px;
-  height: 18px;
-  line-height: normal;
+  line-height: 18px;
   font-family: ${MakeFonts.CircularStandardBold};
   align-self: flex-start;
   flex: 1;
@@ -20,11 +19,11 @@ export const ProposalStyle = styled.a`
   text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 16px;
-    height: 21px;
+    line-height: 21px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 18px;
-    height: 26px;
+    line-height: 26px;
   }
 `;
 

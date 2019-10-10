@@ -13,11 +13,10 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import {
   SvgInfos,
   SvgCalculator,
-  SvgLightning,
-  SvgThumbsUp,
   SvgMap,
   SvgArrowLeft,
   SvgArrowRight,
+  SvgLightBulb,
 } from 'Client/ui/Svg/elements';
 import { ChartType } from 'Client/ui/Data';
 import { useSlider } from 'Client/hooks/useSlider';
@@ -28,10 +27,11 @@ import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import {
   ResultsIconsStyle,
-  RestultReversedIconStyle,
   ResultsSliderStyle,
   ResultsSliderArrowsStyle,
   ResultsCounterStyle,
+  ResultsLightningIconStyle,
+  ResultsThumbIconStyle,
 } from '../../Results/Styled';
 import {
   CartographySliderStylesheet,
@@ -41,6 +41,7 @@ import {
 } from '../../Results/Slider/params';
 import { KeyFigures } from '../../Results/KeyFigures';
 import { ProposalsResults } from '../../Results/Proposals';
+import { TopIdeas } from '../../Results/TopIdeas';
 
 type Props = {
   questionResults: TypeQuestionResults,
@@ -112,6 +113,14 @@ export const ResultsPannel = ({
           />
         </TileWithTitle>
         <TileWithTitle
+          title={i18n.t('consultation.results.top_ideas.title', {
+            count: questionResults.top_ideas.length,
+          })}
+          icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
+        >
+          <TopIdeas topIdeas={questionResults.top_ideas} />
+        </TileWithTitle>
+        <TileWithTitle
           title={i18n.t('consultation.results.cartography.title')}
           icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
         >
@@ -163,13 +172,13 @@ export const ResultsPannel = ({
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.controversials')}
-          icon={<SvgLightning aria-hidden style={ResultsIconsStyle} />}
+          icon={<ResultsLightningIconStyle aria-hidden />}
         >
           <ProposalsResults proposals={questionResults.controversials} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.rejected')}
-          icon={<SvgThumbsUp aria-hidden style={RestultReversedIconStyle} />}
+          icon={<ResultsThumbIconStyle aria-hidden />}
         >
           <ProposalsResults proposals={questionResults.rejected} isRejected />
         </TileWithTitle>

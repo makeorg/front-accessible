@@ -27,7 +27,6 @@ import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
   ProfileVoteTitleStyle,
-  ProfileVoteDescriptionStyle,
   ProfileHasVotedStyle,
 } from './Styled';
 
@@ -64,7 +63,7 @@ export const ProfileVoteCard = ({
             <SvgThumbsUp aria-hidden />
           </ButtonIconWrapperStyle>
         </ProfileHasVotedStyle>
-        <ProfileVoteDescriptionStyle>
+        <div>
           <RedLinkStyle
             href={getOrganisationProfileLink(
               organisation.country,
@@ -80,7 +79,7 @@ export const ProfileVoteCard = ({
           />
           &nbsp;
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}
-        </ProfileVoteDescriptionStyle>
+        </div>
       </ProfileVoteTitleStyle>
 
       <ProfileVoteCardStyle>
