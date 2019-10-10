@@ -125,7 +125,8 @@ const initApp = async state => {
       url: window.location.href,
     });
     const appDom = document.getElementById('app');
-    ReactDOM.hydrate(
+    const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+    renderMethod(
       <CookiesProvider>
         <HeadProvider>
           <Provider store={store}>

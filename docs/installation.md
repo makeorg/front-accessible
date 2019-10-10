@@ -44,5 +44,5 @@ Before push the following command will be executed `yarn prepush`
 
 ### Production
 *   Build command : `yarn build`
-*   Start server : `env API_URL=https://api.preprod.makeorg.tech yarn server`
+*   Start server : `env API_URL=https://mayapi.com yarn server`
 
