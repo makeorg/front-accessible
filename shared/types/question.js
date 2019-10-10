@@ -104,12 +104,19 @@ export type QuestionWording = {
   title: string,
   metas: Metas,
 };
+
 export type QuestionExtraSlidesConfig = {
   introCard: IntroCardConfig,
   pushProposalCard: PushProposalCardConfig,
   signUpCard: SignUpCardConfig,
   finalCard: FinalCardConfig,
 };
+
+/* eslint-disable no-use-before-define */
+export type SimpleOperationData = {
+  questions: Question[],
+};
+/* eslint-enable no-use-before-define */
 
 export type Question = {
   questionId: string,
@@ -130,4 +137,6 @@ export type Question = {
   displayResults: boolean,
   aboutUrl: string,
   sequenceConfig: QuestionExtraSlidesConfig,
+  operation: SimpleOperationData,
+  activeFeatures: string[],
 };
