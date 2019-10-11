@@ -20,7 +20,8 @@ export const buildPieChart = (
   const total = data.reduce((ttl, item) => {
     return ttl + item.percent;
   }, 0);
-  let startAngle = 90;
+  // const offset = data[data.length - 1].percent;
+  let startAngle = 4.725;
   const radius = isMobile ? 75 : 100;
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
