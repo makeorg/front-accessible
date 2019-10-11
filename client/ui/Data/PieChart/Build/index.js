@@ -15,17 +15,17 @@ export const buildPieChart = (
 ) => {
   const canvas: HTMLCanvasElement = ref.current;
   const ctx = canvas.getContext('2d');
-  canvas.width = isMobile ? 300 : 400;
+  canvas.width = isMobile ? 300 : 500;
   canvas.height = isMobile ? 300 : 400;
   const total = data.reduce((ttl, item) => {
     return ttl + item.percent;
   }, 0);
-  let startAngle = 0;
+  let startAngle = 90;
   const radius = isMobile ? 75 : 100;
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
-  const labelYOffset = 0.15;
-  const sublabelYOffset = 0.25;
+  const labelYOffset = 0.125;
+  const sublabelYOffset = 0.225;
   const labelCy = canvas.height / (2 - labelYOffset);
   const sublabelCy = canvas.height / (2 - sublabelYOffset);
 
@@ -81,8 +81,8 @@ export const buildPieChart = (
     // add the percent as label
     ctx.beginPath();
     ctx.font = isMobile
-      ? `12px ${MakeFonts.CircularStandardBold}`
-      : `16px ${MakeFonts.CircularStandardBold}`;
+      ? `10px ${MakeFonts.CircularStandardBold}`
+      : `15px ${MakeFonts.CircularStandardBold}`;
     ctx.textAlign = isTextAlignAjusted ? item.adjustLabel.textAlign : 'center';
     ctx.fillStyle = BasicColors.PureBlack;
     ctx.fillText(
@@ -94,8 +94,8 @@ export const buildPieChart = (
     // add the label
     ctx.beginPath();
     ctx.font = isMobile
-      ? `9px ${MakeFonts.CircularStandardBook}`
-      : `12px ${MakeFonts.CircularStandardBook}`;
+      ? `8px ${MakeFonts.CircularStandardBook}`
+      : `11px ${MakeFonts.CircularStandardBook}`;
     ctx.textAlign = isTextAlignAjusted ? item.adjustLabel.textAlign : 'center';
     ctx.fillStyle = BasicColors.PureBlack;
     // use altCy to display the label under the percent
@@ -105,8 +105,8 @@ export const buildPieChart = (
     if (hasASublabel) {
       ctx.beginPath();
       ctx.font = isMobile
-        ? `9px ${MakeFonts.CircularStandardBook}`
-        : `12px ${MakeFonts.CircularStandardBook}`;
+        ? `8px ${MakeFonts.CircularStandardBook}`
+        : `11px ${MakeFonts.CircularStandardBook}`;
       ctx.textAlign = isTextAlignAjusted
         ? item.adjustLabel.textAlign
         : 'center';
