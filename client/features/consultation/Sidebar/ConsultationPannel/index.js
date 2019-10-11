@@ -13,6 +13,7 @@ import { Partners } from 'Client/features/consultation/Partners';
 import { Presentation } from 'Client/features/consultation/Presentation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { isInProgress } from 'Shared/helpers/date';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 type Props = {
   question: TypeQuestion,
@@ -55,6 +56,13 @@ export const ConsultationPannelSidebar = ({
             question={question}
           />
         </Collapse>
+      )}
+      {question.displayResults && (
+        <TileWithTitle title={i18n.t('consultation.results.methodology.title')}>
+          <ParagraphStyle>
+            {i18n.t('consultation.results.methodology.description')}
+          </ParagraphStyle>
+        </TileWithTitle>
       )}
       {!isMobile && (
         <TileWithTitle title={i18n.t('consultation.sharing.title')}>

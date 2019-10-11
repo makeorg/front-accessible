@@ -492,6 +492,10 @@
     "results": {
       "title": "Résultats de la consultation {{question}}",
       "context": "Le contexte",
+      "methodology": {
+        "title": "La méthodologie",
+        "description": "La méthodologie repose sur une modération fine des propositions recueillies. Elles sont d’abord soumises à validation au regard de leur conformité à la Charte Make.org, puis classées selon un balisage thématique. Les algorithmes développés par les équipes de Make.org garantissent ensuite à chacune des propositions validées un niveau égal d’exposition, et organisent une compétition entre elles. Grâce à ce roulement permanent, Make.org identifie les propositions faisant le plus consensus auprès des citoyens avant de les analyser et de les regrouper en grandes idées."
+      },
       "key_figures": {
         "title": "Chiffres-clés",
         "participants": "Participants",
