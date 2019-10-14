@@ -5,7 +5,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { i18n } from 'Shared/i18n';
 import { PartnersList } from 'Client/features/consultation/Partners/List';
 import { getPartnerAnchor } from 'Shared/helpers/url';
-import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/SidebarLink';
+import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link';
 import { trackSeeMorePartners } from 'Shared/services/Tracking';
 
 type Props = {

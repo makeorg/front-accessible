@@ -392,7 +392,7 @@
         {
             "type": "pie",
             "unit": "percentage",
-            "name": "Acteur plébiscités",
+            "name": "Acteurs plébiscités",
             "legend": "",
             "data": [
                 {
@@ -495,7 +495,7 @@
                     }
                 },
                 {
-                    "label": "Auvergne-RhÔne-Alpes",
+                    "label": "Auvergne-Rhône-Alpes",
                     "bars": {
                         "first": 11,
                         "second": 12
@@ -530,7 +530,7 @@
                     }
                 },
                 {
-                    "label": "Provence-Alpes-CÔte-d-Azur",
+                    "label": "Provence-Alpes-Côte-d-Azur",
                     "bars": {
                         "first": 9,
                         "second": 7

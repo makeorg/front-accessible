@@ -58,11 +58,14 @@ export const ConsultationPannelSidebar = ({
         </TileWithCollapse>
       )}
       {question.displayResults && (
-        <TileWithTitle title={i18n.t('consultation.results.methodology.title')}>
+        <TileWithCollapse
+          title={i18n.t('consultation.results.methodology.title')}
+          forceExpand
+        >
           <ParagraphStyle>
             {i18n.t('consultation.results.methodology.description')}
           </ParagraphStyle>
-        </TileWithTitle>
+        </TileWithCollapse>
       )}
       {!isMobile && (
         <TileWithTitle title={i18n.t('consultation.sharing.title')}>

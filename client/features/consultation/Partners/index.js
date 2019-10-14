@@ -17,7 +17,7 @@ import {
 import { isInProgress } from 'Shared/helpers/date';
 import { ParticipateButtonStyle } from '../Styled/Partners';
 import { PartnersList } from './List';
-import { SidebarNewWindowLink } from '../Sidebar/SidebarLink';
+import { SidebarNewWindowLink } from '../Sidebar/Link';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
