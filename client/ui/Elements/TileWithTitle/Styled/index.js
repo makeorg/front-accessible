@@ -12,9 +12,6 @@ export const TileWithTitleStyle = styled.div`
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
-  > .tofill {
-    fill: ${BasicColors.PureBlack};
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 20px;
     &:last-child {
@@ -26,6 +23,9 @@ export const TileWithTitleStyle = styled.div`
 export const TileTitleStyle = styled(FourthLevelTitleStyle)`
   display: flex;
   align-items: center;
+  .tofill {
+    fill: ${BasicColors.PureBlack};
+  }
 `;
 
 export const TileSeparatorStyle = styled(SeparatorStyle)`
