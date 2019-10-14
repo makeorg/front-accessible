@@ -34,7 +34,7 @@ export const ThumbsUpStyle = {
 };
 
 export const ThumbsUpWrapperStyle = styled.span`
-  .tofill {
+  > .tofill {
     fill: ${VoteColors.Agree};
   }
 `;

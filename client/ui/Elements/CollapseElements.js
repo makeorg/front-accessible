@@ -1,21 +1,36 @@
 import styled from 'styled-components';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  ShadowColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { UnstyledButtonStyle } from '../../ButtonElements';
-import { MiddleColumnStyle } from '../../FlexElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+`;
+
+export const TileWithCollapseWrapperStyle = styled(CollapseWrapperStyle)`
   background-color: ${BasicColors.PureWhite};
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin-bottom: 10px;
   padding: 14px 20px 8px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-bottom: 20px;
     padding: 20px;
   }
 `;
@@ -52,6 +67,9 @@ export const CollapseIconStyle = styled.span`
   justify-content: center;
   align-items: center;
   transform: ${props => (props.iscollapsed ? `rotate(0)` : `rotate(90deg)`)};
+  .tofill {
+    fill: ${MakeThemeColors.Red};
+  }
 `;
 
 export const CollapseContentStyle = styled.div`
@@ -64,5 +82,9 @@ export const CollapseContentStyle = styled.div`
 `;
 
 export const CollapseSeparatorStyle = styled(SeparatorStyle)`
+  margin-top: 4px;
+`;
+
+export const TileWithCollapseSeparatorStyle = styled(SeparatorStyle)`
   margin: 8px 0 16px;
 `;

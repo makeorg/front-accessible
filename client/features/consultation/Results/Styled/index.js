@@ -3,12 +3,14 @@ import {
   BackgroundColors,
   ShadowColors,
   BasicColors,
+  VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { SvgLightning, SvgThumbsUp } from 'Client/ui/Svg/elements';
 
 export const ResultsSliderStyle = styled.div`
   background-color: ${BackgroundColors.TaintedWhite};
@@ -44,21 +46,28 @@ export const ResultsSliderArrowsStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const ResultsSliderDotsListStyle = styled.li``;
-
-export const ResultsSliderDotsListItemsStyle = styled.li``;
 export const ResultsIconsStyle = {
   width: '16px',
   height: '16px',
   marginRight: '5px',
 };
 
-export const RestultReversedIconStyle = {
-  width: '16px',
-  height: '16px',
-  marginRight: '5px',
-  transform: 'rotate(180deg) scaleX(-1)',
-};
+export const ResultsLightningIconStyle = styled(SvgLightning)`
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  fill: #ffe360;
+`;
+
+export const ResultsThumbIconStyle = styled(SvgThumbsUp)`
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  transform: rotate(180deg) scaleX(-1);
+  .tofill {
+    fill: ${VoteColors.Disagree};
+  }
+`;
 
 export const ResultsCounterStyle = styled(ParagraphStyle)`
   text-align: center;

@@ -18,7 +18,7 @@
         "title": "Profil - Mes propositions"
       },
       "favorites":  {
-        "title": "Profil - Mes coups de coeur"
+        "title": "Profil - Mes coups de cœur"
       },
       "edit": {
         "title": "Modification de mon profil"
@@ -363,7 +363,7 @@
     "favourites": {
       "title": "Mes coups de cœur",
       "description": {
-        "introduction": "Vous n’avez pas encore de coup de coeur sur Make.org.",
+        "introduction": "Vous n’avez pas encore de coup de cœur sur Make.org.",
         "explanation": "Vous pouvez placer une proposition en coup de cœur juste après avoir voté \" D'accord \" pour cette proposition."
       },
       "card_title": "Il faut soutenir des propositions de qualité."
@@ -503,15 +503,15 @@
         "votes": "Votes"
       },
       "top_ideas": {
-        "title": "Le top 6 des idées émergentes, regroupées en 2 thèmes",
+        "title": "Le top des idées émergentes, regroupées en {{count}} thèmes",
         "introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
-        "theme_title": "Thème {{count}} : "
+        "theme_title": "Thème {{count}} : {{name}}"
       },
       "proposals": {
         "controversials": "Les propositions les plus controversées",
         "rejected": "Les propositions les plus repoussées",
         "rejected_results": "{{disagree}}% contre dont {{no_way}}% surtout pas",
-        "controversials_like_it": "{{count}}% coups de coeur",
+        "controversials_like_it": "{{count}}% coups de cœur",
         "controversials_no_way": "{{count}}% surtout pas"
       },
       "cartography": {

@@ -36,7 +36,7 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled svg,
-.c0:disabled .tofill {
+.c0:disabled > .tofill {
   fill: rgb(74,74,74);
 }
 
@@ -208,7 +208,7 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled svg,
-.c0:disabled .tofill {
+.c0:disabled > .tofill {
   fill: rgb(74,74,74);
 }
 
@@ -287,7 +287,7 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled svg,
-.c0:disabled .tofill {
+.c0:disabled > .tofill {
   fill: rgb(74,74,74);
 }
 
@@ -361,7 +361,7 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled svg,
-.c0:disabled .tofill {
+.c0:disabled > .tofill {
   fill: rgb(74,74,74);
 }
 

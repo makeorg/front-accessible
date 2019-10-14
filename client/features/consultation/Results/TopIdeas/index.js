@@ -1,9 +1,21 @@
-import React from 'react';
-import { type TypeThemeItem } from 'Shared/types/question';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { i18n } from 'Shared/i18n';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ThemeTitleStyle, ThemeListItemStyle } from './Styled';
+import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
+import React from 'react';
+import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
+import { i18n } from 'Shared/i18n';
+import { TypeThemeItem } from 'Shared/types/question';
+import { Collapse } from 'Client/ui/Elements/Collapse';
+import {
+  TopIdeasParagraphStyle,
+  ThemeAgreeResultsStyle,
+  ThemeItemProposalStyle,
+  ThemeListItemStyle,
+  ThemeQualifiedStyle,
+  ThemeResultsButtonStyle,
+  ThemeResultsDetailsStyle,
+  ThemeResultsWrapperStyle,
+} from './Styled';
 
 type Props = {
   topIdeas: {
@@ -13,25 +25,62 @@ type Props = {
 };
 
 export const TopIdeas = ({ topIdeas }: Props) => {
+  const voteAttributes = voteStaticParams[VOTE_AGREE_KEY];
+
   return (
     <React.Fragment>
-      <ParagraphStyle>
+      <TopIdeasParagraphStyle>
         {i18n.t('consultation.results.top_ideas.introduction')}
-      </ParagraphStyle>
+      </TopIdeasParagraphStyle>
       {topIdeas.map((topIdea, index) => (
-        <React.Fragment key={topIdea.name}>
-          <ThemeTitleStyle>
-            {i18n.t('consultation.results.top_ideas.theme_title', {
-              count: index + 1,
-            })}
-            {topIdea.name}
-          </ThemeTitleStyle>
+        <Collapse
+          key={topIdea.name}
+          title={i18n.t('consultation.results.top_ideas.theme_title', {
+            count: index + 1,
+            name: topIdea.name,
+          })}
+          softExpand={index === 0}
+        >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (
-              <ThemeListItemStyle key={idea}>{idea}</ThemeListItemStyle>
+              <ThemeListItemStyle key={idea.idea}>
+                <ThemeItemProposalStyle as="p">
+                  {idea.idea}
+                </ThemeItemProposalStyle>
+                <ThemeResultsWrapperStyle>
+                  <ThemeResultsButtonStyle
+                    aria-hidden
+                    color={voteAttributes.color}
+                  >
+                    <ButtonIconWrapperStyle
+                      transform={voteAttributes.transform}
+                    >
+                      <SvgThumbsUp aria-hidden />
+                    </ButtonIconWrapperStyle>
+                  </ThemeResultsButtonStyle>
+                  <ThemeResultsDetailsStyle>
+                    <ThemeAgreeResultsStyle
+                      as="span"
+                      color={voteAttributes.color}
+                    >
+                      {`${idea.agreement}% ${i18n.t('vote.agree')}`}
+                    </ThemeAgreeResultsStyle>
+                    <span>
+                      {i18n.t('qualification.likeIt')}
+                      <ThemeQualifiedStyle>
+                        {` ${idea.adhesion}% `}
+                      </ThemeQualifiedStyle>
+                      {i18n.t('qualification.doable')}
+                      <ThemeQualifiedStyle>
+                        {` ${idea.realistic}% `}
+                      </ThemeQualifiedStyle>
+                    </span>
+                  </ThemeResultsDetailsStyle>
+                </ThemeResultsWrapperStyle>
+              </ThemeListItemStyle>
             ))}
           </UnstyledListStyle>
-        </React.Fragment>
+        </Collapse>
       ))}
     </React.Fragment>
   );

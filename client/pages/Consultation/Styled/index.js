@@ -37,7 +37,9 @@ export const ConsultationPageContentStyle = styled(ContentElementStyle)`
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
+  margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 0;
     padding: 0 20px 0 10px;
     order: 1;
     max-width: 390px;

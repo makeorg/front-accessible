@@ -1,16 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse must match the diff snapshot between Expand vs Collapse Props 1`] = `
+exports[`Collapse must match the diff snapshot between Expand vs TileWithCollapse Props 1`] = `
 Snapshot Diff:
 - First value
 + Second value
 
-  <TileSeparatorStyle>
+  <TileWithCollapseWrapperStyle>
     <CollapseTriggerStyle
 -     aria-expanded={false}
 -     aria-label="common.shrink_collapse"
 +     aria-expanded={true}
 +     aria-label="common.expand_collapse"
+      disabled={false}
       onClick={[Function toggleCollapse]}
     >
       foo
@@ -22,23 +23,30 @@ Snapshot Diff:
         <SvgAngleArrowRight />
       </CollapseIconStyle>
     </CollapseTriggerStyle>
-    <CollapseSeparatorStyle />
     <CollapseContentStyle
 -     aria-hidden={false}
--     iscollapsed={false}
 +     aria-hidden={true}
+      forcedexpand={false}
+-     iscollapsed={false}
 +     iscollapsed={true}
     >
+      <TileWithCollapseSeparatorStyle />
       bar
     </CollapseContentStyle>
-  </TileSeparatorStyle>
+  </TileWithCollapseWrapperStyle>
+`;
+
+exports[`Collapse must match the diff snapshot between forceExpandOnDesktop vs default Props 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
 `;
 
 exports[`Collapse must match the snapshot with default Props 1`] = `
-<TileSeparatorStyle>
+<TileWithCollapseWrapperStyle>
   <CollapseTriggerStyle
     aria-expanded={true}
     aria-label="common.expand_collapse"
+    disabled={false}
     onClick={[Function]}
   >
     foo
@@ -49,12 +57,13 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
       <SvgAngleArrowRight />
     </CollapseIconStyle>
   </CollapseTriggerStyle>
-  <CollapseSeparatorStyle />
   <CollapseContentStyle
     aria-hidden={true}
+    forcedexpand={false}
     iscollapsed={true}
   >
+    <TileWithCollapseSeparatorStyle />
     bar
   </CollapseContentStyle>
-</TileSeparatorStyle>
+</TileWithCollapseWrapperStyle>
 `;

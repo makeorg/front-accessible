@@ -61,3 +61,9 @@ export const ResultsLikeItStyle = styled(ResultsItemStyle)`
 export const ResultsNoWayStyle = styled(ResultsItemStyle)`
   color: ${VoteColors.Disagree};
 `;
+
+export const ResultsProposalIconStyle = {
+  width: '7px',
+  height: '14px',
+  margin: '0 5px 0',
+};
