@@ -47,7 +47,6 @@ export const SearchInputStyle = styled.input`
   font-size: 16px;
   line-height: 29px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
     line-height: 39px;
   }
 `;

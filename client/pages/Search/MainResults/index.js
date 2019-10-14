@@ -18,16 +18,14 @@ import {
   getRouteSearchConsultations,
   getRouteSearchOrganisations,
 } from 'Shared/routes';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
+  SearchPageWrapperStyle,
   SearchPageTitleStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
 } from '../Styled';
-import {
-  MainResultsWrapperStyle,
-  MainResultsSectionStyle,
-  NoResultsStyle,
-} from './Styled';
+import { MainResultsSectionStyle, NoResultsStyle } from './Styled';
 import { SearchSidebar } from '../Sidebar';
 
 export type Props = {
@@ -51,6 +49,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   const organisationsCount = data.organisations.total;
   const responseCount = proposalsCount + questionsCount + organisationsCount;
   const noResults = responseCount === 0;
+  const isDesktop = useDesktop();
 
   useEffect(() => {
     trackDisplaySearchMainResult();
@@ -71,7 +70,7 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
   }, [term]);
 
   return (
-    <MainResultsWrapperStyle>
+    <SearchPageWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.main_results', {
           term,
@@ -158,9 +157,9 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
             </React.Fragment>
           )}
         </SearchPageResultsStyle>
-        <SearchSidebar />
+        {isDesktop && <SearchSidebar />}
       </SearchPageContentStyle>
-    </MainResultsWrapperStyle>
+    </SearchPageWrapperStyle>
   );
 };
 

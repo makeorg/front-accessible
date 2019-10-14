@@ -1,17 +1,7 @@
 import styled from 'styled-components';
-import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-
-export const MainResultsWrapperStyle = styled.div`
-  width: 100%;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
-  margin: 0 auto;
-  padding: 20px 0;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 40px 20px;
-  }
-`;
 
 export const MainResultsSectionStyle = styled.section`
   display: flex;

@@ -14,9 +14,9 @@ import {
   trackDisplaySearchProposalsResult,
   trackClickSearchReturn,
 } from 'Shared/services/Tracking';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
   SearchPageTitleStyle,
-  SearchPageWrapperStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
   SearchBackStyle,
@@ -24,6 +24,7 @@ import {
   SearchResultsProposalItemStyle,
   SearchMoreProposalsButtonStyle,
   SearchResultsProposalListStyle,
+  SearchPageWrapperStyle,
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
@@ -51,6 +52,7 @@ export const SearchResultsProposalsComponent = ({
     proposalsCount > PROPOSALS_LIMIT &&
     proposalsCount > proposalsResult.length &&
     !isLoading;
+  const isDesktop = useDesktop();
 
   const initProposal = async () => {
     const { results, total } = await searchProposals(
@@ -94,54 +96,52 @@ export const SearchResultsProposalsComponent = ({
   };
 
   return (
-    <React.Fragment>
+    <SearchPageWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.proposals', {
           term,
           count: proposalsCount,
         })}
       />
-      <SearchPageWrapperStyle>
-        <SearchBackStyle onClick={() => handleReturn()}>
-          <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
-          {i18n.t('common.back')}
-        </SearchBackStyle>
-        <SearchPageTitleStyle>
-          {isLoading
-            ? i18n.t('search.titles.loading')
-            : i18n.t('search.titles.proposals', {
-                term,
-                count: proposalsCount,
-              })}
-        </SearchPageTitleStyle>
-        <SearchPageContentStyle>
-          <SearchPageResultsStyle
-            id="proposal_list"
-            role="feed"
-            aria-busy={isLoading}
-          >
-            <SearchResultsProposalListStyle>
-              {proposalsResult.map((proposal, index) => (
-                <SearchResultsProposalItemStyle key={proposal.id}>
-                  <ProposalCardWithQuestion
-                    proposal={proposal}
-                    position={index + 1}
-                    size={proposalsResult.length}
-                  />
-                </SearchResultsProposalItemStyle>
-              ))}
-            </SearchResultsProposalListStyle>
-            {isLoading && <Spinner />}
-            {getMoreButton && (
-              <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>
-                {i18n.t('consultation.proposal.load_more')}
-              </SearchMoreProposalsButtonStyle>
-            )}
-          </SearchPageResultsStyle>
-          <SearchSidebar />
-        </SearchPageContentStyle>
-      </SearchPageWrapperStyle>
-    </React.Fragment>
+      <SearchBackStyle onClick={() => handleReturn()}>
+        <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
+        {i18n.t('common.back')}
+      </SearchBackStyle>
+      <SearchPageTitleStyle>
+        {isLoading
+          ? i18n.t('search.titles.loading')
+          : i18n.t('search.titles.proposals', {
+              term,
+              count: proposalsCount,
+            })}
+      </SearchPageTitleStyle>
+      <SearchPageContentStyle>
+        <SearchPageResultsStyle
+          id="proposal_list"
+          role="feed"
+          aria-busy={isLoading}
+        >
+          <SearchResultsProposalListStyle>
+            {proposalsResult.map((proposal, index) => (
+              <SearchResultsProposalItemStyle key={proposal.id}>
+                <ProposalCardWithQuestion
+                  proposal={proposal}
+                  position={index + 1}
+                  size={proposalsResult.length}
+                />
+              </SearchResultsProposalItemStyle>
+            ))}
+          </SearchResultsProposalListStyle>
+          {isLoading && <Spinner />}
+          {getMoreButton && (
+            <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>
+              {i18n.t('consultation.proposal.load_more')}
+            </SearchMoreProposalsButtonStyle>
+          )}
+        </SearchPageResultsStyle>
+        {isDesktop && <SearchSidebar />}
+      </SearchPageContentStyle>
+    </SearchPageWrapperStyle>
   );
 };
 

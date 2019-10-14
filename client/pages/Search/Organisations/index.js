@@ -27,13 +27,14 @@ import {
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { useDesktop } from 'Client/hooks/useMedia';
 import {
   SearchPageTitleStyle,
-  SearchPageWrapperStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
   SearchBackStyle,
   SearchBackArrowStyle,
+  SearchPageWrapperStyle,
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
@@ -55,6 +56,7 @@ export const SearchOrganisationsComponent = ({
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
   const [organisations, setOrganisations] = useState<TypeOrganisation[]>([]);
+  const isDesktop = useDesktop();
 
   const initOrganisations = async () => {
     setIsLoading(true);
@@ -80,67 +82,65 @@ export const SearchOrganisationsComponent = ({
     trackDisplaySearchOragnisationsResult();
   }, []);
   return (
-    <React.Fragment>
+    <SearchPageWrapperStyle>
       <MetaTags
         title={i18n.t('meta.search.organisations', {
           term,
           count,
         })}
       />
-      <SearchPageWrapperStyle>
-        <SearchBackStyle onClick={() => handleReturn()}>
-          <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
-          {i18n.t('common.back')}
-        </SearchBackStyle>
-        <SearchPageTitleStyle>
-          {isLoading
-            ? i18n.t('search.titles.loading')
-            : i18n.t('search.titles.organisations', {
-                term,
-                count,
-              })}
-        </SearchPageTitleStyle>
-        <SearchPageContentStyle>
-          <SearchPageResultsStyle>
-            <SearchOrganisationsListStyle>
-              {organisations.map(organisation => (
-                <SearchOrganisationItemStyle
-                  key={organisation.organisationId}
-                  as={Link}
-                  to={getOrganisationProfileLink(
-                    country,
-                    language,
-                    organisation.slug
-                  )}
-                >
-                  <ProfileAvatarLayoutStyle>
-                    <SearchOrganisationAvatarStyle>
-                      <Avatar
-                        avatarSize={80}
-                        avatarUrl={organisation.avatarUrl}
+      <SearchBackStyle onClick={() => handleReturn()}>
+        <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
+        {i18n.t('common.back')}
+      </SearchBackStyle>
+      <SearchPageTitleStyle>
+        {isLoading
+          ? i18n.t('search.titles.loading')
+          : i18n.t('search.titles.organisations', {
+              term,
+              count,
+            })}
+      </SearchPageTitleStyle>
+      <SearchPageContentStyle>
+        <SearchPageResultsStyle>
+          <SearchOrganisationsListStyle>
+            {organisations.map(organisation => (
+              <SearchOrganisationItemStyle
+                key={organisation.organisationId}
+                as={Link}
+                to={getOrganisationProfileLink(
+                  country,
+                  language,
+                  organisation.slug
+                )}
+              >
+                <ProfileAvatarLayoutStyle>
+                  <SearchOrganisationAvatarStyle>
+                    <Avatar
+                      avatarSize={80}
+                      avatarUrl={organisation.avatarUrl}
+                    />
+                  </SearchOrganisationAvatarStyle>
+                  <ProfileContentWrapperStyle>
+                    <ProfileTitleStyle>
+                      <ScreenReaderItemStyle>
+                        {i18n.t('profile.common.labels.organisation')}
+                      </ScreenReaderItemStyle>
+                      {organisation.organisationName}
+                      &nbsp;
+                      <SvgCheckedSymbol
+                        style={{ fontSize: '14px', fill: TextColors.Blue }}
                       />
-                    </SearchOrganisationAvatarStyle>
-                    <ProfileContentWrapperStyle>
-                      <ProfileTitleStyle>
-                        <ScreenReaderItemStyle>
-                          {i18n.t('profile.common.labels.organisation')}
-                        </ScreenReaderItemStyle>
-                        {organisation.organisationName}
-                        &nbsp;
-                        <SvgCheckedSymbol
-                          style={{ fontSize: '14px', fill: TextColors.Blue }}
-                        />
-                      </ProfileTitleStyle>
-                    </ProfileContentWrapperStyle>
-                  </ProfileAvatarLayoutStyle>
-                </SearchOrganisationItemStyle>
-              ))}
-            </SearchOrganisationsListStyle>
-          </SearchPageResultsStyle>
-          <SearchSidebar />
-        </SearchPageContentStyle>
-      </SearchPageWrapperStyle>
-    </React.Fragment>
+                    </ProfileTitleStyle>
+                  </ProfileContentWrapperStyle>
+                </ProfileAvatarLayoutStyle>
+              </SearchOrganisationItemStyle>
+            ))}
+          </SearchOrganisationsListStyle>
+        </SearchPageResultsStyle>
+        {isDesktop && <SearchSidebar />}
+      </SearchPageContentStyle>
+    </SearchPageWrapperStyle>
   );
 };
 

@@ -12,7 +12,10 @@ export const SearchPageWrapperStyle = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 40px 20px;
+  }
 `;
 
 export const SearchPageContentStyle = styled.div`
@@ -31,13 +34,13 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 
 export const SearchPageResultsStyle = styled(ContentElementStyle)`
   margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
     margin-bottom: 0;
     max-width: 750px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 0 20px 0 0;
   }
 `;
 
@@ -50,15 +53,16 @@ export const SearchPageSidebarStyle = styled(ContentElementStyle)`
     order: 1;
     max-width: 360px;
     padding: 0;
+    margin-left: 20px;
   }
 `;
 
 export const SearchPageTitleStyle = styled(SecondLevelTitleStyle)`
-  margin-bottom: 16px;
   padding: 0 20px;
+  margin-bottom: 30px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 `;
 
