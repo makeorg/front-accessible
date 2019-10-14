@@ -18,6 +18,7 @@ import {
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
+import { NotFoundPage } from '../NotFound';
 
 type Props = {
   question: TypeQuestion,
@@ -80,7 +81,9 @@ const callQuestionData = Component =>
 
     render() {
       const { question, questionConfiguration, questionResults } = this.props;
-      if (!question || !questionConfiguration) return null;
+      if (!question) {
+        return <NotFoundPage />;
+      }
 
       return (
         <PageQuestionWrapper
@@ -105,6 +108,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchQuestion: (questionSlug: string) => {
     dispatch(fetchQuestionData(questionSlug)).then(question => {
+      if (!question) {
+        return;
+      }
       apiClient.questionId = question.questionId;
       apiClient.operationId = question.operationId;
 

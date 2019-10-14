@@ -20,6 +20,10 @@ export const consultationRoute = async (req: any, res: any) => {
     let questionResults: TypeQuestionResults;
     const question: TypeQuestion = await getQuestion(questionSlug);
 
+    if (!question) {
+      return reactRender(req, res.status(404), routeState);
+    }
+
     if (!isInProgress(question) && !question.displayResults) {
       return res.redirect(question.aboutUrl);
     }
