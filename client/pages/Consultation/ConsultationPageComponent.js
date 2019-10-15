@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { matchPath, Redirect, type Location } from 'react-router';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
@@ -22,8 +22,10 @@ import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Pa
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
+import { getConsultationLink } from 'Shared/helpers/url';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
+import { getIsActiveFeature } from 'Client/helper/featureFlipping';
 import { ResultsPannel } from 'Client/features/consultation/TabsContent/Panel/Results';
 import { ConsultationPageWrapperStyle } from './Styled';
 
@@ -48,6 +50,21 @@ export const ConsultationPageComponent = ({
   const isActionPage = !!matchPath(location.pathname, ROUTE_ACTION);
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
+  const [isActiveFeature, setFeatureFlipping] = useState(() => () => false);
+
+  useEffect(() => {
+    setFeatureFlipping(() => getIsActiveFeature(question.activeFeatures));
+  }, [question]);
+
+  /** @toDo: remove or refactor after the end of bretagne consultation */
+  const bretagneNavNames = {
+    'bretagne-qualite-vie': 'Qualité de vie',
+    'bretagne-ecologique-durable': 'Écologie',
+    'bretagne-dynamisme-economique': 'Économie',
+    'bretagne-vivre-ensemble': 'Vivre ensemble',
+  };
+  const navName = (slug, defaultName) =>
+    slug in bretagneNavNames ? bretagneNavNames[slug] : defaultName;
 
   return (
     <React.Fragment>
@@ -55,6 +72,35 @@ export const ConsultationPageComponent = ({
         <ConsultationSkipLinks canPropose={question.canPropose} />
       )}
       {isActionPage && <ActionsSkipLinks />}
+      {isActiveFeature('operation-multi-questions-navigation') &&
+        question.operation.questions.length > 0 && (
+          <TabListStyle>
+            {question.operation.questions.map(siblingQuestion => (
+              <FullWidthTabStyle
+                isSelected={siblingQuestion.questionId === question.questionId}
+                key={siblingQuestion.questionId}
+              >
+                <Link
+                  to={getConsultationLink(
+                    siblingQuestion.country,
+                    siblingQuestion.language,
+                    siblingQuestion.questionSlug
+                  )}
+                  aria-current={
+                    siblingQuestion.questionId === question.questionId
+                  }
+                >
+                  <React.Fragment>
+                    {navName(
+                      siblingQuestion.questionSlug,
+                      siblingQuestion.question
+                    )}
+                  </React.Fragment>
+                </Link>
+              </FullWidthTabStyle>
+            ))}
+          </TabListStyle>
+        )}
       <IntroBanner
         question={question}
         questionConfiguration={questionConfiguration}
@@ -88,43 +134,29 @@ export const ConsultationPageComponent = ({
           </TabListStyle>
         </TabNavStyle>
         <ConsultationPanelInnerStyle>
-          <Switch>
-            <Route
-              path={ROUTE_CONSULTATION}
-              exact
-              component={() => (
-                <React.Fragment>
-                  {questionResults ? (
-                    <ResultsPannel
-                      question={question}
-                      questionConfiguration={questionConfiguration}
-                      questionResults={questionResults}
-                    />
-                  ) : (
-                    <ConsultationPanelContent
-                      question={question}
-                      questionConfiguration={questionConfiguration}
-                    />
-                  )}
-                </React.Fragment>
+          {isConsultationPage && (
+            <React.Fragment>
+              {questionResults ? (
+                <ResultsPannel
+                  question={question}
+                  questionConfiguration={questionConfiguration}
+                  questionResults={questionResults}
+                />
+              ) : (
+                <ConsultationPanelContent
+                  question={question}
+                  questionConfiguration={questionConfiguration}
+                />
               )}
+            </React.Fragment>
+          )}
+          {isActionPage && !questionIsGreatCause && <Redirect to="/notfound" />}
+          {isActionPage && questionIsGreatCause && (
+            <ActionsPanelContent
+              question={question}
+              questionConfiguration={questionConfiguration}
             />
-            <Route
-              path={ROUTE_ACTION}
-              exact
-              component={() => {
-                if (!questionIsGreatCause) {
-                  return <Redirect to="/notfound" />;
-                }
-                return (
-                  <ActionsPanelContent
-                    question={question}
-                    questionConfiguration={questionConfiguration}
-                  />
-                );
-              }}
-            />
-          </Switch>
+          )}
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && <MobileSharing />}
