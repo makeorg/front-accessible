@@ -8,5 +8,9 @@
   "consultation": {
     "presentation": "toDo "
   },
-  "partners": []
+  "partners": [],
+  "customFinalCard": {
+    "imageUrl": "/images/operations/bretagne/bretagne_image.png",
+    "nextQuestion": "bretagne-dynamisme-economique"
+  }
 }

@@ -33,10 +33,11 @@ export const IntroLabelStyle = styled(ConsultationLabelStyle)`
 `;
 
 export const IntroBannerTitleStyle = styled(SecondLevelTitleStyle)`
+  text-align: center;
   max-width: 550px;
   color: ${BasicColors.PureWhite};
-  line-height: 30px;
-  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    line-height: 46px;
+  line-height: 1.33;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    line-height: 1.53;
   }
 `;
