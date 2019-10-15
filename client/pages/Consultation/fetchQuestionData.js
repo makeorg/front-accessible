@@ -19,6 +19,8 @@ import {
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -57,7 +59,9 @@ const callQuestionData = Component =>
     const { match, question, questionConfiguration, questionResults } = props;
     const dispatch = useDispatch();
     const [alternativeContent, setAlternativeContent] = React.useState(
-      <React.Fragment />
+      <MiddlePageWrapperStyle>
+        <Spinner />
+      </MiddlePageWrapperStyle>
     );
     const updateQuestion =
       question && questionConfiguration

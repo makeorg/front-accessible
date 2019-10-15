@@ -22,11 +22,11 @@ import { ActionsPanelContent } from 'Client/features/consultation/TabsContent/Pa
 import { ConsultationTabContent } from 'Client/features/consultation/TabsContent/Tab/Consultation';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
-import { getConsultationLink } from 'Shared/helpers/url';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
-import { getIsActiveFeature } from 'Client/helper/featureFlipping';
 import { ResultsPannel } from 'Client/features/consultation/TabsContent/Panel/Results';
+import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation';
+import { getIsActiveFeature } from 'Client/helper/featureFlipping';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -51,20 +51,10 @@ export const ConsultationPageComponent = ({
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const [isActiveFeature, setFeatureFlipping] = useState(() => () => false);
-
+  const hasSiblingQuestions = question.operation.questions.length > 0;
   useEffect(() => {
     setFeatureFlipping(() => getIsActiveFeature(question.activeFeatures));
   }, [question]);
-
-  /** @toDo: remove or refactor after the end of bretagne consultation */
-  const bretagneNavNames = {
-    'bretagne-qualite-vie': 'Qualité de vie',
-    'bretagne-ecologique-durable': 'Écologie',
-    'bretagne-dynamisme-economique': 'Économie',
-    'bretagne-vivre-ensemble': 'Vivre ensemble',
-  };
-  const navName = (slug, defaultName) =>
-    slug in bretagneNavNames ? bretagneNavNames[slug] : defaultName;
 
   return (
     <React.Fragment>
@@ -72,34 +62,10 @@ export const ConsultationPageComponent = ({
         <ConsultationSkipLinks canPropose={question.canPropose} />
       )}
       {isActionPage && <ActionsSkipLinks />}
+
       {isActiveFeature('operation-multi-questions-navigation') &&
-        question.operation.questions.length > 0 && (
-          <TabListStyle>
-            {question.operation.questions.map(siblingQuestion => (
-              <FullWidthTabStyle
-                isSelected={siblingQuestion.questionId === question.questionId}
-                key={siblingQuestion.questionId}
-              >
-                <Link
-                  to={getConsultationLink(
-                    siblingQuestion.country,
-                    siblingQuestion.language,
-                    siblingQuestion.questionSlug
-                  )}
-                  aria-current={
-                    siblingQuestion.questionId === question.questionId
-                  }
-                >
-                  <React.Fragment>
-                    {navName(
-                      siblingQuestion.questionSlug,
-                      siblingQuestion.question
-                    )}
-                  </React.Fragment>
-                </Link>
-              </FullWidthTabStyle>
-            ))}
-          </TabListStyle>
+        hasSiblingQuestions && (
+          <NavigationBetweenQuestions question={question} />
         )}
       <IntroBanner
         question={question}
