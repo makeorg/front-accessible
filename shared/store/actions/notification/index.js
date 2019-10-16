@@ -20,6 +20,6 @@ export const showLogoutSuccess = () => (dispatch: Function) => {
   dispatch({ type: NOTIFICATION_LOGOUT_SUCCESS });
 };
 
-export const showRegisterSuccess = () => (dispatch: Function) => {
-  dispatch({ type: NOTIFICATION_REGISTER_SUCCESS });
+export const showRegisterSuccess = (user: Object) => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_REGISTER_SUCCESS, user });
 };

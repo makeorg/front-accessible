@@ -20,6 +20,8 @@ type Props = {
   level?: string,
   /** Content to render in Notification Component */
   contentType?: any,
+  /** Message replacements for content in Notification Component */
+  replacements?: Object,
   /** Method used to close Notification Component */
   closeNotification: () => void,
 };
@@ -27,6 +29,7 @@ type Props = {
 const NotificationComponent = ({
   level = NOTIFICATION_LEVEL_INFORMATION,
   contentType = undefined,
+  replacements = {},
   closeNotification,
 }: Props) => {
   const notificationRef = useRef(null);
@@ -43,7 +46,7 @@ const NotificationComponent = ({
     <NotificationWrapperStyle ref={notificationRef} role="banner" tabIndex={0}>
       <NotificationContentStyle className={level}>
         <NotificationIcon />
-        {notifcationContent[contentType]}
+        {notifcationContent[contentType](replacements)}
       </NotificationContentStyle>
       <NotificationCloseButtonStyle
         aria-label={i18n.t('common.notifications.icons.close')}
@@ -57,9 +60,9 @@ const NotificationComponent = ({
 };
 
 const mapStateToProps = state => {
-  const { level, contentType } = state.notification;
+  const { level, contentType, replacements } = state.notification;
 
-  return { level, contentType };
+  return { level, contentType, replacements };
 };
 
 const mapDispatchToProps = dispatch => ({

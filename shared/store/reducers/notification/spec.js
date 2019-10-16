@@ -6,6 +6,8 @@ import {
   REGISTER_SUCCESS_MESSAGE,
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
+  REGISTER_SUCCESS_VALIDATE_MESSAGE,
+  NOTIFICATION_LEVEL_ALERT,
 } from 'Shared/constants/notification';
 import { notification } from './index';
 
@@ -47,7 +49,10 @@ describe('Notification reducer', () => {
   });
 
   it('Show Register Success Notification', () => {
-    const action = { type: 'NOTIFICATION_REGISTER_SUCCESS' };
+    const action = {
+      type: 'NOTIFICATION_REGISTER_SUCCESS',
+      user: { emailVerified: true, email: 'myemail@make.org' },
+    };
     const previousState = {
       level: NOTIFICATION_LEVEL_INFORMATION,
       contentType: undefined,
@@ -56,6 +61,26 @@ describe('Notification reducer', () => {
     const expectedState = {
       level: NOTIFICATION_LEVEL_SUCCESS,
       contentType: REGISTER_SUCCESS_MESSAGE,
+      replacements: { email: 'myemail@make.org' },
+    };
+
+    expect(notification(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Show Register Success Notification with email validation message', () => {
+    const action = {
+      type: 'NOTIFICATION_REGISTER_SUCCESS',
+      user: { emailVerified: false, email: 'myemail@make.org' },
+    };
+    const previousState = {
+      level: NOTIFICATION_LEVEL_INFORMATION,
+      contentType: undefined,
+    };
+
+    const expectedState = {
+      level: NOTIFICATION_LEVEL_ALERT,
+      contentType: REGISTER_SUCCESS_VALIDATE_MESSAGE,
+      replacements: { email: 'myemail@make.org' },
     };
 
     expect(notification(previousState, action)).toEqual(expectedState);
