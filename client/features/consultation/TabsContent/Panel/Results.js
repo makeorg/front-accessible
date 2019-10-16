@@ -71,7 +71,7 @@ export const ResultsPannel = ({
 
   useEffect(() => {
     trackDisplayConsultation('results');
-  }, []);
+  }, [question]);
 
   return (
     <React.Fragment>

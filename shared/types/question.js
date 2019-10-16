@@ -112,11 +112,16 @@ export type QuestionExtraSlidesConfig = {
   finalCard: FinalCardConfig,
 };
 
-/* eslint-disable no-use-before-define */
 export type SimpleOperationData = {
-  questions: Question[],
+  questionId: string,
+  questionSlug: string,
+  question: string,
+  operationTitle: string,
+  country: string,
+  language: string,
+  startDate: string,
+  endDate: string,
 };
-/* eslint-enable no-use-before-define */
 
 export type Question = {
   questionId: string,
@@ -137,6 +142,8 @@ export type Question = {
   displayResults: boolean,
   aboutUrl: string,
   sequenceConfig: QuestionExtraSlidesConfig,
-  operation: SimpleOperationData,
   activeFeatures: string[],
+  operation: {
+    questions: SimpleOperationData[],
+  },
 };

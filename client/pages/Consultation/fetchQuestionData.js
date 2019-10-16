@@ -1,7 +1,7 @@
 // @flow
-import React, { type Node } from 'react';
+import React, { type Node, useEffect } from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { isInProgress } from 'Shared/helpers/date';
@@ -12,18 +12,21 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import {
-  fetchQuestionData,
   fetchQuestionConfigurationData,
   fetchQuestionResults,
+  loadQuestion,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { NotFoundPage } from '../NotFound';
 
 type Props = {
   question: TypeQuestion,
   questionConfiguration: TypeQuestionConfiguration,
   questionResults: TypeQuestionResults,
-  fetchQuestion: (questionSlug: string) => void,
   match: TypeMatch,
 };
 
@@ -52,75 +55,80 @@ export const PageQuestionWrapper = ({
 };
 
 const callQuestionData = Component =>
-  class FetchQuestionClass extends React.Component<Props> {
-    constructor(props: Props) {
-      super(props);
-      if (props.question) {
-        apiClient.questionId = props.question.questionId;
-        apiClient.operationId = props.question.operationId;
-      }
-    }
+  function FetchQuestionClass(props: Props) {
+    const { match, question, questionConfiguration, questionResults } = props;
+    const dispatch = useDispatch();
+    const [alternativeContent, setAlternativeContent] = React.useState(
+      <MiddlePageWrapperStyle>
+        <Spinner />
+      </MiddlePageWrapperStyle>
+    );
+    const updateQuestion =
+      question && questionConfiguration
+        ? () => {}
+        : () => {
+            QuestionApiService.getDetail(match.params.questionSlug)
+              .then(questionDetail => {
+                apiClient.questionId = questionDetail.questionId;
+                apiClient.operationId = questionDetail.operationId;
+                dispatch(loadQuestion(questionDetail));
+                if (questionDetail.displayResults) {
+                  dispatch(fetchQuestionResults(questionDetail.slug));
+                }
+                dispatch(fetchQuestionConfigurationData(questionDetail.slug));
+              })
+              .catch(error => {
+                if (error.message === '404') {
+                  setAlternativeContent(<NotFoundPage />);
+                }
+              });
+          };
 
-    componentDidMount() {
-      const {
-        match,
-        question,
-        questionConfiguration,
-        fetchQuestion,
-      } = this.props;
+    useEffect(() => {
+      updateQuestion();
+    }, [match.params.questionSlug]);
 
-      if (!question || !questionConfiguration) {
-        fetchQuestion(match.params.questionSlug);
-      }
-
+    useEffect(() => {
       if (question && !isInProgress(question) && !question.displayResults) {
         window.location = question.aboutUrl;
       }
+    }, [question]);
+
+    if (!question || !questionConfiguration) {
+      return alternativeContent;
     }
 
-    render() {
-      const { question, questionConfiguration, questionResults } = this.props;
-      if (!question || !questionConfiguration) return null;
-
-      return (
-        <PageQuestionWrapper
-          questionResults={questionResults}
-          questionConfiguration={questionConfiguration}
+    return (
+      <PageQuestionWrapper
+        questionResults={questionResults}
+        questionConfiguration={questionConfiguration}
+        question={question}
+      >
+        <Component
           question={question}
-        >
-          <Component
-            question={question}
-            questionConfiguration={questionConfiguration}
-            questionResults={questionResults}
-          />
-        </PageQuestionWrapper>
-      );
-    }
+          questionConfiguration={questionConfiguration}
+          questionResults={questionResults}
+        />
+      </PageQuestionWrapper>
+    );
   };
 
 const mapStateToProps = (state, ownProps) => {
-  return { ...selectQuestionData(state, ownProps.match.params.questionSlug) };
+  const questionData = selectQuestionData(
+    state,
+    ownProps.match.params.questionSlug
+  );
+
+  if (!questionData) {
+    return { ...ownProps };
+  }
+
+  return {
+    ...questionData,
+  };
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchQuestion: (questionSlug: string) => {
-    dispatch(fetchQuestionData(questionSlug)).then(question => {
-      apiClient.questionId = question.questionId;
-      apiClient.operationId = question.operationId;
-
-      if (question.displayResults) {
-        dispatch(fetchQuestionResults(questionSlug));
-      }
-
-      dispatch(fetchQuestionConfigurationData(questionSlug));
-    });
-  },
-});
-
 export const withQuestionData = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
+  connect(mapStateToProps),
   callQuestionData
 );

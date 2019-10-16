@@ -118,5 +118,6 @@ export const reactRender = (req, res, routeState = {}) => {
       raw: ua.ua,
     })
   );
+
   return res.send(reactHtml);
 };

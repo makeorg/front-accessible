@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "color": "#339b72",
+    "gradientStart": "#339b72",
+    "gradientEnd": "#339b72",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "toDo "
+  },
+  "partners": []
+}

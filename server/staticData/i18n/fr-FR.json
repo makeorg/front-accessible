@@ -447,6 +447,9 @@
     "header": {
       "label": "Grande Cause Make.org"
     },
+    "navigation": {
+      "introduction": "Retrouvez les autres thématiques abordées dans le cadre de la consultation : {{name}}"
+    },
     "tabs": {
       "consultation": " Consultation ",
       "action": " Actions ",

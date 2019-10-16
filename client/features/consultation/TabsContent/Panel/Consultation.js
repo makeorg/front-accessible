@@ -54,7 +54,7 @@ export const ConsultationPanelContent = ({
 
   useEffect(() => {
     trackDisplayConsultation('consultation');
-  }, []);
+  }, [question]);
 
   return (
     <React.Fragment>

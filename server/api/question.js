@@ -1,5 +1,6 @@
 import { FRONT_URL } from 'Shared/constants/config';
 import { env } from 'Shared/env';
+import { Logger } from 'Shared/services/Logger';
 
 /* eslint consistent-return: 0 */
 
@@ -37,6 +38,7 @@ export function questionApi(req, res) {
 
     return res.send(result);
   } catch (error) {
+    Logger.logWarning(`Configuration file not found: ${questionSlug}.json`);
     return res.status(404).end();
   }
 }
