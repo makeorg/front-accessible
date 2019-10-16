@@ -2,18 +2,15 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { useDesktop } from 'Client/hooks/useMedia';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
-import { useSlider } from 'Client/hooks/useSlider';
+import { ProposalsShowcase } from '../Slider';
 import {
-  PopularShowcaseStylesheet,
-  ShowcaseSliderParams,
-} from '../Styled/slider';
-import {
-  ProposalsSliderWrapperStyle,
   ProposalsContentStyle,
   ProposalsIntroStyle,
   ProposalsTitleStyle,
+  ProposalsSliderListStyle,
+  ProposalsSliderListItemStyle,
 } from '../Styled';
 
 type PopularProposalsProps = {
@@ -21,11 +18,11 @@ type PopularProposalsProps = {
 };
 
 export const PopularProposals = ({ proposals }: PopularProposalsProps) => {
-  const proposalsIsEmpty = proposals.length <= 0;
+  const hasProposals = proposals.length > 0;
+  const POPULAR_SLIDER = 'popularshowcase';
+  const isDesktop = useDesktop();
 
-  useSlider('popular', ShowcaseSliderParams, proposalsIsEmpty);
-
-  if (proposalsIsEmpty) {
+  if (!hasProposals) {
     return null;
   }
 
@@ -38,26 +35,22 @@ export const PopularProposals = ({ proposals }: PopularProposalsProps) => {
         </ProposalsIntroStyle>
         {i18n.t('homepage.proposals.popular.title')}
       </ProposalsTitleStyle>
-      <ScreenReaderItemStyle>
-        {i18n.t('common.slider.introduction')}
-      </ScreenReaderItemStyle>
-      <PopularShowcaseStylesheet />
-      <ProposalsSliderWrapperStyle className="popular">
-        <div className="popular__track" data-glide-el="track">
-          <ul className="popular__slides">
-            {proposals.map((proposal, index) => (
-              <li key={proposal.id} className="popular__slide">
-                <ProposalCardWithQuestion
-                  proposal={proposal}
-                  position={index + 1}
-                  size={2}
-                  withOrganisations
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </ProposalsSliderWrapperStyle>
+      {!isDesktop ? (
+        <ProposalsShowcase proposals={proposals} sliderName={POPULAR_SLIDER} />
+      ) : (
+        <ProposalsSliderListStyle>
+          {proposals.map((proposal, index) => (
+            <ProposalsSliderListItemStyle key={proposal.id}>
+              <ProposalCardWithQuestion
+                proposal={proposal}
+                position={index + 1}
+                size={2}
+                withOrganisations
+              />
+            </ProposalsSliderListItemStyle>
+          ))}
+        </ProposalsSliderListStyle>
+      )}
     </ProposalsContentStyle>
   );
 };

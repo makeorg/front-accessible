@@ -1,6 +1,7 @@
 // @flow
-import React from 'react';
+import React, { useRef } from 'react';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { type TypeSliderParams } from 'Shared/types/views';
 import { useSlider } from 'Client/hooks/useSlider';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
@@ -18,30 +19,42 @@ import {
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import {
-  SearchOrganisationsSliderParams,
-  SearchOrganisationsSliderStylesheet,
-} from './slider';
+  SearchSliderListStyle,
+  SearchSliderListItemStyle,
+} from '../../Proposals/Styled';
 
 type Props = {
   organisations: TypeOrganisation[],
 };
+
+const SEARCH_ORGANISATION_SLIDER: string = 'search-organisation';
+const SearchOrganisationsSliderParams: TypeSliderParams = {
+  slidesToShow: 1.15,
+  interactiveChildren: {
+    links: true,
+  },
+};
+
 export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
-  const organisationsLength = organisations.length <= 0;
-  useSlider(
-    'search-organisation-slider',
-    SearchOrganisationsSliderParams,
-    organisationsLength
-  );
+  const sliderRef = useRef();
+  const hasOrganisations = organisations.length > 0;
+  useSlider(sliderRef, SearchOrganisationsSliderParams, hasOrganisations);
 
   return (
     <React.Fragment>
-      <SearchOrganisationsSliderStylesheet />
-      <div className="search-organisation-slider">
-        <div className="searchslider__track" data-glide-el="track">
-          <ul className="searchslider__slides">
+      <GliderStylesheet />
+      <div className={`${SEARCH_ORGANISATION_SLIDER} glider-contain`}>
+        <div className={`${SEARCH_ORGANISATION_SLIDER} glider`} ref={sliderRef}>
+          <SearchSliderListStyle
+            className={`${SEARCH_ORGANISATION_SLIDER} glider-track`}
+          >
             {organisations.map(organisation => (
-              <li key={organisation.slug} className="searchslider__slide">
+              <SearchSliderListItemStyle
+                key={organisation.slug}
+                className={SEARCH_ORGANISATION_SLIDER}
+              >
                 <SearchOrganisationItemStyle
                   key={organisation.slug}
                   as={Link}
@@ -64,17 +77,20 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                           {i18n.t('profile.common.labels.organisation')}
                         </ScreenReaderItemStyle>
                         {organisation.organisationName}
-                        &nbsp;
                         <SvgCheckedSymbol
-                          style={{ fontSize: '14px', fill: TextColors.Blue }}
+                          style={{
+                            fontSize: '14px',
+                            marginLeft: '5px',
+                            fill: TextColors.Blue,
+                          }}
                         />
                       </ProfileTitleStyle>
                     </ProfileContentWrapperStyle>
                   </ProfileAvatarLayoutStyle>
                 </SearchOrganisationItemStyle>
-              </li>
+              </SearchSliderListItemStyle>
             ))}
-          </ul>
+          </SearchSliderListStyle>
         </div>
       </div>
     </React.Fragment>

@@ -1040,11 +1040,6 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
-"@glidejs/glide@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.3.0.tgz#5d0a0cddad863a66272a15826919c64c60351094"
-  integrity sha512-8rs4yGHRlCOvubBM7RyB4sijzl0q5ST7Yvv9frSb8xIRWdztoY7lP/uMMc9GBEM0up5MvxIYWOXig1b5gT/j2A==
-
 "@hapi/address@2.x.x":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.0.0.tgz#9f05469c88cb2fd3dcd624776b54ee95c312126a"
@@ -6349,6 +6344,11 @@ github-slugger@^1.2.1:
 "gkt@https://tgz.pm2.io/gkt-1.0.0.tgz":
   version "1.0.0"
   resolved "https://tgz.pm2.io/gkt-1.0.0.tgz#405502b007f319c3f47175c4474527300f2ab5ad"
+
+glider-js@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/glider-js/-/glider-js-1.7.1.tgz#ffa4ae6775b0c005e2eeca72e586acd1f64774e9"
+  integrity sha512-kry/GVCmo/MFUtMTgZONTjXorcvzKskt4VklSQD8kVDJbVfT3arV4Xf7o/ZwMZkDhLKlWX9bpV30fsp7vLHuUA==
 
 glob-base@^0.3.0:
   version "0.3.0"

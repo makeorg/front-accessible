@@ -67,16 +67,21 @@ export type TypeSearchViews = {
   },
 };
 
-export type TypeSliderPeek = {
-  before: number,
-  after: number,
+export type TypeInteractiveChildren = {
+  inputs?: boolean,
+  buttons?: boolean,
+  links?: boolean,
 };
 
 export type TypeSliderParams = {
-  type: string,
-  rewind: boolean,
-  perView: number,
-  gap: number,
-  breakpoints?: any,
-  peek: TypeSliderPeek,
+  slidesToShow?: number,
+  slidesToScroll?: number,
+  skipTrack?: boolean,
+  arrows?: {
+    prev: string,
+    next: string,
+  },
+  responsive?: TypeSliderParams[],
+  interactiveChildren?: TypeInteractiveChildren,
+  counterName?: string,
 };

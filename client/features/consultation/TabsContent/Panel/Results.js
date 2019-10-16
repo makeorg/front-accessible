@@ -14,40 +14,31 @@ import {
   SvgInfos,
   SvgCalculator,
   SvgMap,
-  SvgArrowLeft,
-  SvgArrowRight,
   SvgLightBulb,
 } from 'Client/ui/Svg/elements';
-import { ChartType } from 'Client/ui/Data';
-import { useSlider } from 'Client/hooks/useSlider';
 import { useDesktop, useMobile } from 'Client/hooks/useMedia';
-import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
+import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import {
   ResultsIconsStyle,
-  ResultsSliderStyle,
-  ResultsSliderArrowsStyle,
-  ResultsCounterStyle,
   ResultsLightningIconStyle,
   ResultsThumbIconStyle,
 } from '../../Results/Styled';
-import {
-  CartographySliderStylesheet,
-  ParticipationSliderStylesheet,
-  CartographySliderParams,
-  ParticipationSliderParams,
-} from '../../Results/Slider/params';
 import { KeyFigures } from '../../Results/KeyFigures';
 import { ProposalsResults } from '../../Results/Proposals';
 import { TopIdeas } from '../../Results/TopIdeas';
+import { ResultsSlider } from '../../Results/Sliders';
 
 type Props = {
   questionResults: TypeQuestionResults,
   questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
 };
+
+const CARTOGRAPHY_SLIDER: string = 'cartography';
+const PARTICIPATION_SLIDER: string = 'participation';
 
 export const ResultsPannel = ({
   questionResults,
@@ -56,18 +47,7 @@ export const ResultsPannel = ({
 }: Props) => {
   const isMobile = useMobile();
   const isDesktop = useDesktop();
-
   const displaySidebar = isMobile || isDesktop;
-  const cartographyLength = questionResults.cartography.length;
-  const participationLength = questionResults.participation.length;
-
-  useSlider('cartography', CartographySliderParams, cartographyLength <= 0);
-
-  useSlider(
-    'participation',
-    ParticipationSliderParams,
-    participationLength <= 0
-  );
 
   useEffect(() => {
     trackDisplayConsultation('results');
@@ -75,8 +55,7 @@ export const ResultsPannel = ({
 
   return (
     <React.Fragment>
-      <CartographySliderStylesheet />
-      <ParticipationSliderStylesheet />
+      <GliderStylesheet />
       <MetaTags
         title={i18n.t('meta.consultation.results.title', {
           question: question.wording.question,
@@ -124,51 +103,10 @@ export const ResultsPannel = ({
           title={i18n.t('consultation.results.cartography.title')}
           icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
         >
-          <ScreenReaderItemStyle>
-            {i18n.t('common.slider.introduction')}
-          </ScreenReaderItemStyle>
-          <div className="cartography">
-            <ResultsSliderStyle
-              data-glide-el="track"
-              className="cartography__track"
-            >
-              <ul id="cartography_translator" className="cartography__slides">
-                {questionResults.cartography.map((chart, index) => (
-                  <li key={chart.name} className="cartography__slide">
-                    <ScreenReaderItemStyle>
-                      {i18n.t('common.slider.index_count', {
-                        index: index + 1,
-                        total: cartographyLength,
-                      })}
-                    </ScreenReaderItemStyle>
-                    <ChartType chart={chart} />
-                  </li>
-                ))}
-              </ul>
-            </ResultsSliderStyle>
-            <div className="cartography__arrows" data-glide-el="controls">
-              <ResultsSliderArrowsStyle
-                className="cartography__arrow cartography__arrow--left"
-                data-glide-dir="<"
-                aria-label={i18n.t('common.slider.previous')}
-                aria-controls="cartography_translator"
-              >
-                <SvgArrowLeft aria-hidden />
-              </ResultsSliderArrowsStyle>
-              <ResultsSliderArrowsStyle
-                className="cartography__arrow cartography__arrow--right"
-                data-glide-dir=">"
-                aria-label={i18n.t('common.slider.next')}
-                aria-controls="cartography_translator"
-              >
-                <SvgArrowRight aria-hidden />
-              </ResultsSliderArrowsStyle>
-            </div>
-            <ResultsCounterStyle aria-hidden>
-              <span className="cartography_counter_index">1</span>
-              {` / ${cartographyLength}`}
-            </ResultsCounterStyle>
-          </div>
+          <ResultsSlider
+            data={questionResults.cartography}
+            sliderName={CARTOGRAPHY_SLIDER}
+          />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.controversials')}
@@ -185,54 +123,10 @@ export const ResultsPannel = ({
         <TileWithTitle
           title={i18n.t('consultation.results.participation.title')}
         >
-          <ScreenReaderItemStyle>
-            {i18n.t('common.slider.introduction')}
-          </ScreenReaderItemStyle>
-          <div className="participation">
-            <ResultsSliderStyle
-              data-glide-el="track"
-              className="participation__track"
-            >
-              <ul
-                id="participation_translator"
-                className="participation__slides"
-              >
-                {questionResults.participation.map((chart, index) => (
-                  <li key={chart.name} className="participation__slide">
-                    <ScreenReaderItemStyle>
-                      {i18n.t('common.slider.index_count', {
-                        index: index + 1,
-                        total: participationLength,
-                      })}
-                    </ScreenReaderItemStyle>
-                    <ChartType chart={chart} />
-                  </li>
-                ))}
-              </ul>
-            </ResultsSliderStyle>
-            <div className="participation__arrows" data-glide-el="controls">
-              <ResultsSliderArrowsStyle
-                className="participation__arrow participation__arrow--left"
-                data-glide-dir="<"
-                aria-label={i18n.t('common.slider.previous')}
-                aria-controls="participation_translator"
-              >
-                <SvgArrowLeft aria-hidden />
-              </ResultsSliderArrowsStyle>
-              <ResultsSliderArrowsStyle
-                className="participation__arrow participation__arrow--right"
-                data-glide-dir=">"
-                aria-label={i18n.t('common.slider.next')}
-                aria-controls="participation_translator"
-              >
-                <SvgArrowRight aria-hidden />
-              </ResultsSliderArrowsStyle>
-            </div>
-            <ResultsCounterStyle aria-hidden>
-              <span className="participation_counter_index">1</span>
-              {` / ${participationLength}`}
-            </ResultsCounterStyle>
-          </div>
+          <ResultsSlider
+            data={questionResults.participation}
+            sliderName={PARTICIPATION_SLIDER}
+          />
         </TileWithTitle>
       </ConsultationPageContentStyle>
     </React.Fragment>

@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -16,16 +16,22 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { useSlider } from 'Client/hooks/useSlider';
 import { trackClickHomepageSliderArrows } from 'Shared/services/Tracking';
 import { HomeTitleStyle } from 'Client/pages/Home/Styled';
+import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   CurrentConsultationContainerStyle,
   CurrentConsultationArrowsStyle,
   CurrentConsultationDescriptionStyle,
+  CurrentConsultationItemStyle,
+  CurrentConsultationListStyle,
 } from './Styled';
 import {
   CurrentConsultationArticleDesktop,
   CurrentConsultationArticleMobile,
 } from './Article';
-import { CurrentConsultationSliderParams } from './sliderParams';
+import {
+  CURRENT_CONSULTATION_SLIDER,
+  CurrentConsultationSliderParams,
+} from './sliderParams';
 
 export const getConsultationLink = (
   consultation: TypeCurrentConsultation,
@@ -65,10 +71,12 @@ export const CurrentConsultationsComponent = ({
   language,
 }: CurrentConsultationsProps) => {
   const isMobile = useMobile();
-  const noConsultations = consultations.length <= 0;
-  useSlider('glide', CurrentConsultationSliderParams, noConsultations);
+  const sliderRef = useRef();
+  const hasConsultations = consultations.length > 0;
 
-  if (noConsultations) {
+  useSlider(sliderRef, CurrentConsultationSliderParams, hasConsultations);
+
+  if (!hasConsultations) {
     return null;
   }
 
@@ -76,7 +84,7 @@ export const CurrentConsultationsComponent = ({
     <CurrentConsultationContainerStyle
       id="current_consultations"
       aria-labelledby="current_consultations_title"
-      className="glide"
+      className={`${CURRENT_CONSULTATION_SLIDER} glider-contain`}
     >
       <GliderStylesheet />
       <SpaceBetweenRowStyle>
@@ -86,33 +94,34 @@ export const CurrentConsultationsComponent = ({
         <ScreenReaderItemStyle>
           {i18n.t('common.slider.introduction')}
         </ScreenReaderItemStyle>
-        {!isMobile && (
-          <FlexElementStyle className="glide__arrows" data-glide-el="controls">
-            <CurrentConsultationArrowsStyle
-              className="glide__arrow glide__arrow--left"
-              data-glide-dir="<"
-              aria-label={i18n.t('common.slider.previous')}
-              aria-controls="glide_translator"
-              onClick={() => trackClickHomepageSliderArrows()}
-            >
-              <SvgArrowLeft aria-hidden />
-            </CurrentConsultationArrowsStyle>
-            <CurrentConsultationArrowsStyle
-              className="glide__arrow glide__arrow--right"
-              data-glide-dir=">"
-              aria-label={i18n.t('common.slider.next')}
-              aria-controls="glide_translator"
-              onClick={() => trackClickHomepageSliderArrows()}
-            >
-              <SvgArrowRight aria-hidden />
-            </CurrentConsultationArrowsStyle>
-          </FlexElementStyle>
-        )}
+        <FlexElementStyle as={isMobile ? HiddenItemStyle : FlexElementStyle}>
+          <CurrentConsultationArrowsStyle
+            className={`${CURRENT_CONSULTATION_SLIDER} glider-prev`}
+            aria-label={i18n.t('common.slider.previous')}
+            aria-controls="glide_translator"
+            onClick={() => trackClickHomepageSliderArrows()}
+          >
+            <SvgArrowLeft aria-hidden />
+          </CurrentConsultationArrowsStyle>
+          <CurrentConsultationArrowsStyle
+            className={`${CURRENT_CONSULTATION_SLIDER} glider-next`}
+            aria-label={i18n.t('common.slider.next')}
+            aria-controls="glide_translator"
+            onClick={() => trackClickHomepageSliderArrows()}
+          >
+            <SvgArrowRight aria-hidden />
+          </CurrentConsultationArrowsStyle>
+        </FlexElementStyle>
       </SpaceBetweenRowStyle>
-      <div data-glide-el="track" className="glide__track">
-        <ul id="glide_translator" className="glide__slides">
+      <div className={`${CURRENT_CONSULTATION_SLIDER} glider`} ref={sliderRef}>
+        <CurrentConsultationListStyle
+          className={`${CURRENT_CONSULTATION_SLIDER} glider-track`}
+        >
           {consultations.map(consultation => (
-            <li key={consultation.questionId} className="glide__slide">
+            <CurrentConsultationItemStyle
+              key={consultation.questionId}
+              className={`${CURRENT_CONSULTATION_SLIDER}`}
+            >
               {isMobile ? (
                 <CurrentConsultationArticleMobile
                   image={consultation.picture}
@@ -147,9 +156,9 @@ export const CurrentConsultationsComponent = ({
                   </CurrentConsultationDescriptionStyle>
                 </CurrentConsultationArticleDesktop>
               )}
-            </li>
+            </CurrentConsultationItemStyle>
           ))}
-        </ul>
+        </CurrentConsultationListStyle>
       </div>
     </CurrentConsultationContainerStyle>
   );
