@@ -18,6 +18,8 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   _referrer: string = '';
 
+  _customData: string = '';
+
   constructor() {
     if (!this._instance) {
       this._instance = this;
@@ -79,6 +81,14 @@ export class ApiServiceClient implements IApiServiceStrategy {
     return this._referrer;
   }
 
+  set customData(customData: string) {
+    this._customData = customData;
+  }
+
+  get customData(): string {
+    return this._customData;
+  }
+
   callApi(url: string, options: Object = {}): Promise<any> {
     const defaultHeaders = {
       'x-make-country': this._country,
@@ -93,6 +103,7 @@ export class ApiServiceClient implements IApiServiceStrategy {
         options.proposalId
       ),
       'x-make-referrer': this._referrer,
+      'x-make-custom-data': this._customData,
     };
     const headers = Object.assign({}, defaultHeaders, options.headers || {});
 

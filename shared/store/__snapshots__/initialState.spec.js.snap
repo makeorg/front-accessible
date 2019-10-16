@@ -5,6 +5,7 @@ Object {
   "appConfig": Object {
     "country": "",
     "language": "",
+    "queryParams": Object {},
     "source": "",
     "translations": Object {},
   },

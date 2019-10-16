@@ -21,6 +21,7 @@ import {
   thirdCookieEnabled,
 } from 'Client/helper/cookieDetect';
 import { track } from 'Shared/services/Tracking';
+import { generateCustomDataManager } from 'Client/helper/customData';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -102,6 +103,11 @@ const initApp = async state => {
       state.questions[questionId].question.operationId;
   }
 
+  const customDataManager = generateCustomDataManager();
+  customDataManager.storeCustomDataFromQueryParams(state.appConfig.queryParams);
+  const customData = customDataManager.getFormattedDataForHeader();
+
+  apiClient.customData = customData;
   apiClient.source = state.appConfig.source;
   apiClient.country = state.appConfig.country;
   apiClient.language = state.appConfig.language;
