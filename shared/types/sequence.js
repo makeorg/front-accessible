@@ -17,6 +17,10 @@ export type QuestionConfiguration = {
   theme: TypeQuestionTheme,
   partners: TypePartner[],
   consultation: ConsultationType,
+  customFinalCard: {
+    imageUrl: string,
+    nextQuestion: string,
+  },
 };
 
 export type SequenceType = {

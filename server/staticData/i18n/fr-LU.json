@@ -200,6 +200,11 @@
     "more": {
       "title": "Découvrez toutes les propositions sur cette consultation.",
       "button": "En savoir +"
+    },
+    "extra_question": {
+      "title": "Merci d'avoir donné votre avis sur cette consultation !",
+      "discover": "Découvrez toutes les propositions",
+      "more": "Votez et proposez sur une autre consultation"
     }
   },
   "sign_up_card": {
