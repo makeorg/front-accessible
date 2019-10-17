@@ -94,6 +94,7 @@ export const UpdatePasswordComponent = ({
       handleGetUser();
     } catch (serviceErrors) {
       setErrors(serviceErrors);
+      setCanSubmit(false);
     }
   };
 

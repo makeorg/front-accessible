@@ -22,7 +22,7 @@ export const BackgroundColors = {
   MediumGrey: 'rgb(178,178,178)',
   LightGrey,
   ExtraLightGrey: 'rgb(229,229,229)',
-  TaintedWhite: 'rgb(242 242 242)',
+  TaintedWhite: 'rgb(242,242,242)',
   NotFoundPage: 'rgb(230,230,240)',
   Notifications: 'rgb(51, 67, 91)',
 };
