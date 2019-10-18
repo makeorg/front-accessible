@@ -72,6 +72,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
     } catch (serviceErrors) {
       setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
+      setCanSubmit(false);
     }
   };
 

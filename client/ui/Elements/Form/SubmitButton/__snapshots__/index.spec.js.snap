@@ -26,7 +26,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 .c0 svg,
-.c0 > .tofill {
+.c0 .tofill {
   fill: rgb(255,255,255);
 }
 
@@ -36,7 +36,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 .c0:disabled svg,
-.c0:disabled > .tofill {
+.c0:disabled .tofill {
   fill: rgb(74,74,74);
 }
 
@@ -104,7 +104,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="hs2zb-2 hs2zb-7 ikNDRh"
+    className="hs2zb-2 hs2zb-7 fPhZex"
 -   disabled={false}
 +   disabled={true}
     form="foo"

@@ -44,7 +44,7 @@ const invalidEmailError: TypeErrorObject = {
   key: 'invalid_email',
   message: i18n.t('common.form.messages.email_doesnot_exist', {
     context: 'dynamic',
-    label: `<label for="email">${i18n.t('common.form.label.email')}</label>`,
+    label: i18n.t('common.form.label.email'),
   }),
 };
 
@@ -79,6 +79,7 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
       await UserService.deleteAccount(user.userId, formValues.password);
       handleLogout();
     } catch {
+      setCanSubmit(false);
       if (formValues.password === '') {
         setErrors([invalidEmailError]);
       }
