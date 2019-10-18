@@ -105,6 +105,7 @@
       "login_success": "Vous avez été connecté avec succès.",
       "logout_success": "Vous avez été déconnecté avec succès.",
       "register_success": "Bienvenue ! Vous avez été inscrit avec succès.",
+      "register_validate": "Merci pour votre inscription. Un mail vient de vous être envoyé à l'adresse {{email}} afin d'activer votre compte en un clic.",
       "secure_expired": {
         "first_sentence": "Nous sommes désolés, vous avez été déconnecté car il nous semble que vous êtes parti",
         "second_sentence": "Connectez-vous à nouveau pour continuer à voter, proposer et agir sur Make.org.",
@@ -119,7 +120,8 @@
         "close": "Fermer la bannière de notification",
         "information": "Message d'information : ",
         "success": "Message de succès : ",
-        "error": "Message d'erreur : "
+        "error": "Message d'erreur : ",
+        "alert": "Message d'alerte : "
       }
     },
     "from": "sur",

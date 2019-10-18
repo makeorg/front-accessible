@@ -318,7 +318,7 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.NOTIFICATION_REGISTER_SUCCESS },
+        { type: actionTypes.NOTIFICATION_REGISTER_SUCCESS, user },
       ];
 
       return newStore.dispatch(actions.getUser(true)).then(() => {

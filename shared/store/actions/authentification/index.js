@@ -56,7 +56,7 @@ export const getUser = (afterRegistration?: boolean) => (
       dispatch(modalClose());
     }
     if (afterRegistration) {
-      return dispatch(showRegisterSuccess());
+      return dispatch(showRegisterSuccess(user));
     }
     return dispatch(showLoginSuccess());
   });

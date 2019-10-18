@@ -13,16 +13,23 @@ import {
   REGISTER_SUCCESS_MESSAGE,
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
+  NOTIFICATION_LEVEL_ALERT,
   ACCOUNT_DELETION_SUCCESS_MESSAGE,
   SECURE_EXPIRED_MESSAGE,
+  REGISTER_SUCCESS_VALIDATE_MESSAGE,
 } from 'Shared/constants/notification';
 
 type NotificationState = {
   level?: string,
   contentType?: any,
+  replacements?: Object,
 };
 
-const initialState = { level: undefined, contentType: undefined };
+const initialState = {
+  level: undefined,
+  contentType: undefined,
+  replacements: undefined,
+};
 export function notification(
   state: NotificationState = initialState,
   action: Object
@@ -51,8 +58,13 @@ export function notification(
     case NOTIFICATION_REGISTER_SUCCESS:
       return {
         ...state,
-        level: NOTIFICATION_LEVEL_SUCCESS,
-        contentType: REGISTER_SUCCESS_MESSAGE,
+        level: action.user.emailVerified
+          ? NOTIFICATION_LEVEL_SUCCESS
+          : NOTIFICATION_LEVEL_ALERT,
+        contentType: action.user.emailVerified
+          ? REGISTER_SUCCESS_MESSAGE
+          : REGISTER_SUCCESS_VALIDATE_MESSAGE,
+        replacements: { email: action.user.email },
       };
     case NOTIFICATION_SECURE_EXPIRED:
       return {

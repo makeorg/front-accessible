@@ -6,6 +6,7 @@ import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_INFORMATION,
   NOTIFICATION_LEVEL_ERROR,
+  NOTIFICATION_LEVEL_ALERT,
 } from 'Shared/constants/notification';
 import { i18n } from 'Shared/i18n';
 import { SvgCheckStyle, SvgIconStyle } from '../Styled';
@@ -40,6 +41,14 @@ function NotificationIconComponent({
           style={SvgIconStyle}
         />
       );
+    case NOTIFICATION_LEVEL_ALERT:
+      return (
+        <SvgAlert
+          aria-label={i18n.t('common.notifications.icons.alert')}
+          style={SvgIconStyle}
+        />
+      );
+
     default:
       return null;
   }
