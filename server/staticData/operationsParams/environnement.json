@@ -1,0 +1,22 @@
+{
+  "theme": {
+    "color": "#007d83",
+    "gradientStart": "#a4d693",
+    "gradientEnd": "#007d83",
+    "footerFontColor": "white"
+  },
+  "consultation": {
+    "presentation": "Dérèglement climatique, pollution de l’air, de l’eau et des sols, gaspillage et raréfaction des ressources, crise des déchets, érosion de la biodiversité… Face à l’urgence environnementale, devenue première préoccupation des Français, l’heure n’est plus simplement à l’indignation : passons à l’action ! Avec les membres engagés de la société civile, nous lançons ensemble le grand appel aux solutions citoyennes.",
+    "logo": "/images/operations/environnement/consultation/environnement.svg"
+  },
+  "partners": [
+    {"name": "Kering", "imageUrl": "/images/operations/environnement/partners/kering.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/kering"},
+    {"name": "Monoprix", "imageUrl": "/images/operations/environnement/partners/monoprix.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/monoprix"},
+    {"name": "EDF", "imageUrl": "/images/operations/environnement/partners/edf.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/EDF"},
+    {"name": "Epsa Groupe", "imageUrl": "/images/operations/environnement/partners/epsa.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/epsa-groupe/proposals"},
+    {"name": "Fondation GoodPlanet", "imageUrl": "/images/operations/environnement/partners/goodplanet.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/fondation-goodplanet/proposals"},
+    {"name": "La Ruche Qui Dit Oui", "imageUrl": "/images/operations/environnement/partners/laruchequiditoui.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/la-ruche-qui-dit-oui/proposals"},
+    {"name": "Too Good To Go", "imageUrl": "/images/operations/environnement/partners/toogoodtogo.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/too-good-to-go/proposals"},
+    {"name": "Citoyens Pour le Climat", "imageUrl": "/images/operations/environnement/partners/citoyenspourleclimat.png", "isFounder": false, "profileUrl": "/FR-fr/profile/citoyens-pour-le-climat/proposals"}    
+  ]
+}
