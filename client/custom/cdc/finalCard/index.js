@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { getConsultationLink, getSequenceLink } from 'Shared/helpers/url';
 import {
   ContentWrapperStyle,
@@ -17,8 +16,11 @@ import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
 import {
   MoreQuestionWrapperStyle,
+  MoreQuestionImageStyle,
   MoreQuestionTitleStyle,
   MoreQuestionButtonStyle,
+  FinalQuestionTitleStyle,
+  MoreQuestionSeparatorStyle,
 } from './Styled';
 
 type Props = {
@@ -41,14 +43,14 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
       question.operation.questions[nextQuestionIndex].operationTitle;
 
     setNextQuestionTitle(questionTitle);
-  }, [question]);
+  }, []);
 
   return (
     <ContentWrapperStyle>
       <InnerContentStyle>
-        <SecondLevelTitleStyle>
+        <FinalQuestionTitleStyle>
           {i18n.t('final_card.extra_question.title')}
-        </SecondLevelTitleStyle>
+        </FinalQuestionTitleStyle>
         <RedLinkStyle
           as={Link}
           to={getConsultationLink(
@@ -59,9 +61,13 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
         >
           {i18n.t('final_card.extra_question.discover')}
         </RedLinkStyle>
+        <MoreQuestionSeparatorStyle />
         <MoreQuestionWrapperStyle>
           {!isMobile && (
-            <img src={configuration.customFinalCard.imageUrl} alt="" />
+            <MoreQuestionImageStyle
+              src={configuration.customFinalCard.imageUrl}
+              alt=""
+            />
           )}
           <ParagraphStyle>
             {i18n.t('final_card.extra_question.more')}

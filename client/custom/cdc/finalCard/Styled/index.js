@@ -1,23 +1,39 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import {
+  ThirdLevelTitleStyle,
+  SecondLevelTitleStyle,
+} from 'Client/ui/Elements/TitleElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { IntroButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+
+export const FinalQuestionTitleStyle = styled(SecondLevelTitleStyle)`
+  margin-bottom: 10px;
+`;
 
 export const MoreQuestionWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 30px auto 0;
+`;
+
+export const MoreQuestionSeparatorStyle = styled(SeparatorStyle)`
+  max-width: 500px;
+  margin: 20px auto 30px;
+`;
+
+export const MoreQuestionImageStyle = styled.img`
+  max-width: 200px;
+  margin-bottom: 15px;
 `;
 
 export const MoreQuestionTitleStyle = styled(ThirdLevelTitleStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
   text-align: center;
-  max-width: 400px;
   margin: 0 auto 15px;
 `;
 

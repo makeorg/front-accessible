@@ -1,8 +1,8 @@
 {
   "theme": {
-    "color": "#339b72",
-    "gradientStart": "#339b72",
-    "gradientEnd": "#339b72",
+    "color": "#21816e",
+    "gradientStart": "#21816e",
+    "gradientEnd": "#21816e",
     "footerFontColor": "white"
   },
   "consultation": {
@@ -10,7 +10,7 @@
   },
   "partners": [],
   "customFinalCard": {
-    "imageUrl": "/images/operations/bretagne/bretagne_image.png",
+    "imageUrl": "/images/operations/bretagne/bretagne-qualite-vie.svg",
     "nextQuestion": "bretagne-qualite-vie"
   }
 }
