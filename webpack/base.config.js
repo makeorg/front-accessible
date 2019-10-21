@@ -5,7 +5,8 @@ const LoadablePlugin = require('@loadable/webpack-plugin');
 
 module.exports = {
   entry: [
-    '@babel/polyfill',
+    'core-js/stable',
+    'regenerator-runtime/runtime',
     'glider-js/glider-compat.min.js',
     path.resolve(__dirname, '..', 'client', 'index.js'),
   ],
