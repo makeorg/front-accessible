@@ -7,6 +7,7 @@ export const initialState: StateRoot = {
     language: '',
     country: '',
     translations: {},
+    queryParams: {},
   },
   proposal: {
     hasProposed: false,

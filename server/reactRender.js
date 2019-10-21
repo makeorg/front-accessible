@@ -64,7 +64,7 @@ export const reactRender = (req, res, routeState = {}) => {
   const { country, language } = req.params;
   const ua = parser(req.headers['user-agent']);
 
-  const { secureExpired } = req.query;
+  const { secureExpired, ...queryParams } = req.query;
 
   const tradLanguage = `${language}-${country}`;
 
@@ -76,6 +76,7 @@ export const reactRender = (req, res, routeState = {}) => {
       language,
       country,
       translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE),
+      queryParams,
     },
   };
 

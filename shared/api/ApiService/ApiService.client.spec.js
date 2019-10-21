@@ -32,6 +32,7 @@ describe('ApiServiceClient', () => {
       ...{
         headers: {
           'x-make-country': '',
+          'x-make-custom-data': '',
           'x-make-language': '',
           'x-make-operation': '',
           'x-make-question': '',
@@ -72,6 +73,7 @@ describe('ApiServiceClient', () => {
     apiClient.questionId = '1234';
     apiClient.operationId = 'abcd';
     apiClient.referrer = 'http://localhost';
+    apiClient.customData = 'key=value';
     apiClient.callApi(url, options);
     // then
     expect(ApiServiceShared.callApi).toHaveBeenNthCalledWith(1, url, {
@@ -79,6 +81,7 @@ describe('ApiServiceClient', () => {
       ...{
         headers: {
           'x-make-country': 'FR',
+          'x-make-custom-data': 'key=value',
           'x-make-language': 'fr',
           'x-make-operation': 'abcd',
           'x-make-question': '1234',

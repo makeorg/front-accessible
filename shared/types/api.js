@@ -8,6 +8,7 @@ export type ApiServiceHeaders = {
   'x-make-language'?: string,
   'x-make-question-id'?: string,
   'x-make-question'?: string,
+  'x-make-custom-data'?: String,
 };
 
 export type ApiSearchProposalsResponseType = {
