@@ -1,4 +1,5 @@
-require('@babel/polyfill');
+require('core-js/stable');
+require('regenerator-runtime');
 require('@babel/register')({
   presets: ['@babel/env'],
   plugins: [
