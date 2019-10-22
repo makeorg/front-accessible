@@ -65,8 +65,8 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS },
-        { type: actionTypes.GET_INFO, user },
         { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
+        { type: actionTypes.GET_INFO, user },
       ];
 
       return newStore
@@ -159,9 +159,10 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
         { type: actionTypes.LOGIN_SOCIAL_SUCCESS },
+        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
+        
       ];
 
       return loginStore
@@ -275,7 +276,6 @@ describe('Authentification Actions', () => {
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
@@ -295,7 +295,6 @@ describe('Authentification Actions', () => {
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
-        { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
