@@ -125,11 +125,6 @@ const initApp = async state => {
   }
 
   loadableReady(() => {
-    Logger.logInfo({
-      trackingEvent: 'application-loading',
-      referrer: window.document.referrer,
-      url: window.location.href,
-    });
     const appDom = document.getElementById('app');
     const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
     renderMethod(
@@ -146,12 +141,6 @@ const initApp = async state => {
       </CookiesProvider>,
       appDom
     );
-
-    Logger.logInfo({
-      trackingEvent: 'application-loaded',
-      referrer: window.document.referrer,
-      url: window.location.href,
-    });
   });
 };
 
