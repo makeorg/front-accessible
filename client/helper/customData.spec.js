@@ -34,11 +34,12 @@ describe('Custom data from query params', () => {
       key5: 'value5',
       cs_key3: 'value3b',
       key6: 'value6',
+      cs_troll: '=t,r,=,o=l,l',
     };
 
     customData.storeCustomDataFromQueryParams(queryParams2);
     expect(customData.getFormattedDataForHeader()).toBe(
-      'key1=value1,key3=value3b,key4=value5'
+      'key1=value1,key3=value3b,key4=value5,troll=%3Dt%2Cr%2C%3D%2Co%3Dl%2Cl'
     );
   });
 });
