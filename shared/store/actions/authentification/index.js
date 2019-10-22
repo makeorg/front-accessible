@@ -58,7 +58,7 @@ export const getUser = (afterRegistration?: boolean) => (
     if (afterRegistration) {
       return dispatch(showRegisterSuccess(user));
     }
-    return dispatch(showLoginSuccess());
+    return null;
   });
 };
 
@@ -72,6 +72,7 @@ export const login = (email: string, password: string) => (
       trackLoginEmailSuccess();
 
       dispatch(getUser());
+      dispatch(showLoginSuccess());
     })
     .catch(() => {
       dispatch(
@@ -102,6 +103,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
       trackAuthentificationSocialSuccess(provider);
 
       dispatch(getUser());
+      dispatch(showLoginSuccess());
     })
     .catch(() => {
       dispatch(loginSocialFailure());
