@@ -29,9 +29,8 @@ let storage: StorageType = {
 /**
  * Escape query values
  */
-const escapeValue = (value: string): string => {
-  return value.replace(',', '%2C').replace('=', '%3D');
-};
+const escapeValue = (value: string): string =>
+  value.replace(/=/g, '%3D').replace(/,/g, '%2C');
 
 /**
  * Format custom data to be used in a request header
