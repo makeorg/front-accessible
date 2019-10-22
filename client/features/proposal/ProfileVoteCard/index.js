@@ -16,13 +16,13 @@ import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/P
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
-  ProposalCardStyle,
   ProposalStyle,
   ProposalInnerStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { CardStyle } from 'Client/ui/Cards';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -81,9 +81,8 @@ export const ProfileVoteCard = ({
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}
         </div>
       </ProfileVoteTitleStyle>
-
       <ProfileVoteCardStyle>
-        <ProposalCardStyle as="div">
+        <CardStyle as="div">
           <AuthorWrapperStyle>
             <ProposalAuthorElement
               author={author}
@@ -118,7 +117,7 @@ export const ProfileVoteCard = ({
           </ProposalInnerStyle>
 
           <ProposalFooterWithTagElement tags={proposal.tags} />
-        </ProposalCardStyle>
+        </CardStyle>
       </ProfileVoteCardStyle>
     </ProfileVoteWrapperStyle>
   );

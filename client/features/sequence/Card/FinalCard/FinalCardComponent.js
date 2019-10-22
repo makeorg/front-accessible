@@ -28,6 +28,7 @@ export const FinalCardComponent = ({ configuration }: Props) => {
           <More
             title={configuration.learnMoreTitle}
             url={configuration.linkUrl}
+            textButton={configuration.learnMoreTextButton}
           />
         </FinalCardContentWrapperStyle>
       </InnerContentStyle>
