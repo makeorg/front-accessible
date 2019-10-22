@@ -7,11 +7,11 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &:first-child {
     margin: 0 0 15px;
   }
-  &:last-child {
-    margin: 15px 0 0;
-  }
   &:only-child {
     margin: 0;
+  }
+  &:last-child {
+    margin: 15px 0 0;
   }
   &.proposal-refused,
   &.proposal-postponed,

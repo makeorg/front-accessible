@@ -10,21 +10,21 @@ type Props = {
   title?: string,
   /** Url of show more button */
   url?: string,
+  /** Text of the button */
+  textButton?: string,
 };
 
 /**
  * Renders finalCard More component
  */
-export const More = (props: Props) => {
-  const { title, url } = props;
-
+export const More = ({ title, url, textButton }: Props) => {
   return (
     <MoreWrapperStyle>
       <IntroParagraphStyle>
         {title || i18n.t('final_card.more.title')}
       </IntroParagraphStyle>
       <FinalLinkStyle as="a" href={url} onClick={() => trackClickLearnMore()}>
-        {i18n.t('final_card.more.button')}
+        {textButton || i18n.t('final_card.more.button')}
       </FinalLinkStyle>
     </MoreWrapperStyle>
   );
