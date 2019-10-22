@@ -14,7 +14,7 @@ export const ProposalStyle = styled.a`
   line-height: 18px;
   font-family: ${MakeFonts.CircularStandardBold};
   align-self: flex-start;
-  flex: 1;
+  flex: 1 1 auto;
   margin-top: 15px;
   text-decoration: none;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {

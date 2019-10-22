@@ -1,59 +1,59 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GliderStylesheet = createGlobalStyle`
-  .glide {
-    position: relative;
+  .glider-contain {
     width: 100%;
-    box-sizing: border-box; 
-  }
-  .glide * {
-    box-sizing: inherit; 
-  }
-  .glide__track {
-    overflow: hidden; 
-  }
-  .glide__slides {
+    margin: 0 auto;
     position: relative;
+  }
+  .glider {
+    margin: 0 auto;
+    position: relative;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    transform: translateZ(0);
+  }
+  .glider-track {
+    transform: translateZ(0);
     width: 100%;
-    list-style: none;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    touch-action: pan-Y;
-    overflow: hidden;
+    margin: 0;
     padding: 0;
-    white-space: nowrap;
     display: flex;
-    flex-wrap: nowrap;
-    will-change: transform; 
+    z-index: 1;
   }
-  .glide__slides--dragging {
-    user-select: none; 
+  .glider.draggable {
+    user-select: none;
+    cursor: -webkit-grab;
+    cursor: grab;
   }
-  .glide__slide {
+  .glider.draggable .glider-slide img {
+    user-select: none;
+    pointer-events: none;
+  }
+  .glider.drag {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+  .glider-slide {
+    user-select: none;
+    justify-content: center;
+    align-content: center;
     width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    white-space: normal;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent; 
   }
-  .glide__slide a {
-    user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    -ms-user-select: none; 
+  .glider-slide img {
+    max-width: 100%;
   }
-  .glide__arrows {
-    -webkit-touch-callout: none;
-    user-select: none; 
+  .glider::-webkit-scrollbar {
+    opacity: 0;
+    height: 0;
   }
-  .glide__bullets {
-    -webkit-touch-callout: none;
-    user-select: none; 
+  .glider-next.disabled,
+  .glider-prev.disabled,
+  .glider-hide {
+    visibility: hidden;
   }
-  .glide--rtl {
-    direction: rtl; 
+  .glider-slide {
+    min-width: 150px;
   }
-
 `;

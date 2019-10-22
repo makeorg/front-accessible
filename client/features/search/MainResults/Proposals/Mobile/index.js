@@ -1,33 +1,46 @@
 // @flow
-import React from 'react';
+import React, { useRef } from 'react';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type TypeSliderParams } from 'Shared/types/views';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { useSlider } from 'Client/hooks/useSlider';
-import { SearchSliderParams, SearchSliderStylesheet } from './slider';
+import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
+import { SearchSliderListStyle, SearchSliderListItemStyle } from '../Styled';
 
 type Props = {
   proposals: TypeProposal[],
 };
+
+const SEARCH_SLIDER: string = 'search';
+const SearchSliderParams: TypeSliderParams = {
+  slidesToShow: 1.15,
+  interactiveChildren: { links: true, buttons: true },
+};
+
 export const MainResultsProposalsMobile = ({ proposals }: Props) => {
-  const proposalsLength = proposals.length <= 0;
-  useSlider('searchslider', SearchSliderParams, proposalsLength);
+  const sliderRef = useRef();
+  const hasProposals = proposals.length > 0;
+  useSlider(sliderRef, SearchSliderParams, hasProposals);
 
   return (
     <React.Fragment>
-      <SearchSliderStylesheet />
-      <div className="searchslider">
-        <div className="searchslider__track" data-glide-el="track">
-          <ul className="searchslider__slides">
+      <GliderStylesheet />
+      <div className={`${SEARCH_SLIDER} glider-contain`}>
+        <div className={`${SEARCH_SLIDER} glider`} ref={sliderRef}>
+          <SearchSliderListStyle className={`${SEARCH_SLIDER} glider-track`}>
             {proposals.map((proposal, index) => (
-              <li key={proposal.id} className="searchslider__slide">
+              <SearchSliderListItemStyle
+                key={proposal.id}
+                className={SEARCH_SLIDER}
+              >
                 <ProposalCardWithQuestion
                   proposal={proposal}
                   position={index + 1}
                   size={proposals.length}
                 />
-              </li>
+              </SearchSliderListItemStyle>
             ))}
-          </ul>
+          </SearchSliderListStyle>
         </div>
       </div>
     </React.Fragment>

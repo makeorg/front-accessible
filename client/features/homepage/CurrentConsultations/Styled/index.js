@@ -12,6 +12,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const CurrentConsultationContainerStyle = styled.section`
   width: 100%;
@@ -46,6 +47,26 @@ export const CurrentConsultationArrowsStyle = styled(UnstyledButtonStyle)`
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     margin: 0 0 0 15px;
+  }
+`;
+
+export const CurrentConsultationListStyle = styled(UnstyledListStyle)`
+  padding: 0 20px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
+  }
+`;
+
+export const CurrentConsultationItemStyle = styled.li`
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 `;
 

@@ -12,9 +12,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ProposalsListStyle = styled(UnstyledListStyle)`
-  display: flex;
   width: 100%;
-  flex-flow: column;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
