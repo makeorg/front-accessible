@@ -17,10 +17,8 @@ export const ProposalWrapperStyle = styled.div`
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin: 0 0 15px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Tablet
-    )}) {
-    margin: 15px 0;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 0 0 30px;
   }
 `;
 

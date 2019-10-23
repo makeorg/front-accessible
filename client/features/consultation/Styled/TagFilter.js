@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
   DefaultPadding,
@@ -7,6 +6,7 @@ import {
 import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const TagFilterWrapperStyle = styled.div`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
@@ -15,10 +15,8 @@ export const TagFilterWrapperStyle = styled.div`
   }
 `;
 
-export const TagFilterIntroStyle = styled.span`
+export const TagFilterIntroStyle = styled(ParagraphStyle)`
   margin-right: 15px;
-  color: ${TextColors.MediumGrey};
-  font-size: 14px;
 `;
 
 export const TagSectionTitle = styled(FourthLevelTitleStyle)`
@@ -34,12 +32,4 @@ export const TagListStyle = styled(UnstyledListStyle)`
 
 export const TagListItemStyle = styled.li`
   display: inline-flex;
-`;
-
-export const TagSeparatorStyle = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${BasicColors.PureBlack};
-  opacity: 0.3;
-  margin-top: 15px;
 `;

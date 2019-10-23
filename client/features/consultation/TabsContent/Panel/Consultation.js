@@ -82,10 +82,6 @@ export const ConsultationPanelContent = ({
             questionConfiguration={questionConfiguration}
           />
         )}
-        <ParticipateBanner
-          question={question}
-          questionConfiguration={questionConfiguration}
-        />
         <TagSectionTitle as="h3" id="tag_list">
           <ConsultationIconStyle aria-hidden>
             <SvgThumbsUp style={{ width: '18px', height: '18px' }} />
@@ -97,6 +93,7 @@ export const ConsultationPanelContent = ({
           handleSelectTag={handleSelectTag}
           selectedTagIdList={selectedTagIdList}
         />
+        <ParticipateBanner question={question} />
         <InfiniteProposals question={question} tags={selectedTagIdList} />
       </ConsultationPageContentStyle>
     </React.Fragment>
