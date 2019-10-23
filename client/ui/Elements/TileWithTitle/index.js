@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type Node } from 'react';
 import {
   TileWithTitleStyle,
   TileTitleStyle,
@@ -9,15 +9,16 @@ type Props = {
   /** Title of the tile */
   title: string,
   /** Chidlren to render */
-  children: React.Node,
+  children: Node,
+  /** Optional id for Tile */
+  id?: string,
   /** Optional icon as prop to render */
-  icon?: React.Node,
+  icon?: Node,
 };
 
-export const TileWithTitle = (props: Props) => {
-  const { title, children, icon } = props;
+export const TileWithTitle = ({ title, children, id, icon }: Props) => {
   return (
-    <TileWithTitleStyle>
+    <TileWithTitleStyle id={id}>
       <TileTitleStyle as="h3">
         {icon}
         {title}

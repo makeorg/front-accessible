@@ -19,6 +19,15 @@ import {
 import { useDesktop, useMobile } from 'Client/hooks/useMedia';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
+import {
+  RESULTS_CONTEXT,
+  RESULTS_KEY_FIGURES,
+  RESULTS_TOP_IDEAS,
+  RESULTS_CARTOGRAPHY,
+  RESULTS_CONTROVERSIALS,
+  RESULTS_REJECTED,
+  RESULTS_PARTICIPATION,
+} from 'Shared/constants/ids';
 import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
 import { ResultsContext } from '../../Results/Context';
 import {
@@ -76,6 +85,7 @@ export const ResultsPannel = ({
         <TileWithTitle
           title={i18n.t('consultation.results.context')}
           icon={<SvgInfos aria-hidden style={ResultsIconsStyle} />}
+          id={RESULTS_CONTEXT}
         >
           <ResultsContext
             context={questionResults.context}
@@ -85,6 +95,7 @@ export const ResultsPannel = ({
         <TileWithTitle
           title={i18n.t('consultation.results.key_figures.title')}
           icon={<SvgCalculator aria-hidden style={ResultsIconsStyle} />}
+          id={RESULTS_KEY_FIGURES}
         >
           <KeyFigures
             results={questionResults.key_figures}
@@ -96,12 +107,14 @@ export const ResultsPannel = ({
             count: questionResults.top_ideas.length,
           })}
           icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
+          id={RESULTS_TOP_IDEAS}
         >
           <TopIdeas topIdeas={questionResults.top_ideas} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.cartography.title')}
           icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
+          id={RESULTS_CARTOGRAPHY}
         >
           <ResultsSlider
             data={questionResults.cartography}
@@ -111,17 +124,20 @@ export const ResultsPannel = ({
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.controversials')}
           icon={<ResultsLightningIconStyle aria-hidden />}
+          id={RESULTS_CONTROVERSIALS}
         >
           <ProposalsResults proposals={questionResults.controversials} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.rejected')}
           icon={<ResultsThumbIconStyle aria-hidden />}
+          id={RESULTS_REJECTED}
         >
           <ProposalsResults proposals={questionResults.rejected} isRejected />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.participation.title')}
+          id={RESULTS_PARTICIPATION}
         >
           <ResultsSlider
             data={questionResults.participation}
