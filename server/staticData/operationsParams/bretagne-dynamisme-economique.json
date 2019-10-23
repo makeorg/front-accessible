@@ -1,8 +1,8 @@
 {
   "theme": {
-    "color": "#339b72",
-    "gradientStart": "#339b72",
-    "gradientEnd": "#339b72",
+    "color": "#a7104f",
+    "gradientStart": "#a7104f",
+    "gradientEnd": "#a7104f",
     "footerFontColor": "white"
   },
   "consultation": {
@@ -10,7 +10,7 @@
   },
   "partners": [],
   "customFinalCard": {
-    "imageUrl": "/images/operations/bretagne/bretagne_image.png",
-    "nextQuestion": "bretagne-ecologique-durable"
+    "imageUrl": "/images/operations/bretagne/bretagne-vivre-ensemble.svg",
+    "nextQuestion": "bretagne-vivre-ensemble"
   }
 }
