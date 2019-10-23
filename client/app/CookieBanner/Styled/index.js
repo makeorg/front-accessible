@@ -8,6 +8,12 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import {
+  CenterRowStyle,
+  ColumnToRowElementStyle,
+} from 'Client/ui/Elements/FlexElements';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
@@ -19,19 +25,43 @@ export const CookieWrapperStyle = styled.section`
     ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
 `;
 
-export const CookieContentStyle = styled.div`
+export const CookieContentStyle = styled(CenterRowStyle)`
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
+`;
+
+export const CookieContentInnerStyle = styled(ColumnToRowElementStyle)`
+  align-items: flex-start;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    align-items: center;
+  }
 `;
 
 export const CookieParagraphStyle = styled(ParagraphStyle)`
   color: ${BasicColors.PureWhite};
   flex: 1;
   a {
+    font-family: ${MakeFonts.CircularStandardBold};
     color: ${BasicColors.PureWhite};
+  }
+`;
+
+export const CookieButtonStyle = styled(BasicButtonStyle)`
+  display: inline-flex;
+  margin-top: 15px;
+  background-color: ${BasicColors.PureWhite};
+  color: ${BasicColors.PureBlack};
+  padding: 5px 25px 2.5px;
+  svg {
+    fill: ${BasicColors.PureBlack};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 10px 30px 7.5px;
+    margin: 0 0 0 15px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 13px 35px 9.5px;
   }
 `;
 

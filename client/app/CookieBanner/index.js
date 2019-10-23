@@ -10,6 +10,8 @@ import {
   CookieWrapperStyle,
   CookieParagraphStyle,
   CookieCloseButtonStyle,
+  CookieButtonStyle,
+  CookieContentInnerStyle,
 } from './Styled';
 
 type Props = {
@@ -38,22 +40,25 @@ const CookieBannerComponent = ({ country, language }: Props) => {
       <CookieContentStyle>
         <SvgInfos
           aria-label={i18n.t('common.notifications.icons.information')}
-          style={{ marginTop: '4px', marginRight: '10px' }}
+          style={{ minWidth: '20px', marginTop: '4px', marginRight: '10px' }}
         />
-        <CookieParagraphStyle
-          dangerouslySetInnerHTML={{
-            __html: i18n.t('cookie_alert.text', {
-              gtu_link: `<a href="${getGTUPageLink(
-                country,
-                language
-              )}">$t(cookie_alert.gtu)</a>`,
-              policy_link: `<a href="${getDataPageLink(
-                country,
-                language
-              )}">$t(cookie_alert.policy)</a>`,
-            }),
-          }}
-        />
+        <CookieContentInnerStyle>
+          <CookieParagraphStyle
+            dangerouslySetInnerHTML={{
+              __html: i18n.t('cookie_alert.text', {
+                gtu_link: `<a href="${getGTUPageLink(
+                  country,
+                  language
+                )}">$t(cookie_alert.gtu)</a>`,
+                policy_link: `<a href="${getDataPageLink(
+                  country,
+                  language
+                )}">$t(cookie_alert.policy)</a>`,
+              }),
+            }}
+          />
+          <CookieButtonStyle onClick={handleClose}>OK</CookieButtonStyle>
+        </CookieContentInnerStyle>
       </CookieContentStyle>
       <CookieCloseButtonStyle
         aria-label={i18n.t('cookie_alert.close')}
