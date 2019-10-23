@@ -493,7 +493,8 @@
       "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : "
     },
     "banner": {
-      "title": "Votez sur les dernières propositions issues de la consultation."
+      "title": "Donnez votre avis en 3 minutes",
+      "description": "sur une série de propositions aléatoires"
     },
     "proposal": {
       "title": "Proposez une solution",

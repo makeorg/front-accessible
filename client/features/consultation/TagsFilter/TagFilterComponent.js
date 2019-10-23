@@ -8,7 +8,6 @@ import { i18n } from 'Shared/i18n';
 import { TagStyle, TagButtonStyle } from 'Client/ui/Elements/Tag/Styled';
 import {
   TagFilterWrapperStyle,
-  TagSeparatorStyle,
   TagListStyle,
   TagListItemStyle,
   TagFilterIntroStyle,
@@ -44,6 +43,7 @@ export const TagFilterComponent = (props: Props) => {
     <TagFilterWrapperStyle aria-labelledby="tag_filter_title">
       <TagFilterIntroStyle
         id="tag_filter_title"
+        as="span"
         dangerouslySetInnerHTML={{
           __html: i18n.t('consultation.tags.intro'),
         }}
@@ -92,7 +92,6 @@ export const TagFilterComponent = (props: Props) => {
           </TagListItemStyle>
         )}
       </TagListStyle>
-      <TagSeparatorStyle />
     </TagFilterWrapperStyle>
   );
 };
