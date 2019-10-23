@@ -10,8 +10,8 @@ jest.mock('./Styled', () => ({
   PieChartCanvasStyle: 'PieChartCanvasStyle',
 }));
 
-jest.mock('Client/ui/Elements/HiddenElements', () => ({
-  HiddenItemStyle: 'HiddenItemStyle',
+jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
+  ScreenReaderItemStyle: 'ScreenReaderItemStyle',
 }));
 
 describe('PieChart', () => {
