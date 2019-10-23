@@ -8,6 +8,8 @@ export type StorageType = {
 type CustomDataType = {
   getFormattedDataForHeader: () => string,
   storeCustomDataFromQueryParams: (queryParams: Object) => void,
+  storeValues: (data: Object) => void,
+  getValue: (key: string) => void,
 };
 
 /** Default prefix matching custom data params in query params */
@@ -80,14 +82,31 @@ const getFormattedDataForHeader = (): string => {
 };
 
 /**
+ * Add values to custom data
+ * Old params values are conserved but override by the new values
+ */
+const storeValues = (data: Object): void => {
+  storage.set({
+    ...storage.get(),
+    ...data,
+  });
+};
+
+/**
+ * Get a value from custom data using key
+ */
+const getValue = (key: string): void => {
+  const values = storage.get();
+  return values[key];
+};
+
+/**
  * Store custom params from queryParams
  * Old params values are conserved but override by the new values
  */
 const storeCustomDataFromQueryParams = (queryParams: Object): void => {
-  storage.set({
-    ...storage.get(),
-    ...getCustomDataFromQueryParams(queryParams),
-  });
+  const dataFromQueryParams = getCustomDataFromQueryParams(queryParams);
+  storeValues(dataFromQueryParams);
 };
 
 export const generateCustomDataManager = (
@@ -99,5 +118,7 @@ export const generateCustomDataManager = (
   return {
     getFormattedDataForHeader,
     storeCustomDataFromQueryParams,
+    storeValues,
+    getValue,
   };
 };

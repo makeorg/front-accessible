@@ -8,7 +8,10 @@ import { Logger } from 'Shared/services/Logger';
 export type isActiveFeatureFunction = (featureSlug: string) => boolean;
 
 // Declare available features with a slug list
-export const features = ['operation-multi-questions-navigation'];
+export const features = [
+  'operation-multi-questions-navigation',
+  'consultation-department-compulsory',
+];
 
 export const getIsActiveFeature = (
   activeFeatures: string[]
