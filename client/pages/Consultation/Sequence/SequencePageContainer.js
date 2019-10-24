@@ -3,13 +3,14 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
 import { SequencePageComponent } from './SequencePageComponent';
+import { withDepartmentCheck } from '../DepartmentCheck/withDepartmentCheck';
 
 type Props = {
   question: Question,
   questionConfiguration: QuestionConfiguration,
 };
 
-export class SequencePageContainer extends React.Component<Props> {
+class BaseSequencePageContainer extends React.Component<Props> {
   componentDidMount() {
     trackDisplaySequence();
   }
@@ -24,3 +25,7 @@ export class SequencePageContainer extends React.Component<Props> {
     );
   }
 }
+
+export const SequencePageContainer = withDepartmentCheck(
+  BaseSequencePageContainer
+);

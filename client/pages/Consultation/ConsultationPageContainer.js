@@ -9,6 +9,7 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { getActionLink, getConsultationLink } from 'Shared/helpers/url';
+import { withDepartmentCheck } from './DepartmentCheck/withDepartmentCheck';
 import { ConsultationPageComponent } from './ConsultationPageComponent';
 
 type Props = {
@@ -47,4 +48,6 @@ const ConsultationPage = ({
   );
 };
 
-export const ConsultationPageContainer = withRouter(ConsultationPage);
+export const ConsultationPageContainer = withRouter(
+  withDepartmentCheck(ConsultationPage)
+);

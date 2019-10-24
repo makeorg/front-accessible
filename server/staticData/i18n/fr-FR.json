@@ -6,18 +6,18 @@
       "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
     },
     "organisation": {
-      "proposals":  {
+      "proposals": {
         "title": "{{organisation}} - ses propositions"
       },
-      "positions":  {
+      "positions": {
         "title": "{{organisation}} - ses prises de position"
       }
     },
     "profile": {
-      "proposals":  {
+      "proposals": {
         "title": "Profil - Mes propositions"
       },
-      "favorites":  {
+      "favorites": {
         "title": "Profil - Mes coups de cœur"
       },
       "edit": {
@@ -77,8 +77,8 @@
       },
       "messages": {
         "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
-        "invalid_email":  "Veuillez respecter le format email.",
-        "invalid_email_dynamic":  "Veuillez respecter le format {{label}}.",
+        "invalid_email": "Veuillez respecter le format email.",
+        "invalid_email_dynamic": "Veuillez respecter le format {{label}}.",
         "already_registered": "Cet email existe déjà.",
         "already_registered_dynamic": "Cet {{label}} existe déjà.",
         "email_doesnot_exist": "Cet email n'est pas associé à votre compte, merci de bien vouloir saisir votre email à nouveau.",
@@ -484,7 +484,6 @@
       "initWith": "Cette consultation a été initiée avec :",
       "profile_link": "Aller sur le profil de : {{name}}",
       "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
-    
     },
     "tags": {
       "intro": "Filtrer par <span lang=\"en\">tags<span> : ",
@@ -559,7 +558,12 @@
     "dynamic_section": "Aller à la section : \"{{name}}\""
   },
   "modal": {
-    "close": "Fermer la fenêtre de dialogue"
+    "close": "Fermer la fenêtre de dialogue",
+    "department_required": {
+      "valid_button_text": "Valider et participer",
+      "cancel_main_text": "Si vous ne souhaitez pas donner votre département vous pouvez ",
+      "cancel_link_text": "aller à la page d'accueil"
+    }
   },
   "actions": {
     "register": {
@@ -598,14 +602,14 @@
       "proposal_plural": "propositions"
     },
     "corporate": {
-      "first-section":{
+      "first-section": {
         "introduction": "la politique ne suffit plus, faisons bouger les lignes ensemble",
         "title": "Votez, Proposez, Agissez",
         "list-item-1": "Votez pour les propositions que vous défendez",
         "list-item-2": "Proposez vos idées sur les thèmes qui vous inspirent",
         "list-item-3": "Et demain, initiez des actions concrètes sur le terrain"
       },
-      "second-section":{
+      "second-section": {
         "introduction": "nous découvrir",
         "title": "Make.org, neutre & indépendant",
         "description": "Make.org est une initiative civique, Européenne et indépendante.",
@@ -657,7 +661,7 @@
     },
     "sidebar": {
       "register": {
-       "title":"Suivez l’actualité de make.org en vous inscrivant."
+        "title": "Suivez l’actualité de make.org en vous inscrivant."
       }
     },
     "form": {

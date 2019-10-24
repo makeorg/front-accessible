@@ -42,4 +42,9 @@ describe('Custom data from query params', () => {
       'key1=value1,key3=value3b,key4=value5,troll=%3Dt%2Cr%2C%3D%2Co%3Dl%2Cl'
     );
   });
+
+  it('Get a custom data using a key', () => {
+    expect(customData.getValue('key1')).toBe('value1');
+    expect(customData.getValue('whatIsThisKey')).toBe(undefined);
+  });
 });
