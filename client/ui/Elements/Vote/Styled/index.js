@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -51,23 +51,45 @@ export const ButtonIconWrapperStyle = styled.span`
 export const IsVotedButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
-  path.tofill {
+  .tofill {
     fill: ${BasicColors.PureWhite};
   }
+`;
+
+const RotateButton = keyframes`
+  0% { transform: rotate(0deg); }
+  45% { transform: rotate(-20deg); }
+  65% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+`;
+
+const InverseRotateButton = keyframes`
+  0% { transform: rotate(0deg); }
+  45% { transform: rotate(20deg); }
+  65% { transform: rotate(-20deg); }
+  100% { transform: rotate(0deg); }
 `;
 
 export const VoteButtonStyle = styled(ButtonStyle)`
   color: ${props => props.color};
   background-color: ${BasicColors.PureWhite};
-  path.tofill {
+  .tofill {
     fill: ${props => props.color};
   }
-  &:focus,
-  &:active {
-    color: ${BasicColors.PureWhite};
-    background-color: ${props => props.color};
-    path.tofill {
-      fill: ${BasicColors.PureWhite};
-    }
+  box-shadow: 0 0 0 0 ${props => props.color};
+  transform: scale(1);
+  transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 8px 0px ${props => props.color};
+    transform: scale(1.1);
+  }
+  &.animated {
+    box-shadow: 0 0 0 0 ${props => props.color};
+    animation: ${RotateButton} 0.5s 1;
+    transform: scale(0.9);
+  }
+  &.animated.disagree {
+    animation: ${InverseRotateButton} 0.5s 1;
   }
 `;
