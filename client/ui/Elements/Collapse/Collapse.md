@@ -13,7 +13,7 @@ import { Collapse } from './index';
 
 <Collapse
   title="Collapse Title"
-  softExpand
+  open
 >
   Collapse content
 </Collapse>

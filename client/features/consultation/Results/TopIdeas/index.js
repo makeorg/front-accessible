@@ -39,7 +39,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
             count: index + 1,
             name: topIdea.name,
           })}
-          softExpand={index === 0}
+          open={index === 0}
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (

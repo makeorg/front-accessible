@@ -1,5 +1,4 @@
-/* @flow */
-
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Partner as TypePartner } from 'Shared/types/organisation';
@@ -12,8 +11,7 @@ type Props = {
   founders: TypePartner[],
 };
 
-export const FoundersComponent = (props: Props) => {
-  const { founders, isGreatCause } = props;
+export const Founders = ({ founders, isGreatCause }: Props) => {
   if (!founders || founders.length === 0) {
     return null;
   }
