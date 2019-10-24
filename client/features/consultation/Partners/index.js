@@ -1,14 +1,12 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
-import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { getPartnerAnchor, getSequenceLink } from 'Shared/helpers/url';
 import {
   trackParticipatePartners,
@@ -47,11 +45,8 @@ export const Partners = (props: Props) => {
           <ParticipateButtonStyle
             as={Link}
             to={sequenceLink}
-            onClick={() => trackParticipatePartners()}
+            onClick={trackParticipatePartners}
           >
-            <IconWrapperStyle aria-hidden>
-              <SvgPlayButton />
-            </IconWrapperStyle>
             {i18n.t('common.participate')}
           </ParticipateButtonStyle>
           <FourthLevelTitleStyle as="h3">
