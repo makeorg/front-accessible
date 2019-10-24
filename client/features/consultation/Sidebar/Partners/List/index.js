@@ -12,9 +12,6 @@ type Props = {
   partners: TypePartner[],
 };
 
-/**
- * Renders Vote Result bar with Tooltip
- */
 const PartnerAvatarWithTooltip = ({ partner }) => {
   const content = (
     <PartnerTooltip partnerName={partner.name} isFounder={partner.isFounder} />
@@ -34,9 +31,8 @@ const PartnerAvatarWithTooltip = ({ partner }) => {
     </Tooltip>
   );
 };
-export const PartnersListComponent = (props: Props) => {
-  const { partners } = props;
 
+export const PartnersList = ({ partners }: Props) => {
   return (
     <PartnersListStyle>
       {partners.map(partner => (

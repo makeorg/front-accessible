@@ -8,6 +8,7 @@ import {
   CollapseSeparatorStyle,
   CollapseTriggerStyle,
   CollapseWrapperStyle,
+  TileWithCollapseWrapperStyle,
 } from '../CollapseElements';
 
 type Props = {
@@ -16,11 +17,18 @@ type Props = {
   /** Chidlren to render */
   children: Node,
   /** Set collapse value */
-  softExpand?: boolean,
+  open?: boolean,
+  /** Set collapse styling like a Tile Component */
+  withTileStyle?: boolean,
 };
 
-export const Collapse = ({ title, children, softExpand = false }: Props) => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(!softExpand);
+export const Collapse = ({
+  title,
+  children,
+  open = false,
+  withTileStyle = false,
+}: Props) => {
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(!open);
 
   const toggleCollapse = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -28,7 +36,9 @@ export const Collapse = ({ title, children, softExpand = false }: Props) => {
   };
 
   return (
-    <CollapseWrapperStyle>
+    <CollapseWrapperStyle
+      as={withTileStyle ? TileWithCollapseWrapperStyle : CollapseWrapperStyle}
+    >
       <CollapseTriggerStyle
         onClick={toggleCollapse}
         aria-expanded={!isCollapsed}
@@ -43,8 +53,9 @@ export const Collapse = ({ title, children, softExpand = false }: Props) => {
           <SvgAngleArrowRight />
         </CollapseIconStyle>
       </CollapseTriggerStyle>
-      <CollapseSeparatorStyle />
+      {!withTileStyle && <CollapseSeparatorStyle />}
       <CollapseContentStyle iscollapsed={isCollapsed} aria-hidden={isCollapsed}>
+        {withTileStyle && <CollapseSeparatorStyle />}
         {children}
       </CollapseContentStyle>
     </CollapseWrapperStyle>

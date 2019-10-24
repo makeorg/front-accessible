@@ -6,18 +6,15 @@ import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
+import { SidebarNewWindowLink } from '../Link';
 import { Founders } from '../Founders';
-import { SidebarNewWindowLink } from '../Sidebar/Link';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
 };
 
-export const PresentationComponent = ({
-  questionConfiguration,
-  question,
-}: Props) => {
+export const Presentation = ({ questionConfiguration, question }: Props) => {
   const founders = questionConfiguration.partners
     ? questionConfiguration.partners.filter(partner => partner.isFounder)
     : [];

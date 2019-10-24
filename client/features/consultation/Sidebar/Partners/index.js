@@ -13,9 +13,9 @@ import {
   trackSeeMorePartners,
 } from 'Shared/services/Tracking';
 import { isInProgress } from 'Shared/helpers/date';
-import { ParticipateButtonStyle } from '../Styled/Partners';
+import { ParticipateButtonStyle } from 'Client/features/consultation/Styled/Partners';
+import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link';
 import { PartnersList } from './List';
-import { SidebarNewWindowLink } from '../Sidebar/Link';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,

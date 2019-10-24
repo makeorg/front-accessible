@@ -52,11 +52,13 @@ export const SecuredExpirationStyle = styled.span`
   flex: 1;
 `;
 export const SvgIconStyle = {
+  minWidth: '19px',
   marginRight: '10px',
 };
 
 export const SvgCheckStyle = {
   fill: VoteColors.Agree,
+  minWidth: '22px',
   fontSize: '22px',
   marginRight: '10px',
 };
