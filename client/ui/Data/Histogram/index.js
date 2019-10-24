@@ -4,8 +4,8 @@ import {
   type TypeHistogramLegend,
   type TypeHistogramData,
 } from 'Shared/types/question';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   HistogramWrapperStyle,
   HistogramListStyle,
@@ -76,7 +76,7 @@ export const Histogram = ({
   return (
     <HistogramWrapperStyle>
       <HistogramTitleStyle>{name}</HistogramTitleStyle>
-      <HiddenItemStyle>
+      <ScreenReaderItemStyle>
         <table>
           <caption>{name}</caption>
           <thead>
@@ -108,7 +108,7 @@ export const Histogram = ({
             ))}
           </tbody>
         </table>
-      </HiddenItemStyle>
+      </ScreenReaderItemStyle>
       <HistogramLegendStyle aria-hidden>
         <h5>{legend.title}</h5>
         <HistogramLegendLabelStyle>

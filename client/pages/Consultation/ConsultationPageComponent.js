@@ -59,7 +59,10 @@ export const ConsultationPageComponent = ({
   return (
     <React.Fragment>
       {isConsultationPage && (
-        <ConsultationSkipLinks canPropose={question.canPropose} />
+        <ConsultationSkipLinks
+          canPropose={question.canPropose}
+          withResults={question.displayResults}
+        />
       )}
       {isActionPage && <ActionsSkipLinks />}
 

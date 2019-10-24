@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { type TypePieChartData } from 'Shared/types/question';
 import { useMobile } from 'Client/hooks/useMedia';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { i18n } from 'Shared/i18n';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   PieChartWrapperStyle,
   PieChartTitleStyle,
@@ -31,7 +31,7 @@ export const PieChart = ({ unit, name, legend, data }: Props) => {
   return (
     <PieChartWrapperStyle>
       <PieChartTitleStyle>{name}</PieChartTitleStyle>
-      <HiddenItemStyle>
+      <ScreenReaderItemStyle>
         {legend && <p>{legend}</p>}
         <table>
           <caption>{name}</caption>
@@ -54,7 +54,7 @@ export const PieChart = ({ unit, name, legend, data }: Props) => {
             ))}
           </tbody>
         </table>
-      </HiddenItemStyle>
+      </ScreenReaderItemStyle>
       <PieChartCanvasStyle aria-hidden ref={canvasRef} />
       {legend && (
         <PieChartLegendStyle aria-hidden>{legend}</PieChartLegendStyle>

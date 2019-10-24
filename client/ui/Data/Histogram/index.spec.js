@@ -21,8 +21,8 @@ jest.mock('./Styled', () => ({
   HistogramLegendColorsStyle: 'HistogramLegendColorsStyle',
 }));
 
-jest.mock('Client/ui/Elements/HiddenElements', () => ({
-  HiddenItemStyle: 'HiddenItemStyle',
+jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
+  ScreenReaderItemStyle: 'ScreenReaderItemStyle',
 }));
 
 describe('Histogram', () => {

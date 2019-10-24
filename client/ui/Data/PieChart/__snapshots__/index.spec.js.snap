@@ -5,7 +5,7 @@ exports[`PieChart snapshot by default 1`] = `
   <PieChartTitleStyle>
     Pie Chart n° 1
   </PieChartTitleStyle>
-  <HiddenItemStyle>
+  <ScreenReaderItemStyle>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
     </p>
@@ -98,7 +98,7 @@ exports[`PieChart snapshot by default 1`] = `
         </tr>
       </tbody>
     </table>
-  </HiddenItemStyle>
+  </ScreenReaderItemStyle>
   <PieChartCanvasStyle
     aria-hidden={true}
   />

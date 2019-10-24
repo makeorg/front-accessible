@@ -163,7 +163,7 @@ Snapshot Diff:
           </tr>
         </tbody>
       </table>
-    </HiddenItemStyle>
+    </ScreenReaderItemStyle>
 @@ -60,10 +175,16 @@
       </h5>
       <HistogramLegendLabelStyle>
@@ -533,7 +533,7 @@ exports[`Histogram snapshot by default 1`] = `
   <HistogramTitleStyle>
     Participation par région en métropole
   </HistogramTitleStyle>
-  <HiddenItemStyle>
+  <ScreenReaderItemStyle>
     <table>
       <caption>
         Participation par région en métropole
@@ -582,7 +582,7 @@ exports[`Histogram snapshot by default 1`] = `
         </tr>
       </tbody>
     </table>
-  </HiddenItemStyle>
+  </ScreenReaderItemStyle>
   <HistogramLegendStyle
     aria-hidden={true}
   >

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { SvgSearch, SvgDisconnect } from 'Client/ui/Svg/elements';
 import { getRouteSearch } from 'Shared/routes';
 import { SEARCH_FORMNAME } from 'Shared/constants/form';
@@ -10,6 +9,7 @@ import { trackClickSubmitSearch } from 'Shared/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   SearchLabelStyle,
   SearchFormStyle,
@@ -63,11 +63,11 @@ const SearchInputHandler = ({ location, history, country, language }) => {
 
   return (
     <SearchFormStyle id={SEARCH_FORMNAME} onSubmit={throttle(handleSubmit)}>
-      <HiddenItemStyle>
+      <ScreenReaderItemStyle>
         {i18n.t('search.form.introduction', {
           context: searchTerm ? 'searched' : '',
         })}
-      </HiddenItemStyle>
+      </ScreenReaderItemStyle>
       <SearchInputWrapperStyle>
         <SearchLabelStyle
           className={searchTerm.length > 0 ? 'hide' : ''}

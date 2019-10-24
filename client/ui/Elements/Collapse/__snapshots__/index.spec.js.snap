@@ -5,11 +5,11 @@ Snapshot Diff:
 - First value
 + Second value
 
-  <TileSeparatorStyle>
+  <CollapseWrapperStyle>
     <CollapseTriggerStyle
--     aria-expanded={false}
+-     aria-expanded={true}
 -     aria-label="common.shrink_collapse"
-+     aria-expanded={true}
++     aria-expanded={false}
 +     aria-label="common.expand_collapse"
       onClick={[Function toggleCollapse]}
     >
@@ -31,13 +31,13 @@ Snapshot Diff:
     >
       bar
     </CollapseContentStyle>
-  </TileSeparatorStyle>
+  </CollapseWrapperStyle>
 `;
 
 exports[`Collapse must match the snapshot with default Props 1`] = `
-<TileSeparatorStyle>
+<CollapseWrapperStyle>
   <CollapseTriggerStyle
-    aria-expanded={true}
+    aria-expanded={false}
     aria-label="common.expand_collapse"
     onClick={[Function]}
   >
@@ -56,5 +56,5 @@ exports[`Collapse must match the snapshot with default Props 1`] = `
   >
     bar
   </CollapseContentStyle>
-</TileSeparatorStyle>
+</CollapseWrapperStyle>
 `;

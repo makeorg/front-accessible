@@ -31,7 +31,7 @@ export const Collapse = ({ title, children, softExpand = false }: Props) => {
     <CollapseWrapperStyle>
       <CollapseTriggerStyle
         onClick={toggleCollapse}
-        aria-expanded={isCollapsed}
+        aria-expanded={!isCollapsed}
         aria-label={
           isCollapsed
             ? i18n.t('common.expand_collapse', { name: title })
