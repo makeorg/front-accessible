@@ -22,10 +22,15 @@ const sessionStorageKey = 'app-custom-data';
  * Default storage object
  */
 let storage: StorageType = {
-  set: (value: Object) =>
-    sessionStorage.setItem(sessionStorageKey, JSON.stringify(value)),
+  set: (value: Object): void => {
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem(sessionStorageKey, JSON.stringify(value));
+    }
+  },
   get: (): Object =>
-    JSON.parse(sessionStorage.getItem(sessionStorageKey) || '{}') || {},
+    typeof sessionStorage !== 'undefined'
+      ? JSON.parse(sessionStorage.getItem(sessionStorageKey) || '{}') || {}
+      : false,
 };
 
 /**
