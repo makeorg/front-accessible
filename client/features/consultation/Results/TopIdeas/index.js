@@ -65,16 +65,20 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                     >
                       {`${idea.agreement}% ${i18n.t('vote.agree')}`}
                     </ThemeAgreeResultsStyle>
-                    <span>
-                      {i18n.t('qualification.likeIt')}
-                      <ThemeQualifiedStyle>
-                        {` ${idea.adhesion}% `}
-                      </ThemeQualifiedStyle>
-                      {i18n.t('qualification.doable')}
-                      <ThemeQualifiedStyle>
-                        {` ${idea.realistic}% `}
-                      </ThemeQualifiedStyle>
-                    </span>
+                    <p>
+                      <span>
+                        {i18n.t('qualification.likeIt')}
+                        <ThemeQualifiedStyle>
+                          {` ${idea.adhesion}% `}
+                        </ThemeQualifiedStyle>
+                      </span>
+                      <span>
+                        {i18n.t('qualification.doable')}
+                        <ThemeQualifiedStyle>
+                          {` ${idea.realistic}% `}
+                        </ThemeQualifiedStyle>
+                      </span>
+                    </p>
                   </ThemeResultsDetailsStyle>
                 </ThemeResultsWrapperStyle>
               </ThemeListItemStyle>

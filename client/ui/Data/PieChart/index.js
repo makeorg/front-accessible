@@ -48,8 +48,11 @@ export const PieChart = ({ unit, name, legend, data }: Props) => {
           <tbody>
             {data.map(item => (
               <tr key={item.label}>
-                <td>{item.label}</td>
-                <td>{`${item.percentage}%`}</td>
+                <td>
+                  {item.label}
+                  {item.sublabel && ` ${item.sublabel}`}
+                </td>
+                <td>{`${item.percent}%`}</td>
               </tr>
             ))}
           </tbody>

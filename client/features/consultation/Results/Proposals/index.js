@@ -6,6 +6,7 @@ import {
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { i18n } from 'Shared/i18n';
 import { SvgLightning } from 'Client/ui/Svg/elements';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProposalsListStyle,
   ProposalsListItemStyle,
@@ -26,8 +27,18 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
     <ProposalsListStyle>
       {proposals.map(proposal => (
         <ProposalsListItemStyle key={proposal.author}>
-          <ProposalAuthorStyle>{proposal.author}</ProposalAuthorStyle>
-          <ProposalStyle as="p">{proposal.content}</ProposalStyle>
+          <ProposalAuthorStyle>
+            <ScreenReaderItemStyle>
+              {i18n.t('proposal_card.author.from')}
+            </ScreenReaderItemStyle>
+            {proposal.author}
+          </ProposalAuthorStyle>
+          <ProposalStyle as="p">
+            <ScreenReaderItemStyle>
+              {i18n.t('proposal_card.content')}
+            </ScreenReaderItemStyle>
+            {proposal.content}
+          </ProposalStyle>
           {isRejected ? (
             <ResultsPositionStyle>
               <ResultsNoWayStyle>
@@ -47,7 +58,7 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
                   }
                 )}
               </ResultsLikeItStyle>
-              <SvgLightning style={ResultsProposalIconStyle} />
+              <SvgLightning aria-hidden style={ResultsProposalIconStyle} />
               <ResultsNoWayStyle>
                 {i18n.t(
                   'consultation.results.proposals.controversials_no_way',
