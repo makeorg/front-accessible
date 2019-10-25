@@ -41,12 +41,13 @@ axiosRetry(axios, {
  * @return {String|Object}
  */
 export const handleErrors = (error: ErrorResponse) => {
+  Logger.logError(error);
   if (error.response) {
+    Logger.logError(`API response ${error.response.status.toString()}`);
     switch (error.response.status) {
       case 400:
         throw error.response.data;
       case 500:
-        Logger.logError('Api Response 500');
         throw Error(error.response.headers);
       default:
         throw Error(error.response.status.toString());

@@ -94,7 +94,10 @@ describe('ApiServiceShared', () => {
           'x-headers': 'foo',
         })
       );
-      expect(Logger.logError).toHaveBeenNthCalledWith(1, 'Api Response 500');
+      expect(Logger.logError).toHaveBeenNthCalledWith(1, {
+        response: { headers: { 'x-headers': 'foo' }, status: 500 },
+      });
+      expect(Logger.logError).toHaveBeenNthCalledWith(2, 'API response 500');
     });
   });
 });
