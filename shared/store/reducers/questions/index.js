@@ -33,6 +33,11 @@ export function questions(
           questionResults: action.payload.questionResults,
         },
       };
+    case actionTypes.QUESTION_ADD_ALL:
+      return {
+        ...state,
+        [action.payload.question.slug]: action.payload,
+      };
     default:
       return state;
   }
