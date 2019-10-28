@@ -27,25 +27,28 @@ exports[`PieChart snapshot by default 1`] = `
         <tr>
           <td>
             Justice sociale
+             et fiscale
           </td>
           <td>
-            undefined%
+            21%
           </td>
         </tr>
         <tr>
           <td>
             RSE et politique
+             d'entreprise
           </td>
           <td>
-            undefined%
+            12%
           </td>
         </tr>
         <tr>
           <td>
             Conditions
+             de travail
           </td>
           <td>
-            undefined%
+            9%
           </td>
         </tr>
         <tr>
@@ -53,15 +56,16 @@ exports[`PieChart snapshot by default 1`] = `
             Intêret général
           </td>
           <td>
-            undefined%
+            7%
           </td>
         </tr>
         <tr>
           <td>
             Méthodes
+             de travail
           </td>
           <td>
-            undefined%
+            6%
           </td>
         </tr>
         <tr>
@@ -69,23 +73,25 @@ exports[`PieChart snapshot by default 1`] = `
             Emploi
           </td>
           <td>
-            undefined%
+            6%
           </td>
         </tr>
         <tr>
           <td>
             Croissance
+             compétitivité
           </td>
           <td>
-            undefined%
+            6%
           </td>
         </tr>
         <tr>
           <td>
             Code du
+             travail et lois
           </td>
           <td>
-            undefined%
+            5%
           </td>
         </tr>
         <tr>
@@ -93,7 +99,7 @@ exports[`PieChart snapshot by default 1`] = `
             Autre
           </td>
           <td>
-            undefined%
+            28%
           </td>
         </tr>
       </tbody>
