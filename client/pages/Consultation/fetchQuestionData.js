@@ -1,7 +1,7 @@
 // @flow
 import React, { type Node, useEffect } from 'react';
 import { compose } from 'redux';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { isInProgress } from 'Shared/helpers/date';
@@ -88,9 +88,33 @@ const callQuestionData = Component =>
       updateQuestion();
     }, [match.params.questionSlug]);
 
+    const questionsInState = useSelector(state => state.questions);
+
     useEffect(() => {
       if (question && !isInProgress(question) && !question.displayResults) {
         window.location = question.aboutUrl;
+      }
+      // Try to find related questions
+      const operationsQuestions =
+        question && question.operation && question.operation.questions;
+      if (operationsQuestions) {
+        operationsQuestions.map(async relQuestion => {
+          // Check is question has been already fetched
+          const isRelQuestionInState =
+            questionsInState[relQuestion.questionSlug] !== undefined;
+          // If not, they fetch/store it
+          if (!isRelQuestionInState) {
+            const res = await QuestionApiService.getDetail(
+              relQuestion.questionSlug,
+              {},
+              true // allow to get questionResults and questionConfiguration at once
+            );
+            dispatch({
+              type: 'QUESTION_ADD_ALL',
+              payload: res,
+            });
+          }
+        });
       }
     }, [question]);
 
