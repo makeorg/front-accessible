@@ -17,10 +17,11 @@ import {
   loadQuestion,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
-import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { updateCurrentQuestion } from 'Shared/store/actions/question';
+import { updateRequestContext } from 'Shared/helpers/apiService';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -58,6 +59,7 @@ const callQuestionData = Component =>
   function FetchQuestionClass(props: Props) {
     const { match, question, questionConfiguration, questionResults } = props;
     const dispatch = useDispatch();
+    const currentQuestionState = useSelector(state => state.currentQuestion);
     const [alternativeContent, setAlternativeContent] = React.useState(
       <MiddlePageWrapperStyle>
         <Spinner />
@@ -69,8 +71,6 @@ const callQuestionData = Component =>
         : () => {
             QuestionApiService.getDetail(match.params.questionSlug)
               .then(questionDetail => {
-                apiClient.questionId = questionDetail.questionId;
-                apiClient.operationId = questionDetail.operationId;
                 dispatch(loadQuestion(questionDetail));
                 if (questionDetail.displayResults) {
                   dispatch(fetchQuestionResults(questionDetail.slug));
@@ -86,6 +86,10 @@ const callQuestionData = Component =>
 
     useEffect(() => {
       updateQuestion();
+      updateRequestContext(question);
+      if (question && currentQuestionState !== match.params.questionSlug) {
+        dispatch(updateCurrentQuestion(question.slug));
+      }
     }, [match.params.questionSlug]);
 
     const questionsInState = useSelector(state => state.questions);

@@ -48,4 +48,17 @@ describe('Questions reducer', () => {
       questionTypeFixture.slug
     );
   });
+
+  it('action CURRENT_QUESTION_UPDATE', () => {
+    const action = {
+      type: actionTypes.CURRENT_QUESTION_UPDATE,
+      payload: {
+        questionSlug: questionTypeFixture.slug,
+      },
+    };
+
+    expect(currentQuestion(undefined, action)).toEqual(
+      questionTypeFixture.slug
+    );
+  });
 });
