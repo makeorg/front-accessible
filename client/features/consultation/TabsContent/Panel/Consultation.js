@@ -54,8 +54,10 @@ export const ConsultationPanelContent = ({
   };
 
   useEffect(() => {
-    updateRequestContext(question);
-    trackDisplayConsultation('consultation');
+    if (question) {
+      updateRequestContext(question);
+      trackDisplayConsultation('consultation');
+    }
   }, [question]);
 
   return (
