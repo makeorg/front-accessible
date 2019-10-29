@@ -10,10 +10,10 @@ import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalSkipLinks } from 'Client/app/SkipLinks/Proposal';
 import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard';
-import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { SingleProposalSharingComponent } from 'Client/features/proposal/SingleProposalCard/Sharing';
+import { updateRequestContext } from 'Shared/helpers/apiService';
 
 type Props = {
   match: TypeMatch,
@@ -36,8 +36,7 @@ const ProposalPage = (props: Props) => {
       QuestionApiService.getDetail(proposal.question.questionId).then(
         response => {
           setQuestion(response);
-          apiClient.questionId = response.questionId;
-          apiClient.operationId = response.operationId;
+          updateRequestContext(response);
         }
       );
     }
