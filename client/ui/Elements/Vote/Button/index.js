@@ -21,6 +21,10 @@ type Props = {
   buttonType?: React.Node,
   /** When display pending */
   displayPending?: boolean,
+  /** Vote key */
+  voteKey?: string,
+  /** Trigged animation on vote button after API response */
+  animateVote?: boolean,
   /** Method called when vote button is clicked */
   handleVote?: (SyntheticEvent<HTMLButtonElement>) => void,
 };
@@ -36,12 +40,15 @@ export const VoteButtonElement = (props: Props) => {
     transform,
     buttonType,
     handleVote,
+    voteKey = '',
+    animateVote = false,
     displayPending,
   } = props;
 
   return (
     <ButtonStyle
       aria-label={displayPending ? i18n.t('common.loading') : label}
+      className={animateVote ? `${voteKey} animated` : `${voteKey}`}
       color={color}
       transform={transform}
       as={buttonType}
@@ -49,7 +56,7 @@ export const VoteButtonElement = (props: Props) => {
       onTouchEnd={handleVote}
       aria-busy={displayPending}
     >
-      {displayPending ? (
+      {displayPending && !animateVote ? (
         <LoadingDots />
       ) : (
         <ButtonIconWrapperStyle transform={transform}>

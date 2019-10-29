@@ -73,6 +73,7 @@ describe('vote', () => {
         },
       ],
       qualifications: [],
+      animateVote: false,
       pending: false,
       pendingVoteKey: '',
     };
@@ -143,6 +144,7 @@ describe('vote', () => {
         },
       ],
       qualifications: [],
+      animateVote: false,
       pending: false,
       pendingVoteKey: '',
     };
