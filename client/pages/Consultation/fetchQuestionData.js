@@ -86,8 +86,8 @@ const callQuestionData = Component =>
 
     useEffect(() => {
       updateQuestion();
-      updateRequestContext(question);
       if (question && currentQuestionState !== match.params.questionSlug) {
+        updateRequestContext(question);
         dispatch(updateCurrentQuestion(question.slug));
       }
     }, [match.params.questionSlug]);
