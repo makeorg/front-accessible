@@ -5,6 +5,7 @@ export type ErrorResponse = {
     status: number,
     data: Object,
     headers: Object,
+    config: Object,
   },
   message: string,
 };
