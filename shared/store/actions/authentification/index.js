@@ -13,6 +13,7 @@ import {
   trackAuthentificationSocialFailure,
 } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
+import { Logger } from 'Shared/services/Logger';
 import {
   showLoginSuccess,
   showLogoutSuccess,
@@ -97,6 +98,14 @@ export const loginSocial = (provider: string, socialToken: string) => (
   dispatch: Dispatch
 ) => {
   dispatch(loginSocialRequest(provider));
+  if (!socialToken) {
+    dispatch(loginSocialFailure());
+    trackAuthentificationSocialFailure(provider);
+    Logger.logError(`No token from ${provider} callBack auth`);
+
+    return Promise.resolve();
+  }
+
   return UserApiService.loginSocial(provider, socialToken)
     .then(() => {
       dispatch(loginSocialSuccess());

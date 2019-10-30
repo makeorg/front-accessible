@@ -41,9 +41,43 @@ axiosRetry(axios, {
  * @return {String|Object}
  */
 export const handleErrors = (error: ErrorResponse) => {
-  Logger.logError(error);
   if (error.response) {
-    Logger.logError(`API response ${error.response.status.toString()}`);
+    switch (error.response.status) {
+      case 401:
+        break; // logs should not be managed here for 401
+      case 404:
+        Logger.logInfo(
+          `API call error - ${error.message} - ${JSON.stringify({
+            status: error.response.status.toString(),
+            url:
+              error.response.config && error.response.config.url
+                ? error.response.config.url
+                : 'none',
+            method:
+              error.response.config && error.response.config.method
+                ? error.response.config.method
+                : 'none',
+            responseData: error.response.data,
+          })}`
+        );
+        break;
+      default:
+        Logger.logError(
+          `API call error - ${error.message} - ${JSON.stringify({
+            status: error.response.status.toString(),
+            url:
+              error.response.config && error.response.config.url
+                ? error.response.config.url
+                : 'none',
+            method:
+              error.response.config && error.response.config.method
+                ? error.response.config.method
+                : 'none',
+            responseData: error.response.data,
+          })}`
+        );
+    }
+
     switch (error.response.status) {
       case 400:
         throw error.response.data;
@@ -54,6 +88,7 @@ export const handleErrors = (error: ErrorResponse) => {
     }
   }
 
+  Logger.logError(error);
   throw Error(error.message);
 };
 

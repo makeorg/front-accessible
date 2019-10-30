@@ -162,7 +162,6 @@ describe('Authentification Actions', () => {
         { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
-        
       ];
 
       return loginStore
@@ -293,9 +292,7 @@ describe('Authentification Actions', () => {
       // mock
       UserApiService.me.mockResolvedValue(user);
 
-      const expectedActions = [
-        { type: actionTypes.GET_INFO, user },
-      ];
+      const expectedActions = [{ type: actionTypes.GET_INFO, user }];
 
       return newStore.dispatch(actions.getUser()).then(() => {
         expect(newStore.getActions()).toEqual(expectedActions);

@@ -41,7 +41,14 @@ export const accountActivationRoute = async (req, res) => {
           },
         };
       } else {
-        logError(`Question not found on activate account ${questionId}`);
+        logError(
+          `Question not found on activate account questionId='${questionId}' request='${JSON.stringify(
+            {
+              url: req.url,
+              query: req.query,
+            }
+          )}'`
+        );
       }
     }
 
