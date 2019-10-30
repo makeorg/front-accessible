@@ -1,5 +1,5 @@
 {
-    "context": "Consultation citoyenne réalisée par Make.org dans le cadre de la Grande cause sur le Handicap du 28/05/2019 au 17/09/2019, autour de la question : \"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?\"",
+    "context": "Make.org a lancé, avec le soutien de la secrétaire d’État chargée des personnes handicapées Sophie Cluzel, une vaste consultation citoyenne, première étape de sa Grande cause dédiée au handicap. Pendant plus de trois mois, des centaines de milliers de citoyens ont été invité à répondre à la question \"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?\" en proposant leurs solutions et en votant sur celles des autres. Grâce aux consensus identifiés dans cette consultation, entreprises, associations, citoyens et institutions partenaires de Make.org se réuniront en ateliers pour bâtir un grand plan d'actions concrètes issues de la société civile en faveur des personnes handicapées.",
     "key_figures": {
         "reach": 5100000,
         "participants": 274600,
@@ -19,7 +19,7 @@
                 {
                     "idea": "Sensibiliser et former l'ensemble du personnel éducatif au handicap",
                     "agreement": 89,
-                    "adhesion": 16,
+                    "adhesion": 14,
                     "realistic": 33
                 }
             ]
@@ -30,8 +30,8 @@
                 {
                     "idea": "Simplifier les démarches administratives et les délais de traitement, en particulier au sein des MDPH",
                     "agreement": 89,
-                    "adhesion": 22,
-                    "realistic": 32
+                    "adhesion": 15,
+                    "realistic": 25
                 }
             ]
         },
@@ -41,20 +41,20 @@
                 {
                     "idea": "Développer les structures d'accueil en fonction des handicaps et maintenir les capacités de ceux existant",
                     "agreement": 89,
-                    "adhesion": 15,
-                    "realistic": 33
+                    "adhesion": 18,
+                    "realistic": 32
                 },
                 {
                     "idea": "Offrir une meilleure prise en charge des soins et dépenses liées au handicap et encadrer le cout des équipements",
                     "agreement": 90,
-                    "adhesion": 18,
-                    "realistic": 30
+                    "adhesion": 15,
+                    "realistic": 33
                 },
                 {
                     "idea": "Réévaluer le montant et le calcul des pensions d'invalidité, des retraites et de l'AAH",
                     "agreement": 88,
-                    "adhesion": 15,
-                    "realistic": 33
+                    "adhesion": 18,
+                    "realistic": 30
                 }
             ]
         },
@@ -64,14 +64,14 @@
                 {
                     "idea": "Mieux accompagner les aidants",
                     "agreement": 91,
-                    "adhesion": 18,
+                    "adhesion": 15,
                     "realistic": 33
                 },
                 {
                     "idea": "Valoriser les métiers de l'accompagnement par la reconnaissance, la formation et la rémunération",
                     "agreement": 89,
-                    "adhesion": 19,
-                    "realistic": 29
+                    "adhesion": 16,
+                    "realistic": 32
                 }
             ]
         },
@@ -81,14 +81,14 @@
                 {
                     "idea": "Améliorer l'accès aux infrastructures, notamment aux batiments publics",
                     "agreement": 90,
-                    "adhesion": 13,
-                    "realistic": 35
+                    "adhesion": 16,
+                    "realistic": 36
                 },
                 {
                     "idea": "Rendre la ville et les transports plus accessibles pour les personnes handicapées",
                     "agreement": 92,
-                    "adhesion": 14,
-                    "realistic": 31
+                    "adhesion": 18,
+                    "realistic": 29
                 }
             ]
         },
@@ -98,20 +98,20 @@
                 {
                     "idea": "Renforcer les moyens d'accueil humains et financiers dans les écoles",
                     "agreement": 88,
-                    "adhesion": 18,
-                    "realistic": 31
+                    "adhesion": 13,
+                    "realistic": 34
                 },
                 {
                     "idea": "Améliorer la formation et l'accompagnement des Ph dans leur parcours professionnel",
                     "agreement": 87,
-                    "adhesion": 17,
+                    "adhesion": 15,
                     "realistic": 33
                 },
                 {
                     "idea": "Adapter les entreprises pour favoriser l'inclusions des PH au travail",
                     "agreement": 90,
-                    "adhesion": 15,
-                    "realistic": 33
+                    "adhesion": 18,
+                    "realistic": 30
                 }
             ]
         }
@@ -167,7 +167,7 @@
             "type": "pie",
             "unit": "percentage",
             "name": "Thèmes plébiscités",
-            "legend": "",
+            "legend": "Parmis les nombreux sujets évoqués dans la consultation, la thématique de l'accompagnement (valoriser le statut des aidants, améliorer les conditions d’exercice des AVS ou auxiliaires de vie) a été plébiscitée devant le thème de d’emploi (favoriser la formation professionnelle, adapter les entreprises) et celui des représentations associées aux handicapés (mieux parler des handicaps invisibles).",
             "data": [
                 {
                     "label": "Accompagnement",
@@ -281,7 +281,7 @@
             "type": "pie",
             "unit": "percentage",
             "name": "Solutions plébiscitées",
-            "legend": "",
+            "legend": "Les citoyens appellent en premier lieu des solutions d’action orientées vers un changement dans les politiques publiques (revaloriser les aides et améliorer la prise en charge des soins) mais également vers une meilleure sensibilisation, notamment via les campagnes d’information et l'enseignement à l'école. Des solutions relatives à la simplification des démarches administratives ont également fédéré les votes citoyens.",
             "data": [
                 {
                     "label": "Réforme des",
@@ -393,7 +393,7 @@
             "type": "pie",
             "unit": "percentage",
             "name": "Acteurs plébiscités",
-            "legend": "",
+            "legend": "Les citoyens désignent majoritairement les pouvoirs publics afin de mettre en oeuvre des solutions pour le handicap (relèvement des aides, création de structures, revalorisation salariale des métiers de l’accompagnement). Le rôle des citoyens (proches aidants ou associations) reste néanmoins mis en avant dans 10% des propositions plébiscitées.",
             "data": [
                 {
                     "label": "Etat",
