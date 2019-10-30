@@ -40,7 +40,7 @@ export const CookieContentInnerStyle = styled(ColumnToRowElementStyle)`
 
 export const CookieParagraphStyle = styled(ParagraphStyle)`
   color: ${BasicColors.PureWhite};
-  flex: 1;
+  flex: 1 1 auto;
   a {
     font-family: ${MakeFonts.CircularStandardBold};
     color: ${BasicColors.PureWhite};
