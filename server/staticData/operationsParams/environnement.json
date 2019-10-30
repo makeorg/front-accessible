@@ -10,10 +10,14 @@
     "logo": "/images/operations/environnement/consultation/environnement.svg"
   },
   "partners": [
-    {"name": "Kering", "imageUrl": "/images/operations/environnement/partners/kering.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/kering"},
-    {"name": "Monoprix", "imageUrl": "/images/operations/environnement/partners/monoprix.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/monoprix"},
-    {"name": "EDF", "imageUrl": "/images/operations/environnement/partners/edf.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/EDF"},
-    {"name": "Epsa Groupe", "imageUrl": "/images/operations/environnement/partners/epsa.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/epsa-groupe/proposals"},
+    {"name": "Kering", "imageUrl": "/images/operations/environnement/partners/kering.svg", "isFounder": true, "profileUrl": "https://www.kering.com/fr/developpement-durable"},
+    {"name": "Monoprix", "imageUrl": "/images/operations/environnement/partners/monoprix.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/monoprix"},
+    {"name": "EDF", "imageUrl": "/images/operations/environnement/partners/edf.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/edf"},
+    {"name": "JCDecaux", "imageUrl": "/images/operations/environnement/partners/jcdecaux.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/jcdecaux"},
+    {"name": "Sopra Steria", "imageUrl": "/images/operations/environnement/partners/soprasteria.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/sopra-steria"},
+    {"name": "EPSA Group", "imageUrl": "/images/operations/environnement/partners/epsa.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/epsa-groupe"},
+
+    {"name": "LPO France", "imageUrl": "/images/operations/environnement/partners/lpo.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/lpo-france/proposals"},
     {"name": "Fondation GoodPlanet", "imageUrl": "/images/operations/environnement/partners/goodplanet.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/fondation-goodplanet/proposals"},
     {"name": "La Ruche Qui Dit Oui", "imageUrl": "/images/operations/environnement/partners/laruchequiditoui.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/la-ruche-qui-dit-oui/proposals"},
     {"name": "Too Good To Go", "imageUrl": "/images/operations/environnement/partners/toogoodtogo.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/too-good-to-go/proposals"},
