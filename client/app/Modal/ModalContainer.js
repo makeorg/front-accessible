@@ -13,7 +13,7 @@ import {
 import { Login } from 'Client/features/auth/Login';
 import { Register } from 'Client/features/auth/Register';
 import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
-import { DepartmentForm } from 'Client/pages/Consultation/DepartmentCheck/DepartmentForm';
+import { DepartmentForm } from 'Client/custom/cdc/departmentCheck/DepartmentForm';
 import { ModalComponent } from './ModalComponent';
 
 ReactModal.setAppElement('#app');
@@ -33,6 +33,11 @@ type Props = {
 
 const ModalContainerSwitch = (props: Props) => {
   const { handleClose, isModalOpen, contentType } = props;
+
+  // @todo remove or refactor when CDC is over
+  if (contentType === MODAL_DEPARTMENT_FORM) {
+    return modalContents[contentType];
+  }
 
   if (isModalOpen) {
     return (

@@ -13,6 +13,7 @@ export const DepartmentModalStyle = styled(ReactModal)`
   display: inline-flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
   overflow-y: auto;

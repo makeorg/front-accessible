@@ -580,6 +580,10 @@
       "cancel": {
         "text": "Si vous ne souhaitez pas donner votre département vous pouvez ",
         "link": "aller à la page d'accueil"
+      },
+      "modification": {
+        "title": "Votre département",
+        "button": "modifier"
       }
     }
   },
