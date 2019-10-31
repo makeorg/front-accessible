@@ -27,6 +27,11 @@ export const modalShowForgotPassword = () => (dispatch: Function) => {
   trackDisplayForgotPasswordForm();
 };
 
+export const modalShowDepartmentForm = () => {
+  return { type: actionTypes.MODAL_SHOW_DEPARTMENT_FORM };
+  // We could ask tracking there ?
+};
+
 export const showSessionExpirationModal = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_SESSION_EXPIRATION });
 };

@@ -25,4 +25,9 @@ export const getIsActiveFeature = (
   return activeFeatures.includes(featureSlug);
 };
 
+export const checkIsFeatureActivated = (
+  featureSlug: string,
+  activesFeatures: Array<string>
+): boolean => [...activesFeatures, ...features].includes(featureSlug);
+
 export const getFeatures = () => features;

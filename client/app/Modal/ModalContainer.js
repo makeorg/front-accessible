@@ -8,10 +8,12 @@ import {
   MODAL_LOGIN_CONTENT,
   MODAL_REGISTER_CONTENT,
   MODAL_FORGOT_PASSWORD_CONTENT,
+  MODAL_DEPARTMENT_FORM,
 } from 'Shared/constants/modal';
 import { Login } from 'Client/features/auth/Login';
 import { Register } from 'Client/features/auth/Register';
 import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
+import { DepartmentForm } from 'Client/pages/Consultation/DepartmentCheck/DepartmentForm';
 import { ModalComponent } from './ModalComponent';
 
 ReactModal.setAppElement('#app');
@@ -20,6 +22,7 @@ const modalContents = {
   [MODAL_LOGIN_CONTENT]: <Login />,
   [MODAL_REGISTER_CONTENT]: <Register />,
   [MODAL_FORGOT_PASSWORD_CONTENT]: <PasswordForgot />,
+  [MODAL_DEPARTMENT_FORM]: <DepartmentForm />,
 };
 
 type Props = {

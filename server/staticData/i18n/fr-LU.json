@@ -560,6 +560,7 @@
   "modal": {
     "close": "Fermer la fenêtre de dialogue",
     "department_required": {
+      "update_button_text" : "Modifier",
       "valid_button_text": "Valider et participer",
       "cancel_main_text": "Si vous ne souhaitez pas donner votre département vous pouvez ",
       "cancel_link_text": "aller à la page d'accueil"
