@@ -1,15 +1,15 @@
-import { generateCustomDataManager } from './customData';
+import * as customDataHelper from './customData';
 
 describe('Custom data from query params', () => {
-  let storage;
-  const customData = generateCustomDataManager({
-    set: value => {
+  let storage = {};
+  global.sessionStorage = {
+    setItem: value => {
       storage = value;
     },
-    get: () => {
-      return storage || [];
+    getItem: () => {
+      return storage || {};
     },
-  });
+  };
 
   it('Store custom data from query params : first time', async () => {
     const queryParams1 = {
@@ -21,10 +21,17 @@ describe('Custom data from query params', () => {
       cs_key02: '   ',
     };
 
-    customData.storeCustomDataFromQueryParams(queryParams1);
-    expect(customData.getFormattedDataForHeader()).toBe(
-      'key1=value1,key3=value3'
-    );
+    customDataHelper.setDataFromQueryParams(queryParams1);
+    expect(
+      customDataHelper.formatdDataForHeader(customDataHelper.getAll())
+    ).toBe('key1=value1,key3=value3');
+  });
+
+  it('Get all custom data from local storage', () => {
+    expect(customDataHelper.getAll()).toStrictEqual({
+      key1: 'value1',
+      key3: 'value3',
+    });
   });
 
   it('Update custom data in store from new query params', async () => {
@@ -37,14 +44,11 @@ describe('Custom data from query params', () => {
       cs_troll: '=t,r,=,o=l,l',
     };
 
-    customData.storeCustomDataFromQueryParams(queryParams2);
-    expect(customData.getFormattedDataForHeader()).toBe(
+    customDataHelper.setDataFromQueryParams(queryParams2);
+    expect(
+      customDataHelper.formatdDataForHeader(customDataHelper.getAll())
+    ).toBe(
       'key1=value1,key3=value3b,key4=value5,troll=%3Dt%2Cr%2C%3D%2Co%3Dl%2Cl'
     );
-  });
-
-  it('Get a custom data using a key', () => {
-    expect(customData.getValue('key1')).toBe('value1');
-    expect(customData.getValue('whatIsThisKey')).toBe(undefined);
   });
 });

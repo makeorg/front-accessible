@@ -1,31 +1,40 @@
 import React from 'react';
-import { generateCustomDataManager } from 'Client/helper/customData';
-import { getIsActiveFeature } from 'Client/helper/featureFlipping';
-import { DepartmentRequiredComponent } from './DepartmentRequiredComponent';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  modalShowDepartmentForm,
+  modalClose,
+} from 'Shared/store/actions/modal';
+
+import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
 
 export const withDepartmentCheck = WrappedComponent => {
-  const customDataManager = generateCustomDataManager();
-  const departmentStorageKey = 'declared_department';
-
   return props => {
-    const [department, setDepartment] = React.useState(
-      customDataManager.getValue(departmentStorageKey)
-    );
-    const { question } = props;
-    const isActiveFeature = getIsActiveFeature(question.activeFeatures);
+    const department = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
+    const modalState = useSelector(state => state.modal);
+    const dispatch = useDispatch();
 
-    return (
-      <>
-        {!department && isActiveFeature('consultation-department-compulsory') && (
-          <DepartmentRequiredComponent
-            setDepartment={value => {
-              customDataManager.storeValues({ [departmentStorageKey]: value });
-              setDepartment(value);
-            }}
-          />
-        )}
-        <WrappedComponent {...props} />
-      </>
-    );
+    const { question } = props;
+
+    React.useEffect(() => {
+      const isModalOpened =
+        modalState.isOpen && modalState.contentType === 'MODAL_DEPARTMENT_FORM';
+      const isFeatureActivated: boolean = checkIsFeatureActivated(
+        'consultation-department-compulsory',
+        question.activeFeatures
+      );
+      if (!department && isFeatureActivated && !isModalOpened) {
+        dispatch(modalShowDepartmentForm());
+      }
+    }, [modalState, department]);
+
+    React.useEffect(() => {
+      return function cleanup() {
+        dispatch(modalClose());
+      };
+    }, []);
+
+    return <WrappedComponent {...props} />;
   };
 };

@@ -10,6 +10,7 @@ import { sequence } from './sequence';
 import { notification } from './notification';
 import { user } from './user';
 import { questions } from './questions';
+import { customData } from './customData';
 
 export const rootReducer: StateRoot = combineReducers({
   appConfig,
@@ -20,4 +21,5 @@ export const rootReducer: StateRoot = combineReducers({
   currentQuestion,
   notification,
   user,
+  customData, // sync with HTML5 Storage API
 });
