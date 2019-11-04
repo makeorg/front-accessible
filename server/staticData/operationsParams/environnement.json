@@ -7,7 +7,7 @@
   },
   "consultation": {
     "presentation": "Dérèglement climatique, pollution de l’air, de l’eau et des sols, gaspillage et raréfaction des ressources, crise des déchets, érosion de la biodiversité… Face à l’urgence environnementale, devenue première préoccupation des Français, l’heure n’est plus simplement à l’indignation : passons à l’action ! Avec les membres engagés de la société civile, nous lançons ensemble le grand appel aux solutions citoyennes.",
-    "logo": "/images/operations/environnement/consultation/environnement.svg"
+    "logo": "/images/operations/environnement/consultation/logo.svg"
   },
   "partners": [
     {"name": "Kering", "imageUrl": "/images/operations/environnement/partners/kering.svg", "isFounder": true, "profileUrl": "https://www.kering.com/fr/developpement-durable"},
@@ -16,6 +16,7 @@
     {"name": "JCDecaux", "imageUrl": "/images/operations/environnement/partners/jcdecaux.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/jcdecaux"},
     {"name": "Sopra Steria", "imageUrl": "/images/operations/environnement/partners/soprasteria.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/sopra-steria"},
     {"name": "EPSA Group", "imageUrl": "/images/operations/environnement/partners/epsa.svg", "isFounder": true, "profileUrl": "https://about.make.org/post/epsa-groupe"},
+    {"name": "Citeo", "imageUrl": "/images/operations/environnement/partners/citeo.svg", "isFounder": true, "profileUrl": "http://about.make.org/post/citeo"},
 
     {"name": "LPO France", "imageUrl": "/images/operations/environnement/partners/lpo.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/lpo-france/proposals"},
     {"name": "Fondation GoodPlanet", "imageUrl": "/images/operations/environnement/partners/goodplanet.svg", "isFounder": false, "profileUrl": "/FR-fr/profile/fondation-goodplanet/proposals"},
