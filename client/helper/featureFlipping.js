@@ -28,6 +28,13 @@ export const getIsActiveFeature = (
 export const checkIsFeatureActivated = (
   featureSlug: string,
   activesFeatures: Array<string>
-): boolean => [...activesFeatures, ...features].includes(featureSlug);
+): boolean => {
+  if (!features.includes(featureSlug)) {
+    Logger.logWarning(`Feature "${featureSlug}" not found`);
+
+    return false;
+  }
+  return [...activesFeatures].includes(featureSlug);
+};
 
 export const getFeatures = () => features;
