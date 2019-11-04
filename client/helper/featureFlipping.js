@@ -2,21 +2,19 @@
 
 import { Logger } from 'Shared/services/Logger';
 
+import * as features from 'Shared/constants/featureFlipping';
+
+const featuresList: Array<mixed> = Object.values(features);
+
 /**
  * Feature flipping
  */
 export type isActiveFeatureFunction = (featureSlug: string) => boolean;
 
-// Declare available features with a slug list
-export const features = [
-  'operation-multi-questions-navigation',
-  'consultation-department-compulsory',
-];
-
 export const getIsActiveFeature = (
   activeFeatures: string[]
 ): isActiveFeatureFunction => (featureSlug: string): boolean => {
-  if (!features.includes(featureSlug)) {
+  if (!featuresList.includes(featureSlug)) {
     Logger.logWarning(`Feature "${featureSlug}" not found`);
 
     return false;
@@ -29,7 +27,7 @@ export const checkIsFeatureActivated = (
   featureSlug: string,
   activesFeatures: Array<string>
 ): boolean => {
-  if (!features.includes(featureSlug)) {
+  if (!featuresList.includes(featureSlug)) {
     Logger.logWarning(`Feature "${featureSlug}" not found`);
 
     return false;

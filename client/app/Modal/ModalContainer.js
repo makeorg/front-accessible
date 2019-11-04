@@ -34,12 +34,12 @@ type Props = {
 const ModalContainerSwitch = (props: Props) => {
   const { handleClose, isModalOpen, contentType } = props;
 
-  // @todo remove or refactor when CDC is over
-  if (contentType === MODAL_DEPARTMENT_FORM) {
-    return modalContents[contentType];
-  }
-
   if (isModalOpen) {
+    // @todo remove or refactor when CDC is over
+    if (contentType === MODAL_DEPARTMENT_FORM) {
+      return modalContents[contentType];
+    }
+
     return (
       <ModalComponent isModalOpen={isModalOpen} handleClose={handleClose}>
         {modalContents[contentType]}

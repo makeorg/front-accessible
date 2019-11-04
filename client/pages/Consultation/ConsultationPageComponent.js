@@ -26,7 +26,14 @@ import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsPannel } from 'Client/features/consultation/TabsContent/Panel/Results';
 import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation';
-import { getIsActiveFeature } from 'Client/helper/featureFlipping';
+import {
+  getIsActiveFeature,
+  checkIsFeatureActivated,
+} from 'Client/helper/featureFlipping';
+import {
+  OPERATION_MULTI_QUESTIONS_NAVIGATION,
+  CONSULTATION_SHARE_DISABLE,
+} from 'Shared/constants/featureFlipping';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
@@ -56,6 +63,11 @@ export const ConsultationPageComponent = ({
     setFeatureFlipping(() => getIsActiveFeature(question.activeFeatures));
   }, [question]);
 
+  const isSharingDisabled: boolean = checkIsFeatureActivated(
+    CONSULTATION_SHARE_DISABLE,
+    question.activeFeatures
+  );
+
   return (
     <React.Fragment>
       {isConsultationPage && (
@@ -66,7 +78,7 @@ export const ConsultationPageComponent = ({
       )}
       {isActionPage && <ActionsSkipLinks />}
 
-      {isActiveFeature('operation-multi-questions-navigation') &&
+      {isActiveFeature(OPERATION_MULTI_QUESTIONS_NAVIGATION) &&
         hasSiblingQuestions && (
           <NavigationBetweenQuestions question={question} />
         )}
@@ -128,7 +140,7 @@ export const ConsultationPageComponent = ({
           )}
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
-      {isMobile && <MobileSharing />}
+      {isMobile && isSharingDisabled && <MobileSharing />}
     </React.Fragment>
   );
 };

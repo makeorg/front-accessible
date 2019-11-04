@@ -141,7 +141,10 @@ export const DepartmentForm = () => {
         </ScreenReaderItemStyle>
         <DepartmentFormStyle
           id={FORM_NAME}
-          onSubmit={() => setDepartment(departmentValue)}
+          onSubmit={e => {
+            e.preventDefault();
+            setDepartment(departmentValue);
+          }}
         >
           <ScreenReaderItemStyle>
             {i18n.t('modal.department_required.use_form')}
