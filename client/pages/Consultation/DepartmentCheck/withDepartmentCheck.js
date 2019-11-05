@@ -6,7 +6,6 @@ import {
   modalShowDepartmentForm,
   modalClose,
 } from 'Shared/store/actions/modal';
-
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
 
 export const withDepartmentCheck = WrappedComponent => {

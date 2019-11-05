@@ -28,7 +28,7 @@ export const ParticipateBanner = ({ question }: Props) => {
     <ParticipateWrapperStyle aria-labelledby="participate_aside_title">
       <ParticipateIntroductionStyle id="participate_aside_title" as="p">
         {i18n.t('consultation.banner.title')}
-        <ParticipateDescriptionStyle>
+        <ParticipateDescriptionStyle as="span">
           {i18n.t('consultation.banner.description')}
         </ParticipateDescriptionStyle>
       </ParticipateIntroductionStyle>

@@ -1,92 +1,184 @@
-import React from 'react';
-import ReactModal from 'react-modal';
-import styled from 'styled-components';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { Link } from 'react-router-dom';
+import React, {
+  type MutableRefObject,
+  useState,
+  useRef,
+  useEffect,
+} from 'react';
 import { i18n } from 'Shared/i18n';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
+import {
+  SvgBretagneMapMobile,
+  SvgMapMarker,
+  SvgBretagneMap,
+} from 'Client/ui/Svg/elements';
+import { useMobile } from 'Client/hooks/useMedia';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { modalClose } from 'Shared/store/actions/modal';
 import { useDispatch } from 'react-redux';
 import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
-import { setCustomDataKey } from 'Shared/store/actions/customData';
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
-import { modalClose } from 'Shared/store/actions/modal';
+import { setCustomDataKey } from 'Shared/store/actions/customData';
+import {
+  DepartmentModalStyle,
+  DepartmentContentStyle,
+  DepartmentCancelStyle,
+  DepartmentHomeLinkStyle,
+  DepartmentIntroductionStyle,
+  DepartmentFormStyle,
+  DepartmentMapStyle,
+  DepartmentIconStyle,
+  DepartmentLabelStyle,
+} from './Styled';
 
-const CustomReactModal = styled(ReactModal)`
-  position: relative;
-  max-width: 1140px;
-  max-height: 100%;
-  display: inline-flex;
-  align-items: center;
-  flex-direction: column;
-  z-index: 2;
-`;
+const FORM_NAME = 'department_selection';
+const BretagneDepartments = [22, 29, 35, 56];
 
-const MainContent = styled.section`
-  background-color: white;
-  border-radius: 8px;
-  max-width: 500px;
-  padding: 30px;
-`;
+type DepartmentItemProps = {
+  departmentNumber: number,
+  valueInState: number,
+  updateDepartmentValue: () => {},
+  updateMapPath: () => {},
+};
 
-const CancelContent = styled.section`
-  margin-top: 20px;
-  max-width: 500px;
-  color: white;
-  font-family: ${MakeFonts.CircularStandardBook};
-  font-size: 16px;
-  text-align: center;
-`;
+const DepartmentItem = ({
+  departmentNumber,
+  valueInState,
+  updateDepartmentValue,
+  updateMapPath,
+}: DepartmentItemProps) => {
+  const departmentIsSelected = valueInState === departmentNumber;
 
-const HomeLink = styled(Link)`
-  color: inherit;
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
+  useEffect(() => {
+    if (departmentIsSelected) {
+      updateMapPath();
+    }
+  }, [!departmentIsSelected]);
 
-const DepartmentMapSelector = ({ department, setDepartment }) => {
   return (
-    <button
-      type="button"
-      onClick={() => setDepartment(22)}
-      onKeyPress={() => setDepartment(22)}
+    <DepartmentLabelStyle
+      id={`label_dep_${departmentNumber}`}
+      htmlFor={`radio_dep_${departmentNumber}`}
+      className={departmentIsSelected ? 'selected' : ''}
+      onFocus={updateDepartmentValue}
     >
-      {department
-        ? i18n.t('modal.department_required.update_button_text')
-        : i18n.t('modal.department_required.valid_button_text')}
-    </button>
+      <SvgMapMarker style={DepartmentIconStyle} aria-hidden />
+      <ScreenReaderItemStyle>
+        <input
+          type="radio"
+          name="department"
+          id={`radio_dep_${departmentNumber}`}
+          checked={departmentIsSelected}
+          value={departmentNumber}
+          onChange={updateDepartmentValue}
+        />
+      </ScreenReaderItemStyle>
+      {i18n.t(`modal.department_required.departments.${departmentNumber}`)}
+    </DepartmentLabelStyle>
   );
 };
 
 export const DepartmentForm = () => {
-  const currentDepartment = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
+  const isMobile = useMobile();
+  const initialDepartmentValue = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
   const dispatch = useDispatch();
-  const setDepartment = newDepartment => {
+  const setDepartment = (newDepartmentValue: number) => {
+    dispatch(setCustomDataKey(DEPARTMENT_STORAGE_KEY, newDepartmentValue));
     dispatch(modalClose());
-    dispatch(setCustomDataKey(DEPARTMENT_STORAGE_KEY, newDepartment));
+  };
+  const mapWrapperRef = useRef();
+  const [departmentValue, updateDepartmentValue] = useState(
+    initialDepartmentValue
+  );
+  const [canSubmit, setCanSubmit] = useState(false);
+
+  const selectDepartment = (value: number) => {
+    updateDepartmentValue(value);
+    setCanSubmit(true);
   };
 
-  if (currentDepartment) {
-    return (
-      <DepartmentMapSelector
-        department={currentDepartment}
-        setDepartment={setDepartment}
-      />
+  const selectMapPath = (value: number, ref: MutableRefObject<div>) => {
+    const pathNodeList = ref.querySelectorAll('.department-path');
+    const departmentsPath = Array.from(pathNodeList);
+    const selectedDepartmentPath = ref.querySelector(`#path_dep_${value}`);
+
+    departmentsPath.map(departmentPath =>
+      departmentPath.setAttribute('fill-opacity', '0.05')
     );
-  }
+    return selectedDepartmentPath.setAttribute('fill-opacity', '0.15');
+  };
+
+  const updateDepartment = (value: number, ref: MutableRefObject<div>) => {
+    if (ref) {
+      selectMapPath(value, ref);
+    }
+
+    return selectDepartment(value);
+  };
 
   return (
-    <CustomReactModal isOpen overlayClassName="modal-overlay">
-      <MainContent>
-        <DepartmentMapSelector setDepartment={setDepartment} />
-      </MainContent>
-      <CancelContent>
-        {i18n.t('modal.department_required.cancel_main_text')}
-        <HomeLink to="/">
-          {i18n.t('modal.department_required.cancel_link_text')}
-        </HomeLink>
-      </CancelContent>
-    </CustomReactModal>
+    <DepartmentModalStyle isOpen overlayClassName="modal-overlay">
+      <DepartmentContentStyle>
+        <SecondLevelTitleStyle>
+          {i18n.t('modal.department_required.title')}
+        </SecondLevelTitleStyle>
+        <DepartmentIntroductionStyle>
+          {i18n.t('modal.department_required.introduction.first')}
+          <br />
+          {i18n.t('modal.department_required.introduction.second')}
+        </DepartmentIntroductionStyle>
+        <ParagraphStyle>
+          {i18n.t('modal.department_required.disclaimer.first')}
+          <br />
+          {i18n.t('modal.department_required.disclaimer.second')}
+        </ParagraphStyle>
+        <ScreenReaderItemStyle as="p">
+          {i18n.t('modal.department_required.cancel.text')}
+          <DepartmentHomeLinkStyle to="/">
+            {i18n.t('modal.department_required.cancel.link')}
+          </DepartmentHomeLinkStyle>
+        </ScreenReaderItemStyle>
+        <DepartmentFormStyle
+          id={FORM_NAME}
+          onSubmit={() => setDepartment(departmentValue)}
+        >
+          <ScreenReaderItemStyle>
+            {i18n.t('modal.department_required.use_form')}
+          </ScreenReaderItemStyle>
+          <div ref={mapWrapperRef} aria-hidden>
+            {isMobile ? (
+              <SvgBretagneMapMobile style={DepartmentMapStyle} />
+            ) : (
+              <SvgBretagneMap aria-hidden style={DepartmentMapStyle} />
+            )}
+          </div>
+          {BretagneDepartments.map(departmentNumber => (
+            <DepartmentItem
+              key={departmentNumber}
+              departmentNumber={departmentNumber}
+              valueInState={departmentValue}
+              updateDepartmentValue={() =>
+                updateDepartment(departmentNumber, mapWrapperRef.current)
+              }
+              updateMapPath={() =>
+                selectMapPath(departmentValue, mapWrapperRef.current)
+              }
+            />
+          ))}
+          <SubmitButton
+            formName={FORM_NAME}
+            disabled={!canSubmit}
+            label={i18n.t('modal.department_required.button')}
+          />
+        </DepartmentFormStyle>
+      </DepartmentContentStyle>
+      <DepartmentCancelStyle aria-hidden>
+        {i18n.t('modal.department_required.cancel.text')}
+        <DepartmentHomeLinkStyle to="/">
+          {i18n.t('modal.department_required.cancel.link')}
+        </DepartmentHomeLinkStyle>
+      </DepartmentCancelStyle>
+    </DepartmentModalStyle>
   );
 };
