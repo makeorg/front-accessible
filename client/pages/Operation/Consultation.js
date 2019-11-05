@@ -18,8 +18,10 @@ import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs
 import {
   CONSULTATION_SHARE_DISABLE,
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
+  CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
+import { FollowUsComponent } from 'Client/features/followUs/FollowUsComponent';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
 
@@ -49,6 +51,10 @@ const ConsultationPageWrapper = ({
   );
   const isSharingDisabled: boolean = checkIsFeatureActivated(
     CONSULTATION_SHARE_DISABLE,
+    question.activeFeatures
+  );
+  const isFollowUsActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
   );
 
@@ -83,6 +89,7 @@ const ConsultationPageWrapper = ({
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && !isSharingDisabled && <MobileSharing />}
+      {isMobile && isFollowUsActive && <FollowUsComponent />}
     </React.Fragment>
   );
 };

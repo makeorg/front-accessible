@@ -13,7 +13,11 @@ import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
+import {
+  CONSULTATION_SHARE_DISABLE,
+  CONSULTATION_FOLLOW_US_ACTIVE,
+} from 'Shared/constants/featureFlipping';
+import { FollowUsComponent } from 'Client/features/followUs/FollowUsComponent';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
 
@@ -32,6 +36,10 @@ const ConsultationPageWrapper = ({
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const isSharingDisabled: boolean = checkIsFeatureActivated(
     CONSULTATION_SHARE_DISABLE,
+    question.activeFeatures
+  );
+  const isFollowUsActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
   );
 
@@ -56,6 +64,7 @@ const ConsultationPageWrapper = ({
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && !isSharingDisabled && <MobileSharing />}
+      {isMobile && isFollowUsActive && <FollowUsComponent />}
     </React.Fragment>
   );
 };

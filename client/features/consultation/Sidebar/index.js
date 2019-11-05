@@ -15,7 +15,9 @@ import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
 import {
   CONSULTATION_SHARE_DISABLE,
   CONSULTATION_DEPARTMENT_COMPULSORY,
+  CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
+import { FollowUsComponent } from 'Client/features/followUs/FollowUsComponent';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
@@ -61,6 +63,9 @@ export const ConsultationSidebar = ({
         <TileWithTitle title={i18n.t('consultation.sharing.title')}>
           <Sharing />
         </TileWithTitle>
+      )}
+      {isActiveFeature(CONSULTATION_FOLLOW_US_ACTIVE) && !isMobile && (
+        <FollowUsComponent />
       )}
     </ConsultationPageSidebarStyle>
   );

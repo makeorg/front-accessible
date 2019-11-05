@@ -63,6 +63,7 @@ export const StatusColors = {
 export const SocialNetworksColors = {
   Facebook: 'rgb(58,89,152)',
   Twitter: 'rgb(26,145,218)',
+  Instagram: 'rgb(252,175,69)',
   LinkedIn: 'rgb(0,119,181)',
 };
 
