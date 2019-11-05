@@ -7,13 +7,12 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { FourthLevelTitleStyle } from '../../TitleElements';
 
 export const TileWithTitleStyle = styled.div`
-  padding: 10px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
+  padding: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};
-    padding: 20px;
     &:last-child {
       margin-bottom: 0;
     }
