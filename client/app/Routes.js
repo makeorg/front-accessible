@@ -25,12 +25,15 @@ import {
   ROUTE_STATIC_GTU,
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_CONTACT,
+  ROUTE_RESULTS,
 } from 'Shared/routes';
 
-const ConsultationPage = loadable(() => import('Client/pages/Consultation'));
-const SequencePage = loadable(() =>
-  import('Client/pages/Consultation/Sequence')
+const ConsultationPage = loadable(() =>
+  import('Client/pages/Operation/Consultation.js')
 );
+const ActionsPage = loadable(() => import('Client/pages/Operation/Actions.js'));
+const ResultsPage = loadable(() => import('Client/pages/Operation/Results.js'));
+const SequencePage = loadable(() => import('Client/pages/Operation/Sequence'));
 const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
 );
@@ -57,7 +60,8 @@ const Contact = loadable(() => import('Client/pages/Static/Contact'));
 export const Routes = () => (
   <Switch>
     <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
-    <Route path={ROUTE_ACTION} component={ConsultationPage} />
+    <Route path={ROUTE_ACTION} component={ActionsPage} />
+    <Route path={ROUTE_RESULTS} component={ResultsPage} />
     <Route path={ROUTE_SEQUENCE} component={SequencePage} />
     <Route path={ROUTE_ACCOUNT_ACTIVATION} component={AccountActivationPage} />
     <Route path={ROUTE_PROPOSAL} component={ProposalPage} />

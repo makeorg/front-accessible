@@ -13,13 +13,13 @@ import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import {
   ConsultationPageContentStyle,
   ConsultationIconStyle,
-} from 'Client/pages/Consultation/Styled';
+} from 'Client/pages/Operation/Styled';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { updateRequestContext } from 'Shared/helpers/apiService';
-import { TagSectionTitle } from '../../Styled/TagFilter';
-import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
+import { TagSectionTitle } from './Styled/TagFilter';
+import { ConsultationSidebar } from './Sidebar';
 
 type Props = {
   questionConfiguration: TypeQuestionConfiguration,
@@ -35,7 +35,7 @@ const toggleTagIdInList = (tagIdList: string[], tagId: string): string[] => {
   return newTagIdList;
 };
 
-export const ConsultationPanelContent = ({
+export const ConsultationContent = ({
   questionConfiguration,
   question,
 }: Props) => {
@@ -75,7 +75,7 @@ export const ConsultationPanelContent = ({
           questionConfiguration={questionConfiguration}
         />
       )}
-      <ConsultationPannelSidebar
+      <ConsultationSidebar
         question={question}
         questionConfiguration={questionConfiguration}
       />

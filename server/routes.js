@@ -21,6 +21,7 @@ import {
   ROUTE_STATIC_CONTACT,
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_GTU,
+  ROUTE_RESULTS,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -79,6 +80,7 @@ export const initRoutes = app => {
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
+  app.get(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);

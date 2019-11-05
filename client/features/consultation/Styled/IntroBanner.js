@@ -20,11 +20,15 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
     ${props => props.gradientStart},
     ${props => props.gradientEnd}
   );
-  padding: ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)}
-    ${intToPx(MobilePaddingWithOffset)};
+  padding: ${intToPx(DefaultPadding.Mobile)};
+  &.great-cause-banner {
+    padding-bottom: ${intToPx(MobilePaddingWithOffset)};
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)}
-      ${intToPx(DefaultPadding.Desktop)} ${intToPx(DesktopPaddingWithOffset)};
+    padding: ${intToPx(DefaultPadding.Desktop)};
+    &.great-cause-banner {
+      padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
+    }
   }
 `;
 

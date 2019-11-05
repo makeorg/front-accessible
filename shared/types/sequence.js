@@ -8,12 +8,7 @@ export type ConsultationType = {
   logo: string,
 };
 
-export type Sharing = {
-  twitterHashtags: string,
-};
-
 export type QuestionConfiguration = {
-  sharing: Sharing,
   theme: TypeQuestionTheme,
   partners: TypePartner[],
   consultation: ConsultationType,

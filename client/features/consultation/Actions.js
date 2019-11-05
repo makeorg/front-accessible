@@ -6,7 +6,7 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
-} from 'Client/pages/Consultation/Styled';
+} from 'Client/pages/Operation/Styled';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { i18n } from 'Shared/i18n';
@@ -25,7 +25,7 @@ type Props = {
   isLoggedIn: boolean,
 };
 
-export const ActionsPanel = ({
+export const Actions = ({
   questionConfiguration,
   question,
   handleRegisterModal,
@@ -73,7 +73,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export const ActionsPanelContent = connect(
+export const ActionsContent = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ActionsPanel);
+)(Actions);

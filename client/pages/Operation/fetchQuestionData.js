@@ -13,7 +13,6 @@ import {
 } from 'Shared/types/question';
 import {
   fetchQuestionConfigurationData,
-  fetchQuestionResults,
   loadQuestion,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
@@ -72,9 +71,6 @@ const callQuestionData = Component =>
             QuestionApiService.getDetail(match.params.questionSlug)
               .then(questionDetail => {
                 dispatch(loadQuestion(questionDetail));
-                if (questionDetail.displayResults) {
-                  dispatch(fetchQuestionResults(questionDetail.slug));
-                }
                 dispatch(fetchQuestionConfigurationData(questionDetail.slug));
               })
               .catch(error => {

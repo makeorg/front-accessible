@@ -12,6 +12,7 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_GTU,
   ROUTE_STATIC_LEGAL,
+  ROUTE_RESULTS,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -91,6 +92,25 @@ export const getActionLink = (
   questionSlug: string
 ) => {
   return ROUTE_ACTION.replace(':country', country)
+    .replace(':language', language)
+    .replace(':questionSlug', questionSlug);
+};
+
+/**
+ * Get the results link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getResultsLink = (
+  country: string,
+  language: string,
+  questionSlug: string
+) => {
+  return ROUTE_RESULTS.replace(':country', country)
     .replace(':language', language)
     .replace(':questionSlug', questionSlug);
 };

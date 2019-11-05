@@ -4,7 +4,7 @@ import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
-import { ConsultationPageSidebarStyle } from 'Client/pages/Consultation/Styled';
+import { ConsultationPageSidebarStyle } from 'Client/pages/Operation/Styled';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -16,15 +16,15 @@ import {
   CONSULTATION_SHARE_DISABLE,
   CONSULTATION_DEPARTMENT_COMPULSORY,
 } from 'Shared/constants/featureFlipping';
-import { PresentationTile } from '../Tiles/Presentation';
-import { PartnersTile } from '../Tiles/Partners';
-import { MethodologyTile } from '../Tiles/Methodology';
+import { PresentationTile } from './Tiles/Presentation';
+import { PartnersTile } from './Tiles/Partners';
+import { MethodologyTile } from './Tiles/Methodology';
 
 type Props = {
   question: TypeQuestion,
   questionConfiguration: TypeQuestionConfiguration,
 };
-export const ConsultationPannelSidebar = ({
+export const ConsultationSidebar = ({
   question,
   questionConfiguration,
 }: Props) => {
