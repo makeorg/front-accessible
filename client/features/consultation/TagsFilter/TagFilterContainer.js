@@ -4,6 +4,7 @@ import { type Question } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { TagService } from 'Shared/api/TagService';
 import { Logger } from 'Shared/services/Logger';
+import { updateRequestContext } from 'Shared/helpers/apiService';
 import { TagFilterComponent } from './TagFilterComponent';
 
 type Props = {
@@ -27,6 +28,7 @@ export const TagFilterContainer = ({
   useEffect(() => {
     let isMounted = true;
     const { questionId, country, language } = question;
+    updateRequestContext(question);
     const fetchTags = async () => {
       try {
         const result = await TagService.getList(questionId, country, language);
