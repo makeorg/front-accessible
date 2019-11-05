@@ -2,7 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { focusProposalField } from '../Consultation';
+import { focusProposalField } from './Consultation';
 
 type Props = {
   canPropose: boolean,

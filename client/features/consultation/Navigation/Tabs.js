@@ -60,7 +60,11 @@ export const NavigationWithTabs = ({ question, location }: Props) => {
           </FullWidthTabStyle>
         ) : (
           <FullWidthTabStyle isSelected={isConsultationPage}>
+<<<<<<< HEAD
             <Link to={consultationLink} aria-current={isConsultationPage}>
+=======
+            <Link to={consultationLink}>
+>>>>>>> refactor(consultation): split consultation / actions / results
               {i18n.t('consultation.tabs.consultation')}
               <ExtraTabsInformationsStyle>
                 {i18n.t('consultation.tabs.from')}
@@ -79,7 +83,13 @@ export const NavigationWithTabs = ({ question, location }: Props) => {
           <Link
             to={actionsLink}
             aria-current={isActionsPage}
+<<<<<<< HEAD
             onClick={trackClickActionsTab}
+=======
+            onClick={() => {
+              trackClickActionsTab();
+            }}
+>>>>>>> refactor(consultation): split consultation / actions / results
           >
             {i18n.t('consultation.tabs.action')}
           </Link>

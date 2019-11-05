@@ -11,7 +11,7 @@ import {
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
-import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
+import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsContent } from 'Client/features/consultation/Results';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
@@ -58,10 +58,7 @@ const ConsultationPageWrapper = ({
   }
   return (
     <React.Fragment>
-      <ConsultationSkipLinks
-        canPropose={question.canPropose}
-        withResults={question.displayResults}
-      />
+      <ResultsSkipLinks />
       <IntroBanner
         question={question}
         questionConfiguration={questionConfiguration}
