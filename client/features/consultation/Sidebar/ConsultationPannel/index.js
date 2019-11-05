@@ -12,6 +12,10 @@ import { getIsActiveFeature } from 'Client/helper/featureFlipping';
 import { DepartmentModification } from 'Client/custom/cdc/departmentModification';
 import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
+import {
+  CONSULTATION_SHARE_DISABLE,
+  CONSULTATION_DEPARTMENT_COMPULSORY,
+} from 'Shared/constants/featureFlipping';
 import { PresentationTile } from '../Tiles/Presentation';
 import { PartnersTile } from '../Tiles/Partners';
 import { MethodologyTile } from '../Tiles/Methodology';
@@ -46,15 +50,14 @@ export const ConsultationPannelSidebar = ({
       )}
       {question.displayResults && <MethodologyTile />}
       {/* @todo remove or refactor when CDC consultation is over */}
-      {isActiveFeature('consultation-department-compulsory') &&
-        departmentNumber && (
-          <TileWithTitle
-            title={i18n.t('modal.department_required.modification.title')}
-          >
-            <DepartmentModification departmentNumber={departmentNumber} />
-          </TileWithTitle>
-        )}
-      {!isMobile && (
+      {isActiveFeature(CONSULTATION_DEPARTMENT_COMPULSORY) && departmentNumber && (
+        <TileWithTitle
+          title={i18n.t('modal.department_required.modification.title')}
+        >
+          <DepartmentModification departmentNumber={departmentNumber} />
+        </TileWithTitle>
+      )}
+      {!isActiveFeature(CONSULTATION_SHARE_DISABLE) && !isMobile && (
         <TileWithTitle title={i18n.t('consultation.sharing.title')}>
           <Sharing />
         </TileWithTitle>

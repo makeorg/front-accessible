@@ -14,6 +14,8 @@ import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { SingleProposalSharingComponent } from 'Client/features/proposal/SingleProposalCard/Sharing';
 import { updateRequestContext } from 'Shared/helpers/apiService';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
 
 type Props = {
   match: TypeMatch,
@@ -49,6 +51,10 @@ const ProposalPage = (props: Props) => {
       </MiddlePageWrapperStyle>
     );
   }
+  const isSharingDisabled: boolean = checkIsFeatureActivated(
+    CONSULTATION_SHARE_DISABLE,
+    question.activeFeatures
+  );
 
   return (
     <ThemeProvider theme={question.theme}>
@@ -65,7 +71,8 @@ const ProposalPage = (props: Props) => {
             <SingleProposalCard proposal={proposal} />
           </React.Fragment>
         )}
-        <SingleProposalSharingComponent />
+
+        {!isSharingDisabled && <SingleProposalSharingComponent />}
       </MiddlePageWrapperStyle>
     </ThemeProvider>
   );

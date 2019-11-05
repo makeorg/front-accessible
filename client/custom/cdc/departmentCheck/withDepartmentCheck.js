@@ -7,6 +7,7 @@ import {
   modalClose,
 } from 'Shared/store/actions/modal';
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
+import { CONSULTATION_DEPARTMENT_COMPULSORY } from 'Shared/constants/featureFlipping';
 
 export const withDepartmentCheck = WrappedComponent => {
   return props => {
@@ -20,7 +21,7 @@ export const withDepartmentCheck = WrappedComponent => {
       const isModalOpened =
         modalState.isOpen && modalState.contentType === 'MODAL_DEPARTMENT_FORM';
       const isFeatureActivated: boolean = checkIsFeatureActivated(
-        'consultation-department-compulsory',
+        CONSULTATION_DEPARTMENT_COMPULSORY,
         question.activeFeatures
       );
       if (!department && isFeatureActivated && !isModalOpened) {
