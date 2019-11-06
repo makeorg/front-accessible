@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { type Location as TypeLocation } from 'react-router';
@@ -45,9 +45,9 @@ const ConsultationPageWrapper = ({
     question.activeFeatures
   );
 
-  if (question.displayResults) {
+  useEffect(() => {
     dispatch(fetchQuestionResults(question.slug));
-  }
+  }, [!questionResults]);
 
   if (!questionResults) {
     return (

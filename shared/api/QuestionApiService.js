@@ -4,7 +4,6 @@ import {
   type ApiSearchQuestionsResponseType,
 } from 'Shared/types/api';
 import { SequenceService } from 'Shared/api/SequenceService';
-import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTIONS_SEARCH = '/questions/search';
@@ -29,16 +28,10 @@ export class QuestionApiService {
         const extendedPromises = [
           SequenceService.fetchConfiguration(questionDetails.slug),
         ];
-        if (questionDetails.displayResult) {
-          extendedPromises.push(
-            QuestionNodeService.fetchResults(questionDetails.slug)
-          );
-        }
         return Promise.all(extendedPromises).then(data => {
-          const [configuration, questionResults] = data;
+          const [configuration] = data;
           return {
             question: questionDetails,
-            questionResults: questionResults || undefined,
             questionConfiguration: configuration,
           };
         });
