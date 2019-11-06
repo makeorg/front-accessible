@@ -5,7 +5,7 @@ import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
 import { SvgLightBulb } from 'Client/ui/Svg/elements';
-import { ConsultationIconStyle } from 'Client/pages/Consultation/Styled';
+import { ConsultationIconStyle } from 'Client/pages/Operation/Styled';
 import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
 type Props = {

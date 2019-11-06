@@ -17,11 +17,17 @@ const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 export const ConsultationPageWrapperStyle = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
-  margin: 0 auto ${intToPx(MobileMarginWithOffset)};
-  transform: translateY(-${MobileOffset});
+  margin: 15px auto;
+  &.great-cause-container {
+    margin: 0 auto ${intToPx(MobileMarginWithOffset)};
+    transform: translateY(-${MobileOffset});
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
-    transform: translateY(-${DesktopOffset});
+    margin: 30px auto;
+    &.great-cause-container {
+      margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
+      transform: translateY(-${DesktopOffset});
+    }
   }
 `;
 
@@ -47,7 +53,7 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
     ${props =>
       props.bottomAffix
         ? `bottom: -${DesktopOffset}; align-self: flex-end`
-        : `top: ${DesktopOffset} ; align-self: flex-start`};
+        : 'top: 0; align-self: flex-start'};
   }
 `;
 

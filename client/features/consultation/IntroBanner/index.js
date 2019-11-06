@@ -18,6 +18,7 @@ type Props = {
 export const IntroBanner = ({ question, questionConfiguration }: Props) => {
   const { wording } = question;
   const { theme, consultation } = questionConfiguration;
+  const questionIsGreatCause = isGreatCause(question.operationKind);
   return (
     <IntroWrapperStyle
       as="header"
@@ -25,8 +26,9 @@ export const IntroBanner = ({ question, questionConfiguration }: Props) => {
       gradientEnd={theme.gradientEnd}
       backgroundcolor={theme.gradientStart}
       id="intro"
+      className={questionIsGreatCause && 'great-cause-banner'}
     >
-      {isGreatCause(question.operationKind) && (
+      {questionIsGreatCause && (
         <IntroLabelStyle>{i18n.t('consultation.header.label')}</IntroLabelStyle>
       )}
       {consultation.logo ? (

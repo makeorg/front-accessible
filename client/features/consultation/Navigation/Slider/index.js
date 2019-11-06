@@ -8,7 +8,7 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useSlider } from 'Client/hooks/useSlider';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { getNavName } from '..';
+import { getNavName } from '../BetweenQuestions';
 import {
   ConsultationNavItemStyle,
   ConsultationNavLinkStyle,

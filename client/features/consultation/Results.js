@@ -5,7 +5,7 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { ConsultationPageContentStyle } from 'Client/pages/Consultation/Styled';
+import { ConsultationPageContentStyle } from 'Client/pages/Operation/Styled';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -28,17 +28,17 @@ import {
   RESULTS_REJECTED,
   RESULTS_PARTICIPATION,
 } from 'Shared/constants/ids';
-import { ConsultationPannelSidebar } from '../../Sidebar/ConsultationPannel';
-import { ResultsContext } from '../../Results/Context';
+import { ConsultationSidebar } from './Sidebar';
+import { ResultsContext } from './Results/Context';
 import {
   ResultsIconsStyle,
   ResultsLightningIconStyle,
   ResultsThumbIconStyle,
-} from '../../Results/Styled';
-import { KeyFigures } from '../../Results/KeyFigures';
-import { ProposalsResults } from '../../Results/Proposals';
-import { TopIdeas } from '../../Results/TopIdeas';
-import { ResultsSlider } from '../../Results/Sliders';
+} from './Results/Styled';
+import { KeyFigures } from './Results/KeyFigures';
+import { ProposalsResults } from './Results/Proposals';
+import { TopIdeas } from './Results/TopIdeas';
+import { ResultsSlider } from './Results/Sliders';
 
 type Props = {
   questionResults: TypeQuestionResults,
@@ -49,7 +49,7 @@ type Props = {
 const CARTOGRAPHY_SLIDER: string = 'cartography';
 const PARTICIPATION_SLIDER: string = 'participation';
 
-export const ResultsPannel = ({
+export const ResultsContent = ({
   questionResults,
   questionConfiguration,
   question,
@@ -71,7 +71,7 @@ export const ResultsPannel = ({
         })}
       />
       {displaySidebar && (
-        <ConsultationPannelSidebar
+        <ConsultationSidebar
           question={question}
           questionConfiguration={questionConfiguration}
         />
