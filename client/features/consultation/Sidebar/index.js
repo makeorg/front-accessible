@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
@@ -22,12 +21,8 @@ import { MethodologyTile } from './Tiles/Methodology';
 
 type Props = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
 };
-export const ConsultationSidebar = ({
-  question,
-  questionConfiguration,
-}: Props) => {
+export const ConsultationSidebar = ({ question }: Props) => {
   const isMobile = useMobile();
   const isActiveFeature = getIsActiveFeature(question.activeFeatures);
   const departmentNumber = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
@@ -38,15 +33,9 @@ export const ConsultationSidebar = ({
       aria-label={i18n.t('common.sidebar_area')}
       bottomAffix={isGreatCause(question.operationKind)}
     >
-      <PresentationTile
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
+      <PresentationTile question={question} />
       {isGreatCause(question.operationKind) && (
-        <PartnersTile
-          question={question}
-          questionConfiguration={questionConfiguration}
-        />
+        <PartnersTile question={question} />
       )}
       {question.displayResults && <MethodologyTile />}
       {/* @todo remove or refactor when CDC consultation is over */}

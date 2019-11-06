@@ -3,7 +3,6 @@ import {
   type ApiServiceHeaders,
   type ApiSearchQuestionsResponseType,
 } from 'Shared/types/api';
-import { SequenceService } from 'Shared/api/SequenceService';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTIONS_SEARCH = '/questions/search';
@@ -13,31 +12,15 @@ const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 export class QuestionApiService {
   static getDetail(
     questionSlugOrId: string,
-    headers: ApiServiceHeaders = {},
-    fetchExtendedData: ?boolean = false
+    headers: ApiServiceHeaders = {}
   ): Promise<Object> {
-    const promise = ApiService.callApi(
+    return ApiService.callApi(
       PATH_QUESTION_DETAIL.replace(':questionSlugOrId', questionSlugOrId),
       {
         method: 'GET',
         headers,
       }
     );
-    if (fetchExtendedData === true) {
-      return promise.then(questionDetails => {
-        const extendedPromises = [
-          SequenceService.fetchConfiguration(questionDetails.slug),
-        ];
-        return Promise.all(extendedPromises).then(data => {
-          const [configuration] = data;
-          return {
-            question: questionDetails,
-            questionConfiguration: configuration,
-          };
-        });
-      });
-    }
-    return promise;
   }
 
   static startSequence(

@@ -1,6 +1,5 @@
 // @flow
 import { type TypeErrorObject } from 'Shared/types/api';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
@@ -70,7 +69,6 @@ export type StateUser = $ReadOnly<{
 export type StateQuestions = $ReadOnly<{
   [string]: {
     question: TypeQuestion,
-    questionConfiguration: TypeQuestionConfiguration,
     questionResults: TypeQuestionResults,
   },
 }>;

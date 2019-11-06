@@ -5,15 +5,13 @@ import { Collapse } from 'Client/ui/Elements/Collapse';
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { isInProgress } from 'Shared/helpers/date';
 import { Partners } from '../../Partners';
 
 type Props = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
 };
-export const PartnersTile = ({ question, questionConfiguration }: Props) => {
+export const PartnersTile = ({ question }: Props) => {
   const isMobile = useMobile();
 
   if (isMobile) {
@@ -26,10 +24,7 @@ export const PartnersTile = ({ question, questionConfiguration }: Props) => {
         }
         withTileStyle
       >
-        <Partners
-          questionConfiguration={questionConfiguration}
-          question={question}
-        />
+        <Partners question={question} />
       </Collapse>
     );
   }
@@ -42,10 +37,7 @@ export const PartnersTile = ({ question, questionConfiguration }: Props) => {
           : i18n.t('consultation.partners.commitment_title')
       }
     >
-      <Partners
-        questionConfiguration={questionConfiguration}
-        question={question}
-      />
+      <Partners question={question} />
     </TileWithTitle>
   );
 };

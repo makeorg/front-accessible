@@ -2,21 +2,18 @@
 import React from 'react';
 import { isGreatCause } from 'Shared/helpers/question';
 import { type Question } from 'Shared/types/question';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { DefaultBanner } from './DefaultBanner';
 import { GreatCauseBanner } from './GreatCauseBanner';
 
 type Props = {
   question: Question,
-  questionConfiguration: QuestionConfiguration,
 };
 
-export const IntroBanner = (props: Props) => {
-  const { question } = props;
+export const IntroBanner = ({ question }: Props) => {
   const questionIsGreatCause = isGreatCause(question.operationKind);
   return questionIsGreatCause ? (
-    <GreatCauseBanner {...props} />
+    <GreatCauseBanner question={question} />
   ) : (
-    <DefaultBanner {...props} />
+    <DefaultBanner question={question} />
   );
 };

@@ -17,14 +17,6 @@ export function questions(
           question: action.payload.question,
         },
       };
-    case actionTypes.QUESTION_CONFIGURATION_LOAD:
-      return {
-        ...state,
-        [action.payload.questionSlug]: {
-          ...state[action.payload.questionSlug],
-          questionConfiguration: action.payload.questionConfiguration,
-        },
-      };
     case actionTypes.QUESTION_RESULTS_LOAD:
       return {
         ...state,

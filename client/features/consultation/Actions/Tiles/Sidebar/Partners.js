@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type Partner as TypePartner } from 'Shared/types/organisation';
+import { type TypePartner } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { i18n } from 'Shared/i18n';
 import { PartnersList } from 'Client/features/consultation/Sidebar/Partners/List';

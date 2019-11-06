@@ -1,6 +1,5 @@
 // @flow
 import React, { useEffect } from 'react';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
@@ -42,18 +41,13 @@ import { ResultsSlider } from './Results/Sliders';
 
 type Props = {
   questionResults: TypeQuestionResults,
-  questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
 };
 
 const CARTOGRAPHY_SLIDER: string = 'cartography';
 const PARTICIPATION_SLIDER: string = 'participation';
 
-export const ResultsContent = ({
-  questionResults,
-  questionConfiguration,
-  question,
-}: Props) => {
+export const ResultsContent = ({ questionResults, question }: Props) => {
   const isMobile = useMobile();
   const isDesktop = useDesktop();
   const displaySidebar = isMobile || isDesktop;
@@ -72,12 +66,7 @@ export const ResultsContent = ({
           question: question.wording.question,
         })}
       />
-      {displaySidebar && (
-        <ConsultationSidebar
-          question={question}
-          questionConfiguration={questionConfiguration}
-        />
-      )}
+      {displaySidebar && <ConsultationSidebar question={question} />}
       <ConsultationPageContentStyle id="main">
         <HiddenItemStyle as="h2">
           {i18n.t('consultation.results.title', {
@@ -101,7 +90,7 @@ export const ResultsContent = ({
         >
           <KeyFigures
             results={questionResults.key_figures}
-            themeColor={questionConfiguration.theme.color}
+            themeColor={question.theme.color}
           />
         </TileWithTitle>
         <TileWithTitle

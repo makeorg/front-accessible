@@ -3,12 +3,10 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { SequenceService } from 'Shared/api/SequenceService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import { trackFirstVote } from 'Shared/services/Tracking';
@@ -34,14 +32,6 @@ export const loadQuestion = (question: TypeQuestion) => ({
 
 export const unloadCurrentQuestion = () => ({
   type: actionTypes.QUESTION_UNLOAD,
-});
-
-export const loadQuestionConfiguration = (
-  questionConfiguration: TypeQuestionConfiguration,
-  questionSlug: string
-) => ({
-  type: actionTypes.QUESTION_CONFIGURATION_LOAD,
-  payload: { questionConfiguration, questionSlug },
 });
 
 export const loadQuestionResults = (
@@ -82,18 +72,6 @@ export const fetchQuestionData = (questionSlugOrId: string) => (
       // Important ! Do not remove: use by the parent to use question.questionId
       return question;
     })
-    .catch(error => {
-      Logger.logError(Error(error));
-    });
-
-export const fetchQuestionConfigurationData = (questionSlug: string) => (
-  dispatch: any => void
-) =>
-  SequenceService.fetchConfiguration(questionSlug)
-    .then(questionConfiguration => {
-      dispatch(loadQuestionConfiguration(questionConfiguration, questionSlug));
-    })
-
     .catch(error => {
       Logger.logError(Error(error));
     });

@@ -1,7 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
@@ -22,13 +21,9 @@ import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
 };
 
-const ConsultationPageWrapper = ({
-  question,
-  questionConfiguration,
-}: Props) => {
+const ConsultationPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
   const isFollowUsActive: boolean = checkIsFeatureActivated(
@@ -54,15 +49,11 @@ const ConsultationPageWrapper = ({
   return (
     <React.Fragment>
       <ResultsSkipLinks />
-      <IntroBanner
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
+      <IntroBanner question={question} />
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ResultsContent
             question={question}
-            questionConfiguration={questionConfiguration}
             questionResults={questionResults}
           />
         </ConsultationPanelInnerStyle>

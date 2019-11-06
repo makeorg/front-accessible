@@ -1,7 +1,5 @@
 import { createInitialState } from 'Shared/store/initialState';
-import { SequenceService } from 'Shared/api/SequenceService';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
@@ -21,9 +19,6 @@ export const sequenceRoute = async (req, res) => {
       return res.redirect(question.aboutUrl);
     }
 
-    const questionConfiguration: TypeQuestionConfiguration = await SequenceService.fetchConfiguration(
-      questionSlug
-    );
     if (question) {
       const { sequenceConfig } = question;
       question.sequenceConfig = disableExtraSlidesByQuery(
@@ -38,7 +33,6 @@ export const sequenceRoute = async (req, res) => {
     routeState.questions = {
       [questionSlug]: {
         question,
-        questionConfiguration,
       },
     };
     updateRequestContextQuestion(question);

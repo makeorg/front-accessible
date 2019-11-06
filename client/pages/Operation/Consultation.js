@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { Redirect } from 'react-router';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
@@ -23,13 +22,9 @@ import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
 };
 
-const ConsultationPageWrapper = ({
-  question,
-  questionConfiguration,
-}: Props) => {
+const ConsultationPageWrapper = ({ question }: Props) => {
   const resultsLink = getResultsLink(
     question.country,
     question.language,
@@ -64,17 +59,11 @@ const ConsultationPageWrapper = ({
       {isNavigationBetweenQuestionActive && hasSiblingQuestions && (
         <NavigationBetweenQuestions question={question} />
       )}
-      <IntroBanner
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
+      <IntroBanner question={question} />
 
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
-          <ConsultationContent
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
+          <ConsultationContent question={question} />
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}

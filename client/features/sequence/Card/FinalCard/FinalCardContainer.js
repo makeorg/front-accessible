@@ -5,10 +5,10 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type FinalCardConfig } from 'Shared/types/card';
 import { trackDisplayFinalCard } from 'Shared/services/Tracking';
 import { CustomFinalCard } from 'Client/custom/cdc/finalCard';
+import cdcData from 'Shared/constants/cdc.json';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {
@@ -20,7 +20,6 @@ type Props = {
 
 type QuestionState = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
   questionResults?: TypeQuestionResults,
 };
 
@@ -44,11 +43,12 @@ export const FinalCardContainer = ({ configuration, isCardVisible }: Props) => {
   const questionState: QuestionState = useSelector(
     state => state.questions[currentQuestion]
   );
-  const { question, questionConfiguration } = questionState;
+  const { question } = questionState;
   const hasSiblingQuestion = question.operation.questions.length > 0;
   const slugsArray = [];
   const [isSlugInArray, setIsSlugInArray] = useState(false);
-  const isFinalCardCustom = questionConfiguration.customFinalCard;
+  const isFinalCardCustom =
+    cdcData[question.slug] && cdcData[question.slug].customFinalCard;
 
   useEffect(() => {
     if (isCardVisible) {
@@ -67,12 +67,7 @@ export const FinalCardContainer = ({ configuration, isCardVisible }: Props) => {
 
   /** @toDo: remove or refactor after the end of bretagne consultation */
   if (isSlugInArray && isFinalCardCustom) {
-    return (
-      <CustomFinalCard
-        question={question}
-        configuration={questionConfiguration}
-      />
-    );
+    return <CustomFinalCard question={question} />;
   }
 
   return <FinalCardComponent configuration={configuration} />;

@@ -2,30 +2,34 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import {
+  type Question as TypeQuestion,
+  type TypePartner,
+} from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
+import { FOUNDER_PARTNER } from 'Shared/constants/partner';
 import { SidebarNewWindowLink } from '../Link';
 import { Founders } from '../Founders';
 
 type Props = {
-  questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
 };
 
-export const Presentation = ({ questionConfiguration, question }: Props) => {
-  const founders = questionConfiguration.partners
-    ? questionConfiguration.partners.filter(partner => partner.isFounder)
+export const Presentation = ({ question }: Props) => {
+  const founders: TypePartner[] = question.partners
+    ? question.partners.filter(
+        partner => partner.partnerKind === FOUNDER_PARTNER
+      )
     : [];
 
   return (
     <React.Fragment>
-      {questionConfiguration.consultation && (
+      {question.wording.description && (
         <ParagraphStyle
           id="presentation_text"
           dangerouslySetInnerHTML={{
-            __html: questionConfiguration.consultation.presentation,
+            __html: question.wording.description,
           }}
         />
       )}

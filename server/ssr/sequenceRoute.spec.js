@@ -1,10 +1,8 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
-import { SequenceService } from 'Shared/api/SequenceService';
 import { isInProgress } from 'Shared/helpers/date';
 import { sequenceRoute } from './sequenceRoute';
 import { reactRender } from '../reactRender';
-import { logError } from './helpers/ssr.helper';
 import { getQuestion } from '../service/QuestionService';
 
 jest.mock('Shared/helpers/date', () => ({
@@ -13,7 +11,6 @@ jest.mock('Shared/helpers/date', () => ({
 jest.mock('../service/QuestionService', () => ({
   getQuestion: jest.fn(),
 }));
-jest.mock('Shared/api/SequenceService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('./helpers/ssr.helper', () => ({
   logError: jest.fn(),
@@ -48,7 +45,6 @@ describe('Sequence page route', () => {
   describe('The route', () => {
     it('construct route initial state and render', async () => {
       getQuestion.mockReturnValue(fooQuestion);
-      SequenceService.fetchConfiguration.mockReturnValue({});
       createInitialState.mockReturnValue({});
       isInProgress.mockReturnValue(true);
 
@@ -57,7 +53,6 @@ describe('Sequence page route', () => {
         questions: {
           bar: {
             question: fooQuestion,
-            questionConfiguration: {},
           },
         },
         currentQuestion: 'bar',
@@ -73,17 +68,6 @@ describe('Sequence page route', () => {
 
       expect(response.redirect).toHaveBeenCalledWith('http://localhost/goo');
       expect(response.statusCode).toBe(302);
-    });
-
-    it('throw an error', async () => {
-      isInProgress.mockReturnValue(true);
-      const error = new Error('fooError');
-      SequenceService.fetchConfiguration.mockImplementation(() => {
-        throw error;
-      });
-
-      await sequenceRoute(request, response);
-      expect(logError).toHaveBeenNthCalledWith(1, error);
     });
   });
 });
