@@ -114,10 +114,6 @@ const initApp = async state => {
     const { questionId } = state.questions[currentQuestion];
 
     apiClient.questionId = questionId;
-    apiClient.operationId =
-      state.questions[questionId] &&
-      state.questions[questionId].question &&
-      state.questions[questionId].question.operationId;
   }
 
   apiClient.source = state.appConfig.source;

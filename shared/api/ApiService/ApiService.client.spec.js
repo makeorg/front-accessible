@@ -34,8 +34,6 @@ describe('ApiServiceClient', () => {
           'x-make-country': '',
           'x-make-custom-data': '',
           'x-make-language': '',
-          'x-make-operation': '',
-          'x-make-question': '',
           'x-make-question-id': '',
           'x-make-referrer': '',
           'x-make-source': '',
@@ -71,7 +69,6 @@ describe('ApiServiceClient', () => {
     apiClient.country = 'FR';
     apiClient.source = 'core';
     apiClient.questionId = '1234';
-    apiClient.operationId = 'abcd';
     apiClient.referrer = 'http://localhost';
     apiClient.customData = 'key=value';
     apiClient.callApi(url, options);
@@ -83,8 +80,6 @@ describe('ApiServiceClient', () => {
           'x-make-country': 'FR',
           'x-make-custom-data': 'key=value',
           'x-make-language': 'fr',
-          'x-make-operation': 'abcd',
-          'x-make-question': '1234',
           'x-make-question-id': '1234',
           'x-make-referrer': 'http://localhost',
           'x-make-source': 'core',
@@ -117,11 +112,5 @@ describe('ApiServiceClient', () => {
     expect(apiClient.questionId).toBe('');
     apiClient.questionId = '1234';
     expect(apiClient.questionId).toBe('1234');
-  });
-
-  it('operationId property must be enabled', () => {
-    expect(apiClient.operationId).toBe('');
-    apiClient.operationId = 'abcd';
-    expect(apiClient.operationId).toBe('abcd');
   });
 });

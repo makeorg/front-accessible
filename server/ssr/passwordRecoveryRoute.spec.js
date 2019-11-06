@@ -21,7 +21,6 @@ const requestParams = {
   language: 'fr',
 };
 const expectedHeaders = {
-  'x-make-question': fooQuestion.id,
   'x-make-question-id': fooQuestion.id,
   'x-make-country': 'FR',
   'x-make-language': 'fr',

@@ -6,7 +6,7 @@ export const HOMEPAGE_PATH = '/views/home';
 export const SEARCH_VIEWS_PATH =
   '/views/search?content=:content&proposalLimit=:proposalLimit&questionLimit=:questionLimit&organisationLimit=:organisationLimit&country=:country&language=:language';
 
-export class ViewsApiService {
+export class ViewsService {
   static getHome() {
     return ApiService.callApi(HOMEPAGE_PATH, {
       method: 'GET',

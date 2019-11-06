@@ -37,7 +37,6 @@ export const passwordRecoveryRoute = async (req, res) => {
 
     if (questionId) {
       const question = await getQuestion(questionId, {
-        'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
         'x-make-language': language,
@@ -54,7 +53,6 @@ export const passwordRecoveryRoute = async (req, res) => {
     }
 
     const status = await postResetPasswordTokenCheck(userId, resetToken, {
-      'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,
       'x-make-language': language,
