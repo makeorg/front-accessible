@@ -15,6 +15,8 @@ import {
   ROUTE_RESULTS,
 } from 'Shared/routes';
 
+const queryString = require('query-string');
+
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
 
@@ -51,11 +53,17 @@ export const buildInternalConsultationLink = (
 export const getSequenceLink = (
   country: string,
   language: string,
-  questionSlug: string
+  questionSlug: string,
+  params?: Object = {}
 ) => {
   return ROUTE_SEQUENCE.replace(':country', country)
     .replace(':language', language)
-    .replace(':questionSlug', questionSlug);
+    .replace(':questionSlug', questionSlug)
+    .concat(
+      params && Object.keys(params).length > 0
+        ? `?${queryString.stringify(params)}`
+        : ''
+    );
 };
 
 /**

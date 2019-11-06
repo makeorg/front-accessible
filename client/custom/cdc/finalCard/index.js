@@ -14,6 +14,7 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
+import { trackClickStartSequence } from 'Shared/services/Tracking';
 import {
   MoreQuestionWrapperStyle,
   MoreQuestionImageStyle,
@@ -44,6 +45,10 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
 
     setNextQuestionTitle(questionTitle);
   }, []);
+
+  const handleStartSequence = () => {
+    trackClickStartSequence();
+  };
 
   return (
     <ContentWrapperStyle>
@@ -80,8 +85,10 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
             to={getSequenceLink(
               question.country,
               question.language,
-              configuration.customFinalCard.nextQuestion
+              configuration.customFinalCard.nextQuestion,
+              { introCard: false }
             )}
+            onClick={handleStartSequence}
           >
             <IconWrapperStyle aria-hidden>
               <SvgPlayButton />
