@@ -8,21 +8,19 @@ type Props = {
   canPropose: boolean,
 };
 
-export const SequenceSkipLinks = ({ canPropose }: Props) => {
-  return (
-    <UnstyledListStyle>
-      {canPropose && (
-        <li>
-          <SkipLink onClick={focusProposalField}>
-            {i18n.t('skip_links.proposal_submit')}
-          </SkipLink>
-        </li>
-      )}
+export const SequenceSkipLinks = ({ canPropose }: Props) => (
+  <UnstyledListStyle>
+    {canPropose && (
       <li>
-        <SkipLink as="a" href="#sequence">
-          {i18n.t('skip_links.proposal_list')}
+        <SkipLink onClick={focusProposalField}>
+          {i18n.t('skip_links.proposal_submit')}
         </SkipLink>
       </li>
-    </UnstyledListStyle>
-  );
-};
+    )}
+    <li>
+      <SkipLink as="a" href="#sequence">
+        {i18n.t('skip_links.proposal_list')}
+      </SkipLink>
+    </li>
+  </UnstyledListStyle>
+);

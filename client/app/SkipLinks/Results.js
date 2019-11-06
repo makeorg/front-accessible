@@ -41,7 +41,7 @@ export const ResultsSkipLinks = () => (
     <li>
       <SkipLink as="a" href={`#${RESULTS_TOP_IDEAS}`}>
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('consultation.results.top_ideas.title'),
+          name: i18n.t('consultation.results.top_ideas.skiplink'),
         })}
       </SkipLink>
     </li>
