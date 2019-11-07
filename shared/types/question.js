@@ -146,4 +146,5 @@ export type Question = {
   operation: {
     questions: SimpleOperationData[],
   },
+  descriptionImage: string,
 };

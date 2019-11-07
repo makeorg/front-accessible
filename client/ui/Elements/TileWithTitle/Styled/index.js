@@ -19,6 +19,13 @@ export const TileWithTitleStyle = styled.div`
   }
 `;
 
+export const PresentationTileWithTitleStyle = styled(TileWithTitleStyle)`
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    border-radius: 0 0 ${intToPx(Elements.BorderRadius)}
+      ${intToPx(Elements.BorderRadius)};
+  }
+`;
+
 export const TileTitleStyle = styled(FourthLevelTitleStyle)`
   display: flex;
   align-items: center;
