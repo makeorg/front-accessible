@@ -46,10 +46,6 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
     setNextQuestionTitle(questionTitle);
   }, []);
 
-  const handleStartSequence = () => {
-    trackClickStartSequence();
-  };
-
   return (
     <ContentWrapperStyle>
       <InnerContentStyle>
@@ -88,7 +84,7 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
               configuration.customFinalCard.nextQuestion,
               { introCard: false }
             )}
-            onClick={handleStartSequence}
+            onClick={trackClickStartSequence}
           >
             <IconWrapperStyle aria-hidden>
               <SvgPlayButton />
