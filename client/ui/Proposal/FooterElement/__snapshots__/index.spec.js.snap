@@ -5,7 +5,7 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -2,12 +2,11 @@
+@@ -2,13 +2,11 @@
     <PostedInLabelStyle
       as="span"
     >
@@ -14,7 +14,8 @@ Snapshot Diff:
 -   <a
 +   <span
       className="mk121c-0 bgUjBF"
--     href="fooLink"
+-     href="/fooLink"
+-     onClick={[Function onClick]}
     >
       Est ce que cette documentation est bonne ?
 -   </a>

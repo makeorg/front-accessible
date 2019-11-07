@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { type OrganisationSoft as TypeOrganisationSoft } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
@@ -29,7 +28,6 @@ export const OrganisationsVote = (props: Props) => {
             index + 1 === organisations.length &&
             i18n.t('profile.organisation.and')}
           <RedLinkStyle
-            as={Link}
             to={getOrganisationProfileLink(
               country,
               language,

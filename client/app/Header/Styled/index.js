@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   MakeThemeColors,
@@ -63,7 +64,7 @@ export const ProfileAccessButtonLabelStyle = styled(NavButtonStyle)`
   margin: 0 5px;
 `;
 
-export const ProfileAccessLinkStyle = styled.a`
+export const ProfileAccessLinkStyle = styled(Link)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   display: inline-flex;
   text-decoration: none;

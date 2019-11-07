@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
@@ -8,7 +9,7 @@ export const ProposalInnerStyle = styled.div`
   margin-top: 10px;
 `;
 
-export const ProposalStyle = styled.a`
+export const ProposalStyle = styled(Link)`
   width: 100%;
   font-size: 12px;
   line-height: 1.5;

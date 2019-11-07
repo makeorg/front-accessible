@@ -3,7 +3,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickConsultation } from 'Shared/services/Tracking';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { getConsultationLink } from 'Client/features/homepage/CurrentConsultations';
+import { getConsultationLink } from 'Shared/helpers/url';
 import { FooterStyle, FooterTitleStyle, FooterLinkStyle } from '../Styled';
 
 type Props = {

@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
@@ -35,7 +34,6 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
       aria-label={i18n.t('common.header_authentification_nav')}
     >
       <ProfileAccessLinkStyle
-        as={Link}
         to={profileLink}
         rel="nofollow"
         onClick={trackClickProfile}

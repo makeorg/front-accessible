@@ -30,43 +30,44 @@ const FooterLinksComponent = ({ country, language }: Props) => {
     <FooterItemListStyle>
       <FooterItemStyle>
         <FooterItemLinkStyle
+          as="a"
           href={JOBS_LINK}
           dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
         />
       </FooterItemStyle>
       {!isDesktop && (
         <FooterItemStyle>
-          <FooterItemLinkStyle href={WHOAREWE_FR_LINK}>
+          <FooterItemLinkStyle as="a" href={WHOAREWE_FR_LINK}>
             {i18n.t('main-footer.whoarewe')}
           </FooterItemLinkStyle>
         </FooterItemStyle>
       )}
       <FooterItemStyle>
-        <FooterItemLinkStyle href={PRESS_LINK}>
+        <FooterItemLinkStyle as="a" href={PRESS_LINK}>
           {i18n.t('main-footer.press')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={getLegalPageLink(country, language)}>
+        <FooterItemLinkStyle to={getLegalPageLink(country, language)}>
           {i18n.t('main-footer.legal')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={getGTUPageLink(country, language)}>
+        <FooterItemLinkStyle to={getGTUPageLink(country, language)}>
           {i18n.t('main-footer.terms')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={getDataPageLink(country, language)}>
+        <FooterItemLinkStyle to={getDataPageLink(country, language)}>
           {i18n.t('main-footer.data')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 
       <FooterItemStyle>
-        <FooterItemLinkStyle href={getContactPageLink(country, language)}>
+        <FooterItemLinkStyle to={getContactPageLink(country, language)}>
           {i18n.t('main-footer.contact')}
         </FooterItemLinkStyle>
       </FooterItemStyle>

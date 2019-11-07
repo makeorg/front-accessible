@@ -190,7 +190,7 @@ export const Data = () => {
           <StaticParagraphStyle>
             Cet exercice peut être fait par tout moyen, et notamment par l’envoi
             d’un courriel à l’adresse :&nbsp;
-            <RedLinkStyle href="mailto:contact@make.org">
+            <RedLinkStyle as="a" href="mailto:contact@make.org">
               contact@make.org
             </RedLinkStyle>
           </StaticParagraphStyle>

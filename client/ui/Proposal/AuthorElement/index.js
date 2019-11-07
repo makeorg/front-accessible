@@ -70,7 +70,7 @@ export const ProposalAuthorElement = (props: Props) => {
         {author.organisationName ? (
           <React.Fragment>
             <RedLinkStyle
-              href={getOrganisationProfileLink(
+              to={getOrganisationProfileLink(
                 country,
                 language,
                 author.organisationSlug

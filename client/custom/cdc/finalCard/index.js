@@ -55,7 +55,6 @@ export const CustomFinalCard = ({ question }: Props) => {
           {i18n.t('final_card.extra_question.title')}
         </FinalQuestionTitleStyle>
         <RedLinkStyle
-          as={Link}
           to={getConsultationLink(
             question.country,
             question.language,

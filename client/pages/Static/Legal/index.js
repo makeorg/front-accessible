@@ -21,7 +21,7 @@ export const LegalPage = () => {
       </StaticParagraphStyle>
       <StaticParagraphStyle>
         Adresse de courrier électronique :&nbsp;
-        <RedLinkStyle href="mailto:contact@make.org">
+        <RedLinkStyle as="a" href="mailto:contact@make.org">
           contact@make.org
         </RedLinkStyle>
       </StaticParagraphStyle>
