@@ -60,7 +60,7 @@ const ConsultationPageWrapper = ({
     <React.Fragment>
       <ConsultationSkipLinks
         canPropose={question.canPropose}
-        withResults={question.displayResults}
+        isGreatCause={questionIsGreatCause}
       />
       {isNavigationBetweenQuestionActive && hasSiblingQuestions && (
         <NavigationBetweenQuestions question={question} />
