@@ -32,6 +32,10 @@ export const loadQuestion = (question: TypeQuestion) => ({
   payload: { question },
 });
 
+export const unloadCurrentQuestion = () => ({
+  type: actionTypes.QUESTION_UNLOAD,
+});
+
 export const loadQuestionConfiguration = (
   questionConfiguration: TypeQuestionConfiguration,
   questionSlug: string

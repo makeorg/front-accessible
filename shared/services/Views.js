@@ -1,6 +1,6 @@
 // @flow
 import { type TypeHome } from 'Shared/types/views';
-import { ViewsApiService } from 'Shared/api/ViewsApiService';
+import { ViewsService } from 'Shared/api/ViewsService';
 import { Logger } from './Logger';
 
 const getDate = dateString => {
@@ -18,7 +18,7 @@ const getDate = dateString => {
 };
 
 export const getHome = async (): Promise<TypeHome> => {
-  const response = await ViewsApiService.getHome();
+  const response = await ViewsService.getHome();
   const {
     currentConsultations,
     popularProposals,

@@ -5,6 +5,7 @@ import {
 } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 import { getQuestion } from '../service/QuestionService';
@@ -37,7 +38,6 @@ export const passwordRecoveryRoute = async (req, res) => {
 
     if (questionId) {
       const question = await getQuestion(questionId, {
-        'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
         'x-make-language': language,
@@ -50,11 +50,11 @@ export const passwordRecoveryRoute = async (req, res) => {
             question,
           },
         };
+        updateRequestContextQuestion(question);
       }
     }
 
     const status = await postResetPasswordTokenCheck(userId, resetToken, {
-      'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,
       'x-make-language': language,

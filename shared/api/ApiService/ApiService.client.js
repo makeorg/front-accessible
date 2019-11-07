@@ -8,8 +8,6 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   _country: string = '';
 
-  _operationId: string = '';
-
   _questionId: string = '';
 
   _source: string = '';
@@ -47,14 +45,6 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   get country(): string {
     return this._country;
-  }
-
-  set operationId(operationId: string) {
-    this._operationId = operationId;
-  }
-
-  get operationId(): string {
-    return this._operationId;
   }
 
   set questionId(questionId: string) {
@@ -95,8 +85,6 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-language': this._language,
       'x-make-source': this._source,
       'x-make-question-id': this._questionId,
-      'x-make-question': this._questionId,
-      'x-make-operation': this._operationId,
       'x-make-location': getLocationContext(
         window.location.pathname,
         this._questionId,

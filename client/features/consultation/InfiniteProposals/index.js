@@ -9,7 +9,6 @@ import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
-import { updateRequestContext } from 'Shared/helpers/apiService';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 
 type Props = {
@@ -30,7 +29,6 @@ const InfiniteProposalsComponent = ({
   const [seed, setSeed] = useState<?number>(undefined);
   const [page, setPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  updateRequestContext(question);
 
   const initProposal = async () => {
     setIsLoading(true);

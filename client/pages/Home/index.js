@@ -25,7 +25,6 @@ export const HomePage = () => {
     currentConsultations: [],
   });
   apiClient.questionId = '';
-  apiClient.operationId = '';
 
   useEffect(() => {
     async function fetchData() {

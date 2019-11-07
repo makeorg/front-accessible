@@ -14,13 +14,13 @@ import {
 import {
   fetchQuestionConfigurationData,
   loadQuestion,
+  unloadCurrentQuestion,
 } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { updateCurrentQuestion } from 'Shared/store/actions/question';
-import { updateRequestContext } from 'Shared/helpers/apiService';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -58,42 +58,49 @@ const callQuestionData = Component =>
   function FetchQuestionClass(props: Props) {
     const { match, question, questionConfiguration, questionResults } = props;
     const dispatch = useDispatch();
-    const currentQuestionState = useSelector(state => state.currentQuestion);
     const [alternativeContent, setAlternativeContent] = React.useState(
       <MiddlePageWrapperStyle>
         <Spinner />
       </MiddlePageWrapperStyle>
     );
-    const updateQuestion =
-      question && questionConfiguration
-        ? () => {}
-        : () => {
-            QuestionApiService.getDetail(match.params.questionSlug)
-              .then(questionDetail => {
-                dispatch(loadQuestion(questionDetail));
-                dispatch(fetchQuestionConfigurationData(questionDetail.slug));
-              })
-              .catch(error => {
-                if (error.message === '404') {
-                  setAlternativeContent(<NotFoundPage />);
-                }
-              });
-          };
+    const questions = useSelector(state => state.questions);
+    const currentQuestionSlug = useSelector(state => state.currentQuestion);
+    const updateQuestion = () => {
+      QuestionApiService.getDetail(match.params.questionSlug)
+        .then(questionDetail => {
+          dispatch(loadQuestion(questionDetail));
+          dispatch(fetchQuestionConfigurationData(questionDetail.slug));
+        })
+        .catch(error => {
+          if (error.message === '404') {
+            setAlternativeContent(<NotFoundPage />);
+          }
+        });
+    };
 
     useEffect(() => {
-      updateQuestion();
-      if (question && currentQuestionState !== match.params.questionSlug) {
-        updateRequestContext(question);
+      if (question) {
         dispatch(updateCurrentQuestion(question.slug));
       }
-    }, [match.params.questionSlug]);
 
-    const questionsInState = useSelector(state => state.questions);
+      return () => {
+        dispatch(unloadCurrentQuestion());
+      };
+    }, [question]);
+
+    useEffect(() => {
+      if (!question || !questionConfiguration) {
+        updateQuestion();
+      }
+    }, [match.params.questionSlug]);
 
     useEffect(() => {
       if (question && !isInProgress(question) && !question.displayResults) {
         window.location = question.aboutUrl;
       }
+    }, [question]);
+
+    useEffect(() => {
       // Try to find related questions
       const operationsQuestions =
         question && question.operation && question.operation.questions;
@@ -101,7 +108,7 @@ const callQuestionData = Component =>
         operationsQuestions.map(async relQuestion => {
           // Check is question has been already fetched
           const isRelQuestionInState =
-            questionsInState[relQuestion.questionSlug] !== undefined;
+            questions[relQuestion.questionSlug] !== undefined;
           // If not, they fetch/store it
           if (!isRelQuestionInState) {
             const res = await QuestionApiService.getDetail(
@@ -118,7 +125,11 @@ const callQuestionData = Component =>
       }
     }, [question]);
 
-    if (!question || !questionConfiguration) {
+    if (
+      !question ||
+      !questionConfiguration ||
+      question.slug !== currentQuestionSlug
+    ) {
       return alternativeContent;
     }
 

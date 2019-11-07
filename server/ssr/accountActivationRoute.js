@@ -1,6 +1,7 @@
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
@@ -27,7 +28,6 @@ export const accountActivationRoute = async (req, res) => {
     const questionId = req.query.question;
     if (questionId) {
       const question = await getQuestion(questionId, {
-        'x-make-question': questionId,
         'x-make-question-id': questionId,
         'x-make-country': country,
         'x-make-language': language,
@@ -35,6 +35,7 @@ export const accountActivationRoute = async (req, res) => {
 
       if (question) {
         routeState.currentQuestion = question.slug;
+        updateRequestContextQuestion(question);
         routeState.questions = {
           [question.slug]: {
             question,
@@ -53,7 +54,6 @@ export const accountActivationRoute = async (req, res) => {
     }
 
     const status = await postAccountActivation(userId, verificationToken, {
-      'x-make-question': questionId,
       'x-make-question-id': questionId,
       'x-make-country': country,
       'x-make-language': language,

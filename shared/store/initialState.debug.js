@@ -21,5 +21,5 @@ export const initialStateDebug = {
     */
     votedProposalIds: [],
   },
-  currentQuestion: undefined,
+  currentQuestion: '',
 };
