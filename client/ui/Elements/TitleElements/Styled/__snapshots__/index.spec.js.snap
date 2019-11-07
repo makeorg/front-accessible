@@ -6,6 +6,10 @@ exports[`TitleElements FourthLevelTitleStyle snapshot by default 1`] = `
   line-height: 15px;
 }
 
+.c0.not-great-cause-proposal {
+  margin: 0 0 15px;
+}
+
 @media (min-width:360px) {
   .c0 {
     font-size: 14px;
