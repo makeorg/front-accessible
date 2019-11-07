@@ -53,6 +53,9 @@ export const ThirdLevelTitleStyle = styled.h3`
 export const FourthLevelTitleStyle = styled.h4`
   font-size: 12px;
   line-height: 15px;
+  &.not-great-cause-proposal {
+    margin: 0 0 15px;
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 19px;
