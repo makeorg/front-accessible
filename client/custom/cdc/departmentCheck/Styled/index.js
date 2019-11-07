@@ -105,12 +105,13 @@ export const DepartmentLabelStyle = styled.label`
   }
 `;
 
-export const DepartmentHomeLinkStyle = styled(Link)`
+export const DepartmentBackLinkStyle = styled(Link)`
   display: block;
   color: inherit;
+  text-decoration: underline;
   &:hover,
   &:focus {
-    text-decoration: none;
+    text-decoration: underline;
     color: inherit;
   }
 `;

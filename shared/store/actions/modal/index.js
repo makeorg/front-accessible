@@ -2,7 +2,6 @@
 
 import * as actionTypes from 'Shared/store/actionTypes';
 import {
-  trackClickCloseModal,
   trackDisplaySigninForm,
   trackDisplaySignupForm,
   trackDisplayForgotPasswordForm,
@@ -10,7 +9,6 @@ import {
 
 export const modalClose = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_CLOSE });
-  trackClickCloseModal();
 };
 export const modalShowLogin = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_LOGIN });

@@ -269,16 +269,12 @@ describe('Authentification Actions', () => {
       // mock
       UserApiService.me.mockResolvedValue(user);
 
-      // spy
-      jest.spyOn(Tracking, 'trackClickCloseModal');
-
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
-        expect(Tracking.trackClickCloseModal).toHaveBeenCalled();
         expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
@@ -308,9 +304,6 @@ describe('Authentification Actions', () => {
       // mock
       UserApiService.me.mockResolvedValue(user);
 
-      // spy
-      jest.spyOn(Tracking, 'trackClickCloseModal');
-
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
         { type: actionTypes.MODAL_CLOSE },
@@ -318,7 +311,6 @@ describe('Authentification Actions', () => {
       ];
 
       return newStore.dispatch(actions.getUser(true)).then(() => {
-        expect(Tracking.trackClickCloseModal).toHaveBeenCalled();
         expect(newStore.getActions()).toEqual(expectedActions);
       });
     });
