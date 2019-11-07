@@ -569,7 +569,8 @@
       },
       "disclaimer": {
         "first": "La consultation est réservée aux Breton(ne)s.",
-        "second": "Cliquez sur le département de votre ville de résidence pour y participer !"
+        "second": "Cliquez sur le département de votre ville de résidence pour y participer !",
+        "modify": "Cliquez sur un autre département si vous souhaitez le modifier."
       },
       "use_form": "Appuyez sur les flèches de votre clavier pour sélectionner votre département, puis appuyez sur la touche de tabulation pour accéder au bouton \"Valider et partiiciper\"",
       "departments": {
@@ -579,9 +580,11 @@
         "56": "Morbihan"
       },
       "button": "Valider et participer",
+      "button_modify": "Valider",
       "cancel": {
         "text": "Si vous ne souhaitez pas donner votre département vous pouvez ",
-        "link": "aller à la page d'accueil"
+        "link": "aller à la page d'accueil",
+        "link_modify": "Retour à la page consultation"
       },
       "modification": {
         "title": "Votre département",

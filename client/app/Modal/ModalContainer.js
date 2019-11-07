@@ -14,6 +14,7 @@ import { Login } from 'Client/features/auth/Login';
 import { Register } from 'Client/features/auth/Register';
 import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
 import { DepartmentForm } from 'Client/custom/cdc/departmentCheck/DepartmentForm';
+import { trackClickCloseModal } from 'Shared/services/Tracking';
 import { ModalComponent } from './ModalComponent';
 
 ReactModal.setAppElement('#app');
@@ -62,6 +63,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   handleClose: () => {
     dispatch(modalClose());
+    trackClickCloseModal();
   },
 });
 
