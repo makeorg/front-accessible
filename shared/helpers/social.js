@@ -22,3 +22,9 @@ export const linkedinShareUrl = (pathName: string = '', message: string = '') =>
   )}&title=${encodeURIComponent(message)}&summary=${encodeURIComponent(
     message
   )}&source=${encodeURIComponent(getRelativeCurrentUrl(pathName))}`;
+
+export const twitterMakeUrl = 'https://twitter.com/Make_org';
+export const instagramMakeUrl =
+  'https://www.instagram.com/make_org/instagram.com';
+export const facebookMakeUrl = 'https://www.facebook.com/Make.org/';
+export const linkedinMakeUrl = 'https://fr.linkedin.com/company/make.org';
