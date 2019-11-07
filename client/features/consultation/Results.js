@@ -59,7 +59,9 @@ export const ResultsContent = ({
   const displaySidebar = isMobile || isDesktop;
 
   useEffect(() => {
-    trackDisplayConsultation('results');
+    if (question) {
+      trackDisplayConsultation('results');
+    }
   }, [question]);
 
   return (

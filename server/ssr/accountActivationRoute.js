@@ -1,6 +1,7 @@
 import { UserApiService } from 'Shared/api/UserApiService';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
+import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import {
   ACTIVATION_SUCCESS_MESSAGE,
   ACTIVATION_FAILURE_MESSAGE,
@@ -34,6 +35,7 @@ export const accountActivationRoute = async (req, res) => {
 
       if (question) {
         routeState.currentQuestion = question.slug;
+        updateRequestContextQuestion(question);
         routeState.questions = {
           [question.slug]: {
             question,

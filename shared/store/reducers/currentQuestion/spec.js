@@ -9,43 +9,17 @@ import { currentQuestion } from './index';
 
 describe('Questions reducer', () => {
   it('Return the initial state', () => {
-    expect(currentQuestion(undefined, {})).toEqual(null);
+    expect(currentQuestion('', {})).toEqual('');
   });
 
-  it('action QUESTION_CONFIGURATION_LOAD', () => {
+
+  it('action QUESTION_UNLOAD', () => {
     const action = {
-      type: actionTypes.QUESTION_CONFIGURATION_LOAD,
-      payload: {
-        questionSlug: 'foo-question',
-        questionConfiguration: questionConfigurationTypeFixture,
-      },
+      type: actionTypes.QUESTION_UNLOAD,
     };
 
-    expect(currentQuestion(undefined, action)).toEqual('foo-question');
-  });
-
-  it('action QUESTION_RESULTS_LOAD', () => {
-    const action = {
-      type: actionTypes.QUESTION_RESULTS_LOAD,
-      payload: {
-        questionSlug: 'foo-question',
-        questionResults: questionResultsTypeFixture,
-      },
-    };
-
-    expect(currentQuestion(undefined, action)).toEqual('foo-question');
-  });
-
-  it('action QUESTION_LOAD', () => {
-    const action = {
-      type: actionTypes.QUESTION_LOAD,
-      payload: {
-        question: questionTypeFixture,
-      },
-    };
-
-    expect(currentQuestion(undefined, action)).toEqual(
-      questionTypeFixture.slug
+    expect(currentQuestion({currentQuestion: 'old_slug'}, action)).toEqual(
+      ''
     );
   });
 

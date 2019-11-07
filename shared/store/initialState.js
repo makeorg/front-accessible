@@ -21,7 +21,7 @@ export const initialState: StateRoot = {
     votedProposalIds: [],
   },
   questions: {},
-  currentQuestion: undefined,
+  currentQuestion: '',
   notification: {
     contentType: undefined,
   },

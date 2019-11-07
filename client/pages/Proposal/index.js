@@ -13,7 +13,6 @@ import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard'
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { SingleProposalSharingComponent } from 'Client/features/proposal/SingleProposalCard/Sharing';
-import { updateRequestContext } from 'Shared/helpers/apiService';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
 
@@ -38,7 +37,6 @@ const ProposalPage = (props: Props) => {
       QuestionApiService.getDetail(proposal.question.questionId).then(
         response => {
           setQuestion(response);
-          updateRequestContext(response);
         }
       );
     }

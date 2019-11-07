@@ -1,6 +1,6 @@
 // @flow
 import { type TypeHome } from 'Shared/types/views';
-import { ViewsService } from 'Shared/api/ViewsApiService';
+import { ViewsService } from 'Shared/api/ViewsService';
 import { Logger } from './Logger';
 
 const getDate = dateString => {

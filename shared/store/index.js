@@ -2,8 +2,8 @@
 
 import { UserApiService } from 'Shared/api/UserApiService';
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 import { rootReducer } from './reducers';
+import { middlewares } from './middleware';
 import { type StateRoot } from './types';
 
 export function configureStore(initialState: StateRoot = {}) {
@@ -15,7 +15,7 @@ export function configureStore(initialState: StateRoot = {}) {
   return createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(...middlewares))
   );
 }
 

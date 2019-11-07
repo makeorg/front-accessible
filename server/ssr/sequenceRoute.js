@@ -3,6 +3,7 @@ import { SequenceService } from 'Shared/api/SequenceService';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { isInProgress } from 'Shared/helpers/date';
+import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -40,6 +41,7 @@ export const sequenceRoute = async (req, res) => {
         questionConfiguration,
       },
     };
+    updateRequestContextQuestion(question);
 
     if (firstProposal) {
       routeState.sequence = {

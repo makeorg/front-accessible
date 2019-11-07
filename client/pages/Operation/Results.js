@@ -39,10 +39,6 @@ const ConsultationPageWrapper = ({
   location,
 }: Props) => {
   const isMobile = useMobile();
-  const currentQuestion: string = useSelector(state => state.currentQuestion);
-  const questionResults: TypeQuestionResults = useSelector(
-    state => state.questions[currentQuestion].questionResults
-  );
   const dispatch = useDispatch();
   const isSharingDisabled: boolean = checkIsFeatureActivated(
     CONSULTATION_SHARE_DISABLE,
@@ -51,6 +47,10 @@ const ConsultationPageWrapper = ({
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
+  );
+
+  const questionResults: TypeQuestionResults = useSelector(
+    state => state.questions[question.slug].questionResults
   );
 
   useEffect(() => {

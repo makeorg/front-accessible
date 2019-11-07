@@ -23,6 +23,7 @@ import {
 import { track } from 'Shared/services/Tracking';
 import * as customDataHelper from 'Client/helper/customData';
 import { throttle } from 'Shared/helpers/throttle';
+import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -109,11 +110,9 @@ const initApp = async state => {
     }, 500)
   );
 
-  const { currentQuestion } = state;
-  if (currentQuestion && state.questions[currentQuestion]) {
-    const { questionId } = state.questions[currentQuestion];
-
-    apiClient.questionId = questionId;
+  const { currentQuestion, questions } = store.getState();
+  if (currentQuestion && questions[currentQuestion]) {
+    updateRequestContextQuestion(questions[currentQuestion].question);
   }
 
   apiClient.source = state.appConfig.source;

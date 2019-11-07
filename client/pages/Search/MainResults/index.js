@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { type Location } from 'history';
 import { type TypeSearchViews } from 'Shared/types/views';
-import { ViewsService } from 'Shared/api/ViewsApiService';
+import { ViewsService } from 'Shared/api/ViewsService';
 import { i18n } from 'Shared/i18n';
 import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';

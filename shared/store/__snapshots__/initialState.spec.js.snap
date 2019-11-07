@@ -9,7 +9,7 @@ Object {
     "source": "",
     "translations": Object {},
   },
-  "currentQuestion": undefined,
+  "currentQuestion": "",
   "modal": Object {
     "contentType": null,
     "isOpen": false,

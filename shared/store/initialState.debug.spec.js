@@ -2,7 +2,7 @@ import { initialStateDebug } from './initialState.debug';
 
 describe('initialStateDebug', () => {
   it('questionSlug must not be defined', () => {
-    expect(initialStateDebug.currentQuestion).toBeUndefined();
+    expect(initialStateDebug.currentQuestion).toEqual('');
   });
 
   it('votedProposalIds must not be defined', () => {

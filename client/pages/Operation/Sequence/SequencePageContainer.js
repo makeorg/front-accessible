@@ -3,7 +3,6 @@ import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { type Question } from 'Shared/types/question';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
-import { updateRequestContext } from 'Shared/helpers/apiService';
 import { SequencePageComponent } from './SequencePageComponent';
 
 type Props = {
@@ -13,8 +12,6 @@ type Props = {
 
 class BaseSequencePageContainer extends React.Component<Props> {
   componentDidMount() {
-    const { question } = this.props;
-    updateRequestContext(question);
     trackDisplaySequence();
   }
 

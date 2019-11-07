@@ -17,7 +17,6 @@ import {
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
-import { updateRequestContext } from 'Shared/helpers/apiService';
 import { TagSectionTitle } from './Styled/TagFilter';
 import { ConsultationSidebar } from './Sidebar';
 
@@ -55,7 +54,6 @@ export const ConsultationContent = ({
 
   useEffect(() => {
     if (question) {
-      updateRequestContext(question);
       trackDisplayConsultation('consultation');
     }
   }, [question]);
