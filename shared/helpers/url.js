@@ -1,6 +1,7 @@
 // @flow
 
 import 'url-search-params-polyfill';
+import queryString from 'query-string';
 import { FRONT_URL } from 'Shared/constants/config';
 import {
   ROUTE_CONSULTATION,
@@ -14,8 +15,6 @@ import {
   ROUTE_STATIC_LEGAL,
   ROUTE_RESULTS,
 } from 'Shared/routes';
-
-const queryString = require('query-string');
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
