@@ -1,6 +1,5 @@
 // @flow
-export const MODAL_LOGIN_CONTENT: string = 'MODAL_LOGIN_CONTENT';
-export const MODAL_REGISTER_CONTENT: string = 'MODAL_REGISTER_CONTENT';
-export const MODAL_FORGOT_PASSWORD_CONTENT: string =
-  'MODAL_FORGOT_PASSWORD_CONTENT';
-export const MODAL_DEPARTMENT_FORM: string = 'MODAL_DEPARTMENT_FORM';
+export const MODAL_LOGIN: string = 'MODAL_LOGIN';
+export const MODAL_REGISTER: string = 'MODAL_REGISTER';
+export const MODAL_FORGOT_PASSWORD: string = 'MODAL_FORGOT_PASSWORD';
+export const MODAL_DEPARTMENT: string = 'MODAL_DEPARTMENT';

@@ -241,13 +241,20 @@ describe('Tracking Service', () => {
 
   it('track Click Close Modal', () => {
     const eventName = trackingConstants.CLICK_CLOSE_MODAL;
+    const contextName = 'foo';
+    const trackParams = { context: contextName };
+    const fbParams = { ...eventParameters, ...trackParams };
 
-    trackClickCloseModal();
-    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName);
+    trackClickCloseModal(contextName);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      trackParams
+    );
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
       eventName,
-      eventParameters
+      fbParams
     );
   });
 

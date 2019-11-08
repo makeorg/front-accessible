@@ -18,22 +18,17 @@ import {
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import {
   FollowUsStyle,
+  FollowUsIconsStyle,
   FacebookButtonStyle,
   TwitterButtonStyle,
   InstagramButtonStyle,
   LinkedInButtonStyle,
 } from './Styled';
 
-const FollowUsIconsStyle = {
-  width: '20px',
-  height: '22px',
-  marginRight: '13px',
-};
-
 /**
  * Renders FollowUs
  */
-export const FollowUsComponent = () => (
+export const FollowUs = () => (
   <TileWithTitle
     icon={<SvgMegaphone aria-hidden style={FollowUsIconsStyle} />}
     title={i18n.t('consultation.followUs.title')}

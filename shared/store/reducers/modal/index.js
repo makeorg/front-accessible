@@ -10,10 +10,10 @@ import {
   MODAL_SHOW_DEPARTMENT_FORM,
 } from 'Shared/store/actionTypes';
 import {
-  MODAL_LOGIN_CONTENT,
-  MODAL_REGISTER_CONTENT,
-  MODAL_FORGOT_PASSWORD_CONTENT,
-  MODAL_DEPARTMENT_FORM,
+  MODAL_LOGIN,
+  MODAL_REGISTER,
+  MODAL_FORGOT_PASSWORD,
+  MODAL_DEPARTMENT,
 } from 'Shared/constants/modal';
 import { initialState } from 'Shared/store/initialState';
 import { type StateModal } from 'Shared/store/types';
@@ -24,25 +24,25 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
       return {
         ...state,
         isOpen: true,
-        contentType: MODAL_LOGIN_CONTENT,
+        contentType: MODAL_LOGIN,
       };
     case MODAL_SHOW_REGISTER:
       return {
         ...state,
         isOpen: true,
-        contentType: MODAL_REGISTER_CONTENT,
+        contentType: MODAL_REGISTER,
       };
     case MODAL_SHOW_FORGOT_PASSWORD:
       return {
         ...state,
         isOpen: true,
-        contentType: MODAL_FORGOT_PASSWORD_CONTENT,
+        contentType: MODAL_FORGOT_PASSWORD,
       };
     case MODAL_SHOW_DEPARTMENT_FORM:
       return {
         ...state,
         isOpen: true,
-        contentType: MODAL_DEPARTMENT_FORM,
+        contentType: MODAL_DEPARTMENT,
       };
     case MODAL_CLOSE:
       return {

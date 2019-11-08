@@ -26,6 +26,7 @@ import {
   UnstyledButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { trackClickCloseModal } from 'Shared/services/Tracking';
+import { MODAL_DEPARTMENT } from 'Shared/constants/modal';
 import {
   DepartmentModalStyle,
   DepartmentContentStyle,
@@ -37,6 +38,12 @@ import {
   DepartmentIconStyle,
   DepartmentLabelStyle,
 } from './Styled';
+import {
+  trackDisplayDepartmentModal,
+  trackDepartmentSelection,
+  trackDepartmentModification,
+  trackClickBackToHomepage,
+} from '../Tracking';
 
 const FORM_NAME = 'department_selection';
 const BretagneDepartments = [22, 29, 35, 56];
@@ -123,6 +130,15 @@ export const DepartmentForm = () => {
     return selectDepartment(value);
   };
 
+  const handleCloseModal = () => {
+    dispatch(modalClose());
+    trackClickCloseModal(MODAL_DEPARTMENT);
+  };
+
+  useEffect(() => {
+    trackDisplayDepartmentModal();
+  }, []);
+
   if (initialDepartmentValue) {
     return (
       <DepartmentModalStyle isOpen overlayClassName="modal-overlay">
@@ -133,10 +149,7 @@ export const DepartmentForm = () => {
           <CloseButtonStyle
             aria-label={i18n.t('modal.close')}
             aria-expanded="false"
-            onClick={() => {
-              dispatch(modalClose());
-              trackClickCloseModal();
-            }}
+            onClick={handleCloseModal}
           >
             <SvgClose aria-hidden />
           </CloseButtonStyle>
@@ -146,7 +159,7 @@ export const DepartmentForm = () => {
           <ScreenReaderItemStyle as="p">
             <DepartmentBackLinkStyle
               as={UnstyledButtonStyle}
-              onClick={() => dispatch(modalClose())}
+              onClick={handleCloseModal}
             >
               {i18n.t('modal.department_required.cancel.link_modify')}
             </DepartmentBackLinkStyle>
@@ -156,6 +169,7 @@ export const DepartmentForm = () => {
             onSubmit={e => {
               e.preventDefault();
               setDepartment(departmentValue);
+              trackDepartmentModification(departmentValue);
             }}
           >
             <ScreenReaderItemStyle>
@@ -191,7 +205,7 @@ export const DepartmentForm = () => {
         <DepartmentCancelStyle aria-hidden>
           <DepartmentBackLinkStyle
             as={UnstyledButtonStyle}
-            onClick={() => dispatch(modalClose())}
+            onClick={handleCloseModal}
           >
             {i18n.t('modal.department_required.cancel.link_modify')}
           </DepartmentBackLinkStyle>
@@ -219,7 +233,7 @@ export const DepartmentForm = () => {
         </ParagraphStyle>
         <ScreenReaderItemStyle as="p">
           {i18n.t('modal.department_required.cancel.text')}
-          <DepartmentBackLinkStyle to="/">
+          <DepartmentBackLinkStyle to="/" onClick={trackClickBackToHomepage}>
             {i18n.t('modal.department_required.cancel.link')}
           </DepartmentBackLinkStyle>
         </ScreenReaderItemStyle>
@@ -228,6 +242,7 @@ export const DepartmentForm = () => {
           onSubmit={e => {
             e.preventDefault();
             setDepartment(departmentValue);
+            trackDepartmentSelection(departmentValue);
           }}
         >
           <ScreenReaderItemStyle>
@@ -262,7 +277,7 @@ export const DepartmentForm = () => {
       </DepartmentContentStyle>
       <DepartmentCancelStyle aria-hidden>
         {i18n.t('modal.department_required.cancel.text')}
-        <DepartmentBackLinkStyle to="/">
+        <DepartmentBackLinkStyle to="/" onClick={trackClickBackToHomepage}>
           {i18n.t('modal.department_required.cancel.link')}
         </DepartmentBackLinkStyle>
       </DepartmentCancelStyle>

@@ -11,7 +11,6 @@ import { modalClose } from 'Shared/store/actions/modal';
 import {
   trackSignupEmailSuccess,
   trackSignupEmailFailure,
-  trackClickCloseModal,
 } from 'Shared/services/Tracking';
 import {
   FormStyle,
@@ -202,7 +201,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   handleModalClose: () => {
     dispatch(modalClose());
-    trackClickCloseModal();
   },
   handleLoadUser: () => {
     dispatch(getUser(true));

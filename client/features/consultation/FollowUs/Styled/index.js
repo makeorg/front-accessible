@@ -27,6 +27,12 @@ export const FollowUsButtonStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
+export const FollowUsIconsStyle = {
+  width: '20px',
+  height: '22px',
+  marginRight: '13px',
+};
+
 export const FacebookButtonStyle = styled(FollowUsButtonStyle)`
   background-color: ${SocialNetworksColors.Facebook};
 `;
