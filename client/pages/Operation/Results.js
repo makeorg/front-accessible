@@ -23,7 +23,7 @@ import {
   CONSULTATION_SHARE_DISABLE,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
-import { FollowUsComponent } from 'Client/features/followUs/FollowUsComponent';
+import { FollowUs } from 'Client/features/consultation/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
 
@@ -82,7 +82,7 @@ const ConsultationPageWrapper = ({
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && !isSharingDisabled && <MobileSharing />}
-      {isMobile && isFollowUsActive && <FollowUsComponent />}
+      {isMobile && isFollowUsActive && <FollowUs />}
     </React.Fragment>
   );
 };

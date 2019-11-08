@@ -17,7 +17,7 @@ import {
   CONSULTATION_DEPARTMENT_COMPULSORY,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
-import { FollowUsComponent } from 'Client/features/followUs/FollowUsComponent';
+import { FollowUs } from 'Client/features/consultation/FollowUs';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
@@ -65,7 +65,7 @@ export const ConsultationSidebar = ({
         </TileWithTitle>
       )}
       {isActiveFeature(CONSULTATION_FOLLOW_US_ACTIVE) && !isMobile && (
-        <FollowUsComponent />
+        <FollowUs />
       )}
     </ConsultationPageSidebarStyle>
   );
