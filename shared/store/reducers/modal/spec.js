@@ -23,7 +23,7 @@ describe('Modal reducer', () => {
 
     const expectedState = {
       isOpen: true,
-      contentType: contentTypes.MODAL_LOGIN_CONTENT,
+      contentType: contentTypes.MODAL_LOGIN,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);
@@ -38,7 +38,7 @@ describe('Modal reducer', () => {
 
     const expectedState = {
       isOpen: true,
-      contentType: contentTypes.MODAL_REGISTER_CONTENT,
+      contentType: contentTypes.MODAL_REGISTER,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);
@@ -53,7 +53,7 @@ describe('Modal reducer', () => {
 
     const expectedState = {
       isOpen: true,
-      contentType: contentTypes.MODAL_FORGOT_PASSWORD_CONTENT,
+      contentType: contentTypes.MODAL_FORGOT_PASSWORD,
     };
 
     expect(modal(previousState, action)).toEqual(expectedState);

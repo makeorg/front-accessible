@@ -72,7 +72,7 @@ export const trackFacebookPixel = (
   FacebookTracking.trackCustom(eventName, eventParameters);
 };
 
-const TrackingService = {
+export const TrackingService = {
   track,
   trackFacebookPixel,
 };
@@ -214,11 +214,12 @@ export const trackDisplayForgotPasswordForm = () => {
   TrackingService.trackFacebookPixel(eventName);
 };
 
-export const trackClickCloseModal = () => {
+export const trackClickCloseModal = (modalContext: string) => {
   const eventName = trackingConstants.CLICK_CLOSE_MODAL;
+  const parameters = { context: modalContext };
 
-  TrackingService.track(eventName);
-  TrackingService.trackFacebookPixel(eventName);
+  TrackingService.track(eventName, parameters);
+  TrackingService.trackFacebookPixel(eventName, parameters);
 };
 
 /* Sign Up */

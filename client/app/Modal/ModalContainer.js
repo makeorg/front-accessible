@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
-  MODAL_LOGIN_CONTENT,
-  MODAL_REGISTER_CONTENT,
-  MODAL_FORGOT_PASSWORD_CONTENT,
-  MODAL_DEPARTMENT_FORM,
+  MODAL_LOGIN,
+  MODAL_REGISTER,
+  MODAL_FORGOT_PASSWORD,
+  MODAL_DEPARTMENT,
 } from 'Shared/constants/modal';
 import { Login } from 'Client/features/auth/Login';
 import { Register } from 'Client/features/auth/Register';
@@ -20,29 +20,37 @@ import { ModalComponent } from './ModalComponent';
 ReactModal.setAppElement('#app');
 
 const modalContents = {
-  [MODAL_LOGIN_CONTENT]: <Login />,
-  [MODAL_REGISTER_CONTENT]: <Register />,
-  [MODAL_FORGOT_PASSWORD_CONTENT]: <PasswordForgot />,
-  [MODAL_DEPARTMENT_FORM]: <DepartmentForm />,
+  [MODAL_LOGIN]: <Login />,
+  [MODAL_REGISTER]: <Register />,
+  [MODAL_FORGOT_PASSWORD]: <PasswordForgot />,
+  [MODAL_DEPARTMENT]: <DepartmentForm />,
 };
 
 type Props = {
   isModalOpen: boolean,
   contentType: string,
-  handleClose: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  handleClose: () => {},
 };
 
 const ModalContainerSwitch = (props: Props) => {
   const { handleClose, isModalOpen, contentType } = props;
 
+  const handleCloseWithTracking = () => {
+    handleClose();
+    trackClickCloseModal(contentType);
+  };
+
   if (isModalOpen) {
     // @todo remove or refactor when CDC is over
-    if (contentType === MODAL_DEPARTMENT_FORM) {
+    if (contentType === MODAL_DEPARTMENT) {
       return modalContents[contentType];
     }
 
     return (
-      <ModalComponent isModalOpen={isModalOpen} handleClose={handleClose}>
+      <ModalComponent
+        isModalOpen={isModalOpen}
+        handleClose={handleCloseWithTracking}
+      >
         {modalContents[contentType]}
       </ModalComponent>
     );
@@ -63,7 +71,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   handleClose: () => {
     dispatch(modalClose());
-    trackClickCloseModal();
   },
 });
 

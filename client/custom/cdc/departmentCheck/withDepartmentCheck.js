@@ -19,7 +19,7 @@ export const withDepartmentCheck = WrappedComponent => {
 
     React.useEffect(() => {
       const isModalOpened =
-        modalState.isOpen && modalState.contentType === 'MODAL_DEPARTMENT_FORM';
+        modalState.isOpen && modalState.contentType === 'MODAL_DEPARTMENT';
       const isFeatureActivated: boolean = checkIsFeatureActivated(
         CONSULTATION_DEPARTMENT_COMPULSORY,
         question.activeFeatures
