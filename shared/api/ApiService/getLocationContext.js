@@ -1,4 +1,5 @@
 // @flow
+
 import {
   ROUTE_CONSULTATION,
   ROUTE_SEQUENCE,
@@ -16,55 +17,37 @@ export const getLocationContext = (
   questionId: string,
   proposalId: string
 ): string => {
-  // TODO: missing pages
-  // "homepage"
-  // "search_results"
-  switch (true) {
-    case matchRoute(pathname, ROUTE_CONSULTATION):
-      return `page-operation ${questionId}`;
-    case matchRoute(pathname, ROUTE_SEQUENCE):
-      return `sequence ${questionId}`;
-    case matchRoute(pathname, ROUTE_PROPOSAL):
-      return `proposal-page ${proposalId}`;
-    case matchRoute(pathname, ROUTE_SEARCH_PROPOSALS):
-      return `search-proposals-page`;
-    case matchRoute(pathname, ROUTE_SEARCH_ORGANISATIONS):
-      return `search-organisations-page`;
-    case matchRoute(pathname, ROUTE_SEARCH_CONSULTATIONS):
-      return `search-consultations-page`;
-    case matchRoute(pathname, ROUTE_SEARCH):
-      return `search-page`;
-    case matchRoute(pathname, '/'):
-      return `homepage`;
-    default:
-      return `unknown-location ${pathname}`;
-  }
+  const path = pathname.toLowerCase();
+
+  const locations = [
+    { route: ROUTE_CONSULTATION, name: `page-operation ${questionId}` },
+    { route: ROUTE_ACTION, name: `page-action ${questionId}` },
+    { route: ROUTE_SEQUENCE, name: `sequence ${questionId}` },
+    { route: ROUTE_PROPOSAL, name: `proposal-page ${proposalId}` },
+    { route: ROUTE_SEARCH_PROPOSALS, name: `search-proposals-page` },
+    { route: ROUTE_SEARCH_ORGANISATIONS, name: `search-organisations-page` },
+    { route: ROUTE_SEARCH_CONSULTATIONS, name: `search-consultations-page` },
+    { route: ROUTE_SEARCH, name: `search-page` },
+    { route: '/', name: `homepage`, exact: true, strict: true },
+    { route: '/:countryLang', name: `homepage`, exact: true, strict: false },
+  ];
+
+  const location = locations.find(item => {
+    return matchRoute(
+      path,
+      item.route,
+      item.exact ? item.exact : false,
+      item.strict ? item.strict : false
+    );
+  });
+
+  return location === undefined
+    ? `unknown-location ${pathname}`
+    : location.name;
 };
 
 export const getTrackingLocation = (pathname: string): string => {
-  // @TODO: missing pages
-  // "organisation_page"
-  // "search_results"
-  switch (true) {
-    case matchRoute(pathname, ROUTE_CONSULTATION):
-      return `page-operation`;
-    case matchRoute(pathname, ROUTE_ACTION):
-      return `page-action`;
-    case matchRoute(pathname, ROUTE_SEQUENCE):
-      return `sequence`;
-    case matchRoute(pathname, ROUTE_PROPOSAL):
-      return `proposal-page`;
-    case matchRoute(pathname, ROUTE_SEARCH):
-      return `search-page`;
-    case matchRoute(pathname, ROUTE_SEARCH_PROPOSALS):
-      return `search-proposals-page`;
-    case matchRoute(pathname, ROUTE_SEARCH_ORGANISATIONS):
-      return `search-organisations-page`;
-    case matchRoute(pathname, ROUTE_SEARCH_CONSULTATIONS):
-      return `search-consultations-page`;
-    case matchRoute(pathname, '/'):
-      return `homepage`;
-    default:
-      return `unknown-location ${pathname}`;
-  }
+  const location = getLocationContext(pathname, '', '');
+
+  return location.split(' ').shift();
 };
