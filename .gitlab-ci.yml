@@ -89,9 +89,9 @@ build:
 deploy-preproduction:
   stage: deploy
   environment:
-    name: preproduction
+    name: preproduction_terrena
   only:
-    - preproduction
+    - preproduction_terrena
   script:
     - >
       curl -D - -X "POST"
@@ -101,26 +101,11 @@ deploy-preproduction:
       --data-urlencode "argString=-version $CI_COMMIT_REF_NAME-latest"
       $RUNDECK_PREPROD_URL/api/16/job/$RUNDECK_PREPROD_JOB_ID/run
 
-deploy-production:
-  stage: deploy
-  environment:
-    name: production
-  only:
-    - production
-  script:
-    - >
-      curl -D - -X "POST"
-      -H "Accept: application/json"
-      -H "Content-Type: application/x-www-form-urlencoded"
-      -H "X-Rundeck-Auth-Token: $RUNDECK_PROD_TOKEN"
-      --data-urlencode "argString=-version $CI_COMMIT_REF_NAME-latest"
-      $RUNDECK_PROD_URL/api/16/job/$RUNDECK_PROD_JOB_ID/run
-
 merge-to-prod:
   stage: merge
   when: manual
   only:
-    - preproduction
+    - preproduction_terrena
   allow_failure: false
   script:
     - mkdir -p ~/.ssh/
@@ -133,6 +118,6 @@ merge-to-prod:
     - git config --global user.email "${GITLAB_USER_EMAIL}"
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git remote set-url origin "${CI_PUSH_REPO}"
-    - git checkout production
-    - git merge --ff-only origin/preproduction
-    - git push origin production:production
+    - git checkout production_terrena
+    - git merge --ff-only origin/preproduction_terrena
+    - git push origin production_terrena:production_terrena
