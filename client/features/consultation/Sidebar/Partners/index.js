@@ -9,8 +9,8 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
 import { getPartnerAnchor, getSequenceLink } from 'Shared/helpers/url';
 import {
-  trackParticipatePartners,
   trackSeeMorePartners,
+  trackOpenSequence,
 } from 'Shared/services/Tracking';
 import { isInProgress } from 'Shared/helpers/date';
 import { ParticipateButtonStyle } from 'Client/features/consultation/Styled/Partners';
@@ -45,7 +45,7 @@ export const Partners = (props: Props) => {
           <ParticipateButtonStyle
             as={Link}
             to={sequenceLink}
-            onClick={trackParticipatePartners}
+            onClick={trackOpenSequence}
           >
             {i18n.t('common.participate')}
           </ParticipateButtonStyle>

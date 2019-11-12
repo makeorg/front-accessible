@@ -163,6 +163,13 @@ export const trackClickMakeLogo = () => {
   TrackingService.trackFacebookPixel(eventName);
 };
 
+export const trackClickProfile = () => {
+  const eventName = trackingConstants.CLICK_PROFILE;
+
+  TrackingService.track(eventName);
+  TrackingService.trackFacebookPixel(eventName);
+};
+
 /* Moderation Text Tracking */
 export const trackDisplayModerationText = () => {
   const eventName = trackingConstants.DISPLAY_MODERATION_TEXT;
