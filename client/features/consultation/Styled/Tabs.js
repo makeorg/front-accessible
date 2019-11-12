@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { TabNavStyle } from 'Client/ui/Elements/Tabs';
 
 export const ExtraTabsInformationsStyle = styled.span`
   font-size: 12px;
@@ -21,4 +22,12 @@ export const ConsultationPanelInnerStyle = styled.div`
     flex-flow: row;
     justify-content: space-between;
   }
+`;
+
+export const ConsultationNavStyle = styled(TabNavStyle)`
+  && {
+    margin-bottom: 0;
+  }
+  position: absolute;
+  bottom: 0;
 `;

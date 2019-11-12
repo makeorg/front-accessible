@@ -1,8 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { type Location as TypeLocation } from 'react-router';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import {
   type Question as TypeQuestion,
@@ -13,7 +11,6 @@ import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsContent } from 'Client/features/consultation/Results';
-import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { fetchQuestionResults } from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -26,13 +23,11 @@ import { ConsultationPageWrapperStyle } from './Styled';
 type Props = {
   question: TypeQuestion,
   questionConfiguration: TypeQuestionConfiguration,
-  location: TypeLocation,
 };
 
 const ConsultationPageWrapper = ({
   question,
   questionConfiguration,
-  location,
 }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
@@ -63,8 +58,7 @@ const ConsultationPageWrapper = ({
         question={question}
         questionConfiguration={questionConfiguration}
       />
-      <ConsultationPageWrapperStyle className="great-cause-container">
-        <NavigationWithTabs question={question} location={location} />
+      <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ResultsContent
             question={question}
@@ -78,7 +72,7 @@ const ConsultationPageWrapper = ({
   );
 };
 
-const ConsultationPage = withQuestionData(withRouter(ConsultationPageWrapper));
+const ConsultationPage = withQuestionData(ConsultationPageWrapper);
 
 // default export needed for loadable component
 export default ConsultationPage; // eslint-disable-line import/no-default-export

@@ -1,33 +1,18 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
-import {
-  Breakpoints,
-  Layouts,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
-import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import { TabsOffsetDesktop } from 'Shared/constants/tabs';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 
-const MobileOffset = intToPx(TabsOffsetMobile);
 const DesktopOffset = intToPx(TabsOffsetDesktop);
-const MobileMarginWithOffset = DefaultPadding.Mobile - TabsOffsetMobile;
-const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ConsultationPageWrapperStyle = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 15px auto;
-  &.great-cause-container {
-    margin: 0 auto ${intToPx(MobileMarginWithOffset)};
-    transform: translateY(-${MobileOffset});
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 30px auto;
-    &.great-cause-container {
-      margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
-      transform: translateY(-${DesktopOffset});
-    }
   }
 `;
 

@@ -1,11 +1,9 @@
 // @flow
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Redirect, type Location } from 'react-router';
+import { Redirect } from 'react-router';
 import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
-import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
@@ -13,26 +11,24 @@ import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/consultation/FollowUs';
+import { isGreatCause } from 'Shared/helpers/question';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   question: TypeQuestion,
   questionConfiguration: TypeQuestionConfiguration,
-  location: Location,
 };
 
 const ConsultationPageWrapper = ({
   question,
   questionConfiguration,
-  location,
 }: Props) => {
   const resultsLink = getResultsLink(
     question.country,
@@ -72,12 +68,8 @@ const ConsultationPageWrapper = ({
         question={question}
         questionConfiguration={questionConfiguration}
       />
-      <ConsultationPageWrapperStyle
-        className={questionIsGreatCause && 'great-cause-container'}
-      >
-        {questionIsGreatCause && (
-          <NavigationWithTabs question={question} location={location} />
-        )}
+
+      <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ConsultationContent
             question={question}
@@ -91,7 +83,7 @@ const ConsultationPageWrapper = ({
 };
 
 const ConsultationPage = withQuestionData(
-  withRouter(withDepartmentCheck(ConsultationPageWrapper))
+  withDepartmentCheck(ConsultationPageWrapper)
 );
 
 // default export needed for loadable component

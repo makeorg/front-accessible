@@ -1,16 +1,15 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { matchPath, type Location as TypeLocation } from 'react-router';
+import { matchPath, useLocation } from 'react-router';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
-import { ExtraTabsInformationsStyle } from 'Client/features/consultation/Styled/Tabs';
 import {
-  TabNavStyle,
-  TabListStyle,
-  FullWidthTabStyle,
-} from 'Client/ui/Elements/Tabs';
+  ExtraTabsInformationsStyle,
+  ConsultationNavStyle,
+} from 'Client/features/consultation/Styled/Tabs';
+import { TabListStyle, FullWidthTabStyle } from 'Client/ui/Elements/Tabs';
 import {
   getConsultationLink,
   getActionLink,
@@ -21,9 +20,8 @@ import { ROUTE_CONSULTATION, ROUTE_ACTION, ROUTE_RESULTS } from 'Shared/routes';
 
 type Props = {
   question: TypeQuestion,
-  location: TypeLocation,
 };
-export const NavigationWithTabs = ({ question, location }: Props) => {
+export const NavigationWithTabs = ({ question }: Props) => {
   const consultationLink = getConsultationLink(
     question.country,
     question.language,
@@ -40,12 +38,13 @@ export const NavigationWithTabs = ({ question, location }: Props) => {
     question.slug
   );
 
+  const location = useLocation();
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
   const isActionsPage = !!matchPath(location.pathname, ROUTE_ACTION);
   const isResultsPage = !!matchPath(location.pathname, ROUTE_RESULTS);
 
   return (
-    <TabNavStyle
+    <ConsultationNavStyle
       aria-label={i18n.t('common.consultation_nav', {
         name: question.wording.question,
       })}
@@ -85,6 +84,6 @@ export const NavigationWithTabs = ({ question, location }: Props) => {
           </Link>
         </FullWidthTabStyle>
       </TabListStyle>
-    </TabNavStyle>
+    </ConsultationNavStyle>
   );
 };
