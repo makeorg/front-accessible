@@ -14,11 +14,13 @@ type Props = {
   id?: string,
   /** Optional icon as prop to render */
   icon?: Node,
+  /** Optional as for Tile */
+  as?: string,
 };
 
-export const TileWithTitle = ({ title, children, id, icon }: Props) => {
+export const TileWithTitle = ({ title, children, id, icon, as }: Props) => {
   return (
-    <TileWithTitleStyle id={id}>
+    <TileWithTitleStyle id={id} as={as}>
       <TileTitleStyle as="h3">
         {icon}
         {title}
