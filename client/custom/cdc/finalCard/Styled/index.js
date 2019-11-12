@@ -9,6 +9,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { IntroButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const FinalQuestionTitleStyle = styled(SecondLevelTitleStyle)`
   margin-bottom: 10px;
@@ -28,6 +29,10 @@ export const MoreQuestionSeparatorStyle = styled(SeparatorStyle)`
 export const MoreQuestionImageStyle = styled.img`
   max-width: 200px;
   margin-bottom: 15px;
+`;
+
+export const MoreQuestionParagraphStyle = styled(ParagraphStyle)`
+  text-align: center;
 `;
 
 export const MoreQuestionTitleStyle = styled(ThirdLevelTitleStyle)`
