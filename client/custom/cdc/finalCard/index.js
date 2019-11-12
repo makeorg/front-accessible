@@ -10,7 +10,6 @@ import {
   InnerContentStyle,
 } from 'Client/features/sequence/Card/Styled/Content';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -20,6 +19,7 @@ import {
   MoreQuestionImageStyle,
   MoreQuestionTitleStyle,
   MoreQuestionButtonStyle,
+  MoreQuestionParagraphStyle,
   FinalQuestionTitleStyle,
   MoreQuestionSeparatorStyle,
 } from './Styled';
@@ -70,9 +70,9 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
               alt=""
             />
           )}
-          <ParagraphStyle>
+          <MoreQuestionParagraphStyle>
             {i18n.t('final_card.extra_question.more')}
-          </ParagraphStyle>
+          </MoreQuestionParagraphStyle>
           {nextQuestionTitle && (
             <MoreQuestionTitleStyle>{nextQuestionTitle}</MoreQuestionTitleStyle>
           )}
