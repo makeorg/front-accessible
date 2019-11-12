@@ -6,14 +6,12 @@ import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
 import { ConsultationPageSidebarStyle } from 'Client/pages/Operation/Styled';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { Sharing } from 'Client/features/sharing';
 import { useMobile } from 'Client/hooks/useMedia';
 import { getIsActiveFeature } from 'Client/helper/featureFlipping';
 import { DepartmentModification } from 'Client/custom/cdc/departmentModification';
 import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
 import {
-  CONSULTATION_SHARE_DISABLE,
   CONSULTATION_DEPARTMENT_COMPULSORY,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
@@ -57,11 +55,6 @@ export const ConsultationSidebar = ({
           title={i18n.t('modal.department_required.modification.title')}
         >
           <DepartmentModification departmentNumber={departmentNumber} />
-        </TileWithTitle>
-      )}
-      {!isActiveFeature(CONSULTATION_SHARE_DISABLE) && !isMobile && (
-        <TileWithTitle title={i18n.t('consultation.sharing.title')}>
-          <Sharing />
         </TileWithTitle>
       )}
       {isActiveFeature(CONSULTATION_FOLLOW_US_ACTIVE) && !isMobile && (

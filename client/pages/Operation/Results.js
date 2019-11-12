@@ -9,7 +9,6 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -19,10 +18,7 @@ import { fetchQuestionResults } from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import {
-  CONSULTATION_SHARE_DISABLE,
-  CONSULTATION_FOLLOW_US_ACTIVE,
-} from 'Shared/constants/featureFlipping';
+import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/consultation/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
@@ -40,10 +36,6 @@ const ConsultationPageWrapper = ({
 }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
-  const isSharingDisabled: boolean = checkIsFeatureActivated(
-    CONSULTATION_SHARE_DISABLE,
-    question.activeFeatures
-  );
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
@@ -81,7 +73,6 @@ const ConsultationPageWrapper = ({
           />
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
-      {isMobile && !isSharingDisabled && <MobileSharing />}
       {isMobile && isFollowUsActive && <FollowUs />}
     </React.Fragment>
   );

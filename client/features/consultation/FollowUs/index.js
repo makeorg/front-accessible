@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
@@ -16,6 +17,8 @@ import {
 } from 'Shared/helpers/social';
 
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { TrackingService } from 'Shared/services/Tracking';
+import * as trackingConstants from 'Shared/constants/tracking';
 import {
   FollowUsStyle,
   FollowUsIconsStyle,
@@ -24,6 +27,14 @@ import {
   InstagramButtonStyle,
   LinkedInButtonStyle,
 } from './Styled';
+
+const trackClickFollowUs = event => {
+  const params = {
+    'social-network': event.currentTarget.dataset.networkName,
+  };
+  TrackingService.track(trackingConstants.CLICK_FOLLOWUS, params);
+  TrackingService.trackFacebookPixel(trackingConstants.CLICK_FOLLOWUS, params);
+};
 
 /**
  * Renders FollowUs
@@ -36,40 +47,52 @@ export const FollowUs = () => (
     <FollowUsStyle as={UnstyledListStyle}>
       <li>
         <FacebookButtonStyle
+          data-network-name="facebook"
+          target="_blank"
           rel="noreferrer noopener"
           aria-label={i18n.t('followUs.facebook')}
           as="a"
           href={facebookMakeUrl}
+          onClick={trackClickFollowUs}
         >
           <SvgFacebookLogoF aria-hidden />
         </FacebookButtonStyle>
       </li>
       <li>
         <TwitterButtonStyle
+          data-network-name="twitter"
+          target="_blank"
           rel="noreferrer noopener"
           aria-label={i18n.t('followUs.twitter')}
           as="a"
           href={twitterMakeUrl}
+          onClick={trackClickFollowUs}
         >
           <SvgTwitterLogo aria-hidden />
         </TwitterButtonStyle>
       </li>
       <li>
         <InstagramButtonStyle
+          data-network-name="instagram"
+          target="_blank"
           rel="noreferrer noopener"
           aria-label={i18n.t('followUs.instagram')}
           as="a"
           href={instagramMakeUrl}
+          onClick={trackClickFollowUs}
         >
           <SvgInstagramLogo aria-hidden />
         </InstagramButtonStyle>
       </li>
       <li>
         <LinkedInButtonStyle
+          data-network-name="linkedin"
+          target="_blank"
           rel="noreferrer noopener"
           aria-label={i18n.t('followUs.linkedin')}
           as="a"
           href={linkedinMakeUrl}
+          onClick={trackClickFollowUs}
         >
           <SvgLinkedinLogoIn aria-hidden />
         </LinkedInButtonStyle>
