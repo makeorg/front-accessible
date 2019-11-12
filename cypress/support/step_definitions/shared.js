@@ -1,4 +1,5 @@
 import { getIdentifierButtonByName } from '../mapping';
+import { BASE_URL } from '../../../shared/constants/config';
 
 // pages list
 export const pages = {
