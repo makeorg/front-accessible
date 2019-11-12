@@ -46,7 +46,7 @@ import {
 } from '../Tracking';
 
 const FORM_NAME = 'department_selection';
-const BretagneDepartments = [22, 29, 35, 56];
+const BretagneDepartments = ['22', '29', '35', '56'];
 
 type DepartmentItemProps = {
   departmentNumber: number,

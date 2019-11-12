@@ -9,6 +9,7 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Avatar } from 'Client/ui/Avatar';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { useMobile } from 'Client/hooks/useMedia';
+import { trackClickProfile } from 'Shared/services/Tracking';
 import {
   ProfileAccessWrapperStyle,
   ProfileAccessButtonLabelStyle,
@@ -33,7 +34,12 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
       as="nav"
       aria-label={i18n.t('common.header_authentification_nav')}
     >
-      <ProfileAccessLinkStyle as={Link} to={profileLink} rel="nofollow">
+      <ProfileAccessLinkStyle
+        as={Link}
+        to={profileLink}
+        rel="nofollow"
+        onClick={trackClickProfile}
+      >
         <Avatar avatarUrl={avatarUrl} />
         <span>
           {user.isOrganisation ? user.organisationName : user.firstName}

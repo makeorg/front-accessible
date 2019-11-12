@@ -22,8 +22,10 @@ import {
 } from 'Client/helper/cookieDetect';
 import { track } from 'Shared/services/Tracking';
 import * as customDataHelper from 'Client/helper/customData';
-import { throttle } from 'Shared/helpers/throttle';
-import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
+import {
+  updateRequestContextQuestion,
+  updateRequestContextCustomData,
+} from 'Shared/store/middleware/requestContext';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -98,28 +100,21 @@ const initApp = async state => {
     customData: customDataHelper.getAll(), // custom_data already saved in session_storage
   });
 
-  // Allow sync : store state custom data <--> session_storage and apiClient
-  // Throttle avoid to sync this data too often
-  store.subscribe(
-    throttle(() => {
-      const storeState = store.getState();
-      customDataHelper.saveAll(storeState.customData, false);
-      apiClient.customData = customDataHelper.formatdDataForHeader(
-        storeState.customData
-      );
-    }, 500)
-  );
-
-  const { currentQuestion, questions } = store.getState();
-  if (currentQuestion && questions[currentQuestion]) {
-    updateRequestContextQuestion(questions[currentQuestion].question);
-  }
-
+  // Set request context values for API calls
   apiClient.source = state.appConfig.source;
   apiClient.country = state.appConfig.country;
   apiClient.language = state.appConfig.language;
   DateHelper.language = state.appConfig.language;
 
+  const { currentQuestion, questions, customData } = store.getState();
+  if (currentQuestion && questions[currentQuestion]) {
+    updateRequestContextQuestion(questions[currentQuestion].question);
+  }
+  if (customData) {
+    updateRequestContextCustomData(customData);
+  }
+
+  // Track cookies availability and adBlockers
   if (adBlockerDetected()) {
     logAndTrackEvent('adblocker-detected');
   }

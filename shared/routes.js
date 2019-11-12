@@ -35,9 +35,16 @@ const replaceCountryLanguage = (
 const replaceOrganisationSlug = (route: string, value: string) =>
   route.replace(':organisationSlug', value);
 
-export const matchRoute = (pathname: string, routePath: string): boolean =>
+export const matchRoute = (
+  pathname: string,
+  routePath: string,
+  exact: boolean = false,
+  strict: boolean = false
+): boolean =>
   !!matchPath(pathname, {
     path: routePath,
+    exact,
+    strict,
   });
 
 export const formatCountryLanguage = (country: string, language: string) =>
