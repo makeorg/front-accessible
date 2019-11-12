@@ -7,7 +7,6 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
 import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { MobileSharing } from 'Client/features/consultation/MobileSharing';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
@@ -16,7 +15,6 @@ import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigat
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import {
-  CONSULTATION_SHARE_DISABLE,
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
@@ -47,10 +45,6 @@ const ConsultationPageWrapper = ({
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
     OPERATION_MULTI_QUESTIONS_NAVIGATION,
-    question.activeFeatures
-  );
-  const isSharingDisabled: boolean = checkIsFeatureActivated(
-    CONSULTATION_SHARE_DISABLE,
     question.activeFeatures
   );
   const isFollowUsActive: boolean = checkIsFeatureActivated(
@@ -88,7 +82,6 @@ const ConsultationPageWrapper = ({
           />
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
-      {isMobile && !isSharingDisabled && <MobileSharing />}
       {isMobile && isFollowUsActive && <FollowUs />}
     </React.Fragment>
   );

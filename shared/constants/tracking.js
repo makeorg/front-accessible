@@ -74,6 +74,9 @@ export const LOCATION_SEQUENCE = 'sequence';
 /** Sharing */
 export const CLICK_SHARE: string = 'click-share';
 
+/** Follow us */
+export const CLICK_FOLLOWUS: string = 'click-follow-us';
+
 /** Homepage */
 export const DISPLAY_HOMEPAGE: string = 'display-page-home';
 export const CLICK_HOMEPAGE_FEATURED: string = 'click-homepage-header';
