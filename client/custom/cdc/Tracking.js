@@ -10,7 +10,7 @@ export const trackDisplayDepartmentModal = () => {
 
 export const trackDepartmentSelection = (departmentNumber: number) => {
   const eventName = 'click-department-validation';
-  const parameters = { department: departmentNumber };
+  const parameters = { department: departmentNumber.toString() };
 
   TrackingService.track(eventName, parameters);
   TrackingService.trackFacebookPixel(eventName, parameters);
@@ -18,7 +18,7 @@ export const trackDepartmentSelection = (departmentNumber: number) => {
 
 export const trackDepartmentModification = (departmentNumber: number) => {
   const eventName = 'click-department-modification';
-  const parameters = { department: departmentNumber };
+  const parameters = { department: departmentNumber.toString() };
 
   TrackingService.track(eventName, parameters);
   TrackingService.trackFacebookPixel(eventName, parameters);
