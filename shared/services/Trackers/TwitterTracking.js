@@ -4,14 +4,23 @@ import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
 import { twttr } from './twttr';
 
+const TWITTER_UNIVERSAL_MAKE_TAG = 'o2q8v';
 const twitterEventMapping = {
-  [trackingConstants.DISPLAY_SEQUENCE]: 'o173q',
-  [trackingConstants.CLICK_START_SEQUENCE]: 'o16w5',
-  [trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION]: 'o16wc',
-  [trackingConstants.CLICK_PROPOSAL_VOTE]: 'o173p',
-  [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o16w8',
-  [trackingConstants.DISPLAY_PROPOSAL_PUSH_CARD]: 'o16wa',
-  [trackingConstants.DISPLAY_SIGN_UP_CARD]: 'o16wb',
+  [trackingConstants.CLICK_PROPOSAL_SUBMIT]: 'o2q9h',
+  [trackingConstants.CLICK_PROPOSAL_UNVOTE]: 'o2q9n',
+  [trackingConstants.CLICK_PROPOSAL_VOTE]: 'o2q9d',
+  [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o2q9f',
+  [trackingConstants.CLICK_START_SEQUENCE]: 'o2q9t', // = click-sequence-launch on twitter
+  [trackingConstants.CLICK_SEQUENCE_OPEN]: 'o2q9j',
+  [trackingConstants.CLICK_SIGN_UP_CARD_EMAIL]: 'o2q9r',
+  [trackingConstants.CLICK_SIGN_UP_CARD_FACEBOOK]: 'o2q9s',
+  [trackingConstants.DISPLAY_PAGE_OPERATION]: 'o2q9i',
+  [trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION]: 'o2q9g',
+  [trackingConstants.DISPLAY_SEQUENCE]: 'o2q9e',
+  [trackingConstants.DISPLAY_INTRO_CARD]: 'o2q9l', // = display-sequence-intro-card on twitter
+  [trackingConstants.CLICK_PROPOSAL_QUALIFY]: 'o2q9o',
+  [trackingConstants.CLICK_PROPOSAL_UNQUALIFY]: 'o2q9p',
+  [trackingConstants.CLICK_PROPOSAL_VIEW_MORE]: 'o2q9q', // = click-proposal-viewmore on twitter
 };
 
 const isInitialized = (): boolean => {
@@ -29,7 +38,7 @@ export const TwitterTracking = {
     }
 
     if (twitterEventMapping[action] === undefined) {
-      Logger.logError(`twitter action not found: ${action}`);
+      Logger.logWarning(`twitter action not found: ${action}`);
       return;
     }
 
@@ -42,4 +51,27 @@ export const TwitterTracking = {
 
     twttr.track(eventName);
   },
+};
+
+export const TwitterUniversalTag = {
+  /* eslint-disable */
+  init() {
+    if (env.isTest() || env.isDev()) {
+      return;
+    }
+    // $FlowFixMe
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // $FlowFixMe
+    twq('init',TWITTER_UNIVERSAL_MAKE_TAG);
+    
+  },
+  pageView() {
+    if (env.isTest() || env.isDev()) {
+      Logger.logInfo(`Tracking Twitter: event pageView`);
+      return;
+    }
+    // $FlowFixMe
+    twq('track','PageView');
+  },
+  /* eslint-enable */
 };

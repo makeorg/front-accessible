@@ -26,6 +26,7 @@ import {
   updateRequestContextQuestion,
   updateRequestContextCustomData,
 } from 'Shared/store/middleware/requestContext';
+import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -67,6 +68,7 @@ i18n.init({
 });
 
 FacebookTracking.init();
+TwitterUniversalTag.init();
 
 ApiService.strategy = apiClient;
 
