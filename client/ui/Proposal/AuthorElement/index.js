@@ -9,6 +9,7 @@ import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -70,6 +71,7 @@ export const ProposalAuthorElement = (props: Props) => {
         {author.organisationName ? (
           <React.Fragment>
             <RedLinkStyle
+              onClick={trackClickPublicProfile}
               to={getOrganisationProfileLink(
                 country,
                 language,
