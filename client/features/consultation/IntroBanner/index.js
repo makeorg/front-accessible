@@ -1,12 +1,12 @@
 // @flow
 import React from 'react';
 import { isGreatCause } from 'Shared/helpers/question';
-import { type Question } from 'Shared/types/question';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { DefaultBanner } from './DefaultBanner';
 import { GreatCauseBanner } from './GreatCauseBanner';
 
 type Props = {
-  question: Question,
+  question: TypeQuestion,
 };
 
 export const IntroBanner = ({ question }: Props) => {

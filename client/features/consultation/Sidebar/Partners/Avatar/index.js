@@ -33,6 +33,22 @@ const linkProps = (partner, country, language) => {
   };
 };
 
+const altProps = partner => {
+  if (partner.link) {
+    return i18n.t('consultation.partners.profile_link_new_window', {
+      name: partner.name,
+    });
+  }
+
+  if (partner.organisation) {
+    return i18n.t('consultation.partners.profile_link', {
+      name: partner.name,
+    });
+  }
+
+  return partner.name;
+};
+
 type Props = {
   partner: TypePartner,
 };
@@ -43,20 +59,7 @@ export const PartnerAvatar = ({ partner }: Props) => {
 
   return (
     <PartnerAvatarStyle {...linkProps(partner, country, language)}>
-      {partner.logo && (
-        <img
-          src={partner.logo}
-          alt={
-            partner.link
-              ? i18n.t('consultation.partners.profile_link_new_window', {
-                  name: partner.name,
-                })
-              : i18n.t('consultation.partners.profile_link', {
-                  name: partner.name,
-                })
-          }
-        />
-      )}
+      {partner.logo && <img src={partner.logo} alt={altProps(partner)} />}
     </PartnerAvatarStyle>
   );
 };

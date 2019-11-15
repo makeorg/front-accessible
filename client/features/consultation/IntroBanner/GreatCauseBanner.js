@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import {
   GreatCauseIntroWrapperStyle,
@@ -8,29 +9,25 @@ import {
 } from '../Styled/IntroBanner';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
 };
 
-export const GreatCauseBanner = ({
-  question,
-  questionConfiguration,
-}: Props) => (
+export const GreatCauseBanner = ({ question }: Props) => (
   <>
     <GreatCauseIntroWrapperStyle
       as="header"
-      gradientStart={questionConfiguration.theme.gradientStart}
-      gradientEnd={questionConfiguration.theme.gradientEnd}
-      backgroundcolor={questionConfiguration.theme.gradientStart}
+      gradientStart={question.theme.gradientStart}
+      gradientEnd={question.theme.gradientEnd}
+      backgroundcolor={question.theme.gradientStart}
       id="intro"
     >
       <GreatCauseIntroLabelStyle>
         {i18n.t('consultation.header.label')}
       </GreatCauseIntroLabelStyle>
-      {questionConfiguration.consultation.logo ? (
+      {question.consultationImage ? (
         <h2>
           <img
-            src={questionConfiguration.consultation.logo}
+            src={question.consultationImage}
             alt={question.wording.question}
           />
         </h2>

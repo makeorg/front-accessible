@@ -1,7 +1,7 @@
 import React from 'react';
 import { DateHelper } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   IntroWrapperStyle,
   DefaultBannerTitleStyle,
@@ -10,16 +10,15 @@ import {
 } from '../Styled/IntroBanner';
 
 type Props = {
-  question: Question,
-  questionConfiguration: QuestionConfiguration,
+  question: TypeQuestion,
 };
 
-export const DefaultBanner = ({ question, questionConfiguration }: Props) => (
+export const DefaultBanner = ({ question }: Props) => (
   <IntroWrapperStyle
     as="header"
-    gradientStart={questionConfiguration.theme.gradientStart}
-    gradientEnd={questionConfiguration.theme.gradientEnd}
-    backgroundcolor={questionConfiguration.theme.gradientStart}
+    gradientStart={question.theme.gradientStart}
+    gradientEnd={question.theme.gradientEnd}
+    backgroundcolor={question.theme.gradientStart}
     id="intro"
   >
     <DefaultBannerMainContainer>

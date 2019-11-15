@@ -2,10 +2,7 @@ import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
-import { TabsOffsetDesktop } from 'Shared/constants/tabs';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
-
-const DesktopOffset = intToPx(TabsOffsetDesktop);
 
 export const ConsultationPageWrapperStyle = styled.div`
   width: 100%;
@@ -37,7 +34,7 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
     position: sticky;
     ${props =>
       props.bottomAffix
-        ? `bottom: -${DesktopOffset}; align-self: flex-end`
+        ? `bottom: 0; align-self: flex-end`
         : 'top: 0; align-self: flex-start'};
   }
 `;
