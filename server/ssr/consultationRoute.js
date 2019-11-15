@@ -1,12 +1,10 @@
 // @flow
 import { createInitialState } from 'Shared/store/initialState';
-import { SequenceService } from 'Shared/api/SequenceService';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { isInProgress } from 'Shared/helpers/date';
 import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
@@ -33,15 +31,10 @@ export const consultationRoute = async (req: any, res: any) => {
       questionResults = await QuestionNodeService.fetchResults(questionSlug);
     }
 
-    const questionConfiguration: TypeQuestionConfiguration = await SequenceService.fetchConfiguration(
-      questionSlug
-    );
-
     routeState.currentQuestion = questionSlug;
     routeState.questions = {
       [questionSlug]: {
         question,
-        questionConfiguration,
         questionResults,
       },
     };

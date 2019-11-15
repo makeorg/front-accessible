@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   ConsultationPageContentStyle,
@@ -19,14 +18,12 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
-  questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
   handleRegisterModal: () => void,
   isLoggedIn: boolean,
 };
 
 export const Actions = ({
-  questionConfiguration,
   question,
   handleRegisterModal,
   isLoggedIn,
@@ -43,7 +40,7 @@ export const Actions = ({
       </TileWithTitle>
       <TileWithTitle title={i18n.t('actions.partners.title')}>
         <PartnersTileContent
-          partners={questionConfiguration.partners}
+          partners={question.partners}
           aboutUrl={question.aboutUrl}
         />
       </TileWithTitle>

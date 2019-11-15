@@ -24,7 +24,7 @@ export const ProposalFooterWithQuestionElement = ({
       <RedLinkStyle
         {...(isProposalAccepted
           ? {
-              href: consultationLink,
+              to: consultationLink,
             }
           : { as: 'span' })}
       >

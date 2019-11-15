@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
@@ -65,7 +64,7 @@ export const ProfileVoteCard = ({
         </ProfileHasVotedStyle>
         <div>
           <RedLinkStyle
-            href={getOrganisationProfileLink(
+            to={getOrganisationProfileLink(
               organisation.country,
               organisation.language,
               organisation.slug
@@ -105,7 +104,6 @@ export const ProfileVoteCard = ({
                 proposal.id,
                 proposal.slug
               )}
-              as={Link}
             >
               {proposal.content}
             </ProposalStyle>

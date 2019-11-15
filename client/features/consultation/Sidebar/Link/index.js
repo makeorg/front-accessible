@@ -16,6 +16,7 @@ export const SidebarNewWindowLink = (props: Props) => {
 
   return (
     <RedLinkStyle
+      as="a"
       href={linkUrl}
       target="_blank"
       rel="noopener noreferrer"

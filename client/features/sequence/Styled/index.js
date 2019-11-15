@@ -101,7 +101,7 @@ export const FooterStyle = styled.footer`
 
 export const FooterTitleStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${props => props.fontColor};
+  color: ${BasicColors.PureWhite};
   text-transform: uppercase;
   font-size: 11px;
   margin-bottom: 5px;
@@ -113,23 +113,14 @@ export const FooterTitleStyle = styled.p`
 
 export const FooterLinkStyle = styled(Link)`
   font-size: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 14px;
-  }
-  &.white,
-  &.white:hover,
-  &.white:focus {
+  color: ${BasicColors.PureWhite};
+  outline-color: ${BasicColors.PureWhite};
+  &:hover,
+  &:focus {
     color: ${BasicColors.PureWhite};
-  }
-  &.white:focus {
     outline-color: ${BasicColors.PureWhite};
   }
-  &.black,
-  &.black:hover,
-  &.black:focus {
-    color: ${BasicColors.PureBlack};
-  }
-  &.black:focus {
-    outline-color: ${BasicColors.PureBlack};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 14px;
   }
 `;

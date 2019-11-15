@@ -4,13 +4,6 @@ import {
   type Vote as TypeVote,
 } from './proposal';
 
-export type Partner = {
-  name: string,
-  imageUrl: string,
-  isFounder: boolean,
-  profileUrl: string,
-};
-
 export type Organisation = {
   avatarUrl: string,
   country: string,

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
@@ -125,7 +126,7 @@ export const ProposalsNumber = styled.span`
   font-family: ${MakeFonts.CircularStandardBold};
 `;
 
-export const CurrentConsultationLinkOverlayStyle = styled.a`
+export const CurrentConsultationLinkOverlayStyle = styled(Link)`
   position: absolute;
   top: 0;
   left: 0;

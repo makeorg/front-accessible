@@ -1,48 +1,45 @@
 import React from 'react';
-import { type Partner as TypePartner } from 'Shared/types/organisation';
+import { type TypePartner } from 'Shared/types/question';
 import {
   PartnersListStyle,
   AvatarWrapperStyle,
 } from 'Client/features/consultation/Styled/Partners';
 import { Tooltip } from 'Client/ui/Tooltip';
+import { FOUNDER_PARTNER } from 'Shared/constants/partner';
 import { PartnerTooltip } from '../Tooltip';
 import { PartnerAvatar } from '../Avatar';
 
-type Props = {
-  partners: TypePartner[],
+type TooltipProps = {
+  partner: TypePartner,
 };
-
-const PartnerAvatarWithTooltip = ({ partner }) => {
+const PartnerAvatarWithTooltip = ({ partner }: TooltipProps) => {
   const content = (
-    <PartnerTooltip partnerName={partner.name} isFounder={partner.isFounder} />
-  );
-  const children = (
-    <PartnerAvatar
+    <PartnerTooltip
       partnerName={partner.name}
-      partnerLogo={partner.imageUrl}
-      partnerProfile={partner.profileUrl}
-      newWindow={partner.isFounder}
+      isFounder={partner.partnerKind === FOUNDER_PARTNER}
     />
   );
 
   return (
     <Tooltip content={content} direction="top">
-      {children}
+      <PartnerAvatar partner={partner} />
     </Tooltip>
   );
 };
 
-export const PartnersList = ({ partners }: Props) => {
-  return (
-    <PartnersListStyle>
-      {partners.map(partner => (
-        <AvatarWrapperStyle key={partner.name}>
-          <PartnerAvatarWithTooltip
-            key={`avatar_with_tooltip_${partner.name}`}
-            partner={partner}
-          />
-        </AvatarWrapperStyle>
-      ))}
-    </PartnersListStyle>
-  );
+type Props = {
+  partners: TypePartner[],
 };
+
+export const PartnersList = ({ partners }: Props) => (
+  <PartnersListStyle>
+    {partners.map(partner => (
+      <AvatarWrapperStyle key={partner.name}>
+        <PartnerAvatarWithTooltip
+          key={`avatar_with_tooltip_${partner.name}`}
+          partner={partner}
+        />
+      </AvatarWrapperStyle>
+    ))}
+  </PartnersListStyle>
+);

@@ -1,10 +1,6 @@
 /* @flow */
 import * as actionTypes from 'Shared/store/actionTypes';
-import {
-  questionConfigurationTypeFixture,
-  questionTypeFixture,
-  questionResultsTypeFixture,
-} from 'Shared/types/__fixtures__/question.fixture';
+import { questionTypeFixture } from 'Shared/types/__fixtures__/question.fixture';
 import { currentQuestion } from './index';
 
 describe('Questions reducer', () => {
@@ -12,13 +8,12 @@ describe('Questions reducer', () => {
     expect(currentQuestion('', {})).toEqual('');
   });
 
-
   it('action QUESTION_UNLOAD', () => {
     const action = {
       type: actionTypes.QUESTION_UNLOAD,
     };
 
-    expect(currentQuestion({currentQuestion: 'old_slug'}, action)).toEqual(
+    expect(currentQuestion({ currentQuestion: 'old_slug' }, action)).toEqual(
       ''
     );
   });

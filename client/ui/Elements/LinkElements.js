@@ -1,6 +1,5 @@
-/* @flow */
-
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
@@ -9,7 +8,7 @@ import {
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const RedLinkStyle = styled.a`
+export const RedLinkStyle = styled(Link)`
   color: ${MakeThemeColors.Red};
   font-size: 12px;
   &:hover,

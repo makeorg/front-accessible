@@ -101,6 +101,7 @@ export type Metas = {
 
 export type QuestionWording = {
   question: string,
+  description: string,
   title: string,
   metas: Metas,
 };
@@ -121,6 +122,20 @@ export type SimpleOperationData = {
   language: string,
   startDate: string,
   endDate: string,
+};
+
+export type PartnerOrganisation = {
+  organisationId: string,
+  slug: string,
+};
+
+export type TypePartner = {
+  name: string,
+  logo?: string,
+  link?: string,
+  organisation?: PartnerOrganisation,
+  partnerKind: string,
+  weight: number,
 };
 
 export type Question = {
@@ -146,5 +161,7 @@ export type Question = {
   operation: {
     questions: SimpleOperationData[],
   },
-  descriptionImage: string,
+  partners: TypePartner[],
+  consultationImage?: string,
+  descriptionImage?: string,
 };

@@ -40,6 +40,7 @@ export const FeaturedArticle = ({
         as: 'a',
         href: featured.externalLink,
         target: '_blank',
+        rel: 'noopener noreferrer',
       }
     : {
         to: buildInternalConsultationLink(

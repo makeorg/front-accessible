@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { getConsultationLink, getSequenceLink } from 'Shared/helpers/url';
 import {
   ContentWrapperStyle,
@@ -14,6 +13,8 @@ import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickStartSequence } from 'Shared/services/Tracking';
+// @todo : temp remove after cdc
+import cdcData from 'Shared/constants/cdc.json';
 import {
   MoreQuestionWrapperStyle,
   MoreQuestionImageStyle,
@@ -26,13 +27,14 @@ import {
 
 type Props = {
   question: TypeQuestion,
-  configuration: TypeQuestionConfiguration,
 };
 
-export const CustomFinalCard = ({ question, configuration }: Props) => {
+export const CustomFinalCard = ({ question }: Props) => {
   const isMobile = useMobile();
   const [nextQuestionTitle, setNextQuestionTitle] = useState(undefined);
-  const nextQuestionSlug = configuration.customFinalCard.nextQuestion;
+  const customFinalCard =
+    cdcData[question.slug] && cdcData[question.slug].customFinalCard;
+  const nextQuestionSlug = customFinalCard && customFinalCard.nextQuestion;
 
   useEffect(() => {
     const nextQuestionIndex: number = question.operation.questions.findIndex(
@@ -53,7 +55,6 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
           {i18n.t('final_card.extra_question.title')}
         </FinalQuestionTitleStyle>
         <RedLinkStyle
-          as={Link}
           to={getConsultationLink(
             question.country,
             question.language,
@@ -65,10 +66,7 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
         <MoreQuestionSeparatorStyle />
         <MoreQuestionWrapperStyle>
           {!isMobile && (
-            <MoreQuestionImageStyle
-              src={configuration.customFinalCard.imageUrl}
-              alt=""
-            />
+            <MoreQuestionImageStyle src={customFinalCard.imageUrl} alt="" />
           )}
           <MoreQuestionParagraphStyle>
             {i18n.t('final_card.extra_question.more')}
@@ -81,7 +79,7 @@ export const CustomFinalCard = ({ question, configuration }: Props) => {
             to={getSequenceLink(
               question.country,
               question.language,
-              configuration.customFinalCard.nextQuestion,
+              customFinalCard.nextQuestion,
               { introCard: false }
             )}
             onClick={trackClickStartSequence}

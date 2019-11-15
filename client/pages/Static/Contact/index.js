@@ -14,7 +14,7 @@ export const Contact = () => {
       <StaticParagraphStyle>
         Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en
         envoyant un e-mail à notre adresse :&nbsp;
-        <RedLinkStyle href="mailto:contact@make.org">
+        <RedLinkStyle as="a" href="mailto:contact@make.org">
           contact@make.org
         </RedLinkStyle>
       </StaticParagraphStyle>

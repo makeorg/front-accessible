@@ -33,7 +33,7 @@ import {
   CurrentConsultationSliderParams,
 } from './sliderParams';
 
-export const getConsultationLink = (
+const setConsultationLink = (
   consultation: TypeCurrentConsultation,
   country: string,
   language: string
@@ -45,6 +45,7 @@ export const getConsultationLink = (
       as: 'a',
       href: externalLink,
       target: '_blank',
+      rel: 'noopener noreferrer',
     };
   }
 
@@ -128,7 +129,7 @@ export const CurrentConsultationsComponent = ({
                   title={consultation.altPicture}
                   label={consultation.linkLabel}
                   proposalsNumber={consultation.proposalsNumber}
-                  linkObject={getConsultationLink(
+                  linkObject={setConsultationLink(
                     consultation,
                     country,
                     language
@@ -143,7 +144,7 @@ export const CurrentConsultationsComponent = ({
                   label={consultation.label}
                   proposalsNumber={consultation.proposalsNumber}
                   linkText={consultation.linkLabel}
-                  linkObject={getConsultationLink(
+                  linkObject={setConsultationLink(
                     consultation,
                     country,
                     language

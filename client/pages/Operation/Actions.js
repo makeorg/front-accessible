@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { Redirect } from 'react-router';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
@@ -17,13 +16,9 @@ import { ConsultationPageWrapperStyle } from './Styled';
 
 type Props = {
   question: TypeQuestion,
-  questionConfiguration: TypeQuestionConfiguration,
 };
 
-const ConsultationPageWrapper = ({
-  question,
-  questionConfiguration,
-}: Props) => {
+const ConsultationPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const isFollowUsActive: boolean = checkIsFeatureActivated(
@@ -38,16 +33,10 @@ const ConsultationPageWrapper = ({
   return (
     <React.Fragment>
       <ActionsSkipLinks />
-      <IntroBanner
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
+      <IntroBanner question={question} />
       <ConsultationPageWrapperStyle className="great-cause-container">
         <ConsultationPanelInnerStyle>
-          <ActionsContent
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
+          <ActionsContent question={question} />
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}

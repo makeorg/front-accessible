@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
@@ -55,7 +56,7 @@ export const FooterItemStyle = styled.li`
   }
 `;
 
-export const FooterItemLinkStyle = styled.a`
+export const FooterItemLinkStyle = styled(Link)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   text-decoration: none;
   text-transform: uppercase;

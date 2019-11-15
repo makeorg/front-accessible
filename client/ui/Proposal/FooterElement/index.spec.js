@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
 import { proposalTypeFixture } from 'Shared/types/__fixtures__/proposal.fixture';
@@ -45,15 +46,21 @@ describe('ProposalFooterWithQuestionElement', () => {
     };
 
     const defaultProposalFooter = renderer
-      .create(<ProposalFooterWithQuestionElement {...props} />)
+      .create(
+        <BrowserRouter>
+          <ProposalFooterWithQuestionElement {...props} />
+        </BrowserRouter>
+      )
       .toJSON();
 
     const refusedProposalFooter = renderer
       .create(
-        <ProposalFooterWithQuestionElement
-          {...props}
-          isProposalAccepted={false}
-        />
+        <BrowserRouter>
+          <ProposalFooterWithQuestionElement
+            {...props}
+            isProposalAccepted={false}
+          />
+        </BrowserRouter>
       )
       .toJSON();
 

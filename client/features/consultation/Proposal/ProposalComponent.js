@@ -1,6 +1,5 @@
 import React from 'react';
 import { type Question } from 'Shared/types/question';
-import { type QuestionConfiguration } from 'Shared/types/sequence';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
@@ -11,11 +10,9 @@ import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
 type Props = {
   question: Question,
-  questionConfiguration: QuestionConfiguration,
 };
 
-export const ConsultationProposalComponent = (props: Props) => {
-  const { question, questionConfiguration } = props;
+export const ConsultationProposalComponent = ({ question }: Props) => {
   const questionIsGreatCause = isGreatCause(question.operationKind);
   return (
     <ProposalWrapperStyle
@@ -33,7 +30,7 @@ export const ConsultationProposalComponent = (props: Props) => {
         {i18n.t('consultation.proposal.title')}
       </FourthLevelTitleStyle>
       {questionIsGreatCause && (
-        <ProposalTitleStyle fontColor={questionConfiguration.theme.color}>
+        <ProposalTitleStyle fontColor={question.theme.color}>
           {question.question}
         </ProposalTitleStyle>
       )}

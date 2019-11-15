@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
-import { type QuestionConfiguration as TypeQuestionConfiguration } from 'Shared/types/sequence';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -21,7 +20,6 @@ import { TagSectionTitle } from './Styled/TagFilter';
 import { ConsultationSidebar } from './Sidebar';
 
 type Props = {
-  questionConfiguration: TypeQuestionConfiguration,
   question: TypeQuestion,
 };
 
@@ -34,10 +32,7 @@ const toggleTagIdInList = (tagIdList: string[], tagId: string): string[] => {
   return newTagIdList;
 };
 
-export const ConsultationContent = ({
-  questionConfiguration,
-  question,
-}: Props) => {
+export const ConsultationContent = ({ question }: Props) => {
   const [selectedTagIdList, setSelectedTagIdList] = useState([]);
   const isMobile = useMobile();
   const renderMobileProposal = question.canPropose && isMobile;
@@ -67,23 +62,10 @@ export const ConsultationContent = ({
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      {renderMobileProposal && (
-        <ConsultationProposal
-          question={question}
-          questionConfiguration={questionConfiguration}
-        />
-      )}
-      <ConsultationSidebar
-        question={question}
-        questionConfiguration={questionConfiguration}
-      />
+      {renderMobileProposal && <ConsultationProposal question={question} />}
+      <ConsultationSidebar question={question} />
       <ConsultationPageContentStyle id="main">
-        {renderDesktopProposal && (
-          <ConsultationProposal
-            question={question}
-            questionConfiguration={questionConfiguration}
-          />
-        )}
+        {renderDesktopProposal && <ConsultationProposal question={question} />}
         <TagSectionTitle as="h3" id="tag_list">
           <ConsultationIconStyle aria-hidden>
             <SvgThumbsUp style={{ width: '18px', height: '18px' }} />
