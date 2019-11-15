@@ -8,7 +8,7 @@ import {
 
 export type QuestionTheme = {
   color?: string,
-  footerFontColor?: string,
+  fontColor?: string,
   gradientStart: string,
   gradientEnd: string,
 };

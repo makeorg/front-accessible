@@ -22,10 +22,10 @@ export const DefaultBanner = ({ question }: Props) => (
     id="intro"
   >
     <DefaultBannerMainContainer>
-      <DefaultBannerTitleStyle>
+      <DefaultBannerTitleStyle style={{ color: question.theme.fontColor }}>
         {question.wording.question}
       </DefaultBannerTitleStyle>
-      <DefaultBannerTimeStyle>
+      <DefaultBannerTimeStyle style={{ color: question.theme.fontColor }}>
         {i18n.t('consultation.tabs.consultation')}
         {i18n.t('consultation.tabs.from')}
         <time dateTime={question.startDate}>
