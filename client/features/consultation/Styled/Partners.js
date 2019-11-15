@@ -14,8 +14,11 @@ export const ParticipateButtonStyle = styled(LinkAsRedButton)`
 export const PartnersListStyle = styled(UnstyledListStyle)`
   margin: 10px 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    grid-gap: 25px;
+  }
 `;
 
 export const AvatarWrapperStyle = styled.li`

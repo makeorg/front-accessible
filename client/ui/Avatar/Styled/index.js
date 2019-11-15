@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { BorderColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import {
+  BorderColors,
+  BasicColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
+import { intToPx } from 'Shared/helpers/styled';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const AvatarStyle = styled.span`
   margin-right: 10px;
@@ -18,9 +24,9 @@ export const PartnerAvatarStyle = styled.span`
   display: inline-flex;
   svg,
   img {
-    border-radius: 50%;
+    border-radius: ${intToPx(Elements.BorderRadius)};
     overflow: hidden;
-    border: 1px solid ${BorderColors.MediumGrey};
+    border: 1px solid ${BackgroundColors.MediumGrey};
     background-color: ${BasicColors.PureWhite};
   }
 `;
