@@ -9,7 +9,6 @@ import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
 import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
 
 const MobilePaddingWithOffset = DefaultPadding.Mobile + TabsOffsetMobile;
 const DesktopPaddingWithOffset = DefaultPadding.Desktop + TabsOffsetDesktop;
@@ -36,6 +35,7 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
 export const GreatCauseIntroWrapperStyle = styled(IntroWrapperStyle)`
   position: relative;
   padding-bottom: ${intToPx(MobilePaddingWithOffset)};
+  color: ${props => props.theme.fontColor};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
   }
@@ -48,7 +48,7 @@ export const GreatCauseIntroLabelStyle = styled(ConsultationLabelStyle)`
 export const GreatCauseIntroBannerTitleStyle = styled(SecondLevelTitleStyle)`
   text-align: center;
   max-width: 550px;
-  color: ${BasicColors.PureWhite};
+  color: ${props => props.theme.fontColor};
   line-height: 1.33;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     line-height: 1.53;
@@ -58,7 +58,6 @@ export const GreatCauseIntroBannerTitleStyle = styled(SecondLevelTitleStyle)`
 export const DefaultBannerMainContainer = styled.div`
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  color: ${BasicColors.PureWhite};
   line-height: 1.33;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     line-height: 1.53;
@@ -67,7 +66,7 @@ export const DefaultBannerMainContainer = styled.div`
 
 export const DefaultBannerTitleStyle = styled(SecondLevelTitleStyle)`
   max-width: 550px;
-  color: ${BasicColors.PureWhite};
+  color: ${props => props.theme.fontColor};
   line-height: 1.33;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     line-height: 1.53;
@@ -75,7 +74,8 @@ export const DefaultBannerTitleStyle = styled(SecondLevelTitleStyle)`
 `;
 
 export const DefaultBannerTimeStyle = styled.div`
-  color: ${TextColors.WhiteWithOpacity};
+  color: ${props => props.theme.fontColor};
+  opacity: 0.65;
   line-height: 24px;
   margin-top: 10px;
   font-size: 0.9em;

@@ -25,7 +25,7 @@ export const GreatCauseBanner = ({ question }: Props) => (
         {i18n.t('consultation.header.label')}
       </GreatCauseIntroLabelStyle>
       {question.consultationImage ? (
-        <h2 style={{ color: question.theme.fontColor }}>
+        <h2>
           <img
             src={question.consultationImage}
             alt={question.wording.question}

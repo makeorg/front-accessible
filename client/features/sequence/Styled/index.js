@@ -101,7 +101,7 @@ export const FooterStyle = styled.footer`
 
 export const FooterTitleStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${BasicColors.PureWhite};
+  color: ${props => props.theme.fontColor};
   text-transform: uppercase;
   font-size: 11px;
   margin-bottom: 5px;
@@ -113,12 +113,12 @@ export const FooterTitleStyle = styled.p`
 
 export const FooterLinkStyle = styled(Link)`
   font-size: 10px;
-  color: ${BasicColors.PureWhite};
-  outline-color: ${BasicColors.PureWhite};
+  color: ${props => props.theme.fontColor};
+  outline-color: ${props => props.theme.fontColor};
   &:hover,
   &:focus {
-    color: ${BasicColors.PureWhite};
-    outline-color: ${BasicColors.PureWhite};
+    color: ${props => props.theme.fontColor};
+    outline-color: ${props => props.theme.fontColor};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
