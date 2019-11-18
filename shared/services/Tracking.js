@@ -170,6 +170,13 @@ export const trackClickProfile = () => {
   TrackingService.trackFacebookPixel(eventName);
 };
 
+export const trackClickPublicProfile = () => {
+  const eventName = trackingConstants.CLICK_PUBLIC_PROFILE;
+
+  TrackingService.track(eventName);
+  TrackingService.trackFacebookPixel(eventName);
+};
+
 /* Moderation Text Tracking */
 export const trackDisplayModerationText = () => {
   const eventName = trackingConstants.DISPLAY_MODERATION_TEXT;
