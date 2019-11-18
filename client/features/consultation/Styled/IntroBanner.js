@@ -20,12 +20,12 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
     ${props => props.gradientStart},
     ${props => props.gradientEnd}
   );
-  padding: ${intToPx(DefaultPadding.Mobile)};
+  padding: 30px ${intToPx(DefaultPadding.Mobile)};
   &.great-cause-banner {
     padding-bottom: ${intToPx(MobilePaddingWithOffset)};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: ${intToPx(DefaultPadding.Desktop)};
+    padding: 50px ${intToPx(DefaultPadding.Desktop)};
     &.great-cause-banner {
       padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
     }
@@ -65,7 +65,6 @@ export const DefaultBannerMainContainer = styled.div`
 `;
 
 export const DefaultBannerTitleStyle = styled(SecondLevelTitleStyle)`
-  max-width: 550px;
   color: ${props => props.theme.fontColor};
   line-height: 1.33;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
