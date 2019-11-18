@@ -39,7 +39,12 @@ export const Header = () => {
         </HeaderFlexLeftStyle>
         <HeaderFlexRightStyle>
           {isDesktop && (
-            <WhoAreWeLinkStyle href={WHOAREWE_FR_LINK}>
+            <WhoAreWeLinkStyle
+              as="a"
+              target="_blank"
+              rel="noreferrer noopener"
+              href={WHOAREWE_FR_LINK}
+            >
               {i18n.t('header.whoarewe')}
             </WhoAreWeLinkStyle>
           )}
