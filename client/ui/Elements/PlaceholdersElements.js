@@ -30,11 +30,10 @@ export const ThumbsUpStyle = {
   width: '72px',
   height: '72px',
   margin: '15px 0 5px',
-  fill: `${VoteColors.Agree}`,
 };
 
 export const ThumbsUpWrapperStyle = styled.span`
-  > .tofill {
+  .tofill {
     fill: ${VoteColors.Agree};
   }
 `;

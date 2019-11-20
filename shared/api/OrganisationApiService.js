@@ -44,13 +44,21 @@ export class OrganisationApiService {
     );
   }
 
-  static getOrganisationVotes(organisationId: string) {
+  static getOrganisationVotes(
+    organisationId: string,
+    seed?: ?number = null,
+    limit?: number = PROPOSALS_LISTING_LIMIT,
+    skip?: number = 0
+  ) {
     return ApiService.callApi(
       ORGANISATION_VOTES_PATH.replace(':organisationId', organisationId),
       {
         method: 'GET',
         params: {
           votes: 'agree,disagree',
+          seed,
+          limit,
+          skip,
         },
       }
     );

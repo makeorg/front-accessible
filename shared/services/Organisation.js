@@ -4,6 +4,7 @@ import { Logger } from 'Shared/services/Logger';
 import {
   type ApiSearchOrganisationsResponseType,
   type ApiSearchProposalsResponseType,
+  type ApiOrganisationVotesResponseType,
 } from 'Shared/types/api';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 
@@ -59,31 +60,37 @@ export const getProposals = async (
   return response;
 };
 
-export const getVotes = async (organisationId: string) => {
-  try {
-    const { results } = await OrganisationApiService.getOrganisationVotes(
-      organisationId
+export const getVotes = async (
+  organisationId: string,
+  seed: ?number = null,
+  page: number = 0
+): Promise<ApiOrganisationVotesResponseType> => {
+  const limit = PROPOSALS_LISTING_LIMIT;
+  const skip = page * limit;
+
+  const response = await OrganisationApiService.getOrganisationVotes(
+    organisationId,
+    seed,
+    limit,
+    skip
+  );
+  const { results } = response;
+
+  const proposals = results.map(result => result.proposal);
+
+  const organisationVotes = results.map(result => {
+    const Proposal = proposals.find(
+      proposal => proposal.id === result.proposal.id
     );
+    return {
+      ...result,
+      proposal: Proposal,
+    };
+  });
 
-    if (results.length > 0) {
-      const proposals = results.map(result => result.proposal);
-
-      const organisationVotes = results.map(result => {
-        const Proposal = proposals.find(
-          proposal => proposal.id === result.proposal.id
-        );
-        return {
-          ...result,
-          proposal: Proposal,
-        };
-      });
-
-      return organisationVotes;
-    }
-
-    return [];
-  } catch (error) {
-    Logger.logError(Error(error));
-    return [];
-  }
+  return {
+    results: organisationVotes,
+    total: response.total,
+    seed: response.seed,
+  };
 };

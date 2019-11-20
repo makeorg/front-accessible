@@ -61,6 +61,9 @@ describe('OrganisationService', () => {
           method: 'GET',
           params: {
             votes: 'agree,disagree',
+            seed: null,
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
           },
         }
       );

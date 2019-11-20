@@ -14,32 +14,68 @@ import {
 import { ProfileVoteCard } from 'Client/features/proposal/ProfileVoteCard';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
-import { OrganisationVotesPlaceholder } from '../Placeholders/Votes';
+import { trackLoadMoreProposals } from 'Shared/services/Tracking';
+import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
+import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { OrganisationVotesPlaceholder } from './Placeholders/Votes';
 
 type Props = {
   organisation: TypeOrganisation,
 };
 
-const OrganisationVotesPage = (props: Props) => {
+const OrganisationVotesPage = ({ organisation }: Props) => {
   const [votes, setVotes] = useState<TypeOrganisationVote[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { organisation } = props;
-  const votesLength = votes.length;
-  const renderVotes = !!votesLength && !isLoading;
-  const renderPlaceholder = !votesLength && !isLoading;
+  const [hasMore, setHasMore] = useState<boolean>(false);
+  const [seed, setSeed] = useState(undefined);
+  const [page, setPage] = useState<number>(0);
+
+  const initProposal = async () => {
+    setIsLoading(true);
+    const {
+      results,
+      total,
+      seed: apiSeed,
+    } = await OrganisationService.getVotes(organisation.organisationId);
+    setVotes(results);
+    setHasMore(results.length < total);
+    setSeed(apiSeed);
+    setPage(1);
+    setIsLoading(false);
+  };
+
+  const loadProposals = async () => {
+    setIsLoading(true);
+    const {
+      results,
+      total,
+      seed: apiSeed,
+    } = await OrganisationService.getVotes(
+      organisation.organisationId,
+      seed,
+      page
+    );
+    const newVotesList = [...votes, ...results];
+    setVotes(newVotesList);
+    setHasMore(newVotesList.length < total);
+    setSeed(apiSeed);
+    setPage(page + 1);
+    setIsLoading(false);
+  };
+
+  const clickLoadMore = () => {
+    loadProposals();
+    trackLoadMoreProposals(page);
+  };
 
   useEffect(() => {
-    const fetchVotes = async () => {
-      const loadedVotes: TypeOrganisationVote[] = await OrganisationService.getVotes(
-        organisation.organisationId
-      );
-
-      setVotes(loadedVotes);
-      setIsLoading(false);
-    };
-
-    fetchVotes();
+    initProposal();
   }, [organisation]);
+
+  const votesLength = votes.length;
+  const renderVotes = !!votesLength;
+  const renderPlaceholder = !votesLength && !isLoading;
+  const displayLoadMoreButton = hasMore && !isLoading;
 
   return (
     <React.Fragment>
@@ -56,9 +92,8 @@ const OrganisationVotesPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
       {renderVotes && (
-        <section role="feed">
+        <section role="feed" aria-live="polite">
           {votes.map((vote, index) => (
             <ProfileVoteCard
               key={`organisation_votes_${vote.proposal.id}`}
@@ -70,6 +105,14 @@ const OrganisationVotesPage = (props: Props) => {
             />
           ))}
         </section>
+      )}
+      {isLoading && <Spinner />}
+      {displayLoadMoreButton && (
+        <LoadMoreWrapperStyle>
+          <RedButtonStyle onClick={clickLoadMore}>
+            {i18n.t('consultation.proposal.load_more')}
+          </RedButtonStyle>
+        </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && (
         <OrganisationVotesPlaceholder name={organisation.organisationName} />
