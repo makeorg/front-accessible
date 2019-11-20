@@ -1,11 +1,8 @@
 // @flow
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type Tag as TypeTag } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
-import { TagFilter } from 'Client/features/consultation/TagsFilter';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
@@ -16,42 +13,63 @@ import {
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
-import { TagSectionTitle } from './Styled/TagFilter';
+
+import { SelectPanel } from 'Client/features/SelectPanel';
+import { TagList } from 'Client/ui/Elements/TagList';
+import { SortedList } from 'Client/ui/Elements/SortedList';
+import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
+import { TagService } from 'Shared/api/TagService';
+import {
+  TagSectionTitle,
+  FiltersContainerStyle,
+  SeparatorStyle,
+  ResetStyle,
+} from './Styled/TagFilter';
 import { ConsultationSidebar } from './Sidebar';
 
 type Props = {
   question: TypeQuestion,
 };
 
-const toggleTagIdInList = (tagIdList: string[], tagId: string): string[] => {
-  const listHasTagId = tagIdList.includes(tagId);
-  const newTagIdList = listHasTagId
-    ? tagIdList.filter(selectedTagId => selectedTagId !== tagId)
-    : [tagId, ...tagIdList];
-
-  return newTagIdList;
-};
-
 export const ConsultationContent = ({ question }: Props) => {
-  const [selectedTagIdList, setSelectedTagIdList] = useState([]);
+  // Sorting
+  const AVAILABLE_SORTS_KEYS = useMemo(() => Object.keys(SORT_ALGORITHM), []);
+  const [sort, setSort] = useState(AVAILABLE_SORTS_KEYS[0]);
+
+  // Filtering
+  const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    const fetchTags = async () => {
+      const questionTags = await TagService.getList(
+        question.questionId,
+        question.country,
+        question.language
+      );
+      const extendedTags = questionTags.map(tag => ({
+        ...tag,
+        isSelected: false,
+      }));
+      setTags(extendedTags);
+    };
+    if (question) {
+      fetchTags();
+    }
+  }, [question]);
+
   const isMobile = useMobile();
   const renderMobileProposal = question.canPropose && isMobile;
   const renderDesktopProposal = question.canPropose && !isMobile;
-
-  const handleSelectTag = (tag: TypeTag) => {
-    const newSelectedTagIdList = toggleTagIdInList(
-      selectedTagIdList,
-      tag.tagId
-    );
-
-    setSelectedTagIdList(newSelectedTagIdList);
-  };
 
   useEffect(() => {
     if (question) {
       trackDisplayConsultation('consultation');
     }
   }, [question]);
+
+  const resetTags = () => {
+    setTags(tags.map(tag => ({ ...tag, isSelected: false })));
+  };
 
   return (
     <React.Fragment>
@@ -72,13 +90,36 @@ export const ConsultationContent = ({ question }: Props) => {
           </ConsultationIconStyle>
           {i18n.t('common.vote_on_proposals')}
         </TagSectionTitle>
-        <TagFilter
-          question={question}
-          handleSelectTag={handleSelectTag}
-          selectedTagIdList={selectedTagIdList}
-        />
+        <FiltersContainerStyle>
+          <SelectPanel text={i18n.t(`consultation.sort.${sort}`)} exposeClose>
+            <SortedList
+              currentSort={sort}
+              availableSorts={AVAILABLE_SORTS_KEYS}
+              setSort={setSort}
+            />
+          </SelectPanel>
+          {!isMobile && <SeparatorStyle>|</SeparatorStyle>}
+          <SelectPanel text="Les sujets" exposeClose>
+            <TagList
+              tags={tags}
+              hasHeader
+              setTags={setTags}
+              resetTags={resetTags}
+              tagsSelected={tags.filter(tag => tag.isSelected).length}
+            />
+          </SelectPanel>
+          {!isMobile && tags.filter(tag => tag.isSelected).length > 0 && (
+            <ResetStyle onClick={resetTags}>
+              {i18n.t('consultation.reset')}
+            </ResetStyle>
+          )}
+        </FiltersContainerStyle>
         <ParticipateBanner question={question} />
-        <InfiniteProposals question={question} tags={selectedTagIdList} />
+        <InfiniteProposals
+          question={question}
+          sortTypeKey={sort}
+          tags={tags.filter(tag => tag.isSelected).map(tag => tag.tagId)}
+        />
       </ConsultationPageContentStyle>
     </React.Fragment>
   );

@@ -32,7 +32,9 @@
       "title": "Consultation '{{question}}'",
       "results": {
         "title": "Résultats de la consultation '{{question}}'"
-      }
+      },
+      "close": "Fermer",
+      "reset": "Réinitialiser"
     },
     "actions": {
       "title": "Actions '{{question}}'"
@@ -464,6 +466,14 @@
       "to": " au ",
       "datefrom": " à partir du "
     },
+    "sort": {
+      "TAGGED_FIRST": "Les plus pertinents",
+      "ORGANIZATION": "Proposition des acteurs",
+      "RECENT": "Les plus récents",
+      "REALISTIC": "Les plus réalistes",
+      "CONTROVERSY": "Les plus controversées",
+      "POPULAR": "Les plus populaires"
+    },
     "presentation": {
       "title": "Pourquoi cette consultation ?",
       "link_text": "En savoir +"
@@ -474,7 +484,7 @@
       "hide_pannel": "Masquer le contenu du panneau de partage"
     },
     "followUs": {
-      "title" : "Suivre l’actualité Make.org",
+      "title": "Suivre l’actualité Make.org",
       "facebook": "Suivez nous sur Facebook",
       "twitter": "Suivez nous sur Twitter",
       "instagram": "Suivez nous sur Instagram",
@@ -496,7 +506,9 @@
       "intro": "Filtrer par <span lang=\"en\">tags<span> : ",
       "show_all": "voir tous les <span lang=\"en\">tags<span>",
       "show_less": "masquer",
-      "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : "
+      "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : ",
+      "count": "{{count}} sélectionné",
+      "count_plural": "{{count}} sélectionnés"
     },
     "banner": {
       "title": "Donnez votre avis en 3 minutes",
@@ -504,7 +516,8 @@
     },
     "proposal": {
       "title": "Proposez une solution",
-      "load_more": "Voir + de propositions"
+      "load_more": "Voir + de propositions",
+      "see_proposals": "Voir les propositions"
     },
     "results": {
       "title": "Résultats de la consultation {{question}}",
@@ -570,8 +583,8 @@
     "department_required": {
       "title": "La parole aux bretons",
       "introduction": {
-        "first":"Economie, environnement, numérique…",
-        "second":"Nous sommes à l’écoute de vos priorités pour la Bretagne."
+        "first": "Economie, environnement, numérique…",
+        "second": "Nous sommes à l’écoute de vos priorités pour la Bretagne."
       },
       "disclaimer": {
         "first": "La consultation est réservée aux Breton(ne)s.",

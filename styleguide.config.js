@@ -43,6 +43,7 @@ module.exports = {
         'client/features/proposal/ProfileProposalCard/index.js',
         'client/features/proposal/ProfileVoteCard/index.js',
         'client/features/proposal/ProposalCardWithQuestion/index.js',
+        'client/features/SelectPanel/index.js',
       ],
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'

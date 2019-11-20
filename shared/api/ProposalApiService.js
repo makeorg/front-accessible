@@ -1,5 +1,4 @@
 // @flow
-
 import { ApiService } from './ApiService';
 import {
   type ApiServiceHeaders,
@@ -9,8 +8,34 @@ import {
 export const PATH_PROPOSALS = '/proposals';
 export const PATH_PROPOSAL_GET = '/proposals/:proposalId';
 
-export const SORT_ALGORITHM = {
-  TAGGED_FIRST: 'taggedFirst',
+type TypeSort =
+  | 'content'
+  | 'slug'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'trending'
+  | 'labels'
+  | 'country'
+  | 'language'
+  | 'popular';
+
+type TypeSortAlgortithm = {
+  CONTROVERSY: { key: string, value: string },
+  ORGANIZATION: { key: string, value: string },
+  POPULAR: { key: string, value: TypeSort },
+  REALISTIC: { key: string, value: string },
+  RECENT: { key: string, value: string },
+  TAGGED_FIRST: { key: string, value: string },
+};
+
+// type "sort" also support values : "content", "slug", "createdAt", "updatedAt", "trending", "labels", "country", "language"
+export const SORT_ALGORITHM: TypeSortAlgortithm = {
+  TAGGED_FIRST: { key: 'sortAlgorithm', value: 'taggedFirst' },
+  ORGANIZATION: { key: 'isOrganization', value: 'true' },
+  RECENT: { key: 'sort', value: 'createdAt' },
+  REALISTIC: { key: 'sortAlgorithm', value: 'realistic' },
+  CONTROVERSY: { key: 'sortAlgorithm', value: 'controversy' },
+  POPULAR: { key: 'sortAlgorithm', value: 'popular' },
 };
 
 export class ProposalApiService {
@@ -45,24 +70,28 @@ export class ProposalApiService {
     seed?: ?number,
     limit?: number = 20,
     skip?: number = 0,
-    sortAlgorithm?: string,
+    sortTypeKey?: string,
     content?: string,
     headers?: ApiServiceHeaders = {}
   ): Promise<ApiSearchProposalsResponseType> {
+    const params = {
+      questionId,
+      content,
+      seed,
+      limit,
+      skip,
+      tagsIds,
+      country,
+      language,
+    };
+    if (sortTypeKey) {
+      const sortType = SORT_ALGORITHM[sortTypeKey];
+      params[sortType.key] = sortType.value;
+    }
     return ApiService.callApi(PATH_PROPOSALS, {
       method: 'GET',
       headers,
-      params: {
-        sortAlgorithm,
-        questionId,
-        content,
-        seed,
-        limit,
-        skip,
-        tagsIds,
-        country,
-        language,
-      },
+      params,
     });
   }
 }
