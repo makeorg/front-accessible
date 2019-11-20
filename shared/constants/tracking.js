@@ -8,6 +8,9 @@ export const CLICK_CLOSE_MODAL: string = 'click-close-modal';
 export const CLICK_PROFILE: string = 'click-profile';
 export const CLICK_PUBLIC_PROFILE: string = 'click-public-profile';
 
+/* Proposal card */
+export const CLICK_PROPOSAL_PROFILE: string = 'click-proposal-profile';
+
 /* Consultation */
 export const DISPLAY_PAGE_OPERATION: string = 'display-page-operation';
 export const OPEN_BLOCK_LEARN_MORE: string = 'open-block-learn-more';
