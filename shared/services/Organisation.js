@@ -1,7 +1,11 @@
 // @flow
 import { OrganisationApiService } from 'Shared/api/OrganisationApiService';
 import { Logger } from 'Shared/services/Logger';
-import { type ApiSearchOrganisationsResponseType } from 'Shared/types/api';
+import {
+  type ApiSearchOrganisationsResponseType,
+  type ApiSearchProposalsResponseType,
+} from 'Shared/types/api';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 
 export const searchOrganisations = async (
   country: string,
@@ -37,21 +41,22 @@ export const getOrganisationBySlug = async (slug: string) => {
   }
 };
 
-export const getProposals = async (organisationId: string) => {
-  try {
-    const { results } = await OrganisationApiService.getOrganisationProposals(
-      organisationId
-    );
+export const getProposals = async (
+  organisationId: string,
+  seed: ?number = null,
+  page: number = 0
+): Promise<ApiSearchProposalsResponseType> => {
+  const limit = PROPOSALS_LISTING_LIMIT;
+  const skip = page * limit;
 
-    if (results.length > 0) {
-      return results;
-    }
+  const response = await OrganisationApiService.getOrganisationProposals(
+    organisationId,
+    seed,
+    limit,
+    skip
+  );
 
-    return [];
-  } catch (error) {
-    Logger.logError(Error(error));
-    return [];
-  }
+  return response;
 };
 
 export const getVotes = async (organisationId: string) => {
