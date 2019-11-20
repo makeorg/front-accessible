@@ -18,6 +18,8 @@ import {
   SECURE_EXPIRED_MESSAGE,
   NOTIFICATION_LEVEL_INFORMATION,
 } from 'Shared/constants/notification';
+import { env } from 'Shared/env';
+import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
 import { logger } from './logger';
@@ -56,7 +58,11 @@ const renderHtml = (reactApp, reduxStore, metaTags, res) => {
     .replace(new RegExp('__API_URL__', 'gi'), apiUrl)
     .replace(new RegExp('__FRONT_URL__', 'gi'), frontUrl)
     .replace(new RegExp('___NONCE_ID___', 'gi'), nonceId)
-    .replace('</body>', `${scriptTags}</body>`);
+    .replace('</body>', `${scriptTags}</body>`)
+    .replace(
+      '</body>',
+      `${env.isTest() || env.isDev() ? '' : TWTTR_SCRIPT}</body>`
+    );
 };
 
 // @todo test this function!!

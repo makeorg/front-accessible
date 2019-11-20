@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import loadable from '@loadable/component';
 import {
   ROUTE_SEARCH,
@@ -27,6 +28,7 @@ import {
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
 } from 'Shared/routes';
+import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
 const ConsultationPage = loadable(() =>
   import('Client/pages/Operation/Consultation.js')
@@ -57,36 +59,47 @@ const TermsOfUse = loadable(() => import('Client/pages/Static/TermsOfUse'));
 const Data = loadable(() => import('Client/pages/Static/Data'));
 const Contact = loadable(() => import('Client/pages/Static/Contact'));
 
-export const Routes = () => (
-  <Switch>
-    <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
-    <Route path={ROUTE_ACTION} component={ActionsPage} />
-    <Route path={ROUTE_RESULTS} component={ResultsPage} />
-    <Route path={ROUTE_SEQUENCE} component={SequencePage} />
-    <Route path={ROUTE_ACCOUNT_ACTIVATION} component={AccountActivationPage} />
-    <Route path={ROUTE_PROPOSAL} component={ProposalPage} />
-    <Route path={ROUTE_PASSWORD_RECOVERY} component={PasswordRecoveryPage} />
-    <Route path={ROUTE_PROFILE_EDIT} component={ProfileEditPage} />
-    <Route path={ROUTE_PROFILE_PROPOSALS} component={ProfilePage} />
-    <Route path={ROUTE_PROFILE_FAVOURITES} component={ProfilePage} />
-    <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
-    <Route path={ROUTE_ORGANISATION_PROPOSALS} component={OrganisationPage} />
-    <Route path={ROUTE_ORGANISATION_VOTES} component={OrganisationPage} />
-    <Route path={ROUTE_SEARCH} component={SearchPage} />
-    <Route path={ROUTE_SEARCH_PROPOSALS} component={SearchPage} />
-    <Route path={ROUTE_SEARCH_ORGANISATIONS} component={SearchPage} />
-    <Route path={ROUTE_SEARCH_CONSULTATIONS} component={SearchPage} />
-    <Redirect
-      path={ROUTE_ORGANISATION_PROFILE}
-      to={ROUTE_ORGANISATION_PROPOSALS}
-    />
-    <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
-    <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
-    <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
-    <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
-    <Route path={ROUTE_STATIC_DATA} component={Data} />
-    <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
-    <Route exact path="/" component={HomePage} />
-    <Route component={NotFoundPage} />
-  </Switch>
-);
+export const Routes = () => {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    TwitterUniversalTag.pageView();
+  }, [location.pathname]);
+
+  return (
+    <Switch>
+      <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
+      <Route path={ROUTE_ACTION} component={ActionsPage} />
+      <Route path={ROUTE_RESULTS} component={ResultsPage} />
+      <Route path={ROUTE_SEQUENCE} component={SequencePage} />
+      <Route
+        path={ROUTE_ACCOUNT_ACTIVATION}
+        component={AccountActivationPage}
+      />
+      <Route path={ROUTE_PROPOSAL} component={ProposalPage} />
+      <Route path={ROUTE_PASSWORD_RECOVERY} component={PasswordRecoveryPage} />
+      <Route path={ROUTE_PROFILE_EDIT} component={ProfileEditPage} />
+      <Route path={ROUTE_PROFILE_PROPOSALS} component={ProfilePage} />
+      <Route path={ROUTE_PROFILE_FAVOURITES} component={ProfilePage} />
+      <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
+      <Route path={ROUTE_ORGANISATION_PROPOSALS} component={OrganisationPage} />
+      <Route path={ROUTE_ORGANISATION_VOTES} component={OrganisationPage} />
+      <Route path={ROUTE_SEARCH} component={SearchPage} />
+      <Route path={ROUTE_SEARCH_PROPOSALS} component={SearchPage} />
+      <Route path={ROUTE_SEARCH_ORGANISATIONS} component={SearchPage} />
+      <Route path={ROUTE_SEARCH_CONSULTATIONS} component={SearchPage} />
+      <Redirect
+        path={ROUTE_ORGANISATION_PROFILE}
+        to={ROUTE_ORGANISATION_PROPOSALS}
+      />
+      <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
+      <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
+      <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
+      <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
+      <Route path={ROUTE_STATIC_DATA} component={Data} />
+      <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
+      <Route exact path="/" component={HomePage} />
+      <Route component={NotFoundPage} />
+    </Switch>
+  );
+};

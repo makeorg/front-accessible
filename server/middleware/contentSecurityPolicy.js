@@ -13,6 +13,8 @@ export const cspMiddleware = csp({
       'https://static.ads-twitter.com',
       'https://apis.google.com',
       'https://analytics.twitter.com',
+      'https://static.ads-twitter.com',
+      'https://analytics.twitter.com',
       (req, res) => `'nonce-${res.locals.nonce}'`,
     ],
     styleSrc: ["'self'", "'unsafe-inline'"],

@@ -29,11 +29,9 @@ import {
 } from './Styled';
 
 const trackClickFollowUs = event => {
-  const params = {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_FOLLOWUS, {
     'social-network': event.currentTarget.dataset.networkName,
-  };
-  TrackingService.track(trackingConstants.CLICK_FOLLOWUS, params);
-  TrackingService.trackFacebookPixel(trackingConstants.CLICK_FOLLOWUS, params);
+  });
 };
 
 /**

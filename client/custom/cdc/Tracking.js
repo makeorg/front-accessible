@@ -2,31 +2,21 @@
 import { TrackingService } from 'Shared/services/Tracking';
 
 export const trackDisplayDepartmentModal = () => {
-  const eventName = 'display-department-modal';
-
-  TrackingService.track(eventName);
-  TrackingService.trackFacebookPixel(eventName);
+  TrackingService.sendAllTrackers('display-department-modal');
 };
 
 export const trackDepartmentSelection = (departmentNumber: number) => {
-  const eventName = 'click-department-validation';
-  const parameters = { department: departmentNumber.toString() };
-
-  TrackingService.track(eventName, parameters);
-  TrackingService.trackFacebookPixel(eventName, parameters);
+  TrackingService.sendAllTrackers('click-department-validation', {
+    department: departmentNumber.toString(),
+  });
 };
 
 export const trackDepartmentModification = (departmentNumber: number) => {
-  const eventName = 'click-department-modification';
-  const parameters = { department: departmentNumber.toString() };
-
-  TrackingService.track(eventName, parameters);
-  TrackingService.trackFacebookPixel(eventName, parameters);
+  TrackingService.sendAllTrackers('click-department-modification', {
+    department: departmentNumber.toString(),
+  });
 };
 
 export const trackClickBackToHomepage = () => {
-  const eventName = 'click-back-homepage';
-
-  TrackingService.track(eventName);
-  TrackingService.trackFacebookPixel(eventName);
+  TrackingService.sendAllTrackers('click-back-homepage');
 };

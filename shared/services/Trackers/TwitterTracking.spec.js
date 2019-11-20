@@ -32,7 +32,7 @@ describe('Twitter Tracking Service', () => {
     twttr.initialized.mockReturnValue(true);
 
     TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
-    expect(twttr.track).toHaveBeenCalledWith('o173q');
+    expect(twttr.track).toHaveBeenCalledWith('o2q9e');
   });
 
   it('not track Twitter event on dev env', () => {
@@ -41,7 +41,9 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logInfo).toHaveBeenCalledWith('Tracking Twitter: event o173q');
+    expect(Logger.logInfo).toHaveBeenCalledWith(
+      'Tracking Twitter: event o2q9e'
+    );
   });
 
   it('not track Twitter event if not initialized', () => {
@@ -50,7 +52,9 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track(trackingConstants.DISPLAY_SEQUENCE);
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logWarning).toHaveBeenCalledWith('Twitter Tracking not initialized');
+    expect(Logger.logWarning).toHaveBeenCalledWith(
+      'Twitter Tracking not initialized'
+    );
   });
 
   it('not track Twitter event if action not exist', () => {
@@ -59,6 +63,8 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track('badevent');
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logError).toHaveBeenCalledWith('twitter action not found: badevent');
+    expect(Logger.logWarning).toHaveBeenCalledWith(
+      'twitter action not found: badevent'
+    );
   });
 });
