@@ -10,7 +10,6 @@ import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { type TypeRegisterFormData } from 'Shared/types/form';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
   loginErrors,
   registerErrors,
@@ -123,8 +122,13 @@ export const myProposals = async (
   return response;
 };
 
-export const myFavourites = async (userId: string): Promise<TypeProposal[]> => {
-  const { results } = await UserApiService.myFavourites(userId);
+export const myFavourites = async (
+  userId: string,
+  page: number = 0
+): Promise<ApiSearchProposalsResponseType> => {
+  const limit = PROPOSALS_LISTING_LIMIT;
+  const skip = page * limit;
+  const response = await UserApiService.myFavourites(userId, limit, skip);
 
-  return results;
+  return response;
 };

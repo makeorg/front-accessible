@@ -310,10 +310,14 @@ export class UserApiService {
    * get favorites user proposals
    * @param  {String}  userId
    */
-  static myFavourites(userId: string): Promise<ApiSearchProposalsResponseType> {
+  static myFavourites(
+    userId: string,
+    limit?: number = PROPOSALS_LISTING_LIMIT,
+    skip?: number = 0
+  ): Promise<ApiSearchProposalsResponseType> {
     return ApiService.callApi(PATH_USER_FAVOURITES.replace(':userId', userId), {
       method: 'GET',
-      params: { qualifications: 'likeIt' },
+      params: { qualifications: 'likeIt', limit, skip },
     });
   }
 }

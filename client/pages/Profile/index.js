@@ -38,7 +38,7 @@ const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/Proposals')
 );
 const ProfileFavouritesPage = loadable(() =>
-  import('Client/pages/Profile/ProfileFavourites')
+  import('Client/pages/Profile/Favourites')
 );
 const ProfileFollowingPage = loadable(() =>
   import('Client/pages/Profile/ProfileFollowing')

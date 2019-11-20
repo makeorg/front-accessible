@@ -5,6 +5,7 @@ import {
   UserApiService,
   PATH_USER,
   PATH_USER_PROPOSALS,
+  PATH_USER_FAVOURITES,
 } from './UserApiService';
 
 jest.mock('./ApiService');
@@ -96,6 +97,24 @@ describe('UserApiService', () => {
             sort: 'createdAt',
             order: 'desc',
             seed: null,
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
+          },
+        }
+      );
+    });
+  });
+
+  describe('my favourites', () => {
+    it('must call ApiService.callApi', async () => {
+      await UserApiService.myFavourites('foo');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(
+        1,
+        PATH_USER_FAVOURITES.replace(':userId', 'foo'),
+        {
+          method: 'GET',
+          params: {
+            qualifications: 'likeIt',
             limit: PROPOSALS_LISTING_LIMIT,
             skip: 0,
           },
