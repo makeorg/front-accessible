@@ -2,14 +2,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { SvgDisconnect, SvgInfos } from 'Client/ui/Svg/elements';
+import { SvgInfos } from 'Client/ui/Svg/elements';
 import { useCookies } from 'react-cookie';
 import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
 import {
   CookieContentStyle,
   CookieWrapperStyle,
   CookieParagraphStyle,
-  CookieCloseButtonStyle,
   CookieButtonStyle,
   CookieContentInnerStyle,
 } from './Styled';
@@ -60,13 +59,6 @@ const CookieBannerComponent = ({ country, language }: Props) => {
           <CookieButtonStyle onClick={handleClose}>OK</CookieButtonStyle>
         </CookieContentInnerStyle>
       </CookieContentStyle>
-      <CookieCloseButtonStyle
-        aria-label={i18n.t('cookie_alert.close')}
-        aria-expanded="false"
-        onClick={handleClose}
-      >
-        <SvgDisconnect aria-hidden />
-      </CookieCloseButtonStyle>
     </CookieWrapperStyle>
   );
 };
