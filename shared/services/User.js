@@ -4,6 +4,7 @@ import {
   type TypeUserInformationForm,
   type TypePasswords,
 } from 'Shared/types/user';
+import { type ApiSearchProposalsResponseType } from 'Shared/types/api';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import * as HttpStatus from 'Shared/constants/httpStatus';
 import { Logger } from 'Shared/services/Logger';
@@ -20,6 +21,7 @@ import {
 } from 'Shared/errors/Messages/User';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { getErrorMessages } from 'Shared/helpers/form';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 
 export const update = async (userInformation: TypeUserInformationForm) => {
   return UserApiService.update({
@@ -108,10 +110,17 @@ export const login = (email: string, password: string) => {
     });
 };
 
-export const myProposals = async (userId: string): Promise<TypeProposal[]> => {
-  const { results } = await UserApiService.myProposals(userId);
+export const myProposals = async (
+  userId: string,
+  seed: ?number = null,
+  page: number = 0
+): Promise<ApiSearchProposalsResponseType> => {
+  const limit = PROPOSALS_LISTING_LIMIT;
+  const skip = page * limit;
 
-  return results;
+  const response = await UserApiService.myProposals(userId, seed, limit, skip);
+
+  return response;
 };
 
 export const myFavourites = async (userId: string): Promise<TypeProposal[]> => {
