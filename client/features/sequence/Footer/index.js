@@ -19,9 +19,7 @@ export const SequenceFooter = ({ question }: Props) => {
 
   return (
     <FooterStyle aria-labelledby="footer_title">
-      <FooterTitleStyle id="footer_title">
-        {question.wording.title}
-      </FooterTitleStyle>
+      <FooterTitleStyle id="footer_title">{question.question}</FooterTitleStyle>
       <FooterLinkStyle
         to={consultationLink}
         onClick={() => trackClickConsultation}
