@@ -31,9 +31,13 @@ type Props = {
   partners: TypePartner[],
 };
 
+export const orderByWeight = (partner1, partner2) => {
+  return partner2.weight - partner1.weight;
+};
+
 export const PartnersList = ({ partners }: Props) => (
   <PartnersListStyle>
-    {partners.map(partner => (
+    {partners.sort(orderByWeight).map(partner => (
       <AvatarWrapperStyle key={partner.name}>
         <PartnerAvatarWithTooltip
           key={`avatar_with_tooltip_${partner.name}`}
