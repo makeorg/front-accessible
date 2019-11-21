@@ -12,8 +12,6 @@ const twitterEventMapping = {
   [trackingConstants.CLICK_SEQUENCE_FIRST_VOTE]: 'o2q9f',
   [trackingConstants.CLICK_START_SEQUENCE]: 'o2q9t', // = click-sequence-launch on twitter
   [trackingConstants.CLICK_SEQUENCE_OPEN]: 'o2q9j',
-  [trackingConstants.CLICK_SIGN_UP_CARD_EMAIL]: 'o2q9r',
-  [trackingConstants.CLICK_SIGN_UP_CARD_FACEBOOK]: 'o2q9s',
   [trackingConstants.DISPLAY_PAGE_OPERATION]: 'o2q9i',
   [trackingConstants.DISPLAY_PROPOSAL_SUBMIT_VALIDATION]: 'o2q9g',
   [trackingConstants.DISPLAY_SEQUENCE]: 'o2q9e',

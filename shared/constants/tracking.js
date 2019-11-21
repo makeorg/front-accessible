@@ -60,13 +60,6 @@ export const SIGN_IN_EMAIL_FAILURE: string = 'signin-email-failure';
 export const CLICK_PROPOSAL_SUBMIT: string = 'click-proposal-submit';
 export const DISPLAY_PROPOSAL_SUBMIT_VALIDATION: string =
   'display-proposal-submit-validation';
-export const CLICK_PROPOSAL_SUBMIT_FORM_OPEN: string =
-  'click-proposal-submit-form-open';
-export const CLICK_SIGN_UP_CARD_EMAIL: string = 'click-sign-up-card-email';
-export const CLICK_SIGN_UP_CARD_FACEBOOK: string =
-  'click-sign-up-card-facebook';
-export const CLICK_SIGN_UP_CARD_GOOGLE: string = 'click-sign-up-card-google';
-export const CLICK_SIGN_UP_CARD_SIGN_IN: string = 'click-sign-up-card-sign-in';
 
 /* Moderation Text */
 export const DISPLAY_MODERATION_TEXT: string = 'display-moderation-text';
