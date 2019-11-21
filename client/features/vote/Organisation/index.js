@@ -4,6 +4,7 @@ import { type OrganisationSoft as TypeOrganisationSoft } from 'Shared/types/orga
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { trackClickProposalProfile } from 'Shared/services/Tracking';
 import { OrganisationsVoteWrapperStyle } from './Styled';
 
 type Props = {
@@ -33,6 +34,7 @@ export const OrganisationsVote = (props: Props) => {
               language,
               organisation.organisationSlug
             )}
+            onClick={trackClickProposalProfile}
           >
             {organisation.organisationName}
           </RedLinkStyle>

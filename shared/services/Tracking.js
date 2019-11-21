@@ -448,5 +448,10 @@ export const trackClickSearchReturn = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_SEARCH_RETURN);
 };
 
+/** proposal card */
+export const trackClickProposalProfile = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_PROFILE);
+};
+
 /* eslint-disable import/no-default-export */
 export default TrackingService;
