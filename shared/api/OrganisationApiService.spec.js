@@ -1,4 +1,5 @@
 import { ApiService } from 'Shared/api/ApiService';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import {
   OrganisationApiService,
   ORGANISATIONS_PATH,
@@ -38,6 +39,13 @@ describe('OrganisationService', () => {
         ORGANISATION_PROPOSALS_PATH.replace(':organisationId', 'foo'),
         {
           method: 'GET',
+          params: {
+            sort: 'createdAt',
+            order: 'desc',
+            seed: null,
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
+          },
         }
       );
     });
@@ -53,6 +61,9 @@ describe('OrganisationService', () => {
           method: 'GET',
           params: {
             votes: 'agree,disagree',
+            seed: null,
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
           },
         }
       );

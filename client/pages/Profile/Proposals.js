@@ -13,32 +13,61 @@ import {
   ProfileTitleSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { MetaTags } from 'Client/app/MetaTags';
+import { trackLoadMoreProposals } from 'Shared/services/Tracking';
+import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
+import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 type Props = {
   user: TypeUser,
 };
 
-const ProfileProposalsPage = (props: Props) => {
+const ProfileProposalsPage = ({ user }: Props) => {
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { user } = props;
-  const proposalsLength = proposals.length;
-  const renderProposals = !!proposalsLength && !isLoading;
-  const renderPlaceholder = !proposalsLength && !isLoading;
+  const [hasMore, setHasMore] = useState<boolean>(false);
+  const [seed, setSeed] = useState(undefined);
+  const [page, setPage] = useState<number>(0);
+
+  const initProposal = async () => {
+    setIsLoading(true);
+    const { results, total, seed: apiSeed } = await UserService.myProposals(
+      user.userId
+    );
+    setProposals(results);
+    setHasMore(results.length < total);
+    setSeed(apiSeed);
+    setPage(1);
+    setIsLoading(false);
+  };
+
+  const loadProposals = async () => {
+    setIsLoading(true);
+    const { results, total, seed: apiSeed } = await UserService.myProposals(
+      user.userId,
+      seed,
+      page
+    );
+    const newProposalList = [...proposals, ...results];
+    setProposals(newProposalList);
+    setHasMore(newProposalList.length < total);
+    setSeed(apiSeed);
+    setPage(page + 1);
+    setIsLoading(false);
+  };
+
+  const clickLoadMore = () => {
+    loadProposals();
+    trackLoadMoreProposals(page);
+  };
 
   useEffect(() => {
-    const fetchProposals = async () => {
-      const loadedProposals: TypeProposal[] = await UserService.myProposals(
-        user.userId
-      );
-
-      setProposals(loadedProposals);
-      setIsLoading(false);
-    };
-
-    fetchProposals();
+    initProposal();
   }, [user]);
 
+  const proposalsLength = proposals.length;
+  const renderPlaceholder = !proposalsLength && !isLoading;
+  const renderProposals = !!proposalsLength;
+  const displayLoadMoreButton = hasMore && !isLoading;
   return (
     <React.Fragment>
       <MetaTags title={i18n.t('meta.profile.proposals.title')} />
@@ -48,9 +77,8 @@ const ProfileProposalsPage = (props: Props) => {
         </ThirdLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
       {renderProposals && (
-        <section role="feed">
+        <section role="feed" aria-live="polite">
           {proposals.map((proposal, index) => (
             <ProfileProposalCard
               key={proposal.id}
@@ -61,6 +89,14 @@ const ProfileProposalsPage = (props: Props) => {
             />
           ))}
         </section>
+      )}
+      {isLoading && <Spinner />}
+      {displayLoadMoreButton && (
+        <LoadMoreWrapperStyle>
+          <RedButtonStyle onClick={clickLoadMore}>
+            {i18n.t('consultation.proposal.load_more')}
+          </RedButtonStyle>
+        </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && <ProfileProposalsPlaceholder />}
     </React.Fragment>

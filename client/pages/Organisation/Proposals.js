@@ -12,33 +12,68 @@ import {
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { MetaTags } from 'Client/app/MetaTags';
-import { OrganisationProposalsPlaceholder } from '../Placeholders/Proposals';
+import { trackLoadMoreProposals } from 'Shared/services/Tracking';
+import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
+import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { OrganisationProposalsPlaceholder } from './Placeholders/Proposals';
 
 type Props = {
   organisation: TypeOrganisation,
 };
 
-const OrganisationProposalsPage = (props: Props) => {
+const OrganisationProposalsPage = ({ organisation }: Props) => {
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { organisation } = props;
-  const proposalsLength = proposals.length;
-  const renderProposals = !!proposalsLength && !isLoading;
-  const renderPlaceholder = !proposalsLength && !isLoading;
+  const [hasMore, setHasMore] = useState<boolean>(false);
+  const [seed, setSeed] = useState(undefined);
+  const [page, setPage] = useState<number>(0);
+
+  const initProposal = async () => {
+    setIsLoading(true);
+    const {
+      results,
+      total,
+      seed: apiSeed,
+    } = await OrganisationService.getProposals(organisation.organisationId);
+    setProposals(results);
+    setHasMore(results.length < total);
+    setSeed(apiSeed);
+    setPage(1);
+    setIsLoading(false);
+  };
+
+  const loadProposals = async () => {
+    setIsLoading(true);
+    const {
+      results,
+      total,
+      seed: apiSeed,
+    } = await OrganisationService.getProposals(
+      organisation.organisationId,
+      seed,
+      page
+    );
+    const newProposalList = [...proposals, ...results];
+    setProposals(newProposalList);
+    setHasMore(newProposalList.length < total);
+    setSeed(apiSeed);
+    setPage(page + 1);
+    setIsLoading(false);
+  };
+
+  const clickLoadMore = () => {
+    loadProposals();
+    trackLoadMoreProposals(page);
+  };
 
   useEffect(() => {
-    const fetchProposals = async () => {
-      const loadedProposals: TypeProposal[] = await OrganisationService.getProposals(
-        organisation.organisationId
-      );
-
-      setProposals(loadedProposals);
-      setIsLoading(false);
-    };
-
-    fetchProposals();
+    initProposal();
   }, [organisation]);
 
+  const proposalsLength = proposals.length;
+  const renderProposals = !!proposalsLength;
+  const renderPlaceholder = !proposalsLength && !isLoading;
+  const displayLoadMoreButton = hasMore && !isLoading;
   return (
     <React.Fragment>
       <MetaTags
@@ -54,9 +89,8 @@ const OrganisationProposalsPage = (props: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      {isLoading && <Spinner />}
       {renderProposals && (
-        <section role="feed">
+        <section role="feed" aria-live="polite">
           {proposals.map((proposal, index) => (
             <ProposalCardWithQuestion
               key={proposal.id}
@@ -66,6 +100,14 @@ const OrganisationProposalsPage = (props: Props) => {
             />
           ))}
         </section>
+      )}
+      {isLoading && <Spinner />}
+      {displayLoadMoreButton && (
+        <LoadMoreWrapperStyle>
+          <RedButtonStyle onClick={clickLoadMore}>
+            {i18n.t('consultation.proposal.load_more')}
+          </RedButtonStyle>
+        </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && (
         <OrganisationProposalsPlaceholder

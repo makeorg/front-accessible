@@ -1,6 +1,12 @@
 import { ApiService } from 'Shared/api/ApiService';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
-import { UserApiService, PATH_USER } from './UserApiService';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
+import {
+  UserApiService,
+  PATH_USER,
+  PATH_USER_PROPOSALS,
+  PATH_USER_FAVOURITES,
+} from './UserApiService';
 
 jest.mock('./ApiService');
 Object.defineProperty(ApiService, 'country', {
@@ -76,6 +82,44 @@ describe('UserApiService', () => {
           questionId: 'quux',
         }),
       });
+    });
+  });
+
+  describe('my proposals', () => {
+    it('must call ApiService.callApi', async () => {
+      await UserApiService.myProposals('foo');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(
+        1,
+        PATH_USER_PROPOSALS.replace(':userId', 'foo'),
+        {
+          method: 'GET',
+          params: {
+            sort: 'createdAt',
+            order: 'desc',
+            seed: null,
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
+          },
+        }
+      );
+    });
+  });
+
+  describe('my favourites', () => {
+    it('must call ApiService.callApi', async () => {
+      await UserApiService.myFavourites('foo');
+      expect(ApiService.callApi).toHaveBeenNthCalledWith(
+        1,
+        PATH_USER_FAVOURITES.replace(':userId', 'foo'),
+        {
+          method: 'GET',
+          params: {
+            qualifications: 'likeIt',
+            limit: PROPOSALS_LISTING_LIMIT,
+            skip: 0,
+          },
+        }
+      );
     });
   });
 });

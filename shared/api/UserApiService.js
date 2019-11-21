@@ -7,6 +7,7 @@ import {
   type ApiSearchProposalsResponseType,
 } from 'Shared/types/api';
 import { setEmptyStringToNull } from 'Shared/helpers/form';
+import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { ApiService } from './ApiService';
 
 export const PATH_USER_ME = '/user/me';
@@ -293,10 +294,15 @@ export class UserApiService {
    * get user proposals
    * @param  {String}  userId
    */
-  static myProposals(userId: string): Promise<ApiSearchProposalsResponseType> {
+  static myProposals(
+    userId: string,
+    seed?: ?number = null,
+    limit?: number = PROPOSALS_LISTING_LIMIT,
+    skip?: number = 0
+  ): Promise<ApiSearchProposalsResponseType> {
     return ApiService.callApi(PATH_USER_PROPOSALS.replace(':userId', userId), {
       method: 'GET',
-      params: { sort: 'createdAt', order: 'desc' },
+      params: { sort: 'createdAt', order: 'desc', seed, limit, skip },
     });
   }
 
@@ -304,10 +310,14 @@ export class UserApiService {
    * get favorites user proposals
    * @param  {String}  userId
    */
-  static myFavourites(userId: string): Promise<ApiSearchProposalsResponseType> {
+  static myFavourites(
+    userId: string,
+    limit?: number = PROPOSALS_LISTING_LIMIT,
+    skip?: number = 0
+  ): Promise<ApiSearchProposalsResponseType> {
     return ApiService.callApi(PATH_USER_FAVOURITES.replace(':userId', userId), {
       method: 'GET',
-      params: { qualifications: 'likeIt' },
+      params: { qualifications: 'likeIt', limit, skip },
     });
   }
 }
