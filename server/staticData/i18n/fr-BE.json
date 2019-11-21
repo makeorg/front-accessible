@@ -334,8 +334,7 @@
   "cookie_alert": {
     "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
     "gtu": "conditions d’utilisation",
-    "policy": "charte de données personnelles",
-    "close": "Fermer le bandeau d'information sur les cookies"
+    "policy": "charte de données personnelles"
   },
   "reset_password": {
     "title": "Je crée un nouveau mot de passe",

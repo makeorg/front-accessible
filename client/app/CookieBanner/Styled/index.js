@@ -6,7 +6,6 @@ import {
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import {
@@ -62,13 +61,5 @@ export const CookieButtonStyle = styled(BasicButtonStyle)`
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 13px 35px 9.5px;
-  }
-`;
-
-export const CookieCloseButtonStyle = styled(CloseButtonStyle)`
-  fill: ${BasicColors.PureWhite};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    top: 15px;
-    right: 15px;
   }
 `;
