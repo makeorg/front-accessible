@@ -139,7 +139,7 @@ describe('Proposal Helper', () => {
         undefined,
         PROPOSALS_LISTING_LIMIT,
         0,
-        SORT_ALGORITHM.TAGGED_FIRST
+        SORT_ALGORITHM.TAGGED_FIRST.value
       );
     });
 
@@ -162,7 +162,7 @@ describe('Proposal Helper', () => {
         999,
         PROPOSALS_LISTING_LIMIT,
         30,
-        SORT_ALGORITHM.TAGGED_FIRST
+        SORT_ALGORITHM.TAGGED_FIRST.value
       );
     });
     it('return results from api response', async () => {

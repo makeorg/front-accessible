@@ -6,4 +6,6 @@ export const Elements = {
   SequenceFooterHeightMobile: 74,
   SequenceFooterHeightDesktop: 87,
   BorderRadius: 8,
+  DropdownsContainerWidth: 320,
+  DropdownsContainerHeight: 280,
 };

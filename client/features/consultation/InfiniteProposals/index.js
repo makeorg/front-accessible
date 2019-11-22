@@ -16,6 +16,7 @@ type Props = {
   language: string,
   question: TypeQuestion,
   tags: string[],
+  sortTypeKey: string,
 };
 
 const InfiniteProposalsComponent = ({
@@ -23,6 +24,7 @@ const InfiniteProposalsComponent = ({
   language,
   question,
   tags,
+  sortTypeKey,
 }: Props) => {
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
@@ -36,7 +38,10 @@ const InfiniteProposalsComponent = ({
       country,
       language,
       question.questionId,
-      tags
+      tags,
+      undefined,
+      0,
+      sortTypeKey
     );
     setProposals(results);
     setHasMore(results.length < total);
@@ -53,7 +58,8 @@ const InfiniteProposalsComponent = ({
       question.questionId,
       tags,
       seed,
-      page
+      page,
+      sortTypeKey
     );
     const newProposalList = [...proposals, ...results];
     setProposals(newProposalList);
