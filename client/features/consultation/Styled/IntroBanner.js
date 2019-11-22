@@ -74,7 +74,6 @@ export const DefaultBannerTitleStyle = styled(SecondLevelTitleStyle)`
 
 export const DefaultBannerTimeStyle = styled.div`
   color: ${props => props.theme.fontColor};
-  opacity: 0.65;
   line-height: 24px;
   margin-top: 10px;
   font-size: 0.9em;
