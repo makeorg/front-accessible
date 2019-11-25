@@ -8,7 +8,7 @@ import {
 } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
-import { FOUNDER_PARTNER } from 'Shared/constants/partner';
+import { FOUNDER_PARTNER, MEDIA_PARTNER } from 'Shared/constants/partner';
 import { SidebarNewWindowLink } from '../Link';
 import { Founders } from '../Founders';
 
@@ -17,9 +17,11 @@ type Props = {
 };
 
 export const Presentation = ({ question }: Props) => {
-  const founders: TypePartner[] = question.partners
+  const foundersOrMedia: TypePartner[] = question.partners
     ? question.partners.filter(
-        partner => partner.partnerKind === FOUNDER_PARTNER
+        partner =>
+          partner.partnerKind === FOUNDER_PARTNER ||
+          partner.partnerKind === MEDIA_PARTNER
       )
     : [];
 
@@ -39,7 +41,7 @@ export const Presentation = ({ question }: Props) => {
         tracking={() => trackClickLearnMore()}
       />
       <Founders
-        founders={founders}
+        founders={foundersOrMedia}
         isGreatCause={isGreatCause(question.operationKind)}
       />
     </React.Fragment>
