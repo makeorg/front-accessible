@@ -24,6 +24,8 @@ import {
   FiltersContainerStyle,
   SeparatorStyle,
   ResetStyle,
+  TextStyle,
+  SelectContainerStyle,
 } from './Styled/TagFilter';
 import { ConsultationSidebar } from './Sidebar';
 
@@ -91,28 +93,35 @@ export const ConsultationContent = ({ question }: Props) => {
           {i18n.t('common.vote_on_proposals')}
         </TagSectionTitle>
         <FiltersContainerStyle>
-          <SelectPanel text={i18n.t(`consultation.sort.${sort}`)} exposeClose>
-            <SortedList
-              currentSort={sort}
-              availableSorts={AVAILABLE_SORTS_KEYS}
-              setSort={setSort}
-            />
-          </SelectPanel>
-          {!isMobile && <SeparatorStyle>|</SeparatorStyle>}
-          <SelectPanel text="Les sujets" exposeClose>
-            <TagList
-              tags={tags}
-              hasHeader
-              setTags={setTags}
-              resetTags={resetTags}
-              tagsSelected={tags.filter(tag => tag.isSelected).length}
-            />
-          </SelectPanel>
-          {!isMobile && tags.filter(tag => tag.isSelected).length > 0 && (
-            <ResetStyle onClick={resetTags}>
-              {i18n.t('consultation.reset')}
-            </ResetStyle>
-          )}
+          <TextStyle>{i18n.t('consultation.sortby')}</TextStyle>
+          <SelectContainerStyle>
+            <SelectPanel text={i18n.t(`consultation.sort.${sort}`)} exposeClose>
+              <SortedList
+                currentSort={sort}
+                availableSorts={AVAILABLE_SORTS_KEYS}
+                setSort={setSort}
+              />
+            </SelectPanel>
+            {!isMobile && <SeparatorStyle>|</SeparatorStyle>}
+            <SelectPanel
+              text="Les sujets"
+              exposeClose
+              shouldHighlight={tags.filter(tag => tag.isSelected).length > 0}
+            >
+              <TagList
+                tags={tags}
+                hasHeader
+                setTags={setTags}
+                resetTags={resetTags}
+                tagsSelected={tags.filter(tag => tag.isSelected).length}
+              />
+            </SelectPanel>
+            {!isMobile && tags.filter(tag => tag.isSelected).length > 0 && (
+              <ResetStyle onClick={resetTags}>
+                {i18n.t('consultation.reset')}
+              </ResetStyle>
+            )}
+          </SelectContainerStyle>
         </FiltersContainerStyle>
         <ParticipateBanner question={question} />
         <InfiniteProposals

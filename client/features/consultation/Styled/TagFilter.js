@@ -37,8 +37,14 @@ export const TagListItemStyle = styled.li`
 
 export const FiltersContainerStyle = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: normal;
   padding: 10px 0;
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const ResetStyle = styled.span`
@@ -55,4 +61,19 @@ export const SeparatorStyle = styled.div`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 15px;
   }
+`;
+
+export const TextStyle = styled.div`
+  display: flex;
+  font-size: 12px;
+  padding: 0 10px 10px 20px;
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 10px 0 0;
+  }
+`;
+
+export const SelectContainerStyle = styled.div`
+  display: flex;
+  align-items: center;
 `;

@@ -32,8 +32,6 @@ type Props = {
   resetTags: () => void,
   /** count of tags */
   tagsSelected: number,
-  /** Function sets if the parent select should be highlighted or not  */
-  setHighlighted?: (args: boolean) => void,
 };
 
 const TagListHeader = ({ setReset, tagsSelected }) => (
@@ -52,7 +50,6 @@ export const TagList = ({
   closePanel,
   resetTags,
   tagsSelected = 0,
-  setHighlighted,
 }: Props) => {
   const isMobile = useMobile();
   const updateSelectedTags = (tag: Tag) => {
@@ -62,16 +59,10 @@ export const TagList = ({
         tagItem.tagId === tag.tagId ? !tagItem.isSelected : tagItem.isSelected,
     }));
     setTags(newTags);
-    if (setHighlighted) {
-      setHighlighted(newTags.filter(t => t.isSelected === true).length > 0);
-    }
   };
 
   const setReset = () => {
     resetTags();
-    if (setHighlighted) {
-      setHighlighted(false);
-    }
     if (closePanel) {
       closePanel();
     }
