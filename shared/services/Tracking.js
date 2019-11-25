@@ -450,7 +450,7 @@ export const trackClickSearchReturn = () => {
 
 /** proposal card */
 export const trackClickProposalProfile = () => {
-  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_PROFILE);
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PUBLIC_PROFILE);
 };
 
 /* eslint-disable import/no-default-export */
