@@ -26,10 +26,11 @@ export const SelectPanelWrapperStyled = styled.div`
 `;
 
 export const SelectButtonStyled = styled.button`
-  background: ${props =>
+  background-color: ${props =>
     props.isHighlighted ? MakeThemeColors.Red : BasicColors.PureWhite};
   color: ${props =>
     props.isHighlighted ? BasicColors.PureWhite : TextColors.MediumGrey};
+  font-weight: ${props => (props.isHighlighted ? 'bold' : 'normal')};
   border: none;
   padding: 14px 0;
   display: flex;
@@ -43,12 +44,9 @@ export const SelectButtonStyled = styled.button`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 7px 15px;
     border-radius: 20px;
-    border: 1px solid ${BorderColors.LightGrey};
-    background-color: ${BasicColors.PureWhite};
-    color: ${TextColors.MediumGrey};
-    svg {
-      fill: inherit;
-    }
+    border: 1px solid
+      ${props =>
+        props.isHighlighted ? BasicColors.PureWhite : BorderColors.LightGrey};
   }
 `;
 

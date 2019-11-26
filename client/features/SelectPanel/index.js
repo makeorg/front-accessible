@@ -22,12 +22,17 @@ type Props = {
   children: any,
   /** close the panel, closePanel prop is sent by SelectPanel */
   exposeClose?: boolean,
+  shouldHighlight?: boolean,
 };
 
-export const SelectPanel = ({ text, children, exposeClose }: Props) => {
+export const SelectPanel = ({
+  text,
+  children,
+  exposeClose,
+  shouldHighlight,
+}: Props) => {
   const rootRef = useRef();
   const [isOpened, setIsOpened] = useState(false);
-  const [isHighlighted, setIsHighlighted] = useState(false);
 
   const handleClickOutside = useMemo(
     () => (event: MouseEvent) => {
@@ -52,13 +57,9 @@ export const SelectPanel = ({ text, children, exposeClose }: Props) => {
     setIsOpened(!isOpened);
   };
 
-  const setHighlighted = (value: boolean) => {
-    setIsHighlighted(value);
-  };
-
   return (
     <SelectPanelWrapperStyled ref={rootRef}>
-      <SelectButtonStyled onClick={togglePanel} isHighlighted={isHighlighted}>
+      <SelectButtonStyled onClick={togglePanel} isHighlighted={shouldHighlight}>
         <TextWrapperStyle>
           <span>{text}</span>
           {isOpened ? (
@@ -77,7 +78,6 @@ export const SelectPanel = ({ text, children, exposeClose }: Props) => {
           {exposeClose
             ? cloneElement(children, {
                 closePanel: () => setIsOpened(false),
-                setHighlighted: value => setHighlighted(value),
               })
             : children}
         </PanelStyled>

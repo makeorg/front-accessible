@@ -557,7 +557,8 @@
         "value_with_unit": "valeur en {{unit}}",
         "percentage": "pourcentage"
       }
-    }
+    },
+    "sortby": "Trier par:"
   },
   "sharing": {
     "facebook": "Partager sur Facebook",

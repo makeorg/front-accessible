@@ -557,7 +557,8 @@
       }
     },
     "close": "Fermer",
-    "reset": "Réinitialiser"
+    "reset": "Réinitialiser",
+    "sortby": "Trier par:"
   },
   "sharing": {
     "facebook": "Partager sur Facebook",
