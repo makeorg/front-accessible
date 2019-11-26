@@ -559,7 +559,16 @@
         "percentage": "pourcentage"
       }
     },
-    "sortby": "Trier par:"
+    "sortby": "Trier par:",
+    "municipal": {
+      "header": {
+        "candidates_answers": "Les candidats à l'élection répondront aux priorités définies par les citoyens et associations.",
+        "candidates_subscribe": "{{ subscribe }} pour en être informé",
+        "subscribe": "Inscrivez-vous",
+        "candidates": "Vous êtes candidat(e)",
+        "contact_us": "Contactez-nous !"
+      }
+    }
   },
   "sharing": {
     "facebook": "Partager sur Facebook",

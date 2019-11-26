@@ -10,6 +10,7 @@ import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { TeasingHeader } from 'Client/ui/Elements/TeasingHeader/index';
 import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
@@ -60,6 +61,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <NavigationBetweenQuestions question={question} />
       )}
       <IntroBanner question={question} />
+      <TeasingHeader />
 
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
