@@ -106,7 +106,7 @@ describe('getLocationContext', () => {
     })
   );
 
-  it('all routes has location', () => {
+  it('all routes have location', () => {
     const definedRoutes = Object.keys(routes)
       .filter(name => name.includes('ROUTE_'))
       .map(name => {
@@ -141,11 +141,21 @@ describe('getLocationContext', () => {
       route => !routesToExcludes.includes(route.name)
     );
     filteredRoutes.forEach(route => {
+      const pathFromFixtures = fixtures.find(item => item.name === route.name)
+        .path;
+
+      expect(pathFromFixtures !== undefined).toBe(true);
+
       expect({
         routeName: route.name,
         isReferencedLocation:
-          getTrackingLocation(route.path) !== 'unknown-location',
-      }).toStrictEqual({ routeName: route.name, isReferencedLocation: true });
+          getTrackingLocation(pathFromFixtures) !== 'unknown-location',
+        pathFromFixtures,
+      }).toStrictEqual({
+        routeName: route.name,
+        isReferencedLocation: true,
+        pathFromFixtures,
+      });
     });
   });
 });

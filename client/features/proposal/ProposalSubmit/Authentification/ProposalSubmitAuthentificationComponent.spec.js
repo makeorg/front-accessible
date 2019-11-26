@@ -6,7 +6,9 @@ import { ProposalSubmitAuthentificationComponent } from './ProposalSubmitAuthent
 
 describe('ProposalSubmitAuthentificationComponent', () => {
   it('Check a11y rules', () => {
-    const wrapper = shallow(<ProposalSubmitAuthentificationComponent />);
+    const wrapper = shallow(
+      <ProposalSubmitAuthentificationComponent country="FR" language="fr" />
+    );
     const EmailButtonIcon = wrapper.find(EmailButtonStyle).find(SvgEnvelope);
 
     expect(EmailButtonIcon.prop('aria-hidden')).toBe(true);

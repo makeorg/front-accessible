@@ -15,6 +15,7 @@ import {
   ROUTE_STATIC_LEGAL,
   ROUTE_RESULTS,
 } from 'Shared/routes';
+import { generatePath } from 'react-router';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -55,14 +56,15 @@ export const getSequenceLink = (
   questionSlug: string,
   params?: Object = {}
 ) => {
-  return ROUTE_SEQUENCE.replace(':country', country)
-    .replace(':language', language)
-    .replace(':questionSlug', questionSlug)
-    .concat(
-      params && Object.keys(params).length > 0
-        ? `?${queryString.stringify(params)}`
-        : ''
-    );
+  return generatePath(ROUTE_SEQUENCE, {
+    country,
+    language,
+    questionSlug,
+  }).concat(
+    params && Object.keys(params).length > 0
+      ? `?${queryString.stringify(params)}`
+      : ''
+  );
 };
 
 /**
@@ -79,9 +81,7 @@ export const getConsultationLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_CONSULTATION.replace(':country', country)
-    .replace(':language', language)
-    .replace(':questionSlug', questionSlug);
+  return generatePath(ROUTE_CONSULTATION, { country, language, questionSlug });
 };
 
 /**
@@ -98,9 +98,7 @@ export const getActionLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_ACTION.replace(':country', country)
-    .replace(':language', language)
-    .replace(':questionSlug', questionSlug);
+  return generatePath(ROUTE_ACTION, { country, language, questionSlug });
 };
 
 /**
@@ -117,9 +115,7 @@ export const getResultsLink = (
   language: string,
   questionSlug: string
 ) => {
-  return ROUTE_RESULTS.replace(':country', country)
-    .replace(':language', language)
-    .replace(':questionSlug', questionSlug);
+  return generatePath(ROUTE_RESULTS, { country, language, questionSlug });
 };
 
 /**
@@ -140,11 +136,13 @@ export const getProposalLink = (
   proposalId: string,
   proposalSlug: string
 ) => {
-  return ROUTE_PROPOSAL.replace(':country', country)
-    .replace(':language', language)
-    .replace(':questionSlug', questionSlug)
-    .replace(':proposalId', proposalId)
-    .replace(':proposalSlug', proposalSlug);
+  return generatePath(ROUTE_PROPOSAL, {
+    country,
+    language,
+    questionSlug,
+    proposalId,
+    proposalSlug,
+  });
 };
 
 /**
@@ -160,9 +158,11 @@ export const getOrganisationProfileLink = (
   language: string,
   organisationSlug: string
 ) => {
-  return ROUTE_ORGANISATION_PROFILE.replace(':country', country)
-    .replace(':language', language)
-    .replace(':organisationSlug', organisationSlug);
+  return generatePath(ROUTE_ORGANISATION_PROFILE, {
+    country,
+    language,
+    organisationSlug,
+  });
 };
 
 /**
@@ -173,10 +173,7 @@ export const getOrganisationProfileLink = (
  * @return {string}
  */
 export const getContactPageLink = (country: string, language: string) => {
-  return ROUTE_STATIC_CONTACT.replace(':country', country).replace(
-    ':language',
-    language
-  );
+  return generatePath(ROUTE_STATIC_CONTACT, { country, language });
 };
 
 /**
@@ -187,10 +184,7 @@ export const getContactPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getDataPageLink = (country: string, language: string) => {
-  return ROUTE_STATIC_DATA.replace(':country', country).replace(
-    ':language',
-    language
-  );
+  return generatePath(ROUTE_STATIC_DATA, { country, language });
 };
 
 /**
@@ -201,10 +195,7 @@ export const getDataPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getGTUPageLink = (country: string, language: string) => {
-  return ROUTE_STATIC_GTU.replace(':country', country).replace(
-    ':language',
-    language
-  );
+  return generatePath(ROUTE_STATIC_GTU, { country, language });
 };
 
 /**
@@ -215,8 +206,5 @@ export const getGTUPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getLegalPageLink = (country: string, language: string) => {
-  return ROUTE_STATIC_LEGAL.replace(':country', country).replace(
-    ':language',
-    language
-  );
+  return generatePath(ROUTE_STATIC_LEGAL, { country, language });
 };
