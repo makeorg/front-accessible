@@ -506,7 +506,8 @@
       "show_less": "masquer",
       "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : ",
       "count": "{{count}} sélectionné",
-      "count_plural": "{{count}} sélectionnés"
+      "count_plural": "{{count}} sélectionnés",
+      "select": "Sélectionnez un ou plusieurs sujets"
     },
     "banner": {
       "title": "Donnez votre avis en 3 minutes",
