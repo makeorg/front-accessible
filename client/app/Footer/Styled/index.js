@@ -11,8 +11,6 @@ import {
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const FooterStyle = styled.footer`
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   flex-shrink: 0;
