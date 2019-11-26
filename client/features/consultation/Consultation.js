@@ -19,6 +19,7 @@ import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { TagService } from 'Shared/api/TagService';
+import { TagTooltip } from 'Client/ui/Elements/TagTooltip/index';
 import {
   TagSectionTitle,
   FiltersContainerStyle,
@@ -104,9 +105,14 @@ export const ConsultationContent = ({ question }: Props) => {
             </SelectPanel>
             {!isMobile && <SeparatorStyle>|</SeparatorStyle>}
             <SelectPanel
-              text="Les sujets"
+              text={
+                isMobile
+                  ? i18n.t(`consultation.tags.select_mobile`)
+                  : i18n.t(`consultation.tags.select`)
+              }
               exposeClose
               shouldHighlight={tags.filter(tag => tag.isSelected).length > 0}
+              selectedElements={tags.filter(tag => tag.isSelected).length}
             >
               <TagList
                 tags={tags}
@@ -123,6 +129,7 @@ export const ConsultationContent = ({ question }: Props) => {
             )}
           </SelectContainerStyle>
         </FiltersContainerStyle>
+        <TagTooltip />
         <ParticipateBanner question={question} />
         <InfiniteProposals
           question={question}
