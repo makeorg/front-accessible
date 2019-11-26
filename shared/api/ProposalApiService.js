@@ -87,6 +87,11 @@ export class ProposalApiService {
     if (sortTypeKey) {
       const sortType = SORT_ALGORITHM[sortTypeKey];
       params[sortType.key] = sortType.value;
+
+      if (SORT_ALGORITHM[sortTypeKey].key === 'sort') {
+        // $FlowFixMe
+        params.order = 'DESC';
+      }
     }
     return ApiService.callApi(PATH_PROPOSALS, {
       method: 'GET',
