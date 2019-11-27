@@ -1,5 +1,4 @@
 // @flow
-
 import { ApiService } from './ApiService';
 
 export const HOMEPAGE_PATH = '/views/home';

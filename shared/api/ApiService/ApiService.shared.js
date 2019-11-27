@@ -41,6 +41,22 @@ axiosRetry(axios, {
  * @return {String|Object}
  */
 export const handleErrors = (error: ErrorResponse) => {
+  const logDefaultError = () => {
+    Logger.logError(
+      `API call error - ${error.message} - ${JSON.stringify({
+        status: error.response.status.toString(),
+        url:
+          error.response.config && error.response.config.url
+            ? error.response.config.url
+            : 'none',
+        method:
+          error.response.config && error.response.config.method
+            ? error.response.config.method
+            : 'none',
+        responseData: error.response.data,
+      })}`
+    );
+  };
   if (error.response) {
     switch (error.response.status) {
       case 401:
@@ -61,21 +77,17 @@ export const handleErrors = (error: ErrorResponse) => {
           })}`
         );
         break;
+      case 400:
+        if (
+          !error.response ||
+          !error.response.data ||
+          !JSON.stringify(error.response.data).includes('already_registered')
+        ) {
+          logDefaultError();
+        }
+        break;
       default:
-        Logger.logError(
-          `API call error - ${error.message} - ${JSON.stringify({
-            status: error.response.status.toString(),
-            url:
-              error.response.config && error.response.config.url
-                ? error.response.config.url
-                : 'none',
-            method:
-              error.response.config && error.response.config.method
-                ? error.response.config.method
-                : 'none',
-            responseData: error.response.data,
-          })}`
-        );
+        logDefaultError();
     }
 
     switch (error.response.status) {
