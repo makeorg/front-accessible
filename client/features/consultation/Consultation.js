@@ -94,7 +94,7 @@ export const ConsultationContent = ({ question }: Props) => {
           {i18n.t('common.vote_on_proposals')}
         </TagSectionTitle>
         <FiltersContainerStyle>
-          <TextStyle>{i18n.t('consultation.sortby')}</TextStyle>
+          {!isMobile && <TextStyle>{i18n.t('consultation.sortby')}</TextStyle>}
           <SelectContainerStyle>
             <SelectPanel text={i18n.t(`consultation.sort.${sort}`)} exposeClose>
               <SortedList
