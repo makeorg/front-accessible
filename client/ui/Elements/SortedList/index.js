@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { trackFilter } from 'Shared/services/Tracking';
 
 import { SortedListStyle, SortedListElementStyle, TextStyle } from './style';
 
@@ -22,6 +23,7 @@ export const SortedList = ({
   closePanel,
 }: Props) => {
   const handleSorting = (event: SyntheticEvent<HTMLButtonElement>) => {
+    trackFilter(event.currentTarget.value, 'checked');
     setSort(event.currentTarget.value);
     if (closePanel) {
       closePanel();
