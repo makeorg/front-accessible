@@ -85,4 +85,10 @@ export const TextWrapperStyle = styled.span`
   display: flex;
   align-items: center;
   margin: 0 auto;
+  width: initial;
+  justify-content: space-between;
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    min-width: 190px;
+  }
 `;

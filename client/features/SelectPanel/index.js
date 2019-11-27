@@ -6,6 +6,7 @@ import React, {
   useMemo,
   cloneElement,
 } from 'react';
+import { i18n } from 'Shared/i18n';
 import { SvgAngleArrowBottom, SvgAngleArrowTop } from 'Client/ui/Svg/elements';
 import {
   SelectPanelWrapperStyled,
@@ -22,7 +23,10 @@ type Props = {
   children: any,
   /** close the panel, closePanel prop is sent by SelectPanel */
   exposeClose?: boolean,
+  /** select should be hightlighted or not */
   shouldHighlight?: boolean,
+  /** count of selected elements */
+  selectedElements?: number,
 };
 
 export const SelectPanel = ({
@@ -30,6 +34,7 @@ export const SelectPanel = ({
   children,
   exposeClose,
   shouldHighlight,
+  selectedElements = 0,
 }: Props) => {
   const rootRef = useRef();
   const [isOpened, setIsOpened] = useState(false);
@@ -61,7 +66,11 @@ export const SelectPanel = ({
     <SelectPanelWrapperStyled ref={rootRef}>
       <SelectButtonStyled onClick={togglePanel} isHighlighted={shouldHighlight}>
         <TextWrapperStyle>
-          <span>{text}</span>
+          <span>
+            {selectedElements && selectedElements > 0
+              ? i18n.t('consultation.tags.count', { count: selectedElements })
+              : text}
+          </span>
           {isOpened ? (
             <ArrowStyle>
               <SvgAngleArrowTop />

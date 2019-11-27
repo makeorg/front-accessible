@@ -122,7 +122,9 @@
         "success": "Message de succès : ",
         "error": "Message d'erreur : ",
         "alert": "Message d'alerte : "
-      }
+      },
+      "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
+      "thank_you": "C'est noté, merci !"
     },
     "from": "sur",
     "email": "Email",
@@ -506,7 +508,9 @@
       "show_less": "masquer",
       "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : ",
       "count": "{{count}} sélectionné",
-      "count_plural": "{{count}} sélectionnés"
+      "count_plural": "{{count}} sélectionnés",
+      "select": "Sélectionnez un ou plusieurs sujets",
+      "select_mobile": "Les sujets"
     },
     "banner": {
       "title": "Donnez votre avis en 3 minutes",

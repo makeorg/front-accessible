@@ -7,5 +7,5 @@ export const Elements = {
   SequenceFooterHeightDesktop: 87,
   BorderRadius: 8,
   DropdownsContainerWidth: 320,
-  DropdownsContainerHeight: 280,
+  DropdownsContainerHeight: 210,
 };
