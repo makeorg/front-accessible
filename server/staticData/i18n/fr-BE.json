@@ -465,7 +465,7 @@
       "datefrom": " à partir du "
     },
     "sort": {
-      "TAGGED_FIRST": "Les plus pertinents",
+      "TAGGED_FIRST": "Toutes les propositions",
       "ORGANIZATION": "Proposition des acteurs",
       "RECENT": "Les plus récents",
       "REALISTIC": "Les plus réalistes",

@@ -74,6 +74,10 @@ export const ConsultationContent = ({ question }: Props) => {
     setTags(tags.map(tag => ({ ...tag, isSelected: false })));
   };
 
+  const hasTags = !!(tags.length > 0);
+  const selectedTags = tags.filter(tag => tag.isSelected);
+  const selectedTagsCount = selectedTags.length;
+
   return (
     <React.Fragment>
       <MetaTags
@@ -103,38 +107,40 @@ export const ConsultationContent = ({ question }: Props) => {
                 setSort={setSort}
               />
             </SelectPanel>
-            {!isMobile && <SeparatorStyle>|</SeparatorStyle>}
-            <SelectPanel
-              text={
-                isMobile
-                  ? i18n.t(`consultation.tags.select_mobile`)
-                  : i18n.t(`consultation.tags.select`)
-              }
-              exposeClose
-              shouldHighlight={tags.filter(tag => tag.isSelected).length > 0}
-              selectedElements={tags.filter(tag => tag.isSelected).length}
-            >
-              <TagList
-                tags={tags}
-                hasHeader
-                setTags={setTags}
-                resetTags={resetTags}
-                tagsSelected={tags.filter(tag => tag.isSelected).length}
-              />
-            </SelectPanel>
-            {!isMobile && tags.filter(tag => tag.isSelected).length > 0 && (
+            {!isMobile && hasTags && <SeparatorStyle>|</SeparatorStyle>}
+            {hasTags && (
+              <SelectPanel
+                text={
+                  isMobile
+                    ? i18n.t(`consultation.tags.select_mobile`)
+                    : i18n.t(`consultation.tags.select`)
+                }
+                exposeClose
+                shouldHighlight={selectedTagsCount > 0}
+                selectedElements={selectedTagsCount}
+              >
+                <TagList
+                  tags={tags}
+                  hasHeader
+                  setTags={setTags}
+                  resetTags={resetTags}
+                  tagsSelected={selectedTagsCount}
+                />
+              </SelectPanel>
+            )}
+            {!isMobile && selectedTagsCount > 0 && (
               <ResetStyle onClick={resetTags}>
                 {i18n.t('consultation.reset')}
               </ResetStyle>
             )}
           </SelectContainerStyle>
         </FiltersContainerStyle>
-        <TagTooltip />
+        {hasTags && !isMobile && <TagTooltip />}
         <ParticipateBanner question={question} />
         <InfiniteProposals
           question={question}
           sortTypeKey={sort}
-          tags={tags.filter(tag => tag.isSelected).map(tag => tag.tagId)}
+          tags={selectedTags.map(tag => tag.tagId)}
         />
       </ConsultationPageContentStyle>
     </React.Fragment>

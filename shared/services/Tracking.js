@@ -286,6 +286,13 @@ export const trackTag = (label: string, action: string) => {
   });
 };
 
+export const trackFilter = (label: string, action: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_FILTER_ACTION, {
+    'filter-name': label,
+    nature: action,
+  });
+};
+
 /* Votes */
 export const trackVote = (
   proposalId: string,

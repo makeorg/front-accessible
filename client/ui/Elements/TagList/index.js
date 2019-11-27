@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { trackTag } from 'Shared/services/Tracking';
 import { useMobile } from 'Client/hooks/useMedia';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton/index';
 import {
@@ -53,6 +54,7 @@ export const TagList = ({
 }: Props) => {
   const isMobile = useMobile();
   const updateSelectedTags = (tag: Tag) => {
+    trackTag(tag.label, tag.isSelected ? 'deselect' : 'select');
     const newTags = tags.map(tagItem => ({
       ...tagItem,
       isSelected:

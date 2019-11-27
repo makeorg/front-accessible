@@ -18,6 +18,7 @@ export const CLICK_PARTICIPATE_COMMUNITY: string =
   'click-participate-community';
 export const CLICK_SEE_MORE_COMMUNITY: string = 'click-see-more-community';
 export const CLICK_TAG_ACTION: string = 'click-tag-action';
+export const CLICK_FILTER_ACTION: string = 'click-filter-action';
 export const CLICK_PROPOSAL_VIEW_MORE: string = 'click-proposal-viewmore';
 
 /* Sequence */
