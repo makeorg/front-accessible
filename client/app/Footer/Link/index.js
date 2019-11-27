@@ -32,18 +32,23 @@ const FooterLinksComponent = ({ country, language }: Props) => {
         <FooterItemLinkStyle
           as="a"
           href={JOBS_LINK}
+          to={JOBS_LINK}
           dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
         />
       </FooterItemStyle>
       {!isDesktop && (
         <FooterItemStyle>
-          <FooterItemLinkStyle as="a" href={WHOAREWE_FR_LINK}>
+          <FooterItemLinkStyle
+            as="a"
+            href={WHOAREWE_FR_LINK}
+            to={WHOAREWE_FR_LINK}
+          >
             {i18n.t('main-footer.whoarewe')}
           </FooterItemLinkStyle>
         </FooterItemStyle>
       )}
       <FooterItemStyle>
-        <FooterItemLinkStyle as="a" href={PRESS_LINK}>
+        <FooterItemLinkStyle as="a" href={PRESS_LINK} to={PRESS_LINK}>
           {i18n.t('main-footer.press')}
         </FooterItemLinkStyle>
       </FooterItemStyle>

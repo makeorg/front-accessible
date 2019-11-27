@@ -8,19 +8,28 @@ import {
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const RedLinkStyle = styled(Link)`
-  color: ${MakeThemeColors.Red};
+const linkStyle = (color, largeMobileBreakPoint) => `
+  color: ${color};
   font-size: 12px;
   &:hover,
   &:focus {
-    color: ${MakeThemeColors.Red};
+    color: ${color};
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+  @media (min-width: ${largeMobileBreakPoint}) {
     font-size: 14px;
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+  @media (min-width: ${largeMobileBreakPoint}) {
     font-size: 16px;
   }
+
+  `;
+
+export const RedLinkStyle = styled(Link)`
+  ${linkStyle(MakeThemeColors.Red, intToPx(Breakpoints.LargeMobile))}
+`;
+
+export const MailToRedLinkStyle = styled.a`
+  ${linkStyle(MakeThemeColors.Red, intToPx(Breakpoints.LargeMobile))}
 `;
 
 export const LinkAsRedButton = styled(RedButtonStyle)`

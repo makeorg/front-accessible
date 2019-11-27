@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { MailToRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -189,9 +189,9 @@ export const Data = () => {
           <StaticParagraphStyle>
             Cet exercice peut être fait par tout moyen, et notamment par l’envoi
             d’un courriel à l’adresse :&nbsp;
-            <RedLinkStyle as="a" href="mailto:contact@make.org">
+            <MailToRedLinkStyle as="a" href="mailto:contact@make.org">
               contact@make.org
-            </RedLinkStyle>
+            </MailToRedLinkStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
@@ -248,9 +248,9 @@ export const Data = () => {
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Il peut être contacté à l’adresse :&nbsp;
-            <RedLinkStyle href="mailto:contact@make.org">
+            <MailToRedLinkStyle href="mailto:contact@make.org">
               contact@make.org
-            </RedLinkStyle>
+            </MailToRedLinkStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
 

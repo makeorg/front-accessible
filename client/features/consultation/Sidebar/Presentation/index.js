@@ -35,11 +35,13 @@ export const Presentation = ({ question }: Props) => {
           }}
         />
       )}
-      <SidebarNewWindowLink
-        linkUrl={question.aboutUrl}
-        linkText={i18n.t('consultation.presentation.link_text')}
-        tracking={() => trackClickLearnMore()}
-      />
+      {question.aboutUrl && (
+        <SidebarNewWindowLink
+          linkUrl={question.aboutUrl}
+          linkText={i18n.t('consultation.presentation.link_text')}
+          tracking={() => trackClickLearnMore()}
+        />
+      )}
       <Founders
         founders={foundersOrMedia}
         isGreatCause={isGreatCause(question.operationKind)}
