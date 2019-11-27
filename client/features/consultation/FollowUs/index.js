@@ -48,7 +48,7 @@ export const FollowUs = () => (
           data-network-name="facebook"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label={i18n.t('followUs.facebook')}
+          aria-label={i18n.t('consultation.followUs.facebook')}
           as="a"
           href={facebookMakeUrl}
           onClick={trackClickFollowUs}
@@ -61,7 +61,7 @@ export const FollowUs = () => (
           data-network-name="twitter"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label={i18n.t('followUs.twitter')}
+          aria-label={i18n.t('consultation.followUs.twitter')}
           as="a"
           href={twitterMakeUrl}
           onClick={trackClickFollowUs}
@@ -74,7 +74,7 @@ export const FollowUs = () => (
           data-network-name="instagram"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label={i18n.t('followUs.instagram')}
+          aria-label={i18n.t('consultation.followUs.instagram')}
           as="a"
           href={instagramMakeUrl}
           onClick={trackClickFollowUs}
@@ -87,7 +87,7 @@ export const FollowUs = () => (
           data-network-name="linkedin"
           target="_blank"
           rel="noreferrer noopener"
-          aria-label={i18n.t('followUs.linkedin')}
+          aria-label={i18n.t('consultation.followUs.linkedin')}
           as="a"
           href={linkedinMakeUrl}
           onClick={trackClickFollowUs}

@@ -62,7 +62,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           <CenterParagraphStyle>
             {i18n.t('proposal_submit.moderation_charter')}
             <a href={MODERATION_CHARTER_LINK}>
-              {i18n.t('common.moderation_charter_label')}
+              {i18n.t('proposal_submit.moderation_charter_label')}
             </a>
           </CenterParagraphStyle>
         </DescriptionWrapperStyle>
