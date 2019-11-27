@@ -90,25 +90,25 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
           <StaticParagraphStyle>
             L’accès au Site et aux Services est gratuit. Il est ouvert, sous
             réserve des restrictions prévues sur le site :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                à toute personne physique disposant de la pleine capacité
-                juridique pour s’engager au titre des présentes conditions
-                générales. La personne physique qui ne dispose pas de la pleine
-                capacité juridique ne peut accéder au Site et aux Services
-                qu’avec l’accord de son représentant légal,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                à tout mineur disposant de l’autorisation de ses représentants
-                légaux ainsi que sous leur contrôle,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                à toute personne morale agissant par l’intermédiaire d’une
-                personne physique disposant de la capacité juridique pour
-                contracter au nom et pour le compte de la personne morale.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              à toute personne physique disposant de la pleine capacité
+              juridique pour s’engager au titre des présentes conditions
+              générales. La personne physique qui ne dispose pas de la pleine
+              capacité juridique ne peut accéder au Site et aux Services qu’avec
+              l’accord de son représentant légal,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              à tout mineur disposant de l’autorisation de ses représentants
+              légaux ainsi que sous leur contrôle,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              à toute personne morale agissant par l’intermédiaire d’une
+              personne physique disposant de la capacité juridique pour
+              contracter au nom et pour le compte de la personne morale.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>
@@ -469,18 +469,18 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
           <StaticThirdLevelTitleStyle>PREUVE </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
             L’Utilisateur reconnaît et accepte expressément :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                que les données recueillies sur le site et sur les équipements
-                informatiques de Make.org font foi de la réalité des opérations
-                intervenues dans le cadre des présentes ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                que ces données constituent le seul mode de preuve admis entre
-                les parties.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              que les données recueillies sur le site et sur les équipements
+              informatiques de Make.org font foi de la réalité des opérations
+              intervenues dans le cadre des présentes ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              que ces données constituent le seul mode de preuve admis entre les
+              parties.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>
@@ -551,45 +551,45 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
                 L’Utilisateur s’engage à ne pas tenir de propos ou faire de
                 propositions contraires à la loi et aux bonnes mœurs et
                 notamment, sans que cette liste ne soit exhaustive :
-                <StaticSquareListStyle>
-                  <StaticSquareListItemStyle>
-                    des propos incitant à la haine raciale, les propos racistes,
-                    antisémites, xénophobes homophobes, etc… ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos à caractère violent, pornographique, pédophile,
-                    etc… ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos injurieux, dénigrants, diffamatoires, ou portant
-                    atteinte aux droits de la personnalité de tiers ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos négationnistes de crimes contre l’humanité et de
-                    génocides reconnus et l’apologie de crimes ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos incitant à commettre des actes réprimés par la
-                    loi telle que l’incitation à commettre des actes violents,
-                    terroristes, à la vente de produits stupéfiants, etc. ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos portant atteintes à la vie privée ou aux droits
-                    de la propriété intellectuelle de tiers,
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos portant atteinte à la présomption d’innocence ou
-                    un secret de l’instruction, etc. ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos portant atteinte à la dignité humaine ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des propos pouvant être considérés comme relevant d’un abus
-                    de liberté d’expression.
-                  </StaticSquareListItemStyle>
-                </StaticSquareListStyle>
               </StaticParagraphStyle>
+              <StaticSquareListStyle>
+                <StaticSquareListItemStyle>
+                  des propos incitant à la haine raciale, les propos racistes,
+                  antisémites, xénophobes homophobes, etc… ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos à caractère violent, pornographique, pédophile,
+                  etc… ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos injurieux, dénigrants, diffamatoires, ou portant
+                  atteinte aux droits de la personnalité de tiers ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos négationnistes de crimes contre l’humanité et de
+                  génocides reconnus et l’apologie de crimes ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos incitant à commettre des actes réprimés par la loi
+                  telle que l’incitation à commettre des actes violents,
+                  terroristes, à la vente de produits stupéfiants, etc. ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos portant atteintes à la vie privée ou aux droits de
+                  la propriété intellectuelle de tiers,
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos portant atteinte à la présomption d’innocence ou un
+                  secret de l’instruction, etc. ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos portant atteinte à la dignité humaine ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des propos pouvant être considérés comme relevant d’un abus de
+                  liberté d’expression.
+                </StaticSquareListItemStyle>
+              </StaticSquareListStyle>
             </StaticSecondaryOrderedListItemStyle>
             <StaticSecondaryOrderedListItemStyle className="section8">
               <StaticFourthLevelTitleStyle>
@@ -642,34 +642,33 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
               <StaticParagraphStyle>
                 L’Utilisateur s’interdit ainsi de diffuser, notamment et sans
                 que cette liste soit exhaustive :
-                <StaticSquareListStyle>
-                  <StaticSquareListItemStyle>
-                    des Contenus pornographiques, obscènes, indécents, choquants
-                    ou inadaptés à un public familial, diffamatoires, injurieux,
-                    violents, racistes, xénophobes ou révisionnistes,
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des Contenus contrefaisants,
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des Contenus attentatoires à l’image d’un tiers,
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des Contenus mensongers, trompeurs ou proposant ou
-                    promouvant des activités illicites, frauduleuses ou
-                    trompeuses,
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    des Contenus nuisibles aux systèmes informatiques de tiers
-                    (tels que virus, vers, chevaux de Troie, etc.),
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    et plus généralement des Contenus susceptibles de porter
-                    atteinte aux droits de tiers ou d’être préjudiciables à des
-                    tiers, de quelque manière et sous quelque forme que ce soit.
-                  </StaticSquareListItemStyle>
-                </StaticSquareListStyle>
               </StaticParagraphStyle>
+              <StaticSquareListStyle>
+                <StaticSquareListItemStyle>
+                  des Contenus pornographiques, obscènes, indécents, choquants
+                  ou inadaptés à un public familial, diffamatoires, injurieux,
+                  violents, racistes, xénophobes ou révisionnistes,
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des Contenus contrefaisants,
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des Contenus attentatoires à l’image d’un tiers,
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des Contenus mensongers, trompeurs ou proposant ou promouvant
+                  des activités illicites, frauduleuses ou trompeuses,
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  des Contenus nuisibles aux systèmes informatiques de tiers
+                  (tels que virus, vers, chevaux de Troie, etc.),
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  et plus généralement des Contenus susceptibles de porter
+                  atteinte aux droits de tiers ou d’être préjudiciables à des
+                  tiers, de quelque manière et sous quelque forme que ce soit.
+                </StaticSquareListItemStyle>
+              </StaticSquareListStyle>
             </StaticSecondaryOrderedListItemStyle>
             <StaticSecondaryOrderedListItemStyle className="section9">
               <StaticFourthLevelTitleStyle>
@@ -719,40 +718,40 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
           <StaticParagraphStyle>
             Il est strictement interdit d’utiliser les Services aux fins
             suivantes :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                l’exercice d’activités illégales, frauduleuses ou portant
-                atteinte aux droits ou à la sécurité des tiers,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                l’atteinte à l’ordre public ou la violation des lois et
-                règlements en vigueur,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                l’intrusion dans le système informatique d’un tiers ou toute
-                activité de nature à nuire, contrôler, interférer, ou
-                intercepter tout ou partie du système informatique d’un tiers,
-                en violer l’intégrité ou la sécurité,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                l’envoi d’emails non sollicités et/ou de prospection ou
-                sollicitation commerciale,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                les manipulations destinées à améliorer le référencement d’un
-                site tiers,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                l’aide ou l’incitation, sous quelque forme et de quelque manière
-                que ce soit, à un ou plusieurs des actes et activités décrits
-                ci-dessus,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                et plus généralement toute pratique détournant les Services à
-                des fins autres que celles pour lesquelles ils ont été conçus.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              l’exercice d’activités illégales, frauduleuses ou portant atteinte
+              aux droits ou à la sécurité des tiers,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              l’atteinte à l’ordre public ou la violation des lois et règlements
+              en vigueur,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              l’intrusion dans le système informatique d’un tiers ou toute
+              activité de nature à nuire, contrôler, interférer, ou intercepter
+              tout ou partie du système informatique d’un tiers, en violer
+              l’intégrité ou la sécurité,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              l’envoi d’emails non sollicités et/ou de prospection ou
+              sollicitation commerciale,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              les manipulations destinées à améliorer le référencement d’un site
+              tiers,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              l’aide ou l’incitation, sous quelque forme et de quelque manière
+              que ce soit, à un ou plusieurs des actes et activités décrits
+              ci-dessus,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              et plus généralement toute pratique détournant les Services à des
+              fins autres que celles pour lesquelles ils ont été conçus.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
           <StaticParagraphStyle>
             Il est strictement interdit aux Utilisateurs de copier et/ou de
             détourner à leurs fins ou à celles de tiers le concept, les
@@ -937,26 +936,27 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
             aux lois et règlements en vigueur par un Utilisateur, Make.org se
             réserve le droit de prendre toute mesure appropriée et notamment de
             :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                suspendre ou résilier l’accès aux Services de l’Utilisateur,
-                auteur du manquement ou de l’infraction, ou y ayant participé,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                supprimer tout contenu mis en ligne sur le site,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                publier sur le site tout message d’information que Make.org
-                jugera utile,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                avertir toute autorité concernée,
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                engager toute action judiciaire.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              suspendre ou résilier l’accès aux Services de l’Utilisateur,
+              auteur du manquement ou de l’infraction, ou y ayant participé,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              supprimer tout contenu mis en ligne sur le site,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              publier sur le site tout message d’information que Make.org jugera
+              utile,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              avertir toute autorité concernée,
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              engager toute action judiciaire.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
+
           <StaticParagraphStyle>
             De façon générale, en cas de manquement de l’Utilisateur à ses
             obligations prévues aux présentes et/ou en cas de violation de toute
