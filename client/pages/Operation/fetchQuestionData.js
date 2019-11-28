@@ -59,6 +59,7 @@ const callQuestionData = Component =>
       </MiddlePageWrapperStyle>
     );
     const questions = useSelector(state => state.questions);
+    const currentQuestionSlug = useSelector(state => state.currentQuestion);
     const updateQuestion = () => {
       QuestionApiService.getDetail(match.params.questionSlug)
         .then(questionDetail => {
@@ -117,7 +118,7 @@ const callQuestionData = Component =>
       }
     }, [question]);
 
-    if (!question) {
+    if (!question || question.slug !== currentQuestionSlug) {
       return alternativeContent;
     }
 
