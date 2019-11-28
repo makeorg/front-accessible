@@ -15,7 +15,7 @@ const availableSorts = [
   'POPULAR',
 ];
 
-<SelectPanel text="Les plus récents">
+<SelectPanel text="Les plus récentes">
   <SortedList
     currentSort="ORGANIZATION"
     availableSorts={availableSorts}
