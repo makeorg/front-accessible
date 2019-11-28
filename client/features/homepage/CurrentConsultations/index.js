@@ -44,6 +44,7 @@ const setConsultationLink = (
     return {
       as: 'a',
       href: externalLink,
+      to: externalLink,
       target: '_blank',
       rel: 'noopener noreferrer',
     };

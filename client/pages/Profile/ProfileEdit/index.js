@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Redirect, type match as TypeMatch } from 'react-router';
+import { Redirect, type match as TypeMatch, generatePath } from 'react-router';
 import { type TypeUser } from 'Shared/types/user';
 import { UpdateInformations } from 'Client/features/profile/UpdateInformations';
 import { UpdatePassword } from 'Client/features/profile/UpdatePassword';
@@ -30,11 +30,10 @@ type Props = {
 
 const ProfileEdit = ({ user, match }: Props) => {
   const { country, language } = match.params;
-  const editProfileLink = ROUTE_PROFILE_EDIT.replace(
-    ':country',
-    country
-  ).replace(':language', language);
-
+  const editProfileLink = generatePath(ROUTE_PROFILE_EDIT, {
+    country,
+    language,
+  });
   if (!user) {
     return <Redirect to="/" />;
   }

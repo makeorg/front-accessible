@@ -64,6 +64,7 @@ export const RegisterFormComponent = ({
     profession: '',
   });
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [inProgress, setInProgress] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -85,6 +86,7 @@ export const RegisterFormComponent = ({
 
   const handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
+    setInProgress(true);
 
     try {
       await UserService.register(user);
@@ -93,9 +95,11 @@ export const RegisterFormComponent = ({
       trackSignupEmailSuccess();
       handleModalClose();
       setErrors([]);
+      setInProgress(false);
     } catch (serviceErrors) {
       trackSignupEmailFailure();
       setErrors(serviceErrors);
+      setInProgress(false);
     }
   };
 
@@ -184,6 +188,7 @@ export const RegisterFormComponent = ({
         id="authentification-register-submit"
         icon={SubmitThumbsUpIcon}
         label={i18n.t('common.register_label')}
+        disabled={inProgress}
       />
     </FormStyle>
   );

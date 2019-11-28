@@ -1,6 +1,7 @@
 import { matchPath } from 'react-router';
+import { generatePath } from 'react-router';
 
-export const ROUTE_COUNTRY_LANG = '/:country-:language';
+export const ROUTE_COUNTRY_LANG = '/:country(\\w{2})-:language(\\w{2})';
 
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/consultation`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY_LANG}/search`;
@@ -26,26 +27,20 @@ export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
 export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
 export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
 
-const replaceCountryLanguage = (
-  route: string,
-  coountry: string,
-  language: string
-) => route.replace(':country', coountry).replace(':language', language);
-
-const replaceOrganisationSlug = (route: string, value: string) =>
-  route.replace(':organisationSlug', value);
-
 export const matchRoute = (
   pathname: string,
   routePath: string,
   exact: boolean = false,
-  strict: boolean = false
-): boolean =>
-  !!matchPath(pathname, {
+  strict: boolean = false,
+  sensitive: ?boolean = false
+): boolean => {
+  return !!matchPath(pathname, {
     path: routePath,
     exact,
     strict,
+    sensitive,
   });
+};
 
 export const formatCountryLanguage = (country: string, language: string) =>
   `${country}-${language}`;
@@ -55,29 +50,31 @@ export const getRouteOrganisationProposals = (
   language: string,
   organisationSlug: string
 ) =>
-  replaceOrganisationSlug(
-    replaceCountryLanguage(ROUTE_ORGANISATION_PROPOSALS, country, language),
-    organisationSlug
-  );
+  generatePath(ROUTE_ORGANISATION_PROPOSALS, {
+    country,
+    language,
+    organisationSlug,
+  });
 export const getRouteOrganisationVotes = (
   country: string,
   language: string,
   organisationSlug: string
 ) =>
-  replaceOrganisationSlug(
-    replaceCountryLanguage(ROUTE_ORGANISATION_VOTES, country, language),
-    organisationSlug
-  );
+  generatePath(ROUTE_ORGANISATION_VOTES, {
+    country,
+    language,
+    organisationSlug,
+  });
 export const getRouteProfile = (country: string, language: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE, country, language);
+  generatePath(ROUTE_PROFILE, { country, language });
 export const getRouteProfileEdit = (country: string, language: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE_EDIT, country, language);
+  generatePath(ROUTE_PROFILE_EDIT, { country, language });
 export const getRouteProfileProposals = (country: string, language: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE_PROPOSALS, country, language);
+  generatePath(ROUTE_PROFILE_PROPOSALS, { country, language });
 export const getRouteProfileFavourites = (country: string, language: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE_FAVOURITES, country, language);
+  generatePath(ROUTE_PROFILE_FAVOURITES, { country, language });
 export const getRouteProfileFollowing = (country: string, language: string) =>
-  replaceCountryLanguage(ROUTE_PROFILE_FOLLOWING, country, language);
+  generatePath(ROUTE_PROFILE_FOLLOWING, { country, language });
 
 /**
  * Get the search main results route
@@ -91,8 +88,7 @@ export const getRouteSearch = (
   country: string,
   language: string,
   query: string
-) =>
-  `${replaceCountryLanguage(ROUTE_SEARCH, country, language)}?query=${query}`;
+) => `${generatePath(ROUTE_SEARCH, { country, language })}?query=${query}`;
 
 /**
  * Get the search proposals results route
@@ -107,11 +103,10 @@ export const getRouteSearchProposals = (
   language: string,
   query: string
 ) =>
-  `${replaceCountryLanguage(
-    ROUTE_SEARCH_PROPOSALS,
+  `${generatePath(ROUTE_SEARCH_PROPOSALS, {
     country,
-    language
-  )}?query=${query}`;
+    language,
+  })}?query=${query}`;
 
 /**
  * Get the search proposals results route
@@ -126,11 +121,10 @@ export const getRouteSearchConsultations = (
   language: string,
   query: string
 ) =>
-  `${replaceCountryLanguage(
-    ROUTE_SEARCH_CONSULTATIONS,
+  `${generatePath(ROUTE_SEARCH_CONSULTATIONS, {
     country,
-    language
-  )}?query=${query}`;
+    language,
+  })}?query=${query}`;
 
 /**
  * Get the search organisations results route
@@ -146,8 +140,7 @@ export const getRouteSearchOrganisations = (
   language: string,
   query: string
 ) =>
-  `${replaceCountryLanguage(
-    ROUTE_SEARCH_ORGANISATIONS,
+  `${generatePath(ROUTE_SEARCH_ORGANISATIONS, {
     country,
-    language
-  )}?query=${query}`;
+    language,
+  })}?query=${query}`;

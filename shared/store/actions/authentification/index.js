@@ -101,7 +101,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
   if (!socialToken) {
     dispatch(loginSocialFailure());
     trackAuthentificationSocialFailure(provider);
-    Logger.logError(`No token from ${provider} callBack auth`);
+    Logger.logInfo(`No token from ${provider} callBack auth`);
 
     return Promise.resolve();
   }

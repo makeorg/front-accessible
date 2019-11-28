@@ -44,6 +44,7 @@ export const Header = () => {
               target="_blank"
               rel="noreferrer noopener"
               href={WHOAREWE_FR_LINK}
+              to={WHOAREWE_FR_LINK}
             >
               {i18n.t('header.whoarewe')}
             </WhoAreWeLinkStyle>

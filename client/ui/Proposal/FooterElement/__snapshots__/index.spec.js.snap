@@ -13,7 +13,7 @@ Snapshot Diff:
     </PostedInLabelStyle>
 -   <a
 +   <span
-      className="mk121c-0 bgUjBF"
+      className="mk121c-0 cPJqEo"
 -     href="/fooLink"
 -     onClick={[Function onClick]}
     >

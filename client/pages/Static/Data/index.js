@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { MailToRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -57,93 +57,92 @@ export const Data = () => {
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Les finalités recherchées sont les suivantes :&nbsp;
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                utilisation et amélioration du site et des services de Make.org
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                mise en œuvre des campagnes de Make.org
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              utilisation et amélioration du site et des services de Make.org
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              mise en œuvre des campagnes de Make.org
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
           <StaticParagraphStyle>
             Les données à caractère personnel traitées sont :&nbsp;
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                les éléments d’identification
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                les coordonnées
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                les données nécessaires à l’utilisation du site et des services
-                Make.org ainsi qu’à la mise en œuvre des campagnes
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              les éléments d’identification
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              les coordonnées
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              les données nécessaires à l’utilisation du site et des services
+              Make.org ainsi qu’à la mise en œuvre des campagnes
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
           <StaticThirdLevelTitleStyle>
             OBLIGATIONS DE MAKE.ORG
           </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
-            {"Make.org s'engage à :"}
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                traiter les données uniquement pour les seules finalités de sa
-                mission ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                garantir la confidentialité des données à caractère personnel ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                veiller à ce que les tiers autorisés à traiter les données à
-                caractère personnel :
-                <StaticSquareListStyle>
-                  <StaticSquareListItemStyle>
-                    ‍ s’engagent à respecter la confidentialité ou soient
-                    soumises à une obligation légale appropriée de
-                    confidentialité ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    reçoivent la formation nécessaire en matière de protection
-                    des données à caractère personnel ;
-                  </StaticSquareListItemStyle>
-                  <StaticSquareListItemStyle>
-                    prendre en compte, s’agissant de ses outils, produits,
-                    applications ou services, les principes de protection des
-                    données dès la conception et de protection des données par
-                    défaut (Privacy By Design).
-                  </StaticSquareListItemStyle>
-                </StaticSquareListStyle>
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
+            Make.org s&#x27;engage à :
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              traiter les données uniquement pour les seules finalités de sa
+              mission ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              garantir la confidentialité des données à caractère personnel ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              veiller à ce que les tiers autorisés à traiter les données à
+              caractère personnel :
+              <StaticSquareListStyle>
+                <StaticSquareListItemStyle>
+                  ‍ s’engagent à respecter la confidentialité ou soient soumises
+                  à une obligation légale appropriée de confidentialité ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  reçoivent la formation nécessaire en matière de protection des
+                  données à caractère personnel ;
+                </StaticSquareListItemStyle>
+                <StaticSquareListItemStyle>
+                  prendre en compte, s’agissant de ses outils, produits,
+                  applications ou services, les principes de protection des
+                  données dès la conception et de protection des données par
+                  défaut (Privacy By Design).
+                </StaticSquareListItemStyle>
+              </StaticSquareListStyle>
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
           <StaticThirdLevelTitleStyle>DESTINATAIRES</StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
             Peuvent, dans les limites de leurs attributions respectives, avoir
             accès aux données à caractère personnel :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                les personnes chargées de l’exécution du service, celles
-                chargées de traiter la relation avec les utilisateurs et les
-                réclamations, celles chargées des services logistiques et
-                informatiques ainsi que leurs responsables hiérarchiques ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                les sous-traitants dès lors que le contrat signé entre les
-                sous-traitants et le Make.org fait mention des obligations
-                incombant aux sous-traitants en matière de protection de la
-                sécurité et de la confidentialité des données ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                les partenaires pour les campagnes dans lesquelles les
-                utilisateurs auront été prévenus de leur participation.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              les personnes chargées de l’exécution du service, celles chargées
+              de traiter la relation avec les utilisateurs et les réclamations,
+              celles chargées des services logistiques et informatiques ainsi
+              que leurs responsables hiérarchiques ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              les sous-traitants dès lors que le contrat signé entre les
+              sous-traitants et le Make.org fait mention des obligations
+              incombant aux sous-traitants en matière de protection de la
+              sécurité et de la confidentialité des données ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              les partenaires pour les campagnes dans lesquelles les
+              utilisateurs auront été prévenus de leur participation.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
           <StaticThirdLevelTitleStyle>
@@ -190,9 +189,9 @@ export const Data = () => {
           <StaticParagraphStyle>
             Cet exercice peut être fait par tout moyen, et notamment par l’envoi
             d’un courriel à l’adresse :&nbsp;
-            <RedLinkStyle as="a" href="mailto:contact@make.org">
+            <MailToRedLinkStyle as="a" href="mailto:contact@make.org">
               contact@make.org
-            </RedLinkStyle>
+            </MailToRedLinkStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
@@ -218,21 +217,20 @@ export const Data = () => {
           </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
             Les données sont conservées :
-            <StaticSquareListStyle>
-              <StaticSquareListItemStyle>
-                le temps nécessaire pour la mise en œuvre de la campagne ;
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                pour une durée de trois ans à l’issue de la fin de l’utilisation
-                du site ou des services, ou de la désinscription de
-                l’utilisateur.
-              </StaticSquareListItemStyle>
-              <StaticSquareListItemStyle>
-                Les données ne seront pas conservées au-delà des obligations
-                légales si l’utilisateur en fait la demande.
-              </StaticSquareListItemStyle>
-            </StaticSquareListStyle>
           </StaticParagraphStyle>
+          <StaticSquareListStyle>
+            <StaticSquareListItemStyle>
+              le temps nécessaire pour la mise en œuvre de la campagne ;
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              pour une durée de trois ans à l’issue de la fin de l’utilisation
+              du site ou des services, ou de la désinscription de l’utilisateur.
+            </StaticSquareListItemStyle>
+            <StaticSquareListItemStyle>
+              Les données ne seront pas conservées au-delà des obligations
+              légales si l’utilisateur en fait la demande.
+            </StaticSquareListItemStyle>
+          </StaticSquareListStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>
           <StaticThirdLevelTitleStyle>
@@ -250,9 +248,9 @@ export const Data = () => {
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Il peut être contacté à l’adresse :&nbsp;
-            <RedLinkStyle href="mailto:contact@make.org">
+            <MailToRedLinkStyle href="mailto:contact@make.org">
               contact@make.org
-            </RedLinkStyle>
+            </MailToRedLinkStyle>
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
 

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { MailToRedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -14,9 +14,9 @@ export const Contact = () => {
       <StaticParagraphStyle>
         Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en
         envoyant un e-mail à notre adresse :&nbsp;
-        <RedLinkStyle as="a" href="mailto:contact@make.org">
+        <MailToRedLinkStyle href="mailto:contact@make.org">
           contact@make.org
-        </RedLinkStyle>
+        </MailToRedLinkStyle>
       </StaticParagraphStyle>
     </StaticPageWrapperStyle>
   );
