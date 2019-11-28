@@ -61,14 +61,16 @@ export const PanelStyled = styled.div`
 
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     position: absolute;
-    top: 120%;
-    right: auto;
+    top: 53px;
+    bottom: initial;
+    left: initial;
+    right: initial;
     border-radius: 8px;
-    max-height: 280px;
     width: 320px;
     border-radius: ${intToPx(Elements.BorderRadius)};
     box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
     overflow: hidden;
+    z-index: 1;
   }
 `;
 
