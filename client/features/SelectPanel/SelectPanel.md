@@ -15,13 +15,15 @@ const availableSorts = [
   'POPULAR',
 ];
 
-<SelectPanel text="Les plus récentes">
-  <SortedList
-    currentSort="ORGANIZATION"
-    availableSorts={availableSorts}
-    setSort={() => {}}
-  />
-</SelectPanel>;
+<div style={{ maxWidth: '380px', padding: '25px 10px', background: '#eeeeee' }}>
+  <SelectPanel text="Les plus récents">
+    <SortedList
+      currentSort="ORGANIZATION"
+      availableSorts={availableSorts}
+      setSort={() => {}}
+    />
+  </SelectPanel>
+</div>;
 ```
 
 ###### SelectedPanel to filter:
@@ -40,7 +42,9 @@ const tags = [
   { tagId: 'tagId-7', label: 'Sport', isSelected: false },
 ];
 
-<SelectPanel text="Sélectionnez un ou plusieurs sujets">
-  <TagList tags={tags} hasHeader={true} />
-</SelectPanel>;
+<div style={{ maxWidth: '380px', padding: '25px 10px', background: '#eeeeee' }}>
+  <SelectPanel text="Sélectionnez un ou plusieurs sujets">
+    <TagList tags={tags} hasHeader={true} />
+  </SelectPanel>
+</div>;
 ```
