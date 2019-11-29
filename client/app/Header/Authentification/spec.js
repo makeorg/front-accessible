@@ -2,7 +2,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import { AuthentificationClass } from './AuthentificationContainer';
+import { Provider } from 'react-redux';
+import { configureStore } from 'Shared/store';
+import { AuthentificationContainer } from './AuthentificationContainer';
 
 describe('Authentification', () => {
   describe('User is authentificated', () => {
@@ -19,13 +21,17 @@ describe('Authentification', () => {
 
     it('return AuthentificatedBar', () => {
       const { container } = render(
-        <BrowserRouter>
-          <AuthentificationClass
-            user={user}
-            handleLoginModal={handleLoginModal}
-            handleRegisterModal={handleRegisterModal}
-          />
-        </BrowserRouter>
+        <Provider
+          store={configureStore({ user: { authentification: { user } } })}
+        >
+          <BrowserRouter>
+            <AuthentificationContainer
+              user={user}
+              handleLoginModal={handleLoginModal}
+              handleRegisterModal={handleRegisterModal}
+            />
+          </BrowserRouter>
+        </Provider>
       );
 
       expect(container).toHaveTextContent('fooUser');
@@ -33,10 +39,12 @@ describe('Authentification', () => {
 
     it('return NotAuthentificatedBar', () => {
       const { container } = render(
-        <AuthentificationClass
-          handleLoginModal={handleLoginModal}
-          handleRegisterModal={handleRegisterModal}
-        />
+        <Provider store={configureStore()}>
+          <AuthentificationContainer
+            handleLoginModal={handleLoginModal}
+            handleRegisterModal={handleRegisterModal}
+          />
+        </Provider>
       );
 
       expect(container).toHaveTextContent(
