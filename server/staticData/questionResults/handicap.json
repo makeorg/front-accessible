@@ -14,12 +14,12 @@
                     "idea": "Sensibiliser et mieux prendre en compte la diversité des handicaps, notamment ceux invisibles",
                     "agreement": 93,
                     "adhesion": 19,
-                    "realistic": 31
+                    "realistic": 32
                 },
                 {
                     "idea": "Sensibiliser et former l'ensemble du personnel éducatif au handicap",
                     "agreement": 89,
-                    "adhesion": 14,
+                    "adhesion": 17,
                     "realistic": 33
                 }
             ]
@@ -29,9 +29,9 @@
             "ideas": [
                 {
                     "idea": "Simplifier les démarches administratives et les délais de traitement, en particulier au sein des MDPH",
-                    "agreement": 89,
-                    "adhesion": 15,
-                    "realistic": 25
+                    "agreement": 90,
+                    "adhesion": 23,
+                    "realistic": 33
                 }
             ]
         },
@@ -40,21 +40,21 @@
             "ideas": [
                 {
                     "idea": "Développer les structures d'accueil en fonction des handicaps et maintenir les capacités de ceux existant",
-                    "agreement": 89,
-                    "adhesion": 18,
-                    "realistic": 32
+                    "agreement": 90,
+                    "adhesion": 16,
+                    "realistic": 34
                 },
                 {
                     "idea": "Offrir une meilleure prise en charge des soins et dépenses liées au handicap et encadrer le cout des équipements",
                     "agreement": 90,
-                    "adhesion": 15,
-                    "realistic": 33
+                    "adhesion": 19,
+                    "realistic": 31
                 },
                 {
                     "idea": "Réévaluer le montant et le calcul des pensions d'invalidité, des retraites et de l'AAH",
-                    "agreement": 88,
-                    "adhesion": 18,
-                    "realistic": 30
+                    "agreement": 89,
+                    "adhesion": 16,
+                    "realistic": 33
                 }
             ]
         },
@@ -63,15 +63,15 @@
             "ideas": [
                 {
                     "idea": "Mieux accompagner les aidants",
-                    "agreement": 91,
-                    "adhesion": 15,
+                    "agreement": 92,
+                    "adhesion": 19,
                     "realistic": 33
                 },
                 {
                     "idea": "Valoriser les métiers de l'accompagnement par la reconnaissance, la formation et la rémunération",
                     "agreement": 89,
-                    "adhesion": 16,
-                    "realistic": 32
+                    "adhesion": 19,
+                    "realistic": 30
                 }
             ]
         },
@@ -81,14 +81,14 @@
                 {
                     "idea": "Améliorer l'accès aux infrastructures, notamment aux batiments publics",
                     "agreement": 90,
-                    "adhesion": 16,
-                    "realistic": 36
+                    "adhesion": 14,
+                    "realistic": 35
                 },
                 {
                     "idea": "Rendre la ville et les transports plus accessibles pour les personnes handicapées",
                     "agreement": 92,
-                    "adhesion": 18,
-                    "realistic": 29
+                    "adhesion": 15,
+                    "realistic": 31
                 }
             ]
         },
@@ -97,21 +97,21 @@
             "ideas": [
                 {
                     "idea": "Renforcer les moyens d'accueil humains et financiers dans les écoles",
-                    "agreement": 88,
-                    "adhesion": 13,
-                    "realistic": 34
+                    "agreement": 89,
+                    "adhesion": 18,
+                    "realistic": 31
                 },
                 {
                     "idea": "Améliorer la formation et l'accompagnement des Ph dans leur parcours professionnel",
                     "agreement": 87,
-                    "adhesion": 15,
+                    "adhesion": 17,
                     "realistic": 33
                 },
                 {
                     "idea": "Adapter les entreprises pour favoriser l'inclusions des PH au travail",
                     "agreement": 90,
-                    "adhesion": 18,
-                    "realistic": 30
+                    "adhesion": 15,
+                    "realistic": 34
                 }
             ]
         }
