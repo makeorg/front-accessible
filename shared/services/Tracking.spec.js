@@ -43,16 +43,27 @@ import TrackingService, {
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
+import { trackingParamsService } from './TrackingParamsService';
 
 export const eventParameters = {
   location: 'homepage',
   source: 'foo',
-  country: 'foo',
   language: 'foo',
+  country: 'foo',
   questionId: 'foo',
+  questionSlug: 'fooSlug',
   referrer: undefined,
   url: 'http://localhost/',
 };
+
+trackingParamsService.location = eventParameters.location;
+trackingParamsService.source = eventParameters.source;
+trackingParamsService.country = eventParameters.country;
+trackingParamsService.language = eventParameters.language;
+trackingParamsService.questionId = eventParameters.questionId;
+trackingParamsService.questionSlug = eventParameters.questionSlug;
+trackingParamsService.referrer = eventParameters.referrer;
+trackingParamsService.url = eventParameters.url;
 
 describe('Tracking Service', () => {
   beforeEach(() => {

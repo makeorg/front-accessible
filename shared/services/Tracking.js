@@ -5,15 +5,9 @@ import * as trackingConstants from 'Shared/constants/tracking';
 import { Logger } from 'Shared/services/Logger';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
-import { getTrackingLocation } from 'Shared/api/ApiService/getLocationContext';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
-
-const parentUrl = () => {
-  return typeof window !== 'undefined' && window && window.location
-    ? window.location.href
-    : undefined;
-};
+import { trackingParamsService } from './TrackingParamsService';
 
 const getPosition = (cardPosition?: number): string => {
   if (cardPosition !== undefined) {
@@ -24,14 +18,10 @@ const getPosition = (cardPosition?: number): string => {
 };
 
 const getEventParameters = (parameters: Object = {}) => {
+  const defaultParameters = trackingParamsService.all();
+
   return {
-    location: getTrackingLocation(window.location.pathname),
-    source: ApiService.source,
-    country: ApiService.country,
-    language: ApiService.language,
-    referrer: ApiService.referrer,
-    questionId: ApiService.questionId,
-    url: parentUrl(),
+    ...defaultParameters,
     ...parameters,
   };
 };
