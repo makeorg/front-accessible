@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagList must match the diff snapshot between tagsSelected vs Default Props 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -48,12 +48,7 @@
+    </TagListStyle>
+    <TagListHeaderStyle>
+      <span>
+        consultation.tags.count
+      </span>
+-     <TagElementUnderlinedStyle
+-       onClick={[Function setReset]}
+-     >
+-       consultation.reset
+-     </TagElementUnderlinedStyle>
+    </TagListHeaderStyle>
+  </TaglistWrapperStyle>
+`;
+
+exports[`TagList must match the snapshot with default Props 1`] = `
+<TaglistWrapperStyle>
+  <TagListStyle>
+    <li>
+      <TagButtonElementStyle
+        aria-live="polite"
+        isSelected={true}
+        onClick={[Function]}
+      >
+        <ScreenReaderItemStyle>
+          consultation.tags.remove_filter
+        </ScreenReaderItemStyle>
+        foo
+        <SvgClose
+          aria-hidden={true}
+          style={
+            Object {
+              "fill": "rgb(255,255,255)",
+              "width": "10px",
+            }
+          }
+        />
+      </TagButtonElementStyle>
+    </li>
+    <li>
+      <TagButtonElementStyle
+        aria-live="polite"
+        isSelected={false}
+        onClick={[Function]}
+      >
+        <ScreenReaderItemStyle>
+          consultation.tags.add_filter
+        </ScreenReaderItemStyle>
+        bar
+      </TagButtonElementStyle>
+    </li>
+    <li>
+      <TagButtonElementStyle
+        aria-live="polite"
+        isSelected={false}
+        onClick={[Function]}
+      >
+        <ScreenReaderItemStyle>
+          consultation.tags.add_filter
+        </ScreenReaderItemStyle>
+        baz
+      </TagButtonElementStyle>
+    </li>
+  </TagListStyle>
+  <TagListHeaderStyle>
+    <span>
+      consultation.tags.count
+    </span>
+  </TagListHeaderStyle>
+</TaglistWrapperStyle>
+`;

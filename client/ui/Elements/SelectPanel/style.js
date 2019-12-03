@@ -9,8 +9,10 @@ import {
   TextColors,
   MakeThemeColors,
 } from 'Client/app/assets/vars/Colors';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { UnstyledButtonStyle } from '../ButtonElements';
 
-export const SelectPanelWrapperStyled = styled.div`
+export const SelectPanelWrapperStyle = styled.div`
   position: relative;
   width: 100%;
   border-left: 1px solid ${BorderColors.LightGrey};
@@ -23,21 +25,25 @@ export const SelectPanelWrapperStyled = styled.div`
   }
 `;
 
-export const SelectButtonStyled = styled.button`
+export const SelectButtonStyle = styled(UnstyledButtonStyle)`
+  font-size: 14px;
   background-color: ${props =>
     props.isHighlighted ? MakeThemeColors.Red : BasicColors.PureWhite};
   color: ${props =>
     props.isHighlighted ? BasicColors.PureWhite : TextColors.MediumGrey};
-  font-weight: ${props => (props.isHighlighted ? 'bold' : 'normal')};
-  border: none;
-  padding: 14px 0;
+  font-family: ${props =>
+    props.isHighlighted
+      ? MakeFonts.CircularStandardBold
+      : MakeFonts.CircularStandardBook};
+  padding: 15px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   width: 100%;
   svg {
     fill: ${props => (props.isHighlighted ? BasicColors.PureWhite : 'inherit')};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    min-width: 190px;
     padding: 7px 15px;
     border-radius: 20px;
     border: 1px solid
@@ -46,13 +52,19 @@ export const SelectButtonStyled = styled.button`
   }
 `;
 
-export const PanelStyled = styled.div`
+export const PanelStyle = styled.div`
+  display: none;
+  visibility: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: fit-content;
   z-index: 99;
+  &.open {
+    display: block;
+    visibility: visible;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     position: absolute;
     top: 53px;
@@ -68,17 +80,5 @@ export const ArrowStyle = styled.span`
   padding-top: 3px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-left: 20px;
-  }
-`;
-
-export const TextWrapperStyle = styled.span`
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  width: initial;
-  justify-content: space-between;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    min-width: 190px;
   }
 `;

@@ -59,7 +59,7 @@ export const MainResultsProposalsComponent = ({
   }
 
   return (
-    <div id="proposal_list" role="feed" aria-busy={isLoading}>
+    <div id="proposal_list" role="feed" aria-live="polite">
       <UnstyledListStyle>
         {proposalsResult.map((proposal, index) => (
           <MainResultsProposalsItemStyle key={proposal.id}>
