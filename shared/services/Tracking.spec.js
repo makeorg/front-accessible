@@ -3,6 +3,7 @@
 import { ApiService } from 'Shared/api/ApiService';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
+import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import TrackingService, {
   trackClickMakeLogo,
   trackDisplaySequence,
@@ -66,6 +67,17 @@ trackingParamsService.referrer = eventParameters.referrer;
 trackingParamsService.url = eventParameters.url;
 
 describe('Tracking Service', () => {
+  const { location } = window;
+
+  beforeAll(() => {
+    delete window.location;
+    window.location = { href: eventParameters.url, pathname: '/' };
+  });
+
+  afterAll(() => {
+    window.location = location;
+  });
+
   beforeEach(() => {
     jest.spyOn(TrackingService, 'sendAllTrackers');
     jest.spyOn(TrackingService, 'track');

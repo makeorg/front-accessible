@@ -23,10 +23,7 @@ import {
 } from 'Client/helper/cookieDetect';
 import { track } from 'Shared/services/Tracking';
 import * as customDataHelper from 'Client/helper/customData';
-import {
-  updateRequestContextQuestion,
-  updateRequestContextCustomData,
-} from 'Shared/store/middleware/requestContext';
+import { updateRequestContextCustomData } from 'Shared/store/middleware/requestContext';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 
@@ -107,20 +104,26 @@ const initApp = async state => {
   // Set date helper language
   DateHelper.language = state.appConfig.language;
 
+  // add listerner to update apiClient params
+  trackingParamsService.addListener({
+    onTrackingUpdate: params => {
+      apiClient.source = params.source;
+      apiClient.country = params.country;
+      apiClient.language = params.language;
+      apiClient.location = params.location;
+      apiClient.url = params.url;
+      apiClient.referrer = params.referrer;
+      apiClient.questionId = params.questionId;
+    },
+  });
+
   // Set tracking params
   trackingParamsService.source = state.appConfig.source;
   trackingParamsService.country = state.appConfig.country;
   trackingParamsService.language = state.appConfig.language;
 
-  // Set request context values for API calls
-  const params = trackingParamsService.all();
-  apiClient.source = params.source;
-  apiClient.country = params.country;
-  apiClient.language = params.language;
-
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
-    updateRequestContextQuestion(questions[currentQuestion].question);
     updateTrackingQuestionParam(questions[currentQuestion].question);
   }
   if (customData) {
