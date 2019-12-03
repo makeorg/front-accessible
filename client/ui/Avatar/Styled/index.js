@@ -16,6 +16,7 @@ export const AvatarStyle = styled.span`
     overflow: hidden;
     border: 1px solid ${BorderColors.MediumGrey};
     background-color: ${BasicColors.PureWhite};
+    min-width: 30px;
   }
 `;
 

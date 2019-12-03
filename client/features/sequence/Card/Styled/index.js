@@ -44,6 +44,7 @@ export const ProposalCardStyle = styled.div`
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
+    min-height: 475px;
   }
 `;
 

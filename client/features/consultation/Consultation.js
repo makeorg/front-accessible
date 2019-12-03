@@ -13,13 +13,12 @@ import {
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
-
-import { SelectPanel } from 'Client/features/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { TagService } from 'Shared/api/TagService';
 import { TagTooltip } from 'Client/ui/Elements/TagTooltip/index';
+import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import {
   TagSectionTitle,
   FiltersContainerStyle,

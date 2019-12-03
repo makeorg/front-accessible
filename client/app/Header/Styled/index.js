@@ -16,8 +16,6 @@ import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { NavButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 
 export const HeaderStyle = styled.header`
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   flex-shrink: 0;

@@ -21,6 +21,7 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
     ${props => props.gradientEnd}
   );
   padding: 30px ${intToPx(DefaultPadding.Mobile)};
+  margin-top: -5px;
   &.great-cause-banner {
     padding-bottom: ${intToPx(MobilePaddingWithOffset)};
   }

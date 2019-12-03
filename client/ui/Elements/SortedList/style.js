@@ -12,7 +12,7 @@ export const SortedListStyle = styled.div`
   padding: 14px;
   overflow: auto;
   width: 100%;
-  max-height: ${intToPx(Elements.DropdownsContainerHeight)};
+  height: ${intToPx(Elements.DropdownsContainerHeight)};
 `;
 
 export const SortedListElementStyle = styled.label`
