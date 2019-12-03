@@ -13,6 +13,7 @@ import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultati
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { PopularProposals } from 'Client/features/homepage/Proposals/Popular';
 import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
+import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 import { HomepageWrapperStyle } from './Styled';
 
 export const HomePage = () => {
@@ -25,6 +26,7 @@ export const HomePage = () => {
     currentConsultations: [],
   });
   apiClient.questionId = '';
+  trackingParamsService.questionSlug = '';
 
   useEffect(() => {
     async function fetchData() {

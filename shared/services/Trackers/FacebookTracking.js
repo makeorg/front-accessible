@@ -23,6 +23,7 @@ type FacebookEventParams = {
   sequenceId?: string,
   proposalId?: string,
   questionId?: string,
+  questionSlug?: string,
 };
 
 const isInitialized = (): boolean => {

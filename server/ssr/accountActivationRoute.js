@@ -8,6 +8,7 @@ import {
   NOTIFICATION_LEVEL_SUCCESS,
   NOTIFICATION_LEVEL_ERROR,
 } from 'Shared/constants/notification';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 import { getQuestion } from '../service/QuestionService';
@@ -36,6 +37,7 @@ export const accountActivationRoute = async (req, res) => {
       if (question) {
         routeState.currentQuestion = question.slug;
         updateRequestContextQuestion(question);
+        updateTrackingQuestionParam(question);
         routeState.questions = {
           [question.slug]: {
             question,

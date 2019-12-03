@@ -14,6 +14,7 @@ import { configureStore, authenticationState } from 'Shared/store';
 import { Logger } from 'Shared/services/Logger';
 import { ApiService } from 'Shared/api/ApiService';
 import { apiClient } from 'Shared/api/ApiService/ApiService.client';
+import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 import { DateHelper } from 'Shared/helpers/date';
 import { detected as adBlockerDetected } from 'adblockdetect';
 import {
@@ -27,6 +28,7 @@ import {
   updateRequestContextCustomData,
 } from 'Shared/store/middleware/requestContext';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
+import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -102,15 +104,24 @@ const initApp = async state => {
     customData: customDataHelper.getAll(), // custom_data already saved in session_storage
   });
 
-  // Set request context values for API calls
-  apiClient.source = state.appConfig.source;
-  apiClient.country = state.appConfig.country;
-  apiClient.language = state.appConfig.language;
+  // Set date helper language
   DateHelper.language = state.appConfig.language;
+
+  // Set tracking params
+  trackingParamsService.source = state.appConfig.source;
+  trackingParamsService.country = state.appConfig.country;
+  trackingParamsService.language = state.appConfig.language;
+
+  // Set request context values for API calls
+  const params = trackingParamsService.all();
+  apiClient.source = params.source;
+  apiClient.country = params.country;
+  apiClient.language = params.language;
 
   const { currentQuestion, questions, customData } = store.getState();
   if (currentQuestion && questions[currentQuestion]) {
     updateRequestContextQuestion(questions[currentQuestion].question);
+    updateTrackingQuestionParam(questions[currentQuestion].question);
   }
   if (customData) {
     updateRequestContextCustomData(customData);
