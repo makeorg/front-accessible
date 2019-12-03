@@ -10,8 +10,7 @@ type Props = {
 };
 
 export const IntroBanner = ({ question }: Props) => {
-  const questionIsGreatCause = isGreatCause(question.operationKind);
-  return questionIsGreatCause ? (
+  return isGreatCause(question.operationKind) ? (
     <GreatCauseBanner question={question} />
   ) : (
     <DefaultBanner question={question} />

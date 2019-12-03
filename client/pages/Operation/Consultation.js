@@ -10,9 +10,11 @@ import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { TeasingHeader } from 'Client/ui/Elements/TeasingHeader/index';
 import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
+  MUNICIPAL_TEASING_HEADER,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/consultation/FollowUs';
@@ -42,6 +44,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
   );
+  const isTeasingHeader: boolean = checkIsFeatureActivated(
+    MUNICIPAL_TEASING_HEADER,
+    question.activeFeatures
+  );
 
   if (questionIsGreatCause && question.displayResults) {
     return <Redirect to={resultsLink} />;
@@ -60,7 +66,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <NavigationBetweenQuestions question={question} />
       )}
       <IntroBanner question={question} />
-
+      {isTeasingHeader && <TeasingHeader />}
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ConsultationContent question={question} />
