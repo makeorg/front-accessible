@@ -18,6 +18,7 @@ Object {
   "notification": Object {
     "contentType": undefined,
   },
+  "partners": Object {},
   "proposal": Object {
     "data": undefined,
     "error": undefined,

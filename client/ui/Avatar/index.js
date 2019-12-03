@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { AvatarStyle } from './Styled';
 import { SvgEmptyAvatar } from '../Svg/elements';

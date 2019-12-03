@@ -52,3 +52,14 @@ export const selectCurrentQuestionResults = (state: StateRoot) => {
   const questionSlug = state.currentQuestion;
   return selectQuestionResults(state, questionSlug);
 };
+
+/**
+ *  question partners
+ *  @param {*} state
+ */
+export const selectQuestionPartners = (state: StateRoot, slug: string) => {
+  if (!slug) {
+    return null;
+  }
+  return state && state.partners[slug] && state.partners[slug].actors;
+};

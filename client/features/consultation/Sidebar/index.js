@@ -15,6 +15,7 @@ import {
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/consultation/FollowUs';
+import { LocalActors } from 'Client/ui/Elements/LocalActors/index';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
@@ -37,6 +38,7 @@ export const ConsultationSidebar = ({ question }: Props) => {
       {isGreatCause(question.operationKind) && (
         <PartnersTile question={question} />
       )}
+      <LocalActors questionId={question.questionId} slug={question.slug} />
       {question.displayResults && <MethodologyTile />}
       {/* @todo remove or refactor when CDC consultation is over */}
       {isActiveFeature(CONSULTATION_DEPARTMENT_COMPULSORY) && departmentNumber && (

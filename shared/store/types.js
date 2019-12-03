@@ -78,6 +78,30 @@ export type StateModal = $ReadOnly<{
   showExpirationSession: boolean,
 }>;
 
+export type StateActor = $ReadOnly<{
+  organisationId: string,
+  organisationName: string,
+  slug: string,
+  avatarUrl: string,
+  description: string,
+  publicProfile: boolean,
+  proposalsCount: number,
+  votesCount: number,
+  language: string,
+  country: string,
+}>;
+
+export type StateActors = $ReadOnly<{
+  total: number,
+  results: StateActor[],
+}>;
+
+export type StatePartners = $ReadOnly<{
+  [string]: {
+    actors: StateActors,
+  },
+}>;
+
 // All state
 export type StateRoot = {
   appConfig: StateConfig,
@@ -88,4 +112,5 @@ export type StateRoot = {
   user: StateUser,
   questions: StateQuestions,
   modal: StateModal,
+  partners: StatePartners,
 };

@@ -45,6 +45,7 @@ export const initialState: StateRoot = {
     contentType: null,
     showExpirationSession: false,
   },
+  partners: {},
 };
 
 export const createInitialState = (): StateRoot =>
