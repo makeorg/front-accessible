@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, pxToRem } from 'Shared/helpers/styled';
 import {
   BasicColors,
   TextColors,
@@ -51,15 +51,16 @@ export const TeasingHeaderCenterStyle = styled.div`
 `;
 
 export const TeasingHeaderTextStyle = styled.p`
-  font-weight: bold;
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
+  font-size: 18px;
   text-transform: uppercase;
   color: ${BasicColors.PureBlack};
+  line-height: ${pxToRem('21px')};
 `;
 
 export const TeasingHeaderSubTextStyle = styled.p`
-  font-size: 14px;
   color: ${TextColors.MediumGrey};
-  margin-top: 10px;
+  margin-top: 5px;
 
   a {
     font-family: ${MakeFonts.CircularStandardBold};
