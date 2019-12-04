@@ -4,7 +4,7 @@
 
 ```jsx
 import { SelectPanel } from './index';
-import { SortedList } from '../../ui/Elements/SortedList';
+import { SortedList } from '../SortedList';
 
 const availableSorts = [
   'TAGGED_FIRST',
@@ -30,7 +30,7 @@ const availableSorts = [
 
 ```jsx
 import { SelectPanel } from './index';
-import { TagList } from '../../ui/Elements/TagList';
+import { TagList } from '../TagList';
 
 const tags = [
   { tagId: 'tagId-1', label: 'Accessibilité', isSelected: true },

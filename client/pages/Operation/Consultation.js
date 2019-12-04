@@ -56,7 +56,11 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   return (
     <React.Fragment>
       {isMobile && question.descriptionImage && (
-        <img src={question.descriptionImage} alt="" />
+        <img
+          src={question.descriptionImage}
+          style={{ marginTop: '-5px' }}
+          alt=""
+        />
       )}
       <ConsultationSkipLinks
         canPropose={question.canPropose}

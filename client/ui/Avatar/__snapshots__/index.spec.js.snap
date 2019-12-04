@@ -6,7 +6,7 @@ Snapshot Diff:
 + Second value
 
   <span
-    className="sc-11otd9o-0 bMJHiz"
+    className="sc-11otd9o-0 boWcRE"
   >
     <SvgEmptyAvatar
       aria-hidden={true}
@@ -33,6 +33,7 @@ exports[`Avatar snapshot by default 1`] = `
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.5);
   background-color: rgb(255,255,255);
+  min-width: 30px;
 }
 
 <span

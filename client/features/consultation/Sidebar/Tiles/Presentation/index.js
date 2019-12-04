@@ -16,7 +16,11 @@ export const PresentationTile = ({ question }: Props) => {
   return (
     <>
       {!isMobile && question.descriptionImage && (
-        <DescriptionImageStyle src={question.descriptionImage} alt="" />
+        <DescriptionImageStyle
+          src={question.descriptionImage}
+          style={{ maxWidth: '360px' }}
+          alt=""
+        />
       )}
       <TileWithTitle
         as={

@@ -29,7 +29,8 @@ export const AppMainContentStyle = styled.main`
   display: flex;
   flex-flow: column;
   flex: 1 1 auto;
-  z-index: 0;
+  z-index: 1;
+  margin: 5px 0;
 `;
 
 export const PageWrapperStyle = styled(CenterColumnStyle)`

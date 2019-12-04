@@ -1,5 +1,4 @@
-import { matchPath } from 'react-router';
-import { generatePath } from 'react-router';
+import { matchPath, generatePath } from 'react-router';
 
 export const ROUTE_COUNTRY_LANG = '/:country(\\w{2})-:language(\\w{2})';
 

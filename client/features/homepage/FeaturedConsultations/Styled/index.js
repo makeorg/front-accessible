@@ -36,6 +36,7 @@ export const FeaturedArticleColumnStyle = styled.div`
 
 export const FeaturedArticleStyle = styled.article`
   display: flex;
+  width: 100%;
   height: 100%;
   justify-content: space-between;
   background-color: ${BackgroundColors.LightGrey};
