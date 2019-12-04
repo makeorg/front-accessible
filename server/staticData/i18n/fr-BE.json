@@ -122,7 +122,9 @@
         "success": "Message de succès : ",
         "error": "Message d'erreur : ",
         "alert": "Message d'alerte : "
-      }
+      },
+      "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
+      "thank_you": "C'est noté, merci !"
     },
     "from": "sur",
     "email": "Email",
@@ -501,13 +503,17 @@
       "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
     },
     "tags": {
-      "intro": "Filtrer par <span lang=\"en\">tags<span> : ",
-      "show_all": "voir tous les <span lang=\"en\">tags<span>",
-      "show_less": "masquer",
+      "description": "Les filtres disponibles peuvent être cumulés. Vous pouvez également trier la liste de propositions en utilisant la fonction \"Trier par :\".",
       "proposal_list": "<span lang=\"en\">Tags<span> sélectionnés pour cette proposition : ",
       "count": "{{count}} sélectionné",
       "count_plural": "{{count}} sélectionnés",
-      "select": "Sélectionnez un ou plusieurs sujets"
+      "select": "Sélectionnez un ou plusieurs sujets",
+      "select_mobile": "Les sujets",
+      "expand": " - Cliquez pour afficher la liste d'options disponibles",
+      "collapse": " - Cliquez pour masquer la liste d'options disponibles",
+      "selected_state": "Actuellement sélectionné : ",
+      "add_filter": "Ajouter le filtre : ",
+      "remove_filter": "Retirer le filtre : "
     },
     "banner": {
       "title": "Donnez votre avis en 3 minutes",
@@ -559,7 +565,7 @@
     },
     "close": "Fermer",
     "reset": "Réinitialiser",
-    "sortby": "Trier par:",
+    "sortby": "Trier par : ",
     "municipal": {
       "header": {
         "candidates_answers": "Les candidats à l'élection répondront aux priorités définies par les citoyens et associations.",

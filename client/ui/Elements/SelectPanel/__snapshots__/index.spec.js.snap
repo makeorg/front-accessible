@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectPanel must match the diff snapshot between selectedElements vs Default Props 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,14 +2,11 @@
+    <SelectButtonStyle
+      aria-expanded={false}
+      aria-live="polite"
+      onClick={[Function togglePanel]}
+    >
+-     <ScreenReaderItemStyle>
+-       consultation.tags.selected_state
+-     </ScreenReaderItemStyle>
+-     consultation.tags.count
++     foo
+      <ScreenReaderItemStyle>
+        consultation.tags.expand
+      </ScreenReaderItemStyle>
+      <ArrowStyle>
+        <SvgAngleArrowBottom
+`;
+
+exports[`SelectPanel must match the diff snapshot between shouldHighlight vs Default Props 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,9 @@
+  <SelectPanelWrapperStyle>
+    <SelectButtonStyle
+      aria-expanded={false}
+      aria-live="polite"
+-     isHighlighted={true}
+      onClick={[Function togglePanel]}
+    >
+      foo
+      <ScreenReaderItemStyle>
+        consultation.tags.expand
+`;
+
+exports[`SelectPanel must match the snapshot with default Props 1`] = `
+<SelectPanelWrapperStyle>
+  <SelectButtonStyle
+    aria-expanded={false}
+    aria-live="polite"
+    onClick={[Function]}
+  >
+    foo
+    <ScreenReaderItemStyle>
+      consultation.tags.expand
+    </ScreenReaderItemStyle>
+    <ArrowStyle>
+      <SvgAngleArrowBottom
+        aria-hidden={true}
+      />
+    </ArrowStyle>
+  </SelectButtonStyle>
+  <PanelStyle
+    aria-hidden={true}
+    className={false}
+    onClick={[Function]}
+  >
+    Bar
+  </PanelStyle>
+</SelectPanelWrapperStyle>
+`;

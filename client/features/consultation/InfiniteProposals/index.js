@@ -82,7 +82,7 @@ const InfiniteProposalsComponent = ({
   const displayLoadMoreButton = hasMore && !isLoading;
 
   return (
-    <section id="proposal_list" role="feed" aria-busy={isLoading}>
+    <section id="proposal_list" role="feed" aria-live="polite">
       {proposals &&
         proposals.map((proposal, index) => (
           <ProposalCardTagged

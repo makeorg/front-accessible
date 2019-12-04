@@ -1,10 +1,14 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { UnstyledButtonStyle } from '../ButtonElements';
+
+export const TagsTooltipContainerStyle = styled.div`
+  order: 1;
+`;
 
 export const TagsTooltipWrapperStyle = styled.div`
   position: relative;
@@ -16,12 +20,10 @@ export const TagsTooltipWrapperStyle = styled.div`
   margin: 0 0 20px 0;
 `;
 
-export const TagsTooltipCrossStyle = styled.div`
+export const TagsTooltipCrossStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: 5px;
   right: 10px;
-  cursor: pointer;
-
   svg {
     fill: ${BasicColors.PureWhite};
     width: 10px;
@@ -36,18 +38,16 @@ export const TriangleStyle = styled.div`
   border-color: transparent transparent ${BackgroundColors.Notifications}
     transparent;
   margin-left: 73%;
-
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-left: 440px;
   }
 `;
 
-export const LinkStyle = styled(Link)`
+export const LinkStyle = styled(UnstyledButtonStyle)`
+  display: inline;
   color: ${BasicColors.PureWhite};
   text-decoration: underline;
   margin-left: 5px;
-  cursor: pointer;
-
   &:hover,
   &:focus {
     color: ${BasicColors.PureWhite};

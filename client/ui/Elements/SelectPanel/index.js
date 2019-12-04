@@ -9,12 +9,12 @@ import React, {
 import { i18n } from 'Shared/i18n';
 import { SvgAngleArrowBottom, SvgAngleArrowTop } from 'Client/ui/Svg/elements';
 import {
-  SelectPanelWrapperStyled,
-  SelectButtonStyled,
-  PanelStyled,
+  SelectPanelWrapperStyle,
+  SelectButtonStyle,
+  PanelStyle,
   ArrowStyle,
-  TextWrapperStyle,
 } from './style';
+import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
 type Props = {
   /** text displayed in the select */
@@ -63,34 +63,54 @@ export const SelectPanel = ({
   };
 
   return (
-    <SelectPanelWrapperStyled ref={rootRef}>
-      <SelectButtonStyled onClick={togglePanel} isHighlighted={shouldHighlight}>
-        <TextWrapperStyle>
-          <span>
-            {selectedElements && selectedElements > 0
-              ? i18n.t('consultation.tags.count', { count: selectedElements })
-              : text}
-          </span>
-          {isOpened ? (
+    <SelectPanelWrapperStyle ref={rootRef}>
+      <SelectButtonStyle
+        onClick={togglePanel}
+        isHighlighted={shouldHighlight}
+        aria-expanded={isOpened}
+        aria-live="polite"
+      >
+        {selectedElements && selectedElements > 0 ? (
+          <>
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.tags.selected_state')}
+            </ScreenReaderItemStyle>
+            {i18n.t('consultation.tags.count', { count: selectedElements })}
+          </>
+        ) : (
+          text
+        )}
+        {isOpened ? (
+          <>
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.tags.collapse')}
+            </ScreenReaderItemStyle>
             <ArrowStyle>
-              <SvgAngleArrowTop />
+              <SvgAngleArrowTop aria-hidden />
             </ArrowStyle>
-          ) : (
+          </>
+        ) : (
+          <>
+            <ScreenReaderItemStyle>
+              {i18n.t('consultation.tags.expand')}
+            </ScreenReaderItemStyle>
             <ArrowStyle>
-              <SvgAngleArrowBottom />
+              <SvgAngleArrowBottom aria-hidden />
             </ArrowStyle>
-          )}
-        </TextWrapperStyle>
-      </SelectButtonStyled>
-      {isOpened && (
-        <PanelStyled onClick={e => e.nativeEvent.stopPropagation()}>
-          {exposeClose
-            ? cloneElement(children, {
-                closePanel: () => setIsOpened(false),
-              })
-            : children}
-        </PanelStyled>
-      )}
-    </SelectPanelWrapperStyled>
+          </>
+        )}
+      </SelectButtonStyle>
+      <PanelStyle
+        className={isOpened && 'open'}
+        aria-hidden={!isOpened}
+        onClick={e => e.nativeEvent.stopPropagation()}
+      >
+        {exposeClose
+          ? cloneElement(children, {
+              closePanel: () => setIsOpened(false),
+            })
+          : children}
+      </PanelStyle>
+    </SelectPanelWrapperStyle>
   );
 };
