@@ -20,6 +20,7 @@ export function partners(
         ...state,
         isLoading: false,
         [action.payload.slug]: {
+          ...state[action.payload.slug],
           actors: {
             ...action.payload.actors,
           },

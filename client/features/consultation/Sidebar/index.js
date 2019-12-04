@@ -6,7 +6,10 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { ConsultationPageSidebarStyle } from 'Client/pages/Operation/Styled';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { useMobile } from 'Client/hooks/useMedia';
-import { getIsActiveFeature } from 'Client/helper/featureFlipping';
+import {
+  getIsActiveFeature,
+  checkIsFeatureActivated,
+} from 'Client/helper/featureFlipping';
 import { DepartmentModification } from 'Client/custom/cdc/departmentModification';
 import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
 import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
@@ -14,10 +17,11 @@ import {
   CONSULTATION_DEPARTMENT_COMPULSORY,
   CONSULTATION_FOLLOW_US_ACTIVE,
   CONSULTATION_POPULAR_TAGS,
+  CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
 } from 'Shared/constants/featureFlipping';
-import { LocalActors } from 'Client/ui/Elements/LocalActors/index';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { PopularTags } from 'Client/features/flipping/PopularTags';
+import { LocalActorsTile } from 'Client/features/consultation/Sidebar/Tiles/LocalActors';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
@@ -29,6 +33,10 @@ export const ConsultationSidebar = ({ question }: Props) => {
   const isMobile = useMobile();
   const isActiveFeature = getIsActiveFeature(question.activeFeatures);
   const departmentNumber = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
+  const isSidebarActiveActors = checkIsFeatureActivated(
+    CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
+    question.activeFeatures
+  );
 
   return (
     <ConsultationPageSidebarStyle
@@ -40,7 +48,7 @@ export const ConsultationSidebar = ({ question }: Props) => {
       {isGreatCause(question.operationKind) && (
         <PartnersTile question={question} />
       )}
-      <LocalActors questionId={question.questionId} slug={question.slug} />
+      {isSidebarActiveActors && <LocalActorsTile question={question} />}
       {question.displayResults && <MethodologyTile />}
       {/* @todo remove or refactor when CDC consultation is over */}
       {isActiveFeature(CONSULTATION_DEPARTMENT_COMPULSORY) && departmentNumber && (
