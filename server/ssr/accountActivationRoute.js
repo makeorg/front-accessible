@@ -56,7 +56,7 @@ export const accountActivationRoute = async (req, res) => {
     }
 
     const status = await postAccountActivation(userId, verificationToken, {
-      'x-make-question-id': questionId,
+      'x-make-question-id': questionId || '',
       'x-make-country': country,
       'x-make-language': language,
     });
