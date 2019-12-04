@@ -1,7 +1,6 @@
 import { createInitialState } from 'Shared/store/initialState';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
-import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { logError } from './helpers/ssr.helper';
@@ -36,7 +35,6 @@ export const sequenceRoute = async (req, res) => {
         question,
       },
     };
-    updateRequestContextQuestion(question);
     updateTrackingQuestionParam(question);
 
     if (firstProposal) {

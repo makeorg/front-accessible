@@ -5,7 +5,6 @@ import {
 } from 'Shared/constants/notification';
 import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
-import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -51,7 +50,6 @@ export const passwordRecoveryRoute = async (req, res) => {
             question,
           },
         };
-        updateRequestContextQuestion(question);
         updateTrackingQuestionParam(question);
       }
     }

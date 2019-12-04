@@ -7,7 +7,6 @@ import {
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
 import { isInProgress } from 'Shared/helpers/date';
 import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
-import { updateRequestContextQuestion } from 'Shared/store/middleware/requestContext';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
@@ -39,7 +38,6 @@ export const consultationRoute = async (req: any, res: any) => {
         questionResults,
       },
     };
-    updateRequestContextQuestion(question);
     updateTrackingQuestionParam(question);
   } catch (error) {
     logError(error);
