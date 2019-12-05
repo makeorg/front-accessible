@@ -17,6 +17,79 @@ serverInitI18n();
 const apiClient = new ApiServiceClient();
 ApiService.strategy = apiClient;
 
+const initialState = {
+  appConfig: { country: 'FR', language: 'fr' },
+  partners: {
+    environnement: {
+      actors: {
+        total: 2,
+        results: [
+          {
+            organisationId: '2b522207-ffa5-471b-a13d-d836793694ac',
+            organisationName: 'toto orga',
+            slug: 'toto-orga',
+            avatarUrl: 'string',
+            description: 'string',
+            publicProfile: true,
+            proposalsCount: 0,
+            votesCount: 1,
+            language: 'fr',
+            country: 'FR',
+          },
+          {
+            organisationId: '6eaf9e87-8d45-4c9d-8dde-29671ce607ff',
+            organisationName: 'CCAH',
+            slug: 'ccah',
+            avatarUrl: null,
+            description: null,
+            publicProfile: true,
+            proposalsCount: null,
+            votesCount: null,
+            language: 'fr',
+            country: 'FR',
+          },
+          {
+            organisationId: '2b522207-ffa5-471b-a13d-d836793694ac',
+            organisationName: 'toto orga',
+            slug: 'toto-orga',
+            avatarUrl: 'string',
+            description: 'string',
+            publicProfile: true,
+            proposalsCount: 0,
+            votesCount: 1,
+            language: 'fr',
+            country: 'FR',
+          },
+          {
+            organisationId: '6eaf9e87-8d45-4c9d-8dde-29671ce607ff',
+            organisationName: 'CCAH',
+            slug: 'ccah',
+            avatarUrl: null,
+            description: null,
+            publicProfile: true,
+            proposalsCount: null,
+            votesCount: null,
+            language: 'fr',
+            country: 'FR',
+          },
+          {
+            organisationId: '2b522207-ffa5-471b-a13d-d836793694ac',
+            organisationName: 'toto orga',
+            slug: 'toto-orga',
+            avatarUrl: 'string',
+            description: 'string',
+            publicProfile: true,
+            proposalsCount: 0,
+            votesCount: 1,
+            language: 'fr',
+            country: 'FR',
+          },
+        ],
+      },
+    },
+  },
+};
+
 /* eslint-disable import/no-default-export */
 export default ({ children }) => (
   <div>
@@ -25,7 +98,7 @@ export default ({ children }) => (
     <DefaultStylesheet />
     <UIThemeStylesheet />
     <BrowserRouter>
-      <Provider store={configureStore()}>
+      <Provider store={configureStore(initialState)}>
         <ThemeProvider theme={questionConfigurationFixture.theme}>
           {children}
         </ThemeProvider>

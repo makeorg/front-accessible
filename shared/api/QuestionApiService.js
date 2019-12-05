@@ -1,4 +1,5 @@
 // @flow
+import { generatePath } from 'react-router';
 import {
   type ApiServiceHeaders,
   type ApiSearchQuestionsResponseType,
@@ -8,8 +9,16 @@ import { ApiService } from './ApiService';
 const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
+const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
 
 export class QuestionApiService {
+  static getQuestionPartners(questionId: string): Promise<Object> {
+    return ApiService.callApi(
+      generatePath(PATH_QUESTION_PARTNERS, { questionId }),
+      { method: 'GET' }
+    );
+  }
+
   static getDetail(
     questionSlugOrId: string,
     headers: ApiServiceHeaders = {}
@@ -38,7 +47,9 @@ export class QuestionApiService {
 
     startSequenceUrl += includeParams ? `?${includeParams}` : '';
 
-    return ApiService.callApi(startSequenceUrl, { method: 'GET' });
+    return ApiService.callApi(startSequenceUrl, {
+      method: 'GET',
+    });
   }
 
   static searchQuestions(

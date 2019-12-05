@@ -41,14 +41,14 @@
       "title": "Participez à la consultation '{{question}}'"
     },
     "search": {
-      "main_results": "Recherche - {{count}} résultat pour « {{term}} »",
-      "main_results_plural": "Recherche - {{count}} résultats pour « {{term}} »",
-      "proposals": "Recherche - {{count}} proposition pour « {{term}} »",
-      "proposals_plural": "Recherche - {{count}} propositions pour « {{term}} »",
-      "consultations": "Recherche - {{count}} consultation pour « {{term}} »",
-      "consultations_plural": "Recherche - {{count}} consultations pour « {{term}} »",
-      "organisations": "Recherche - {{count}} organisations pour « {{term}} »",
-      "organisations_plural": "Recherche - {{count}} organisations pour « {{term}} »"
+      "main_results": "Recherche - {{count}} résultat pour « {{term}} »",
+      "main_results_plural": "Recherche - {{count}} résultats pour « {{term}} »",
+      "proposals": "Recherche - {{count}} proposition pour « {{term}} »",
+      "proposals_plural": "Recherche - {{count}} propositions pour « {{term}} »",
+      "consultations": "Recherche - {{count}} consultation pour « {{term}} »",
+      "consultations_plural": "Recherche - {{count}} consultations pour « {{term}} »",
+      "organisations": "Recherche - {{count}} organisations pour « {{term}} »",
+      "organisations_plural": "Recherche - {{count}} organisations pour « {{term}} »"
     }
   },
   "common": {
@@ -565,7 +565,15 @@
     },
     "close": "Fermer",
     "reset": "Réinitialiser",
-    "sortby": "Trier par : ",
+    "sortby": "Trier par: ",
+    "local_actors": {
+      "title": "Les associations les plus actives",
+      "proposals": "{{ count }} propositions",
+      "votes": "{{ count }} votes",
+      "participate": "Vous êtes une association et souhaitez participer à notre consultation ? {{ contact_us }}",
+      "contact_us": "Contactez-nous !",
+      "more": "Voir plus"
+    },
     "municipal": {
       "header": {
         "candidates_answers": "Les candidats à l'élection répondront aux priorités définies par les citoyens et associations.",
@@ -702,14 +710,14 @@
     "titles": {
       "loading": "Recherche en cours...",
       "no_results": "Aucun résultat",
-      "main_results": "{{count}} résultat pour « {{term}} »",
-      "main_results_plural": "{{count}} résultats pour « {{term}} »",
-      "proposals": "{{count}} proposition pour « {{term}} »",
-      "proposals_plural": "{{count}} propositions pour « {{term}} »",
-      "operations": "{{count}} operation pour « {{term}} »",
-      "operations_plural": "{{count}} operations pour « {{term}} »",
-      "organisations": "{{count}} organisations pour « {{term}} »",
-      "organisations_plural": "{{count}} organisations pour « {{term}} »",
+      "main_results": "{{count}} résultat pour « {{term}} »",
+      "main_results_plural": "{{count}} résultats pour « {{term}} »",
+      "proposals": "{{count}} proposition pour « {{term}} »",
+      "proposals_plural": "{{count}} propositions pour « {{term}} »",
+      "operations": "{{count}} operation pour « {{term}} »",
+      "operations_plural": "{{count}} operations pour « {{term}} »",
+      "organisations": "{{count}} organisations pour « {{term}} »",
+      "organisations_plural": "{{count}} organisations pour « {{term}} »",
       "main_results_empty_term": "0 résultat"
     },
     "main_results": {
@@ -719,7 +727,7 @@
       "results": "{{count}} résultat",
       "results_plural": "{{count}} résultats",
       "view_all": "Voir tout",
-      "no_results": "Nous n'avons trouvé aucun résultat pour votre recherche « {{term}} »",
+      "no_results": "Nous n'avons trouvé aucun résultat pour votre recherche « {{term}} »",
       "no_query": "Vous cherchez une proposition, une idée, une consultation ? Tapez votre recherche !"
     },
     "sidebar": {
