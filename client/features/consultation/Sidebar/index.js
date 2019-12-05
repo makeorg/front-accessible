@@ -14,8 +14,8 @@ import {
   CONSULTATION_DEPARTMENT_COMPULSORY,
   CONSULTATION_FOLLOW_US_ACTIVE,
 } from 'Shared/constants/featureFlipping';
-import { FollowUs } from 'Client/features/consultation/FollowUs';
 import { LocalActors } from 'Client/ui/Elements/LocalActors/index';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';

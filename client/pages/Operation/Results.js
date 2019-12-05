@@ -15,7 +15,7 @@ import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
-import { FollowUs } from 'Client/features/consultation/FollowUs';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';
 
