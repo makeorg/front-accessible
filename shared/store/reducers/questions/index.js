@@ -30,6 +30,14 @@ export function questions(
         ...state,
         [action.payload.question.slug]: action.payload,
       };
+    case actionTypes.QUESTION_POPULAR_TAGS_LOAD:
+      return {
+        ...state,
+        [action.payload.questionSlug]: {
+          ...state[action.payload.questionSlug],
+          popularTags: action.payload.popularTags,
+        },
+      };
     default:
       return state;
   }

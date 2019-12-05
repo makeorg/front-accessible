@@ -17,6 +17,8 @@ import {
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
 type Props = {
+  /** id of the panel */
+  id: string,
   /** text displayed in the select */
   text: string,
   /** children that is wrapped by the SelectPanel */
@@ -30,6 +32,7 @@ type Props = {
 };
 
 export const SelectPanel = ({
+  id,
   text,
   children,
   exposeClose,
@@ -63,12 +66,13 @@ export const SelectPanel = ({
   };
 
   return (
-    <SelectPanelWrapperStyle ref={rootRef}>
+    <SelectPanelWrapperStyle id={id} ref={rootRef}>
       <SelectButtonStyle
         onClick={togglePanel}
         isHighlighted={shouldHighlight}
         aria-expanded={isOpened}
         aria-live="polite"
+        id={`panel_trigger_${id}`}
       >
         {selectedElements && selectedElements > 0 ? (
           <>

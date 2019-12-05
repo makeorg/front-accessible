@@ -7,6 +7,7 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton/index';
 import { SvgClose } from 'Client/ui/Svg/elements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { FLUSH_TAGS_TRIGGER } from 'Shared/constants/ids';
 import {
   TagListStyle,
   TagButtonElementStyle,
@@ -35,7 +36,7 @@ const TagListHeader = ({ setReset, tagsSelected }) => (
   <TagListHeaderStyle>
     <span>{i18n.t('consultation.tags.count', { count: tagsSelected })}</span>
     {tagsSelected > 0 && (
-      <TagElementUnderlinedStyle onClick={setReset}>
+      <TagElementUnderlinedStyle id={FLUSH_TAGS_TRIGGER} onClick={setReset}>
         {i18n.t('consultation.reset')}
       </TagElementUnderlinedStyle>
     )}
@@ -76,6 +77,7 @@ export const TagList = ({
               isSelected={tag.isSelected}
               onClick={() => updateSelectedTags(tag)}
               aria-live="polite"
+              id={`stake_trigger_${tag.tagId}`}
             >
               <ScreenReaderItemStyle>
                 {tag.isSelected

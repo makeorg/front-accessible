@@ -2,6 +2,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { TAGS_SECTION } from 'Shared/constants/ids';
 
 type Props = {
   canPropose: boolean,
@@ -40,7 +41,7 @@ export const ConsultationSkipLinks = ({ canPropose, isGreatCause }: Props) => (
       </li>
     )}
     <li>
-      <SkipLink as="a" href="#tag_list">
+      <SkipLink as="a" href={`#${TAGS_SECTION}`}>
         {i18n.t('skip_links.tag_list')}
       </SkipLink>
     </li>

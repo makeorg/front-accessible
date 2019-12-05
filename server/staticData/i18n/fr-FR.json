@@ -160,7 +160,11 @@
       "index_count": "Élément {{index}} sur {{total}}"
     },
     "max_characters": "caractères maximum",
-    "back": "Retour"
+    "back": "Retour",
+    "proposal_count": "{{count}} proposition",
+    "proposal_count_plural": "{{count}} propositions", 
+    "vote_count": "{{count}} vote",
+    "vote_count_plural": "{{count}} votes"
   },
   "header": {
     "logo_alt": "Aller à l'acceuil du site Make.org",
@@ -513,7 +517,8 @@
       "collapse": " - Cliquez pour masquer la liste d'options disponibles",
       "selected_state": "Actuellement sélectionné : ",
       "add_filter": "Ajouter le filtre : ",
-      "remove_filter": "Retirer le filtre : "
+      "remove_filter": "Retirer le filtre : ",
+      "popular_title": "Les sujets les plus discutés"
     },
     "banner": {
       "title": "Donnez votre avis en 3 minutes",

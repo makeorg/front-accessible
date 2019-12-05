@@ -52,6 +52,7 @@ import {
   SvgLightning,
   SvgMap,
   SvgInstagramLogo,
+  SvgTrending
 } from './index.js';
 
 class SvgElementsExample extends React.Component {
@@ -109,6 +110,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLightning /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgMap /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInstagramLogo /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgTrending /></span>
       </React.Fragment>
     );
   }
