@@ -47,7 +47,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
   }, [dispatch, questionId, slug]);
 
   useEffect(() => {
-    if (actors) {
+    if (actors && actors.results && actors.results.length) {
       const { results, total } = actors;
       setHasMore(results.length < total);
     }
