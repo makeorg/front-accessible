@@ -73,11 +73,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
             <div>
               <div>
                 <RedLinkStyle
-                  to={getOrganisationProfileLink(
-                    country,
-                    language,
-                    actor.organisationName
-                  )}
+                  to={getOrganisationProfileLink(country, language, actor.slug)}
                   href={getOrganisationProfileLink(
                     country,
                     language,

@@ -363,7 +363,7 @@ exports[`LocalActors snapshot with data 1`] = `
         <div>
           <a
             class="c4"
-            href="/FR-fr/profile/toto orga"
+            href="/FR-fr/profile/toto-orga"
           >
             toto orga
           </a>
@@ -474,7 +474,7 @@ exports[`LocalActors snapshot with data 1`] = `
         <div>
           <a
             class="c4"
-            href="/FR-fr/profile/CCAH"
+            href="/FR-fr/profile/ccah"
           >
             CCAH
           </a>
@@ -517,7 +517,7 @@ exports[`LocalActors snapshot with data 1`] = `
         <div>
           <a
             class="c4"
-            href="/FR-fr/profile/toto orga"
+            href="/FR-fr/profile/toto-orga"
           >
             toto orga
           </a>
@@ -628,7 +628,7 @@ exports[`LocalActors snapshot with data 1`] = `
         <div>
           <a
             class="c4"
-            href="/FR-fr/profile/CCAH"
+            href="/FR-fr/profile/ccah"
           >
             CCAH
           </a>
