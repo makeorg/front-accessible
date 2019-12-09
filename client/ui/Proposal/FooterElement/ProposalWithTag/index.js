@@ -2,10 +2,11 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Tag as TypeTag } from 'Shared/types/proposal';
-import { Tag } from 'Client/ui/Elements/Tag';
-import { TagListItemStyle } from 'Client/features/consultation/Styled/TagFilter';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { ProposalTagListStyle } from '../Styled';
+import {
+  ProposalFooterTagListStyle,
+  ProposalFooterTagListItemStyle,
+} from '../Styled';
 
 const NUMBER_OF_TAGS_TO_DISPLAY = 4;
 
@@ -28,13 +29,13 @@ export const ProposalFooterWithTagElement = ({
           __html: i18n.t('consultation.tags.proposal_list'),
         }}
       />
-      <ProposalTagListStyle>
+      <ProposalFooterTagListStyle>
         {tags.slice(0, NUMBER_OF_TAGS_TO_DISPLAY).map(tag => (
-          <TagListItemStyle key={tag.tagId}>
-            <Tag name={tag.label} key={tag.tagId} />
-          </TagListItemStyle>
+          <ProposalFooterTagListItemStyle as="li" key={tag.tagId}>
+            {tag.label}
+          </ProposalFooterTagListItemStyle>
         ))}
-      </ProposalTagListStyle>
+      </ProposalFooterTagListStyle>
     </React.Fragment>
   );
 };

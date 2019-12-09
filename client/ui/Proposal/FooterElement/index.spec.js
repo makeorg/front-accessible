@@ -10,19 +10,11 @@ jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
 }));
 
-jest.mock('Client/features/consultation/Styled/TagFilter', () => ({
-  TagListItemStyle: 'TagListItemStyle',
-}));
-
-jest.mock('Client/ui/Elements/Tag', () => ({
-  Tag: 'Tag',
-}));
-
 jest.mock('./Styled', () => ({
-  ProposalTagListStyle: 'ProposalTagListStyle',
   ProposalFooterStyle: 'ProposalFooterStyle',
   PostedInLabelStyle: 'PostedInLabelStyle',
-  RedLinkStyle: 'RedLinkStyle',
+  ProposalFooterTagListStyle: 'ProposalFooterTagListStyle',
+  ProposalFooterTagListItemStyle: 'ProposalFooterTagListItemStyle',
 }));
 
 describe('ProposalFooterWithTagElement', () => {
