@@ -13,10 +13,20 @@ const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
 const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
 
 export class QuestionApiService {
-  static getQuestionPartners(questionId: string): Promise<Object> {
+  static getQuestionPartners(
+    questionId: string,
+    limit: ?number = undefined,
+    skip: ?number = undefined,
+    sortAlgorithm: string
+  ): Promise<Object> {
+    const headers = {};
     return ApiService.callApi(
       generatePath(PATH_QUESTION_PARTNERS, { questionId }),
-      { method: 'GET' }
+      {
+        method: 'GET',
+        headers,
+        params: { limit, skip, sortAlgorithm },
+      }
     );
   }
 

@@ -20,6 +20,7 @@ ApiService.strategy = apiClient;
 const initialState = {
   appConfig: { country: 'FR', language: 'fr' },
   partners: {
+    isLoading: false,
     environnement: {
       actors: {
         total: 2,
