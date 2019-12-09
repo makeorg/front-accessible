@@ -20,7 +20,6 @@ export const ProposalFooterTagListStyle = styled(UnstyledListStyle)`
 export const ProposalFooterTagListItemStyle = styled(ParagraphStyle)`
   display: inline-flex;
   margin-right: 10px;
-  text-decoration: underline;
 `;
 
 export const PostedInLabelStyle = styled(ParagraphStyle)`
