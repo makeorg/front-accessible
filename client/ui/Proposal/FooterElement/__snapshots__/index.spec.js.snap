@@ -33,27 +33,27 @@ Array [
       }
     }
   />,
-  <ProposalTagListStyle>
-    <TagListItemStyle>
-      <Tag
-        name="atom"
-      />
-    </TagListItemStyle>
-    <TagListItemStyle>
-      <Tag
-        name="molecules"
-      />
-    </TagListItemStyle>
-    <TagListItemStyle>
-      <Tag
-        name="templates"
-      />
-    </TagListItemStyle>
-    <TagListItemStyle>
-      <Tag
-        name="pages"
-      />
-    </TagListItemStyle>
-  </ProposalTagListStyle>,
+  <ProposalFooterTagListStyle>
+    <ProposalFooterTagListItemStyle
+      as="li"
+    >
+      atom
+    </ProposalFooterTagListItemStyle>
+    <ProposalFooterTagListItemStyle
+      as="li"
+    >
+      molecules
+    </ProposalFooterTagListItemStyle>
+    <ProposalFooterTagListItemStyle
+      as="li"
+    >
+      templates
+    </ProposalFooterTagListItemStyle>
+    <ProposalFooterTagListItemStyle
+      as="li"
+    >
+      pages
+    </ProposalFooterTagListItemStyle>
+  </ProposalFooterTagListStyle>,
 ]
 `;

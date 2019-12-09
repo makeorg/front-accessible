@@ -5,11 +5,14 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 
 export const PopularTagsListStyle = styled.ol`
-  padding: 0 0 0 15px;
+  padding: 0;
   margin: 0;
+  list-style: none;
 `;
 
 export const PopularTagsListItemStyle = styled.li`
+  display: flex;
+  flex-flow: column;
   font-size: 12px;
   line-height: 18px;
   margin-bottom: 5px;
@@ -27,6 +30,7 @@ export const PopularTagsListItemStyle = styled.li`
 `;
 
 export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
+  display: inline-flex;
   font-size: 12px;
   line-height: 18px;
   color: ${MakeThemeColors.Red};
@@ -42,7 +46,6 @@ export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const ProposalCountStyle = styled.span`
-  margin-left: -15px;
   font-size: 10px;
   color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

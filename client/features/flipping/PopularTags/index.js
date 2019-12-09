@@ -14,6 +14,7 @@ import {
   FLUSH_TAGS_TRIGGER,
 } from 'Shared/constants/ids';
 import { SvgTrending } from 'Client/ui/Svg/elements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import {
   PopularTagsListStyle,
   PopularTagsListItemStyle,
@@ -83,14 +84,19 @@ export const PopularTags = ({ question }: Props) => {
       icon={<SvgTrending aria-hidden style={{ marginRight: '10px' }} />}
     >
       <PopularTagsListStyle>
-        {tags.map(tag => (
+        {tags.map((tag, index) => (
           <PopularTagsListItemStyle key={tag.tagId}>
-            <FilterTriggerStyle
-              as={UnstyledButtonStyle}
-              onClick={() => scrollAndTrigger(TAGS_LIST, tag.tagId)}
-            >
-              {tag.label}
-            </FilterTriggerStyle>
+            <span>
+              <ParagraphStyle as="span" aria-hidden>
+                {`${index + 1}. `}
+              </ParagraphStyle>
+              <FilterTriggerStyle
+                as={UnstyledButtonStyle}
+                onClick={() => scrollAndTrigger(TAGS_LIST, tag.tagId)}
+              >
+                {tag.label}
+              </FilterTriggerStyle>
+            </span>
             <ProposalCountStyle>
               {i18n.t('common.proposal_count', { count: tag.proposalCount })}
             </ProposalCountStyle>
