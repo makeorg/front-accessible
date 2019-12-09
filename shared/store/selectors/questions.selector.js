@@ -63,3 +63,21 @@ export const selectQuestionPartners = (state: StateRoot, slug: string) => {
   }
   return state && state.partners[slug] && state.partners[slug].actors;
 };
+
+/**
+ *  question partners
+ *  @param {*} state
+ */
+export const selectQuestionPopularTags = (
+  state: StateRoot,
+  questionSlug: string
+) => {
+  if (!questionSlug) {
+    return null;
+  }
+  return (
+    state &&
+    state.questions[questionSlug] &&
+    state.questions[questionSlug].popularTags
+  );
+};

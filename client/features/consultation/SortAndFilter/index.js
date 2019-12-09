@@ -11,6 +11,7 @@ import { SortedList } from 'Client/ui/Elements/SortedList';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
 import {
   TagSectionTitle,
   FiltersContainerStyle,
@@ -45,7 +46,7 @@ export const SortAndFilter = ({
 
   return (
     <>
-      <TagSectionTitle as="h3" id="tag_list">
+      <TagSectionTitle as="h3" id={TAGS_SECTION}>
         <ConsultationIconStyle aria-hidden>
           <SvgThumbsUp style={{ width: '18px', height: '18px' }} />
         </ConsultationIconStyle>
@@ -56,7 +57,11 @@ export const SortAndFilter = ({
         <FiltersContainerStyle>
           {!isMobile && <TextStyle>{i18n.t('consultation.sortby')}</TextStyle>}
           <SelectContainerStyle>
-            <SelectPanel text={i18n.t(`consultation.sort.${sort}`)} exposeClose>
+            <SelectPanel
+              id={SORT_LIST}
+              text={i18n.t(`consultation.sort.${sort}`)}
+              exposeClose
+            >
               <SortedList
                 currentSort={sort}
                 availableSorts={AVAILABLE_SORTS_KEYS}
@@ -66,6 +71,7 @@ export const SortAndFilter = ({
             {!isMobile && hasTags && <SeparatorStyle>|</SeparatorStyle>}
             {hasTags && (
               <SelectPanel
+                id={TAGS_LIST}
                 text={
                   isMobile
                     ? i18n.t(`consultation.tags.select_mobile`)

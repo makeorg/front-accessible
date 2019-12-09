@@ -26,7 +26,7 @@ import {
   TwitterButtonStyle,
   InstagramButtonStyle,
   LinkedInButtonStyle,
-} from './Styled';
+} from './style';
 
 const trackClickFollowUs = event => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_FOLLOWUS, {

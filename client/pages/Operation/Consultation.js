@@ -8,16 +8,16 @@ import { ConsultationContent } from 'Client/features/consultation/Consultation';
 import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
-import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
+import { NavigationBetweenQuestions } from 'Client/features/flipping/NavigationBetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { TeasingHeader } from 'Client/ui/Elements/TeasingHeader/index';
+import { TeasingHeader } from 'Client/features/flipping/TeasingHeader';
 import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
   MUNICIPAL_TEASING_HEADER,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
-import { FollowUs } from 'Client/features/consultation/FollowUs';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './Styled';

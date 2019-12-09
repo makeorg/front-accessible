@@ -12,3 +12,9 @@ export type TypeTag = {
   language: string,
   isSelected: boolean,
 };
+
+export type TypePopularTag = {
+  tagId: string,
+  label: string,
+  proposalCount: number,
+};

@@ -9,7 +9,7 @@ import {
   ConsultationNavItemStyle,
   ConsultationNavLinkStyle,
   ConsultationNavListStyle,
-} from '../Styled/Navigation';
+} from 'Client/features/consultation/Styled/Navigation';
 import { SliderNavigationBetweenQuestions } from './Slider';
 
 type Props = {

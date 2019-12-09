@@ -13,9 +13,11 @@ import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
 import {
   CONSULTATION_DEPARTMENT_COMPULSORY,
   CONSULTATION_FOLLOW_US_ACTIVE,
+  CONSULTATION_POPULAR_TAGS,
 } from 'Shared/constants/featureFlipping';
-import { FollowUs } from 'Client/features/consultation/FollowUs';
 import { LocalActors } from 'Client/ui/Elements/LocalActors/index';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
+import { PopularTags } from 'Client/features/flipping/PopularTags';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
@@ -47,6 +49,9 @@ export const ConsultationSidebar = ({ question }: Props) => {
         >
           <DepartmentModification departmentNumber={departmentNumber} />
         </TileWithTitle>
+      )}
+      {isActiveFeature(CONSULTATION_POPULAR_TAGS) && (
+        <PopularTags question={question} />
       )}
       {isActiveFeature(CONSULTATION_FOLLOW_US_ACTIVE) && !isMobile && (
         <FollowUs />

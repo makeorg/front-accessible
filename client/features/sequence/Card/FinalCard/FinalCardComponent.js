@@ -4,8 +4,8 @@ import { type FinalCardConfig } from 'Shared/types/card';
 import { useSelector } from 'react-redux';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
+import { Sharing } from 'Client/features/flipping/Sharing/FincalCardi';
 import { FinalTitle } from './Title';
-import { Sharing } from './Sharing';
 import { More } from './More';
 import {
   ContentWrapperStyle,

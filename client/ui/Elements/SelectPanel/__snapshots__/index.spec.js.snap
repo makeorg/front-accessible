@@ -5,10 +5,10 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -2,14 +2,11 @@
-    <SelectButtonStyle
+@@ -3,14 +3,11 @@
       aria-expanded={false}
       aria-live="polite"
+      id="panel_trigger_undefined"
       onClick={[Function togglePanel]}
     >
 -     <ScreenReaderItemStyle>
@@ -28,11 +28,12 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,10 +1,9 @@
+@@ -1,11 +1,10 @@
   <SelectPanelWrapperStyle>
     <SelectButtonStyle
       aria-expanded={false}
       aria-live="polite"
+      id="panel_trigger_undefined"
 -     isHighlighted={true}
       onClick={[Function togglePanel]}
     >
@@ -46,6 +47,7 @@ exports[`SelectPanel must match the snapshot with default Props 1`] = `
   <SelectButtonStyle
     aria-expanded={false}
     aria-live="polite"
+    id="panel_trigger_undefined"
     onClick={[Function]}
   >
     foo
