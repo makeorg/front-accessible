@@ -12,9 +12,11 @@ type Props = {
   avatarAlt?: string,
 };
 
-export const Avatar = (props: Props) => {
-  const { avatarSize, avatarUrl, avatarAlt } = props;
-
+export const Avatar = ({
+  avatarSize = 30,
+  avatarUrl,
+  avatarAlt = '',
+}: Props) => {
   return (
     <AvatarStyle>
       {avatarUrl ? (
@@ -29,9 +31,4 @@ export const Avatar = (props: Props) => {
       )}
     </AvatarStyle>
   );
-};
-
-Avatar.defaultProps = {
-  avatarSize: 30,
-  avatarAlt: '',
 };

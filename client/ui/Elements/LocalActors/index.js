@@ -67,6 +67,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
               <Avatar
                 avatarUrl={actor.avatarUrl}
                 avatarAlt={actor.organisationName}
+                avatarSize={50}
               />
             </AvatarStyle>
             <div>

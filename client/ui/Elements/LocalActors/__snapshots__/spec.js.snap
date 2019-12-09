@@ -353,9 +353,9 @@ exports[`LocalActors snapshot with data 1`] = `
         >
           <img
             alt="toto orga"
-            height="30"
+            height="50"
             src="string"
-            width="30"
+            width="50"
           />
         </span>
       </div>
@@ -396,9 +396,9 @@ exports[`LocalActors snapshot with data 1`] = `
         >
           <svg
             aria-hidden="true"
-            height="30"
+            height="50"
             viewBox="0 0 30 30"
-            width="30"
+            width="50"
           >
             <defs>
               <circle
@@ -507,9 +507,9 @@ exports[`LocalActors snapshot with data 1`] = `
         >
           <img
             alt="toto orga"
-            height="30"
+            height="50"
             src="string"
-            width="30"
+            width="50"
           />
         </span>
       </div>
@@ -550,9 +550,9 @@ exports[`LocalActors snapshot with data 1`] = `
         >
           <svg
             aria-hidden="true"
-            height="30"
+            height="50"
             viewBox="0 0 30 30"
-            width="30"
+            width="50"
           >
             <defs>
               <circle

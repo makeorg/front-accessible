@@ -21,13 +21,15 @@ export const getLocalActors = (
   questionId: string,
   slug: string,
   limit: ?number,
-  skip: ?number
+  skip: ?number,
+  sortAlgorithm: string = 'participation'
 ) => async (dispatch: Dispatch) => {
   dispatch(loadLocalActors());
   const actors = await QuestionApiService.getQuestionPartners(
     questionId,
     limit,
-    skip
+    skip,
+    sortAlgorithm
   );
   dispatch(setLocalActors(slug, actors));
 };
@@ -36,14 +38,16 @@ export const loadMoreLocalActors = (
   questionId: string,
   slug: string,
   limit: ?number,
-  skip: ?number
+  skip: ?number,
+  sortAlgorithm: string = 'participation'
 ) => async (dispatch: Dispatch, getState: () => StateRoot) => {
   dispatch(loadLocalActors());
   const { results } = getState().partners[slug].actors;
   const actors = await QuestionApiService.getQuestionPartners(
     questionId,
     limit,
-    skip
+    skip,
+    sortAlgorithm
   );
   dispatch(
     setLocalActors(slug, {

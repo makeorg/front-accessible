@@ -16,7 +16,8 @@ export class QuestionApiService {
   static getQuestionPartners(
     questionId: string,
     limit: ?number = undefined,
-    skip: ?number = undefined
+    skip: ?number = undefined,
+    sortAlgorithm: string
   ): Promise<Object> {
     const headers = {};
     return ApiService.callApi(
@@ -24,7 +25,7 @@ export class QuestionApiService {
       {
         method: 'GET',
         headers,
-        params: { limit, skip },
+        params: { limit, skip, sortAlgorithm },
       }
     );
   }
