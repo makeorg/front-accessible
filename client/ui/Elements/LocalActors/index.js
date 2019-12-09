@@ -43,7 +43,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
   const skip = 4;
 
   useEffect(() => {
-    dispatch(getLocalActors(questionId, slug, limit, undefined));
+    dispatch(getLocalActors(questionId, slug, undefined, undefined, limit));
   }, [dispatch, questionId, slug]);
 
   useEffect(() => {
@@ -54,7 +54,16 @@ export const LocalActors = ({ questionId, slug }: Props) => {
   }, [actors]);
 
   const displayAllActors = () => {
-    dispatch(loadMoreLocalActors(questionId, slug, undefined, skip));
+    dispatch(
+      loadMoreLocalActors(
+        questionId,
+        slug,
+        undefined,
+        undefined,
+        undefined,
+        skip
+      )
+    );
   };
 
   return (
