@@ -53,17 +53,18 @@ export const SelectButtonStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const PanelStyle = styled.div`
-  display: none;
+  display: block;
   visibility: hidden;
   position: fixed;
-  bottom: 0;
+  bottom: -100%;
   left: 0;
   width: 100%;
   height: fit-content;
   z-index: 99;
+  transition: all 0.25s ease-in;
   &.open {
-    display: block;
     visibility: visible;
+    bottom: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     position: absolute;
