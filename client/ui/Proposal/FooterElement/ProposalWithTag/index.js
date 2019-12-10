@@ -17,7 +17,7 @@ type ProposalFooterWithTagElementProps = {
 export const ProposalFooterWithTagElement = ({
   tags,
 }: ProposalFooterWithTagElementProps) => {
-  if (!tags.length) {
+  if (!tags.filter(tag => tag.display === true).length) {
     return null;
   }
 
