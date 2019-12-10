@@ -40,6 +40,7 @@ export type VotesPercentObject = {
 export type Tag = {
   tagId: string,
   label: string,
+  display: boolean,
 };
 
 export type Proposal = {

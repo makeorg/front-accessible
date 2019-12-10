@@ -30,11 +30,14 @@ export const ProposalFooterWithTagElement = ({
         }}
       />
       <ProposalFooterTagListStyle>
-        {tags.slice(0, NUMBER_OF_TAGS_TO_DISPLAY).map(tag => (
-          <ProposalFooterTagListItemStyle as="li" key={tag.tagId}>
-            {tag.label}
-          </ProposalFooterTagListItemStyle>
-        ))}
+        {tags
+          .filter(tag => tag.display === true)
+          .slice(0, NUMBER_OF_TAGS_TO_DISPLAY)
+          .map(tag => (
+            <ProposalFooterTagListItemStyle as="li" key={tag.tagId}>
+              {tag.label}
+            </ProposalFooterTagListItemStyle>
+          ))}
       </ProposalFooterTagListStyle>
     </React.Fragment>
   );
