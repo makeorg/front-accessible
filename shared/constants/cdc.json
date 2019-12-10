@@ -1,25 +1,25 @@
 {
   "bretagne-dynamisme-economique" : {
     "customFinalCard": {
-      "imageUrl": "/images/operations/bretagne/bretagne-vivre-ensemble.svg",
+      "imageUrl": "/images/operations/bretagne/solidarite.svg",
       "nextQuestion": "bretagne-vivre-ensemble"
     }
   },
   "bretagne-ecologique-durable" : {
     "customFinalCard": {
-      "imageUrl": "/images/operations/bretagne/bretagne-qualite-vie.svg",
+      "imageUrl": "/images/operations/bretagne/qualite-vie.svg",
       "nextQuestion": "bretagne-qualite-vie"
     }
   },
   "bretagne-qualite-vie" : {
     "customFinalCard": {
-      "imageUrl": "/images/operations/bretagne/bretagne-dynamisme-economique.svg",
+      "imageUrl": "/images/operations/bretagne/emploi.svg",
       "nextQuestion": "bretagne-dynamisme-economique"
     }
   },
   "bretagne-vivre-ensemble" : {
     "customFinalCard": {
-      "imageUrl": "/images/operations/bretagne/bretagne-ecologique-durable.svg",
+      "imageUrl": "/images/operations/bretagne/environnement.svg",
       "nextQuestion": "bretagne-ecologique-durable"
     }
   }
