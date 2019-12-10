@@ -19,9 +19,9 @@ type Props = {
 /** @toDo: remove or refactor after the end of bretagne consultation */
 const bretagneNavNames = {
   'bretagne-qualite-vie': 'Qualité de vie',
-  'bretagne-ecologique-durable': 'Écologie',
-  'bretagne-dynamisme-economique': 'Économie',
-  'bretagne-vivre-ensemble': 'Vivre ensemble',
+  'bretagne-ecologique-durable': 'Environnement',
+  'bretagne-dynamisme-economique': 'Emploi',
+  'bretagne-vivre-ensemble': 'Solidarité',
 };
 
 export const getNavName = (slug: string, defaultName: string) =>
