@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ProposalFooterStyle = styled.div`
   width: 100%;
@@ -19,7 +20,8 @@ export const ProposalFooterTagListStyle = styled(UnstyledListStyle)`
 
 export const ProposalFooterTagListItemStyle = styled(ParagraphStyle)`
   display: inline-flex;
-  margin-right: 10px;
+  margin-right: 20px;
+  font-family: ${MakeFonts.CircularStandardBold};
 `;
 
 export const PostedInLabelStyle = styled(ParagraphStyle)`
