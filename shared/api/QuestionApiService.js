@@ -15,9 +15,10 @@ const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
 export class QuestionApiService {
   static getQuestionPartners(
     questionId: string,
+    partnerKind: string,
+    sortAlgorithm?: string,
     limit: ?number = undefined,
-    skip: ?number = undefined,
-    sortAlgorithm: string
+    skip: ?number = undefined
   ): Promise<Object> {
     const headers = {};
     return ApiService.callApi(
@@ -25,7 +26,7 @@ export class QuestionApiService {
       {
         method: 'GET',
         headers,
-        params: { limit, skip, sortAlgorithm },
+        params: { sortAlgorithm, partnerKind, limit, skip },
       }
     );
   }
