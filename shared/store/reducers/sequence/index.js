@@ -14,23 +14,35 @@ export function sequence(
         ...state,
         isSequenceCollapsed: true,
       };
-    case actionTypes.SEQUENCE_PROPOSAL_VOTE:
+    case actionTypes.SEQUENCE_PROPOSAL_VOTE: {
+      const oldProposalList =
+        state.votedProposalIds[action.payload.questionSlug] || [];
+      const newProposalList = [...oldProposalList, action.payload.proposalId];
+
       return {
         ...state,
-        votedProposalIds: [
+        votedProposalIds: {
           ...state.votedProposalIds,
-          action.payload.proposalId,
-        ],
+          [action.payload.questionSlug]: newProposalList,
+        },
       };
-    case actionTypes.SEQUENCE_PROPOSAL_UNVOTE:
+    }
+    case actionTypes.SEQUENCE_PROPOSAL_UNVOTE: {
+      if (!state.votedProposalIds[action.payload.questionSlug]) {
+        return state;
+      }
+      const newProposalList = state.votedProposalIds[
+        action.payload.questionSlug
+      ].filter(item => item !== action.payload.proposalId);
+
       return {
         ...state,
-        votedProposalIds: [
-          ...state.votedProposalIds.filter(
-            item => item !== action.payload.proposalId
-          ),
-        ],
+        votedProposalIds: {
+          ...state.votedProposalIds,
+          [action.payload.questionSlug]: newProposalList,
+        },
       };
+    }
     default:
       return state;
   }

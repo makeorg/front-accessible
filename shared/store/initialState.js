@@ -18,7 +18,7 @@ export const initialState: StateRoot = {
     isSequenceCollapsed: false,
     firstProposal: undefined,
     questionSlug: undefined,
-    votedProposalIds: [],
+    votedProposalIds: {},
   },
   questions: {},
   currentQuestion: '',

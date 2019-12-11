@@ -63,6 +63,7 @@ export const ProposalCardWithQuestion = (props: Props) => {
         {canVote ? (
           <Vote
             proposalId={proposal.id}
+            questionSlug={proposal.question.slug}
             votes={proposal.votes}
             proposalKey={proposal.proposalKey}
             index={position}

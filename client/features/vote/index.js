@@ -29,6 +29,8 @@ import { VoteButton } from './Button';
 type Props = {
   /** Proposal's Id */
   proposalId: string,
+  /** Question Slug */
+  questionSlug: string,
   /** Array with votes received from Api */
   votes: TypeVote[],
   /** String containing the hash generate api side for security purpose */
@@ -38,9 +40,19 @@ type Props = {
   /** Method called when next card button is clicked (Incremented currentIndex) */
   goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when Vote */
-  onVote: (proposalId: string, voteKey: string, index: number) => void,
+  onVote: (
+    proposalId: string,
+    questionSlug: string,
+    voteKey: string,
+    index: number
+  ) => void,
   /** Method called when Unvote */
-  onUnvote: (proposalId: string, voteKey: string, index: number) => void,
+  onUnvote: (
+    proposalId: string,
+    questionSlug: string,
+    voteKey: string,
+    index: number
+  ) => void,
 };
 
 type State = {
@@ -93,14 +105,20 @@ export class Vote extends React.Component<Props, State> {
   }
 
   handleUnvote = (voteKey: string) => {
-    const { proposalId, proposalKey, index, onUnvote } = this.props;
+    const {
+      proposalId,
+      questionSlug,
+      proposalKey,
+      index,
+      onUnvote,
+    } = this.props;
 
     VoteService.unvote(proposalId, voteKey, proposalKey)
       .then(vote => {
         this.delayStateUpdateOnEndVote(() =>
           this.setState(prevState => doUnvote(prevState, vote))
         );
-        onUnvote(proposalId, voteKey, index);
+        onUnvote(proposalId, questionSlug, voteKey, index);
         trackUnvote(proposalId, voteKey, index);
       })
       .catch(() => {
@@ -115,7 +133,7 @@ export class Vote extends React.Component<Props, State> {
   };
 
   handleVote = async (voteKey: string) => {
-    const { proposalId, proposalKey, index, onVote } = this.props;
+    const { proposalId, questionSlug, proposalKey, index, onVote } = this.props;
     this.setState(prevState => startAnimatingVoteState(prevState, voteKey));
     await this.wait(500);
     VoteService.vote(proposalId, voteKey, proposalKey)
@@ -124,7 +142,7 @@ export class Vote extends React.Component<Props, State> {
           this.setState(prevState => doVote(prevState, vote))
         );
 
-        onVote(proposalId, voteKey, index);
+        onVote(proposalId, questionSlug, voteKey, index);
         trackVote(proposalId, voteKey, index);
       })
       .catch(() => {

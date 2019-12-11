@@ -6,7 +6,7 @@ describe('initialStateDebug', () => {
   });
 
   it('votedProposalIds must not be defined', () => {
-    expect(initialStateDebug.sequence.votedProposalIds).toEqual([]);
+    expect(initialStateDebug.sequence.votedProposalIds).toEqual({});
   });
 
   it('passwordRecovery must not be defined', () => {

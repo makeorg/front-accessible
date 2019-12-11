@@ -22,11 +22,12 @@ type Props = {
   /** Method called when Vote */
   handleVoteOnSequence: (
     proposalId: string,
+    questionSlug: string,
     voteKey: string,
     index: number
   ) => void,
   /** Method called when UnVote */
-  handleUnvoteOnSequence: (proposalId: string) => void,
+  handleUnvoteOnSequence: (proposalId: string, questionSlug: string) => void,
 };
 
 /**
@@ -55,6 +56,7 @@ export const ProposalCardComponent = (props: Props) => {
       <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
       <Vote
         proposalId={proposal.id}
+        questionSlug={proposal.question.slug}
         votes={proposal.votes}
         proposalKey={proposal.proposalKey}
         index={index}
