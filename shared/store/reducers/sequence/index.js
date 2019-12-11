@@ -9,6 +9,18 @@ export function sequence(
   action: Object
 ) {
   switch (action.type) {
+    case actionTypes.SEQUENCE_START:
+      if (!state.votedProposalIds[action.payload.questionSlug]) {
+        return state;
+      }
+
+      return {
+        ...state,
+        votedProposalIds: {
+          ...state.votedProposalIds,
+          [action.payload.questionSlug]: [],
+        },
+      };
     case actionTypes.SEQUENCE_COLLAPSE:
       return {
         ...state,
