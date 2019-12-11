@@ -16,6 +16,11 @@ when('I vote {string} on proposal {string}', (voteType, proposalNumber) => {
   cy.get(`#${voteLabel[voteType]}-${proposalNumber}`).click();
 });
 
+when('I vote {string} on the first proposal of sequence', (voteType) => {  
+  cy.get('#sequence-start-sequence-button').click();
+  cy.get('#card-1 button.agree').first().click();
+});
+  
 when('I vote on all cards of the sequence with {string}', (voteType) => {
   cy.wrap(Array.from(new Array(12), (val, index) => index + 1)).each((i) => {
     cy.get(`#proposal-card-${i}`).should('be.visible');

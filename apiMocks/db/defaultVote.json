@@ -1,0 +1,22 @@
+{
+  "voteKey":"neutral",
+  "count":5,
+  "qualifications":[
+    {
+      "qualificationKey":"doNotUnderstand",
+      "count":0,
+      "hasQualified":false
+    },
+    {
+      "qualificationKey":"noOpinion",
+      "count":1,
+      "hasQualified":false
+    },
+    {
+      "qualificationKey":"doNotCare",
+      "count":0,
+      "hasQualified":false
+    }
+  ],
+  "hasVoted":true
+}

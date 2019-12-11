@@ -57,6 +57,7 @@ export const CardWithCounter = ({
         isCardVisible={isCardVisible}
         aria-hidden={!isCardVisible}
         as="dd"
+        id={`card-${index + cardOffset}`}
       >
         <CardHeader
           index={index}

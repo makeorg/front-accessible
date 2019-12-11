@@ -61,6 +61,7 @@ export const SearchResultsProposalsComponent = ({
       term,
       page
     );
+
     setProposalsResult(results);
     setProposalsCount(total);
     setPage(1);
