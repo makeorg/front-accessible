@@ -10,7 +10,13 @@ describe('Question Service', () => {
     QuestionApiService.startSequence.mockRestore();
   });
 
-  const proposals = [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }];
+  const proposals = [
+    { id: 'foo', votes: [{ hasVoted: false }] },
+    { id: 'bar', votes: [{ hasVoted: false }] },
+    { id: 'baz', votes: [{ hasVoted: false }] },
+    { id: 'foo', votes: [{ hasVoted: false }] },
+    { id: 'voted', votes: [{ hasVoted: true }] },
+  ];
 
   describe('startSequence function', () => {
     it('Call sequence service with right params', async () => {
@@ -39,7 +45,11 @@ describe('Question Service', () => {
       });
 
       const result = await startSequence('foo', includedProposalIds);
-      expect(result).toEqual([{ id: 'baz' }, { id: 'foo' }, { id: 'bar' }]);
+      expect(result).toEqual([
+        { id: 'baz', votes: [{ hasVoted: false }] },
+        { id: 'foo', votes: [{ hasVoted: false }] },
+        { id: 'bar', votes: [{ hasVoted: false }] },
+      ]);
     });
 
     it('order when incuded proposal contain all proposal', async () => {
@@ -50,7 +60,11 @@ describe('Question Service', () => {
       });
 
       const result = await startSequence('foo', includedProposalIds);
-      expect(result).toEqual([{ id: 'baz' }, { id: 'bar' }, { id: 'foo' }]);
+      expect(result).toEqual([
+        { id: 'baz', votes: [{ hasVoted: false }] },
+        { id: 'bar', votes: [{ hasVoted: false }] },
+        { id: 'foo', votes: [{ hasVoted: false }] },
+      ]);
     });
   });
 });
