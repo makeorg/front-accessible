@@ -23,6 +23,7 @@ Object {
     "data": undefined,
     "error": undefined,
     "hasProposed": false,
+    "popularProposals": Array [],
   },
   "questions": Object {},
   "sequence": Object {

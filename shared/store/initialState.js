@@ -11,6 +11,7 @@ export const initialState: StateRoot = {
   },
   proposal: {
     hasProposed: false,
+    popularProposals: [],
     error: undefined,
     data: undefined,
   },

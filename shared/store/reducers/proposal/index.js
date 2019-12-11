@@ -20,6 +20,11 @@ export function proposal(
         ...state,
         data: action.payload,
       };
+    case actionTypes.PROPOSAL_POPULAR_LOAD:
+      return {
+        ...state,
+        popularProposals: action.payload,
+      };
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
   overflow: hidden;
-  width: 300px;
+  width: 100%;
   height: 100%;
   justify-content: flex-start;
   margin: 0;

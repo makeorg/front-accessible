@@ -62,6 +62,17 @@ export class ProposalApiService {
     );
   }
 
+  static getPopularProposals(
+    questionId: string,
+    headers: ApiServiceHeaders = {}
+  ) {
+    return ApiService.callApi(PATH_PROPOSALS, {
+      method: 'GET',
+      headers,
+      params: { questionId, sortAlgorithm: 'popular' },
+    });
+  }
+
   static searchProposals(
     country: string,
     language: string,

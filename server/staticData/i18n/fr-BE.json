@@ -590,6 +590,9 @@
         "candidates": "Vous êtes candidat(e)",
         "contact_us": "Contactez-nous !"
       }
+    },
+    "popular_proposals": {
+      "title": "TOP 10 des propositions les plus populaires"
     }
   },
   "sharing": {
