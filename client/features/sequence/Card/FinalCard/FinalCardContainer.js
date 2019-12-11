@@ -8,7 +8,8 @@ import {
 import { type FinalCardConfig } from 'Shared/types/card';
 import { trackDisplayFinalCard } from 'Shared/services/Tracking';
 import { CustomFinalCard } from 'Client/custom/cdc/finalCard';
-import cdcData from 'Shared/constants/cdc.json';
+/** @toDo: remove or refactor after the end of bretagne consultation */
+import cdcData from 'Client/custom/cdc/finalCard/config.json';
 import { FinalCardComponent } from './FinalCardComponent';
 
 type Props = {

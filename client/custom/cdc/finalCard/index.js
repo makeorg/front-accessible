@@ -14,7 +14,7 @@ import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickStartSequence } from 'Shared/services/Tracking';
 // @todo : temp remove after cdc
-import cdcData from 'Shared/constants/cdc.json';
+import cdcData from './config.json';
 import {
   MoreQuestionWrapperStyle,
   MoreQuestionImageStyle,
@@ -43,7 +43,7 @@ export const CustomFinalCard = ({ question }: Props) => {
       }
     );
     const questionTitle: string =
-      question.operation.questions[nextQuestionIndex].operationTitle;
+      question.operation.questions[nextQuestionIndex].question;
 
     setNextQuestionTitle(questionTitle);
   }, []);
