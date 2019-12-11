@@ -15,14 +15,14 @@ import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
 
-export const voteProposal = (proposalId: string) => ({
+export const voteProposal = (proposalId: string, questionSlug: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-  payload: { proposalId },
+  payload: { proposalId, questionSlug },
 });
 
-export const unvoteProposal = (proposalId: string) => ({
+export const unvoteProposal = (proposalId: string, questionSlug: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
-  payload: { proposalId },
+  payload: { proposalId, questionSlug },
 });
 
 export const loadQuestion = (question: TypeQuestion) => ({
@@ -44,22 +44,24 @@ export const loadQuestionResults = (
 
 export const sequenceVote = (
   proposalId: string,
+  questionSlug: string,
   voteKey: string,
   index: number
 ) => (dispatch: Dispatch, getState: () => StateRoot) => {
   const { votedProposalIds } = getState().sequence;
-  const isFirstVote = votedProposalIds.length === 0;
-  dispatch(voteProposal(proposalId));
+  const proposalIds = votedProposalIds[questionSlug] || [];
+  const isFirstVote = proposalIds.length === 0;
+  dispatch(voteProposal(proposalId, questionSlug));
 
   if (isFirstVote) {
     trackFirstVote(proposalId, voteKey, index);
   }
 };
 
-export const sequenceUnvote = (proposalId: string) => (
+export const sequenceUnvote = (proposalId: string, questionSlug: string) => (
   dispatch: any => void
 ) => {
-  dispatch(unvoteProposal(proposalId));
+  dispatch(unvoteProposal(proposalId, questionSlug));
 };
 
 export const fetchQuestionData = (questionSlugOrId: string) => (

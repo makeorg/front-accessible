@@ -39,27 +39,29 @@ describe('Sequence Actions', () => {
 
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
     const proposalId = 'foo';
+    const questionSlug = 'question-slug';
     const expectedActions = [
       {
         type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-        payload: { proposalId },
+        payload: { proposalId, questionSlug },
       },
     ];
 
-    store.dispatch(actions.voteProposal(proposalId));
+    store.dispatch(actions.voteProposal(proposalId, questionSlug));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Creates SEQUENCE_PROPOSAL_UNVOTE when calling action', () => {
     const proposalId = 'foo';
+    const questionSlug = 'question-slug';
     const expectedActions = [
       {
         type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
-        payload: { proposalId },
+        payload: { proposalId, questionSlug },
       },
     ];
 
-    store.dispatch(actions.unvoteProposal(proposalId));
+    store.dispatch(actions.unvoteProposal(proposalId, questionSlug));
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -68,18 +70,21 @@ describe('Sequence Actions', () => {
     const voteKey = 'bar';
     const index = 0;
     const questionId = 'baz';
+    const questionSlug = 'baz-slug';
     const newStore = mockStore({
-      sequence: { votedProposalIds: [], questionId },
+      sequence: { votedProposalIds: {}, questionId },
     });
 
     const expectedActions = [
       {
         type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-        payload: { proposalId },
+        payload: { proposalId, questionSlug },
       },
     ];
 
-    newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+    newStore.dispatch(
+      actions.sequenceVote(proposalId, questionSlug, voteKey, index)
+    );
 
     expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(
       1,
@@ -95,18 +100,21 @@ describe('Sequence Actions', () => {
     const voteKey = 'bar';
     const index = 0;
     const questionId = 'baz';
+    const questionSlug = 'baz-slug';
     const newStore = mockStore({
-      sequence: { votedProposalIds: ['fooId'], questionId },
+      sequence: { votedProposalIds: { [questionSlug]: ['fooId'] }, questionId },
     });
 
     const expectedActions = [
       {
         type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-        payload: { proposalId },
+        payload: { proposalId, questionSlug },
       },
     ];
 
-    newStore.dispatch(actions.sequenceVote(proposalId, voteKey, index));
+    newStore.dispatch(
+      actions.sequenceVote(proposalId, questionSlug, voteKey, index)
+    );
 
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();
     expect(newStore.getActions()).toEqual(expectedActions);

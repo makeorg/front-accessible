@@ -29,7 +29,7 @@ Object {
     "firstProposal": undefined,
     "isSequenceCollapsed": false,
     "questionSlug": undefined,
-    "votedProposalIds": Array [],
+    "votedProposalIds": Object {},
   },
   "user": Object {
     "authentification": Object {

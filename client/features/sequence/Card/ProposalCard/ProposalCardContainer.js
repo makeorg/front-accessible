@@ -16,11 +16,12 @@ type Props = {
   /** Method called when Vote */
   handleVoteOnSequence: (
     proposalId: string,
+    questionSlug: string,
     voteKey: string,
     index: number
   ) => void,
   /** Method called when UnVote */
-  handleUnvoteOnSequence: (proposalId: string) => void,
+  handleUnvoteOnSequence: (proposalId: string, questionSlug: string) => void,
 };
 
 /**
@@ -54,13 +55,14 @@ const ProposalCardClass = (props: Props) => {
 const mapDispatchToProps = dispatch => ({
   handleVoteOnSequence: (
     proposalId: string,
+    questionSlug: string,
     voteKey: string,
     index: number
   ) => {
-    dispatch(sequenceVote(proposalId, voteKey, index));
+    dispatch(sequenceVote(proposalId, questionSlug, voteKey, index));
   },
-  handleUnvoteOnSequence: (proposalId: string) => {
-    dispatch(sequenceUnvote(proposalId));
+  handleUnvoteOnSequence: (proposalId: string, questionSlug: string) => {
+    dispatch(sequenceUnvote(proposalId, questionSlug));
   },
 });
 

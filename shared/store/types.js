@@ -23,7 +23,7 @@ export type StateProposal = $ReadOnly<{
 export type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
-  votedProposalIds: string[],
+  votedProposalIds: { [string]: string[] },
 }>;
 
 // Notification State

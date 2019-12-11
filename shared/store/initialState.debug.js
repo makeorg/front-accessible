@@ -19,7 +19,7 @@ export const initialStateDebug = {
     /* 
     questionSlug: 'mieuxmanger',
     */
-    votedProposalIds: [],
+    votedProposalIds: {},
   },
   currentQuestion: '',
 };

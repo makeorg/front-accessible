@@ -8,7 +8,7 @@ describe('Sequence reducer', () => {
       isSequenceCollapsed: false,
       firstProposal: undefined,
       question: undefined,
-      votedProposalIds: [],
+      votedProposalIds: {},
     };
 
     expect(sequence(undefined, {})).toEqual(expectedState);
@@ -30,14 +30,14 @@ describe('Sequence reducer', () => {
   it('Vote into Sequence reducer', () => {
     const action = {
       type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-      payload: { proposalId: 'fooId' },
+      payload: { proposalId: 'fooId', questionSlug: 'fooSlug' },
     };
     const previousState = {
-      votedProposalIds: [],
+      votedProposalIds: {},
     };
 
     const expectedState = {
-      votedProposalIds: ['fooId'],
+      votedProposalIds: { fooSlug: ['fooId'] },
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);
@@ -46,14 +46,14 @@ describe('Sequence reducer', () => {
   it('Unvote into Sequence reducer', () => {
     const action = {
       type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
-      payload: { proposalId: 'fooId' },
+      payload: { proposalId: 'fooId', questionSlug: 'fooSlug' },
     };
     const previousState = {
-      votedProposalIds: ['barId', 'fooId', 'bazId'],
+      votedProposalIds: { fooSlug: ['barId', 'fooId', 'bazId'] },
     };
 
     const expectedState = {
-      votedProposalIds: ['barId', 'bazId'],
+      votedProposalIds: { fooSlug: ['barId', 'bazId'] },
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);

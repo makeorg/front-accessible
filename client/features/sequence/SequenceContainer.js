@@ -19,8 +19,8 @@ type Props = {
   cardOffset: number,
   /** Id of the first proposal to display */
   firstProposal: string,
-  /** Array with the voted proposals' ids */
-  votedProposalIds: string[],
+  /** Object with the voted proposals' ids by question slug */
+  votedProposalIds: { [string]: string[] },
   /** Boolean toggled when User is Logged in */
   isLoggedIn: boolean,
   /** Boolean toggled when Sequence is collapsed / expanded */
@@ -65,9 +65,10 @@ const SequenceHandler = ({
   useEffect(() => {
     if (question) {
       const setCardsFromProposals = async () => {
+        const proposalIds = votedProposalIds[question.slug] || [];
         const proposals = await startSequence(question.questionId, [
           firstProposal,
-          ...votedProposalIds,
+          ...proposalIds,
         ]);
 
         const buildedCards: TypeCard[] = SequenceHelper.buildCards(
@@ -86,7 +87,7 @@ const SequenceHandler = ({
           buildedCards
         );
 
-        if (votedProposalIds.length !== 0) {
+        if (proposalIds.length !== 0) {
           const cardCurrentIndex: number =
             indexOfFirstUnvotedCard === 0 && hasStarted
               ? 1
