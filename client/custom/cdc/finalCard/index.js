@@ -1,6 +1,5 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getConsultationLink, getSequenceLink } from 'Shared/helpers/url';
@@ -75,8 +74,8 @@ export const CustomFinalCard = ({ question }: Props) => {
             <MoreQuestionTitleStyle>{nextQuestionTitle}</MoreQuestionTitleStyle>
           )}
           <MoreQuestionButtonStyle
-            as={Link}
-            to={getSequenceLink(
+            as="a"
+            href={getSequenceLink(
               question.country,
               question.language,
               customFinalCard.nextQuestion,
