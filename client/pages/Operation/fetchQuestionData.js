@@ -105,14 +105,10 @@ const callQuestionData = Component =>
             questions[relQuestion.questionSlug] !== undefined;
           // If not, they fetch/store it
           if (!isRelQuestionInState) {
-            const res = await QuestionApiService.getDetail(
-              relQuestion.questionSlug,
-              {}
+            const siblingQuestionDetails = await QuestionApiService.getDetail(
+              relQuestion.questionSlug
             );
-            dispatch({
-              type: 'QUESTION_ADD_ALL',
-              payload: res,
-            });
+            dispatch(loadQuestion(siblingQuestionDetails));
           }
         });
       }
