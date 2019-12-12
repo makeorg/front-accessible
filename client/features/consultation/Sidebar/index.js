@@ -21,7 +21,7 @@ import {
 } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { PopularTags } from 'Client/features/flipping/PopularTags';
-import { LocalActorsTile } from 'Client/features/consultation/Sidebar/Tiles/LocalActors';
+import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { PresentationTile } from './Tiles/Presentation';
 import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';

@@ -2,7 +2,7 @@
 import React from 'react';
 import { useMobile } from 'Client/hooks/useMedia';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { LocalActors } from 'Client/ui/Elements/LocalActors';
+import { LocalActors } from 'Client/features/flipping/LocalActors';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { i18n } from 'Shared/i18n';

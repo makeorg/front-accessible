@@ -118,11 +118,12 @@ export const LocalActors = ({ questionId, slug }: Props) => {
           {i18n.t('consultation.local_actors.more')}
         </ButtonWrapperStyle>
       )}
+      {/** @todo remove or refactor when Municipales is over */}
       <FooterStyle
         dangerouslySetInnerHTML={{
           __html: i18n.t('consultation.local_actors.participate', {
             contact_us:
-              '<a href="mailto:contact@make.org">$t(consultation.local_actors.contact_us)</a>',
+              '<a href="mailto:associations-municipales@make.org">$t(consultation.local_actors.contact_us)</a>',
           }),
         }}
       />
