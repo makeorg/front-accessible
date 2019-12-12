@@ -40,7 +40,7 @@ export const TeasingHeader = () => {
           </TeasingHeaderTextStyle>
           <TeasingHeaderSubTextStyle>
             <TeasingHeaderLinkStyle>
-              <RedLinkStyle as="a" href="mailto:contact@make.org">
+              <RedLinkStyle as="a" href="mailto:candidats-municipales@make.org">
                 {i18n.t('consultation.municipal.header.contact_us')}
               </RedLinkStyle>
             </TeasingHeaderLinkStyle>

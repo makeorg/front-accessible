@@ -10,7 +10,7 @@ import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationBetweenQuestions } from 'Client/features/flipping/NavigationBetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { TeasingHeader } from 'Client/features/flipping/TeasingHeader';
+import { TeasingHeader } from 'Client/custom/municipales/TeasingHeader';
 import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
@@ -44,6 +44,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
   );
+  // @todo remove or refactor when Municipales is over
   const isTeasingHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_TEASING_HEADER,
     question.activeFeatures
@@ -70,6 +71,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <NavigationBetweenQuestions question={question} />
       )}
       <IntroBanner question={question} />
+      {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
