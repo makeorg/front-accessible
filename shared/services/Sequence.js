@@ -2,6 +2,7 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { type SequenceType } from 'Shared/types/sequence';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { Logger } from './Logger';
 
 export const startSequence = async (
   questionId: string,
@@ -32,5 +33,29 @@ export const startSequence = async (
     }
   );
 
-  return orderedProposals;
+  // remove duplicates and voted
+  const reducer = (accumulator: TypeProposal[], proposal: TypeProposal) => {
+    if (
+      accumulator.find(item => item.id === proposal.id) === undefined &&
+      (proposal.votes.every(vote => vote.hasVoted === false) ||
+        includedProposalIds.includes(proposal.id))
+    ) {
+      accumulator.push(proposal);
+    }
+
+    return accumulator;
+  };
+
+  // toDo: remove reducer when API deduplicate proposals and return only unvoted proposals
+  const uniqueUnvotedProposals: TypeProposal[] = orderedProposals.reduce(
+    reducer,
+    []
+  );
+  if (orderedProposals.length !== uniqueUnvotedProposals) {
+    Logger.logWarning(
+      'start sequence return duplicates or voted proposals: fix that on API'
+    );
+  }
+
+  return uniqueUnvotedProposals;
 };

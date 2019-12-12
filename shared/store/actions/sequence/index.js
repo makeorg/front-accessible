@@ -15,6 +15,11 @@ import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
 
+export const sequenceStart = (questionSlug: string) => ({
+  type: actionTypes.SEQUENCE_START,
+  payload: { questionSlug },
+});
+
 export const voteProposal = (proposalId: string, questionSlug: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
   payload: { proposalId, questionSlug },
