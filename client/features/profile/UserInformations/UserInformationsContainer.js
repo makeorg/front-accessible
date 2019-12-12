@@ -6,7 +6,7 @@ import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgMapMarker, SvgSignOut } from 'Client/ui/Svg/elements';
+import { SvgMapMarker, SvgSignOut, SvgLink } from 'Client/ui/Svg/elements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -21,8 +21,10 @@ import {
   ProfileAvatarLayoutStyle,
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
+  ProfileAlignLeftContentStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -79,18 +81,22 @@ class UserInformationsHandler extends React.Component<Props, State> {
             <ScreenReaderItemStyle as="h2">
               {i18n.t('profile.common.infos')}
             </ScreenReaderItemStyle>
-            <ProfileTitleStyle>
-              <ScreenReaderItemStyle>
-                {i18n.t('profile.common.labels.firstname')}
-              </ScreenReaderItemStyle>
-              {user.firstName}
-            </ProfileTitleStyle>
-            <ProfileContentStyle>
-              <ScreenReaderItemStyle>
-                {i18n.t('profile.common.labels.email')}
-              </ScreenReaderItemStyle>
-              {user.email}
-            </ProfileContentStyle>
+            {!user.isOrganisation && (
+              <>
+                <ProfileTitleStyle>
+                  <ScreenReaderItemStyle>
+                    {i18n.t('profile.common.labels.firstname')}
+                  </ScreenReaderItemStyle>
+                  {user.firstName}
+                </ProfileTitleStyle>
+                <ProfileContentStyle>
+                  <ScreenReaderItemStyle>
+                    {i18n.t('profile.common.labels.email')}
+                  </ScreenReaderItemStyle>
+                  {user.email}
+                </ProfileContentStyle>
+              </>
+            )}
             {profile.postalCode && (
               <ProfileContentStyle>
                 <ScreenReaderItemStyle>
@@ -128,6 +134,22 @@ class UserInformationsHandler extends React.Component<Props, State> {
             </ScreenReaderItemStyle>
             <UserDescription description={profile.description} />
           </React.Fragment>
+        )}
+        {user.isOrganisation && (
+          <ProfileAlignLeftContentStyle>
+            <ScreenReaderItemStyle>
+              {i18n.t('profile.common.labels.website')}
+            </ScreenReaderItemStyle>
+            <SvgLink aria-hidden style={{ marginRight: '5px' }} />
+            <RedLinkStyle
+              as="a"
+              target="_blank"
+              rel="noreferrer noopener"
+              href={profile.website}
+            >
+              {profile.website}
+            </RedLinkStyle>
+          </ProfileAlignLeftContentStyle>
         )}
         <ProfileNavigationStyle>
           {navigationBar}

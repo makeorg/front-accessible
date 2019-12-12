@@ -67,13 +67,15 @@
         "postalcode": "Code postal",
         "profession": "Profession",
         "biography": "Biographie",
-        "email_optional": "E-mail",
-        "password_optional": "Mot de passe",
-        "firstname_optional": "Prénom",
+        "website": "Site Internet",
+        "email_optional": "E-mail (optionnel)",
+        "password_optional": "Mot de passe (optionnel)",
+        "firstname_optional": "Prénom (optionnel)",
         "age_optional": "Âge (optionnel)",
         "postalcode_optional": "Code postal (optionnel)",
         "profession_optional": "Profession (optionnel)",
-        "biography_optional": "Biographie (optionnel)"
+        "biography_optional": "Biographie (optionnel)",
+        "website_optional": "Site Internet (optionnel)"
       },
       "messages": {
         "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
@@ -95,7 +97,8 @@
         "firstname_is_mandatory": "Le champ {{label}} est obligatoire.",
         "invalid_postal_code": "Le code postal doit être composé de 5 chiffres.",
         "invalid_postal_code_dynamic": "Le {{label}} doit être composé de 5 chiffres.",
-        "submit_success": "La modification a bien été enregistrée."
+        "submit_success": "La modification a bien été enregistrée.",
+        "malformed": "Merci de respecter le format url \"https://example.com\""
       }
     },
     "notifications": {

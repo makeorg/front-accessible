@@ -33,6 +33,7 @@ import {
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
   ProfileSeparatorStyle,
+  ProfileAlignLeftContentStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
@@ -40,6 +41,8 @@ import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { SvgLink } from 'Client/ui/Svg/elements';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -144,6 +147,22 @@ const OrganisationPage = (props: Props) => {
               </ScreenReaderItemStyle>
               <UserDescription description={organisation.description} />
             </React.Fragment>
+          )}
+          {organisation.website && (
+            <ProfileAlignLeftContentStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.website')}
+              </ScreenReaderItemStyle>
+              <SvgLink aria-hidden style={{ marginRight: '5px' }} />
+              <RedLinkStyle
+                as="a"
+                target="_blank"
+                rel="noreferrer noopener"
+                href={organisation.website}
+              >
+                {organisation.website}
+              </RedLinkStyle>
+            </ProfileAlignLeftContentStyle>
           )}
         </ProfilePageSidebarStyle>
         <ProfilePageContentStyle>

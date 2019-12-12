@@ -30,6 +30,7 @@ export const update = async (userInformation: TypeUserInformationForm) => {
     profession: userInformation.profession,
     description: userInformation.description,
     optInNewsletter: userInformation.optInNewsletter,
+    website: userInformation.website,
   })
     .then(() => HttpStatus.HTTP_NO_CONTENT)
     .catch(errors => {

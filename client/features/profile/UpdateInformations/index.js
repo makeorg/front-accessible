@@ -14,6 +14,7 @@ import {
   JobFieldIcon,
   DescriptionFieldIcon,
   SubmitSaveIcon,
+  WebsiteLinkFieldIcon,
 } from 'Shared/constants/icons';
 import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import { type TypeUser, type TypeUserInformationForm } from 'Shared/types/user';
@@ -43,6 +44,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
     postalCode: setNullToEmptyString(user.profile.postalCode),
     description: setNullToEmptyString(user.profile.description),
     optInNewsletter: user.profile.optInNewsletter,
+    website: setNullToEmptyString(user.profile.website),
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
@@ -79,6 +81,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
   const firstnameError = getFieldError('firstname', errors);
   const ageError = getFieldError('dateofbirth', errors);
   const postalcodeError = getFieldError('postalCode', errors);
+  const websiteError = getFieldError('website', errors);
 
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
@@ -139,6 +142,20 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           withCounter
           handleChange={handleChange}
         />
+        {user.isOrganisation && (
+          <CustomPatternInput
+            type="text"
+            name="website"
+            icon={WebsiteLinkFieldIcon}
+            value={formValues.website}
+            label={i18n.t('common.form.label.website', {
+              context: 'optional',
+            })}
+            error={websiteError}
+            handleChange={handleChange}
+            pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"
+          />
+        )}
         <SubmitButton
           disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}

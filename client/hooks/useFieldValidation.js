@@ -13,6 +13,7 @@ export const useIsFieldValid = (
   let isRefEmpty = true;
   let inputField;
   let filledPostalCode;
+  let filledWebsite;
 
   if (initialError) {
     isInitialErrorEmpty = !initialError.message;
@@ -24,6 +25,9 @@ export const useIsFieldValid = (
     filledPostalCode =
       (inputField.value !== undefined || inputField.value !== '') &&
       inputField.name.toLowerCase() === 'postalcode';
+    filledWebsite =
+      (inputField.value !== undefined || inputField.value !== '') &&
+      inputField.name.toLowerCase() === 'website';
   }
 
   useEffect(() => {
@@ -40,6 +44,16 @@ export const useIsFieldValid = (
         inputField.setCustomValidity(
           i18n.t('common.form.messages.invalid_postal_code')
         );
+        validationStatus = !inputField.validity.patternMismatch;
+      }
+    }
+
+    if (filledWebsite) {
+      inputField.setCustomValidity('');
+      validationStatus = true;
+
+      if (inputField.validity.patternMismatch) {
+        inputField.setCustomValidity(i18n.t('common.form.messages.malformed'));
         validationStatus = !inputField.validity.patternMismatch;
       }
     }

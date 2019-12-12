@@ -15,6 +15,7 @@ export type Organisation = {
   publicProfile: boolean,
   slug: string,
   votesCount: number,
+  website: string,
 };
 
 export type OrganisationVote = {

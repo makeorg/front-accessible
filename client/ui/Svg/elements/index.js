@@ -51,3 +51,4 @@ export { SvgBretagneMap } from './BretagneMap';
 export { SvgBretagneMapMobile } from './BretagneMapMobile';
 export { SvgInstagramLogo } from './InstagramLogo';
 export { SvgTrending } from './Trending';
+export { SvgLink } from './Link';

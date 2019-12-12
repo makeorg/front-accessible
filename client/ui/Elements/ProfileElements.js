@@ -152,6 +152,13 @@ export const ProfileContentStyle = styled(ParagraphStyle)`
   }
 `;
 
+export const ProfileAlignLeftContentStyle = styled(ProfileContentStyle)`
+  width: 100%;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    text-align: left;
+  }
+`;
+
 export const ProfileDescriptionStyle = styled(ParagraphStyle)`
   padding: 0 5px;
   align-self: flex-start;
