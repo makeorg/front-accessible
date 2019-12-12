@@ -40,6 +40,7 @@ module.exports = {
       components: [
         'client/features/proposal/SingleProposalCard/index.js',
         'client/features/proposal/ProposalCardTagged/index.js',
+        'client/features/proposal/PopularProposalCard/index.js',
         'client/features/proposal/ProfileProposalCard/index.js',
         'client/features/proposal/ProfileVoteCard/index.js',
         'client/features/proposal/ProposalCardWithQuestion/index.js',
