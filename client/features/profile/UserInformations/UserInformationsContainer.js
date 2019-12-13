@@ -135,7 +135,7 @@ class UserInformationsHandler extends React.Component<Props, State> {
             <UserDescription description={profile.description} />
           </React.Fragment>
         )}
-        {user.isOrganisation && (
+        {user.isOrganisation && profile.website && (
           <ProfileAlignLeftContentStyle>
             <ScreenReaderItemStyle>
               {i18n.t('profile.common.labels.website')}
