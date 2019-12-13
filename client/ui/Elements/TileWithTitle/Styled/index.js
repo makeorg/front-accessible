@@ -7,7 +7,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { FourthLevelTitleStyle } from '../../TitleElements';
 
 export const TileWithTitleStyle = styled.div`
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${props => props.backgroundColor || BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
   padding: 20px;

@@ -5,6 +5,7 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { type TypePopularTag } from 'Shared/types/tag';
+import { type Proposal } from 'Shared/types/proposal';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -13,6 +14,11 @@ export type StateConfig = $ReadOnly<{
   country: string,
   translations: Object,
 }>;
+
+export type PopularProposals = {
+  total: number,
+  results: Proposal[],
+};
 
 // Proposal State
 export type StateProposal = $ReadOnly<{
@@ -72,6 +78,7 @@ export type StateQuestions = $ReadOnly<{
     question: TypeQuestion,
     questionResults: TypeQuestionResults,
     popularTags: TypePopularTag[],
+    popularProposals: PopularProposals[],
   },
 }>;
 

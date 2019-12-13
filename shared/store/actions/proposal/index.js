@@ -1,9 +1,8 @@
 /* @flow */
-
+import { type Dispatch } from 'redux';
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { Logger } from 'Shared/services/Logger';
-import { type Dispatch } from 'redux';
 
 export const proposeSuccess = () => ({ type: actionTypes.PROPOSE_SUCCESS });
 

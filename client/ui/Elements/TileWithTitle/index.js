@@ -16,17 +16,24 @@ type Props = {
   icon?: Node,
   /** Optional as for Tile */
   as?: string,
+  /** Optional css style */
+  style?: Object,
 };
 
-export const TileWithTitle = ({ title, children, id, icon, as }: Props) => {
-  return (
-    <TileWithTitleStyle id={id} as={as}>
-      <TileTitleStyle as="h3">
-        {icon}
-        {title}
-      </TileTitleStyle>
-      <TileSeparatorStyle />
-      {children}
-    </TileWithTitleStyle>
-  );
-};
+export const TileWithTitle = ({
+  title,
+  children,
+  id,
+  icon,
+  as,
+  style,
+}: Props) => (
+  <TileWithTitleStyle id={id} as={as} style={style}>
+    <TileTitleStyle as="h3">
+      {icon}
+      {title}
+    </TileTitleStyle>
+    <TileSeparatorStyle />
+    {children}
+  </TileWithTitleStyle>
+);

@@ -37,7 +37,9 @@ export const PopularProposalCard = ({
       aria-posinset={position}
       aria-setsize={size}
     >
-      <PopularProposalHeader aria-hidden>#1</PopularProposalHeader>
+      <PopularProposalHeader aria-hidden>
+        {`#${position}`}
+      </PopularProposalHeader>
       <AuthorWrapperStyle>
         <ProposalAuthorElement
           country={proposal.country}
