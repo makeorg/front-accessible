@@ -23,7 +23,6 @@ export type PopularProposals = {
 // Proposal State
 export type StateProposal = $ReadOnly<{
   hasProposed: boolean,
-  popularProposals: PopularProposals[],
 }>;
 
 // Sequence State
@@ -79,6 +78,7 @@ export type StateQuestions = $ReadOnly<{
     question: TypeQuestion,
     questionResults: TypeQuestionResults,
     popularTags: TypePopularTag[],
+    popularProposals: PopularProposals[],
   },
 }>;
 

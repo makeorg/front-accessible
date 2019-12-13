@@ -5,7 +5,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { type Question } from 'Shared/types/question';
 import { type TypeSliderParams } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
-import { fetchPopularProposals } from 'Shared/store/actions/proposal';
+import { fetchPopularProposals } from 'Shared/store/actions/question';
 import {
   type StateRoot,
   type PopularProposals as PopularProposalsType,
@@ -57,11 +57,11 @@ export const PopularProposals = ({ question }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
   const proposals: PopularProposalsType = useSelector(
-    (state: StateRoot) => state.proposal.popularProposals
+    (state: StateRoot) => state.questions[question.slug].popularProposals
   );
 
   useEffect(() => {
-    dispatch(fetchPopularProposals(question.questionId));
+    dispatch(fetchPopularProposals(question.questionId, question.slug));
   }, [dispatch, question.questionId]);
 
   const hasProposals = proposals && proposals.results.length > 0;

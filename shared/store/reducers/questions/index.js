@@ -33,6 +33,14 @@ export function questions(
           popularTags: action.payload.popularTags,
         },
       };
+    case actionTypes.PROPOSAL_POPULAR_LOAD:
+      return {
+        ...state,
+        [action.payload.questionSlug]: {
+          ...state[action.payload.questionSlug],
+          popularProposals: action.payload.popularProposals,
+        },
+      };
     default:
       return state;
   }
