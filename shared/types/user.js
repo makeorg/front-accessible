@@ -11,12 +11,13 @@ export type TypeProfile = {
   gender: string,
   genderName: string,
   postalCode: string,
-  karmaLevel: 0,
+  karmaLevel: number,
   locale: string,
   optInNewsletter: boolean,
   socioProfessionalCategory: string,
   registerQuestionId: string,
   optInPartner: boolean,
+  website: string,
 };
 
 export type TypeUser = {
@@ -54,6 +55,7 @@ export type TypeUserInformationForm = {
   postalCode: string,
   description: string,
   optInNewsletter: boolean,
+  website: string,
 };
 
 export type UserInformationFormErrors = {

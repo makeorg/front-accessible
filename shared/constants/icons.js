@@ -10,6 +10,7 @@ import {
   SvgPaperPlane,
   SvgPencil,
   SvgSaveFileOption,
+  SvgLink,
 } from 'Client/ui/Svg/elements';
 
 /** Form Icons */
@@ -18,6 +19,9 @@ export const PasswordFieldIcon = <SvgLock />;
 export const AgeFieldIcon = <SvgChild />;
 export const FirstNameFieldIcon = <SvgUser />;
 export const PostalCodeFieldIcon = <SvgMapMarker />;
+export const WebsiteLinkFieldIcon = (
+  <SvgLink style={{ width: '18px', height: '18px' }} />
+);
 export const JobFieldIcon = <SvgSuitcase />;
 export const DescriptionFieldIcon = <SvgPencil />;
 export const SubmitThumbsUpIcon = <SvgThumbsUp />;
