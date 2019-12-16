@@ -53,7 +53,4 @@ export const GliderStylesheet = createGlobalStyle`
   .glider-hide {
     visibility: hidden;
   }
-  .glider-slide {
-    min-width: 150px;
-  }
 `;
