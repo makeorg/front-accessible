@@ -12,6 +12,9 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { TagService } from 'Shared/api/TagService';
+import { PopularProposals } from 'Client/features/proposal/PopularProposals';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { CONSULTATION_POPULAR_PROPOSALS } from 'Shared/constants/featureFlipping';
 import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
@@ -64,6 +67,11 @@ export const ConsultationContent = ({ question }: Props) => {
 
   const selectedTags = tags.filter(tag => tag.isSelected);
 
+  const hasPopularProposals = checkIsFeatureActivated(
+    CONSULTATION_POPULAR_PROPOSALS,
+    question.activeFeatures
+  );
+
   return (
     <React.Fragment>
       <MetaTags
@@ -90,6 +98,7 @@ export const ConsultationContent = ({ question }: Props) => {
           sortTypeKey={sort}
           tags={selectedTags.map(tag => tag.tagId)}
         />
+        {hasPopularProposals && <PopularProposals question={question} />}
       </ConsultationPageContentStyle>
     </React.Fragment>
   );

@@ -593,7 +593,7 @@
       }
     },
     "popular_proposals": {
-      "title": "TOP {{ count }} des propositions les plus populaires"
+      "title": "TOP {{ count }} des propositions les plus populaires du moment"
     }
   },
   "sharing": {
