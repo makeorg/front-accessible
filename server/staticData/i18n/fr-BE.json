@@ -441,7 +441,8 @@
       "proposal_disagree": "n'est pas d'accord avec cette proposition",
       "and": " et ",
       "hasVoted": " a voté sur cette proposition.",
-      "hasVoted_plural": " ont voté sur cette proposition."
+      "hasVoted_plural": " ont voté sur cette proposition.",
+      "sharing_title": "Partagez ce profil"
     }
   },
   "organisation": {
