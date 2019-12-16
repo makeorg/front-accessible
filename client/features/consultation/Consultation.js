@@ -12,7 +12,6 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { TagService } from 'Shared/api/TagService';
-import { PopularProposals } from 'Client/features/proposal/PopularProposals';
 import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
@@ -91,7 +90,6 @@ export const ConsultationContent = ({ question }: Props) => {
           sortTypeKey={sort}
           tags={selectedTags.map(tag => tag.tagId)}
         />
-        <PopularProposals question={question} />
       </ConsultationPageContentStyle>
     </React.Fragment>
   );
