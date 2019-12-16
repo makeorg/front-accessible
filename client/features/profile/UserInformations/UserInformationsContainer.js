@@ -22,9 +22,9 @@ import {
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
   ProfileAlignLeftContentStyle,
+  ProfileWebsiteLinkStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -141,14 +141,14 @@ class UserInformationsHandler extends React.Component<Props, State> {
               {i18n.t('profile.common.labels.website')}
             </ScreenReaderItemStyle>
             <SvgLink aria-hidden style={{ marginRight: '5px' }} />
-            <RedLinkStyle
+            <ProfileWebsiteLinkStyle
               as="a"
               target="_blank"
               rel="noreferrer noopener"
               href={profile.website}
             >
               {profile.website}
-            </RedLinkStyle>
+            </ProfileWebsiteLinkStyle>
           </ProfileAlignLeftContentStyle>
         )}
         <ProfileNavigationStyle>
