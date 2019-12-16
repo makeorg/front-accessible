@@ -28,8 +28,12 @@ type Props = {
   size: number,
 };
 
-export const ProposalCardWithQuestion = (props: Props) => {
-  const { proposal, withOrganisations, position, size } = props;
+export const ProposalCardWithQuestion = ({
+  proposal,
+  withOrganisations = false,
+  position,
+  size,
+}: Props) => {
   const { author, question } = proposal;
   const proposalLink = getProposalLink(
     proposal.country,
@@ -92,8 +96,4 @@ export const ProposalCardWithQuestion = (props: Props) => {
       />
     </ProposalCardStyle>
   );
-};
-
-ProposalCardWithQuestion.defaultProps = {
-  withOrganisations: false,
 };
