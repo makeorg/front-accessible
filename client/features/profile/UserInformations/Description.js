@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   ProfileDescriptionStyle,
   ProfileCollapseWrapperStyle,
@@ -9,71 +7,40 @@ import {
   ProfileCollapseButtonStyle,
   ProfileSeparatorStyle,
 } from 'Client/ui/Elements/ProfileElements';
+import { useMobile } from 'Client/hooks/useMedia';
 
 type Props = {
   description: string,
 };
 
-type State = {
-  isCollapsed: boolean,
-  isMobile: boolean,
-};
+export const UserDescription = ({ description }: Props) => {
+  const [isCollapsed, setCollapse] = useState(false);
+  const isMobile = useMobile();
+  const renderCollapseTrigger = description.length > 150 && isMobile;
 
-export class UserDescription extends React.Component<Props, State> {
-  state = {
-    isCollapsed: false,
-    isMobile: false,
-  };
-
-  componentDidMount() {
-    this.setResponsiveRendering();
-    window.addEventListener('resize', this.setResponsiveRendering);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.setResponsiveRendering);
-  }
-
-  setResponsiveRendering = () => {
-    const isMobile = window.matchMedia(
-      `(max-width: ${intToPx(Breakpoints.Tablet)}`
-    ).matches;
-
+  useEffect(() => {
     if (isMobile) {
-      this.setState({ isCollapsed: true, isMobile: true });
+      setCollapse(true);
     }
-  };
+  }, [isMobile]);
 
-  toggleCollapse = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      isCollapsed: !prevState.isCollapsed,
-    }));
-  };
-
-  render() {
-    const { description } = this.props;
-    const { isCollapsed, isMobile } = this.state;
-    const renderCollapseTrigger = description.length > 150 && isMobile;
-
-    return (
-      <React.Fragment>
-        <ProfileDescriptionStyle isCollapsed={isCollapsed}>
-          {description}
-        </ProfileDescriptionStyle>
-        {renderCollapseTrigger ? (
-          <ProfileCollapseWrapperStyle>
-            <ProfileCollapseSeparatorStyle isCollapsed={isCollapsed} />
-            <ProfileCollapseButtonStyle onClick={this.toggleCollapse}>
-              {isCollapsed
-                ? i18n.t('profile.informations_update.more')
-                : i18n.t('profile.informations_update.less')}
-            </ProfileCollapseButtonStyle>
-          </ProfileCollapseWrapperStyle>
-        ) : (
-          <ProfileSeparatorStyle />
-        )}
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <ProfileDescriptionStyle isCollapsed={isCollapsed}>
+        {description}
+      </ProfileDescriptionStyle>
+      {renderCollapseTrigger ? (
+        <ProfileCollapseWrapperStyle>
+          <ProfileCollapseSeparatorStyle isCollapsed={isCollapsed} />
+          <ProfileCollapseButtonStyle onClick={() => setCollapse(!isCollapsed)}>
+            {isCollapsed
+              ? i18n.t('profile.informations_update.more')
+              : i18n.t('profile.informations_update.less')}
+          </ProfileCollapseButtonStyle>
+        </ProfileCollapseWrapperStyle>
+      ) : (
+        <ProfileSeparatorStyle />
+      )}
+    </React.Fragment>
+  );
+};
