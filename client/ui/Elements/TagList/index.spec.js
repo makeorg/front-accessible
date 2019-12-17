@@ -10,6 +10,7 @@ jest.mock('./style', () => ({
   TagElementUnderlinedStyle: 'TagElementUnderlinedStyle',
   TaglistWrapperStyle: 'TaglistWrapperStyle',
   TagListFooterStyle: 'TagListFooterStyle',
+  TagLabelStyle: 'TagLabelStyle',
   CenterButtonStyle: 'CenterButtonStyle',
 }));
 

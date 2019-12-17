@@ -45,6 +45,12 @@ export const TagButtonElementStyle = styled(UnstyledButtonStyle)`
     props.isSelected ? MakeThemeColors.Red : BasicColors.PureWhite};
 `;
 
+export const TagLabelStyle = styled.span`
+  &::first-letter {
+    text-transform: uppercase;
+  }
+`;
+
 export const TagListHeaderStyle = styled.div`
   display: flex;
   order: 1;

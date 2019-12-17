@@ -37,11 +37,9 @@ export const TeasingHeaderCenterStyle = styled.div`
 
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex: 1;
-
     &:nth-child(1) {
       flex: 2;
     }
-
     &:nth-child(2) {
       flex: 1;
       border-top: 0;
@@ -61,13 +59,8 @@ export const TeasingHeaderTextStyle = styled.p`
 export const TeasingHeaderSubTextStyle = styled.p`
   color: ${TextColors.MediumGrey};
   margin-top: 5px;
-
   a {
     font-family: ${MakeFonts.CircularStandardBold};
     color: ${MakeThemeColors.Red};
   }
-`;
-
-export const TeasingHeaderLinkStyle = styled.p`
-  color: ${MakeThemeColors.Red};
 `;
