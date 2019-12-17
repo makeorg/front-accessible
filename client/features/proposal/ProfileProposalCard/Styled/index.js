@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { CardStyle } from 'Client/ui/Cards';
-import { TextColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import {
+  TextColors,
+  BasicColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 
 export const ProfileProposalCardStyle = styled(CardStyle)`
   margin: 15px 0;
@@ -18,6 +22,9 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &.proposal-pending {
     * {
       color: ${TextColors.MediumGrey};
+    }
+    a {
+      color ${MakeThemeColors.Red};
     }
     header,
     .status-refused {

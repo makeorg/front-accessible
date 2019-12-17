@@ -2,25 +2,7 @@
 
 exports[`ProposalFooterWithQuestionElement must match the diff snapshot between default vs custom avatar 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ -2,13 +2,11 @@
-    <PostedInLabelStyle
-      as="span"
-    >
-      proposal_card.posted_label
-    </PostedInLabelStyle>
--   <a
-+   <span
-      className="mk121c-0 cPJqEo"
--     href="/fooLink"
--     onClick={[Function onClick]}
-    >
-      Est ce que cette documentation est bonne ?
--   </a>
-+   </span>
-  </ProposalFooterStyle>
+Compared values have no visual difference.
 `;
 
 exports[`ProposalFooterWithTagElement must match the snapshot with default Props 1`] = `

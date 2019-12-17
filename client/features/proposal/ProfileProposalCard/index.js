@@ -18,12 +18,9 @@ type Props = {
   position: number,
   /** Size of proposals list */
   size: number,
-  /** Optional display for proposal's status */
-  withStatus?: boolean,
 };
 
-export const ProfileProposalCard = (props: Props) => {
-  const { proposal, position, size } = props;
+export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
   const { author, question } = proposal;
   const formattedProposalStatus = proposal.status.toLowerCase();
   const isProposalAccepted = formattedProposalStatus === 'accepted';
@@ -74,12 +71,7 @@ export const ProfileProposalCard = (props: Props) => {
           proposal.language,
           question.slug
         )}
-        isProposalAccepted={isProposalAccepted}
       />
     </ProfileProposalCardStyle>
   );
-};
-
-ProfileProposalCard.defaultPropTypes = {
-  withStatus: false,
 };
