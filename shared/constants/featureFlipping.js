@@ -6,5 +6,6 @@ export const CONSULTATION_DEPARTMENT_COMPULSORY =
 export const CONSULTATION_FOLLOW_US_ACTIVE = 'consultation-follow-us-active';
 export const MUNICIPAL_TEASING_HEADER = 'consultation-election-teasing-header';
 export const CONSULTATION_POPULAR_TAGS = 'consultation-popular-tags';
+export const CONSULTATION_POPULAR_PROPOSALS = 'consultation-popular-proposals';
 export const CONSULTATION_SIDEBAR_ACTIVE_ACTORS =
   'consultation-sidebar-active-actors';

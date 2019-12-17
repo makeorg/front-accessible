@@ -28,4 +28,5 @@ export const ProposalStyle = styled(Link)`
 
 export const ProposalCardStyle = styled(CardStyle)`
   margin: 15px 0 0;
+  height: 100%;
 `;

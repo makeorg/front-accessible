@@ -74,7 +74,9 @@ export const PopularProposals = ({ question }: Props) => {
 
   return (
     <TileWithTitle
-      title={i18n.t('consultation.popular_proposals.title')}
+      title={i18n.t('consultation.popular_proposals.title', {
+        count: proposals.results.length,
+      })}
       style={{
         backgroundColor: BackgroundColors.ExtraLightGrey,
         marginTop: '15px',
