@@ -1,31 +1,27 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { searchTaggedProposals } from 'Shared/helpers/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
+import { InfiniteProposalsContainerStyle } from './style';
 
 type Props = {
-  country: string,
-  language: string,
   question: TypeQuestion,
   tags: string[],
   sortTypeKey: string,
 };
 
-const InfiniteProposalsComponent = ({
-  country,
-  language,
-  question,
-  tags,
-  sortTypeKey,
-}: Props) => {
+export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
+  const country = useSelector((state: StateRoot) => state.appConfig.country);
+  const language = useSelector((state: StateRoot) => state.appConfig.language);
   const [proposals, setProposals] = useState<TypeProposal[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState<?number>(undefined);
@@ -82,7 +78,11 @@ const InfiniteProposalsComponent = ({
   const displayLoadMoreButton = hasMore && !isLoading;
 
   return (
-    <section id="proposal_list" role="feed" aria-live="polite">
+    <InfiniteProposalsContainerStyle
+      id="proposal_list"
+      role="feed"
+      aria-live="polite"
+    >
       {proposals &&
         proposals.map((proposal, index) => (
           <ProposalCardTagged
@@ -100,19 +100,6 @@ const InfiniteProposalsComponent = ({
           </RedButtonStyle>
         </LoadMoreWrapperStyle>
       )}
-    </section>
+    </InfiniteProposalsContainerStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const InfiniteProposals = connect(mapStateToProps)(
-  InfiniteProposalsComponent
-);
