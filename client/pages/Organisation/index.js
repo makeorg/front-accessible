@@ -35,6 +35,7 @@ import {
   ProfileTitleStyle,
   ProfileSeparatorStyle,
   ProfileAlignLeftContentStyle,
+  ProfileWebsiteLinkStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
@@ -43,7 +44,6 @@ import { UserDescription } from 'Client/features/profile/UserInformations/Descri
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SvgLink } from 'Client/ui/Svg/elements';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 
@@ -158,14 +158,14 @@ const OrganisationPage = (props: Props) => {
                   {i18n.t('profile.common.labels.website')}
                 </ScreenReaderItemStyle>
                 <SvgLink aria-hidden style={{ marginRight: '5px' }} />
-                <RedLinkStyle
+                <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"
                   rel="noreferrer noopener"
                   href={organisation.website}
                 >
                   {organisation.website}
-                </RedLinkStyle>
+                </ProfileWebsiteLinkStyle>
               </ProfileAlignLeftContentStyle>
             )}
           </ProfilePageSidebarStyle>

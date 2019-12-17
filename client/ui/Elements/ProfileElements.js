@@ -27,6 +27,7 @@ import {
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { RedLinkStyle } from './LinkElements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -173,6 +174,7 @@ export const ProfileDescriptionStyle = styled(ParagraphStyle)`
   align-self: flex-start;
   max-height: ${props => (props.isCollapsed ? '35px' : '100%')};
   overflow: ${props => (props.isCollapsed ? 'hidden' : 'visible')};
+  word-break: break-all;
 `;
 
 export const ProfileSeparatorStyle = styled(SeparatorStyle)`
@@ -181,6 +183,10 @@ export const ProfileSeparatorStyle = styled(SeparatorStyle)`
 
 export const ProfileInformationButtonStyle = styled(GreyButtonStyle)`
   margin: 10px 0 0;
+`;
+
+export const ProfileWebsiteLinkStyle = styled(RedLinkStyle)`
+  word-break: break-all;
 `;
 
 export const ProfileCollapseWrapperStyle = styled(MiddleRowStyle)`
