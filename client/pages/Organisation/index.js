@@ -26,6 +26,7 @@ import {
   ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
+  ProfilePageSidebarWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
   ProfileAvatarLayoutStyle,
@@ -43,6 +44,8 @@ import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation'
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SvgLink } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
+import { Sharing } from 'Client/features/sharing';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -118,53 +121,58 @@ const OrganisationPage = (props: Props) => {
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle>
-          <ProfileAvatarLayoutStyle>
-            <ProfileAvatarStyle>
-              <Avatar
-                avatarSize={avatarSize}
-                avatarUrl={organisation.avatarUrl}
-              />
-            </ProfileAvatarStyle>
-          </ProfileAvatarLayoutStyle>
-          <ProfileContentWrapperStyle>
-            <ProfileTitleStyle>
-              <ScreenReaderItemStyle>
-                {i18n.t('profile.common.labels.organisation')}
-              </ScreenReaderItemStyle>
-              {organisation.organisationName}
-              &nbsp;
-              <SvgCheckedSymbol
-                style={{ fontSize: '14px', fill: TextColors.Blue }}
-              />
-            </ProfileTitleStyle>
-          </ProfileContentWrapperStyle>
-          {organisation.description && (
-            <React.Fragment>
-              <ProfileSeparatorStyle />
-              <ScreenReaderItemStyle>
-                {i18n.t('profile.common.labels.biography')}
-              </ScreenReaderItemStyle>
-              <UserDescription description={organisation.description} />
-            </React.Fragment>
-          )}
-          {organisation.website && (
-            <ProfileAlignLeftContentStyle>
-              <ScreenReaderItemStyle>
-                {i18n.t('profile.common.labels.website')}
-              </ScreenReaderItemStyle>
-              <SvgLink aria-hidden style={{ marginRight: '5px' }} />
-              <RedLinkStyle
-                as="a"
-                target="_blank"
-                rel="noreferrer noopener"
-                href={organisation.website}
-              >
-                {organisation.website}
-              </RedLinkStyle>
-            </ProfileAlignLeftContentStyle>
-          )}
-        </ProfilePageSidebarStyle>
+        <ProfilePageSidebarWrapperStyle>
+          <ProfilePageSidebarStyle>
+            <ProfileAvatarLayoutStyle>
+              <ProfileAvatarStyle>
+                <Avatar
+                  avatarSize={avatarSize}
+                  avatarUrl={organisation.avatarUrl}
+                />
+              </ProfileAvatarStyle>
+            </ProfileAvatarLayoutStyle>
+            <ProfileContentWrapperStyle>
+              <ProfileTitleStyle>
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.organisation')}
+                </ScreenReaderItemStyle>
+                {organisation.organisationName}
+                &nbsp;
+                <SvgCheckedSymbol
+                  style={{ fontSize: '14px', fill: TextColors.Blue }}
+                />
+              </ProfileTitleStyle>
+            </ProfileContentWrapperStyle>
+            {organisation.description && (
+              <React.Fragment>
+                <ProfileSeparatorStyle />
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.biography')}
+                </ScreenReaderItemStyle>
+                <UserDescription description={organisation.description} />
+              </React.Fragment>
+            )}
+            {organisation.website && (
+              <ProfileAlignLeftContentStyle>
+                <ScreenReaderItemStyle>
+                  {i18n.t('profile.common.labels.website')}
+                </ScreenReaderItemStyle>
+                <SvgLink aria-hidden style={{ marginRight: '5px' }} />
+                <RedLinkStyle
+                  as="a"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href={organisation.website}
+                >
+                  {organisation.website}
+                </RedLinkStyle>
+              </ProfileAlignLeftContentStyle>
+            )}
+          </ProfilePageSidebarStyle>
+          <TileWithTitle title={i18n.t('profile.organisation.sharing_title')}>
+            <Sharing />
+          </TileWithTitle>
+        </ProfilePageSidebarWrapperStyle>
         <ProfilePageContentStyle>
           <TabNavStyle
             aria-label={i18n.t('common.secondary_nav')}

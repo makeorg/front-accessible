@@ -69,12 +69,21 @@ export const ProfilePageContentStyle = styled(ContentElementStyle)`
   }
 `;
 
+export const ProfilePageSidebarWrapperStyle = styled.div`
+  width: 100%;
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 360px;
+  }
+`;
+
 export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   align-items: center;
   background-color: ${BasicColors.PureWhite};
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 0 ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
+  margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 360px;
     margin-right: 30px;
