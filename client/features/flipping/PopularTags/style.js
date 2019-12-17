@@ -30,11 +30,14 @@ export const PopularTagsListItemStyle = styled.li`
 `;
 
 export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
-  display: inline-flex;
+  display: inline-block;
   font-size: 12px;
   line-height: 18px;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
+  &::first-letter {
+    text-transform: uppercase;
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 21px;

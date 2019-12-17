@@ -16,6 +16,7 @@ import {
   TaglistWrapperStyle,
   TagListFooterStyle,
   CenterButtonStyle,
+  TagLabelStyle,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
@@ -84,7 +85,7 @@ export const TagList = ({
                   ? i18n.t('consultation.tags.remove_filter')
                   : i18n.t('consultation.tags.add_filter')}
               </ScreenReaderItemStyle>
-              {tag.label}
+              <TagLabelStyle>{tag.label}</TagLabelStyle>
               {tag.isSelected && (
                 <SvgClose
                   style={{ width: '10px', fill: BasicColors.PureWhite }}

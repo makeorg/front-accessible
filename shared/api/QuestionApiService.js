@@ -46,11 +46,13 @@ export class QuestionApiService {
 
   static getQuestionPopularTags(
     questionId: string,
+    limit: ?number = 5,
+    skip: ?number = undefined,
     headers?: ApiServiceHeaders = {}
   ): Promise<Object> {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_POPULAR_TAGS, { questionId }),
-      { method: 'GET', headers }
+      { method: 'GET', headers, params: { limit, skip } }
     );
   }
 
