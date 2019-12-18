@@ -10,7 +10,7 @@ import { CorporateBanner } from 'Client/features/homepage/Corporate';
 import { BusinessConsultations } from 'Client/features/consultation/Business';
 import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
-import { PopularProposals } from 'Client/features/homepage/Proposals/Popular';
+import { HomepagePopularProposals } from 'Client/features/homepage/Proposals/Popular';
 import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 import { HomepageWrapperStyle } from './Styled';
@@ -43,7 +43,7 @@ export const HomePage = () => {
       <MetaTags />
       <FeaturedConsultations featureds={data.featuredConsultations} />
       <CurrentConsultations consultations={data.currentConsultations} />
-      <PopularProposals
+      <HomepagePopularProposals
         proposals={data.popularProposals}
         isLoading={isLoading}
       />

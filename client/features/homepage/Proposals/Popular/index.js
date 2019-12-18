@@ -13,11 +13,13 @@ import {
   ProposalsSliderListItemStyle,
 } from '../Styled';
 
-type PopularProposalsProps = {
+type HomepagePopularProposalsProps = {
   proposals: TypeProposal[],
 };
 
-export const PopularProposals = ({ proposals }: PopularProposalsProps) => {
+export const HomepagePopularProposals = ({
+  proposals,
+}: HomepagePopularProposalsProps) => {
   const hasProposals = proposals.length > 0;
   const POPULAR_SLIDER = 'popularshowcase';
   const isDesktop = useDesktop();
