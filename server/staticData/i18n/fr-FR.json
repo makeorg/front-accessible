@@ -507,6 +507,8 @@
       "founder": "Partenaire Fondateur",
       "init": "Cette consultation a été initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
+      "with": "En partenariat avec :",
+      "by": "Initié par : ",
       "profile_link": "Aller sur le profil de : {{name}}",
       "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
     },
