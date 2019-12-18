@@ -165,7 +165,7 @@
     "max_characters": "caractères maximum",
     "back": "Retour",
     "proposal_count": "{{count}} proposition",
-    "proposal_count_plural": "{{count}} propositions", 
+    "proposal_count_plural": "{{count}} propositions",
     "vote_count": "{{count}} vote",
     "vote_count_plural": "{{count}} votes"
   },
@@ -508,7 +508,7 @@
       "init": "Cette consultation a été initiée par :",
       "initWith": "Cette consultation a été initiée avec :",
       "with": "En partenariat avec :",
-      "by": "Initié par : ",
+      "by": "Initiée par : ",
       "profile_link": "Aller sur le profil de : {{name}}",
       "profile_link_new_window": "Aller sur le profil de : {{name}} (nouvelle fenêtre)"
     },
