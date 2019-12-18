@@ -63,7 +63,7 @@ describe('Twitter Tracking Service', () => {
 
     TwitterTracking.track('badevent');
     expect(twttr.track).not.toHaveBeenCalled();
-    expect(Logger.logWarning).toHaveBeenCalledWith(
+    expect(Logger.logInfo).toHaveBeenCalledWith(
       'twitter action not found: badevent'
     );
   });
