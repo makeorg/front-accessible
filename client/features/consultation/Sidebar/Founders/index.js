@@ -41,7 +41,7 @@ const PartnersListByType = ({
       {medias.length > 0 && (
         <>
           <FoundersTitleStyle>
-            {i18n.t('consultation.partners.by')}
+            {i18n.t('consultation.partners.with')}
           </FoundersTitleStyle>
           <PartnersList partners={medias} />
         </>
@@ -49,7 +49,7 @@ const PartnersListByType = ({
       {founders.length > 0 && (
         <>
           <FoundersTitleStyle>
-            {i18n.t('consultation.partners.with')}
+            {i18n.t('consultation.partners.by')}
           </FoundersTitleStyle>
           <PartnersList partners={founders} />
         </>
