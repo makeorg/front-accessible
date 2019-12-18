@@ -21,8 +21,10 @@
     "typescript.validate.enable": false,
     "javascript.validate.enable": false,
     "prettier.eslintIntegration": true,
-    "eslint.autoFixOnSave": true,
     "editor.formatOnSave": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   }
 }
