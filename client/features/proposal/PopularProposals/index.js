@@ -28,6 +28,8 @@ import {
 
 type Props = {
   question: Question,
+  position: number,
+  size: number,
 };
 
 const sliderName = 'popularProposals';
@@ -52,7 +54,7 @@ const sliderParams: TypeSliderParams = {
   },
 };
 
-export const PopularProposals = ({ question }: Props) => {
+export const PopularProposals = ({ question, position, size }: Props) => {
   const sliderRef = useRef();
   const isMobile = useMobile();
   const dispatch = useDispatch();
@@ -77,6 +79,8 @@ export const PopularProposals = ({ question }: Props) => {
       title={i18n.t('consultation.popular_proposals.title', {
         count: proposals.results.length,
       })}
+      position={position}
+      size={size}
       style={{
         backgroundColor: BackgroundColors.ExtraLightGrey,
         marginTop: '15px',

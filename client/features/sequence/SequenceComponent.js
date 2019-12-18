@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import * as sequenceHelper from 'Shared/helpers/sequence';
-import { type TypeCard } from 'Shared/types/card';
+import { type TypeSequenceCard } from 'Shared/types/card';
 import { CollapseToggle } from './Button';
 import { Card } from './Card';
 import { SequenceStyle, WrapperStyle, ListStyle } from './Styled';
@@ -10,7 +10,7 @@ export type Props = {
   /** Number of cards */
   cardsCount: number,
   /** Array with cards */
-  cards: TypeCard[],
+  cards: TypeSequenceCard[],
   /** Incremented / Decremented Index */
   currentIndex: number,
   /** Offset of cards without pagination (introCard) */

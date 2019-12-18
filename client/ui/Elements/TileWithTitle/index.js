@@ -18,6 +18,10 @@ type Props = {
   as?: string,
   /** Optional css style */
   style?: Object,
+  /** Optional postion in proposals list */
+  position?: number,
+  /** Optional size of proposals list  */
+  size?: number,
 };
 
 export const TileWithTitle = ({
@@ -27,8 +31,16 @@ export const TileWithTitle = ({
   icon,
   as,
   style,
+  position,
+  size,
 }: Props) => (
-  <TileWithTitleStyle id={id} as={as} style={style}>
+  <TileWithTitleStyle
+    id={id}
+    as={as}
+    style={style}
+    aria-posinset={position}
+    aria-setsize={size}
+  >
     <TileTitleStyle as="h3">
       {icon}
       {title}

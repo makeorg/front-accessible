@@ -6,7 +6,7 @@ import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { trackClickStartSequence } from 'Shared/services/Tracking';
-import { type TypeCard } from 'Shared/types/card';
+import { type TypeSequenceCard } from 'Shared/types/card';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { SequenceComponent } from './SequenceComponent';
@@ -71,7 +71,7 @@ const SequenceHandler = ({
           ...proposalIds,
         ]);
 
-        const buildedCards: TypeCard[] = SequenceHelper.buildCards(
+        const buildedCards: TypeSequenceCard[] = SequenceHelper.buildCards(
           proposals,
           question.sequenceConfig,
           isLoggedIn,
