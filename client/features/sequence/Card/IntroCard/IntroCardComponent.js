@@ -47,7 +47,11 @@ export const IntroCardComponent = (props: Props) => {
 
   return (
     <React.Fragment>
-      <ScreenReaderItemStyle as="dt" aria-hidden={!isCardVisible}>
+      <ScreenReaderItemStyle
+        as="dt"
+        aria-hidden={!isCardVisible}
+        id={`card-${position}-title`}
+      >
         {i18n.t('intro_card.purpose')}
       </ScreenReaderItemStyle>
       <ProposalCardCenteredStyle
@@ -58,6 +62,7 @@ export const IntroCardComponent = (props: Props) => {
         isCardVisible={isCardVisible}
         aria-hidden={!isCardVisible}
         as="dd"
+        id={`card-${position}`}
       >
         <TitleWrapperStyle>
           <ExtraLogo extraLogo={configuration.extraLogo} />

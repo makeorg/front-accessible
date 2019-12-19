@@ -1,53 +1,56 @@
 const jsonServer = require('json-server');
-const path = require('path');
-
-const voteResponseData = require('../db/vote.json');
+const { fixtures } = require('../fixtures/generator');
 
 const proposalsRouter = jsonServer.create();
 
-proposalsRouter.use(
-  '/',
-  jsonServer.router(path.join(__dirname, '../db/proposals.json'))
-);
-
 proposalsRouter.use('/:proposalId/vote', (req, res) => {
-  const voteData = voteResponseData.find(
-    vote => vote.voteKey === req.body.voteKey
-  );
-
-  return res.send({ ...voteData, hasVoted: true });
+  return res.send({
+    ...fixtures.vote,
+    hasVoted: true,
+    voteKey: req.body.voteKey,
+  });
 });
+
 proposalsRouter.use('/:proposalId/unvote', (req, res) => {
-  const voteData = voteResponseData.find(
-    vote => vote.voteKey === req.body.voteKey
-  );
-
-  return res.send({ ...voteData, hasVoted: false });
+  return res.send({
+    ...fixtures.vote,
+    hasVoted: false,
+    voteKey: req.body.voteKey,
+  });
 });
+
 proposalsRouter.use('/:proposalId/qualification', (req, res) => {
-  const voteData = voteResponseData.find(
-    vote => vote.voteKey === req.body.voteKey
-  );
-
-  const qualificationData = voteData.qualifications.find(
-    qualification =>
-      qualification.qualificationKey === req.body.qualificationKey
-  );
-
-  return res.send({ ...qualificationData, hasQualified: true });
+  return res.send({
+    ...fixtures.vote.qualifications.find(
+      qualification =>
+        qualification.qualificationKey === req.body.qualificationKey
+    ),
+    hasQualified: true,
+  });
 });
 
 proposalsRouter.use('/:proposalId/unqualification', (req, res) => {
-  const voteData = voteResponseData.find(
-    vote => vote.voteKey === req.body.voteKey
-  );
+  return res.send({
+    ...fixtures.vote.qualifications.find(
+      qualification =>
+        qualification.qualificationKey === req.body.qualificationKey
+    ),
+    hasQualified: false,
+  });
+});
 
-  const qualificationData = voteData.qualifications.find(
-    qualification =>
-      qualification.qualificationKey === req.body.qualificationKey
+proposalsRouter.use('/', (req, res) => {
+  const proposalsOfQuestion = fixtures.proposals.filter(
+    proposal => proposal.question.questionId === req.query.questionId
   );
-
-  return res.send({ ...qualificationData, hasQualified: false });
+  const proposals = proposalsOfQuestion.slice(
+    parseInt(req.query.skip, 10),
+    parseInt(req.query.limit, 10) + parseInt(req.query.skip, 10)
+  );
+  return res.send({
+    total: proposalsOfQuestion.length,
+    results: proposals,
+  });
 });
 
 module.exports = proposalsRouter;

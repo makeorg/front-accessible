@@ -39,8 +39,11 @@ test:
 
 e2e-test:
   stage: e2e
-  image: cypress/base:11.13.0
+  image: cypress/base:12.13.0
   script:
+    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+    - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list 
+    - apt-get update && apt-get install -y dbus-x11 google-chrome-stable && rm -rf /var/lib/apt/lists/*
     - yarn install
     - yarn build
     - yarn cypress install

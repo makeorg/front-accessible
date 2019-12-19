@@ -24,7 +24,11 @@ export const CardDescription = (props: Props) => {
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <ScreenReaderItemStyle as="dt" aria-hidden={!isCardVisible}>
+    <ScreenReaderItemStyle
+      as="dt"
+      aria-hidden={!isCardVisible}
+      id={`card-${activeGaugeIndex}-title`}
+    >
       {i18n.t('proposal_card.number', {
         current: activeGaugeIndex,
         total: maxGaugeIndex,
