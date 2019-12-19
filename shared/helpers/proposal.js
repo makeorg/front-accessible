@@ -8,11 +8,19 @@ import {
 } from 'Shared/constants/proposal';
 import { type ApiSearchProposalsResponseType } from 'Shared/types/api';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type Question as TypeQuestion } from 'Shared/types/question';
+import {
+  type TypeProposalListCard,
+  type TypeTopProposalListCard,
+} from 'Shared/types/card';
 import {
   ProposalApiService,
   SORT_ALGORITHM,
 } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
+import { FEED_PROPOSAL, FEED_TOP_PROPOSALS } from 'Shared/constants/card';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { CONSULTATION_POPULAR_PROPOSALS } from 'Shared/constants/featureFlipping';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -116,3 +124,31 @@ export const searchTaggedProposals = async (
     return {};
   }
 };
+
+export const buildProposalsFeed = (
+  proposals: TypeProposal[],
+  question: TypeQuestion,
+  sortTypeKey: string
+): Array<TypeProposalListCard | TypeTopProposalListCard> => {
+  const hasPopularProposals = checkIsFeatureActivated(
+    CONSULTATION_POPULAR_PROPOSALS,
+    question.activeFeatures
+  );
+
+  const feed = proposals.map(proposal => ({
+    type: FEED_PROPOSAL,
+    proposal,
+  }));
+
+  if (hasPopularProposals && sortTypeKey !== 'POPULAR') {
+    feed.splice(3, 0, {
+      type: FEED_TOP_PROPOSALS,
+      question,
+    });
+  }
+
+  return feed;
+};
+
+export const getProposalCardIndex = (index: number = 0) =>
+  `proposal_list_card_${index}`;

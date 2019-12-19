@@ -1,17 +1,25 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { searchTaggedProposals } from 'Shared/helpers/proposal';
+import {
+  searchTaggedProposals,
+  buildProposalsFeed,
+  getProposalCardIndex,
+} from 'Shared/helpers/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
+import {
+  type TypeProposalListCard,
+  type TypeTopProposalListCard,
+} from 'Shared/types/card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { FEED_PROPOSAL } from 'Shared/constants/card';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 import { InfiniteProposalsContainerStyle } from './style';
+import { ProposalType } from './type';
 
 type Props = {
   question: TypeQuestion,
@@ -22,7 +30,7 @@ type Props = {
 export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
   const country = useSelector((state: StateRoot) => state.appConfig.country);
   const language = useSelector((state: StateRoot) => state.appConfig.language);
-  const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const [proposalCards, setProposalCards] = useState([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState<?number>(undefined);
   const [page, setPage] = useState<number>(0);
@@ -39,8 +47,11 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       0,
       sortTypeKey
     );
-    setProposals(results);
-    setHasMore(results.length < total);
+    const feed: Array<
+      TypeProposalListCard | TypeTopProposalListCard
+    > = buildProposalsFeed(results, question, sortTypeKey);
+    setProposalCards(feed);
+    setHasMore(feed.length < total);
     setSeed(apiSeed);
     setPage(1);
     setIsLoading(false);
@@ -57,8 +68,15 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       page,
       sortTypeKey
     );
-    const newProposalList = [...proposals, ...results];
-    setProposals(newProposalList);
+    const addNewProposalCards: TypeProposalListCard[] = results.map(result => ({
+      type: FEED_PROPOSAL,
+      proposal: result,
+    }));
+
+    const newProposalList: Array<
+      TypeProposalListCard | TypeTopProposalListCard
+    > = [...proposalCards, ...addNewProposalCards];
+    setProposalCards(newProposalList);
     setHasMore(newProposalList.length < total);
     setSeed(apiSeed);
     setPage(page + 1);
@@ -74,7 +92,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     initProposal();
   }, [tags, question]);
 
-  const proposalsLength = proposals.length;
+  const proposalsLength = proposalCards.length;
   const displayLoadMoreButton = hasMore && !isLoading;
 
   return (
@@ -83,13 +101,13 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       role="feed"
       aria-live="polite"
     >
-      {proposals &&
-        proposals.map((proposal, index) => (
-          <ProposalCardTagged
-            position={index + 1}
-            size={proposalsLength}
-            key={proposal.id}
-            proposal={proposal}
+      {proposalCards &&
+        proposalCards.map((card, index) => (
+          <ProposalType
+            key={getProposalCardIndex(index)}
+            card={card}
+            index={index}
+            proposalsLength={proposalsLength}
           />
         ))}
       {isLoading && <Spinner />}

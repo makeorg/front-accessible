@@ -1,5 +1,6 @@
 // @flow
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type Question as TypeQuestion } from 'Shared/types/question';
 
 export type PartnerItem = {
   name: string,
@@ -39,7 +40,7 @@ export type FinalCardConfig = {|
   id?: string,
 |};
 
-export type TypeCard = {|
+export type TypeSequenceCard = {|
   type: string,
   configuration:
     | IntroCardConfig
@@ -48,4 +49,14 @@ export type TypeCard = {|
     | FinalCardConfig
     | TypeProposal,
   offset: number,
+|};
+
+export type TypeProposalListCard = {|
+  type: string,
+  proposal: TypeProposal,
+|};
+
+export type TypeTopProposalListCard = {|
+  type: string,
+  question: TypeQuestion,
 |};
