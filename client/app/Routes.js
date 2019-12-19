@@ -27,6 +27,7 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
+  ROUTE_IDEAS,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -35,6 +36,7 @@ const ConsultationPage = loadable(() =>
 );
 const ActionsPage = loadable(() => import('Client/pages/Operation/Actions.js'));
 const ResultsPage = loadable(() => import('Client/pages/Operation/Results.js'));
+const IdeasPage = loadable(() => import('Client/pages/Operation/Ideas.js'));
 const SequencePage = loadable(() => import('Client/pages/Operation/Sequence'));
 const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
@@ -71,6 +73,7 @@ export const Routes = () => {
       <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
       <Route path={ROUTE_ACTION} component={ActionsPage} />
       <Route path={ROUTE_RESULTS} component={ResultsPage} />
+      <Route path={ROUTE_IDEAS} component={IdeasPage} />
       <Route path={ROUTE_SEQUENCE} component={SequencePage} />
       <Route
         path={ROUTE_ACCOUNT_ACTIVATION}
