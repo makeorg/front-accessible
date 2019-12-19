@@ -102,11 +102,19 @@ export const LocalActors = ({ questionId, slug }: Props) => {
               </div>
               <div>
                 {i18n.t('consultation.local_actors.proposals', {
-                  count: actor.proposalsCount,
+                  count:
+                    (actor.countsByQuestion &&
+                      actor.countsByQuestion[questionId] &&
+                      actor.countsByQuestion[questionId].proposalsCount) ||
+                    0,
                 })}
                 {' . '}
                 {i18n.t('consultation.local_actors.votes', {
-                  count: actor.votesCount,
+                  count:
+                    (actor.countsByQuestion &&
+                      actor.countsByQuestion[questionId] &&
+                      actor.countsByQuestion[questionId].votesCount) ||
+                    0,
                 })}
               </div>
             </div>
