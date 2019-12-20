@@ -8,7 +8,7 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
-import { ConsultationPageContentStyle } from 'Client/pages/Operation/Styled';
+import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';

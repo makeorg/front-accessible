@@ -3,7 +3,7 @@ import React from 'react';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
-import { ConsultationPageSidebarStyle } from 'Client/pages/Operation/Styled';
+import { ConsultationPageSidebarStyle } from 'Client/pages/Consultation/style';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { useMobile } from 'Client/hooks/useMedia';
 import {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
+import { SequenceNextButtonStyle } from 'Client/features/sequence/style';
 import { Vote } from './index';
 import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
 
@@ -24,20 +24,20 @@ describe('VoteContainer', () => {
     expect(voteComponentWrapper).toHaveLength(1);
   });
 
-  it('NextButtonStyle should not be rendered if user has not voted yet', () => {
+  it('SequenceNextButtonStyle should not be rendered if user has not voted yet', () => {
     // check next button is not visible
-    const NextButtonWrapper = wrapper.find(NextButtonStyle);
+    const NextButtonWrapper = wrapper.find(SequenceNextButtonStyle);
     expect(NextButtonWrapper).toHaveLength(0);
   });
 
-  it('NextButtonStyle should not be rendered if goToNextCard Props is undefined', () => {
+  it('SequenceNextButtonStyle should not be rendered if goToNextCard Props is undefined', () => {
     const wrapperWithUndefinedGoToNextCardProps = shallow(
       <Vote proposalId="fooId" votes={[]} />
     );
 
     // check next button is not visible
     const NextButtonWrapper = wrapperWithUndefinedGoToNextCardProps.find(
-      NextButtonStyle
+      SequenceNextButtonStyle
     );
     expect(NextButtonWrapper).toHaveLength(0);
   });
@@ -46,14 +46,6 @@ describe('VoteContainer', () => {
     wrapper.setState({ hasVoted: true });
     expect(wrapper.find(VoteWrapperStyle)).toHaveLength(0);
     expect(wrapper.find(VoteContainerStyle)).toHaveLength(1);
-    const NextButtonWrapper = wrapper.find(NextButtonStyle);
-    expect(NextButtonWrapper).toHaveLength(1);
-
-    expect(NextButtonWrapper.props()).toEqual({
-      onClick: defaultProps.goToNextCard,
-      id: 'next-button-fooId',
-      children: 'proposal_card.next',
-    });
   });
 
   it('initialise state from props', () => {

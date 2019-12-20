@@ -1,6 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { IdeasPageTitleStyle } from 'Client/pages/Operation/Styled';
+import { IdeasPageTitleStyle } from 'Client/pages/Consultation/style';
 
 import { IdeaCard } from '../IdeaCard';
 

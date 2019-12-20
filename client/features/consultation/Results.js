@@ -4,7 +4,7 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { ConsultationPageContentStyle } from 'Client/pages/Operation/Styled';
+import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';

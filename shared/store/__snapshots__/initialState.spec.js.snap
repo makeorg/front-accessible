@@ -27,6 +27,7 @@ Object {
   },
   "questions": Object {},
   "sequence": Object {
+    "currentIndex": 0,
     "firstProposal": undefined,
     "isSequenceCollapsed": false,
     "proposals": Array [],

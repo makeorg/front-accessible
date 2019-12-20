@@ -32,12 +32,18 @@ import {
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
 const ConsultationPage = loadable(() =>
-  import('Client/pages/Operation/Consultation.js')
+  import('Client/pages/Consultation/Consultation.js')
 );
-const ActionsPage = loadable(() => import('Client/pages/Operation/Actions.js'));
-const ResultsPage = loadable(() => import('Client/pages/Operation/Results.js'));
-const IdeasPage = loadable(() => import('Client/pages/Operation/Ideas.js'));
-const SequencePage = loadable(() => import('Client/pages/Operation/Sequence'));
+const ActionsPage = loadable(() =>
+  import('Client/pages/Consultation/Actions.js')
+);
+const ResultsPage = loadable(() =>
+  import('Client/pages/Consultation/Results.js')
+);
+const IdeasPage = loadable(() => import('Client/pages/Consultation/Ideas.js'));
+const SequencePage = loadable(() =>
+  import('Client/pages/Consultation/Sequence')
+);
 const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
 );

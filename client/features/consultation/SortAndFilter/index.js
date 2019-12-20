@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { type TypeTag } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
-import { ConsultationIconStyle } from 'Client/pages/Operation/Styled';
+import { ConsultationIconStyle } from 'Client/pages/Consultation/style';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';

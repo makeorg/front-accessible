@@ -21,6 +21,11 @@ export const sequenceStart = (questionSlug: string) => ({
   payload: { questionSlug },
 });
 
+export const resetSequenceVotedProposals = (questionSlug: string) => ({
+  type: actionTypes.SEQUENCE_RESET_VOTED_PROPOSALS,
+  payload: { questionSlug },
+});
+
 export const loadSequenceProposals = (proposals: TypeProposal[]) => ({
   type: actionTypes.SEQUENCE_LOAD_PROPOSALS,
   payload: { proposals },
@@ -44,6 +49,20 @@ export const fetchSequenceProposals = (
     return Logger.logError(Error(error));
   }
 };
+
+export const resetSequenceIndex = () => (dispatch: Dispatch) =>
+  dispatch({ type: actionTypes.SEQUENCE_RESET_INDEX });
+
+export const incrementSequenceIndex = () => (dispatch: Dispatch) =>
+  dispatch({ type: actionTypes.SEQUENCE_INCREMENT_INDEX });
+
+export const decrementSequenceIndex = () => (dispatch: Dispatch) =>
+  dispatch({ type: actionTypes.SEQUENCE_DECREMENT_INDEX });
+
+export const setSequenceIndex = (index: number) => ({
+  type: actionTypes.SEQUENCE_SET_INDEX,
+  payload: { index },
+});
 
 export const voteProposal = (proposalId: string, questionSlug: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,

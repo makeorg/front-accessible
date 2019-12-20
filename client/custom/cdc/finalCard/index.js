@@ -4,9 +4,9 @@ import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getConsultationLink, getSequenceLink } from 'Shared/helpers/url';
 import {
-  ContentWrapperStyle,
-  InnerContentStyle,
-} from 'Client/features/sequence/Card/Styled/Content';
+  SequenceContentWrapperStyle,
+  SequenceInnerContentStyle,
+} from 'Client/features/sequence/style';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
@@ -48,8 +48,8 @@ export const CustomFinalCard = ({ question }: Props) => {
   }, []);
 
   return (
-    <ContentWrapperStyle>
-      <InnerContentStyle>
+    <SequenceContentWrapperStyle>
+      <SequenceInnerContentStyle>
         <FinalQuestionTitleStyle>
           {i18n.t('final_card.extra_question.title')}
         </FinalQuestionTitleStyle>
@@ -89,7 +89,7 @@ export const CustomFinalCard = ({ question }: Props) => {
             {i18n.t('intro_card.button')}
           </MoreQuestionButtonStyle>
         </MoreQuestionWrapperStyle>
-      </InnerContentStyle>
-    </ContentWrapperStyle>
+      </SequenceInnerContentStyle>
+    </SequenceContentWrapperStyle>
   );
 };
