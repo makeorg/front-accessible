@@ -17,6 +17,7 @@ import {
   TagListFooterStyle,
   CenterButtonStyle,
   TagLabelStyle,
+  ProposalCountStyle,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
@@ -72,29 +73,36 @@ export const TagList = ({
   return (
     <TaglistWrapperStyle>
       <TagListStyle>
-        {tags.map(tag => (
-          <li key={tag.tagId}>
-            <TagButtonElementStyle
-              isSelected={tag.isSelected}
-              onClick={() => updateSelectedTags(tag)}
-              aria-live="polite"
-              id={`stake_trigger_${tag.tagId}`}
-            >
-              <ScreenReaderItemStyle>
-                {tag.isSelected
-                  ? i18n.t('consultation.tags.remove_filter')
-                  : i18n.t('consultation.tags.add_filter')}
-              </ScreenReaderItemStyle>
-              <TagLabelStyle>{tag.label}</TagLabelStyle>
-              {tag.isSelected && (
-                <SvgClose
-                  style={{ width: '10px', fill: BasicColors.PureWhite }}
-                  aria-hidden
-                />
-              )}
-            </TagButtonElementStyle>
-          </li>
-        ))}
+        {tags
+          .filter(tag => tag.proposalCount > 0)
+          .map(tag => (
+            <li key={tag.tagId}>
+              <TagButtonElementStyle
+                isSelected={tag.isSelected}
+                onClick={() => updateSelectedTags(tag)}
+                aria-live="polite"
+                id={`stake_trigger_${tag.tagId}`}
+              >
+                <ScreenReaderItemStyle>
+                  {tag.isSelected
+                    ? i18n.t('consultation.tags.remove_filter')
+                    : i18n.t('consultation.tags.add_filter')}
+                </ScreenReaderItemStyle>
+                <TagLabelStyle>
+                  {tag.label}
+                  <ProposalCountStyle>
+                    {`(${tag.proposalCount})`}
+                  </ProposalCountStyle>
+                </TagLabelStyle>
+                {tag.isSelected && (
+                  <SvgClose
+                    style={{ width: '10px', fill: BasicColors.PureWhite }}
+                    aria-hidden
+                  />
+                )}
+              </TagButtonElementStyle>
+            </li>
+          ))}
       </TagListStyle>
       {isMobile && (
         <TagListFooterStyle onClick={closePanel}>

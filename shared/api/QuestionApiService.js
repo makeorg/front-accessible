@@ -10,7 +10,7 @@ const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
-const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
+export const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
 
 export class QuestionApiService {
   static getQuestionPartners(
@@ -46,7 +46,7 @@ export class QuestionApiService {
 
   static getQuestionPopularTags(
     questionId: string,
-    limit: ?number = 5,
+    limit: ?number = undefined,
     skip: ?number = undefined,
     headers?: ApiServiceHeaders = {}
   ): Promise<Object> {

@@ -1,11 +1,10 @@
 // @flow
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypePopularTag } from 'Shared/types/tag';
+import { type TypeTag } from 'Shared/types/tag';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { fetchPopularTags } from 'Shared/store/actions/question';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import {
@@ -65,14 +64,9 @@ const scrollAndTrigger = (panelId: string, tagId: string) => {
 };
 
 export const PopularTags = ({ question }: Props) => {
-  const dispatch = useDispatch();
-  const tags: TypePopularTag[] = useSelector(state =>
+  const tags: TypeTag[] = useSelector(state =>
     selectQuestionPopularTags(state, question.slug)
   );
-
-  useEffect(() => {
-    dispatch(fetchPopularTags(question.questionId, question.slug));
-  }, [question]);
 
   if (!tags) {
     return null;
@@ -84,7 +78,7 @@ export const PopularTags = ({ question }: Props) => {
       icon={<SvgTrending aria-hidden style={{ marginRight: '10px' }} />}
     >
       <PopularTagsListStyle>
-        {tags.map((tag, index) => (
+        {tags.slice(0, 5).map((tag, index) => (
           <PopularTagsListItemStyle key={tag.tagId}>
             <span>
               <ParagraphStyle as="span" aria-hidden>

@@ -51,6 +51,10 @@ export const TagLabelStyle = styled.span`
   }
 `;
 
+export const ProposalCountStyle = styled.span`
+  margin-left: 5px;
+`;
+
 export const TagListHeaderStyle = styled.div`
   display: flex;
   order: 1;

@@ -4,6 +4,8 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { type StateQuestions } from 'Shared/store/types';
 
+import { QUESTION_POPULAR_TAGS_LOAD } from './actions';
+
 export function questions(
   state: StateQuestions = initialState.questions,
   action: Object
@@ -25,7 +27,7 @@ export function questions(
           questionResults: action.payload.questionResults,
         },
       };
-    case actionTypes.QUESTION_POPULAR_TAGS_LOAD:
+    case QUESTION_POPULAR_TAGS_LOAD:
       return {
         ...state,
         [action.payload.questionSlug]: {

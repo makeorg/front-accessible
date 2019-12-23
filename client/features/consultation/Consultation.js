@@ -1,5 +1,6 @@
 // @flow
 import React, { useState, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type TypeTag } from 'Shared/types/tag';
@@ -11,7 +12,9 @@ import { ConsultationPageContentStyle } from 'Client/pages/Operation/Styled';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
-import { TagService } from 'Shared/api/TagService';
+import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
+import { fetchPopularTags } from 'Shared/store/reducers/questions/actions';
+import { type StateRoot } from 'Shared/store/types';
 import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
@@ -20,6 +23,11 @@ type Props = {
 };
 
 export const ConsultationContent = ({ question }: Props) => {
+  const dispatch = useDispatch();
+  const questionTags: TypeTag[] = useSelector((state: StateRoot) =>
+    selectQuestionPopularTags(state, question.slug)
+  );
+
   // Sorting
   const AVAILABLE_SORTS_KEYS: string[] = useMemo(
     () => Object.keys(SORT_ALGORITHM),
@@ -31,32 +39,23 @@ export const ConsultationContent = ({ question }: Props) => {
   const [tags, setTags] = useState<TypeTag[]>([]);
 
   useEffect(() => {
-    const fetchTags = async () => {
-      const questionTags = await TagService.getList(
-        question.questionId,
-        question.country,
-        question.language
-      );
+    dispatch(fetchPopularTags(question.questionId, question.slug));
+    trackDisplayConsultation('consultation');
+  }, [question]);
+
+  useEffect(() => {
+    if (questionTags) {
       const extendedTags = questionTags.map(tag => ({
         ...tag,
         isSelected: false,
       }));
       setTags(extendedTags);
-    };
-    if (question) {
-      fetchTags();
     }
-  }, [question]);
+  }, [questionTags]);
 
   const isMobile = useMobile();
   const renderMobileProposal = question.canPropose && isMobile;
   const renderDesktopProposal = question.canPropose && !isMobile;
-
-  useEffect(() => {
-    if (question) {
-      trackDisplayConsultation('consultation');
-    }
-  }, [question]);
 
   const resetTags = () => {
     setTags(tags.map(tag => ({ ...tag, isSelected: false })));
