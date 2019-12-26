@@ -377,9 +377,13 @@ export const trackUnqualify = (
 };
 
 /* Sharing */
-export const trackClickShare = (socialNetwork: string) => {
+export const trackClickShare = (
+  socialNetwork: string,
+  parameters?: Object = {}
+) => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_SHARE, {
     'social-network': socialNetwork,
+    location: parameters.location,
   });
 };
 
