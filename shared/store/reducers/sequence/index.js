@@ -21,6 +21,16 @@ export function sequence(
           [action.payload.questionSlug]: [],
         },
       };
+    case actionTypes.SEQUENCE_LOAD_PROPOSALS:
+      return {
+        ...state,
+        proposals: action.payload.proposals,
+      };
+    case actionTypes.SEQUENCE_UNLOAD_PROPOSALS:
+      return {
+        ...state,
+        proposals: [],
+      };
     case actionTypes.SEQUENCE_COLLAPSE:
       return {
         ...state,

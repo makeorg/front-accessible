@@ -20,6 +20,7 @@ export const initialState: StateRoot = {
     firstProposal: undefined,
     questionSlug: undefined,
     votedProposalIds: {},
+    proposals: [],
   },
   questions: {},
   currentQuestion: '',

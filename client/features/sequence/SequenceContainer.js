@@ -1,14 +1,21 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { startSequence } from 'Shared/services/Sequence';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import * as ProposalHelper from 'Shared/helpers/proposal';
 import * as SequenceHelper from 'Shared/helpers/sequence';
 import { trackClickStartSequence } from 'Shared/services/Tracking';
 import { type TypeSequenceCard } from 'Shared/types/card';
+import { type StateRoot } from 'Shared/store/types';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type Question as TypeQuestion } from 'Shared/types/question';
+import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
+import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
+import { getBretagneQuestionSlug } from 'Client/custom/cdc/helpers';
+import {
+  unloadSequenceProposals,
+  fetchSequenceProposals,
+} from 'Shared/store/actions/sequence';
 import { SequenceComponent } from './SequenceComponent';
 import { SequencePlaceholderComponent } from './SequencePlaceholder';
 
@@ -41,11 +48,18 @@ const SequenceHandler = ({
   hasProposed,
   handleOpenSequence,
 }: Props) => {
+  const dispatch = useDispatch();
   const [isSequenceLoaded, setIsSequenceLoaded] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [proposals, setProposals] = useState([]);
   const [cards, setCards] = useState([]);
   const [cardsCount, setCardsCount] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  /** @toDo: remove or refactor after the end of bretagne consultation */
+  const department = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
+  const sequenceProposals = useSelector(
+    (state: StateRoot) => state.sequence && state.sequence.proposals
+  );
 
   const handleStartSequence = () => {
     setCurrentIndex(currentIndex + 1);
@@ -66,44 +80,70 @@ const SequenceHandler = ({
     if (question) {
       const setCardsFromProposals = async () => {
         const proposalIds = votedProposalIds[question.slug] || [];
-        const proposals = await startSequence(question.questionId, [
-          firstProposal,
-          ...proposalIds,
-        ]);
 
-        const buildedCards: TypeSequenceCard[] = SequenceHelper.buildCards(
-          proposals,
-          question.sequenceConfig,
-          isLoggedIn,
-          hasProposed,
-          question.canPropose
-        );
+        if (sequenceProposals && sequenceProposals.length) {
+          setProposals(sequenceProposals);
+          const buildedCards: TypeSequenceCard[] = SequenceHelper.buildCards(
+            sequenceProposals,
+            question.sequenceConfig,
+            isLoggedIn,
+            hasProposed,
+            question.canPropose
+          );
 
-        const firstUnvotedProposal:
-          | typeof undefined
-          | TypeProposal = ProposalHelper.searchFirstUnvotedProposal(proposals);
-        const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(
-          firstUnvotedProposal,
-          buildedCards
-        );
+          const firstUnvotedProposal:
+            | typeof undefined
+            | TypeProposal = ProposalHelper.searchFirstUnvotedProposal(
+            proposals
+          );
 
-        if (proposalIds.length !== 0) {
-          const cardCurrentIndex: number =
-            indexOfFirstUnvotedCard === 0 && hasStarted
-              ? 1
-              : indexOfFirstUnvotedCard;
+          const indexOfFirstUnvotedCard: number = SequenceHelper.findIndexOfFirstUnvotedCard(
+            firstUnvotedProposal,
+            buildedCards
+          );
+          setCards(buildedCards);
+          setCardsCount(buildedCards.length - 1);
 
-          setCurrentIndex(cardCurrentIndex);
+          if (proposalIds.length !== 0) {
+            const cardCurrentIndex: number =
+              indexOfFirstUnvotedCard === 0 && hasStarted
+                ? 1
+                : indexOfFirstUnvotedCard;
+
+            setCurrentIndex(cardCurrentIndex);
+          }
+
+          if (sequenceProposals.length > 0) {
+            setIsSequenceLoaded(true);
+          }
         }
-
-        setCards(buildedCards);
-        setCardsCount(buildedCards.length - 1);
-        setIsSequenceLoaded(true);
       };
-
       setCardsFromProposals();
     }
-  }, [question, firstProposal, isLoggedIn, hasProposed]);
+  }, [question, firstProposal, isLoggedIn, hasProposed, sequenceProposals]);
+
+  useEffect(() => {
+    /** @toDo: remove or refactor after the end of bretagne consultation */
+    if (getBretagneQuestionSlug(question.slug) && !department) {
+      return setIsSequenceLoaded(false);
+    }
+    const proposalIds = votedProposalIds[question.slug] || [];
+
+    const startSequence = async () => {
+      await dispatch(
+        fetchSequenceProposals(question.questionId, [
+          firstProposal,
+          ...proposalIds,
+        ])
+      );
+    };
+
+    startSequence();
+
+    return () => {
+      dispatch(unloadSequenceProposals());
+    };
+  }, []);
 
   if (!isSequenceLoaded) {
     return <SequencePlaceholderComponent />;

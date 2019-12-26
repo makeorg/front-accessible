@@ -5,7 +5,7 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { type TypePopularTag } from 'Shared/types/tag';
-import { type Proposal } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -17,7 +17,7 @@ export type StateConfig = $ReadOnly<{
 
 export type PopularProposals = {
   total: number,
-  results: Proposal[],
+  results: TypeProposal[],
 };
 
 // Proposal State
@@ -30,6 +30,7 @@ export type StateSequence = $ReadOnly<{
   isSequenceCollapsed: boolean,
   firstProposal?: string,
   votedProposalIds: { [string]: string[] },
+  proposals: TypeProposal[],
 }>;
 
 // Notification State

@@ -7,8 +7,9 @@ describe('Sequence reducer', () => {
     const expectedState = {
       isSequenceCollapsed: false,
       firstProposal: undefined,
-      question: undefined,
+      questionSlug: undefined,
       votedProposalIds: {},
+      proposals: [],
     };
 
     expect(sequence(undefined, {})).toEqual(expectedState);

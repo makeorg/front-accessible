@@ -3,6 +3,7 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
@@ -19,6 +20,30 @@ export const sequenceStart = (questionSlug: string) => ({
   type: actionTypes.SEQUENCE_START,
   payload: { questionSlug },
 });
+
+export const loadSequenceProposals = (proposals: TypeProposal[]) => ({
+  type: actionTypes.SEQUENCE_LOAD_PROPOSALS,
+  payload: { proposals },
+});
+
+export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
+  dispatch({ type: actionTypes.SEQUENCE_UNLOAD_PROPOSALS });
+
+export const fetchSequenceProposals = (
+  questionId: string,
+  includedProposalIds?: string[] = []
+) => async (dispatch: any => void) => {
+  try {
+    const response = await QuestionApiService.startSequence(
+      questionId,
+      includedProposalIds
+    );
+
+    return dispatch(loadSequenceProposals(response.proposals));
+  } catch (error) {
+    return Logger.logError(Error(error));
+  }
+};
 
 export const voteProposal = (proposalId: string, questionSlug: string) => ({
   type: actionTypes.SEQUENCE_PROPOSAL_VOTE,

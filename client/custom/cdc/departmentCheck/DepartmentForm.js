@@ -4,7 +4,7 @@ import React, {
   useRef,
   useEffect,
 } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -27,6 +27,9 @@ import {
 } from 'Client/ui/Elements/ButtonElements';
 import { trackClickCloseModal } from 'Shared/services/Tracking';
 import { MODAL_DEPARTMENT } from 'Shared/constants/modal';
+import { useLocation, matchPath } from 'react-router';
+import { ROUTE_SEQUENCE } from 'Shared/routes';
+import { fetchSequenceProposals } from 'Shared/store/actions/sequence';
 import {
   DepartmentModalStyle,
   DepartmentContentStyle,
@@ -94,6 +97,12 @@ const DepartmentItem = ({
 
 export const DepartmentForm = () => {
   const isMobile = useMobile();
+  const question = useSelector(
+    state =>
+      state.currentQuestion &&
+      state.questions[state.currentQuestion] &&
+      state.questions[state.currentQuestion].question
+  );
   const initialDepartmentValue = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
   const dispatch = useDispatch();
   const setDepartment = (newDepartmentValue: number) => {
@@ -105,6 +114,8 @@ export const DepartmentForm = () => {
     initialDepartmentValue
   );
   const [canSubmit, setCanSubmit] = useState(false);
+  const location = useLocation();
+  const sequenceRoute = matchPath(location.pathname, ROUTE_SEQUENCE);
 
   const selectDepartment = (value: number) => {
     updateDepartmentValue(value);
@@ -133,6 +144,14 @@ export const DepartmentForm = () => {
   const handleCloseModal = () => {
     dispatch(modalClose());
     trackClickCloseModal(MODAL_DEPARTMENT);
+  };
+
+  const handleStartSequence = () => {
+    if (!sequenceRoute && !sequenceRoute.isExact) {
+      return null;
+    }
+
+    return dispatch(fetchSequenceProposals(question.questionId));
   };
 
   useEffect(() => {
@@ -243,6 +262,7 @@ export const DepartmentForm = () => {
             e.preventDefault();
             setDepartment(departmentValue);
             trackDepartmentSelection(departmentValue);
+            handleStartSequence();
           }}
         >
           <ScreenReaderItemStyle>

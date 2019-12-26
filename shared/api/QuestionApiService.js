@@ -58,7 +58,8 @@ export class QuestionApiService {
 
   static startSequence(
     questionId: string,
-    includedProposalIds: string[] = []
+    includedProposalIds: string[] = [],
+    headers?: ApiServiceHeaders = {}
   ): Promise<Object> {
     let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
       ':questionId',
@@ -73,6 +74,7 @@ export class QuestionApiService {
 
     return ApiService.callApi(startSequenceUrl, {
       method: 'GET',
+      headers,
     });
   }
 
