@@ -179,6 +179,15 @@
     "share_text": "Soutenez cette proposition en la partageant :",
     "footer_text": "Cette proposition a été soumise dans le cadre de l'opération {{operation_name}}"
   },
+  "idea_card": {
+    "title": "Le top {{count}} des idées citoyennes",
+    "number": "Idée n°{{ count }}",
+    "content": "Contenu de l'idée : ",
+    "link": "Voir le détail de l'idée",
+    "associated_proposals": "{{count}} propositions associées",
+    "count_position": "{{ count }} prises de position",
+    "position": "{{ position_link }} de candidats sur cette idée."
+  },
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
