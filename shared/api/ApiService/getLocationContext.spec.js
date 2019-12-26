@@ -120,6 +120,7 @@ describe('getLocationContext', () => {
     const routesToExcludes = [
       'ROUTE_COUNTRY_LANG',
       'ROUTE_RESULTS',
+      'ROUTE_IDEAS',
       'ROUTE_ACCOUNT_ACTIVATION',
       'ROUTE_PASSWORD_RECOVERY',
       'ROUTE_PROFILE',

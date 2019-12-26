@@ -9,6 +9,7 @@ export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY_LANG}/search/organisa
 export const ROUTE_SEARCH_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/search/consultations`;
 export const ROUTE_ACTION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/actions`;
 export const ROUTE_RESULTS = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/results`;
+export const ROUTE_IDEAS = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/ideas`;
 export const ROUTE_SEQUENCE = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/selection`;
 export const ROUTE_PROPOSAL = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/proposal/:proposalId/:proposalSlug`;
 export const ROUTE_ACCOUNT_ACTIVATION = `${ROUTE_COUNTRY_LANG}/account-activation/:userId/:verificationToken`;
