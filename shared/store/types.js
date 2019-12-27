@@ -87,6 +87,7 @@ export type StateQuestions = $ReadOnly<{
 export type StateModal = $ReadOnly<{
   isOpen: boolean,
   showExpirationSession: boolean,
+  contentType: string,
 }>;
 
 export type StateActor = $ReadOnly<{

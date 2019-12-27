@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import {
   SecondLevelTitleStyle,
@@ -20,12 +20,13 @@ import { modalShowLogin } from 'Shared/store/actions/modal';
 import { RegisterForm } from './Form';
 import { AuthentificationWrapperStyle } from '../Login/Styled';
 
-type Props = {
-  /** Method called to close modal */
-  handleLoginModal: () => void,
-};
+export const Register = () => {
+  const dispatch = useDispatch();
 
-export const RegisterComponent = ({ handleLoginModal }: Props) => {
+  const handleLoginModal = () => {
+    dispatch(modalShowLogin());
+  };
+
   return (
     <AuthentificationWrapperStyle aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
@@ -59,14 +60,3 @@ export const RegisterComponent = ({ handleLoginModal }: Props) => {
     </AuthentificationWrapperStyle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleLoginModal: () => {
-    dispatch(modalShowLogin());
-  },
-});
-
-export const Register = connect(
-  null,
-  mapDispatchToProps
-)(RegisterComponent);

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { SvgCheck, SvgInfos, SvgAlert } from 'Client/ui/Svg/elements';
 import {
   NOTIFICATION_LEVEL_SUCCESS,
@@ -9,16 +9,13 @@ import {
   NOTIFICATION_LEVEL_ALERT,
 } from 'Shared/constants/notification';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { SvgCheckStyle, SvgIconStyle } from '../Styled';
 
-type Props = {
+export const NotificationIcon = () => {
   /** Level of the Notification */
-  level?: string,
-};
+  const level = useSelector((state: StateRoot) => state.notification);
 
-function NotificationIconComponent({
-  level = NOTIFICATION_LEVEL_INFORMATION,
-}: Props) {
   switch (level) {
     case NOTIFICATION_LEVEL_INFORMATION:
       return (
@@ -52,14 +49,4 @@ function NotificationIconComponent({
     default:
       return null;
   }
-}
-
-const mapStateToProps = state => {
-  const { level } = state.notification;
-
-  return { level };
 };
-
-export const NotificationIcon = connect(mapStateToProps)(
-  NotificationIconComponent
-);

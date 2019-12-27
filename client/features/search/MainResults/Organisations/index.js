@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
+import { type StateRoot } from 'Shared/store/types';
 import { useMobile } from 'Client/hooks/useMedia';
 import { Avatar } from 'Client/ui/Avatar';
 import {
@@ -23,15 +24,13 @@ import {
 import { MainResultsOrganisationsMobile } from './Mobile';
 
 type Props = {
-  country: string,
-  language: string,
   organisations: TypeOrganisation[],
 };
-const MainResultsOrganisationsComponent = ({
-  country,
-  language,
-  organisations,
-}: Props) => {
+
+export const MainResultsOrganisations = ({ organisations }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const isMobile = useMobile();
 
   if (isMobile) {
@@ -73,16 +72,3 @@ const MainResultsOrganisationsComponent = ({
     </div>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const MainResultsOrganisations = connect(mapStateToProps)(
-  MainResultsOrganisationsComponent
-);

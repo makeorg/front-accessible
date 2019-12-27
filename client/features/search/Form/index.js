@@ -1,13 +1,14 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useLocation, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { SvgSearch, SvgDisconnect } from 'Client/ui/Svg/elements';
 import { getRouteSearch } from 'Shared/routes';
 import { SEARCH_FORMNAME } from 'Shared/constants/form';
 import { trackClickSubmitSearch } from 'Shared/services/Tracking';
 import { throttle } from 'Shared/helpers/throttle';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
@@ -18,7 +19,12 @@ import {
   SearchInputWrapperStyle,
 } from './Styled';
 
-const SearchInputHandler = ({ location, history, country, language }) => {
+export const SearchInput = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query');
   const isMobile = useMobile();
@@ -107,16 +113,3 @@ const SearchInputHandler = ({ location, history, country, language }) => {
     </SearchFormStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const SearchInput = withRouter(
-  connect(mapStateToProps)(SearchInputHandler)
-);

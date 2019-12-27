@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   RedLinkStyle,
   MailToRedLinkStyle,
 } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
+import { type StateRoot } from 'Shared/store/types';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -22,12 +23,10 @@ import {
   StaticStrongStyle,
 } from '../Styled';
 
-type Props = {
-  country: string,
-  language: string,
-};
-
-export const TermsOfUseComponent = ({ country, language }: Props) => {
+export const TermsOfUse = () => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
@@ -1122,17 +1121,6 @@ export const TermsOfUseComponent = ({ country, language }: Props) => {
     </StaticPageWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-const TermsOfUse = connect(mapStateToProps)(TermsOfUseComponent);
 
 // default export needed for loadable component
 export default TermsOfUse; // eslint-disable-line import/no-default-export

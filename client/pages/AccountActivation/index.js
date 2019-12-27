@@ -1,13 +1,21 @@
 /* @flow */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { type match as TypeMatch } from 'react-router';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { type StateRoot } from 'Shared/store/types';
 
-const AccountActivation = props => {
-  const { question, match } = props;
+type Props = {
+  match: TypeMatch,
+};
+
+const AccountActivationPage = ({ match }: Props) => {
   const countryLanguage = `${match.params.country}-${match.params.language}`;
+  const question = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
 
   const redirectPath = !question
     ? `/${countryLanguage}`
@@ -21,12 +29,5 @@ const AccountActivation = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return { question: selectCurrentQuestion(state) };
-};
-
-export const AccountActivationPage = connect(mapStateToProps)(
-  AccountActivation
-);
 // default export needed for loadable component
 export default AccountActivationPage; // eslint-disable-line import/no-default-export

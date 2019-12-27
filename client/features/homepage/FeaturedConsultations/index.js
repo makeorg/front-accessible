@@ -1,9 +1,10 @@
 // @flow
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type StateRoot } from 'Shared/store/types';
 import { useTablet } from 'Client/hooks/useMedia';
 import {
   HomepageInnerContentStyle,
@@ -15,13 +16,13 @@ import { FeaturedMobile } from './Layouts/Mobile';
 
 export type TypeFeaturedsProps = {
   featureds: TypeFeaturedConsultation[],
-  country: string,
-  language: string,
 };
 
-const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
-  const { featureds, country, language } = props;
+export const FeaturedConsultations = ({ featureds }: TypeFeaturedsProps) => {
   const isTablet = useTablet();
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
 
   if (featureds.length === 0) {
     return null;
@@ -49,8 +50,17 @@ const FeaturedConsultationsComponent = (props: TypeFeaturedsProps) => {
   );
 };
 
-const FeaturedDesktop = (props: TypeFeaturedsProps) => {
-  const { featureds, country, language } = props;
+type FeaturedDesktopProps = {
+  featureds: TypeFeaturedConsultation[],
+  country: string,
+  language: string,
+};
+
+const FeaturedDesktop = ({
+  featureds,
+  country,
+  language,
+}: FeaturedDesktopProps) => {
   if (featureds.length === 1) {
     return (
       <DesktopOneColumn
@@ -69,16 +79,3 @@ const FeaturedDesktop = (props: TypeFeaturedsProps) => {
     />
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const FeaturedConsultations = connect(mapStateToProps)(
-  FeaturedConsultationsComponent
-);

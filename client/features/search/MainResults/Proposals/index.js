@@ -1,31 +1,32 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { i18n } from 'Shared/i18n';
 import { searchProposals } from 'Shared/helpers/proposal';
+import { type StateRoot } from 'Shared/store/types';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { SearchMoreProposalsButtonStyle } from 'Client/pages/Search/Styled';
 import { MainResultsProposalsMobile } from './Mobile';
 import { MainResultsProposalsItemStyle } from './Styled';
 
 type Props = {
-  country: string,
-  language: string,
   searchTerm: string,
   proposals: TypeProposal[],
   count: number,
 };
-export const MainResultsProposalsComponent = ({
-  country,
-  language,
+
+export const MainResultsProposals = ({
   searchTerm,
   proposals,
   count,
 }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const isMobile = useMobile();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -80,16 +81,3 @@ export const MainResultsProposalsComponent = ({
     </div>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const MainResultsProposals = connect(mapStateToProps)(
-  MainResultsProposalsComponent
-);

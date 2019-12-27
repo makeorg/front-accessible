@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ModalComponent } from './ModalComponent';

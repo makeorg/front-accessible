@@ -12,22 +12,23 @@ type Props = {
   children: React.Node,
 };
 
-export const ModalComponent = (props: Props) => {
-  const { isModalOpen, handleClose, children } = props;
-  return (
-    <ReactModal
-      isOpen={isModalOpen}
-      overlayClassName="modal-overlay"
-      className="modal-dialog"
+export const ModalComponent = ({
+  isModalOpen,
+  handleClose,
+  children,
+}: Props) => (
+  <ReactModal
+    isOpen={isModalOpen}
+    overlayClassName="modal-overlay"
+    className="modal-dialog"
+  >
+    <CloseButtonStyle
+      aria-label={i18n.t('modal.close')}
+      aria-expanded="false"
+      onClick={handleClose}
     >
-      <CloseButtonStyle
-        aria-label={i18n.t('modal.close')}
-        aria-expanded="false"
-        onClick={handleClose}
-      >
-        <SvgClose aria-hidden />
-      </CloseButtonStyle>
-      {children}
-    </ReactModal>
-  );
-};
+      <SvgClose aria-hidden />
+    </CloseButtonStyle>
+    {children}
+  </ReactModal>
+);

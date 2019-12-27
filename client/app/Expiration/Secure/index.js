@@ -1,30 +1,28 @@
 // @flow
-import * as React from 'react';
-import { withCookies, Cookies } from 'react-cookie';
-import { withRouter } from 'react-router-dom';
+import { useEffect, useRef, useState, type Node as TypeReactNode } from 'react';
+import { useCookies } from 'react-cookie';
+import { useLocation } from 'react-router-dom';
 import { UserApiService } from 'Shared/api/UserApiService';
 
 type Props = {
   /** Children content */
-  children: React.Node,
-  /** Cookies object */
-  cookies: Cookies,
-  /** Object of router location */
-  location: Location,
+  children: TypeReactNode,
 };
 
 const SecureExpirationDateCookieName: string = 'make-secure-expiration';
 
-const SecureExpirationHandler = ({ children, cookies, location }: Props) => {
-  const [cookieData, setCookieData] = React.useState(
-    cookies.get(SecureExpirationDateCookieName)
+export const SecureExpiration = ({ children }: Props) => {
+  const [cookies] = useCookies([SecureExpirationDateCookieName]);
+  const [cookieData, setCookieData] = useState(
+    cookies[SecureExpirationDateCookieName]
   );
   const secureExpirationDate = new Date(cookieData);
-  const cookieDataRef = React.useRef(cookieData);
+  const cookieDataRef = useRef(cookieData);
+  const location = useLocation();
 
   cookieDataRef.current = cookieData;
 
-  React.useEffect(() => {
+  useEffect(() => {
     const currentDate = new Date();
     const FiveMinutesInMilliseconds = 5 * 60 * 1000;
     const timeBeforeExpire =
@@ -37,8 +35,8 @@ const SecureExpirationHandler = ({ children, cookies, location }: Props) => {
     }
 
     const timer = setTimeout(async () => {
-      if (cookieData !== cookies.get(SecureExpirationDateCookieName)) {
-        setCookieData(cookies.get(SecureExpirationDateCookieName));
+      if (cookieData !== cookies[SecureExpirationDateCookieName]) {
+        setCookieData(cookies[SecureExpirationDateCookieName]);
       } else {
         await UserApiService.logout();
         window.location = `${location.pathname}?secureExpired=true`;
@@ -49,7 +47,3 @@ const SecureExpirationHandler = ({ children, cookies, location }: Props) => {
 
   return children;
 };
-
-export const SecureExpiration = withRouter(
-  withCookies(SecureExpirationHandler)
-);

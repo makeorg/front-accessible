@@ -1,11 +1,13 @@
+// @flow
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type TypeBusinessConsultation } from 'Shared/types/views';
 import { isInProgress } from 'Shared/helpers/date';
 import { sortConsultationsByLatestDate } from 'Shared/helpers/views';
 import { getConsultationLink } from 'Shared/helpers/url';
+import { type StateRoot } from 'Shared/store/types';
 import {
   SvgAngleArrowRight,
   SvgAngleArrowBottom,
@@ -29,16 +31,13 @@ import {
 
 type Props = {
   consultations: TypeBusinessConsultation[],
-  country: string,
-  language: string,
 };
 
-export const BusinessConsultationsComponent = ({
-  consultations,
-  country,
-  language,
-}: Props) => {
-  const ListRef = useRef(null);
+export const BusinessConsultations = ({ consultations }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+  const ListRef = useRef<any>(null);
   const initialDisplayedConsultationsLength = 3;
   const sortedConsultations = sortConsultationsByLatestDate(consultations);
   const [limitedConsultations, setConsultationsLimit] = useState(
@@ -135,16 +134,3 @@ export const BusinessConsultationsComponent = ({
     </HomepagePaddingContentStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const BusinessConsultations = connect(mapStateToProps)(
-  BusinessConsultationsComponent
-);

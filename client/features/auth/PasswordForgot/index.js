@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -10,15 +10,16 @@ import { modalShowLogin } from 'Shared/store/actions/modal';
 import { ForgotPasswordForm } from './Form';
 import { ForgotPasswordStyle } from './Styled';
 
-type Props = {
-  /** Method called to render Login Component in Modal */
-  handleLoginModal: () => void,
-};
-
 /**
  * Renders Forgot Password component
  */
-export const PasswordForgotComponent = ({ handleLoginModal }: Props) => {
+export const PasswordForgot = () => {
+  const dispatch = useDispatch();
+
+  const handleLoginModal = () => {
+    dispatch(modalShowLogin());
+  };
+
   return (
     <ForgotPasswordStyle aria-labelledby="forgot_password_title">
       <SecondLevelTitleStyle id="forgot_password_title">
@@ -35,14 +36,3 @@ export const PasswordForgotComponent = ({ handleLoginModal }: Props) => {
     </ForgotPasswordStyle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleLoginModal: () => {
-    dispatch(modalShowLogin());
-  },
-});
-
-export const PasswordForgot = connect(
-  null,
-  mapDispatchToProps
-)(PasswordForgotComponent);

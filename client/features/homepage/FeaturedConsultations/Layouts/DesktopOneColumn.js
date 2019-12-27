@@ -1,12 +1,17 @@
 // @flow
 
 import React from 'react';
+import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { FeaturedArticle } from '../Article';
 import { FeaturedArticleWrapperStyle, FeaturedArticleStyle } from '../Styled';
-import { type TypeFeaturedsProps } from '../index';
 
-export const DesktopOneColumn = (props: TypeFeaturedsProps) => {
-  const { featureds, country, language } = props;
+type Props = {
+  featureds: TypeFeaturedConsultation[],
+  country: string,
+  language: string,
+};
+
+export const DesktopOneColumn = ({ featureds, country, language }: Props) => {
   return (
     <FeaturedArticleWrapperStyle id="featured_list">
       {featureds.map(featured => (

@@ -1,9 +1,10 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeRegisterFormData } from 'Shared/types/form';
 import { type TypeErrorObject } from 'Shared/types/api';
+import { type StateRoot } from 'Shared/store/types';
 import * as UserService from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { getUser } from 'Shared/store/actions/authentification';
@@ -37,24 +38,14 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { getGTUPageLink } from 'Shared/helpers/url';
 
-type Props = {
-  country: string,
-  language: string,
-  /** Method called to close modal */
-  handleModalClose: () => void,
-  /** Method called to load user */
-  handleLoadUser: () => void,
-};
-
 /**
  * Renders Register Form
  */
-export const RegisterFormComponent = ({
-  country,
-  language,
-  handleModalClose,
-  handleLoadUser,
-}: Props) => {
+export const RegisterForm = () => {
+  const dispatch = useDispatch();
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const [user, setUser] = useState<TypeRegisterFormData>({
     email: '',
     password: '',
@@ -77,7 +68,7 @@ export const RegisterFormComponent = ({
   const logAndLoadUser = async (email, password) => {
     try {
       await UserService.login(email, password);
-      handleLoadUser();
+      dispatch(getUser(true));
     } catch {
       // @toDo: notify user
       Logger.logError(`Login fail for ${email}`);
@@ -93,7 +84,7 @@ export const RegisterFormComponent = ({
       await logAndLoadUser(user.email, user.password);
 
       trackSignupEmailSuccess();
-      handleModalClose();
+      dispatch(modalClose());
       setErrors([]);
       setInProgress(false);
     } catch (serviceErrors) {
@@ -193,26 +184,3 @@ export const RegisterFormComponent = ({
     </FormStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  handleModalClose: () => {
-    dispatch(modalClose());
-  },
-  handleLoadUser: () => {
-    dispatch(getUser(true));
-  },
-});
-
-export const RegisterForm = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RegisterFormComponent);

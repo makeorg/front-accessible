@@ -1,32 +1,39 @@
 // @flow
-
-import * as React from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  type Node as TypeReactNode,
+} from 'react';
 import { withCookies, Cookies } from 'react-cookie';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { showSessionExpirationModal } from 'Shared/store/actions/modal';
 import { ExpirationSessionModal } from './Modal';
 
 type Props = {
   /** Children content */
-  children: React.Node,
+  children: TypeReactNode,
   /** Cookies object */
   cookies: Cookies,
-  /** Function to be exexuted when session expire */
-  showModal: () => void,
 };
 
 const sessionExpirationDateCookieName: string = 'make-session-id-expiration';
 
-const SessionExpirationHandler = ({ children, cookies, showModal }: Props) => {
-  const [cookieData, setCookieData] = React.useState(
+const SessionExpirationHandler = ({ children, cookies }: Props) => {
+  const dispatch = useDispatch();
+  const [cookieData, setCookieData] = useState(
     cookies.get(sessionExpirationDateCookieName)
   );
   const sessionExpirationDate = new Date(cookieData);
-  const cookieDataRef = React.useRef(cookieData);
+  const cookieDataRef = useRef(cookieData);
 
   cookieDataRef.current = cookieData;
 
-  React.useEffect(() => {
+  const showModal = () => {
+    dispatch(showSessionExpirationModal());
+  };
+
+  useEffect(() => {
     const currentDate = new Date();
     const timeBeforeExpire =
       sessionExpirationDate.getTime() - currentDate.getTime() - 5 * 60 * 1000;
@@ -52,15 +59,4 @@ const SessionExpirationHandler = ({ children, cookies, showModal }: Props) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  showModal: () => {
-    dispatch(showSessionExpirationModal());
-  },
-});
-
-export const SessionExpiration = withCookies(
-  connect(
-    null,
-    mapDispatchToProps
-  )(SessionExpirationHandler)
-);
+export const SessionExpiration = withCookies(SessionExpirationHandler);

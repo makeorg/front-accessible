@@ -1,7 +1,8 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type TypeErrorObject } from 'Shared/types/api';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -18,23 +19,14 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { getFieldError } from 'Shared/helpers/form';
 import { PasswordRecoveryFormStyle } from '../Styled';
 
-type Props = {
-  /** Has error or not */
-  error: boolean,
-  /** Error message */
-  errorMessage: string,
-  /** Function to dispatch form submit */
-  handleSubmitForm: (password: string) => void,
-};
-
 /**
  * Renders ForgotPassword Form
  */
-export const PasswordRecoveryFormComponent = ({
-  error,
-  errorMessage,
-  handleSubmitForm,
-}: Props) => {
+export const PasswordRecoveryForm = () => {
+  const dispatch = useDispatch();
+  const { error, errorMessage } = useSelector((state: StateRoot) =>
+    selectPasswordRecovery(state)
+  );
   const [password, setPassword] = useState<string>('');
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
   const passwordError = getFieldError('password', errors);
@@ -48,6 +40,10 @@ export const PasswordRecoveryFormComponent = ({
       },
     ]);
   }
+
+  const handleSubmitForm = (newPassword: string) => {
+    dispatch(passwordRecovery(newPassword));
+  };
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -90,20 +86,3 @@ export const PasswordRecoveryFormComponent = ({
     </PasswordRecoveryFormStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { error, errorMessage } = selectPasswordRecovery(state);
-
-  return { error, errorMessage };
-};
-
-const mapDispatchToProps = dispatch => ({
-  handleSubmitForm: password => {
-    dispatch(passwordRecovery(password));
-  },
-});
-
-export const PasswordRecoveryForm = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PasswordRecoveryFormComponent);

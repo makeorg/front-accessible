@@ -1,10 +1,11 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { SvgInfos } from 'Client/ui/Svg/elements';
 import { useCookies } from 'react-cookie';
 import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
+import { type StateRoot } from 'Shared/store/types';
 import {
   CookieContentStyle,
   CookieWrapperStyle,
@@ -13,13 +14,12 @@ import {
   CookieContentInnerStyle,
 } from './Styled';
 
-type Props = {
-  country: string,
-  language: string,
-};
 const acceptCookieName: string = 'make-cookie';
 
-const CookieBannerComponent = ({ country, language }: Props) => {
+export const CookieBanner = () => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const [cookies, setCookies] = useCookies([acceptCookieName]);
   const [hasAccepted, setAccepted] = useState<boolean>(
     cookies[acceptCookieName] !== undefined
@@ -62,14 +62,3 @@ const CookieBannerComponent = ({ country, language }: Props) => {
     </CookieWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const CookieBanner = connect(mapStateToProps)(CookieBannerComponent);

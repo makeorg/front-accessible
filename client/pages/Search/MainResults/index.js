@@ -1,11 +1,12 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { type Location } from 'history';
 import { type TypeSearchViews } from 'Shared/types/views';
 import { ViewsService } from 'Shared/api/ViewsService';
 import { i18n } from 'Shared/i18n';
 import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
+import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
@@ -30,11 +31,12 @@ import { SearchSidebar } from '../Sidebar';
 
 export type Props = {
   location: Location,
-  country: string,
-  language: string,
 };
 
-const SearchMainResultsComponent = ({ location, country, language }: Props) => {
+export const SearchMainResults = ({ location }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
 
@@ -158,16 +160,3 @@ const SearchMainResultsComponent = ({ location, country, language }: Props) => {
     </SearchPageWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const SearchMainResults = connect(mapStateToProps)(
-  SearchMainResultsComponent
-);

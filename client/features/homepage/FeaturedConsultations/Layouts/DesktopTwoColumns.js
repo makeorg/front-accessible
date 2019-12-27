@@ -2,15 +2,20 @@
 
 import React, { useEffect, useState } from 'react';
 import { sortSlotsBySmallest, swapIndexes } from 'Shared/helpers/views';
+import { type TypeFeaturedConsultation } from 'Shared/types/views';
 import { FeaturedArticle } from '../Article';
 import {
   FeaturedArticleWrapperStyle,
   FeaturedArticleColumnStyle,
 } from '../Styled';
-import { type TypeFeaturedsProps } from '../index';
 
-export const DesktopTwoColumns = (props: TypeFeaturedsProps) => {
-  const { featureds, country, language } = props;
+type Props = {
+  featureds: TypeFeaturedConsultation[],
+  country: string,
+  language: string,
+};
+
+export const DesktopTwoColumns = ({ featureds, country, language }: Props) => {
   let sortedFeatureds = sortSlotsBySmallest(featureds);
   const featuredsLength = featureds.length;
   const halfLengthFloor = Math.floor(featuredsLength / 2);

@@ -1,9 +1,9 @@
 // @flow
-
 import * as React from 'react';
 import ReactModal from 'react-modal';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { closeSessionExpirationModal } from 'Shared/store/actions/modal';
 import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgClose } from 'Client/ui/Svg/elements';
@@ -18,15 +18,18 @@ import {
 
 ReactModal.setAppElement('#app');
 
-type Props = {
-  showExpirationSession: string,
-  handleClose: (event: SyntheticEvent<HTMLButtonElement>) => void,
-};
+export const ExpirationSessionModal = () => {
+  const dispatch = useDispatch();
+  const showExpirationSession: string = useSelector(
+    (state: StateRoot) => state.modal.showExpirationSession
+  );
 
-const ExpirationSessionModalHandler = ({
-  showExpirationSession,
-  handleClose,
-}: Props) => {
+  const handleClose = (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    dispatch(closeSessionExpirationModal());
+    window.location.reload();
+  };
+
   return (
     <ReactModal
       isOpen={showExpirationSession}
@@ -57,23 +60,3 @@ const ExpirationSessionModalHandler = ({
     </ReactModal>
   );
 };
-
-const mapStateToProps = state => {
-  const { showExpirationSession } = state.modal;
-
-  return {
-    showExpirationSession,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  handleClose: () => {
-    dispatch(closeSessionExpirationModal());
-    window.location.reload();
-  },
-});
-
-export const ExpirationSessionModal = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ExpirationSessionModalHandler);

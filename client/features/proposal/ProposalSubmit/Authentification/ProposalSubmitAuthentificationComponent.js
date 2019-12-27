@@ -1,6 +1,12 @@
 // @flow
 import React, { useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
+import {
+  trackDisplayAuthentificationForm,
+  trackClickPersonnalDataLink,
+} from 'Shared/services/Tracking';
+import { type StateRoot } from 'Shared/store/types';
 import {
   RedButtonStyle,
   EmailButtonStyle,
@@ -17,33 +23,25 @@ import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/So
 import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
 import { SvgEnvelope } from 'Client/ui/Svg/elements';
 import { getDataPageLink } from 'Shared/helpers/url';
+import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import {
   ProposalSubmitAuthentificationWrapperStyle,
   ProposalSubmitSeparatorStyle,
 } from '../Styled';
 
-type Props = {
-  country: string,
-  language: string,
-  /** Method called to render Register Component in Modal */
-  handleRegisterClick: () => void,
-  /** Method called to render Register Component in Modal */
-  handleLoginClick: () => void,
-  /** Method called to track link */
-  trackPersonnalDataLink: () => void,
-};
-
 /**
  * Renders authentification component after proposal submit button is clicked
  */
-export const ProposalSubmitAuthentificationComponent = ({
-  country,
-  language,
-  handleRegisterClick,
-  handleLoginClick,
-  trackPersonnalDataLink,
-}: Props) => {
+export const ProposalSubmitAuthentificationComponent = () => {
   const authetificationRef = useRef(null);
+  const dispatch = useDispatch();
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
+
+  useEffect(() => {
+    trackDisplayAuthentificationForm();
+  }, []);
 
   useEffect(() => {
     if (authetificationRef.current) {
@@ -67,7 +65,7 @@ export const ProposalSubmitAuthentificationComponent = ({
         <FacebookAuthentificationButtonComponent />
         <GoogleAuthentificationButtonComponent />
         <EmailButtonStyle
-          onClick={handleRegisterClick}
+          onClick={() => dispatch(modalShowRegister())}
           id="authentification-register-button"
         >
           <IconWrapperStyle>
@@ -81,7 +79,7 @@ export const ProposalSubmitAuthentificationComponent = ({
         <a
           href={getDataPageLink(country, language)}
           rel="noopener noreferrer"
-          onClick={trackPersonnalDataLink}
+          onClick={() => trackClickPersonnalDataLink()}
         >
           {i18n.t('authentification.personal_data')}
         </a>
@@ -90,7 +88,7 @@ export const ProposalSubmitAuthentificationComponent = ({
       <ThirdLevelTitleStyle>{i18n.t('login.title')}</ThirdLevelTitleStyle>
       <ButtonsWrapperStyle>
         <RedButtonStyle
-          onClick={handleLoginClick}
+          onClick={() => dispatch(modalShowLogin())}
           id="authentification-login-button"
         >
           {i18n.t('login.button_connect')}

@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink } from 'Shared/helpers/url';
+import { type StateRoot } from 'Shared/store/types';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -21,15 +22,13 @@ import {
 import { SearchResultsConsultationListStyle } from '../../Styled';
 
 type Props = {
-  country: string,
-  language: string,
   questions: TypeQuestion[],
 };
-const MainResultsConsultationsComponent = ({
-  country,
-  language,
-  questions,
-}: Props) => {
+
+export const MainResultsConsultations = ({ questions }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   return (
     <div id="consultations_list" role="feed">
       <SearchResultsConsultationListStyle>
@@ -71,16 +70,3 @@ const MainResultsConsultationsComponent = ({
     </div>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const MainResultsConsultations = connect(mapStateToProps)(
-  MainResultsConsultationsComponent
-);

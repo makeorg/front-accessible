@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { type Location, type History } from 'history';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
@@ -8,6 +8,7 @@ import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
 import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
+import { type StateRoot } from 'Shared/store/types';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import {
@@ -31,17 +32,13 @@ import { SearchSidebar } from '../Sidebar';
 type Props = {
   location: Location,
   history: History,
-  country: string,
-  language: string,
 };
 const PROPOSALS_LIMIT = 10;
 
-export const SearchResultsProposalsComponent = ({
-  location,
-  history,
-  country,
-  language,
-}: Props) => {
+export const SearchResultsProposals = ({ location, history }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
@@ -145,16 +142,3 @@ export const SearchResultsProposalsComponent = ({
     </SearchPageWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const SearchResultsProposals = connect(mapStateToProps)(
-  SearchResultsProposalsComponent
-);
