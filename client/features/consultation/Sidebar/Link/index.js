@@ -2,8 +2,10 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
-import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import {
+  RedLinkStyle,
+  NewWindowIconStyle,
+} from 'Client/ui/Elements/LinkElements';
 
 type Props = {
   linkUrl: string,
@@ -26,7 +28,7 @@ export const SidebarNewWindowLink = (props: Props) => {
       {linkText}
       <SvgExternalLink
         aria-label={i18n.t('common.open_new_window')}
-        style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
+        style={NewWindowIconStyle}
       />
     </RedLinkStyle>
   );

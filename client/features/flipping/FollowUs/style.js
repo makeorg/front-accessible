@@ -9,6 +9,7 @@ import {
 export const FollowUsStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
   max-width: 200px;
+  margin: 15px 0;
 `;
 
 export const FollowUsButtonStyle = styled(UnstyledButtonStyle)`
