@@ -4,8 +4,8 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { type TypePopularTag } from 'Shared/types/tag';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type TypeTag } from 'Shared/types/tag';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -78,7 +78,7 @@ export type StateQuestions = $ReadOnly<{
   [string]: {
     question: TypeQuestion,
     questionResults: TypeQuestionResults,
-    popularTags: TypePopularTag[],
+    popularTags: TypeTag[],
     popularProposals: PopularProposals[],
   },
 }>;

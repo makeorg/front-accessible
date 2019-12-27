@@ -3,7 +3,6 @@ export type TypeTag = {
   tagId: string,
   label: string,
   display: string,
-  TypeTagId: string,
   weight: number,
   operationId: string,
   questionId: string,
@@ -11,10 +10,5 @@ export type TypeTag = {
   country: string,
   language: string,
   isSelected: boolean,
-};
-
-export type TypePopularTag = {
-  tagId: string,
-  label: string,
   proposalCount: number,
 };

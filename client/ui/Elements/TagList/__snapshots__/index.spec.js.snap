@@ -5,8 +5,8 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -57,13 +57,7 @@
-    </TagListStyle>
+@@ -2,13 +2,7 @@
+    <TagListStyle />
     <TagListHeaderStyle>
       <span>
         consultation.tags.count
@@ -23,62 +23,7 @@ Snapshot Diff:
 
 exports[`TagList must match the snapshot with default Props 1`] = `
 <TaglistWrapperStyle>
-  <TagListStyle>
-    <li>
-      <TagButtonElementStyle
-        aria-live="polite"
-        id="stake_trigger_undefined"
-        isSelected={true}
-        onClick={[Function]}
-      >
-        <ScreenReaderItemStyle>
-          consultation.tags.remove_filter
-        </ScreenReaderItemStyle>
-        <TagLabelStyle>
-          foo
-        </TagLabelStyle>
-        <SvgClose
-          aria-hidden={true}
-          style={
-            Object {
-              "fill": "rgb(255,255,255)",
-              "width": "10px",
-            }
-          }
-        />
-      </TagButtonElementStyle>
-    </li>
-    <li>
-      <TagButtonElementStyle
-        aria-live="polite"
-        id="stake_trigger_undefined"
-        isSelected={false}
-        onClick={[Function]}
-      >
-        <ScreenReaderItemStyle>
-          consultation.tags.add_filter
-        </ScreenReaderItemStyle>
-        <TagLabelStyle>
-          bar
-        </TagLabelStyle>
-      </TagButtonElementStyle>
-    </li>
-    <li>
-      <TagButtonElementStyle
-        aria-live="polite"
-        id="stake_trigger_undefined"
-        isSelected={false}
-        onClick={[Function]}
-      >
-        <ScreenReaderItemStyle>
-          consultation.tags.add_filter
-        </ScreenReaderItemStyle>
-        <TagLabelStyle>
-          baz
-        </TagLabelStyle>
-      </TagButtonElementStyle>
-    </li>
-  </TagListStyle>
+  <TagListStyle />
   <TagListHeaderStyle>
     <span>
       consultation.tags.count

@@ -1,6 +1,6 @@
 // @flow
 import { proposalTypeFixture } from 'Shared/types/__fixtures__/proposal.fixture';
-import { setPopularProposals } from 'Shared/store/actions/question';
+import { setPopularProposals } from 'Shared/store/reducers/questions/actions';
 import { questions } from './index';
 
 describe('Question reducer', () => {

@@ -5,7 +5,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { type Question } from 'Shared/types/question';
 import { type TypeSliderParams } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
-import { fetchPopularProposals } from 'Shared/store/actions/question';
+import { fetchPopularProposals } from 'Shared/store/reducers/questions/actions';
 import {
   type StateRoot,
   type PopularProposals as PopularProposalsType,

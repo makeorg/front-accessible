@@ -18,7 +18,7 @@ import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-import { updateCurrentQuestion } from 'Shared/store/actions/question';
+import { updateCurrentQuestion } from 'Shared/store/reducers/questions/actions';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {

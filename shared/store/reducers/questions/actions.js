@@ -2,14 +2,15 @@
 import { type Dispatch } from 'redux';
 import {
   CURRENT_QUESTION_UPDATE,
-  QUESTION_POPULAR_TAGS_LOAD,
   PROPOSAL_POPULAR_LOAD,
 } from 'Shared/store/actionTypes';
-import { type TypePopularTag } from 'Shared/types/tag';
+import { type TypeTag } from 'Shared/types/tag';
 import { type PopularProposals } from 'Shared/store/types';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
+
+export const QUESTION_POPULAR_TAGS_LOAD = 'QUESTION_POPULAR_TAGS_LOAD';
 
 export const updateCurrentQuestion = (questionSlug: string) => ({
   type: CURRENT_QUESTION_UPDATE,
@@ -18,7 +19,7 @@ export const updateCurrentQuestion = (questionSlug: string) => ({
 
 export const loadPopularTags = (
   questionSlug: string,
-  popularTags: TypePopularTag[]
+  popularTags: TypeTag[]
 ) => ({
   type: QUESTION_POPULAR_TAGS_LOAD,
   payload: { questionSlug, popularTags },
@@ -26,11 +27,13 @@ export const loadPopularTags = (
 
 export const fetchPopularTags = (
   questionId: string,
-  questionSlug: string
+  questionSlug: string,
+  limit: ?number = undefined
 ) => async (dispatch: Dispatch) => {
   try {
     const popularTags = await QuestionApiService.getQuestionPopularTags(
-      questionId
+      questionId,
+      limit
     );
 
     return dispatch(loadPopularTags(questionSlug, popularTags));
