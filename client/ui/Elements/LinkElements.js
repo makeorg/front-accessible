@@ -24,6 +24,11 @@ const linkStyle = (color, largeMobileBreakPoint) => `
 
   `;
 
+export const NewWindowIconStyle = {
+  marginLeft: '5px',
+  fill: MakeThemeColors.Red,
+};
+
 export const RedLinkStyle = styled(Link)`
   ${linkStyle(MakeThemeColors.Red, intToPx(Breakpoints.LargeMobile))}
 `;

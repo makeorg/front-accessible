@@ -70,7 +70,8 @@ export const LOCATION_SEQUENCE = 'sequence';
 export const CLICK_SHARE: string = 'click-share';
 
 /** Follow us */
-export const CLICK_FOLLOWUS: string = 'click-follow-us';
+export const CLICK_FOLLOW_US: string = 'click-follow-us';
+export const CLICK_VIEW_BLOG: string = 'click-view-blog';
 
 /** Homepage */
 export const DISPLAY_HOMEPAGE: string = 'display-page-home';

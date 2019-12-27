@@ -454,5 +454,16 @@ export const trackClickProposalProfile = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_PUBLIC_PROFILE);
 };
 
+/** Follow Us component */
+export const trackClickFollowUs = (event: SyntheticEvent<HTMLLinkElement>) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_FOLLOW_US, {
+    'social-network': event.currentTarget.dataset.networkName,
+  });
+};
+
+export const trackClickViewBlog = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_VIEW_BLOG);
+};
+
 /* eslint-disable import/no-default-export */
 export default TrackingService;
