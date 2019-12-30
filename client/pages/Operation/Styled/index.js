@@ -3,6 +3,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ConsultationPageWrapperStyle = styled.div`
   width: 100%;
@@ -45,4 +46,8 @@ export const ConsultationIconStyle = styled.span`
   path.tofill {
     fill: ${BasicColors.PureBlack};
   }
+`;
+
+export const IdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
+  margin-bottom: 30px;
 `;

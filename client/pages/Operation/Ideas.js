@@ -1,6 +1,12 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import { type Question as TypeQuestion } from 'Shared/types/question';
+
+import {
+  ConsultationPageContentStyle,
+  ConsultationPageWrapperStyle,
+} from 'Client/pages/Operation/Styled';
+import { IdeaCards } from 'Client/features/ideas/IdeaCards';
 import { withQuestionData } from './fetchQuestionData';
 
 type Props = {
@@ -8,7 +14,14 @@ type Props = {
 };
 
 const IdeasPageWrapper = ({ question }: Props) => (
-  <div>{`IdeasPage for ${question.wording.question}`}</div>
+  <Fragment>
+    <ConsultationPageWrapperStyle>
+      <ConsultationPageContentStyle>
+        {`IdeasPage for ${question.wording.question}`}
+        <IdeaCards />
+      </ConsultationPageContentStyle>
+    </ConsultationPageWrapperStyle>
+  </Fragment>
 );
 
 const IdeasPage = withQuestionData(IdeasPageWrapper);

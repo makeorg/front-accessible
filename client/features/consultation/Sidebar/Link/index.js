@@ -13,23 +13,23 @@ type Props = {
   tracking: () => void,
 };
 
-export const SidebarNewWindowLink = (props: Props) => {
-  const { linkUrl, linkText, tracking } = props;
-
-  return (
-    <RedLinkStyle
-      as="a"
-      href={linkUrl}
-      to={linkUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={tracking}
-    >
-      {linkText}
-      <SvgExternalLink
-        aria-label={i18n.t('common.open_new_window')}
-        style={NewWindowIconStyle}
-      />
-    </RedLinkStyle>
-  );
-};
+export const SidebarNewWindowLink = ({
+  linkUrl,
+  linkText,
+  tracking,
+}: Props) => (
+  <RedLinkStyle
+    as="a"
+    href={linkUrl}
+    to={linkUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={tracking}
+  >
+    {linkText}
+    <SvgExternalLink
+      aria-label={i18n.t('common.open_new_window')}
+      style={NewWindowIconStyle}
+    />
+  </RedLinkStyle>
+);

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { AvatarStyle } from './Styled';
+import { AvatarStyle, AvatarWithDotsStyle, DotsStyle } from './Styled';
 import { SvgEmptyAvatar } from '../Svg/elements';
 
 type Props = {
@@ -10,6 +10,10 @@ type Props = {
   avatarSize?: number,
   /** Width of avatar */
   avatarAlt?: string,
+};
+
+type DotsProps = {
+  avatarSize?: number,
 };
 
 export const Avatar = ({
@@ -29,6 +33,23 @@ export const Avatar = ({
       ) : (
         <SvgEmptyAvatar width={avatarSize} height={avatarSize} aria-hidden />
       )}
+    </AvatarStyle>
+  );
+};
+
+export const AvatarWithDots = ({ avatarSize = 30 }: DotsProps) => {
+  return (
+    <AvatarStyle>
+      <AvatarWithDotsStyle
+        width={avatarSize}
+        height={avatarSize}
+        aria-hidden
+        withDots
+      >
+        <DotsStyle />
+        <DotsStyle />
+        <DotsStyle />
+      </AvatarWithDotsStyle>
     </AvatarStyle>
   );
 };
