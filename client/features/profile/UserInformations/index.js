@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from 'Shared/store/actions/authentification';
 import { type TypeUser } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
-import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
+import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgMapMarker, SvgSignOut, SvgLink } from 'Client/ui/Svg/elements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
@@ -24,6 +24,11 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { useMobile } from 'Client/hooks/useMedia';
+import {
+  TYPE_ORGANISATION,
+  TYPE_PERSONALITY,
+  TYPE_USER,
+} from 'Shared/constants/user';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -36,6 +41,9 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
   const dispatch = useDispatch();
   const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
+  const isOrganisation = user.userType === TYPE_ORGANISATION;
+  const isPersonality = user.userType === TYPE_PERSONALITY;
+  const isBasicUser = user.userType === TYPE_USER;
 
   useEffect(() => {
     if (!isMobile) {
@@ -49,7 +57,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
         <ProfileAvatarStyle>
           <Avatar avatarSize={avatarSize} avatarUrl={profile.avatarUrl} />
         </ProfileAvatarStyle>
-        {user.isOrganisation && (
+        {isOrganisation && (
           <ProfileContentWrapperStyle>
             <ProfileTitleStyle>
               <ScreenReaderItemStyle>
@@ -67,13 +75,26 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <ScreenReaderItemStyle as="h2">
             {i18n.t('profile.common.infos')}
           </ScreenReaderItemStyle>
-          {!user.isOrganisation && (
+          {!isOrganisation && (
             <>
               <ProfileTitleStyle>
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.firstname')}
                 </ScreenReaderItemStyle>
                 {user.firstName}
+                &nbsp;
+                {isPersonality && (
+                  <>
+                    <ScreenReaderItemStyle>
+                      {i18n.t('profile.common.labels.lastname')}
+                    </ScreenReaderItemStyle>
+                    {user.lastName}
+                    &nbsp;
+                    <SvgCheckedSymbol
+                      style={{ fontSize: '14px', fill: TextColors.Blue }}
+                    />
+                  </>
+                )}
               </ProfileTitleStyle>
               <ProfileContentStyle>
                 <ScreenReaderItemStyle>
@@ -98,7 +119,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 {i18n.t('profile.common.labels.age')}
               </ScreenReaderItemStyle>
               {i18n.t('profile.common.age', {
-                age: getAgeFromDateOfBrth(profile.dateOfBirth),
+                age: getAgeFromDateOfBirth(profile.dateOfBirth),
               })}
             </ProfileContentStyle>
           )}
@@ -121,7 +142,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <UserDescription description={profile.description} />
         </>
       )}
-      {user.isOrganisation && profile.website && (
+      {!isBasicUser && profile.website && (
         <ProfileAlignLeftContentStyle>
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.website')}

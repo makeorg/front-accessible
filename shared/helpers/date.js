@@ -42,7 +42,7 @@ export const getDateOfBirthFromAge = (age: string = '') => {
   return `${birthYear}-01-01`;
 };
 
-export const getAgeFromDateOfBrth = (dateOfBirth: string) => {
+export const getAgeFromDateOfBirth = (dateOfBirth: string) => {
   if (!dateOfBirth) {
     return '';
   }
