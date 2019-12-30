@@ -196,7 +196,14 @@
     "link": "Voir le détail de l'idée",
     "associated_proposals": "{{count}} propositions associées",
     "count_position": "{{ count }} prises de position",
-    "position": "{{ position_link }} de candidats sur cette idée."
+    "position": "{{ position_link }} de candidats sur cette idée.",
+    "open": "Afficher le score de l'idée",
+    "close": "Masquer le score de l’idée",
+    "expand": " - Cliquez pour afficher le score de l'idée",
+    "collapse": " - Cliquez pour masquer le score de l'idée",
+    "vote_proposals": "des propositions",
+    "vote_positives": "de votes positifs",
+    "vote_heart": "de coups de coeur"
   },
   "proposal_card": {
     "previous": "Proposition précédente",
