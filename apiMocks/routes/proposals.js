@@ -39,6 +39,15 @@ proposalsRouter.use('/:proposalId/unqualification', (req, res) => {
   });
 });
 
+proposalsRouter.use('/:proposalId', (req, res) => {
+  return res.send({
+    ...fixtures.proposals.find(
+      proposal => proposal.id === req.params.proposalId
+    ),
+    hasQualified: false,
+  });
+});
+
 proposalsRouter.use('/', (req, res) => {
   const proposalsOfQuestion = fixtures.proposals.filter(
     proposal => proposal.question.questionId === req.query.questionId

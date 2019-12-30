@@ -1,9 +1,10 @@
 const jsonServer = require('json-server');
-const path = require('path');
 const proposalsRouter = require('./routes/proposals');
 const questionsRouter = require('./routes/questions');
 const userRouter = require('./routes/user');
 const tagsRouter = require('./routes/tags');
+const organisationsRouter = require('./routes/organisations');
+const { fixtures } = require('./fixtures/generator');
 
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults({ logger: false });
@@ -14,6 +15,7 @@ server.use('/questions', questionsRouter);
 server.use('/user', userRouter);
 server.use('/proposals', proposalsRouter);
 server.use('/tags', tagsRouter);
+server.use('/organisations', organisationsRouter);
 server.use('/tracking/front', (req, res) => {
   res.sendStatus(204);
 });
@@ -23,7 +25,9 @@ server.use(
     '/:resource': '/:resource/data',
   })
 );
-server.use('/views', jsonServer.router(path.join(__dirname, 'db/views.json')));
+server.use('/views', (req, res) => {
+  return res.send(fixtures.homeView);
+});
 
 server.listen(9000, () => {
   console.log('JSON Server is running');
