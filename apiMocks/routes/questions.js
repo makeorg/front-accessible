@@ -7,12 +7,15 @@ questionsRouter.get('/', (req, res) => {
   return res.send(fixtures.questions);
 });
 
-questionsRouter.get('/:questionSlug/details', (req, res) => {
-  const questionData = fixtures.questions.find(
-    question => question.slug === req.params.questionSlug
+questionsRouter.get('/:questionIdOrQuestionSlug/details', (req, res) => {
+  const questionDataById = fixtures.questions.find(
+    question => question.questionId === req.params.questionIdOrQuestionSlug
+  );
+  const questionDataBySlug = fixtures.questions.find(
+    question => question.slug === req.params.questionIdOrQuestionSlug
   );
 
-  return res.send(questionData);
+  return res.send(questionDataById || questionDataBySlug);
 });
 
 questionsRouter.get('/:questionId/partners', (req, res) => {
