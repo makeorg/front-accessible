@@ -53,6 +53,9 @@ export const TagLabelStyle = styled.span`
 
 export const ProposalCountStyle = styled.span`
   margin-left: 5px;
+  font-size: 14px;
+  color: ${props =>
+    props.isSelected ? BasicColors.PureWhite : TextColors.MediumGrey};
 `;
 
 export const TagListHeaderStyle = styled.div`
