@@ -52,7 +52,7 @@ export type Props = {
  */
 export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
   const dispatch = useDispatch();
-  const { firstProposal, votedProposalIds } = useSelector(
+  const { firstProposal, votedProposalIds, currentIndex } = useSelector(
     state => state.sequence
   );
   const { hasProposed } = useSelector(state => state.proposal);
@@ -86,7 +86,8 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
 
           const indexOfFirstUnvotedCard: number = findIndexOfFirstUnvotedCard(
             firstUnvotedProposal,
-            buildedCards
+            buildedCards,
+            currentIndex
           );
           setCards(buildedCards);
           setCardsCount(buildedCards.length - 1);

@@ -49,7 +49,8 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
  */
 export const findIndexOfFirstUnvotedCard = (
   firstUnvotedProposal?: TypeProposal,
-  cards: TypeSequenceCard[]
+  cards: TypeSequenceCard[],
+  currentIndex: number
 ): number => {
   if (!firstUnvotedProposal) {
     return cards.length - 1;
@@ -61,6 +62,10 @@ export const findIndexOfFirstUnvotedCard = (
       card.configuration.id ===
         (firstUnvotedProposal && firstUnvotedProposal.id)
   );
+
+  if (indexOfFirstUnvotedCard <= currentIndex) {
+    return currentIndex;
+  }
 
   // if no proposal is voted we return the index of intro cards
   return indexOfFirstUnvotedCard === 1 ? 0 : indexOfFirstUnvotedCard;
