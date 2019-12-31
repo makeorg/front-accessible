@@ -90,7 +90,7 @@ export const TagList = ({
                 </ScreenReaderItemStyle>
                 <TagLabelStyle>
                   {tag.label}
-                  <ProposalCountStyle>
+                  <ProposalCountStyle isSelected={tag.isSelected}>
                     {`(${tag.proposalCount})`}
                   </ProposalCountStyle>
                 </TagLabelStyle>
