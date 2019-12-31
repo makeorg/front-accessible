@@ -63,19 +63,29 @@
         "email": "E-mail",
         "password": "Mot de passe",
         "firstname": "Prénom",
+        "lastname": "Nom",
         "age": "Âge",
         "postalcode": "Code postal",
         "profession": "Profession",
         "biography": "Biographie",
         "website": "Site Internet",
+        "organisation": "Nom de l'organisation",
         "email_optional": "E-mail (optionnel)",
         "password_optional": "Mot de passe (optionnel)",
         "firstname_optional": "Prénom (optionnel)",
+        "lastname_optional": "Nom (optionnel)",
         "age_optional": "Âge (optionnel)",
         "postalcode_optional": "Code postal (optionnel)",
         "profession_optional": "Profession (optionnel)",
         "biography_optional": "Biographie (optionnel)",
-        "website_optional": "Site Internet (optionnel)"
+        "website_optional": "Site Internet (optionnel)",
+        "organisation_optional": "Nom de l'organisation (optionnel)",
+        "personality": {
+          "firstname_M": "Prénom du candidat / tête de liste",
+          "lastname_M": "Nom du candidat / tête de liste",
+          "firstname_F": "Prénom de la candidate / tête de liste",
+          "lastname_F": "Nom de la candidate / tête de liste"
+        }
       },
       "messages": {
         "errors_notification": "Nous avons trouvé des erreurs dans ce formulaire :",
@@ -410,6 +420,7 @@
       "labels": {
         "organisation": "Nom de l'organisation : ",
         "firstname": "Prénom : ",
+        "lastname": "Nom : ",
         "email": "Adresse e-mail : ",
         "postal_code": "Code postal : ",
         "age": "Âge : ",

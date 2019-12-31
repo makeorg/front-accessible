@@ -25,6 +25,8 @@ import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 export const update = async (userInformation: TypeUserInformationForm) => {
   return UserApiService.update({
     firstName: userInformation.firstName,
+    lastName: userInformation.lastName,
+    organisationName: userInformation.organisationName,
     dateOfBirth: getDateOfBirthFromAge(userInformation.age),
     postalCode: userInformation.postalCode,
     profession: userInformation.profession,

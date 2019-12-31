@@ -41,6 +41,7 @@ export type TypeUser = {
   },
   hasPassword: boolean,
   followedUsers: Array<string>,
+  userType: string,
 };
 
 export type TypePasswords = {
@@ -50,6 +51,8 @@ export type TypePasswords = {
 
 export type TypeUserInformationForm = {
   firstName: string,
+  lastName: string,
+  organisationName: string,
   age: string,
   profession: string,
   postalCode: string,

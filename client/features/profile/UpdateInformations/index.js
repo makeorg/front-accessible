@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -21,34 +21,43 @@ import { type TypeUser, type TypeUserInformationForm } from 'Shared/types/user';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { getUser } from 'Shared/store/actions/authentification';
-import { getAgeFromDateOfBrth } from 'Shared/helpers/date';
+import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
-import { getFieldError, setNullToEmptyString } from 'Shared/helpers/form';
+import { getFieldError } from 'Shared/helpers/form';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
+import {
+  TYPE_PERSONALITY,
+  TYPE_ORGANISATION,
+  TYPE_USER,
+} from 'Shared/constants/user';
 
 type Props = {
   /** User */
   user: TypeUser,
-  /** Method called to load user */
-  handleGetUser: () => void,
 };
 
-export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
+export const UpdateInformations = ({ user }: Props) => {
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: setNullToEmptyString(user.firstName),
-    age: setNullToEmptyString(getAgeFromDateOfBrth(user.profile.dateOfBirth)),
-    profession: setNullToEmptyString(user.profile.profession),
-    postalCode: setNullToEmptyString(user.profile.postalCode),
-    description: setNullToEmptyString(user.profile.description),
+    firstName: user.firstName,
+    lastName: user.lastName,
+    organisationName: user.organisationName,
+    age: getAgeFromDateOfBirth(user.profile.dateOfBirth),
+    profession: user.profile.profession,
+    postalCode: user.profile.postalCode,
+    description: user.profile.description,
     optInNewsletter: user.profile.optInNewsletter,
-    website: setNullToEmptyString(user.profile.website),
+    website: user.profile.website,
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const isOrganisation = user.userType === TYPE_ORGANISATION;
+  const isPersonality = user.userType === TYPE_PERSONALITY;
+  const isBasicUser = user.userType === TYPE_USER;
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -70,7 +79,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
       await UserService.update(formValues);
       setIsSubmitSuccessful(true);
       setErrors([]);
-      handleGetUser();
+      dispatch(getUser());
     } catch (serviceErrors) {
       setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
@@ -90,49 +99,90 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
         <FormErrors errors={errors} />
-        <UntypedInput
-          type="text"
-          name="firstName"
-          icon={FirstNameFieldIcon}
-          value={formValues.firstName}
-          label={i18n.t('common.form.label.firstname')}
-          error={firstnameError}
-          required
-          handleChange={handleChange}
-        />
-        <NumberInput
-          name="age"
-          icon={AgeFieldIcon}
-          value={formValues.age}
-          label={i18n.t('common.form.label.age', { context: 'optional' })}
-          error={ageError}
-          handleChange={handleChange}
-          min={13}
-          max={120}
-        />
-        <UntypedInput
-          type="text"
-          name="profession"
-          icon={JobFieldIcon}
-          value={formValues.profession}
-          label={i18n.t('common.form.label.profession', {
-            context: 'optional',
-          })}
-          handleChange={handleChange}
-        />
-        <CustomPatternInput
-          type="text"
-          name="postalCode"
-          icon={PostalCodeFieldIcon}
-          value={formValues.postalCode}
-          label={i18n.t('common.form.label.postalcode', {
-            context: 'optional',
-          })}
-          error={postalcodeError}
-          handleChange={handleChange}
-          maxLength={5}
-          pattern="^[0-9]{5}"
-        />
+        {isBasicUser && (
+          <>
+            <UntypedInput
+              type="text"
+              name="firstName"
+              icon={FirstNameFieldIcon}
+              value={formValues.firstName}
+              label={i18n.t('common.form.label.firstname')}
+              error={firstnameError}
+              required
+              handleChange={handleChange}
+            />
+            <NumberInput
+              name="age"
+              icon={AgeFieldIcon}
+              value={formValues.age}
+              label={i18n.t('common.form.label.age', { context: 'optional' })}
+              error={ageError}
+              handleChange={handleChange}
+              min={13}
+              max={120}
+            />
+            <UntypedInput
+              type="text"
+              name="profession"
+              icon={JobFieldIcon}
+              value={formValues.profession}
+              label={i18n.t('common.form.label.profession', {
+                context: 'optional',
+              })}
+              handleChange={handleChange}
+            />
+            <CustomPatternInput
+              type="text"
+              name="postalCode"
+              icon={PostalCodeFieldIcon}
+              value={formValues.postalCode}
+              label={i18n.t('common.form.label.postalcode', {
+                context: 'optional',
+              })}
+              error={postalcodeError}
+              handleChange={handleChange}
+              maxLength={5}
+              pattern="^[0-9]{5}"
+            />
+          </>
+        )}
+        {isOrganisation && (
+          <UntypedInput
+            type="text"
+            name="organisationName"
+            icon={FirstNameFieldIcon}
+            value={formValues.organisationName}
+            label={i18n.t('common.form.label.organisation')}
+            handleChange={handleChange}
+          />
+        )}
+        {isPersonality && (
+          <>
+            <UntypedInput
+              type="text"
+              name="firstName"
+              icon={FirstNameFieldIcon}
+              value={formValues.firstName}
+              label={i18n.t('common.form.label.personality.firstname', {
+                context: user.profile.gender,
+              })}
+              error={firstnameError}
+              required
+              handleChange={handleChange}
+            />
+            <UntypedInput
+              type="text"
+              name="lastName"
+              icon={FirstNameFieldIcon}
+              value={formValues.lastName}
+              label={i18n.t('common.form.label.personality.lastname', {
+                context: user.profile.gender,
+              })}
+              error={firstnameError}
+              handleChange={handleChange}
+            />
+          </>
+        )}
         <TextArea
           name="description"
           icon={DescriptionFieldIcon}
@@ -142,7 +192,7 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
           withCounter
           handleChange={handleChange}
         />
-        {user.isOrganisation && (
+        {!isBasicUser && (
           <CustomPatternInput
             type="text"
             name="website"
@@ -167,14 +217,3 @@ export const UpdateInformationsComponent = ({ user, handleGetUser }: Props) => {
     </TileWithTitle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleGetUser: () => {
-    dispatch(getUser());
-  },
-});
-
-export const UpdateInformations = connect(
-  null,
-  mapDispatchToProps
-)(UpdateInformationsComponent);
