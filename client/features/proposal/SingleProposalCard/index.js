@@ -7,10 +7,12 @@ import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { Vote } from 'Client/features/vote';
 import { ContentSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { TallCardStyle } from 'Client/ui/Cards';
-import { SequenceProposalStyle } from 'Client/features/sequence/Card/Styled';
+import {
+  SequenceProposalStyle,
+  SequenceCardSeparatorStyle,
+} from 'Client/features/sequence/style';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
-import { CardSeparatorStyle } from 'Client/features/sequence/Card/Styled/Content';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   InnerProposalStyle,
@@ -40,7 +42,7 @@ export const SingleProposalCard = (props: Props) => {
           country={proposal.country}
           language={proposal.language}
         />
-        <CardSeparatorStyle />
+        <SequenceCardSeparatorStyle />
         <SequenceProposalStyle>
           <ScreenReaderItemStyle>
             {i18n.t('proposal_card.content')}

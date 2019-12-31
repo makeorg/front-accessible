@@ -6,7 +6,7 @@ import {
   SecondLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { IntroButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
+import { SequenceIntroButtonStyle } from 'Client/features/sequence/style';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -42,7 +42,7 @@ export const MoreQuestionTitleStyle = styled(ThirdLevelTitleStyle)`
   margin: 0 auto 15px;
 `;
 
-export const MoreQuestionButtonStyle = styled(IntroButtonStyle)`
+export const MoreQuestionButtonStyle = styled(SequenceIntroButtonStyle)`
   text-decoration: none;
   margin: 0 auto;
   &:hover {

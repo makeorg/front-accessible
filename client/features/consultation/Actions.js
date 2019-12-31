@@ -5,7 +5,7 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import {
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
-} from 'Client/pages/Operation/Styled';
+} from 'Client/pages/Consultation/style';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { i18n } from 'Shared/i18n';

@@ -15,13 +15,11 @@ import {
   getVoteKey,
 } from 'Shared/helpers/vote';
 import { VoteService } from 'Shared/api/VoteService';
-import { NextButtonStyle } from 'Client/features/sequence/Card/Styled/Buttons';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Qualification } from './Qualification';
-// import { VoteComponent, VoteButtonsComponent } from './VoteComponent';
 import { VoteResult } from './Result';
 import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
 import { VoteButton } from './Button';
@@ -37,8 +35,6 @@ type Props = {
   proposalKey: string,
   /** Index of the card */
   index: number,
-  /** Method called when next card button is clicked (Incremented currentIndex) */
-  goToNextCard?: (SyntheticEvent<HTMLButtonElement>) => void,
   /** Method called when Vote */
   onVote: (
     proposalId: string,
@@ -197,7 +193,7 @@ export class Vote extends React.Component<Props, State> {
   hasStartedPending: boolean;
 
   render() {
-    const { proposalId, proposalKey, index, goToNextCard } = this.props;
+    const { proposalId, proposalKey, index } = this.props;
     const {
       hasVoted,
       votedKey,
@@ -236,14 +232,6 @@ export class Vote extends React.Component<Props, State> {
               pendingVote={pending}
             />
           </VoteContainerStyle>
-          {goToNextCard && (
-            <NextButtonStyle
-              onClick={goToNextCard}
-              id={`next-button-${proposalId}`}
-            >
-              {i18n.t('proposal_card.next')}
-            </NextButtonStyle>
-          )}
         </React.Fragment>
       );
     }

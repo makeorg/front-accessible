@@ -13,7 +13,13 @@ export function sequence(
       if (!state.votedProposalIds[action.payload.questionSlug]) {
         return state;
       }
-
+      return {
+        ...state,
+        votedProposalIds: {
+          ...state.votedProposalIds,
+        },
+      };
+    case actionTypes.SEQUENCE_RESET_VOTED_PROPOSALS:
       return {
         ...state,
         votedProposalIds: {
@@ -65,6 +71,26 @@ export function sequence(
         },
       };
     }
+    case actionTypes.SEQUENCE_RESET_INDEX:
+      return {
+        ...state,
+        currentIndex: 0,
+      };
+    case actionTypes.SEQUENCE_SET_INDEX:
+      return {
+        ...state,
+        currentIndex: action.payload.index,
+      };
+    case actionTypes.SEQUENCE_INCREMENT_INDEX:
+      return {
+        ...state,
+        currentIndex: state.currentIndex + 1,
+      };
+    case actionTypes.SEQUENCE_DECREMENT_INDEX:
+      return {
+        ...state,
+        currentIndex: state.currentIndex - 1,
+      };
     default:
       return state;
   }

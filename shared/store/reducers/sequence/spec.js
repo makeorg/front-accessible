@@ -8,6 +8,7 @@ describe('Sequence reducer', () => {
       isSequenceCollapsed: false,
       firstProposal: undefined,
       questionSlug: undefined,
+      currentIndex: 0,
       votedProposalIds: {},
       proposals: [],
     };
