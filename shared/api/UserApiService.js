@@ -6,10 +6,7 @@ import {
   type ApiServiceHeaders,
   type ApiSearchProposalsResponseType,
 } from 'Shared/types/api';
-import {
-  setEmptyStringToNull,
-  setNullToEmptyString,
-} from 'Shared/helpers/form';
+import { setEmptyStringToNull } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { ApiService } from './ApiService';
 
@@ -152,15 +149,15 @@ export class UserApiService {
     return ApiService.callApi(PATH_USER, {
       method: 'PATCH',
       body: JSON.stringify({
-        firstName: setNullToEmptyString(firstName),
-        lastName: setNullToEmptyString(lastName),
-        organisationName: setEmptyStringToNull(organisationName),
-        age: setNullToEmptyString(dateOfBirth),
-        profession: setNullToEmptyString(profession),
-        postalCode: setNullToEmptyString(postalCode),
-        description: setNullToEmptyString(description),
+        firstName,
+        lastName,
+        organisationName,
+        dateOfBirth,
+        profession,
+        postalCode,
+        description,
         optInNewsletter,
-        website: setNullToEmptyString(website),
+        website,
       }),
     });
   }

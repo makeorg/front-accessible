@@ -425,7 +425,8 @@
         "postal_code": "Code postal : ",
         "age": "Âge : ",
         "profession": "Profession : ",
-        "biography": "Biographie : "
+        "biography": "Biographie : ",
+        "website": "Site Internet : "
       }
     },
     "informations_update": {

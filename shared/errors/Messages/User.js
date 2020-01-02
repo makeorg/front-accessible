@@ -98,6 +98,17 @@ export const updateUserErrors: TypeErrorObject[] = [
     ),
   },
   {
+    field: 'organisationname',
+    key: 'mandatory',
+    message: (
+      <MessageWithDynamicLabel
+        messageKey="common.form.messages.mandatory"
+        field="organisationName"
+        labelKey="common.form.label.organisation"
+      />
+    ),
+  },
+  {
     field: 'dateofbirth',
     key: 'invalid_age',
     message: (
