@@ -1,11 +1,12 @@
 // @flow
 import React, { useRef } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useMobile } from 'Client/hooks/useMedia';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeCurrentConsultation } from 'Shared/types/views';
+import { type StateRoot } from 'Shared/store/types';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
 import {
@@ -39,7 +40,6 @@ const setConsultationLink = (
   language: string
 ) => {
   const { externalLink, internalLink, questionSlug } = consultation;
-
   if (externalLink) {
     return {
       as: 'a',
@@ -63,15 +63,14 @@ const setConsultationLink = (
 
 type CurrentConsultationsProps = {
   consultations: TypeCurrentConsultation[],
-  country: string,
-  language: string,
 };
 
-export const CurrentConsultationsComponent = ({
+export const CurrentConsultations = ({
   consultations,
-  country,
-  language,
 }: CurrentConsultationsProps) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const isMobile = useMobile();
   const sliderRef = useRef();
   const hasConsultations = consultations.length > 0;
@@ -165,16 +164,3 @@ export const CurrentConsultationsComponent = ({
     </CurrentConsultationContainerStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const CurrentConsultations = connect(mapStateToProps)(
-  CurrentConsultationsComponent
-);

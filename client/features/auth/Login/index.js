@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { AuthentificationSocial } from 'Client/features/auth/Social';
 import {
@@ -25,17 +25,17 @@ import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginForm } from './Form';
 import { AuthentificationWrapperStyle } from './Styled';
 
-type Props = {
-  /** Method called to display Register Form Modal */
-  handleRegisterModal: () => void,
-  /** Method called to display Forgot Password Form Modal */
-  handleForgotPasswordModal: () => void,
-};
+export const Login = () => {
+  const dispatch = useDispatch();
 
-export const LoginComponent = ({
-  handleRegisterModal,
-  handleForgotPasswordModal,
-}: Props) => {
+  const handleRegisterModal = () => {
+    dispatch(modalShowRegister());
+  };
+
+  const handleForgotPasswordModal = () => {
+    dispatch(modalShowForgotPassword());
+  };
+
   return (
     <AuthentificationWrapperStyle aria-labelledby="login_title">
       <SecondLevelTitleStyle id="login_title">
@@ -70,17 +70,3 @@ export const LoginComponent = ({
     </AuthentificationWrapperStyle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleRegisterModal: () => {
-    dispatch(modalShowRegister());
-  },
-  handleForgotPasswordModal: () => {
-    dispatch(modalShowForgotPassword());
-  },
-});
-
-export const Login = connect(
-  null,
-  mapDispatchToProps
-)(LoginComponent);

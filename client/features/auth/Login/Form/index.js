@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import * as UserService from 'Shared/services/User';
 import {
@@ -26,22 +26,13 @@ import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
 import { loginSuccess, getUser } from 'Shared/store/actions/authentification';
 
-type Props = {
-  /** Method called when login form succeed */
-  handleLoginSuccess: () => void,
-  /** Method called to load user after login */
-  handleGetUser: () => void,
-};
-
 type TypeLoginValues = {
   email: string,
   password: string,
 };
 
-export const LoginFormComponent = ({
-  handleLoginSuccess,
-  handleGetUser,
-}: Props) => {
+export const LoginForm = () => {
+  const dispatch = useDispatch();
   const defaultFormValues = {
     email: '',
     password: '',
@@ -51,6 +42,16 @@ export const LoginFormComponent = ({
   );
   const [errors, setErrors] = useState<TypeErrorObject[]>([]);
   const globalError = getFieldError('global', errors);
+
+  /** Method called when login form succeed */
+  const handleLoginSuccess = () => {
+    dispatch(loginSuccess());
+  };
+
+  /** Method called to load user after login */
+  const handleGetUser = () => {
+    dispatch(getUser());
+  };
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -110,17 +111,3 @@ export const LoginFormComponent = ({
     </FormStyle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleLoginSuccess: () => {
-    dispatch(loginSuccess());
-  },
-  handleGetUser: () => {
-    dispatch(getUser());
-  },
-});
-
-export const LoginForm = connect(
-  null,
-  mapDispatchToProps
-)(LoginFormComponent);

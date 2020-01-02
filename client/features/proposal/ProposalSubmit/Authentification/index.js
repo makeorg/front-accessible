@@ -1,4 +1,4 @@
 // @flow
 export {
-  ProposalSubmitAuthentificationContainer as ProposalSubmitAuthentification,
-} from './ProposalSubmitAuthentificationContainer';
+  ProposalSubmitAuthentificationComponent as ProposalSubmitAuthentification,
+} from './ProposalSubmitAuthentificationComponent';

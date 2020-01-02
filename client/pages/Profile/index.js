@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import {
   matchPath,
@@ -9,8 +9,8 @@ import {
 } from 'react-router';
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
+import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type TypeUser } from 'Shared/types/user';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { EditProfileLink } from 'Client/features/profile/UserInformations/Navigation';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
@@ -45,13 +45,14 @@ const ProfileFollowingPage = loadable(() =>
 );
 
 type Props = {
-  user: TypeUser,
   match: TypeMatch,
   location: TypeLocation,
 };
 
-const Profile = (props: Props) => {
-  const { user, match, location } = props;
+const ProfilePage = ({ match, location }: Props) => {
+  const { user } = useSelector((state: StateRoot) =>
+    selectAuthentification(state)
+  );
   const { country, language } = match.params;
   const profileProposalsLink = getRouteProfileProposals(country, language);
   const profileFavouritesLink = getRouteProfileFavourites(country, language);
@@ -129,13 +130,6 @@ const Profile = (props: Props) => {
     </ProfileWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { user } = selectAuthentification(state);
-  return { user };
-};
-
-export const ProfilePage = connect(mapStateToProps)(Profile);
 
 // default export needed for loadable component
 export default ProfilePage; // eslint-disable-line import/no-default-export

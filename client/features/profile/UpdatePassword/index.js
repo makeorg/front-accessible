@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
@@ -21,8 +21,6 @@ type Props = {
   userId: string,
   /** User has a password */
   hasPassword: boolean,
-  /** Method to handle User update */
-  handleGetUser: () => void,
 };
 
 type TypePasswordValues = {
@@ -30,11 +28,8 @@ type TypePasswordValues = {
   actualPassword: string,
 };
 
-export const UpdatePasswordComponent = ({
-  userId,
-  hasPassword,
-  handleGetUser,
-}: Props) => {
+export const UpdatePassword = ({ userId, hasPassword }: Props) => {
+  const dispatch = useDispatch();
   const defaultFormValues = {
     newPassword: '',
     actualPassword: '',
@@ -91,7 +86,7 @@ export const UpdatePasswordComponent = ({
       setErrors([]);
       setIsSubmitSuccessful(true);
       setCanSubmit(false);
-      handleGetUser();
+      dispatch(getUser());
     } catch (serviceErrors) {
       setErrors(serviceErrors);
       setCanSubmit(false);
@@ -134,14 +129,3 @@ export const UpdatePasswordComponent = ({
     </TileWithTitle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleGetUser: () => {
-    dispatch(getUser());
-  },
-});
-
-export const UpdatePassword = connect(
-  null,
-  mapDispatchToProps
-)(UpdatePasswordComponent);

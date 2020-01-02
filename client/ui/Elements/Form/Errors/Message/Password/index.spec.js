@@ -1,35 +1,35 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
-import { ErrorMessageForgotPasswordComponent } from './index';
+import { Provider } from 'react-redux';
+import { configureStore } from 'Shared/store';
+import { ErrorMessageForgotPassword } from './index';
 
 describe('Error Message Forgot Password', () => {
-  it('snapshot ErrorMessageForgotPasswordComponent', () => {
+  it('snapshot ErrorMessageForgotPassword', () => {
     const component = renderer
       .create(
-        <ErrorMessageForgotPasswordComponent
-          handleForgotPasswordModal={() => {}}
-        />
+        <Provider store={configureStore()}>
+          <ErrorMessageForgotPassword />
+        </Provider>
       )
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
-  it('snapshot ErrorMessageForgotPasswordComponent default vs custom label', () => {
+  it('snapshot ErrorMessageForgotPassword default vs custom label', () => {
     const RequiredTextArea = renderer
       .create(
-        <ErrorMessageForgotPasswordComponent
-          handleForgotPasswordModal={() => {}}
-        />
+        <Provider store={configureStore()}>
+          <ErrorMessageForgotPassword />
+        </Provider>
       )
       .toJSON();
     const OptionnalTextArea = renderer
       .create(
-        <ErrorMessageForgotPasswordComponent
-          handleForgotPasswordModal={() => {}}
-          inputId="foo"
-          labelText="fooLabelText"
-        />
+        <Provider store={configureStore()}>
+          <ErrorMessageForgotPassword inputId="foo" labelText="fooLabelText" />
+        </Provider>
       )
       .toJSON();
     expect(snapshotDiff(RequiredTextArea, OptionnalTextArea)).toMatchSnapshot();

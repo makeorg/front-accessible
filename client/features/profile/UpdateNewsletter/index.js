@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { NEWSLETTER_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { type TypeErrorObject } from 'Shared/types/api';
@@ -19,14 +19,10 @@ import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 type Props = {
   /** User Profile */
   profile: TypeProfile,
-  /** Dispatch method for user after submit */
-  handleGetUser: () => void,
 };
 
-export const UpdateNewsletterComponent = ({
-  profile,
-  handleGetUser,
-}: Props) => {
+export const UpdateNewsletter = ({ profile }: Props) => {
+  const dispatch = useDispatch();
   const [optInNewsletter, setOptInNewsletter] = useState<boolean>(
     profile.optInNewsletter
   );
@@ -48,7 +44,7 @@ export const UpdateNewsletterComponent = ({
       await UserService.updateNewsletter(optInNewsletter);
       setIsSubmitSuccessful(true);
       setCanSubmit(false);
-      handleGetUser();
+      dispatch(getUser());
     } catch {
       setErrors([defaultApiError]);
       setIsSubmitSuccessful(false);
@@ -80,14 +76,3 @@ export const UpdateNewsletterComponent = ({
     </TileWithTitle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleGetUser: () => {
-    dispatch(getUser());
-  },
-});
-
-export const UpdateNewsletter = connect(
-  null,
-  mapDispatchToProps
-)(UpdateNewsletterComponent);

@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type TypeUser } from 'Shared/types/user';
 import { type TypeErrorObject } from 'Shared/types/api';
@@ -25,7 +25,6 @@ import { FormParagraphStyle } from '../Styled/Forms';
 
 type Props = {
   user: TypeUser,
-  handleLogout: () => void,
 };
 
 type TypeDeletePassword = {
@@ -48,7 +47,8 @@ const invalidEmailError: TypeErrorObject = {
   }),
 };
 
-export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
+export const DeleteAccount = ({ user }: Props) => {
+  const dispatch = useDispatch();
   const [formValues, setFormValues] = useState<TypeDeletePassword>({
     password: '',
     email: '',
@@ -77,7 +77,7 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
 
     try {
       await UserService.deleteAccount(user.userId, formValues.password);
-      handleLogout();
+      dispatch(logout(true));
     } catch {
       setCanSubmit(false);
       if (formValues.password === '') {
@@ -134,14 +134,3 @@ export const DeleteAccountComponent = ({ user, handleLogout }: Props) => {
     </TileWithTitle>
   );
 };
-
-const mapDispatchToProps = dispatch => ({
-  handleLogout: () => {
-    dispatch(logout(true));
-  },
-});
-
-export const DeleteAccount = connect(
-  null,
-  mapDispatchToProps
-)(DeleteAccountComponent);

@@ -11,7 +11,7 @@ Object {
   },
   "currentQuestion": "",
   "modal": Object {
-    "contentType": null,
+    "contentType": "",
     "isOpen": false,
     "showExpirationSession": false,
   },

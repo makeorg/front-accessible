@@ -1,8 +1,9 @@
 // @flow
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { JOBS_LINK, WHOAREWE_FR_LINK, PRESS_LINK } from 'Shared/constants/url';
+import { type StateRoot } from 'Shared/store/types';
 import {
   FooterItemStyle,
   FooterItemListStyle,
@@ -16,14 +17,13 @@ import {
   getContactPageLink,
 } from 'Shared/helpers/url';
 
-type Props = {
-  country: string,
-  language: string,
-};
 /**
  * Renders Main Footer
  */
-const FooterLinksComponent = ({ country, language }: Props) => {
+export const FooterLinks = () => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const isDesktop = useDesktop();
 
   return (
@@ -79,14 +79,3 @@ const FooterLinksComponent = ({ country, language }: Props) => {
     </FooterItemListStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const FooterLinks = connect(mapStateToProps)(FooterLinksComponent);

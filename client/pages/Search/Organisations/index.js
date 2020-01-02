@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type Location, type History } from 'history';
@@ -12,6 +12,7 @@ import {
   trackClickSearchReturn,
 } from 'Shared/services/Tracking';
 import { searchOrganisations } from 'Shared/services/Organisation';
+import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SvgAngleArrowLeft, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
@@ -41,16 +42,12 @@ import { SearchSidebar } from '../Sidebar';
 type Props = {
   location: Location,
   history: History,
-  country: string,
-  language: string,
 };
 
-export const SearchOrganisationsComponent = ({
-  location,
-  history,
-  country,
-  language,
-}: Props) => {
+export const SearchOrganisations = ({ history, location }: Props) => {
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
@@ -143,16 +140,3 @@ export const SearchOrganisationsComponent = ({
     </SearchPageWrapperStyle>
   );
 };
-
-const mapStateToProps = state => {
-  const { country, language } = state.appConfig;
-
-  return {
-    country,
-    language,
-  };
-};
-
-export const SearchOrganisations = connect(mapStateToProps)(
-  SearchOrganisationsComponent
-);

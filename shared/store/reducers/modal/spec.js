@@ -7,7 +7,7 @@ describe('Modal reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       isOpen: false,
-      contentType: null,
+      contentType: '',
       showExpirationSession: false,
     };
 
@@ -18,7 +18,7 @@ describe('Modal reducer', () => {
     const action = { type: 'MODAL_SHOW_LOGIN' };
     const previousState = {
       isOpen: false,
-      contentType: null,
+      contentType: '',
     };
 
     const expectedState = {
@@ -33,7 +33,7 @@ describe('Modal reducer', () => {
     const action = { type: 'MODAL_SHOW_REGISTER' };
     const previousState = {
       isOpen: false,
-      contentType: null,
+      contentType: '',
     };
 
     const expectedState = {
@@ -48,7 +48,7 @@ describe('Modal reducer', () => {
     const action = { type: 'MODAL_SHOW_FORGOT_PASSWORD' };
     const previousState = {
       isOpen: false,
-      contentType: null,
+      contentType: '',
     };
 
     const expectedState = {

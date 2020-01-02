@@ -45,7 +45,7 @@ export const initialState: StateRoot = {
   },
   modal: {
     isOpen: false,
-    contentType: null,
+    contentType: '',
     showExpirationSession: false,
   },
   partners: {},
