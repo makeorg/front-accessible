@@ -26,7 +26,7 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
-import { getFieldError } from 'Shared/helpers/form';
+import { getFieldError, setNullToEmptyString } from 'Shared/helpers/form';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import {
   TYPE_PERSONALITY,
@@ -42,15 +42,15 @@ type Props = {
 export const UpdateInformations = ({ user }: Props) => {
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: user.firstName,
-    lastName: user.lastName,
+    firstName: setNullToEmptyString(user.firstName),
+    lastName: setNullToEmptyString(user.lastName),
     organisationName: user.organisationName,
-    age: getAgeFromDateOfBirth(user.profile.dateOfBirth),
-    profession: user.profile.profession,
-    postalCode: user.profile.postalCode,
-    description: user.profile.description,
+    age: setNullToEmptyString(getAgeFromDateOfBirth(user.profile.dateOfBirth)),
+    profession: setNullToEmptyString(user.profile.profession),
+    postalCode: setNullToEmptyString(user.profile.postalCode),
+    description: setNullToEmptyString(user.profile.description),
     optInNewsletter: user.profile.optInNewsletter,
-    website: user.profile.website,
+    website: setNullToEmptyString(user.profile.website),
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
@@ -87,9 +87,10 @@ export const UpdateInformations = ({ user }: Props) => {
     }
   };
 
-  const firstnameError = getFieldError('firstname', errors);
+  const firstNameError = getFieldError('firstname', errors);
+  const organisationNameError = getFieldError('organisationname', errors);
   const ageError = getFieldError('dateofbirth', errors);
-  const postalcodeError = getFieldError('postalCode', errors);
+  const postalCodeError = getFieldError('postalCode', errors);
   const websiteError = getFieldError('website', errors);
 
   return (
@@ -107,7 +108,7 @@ export const UpdateInformations = ({ user }: Props) => {
               icon={FirstNameFieldIcon}
               value={formValues.firstName}
               label={i18n.t('common.form.label.firstname')}
-              error={firstnameError}
+              error={firstNameError}
               required
               handleChange={handleChange}
             />
@@ -139,7 +140,7 @@ export const UpdateInformations = ({ user }: Props) => {
               label={i18n.t('common.form.label.postalcode', {
                 context: 'optional',
               })}
-              error={postalcodeError}
+              error={postalCodeError}
               handleChange={handleChange}
               maxLength={5}
               pattern="^[0-9]{5}"
@@ -153,6 +154,8 @@ export const UpdateInformations = ({ user }: Props) => {
             icon={FirstNameFieldIcon}
             value={formValues.organisationName}
             label={i18n.t('common.form.label.organisation')}
+            error={organisationNameError}
+            required
             handleChange={handleChange}
           />
         )}
@@ -166,8 +169,7 @@ export const UpdateInformations = ({ user }: Props) => {
               label={i18n.t('common.form.label.personality.firstname', {
                 context: user.profile.gender,
               })}
-              error={firstnameError}
-              required
+              error={firstNameError}
               handleChange={handleChange}
             />
             <UntypedInput
@@ -178,7 +180,7 @@ export const UpdateInformations = ({ user }: Props) => {
               label={i18n.t('common.form.label.personality.lastname', {
                 context: user.profile.gender,
               })}
-              error={firstnameError}
+              required
               handleChange={handleChange}
             />
           </>
