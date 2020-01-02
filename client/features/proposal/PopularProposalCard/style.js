@@ -8,13 +8,13 @@ export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
   width: 100%;
   height: 100%;
   justify-content: flex-start;
-  margin: 0;
+  margin-bottom: 20px;
 `;
 
 export const PopularProposalHeader = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${BasicColors.PureBlack};
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   margin: -20px -20px 10px -20px;
   padding: 11px 20px;
 `;

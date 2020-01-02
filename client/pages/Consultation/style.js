@@ -15,16 +15,20 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ConsultationPageWrapperStyle = styled.div`
+  display: flex;
+  flex-flow: column;
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 15px auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-flow: row;
     margin: 30px auto;
   }
 `;
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
+  height: 100%;
 `;
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
@@ -58,7 +62,10 @@ export const ConsultationIconStyle = styled.span`
 `;
 
 export const IdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
-  margin-bottom: 30px;
+  margin: 0 0 30px 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 0 0 30px 0;
+  }
 `;
 
 export const SequencePageContentStyle = styled(MiddleColumnStyle)`

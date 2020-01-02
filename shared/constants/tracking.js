@@ -86,3 +86,6 @@ export const DISPLAY_SEARCH_PROPOSALS = 'display-search-proposals';
 export const DISPLAY_SEARCH_ORGANISATIONS = 'display-search-organisations';
 export const DISPLAY_SEARCH_CONSULTATIONS = 'display-search-consultations';
 export const CLICK_SEARCH_RETURN = 'click-search-return';
+
+/** Ideas page */
+export const DISPLAY_PAGE_IDEAS: string = 'display-page-ideas';

@@ -11,6 +11,7 @@ import {
   SvgAngleArrowRight,
   SvgAngleArrowBottom,
   SvgAngleArrowTop,
+  SvgChat,
 } from 'Client/ui/Svg/elements';
 import { AvatarRows } from 'Client/ui/AvatarRows';
 import { IdeaScore } from 'Client/features/ideas/IdeaScore';
@@ -60,7 +61,7 @@ export const IdeaCard = ({ position = 0 }: Props) => {
           <ProposalStyle id={`idea_content_${position}`}>toto</ProposalStyle>
         </IdeaCardContentStyle>
         <PositionStyle>
-          <SvgAngleArrowRight />
+          <SvgChat aria-hidden />
           <PositionContentStyle
             dangerouslySetInnerHTML={{
               __html: i18n.t('idea_card.position', {
