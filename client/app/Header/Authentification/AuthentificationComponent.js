@@ -9,7 +9,6 @@ import { Avatar } from 'Client/ui/Avatar';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickProfile } from 'Shared/services/Tracking';
-import { generateUrlWithParams } from 'Shared/helpers/url';
 import {
   ProfileAccessWrapperStyle,
   ProfileAccessButtonLabelStyle,
@@ -39,12 +38,7 @@ export const AuthentificatedBar = ({ user }: AuthentificatedBarProps) => {
         rel="nofollow"
         onClick={trackClickProfile}
       >
-        <Avatar
-          avatarUrl={generateUrlWithParams(avatarUrl, {
-            width: 160,
-            height: 160,
-          })}
-        />
+        <Avatar avatarUrl={avatarUrl} />
         <span>
           {user.isOrganisation ? user.organisationName : user.firstName}
         </span>

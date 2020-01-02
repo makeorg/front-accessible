@@ -3,10 +3,7 @@ import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Author } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
-import {
-  getOrganisationProfileLink,
-  generateUrlWithParams,
-} from 'Shared/helpers/url';
+import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
@@ -48,26 +45,23 @@ const ProposalAuthorAge = ({ age }) => {
   );
 };
 
-export const ProposalAuthorElement = ({
-  author,
-  country,
-  language,
-  createdAt,
-  withAvatar,
-  withCreationDate,
-  formattedProposalStatus,
-}: Props) => {
+export const ProposalAuthorElement = (props: Props) => {
+  const {
+    author,
+    country,
+    language,
+    createdAt,
+    withAvatar,
+    withCreationDate,
+    formattedProposalStatus,
+  } = props;
+
   return (
     <AuthorDescriptionStyle>
       <AuthorInfosStyle as="div">
         {withAvatar && (
           <React.Fragment>
-            <Avatar
-              avatarUrl={generateUrlWithParams(author.avatarUrl, {
-                width: 160,
-                height: 160,
-              })}
-            />
+            <Avatar avatarUrl={author.avatarUrl} />
             <React.Fragment> </React.Fragment>
           </React.Fragment>
         )}

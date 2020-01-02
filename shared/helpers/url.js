@@ -41,10 +41,6 @@ export const buildInternalConsultationLink = (
   return `/${country}-${language}/consultation/${questionSlug}/${target}`;
 };
 
-const hasParams = (params: Object = {}) => {
-  return params && Object.keys(params).length > 0;
-};
-
 /** @todo move all this stuff to Shared/routes file or create a route helper */
 /**
  * Get the sequence link
@@ -64,13 +60,11 @@ export const getSequenceLink = (
     country,
     language,
     questionSlug,
-  }).concat(hasParams(params) ? `?${queryString.stringify(params)}` : '');
-};
-
-export const generateUrlWithParams = (url: string, params?: Object = {}) => {
-  return url && hasParams(params)
-    ? url.concat(`?${queryString.stringify(params)}`)
-    : url;
+  }).concat(
+    params && Object.keys(params).length > 0
+      ? `?${queryString.stringify(params)}`
+      : ''
+  );
 };
 
 /**
