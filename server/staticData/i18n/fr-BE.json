@@ -602,8 +602,10 @@
     "sortby": "Trier par: ",
     "local_actors": {
       "title": "Les associations les plus actives",
-      "proposals": "{{ count }} propositions",
-      "votes": "{{ count }} votes",
+      "proposals": "{{ count }} proposition",
+      "proposals_plural": "{{ count }} propositions",
+      "votes": "{{ count }} vote",
+      "votes_plural": "{{ count }} votes",
       "participate": "Vous êtes une association et souhaitez participer à notre consultation ? {{ contact_us }}",
       "contact_us": "Contactez-nous !",
       "more": "Voir plus"
