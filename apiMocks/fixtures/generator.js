@@ -17,12 +17,12 @@ const range = (start, end) => {
   return values;
 };
 const today = new Date();
+const day = `0${today.getDate()}`.slice(-2);
+const month = `0${today.getMonth() + 1}`.slice(-2);
 
 const generateOpenedQuestions = count => {
-  const startDate = `${today.getFullYear() - 1}-${today.getMonth() +
-    1}-${today.getDate()}T01:00:00.000Z`;
-  const endDate = `${today.getFullYear() + 1}-${today.getMonth() +
-    1}-${today.getDate()}T01:00:00.000Z`;
+  const startDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
 
   return range(0, count).map(number => ({
     ...defaultQuestion,
