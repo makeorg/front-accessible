@@ -433,7 +433,8 @@
         "age": "Âge : ",
         "profession": "Profession : ",
         "biography": "Biographie : ",
-        "website": "Site Internet : "
+        "website": "Site Internet : ",
+        "political_party": "Parti politique : "
       }
     },
     "informations_update": {
@@ -485,6 +486,15 @@
     "votes": {
       "title": "Les dernières prises de position de {{name}} :",
       "text": "{{name}} n'a pas encore pris position sur Make.org."
+    }
+  },
+  "personality": {
+    "tabs": {
+      "top_ideas": "Prises de position sur le top idées"
+    },
+    "top_ideas": {
+      "title": "Les prises de position de {{firstname}} {{lastname}} :",
+      "text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées citoyennes."
     }
   },
   "consultation": {

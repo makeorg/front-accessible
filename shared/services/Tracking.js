@@ -472,5 +472,12 @@ export const trackClickViewBlog = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_VIEW_BLOG);
 };
 
+/** Profile */
+export const trackDisplayPublicProfile = (userType: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PUBLIC_PROFILE, {
+    type: userType,
+  });
+};
+
 /* eslint-disable import/no-default-export */
 export default TrackingService;

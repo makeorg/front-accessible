@@ -57,6 +57,37 @@ describe('getLocationContext', () => {
       expectedTracking: `search-consultations-page`,
     },
     {
+      name: 'ROUTE_PROFILE_FAVOURITES',
+      path: '/FR-fr/profile/favourites',
+      expected: `private-profile-page`,
+      expectedTracking: `private-profile-page`,
+    },
+
+    {
+      name: 'ROUTE_PROFILE_PROPOSALS',
+      path: '/FR-fr/profile/proposals',
+      expected: `private-profile-page`,
+      expectedTracking: `private-profile-page`,
+    },
+    {
+      name: 'ROUTE_PROFILE_FOLLOWING',
+      path: '/FR-fr/profile/following',
+      expected: `private-profile-page`,
+      expectedTracking: `private-profile-page`,
+    },
+    {
+      name: 'ROUTE_PERSONALITY_PROFILE',
+      path: '/FR-fr/profile/personality/1234',
+      expected: `public-profile-page`,
+      expectedTracking: `public-profile-page`,
+    },
+    {
+      name: 'ROUTE_ORGANISATION_PROFILE',
+      path: '/FR-fr/profile/organisation/foo',
+      expected: `public-profile-page`,
+      expectedTracking: `public-profile-page`,
+    },
+    {
       name: 'ROUTE_SEARCH',
       path: '/FR-fr/search',
       expected: `search-page`,
