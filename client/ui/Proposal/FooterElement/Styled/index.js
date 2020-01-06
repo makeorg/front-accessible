@@ -22,6 +22,9 @@ export const ProposalFooterTagListItemStyle = styled(ParagraphStyle)`
   display: inline-flex;
   margin-right: 20px;
   font-family: ${MakeFonts.CircularStandardBold};
+  span::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const PostedInLabelStyle = styled(ParagraphStyle)`

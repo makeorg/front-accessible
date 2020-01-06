@@ -19,22 +19,30 @@ Array [
     <ProposalFooterTagListItemStyle
       as="li"
     >
-      atom
+      <span>
+        atom
+      </span>
     </ProposalFooterTagListItemStyle>
     <ProposalFooterTagListItemStyle
       as="li"
     >
-      molecules
+      <span>
+        molecules
+      </span>
     </ProposalFooterTagListItemStyle>
     <ProposalFooterTagListItemStyle
       as="li"
     >
-      templates
+      <span>
+        templates
+      </span>
     </ProposalFooterTagListItemStyle>
     <ProposalFooterTagListItemStyle
       as="li"
     >
-      pages
+      <span>
+        pages
+      </span>
     </ProposalFooterTagListItemStyle>
   </ProposalFooterTagListStyle>,
 ]
