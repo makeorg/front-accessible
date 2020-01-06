@@ -42,7 +42,7 @@ type Props = {
 export const UpdateInformations = ({ user }: Props) => {
   const dispatch = useDispatch();
   const [formValues, setFormValues] = useState<TypeUserInformationForm>({
-    firstName: setNullToEmptyString(user.firstName),
+    firstName: user.firstName,
     lastName: setNullToEmptyString(user.lastName),
     organisationName: user.organisationName,
     age: setNullToEmptyString(getAgeFromDateOfBirth(user.profile.dateOfBirth)),
@@ -148,28 +148,16 @@ export const UpdateInformations = ({ user }: Props) => {
           </>
         )}
         {isOrganisation && (
-          <>
-            <UntypedInput
-              type="text"
-              name="firstName"
-              icon={FirstNameFieldIcon}
-              value={formValues.firstName}
-              label={i18n.t('common.form.label.firstname')}
-              error={firstNameError}
-              required
-              handleChange={handleChange}
-            />
-            <UntypedInput
-              type="text"
-              name="organisationName"
-              icon={FirstNameFieldIcon}
-              value={formValues.organisationName}
-              label={i18n.t('common.form.label.organisation')}
-              error={organisationNameError}
-              required
-              handleChange={handleChange}
-            />
-          </>
+          <UntypedInput
+            type="text"
+            name="organisationName"
+            icon={FirstNameFieldIcon}
+            value={formValues.organisationName}
+            label={i18n.t('common.form.label.organisation')}
+            error={organisationNameError}
+            required
+            handleChange={handleChange}
+          />
         )}
         {isPersonality && (
           <>
