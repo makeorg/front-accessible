@@ -35,7 +35,7 @@ export const ProposalFooterWithTagElement = ({
           .slice(0, NUMBER_OF_TAGS_TO_DISPLAY)
           .map(tag => (
             <ProposalFooterTagListItemStyle as="li" key={tag.tagId}>
-              {tag.label}
+              <span>{tag.label}</span>
             </ProposalFooterTagListItemStyle>
           ))}
       </ProposalFooterTagListStyle>

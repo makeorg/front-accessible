@@ -83,7 +83,6 @@ export const ProposalCardTagged = (props: Props) => {
           />
         )}
       </ProposalInnerStyle>
-
       <ProposalFooterWithTagElement tags={proposal.tags} />
     </ProposalCardStyle>
   );
