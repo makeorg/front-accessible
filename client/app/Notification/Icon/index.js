@@ -14,7 +14,7 @@ import { SvgCheckStyle, SvgIconStyle } from '../Styled';
 
 export const NotificationIcon = () => {
   /** Level of the Notification */
-  const level = useSelector((state: StateRoot) => state.notification);
+  const { level } = useSelector((state: StateRoot) => state.notification);
 
   switch (level) {
     case NOTIFICATION_LEVEL_INFORMATION:
