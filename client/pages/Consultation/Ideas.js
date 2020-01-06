@@ -17,8 +17,7 @@ const IdeasPageWrapper = ({ question }: Props) => (
   <Fragment>
     <ConsultationPageWrapperStyle>
       <ConsultationPageContentStyle>
-        {`IdeasPage for ${question.wording.question}`}
-        <IdeaCards />
+        <IdeaCards question={question} />
       </ConsultationPageContentStyle>
     </ConsultationPageWrapperStyle>
   </Fragment>
