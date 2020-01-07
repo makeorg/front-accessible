@@ -147,7 +147,7 @@ export const DepartmentForm = () => {
   };
 
   const handleStartSequence = () => {
-    if (!sequenceRoute && !sequenceRoute.isExact) {
+    if (!sequenceRoute) {
       return null;
     }
 
