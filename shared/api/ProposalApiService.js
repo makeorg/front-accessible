@@ -6,6 +6,7 @@ import {
 } from '../types/api';
 
 export const PATH_PROPOSALS = '/proposals';
+export const PATH_TOP_PROPOSALS = '/questions/:questionId/top-proposals';
 export const PATH_PROPOSAL_GET = '/proposals/:proposalId';
 
 type TypeSort =
@@ -64,14 +65,15 @@ export class ProposalApiService {
 
   static getPopularProposals(
     questionId: string,
-    limit?: number = 10,
     headers: ApiServiceHeaders = {}
   ) {
-    return ApiService.callApi(PATH_PROPOSALS, {
-      method: 'GET',
-      headers,
-      params: { questionId, limit, sortAlgorithm: 'popular' },
-    });
+    return ApiService.callApi(
+      PATH_TOP_PROPOSALS.replace(':questionId', questionId),
+      {
+        method: 'GET',
+        headers,
+      }
+    );
   }
 
   static searchProposals(
@@ -84,6 +86,7 @@ export class ProposalApiService {
     skip?: number = 0,
     sortTypeKey?: string,
     content?: string,
+    order?: string,
     headers?: ApiServiceHeaders = {}
   ): Promise<ApiSearchProposalsResponseType> {
     const params = {
@@ -95,13 +98,14 @@ export class ProposalApiService {
       tagsIds,
       country,
       language,
+      order,
     };
+
     if (sortTypeKey) {
       const sortType = SORT_ALGORITHM[sortTypeKey];
       params[sortType.key] = sortType.value;
 
       if (SORT_ALGORITHM[sortTypeKey].key === 'sort') {
-        // $FlowFixMe
         params.order = 'DESC';
       }
     }
