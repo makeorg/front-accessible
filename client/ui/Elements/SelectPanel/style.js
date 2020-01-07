@@ -62,7 +62,6 @@ export const PanelStyle = styled.div`
   height: fit-content;
   z-index: 99;
   transition: all 0.25s ease-in;
-  overflow: hidden;
   &.open {
     visibility: visible;
     bottom: 0;
@@ -74,6 +73,11 @@ export const PanelStyle = styled.div`
     border-radius: ${intToPx(Elements.BorderRadius)};
     box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
     z-index: 1;
+    transition: none;
+
+    &.open {
+      bottom: initial;
+    }
   }
 `;
 
