@@ -8,9 +8,8 @@ export const VoteContainerStyle = styled.div`
   justify-content: center;
   width: 100%;
   margin: 35px 0 50px;
-  padding: 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    min-width: 275px;
+    min-width: 250px;
     margin: 30px 0 60px;
   }
 `;
