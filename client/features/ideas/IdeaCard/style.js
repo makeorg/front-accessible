@@ -100,13 +100,20 @@ export const ScoringContainerStyle = styled.div`
   }
 `;
 
-export const SvgIdeaStyle = styled(SvgIdea)``;
+export const SvgIdeaStyle = styled(SvgIdea)`
+  width: 25px;
+  height: 25px;
+`;
 
 export const SvgLikeStyle = styled(SvgLike)`
+  width: 25px;
+  height: 25px;
   fill: ${MakeThemeColors.Red};
 `;
 
 export const SvgThumbsUpStyle = styled(SvgThumbsUp)`
+  width: 25px;
+  height: 25px;
   .tofill {
     fill: ${VoteColors.Agree};
   }
