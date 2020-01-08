@@ -78,6 +78,13 @@ export const TrackingService = {
   },
 };
 
+/** On Load Ideas page Tracking */
+export const trackDisplayIdeas = (pageType: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PAGE_IDEAS, {
+    type: pageType,
+  });
+};
+
 /* On Load Consultation Tracking */
 export const trackDisplayConsultation = (pageType: string) => {
   TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PAGE_OPERATION, {

@@ -39,7 +39,6 @@ export const IdeaCardContentStyle = styled.div`
 
 export const PositionStyle = styled.div`
   display: flex;
-  align-items: center;
   svg {
     fill: ${MakeThemeColors.Red};
   }
@@ -47,6 +46,7 @@ export const PositionStyle = styled.div`
 
 export const PositionContentStyle = styled.div`
   color: ${TextColors.MediumGrey};
+  margin-left: 10px;
   a {
     color: ${MakeThemeColors.Red};
   }

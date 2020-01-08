@@ -1,27 +1,41 @@
 // @flow
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { type Question as TypeQuestion } from 'Shared/types/question';
+import { trackDisplayIdeas } from 'Shared/services/Tracking';
+import { IdeaCards } from 'Client/features/ideas/IdeaCards';
+import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
+import { IdeasSidebar } from 'Client/features/ideas/Sidebar';
 
+import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
-} from 'Client/pages/Consultation/style';
-import { IdeaCards } from 'Client/features/ideas/IdeaCards';
-import { withQuestionData } from './fetchQuestionData';
+  ConsultationPageSidebarStyle,
+} from './style';
 
 type Props = {
   question: TypeQuestion,
 };
 
-const IdeasPageWrapper = ({ question }: Props) => (
-  <Fragment>
-    <ConsultationPageWrapperStyle>
-      <ConsultationPageContentStyle>
-        <IdeaCards question={question} />
-      </ConsultationPageContentStyle>
-    </ConsultationPageWrapperStyle>
-  </Fragment>
-);
+const IdeasPageWrapper = ({ question }: Props) => {
+  useEffect(() => {
+    trackDisplayIdeas('ideas');
+  }, []);
+
+  return (
+    <>
+      <IntroBanner question={question} />
+      <ConsultationPageWrapperStyle>
+        <ConsultationPageSidebarStyle>
+          <IdeasSidebar question={question} />
+        </ConsultationPageSidebarStyle>
+        <ConsultationPageContentStyle>
+          <IdeaCards question={question} />
+        </ConsultationPageContentStyle>
+      </ConsultationPageWrapperStyle>
+    </>
+  );
+};
 
 const IdeasPage = withQuestionData(IdeasPageWrapper);
 
