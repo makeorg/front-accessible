@@ -6,6 +6,7 @@ import {
 } from 'Shared/types/question';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { type TypeTag } from 'Shared/types/tag';
+import { type TypePersonality } from 'Shared/types/user';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -81,6 +82,7 @@ export type StateQuestions = $ReadOnly<{
     questionResults: TypeQuestionResults,
     popularTags: TypeTag[],
     popularProposals: PopularProposals[],
+    personalities: TypePersonality[],
   },
 }>;
 

@@ -15,10 +15,12 @@ import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
   MUNICIPAL_TEASING_HEADER,
+  MUNICIPAL_PERSONALITY_HEADER,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
+import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -50,12 +52,18 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     question.activeFeatures
   );
 
+  // @todo remove or refactor when Municipales is over
+  const withPersonalityHeader: boolean = checkIsFeatureActivated(
+    MUNICIPAL_PERSONALITY_HEADER,
+    question.activeFeatures
+  );
+
   if (questionIsGreatCause && question.displayResults) {
     return <Redirect to={resultsLink} />;
   }
 
   return (
-    <React.Fragment>
+    <>
       {isMobile && question.descriptionImage && (
         <img
           src={question.descriptionImage}
@@ -73,13 +81,15 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       <IntroBanner question={question} />
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
+      {/** @todo remove or refactor when Municipales is over */}
+      {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ConsultationContent question={question} />
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
-    </React.Fragment>
+    </>
   );
 };
 

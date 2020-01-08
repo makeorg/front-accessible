@@ -5,12 +5,14 @@ import {
   PROPOSAL_POPULAR_LOAD,
 } from 'Shared/store/actionTypes';
 import { type TypeTag } from 'Shared/types/tag';
+import { type TypePersonality } from 'Shared/types/user';
 import { type PopularProposals } from 'Shared/store/types';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 
 export const QUESTION_POPULAR_TAGS_LOAD = 'QUESTION_POPULAR_TAGS_LOAD';
+export const QUESTION_PERSONALITIES_LOAD = 'QUESTION_PERSONALITIES_LOAD';
 
 export const updateCurrentQuestion = (questionSlug: string) => ({
   type: CURRENT_QUESTION_UPDATE,
@@ -37,6 +39,35 @@ export const fetchPopularTags = (
     );
 
     return dispatch(loadPopularTags(questionSlug, popularTags));
+  } catch (error) {
+    return Logger.logError(Error(error));
+  }
+};
+
+export const loadQuestionPersonalities = (
+  questionSlug: string,
+  personalities: TypePersonality[]
+) => ({
+  type: QUESTION_PERSONALITIES_LOAD,
+  payload: { questionSlug, personalities },
+});
+
+export const fechQuestionPersonalities = (
+  questionId: string,
+  questionSlug: string,
+  personalityRole: ?string = undefined,
+  limit: ?number = undefined,
+  skip: ?number = undefined
+) => async (dispatch: Dispatch) => {
+  try {
+    const response = await QuestionApiService.getQuestionPersonalities(
+      questionId,
+      personalityRole,
+      limit,
+      skip
+    );
+
+    return dispatch(loadQuestionPersonalities(questionSlug, response.results));
   } catch (error) {
     return Logger.logError(Error(error));
   }
