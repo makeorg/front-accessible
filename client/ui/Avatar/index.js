@@ -1,6 +1,11 @@
 // @flow
 import React from 'react';
-import { AvatarStyle, AvatarWithDotsStyle, DotsStyle } from './Styled';
+import {
+  AvatarStyle,
+  AvatarWithDotsStyle,
+  DotsStyle,
+  AvatarImageStyle,
+} from './Styled';
 import { SvgEmptyAvatar } from '../Svg/elements';
 
 type Props = {
@@ -24,9 +29,8 @@ export const Avatar = ({
   return (
     <AvatarStyle>
       {avatarUrl ? (
-        <img
-          width={avatarSize}
-          height={avatarSize}
+        <AvatarImageStyle
+          avatarSize={avatarSize}
           src={avatarUrl}
           alt={avatarAlt}
         />

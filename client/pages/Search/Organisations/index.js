@@ -17,7 +17,6 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { SvgAngleArrowLeft, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { Avatar } from 'Client/ui/Avatar';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   SearchOrganisationsListStyle,
   SearchOrganisationItemStyle,
@@ -29,6 +28,7 @@ import {
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { useDesktop } from 'Client/hooks/useMedia';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -124,10 +124,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
                         {i18n.t('profile.common.labels.organisation')}
                       </ScreenReaderItemStyle>
                       {organisation.organisationName}
-                      &nbsp;
-                      <SvgCheckedSymbol
-                        style={{ fontSize: '14px', fill: TextColors.Blue }}
-                      />
+                      <SvgCheckedSymbol style={CertifiedIconStyle} />
                     </ProfileTitleStyle>
                   </ProfileContentWrapperStyle>
                 </ProfileAvatarLayoutStyle>

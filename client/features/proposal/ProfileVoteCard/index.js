@@ -13,12 +13,14 @@ import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProposalStyle,
   ProposalInnerStyle,
 } from 'Client/ui/Elements/ProposalCardElements';
-import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import {
+  AuthorWrapperStyle,
+  CertifiedIconStyle,
+} from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CardStyle } from 'Client/ui/Cards';
@@ -72,10 +74,7 @@ export const ProfileVoteCard = ({
           >
             {organisation.organisationName}
           </RedLinkStyle>
-          &nbsp;
-          <SvgCheckedSymbol
-            style={{ fontSize: '14px', fill: TextColors.Blue }}
-          />
+          <SvgCheckedSymbol style={CertifiedIconStyle} />
           &nbsp;
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}
         </div>

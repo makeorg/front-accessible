@@ -9,7 +9,6 @@ import { Avatar } from 'Client/ui/Avatar';
 import { SvgMapMarker, SvgSignOut, SvgLink } from 'Client/ui/Svg/elements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
@@ -29,6 +28,7 @@ import {
   TYPE_PERSONALITY,
   TYPE_USER,
 } from 'Shared/constants/user';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -64,10 +64,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 {i18n.t('profile.common.labels.organisation')}
               </ScreenReaderItemStyle>
               {user.organisationName}
-              &nbsp;
-              <SvgCheckedSymbol
-                style={{ fontSize: '14px', fill: TextColors.Blue }}
-              />
+              <SvgCheckedSymbol style={CertifiedIconStyle} />
             </ProfileTitleStyle>
           </ProfileContentWrapperStyle>
         )}
@@ -89,10 +86,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                       {i18n.t('profile.common.labels.lastname')}
                     </ScreenReaderItemStyle>
                     {user.lastName}
-                    &nbsp;
-                    <SvgCheckedSymbol
-                      style={{ fontSize: '14px', fill: TextColors.Blue }}
-                    />
+                    <SvgCheckedSymbol style={CertifiedIconStyle} />
                   </>
                 )}
               </ProfileTitleStyle>
