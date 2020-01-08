@@ -28,8 +28,14 @@ export const ScoringTextContainerStyle = styled.span`
 
 export const ScoringTextStyle = styled.span`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   margin-left: 10px;
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex-direction: column;
+    align-items: initial;
+  }
 `;
 
 export const ScoringPercentageStyle = styled.span`
@@ -40,4 +46,8 @@ export const ScoringPercentageStyle = styled.span`
 
 export const ScoringPercentageTextStyle = styled.span`
   font-size: 14px;
+  margin-left: 5px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-left: 0;
+  }
 `;
