@@ -58,7 +58,9 @@ export const IdeaCard = ({ position = 0 }: Props) => {
           {i18n.t('idea_card.associated_proposals', { count: 150 })}
         </ProposalsAssociatedStyle>
         <IdeaCardContentStyle>
-          <ProposalStyle id={`idea_content_${position}`}>toto</ProposalStyle>
+          <ProposalStyle id={`idea_content_${position}`}>
+            {"Il faut créer plus d'espaces verts"}
+          </ProposalStyle>
         </IdeaCardContentStyle>
         <PositionStyle>
           <SvgChat aria-hidden />
