@@ -35,6 +35,7 @@ export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
   line-height: 18px;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
+  text-align: left;
   &::first-letter {
     text-transform: uppercase;
   }
