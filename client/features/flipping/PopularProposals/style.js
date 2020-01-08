@@ -5,18 +5,46 @@ import {
   BackgroundColors,
   BasicColors,
   TextColors,
+  ShadowColors,
+  BorderColors,
 } from 'Client/app/assets/vars/Colors';
-import { TileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
+import {
+  TileWithTitleStyle,
+  TileTitleStyle,
+  TileSeparatorStyle,
+} from 'Client/ui/Elements/TileWithTitle/Styled';
 import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/Styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { Elements } from 'Client/app/assets/vars/Elements';
+
+export const PopularProposalsSliderWrapperStyle = styled.div`
+  background-color: ${BackgroundColors.ExtraLightGrey};
+  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  margin-top: 15px;
+  padding: 20px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    border-radius: ${intToPx(Elements.BorderRadius)};
+  }
+`;
+
+export const PopularProposalsSliderTitleStyle = styled(TileTitleStyle)`
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 0 20px;
+`;
+
+export const PopularProposalsSliderSeparatorStyle = styled(TileSeparatorStyle)`
+  background-color: ${BorderColors.MediumGrey};
+`;
 
 export const PopularProposalsWrapperStyle = styled(TileWithTitleStyle)`
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const PopularProposalsSliderListStyle = styled(ProposalsSliderListStyle)`
+  padding: 5px 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 5px 0;
+    padding: 5px 20px;
   }
 `;
 
@@ -37,13 +65,22 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
   display: flex;
   align-content: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   color: ${BasicColors.PureWhite};
   background-color: ${BasicColors.PureBlack};
-  font-size: 15px;
-  margin-right: 15px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  &.glider-prev {
+    left: 0;
+    transform: translateX(-50%);
+  }
+  &.glider-next {
+    right: 0;
+    transform: translateX(50%);
+  }
   svg {
     fill: ${BasicColors.PureWhite};
   }
@@ -55,19 +92,4 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
       fill: ${TextColors.MediumGrey};
     }
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    margin: 0 0 0 15px;
-  }
-`;
-
-export const ArrowStyle = styled(PopularProposalsArrowsStyle)`
-  position: absolute;
-  top: 50%;
-  right: ${props => (props.direction === 'left' ? 'unset' : 0)};
-  left: ${props => (props.direction === 'left' ? 0 : 'unset')};
-  transform: ${props =>
-    props.direction === 'left' ? 'translateX(-50%)' : 'translateX(50%)'};
-  z-index: 10;
-  width: 35px;
-  height: 35px;
 `;

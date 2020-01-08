@@ -3,7 +3,7 @@
 import React from 'react';
 import { FEED_PROPOSAL, FEED_TOP_PROPOSALS } from 'Shared/constants/card';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
-import { PopularProposals } from 'Client/features/proposal/PopularProposals';
+import { PopularProposals } from 'Client/features/flipping/PopularProposals';
 
 type Props = {
   card: any,
