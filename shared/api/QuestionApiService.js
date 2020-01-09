@@ -10,6 +10,7 @@ const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
+const PATH_QUESTION_PERSONALITIES = '/questions/:questionId/personalities';
 export const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
 
 export class QuestionApiService {
@@ -53,6 +54,19 @@ export class QuestionApiService {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_POPULAR_TAGS, { questionId }),
       { method: 'GET', headers, params: { limit, skip } }
+    );
+  }
+
+  static getQuestionPersonalities(
+    questionId: string,
+    personalityRole: ?string = undefined,
+    limit: ?number = undefined,
+    skip: ?number = undefined,
+    headers?: ApiServiceHeaders = {}
+  ): Promise<Object> {
+    return ApiService.callApi(
+      generatePath(PATH_QUESTION_PERSONALITIES, { questionId }),
+      { method: 'GET', headers, params: { personalityRole, limit, skip } }
     );
   }
 

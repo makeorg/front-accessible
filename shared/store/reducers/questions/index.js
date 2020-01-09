@@ -4,7 +4,10 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
 import { type StateQuestions } from 'Shared/store/types';
 
-import { QUESTION_POPULAR_TAGS_LOAD } from './actions';
+import {
+  QUESTION_POPULAR_TAGS_LOAD,
+  QUESTION_PERSONALITIES_LOAD,
+} from './actions';
 
 export function questions(
   state: StateQuestions = initialState.questions,
@@ -33,6 +36,14 @@ export function questions(
         [action.payload.questionSlug]: {
           ...state[action.payload.questionSlug],
           popularTags: action.payload.popularTags,
+        },
+      };
+    case QUESTION_PERSONALITIES_LOAD:
+      return {
+        ...state,
+        [action.payload.questionSlug]: {
+          ...state[action.payload.questionSlug],
+          personalities: action.payload.personalities,
         },
       };
     case actionTypes.PROPOSAL_POPULAR_LOAD:

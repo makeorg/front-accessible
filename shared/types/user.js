@@ -21,6 +21,15 @@ export type TypeProfile = {
   politicalParty: string,
 };
 
+export type TypePersonality = {
+  userId: string,
+  firstName: string,
+  lastName: string,
+  politicalParty: string,
+  avatarUrl: string,
+  gender: string,
+};
+
 export type TypeUser = {
   userId: string,
   email: string,
