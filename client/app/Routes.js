@@ -28,6 +28,7 @@ import {
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
   ROUTE_IDEAS,
+  ROUTE_PERSONALITY_PROFILE,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -60,6 +61,9 @@ const ProfileEditPage = loadable(() =>
 const ProfilePage = loadable(() => import('Client/pages/Profile'));
 
 const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
+
+const PersonalityPage = loadable(() => import('Client/pages/Personality'));
+
 const SearchPage = loadable(() => import('Client/pages/Search'));
 
 const LegalPage = loadable(() => import('Client/pages/Static/Legal'));
@@ -97,6 +101,7 @@ export const Routes = () => {
       <Route path={ROUTE_SEARCH_PROPOSALS} component={SearchPage} />
       <Route path={ROUTE_SEARCH_ORGANISATIONS} component={SearchPage} />
       <Route path={ROUTE_SEARCH_CONSULTATIONS} component={SearchPage} />
+      <Route path={ROUTE_PERSONALITY_PROFILE} component={PersonalityPage} />
       <Redirect
         path={ROUTE_ORGANISATION_PROFILE}
         to={ROUTE_ORGANISATION_PROPOSALS}

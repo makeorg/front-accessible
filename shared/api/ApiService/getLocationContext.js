@@ -10,6 +10,12 @@ import {
   ROUTE_SEARCH_PROPOSALS,
   ROUTE_SEARCH_ORGANISATIONS,
   ROUTE_SEARCH_CONSULTATIONS,
+  ROUTE_PERSONALITY_PROFILE,
+  ROUTE_ORGANISATION_PROFILE,
+  ROUTE_PROFILE_EDIT,
+  ROUTE_PROFILE_FAVOURITES,
+  ROUTE_PROFILE_PROPOSALS,
+  ROUTE_PROFILE_FOLLOWING,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -28,6 +34,33 @@ export const getLocationContext = (
     { route: ROUTE_SEARCH_ORGANISATIONS, name: `search-organisations-page` },
     { route: ROUTE_SEARCH_CONSULTATIONS, name: `search-consultations-page` },
     { route: ROUTE_SEARCH, name: `search-page` },
+    { route: ROUTE_PROFILE_EDIT, name: `private-profile-page` },
+    {
+      route: ROUTE_PROFILE_FAVOURITES,
+      name: `private-profile-page`,
+      exact: true,
+      strict: true,
+    },
+    {
+      route: ROUTE_PROFILE_PROPOSALS,
+      name: `private-profile-page`,
+      exact: true,
+      strict: true,
+    },
+    {
+      route: ROUTE_PROFILE_FOLLOWING,
+      name: `private-profile-page`,
+      exact: true,
+      strict: true,
+    },
+    {
+      route: ROUTE_ORGANISATION_PROFILE,
+      name: `public-profile-page`,
+    },
+    {
+      route: ROUTE_PERSONALITY_PROFILE,
+      name: `public-profile-page`,
+    },
     { route: '/', name: `homepage`, exact: true, strict: true },
     { route: '/:countryLang', name: `homepage`, exact: true, strict: false },
   ];

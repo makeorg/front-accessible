@@ -23,6 +23,7 @@ import {
   ROUTE_STATIC_GTU,
   ROUTE_RESULTS,
   ROUTE_IDEAS,
+  ROUTE_PERSONALITY_PROFILE,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -91,6 +92,8 @@ export const initRoutes = app => {
   app.get(ROUTE_ORGANISATION_PROFILE, frontMiddlewares, defaultRoute);
   app.get(ROUTE_ORGANISATION_PROPOSALS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_ORGANISATION_VOTES, frontMiddlewares, defaultRoute);
+
+  app.get(ROUTE_PERSONALITY_PROFILE, frontMiddlewares, defaultRoute);
 
   app.get(ROUTE_PROFILE_EDIT, frontMiddlewares, defaultRoute);
   app.get(ROUTE_PROFILE_PROPOSALS, frontMiddlewares, defaultRoute);

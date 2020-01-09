@@ -68,7 +68,8 @@ const TabStyle = styled.li`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
   }
-  a {
+  a,
+  span {
     display: inline-flex;
     flex-flow: column;
     justify-content: center;

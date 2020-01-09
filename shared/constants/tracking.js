@@ -5,8 +5,6 @@ export const CLICK_MAKEORG_LOGO: string = 'click-navbar-logo';
 export const CLICK_CONSULTATION_LINK: string = 'click-consultation-link';
 export const CLICK_PERSONNAL_DATA_LINK: string = 'click-personnal-data-link';
 export const CLICK_CLOSE_MODAL: string = 'click-close-modal';
-export const CLICK_PROFILE: string = 'click-profile';
-export const CLICK_PUBLIC_PROFILE: string = 'click-public-profile';
 
 /* Consultation */
 export const DISPLAY_PAGE_OPERATION: string = 'display-page-operation';
@@ -89,3 +87,8 @@ export const CLICK_SEARCH_RETURN = 'click-search-return';
 
 /** Ideas page */
 export const DISPLAY_PAGE_IDEAS: string = 'display-page-ideas';
+
+/** Profile */
+export const CLICK_PROFILE: string = 'click-profile';
+export const CLICK_PUBLIC_PROFILE: string = 'click-public-profile';
+export const DISPLAY_PUBLIC_PROFILE: string = 'display-public-profile';

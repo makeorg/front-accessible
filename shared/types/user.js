@@ -18,6 +18,7 @@ export type TypeProfile = {
   registerQuestionId: string,
   optInPartner: boolean,
   website: string,
+  politicalParty: string,
 };
 
 export type TypeUser = {
