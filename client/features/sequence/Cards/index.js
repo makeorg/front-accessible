@@ -108,6 +108,7 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
         as="dt"
         aria-hidden={!isCardVisible}
         id={`card-${activeGaugeIndex}-title`}
+        data-cy-card-title-number={index + card.offset}
       >
         {isIntroCard
           ? i18n.t('intro_card.purpose')
@@ -125,6 +126,8 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
         aria-hidden={!isCardVisible}
         as={isIntroCard && SequenceProposalCardCenteredStyle}
         id={`card-${index + card.offset}`}
+        data-cy-card-type={card.type}
+        data-cy-card-number={index + card.offset}
       >
         {!isIntroCard && (
           <CardHeaderStyle

@@ -6,6 +6,9 @@ const defaultTag = require('../db/defaultTag.json');
 const defaultVote = require('../db/defaultVote.json');
 const defaultOrganisation = require('../db/defaultOrganisation.json');
 const defaultHomeView = require('../db/views.json');
+const defaultAgreeQualifications = require('../db/defaultAgreeQualifications.json');
+const defaultDisagreeQualifications = require('../db/defaultDisagreeQualifications.json');
+const defaultNeutralQualifications = require('../db/defaultNeutralQualifications.json');
 
 const range = (start, end) => {
   const values = [];
@@ -137,6 +140,11 @@ const fixtures = {
   vote: defaultVote,
   homeView,
   organisations,
+  qualifications: {
+    agree: defaultAgreeQualifications,
+    disagree: defaultDisagreeQualifications,
+    neutral: defaultNeutralQualifications,
+  },
 };
 
 module.exports = { fixtures };

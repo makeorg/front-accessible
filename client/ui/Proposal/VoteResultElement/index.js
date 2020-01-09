@@ -54,6 +54,7 @@ export const VoteResultElement = ({
             label={i18n.t(`qualification.${qualification.qualificationKey}`)}
             qualificationCounter={qualification.count}
             isQualified={qualification.hasQualified}
+            qualificationKey={qualification.qualificationKey}
           />
         ))}
       </SpaceBetweenColumnStyle>

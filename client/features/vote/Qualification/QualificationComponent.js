@@ -74,6 +74,7 @@ export const QualificationComponent = (props: Props) => {
               pendingQualification={pendingQualificationKeys.has(
                 qualification.qualificationKey
               )}
+              qualificationKey={qualification.qualificationKey}
             />
           </li>
         ))}

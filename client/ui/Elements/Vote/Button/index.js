@@ -55,6 +55,8 @@ export const VoteButtonElement = (props: Props) => {
       onClick={handleVote}
       onTouchEnd={handleVote}
       aria-busy={displayPending}
+      data-cy-button="vote"
+      data-cy-vote-key={voteKey}
     >
       {displayPending && !animateVote ? (
         <LoadingDots />

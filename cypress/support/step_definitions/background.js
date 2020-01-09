@@ -1,17 +1,38 @@
-import { asserts, xhrRequests, makeTrackingKey } from './requests';
+import { asserts, xhrRequests, xhrTrackingRequests } from './requests';
+
+let executed = false;
 
 given('monitor api requests', () => {
-  before(() => {
-    asserts = [];
-    xhrRequests = {};
-    xhrRequests[makeTrackingKey] = {};
+  beforeEach(() => {
+    
+    asserts.list = {};
+    xhrRequests.list = {};
+    xhrTrackingRequests.list = {};
+    executed = false;
   })
-  after(() => {
-    const endpoints = Object.keys(asserts);
-    endpoints.forEach((endpoint) => {
-      cy.wait(`@${endpoint}`).then (() => {
-        asserts[endpoint].forEach(callBack => callBack());
+  afterEach(() => {
+    // avoid to execute twice due to async in hook
+    if (!executed) {
+      executed = true;
+      const endpoints = Object.keys(asserts.list);
+      endpoints.forEach((endpoint) => {
+        cy.wait(`@${endpoint}`).then (() => {
+          asserts.list[endpoint].forEach(callBack => callBack());
+        });
       });
-    });
+    }
   });
 })
+
+// see https://github.com/cypress-io/cypress/issues/871#issuecomment-509392310
+given('fix auto cypress scroll', () => {
+  beforeEach(() => {
+    Cypress.on('scrolled', el => {
+      console.log(el.get(0));
+      el.get(0).scrollIntoView({
+        block: 'center',
+        inline: 'center'
+      });
+    });
+  })
+});

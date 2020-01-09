@@ -8,6 +8,7 @@ proposalsRouter.use('/:proposalId/vote', (req, res) => {
     ...fixtures.vote,
     hasVoted: true,
     voteKey: req.body.voteKey,
+    qualifications: fixtures.qualifications[req.body.voteKey],
   });
 });
 
@@ -20,22 +21,26 @@ proposalsRouter.use('/:proposalId/unvote', (req, res) => {
 });
 
 proposalsRouter.use('/:proposalId/qualification', (req, res) => {
+  const { count } = fixtures.qualifications[req.body.voteKey].find(
+    qualification =>
+      qualification.qualificationKey === req.body.qualificationKey
+  );
   return res.send({
-    ...fixtures.vote.qualifications.find(
-      qualification =>
-        qualification.qualificationKey === req.body.qualificationKey
-    ),
+    qualificationKey: req.body.qualificationKey,
     hasQualified: true,
+    count: `${parseInt(count, 10) + 1}`,
   });
 });
 
 proposalsRouter.use('/:proposalId/unqualification', (req, res) => {
+  const { count } = fixtures.qualifications[req.body.voteKey].find(
+    qualification =>
+      qualification.qualificationKey === req.body.qualificationKey
+  );
   return res.send({
-    ...fixtures.vote.qualifications.find(
-      qualification =>
-        qualification.qualificationKey === req.body.qualificationKey
-    ),
+    qualificationKey: req.body.qualificationKey,
     hasQualified: false,
+    count,
   });
 });
 

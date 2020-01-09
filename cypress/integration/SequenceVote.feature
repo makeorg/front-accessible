@@ -1,9 +1,55 @@
-Feature: track vote on sequence
+Feature: Vote on sequence
   I want to track votes 
   Background: 
     Given monitor api requests
-  Scenario: Track vote on first sequence card
+    And fix auto cypress scroll
+  Scenario: Display vote buttons
     Given I am on "sequence page" of the question "question-0-slug"
+    When I click on "intro card start button" of the sequence
+    Then card "1" is visible
+    And I see vote buttons on card "1"
+  Scenario: Vote agree
+    Given I am on "sequence page" of the question "question-1-slug"
+    And I click on "intro card start button" of the sequence
+    When I vote "agree" on the first proposal of sequence
+    Then I see agree qualifications buttons on card "1"
+    And total votes are equal to "6"
+    And I see "next proposal" button on card "1"
+  Scenario: Vote disagree
+    Given I am on "sequence page" of the question "question-1-slug"
+    And I click on "intro card start button" of the sequence
+    When I vote "disagree" on the first proposal of sequence
+    Then I see disagree qualifications buttons on card "1"
+    And total votes are equal to "6"
+    And I see "next proposal" button on card "1"
+  Scenario: Vote neutral
+    Given I am on "sequence page" of the question "question-1-slug"
+    And I click on "intro card start button" of the sequence
+    When I vote "neutral" on the first proposal of sequence
+    Then I see neutral qualifications buttons on card "1"
+    And total votes are equal to "7"
+    And I see "next proposal" button on card "1"
+  Scenario: Unvote voted and qualified proposal
+     Given I am on "sequence page" of the question "question-1-slug"
+     And I click on "intro card start button" of the sequence
+     And I vote "agree" on the current card
+     When I qualify "likeIt" on the current card
+     Then "likeIt" qualification button is highlight on the current card
+     When I unvote on the current card
+     Then I see vote buttons on the current card
+     And I not see qualification buttons on the current card
+     When I vote "agree" on the current card
+     Then "likeIt" qualification button is not highlight on the current card
+     And total "likeIt" qualifications are equal to "+1" on the current card
+     When I qualify "likeIt" on the current card
+     Then "likeIt" qualification button is highlight on the current card
+     And total "likeIt" qualifications are equal to "10" on the current card
+     When I unqualify "likeIt" on the current card
+     Then "likeIt" qualification button is not highlight on the current card
+     And total "likeIt" qualifications are equal to "+1" on the current card
+  Scenario: Track vote
+    Given I am on "sequence page" of the question "question-0-slug"
+    And I click on "intro card start button" of the sequence
     And I monitor API "postVote" requests
     And I monitor API "postTracking" requests
     When I vote "agree" on the first proposal of sequence

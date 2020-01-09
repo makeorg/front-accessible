@@ -69,6 +69,7 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
       ))}
       <SequenceIntroButtonStyle
         id="sequence-start-sequence-button"
+        data-cy-button="start-sequence"
         onClick={handleStartSequence}
       >
         <IconWrapperStyle aria-hidden>

@@ -75,6 +75,7 @@ export const ProposalCard = ({ proposal, index }: Props) => {
         <SequenceNextButtonStyle
           onClick={goToNextCard}
           id={`next-button-${proposal.id}`}
+          data-cy-button="next-proposal"
         >
           {i18n.t('proposal_card.next')}
         </SequenceNextButtonStyle>

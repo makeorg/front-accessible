@@ -27,6 +27,7 @@ class QualificationButtonElementExample extends React.Component {
           label="label"
           qualificationCounter="1"
           handleClick={this.handleQualificationClick}
+          qualificationKey="doNotUnderstand"
         />
       </div>
     );
@@ -46,6 +47,7 @@ import { QualificationButtonElement } from './index';
     isQualified={true}
     label="Réalisable"
     qualificationCounter="13"
+    qualificationKey="doNotUnderstand"
   />
 </div>
 
@@ -81,6 +83,7 @@ const qualifications = [{
       label={i18n.t(`qualification.${qualification.qualificationKey}`)}
       qualificationCounter={qualification.count}
       isQualified={qualification.hasQualified}
+      qualificationKey={qualification.qualificationKey}
     />
   ))}
 </div>

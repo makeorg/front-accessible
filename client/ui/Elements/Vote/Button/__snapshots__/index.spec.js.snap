@@ -7,6 +7,8 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   as="VoteButtonStyle"
   className=""
   color="red"
+  data-cy-button="vote"
+  data-cy-vote-key=""
 >
   <ButtonIconWrapperStyle>
     SvgThumbsup
@@ -27,7 +29,7 @@ Snapshot Diff:
 +   as="VoteButtonStyle"
     className=""
     color="red"
+    data-cy-button="vote"
+    data-cy-vote-key=""
   >
-    <ButtonIconWrapperStyle>
-      SvgThumbsup
 `;
