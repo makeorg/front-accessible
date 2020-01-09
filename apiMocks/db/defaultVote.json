@@ -4,17 +4,17 @@
   "qualifications":[
     {
       "qualificationKey":"doNotUnderstand",
-      "count":0,
+      "count":2,
       "hasQualified":false
     },
     {
       "qualificationKey":"noOpinion",
-      "count":1,
+      "count":4,
       "hasQualified":false
     },
     {
       "qualificationKey":"doNotCare",
-      "count":0,
+      "count":6,
       "hasQualified":false
     }
   ],

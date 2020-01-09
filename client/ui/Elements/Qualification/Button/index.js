@@ -20,6 +20,8 @@ type Props = {
   qualificationCounter?: number,
   /** When waiting qualification response from API */
   pendingQualification?: boolean,
+  /** Qualification key */
+  qualificationKey: string,
   /** Method called when qualification button is clicked */
   handleClick?: () => void,
 };
@@ -35,6 +37,7 @@ export const QualificationButtonElement = (props: Props) => {
     qualificationCounter,
     handleClick,
     pendingQualification,
+    qualificationKey,
   } = props;
 
   const onClick = event => {
@@ -49,6 +52,8 @@ export const QualificationButtonElement = (props: Props) => {
       onClick={onClick}
       aria-label={pendingQualification ? i18n.t('common.loading') : label}
       aria-busy={pendingQualification}
+      data-cy-button="qualification"
+      data-cy-qualification-key={qualificationKey}
     >
       {pendingQualification ? (
         <LoadingDots />

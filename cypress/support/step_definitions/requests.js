@@ -2,29 +2,40 @@ export const endpoints = {
   postVote: {method: 'POST', url: '**/proposals/*/vote'},
   postTracking: {method: 'POST', url: '**/tracking/front'},
 }
-export const makeTrackingKey = 'MakeTracking';
 
 // register requests by endpoint
-export let xhrRequests = {};
-xhrRequests[makeTrackingKey] = {};
+export let xhrRequests = {list: {}};
+
+// register tracking requests by tracking name
+export let xhrTrackingRequests = {list: {}}
 
 // register asserts by endpoint
-export let asserts = {};
+export let asserts = {list: {}};
 
 then ('some make data header should be sent to {string}:', (endpoint, expectedHeaders) => {
   const assertCallback = () => expectedHeaders.hashes().forEach( expectedHeader => {
-    const headerValue = xhrRequests[endpoint].request.headers[`x-make-${expectedHeader.name}`];
-    expect(headerValue.trim(), `header x-make-${expectedHeader.name} on ${endpoint}`).to.equal(expectedHeader.value);
+    expect(xhrRequests.list).to.have.any.keys(endpoint);
+    const headerValue = xhrRequests.list[endpoint].request.headers[`x-make-${expectedHeader.name}`];
+    const expectedValue = expectedHeader.value === '' ? null : expectedHeader.value; 
+    expect(headerValue ? headerValue.trim() : null, `header x-make-${expectedHeader.name} on ${endpoint}`).to.equal(expectedValue);
   });
-  if (!asserts[endpoint]) {
-    asserts[endpoint] = [];
+  if (!asserts.list[endpoint]) {
+    asserts.list[endpoint] = [];
   } 
-  asserts[endpoint].push(assertCallback);
+  asserts.list[endpoint].push(assertCallback);
+});
+then('event {string} should not be tracked by Make', (trackerName) => {
+  const assertCallback = () => expect(xhrTrackingRequests.list).to.not.have.any.keys(trackerName);
+  if (!asserts.list['postTracking']) {
+    asserts.list['postTracking'] = [];
+  } 
+  asserts.list['postTracking'].push(assertCallback);
 });
 
 then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
   const assertCallback = () => expectedParameters.hashes().forEach( expectedParameter => {
-    const body = xhrRequests[makeTrackingKey][trackerName].request.body;
+    expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
+    const body = xhrTrackingRequests.list[trackerName].request.body || {};
     if (expectedParameter.name == 'eventType') {
       expect(
         body.eventType, 
@@ -37,18 +48,18 @@ then('event {string} should be tracked by Make with parameters values:', (tracke
       ).to.equal(expectedParameter.value);
     }
   });
-  if (!asserts['postTracking']) {
-    asserts['postTracking'] = [];
+  if (!asserts.list['postTracking']) {
+    asserts.list['postTracking'] = [];
   } 
-  asserts['postTracking'].push(assertCallback);
+  asserts.list['postTracking'].push(assertCallback);
 });
 
 given('I monitor API {string} requests', (endpoint) => {  
   cy.server();
   const onRequest = (xhr) => {
-    xhrRequests[endpoint] = xhr;
+    xhrRequests.list[endpoint] = xhr;
     if (xhr.request.body && xhr.request.body.eventName) {
-      xhrRequests[makeTrackingKey][xhr.request.body.eventName] = xhr;
+      xhrTrackingRequests.list[xhr.request.body.eventName] = xhr;
     }
   };
   cy.route({
@@ -57,3 +68,4 @@ given('I monitor API {string} requests', (endpoint) => {
     onRequest: onRequest,
   }).as(endpoint);
 });
+

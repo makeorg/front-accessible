@@ -40,13 +40,14 @@ export const ProgressCircleComponent = (props: Props) => {
         max={maxGaugeIndex}
         aria-valuenow={activeGaugeIndex}
         aria-valuemax={maxGaugeIndex}
+        data-cy-element="progress-a11y"
       >
         {i18n.t('proposal_card.number', {
           current: activeGaugeIndex,
           total: maxGaugeIndex,
         })}
       </ScreenReaderItemStyle>
-      <ProgressWrapperStyle aria-hidden>
+      <ProgressWrapperStyle aria-hidden data-cy-container="progress">
         <ProgressSvgStyle
           width={42}
           height={42}

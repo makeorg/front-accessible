@@ -31,6 +31,7 @@ Array [
     aria-valuemax={13}
     aria-valuenow={3}
     className="c0"
+    data-cy-element="progress-a11y"
     max={13}
     value={3}
   >
@@ -127,6 +128,7 @@ Array [
 <div
     aria-hidden={true}
     className="c0"
+    data-cy-container="progress"
   >
     <svg
       className="c1"

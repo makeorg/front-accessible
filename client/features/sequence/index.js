@@ -134,7 +134,11 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
     return (
       <SequenceStyle>
         <SequenceWrapperStyle>
-          <SequenceListStyle as="div" id="sequence">
+          <SequenceListStyle
+            as="div"
+            id="sequence"
+            data-cy-container="sequence"
+          >
             <SequencePlaceholderCardStyle as="div" scaling="1" zindex="1">
               <SequencePlaceholderWrapperStyle>
                 <SequencePlaceholderTitleSTyle />
@@ -166,7 +170,11 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
         </>
       )}
       <SequenceWrapperStyle>
-        <SequenceListStyle isSequenceCollapsed={isClosed} id="sequence">
+        <SequenceListStyle
+          isSequenceCollapsed={isClosed}
+          id="sequence"
+          data-cy-container="sequence"
+        >
           {cards.map((card, index) => (
             <SequenceCards
               key={getCardIndex(index)}

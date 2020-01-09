@@ -6,6 +6,7 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
   aria-label="foo"
   as="QualifyButtonStyle"
   color="red"
+  data-cy-button="qualification"
   onClick={[Function]}
 >
   <span
@@ -33,11 +34,11 @@ Snapshot Diff:
 -   as="IsQualifiedButtonStyle"
 +   as="QualifyButtonStyle"
     color="red"
+    data-cy-button="qualification"
     onClick={[Function onClick]}
   >
     <span
-      aria-hidden={true}
-@@ -11,8 +11,8 @@
+@@ -12,8 +12,8 @@
       foo
     </span>
     <CounterStyle
