@@ -25,6 +25,20 @@ describe('getLocationContext', () => {
       expectedTracking: 'page-action',
     },
     {
+      name: 'ROUTE_RESULTS',
+      path: '/FR-fr/consultation/foo/results',
+      params: { questionId: 'question-id' },
+      expected: `page-results question-id`,
+      expectedTracking: `page-results`,
+    },
+    {
+      name: 'ROUTE_IDEAS',
+      path: '/FR-fr/consultation/foo/ideas',
+      params: { questionId: 'question-id' },
+      expected: `page-ideas question-id`,
+      expectedTracking: `page-ideas`,
+    },
+    {
       name: 'ROUTE_SEQUENCE',
       path: '/FR-fr/consultation/foo/selection',
       params: { questionId: 'question-id' },

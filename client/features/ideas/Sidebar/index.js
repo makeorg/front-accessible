@@ -7,6 +7,7 @@ import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SIDEBAR_ACTIVE_ACTORS } from 'Shared/constants/featureFlipping';
+import { useMobile } from 'Client/hooks/useMedia';
 
 type Props = {
   question: TypeQuestion,
@@ -17,12 +18,13 @@ export const IdeasSidebar = ({ question }: Props) => {
     CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
     question.activeFeatures
   );
+  const isMobile = useMobile();
 
   return (
     <ConsultationPageSidebarStyle>
       <PresentationTile question={question} />
       {isSidebarActiveActors && <LocalActorsTile question={question} />}
-      <FollowUs />
+      {!isMobile && <FollowUs />}
     </ConsultationPageSidebarStyle>
   );
 };
