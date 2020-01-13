@@ -637,6 +637,9 @@
         "subscribe": "Inscrivez-vous",
         "candidates": "Vous êtes candidat(e)",
         "contact_us": "Contactez-nous !"
+      },
+      "position": {
+        "title":"Vous êtes candidats ? Connectez-vous pour prendre position !"
       }
     },
     "popular_proposals": {

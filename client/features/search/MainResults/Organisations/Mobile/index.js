@@ -13,13 +13,13 @@ import {
 } from 'Client/features/search/Styled';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import {
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import {
   SearchSliderListStyle,
   SearchSliderListItemStyle,
@@ -77,13 +77,7 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                           {i18n.t('profile.common.labels.organisation')}
                         </ScreenReaderItemStyle>
                         {organisation.organisationName}
-                        <SvgCheckedSymbol
-                          style={{
-                            fontSize: '14px',
-                            marginLeft: '5px',
-                            fill: TextColors.Blue,
-                          }}
-                        />
+                        <SvgCheckedSymbol style={CertifiedIconStyle} />
                       </ProfileTitleStyle>
                     </ProfileContentWrapperStyle>
                   </ProfileAvatarLayoutStyle>

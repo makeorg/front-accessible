@@ -39,7 +39,6 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -48,6 +47,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -143,10 +143,8 @@ const OrganisationPage = (props: Props) => {
                   {i18n.t('profile.common.labels.organisation')}
                 </ScreenReaderItemStyle>
                 {organisation.organisationName}
-                &nbsp;
-                <SvgCheckedSymbol
-                  style={{ fontSize: '14px', fill: TextColors.Blue }}
-                />
+
+                <SvgCheckedSymbol style={CertifiedIconStyle} />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {organisation.description && (

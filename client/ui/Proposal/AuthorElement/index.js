@@ -7,13 +7,13 @@ import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
   ProposalStatusStyle,
+  CertifiedIconStyle,
 } from './Styled';
 
 type Props = {
@@ -80,13 +80,7 @@ export const ProposalAuthorElement = (props: Props) => {
             >
               {author.organisationName}
             </RedLinkStyle>
-            <SvgCheckedSymbol
-              style={{
-                fontSize: '14px',
-                marginLeft: '5px',
-                fill: TextColors.Blue,
-              }}
-            />
+            <SvgCheckedSymbol style={CertifiedIconStyle} />
           </React.Fragment>
         ) : (
           author.firstName

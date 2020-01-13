@@ -51,3 +51,9 @@ export const ProposalStatusStyle = styled.span`
     font-size: 14px;
   }
 `;
+
+export const CertifiedIconStyle = {
+  fontSize: '14px',
+  marginLeft: '5px',
+  fill: TextColors.Blue,
+};

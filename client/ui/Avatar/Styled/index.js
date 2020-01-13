@@ -10,14 +10,16 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 export const AvatarStyle = styled.span`
   margin-right: 10px;
   display: inline-flex;
-  svg,
-  img {
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid ${BorderColors.MediumGrey};
-    background-color: ${BasicColors.PureWhite};
-    min-width: 30px;
-  }
+`;
+
+export const AvatarImageStyle = styled.img`
+  min-width: ${props => intToPx(props.avatarSize)};
+  width: ${props => intToPx(props.avatarSize)};
+  height: ${props => intToPx(props.avatarSize)};
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid ${BorderColors.MediumGrey};
+  background-color: ${BasicColors.PureWhite};
 `;
 
 export const PartnerAvatarStyle = styled.span`

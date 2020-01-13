@@ -74,8 +74,8 @@ export type TypeInteractiveChildren = {
 };
 
 export type TypeSliderParams = {
-  slidesToShow?: number,
-  slidesToScroll?: number,
+  slidesToShow?: number | string,
+  slidesToScroll?: number | string,
   skipTrack?: boolean,
   arrows?: {
     prev: string,

@@ -9,6 +9,7 @@ import {
   ROUTE_SEQUENCE,
   ROUTE_PROPOSAL,
   ROUTE_ORGANISATION_PROFILE,
+  ROUTE_PERSONALITY_PROFILE,
   ROUTE_STATIC_CONTACT,
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_GTU,
@@ -162,6 +163,26 @@ export const getOrganisationProfileLink = (
     country,
     language,
     organisationSlug,
+  });
+};
+
+/**
+ * Get the personality profile link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} userId
+ * @return {string}
+ */
+export const getPersonalityProfileLink = (
+  country: string,
+  language: string,
+  userId: string
+) => {
+  return generatePath(ROUTE_PERSONALITY_PROFILE, {
+    country,
+    language,
+    userId,
   });
 };
 

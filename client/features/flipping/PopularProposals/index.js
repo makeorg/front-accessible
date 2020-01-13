@@ -17,6 +17,7 @@ import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useMobile } from 'Client/hooks/useMedia';
+import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   PopularProposalsSliderListItemStyle,
   PopularProposalsSliderListStyle,
@@ -101,6 +102,9 @@ export const PopularProposals = ({ question, position, size }: Props) => {
         })}
         <PopularProposalsSliderSeparatorStyle />
       </PopularProposalsSliderTitleStyle>
+      <ScreenReaderItemStyle>
+        {i18n.t('common.slider.introduction')}
+      </ScreenReaderItemStyle>
       <GliderStylesheet />
       <FlexElementStyle as={isMobile ? HiddenItemStyle : FlexElementStyle}>
         <PopularProposalsArrowsStyle

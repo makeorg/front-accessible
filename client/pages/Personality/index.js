@@ -27,7 +27,6 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -44,6 +43,7 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
+import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 
 type Props = {
   match: TypeMatch,
@@ -116,9 +116,7 @@ const PersonalityPage = (props: Props) => {
                 </ScreenReaderItemStyle>
                 {personality.lastName}
                 &nbsp;
-                <SvgCheckedSymbol
-                  style={{ fontSize: '14px', fill: TextColors.Blue }}
-                />
+                <SvgCheckedSymbol style={CertifiedIconStyle} />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {personality.profile.politicalParty && (
