@@ -14,7 +14,7 @@ export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
 export const PopularProposalHeader = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${BasicColors.PureBlack};
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${BackgroundColors.TaintedWhite};
   margin: -20px -20px 10px -20px;
   padding: 11px 20px;
 `;

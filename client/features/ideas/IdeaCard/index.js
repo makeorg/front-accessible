@@ -15,6 +15,7 @@ import {
 } from 'Client/ui/Svg/elements';
 import { AvatarRows } from 'Client/ui/AvatarRows';
 import { IdeaScore } from 'Client/features/ideas/IdeaScore';
+import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import {
   IdeaCardHeaderStyle,
   LinkStyle,
@@ -64,19 +65,16 @@ export const IdeaCard = ({ position = 0 }: Props) => {
         </IdeaCardContentStyle>
         <PositionStyle>
           <SvgChat aria-hidden />
-          <PositionContentStyle
-            dangerouslySetInnerHTML={{
-              __html: i18n.t('idea_card.position', {
-                link: `<a href="">${i18n.t('idea_card.position')}</a>`,
-                position_link: `<a href="">${i18n.t(
-                  'idea_card.count_position',
-                  {
-                    count: 4,
-                  }
-                )}</a>`,
-              }),
-            }}
-          />
+          <PositionContentStyle>
+            <RedLinkStyle>
+              {i18n.t('idea_card.position', {
+                count: 4,
+              })}
+            </RedLinkStyle>
+            {i18n.t('idea_card.candidate', {
+              count: 4,
+            })}
+          </PositionContentStyle>
         </PositionStyle>
         <CollapseStyle onClick={handleClickScore}>
           <CollapseTextStyle

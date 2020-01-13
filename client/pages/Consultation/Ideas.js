@@ -6,6 +6,8 @@ import { IdeaCards } from 'Client/features/ideas/IdeaCards';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { IdeasSidebar } from 'Client/features/ideas/Sidebar';
 
+import { useMobile } from 'Client/hooks/useMedia';
+import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -18,6 +20,7 @@ type Props = {
 };
 
 const IdeasPageWrapper = ({ question }: Props) => {
+  const isMobile = useMobile();
   useEffect(() => {
     trackDisplayIdeas('ideas');
   }, []);
@@ -32,6 +35,7 @@ const IdeasPageWrapper = ({ question }: Props) => {
         <ConsultationPageContentStyle>
           <IdeaCards question={question} />
         </ConsultationPageContentStyle>
+        {isMobile && <FollowUs />}
       </ConsultationPageWrapperStyle>
     </>
   );
