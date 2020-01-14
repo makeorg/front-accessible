@@ -5,7 +5,7 @@ import {
   AvatarWithDotsStyle,
   DotsStyle,
   AvatarImageStyle,
-} from './Styled';
+} from './style';
 import { SvgEmptyAvatar } from '../Svg/elements';
 
 type Props = {
