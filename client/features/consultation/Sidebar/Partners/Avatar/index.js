@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { type TypePartner } from 'Shared/types/question';
 import { Link } from 'react-router-dom';
-import { PartnerAvatarStyle } from 'Client/ui/Avatar/Styled';
+import { PartnerAvatarStyle } from 'Client/ui/Avatar/style';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 
