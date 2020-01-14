@@ -172,7 +172,7 @@ export const ProfileAlignLeftContentStyle = styled(ProfileContentStyle)`
 export const ProfileDescriptionStyle = styled(ParagraphStyle)`
   padding: 0 5px;
   align-self: flex-start;
-  max-height: ${props => (props.isCollapsed ? '35px' : '100%')};
+  max-height: ${props => (props.isCollapsed ? '42px' : '100%')};
   overflow: ${props => (props.isCollapsed ? 'hidden' : 'visible')};
 `;
 
