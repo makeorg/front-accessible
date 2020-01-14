@@ -34,15 +34,14 @@ export const ProposalCardWithQuestion = ({
   position,
   size,
 }: Props) => {
-  const { author, question } = proposal;
   const proposalLink = getProposalLink(
     proposal.country,
     proposal.language,
-    question.slug,
+    proposal.question.slug,
     proposal.id,
     proposal.slug
   );
-  const canVote = isInProgress(question);
+  const canVote = isInProgress(proposal.question);
 
   return (
     <ProposalCardStyle
@@ -51,13 +50,7 @@ export const ProposalCardWithQuestion = ({
       aria-setsize={size}
     >
       <AuthorWrapperStyle>
-        <ProposalAuthorElement
-          author={author}
-          country={proposal.country}
-          language={proposal.language}
-          createdAt={proposal.createdAt}
-          withAvatar
-        />
+        <ProposalAuthorElement proposal={proposal} withAvatar />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
         <ScreenReaderItemStyle>
@@ -87,11 +80,11 @@ export const ProposalCardWithQuestion = ({
         )}
       </ProposalInnerStyle>
       <ProposalFooterWithQuestionElement
-        question={question}
+        question={proposal.question}
         consultationLink={getConsultationLink(
           proposal.country,
           proposal.language,
-          question.slug
+          proposal.question.slug
         )}
       />
     </ProposalCardStyle>

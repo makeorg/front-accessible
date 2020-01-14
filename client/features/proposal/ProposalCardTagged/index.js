@@ -26,17 +26,15 @@ type Props = {
   size: number,
 };
 
-export const ProposalCardTagged = (props: Props) => {
-  const { proposal, position, size } = props;
-  const { author, question } = proposal;
+export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
   const proposalLink = getProposalLink(
     proposal.country,
     proposal.language,
-    question.slug,
+    proposal.question.slug,
     proposal.id,
     proposal.slug
   );
-  const canVote = isInProgress(question);
+  const canVote = isInProgress(proposal.question);
 
   return (
     <ProposalCardStyle
@@ -46,10 +44,7 @@ export const ProposalCardTagged = (props: Props) => {
     >
       <AuthorWrapperStyle>
         <ProposalAuthorElement
-          author={author}
-          country={proposal.country}
-          language={proposal.language}
-          createdAt={proposal.createdAt}
+          proposal={proposal}
           withAvatar
           withCreationDate
         />

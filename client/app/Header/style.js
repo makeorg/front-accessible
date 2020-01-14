@@ -73,8 +73,7 @@ export const ProfileAccessLinkStyle = styled(Link)`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
-  img,
-  svg {
+  > span {
     margin-right: 5px;
   }
 `;

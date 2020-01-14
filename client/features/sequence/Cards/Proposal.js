@@ -52,11 +52,7 @@ export const ProposalCard = ({ proposal, index }: Props) => {
 
   return (
     <SequenceContentSpecialWrapperStyle>
-      <ProposalAuthorElement
-        author={proposal.author}
-        country={proposal.country}
-        language={proposal.language}
-      />
+      <ProposalAuthorElement proposal={proposal} />
       <SequenceCardSeparatorStyle />
       <ScreenReaderItemStyle>
         {i18n.t('proposal_card.content')}

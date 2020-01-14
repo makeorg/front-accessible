@@ -29,8 +29,7 @@ export const PopularProposalCard = ({
   position = 0,
   size = 0,
 }: Props) => {
-  const { question } = proposal;
-  const canVote = isInProgress(question);
+  const canVote = isInProgress(proposal.question);
   return (
     <PopularProposalWrapperStyle
       role="article"
@@ -41,12 +40,7 @@ export const PopularProposalCard = ({
         {`#${position}`}
       </PopularProposalHeader>
       <AuthorWrapperStyle>
-        <ProposalAuthorElement
-          country={proposal.country}
-          language={proposal.language}
-          author={proposal.author}
-          withAvatar
-        />
+        <ProposalAuthorElement proposal={proposal} withAvatar />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
         <ScreenReaderItemStyle>

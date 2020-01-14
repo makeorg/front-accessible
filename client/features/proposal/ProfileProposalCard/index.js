@@ -21,7 +21,6 @@ type Props = {
 };
 
 export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
-  const { author, question } = proposal;
   const formattedProposalStatus = proposal.status.toLowerCase();
   const isProposalAccepted = formattedProposalStatus === 'accepted';
 
@@ -34,10 +33,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
     >
       <AuthorWrapperStyle>
         <ProposalAuthorElement
-          author={author}
-          country={proposal.country}
-          language={proposal.language}
-          createdAt={proposal.createdAt}
+          proposal={proposal}
           withAvatar
           formattedProposalStatus={formattedProposalStatus}
         />
@@ -52,7 +48,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
               to: getProposalLink(
                 proposal.country,
                 proposal.language,
-                question.slug,
+                proposal.question.slug,
                 proposal.id,
                 proposal.slug
               ),
@@ -65,11 +61,11 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
         <DetailledVoteResults votes={proposal.votes} proposalId={proposal.id} />
       )}
       <ProposalFooterWithQuestionElement
-        question={question}
+        question={proposal.question}
         consultationLink={getConsultationLink(
           proposal.country,
           proposal.language,
-          question.slug
+          proposal.question.slug
         )}
       />
     </ProfileProposalCardStyle>

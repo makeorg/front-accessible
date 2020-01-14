@@ -15,6 +15,6 @@ Snapshot Diff:
       <ScreenReaderItemStyle>
         proposal_card.author.from
       </ScreenReaderItemStyle>
-      Mickael
       , proposal_card.author.age
+    </AuthorInfosStyle>
 `;

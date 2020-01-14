@@ -15,6 +15,7 @@ export type Author = {
   postalCode: string,
   age: number,
   avatarUrl: string,
+  userType: string,
 };
 
 export type Context = {

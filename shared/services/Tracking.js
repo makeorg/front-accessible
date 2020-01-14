@@ -143,17 +143,6 @@ export const trackClickMakeLogo = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_MAKEORG_LOGO);
 };
 
-export const trackClickProfile = () => {
-  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROFILE);
-};
-
-export const trackClickPublicProfile = () => {
-  const eventName = trackingConstants.CLICK_PUBLIC_PROFILE;
-
-  TrackingService.track(eventName);
-  TrackingService.trackFacebookPixel(eventName);
-};
-
 /* Moderation Text Tracking */
 export const trackDisplayModerationText = () => {
   TrackingService.sendAllTrackers(trackingConstants.DISPLAY_MODERATION_TEXT);
@@ -475,6 +464,16 @@ export const trackClickViewBlog = () => {
 /** Profile */
 export const trackDisplayPublicProfile = (userType: string) => {
   TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PUBLIC_PROFILE, {
+    type: userType,
+  });
+};
+
+export const trackClickProfile = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROFILE);
+};
+
+export const trackClickPublicProfile = (userType: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PUBLIC_PROFILE, {
     type: userType,
   });
 };
