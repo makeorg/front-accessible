@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import React, { type Node } from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
@@ -13,10 +13,11 @@ import {
   ProposalsCountWrapperStyle,
   ProposalsNumber,
   CurrentConsultationLabelStyle,
+  CurrentConsultationLinkStyle,
 } from '../Styled';
 
 type TypeLinkObject = {
-  as: React.Node,
+  as: Node,
   to?: ?string,
   href?: string,
   target?: string,
@@ -29,7 +30,7 @@ type CurrentConsultationArticleDesktopProps = {
   proposalsNumber: number,
   linkText: string,
   linkObject: TypeLinkObject,
-  children: React.Node,
+  children: Node,
   country: string,
   language: string,
 };
@@ -67,12 +68,12 @@ export const CurrentConsultationArticleDesktop = ({
         <ProposalsNumber>
           {proposalsNumber.toLocaleString(`${language}-${country}`)}
         </ProposalsNumber>
-        <React.Fragment>
+        <>
           {' '}
           {i18n.t('homepage.current_consultations.proposal', {
             count: proposalsNumber,
           })}
-        </React.Fragment>
+        </>
       </ProposalsCountWrapperStyle>
       <CurrentConsultationLinkOverlayStyle
         className="overlay"
@@ -120,22 +121,22 @@ export const CurrentConsultationArticleMobile = ({
   return (
     <CurrentConsultationArticleStyle>
       <CurrentConsultationLabelStyle>{label}</CurrentConsultationLabelStyle>
-      <a {...linkObject}>
+      <CurrentConsultationLinkStyle {...linkObject}>
         <img
           src={image}
           alt={linkObject.target ? i18n.t('common.new_tab', { title }) : title}
         />
-      </a>
+      </CurrentConsultationLinkStyle>
       <ProposalsCountWrapperStyle>
         <ProposalsNumber>
           {proposalsNumber.toLocaleString(`${language}-${country}`)}
         </ProposalsNumber>
-        <React.Fragment>
+        <>
           {' '}
           {i18n.t('homepage.current_consultations.proposal', {
             count: proposalsNumber,
           })}
-        </React.Fragment>
+        </>
       </ProposalsCountWrapperStyle>
     </CurrentConsultationArticleStyle>
   );
