@@ -88,6 +88,11 @@ export const CurrentConsultationTriggerStyle = styled.input`
   width: 100%;
 `;
 
+export const CurrentConsultationLinkStyle = styled(Link)`
+  display: block;
+  width: 100%;
+`;
+
 export const CurrentConsultationLabelStyle = styled(ConsultationLabelStyle)`
   position: absolute;
   top: 0;
