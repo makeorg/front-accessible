@@ -98,6 +98,14 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               </ProfileContentStyle>
             </>
           )}
+          {profile.politicalParty && (
+            <ProfileContentStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('profile.common.labels.political_party')}
+              </ScreenReaderItemStyle>
+              {profile.politicalParty}
+            </ProfileContentStyle>
+          )}
           {profile.postalCode && (
             <ProfileContentStyle>
               <ScreenReaderItemStyle>

@@ -24,6 +24,7 @@ import {
   ProfileWebsiteLinkStyle,
   ProfileContentHeaderStyle,
   ProfileTitleSeparatorStyle,
+  ProfileContentStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
@@ -120,15 +121,15 @@ const PersonalityPage = (props: Props) => {
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {personality.profile.politicalParty && (
-              <ProfileAlignLeftContentStyle>
+              <ProfileContentStyle>
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.political_party')}
                 </ScreenReaderItemStyle>
                 {personality.profile.politicalParty}
-              </ProfileAlignLeftContentStyle>
+              </ProfileContentStyle>
             )}
             {personality.profile.description && (
-              <React.Fragment>
+              <>
                 <ProfileSeparatorStyle />
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.biography')}
@@ -136,7 +137,7 @@ const PersonalityPage = (props: Props) => {
                 <UserDescription
                   description={personality.profile.description}
                 />
-              </React.Fragment>
+              </>
             )}
             {personality.profile.website && (
               <ProfileAlignLeftContentStyle>
