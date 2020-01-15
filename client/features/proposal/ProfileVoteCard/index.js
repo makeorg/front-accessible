@@ -51,7 +51,6 @@ export const ProfileVoteCard = ({
   position,
   size,
 }: Props) => {
-  const { author, question } = proposal;
   const voteAttributes = voteStaticParams[voteKey];
   return (
     <ProfileVoteWrapperStyle aria-posinset={position} aria-setsize={size}>
@@ -82,13 +81,7 @@ export const ProfileVoteCard = ({
       <ProfileVoteCardStyle>
         <CardStyle as="div">
           <AuthorWrapperStyle>
-            <ProposalAuthorElement
-              author={author}
-              country={proposal.country}
-              language={proposal.language}
-              createdAt={proposal.createdAt}
-              withAvatar
-            />
+            <ProposalAuthorElement proposal={proposal} withAvatar />
           </AuthorWrapperStyle>
           <ProposalInnerStyle>
             <ScreenReaderItemStyle>
@@ -99,7 +92,7 @@ export const ProfileVoteCard = ({
               to={getProposalLink(
                 proposal.country,
                 proposal.language,
-                question.slug,
+                proposal.question.slug,
                 proposal.id,
                 proposal.slug
               )}

@@ -15,7 +15,7 @@ import {
   HeaderFlexLeftStyle,
   HeaderFlexRightStyle,
   WhoAreWeLinkStyle,
-} from './Styled';
+} from './style';
 
 /**
  * Renders Main Header

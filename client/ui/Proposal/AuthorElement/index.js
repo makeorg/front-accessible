@@ -1,14 +1,22 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Author } from 'Shared/types/proposal';
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
-import { getOrganisationProfileLink } from 'Shared/helpers/url';
+import {
+  getOrganisationProfileLink,
+  getPersonalityProfileLink,
+} from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
+import {
+  TYPE_ORGANISATION,
+  TYPE_PERSONALITY,
+  TYPE_USER,
+} from 'Shared/constants/user';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -18,13 +26,7 @@ import {
 
 type Props = {
   /** Object with author's properties */
-  author: Author,
-  /** Country of the proposal */
-  country: string,
-  /** Language of the proposal */
-  language: string,
-  /** Date of creation of proposal */
-  createdAt?: string,
+  proposal: TypeProposal,
   /** Include avatar */
   withAvatar?: boolean,
   /** Include creation date */
@@ -38,40 +40,36 @@ const ProposalAuthorAge = ({ age }) => {
     return null;
   }
 
-  return (
-    <React.Fragment>
-      {`, ${i18n.t('proposal_card.author.age', { age })}`}
-    </React.Fragment>
-  );
+  return <>{`, ${i18n.t('proposal_card.author.age', { age })}`}</>;
 };
 
-export const ProposalAuthorElement = (props: Props) => {
-  const {
-    author,
-    country,
-    language,
-    createdAt,
-    withAvatar,
-    withCreationDate,
-    formattedProposalStatus,
-  } = props;
+export const ProposalAuthorElement = ({
+  proposal,
+  withAvatar,
+  withCreationDate,
+  formattedProposalStatus,
+}: Props) => {
+  const { author, language, country } = proposal;
+  const isOrganisation = author.userType === TYPE_ORGANISATION;
+  const isPersonality = author.userType === TYPE_PERSONALITY;
+  const isBasicUser = author.userType === TYPE_USER;
 
   return (
     <AuthorDescriptionStyle>
       <AuthorInfosStyle as="div">
         {withAvatar && (
-          <React.Fragment>
+          <>
             <Avatar avatarUrl={author.avatarUrl} />
-            <React.Fragment> </React.Fragment>
-          </React.Fragment>
+            <> </>
+          </>
         )}
         <ScreenReaderItemStyle>
           {i18n.t('proposal_card.author.from')}
         </ScreenReaderItemStyle>
-        {author.organisationName ? (
-          <React.Fragment>
+        {isOrganisation && (
+          <>
             <RedLinkStyle
-              onClick={trackClickPublicProfile}
+              onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
               to={getOrganisationProfileLink(
                 country,
                 language,
@@ -81,21 +79,31 @@ export const ProposalAuthorElement = (props: Props) => {
               {author.organisationName}
             </RedLinkStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
-          </React.Fragment>
-        ) : (
-          author.firstName
+          </>
         )}
+        {isPersonality && (
+          <>
+            <RedLinkStyle
+              onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
+              to={getPersonalityProfileLink(country, language, proposal.userId)}
+            >
+              {author.firstName}
+            </RedLinkStyle>
+            <SvgCheckedSymbol style={CertifiedIconStyle} />
+          </>
+        )}
+        {isBasicUser && author.firstName}
         <ProposalAuthorAge age={author.age} />
-        {withCreationDate && !!createdAt && (
-          <React.Fragment>
+        {withCreationDate && !!proposal.createdAt && (
+          <>
             &nbsp;&bull;&nbsp;
             <ScreenReaderItemStyle>
               {i18n.t('proposal_card.author.date')}
             </ScreenReaderItemStyle>
-            <time dateTime={createdAt}>
-              {DateHelper.creationDateFormat(createdAt)}
+            <time dateTime={proposal.createdAt}>
+              {DateHelper.creationDateFormat(proposal.createdAt)}
             </time>
-          </React.Fragment>
+          </>
         )}
       </AuthorInfosStyle>
       {formattedProposalStatus && (

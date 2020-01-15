@@ -30,10 +30,7 @@ jest.mock('./Styled', () => ({
 describe('ProposalAuthorElement', () => {
   it('must match the diff snapshot between default vs custom avatar', () => {
     const props = {
-      author: proposalTypeFixture.author,
-      country: proposalTypeFixture.country,
-      language: proposalTypeFixture.language,
-      createdAt: proposalTypeFixture.createdAt,
+      proposal: proposalTypeFixture,
     };
 
     const authorWithoutAvatar = renderer

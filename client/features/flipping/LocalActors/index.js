@@ -16,6 +16,7 @@ import {
 } from 'Shared/store/reducers/partners/actions';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import {
   AvatarStyle,
   LocalActorItemStyle,
@@ -93,7 +94,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                       language,
                       actor.organisationName
                     )}
-                    onClick={trackClickPublicProfile}
+                    onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
                   >
                     {actor.organisationName}
                   </RedLinkStyle>

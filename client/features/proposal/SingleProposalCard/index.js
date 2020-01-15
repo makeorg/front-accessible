@@ -29,19 +29,13 @@ type Props = {
   proposal: TypeProposal,
 };
 
-export const SingleProposalCard = (props: Props) => {
-  const { proposal } = props;
-  const { question } = proposal;
-  const canVote = isInProgress(question);
+export const SingleProposalCard = ({ proposal }: Props) => {
+  const canVote = isInProgress(proposal.question);
 
   return (
     <TallCardStyle id="proposal_card">
       <InnerProposalStyle>
-        <ProposalAuthorElement
-          author={proposal.author}
-          country={proposal.country}
-          language={proposal.language}
-        />
+        <ProposalAuthorElement proposal={proposal} />
         <SequenceCardSeparatorStyle />
         <SequenceProposalStyle>
           <ScreenReaderItemStyle>
@@ -72,8 +66,8 @@ export const SingleProposalCard = (props: Props) => {
                 operation_name: `<a href="${getConsultationLink(
                   proposal.country,
                   proposal.language,
-                  question.slug
-                )}">${question.wording.title}</a>`,
+                  proposal.question.slug
+                )}">${proposal.question.wording.title}</a>`,
               }),
             }}
           />
@@ -84,7 +78,7 @@ export const SingleProposalCard = (props: Props) => {
               to={getSequenceLink(
                 proposal.country,
                 proposal.language,
-                question.slug
+                proposal.question.slug
               )}
             >
               {i18n.t('proposal_page.button_1')}
@@ -94,7 +88,7 @@ export const SingleProposalCard = (props: Props) => {
               to={getConsultationLink(
                 proposal.country,
                 proposal.language,
-                question.slug
+                proposal.question.slug
               )}
             >
               {i18n.t('proposal_page.button_2')}
