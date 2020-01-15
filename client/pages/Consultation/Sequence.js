@@ -68,7 +68,10 @@ const SequencePageContainer = ({ question }: Props) => {
       <SequenceSkipLinks canPropose={question.canPropose} />
       <SequencePageContentStyle>
         {question.canPropose && (
-          <SequenceProposalFieldStyle id="proposal_submit">
+          <SequenceProposalFieldStyle
+            id="proposal_submit"
+            data-cy-container="proposal_submit"
+          >
             <HiddenItemStyle as="h2">
               {i18n.t('consultation.proposal.title')}
             </HiddenItemStyle>

@@ -34,7 +34,7 @@ export const AppContainer = () => (
           <CookieBanner />
           <MainSkipLinks />
           <Header />
-          <AppMainContentStyle id="main_content">
+          <AppMainContentStyle id="main_content" data-cy-container="main">
             <Notification />
             <Routes />
           </AppMainContentStyle>

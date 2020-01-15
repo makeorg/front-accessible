@@ -46,7 +46,7 @@ export const ActionsContent = ({ question }: Props) => {
           />
         </TileWithTitle>
       </ConsultationPageSidebarStyle>
-      <ConsultationPageContentStyle id="main">
+      <ConsultationPageContentStyle id="main" data-cy-container="main">
         {!isLoggedIn && (
           <TileWithTitle title={<img src={Logo} width={46} alt="Make.org" />}>
             <RegisterTileContent

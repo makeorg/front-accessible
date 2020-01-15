@@ -29,6 +29,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
   return (
     <ProposalButtonStyle
       id="proposal-submit-button"
+      data-cy-button="proposal-submit"
       type="submit"
       onClick={handleOnSubmit}
       disabled={!canSubmit}

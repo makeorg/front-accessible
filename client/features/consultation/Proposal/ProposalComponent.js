@@ -18,6 +18,7 @@ export const ConsultationProposalComponent = ({ question }: Props) => {
     <ProposalWrapperStyle
       aria-labelledby="proposal_aside_title"
       id="proposal_submit"
+      data-cy-container="proposal_submit"
     >
       <FourthLevelTitleStyle
         as="h3"

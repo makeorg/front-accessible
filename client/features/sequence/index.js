@@ -160,11 +160,15 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
         <>
           <SequenceCollapseArrowStyle
             aria-label={i18n.t('sequence.return')}
+            data-cy-button="back-to-proposals-arrow"
             onClick={handleOpenSequence}
           >
             <SvgArrowTop aria-hidden />
           </SequenceCollapseArrowStyle>
-          <SequenceCollapseButtonStyle onClick={handleOpenSequence}>
+          <SequenceCollapseButtonStyle
+            onClick={handleOpenSequence}
+            data-cy-button="back-to-proposals"
+          >
             {i18n.t('sequence.return')}
           </SequenceCollapseButtonStyle>
         </>
