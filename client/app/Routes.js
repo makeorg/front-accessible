@@ -27,7 +27,7 @@ import {
   ROUTE_STATIC_DATA,
   ROUTE_STATIC_CONTACT,
   ROUTE_RESULTS,
-  ROUTE_IDEAS,
+  ROUTE_TOP_IDEAS,
   ROUTE_PERSONALITY_PROFILE,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
@@ -41,7 +41,9 @@ const ActionsPage = loadable(() =>
 const ResultsPage = loadable(() =>
   import('Client/pages/Consultation/Results.js')
 );
-const IdeasPage = loadable(() => import('Client/pages/Consultation/Ideas.js'));
+const TopIdeasPage = loadable(() =>
+  import('Client/pages/Consultation/TopIdeas.js')
+);
 const SequencePage = loadable(() =>
   import('Client/pages/Consultation/Sequence')
 );
@@ -83,7 +85,7 @@ export const Routes = () => {
       <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
       <Route path={ROUTE_ACTION} component={ActionsPage} />
       <Route path={ROUTE_RESULTS} component={ResultsPage} />
-      <Route path={ROUTE_IDEAS} component={IdeasPage} />
+      <Route path={ROUTE_TOP_IDEAS} component={TopIdeasPage} />
       <Route path={ROUTE_SEQUENCE} component={SequencePage} />
       <Route
         path={ROUTE_ACCOUNT_ACTIVATION}

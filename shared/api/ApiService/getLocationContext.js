@@ -17,7 +17,7 @@ import {
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FOLLOWING,
   ROUTE_RESULTS,
-  ROUTE_IDEAS,
+  ROUTE_TOP_IDEAS,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -31,7 +31,7 @@ export const getLocationContext = (
     { route: ROUTE_CONSULTATION, name: `page-operation ${questionId}` },
     { route: ROUTE_ACTION, name: `page-action ${questionId}` },
     { route: ROUTE_RESULTS, name: `page-results ${questionId}` },
-    { route: ROUTE_IDEAS, name: `page-ideas ${questionId}` },
+    { route: ROUTE_TOP_IDEAS, name: `page-ideas ${questionId}` },
     { route: ROUTE_SEQUENCE, name: `sequence ${questionId}` },
     { route: ROUTE_PROPOSAL, name: `proposal-page ${proposalId}` },
     { route: ROUTE_SEARCH_PROPOSALS, name: `search-proposals-page` },

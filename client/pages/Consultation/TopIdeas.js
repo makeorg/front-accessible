@@ -1,11 +1,12 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
 import { trackDisplayIdeas } from 'Shared/services/Tracking';
 import { IdeaCards } from 'Client/features/ideas/IdeaCards';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { IdeasSidebar } from 'Client/features/ideas/Sidebar';
-
+import { getTopIdeas } from 'Shared/services/TopIdea';
 import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
@@ -19,8 +20,16 @@ type Props = {
   question: TypeQuestion,
 };
 
-const IdeasPageWrapper = ({ question }: Props) => {
+const TopIdeasPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
+  const [topIdeas, setTopIdeas] = useState<TypeTopIdea[]>([]);
+
+  useEffect(() => {
+    getTopIdeas(question.questionId).then(response => {
+      setTopIdeas(response);
+    });
+  }, []);
+
   useEffect(() => {
     trackDisplayIdeas('ideas');
   }, []);
@@ -33,7 +42,7 @@ const IdeasPageWrapper = ({ question }: Props) => {
           <IdeasSidebar question={question} />
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle>
-          <IdeaCards question={question} />
+          <IdeaCards topIdeas={topIdeas} />
         </ConsultationPageContentStyle>
         {isMobile && <FollowUs />}
       </ConsultationPageWrapperStyle>
@@ -41,7 +50,7 @@ const IdeasPageWrapper = ({ question }: Props) => {
   );
 };
 
-const IdeasPage = withQuestionData(IdeasPageWrapper);
+const TopIdeasPage = withQuestionData(TopIdeasPageWrapper);
 
 // default export needed for loadable component
-export default IdeasPage; // eslint-disable-line import/no-default-export
+export default TopIdeasPage; // eslint-disable-line import/no-default-export

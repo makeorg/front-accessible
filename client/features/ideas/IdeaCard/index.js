@@ -16,6 +16,7 @@ import {
 import { AvatarRows } from 'Client/ui/AvatarRows';
 import { IdeaScore } from 'Client/features/ideas/IdeaScore';
 import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
 import {
   IdeaCardHeaderStyle,
   LinkStyle,
@@ -34,9 +35,10 @@ import {
 
 type Props = {
   position: number,
+  topIdea: TypeTopIdea,
 };
 
-export const IdeaCard = ({ position = 0 }: Props) => {
+export const IdeaCard = ({ position, topIdea }: Props) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const handleClickScore = () => {
     setIsOpened(!isOpened);
@@ -55,12 +57,14 @@ export const IdeaCard = ({ position = 0 }: Props) => {
           {i18n.t('idea_card.content')}
         </ScreenReaderItemStyle>
         <ProposalsAssociatedStyle>
-          <AvatarRows />
-          {i18n.t('idea_card.associated_proposals', { count: 150 })}
+          <AvatarRows avatars={topIdea.avatars} />
+          {i18n.t('idea_card.associated_proposals', {
+            count: topIdea.proposalsCount,
+          })}
         </ProposalsAssociatedStyle>
         <IdeaCardContentStyle>
           <ProposalStyle id={`idea_content_${position}`}>
-            {"Il faut créer plus d'espaces verts"}
+            {topIdea.name}
           </ProposalStyle>
         </IdeaCardContentStyle>
         <PositionStyle>
@@ -106,17 +110,17 @@ export const IdeaCard = ({ position = 0 }: Props) => {
             <ScoringContainerStyle>
               <IdeaScore
                 icon={<SvgIdeaStyle aria-hidden />}
-                percentage={11}
+                percentage={topIdea.scores.totalProposalsRatio}
                 text={i18n.t('idea_card.vote_proposals')}
               />
               <IdeaScore
                 icon={<SvgThumbsUpStyle aria-hidden />}
-                percentage={83}
+                percentage={topIdea.scores.agreementRatio}
                 text={i18n.t('idea_card.vote_positives')}
               />
               <IdeaScore
                 icon={<SvgLikeStyle aria-hidden />}
-                percentage={25}
+                percentage={topIdea.scores.likeItRatio}
                 text={i18n.t('idea_card.vote_heart')}
               />
             </ScoringContainerStyle>

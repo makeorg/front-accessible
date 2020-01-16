@@ -61,7 +61,7 @@ export const ConsultationIconStyle = styled.span`
   }
 `;
 
-export const IdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
+export const TopIdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
   margin: 0 0 30px 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0 0 30px 0;

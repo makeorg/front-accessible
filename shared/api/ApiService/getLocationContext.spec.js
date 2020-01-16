@@ -32,7 +32,7 @@ describe('getLocationContext', () => {
       expectedTracking: `page-results`,
     },
     {
-      name: 'ROUTE_IDEAS',
+      name: 'ROUTE_TOP_IDEAS',
       path: '/FR-fr/consultation/foo/ideas',
       params: { questionId: 'question-id' },
       expected: `page-ideas question-id`,
@@ -165,7 +165,7 @@ describe('getLocationContext', () => {
     const routesToExcludes = [
       'ROUTE_COUNTRY_LANG',
       'ROUTE_RESULTS',
-      'ROUTE_IDEAS',
+      'ROUTE_TOP_IDEAS',
       'ROUTE_ACCOUNT_ACTIVATION',
       'ROUTE_PASSWORD_RECOVERY',
       'ROUTE_PROFILE',

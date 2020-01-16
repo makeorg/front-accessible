@@ -9,6 +9,7 @@ const defaultHomeView = require('../db/views.json');
 const defaultAgreeQualifications = require('../db/defaultAgreeQualifications.json');
 const defaultDisagreeQualifications = require('../db/defaultDisagreeQualifications.json');
 const defaultNeutralQualifications = require('../db/defaultNeutralQualifications.json');
+const defaultTopIdea = require('../db/defaultTopIdea.json');
 
 const range = (start, end) => {
   const values = [];
@@ -131,6 +132,34 @@ const generateHomeView = () => ({
 });
 const homeView = generateHomeView();
 
+const generateTopIdeas = () => {
+  return questions.flatMap((question, index1) => {
+    return range(0, 10).map(number => ({
+      ...defaultTopIdea,
+      id: `top-idea-id-${question.questionId}_${number}`,
+      ideaId: `idea-id-${number}`,
+      questionId: question.questionId,
+      name: `${defaultTopIdea.name} ${question.questionId}_${number}`,
+      weight: defaultTopIdea.weight + number,
+      proposalsCount: defaultTopIdea.proposalsCount + number,
+      avatars: [
+        `https://via.placeholder.com/28?text=${index1}${number}1`,
+        `https://via.placeholder.com/28?text=${index1}${number}2`,
+        `https://via.placeholder.com/28?text=${index1}${number}3`,
+        `https://via.placeholder.com/28?text=${index1}${number}4`,
+        `https://via.placeholder.com/28?text=${index1}${number}5`,
+      ],
+      scores: {
+        totalProposalsRatio:
+          defaultTopIdea.scores.totalProposalsRatio + index1 + number,
+        agreementRatio: defaultTopIdea.scores.agreementRatio + index1 + number,
+        likeItRatio: defaultTopIdea.scores.likeItRatio + index1 + number,
+      },
+    }));
+  });
+};
+const topIdeas = generateTopIdeas();
+
 const fixtures = {
   questions,
   proposals,
@@ -145,6 +174,7 @@ const fixtures = {
     disagree: defaultDisagreeQualifications,
     neutral: defaultNeutralQualifications,
   },
+  topIdeas,
 };
 
 module.exports = { fixtures };

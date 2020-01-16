@@ -5,6 +5,7 @@ module.exports = {
       2,
       'always',
       [
+        'top idea',
         'consultation',
         'profile',
         'transverse',
