@@ -7,12 +7,12 @@ import { SortedList } from './index';
 
 const availableSorts = [
   'TAGGED_FIRST',
-  'ORGANIZATION',
+  'ACTORS',
   'RECENT',
   'REALISTIC',
   'CONTROVERSY',
   'POPULAR',
 ];
 
-<SortedList availableSorts={availableSorts} currentSort="ORGANIZATION" />;
+<SortedList availableSorts={availableSorts} currentSort="ACTORS" />;
 ```

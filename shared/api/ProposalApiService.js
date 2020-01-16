@@ -22,7 +22,7 @@ type TypeSort =
 
 type TypeSortAlgortithm = {
   CONTROVERSY: { key: string, value: string },
-  ORGANIZATION: { key: string, value: string },
+  ACTORS: { key: string, value: string },
   POPULAR: { key: string, value: TypeSort },
   REALISTIC: { key: string, value: string },
   RECENT: { key: string, value: string },
@@ -32,7 +32,7 @@ type TypeSortAlgortithm = {
 // type "sort" also support values : "content", "slug", "createdAt", "updatedAt", "trending", "labels", "country", "language"
 export const SORT_ALGORITHM: TypeSortAlgortithm = {
   TAGGED_FIRST: { key: 'sortAlgorithm', value: 'taggedFirst' },
-  ORGANIZATION: { key: 'isOrganisation', value: 'true' },
+  ACTORS: { key: 'userType', value: 'ORGANISATION,PERSONALITY' },
   RECENT: { key: 'sort', value: 'createdAt' },
   REALISTIC: { key: 'sortAlgorithm', value: 'realistic' },
   CONTROVERSY: { key: 'sortAlgorithm', value: 'controversy' },
