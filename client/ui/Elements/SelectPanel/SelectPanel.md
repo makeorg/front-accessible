@@ -8,7 +8,7 @@ import { SortedList } from '../SortedList';
 
 const availableSorts = [
   'TAGGED_FIRST',
-  'ORGANIZATION',
+  'ACTORS',
   'RECENT',
   'REALISTIC',
   'CONTROVERSY',
@@ -18,7 +18,7 @@ const availableSorts = [
 <div style={{ maxWidth: '380px', padding: '25px 10px', background: '#eeeeee' }}>
   <SelectPanel text="Les plus récents">
     <SortedList
-      currentSort="ORGANIZATION"
+      currentSort="ACTORS"
       availableSorts={availableSorts}
       setSort={() => {}}
     />

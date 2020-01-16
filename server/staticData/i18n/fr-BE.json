@@ -517,7 +517,7 @@
     },
     "sort": {
       "TAGGED_FIRST": "Toutes les propositions",
-      "ORGANIZATION": "Propositions des acteurs",
+      "ACTORS": "Propositions des acteurs",
       "RECENT": "Les plus récentes",
       "REALISTIC": "Les plus réalistes",
       "CONTROVERSY": "Les plus controversées",
