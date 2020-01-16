@@ -115,7 +115,7 @@ Array [
 @media (min-width:969px) {
   .c5 {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
   }
 }
 

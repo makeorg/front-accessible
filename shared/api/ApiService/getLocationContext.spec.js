@@ -32,11 +32,18 @@ describe('getLocationContext', () => {
       expectedTracking: `page-results`,
     },
     {
-      name: 'ROUTE_TOP_IDEAS',
-      path: '/FR-fr/consultation/foo/ideas',
+      name: 'ROUTE_TOP_IDEA_DETAILS',
+      path: '/FR-fr/consultation/foo/top-ideas/bar',
       params: { questionId: 'question-id' },
-      expected: `page-ideas question-id`,
-      expectedTracking: `page-ideas`,
+      expected: `page-top-idea-details question-id`,
+      expectedTracking: `page-top-idea-details`,
+    },
+    {
+      name: 'ROUTE_TOP_IDEAS',
+      path: '/FR-fr/consultation/foo/top-ideas',
+      params: { questionId: 'question-id' },
+      expected: `page-top-ideas question-id`,
+      expectedTracking: `page-top-ideas`,
     },
     {
       name: 'ROUTE_SEQUENCE',

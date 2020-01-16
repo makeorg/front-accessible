@@ -16,7 +16,7 @@ export const ParagraphStyle = styled.p`
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
   }
 `;
 

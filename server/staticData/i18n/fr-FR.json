@@ -177,7 +177,8 @@
     "proposal_count": "{{count}} proposition",
     "proposal_count_plural": "{{count}} propositions",
     "vote_count": "{{count}} vote",
-    "vote_count_plural": "{{count}} votes"
+    "vote_count_plural": "{{count}} votes",
+    "breadcrumbs": "fil d'ariane"
   },
   "header": {
     "logo_alt": "Aller à l'acceuil du site Make.org",
@@ -190,7 +191,7 @@
     "footer_text": "Cette proposition a été soumise dans le cadre de l'opération {{operation_name}}"
   },
   "idea_card": {
-    "title": "Le top {{count}} des idées citoyennes",
+    "title": "Le top des idées citoyennes",
     "number": "Idée n°{{ count }}",
     "content": "Contenu de l'idée : ",
     "link": "Voir le détail de l'idée",
@@ -207,6 +208,10 @@
     "vote_proposals": "des propositions",
     "vote_positives": "de votes positifs",
     "vote_heart": "de coups de coeur"
+  },
+  "idea_details": {
+    "current_page": "détails de l'idée",
+    "proposals": "Les propositions associées"
   },
   "proposal_card": {
     "previous": "Proposition précédente",

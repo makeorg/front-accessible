@@ -62,10 +62,29 @@ export const ConsultationIconStyle = styled.span`
 `;
 
 export const TopIdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
-  margin: 0 0 30px 20px;
+  margin: 0 0 30px;
+  padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0 0 30px 0;
+    margin: 0 0 30px;
+    padding: 0;
   }
+`;
+
+export const TopIdeaDetailsPageTitleStyle = styled(TopIdeasPageTitleStyle)`
+  margin-top: 40px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-top: 40px;
+  }
+`;
+
+export const TopIdeasListStyle = styled.ol`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+export const TopIdeasListItemStyle = styled.li`
+  margin: 0 0 20px;
 `;
 
 export const SequencePageContentStyle = styled(MiddleColumnStyle)`

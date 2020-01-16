@@ -7,7 +7,7 @@ import {
   SequenceContentWrapperStyle,
   SequenceInnerContentStyle,
 } from 'Client/features/sequence/style';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -53,7 +53,7 @@ export const CustomFinalCard = ({ question }: Props) => {
         <FinalQuestionTitleStyle>
           {i18n.t('final_card.extra_question.title')}
         </FinalQuestionTitleStyle>
-        <RedLinkStyle
+        <RedLinkRouterStyle
           to={getConsultationLink(
             question.country,
             question.language,
@@ -61,7 +61,7 @@ export const CustomFinalCard = ({ question }: Props) => {
           )}
         >
           {i18n.t('final_card.extra_question.discover')}
-        </RedLinkStyle>
+        </RedLinkRouterStyle>
         <MoreQuestionSeparatorStyle />
         <MoreQuestionWrapperStyle>
           {!isMobile && (

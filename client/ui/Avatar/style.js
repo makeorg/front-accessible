@@ -34,17 +34,17 @@ export const PartnerAvatarStyle = styled.span`
   }
 `;
 
-export const AvatarWithDotsStyle = styled.span`
+export const AvatarWithDotsStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  min-width: ${props => intToPx(props.avatarSize)};
+  width: ${props => intToPx(props.avatarSize)};
+  height: ${props => intToPx(props.avatarSize)};
   border-radius: 50%;
-  min-width: 30px;
-  overflow: hidden;
-  background-color: ${BackgroundColors.MediumGrey};
   border: 2px solid ${BasicColors.PureWhite};
+  overflow: hidden;
+  background-color: rgb(127, 127, 127);
 `;
 
 export const DotsStyle = styled.span`
@@ -53,7 +53,6 @@ export const DotsStyle = styled.span`
   height: 3px;
   background-color: ${BasicColors.PureWhite};
   margin-left: 2px;
-
   &:nth-child(1) {
     margin-left: 0;
   }

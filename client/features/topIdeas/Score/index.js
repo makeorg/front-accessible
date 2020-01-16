@@ -14,7 +14,7 @@ type Props = {
   text: string,
 };
 
-export const IdeaScore = ({ icon, percentage, text }: Props) => (
+export const TopIdeaScore = ({ icon, percentage, text }: Props) => (
   <ScoringContentStyle>
     <ScoringTextContainerStyle>
       {icon}

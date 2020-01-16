@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar } from 'Client/ui/Avatar';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
@@ -83,21 +83,16 @@ export const LocalActors = ({ questionId, slug }: Props) => {
               </AvatarStyle>
               <div>
                 <div>
-                  <RedLinkStyle
+                  <RedLinkRouterStyle
                     to={getOrganisationProfileLink(
                       country,
                       language,
                       actor.slug
                     )}
-                    href={getOrganisationProfileLink(
-                      country,
-                      language,
-                      actor.organisationName
-                    )}
                     onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
                   >
                     {actor.organisationName}
-                  </RedLinkStyle>
+                  </RedLinkRouterStyle>
                   <SvgCheckedSymbol style={CertifiedIconStyle} />
                 </div>
                 <div>

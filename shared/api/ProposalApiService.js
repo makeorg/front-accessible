@@ -86,6 +86,7 @@ export class ProposalApiService {
     skip?: number = 0,
     sortTypeKey?: string,
     content?: string,
+    ideaIds?: string,
     order?: string,
     headers?: ApiServiceHeaders = {}
   ): Promise<ApiSearchProposalsResponseType> {
@@ -98,6 +99,7 @@ export class ProposalApiService {
       tagsIds,
       country,
       language,
+      ideaIds,
       order,
     };
 

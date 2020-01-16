@@ -15,6 +15,8 @@ import {
   ROUTE_STATIC_GTU,
   ROUTE_STATIC_LEGAL,
   ROUTE_RESULTS,
+  ROUTE_TOP_IDEAS,
+  ROUTE_TOP_IDEA_DETAILS,
 } from 'Shared/routes';
 import { generatePath } from 'react-router';
 
@@ -117,6 +119,46 @@ export const getResultsLink = (
   questionSlug: string
 ) => {
   return generatePath(ROUTE_RESULTS, { country, language, questionSlug });
+};
+
+/**
+ * Get the top ideas by questions link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getTopIdeasLink = (
+  country: string,
+  language: string,
+  questionSlug: string
+) => {
+  return generatePath(ROUTE_TOP_IDEAS, { country, language, questionSlug });
+};
+
+/**
+ * Get the top idea details link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ *
+ * @return {string}
+ */
+export const getTopIdeaDetailsLink = (
+  country: string,
+  language: string,
+  questionSlug: string,
+  topIdeaId: string
+) => {
+  return generatePath(ROUTE_TOP_IDEA_DETAILS, {
+    country,
+    language,
+    questionSlug,
+    topIdeaId,
+  });
 };
 
 /**

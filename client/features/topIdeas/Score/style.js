@@ -31,7 +31,6 @@ export const ScoringTextStyle = styled.span`
   flex-direction: row;
   align-items: center;
   margin-left: 10px;
-
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-direction: column;
     align-items: initial;
@@ -41,7 +40,9 @@ export const ScoringTextStyle = styled.span`
 export const ScoringPercentageStyle = styled.span`
   font-size: 18px;
   font-family: ${MakeFonts.CircularStandardBold};
-  margin-bottom: 5px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 5px;
+  }
 `;
 
 export const ScoringPercentageTextStyle = styled.span`

@@ -5,7 +5,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const CandidateWrapperStyle = styled.div`
@@ -39,7 +39,7 @@ export const CandidateInformationsStyle = styled(ColumnElementStyle)`
   }
 `;
 
-export const CandidateLinkStyle = styled(RedLinkStyle)`
+export const CandidateLinkStyle = styled(RedLinkRouterStyle)`
   white-space: nowrap;
 `;
 

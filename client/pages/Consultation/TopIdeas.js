@@ -2,18 +2,23 @@
 import React, { useEffect, useState } from 'react';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
-import { trackDisplayIdeas } from 'Shared/services/Tracking';
-import { IdeaCards } from 'Client/features/ideas/IdeaCards';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
-import { IdeasSidebar } from 'Client/features/ideas/Sidebar';
 import { getTopIdeas } from 'Shared/services/TopIdea';
+import { trackDisplayTopIdeas } from 'Shared/services/Tracking';
+import { TopIdeasSidebar } from 'Client/features/topIdeas/Sidebar';
 import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
+import { i18n } from 'Shared/i18n';
+import { TopIdeaCard } from 'Client/features/topIdeas/Card';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
   ConsultationPageSidebarStyle,
+  TopIdeasPageTitleStyle,
+  TopIdeasListStyle,
+  TopIdeasListItemStyle,
 } from './style';
 
 type Props = {
@@ -23,6 +28,7 @@ type Props = {
 const TopIdeasPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const [topIdeas, setTopIdeas] = useState<TypeTopIdea[]>([]);
+  const hasTopIdeas = topIdeas && topIdeas.length > 0;
 
   useEffect(() => {
     getTopIdeas(question.questionId).then(response => {
@@ -31,7 +37,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
   }, []);
 
   useEffect(() => {
-    trackDisplayIdeas('ideas');
+    trackDisplayTopIdeas('top-ideas');
   }, []);
 
   return (
@@ -39,10 +45,27 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
       <IntroBanner question={question} />
       <ConsultationPageWrapperStyle>
         <ConsultationPageSidebarStyle>
-          <IdeasSidebar question={question} />
+          <TopIdeasSidebar question={question} />
         </ConsultationPageSidebarStyle>
         <ConsultationPageContentStyle>
-          <IdeaCards topIdeas={topIdeas} />
+          <TopIdeasPageTitleStyle>
+            {i18n.t('idea_card.title')}
+          </TopIdeasPageTitleStyle>
+          <TopIdeasListStyle>
+            {hasTopIdeas ? (
+              topIdeas.map((topIdea, index) => (
+                <TopIdeasListItemStyle key={topIdea.id}>
+                  <TopIdeaCard
+                    position={index + 1}
+                    topIdea={topIdea}
+                    withDetails
+                  />
+                </TopIdeasListItemStyle>
+              ))
+            ) : (
+              <Spinner />
+            )}
+          </TopIdeasListStyle>
         </ConsultationPageContentStyle>
         {isMobile && <FollowUs />}
       </ConsultationPageWrapperStyle>

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import {
   MainResultsHeaderStyle,
   MainResultsTitleStyle,
@@ -20,13 +20,13 @@ export const MainResultsHeader = ({ title, count, link }: Props) => {
     <MainResultsHeaderStyle>
       <MainResultsHeaderContentStyle>
         <MainResultsTitleWrapperStyle>
-          <MainResultsTitleStyle>{title}</MainResultsTitleStyle>
+          <MainResultsTitleStyle as="span">{title}</MainResultsTitleStyle>
           {i18n.t('search.main_results.results', { count })}
         </MainResultsTitleWrapperStyle>
         {count > 4 && (
-          <RedLinkStyle to={link}>
+          <RedLinkRouterStyle to={link}>
             {i18n.t('search.main_results.view_all')}
-          </RedLinkStyle>
+          </RedLinkRouterStyle>
         )}
       </MainResultsHeaderContentStyle>
     </MainResultsHeaderStyle>

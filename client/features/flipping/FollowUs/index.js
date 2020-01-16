@@ -23,7 +23,7 @@ import {
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import {
-  RedLinkStyle,
+  RedLinkHTMLElementStyle,
   NewWindowIconStyle,
 } from 'Client/ui/Elements/LinkElements';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
@@ -98,8 +98,7 @@ export const FollowUs = () => (
         </LinkedInButtonStyle>
       </li>
     </FollowUsStyle>
-    <RedLinkStyle
-      as="a"
+    <RedLinkHTMLElementStyle
       target="_blank"
       rel="noreferrer noopener"
       href={ABOUT_MAKE_LINK}
@@ -110,6 +109,6 @@ export const FollowUs = () => (
         aria-label={i18n.t('common.open_new_window')}
         style={NewWindowIconStyle}
       />
-    </RedLinkStyle>
+    </RedLinkHTMLElementStyle>
   </TileWithTitle>
 );

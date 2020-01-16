@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { MailToRedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -21,9 +21,9 @@ export const LegalPage = () => {
       </StaticParagraphStyle>
       <StaticParagraphStyle>
         Adresse de courrier électronique :&nbsp;
-        <MailToRedLinkStyle as="a" href="mailto:contact@make.org">
+        <RedLinkHTMLElementStyle as="a" href="mailto:contact@make.org">
           contact@make.org
-        </MailToRedLinkStyle>
+        </RedLinkHTMLElementStyle>
       </StaticParagraphStyle>
       <StaticParagraphStyle>
         Numéro de téléphone : 01.44.74.77.46

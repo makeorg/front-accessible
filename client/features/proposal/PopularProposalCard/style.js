@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { ProposalCardStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { intToPx } from 'Shared/helpers/styled';
+import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
   overflow: hidden;
@@ -9,6 +11,7 @@ export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
   height: 100%;
   justify-content: flex-start;
   margin-bottom: 20px;
+  border-radius: ${intToPx(Elements.BorderRadius)};
 `;
 
 export const PopularProposalHeader = styled.div`
