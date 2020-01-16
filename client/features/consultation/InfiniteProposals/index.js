@@ -87,10 +87,11 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     loadProposals();
     trackLoadMoreProposals(page);
   };
+  const flatTags = tags.join();
 
   useEffect(() => {
     initProposal();
-  }, [tags, question]);
+  }, [flatTags, question]);
 
   const proposalsLength = proposalCards.length;
   const displayLoadMoreButton = hasMore && !isLoading;
