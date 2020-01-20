@@ -37,7 +37,7 @@ Feature: Vote on sequence
      Then "likeIt" qualification button is highlight on the current card
      When I unvote on the current card
      Then I see vote buttons on the current card
-     And I not see qualification buttons on the current card
+     And I don't see qualification buttons on the current card
      When I vote "agree" on the current card
      Then "likeIt" qualification button is not highlight on the current card
      And total "likeIt" qualifications are equal to "+1" on the current card

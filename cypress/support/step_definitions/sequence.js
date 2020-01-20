@@ -30,7 +30,8 @@ const getCurrentCard = () => {
 };
 
 when ('I click on {string} of the sequence', (buttonName) => {
-  cy.get(`[data-cy-button=${sequenceButtons[buttonName]}]`).first().click();
+  const button = sequenceButtons[buttonName] ? sequenceButtons[buttonName] : buttonName;
+  cy.get(`[data-cy-button=${button}]`).first().click();
   waitCardTransition();
 })
 
@@ -151,7 +152,7 @@ then('I see neutral qualifications buttons on card {string}', (cardNumber) => {
     .should('be.visible');
 });
 
-then('I not see qualification buttons on the current card', () => {
+then('I don\'t see qualification buttons on the current card', () => {
   getCurrentCard().find('[data-cy-qualification-key]')
     .should('have.length', 0);
 });
@@ -176,4 +177,16 @@ then('total {string} qualifications are equal to {string} on the current card',(
   getCurrentCard().find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .contains(total);
+});
+
+then('I don\'t see the propose note section', () => {
+  cy.get('[data-cy-container=proposal_submit]').first().then( el => {
+    expect(el[0].offsetHeight).to.be.lessThan(60);
+  });
+});
+
+then('I see the propose note section', () => {
+  cy.get('[data-cy-container=proposal_submit]').first().then( el => {
+    expect(el[0].offsetHeight).to.be.greaterThan(100);
+  });
 });

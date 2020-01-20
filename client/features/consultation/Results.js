@@ -67,7 +67,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         })}
       />
       {displaySidebar && <ConsultationSidebar question={question} />}
-      <ConsultationPageContentStyle id="main">
+      <ConsultationPageContentStyle id="main" data-cy-container="main">
         <HiddenItemStyle as="h2">
           {i18n.t('consultation.results.title', {
             question: question.wording.question,

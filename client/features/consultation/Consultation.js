@@ -74,7 +74,7 @@ export const ConsultationContent = ({ question }: Props) => {
       />
       {renderMobileProposal && <ConsultationProposal question={question} />}
       <ConsultationSidebar question={question} />
-      <ConsultationPageContentStyle id="main">
+      <ConsultationPageContentStyle id="main" data-cy-container="main">
         {renderDesktopProposal && <ConsultationProposal question={question} />}
         <SortAndFilter
           sort={sort}

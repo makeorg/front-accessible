@@ -74,6 +74,7 @@ export const ProposalSubmitFormComponent = (props: Props) => {
         <ProposalTextareaStyle
           name="proposal"
           id="proposal"
+          data-cy-field="proposal"
           value={content}
           onChange={handleOnChange}
           onFocus={handleOnFocus}
