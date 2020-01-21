@@ -40,4 +40,26 @@ questionsRouter.get('/:questionId/start-sequence', (req, res) => {
   });
 });
 
+questionsRouter.get('/:questionId/top-ideas', (req, res) => {
+  const questionTopIdeas = fixtures.topIdeas.filter(topIdea => {
+    return topIdea.questionId === req.params.questionId;
+  });
+
+  return res.send({
+    questionTopIdeas,
+    seed: 12312313,
+  });
+});
+
+questionsRouter.get('/:questionId/top-ideas/:topIdeaId', (req, res) => {
+  const questionTopIdeas = fixtures.topIdeas.filter(topIdea => {
+    return (
+      topIdea.questionId === req.params.questionId &&
+      topIdea.id === req.params.topIdeaId
+    );
+  });
+
+  return res.send(questionTopIdeas[0] ? questionTopIdeas[0] : []);
+});
+
 module.exports = questionsRouter;

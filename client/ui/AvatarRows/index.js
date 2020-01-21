@@ -4,8 +4,12 @@ import { Avatar, AvatarWithDots } from 'Client/ui/Avatar';
 
 import { AvatarStyle, AvatarRowsStyle } from './style';
 
-export const AvatarRows = () => {
-  const reverseRange = (start, end) => {
+type Props = {
+  avatars: string[],
+};
+
+export const AvatarRows = ({ avatars }: Props) => {
+  /* const reverseRange = (start, end) => {
     const values = [];
     let current = start;
     while (current > end) {
@@ -14,12 +18,12 @@ export const AvatarRows = () => {
     }
     return values;
   };
-
+*/
   return (
     <AvatarRowsStyle>
-      {reverseRange(4, 0).map(zIndex => (
+      {avatars.map((avatar, zIndex) => (
         <AvatarStyle style={{ zIndex }}>
-          <Avatar />
+          <Avatar avatarUrl={avatar} />
         </AvatarStyle>
       ))}
       <AvatarStyle>

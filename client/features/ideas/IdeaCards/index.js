@@ -1,24 +1,24 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { IdeasPageTitleStyle } from 'Client/pages/Consultation/style';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { TopIdeasPageTitleStyle } from 'Client/pages/Consultation/style';
+import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
 
 import { IdeaCard } from '../IdeaCard';
 
 type Props = {
-  question: TypeQuestion,
+  topIdeas: TypeTopIdea[],
 };
 
-export const IdeaCards = ({ question }: Props) => {
-  console.log('====>', question);
-
+export const IdeaCards = ({ topIdeas }: Props) => {
   return (
     <>
-      <IdeasPageTitleStyle>
+      <TopIdeasPageTitleStyle>
         {i18n.t('idea_card.title', { count: 10 })}
-      </IdeasPageTitleStyle>
-      <IdeaCard position={1} />
+      </TopIdeasPageTitleStyle>
+      {topIdeas.map((topIdea, index) => (
+        <IdeaCard position={index + 1} topIdea={topIdea} />
+      ))}
     </>
   );
 };

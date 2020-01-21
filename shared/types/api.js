@@ -40,3 +40,25 @@ export type TypeErrorObject = {
   key: string,
   message: any,
 };
+
+export type ApiIdeaScoreType = {
+  totalProposalsRatio: number,
+  agreementRatio: number,
+  likeItRatio: number,
+};
+
+export type ApiIdeaResponseType = {
+  id: string,
+  ideaId: string,
+  questionId: string,
+  name: string,
+  scores: ApiIdeaScoreType,
+  proposalsCount: number,
+  avatars: string[],
+  weight: number,
+};
+
+export type ApiIdeasResponseType = {
+  questionTopIdeas: ApiIdeaResponseType[],
+  seed: number,
+};
