@@ -2,7 +2,12 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { JOBS_LINK, WHOAREWE_FR_LINK, PRESS_LINK } from 'Shared/constants/url';
+import {
+  JOBS_LINK,
+  WHOAREWE_FR_LINK,
+  NEWS_LINK,
+  DOTATION_FUNDS_LINK,
+} from 'Shared/constants/url';
 import { type StateRoot } from 'Shared/store/types';
 import {
   FooterItemStyle,
@@ -16,6 +21,7 @@ import {
   getDataPageLink,
   getContactPageLink,
 } from 'Shared/helpers/url';
+import { trackClickViewBlog } from 'Shared/services/Tracking';
 
 /**
  * Renders Main Footer
@@ -48,8 +54,23 @@ export const FooterLinks = () => {
         </FooterItemStyle>
       )}
       <FooterItemStyle>
-        <FooterItemLinkStyle as="a" href={PRESS_LINK} to={PRESS_LINK}>
-          {i18n.t('main-footer.press')}
+        <FooterItemLinkStyle
+          as="a"
+          href={NEWS_LINK}
+          to={NEWS_LINK}
+          onClick={trackClickViewBlog}
+        >
+          {i18n.t('main-footer.news')}
+        </FooterItemLinkStyle>
+      </FooterItemStyle>
+
+      <FooterItemStyle>
+        <FooterItemLinkStyle
+          as="a"
+          href={DOTATION_FUNDS_LINK}
+          to={DOTATION_FUNDS_LINK}
+        >
+          {i18n.t('main-footer.dotation_funds')}
         </FooterItemLinkStyle>
       </FooterItemStyle>
 

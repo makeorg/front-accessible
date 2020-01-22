@@ -363,11 +363,12 @@
   "main-footer": {
     "jobs": "<span lang=\"en\">Jobs</span>",
     "whoarewe": "Qui sommes-nous ?",
-    "press": "Espace presse",
     "legal": "Mentions légales",
     "terms": "Conditions d'utilisation",
     "data": "Politique d'utilisation des données",
-    "contact": "Contact"
+    "contact": "Contact",
+    "news": "Notre actualité",
+    "dotation_funds": "Fonds de dotation"
   },
   "cookie_alert": {
     "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",
