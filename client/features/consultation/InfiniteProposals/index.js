@@ -91,7 +91,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
 
   useEffect(() => {
     initProposal();
-  }, [flatTags, question]);
+  }, [flatTags, sortTypeKey, question]);
 
   const proposalsLength = proposalCards.length;
   const displayLoadMoreButton = hasMore && !isLoading;
