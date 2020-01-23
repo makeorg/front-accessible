@@ -9,7 +9,7 @@ import {
 } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import {
@@ -68,7 +68,7 @@ export const ProposalAuthorElement = ({
         </ScreenReaderItemStyle>
         {isOrganisation && (
           <>
-            <RedLinkStyle
+            <RedLinkRouterStyle
               onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
               to={getOrganisationProfileLink(
                 country,
@@ -77,18 +77,18 @@ export const ProposalAuthorElement = ({
               )}
             >
               {author.organisationName}
-            </RedLinkStyle>
+            </RedLinkRouterStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
           </>
         )}
         {isPersonality && (
           <>
-            <RedLinkStyle
+            <RedLinkRouterStyle
               onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
               to={getPersonalityProfileLink(country, language, proposal.userId)}
             >
               {author.firstName}
-            </RedLinkStyle>
+            </RedLinkRouterStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
           </>
         )}

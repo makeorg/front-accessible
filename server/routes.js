@@ -23,6 +23,7 @@ import {
   ROUTE_STATIC_GTU,
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
+  ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PERSONALITY_PROFILE,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
@@ -37,6 +38,7 @@ import { consultationRoute } from './ssr/consultationRoute';
 import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
+import { topIdeasRoute } from './ssr/topIdeasRoute';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -83,7 +85,8 @@ export const initRoutes = app => {
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
-  app.get(ROUTE_TOP_IDEAS, frontMiddlewares, consultationRoute);
+  app.get(ROUTE_TOP_IDEAS, frontMiddlewares, topIdeasRoute);
+  app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, topIdeasRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);

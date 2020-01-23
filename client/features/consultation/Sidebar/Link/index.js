@@ -3,7 +3,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
-  RedLinkStyle,
+  RedLinkHTMLElementStyle,
   NewWindowIconStyle,
 } from 'Client/ui/Elements/LinkElements';
 
@@ -18,10 +18,8 @@ export const SidebarNewWindowLink = ({
   linkText,
   tracking,
 }: Props) => (
-  <RedLinkStyle
-    as="a"
+  <RedLinkHTMLElementStyle
     href={linkUrl}
-    to={linkUrl}
     target="_blank"
     rel="noopener noreferrer"
     onClick={tracking}
@@ -31,5 +29,5 @@ export const SidebarNewWindowLink = ({
       aria-label={i18n.t('common.open_new_window')}
       style={NewWindowIconStyle}
     />
-  </RedLinkStyle>
+  </RedLinkHTMLElementStyle>
 );

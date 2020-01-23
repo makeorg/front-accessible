@@ -27,7 +27,7 @@ import {
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { RedLinkStyle } from './LinkElements';
+import { RedLinkRouterStyle } from './LinkElements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -184,7 +184,7 @@ export const ProfileInformationButtonStyle = styled(GreyButtonStyle)`
   margin: 10px 0 0;
 `;
 
-export const ProfileWebsiteLinkStyle = styled(RedLinkStyle)`
+export const ProfileWebsiteLinkStyle = styled(RedLinkRouterStyle)`
   word-break: break-all;
 `;
 

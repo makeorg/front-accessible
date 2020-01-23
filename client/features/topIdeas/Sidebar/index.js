@@ -13,7 +13,7 @@ type Props = {
   question: TypeQuestion,
 };
 
-export const IdeasSidebar = ({ question }: Props) => {
+export const TopIdeasSidebar = ({ question }: Props) => {
   const isSidebarActiveActors = checkIsFeatureActivated(
     CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
     question.activeFeatures

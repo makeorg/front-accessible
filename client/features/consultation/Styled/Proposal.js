@@ -14,10 +14,10 @@ export const ProposalWrapperStyle = styled.div`
   width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
-  border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin: 0 0 15px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    border-radius: ${intToPx(Elements.BorderRadius)};
     margin: 0 0 30px;
   }
 `;

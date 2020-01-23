@@ -41,15 +41,10 @@ export const Avatar = ({
   );
 };
 
-export const AvatarWithDots = ({ avatarSize = 30 }: DotsProps) => {
+export const AvatarWithDots = ({ avatarSize = 34 }: DotsProps) => {
   return (
     <AvatarStyle>
-      <AvatarWithDotsStyle
-        width={avatarSize}
-        height={avatarSize}
-        aria-hidden
-        withDots
-      >
+      <AvatarWithDotsStyle avatarSize={avatarSize}>
         <DotsStyle />
         <DotsStyle />
         <DotsStyle />

@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
 import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import {
+  RedButtonStyle,
+  UnstyledButtonStyle,
+} from 'Client/ui/Elements/ButtonElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
@@ -66,13 +68,24 @@ export const SearchPageTitleStyle = styled(SecondLevelTitleStyle)`
   }
 `;
 
-export const SearchBackStyle = styled(RedLinkStyle)`
+export const SearchBackStyle = styled(UnstyledButtonStyle)`
   display: flex;
   align-items: flex-end;
   margin-bottom: 10px;
   margin-left: 0;
-  @media (max-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin-left: 20px;
+  color: ${MakeThemeColors.Red};
+  font-size: 12px;
+  padding: 0;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: ${MakeThemeColors.Red};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 14px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 16px;
   }
 `;
 

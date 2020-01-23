@@ -3,7 +3,7 @@ import React from 'react';
 import { type OrganisationSoft as TypeOrganisationSoft } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { trackClickProposalProfile } from 'Shared/services/Tracking';
 import { OrganisationsVoteWrapperStyle } from './Styled';
 
@@ -28,7 +28,7 @@ export const OrganisationsVote = (props: Props) => {
           {!!index &&
             index + 1 === organisations.length &&
             i18n.t('profile.organisation.and')}
-          <RedLinkStyle
+          <RedLinkRouterStyle
             to={getOrganisationProfileLink(
               country,
               language,
@@ -37,7 +37,7 @@ export const OrganisationsVote = (props: Props) => {
             onClick={trackClickProposalProfile}
           >
             {organisation.organisationName}
-          </RedLinkStyle>
+          </RedLinkRouterStyle>
         </React.Fragment>
       ))}
       {i18n.t('profile.organisation.hasVoted', {

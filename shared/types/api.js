@@ -62,3 +62,8 @@ export type ApiIdeasResponseType = {
   questionTopIdeas: ApiIdeaResponseType[],
   seed: number,
 };
+
+export type ApiIdeaDetailsResponseType = {
+  questionTopIdea: ApiIdeaResponseType,
+  seed: number,
+};

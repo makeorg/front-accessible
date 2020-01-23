@@ -1,7 +1,10 @@
 // @flow
 import { TopIdeaApiService } from 'Shared/api/TopIdeaApiService';
 import { Logger } from 'Shared/services/Logger';
-import { type ApiIdeaResponseType } from 'Shared/types/api';
+import {
+  type ApiIdeaResponseType,
+  type ApiIdeaDetailsResponseType,
+} from 'Shared/types/api';
 
 export const getTopIdeas = async (
   questionId: string
@@ -22,16 +25,13 @@ export const getTopIdeas = async (
 export const getTopIdea = async (
   questionId: string,
   topIdeaId: string
-): Promise<ApiIdeaResponseType[]> => {
+): Promise<ApiIdeaDetailsResponseType> => {
   try {
-    const topIdeaResponse = await TopIdeaApiService.getTopIdea(
-      questionId,
-      topIdeaId
-    );
+    const topIdea = await TopIdeaApiService.getTopIdea(questionId, topIdeaId);
 
-    return topIdeaResponse;
+    return topIdea;
   } catch (error) {
     Logger.logError(Error(error));
-    return [];
+    return {};
   }
 };

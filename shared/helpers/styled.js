@@ -16,3 +16,11 @@ export const getBarHeight = (value: number) => {
 
   return `${barHeight}px`;
 };
+
+export const scrollToTop = () => {
+  const app = document.getElementById('app');
+  if (!app) {
+    return null;
+  }
+  return app.scrollIntoView({ behavior: 'smooth' });
+};

@@ -65,13 +65,14 @@ export const searchFirstUnvotedProposal = (proposals: TypeProposal[]) =>
 export const searchProposals = async (
   country: string,
   language: string,
-  content: string,
+  content?: string,
   page: number = 0,
   limit?: number = PROPOSALS_LISTING_LIMIT,
   seed: ?number = null,
   questionId?: string,
   tagsIds?: string,
-  sortTypeKey?: string
+  sortTypeKey?: string,
+  ideaIds?: string
 ): ApiSearchProposalsResponseType | Object => {
   const skip = page * limit;
   try {
@@ -84,7 +85,8 @@ export const searchProposals = async (
       limit,
       skip,
       sortTypeKey,
-      content
+      content,
+      ideaIds
     );
 
     return response;
@@ -101,7 +103,8 @@ export const searchTaggedProposals = async (
   TagIdsArray: string[] = [],
   seed: ?number = undefined,
   page: number = 0,
-  sortTypeKey?: string = SORT_ALGORITHM.TAGGED_FIRST.value
+  sortTypeKey?: string = SORT_ALGORITHM.TAGGED_FIRST.value,
+  ideaIds?: string
 ): ApiSearchProposalsResponseType | Object => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
@@ -115,7 +118,8 @@ export const searchTaggedProposals = async (
       seed,
       limit,
       skip,
-      sortTypeKey
+      sortTypeKey,
+      ideaIds
     );
 
     return response;

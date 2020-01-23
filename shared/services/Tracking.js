@@ -78,13 +78,6 @@ export const TrackingService = {
   },
 };
 
-/** On Load Ideas page Tracking */
-export const trackDisplayIdeas = (pageType: string) => {
-  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PAGE_IDEAS, {
-    type: pageType,
-  });
-};
-
 /* On Load Consultation Tracking */
 export const trackDisplayConsultation = (pageType: string) => {
   TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PAGE_OPERATION, {
@@ -475,6 +468,13 @@ export const trackClickProfile = () => {
 export const trackClickPublicProfile = (userType: string) => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_PUBLIC_PROFILE, {
     type: userType,
+  });
+};
+
+/** On Load Ideas page Tracking */
+export const trackDisplayTopIdeas = (pageType: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PAGE_IDEAS, {
+    type: pageType,
   });
 };
 

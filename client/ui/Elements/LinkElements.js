@@ -11,29 +11,31 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 const linkStyle = color => `
   color: ${color};
   font-size: 12px;
+  line-height: 18px;
   &:hover,
   &:focus {
     color: ${color};
   }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
+    line-height: 21px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
+    line-height: 24px;
   }
-
-  `;
+`;
 
 export const NewWindowIconStyle = {
   marginLeft: '5px',
   fill: MakeThemeColors.Red,
 };
 
-export const RedLinkStyle = styled(Link)`
+export const RedLinkRouterStyle = styled(Link)`
   ${linkStyle(MakeThemeColors.Red)}
 `;
 
-export const MailToRedLinkStyle = styled.a`
+export const RedLinkHTMLElementStyle = styled.a`
   ${linkStyle(MakeThemeColors.Red)}
 `;
 

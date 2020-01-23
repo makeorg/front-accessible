@@ -1,10 +1,7 @@
 // @flow
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  RedLinkStyle,
-  MailToRedLinkStyle,
-} from 'Client/ui/Elements/LinkElements';
+import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
 import {
@@ -135,12 +132,9 @@ export const TermsOfUse = () => {
             {
               "L’utilisation du Service implique également l’acceptation entière et sans réserve de la Politique d'utilisation des données de Make.org qui fait partie intégrante des présentes CGUS et est disponible "
             }
-            <RedLinkStyle
-              href={getDataPageLink(country, language)}
-              to={getDataPageLink(country, language)}
-            >
+            <RedLinkHTMLElementStyle href={getDataPageLink(country, language)}>
               ici.
-            </RedLinkStyle>
+            </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Les présentes CGUS sont modifiables à tout moment et sans préavis
@@ -191,9 +185,9 @@ export const TermsOfUse = () => {
               <StaticParagraphStyle>
                 Il s’engage à mettre à jour ces informations dans son Espace
                 Personnel en contactant Make.org par courriel à l’adresse&nbsp;
-                <MailToRedLinkStyle href="mailto:contact@Make.org">
+                <RedLinkHTMLElementStyle href="mailto:contact@Make.org">
                   contact@Make.org.
-                </MailToRedLinkStyle>
+                </RedLinkHTMLElementStyle>
               </StaticParagraphStyle>
               <StaticParagraphStyle>
                 L’Utilisateur Inscrit est informé et accepte que les
@@ -262,9 +256,9 @@ export const TermsOfUse = () => {
               <StaticParagraphStyle>
                 Make.org conçoit ensuite son rôle comme un intermédiaire entre
                 des propositions citoyennes et des partenaires actions. (
-                <RedLinkStyle href="#anchor_partners" to="#anchor_partners">
+                <RedLinkHTMLElementStyle href="#anchor_partners">
                   Voir au 6.8 Partenaires Actions
-                </RedLinkStyle>
+                </RedLinkHTMLElementStyle>
                 )
               </StaticParagraphStyle>
             </StaticSecondaryOrderedListItemStyle>
@@ -350,9 +344,9 @@ export const TermsOfUse = () => {
                 Proposition citoyenne publiée fasse l’objet d’une suppression,
                 il adressera sa demande par mail à Make.org à l’adresse suivante
                 :&nbsp;
-                <MailToRedLinkStyle href="mailto:contact@make.org">
+                <RedLinkHTMLElementStyle href="mailto:contact@make.org">
                   contact@make.org.
-                </MailToRedLinkStyle>
+                </RedLinkHTMLElementStyle>
               </StaticParagraphStyle>
               <StaticParagraphStyle>
                 La demande de suppression de l’Utilisateur sera traitée dans un
@@ -1010,9 +1004,9 @@ export const TermsOfUse = () => {
             L’Utilisateur Inscrit peut se désinscrire des Services à tout
             moment, en adressant une demande à cet effet à Make.org par courriel
             à&nbsp;
-            <MailToRedLinkStyle href="mailto:contact@make.org">
+            <RedLinkHTMLElementStyle href="mailto:contact@make.org">
               contact@make.org
-            </MailToRedLinkStyle>
+            </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             La désinscription est effective immédiatement. Elle entraîne la

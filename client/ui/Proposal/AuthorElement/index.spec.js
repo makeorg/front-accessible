@@ -17,7 +17,7 @@ jest.mock('Client/ui/Svg/elements', () => ({
 }));
 
 jest.mock('Client/ui/Elements/LinkElements', () => ({
-  RedLinkStyle: 'RedLinkStyle',
+  RedLinkRouterStyle: 'RedLinkRouterStyle',
 }));
 
 jest.mock('./Styled', () => ({

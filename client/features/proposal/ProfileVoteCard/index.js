@@ -8,7 +8,7 @@ import {
   getOrganisationProfileLink,
 } from 'Shared/helpers/url';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
@@ -64,7 +64,7 @@ export const ProfileVoteCard = ({
           </ButtonIconWrapperStyle>
         </ProfileHasVotedStyle>
         <div>
-          <RedLinkStyle
+          <RedLinkRouterStyle
             to={getOrganisationProfileLink(
               organisation.country,
               organisation.language,
@@ -72,7 +72,7 @@ export const ProfileVoteCard = ({
             )}
           >
             {organisation.organisationName}
-          </RedLinkStyle>
+          </RedLinkRouterStyle>
           <SvgCheckedSymbol style={CertifiedIconStyle} />
           &nbsp;
           {i18n.t(`profile.organisation.proposal_${voteKey}`)}

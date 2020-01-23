@@ -2,7 +2,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { RedLinkStyle } from 'Client/ui/Elements/LinkElements';
+import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ProposalFooterStyle, PostedInLabelStyle } from '../Styled';
 
 type Props = {
@@ -18,8 +18,8 @@ export const ProposalFooterWithQuestionElement = ({
     <PostedInLabelStyle as="span">
       {i18n.t('proposal_card.posted_label')}
     </PostedInLabelStyle>
-    <RedLinkStyle to={consultationLink}>
+    <RedLinkRouterStyle to={consultationLink}>
       {question.wording.question}
-    </RedLinkStyle>
+    </RedLinkRouterStyle>
   </ProposalFooterStyle>
 );

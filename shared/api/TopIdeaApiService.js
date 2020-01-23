@@ -2,8 +2,8 @@
 
 import { ApiService } from './ApiService';
 import {
-  type ApiIdeaResponseType,
   type ApiIdeasResponseType,
+  type ApiIdeaDetailsResponseType,
 } from '../types/api';
 
 export const TOP_IDEAS_PATH = '/questions/:questionId/top-ideas';
@@ -23,7 +23,7 @@ export class TopIdeaApiService {
   static getTopIdea(
     questionId: string,
     topIdeaId: string
-  ): Promise<ApiIdeaResponseType> {
+  ): Promise<ApiIdeaDetailsResponseType> {
     return ApiService.callApi(
       TOP_IDEAS_IDEA_PATH.replace(':questionId', questionId).replace(
         ':topIdeaId',

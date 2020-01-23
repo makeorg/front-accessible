@@ -15,11 +15,11 @@ export const ParticipateWrapperStyle = styled.div`
   align-items: center;
   background-color: ${BasicColors.PureWhite};
   padding: 20px ${intToPx(DefaultPadding.Mobile)};
-  border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin: 15px 0 0;
+  margin: 15px 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 25px 0 10px;
+    border-radius: ${intToPx(Elements.BorderRadius)};
+    margin: 25px 0 20px;
   }
 `;
 
