@@ -100,6 +100,20 @@ export class Vote extends React.Component<Props, State> {
     };
   }
 
+  componentDidUpdate(prevProps: Props) {
+    const { votes } = this.props;
+    if (prevProps.votes !== votes) {
+      this.updateVotes(votes);
+    }
+  }
+
+  updateVotes = (votes: TypeVote[]) => {
+    this.setState(prevState => ({
+      ...prevState,
+      votes,
+    }));
+  };
+
   handleUnvote = (voteKey: string) => {
     const {
       proposalId,
