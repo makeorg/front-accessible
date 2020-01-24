@@ -27,7 +27,7 @@ import {
 } from 'Client/ui/Elements/ButtonElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { RedLinkRouterStyle } from './LinkElements';
+import { RedLinkHTMLElementStyle } from './LinkElements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -60,6 +60,14 @@ export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
   flex: 1 1 auto;
+`;
+
+export const ProfilePageWithoutTabsContentStyle = styled(ContentElementStyle)`
+  margin: ${intToPx(DefaultPadding.Mobile)} 0 30px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 90px 0 0;
+    max-width: 750px;
+  }
 `;
 
 export const ProfilePageContentStyle = styled(ContentElementStyle)`
@@ -184,7 +192,7 @@ export const ProfileInformationButtonStyle = styled(GreyButtonStyle)`
   margin: 10px 0 0;
 `;
 
-export const ProfileWebsiteLinkStyle = styled(RedLinkRouterStyle)`
+export const ProfileWebsiteLinkStyle = styled(RedLinkHTMLElementStyle)`
   word-break: break-all;
 `;
 

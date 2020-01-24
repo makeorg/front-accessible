@@ -20,6 +20,7 @@ export const ROUTE_PROFILE_EDIT = `${ROUTE_PROFILE}/edit`;
 export const ROUTE_PROFILE_PROPOSALS = `${ROUTE_PROFILE}/proposals`;
 export const ROUTE_PROFILE_FAVOURITES = `${ROUTE_PROFILE}/favourites`;
 export const ROUTE_PROFILE_FOLLOWING = `${ROUTE_PROFILE}/following`;
+export const ROUTE_PROFILE_OPINIONS = `${ROUTE_PROFILE}/opinions`;
 export const ROUTE_PERSONALITY_PROFILE = `${ROUTE_PROFILE}/personality/:userId`;
 export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/organisation/:organisationSlug`;
 export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
@@ -77,6 +78,8 @@ export const getRouteProfileFavourites = (country: string, language: string) =>
   generatePath(ROUTE_PROFILE_FAVOURITES, { country, language });
 export const getRouteProfileFollowing = (country: string, language: string) =>
   generatePath(ROUTE_PROFILE_FOLLOWING, { country, language });
+export const getRouteProfileOpinions = (country: string, language: string) =>
+  generatePath(ROUTE_PROFILE_OPINIONS, { country, language });
 
 /**
  * Get the search main results route

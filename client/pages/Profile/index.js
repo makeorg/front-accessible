@@ -22,6 +22,7 @@ import {
   getRouteProfileProposals,
   getRouteProfileFavourites,
   getRouteProfileEdit,
+  getRouteProfileOpinions,
 } from 'Shared/routes';
 import { SvgLike } from 'Client/ui/Svg/elements';
 import {
@@ -33,6 +34,7 @@ import {
   ProfileTabIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
+import { TYPE_PERSONALITY } from 'Shared/constants/user';
 
 const ProfileProposalsPage = loadable(() =>
   import('Client/pages/Profile/Proposals')
@@ -41,7 +43,7 @@ const ProfileFavouritesPage = loadable(() =>
   import('Client/pages/Profile/Favourites')
 );
 const ProfileFollowingPage = loadable(() =>
-  import('Client/pages/Profile/ProfileFollowing')
+  import('Client/pages/Profile/Following')
 );
 
 type Props = {
@@ -54,8 +56,11 @@ const ProfilePage = ({ match, location }: Props) => {
     selectAuthentification(state)
   );
   const { country, language } = match.params;
+  const isPersonality = user && user.userType === TYPE_PERSONALITY;
+
   const profileProposalsLink = getRouteProfileProposals(country, language);
   const profileFavouritesLink = getRouteProfileFavourites(country, language);
+  const profileOpinions = getRouteProfileOpinions(country, language);
 
   const isProfileProposalsActive = !!matchPath(
     location.pathname,
@@ -68,6 +73,10 @@ const ProfilePage = ({ match, location }: Props) => {
 
   if (!user) {
     return <Redirect to="/" />;
+  }
+
+  if (isPersonality) {
+    return <Redirect to={profileOpinions} />;
   }
 
   const NavigationBar = (

@@ -14,10 +14,8 @@ type Props = {
   user: TypeUser,
 };
 
-const ProfileFollowingPage = (props: Props) => {
-  const { user } = props;
-
-  const hasFollowed = user.followedUsers.length;
+const ProfileFollowingPage = ({ user }: Props) => {
+  const hasFollowed = user && user.followedUsers.length;
 
   return (
     <CenterColumnStyle>

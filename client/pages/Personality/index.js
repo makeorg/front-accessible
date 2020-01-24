@@ -15,7 +15,6 @@ import {
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarWrapperStyle,
   ProfilePageSidebarStyle,
-  ProfilePageContentStyle,
   ProfileAvatarLayoutStyle,
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
@@ -23,44 +22,36 @@ import {
   ProfileSeparatorStyle,
   ProfileAlignLeftContentStyle,
   ProfileWebsiteLinkStyle,
-  ProfileContentHeaderStyle,
-  ProfileTitleSeparatorStyle,
   ProfileContentStyle,
+  ProfilePageContentStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { SvgLink, SvgThumbsUp } from 'Client/ui/Svg/elements';
+import { SvgLink } from 'Client/ui/Svg/elements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 import {
   getPersonalityById,
   getPersonnalityOpinion,
 } from 'Shared/services/Personality';
-import {
-  ThumbsUpWrapperStyle,
-  ThumbsUpStyle,
-  PlaceholderParagraphStyle,
-} from 'Client/ui/Elements/PlaceholdersElements';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { Opinions } from 'Client/features/opinions';
 
 type Props = {
   match: TypeMatch,
 };
 
-const PersonalityPage = (props: Props) => {
-  const [personality, setOrganisation] = useState(null);
+const PersonalityPage = ({ match }: Props) => {
+  const [personality, setPersonality] = useState(null);
   const [opinions, setOpinions] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
-  const { match } = props;
   const { userId } = match.params;
 
   useEffect(() => {
@@ -68,14 +59,14 @@ const PersonalityPage = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    const fetchOrganisation = async () => {
+    const fetchPersonality = async () => {
       const personalityResponse: ?TypeUser = await getPersonalityById(userId);
 
-      setOrganisation(personalityResponse);
+      setPersonality(personalityResponse);
       setIsLoading(false);
     };
 
-    fetchOrganisation();
+    fetchPersonality();
 
     if (!isMobile) {
       setAvatarSize(160);
@@ -190,26 +181,7 @@ const PersonalityPage = (props: Props) => {
               </TabStyle>
             </TabListStyle>
           </TabNavStyle>
-          <ProfileContentHeaderStyle>
-            <SecondLevelTitleStyle>
-              {i18n.t('personality.top_ideas.title', {
-                firstname: personality.firstName,
-                lastname: personality.lastName,
-              })}
-            </SecondLevelTitleStyle>
-            <ProfileTitleSeparatorStyle />
-          </ProfileContentHeaderStyle>
-          <CenterColumnStyle>
-            <ThumbsUpWrapperStyle>
-              <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
-            </ThumbsUpWrapperStyle>
-            <PlaceholderParagraphStyle>
-              {i18n.t('personality.top_ideas.text', {
-                firstname: personality.firstName,
-                lastname: personality.lastName,
-              })}
-            </PlaceholderParagraphStyle>
-          </CenterColumnStyle>
+          <Opinions user={personality.userId} personality={personality} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
     </ProfileWrapperStyle>

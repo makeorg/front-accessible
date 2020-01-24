@@ -97,6 +97,12 @@ describe('getLocationContext', () => {
       expectedTracking: `private-profile-page`,
     },
     {
+      name: 'ROUTE_PROFILE_OPINIONS',
+      path: '/FR-fr/profile/opinions',
+      expected: `private-profile-page`,
+      expectedTracking: `private-profile-page`,
+    },
+    {
       name: 'ROUTE_PERSONALITY_PROFILE',
       path: '/FR-fr/profile/personality/1234',
       expected: `public-profile-page`,
