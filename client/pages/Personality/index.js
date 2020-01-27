@@ -4,6 +4,7 @@ import { Redirect, type match as TypeMatch } from 'react-router';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type TypeUser } from 'Shared/types/user';
+import { type PersonalityOpinionType } from 'Shared/types/personality';
 import { useMobile } from 'Client/hooks/useMedia';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -34,7 +35,10 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { SvgLink, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
-import { getPersonalityById } from 'Shared/services/Personality';
+import {
+  getPersonalityById,
+  getPersonnalityOpinion,
+} from 'Shared/services/Personality';
 import {
   ThumbsUpWrapperStyle,
   ThumbsUpStyle,
@@ -52,6 +56,7 @@ type Props = {
 
 const PersonalityPage = (props: Props) => {
   const [personality, setOrganisation] = useState(null);
+  const [opinions, setOpinions] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
@@ -76,6 +81,20 @@ const PersonalityPage = (props: Props) => {
       setAvatarSize(160);
     }
   }, [userId, isMobile]);
+
+  useEffect(() => {
+    const fetchPersonnalityOpinions = async () => {
+      const personalityOpinions: ?(PersonalityOpinionType[]) = await getPersonnalityOpinion(
+        userId
+      );
+
+      setOpinions(personalityOpinions);
+    };
+
+    fetchPersonnalityOpinions();
+    // Need console log to avoid eslint error, remove after use of opinions
+    console.log(opinions);
+  }, [personality]);
 
   if (!personality && isLoading) {
     return (
