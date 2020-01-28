@@ -30,6 +30,7 @@ import {
   ROUTE_TOP_IDEAS,
   ROUTE_PERSONALITY_PROFILE,
   ROUTE_TOP_IDEA_DETAILS,
+  ROUTE_PROFILE_OPINIONS,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -60,11 +61,13 @@ const ProposalPage = loadable(() => import('Client/pages/Proposal'));
 const AccountActivationPage = loadable(() =>
   import('Client/pages/AccountActivation')
 );
-const ProfileEditPage = loadable(() =>
-  import('Client/pages/Profile/ProfileEdit')
-);
+const ProfileEditPage = loadable(() => import('Client/pages/Profile/Edit'));
 
 const ProfilePage = loadable(() => import('Client/pages/Profile'));
+
+const ProfileOpinionsPage = loadable(() =>
+  import('Client/pages/Profile/Opinions')
+);
 
 const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
 
@@ -102,6 +105,7 @@ export const Routes = () => {
       <Route path={ROUTE_PROFILE_PROPOSALS} component={ProfilePage} />
       <Route path={ROUTE_PROFILE_FAVOURITES} component={ProfilePage} />
       <Route path={ROUTE_PROFILE_FOLLOWING} component={ProfilePage} />
+      <Route path={ROUTE_PROFILE_OPINIONS} component={ProfileOpinionsPage} />
       <Route path={ROUTE_ORGANISATION_PROPOSALS} component={OrganisationPage} />
       <Route path={ROUTE_ORGANISATION_VOTES} component={OrganisationPage} />
       <Route path={ROUTE_SEARCH} component={SearchPage} />

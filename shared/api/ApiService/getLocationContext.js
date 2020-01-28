@@ -19,6 +19,7 @@ import {
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
+  ROUTE_PROFILE_OPINIONS,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -58,6 +59,12 @@ export const getLocationContext = (
     },
     {
       route: ROUTE_PROFILE_FOLLOWING,
+      name: `private-profile-page`,
+      exact: true,
+      strict: true,
+    },
+    {
+      route: ROUTE_PROFILE_OPINIONS,
       name: `private-profile-page`,
       exact: true,
       strict: true,

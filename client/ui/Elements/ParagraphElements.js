@@ -1,5 +1,3 @@
-/* @flow */
-
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { TextColors } from 'Client/app/assets/vars/Colors';
