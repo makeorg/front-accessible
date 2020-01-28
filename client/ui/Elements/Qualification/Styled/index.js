@@ -4,7 +4,7 @@ import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
-export const ButtonStyle = styled.button`
+export const QualifyButtonStyle = styled.button`
   font-family: ${MakeFonts.CircularStandardBold};
   display: flex;
   justify-content: space-between;
@@ -16,6 +16,12 @@ export const ButtonStyle = styled.button`
   padding: 0 10px;
   border-radius: 36px;
   border-color: ${props => props.color};
+  color: ${props => props.color};
+  background-color: ${BasicColors.PureWhite};
+  &.qualified {
+    color: ${BasicColors.PureWhite};
+    background-color: ${props => props.color};
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 12.6px;
     line-height: 23px;
@@ -24,16 +30,6 @@ export const ButtonStyle = styled.button`
     font-size: 14px;
     line-height: 26px;
   }
-`;
-
-export const IsQualifiedButtonStyle = styled(ButtonStyle)`
-  color: ${BasicColors.PureWhite};
-  background-color: ${props => props.color};
-`;
-
-export const QualifyButtonStyle = styled(ButtonStyle)`
-  color: ${props => props.color};
-  background-color: ${BasicColors.PureWhite};
 `;
 
 export const CounterStyle = styled.span`

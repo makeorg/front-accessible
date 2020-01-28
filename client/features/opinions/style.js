@@ -23,3 +23,10 @@ export const DisclaimerSubtitleStyle = styled.h4`
     line-height: 24px;
   }
 `;
+
+export const OpinionCardListItemStyle = styled.li`
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;

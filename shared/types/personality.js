@@ -4,9 +4,9 @@ import { type Question } from './question';
 import { type TopIdea } from './topIdea';
 
 export type PersonalityCommentsType = {
-  id: String,
+  id: string,
   topIdeaId: string,
-  personalityId: String,
+  personalityId: string,
   comment1: string,
   comment2: string,
   comment3: string,

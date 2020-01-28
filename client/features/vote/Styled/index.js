@@ -8,9 +8,15 @@ export const VoteContainerStyle = styled.div`
   justify-content: center;
   width: 100%;
   margin: 35px 0 50px;
+  &.opinions {
+    margin: 30px 0 10px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     min-width: 250px;
     margin: 30px 0 60px;
+    &.opinions {
+      margin: 30px 0 10px;
+    }
   }
 `;
 

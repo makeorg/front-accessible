@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QualificationButtonElement must match the snapshot with default Props 1`] = `
-<ButtonStyle
+<QualifyButtonStyle
   aria-busy={false}
   aria-label="foo"
-  as="QualifyButtonStyle"
   color="red"
   data-cy-button="qualification"
   onClick={[Function]}
@@ -19,7 +18,7 @@ exports[`QualificationButtonElement must match the snapshot with default Props 1
   >
     +1
   </CounterStyle>
-</ButtonStyle>
+</QualifyButtonStyle>
 `;
 
 exports[`QualificationButtonElement must return the diff between snapshot when proposal is qualified or not 1`] = `
@@ -28,11 +27,11 @@ Snapshot Diff:
 + Second value
 
 @@ -1,9 +1,9 @@
-  <ButtonStyle
+  <QualifyButtonStyle
     aria-busy={false}
     aria-label="foo"
--   as="IsQualifiedButtonStyle"
-+   as="QualifyButtonStyle"
+-   className="qualified"
++   className={false}
     color="red"
     data-cy-button="qualification"
     onClick={[Function onClick]}
@@ -47,5 +46,5 @@ Snapshot Diff:
 -     0
 +     +1
     </CounterStyle>
-  </ButtonStyle>
+  </QualifyButtonStyle>
 `;

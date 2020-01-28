@@ -17,7 +17,6 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import {
   QualifyButtonStyle,
-  IsQualifiedButtonStyle,
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
@@ -96,10 +95,14 @@ export const ProfileFavouritesPlaceholder = () => {
             </aside>
           </VoteResultContainerStyle>
           <SpaceBetweenColumnStyle>
-            <IsQualifiedButtonStyle color={VoteColors.Agree} disabled>
+            <QualifyButtonStyle
+              class="qualified"
+              color={VoteColors.Agree}
+              disabled
+            >
               <span>{i18n.t('qualification.likeIt')}</span>
               <CounterStyle>+1</CounterStyle>
-            </IsQualifiedButtonStyle>
+            </QualifyButtonStyle>
             <QualifyButtonStyle color={VoteColors.Agree} disabled>
               <span>{i18n.t('qualification.doable')}</span>
               <CounterStyle>+1</CounterStyle>

@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
 import {
-  ButtonStyle,
-  IsQualifiedButtonStyle,
   QualifyButtonStyle,
   CounterStyle,
 } from 'Client/ui/Elements/Qualification/Styled';
@@ -46,8 +44,8 @@ export const QualificationButtonElement = (props: Props) => {
   };
 
   return (
-    <ButtonStyle
-      as={isQualified ? IsQualifiedButtonStyle : QualifyButtonStyle}
+    <QualifyButtonStyle
+      className={isQualified && 'qualified'}
       color={color}
       onClick={onClick}
       aria-label={pendingQualification ? i18n.t('common.loading') : label}
@@ -65,7 +63,7 @@ export const QualificationButtonElement = (props: Props) => {
           </CounterStyle>
         </React.Fragment>
       )}
-    </ButtonStyle>
+    </QualifyButtonStyle>
   );
 };
 

@@ -11,6 +11,8 @@ export const ButtonStyle = styled.button`
   align-items: center;
   width: 38px;
   height: 38px;
+  min-width: 38px;
+  min-height: 38px;
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;
@@ -19,10 +21,14 @@ export const ButtonStyle = styled.button`
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     width: 43px;
     height: 43px;
+    min-width: 43px;
+    min-height: 43px;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     width: 48px;
     height: 48px;
+    min-width: 48px;
+    min-height: 48px;
   }
 `;
 
