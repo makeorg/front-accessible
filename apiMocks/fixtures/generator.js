@@ -140,6 +140,7 @@ const generateTopIdeas = () => {
       ideaId: `idea-id-${number}`,
       questionId: question.questionId,
       name: `${defaultTopIdea.name} ${question.questionId}_${number}`,
+      label: `${defaultTopIdea.label} ${question.questionId}_${number}`,
       weight: defaultTopIdea.weight + number,
       proposalsCount: defaultTopIdea.proposalsCount + number,
       avatars: [
@@ -155,6 +156,7 @@ const generateTopIdeas = () => {
         agreementRatio: defaultTopIdea.scores.agreementRatio + index1 + number,
         likeItRatio: defaultTopIdea.scores.likeItRatio + index1 + number,
       },
+      commentsCount: defaultTopIdea.commentsCount + number,
     }));
   });
 };

@@ -54,7 +54,7 @@ export const TopIdeaCard = ({
   return (
     <TopIdeaCardStyle>
       <TopIdeaCardHeaderStyle aria-hidden>
-        <span>{i18n.t('idea_card.number', { count: position })}</span>
+        <span>{topIdea.label}</span>
         {withDetails && (
           <TopIdeaLinkStyle
             to={getTopIdeaDetailsLink(
@@ -63,6 +63,7 @@ export const TopIdeaCard = ({
               question.slug,
               topIdea.id
             )}
+            onClick={scrollToTop}
           >
             {i18n.t('idea_card.link')}
             <SvgAngleArrowRight aria-hidden />
@@ -92,19 +93,21 @@ export const TopIdeaCard = ({
           {topIdea.name}
         </TopIdeaContentStyle>
       </TopIdeaCardContentStyle>
-      <PositionStyle>
-        <SvgChat aria-hidden />
-        <PositionContentStyle>
-          <RedLinkRouterStyle to="#">
-            {i18n.t('idea_card.position', {
-              count: 4,
+      {topIdea.commentsCount > 0 && (
+        <PositionStyle>
+          <SvgChat aria-hidden />
+          <PositionContentStyle>
+            <RedLinkRouterStyle to="#">
+              {i18n.t('idea_card.position', {
+                count: topIdea.commentsCount,
+              })}
+            </RedLinkRouterStyle>
+            {i18n.t('idea_card.candidate', {
+              count: topIdea.commentsCount,
             })}
-          </RedLinkRouterStyle>
-          {i18n.t('idea_card.candidate', {
-            count: 4,
-          })}
-        </PositionContentStyle>
-      </PositionStyle>
+          </PositionContentStyle>
+        </PositionStyle>
+      )}
       <TopIdeaCollapseWrapperStyle>
         <TopIdeaCollapseTriggerStyle
           onClick={() => setIsOpened(!isOpened)}

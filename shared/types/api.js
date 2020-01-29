@@ -53,10 +53,12 @@ export type ApiIdeaResponseType = {
   ideaId: string,
   questionId: string,
   name: string,
+  label: string,
   scores: ApiIdeaScoreType,
   proposalsCount: number,
   avatars: string[],
   weight: number,
+  commentsCount: number,
 };
 
 export type ApiIdeasResponseType = {

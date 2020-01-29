@@ -10,8 +10,10 @@ export type TopIdea = {
   ideaId: string,
   questionId: string,
   name: string,
+  label: string,
   scores: IdeaScoreType,
   proposalsCount: number,
   avatars: string[],
   weight: number,
+  commentsCount: number,
 };

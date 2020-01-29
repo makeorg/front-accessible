@@ -20,6 +20,7 @@ export const BreadcrumbsListItemStyle = styled.li`
   &.selected > a {
     color: ${BasicColors.PureBlack};
     border-bottom: none;
+    cursor: default;
   }
 `;
 

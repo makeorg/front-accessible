@@ -26,8 +26,10 @@ export const AvatarRows = ({ avatars }: Props) => (
         <Avatar avatarSize={34} avatarUrl={avatar} />
       </AvatarStyle>
     ))}
-    <AvatarStyle>
-      <AvatarWithDots />
-    </AvatarStyle>
+    {avatars.length > 3 && (
+      <AvatarStyle>
+        <AvatarWithDots />
+      </AvatarStyle>
+    )}
   </AvatarRowsStyle>
 );
