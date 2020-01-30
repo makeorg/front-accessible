@@ -210,7 +210,7 @@
     "vote_heart": "de coups de coeur"
   },
   "idea_details": {
-    "current_page": "détails de l'idée",
+    "current_page": "Détail de l'idée",
     "proposals": "Les propositions associées"
   },
   "proposal_card": {
@@ -504,6 +504,13 @@
     "opinions": {
       "title": "Les prises de position de {{firstname}} {{lastname}} :",
       "placeholder_text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées citoyennes."
+    },
+    "disclaimer": {
+      "title": "Informations",
+      "subtitle_first": "Comment prendre position sur une idée citoyenne ?", 
+      "description_first": "Sur chaque idée, vous avez la possibilité d'apporter un vote (\"d'accord\", \"pas d'accord\" ou \"autre\") et une qualification pour préciser votre avis. Cette prise de position ouvrira 3 champs,  dans lesquels vous pourrez rédiger vos 3 mesures phares et/ou préciser votre position.",
+      "subtitle_second": "Comment modifier mes réponses publiées ?", 
+      "description_second": "Si vous souhaitez modifier vos mesures après avoir cliqué sur \"Publier\", contactez nos équipes à l'adresse {{mailto}}"
     }
   },
   "consultation": {
