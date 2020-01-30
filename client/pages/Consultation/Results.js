@@ -17,7 +17,10 @@ import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { withQuestionData } from './fetchQuestionData';
-import { ConsultationPageWrapperStyle } from './style';
+import {
+  ConsultationPageWrapperStyle,
+  ConsultationHeaderWrapperStyle,
+} from './style';
 
 type Props = {
   question: TypeQuestion,
@@ -46,10 +49,17 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       </MiddlePageWrapperStyle>
     );
   }
+
   return (
-    <React.Fragment>
+    <>
       <ResultsSkipLinks />
-      <IntroBanner question={question} />
+      <ConsultationHeaderWrapperStyle
+        gradientStart={question.theme.gradientStart}
+        gradientEnd={question.theme.gradientEnd}
+        backgroundcolor={question.theme.gradientStart}
+      >
+        <IntroBanner question={question} />
+      </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ResultsContent
@@ -59,7 +69,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
-    </React.Fragment>
+    </>
   );
 };
 

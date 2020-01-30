@@ -21,8 +21,13 @@ import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepar
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
+import { isInProgress } from 'Shared/helpers/date';
+import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { withQuestionData } from './fetchQuestionData';
-import { ConsultationPageWrapperStyle } from './style';
+import {
+  ConsultationPageWrapperStyle,
+  ConsultationHeaderWrapperStyle,
+} from './style';
 
 type Props = {
   question: TypeQuestion,
@@ -62,6 +67,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     return <Redirect to={resultsLink} />;
   }
 
+  if (!isInProgress(question) && !question.displayResults) {
+    window.location = question.aboutUrl;
+  }
+
   return (
     <>
       {isMobile && question.descriptionImage && (
@@ -78,7 +87,14 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       {isNavigationBetweenQuestionActive && hasSiblingQuestions && (
         <NavigationBetweenQuestions question={question} />
       )}
-      <IntroBanner question={question} />
+      <ConsultationHeaderWrapperStyle
+        gradientStart={question.theme.gradientStart}
+        gradientEnd={question.theme.gradientEnd}
+        backgroundcolor={question.theme.gradientStart}
+      >
+        <IntroBanner question={question} />
+        <NavigationWithTabs question={question} />
+      </ConsultationHeaderWrapperStyle>
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
       {/** @todo remove or refactor when Municipales is over */}

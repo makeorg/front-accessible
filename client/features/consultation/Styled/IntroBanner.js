@@ -6,39 +6,13 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { TabsOffsetMobile, TabsOffsetDesktop } from 'Shared/constants/tabs';
 import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
-const MobilePaddingWithOffset = DefaultPadding.Mobile + TabsOffsetMobile;
-const DesktopPaddingWithOffset = DefaultPadding.Desktop + TabsOffsetDesktop;
-
 export const IntroWrapperStyle = styled(MiddleColumnStyle)`
-  background-color: ${props => props.backgroundcolor};
-  background: linear-gradient(
-    115deg,
-    ${props => props.gradientStart},
-    ${props => props.gradientEnd}
-  );
   padding: 30px ${intToPx(DefaultPadding.Mobile)};
-  margin-top: -5px;
-  &.great-cause-banner {
-    padding-bottom: ${intToPx(MobilePaddingWithOffset)};
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 50px ${intToPx(DefaultPadding.Desktop)};
-    &.great-cause-banner {
-      padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
-    }
-  }
-`;
-
-export const GreatCauseIntroWrapperStyle = styled(IntroWrapperStyle)`
-  position: relative;
-  padding-bottom: ${intToPx(MobilePaddingWithOffset)};
-  color: ${props => props.theme.fontColor};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
   }
 `;
 

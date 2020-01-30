@@ -25,9 +25,6 @@ export const ConsultationPanelInnerStyle = styled.div`
 `;
 
 export const ConsultationNavStyle = styled(TabNavStyle)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
   && {
     margin-bottom: 0;
   }

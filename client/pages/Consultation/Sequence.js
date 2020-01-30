@@ -15,7 +15,10 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
-import { getConsultationLink } from 'Shared/helpers/url';
+import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
+import { isGreatCause } from 'Shared/helpers/question';
+import { Redirect } from 'react-router';
+import { isInProgress } from 'Shared/helpers/date';
 import {
   SequencePageContentStyle,
   SequenceProposalFieldStyle,
@@ -37,6 +40,12 @@ const SequencePageContainer = ({ question }: Props) => {
     question.language,
     question.slug
   );
+  const resultsLink = getResultsLink(
+    question.country,
+    question.language,
+    question.slug
+  );
+  const questionIsGreatCause = isGreatCause(question.operationKind);
 
   useEffect(() => {
     trackDisplaySequence();
@@ -58,6 +67,15 @@ const SequencePageContainer = ({ question }: Props) => {
       </SequencePageContentStyle>
     );
   }
+
+  if (questionIsGreatCause && question.displayResults) {
+    return <Redirect to={resultsLink} />;
+  }
+
+  if (!isInProgress(question) && !question.displayResults) {
+    window.location = question.aboutUrl;
+  }
+
   return (
     <>
       <MetaTags
