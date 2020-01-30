@@ -11,9 +11,7 @@ import {
   DefaultBannerTitleStyle,
   DefaultBannerMainContainer,
   DefaultBannerTimeStyle,
-  GreatCauseIntroWrapperStyle,
 } from 'Client/features/consultation/Styled/IntroBanner';
-import { NavigationWithTabs } from '../Navigation/Tabs';
 
 type Props = {
   question: TypeQuestion,
@@ -21,13 +19,7 @@ type Props = {
 
 export const IntroBanner = ({ question }: Props) => {
   return isGreatCause(question.operationKind) ? (
-    <GreatCauseIntroWrapperStyle
-      as="header"
-      gradientStart={question.theme.gradientStart}
-      gradientEnd={question.theme.gradientEnd}
-      backgroundcolor={question.theme.gradientStart}
-      id="intro"
-    >
+    <IntroWrapperStyle as="header" id="intro">
       <GreatCauseIntroLabelStyle>
         {i18n.t('consultation.header.label')}
       </GreatCauseIntroLabelStyle>
@@ -43,16 +35,9 @@ export const IntroBanner = ({ question }: Props) => {
           {question.wording.question}
         </GreatCauseIntroBannerTitleStyle>
       )}
-      <NavigationWithTabs question={question} />
-    </GreatCauseIntroWrapperStyle>
+    </IntroWrapperStyle>
   ) : (
-    <IntroWrapperStyle
-      as="header"
-      gradientStart={question.theme.gradientStart}
-      gradientEnd={question.theme.gradientEnd}
-      backgroundcolor={question.theme.gradientStart}
-      id="intro"
-    >
+    <IntroWrapperStyle as="header" id="intro">
       <DefaultBannerMainContainer>
         <DefaultBannerTitleStyle>
           {question.wording.question}

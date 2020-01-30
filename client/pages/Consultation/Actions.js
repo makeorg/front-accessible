@@ -13,7 +13,10 @@ import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping'
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { withQuestionData } from './fetchQuestionData';
-import { ConsultationPageWrapperStyle } from './style';
+import {
+  ConsultationPageWrapperStyle,
+  ConsultationHeaderWrapperStyle,
+} from './style';
 
 type Props = {
   question: TypeQuestion,
@@ -34,8 +37,14 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   return (
     <React.Fragment>
       <ActionsSkipLinks />
-      <IntroBanner question={question} />
-      <NavigationWithTabs question={question} />
+      <ConsultationHeaderWrapperStyle
+        gradientStart={question.theme.gradientStart}
+        gradientEnd={question.theme.gradientEnd}
+        backgroundcolor={question.theme.gradientStart}
+      >
+        <IntroBanner question={question} />
+        <NavigationWithTabs question={question} />
+      </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle className="great-cause-container">
         <ConsultationPanelInnerStyle>
           <ActionsContent question={question} />

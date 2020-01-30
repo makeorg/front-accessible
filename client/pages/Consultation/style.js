@@ -14,6 +14,16 @@ import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
+export const ConsultationHeaderWrapperStyle = styled.div`
+  background-color: ${props => props.backgroundcolor};
+  background: linear-gradient(
+    115deg,
+    ${props => props.gradientStart},
+    ${props => props.gradientEnd}
+  );
+  margin-top: -5px;
+`;
+
 export const ConsultationPageWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;

@@ -29,6 +29,7 @@ import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
   ConsultationPageSidebarStyle,
+  ConsultationHeaderWrapperStyle,
 } from './style';
 
 type Props = {
@@ -124,7 +125,13 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
 
   return (
     <>
-      <IntroBanner question={question} />
+      <ConsultationHeaderWrapperStyle
+        gradientStart={question.theme.gradientStart}
+        gradientEnd={question.theme.gradientEnd}
+        backgroundcolor={question.theme.gradientStart}
+      >
+        <IntroBanner question={question} />
+      </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle>
         <ConsultationPageSidebarStyle>
           <TopIdeasSidebar question={question} />
