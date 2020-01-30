@@ -46,6 +46,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       </MiddlePageWrapperStyle>
     );
   }
+
   return (
     <React.Fragment>
       <ResultsSkipLinks />

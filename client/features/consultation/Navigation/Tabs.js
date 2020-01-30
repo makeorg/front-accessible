@@ -16,7 +16,13 @@ import {
   getResultsLink,
 } from 'Shared/helpers/url';
 import { trackClickActionsTab } from 'Shared/services/Tracking';
-import { ROUTE_CONSULTATION, ROUTE_ACTION, ROUTE_RESULTS } from 'Shared/routes';
+import {
+  ROUTE_CONSULTATION,
+  ROUTE_ACTION,
+  ROUTE_RESULTS,
+  ROUTE_TOP_IDEA_DETAILS,
+  ROUTE_TOP_IDEAS,
+} from 'Shared/routes';
 
 type Props = {
   question: TypeQuestion,
@@ -42,6 +48,15 @@ export const NavigationWithTabs = ({ question }: Props) => {
   const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
   const isActionsPage = !!matchPath(location.pathname, ROUTE_ACTION);
   const isResultsPage = !!matchPath(location.pathname, ROUTE_RESULTS);
+  const isTopIdeasPage = !!matchPath(location.pathname, ROUTE_TOP_IDEAS);
+  const isTopIdeaDetailsPage = !!matchPath(
+    location.pathname,
+    ROUTE_TOP_IDEA_DETAILS
+  );
+
+  if (isTopIdeasPage || isTopIdeaDetailsPage) {
+    return null;
+  }
 
   return (
     <ConsultationNavStyle

@@ -4,7 +4,6 @@ import { compose } from 'redux';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
-import { isInProgress } from 'Shared/helpers/date';
 import { MetaTags } from 'Client/app/MetaTags';
 import {
   type Question as TypeQuestion,
@@ -87,12 +86,6 @@ const callQuestionData = Component =>
         updateQuestion();
       }
     }, [match.params.questionSlug]);
-
-    useEffect(() => {
-      if (question && !isInProgress(question) && !question.displayResults) {
-        window.location = question.aboutUrl;
-      }
-    }, [question]);
 
     useEffect(() => {
       // Try to find related questions

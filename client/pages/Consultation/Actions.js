@@ -11,6 +11,7 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
+import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -34,6 +35,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     <React.Fragment>
       <ActionsSkipLinks />
       <IntroBanner question={question} />
+      <NavigationWithTabs question={question} />
       <ConsultationPageWrapperStyle className="great-cause-container">
         <ConsultationPanelInnerStyle>
           <ActionsContent question={question} />

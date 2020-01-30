@@ -22,14 +22,8 @@ export const IntroWrapperStyle = styled(MiddleColumnStyle)`
   );
   padding: 30px ${intToPx(DefaultPadding.Mobile)};
   margin-top: -5px;
-  &.great-cause-banner {
-    padding-bottom: ${intToPx(MobilePaddingWithOffset)};
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 50px ${intToPx(DefaultPadding.Desktop)};
-    &.great-cause-banner {
-      padding-bottom: ${intToPx(DesktopPaddingWithOffset)};
-    }
   }
 `;
 

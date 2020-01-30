@@ -21,6 +21,8 @@ import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepar
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
+import { isInProgress } from 'Shared/helpers/date';
+import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -60,6 +62,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
   if (questionIsGreatCause && question.displayResults) {
     return <Redirect to={resultsLink} />;
+  }
+
+  if (!isInProgress(question) && !question.displayResults) {
+    window.location = question.aboutUrl;
   }
 
   return (
