@@ -93,7 +93,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         backgroundcolor={question.theme.gradientStart}
       >
         <IntroBanner question={question} />
-        <NavigationWithTabs question={question} />
+        {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}

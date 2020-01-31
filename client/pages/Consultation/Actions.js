@@ -43,7 +43,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         backgroundcolor={question.theme.gradientStart}
       >
         <IntroBanner question={question} />
-        <NavigationWithTabs question={question} />
+        {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle className="great-cause-container">
         <ConsultationPanelInnerStyle>
