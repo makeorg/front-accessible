@@ -92,3 +92,14 @@ export const DISPLAY_PAGE_IDEAS: string = 'display-page-ideas';
 export const CLICK_PROFILE: string = 'click-profile';
 export const CLICK_PUBLIC_PROFILE: string = 'click-public-profile';
 export const DISPLAY_PUBLIC_PROFILE: string = 'display-public-profile';
+
+/**
+ *  PARAMETERS  *
+ */
+
+/** component name parameter */
+export const COMPONENT_PARAM_PROPOSALS = 'proposals';
+export const COMPONENT_PARAM_TOP_PROPOSALS = 'top-proposals';
+export const COMPONENT_PARAM_CURRENT_OPERATIONS = 'current-operations';
+export const COMPONENT_PARAM_FAVOURITES = 'favourites';
+export const COMPONENT_PARAM_DETAIL_IDEAS = 'detail-ideas';

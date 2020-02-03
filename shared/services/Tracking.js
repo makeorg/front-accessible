@@ -118,11 +118,15 @@ export const trackSeeMorePartners = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_SEE_MORE_COMMUNITY);
 };
 
-export const trackLoadMoreProposals = (pageCount?: number) => {
+export const trackLoadMoreProposals = (
+  componentName: string,
+  pageCount?: number
+) => {
   const pageNumber = pageCount !== undefined ? pageCount.toString() : undefined;
 
   TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_VIEW_MORE, {
     page: pageNumber,
+    component: componentName,
   });
 };
 
@@ -404,7 +408,9 @@ export const trackClickHomepageConsultations = () => {
 };
 
 export const trackClickHomepageSliderArrows = () => {
-  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_VIEW_MORE);
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_VIEW_MORE, {
+    component: trackingConstants.COMPONENT_PARAM_CURRENT_OPERATIONS,
+  });
 };
 
 /** Search */
