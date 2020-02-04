@@ -27,6 +27,7 @@ import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
 import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { OpinionComment } from 'Client/features/opinions/Comment';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -121,6 +122,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   }, [question, topIdeaId]);
 
   const hasProposals = relatedProposals && relatedProposals.length > 0;
+  const hasComments = topIdea && topIdea.comments.length > 0;
   const displayLoadMoreButton = hasProposals && hasMore && !isLoading;
   const parentPages: BreadcrumbsPagesType = [
     {
@@ -151,6 +153,19 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
         <ConsultationPageContentStyle id="main" data-cy-container="main">
           <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
           {topIdea && <TopIdeaCard topIdea={topIdea} />}
+          {hasComments && (
+            <>
+              <TopIdeaDetailsPageTitleStyle>
+                {i18n.t('idea_details.comments')}
+              </TopIdeaDetailsPageTitleStyle>
+              <section>
+                {topIdea &&
+                  topIdea.comments.map(comment => (
+                    <OpinionComment question={question} comment={comment} />
+                  ))}
+              </section>
+            </>
+          )}
           {hasProposals && (
             <>
               <TopIdeaDetailsPageTitleStyle>

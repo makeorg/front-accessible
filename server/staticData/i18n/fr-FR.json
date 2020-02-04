@@ -213,7 +213,8 @@
   },
   "idea_details": {
     "current_page": "Détail de l'idée",
-    "proposals": "Les propositions associées"
+    "proposals": "Les propositions associées",
+    "comments": "Ils ont pris position"
   },
   "proposal_card": {
     "previous": "Proposition précédente",

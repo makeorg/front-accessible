@@ -81,9 +81,9 @@ export const TopIdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
 `;
 
 export const TopIdeaDetailsPageTitleStyle = styled(TopIdeasPageTitleStyle)`
-  margin-top: 40px;
+  margin: 40px 0 25px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-top: 40px;
+    margin: 40px 0 25px;
   }
 `;
 

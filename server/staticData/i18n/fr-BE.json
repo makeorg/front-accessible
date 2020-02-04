@@ -213,7 +213,8 @@
   },
   "idea_details": {
     "current_page": "Détail de l'idée",
-    "proposals": "Les propositions associées"
+    "proposals": "Les propositions associées",
+    "comments": "Ils ont pris position"
   },
   "proposal_card": {
     "previous": "Proposition précédente",
@@ -531,18 +532,12 @@
         "agree" : "Je suis <span>d'accord</span>.",
         "agree_priority" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span>.",
         "agree_doable" : "Je suis <span>d'accord</span>, c'est une idée <span>réaliste</span>.",
-        "agree_priority_doable" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span> et <span>réaliste</span>",
-        "agree_doable_priority" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span> et <span>réaliste</span>",
         "disagree" : "Je ne suis <span>pas d'accord</span>.",
         "disagree_noWay" : "Je ne suis <span>pas d'accord</span>, je ne veux <span>surtout pas</span> reprendre cette idée.",
         "disagree_nonPriority" : "Je ne suis <span>pas d'accord</span>, c'est une idée <span>non prioritaire</span>.",
-        "disagree_nonPriority_noWay" : "Je ne suis <span>pas d'accord</span>,  c'est une idée <span>non prioritaire</span>, je ne veux <span>surtout pas</span> la reprendre.",
-        "disagree_noWay_nonPriority" : "Je ne suis <span>pas d'accord</span>,  c'est une idée <span>non prioritaire</span>, je ne veux <span>surtout pas</span> la reprendre.",
         "other" : "Cette proposition <span>existe déjà</span>  ou <span>est à préciser</span> .",
         "other_exists" : "Cette proposition <span>existe déjà</span> .",
-        "other_toBePrecised" : "Cette proposition est <span>à préciser</span> .",
-        "other_exists_toBePrecised" : "Cette proposition <span>existe déjà</span> ou est <span>à préciser</span> .",
-        "other_toBePrecised_exists" : "Cette proposition <span>existe déjà ou est <span>à préciser</span> ."
+        "other_toBePrecised" : "Cette proposition est <span>à préciser</span> ."
       }
     },
     "disclaimer": {

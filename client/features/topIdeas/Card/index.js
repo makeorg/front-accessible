@@ -97,7 +97,14 @@ export const TopIdeaCard = ({
         <PositionStyle>
           <SvgChat aria-hidden />
           <PositionContentStyle>
-            <RedLinkRouterStyle to="#">
+            <RedLinkRouterStyle
+              to={getTopIdeaDetailsLink(
+                question.country,
+                question.language,
+                question.slug,
+                topIdea.id
+              )}
+            >
               {i18n.t('idea_card.position', {
                 count: topIdea.commentsCount,
               })}
