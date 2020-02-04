@@ -24,6 +24,9 @@ import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
 import { getTopIdeasLink } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
+import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
+import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -48,6 +51,12 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const [seed, setSeed] = useState<?number>(undefined);
   const [page, setPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // @todo remove or refactor when Municipales is over
+  const withPersonalityHeader: boolean = checkIsFeatureActivated(
+    MUNICIPAL_PERSONALITY_HEADER,
+    question.activeFeatures
+  );
 
   const initRelatedProposals = async (idea: string) => {
     const { results, total, seed: apiSeed } = await searchProposals(
@@ -133,11 +142,13 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       >
         <IntroBanner question={question} />
       </ConsultationHeaderWrapperStyle>
+      {/** @todo remove or refactor when Municipales is over */}
+      {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
         <ConsultationPageSidebarStyle>
           <TopIdeasSidebar question={question} />
         </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle>
+        <ConsultationPageContentStyle id="main" data-cy-container="main">
           <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
           {topIdea && <TopIdeaCard topIdea={topIdea} />}
           {hasProposals && (

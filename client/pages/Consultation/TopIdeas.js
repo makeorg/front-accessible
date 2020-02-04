@@ -11,6 +11,9 @@ import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { i18n } from 'Shared/i18n';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
+import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -31,6 +34,12 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
   const [topIdeas, setTopIdeas] = useState<TypeTopIdea[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
 
+  // @todo remove or refactor when Municipales is over
+  const withPersonalityHeader: boolean = checkIsFeatureActivated(
+    MUNICIPAL_PERSONALITY_HEADER,
+    question.activeFeatures
+  );
+
   useEffect(() => {
     getTopIdeas(question.questionId).then(response => {
       setTopIdeas(response);
@@ -50,11 +59,13 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
       >
         <IntroBanner question={question} />
       </ConsultationHeaderWrapperStyle>
+      {/** @todo remove or refactor when Municipales is over */}
+      {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
         <ConsultationPageSidebarStyle>
           <TopIdeasSidebar question={question} />
         </ConsultationPageSidebarStyle>
-        <ConsultationPageContentStyle>
+        <ConsultationPageContentStyle id="main" data-cy-container="main">
           <TopIdeasPageTitleStyle>
             {i18n.t('idea_card.title')}
           </TopIdeasPageTitleStyle>

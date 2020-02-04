@@ -15,12 +15,10 @@ import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
   MUNICIPAL_TEASING_HEADER,
-  MUNICIPAL_PERSONALITY_HEADER,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
-import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { isInProgress } from 'Shared/helpers/date';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { withQuestionData } from './fetchQuestionData';
@@ -54,12 +52,6 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   // @todo remove or refactor when Municipales is over
   const isTeasingHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_TEASING_HEADER,
-    question.activeFeatures
-  );
-
-  // @todo remove or refactor when Municipales is over
-  const withPersonalityHeader: boolean = checkIsFeatureActivated(
-    MUNICIPAL_PERSONALITY_HEADER,
     question.activeFeatures
   );
 
@@ -97,8 +89,6 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       </ConsultationHeaderWrapperStyle>
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
-      {/** @todo remove or refactor when Municipales is over */}
-      {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>
           <ConsultationContent question={question} />
