@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { type TypePersonality } from 'Shared/types/user';
+import { type PersonalityOpinionType } from 'Shared/types/personality';
 import {
   ThumbsUpWrapperStyle,
   ThumbsUpStyle,
@@ -16,42 +17,74 @@ import { i18n } from 'Shared/i18n';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { DisclaimerSubtitleStyle } from './style';
+import { getPersonnalityOpinion } from 'Shared/services/Personality';
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { DisclaimerSubtitleStyle, OpinionCardListItemStyle } from './style';
+import { OpinionCard } from './Card';
 
 type Props = {
   personality: TypePersonality,
   privateProfile?: boolean,
 };
 
-const withOpinions = true;
+type OpinionsProps = {
+  opinions: PersonalityOpinionType,
+  personality: TypePersonality,
+};
 
-export const Opinions = ({ personality, privateProfile = false }: Props) => {
-  if (!withOpinions) {
+const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {
+  const noOpinions = opinions.length < 1;
+
+  if (noOpinions) {
     return (
-      <>
-        <ProfileContentHeaderStyle>
-          <SecondLevelTitleStyle>
-            {i18n.t('personality.opinions.title', {
-              firstname: personality.firstName,
-              lastname: personality.lastName,
-            })}
-          </SecondLevelTitleStyle>
-          <ProfileTitleSeparatorStyle />
-        </ProfileContentHeaderStyle>
-        <CenterColumnStyle>
-          <ThumbsUpWrapperStyle>
-            <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
-          </ThumbsUpWrapperStyle>
-          <PlaceholderParagraphStyle>
-            {i18n.t('personality.opinions.placeholder_text', {
-              firstname: personality.firstName,
-              lastname: personality.lastName,
-            })}
-          </PlaceholderParagraphStyle>
-        </CenterColumnStyle>
-      </>
+      <CenterColumnStyle>
+        <ThumbsUpWrapperStyle>
+          <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
+        </ThumbsUpWrapperStyle>
+        <PlaceholderParagraphStyle>
+          {i18n.t('personality.opinions.placeholder_text', {
+            firstname: personality.firstName,
+            lastname: personality.lastName,
+          })}
+        </PlaceholderParagraphStyle>
+      </CenterColumnStyle>
     );
   }
+
+  return (
+    <UnstyledListStyle>
+      {opinions.map(opinion => (
+        <OpinionCardListItemStyle key={opinion.topIdea.id}>
+          <OpinionCard userId={personality.userId} opinion={opinion} />
+        </OpinionCardListItemStyle>
+      ))}
+    </UnstyledListStyle>
+  );
+};
+
+const getCommentedOpinions = (opinions: PersonalityOpinionType[]) => {
+  return opinions.filter(opinion => opinion.comment !== null);
+};
+
+export const Opinions = ({ personality, privateProfile = false }: Props) => {
+  const [opinions, setOpinions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchPersonnalityOpinions = async () => {
+    getPersonnalityOpinion(personality.userId).then(personalityOpinions => {
+      if (privateProfile) {
+        setOpinions(personalityOpinions);
+      } else {
+        setOpinions(getCommentedOpinions(personalityOpinions));
+      }
+      setIsLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    fetchPersonnalityOpinions();
+  }, [personality]);
 
   return (
     <>
@@ -89,11 +122,21 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
             <DisclaimerSubtitleStyle className="margin-top">
               {i18n.t('personality.disclaimer.subtitle_second')}
             </DisclaimerSubtitleStyle>
-            <ParagraphStyle>
-              {i18n.t('personality.disclaimer.description_second')}
-            </ParagraphStyle>
+            <ParagraphStyle
+              dangerouslySetInnerHTML={{
+                __html: i18n.t('personality.disclaimer.description_second', {
+                  mailto:
+                    '<a class="red-link" href="mailto:candidats-municipales@make.org">candidats-municipales@make.org</a>',
+                }),
+              }}
+            />
           </TileWithTitle>
         </>
+      )}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <RenderOpinions opinions={opinions} personality={personality} />
       )}
     </>
   );

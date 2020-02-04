@@ -81,6 +81,8 @@
         "website_optional": "Site Internet (optionnel)",
         "organisation_optional": "Nom de l'organisation (optionnel)",
         "personality": {
+          "firstname": "Prénom du candidat / tête de liste",
+          "lastname": "Nom du candidat / tête de liste",
           "firstname_M": "Prénom du candidat / tête de liste",
           "lastname_M": "Nom du candidat / tête de liste",
           "firstname_F": "Prénom de la candidate / tête de liste",
@@ -503,7 +505,45 @@
     },
     "opinions": {
       "title": "Les prises de position de {{firstname}} {{lastname}} :",
-      "placeholder_text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées citoyennes."
+      "placeholder_text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées citoyennes.",
+      "vote": {
+        "agree": "d'accord",
+        "disagree": "pas d'accord",
+        "other": "autre"
+      },
+      "qualification": {
+        "priority": "Prioritaire",
+        "doable": "Réaliste",
+        "noWay": "Surtout pas",
+        "nonPriority": "Non prioritaire",
+        "exists": "Existant",
+        "toBePrecised": "À préciser"
+      },
+      "form": {
+        "title": "Quelles sont vos positions pour répondre à cette idée ?",
+        "label": "Écrire ici...",
+        "validate": "Valider ma prise de position",
+        "disclaimer": "Attention, pour modifier votre prise de position après publication, il vous faudra contacter Make.org. Êtes-vous bien sûr de vouloir publier maintenant ? Si oui, cliquez sur \"Confirmer et publier\".",
+        "preview_cancel": "Modifier",
+        "preview_confirm": "Confirmer et publier"
+      },
+      "preview": {
+        "agree" : "Je suis <span>d'accord</span>.",
+        "agree_priority" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span>.",
+        "agree_doable" : "Je suis <span>d'accord</span>, c'est une idée <span>réaliste</span>.",
+        "agree_priority_doable" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span> et <span>réaliste</span>",
+        "agree_doable_priority" : "Je suis <span>d'accord</span>, c'est une idée <span>prioritaire</span> et <span>réaliste</span>",
+        "disagree" : "Je ne suis <span>pas d'accord</span>.",
+        "disagree_noWay" : "Je ne suis <span>pas d'accord</span>, je ne veux <span>surtout pas</span> reprendre cette idée.",
+        "disagree_nonPriority" : "Je ne suis <span>pas d'accord</span>, c'est une idée <span>non prioritaire</span>.",
+        "disagree_nonPriority_noWay" : "Je ne suis <span>pas d'accord</span>,  c'est une idée <span>non prioritaire</span>, je ne veux <span>surtout pas</span> la reprendre.",
+        "disagree_noWay_nonPriority" : "Je ne suis <span>pas d'accord</span>,  c'est une idée <span>non prioritaire</span>, je ne veux <span>surtout pas</span> la reprendre.",
+        "other" : "Cette proposition <span>existe déjà</span>  ou <span>est à préciser</span> .",
+        "other_exists" : "Cette proposition <span>existe déjà</span> .",
+        "other_toBePrecised" : "Cette proposition est <span>à préciser</span> .",
+        "other_exists_toBePrecised" : "Cette proposition <span>existe déjà</span> ou est <span>à préciser</span> .",
+        "other_toBePrecised_exists" : "Cette proposition <span>existe déjà ou est <span>à préciser</span> ."
+      }
     },
     "disclaimer": {
       "title": "Informations",
