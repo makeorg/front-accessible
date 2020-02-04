@@ -17,6 +17,7 @@ import {
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { FEED_PROPOSAL } from 'Shared/constants/card';
+import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 import { InfiniteProposalsContainerStyle } from './style';
 import { ProposalType } from './type';
@@ -85,7 +86,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
 
   const clickLoadMore = () => {
     loadProposals();
-    trackLoadMoreProposals(page);
+    trackLoadMoreProposals(COMPONENT_PARAM_PROPOSALS, page);
   };
   const flatTags = tags.join();
 

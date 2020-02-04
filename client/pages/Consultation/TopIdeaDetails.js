@@ -23,6 +23,7 @@ import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
 import { getTopIdeasLink } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
+import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -70,7 +71,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   };
 
   const loadProposals = async () => {
-    trackLoadMoreProposals(page);
+    trackLoadMoreProposals(COMPONENT_PARAM_DETAIL_IDEAS, page);
     setIsLoading(true);
 
     const { results, total, seed: apiSeed } = await searchProposals(

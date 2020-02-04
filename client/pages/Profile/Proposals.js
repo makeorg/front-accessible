@@ -16,6 +16,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 
 type Props = {
   user: TypeUser,
@@ -57,7 +58,7 @@ const ProfileProposalsPage = ({ user }: Props) => {
 
   const clickLoadMore = () => {
     loadProposals();
-    trackLoadMoreProposals(page);
+    trackLoadMoreProposals(COMPONENT_PARAM_PROPOSALS, page);
   };
 
   useEffect(() => {

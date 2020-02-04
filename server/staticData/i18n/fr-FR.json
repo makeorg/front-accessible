@@ -690,7 +690,7 @@
       }
     },
     "popular_proposals": {
-      "title": "TOP {{ count }} des propositions les plus populaires du moment"
+      "title": "TOP {{ count }} des propositions les plus populaires du moment par sujet"
     }
   },
   "sharing": {

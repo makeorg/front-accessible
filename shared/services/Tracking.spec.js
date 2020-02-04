@@ -598,14 +598,17 @@ describe('Tracking Service', () => {
 
   it('track Load More Proposals with page number', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
+    const componentName = trackingConstants.COMPONENT_PARAM_PROPOSALS;
 
-    trackLoadMoreProposals(9);
+    trackLoadMoreProposals(componentName, 9);
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       page: '9',
+      component: componentName,
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       page: '9',
+      component: componentName,
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -682,12 +685,13 @@ describe('Tracking Service', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VIEW_MORE;
 
     trackClickHomepageSliderArrows();
-    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
-      1,
-      eventName,
-      eventParameters
-    );
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      component: trackingConstants.COMPONENT_PARAM_CURRENT_OPERATIONS,
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      component: trackingConstants.COMPONENT_PARAM_CURRENT_OPERATIONS,
+    });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 });

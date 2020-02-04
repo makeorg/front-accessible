@@ -18,6 +18,8 @@ import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { trackLoadMoreProposals } from 'Shared/services/Tracking';
+import { COMPONENT_PARAM_TOP_PROPOSALS } from 'Shared/constants/tracking';
 import {
   PopularProposalsSliderListItemStyle,
   PopularProposalsSliderListStyle,
@@ -112,6 +114,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           aria-label={i18n.t('common.slider.previous')}
           aria-controls="glide_translator"
           direction="left"
+          onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
           <SvgArrowLeft aria-hidden />
         </PopularProposalsArrowsStyle>
@@ -120,6 +123,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           aria-label={i18n.t('common.slider.next')}
           aria-controls="glide_translator"
           direction="right"
+          onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
           <SvgArrowRight aria-hidden />
         </PopularProposalsArrowsStyle>
