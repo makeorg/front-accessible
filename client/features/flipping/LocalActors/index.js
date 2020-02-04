@@ -72,7 +72,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
       <UnstyledListStyle>
         {actors &&
           actors.results &&
-          actors.results.slice(0, 4).map(actor => (
+          actors.results.slice(0, actors.results.length).map(actor => (
             <LocalActorItemStyle key={actor.organisationId}>
               <AvatarStyle>
                 <Avatar
