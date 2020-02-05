@@ -38,20 +38,20 @@ const PartnersListByType = ({
     </>
   ) : (
     <>
-      {medias.length > 0 && (
-        <>
-          <FoundersTitleStyle>
-            {i18n.t('consultation.partners.with')}
-          </FoundersTitleStyle>
-          <PartnersList partners={medias} />
-        </>
-      )}
       {founders.length > 0 && (
         <>
           <FoundersTitleStyle>
             {i18n.t('consultation.partners.by')}
           </FoundersTitleStyle>
           <PartnersList partners={founders} />
+        </>
+      )}
+      {medias.length > 0 && (
+        <>
+          <FoundersTitleStyle>
+            {i18n.t('consultation.partners.with')}
+          </FoundersTitleStyle>
+          <PartnersList partners={medias} />
         </>
       )}
     </>
