@@ -484,5 +484,12 @@ export const trackDisplayTopIdeas = (pageType: string) => {
   });
 };
 
+/** Results */
+export const trackDownloadReport = (extension: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_REPORT_DOWNLOAD, {
+    type: extension,
+  });
+};
+
 /* eslint-disable import/no-default-export */
 export default TrackingService;

@@ -18,6 +18,12 @@ export type TypeThemeItem = {
   ideas: string[],
 };
 
+export type TypeReports = {
+  type: string,
+  path: string,
+  size: string,
+};
+
 export type TypeControversialProposals = {
   author: string,
   content: string,
@@ -81,6 +87,7 @@ export type TypeHistogram = {
 
 export type QuestionResults = {
   context: string,
+  reports: ?Array<TypeReports>,
   key_figures: {
     participants: number,
     proposals: number,

@@ -43,7 +43,7 @@ import { topIdeasRoute } from './ssr/topIdeasRoute';
 
 const express = require('express');
 const serveStatic = require('serve-static');
-const { BUILD_DIR, IMAGES_DIR, DOC_DIR } = require('./paths');
+const { BUILD_DIR, IMAGES_DIR, REPORTS_DIR, DOC_DIR } = require('./paths');
 
 function setCustomCacheControl(res, path) {
   if (serveStatic.mime.lookup(path) === 'text/html') {
@@ -65,6 +65,14 @@ export const initRoutes = app => {
   app.use(
     '/images',
     express.static(IMAGES_DIR, {
+      maxAge: '1y',
+      setHeaders: setCustomCacheControl,
+    })
+  );
+
+  app.use(
+    '/reports',
+    express.static(REPORTS_DIR, {
       maxAge: '1y',
       setHeaders: setCustomCacheControl,
     })

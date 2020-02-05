@@ -663,6 +663,11 @@
         "value": "Valeur",
         "value_with_unit": "valeur en {{unit}}",
         "percentage": "pourcentage"
+      },
+      "download": { 
+        "title": "Télécharger le rapport complet",
+        "type": "Format : {{extension}} - Poids : {{weight}}",
+        "button": "Télécharger"
       }
     },
     "close": "Fermer",

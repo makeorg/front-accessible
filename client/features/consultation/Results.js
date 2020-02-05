@@ -16,7 +16,10 @@ import {
   SvgLightBulb,
 } from 'Client/ui/Svg/elements';
 import { useDesktop, useMobile } from 'Client/hooks/useMedia';
-import { trackDisplayConsultation } from 'Shared/services/Tracking';
+import {
+  trackDisplayConsultation,
+  trackDownloadReport,
+} from 'Shared/services/Tracking';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import {
   RESULTS_CONTEXT,
@@ -26,13 +29,18 @@ import {
   RESULTS_CONTROVERSIALS,
   RESULTS_REJECTED,
   RESULTS_PARTICIPATION,
+  RESULTS_REPORT,
 } from 'Shared/constants/ids';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ConsultationSidebar } from './Sidebar';
 import { ResultsContext } from './Results/Context';
 import {
   ResultsIconsStyle,
   ResultsLightningIconStyle,
   ResultsThumbIconStyle,
+  ResultsDownloadItemStyle,
+  ResultsDownloadButtonStyle,
 } from './Results/Styled';
 import { KeyFigures } from './Results/KeyFigures';
 import { ProposalsResults } from './Results/Proposals';
@@ -51,6 +59,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   const isMobile = useMobile();
   const isDesktop = useDesktop();
   const displaySidebar = isMobile || isDesktop;
+  const hasReports = questionResults && questionResults.reports;
 
   useEffect(() => {
     if (question) {
@@ -59,7 +68,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   }, [question]);
 
   return (
-    <React.Fragment>
+    <>
       <GliderStylesheet />
       <MetaTags
         title={i18n.t('meta.consultation.results.title', {
@@ -135,7 +144,35 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             sliderName={PARTICIPATION_SLIDER}
           />
         </TileWithTitle>
+        {hasReports && (
+          <TileWithTitle
+            title={i18n.t('consultation.results.download.title')}
+            id={RESULTS_REPORT}
+          >
+            <UnstyledListStyle>
+              {questionResults.reports &&
+                questionResults.reports.map(report => (
+                  <ResultsDownloadItemStyle key={report.type}>
+                    <ParagraphStyle as="span">
+                      {i18n.t('consultation.results.download.type', {
+                        extension: report.type,
+                        weight: report.size,
+                      })}
+                    </ParagraphStyle>
+                    <ResultsDownloadButtonStyle
+                      as="a"
+                      href={report.path}
+                      download={`${question.slug}`}
+                      onClick={() => trackDownloadReport(report.type)}
+                    >
+                      {i18n.t('consultation.results.download.button')}
+                    </ResultsDownloadButtonStyle>
+                  </ResultsDownloadItemStyle>
+                ))}
+            </UnstyledListStyle>
+          </TileWithTitle>
+        )}
       </ConsultationPageContentStyle>
-    </React.Fragment>
+    </>
   );
 };

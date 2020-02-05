@@ -16,6 +16,8 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
+import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
+import { isGreatCause } from 'Shared/helpers/question';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -29,6 +31,7 @@ type Props = {
 const ConsultationPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
+  const questionIsGreatCause = isGreatCause(question.operationKind);
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
@@ -52,13 +55,14 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
   return (
     <>
-      <ResultsSkipLinks />
+      <ResultsSkipLinks questionResults={questionResults} />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
         backgroundcolor={question.theme.gradientStart}
       >
         <IntroBanner question={question} />
+        {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle>
         <ConsultationPanelInnerStyle>

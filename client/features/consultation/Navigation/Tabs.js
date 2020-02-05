@@ -66,29 +66,30 @@ export const NavigationWithTabs = ({ question }: Props) => {
       id="consultation_nav"
     >
       <TabListStyle>
-        {question.displayResults ? (
-          <FullWidthTabStyle isSelected={isResultsPage}>
-            <Link to={resultsLink} aria-current={isResultsPage}>
-              {i18n.t('consultation.tabs.results')}
-            </Link>
-          </FullWidthTabStyle>
-        ) : (
-          <FullWidthTabStyle isSelected={isConsultationPage}>
-            <Link to={consultationLink} aria-current={isConsultationPage}>
-              {i18n.t('consultation.tabs.consultation')}
-              <ExtraTabsInformationsStyle>
-                {i18n.t('consultation.tabs.from')}
-                <time dateTime={question.startDate}>
-                  {DateHelper.creationDateFormat(question.startDate)}
-                </time>
-                {i18n.t('consultation.tabs.to')}
-                <time dateTime={question.endDate}>
-                  {DateHelper.creationDateFormat(question.endDate)}
-                </time>
-              </ExtraTabsInformationsStyle>
-            </Link>
-          </FullWidthTabStyle>
-        )}
+        <FullWidthTabStyle
+          isSelected={
+            question.displayResults ? isResultsPage : isConsultationPage
+          }
+        >
+          <Link
+            to={question.displayResults ? resultsLink : consultationLink}
+            aria-current={
+              question.displayResults ? isResultsPage : isConsultationPage
+            }
+          >
+            {i18n.t('consultation.tabs.consultation')}
+            <ExtraTabsInformationsStyle>
+              {i18n.t('consultation.tabs.from')}
+              <time dateTime={question.startDate}>
+                {DateHelper.creationDateFormat(question.startDate)}
+              </time>
+              {i18n.t('consultation.tabs.to')}
+              <time dateTime={question.endDate}>
+                {DateHelper.creationDateFormat(question.endDate)}
+              </time>
+            </ExtraTabsInformationsStyle>
+          </Link>
+        </FullWidthTabStyle>
         <FullWidthTabStyle isSelected={isActionsPage}>
           <Link
             to={actionsLink}
