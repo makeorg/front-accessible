@@ -1,7 +1,10 @@
 // @flow
 import { type Proposal as TypeProposal } from './proposal';
 import { type Question as TypeQuestion } from './question';
-import { type TopIdea as TypeTopIdea } from './topIdea';
+import {
+  type TopIdea as TypeTopIdea,
+  type TopIdeaCommentsType,
+} from './topIdea';
 import {
   type Organisation as TypeOrganisation,
   type OrganisationVote as TypeOrganisationVote,
@@ -57,6 +60,7 @@ export type ApiIdeaResponseType = {
   scores: ApiIdeaScoreType,
   proposalsCount: number,
   avatars: string[],
+  comments: TopIdeaCommentsType[],
   weight: number,
   commentsCount: number,
 };
