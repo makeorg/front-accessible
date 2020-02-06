@@ -75,6 +75,14 @@ export const GreyButtonStyle = styled(BasicButtonStyle)`
   }
 `;
 
+export const WhiteButtonStyle = styled(BasicButtonStyle)`
+  color: ${BasicColors.PureBlack};
+  background-color: ${BasicColors.PureWhite};
+  svg {
+    fill: ${BasicColors.PureBlack};
+  }
+`;
+
 export const SmallRedButtonStyle = styled(RedButtonStyle)`
   padding: 5px 15px 2.5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
