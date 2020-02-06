@@ -5,7 +5,7 @@ import { getSequenceLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
 import { trackOpenSequence } from 'Shared/services/Tracking';
-import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
+import { LinkAsWhiteButton } from 'Client/ui/Elements/LinkElements';
 import {
   ParticipateWrapperStyle,
   ParticipateSeparatorStyle,
@@ -33,9 +33,13 @@ export const ParticipateBanner = ({ question }: Props) => {
         </ParticipateDescriptionStyle>
       </ParticipateIntroductionStyle>
       <ParticipateSeparatorStyle />
-      <LinkAsRedButton as={Link} to={sequenceLink} onClick={trackOpenSequence}>
+      <LinkAsWhiteButton
+        as={Link}
+        to={sequenceLink}
+        onClick={trackOpenSequence}
+      >
         {i18n.t('common.participate')}
-      </LinkAsRedButton>
+      </LinkAsWhiteButton>
     </ParticipateWrapperStyle>
   );
 };
