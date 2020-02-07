@@ -6,7 +6,6 @@ import {
 } from 'Shared/types/question';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { i18n } from 'Shared/i18n';
-import { MetaTags } from 'Client/app/MetaTags';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import {
@@ -70,11 +69,6 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   return (
     <>
       <GliderStylesheet />
-      <MetaTags
-        title={i18n.t('meta.consultation.results.title', {
-          question: question.wording.question,
-        })}
-      />
       {displaySidebar && <ConsultationSidebar question={question} />}
       <ConsultationPageContentStyle id="main" data-cy-container="main">
         <HiddenItemStyle as="h2">

@@ -12,6 +12,8 @@ import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
+import { MetaTags } from 'Client/app/MetaTags';
+import { i18n } from 'Shared/i18n';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -35,7 +37,14 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   }
 
   return (
-    <React.Fragment>
+    <>
+      <MetaTags
+        title={i18n.t('meta.actions.title', {
+          question: question.wording.question,
+        })}
+        description={question.wording.metas.description}
+        picture={question.wording.metas.picture}
+      />
       <ActionsSkipLinks />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
@@ -51,7 +60,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         </ConsultationPanelInnerStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
-    </React.Fragment>
+    </>
   );
 };
 

@@ -18,6 +18,8 @@ import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping'
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { isGreatCause } from 'Shared/helpers/question';
+import { i18n } from 'Shared/i18n';
+import { MetaTags } from 'Client/app/MetaTags';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -55,6 +57,13 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
   return (
     <>
+      <MetaTags
+        title={i18n.t('meta.results.title', {
+          question: question.wording.question,
+        })}
+        description={question.wording.metas.description}
+        picture={question.wording.metas.picture}
+      />
       <ResultsSkipLinks questionResults={questionResults} />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}

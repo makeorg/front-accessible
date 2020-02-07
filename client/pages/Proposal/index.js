@@ -59,15 +59,16 @@ const ProposalPage = (props: Props) => {
       <MiddlePageWrapperStyle>
         <ProposalSkipLinks />
         {proposal && (
-          <React.Fragment>
+          <>
             <MetaTags
               title={i18n.t('meta.proposal.title', {
                 proposal: proposal.content,
               })}
               description={i18n.t('meta.proposal.description')}
+              picture={question.wording.metas.picture}
             />
             <SingleProposalCard proposal={proposal} />
-          </React.Fragment>
+          </>
         )}
 
         {!isSharingDisabled && <SingleProposalSharingComponent />}

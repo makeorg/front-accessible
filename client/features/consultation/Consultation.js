@@ -1,7 +1,6 @@
 // @flow
 import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { type TypeTag } from 'Shared/types/tag';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -9,7 +8,6 @@ import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanne
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
-import { MetaTags } from 'Client/app/MetaTags';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
@@ -64,14 +62,7 @@ export const ConsultationContent = ({ question }: Props) => {
   const selectedTags = tags.filter(tag => tag.isSelected);
 
   return (
-    <React.Fragment>
-      <MetaTags
-        title={i18n.t('meta.consultation.title', {
-          question: question.wording.question,
-        })}
-        description={question.wording.metas.description}
-        picture={question.wording.metas.picture}
-      />
+    <>
       {renderMobileProposal && <ConsultationProposal question={question} />}
       <ConsultationSidebar question={question} />
       <ConsultationPageContentStyle id="main" data-cy-container="main">
@@ -91,6 +82,6 @@ export const ConsultationContent = ({ question }: Props) => {
           tags={selectedTags.map(tag => tag.tagId)}
         />
       </ConsultationPageContentStyle>
-    </React.Fragment>
+    </>
   );
 };

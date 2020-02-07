@@ -83,7 +83,11 @@ const PersonalityPage = ({ match }: Props) => {
   return (
     <ProfileWrapperStyle>
       <OrganisationProfileSkipLinks />
-      <MetaTags />
+      <MetaTags
+        title={i18n.t('meta.organisation.positions.title', {
+          organisation: `${personality.firstName} ${personality.lastName}`,
+        })}
+      />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
         <ProfilePageSidebarWrapperStyle>

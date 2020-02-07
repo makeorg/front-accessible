@@ -28,6 +28,7 @@ import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { OpinionComment } from 'Client/features/opinions/Comment';
+import { MetaTags } from 'Client/app/MetaTags';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -138,6 +139,15 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
 
   return (
     <>
+      <MetaTags
+        title={i18n.t('meta.top-idea-details.title', {
+          idea: topIdea && topIdea.name,
+        })}
+        description={i18n.t('meta.top-idea-details.description', {
+          idea: topIdea && topIdea.name,
+          question: question.wording.question,
+        })}
+      />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
@@ -163,7 +173,11 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
               <section>
                 {topIdea &&
                   topIdea.comments.map(comment => (
-                    <OpinionComment question={question} comment={comment} />
+                    <OpinionComment
+                      key={comment.id}
+                      question={question}
+                      comment={comment}
+                    />
                   ))}
               </section>
             </>
