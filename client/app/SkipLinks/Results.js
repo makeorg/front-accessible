@@ -1,5 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { type QuestionResults as TypeQuestionResults } from 'Shared/types/question';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
@@ -10,9 +11,14 @@ import {
   RESULTS_CARTOGRAPHY,
   RESULTS_CONTROVERSIALS,
   RESULTS_PARTICIPATION,
+  RESULTS_REPORT,
 } from 'Shared/constants/ids';
 
-export const ResultsSkipLinks = () => (
+type Props = {
+  questionResults: TypeQuestionResults,
+};
+
+export const ResultsSkipLinks = ({ questionResults }: Props) => (
   <UnstyledListStyle>
     <li>
       <SkipLink as="a" href="#consultation_nav">
@@ -73,5 +79,14 @@ export const ResultsSkipLinks = () => (
         })}
       </SkipLink>
     </li>
+    {questionResults && questionResults.reports && (
+      <li>
+        <SkipLink as="a" href={`#${RESULTS_REPORT}`}>
+          {i18n.t('skip_links.dynamic_section', {
+            name: i18n.t('consultation.results.download.title'),
+          })}
+        </SkipLink>
+      </li>
+    )}
   </UnstyledListStyle>
 );

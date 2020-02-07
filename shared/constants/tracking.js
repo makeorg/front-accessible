@@ -93,6 +93,8 @@ export const CLICK_PROFILE: string = 'click-profile';
 export const CLICK_PUBLIC_PROFILE: string = 'click-public-profile';
 export const DISPLAY_PUBLIC_PROFILE: string = 'display-public-profile';
 
+/** Results */
+export const CLICK_REPORT_DOWNLOAD: string = 'click-report-download';
 /**
  *  PARAMETERS  *
  */

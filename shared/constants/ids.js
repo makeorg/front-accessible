@@ -7,6 +7,7 @@ export const RESULTS_CARTOGRAPHY: string = 'results_cartography';
 export const RESULTS_CONTROVERSIALS: string = 'results_controversed_proposals';
 export const RESULTS_REJECTED: string = 'results_rejected_proposals';
 export const RESULTS_PARTICIPATION: string = 'results_participation';
+export const RESULTS_REPORT: string = 'results_report';
 export const TAGS_LIST: string = 'tags_list';
 export const SORT_LIST: string = 'sort_list';
 export const TAGS_SECTION: string = 'tags_section';
