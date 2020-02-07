@@ -16,7 +16,6 @@ import { RegisterTileContent } from 'Client/features/consultation/Actions/Tiles/
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { SupportContent } from 'Client/features/consultation/Actions/Support';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { MetaTags } from 'Client/app/MetaTags';
 
 type Props = {
   question: TypeQuestion,
@@ -30,11 +29,6 @@ export const ActionsContent = ({ question }: Props) => {
 
   return (
     <>
-      <MetaTags
-        title={i18n.t('meta.actions.title', {
-          question: question.wording.question,
-        })}
-      />
       <ConsultationPageSidebarStyle id="sidebar_content">
         <TileWithTitle title={i18n.t('actions.plan.title')}>
           <PlanTileContent />

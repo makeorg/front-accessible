@@ -29,16 +29,24 @@
       "description": "Soutenez ma proposition en votant et trouvons ensemble des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
     },
     "consultation": {
-      "title": "Consultation '{{question}}'",
-      "results": {
-        "title": "Résultats de la consultation '{{question}}'"
-      }
+      "title": "Consultation '{{question}}'"
     },
     "actions": {
       "title": "Actions '{{question}}'"
     },
+    "results": {
+      "title": "Résultats de la consultation '{{question}}'"
+    },
     "sequence": {
       "title": "Participez à la consultation '{{question}}'"
+    },
+    "top-ideas": {
+      "title": "Le top des idées de la consultation '{{question}}'",
+      "description": "Découvrez le top des idées citoyennes issu de la consultation '{{question}}'"
+    },
+    "top-idea-details": {
+      "title": "Le detail de l'idée '{{idea}}'",
+      "description": "Découvrez toutes les propositions de l'idée '{{idea}}' issue de la consultation '{{question}}'"
     },
     "search": {
       "main_results": "Recherche - {{count}} résultat pour « {{term}} »",

@@ -14,6 +14,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { MetaTags } from 'Client/app/MetaTags';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -52,6 +53,14 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
 
   return (
     <>
+      <MetaTags
+        title={i18n.t('meta.top-ideas.title', {
+          question: question.wording.question,
+        })}
+        description={i18n.t('meta.top-ideas.description', {
+          question: question.wording.question,
+        })}
+      />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
