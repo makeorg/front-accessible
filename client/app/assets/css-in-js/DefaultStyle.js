@@ -12,6 +12,10 @@ export const DefaultStylesheet = createGlobalStyle`
     height: 100%;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: ${MakeFonts.CircularStandardBook};
     color: ${BasicColors.PureBlack};

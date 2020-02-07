@@ -13,6 +13,7 @@ import {
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { SvgChat } from 'Client/ui/Svg/elements';
 
 export const ConsultationHeaderWrapperStyle = styled.div`
   background-color: ${props => props.backgroundcolor};
@@ -84,6 +85,13 @@ export const TopIdeaDetailsPageTitleStyle = styled(TopIdeasPageTitleStyle)`
   margin: 40px 0 25px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 40px 0 25px;
+  }
+`;
+
+export const TopIdeaDetailsIconStyle = styled(SvgChat)`
+  margin-right: 15px;
+  .tofill {
+    fill: ${BasicColors.PureBlack};
   }
 `;
 

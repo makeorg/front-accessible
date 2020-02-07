@@ -104,6 +104,7 @@ export const TopIdeaCard = ({
                 question.slug,
                 topIdea.id
               )}
+              onClick={scrollToTop}
             >
               {i18n.t('idea_card.position', {
                 count: topIdea.commentsCount,

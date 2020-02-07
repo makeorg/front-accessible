@@ -35,6 +35,7 @@ import {
   ConsultationPageWrapperStyle,
   ConsultationPageSidebarStyle,
   ConsultationHeaderWrapperStyle,
+  TopIdeaDetailsIconStyle,
 } from './style';
 
 type Props = {
@@ -156,6 +157,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
           {hasComments && (
             <>
               <TopIdeaDetailsPageTitleStyle>
+                <TopIdeaDetailsIconStyle aria-hidden />
                 {i18n.t('idea_details.comments')}
               </TopIdeaDetailsPageTitleStyle>
               <section>
