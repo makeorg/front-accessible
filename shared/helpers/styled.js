@@ -22,5 +22,5 @@ export const scrollToTop = () => {
   if (!app) {
     return null;
   }
-  return app.scrollIntoView({ behavior: 'smooth' });
+  return window.scrollTo(0, app.getBoundingClientRect().top);
 };
