@@ -17,7 +17,7 @@
     },
     "top_ideas": [
         {
-            "name": "Sensibilisation et formation",
+            "name": "Communiquer, informer, sensibiliser",
             "ideas": [
                 {
                     "idea": "Sensibiliser et mieux prendre en compte la diversité des handicaps, notamment ceux invisibles",
@@ -45,7 +45,7 @@
             ]
         },
         {
-            "name": "Prise en charge financière",
+            "name": "Accompagner les personnes et soutenir leur autonomie",
             "ideas": [
                 {
                     "idea": "Développer les structures d'accueil en fonction des handicaps et maintenir les capacités de ceux existant",
@@ -64,12 +64,7 @@
                     "agreement": 89,
                     "adhesion": 16,
                     "realistic": 33
-                }
-            ]
-        },
-        {
-            "name": "Accompagnement humain",
-            "ideas": [
+                },
                 {
                     "idea": "Mieux accompagner les aidants",
                     "agreement": 92,
@@ -85,7 +80,7 @@
             ]
         },
         {
-            "name": "Accessibilité urbaine",
+            "name": "Adapter la société",
             "ideas": [
                 {
                     "idea": "Améliorer l'accès aux infrastructures, notamment aux batiments publics",
@@ -98,12 +93,7 @@
                     "agreement": 92,
                     "adhesion": 15,
                     "realistic": 31
-                }
-            ]
-        },
-        {
-            "name": "Accès au travail et à l'école",
-            "ideas": [
+                },
                 {
                     "idea": "Renforcer les moyens d'accueil humains et financiers dans les écoles",
                     "agreement": 89,
@@ -111,13 +101,13 @@
                     "realistic": 31
                 },
                 {
-                    "idea": "Améliorer la formation et l'accompagnement des Ph dans leur parcours professionnel",
+                    "idea": "Améliorer la formation et l'accompagnement des personnes handicapées dans leur parcours professionnel",
                     "agreement": 87,
                     "adhesion": 17,
                     "realistic": 33
                 },
                 {
-                    "idea": "Adapter les entreprises pour favoriser l'inclusions des PH au travail",
+                    "idea": "Adapter les entreprises pour favoriser l'inclusions des personnes handicapées au travail",
                     "agreement": 90,
                     "adhesion": 15,
                     "realistic": 34
@@ -176,7 +166,7 @@
             "type": "pie",
             "unit": "percentage",
             "name": "Thèmes plébiscités",
-            "legend": "Parmi les nombreux sujets évoqués dans la consultation, la thématique de l'accompagnement (valoriser le statut des aidants, améliorer les conditions d’exercice des AVS ou auxiliaires de vie) a été plébiscitée devant le thème de l’emploi (favoriser la formation professionnelle, adapter les entreprises) et celui des représentations associées aux handicapés (mieux parler des handicaps invisibles).",
+            "legend": "Parmi les nombreux sujets évoqués dans la consultation, la thématique de l'accompagnement (valoriser le statut des aidants, améliorer les conditions d’exercice des AVS ou auxiliaires de vie) a été plébiscitée devant le thème de l’emploi (favoriser la formation professionnelle, adapter les entreprises) et celui des représentations associées aux personnes handicapées (mieux parler des handicaps invisibles).",
             "data": [
                 {
                     "label": "Accompagnement",
