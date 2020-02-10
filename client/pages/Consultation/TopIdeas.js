@@ -60,6 +60,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
         description={i18n.t('meta.top-ideas.description', {
           question: question.wording.question,
         })}
+        picture={i18n.t('meta.top-ideas.picture')}
       />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
