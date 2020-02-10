@@ -42,11 +42,13 @@
     },
     "top-ideas": {
       "title": "Le top des idées de la consultation '{{question}}'",
-      "description": "Découvrez le top des idées citoyennes issu de la consultation '{{question}}'"
+      "description": "Découvrez le top des idées citoyennes issu de la consultation '{{question}}'",
+      "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "top-idea-details": {
-      "title": "Le detail de l'idée '{{idea}}'",
-      "description": "Découvrez toutes les propositions de l'idée '{{idea}}' issue de la consultation '{{question}}'"
+      "title": "Le detail de l'idée {{idea}}",
+      "description": "Découvrez toutes les propositions de l'idée {{idea}} issue de la consultation '{{question}}'",
+      "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "search": {
       "main_results": "Recherche - {{count}} résultat pour « {{term}} »",
