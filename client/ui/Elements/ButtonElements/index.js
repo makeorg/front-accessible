@@ -5,7 +5,6 @@ export {
   ActiveButtonStyle,
   RedButtonStyle,
   GreyButtonStyle,
-  WhiteButtonStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
   IconWrapperStyle,
