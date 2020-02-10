@@ -66,7 +66,6 @@ export const ConsultationContent = ({ question }: Props) => {
       {renderMobileProposal && <ConsultationProposal question={question} />}
       <ConsultationSidebar question={question} />
       <ConsultationPageContentStyle id="main" data-cy-container="main">
-        <ParticipateBanner question={question} />
         {renderDesktopProposal && <ConsultationProposal question={question} />}
         <SortAndFilter
           sort={sort}
@@ -75,7 +74,7 @@ export const ConsultationContent = ({ question }: Props) => {
           setTags={setTags}
           resetTags={resetTags}
         />
-
+        <ParticipateBanner question={question} />
         <InfiniteProposals
           question={question}
           sortTypeKey={sort}

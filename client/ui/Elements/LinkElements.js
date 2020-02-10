@@ -4,7 +4,6 @@ import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
   GreyButtonStyle,
-  WhiteButtonStyle,
 } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -51,15 +50,6 @@ export const LinkAsRedButton = styled(RedButtonStyle)`
 `;
 
 export const LinkAsGreyButton = styled(GreyButtonStyle)`
-  display: inline-flex;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-`;
-
-export const LinkAsWhiteButton = styled(WhiteButtonStyle)`
   display: inline-flex;
   text-decoration: none;
   &:hover,
