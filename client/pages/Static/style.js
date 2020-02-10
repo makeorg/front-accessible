@@ -10,8 +10,15 @@ import {
   ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
-import { TextColors } from 'Client/app/assets/vars/Colors';
+import {
+  TextColors,
+  BasicColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 
 export const StaticPageWrapperStyle = styled.div`
   width: 100%;
@@ -191,4 +198,66 @@ export const StaticSquareListItemStyle = styled.li`
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
+`;
+
+export const NoCookiesSectionStyle = styled.section`
+  width: 100%;
+  height: 100%;
+  max-width: 630px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+`;
+
+export const NoCookiesTitleStyle = styled.h1`
+  margin: 0 auto 40px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 40px auto 80px;
+  }
+`;
+
+export const NoCookiesSeparatorStyle = styled(SmallSeparatorStyle)`
+  margin: 10px auto 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 20px auto 30px;
+  }
+`;
+
+export const NoCookiesParagraphStyle = styled(ParagraphStyle)`
+  color: ${BasicColors.PureBlack};
+  margin-bottom: 15px;
+  &.column {
+    display: flex;
+    flex-flow: column;
+    font-family: ${MakeFonts.CircularStandardBold};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 30px;
+  }
+`;
+
+export const NoCookiesAltParagraphStyle = styled.p`
+  font-size: 10px;
+  line-height: 1.5;
+  color: rgb(0, 0, 0, 0, 065);
+  a,
+  a:hover,
+  a:focus {
+    color: ${MakeThemeColors.Red};
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: 12px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 14px;
+  }
+`;
+
+export const NoCookiesLinkStyle = styled(RedLinkHTMLElementStyle)`
+  margin-top: 10px;
 `;

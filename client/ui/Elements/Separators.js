@@ -1,6 +1,6 @@
 /* @flow */
 import styled from 'styled-components';
-import { pxToRem } from 'Shared/helpers/styled';
+import { intToPx } from 'Shared/helpers/styled';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MiddleRowStyle } from './FlexElements';
@@ -12,20 +12,20 @@ export const SeparatorStyle = styled.div`
 `;
 
 export const SmallSeparatorStyle = styled(SeparatorStyle)`
-  max-width: ${pxToRem('60px')};
+  max-width: 60px;
 `;
 
 export const SmallSeparatorWithMarginStyle = styled(SmallSeparatorStyle)`
-  margin: ${pxToRem('5px')} 0 ${pxToRem('15px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin: ${pxToRem('20px')} 0 ${pxToRem('30px')};
+  margin: 5px 0 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 20px 0 30px;
   }
 `;
 
 export const LargeSeparatorStyle = styled(SeparatorStyle)`
-  margin: ${pxToRem('25px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin: ${pxToRem('35px')} 0;
+  margin: 25px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 35px 0;
   }
 `;
 
@@ -34,13 +34,13 @@ export const SeparatorWrapperStyle = styled(MiddleRowStyle)`
 `;
 
 export const TextSeparatorStyle = styled(MiddleRowStyle)`
-  width: ${pxToRem('60px')};
-  font-size: ${pxToRem('14px')};
+  width: 60px;
+  font-size: 14px;
 `;
 
 export const ContentSeparatorStyle = styled(LargeSeparatorStyle)`
-  margin: ${pxToRem('10px')} 0;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin: ${pxToRem('15px')} 0;
+  margin: 10px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 15px 0;
   }
 `;

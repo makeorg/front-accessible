@@ -20,6 +20,7 @@ import {
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PROFILE_OPINIONS,
+  ROUTE_STATIC_NOCOOKIES,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -76,6 +77,10 @@ export const getLocationContext = (
     {
       route: ROUTE_PERSONALITY_PROFILE,
       name: `public-profile-page`,
+    },
+    {
+      route: ROUTE_STATIC_NOCOOKIES,
+      name: `nocookies-page`,
     },
     { route: '/', name: `homepage`, exact: true, strict: true },
     { route: '/:countryLang', name: `homepage`, exact: true, strict: false },

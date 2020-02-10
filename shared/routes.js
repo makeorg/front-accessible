@@ -29,6 +29,7 @@ export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
 export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
 export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
 export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
+export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG}/no-cookies`;
 
 export const matchRoute = (
   pathname: string,
@@ -80,6 +81,8 @@ export const getRouteProfileFollowing = (country: string, language: string) =>
   generatePath(ROUTE_PROFILE_FOLLOWING, { country, language });
 export const getRouteProfileOpinions = (country: string, language: string) =>
   generatePath(ROUTE_PROFILE_OPINIONS, { country, language });
+export const getRouteNoCookies = (country: string, language: string) =>
+  generatePath(ROUTE_STATIC_NOCOOKIES, { country, language });
 
 /**
  * Get the search main results route
