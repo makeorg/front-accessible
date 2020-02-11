@@ -44,8 +44,8 @@ export const CommitmentPreview = ({
   const comment1 = firstComment.trim();
   const comment2 = secondComment.trim();
   const comment3 = thirdComment.trim();
-  const postOpinion = () => {
-    postPersonnalityComments(
+  const postOpinion = async () => {
+    const comment = await postPersonnalityComments(
       userId,
       topIdeaId,
       setEmptyStringToNull(comment1),
@@ -53,7 +53,10 @@ export const CommitmentPreview = ({
       setEmptyStringToNull(comment3),
       vote,
       qualification
-    ).then(sendOpinion(true));
+    );
+    if (comment) {
+      sendOpinion(true);
+    }
   };
 
   return (
