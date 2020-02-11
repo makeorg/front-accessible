@@ -146,7 +146,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             <UnstyledListStyle>
               {questionResults.reports &&
                 questionResults.reports.map(report => (
-                  <ResultsDownloadItemStyle key={report.type}>
+                  <ResultsDownloadItemStyle as="li" key={report.type}>
                     <ParagraphStyle as="span">
                       {i18n.t('consultation.results.download.type', {
                         extension: report.type,
