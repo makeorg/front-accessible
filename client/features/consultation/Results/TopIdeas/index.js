@@ -6,6 +6,7 @@ import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
 import { i18n } from 'Shared/i18n';
 import { TypeThemeItem } from 'Shared/types/question';
 import { Collapse } from 'Client/ui/Elements/Collapse';
+import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
   TopIdeasParagraphStyle,
   ThemeAgreeResultsStyle,
@@ -28,7 +29,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
   const voteAttributes = voteStaticParams[VOTE_AGREE_KEY];
 
   return (
-    <React.Fragment>
+    <>
       <TopIdeasParagraphStyle>
         {i18n.t('consultation.results.top_ideas.introduction')}
       </TopIdeasParagraphStyle>
@@ -65,7 +66,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                     >
                       {`${idea.agreement}% ${i18n.t('vote.agree')}`}
                     </ThemeAgreeResultsStyle>
-                    <p>
+                    <ColumnToRowElementStyle>
                       <span>
                         {i18n.t('qualification.likeIt')}
                         <ThemeQualifiedStyle>
@@ -78,7 +79,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                           {` ${idea.realistic}% `}
                         </ThemeQualifiedStyle>
                       </span>
-                    </p>
+                    </ColumnToRowElementStyle>
                   </ThemeResultsDetailsStyle>
                 </ThemeResultsWrapperStyle>
               </ThemeListItemStyle>
@@ -86,6 +87,6 @@ export const TopIdeas = ({ topIdeas }: Props) => {
           </UnstyledListStyle>
         </Collapse>
       ))}
-    </React.Fragment>
+    </>
   );
 };

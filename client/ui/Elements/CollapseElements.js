@@ -44,6 +44,7 @@ export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
   width: 100%;
   font-size: 12px;
   line-height: 15px;
+  text-align: left;
   &:disabled {
     color: ${BasicColors.PureBlack};
     cursor: text;
