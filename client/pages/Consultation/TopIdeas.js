@@ -5,21 +5,23 @@ import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { getTopIdeas } from 'Shared/services/TopIdea';
 import { trackDisplayTopIdeas } from 'Shared/services/Tracking';
-import { TopIdeasSidebar } from 'Client/features/topIdeas/Sidebar';
 import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { i18n } from 'Shared/i18n';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
+import {
+  MUNICIPAL_PERSONALITY_HEADER,
+  CONSULTATION_FOLLOW_US_ACTIVE,
+} from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { MetaTags } from 'Client/app/MetaTags';
+import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
-  ConsultationPageSidebarStyle,
   TopIdeasPageTitleStyle,
   TopIdeasListStyle,
   TopIdeasListItemStyle,
@@ -35,6 +37,10 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
   const [topIdeas, setTopIdeas] = useState<TypeTopIdea[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
 
+  const isFollowUsActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_FOLLOW_US_ACTIVE,
+    question.activeFeatures
+  );
   // @todo remove or refactor when Municipales is over
   const withPersonalityHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_PERSONALITY_HEADER,
@@ -72,9 +78,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
       {/** @todo remove or refactor when Municipales is over */}
       {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
-        <ConsultationPageSidebarStyle>
-          <TopIdeasSidebar question={question} />
-        </ConsultationPageSidebarStyle>
+        <ConsultationSidebar question={question} />
         <ConsultationPageContentStyle id="main" data-cy-container="main">
           <TopIdeasPageTitleStyle>
             {i18n.t('idea_card.title')}
@@ -95,8 +99,8 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
             )}
           </TopIdeasListStyle>
         </ConsultationPageContentStyle>
-        {isMobile && <FollowUs />}
       </ConsultationPageWrapperStyle>
+      {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );
 };

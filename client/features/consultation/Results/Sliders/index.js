@@ -11,7 +11,7 @@ import {
   ResultsSliderStyle,
   ResultsSliderArrowsStyle,
   ResultsCounterStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   data: any[],

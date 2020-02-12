@@ -6,7 +6,6 @@ import {
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
-import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsContent } from 'Client/features/consultation/Results';
@@ -74,12 +73,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle>
-        <ConsultationPanelInnerStyle>
-          <ResultsContent
-            question={question}
-            questionResults={questionResults}
-          />
-        </ConsultationPanelInnerStyle>
+        <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
     </>

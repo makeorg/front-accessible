@@ -12,12 +12,18 @@ export const ParticipateButtonStyle = styled(LinkAsRedButton)`
 `;
 
 export const PartnersListStyle = styled(UnstyledListStyle)`
-  margin: 10px 0;
+  margin: 10px 0 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap: 10px 20px;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    grid-gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 

@@ -3,9 +3,8 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type TypePartner } from 'Shared/types/question';
 import { FOUNDER_PARTNER, MEDIA_PARTNER } from 'Shared/constants/partner';
-import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
+import { SidebarSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
 import { PartnersList } from '../Partners/List';
-
 import { FoundersTitleStyle } from './style';
 
 type Props = {
@@ -63,9 +62,9 @@ export const Founders = ({ founders, isGreatCause }: Props) => {
     return null;
   }
   return (
-    <React.Fragment>
-      <TileSeparatorStyle />
+    <>
+      <SidebarSeparatorStyle />
       <PartnersListByType isGreatCause={isGreatCause} partners={founders} />
-    </React.Fragment>
+    </>
   );
 };

@@ -1,11 +1,8 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { SvgExternalLink } from 'Client/ui/Svg/elements';
-import {
-  RedLinkHTMLElementStyle,
-  NewWindowIconStyle,
-} from 'Client/ui/Elements/LinkElements';
+import { NewWindowIconStyle } from 'Client/ui/Elements/LinkElements';
+import { NewWindowLinkStyle } from './style';
 
 type Props = {
   linkUrl: string,
@@ -18,16 +15,13 @@ export const SidebarNewWindowLink = ({
   linkText,
   tracking,
 }: Props) => (
-  <RedLinkHTMLElementStyle
+  <NewWindowLinkStyle
     href={linkUrl}
     target="_blank"
     rel="noopener noreferrer"
     onClick={tracking}
   >
     {linkText}
-    <SvgExternalLink
-      aria-label={i18n.t('common.open_new_window')}
-      style={NewWindowIconStyle}
-    />
-  </RedLinkHTMLElementStyle>
+    <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
+  </NewWindowLinkStyle>
 );

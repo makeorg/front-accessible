@@ -136,7 +136,7 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
       return setSlideOffset(0);
     }
 
-    const containerLeftOffset = mainContainer.getBoundingClientRect().left + 20;
+    const containerLeftOffset = mainContainer.getBoundingClientRect().left;
     return setSlideOffset(containerLeftOffset);
   }, []);
 
@@ -149,7 +149,7 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
         <UnstyledListStyle className={`${sliderName} glider-track`}>
           <li
             className={sliderName}
-            style={{ paddingLeft: intToPx(slideOffset) }}
+            style={{ paddingLeft: intToPx(slideOffset), paddingRight: '25px' }}
           >
             <CandidateTitleStyle as="h2" id="candidate_position_title">
               {i18n.t('consultation.municipal.position.title')}

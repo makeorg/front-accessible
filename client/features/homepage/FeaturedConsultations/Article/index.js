@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type TypeFeaturedConsultation } from 'Shared/types/views';
-import { useDesktop } from 'Client/hooks/useMedia';
+import { useDesktop, useTablet } from 'Client/hooks/useMedia';
 import { trackClickHomepageFeatured } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
@@ -26,14 +26,17 @@ export const FeaturedArticle = ({
   language,
   index,
   isAlone,
+  featuredsLength,
 }: {
   featured: TypeFeaturedConsultation,
   country: string,
   language: string,
   index: number,
+  featuredsLength: number,
   isAlone?: boolean,
 }) => {
   const isDesktop = useDesktop();
+  const isTablet = useTablet();
   const blockPosition = index + 1;
   const linkObject = featured.externalLink
     ? {
@@ -52,6 +55,7 @@ export const FeaturedArticle = ({
         as: Link,
       };
 
+  const firstSlotImage = featuredsLength === 3 && index === 1;
   return (
     <FeaturedArticleStyle
       as={isAlone ? FeaturedArticleCol1Style : FeaturedArticleStyle}
@@ -64,10 +68,25 @@ export const FeaturedArticle = ({
         tabIndex={-1}
         {...linkObject}
       >
-        <img
-          src={isDesktop ? featured.landscapePicture : featured.portraitPicture}
-          alt={i18n.t('homepage.featured.link', { name: featured.altPicture })}
-        />
+        {firstSlotImage ? (
+          <img
+            src={
+              isTablet ? featured.landscapePicture : featured.portraitPicture
+            }
+            alt={i18n.t('homepage.featured.link', {
+              name: featured.altPicture,
+            })}
+          />
+        ) : (
+          <img
+            src={
+              isDesktop ? featured.landscapePicture : featured.portraitPicture
+            }
+            alt={i18n.t('homepage.featured.link', {
+              name: featured.altPicture,
+            })}
+          />
+        )}
       </FeaturedPictureWraperStyle>
       <FeaturedInformationsWrapperStyle>
         <FeaturedInnerContent>

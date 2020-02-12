@@ -15,7 +15,7 @@ import {
   ResultsLikeItStyle,
   ResultsNoWayStyle,
   ResultsProposalIconStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   proposals: TypeControversialsProposals[] | TypeRejectedProposals[],

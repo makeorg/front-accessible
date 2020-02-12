@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
   ColumnElementStyle,
   MiddleColumnStyle,
@@ -28,12 +28,16 @@ export const ConsultationHeaderWrapperStyle = styled.div`
 export const ConsultationPageWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
+  box-sizing: border-box;
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 15px auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
-    margin: 30px auto;
+    margin: 45px auto;
   }
 `;
 
@@ -43,19 +47,18 @@ export const ContentElementStyle = styled(ColumnElementStyle)`
 `;
 
 export const ConsultationPageContentStyle = styled(ContentElementStyle)`
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 0 10px 0 20px;
-    max-width: 780px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: ${pxToPercent(780, 1140)};
   }
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   margin-bottom: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-bottom: 0;
-    padding: 0 20px 0 10px;
+    padding-left: ${pxToPercent(20, 1140)};
     order: 1;
-    max-width: 390px;
+    width: ${pxToPercent(390, 1140)};
     position: sticky;
     ${props =>
       props.bottomAffix

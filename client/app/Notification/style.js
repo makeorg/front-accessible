@@ -26,6 +26,7 @@ export const NotificationWrapperStyle = styled.section`
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
   background-color: ${BackgroundColors.Notifications};
   box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroOneOpacity};
+  margin-top: -5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 25px ${intToPx(DefaultPadding.Desktop)};
   }

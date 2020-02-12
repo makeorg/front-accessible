@@ -28,7 +28,7 @@ export const CandidateTitleStyle = styled(FourthLevelTitleStyle)`
 export const CandidateListItemStyle = styled.li`
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 25px;
 `;
 
 export const CandidateInformationsStyle = styled(ColumnElementStyle)`

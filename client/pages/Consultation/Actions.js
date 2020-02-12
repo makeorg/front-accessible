@@ -5,7 +5,6 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ActionsContent } from 'Client/features/consultation/Actions';
-import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
@@ -55,9 +54,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
       <ConsultationPageWrapperStyle className="great-cause-container">
-        <ConsultationPanelInnerStyle>
-          <ActionsContent question={question} />
-        </ConsultationPanelInnerStyle>
+        <ActionsContent question={question} />
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
     </>

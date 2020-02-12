@@ -42,7 +42,7 @@
     },
     "top-ideas": {
       "title": "Le top des idées de la consultation '{{question}}'",
-      "description": "Découvrez le top des idées citoyennes issu de la consultation '{{question}}'",
+      "description": "Découvrez le top des idées issu de la consultation '{{question}}'",
       "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
     },
     "top-idea-details": {
@@ -203,7 +203,7 @@
     "footer_text": "Cette proposition a été soumise dans le cadre de l'opération {{operation_name}}"
   },
   "idea_card": {
-    "title": "Le top des idées citoyennes",
+    "title": "Le top des idées",
     "number": "Idée n°{{ count }}",
     "content": "Contenu de l'idée : ",
     "link": "Voir le détail de l'idée",
@@ -516,7 +516,7 @@
     },
     "opinions": {
       "title": "Les prises de position de {{firstname}} {{lastname}} :",
-      "placeholder_text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées citoyennes.",
+      "placeholder_text": "{{firstname}} {{lastname}} n’a pas encore pris position sur le top des idées.",
       "vote": {
         "agree": "d'accord",
         "disagree": "pas d'accord",

@@ -5,7 +5,6 @@ import { type Question as TypeQuestion } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
-import { ConsultationPanelInnerStyle } from 'Client/features/consultation/Styled/Tabs';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { NavigationBetweenQuestions } from 'Client/features/flipping/NavigationBetweenQuestions';
@@ -99,9 +98,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
       <ConsultationPageWrapperStyle>
-        <ConsultationPanelInnerStyle>
-          <ConsultationContent question={question} />
-        </ConsultationPanelInnerStyle>
+        <ConsultationContent question={question} />
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}
     </>

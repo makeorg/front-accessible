@@ -6,7 +6,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type Question as TypeQuestion } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
-import { Partners } from '../../Partners';
+import { Partners } from '../Partners';
 
 type Props = {
   question: TypeQuestion,

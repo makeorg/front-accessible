@@ -3,7 +3,6 @@ import { i18n } from 'Shared/i18n';
 import { postPersonnalityComments } from 'Shared/services/Personality';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { setEmptyStringToNull } from 'Shared/helpers/form';
 import {
   CommitmentPreviewSeparatorStyle,
@@ -15,6 +14,7 @@ import {
   CommitmentPreviewConfirmStyle,
   CommitmentPreviewCancelStyle,
   CommitmentPreviewOpinionsParagraphStyle,
+  CommitmentPreviewOpinionsWrapperStyle,
 } from './style';
 
 type Props = {
@@ -62,7 +62,7 @@ export const CommitmentPreview = ({
   return (
     <>
       <CommitmentPreviewSeparatorStyle />
-      <FlexElementStyle>
+      <CommitmentPreviewOpinionsWrapperStyle>
         <CommitmentPreviewOpinionsIconWrapperStyle
           transform={opinionsVoteStaticParams[vote].transform}
           color={opinionsVoteStaticParams[vote].color}
@@ -77,7 +77,7 @@ export const CommitmentPreview = ({
               : i18n.t(`personality.opinions.preview.${vote}`),
           }}
         />
-      </FlexElementStyle>
+      </CommitmentPreviewOpinionsWrapperStyle>
 
       {comment1 && (
         <CommitmentPreviewBoxStyle>{comment1}</CommitmentPreviewBoxStyle>

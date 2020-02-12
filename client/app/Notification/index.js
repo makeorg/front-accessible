@@ -10,7 +10,7 @@ import {
   NotificationWrapperStyle,
   NotificationContentStyle,
   NotificationCloseButtonStyle,
-} from './Styled';
+} from './style';
 import { NotificationIcon } from './Icon';
 
 export const Notification = () => {

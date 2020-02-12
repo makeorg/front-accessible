@@ -22,6 +22,7 @@ import {
   LocalActorItemStyle,
   ButtonWrapperStyle,
   FooterStyle,
+  LocalActorCountStyle,
 } from './style';
 
 type Props = {
@@ -95,7 +96,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                   </RedLinkRouterStyle>
                   <SvgCheckedSymbol style={CertifiedIconStyle} />
                 </div>
-                <div>
+                <LocalActorCountStyle>
                   {i18n.t('consultation.local_actors.proposals', {
                     count:
                       (actor.countsByQuestion &&
@@ -111,7 +112,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                         actor.countsByQuestion[questionId].votesCount) ||
                       0,
                   })}
-                </div>
+                </LocalActorCountStyle>
               </div>
             </LocalActorItemStyle>
           ))}

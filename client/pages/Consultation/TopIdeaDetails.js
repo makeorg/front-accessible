@@ -9,7 +9,6 @@ import {
   trackLoadMoreProposals,
 } from 'Shared/services/Tracking';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
-import { TopIdeasSidebar } from 'Client/features/topIdeas/Sidebar';
 import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { getTopIdea } from 'Shared/services/TopIdea';
@@ -24,17 +23,20 @@ import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
 import { getTopIdeasLink } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
-import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
+import {
+  MUNICIPAL_PERSONALITY_HEADER,
+  CONSULTATION_FOLLOW_US_ACTIVE,
+} from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { OpinionComment } from 'Client/features/opinions/Comment';
 import { MetaTags } from 'Client/app/MetaTags';
+import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
-  ConsultationPageSidebarStyle,
   ConsultationHeaderWrapperStyle,
   TopIdeaDetailsIconStyle,
 } from './style';
@@ -55,6 +57,10 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const [page, setPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  const isFollowUsActive: boolean = checkIsFeatureActivated(
+    CONSULTATION_FOLLOW_US_ACTIVE,
+    question.activeFeatures
+  );
   // @todo remove or refactor when Municipales is over
   const withPersonalityHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_PERSONALITY_HEADER,
@@ -159,9 +165,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       {/** @todo remove or refactor when Municipales is over */}
       {withPersonalityHeader && <CandidateEngagement question={question} />}
       <ConsultationPageWrapperStyle>
-        <ConsultationPageSidebarStyle>
-          <TopIdeasSidebar question={question} />
-        </ConsultationPageSidebarStyle>
+        <ConsultationSidebar question={question} />
         <ConsultationPageContentStyle id="main" data-cy-container="main">
           <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
           {topIdea && <TopIdeaCard topIdea={topIdea} />}
@@ -213,8 +217,8 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
             </LoadMoreWrapperStyle>
           )}
         </ConsultationPageContentStyle>
-        {isMobile && <FollowUs />}
       </ConsultationPageWrapperStyle>
+      {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );
 };

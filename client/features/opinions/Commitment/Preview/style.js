@@ -11,15 +11,17 @@ import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const CommitmentPreviewSeparatorStyle = styled(SeparatorStyle)`
-  margin: 20px 0 30px;
+  margin: 10px 0 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 20px 0 30px;
+  }
 `;
 
-export const CommitmentPreviewOpinionsStyle = styled(ParagraphStyle)`
-  font-family: ${MakeFonts.CircularStandardBold};
-  color: ${BasicColors.PureBlack};
-  margin-bottom: 25px;
-  span {
-    color: ${props => props.color};
+export const CommitmentPreviewOpinionsWrapperStyle = styled(FlexElementStyle)`
+  align-items: center;
+  margin-bottom: 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 25px;
   }
 `;
 
@@ -36,7 +38,6 @@ export const CommitmentPreviewOpinionsIconWrapperStyle = styled.div`
 export const CommitmentPreviewOpinionsParagraphStyle = styled(ParagraphStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
   color: ${BasicColors.PureBlack};
-  margin-bottom: 25px;
   span {
     color: ${props => props.color};
   }

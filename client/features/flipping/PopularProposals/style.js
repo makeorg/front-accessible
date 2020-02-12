@@ -34,7 +34,7 @@ export const PopularProposalsSliderTitleStyle = styled(TileTitleStyle)`
 `;
 
 export const PopularProposalsSliderSeparatorStyle = styled(TileSeparatorStyle)`
-  background-color: ${BorderColors.MediumGrey};
+  background-color: ${BorderColors.LightGrey};
 `;
 
 export const PopularProposalsWrapperStyle = styled(TileWithTitleStyle)`
@@ -75,11 +75,9 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
   z-index: 10;
   &.glider-prev {
     left: 0;
-    transform: translateX(-50%);
   }
   &.glider-next {
     right: 0;
-    transform: translateX(50%);
   }
   svg {
     fill: ${BasicColors.PureWhite};
@@ -90,6 +88,14 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
     background-color: ${BackgroundColors.ExtraLightGrey};
     svg {
       fill: ${TextColors.MediumGrey};
+    }
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    &.glider-prev {
+      transform: translateX(-50%);
+    }
+    &.glider-next {
+      transform: translateX(50%);
     }
   }
 `;

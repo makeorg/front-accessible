@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
-import { AccountActivationSuccessMessage } from 'Client/app/Notification/Messages/Authentification/AccountActivationSuccess';
-import { AccountActivationFailureMessage } from 'Client/app/Notification/Messages/Authentification/AccountActivationFailure';
+import { AccountActivationSuccessMessage } from 'Client/app/Notification/Messages/AccountActivationSuccess';
+import { AccountActivationFailureMessage } from 'Client/app/Notification/Messages/AccountActivationFailure';
 import { PasswordRecoveryFailureMessage } from 'Client/features/auth/PasswordRecovery/Failure';
-import { RegisterSuccessMessage } from 'Client/app/Notification/Messages/Authentification/RegisterSuccess';
-import { LoginSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LoginSuccess';
-import { LogoutSuccessMessage } from 'Client/app/Notification/Messages/Authentification/LogoutSuccess';
-import { AccountDeletionSuccessMessage } from 'Client/app/Notification/Messages/Authentification/AccountDeletionSuccess';
+import { RegisterSuccessMessage } from 'Client/app/Notification/Messages/RegisterSuccess';
+import { LoginSuccessMessage } from 'Client/app/Notification/Messages/LoginSuccess';
+import { LogoutSuccessMessage } from 'Client/app/Notification/Messages/LogoutSuccess';
+import { AccountDeletionSuccessMessage } from 'Client/app/Notification/Messages/AccountDeletionSuccess';
 import { SecureExpiredMessage } from 'Client/app/Notification/Messages/SecureExpired';
-import { RegisterSuccessValidateMessage } from 'Client/app/Notification/Messages/Authentification/RegisterSuccessValidate';
+import { RegisterSuccessValidateMessage } from 'Client/app/Notification/Messages/RegisterSuccessValidate';
 
 export const ACTIVATION_SUCCESS_MESSAGE: string = 'ACTIVATION_SUCCESS_MESSAGE';
 export const ACTIVATION_FAILURE_MESSAGE: string = 'ACTIVATION_FAILURE_MESSAGE';

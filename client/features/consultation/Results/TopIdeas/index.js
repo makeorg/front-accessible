@@ -16,7 +16,7 @@ import {
   ThemeResultsButtonStyle,
   ThemeResultsDetailsStyle,
   ThemeResultsWrapperStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   topIdeas: {
@@ -66,7 +66,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                     >
                       {`${idea.agreement}% ${i18n.t('vote.agree')}`}
                     </ThemeAgreeResultsStyle>
-                    <ColumnToRowElementStyle>
+                    <ColumnToRowElementStyle as="span">
                       <span>
                         {i18n.t('qualification.likeIt')}
                         <ThemeQualifiedStyle>
