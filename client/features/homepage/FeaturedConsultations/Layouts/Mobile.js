@@ -20,6 +20,7 @@ export const FeaturedMobile = ({ featureds, country, language }: Props) => {
             index={featured.slot}
             country={country}
             language={language}
+            featuredsLength={featureds.length}
           />
         </FeaturedArticleStyle>
       ))}

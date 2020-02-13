@@ -63,6 +63,7 @@ export const DesktopTwoColumns = ({ featureds, country, language }: Props) => {
             country={country}
             language={language}
             isAlone={secondColumnWithOneElement}
+            featuredsLength={featuredsLength}
           />
         ))}
       </FeaturedArticleColumnStyle>
