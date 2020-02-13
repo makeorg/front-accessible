@@ -24,7 +24,7 @@ export const postPersonnalityComments = async (
   comment3: string,
   vote: string,
   qualification: string
-): Promise<PersonalityCommentsType> => {
+): Promise<?PersonalityCommentsType> => {
   try {
     return await PersonalityApiService.postPersonnalityComments(
       userId,
@@ -36,7 +36,9 @@ export const postPersonnalityComments = async (
       qualification
     );
   } catch (error) {
-    return Logger.logError(Error(error));
+    Logger.logError(Error(error));
+
+    return null;
   }
 };
 
