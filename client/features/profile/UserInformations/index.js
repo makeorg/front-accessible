@@ -1,5 +1,5 @@
-/* @flow */
-import React, { type Element, useEffect, useState } from 'react';
+// @flow
+import React, { type Element } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from 'Shared/store/actions/authentification';
 import { type TypeUser } from 'Shared/types/user';
@@ -14,7 +14,6 @@ import {
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
   ProfileContentStyle,
-  ProfileSeparatorStyle,
   ProfileAvatarLayoutStyle,
   ProfileInformationButtonStyle,
   ProfileNavigationStyle,
@@ -39,23 +38,19 @@ type Props = {
 export const UserInformations = ({ user, navigationBar }: Props) => {
   const { profile } = user;
   const dispatch = useDispatch();
-  const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
   const isOrganisation = user.userType === TYPE_ORGANISATION;
   const isPersonality = user.userType === TYPE_PERSONALITY;
   const isBasicUser = user.userType === TYPE_USER;
 
-  useEffect(() => {
-    if (!isMobile) {
-      setAvatarSize(160);
-    }
-  }, [isMobile]);
-
   return (
     <>
       <ProfileAvatarLayoutStyle>
         <ProfileAvatarStyle>
-          <Avatar avatarSize={avatarSize} avatarUrl={profile.avatarUrl} />
+          <Avatar
+            avatarSize={isMobile ? 120 : 160}
+            avatarUrl={profile.avatarUrl}
+          />
         </ProfileAvatarStyle>
         {isOrganisation && (
           <ProfileContentWrapperStyle>
@@ -137,7 +132,6 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
       </ProfileAvatarLayoutStyle>
       {profile.description && (
         <>
-          <ProfileSeparatorStyle />
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.biography')}
           </ScreenReaderItemStyle>
