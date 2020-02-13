@@ -21,6 +21,7 @@ import {
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
+  ProfilePageSidebarWrapperStyle,
 } from 'Client/ui/Elements/ProfileElements';
 
 type Props = {
@@ -49,9 +50,11 @@ const ProfileEditPage = ({ match }: Props) => {
       <MetaTags title={i18n.t('meta.profile.edit.title')} />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle>
-          <UserInformations user={user} navigationBar={NavigationBar} />
-        </ProfilePageSidebarStyle>
+        <ProfilePageSidebarWrapperStyle>
+          <ProfilePageSidebarStyle>
+            <UserInformations user={user} navigationBar={NavigationBar} />
+          </ProfilePageSidebarStyle>
+        </ProfilePageSidebarWrapperStyle>
         <ProfilePageContentStyle>
           <TabNavStyle aria-label={i18n.t('common.secondary_nav')}>
             <TabListStyle as="div">

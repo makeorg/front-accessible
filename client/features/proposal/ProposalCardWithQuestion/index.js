@@ -46,7 +46,6 @@ export const ProposalCardWithQuestion = ({
     proposal.slug
   );
   const canVote = isInProgress(proposal.question);
-  console.log(withMobileRadius);
 
   return (
     <ProposalCardStyle

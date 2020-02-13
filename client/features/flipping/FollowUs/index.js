@@ -8,7 +8,6 @@ import {
   SvgInstagramLogo,
   SvgLinkedinLogoIn,
   SvgMegaphone,
-  SvgExternalLink,
 } from 'Client/ui/Svg/elements';
 import {
   twitterMakeUrl,
