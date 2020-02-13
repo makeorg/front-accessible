@@ -13,7 +13,7 @@ import {
   TileTitleStyle,
   TileSeparatorStyle,
 } from 'Client/ui/Elements/TileWithTitle/Styled';
-import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/Styled';
+import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
 

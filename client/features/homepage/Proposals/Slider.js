@@ -12,7 +12,7 @@ import {
   ProposalsSliderWrapperStyle,
   ProposalsSliderListStyle,
   ProposalsSliderListItemStyle,
-} from '../Styled';
+} from './style';
 
 type PopularProposalsProps = {
   proposals: TypeProposal[],
@@ -49,7 +49,7 @@ export const ProposalsShowcase = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       <ScreenReaderItemStyle>
         {i18n.t('common.slider.introduction')}
       </ScreenReaderItemStyle>
@@ -67,12 +67,13 @@ export const ProposalsShowcase = ({
                   position={index + 1}
                   size={2}
                   withOrganisations
+                  withMobileRadius
                 />
               </ProposalsSliderListItemStyle>
             ))}
           </ProposalsSliderListStyle>
         </div>
       </ProposalsSliderWrapperStyle>
-    </React.Fragment>
+    </>
   );
 };

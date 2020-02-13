@@ -136,6 +136,7 @@ export const SequenceFooterStyle = styled.footer`
   justify-content: center;
   width: 100%;
   padding: 5px;
+  margin-bottom: -5px;
   box-shadow: 0 0 16px 6px ${ShadowColors.BlackZeroTwoOpacity};
   background-color: ${props => props.theme.color};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
