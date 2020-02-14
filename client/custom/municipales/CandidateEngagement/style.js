@@ -28,7 +28,9 @@ export const CandidateTitleStyle = styled(FourthLevelTitleStyle)`
 export const CandidateListItemStyle = styled.li`
   display: flex;
   align-items: center;
-  padding: 0 25px;
+  padding-left: ${props => (props.paddingLeft ? props.paddingLeft : '25px')};
+  padding-right: 25px;
+  box-sizing: content-box;
 `;
 
 export const CandidateInformationsStyle = styled(ColumnElementStyle)`

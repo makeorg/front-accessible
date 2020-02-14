@@ -117,7 +117,7 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
   const [slideOffset, setSlideOffset] = useState(0);
   const sliderName = 'candidate_desktop';
   const sliderRef = useRef();
-  const sliderParams: TypeSliderParams = {
+  let sliderParams: TypeSliderParams = {
     responsive: [
       {
         breakpoint: Breakpoints.Tablet,
@@ -128,17 +128,32 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
       },
     ],
   };
+
+  // Dirty Hack for IE11 compatibility :'(
+  const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+  if (isIE11) {
+    sliderParams = {
+      responsive: [
+        {
+          breakpoint: Breakpoints.Tablet,
+          settings: {
+            slidesToShow: 6.5,
+            draggable: true,
+          },
+        },
+      ],
+    };
+  }
+
   useSlider(sliderRef, sliderParams, personalities.length > 0);
 
   useLayoutEffect(() => {
     const mainContainer = document.getElementById('main');
-    if (!mainContainer) {
-      return setSlideOffset(0);
-    }
-
-    const containerLeftOffset = mainContainer.getBoundingClientRect().left;
-    return setSlideOffset(containerLeftOffset);
-  }, []);
+    const containerLeftOffset = mainContainer
+      ? mainContainer.getBoundingClientRect().left
+      : 0;
+    setSlideOffset(containerLeftOffset);
+  }, [personalities]);
 
   return (
     <div className={`${sliderName} glider-contain`}>
@@ -147,14 +162,14 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
       </ScreenReaderItemStyle>
       <div className={`${sliderName} glider`} ref={sliderRef}>
         <UnstyledListStyle className={`${sliderName} glider-track`}>
-          <li
+          <CandidateListItemStyle
             className={sliderName}
-            style={{ paddingLeft: intToPx(slideOffset), paddingRight: '25px' }}
+            paddingLeft={intToPx(slideOffset)}
           >
             <CandidateTitleStyle as="h2" id="candidate_position_title">
               {i18n.t('consultation.municipal.position.title')}
             </CandidateTitleStyle>
-          </li>
+          </CandidateListItemStyle>
           {personalities.map(personality => (
             <CandidateListItemStyle
               key={personality.userId}

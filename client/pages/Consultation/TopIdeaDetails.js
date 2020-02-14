@@ -32,6 +32,7 @@ import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { OpinionComment } from 'Client/features/opinions/Comment';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -147,10 +148,10 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
     <>
       <MetaTags
         title={i18n.t('meta.top-idea-details.title', {
-          idea: topIdea && topIdea.name,
+          idea: topIdea ? topIdea.name : '',
         })}
         description={i18n.t('meta.top-idea-details.description', {
-          idea: topIdea && topIdea.name,
+          idea: topIdea ? topIdea.name : '',
           question: question.wording.question,
         })}
         picture={i18n.t('meta.top-idea-details.picture')}
@@ -167,10 +168,12 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       <ConsultationPageWrapperStyle>
         <ConsultationSidebar question={question} />
         <ConsultationPageContentStyle id="main" data-cy-container="main">
-          <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
-          {topIdea && <TopIdeaCard topIdea={topIdea} />}
+          <ColumnElementStyle>
+            <Breadcrumbs parentPages={parentPages} currentPage={currentPage} />
+            {topIdea && <TopIdeaCard topIdea={topIdea} />}
+          </ColumnElementStyle>
           {hasComments && (
-            <>
+            <div>
               <TopIdeaDetailsPageTitleStyle>
                 <TopIdeaDetailsIconStyle aria-hidden />
                 {i18n.t('idea_details.comments')}
@@ -185,10 +188,10 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
                     />
                   ))}
               </section>
-            </>
+            </div>
           )}
           {hasProposals && (
-            <>
+            <ColumnElementStyle>
               <TopIdeaDetailsPageTitleStyle>
                 {i18n.t('idea_details.proposals')}
               </TopIdeaDetailsPageTitleStyle>
@@ -206,7 +209,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
                   />
                 ))}
               </InfiniteProposalsContainerStyle>
-            </>
+            </ColumnElementStyle>
           )}
           {isLoading && <Spinner />}
           {displayLoadMoreButton && (

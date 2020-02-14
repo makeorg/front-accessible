@@ -531,7 +531,7 @@
         "toBePrecised": "À préciser"
       },
       "form": {
-        "title": "Quelles sont vos positions pour répondre à cette idée ?",
+        "title": "Que feriez-vous pour répondre à cette idée citoyenne ?",
         "label": "Écrire ici...",
         "validate": "Valider ma prise de position",
         "disclaimer": "Attention, pour modifier votre prise de position après publication, il vous faudra contacter Make.org. Êtes-vous bien sûr de vouloir publier maintenant ? Si oui, cliquez sur \"Confirmer et publier\".",
