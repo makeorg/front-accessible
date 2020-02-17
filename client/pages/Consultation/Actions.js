@@ -13,6 +13,7 @@ import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
+import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -45,6 +46,9 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         picture={question.wording.metas.picture}
       />
       <ActionsSkipLinks />
+      {isMobile && question.descriptionImage && (
+        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+      )}
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}

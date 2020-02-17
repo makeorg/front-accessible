@@ -33,6 +33,8 @@ import { OpinionComment } from 'Client/features/opinions/Comment';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
+import { TopIdeaDetailsSkipLinks } from 'Client/app/SkipLinks/TopIdeaDetails';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -156,6 +158,13 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
         })}
         picture={i18n.t('meta.top-idea-details.picture')}
       />
+      <TopIdeaDetailsSkipLinks
+        hasComments={hasComments}
+        hasProposals={hasProposals}
+      />
+      {isMobile && question.descriptionImage && (
+        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+      )}
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
@@ -173,7 +182,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
             {topIdea && <TopIdeaCard topIdea={topIdea} />}
           </ColumnElementStyle>
           {hasComments && (
-            <div>
+            <div id="comments_list">
               <TopIdeaDetailsPageTitleStyle>
                 <TopIdeaDetailsIconStyle aria-hidden />
                 {i18n.t('idea_details.comments')}
@@ -191,7 +200,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
             </div>
           )}
           {hasProposals && (
-            <ColumnElementStyle>
+            <ColumnElementStyle id="proposals_list">
               <TopIdeaDetailsPageTitleStyle>
                 {i18n.t('idea_details.proposals')}
               </TopIdeaDetailsPageTitleStyle>

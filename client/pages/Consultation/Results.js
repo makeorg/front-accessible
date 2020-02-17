@@ -19,6 +19,7 @@ import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs
 import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
+import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -64,6 +65,9 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         picture={question.wording.metas.picture}
       />
       <ResultsSkipLinks questionResults={questionResults} />
+      {isMobile && question.descriptionImage && (
+        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+      )}
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
