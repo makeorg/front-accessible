@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
-import * as React from 'react';
+import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
@@ -26,6 +26,9 @@ import * as customDataHelper from 'Client/helper/customData';
 import { updateRequestContextCustomData } from 'Shared/store/middleware/requestContext';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
+import { getRouteNoCookies } from 'Shared/routes';
+import { NoCookies } from './pages/Static/NoCookies';
+import { ErrorBoundary } from './app/Error';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -145,7 +148,40 @@ const initApp = async state => {
   loadableReady(() => {
     const appDom = document.getElementById('app');
     const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
-    renderMethod(
+
+    if (!cookieIsEnabled()) {
+      return ReactDOM.hydrate(
+        <HeadProvider>
+          <Provider store={store}>
+            <BrowserRouter>
+              <React.StrictMode>
+                <ErrorBoundary>
+                  <Switch>
+                    <Route
+                      path={getRouteNoCookies(
+                        state.appConfig.country,
+                        state.appConfig.language
+                      )}
+                      component={NoCookies}
+                    />
+                    <Redirect
+                      from="/"
+                      to={getRouteNoCookies(
+                        state.appConfig.country,
+                        state.appConfig.language
+                      )}
+                    />
+                  </Switch>
+                </ErrorBoundary>
+              </React.StrictMode>
+            </BrowserRouter>
+          </Provider>
+        </HeadProvider>,
+        appDom
+      );
+    }
+
+    return renderMethod(
       <CookiesProvider>
         <HeadProvider>
           <Provider store={store}>

@@ -18,7 +18,7 @@ import {
   StaticSecondaryOrderedListStyle,
   StaticSecondaryOrderedListItemStyle,
   StaticStrongStyle,
-} from '../Styled';
+} from './style';
 
 export const TermsOfUse = () => {
   const { country, language } = useSelector(

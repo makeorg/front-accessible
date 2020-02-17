@@ -5,7 +5,7 @@ import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
   StaticParagraphStyle,
-} from '../Styled';
+} from './style';
 
 export const LegalPage = () => {
   return (

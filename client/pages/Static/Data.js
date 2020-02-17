@@ -11,7 +11,7 @@ import {
   StaticThirdLevelTitleStyle,
   StaticSquareListStyle,
   StaticSquareListItemStyle,
-} from '../Styled';
+} from './style';
 
 export const Data = () => {
   return (

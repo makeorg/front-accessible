@@ -121,6 +121,12 @@ describe('getLocationContext', () => {
       expectedTracking: `search-page`,
     },
     {
+      name: 'ROUTE_STATIC_NOCOOKIES',
+      path: '/FR-fr/no-cookies',
+      expected: `nocookies-page`,
+      expectedTracking: `nocookies-page`,
+    },
+    {
       name: 'home',
       path: '/',
       expected: `homepage`,
@@ -193,6 +199,7 @@ describe('getLocationContext', () => {
       'ROUTE_STATIC_GTU',
       'ROUTE_STATIC_DATA',
       'ROUTE_STATIC_CONTACT',
+      'ROUTE_STATIC_NOCOOKIES',
     ];
 
     // .map(route => route.replace(/:/g, ''));
