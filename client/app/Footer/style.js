@@ -45,7 +45,7 @@ export const FooterItemListStyle = styled(UnstyledListStyle)`
 
 export const FooterItemStyle = styled.li`
   text-align: right;
-  margin: 10px 0;
+  margin: 7px 0;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin: 0 0 0 30px;
     &:first-child {
@@ -59,5 +59,5 @@ export const FooterItemLinkStyle = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.43;
 `;

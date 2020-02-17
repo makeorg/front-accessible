@@ -2,7 +2,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgSadEmoji } from 'Client/ui/Svg/elements';
-import { SecuredExpirationStyle } from '../../Styled';
+import { SecuredExpirationStyle } from '../style';
 
 export const SecureExpiredMessage = () => (
   <SecuredExpirationStyle>

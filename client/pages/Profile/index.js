@@ -32,6 +32,7 @@ import {
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
   ProfileTabIconStyle,
+  ProfilePageSidebarWrapperStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
@@ -89,9 +90,11 @@ const ProfilePage = ({ match, location }: Props) => {
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle id="sidebar_content">
-          <UserInformations user={user} navigationBar={NavigationBar} />
-        </ProfilePageSidebarStyle>
+        <ProfilePageSidebarWrapperStyle id="sidebar_content">
+          <ProfilePageSidebarStyle>
+            <UserInformations user={user} navigationBar={NavigationBar} />
+          </ProfilePageSidebarStyle>
+        </ProfilePageSidebarWrapperStyle>
         <ProfilePageContentStyle>
           <TabNavStyle
             aria-label={i18n.t('common.secondary_nav')}
@@ -110,6 +113,7 @@ const ProfilePage = ({ match, location }: Props) => {
                 <Link
                   to={profileFavouritesLink}
                   aria-current={isProfileFavouritesActive}
+                  className="inline"
                 >
                   {i18n.t('profile.tabs.favourites')}
                   <SvgLike aria-hidden style={ProfileTabIconStyle} />

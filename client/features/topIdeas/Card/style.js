@@ -89,7 +89,7 @@ export const TopIdeaCollapseWrapperStyle = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   border-top: 1px solid ${BackgroundColors.TaintedWhite};
 `;
 
@@ -110,7 +110,7 @@ export const TopIdeaCollapseTriggerStyle = styled(UnstyledButtonStyle)`
   order: 1;
   font-size: 12px;
   line-height: 18px;
-  color: ${TextColors.MediumGrey};
+  color: ${TextColors.AltMediumgrey};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 21px;

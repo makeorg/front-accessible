@@ -8,7 +8,6 @@ import {
   SvgInstagramLogo,
   SvgLinkedinLogoIn,
   SvgMegaphone,
-  SvgExternalLink,
 } from 'Client/ui/Svg/elements';
 import {
   twitterMakeUrl,
@@ -34,6 +33,7 @@ import {
   TwitterButtonStyle,
   InstagramButtonStyle,
   LinkedInButtonStyle,
+  FollowUsListItemStyle,
 } from './style';
 
 export const FollowUs = () => (
@@ -45,7 +45,7 @@ export const FollowUs = () => (
       {i18n.t('consultation.followus.description')}
     </ParagraphStyle>
     <FollowUsStyle as={UnstyledListStyle}>
-      <li>
+      <FollowUsListItemStyle>
         <FacebookButtonStyle
           data-network-name="facebook"
           target="_blank"
@@ -57,8 +57,8 @@ export const FollowUs = () => (
         >
           <SvgFacebookLogoF aria-hidden />
         </FacebookButtonStyle>
-      </li>
-      <li>
+      </FollowUsListItemStyle>
+      <FollowUsListItemStyle>
         <TwitterButtonStyle
           data-network-name="twitter"
           target="_blank"
@@ -70,8 +70,8 @@ export const FollowUs = () => (
         >
           <SvgTwitterLogo aria-hidden />
         </TwitterButtonStyle>
-      </li>
-      <li>
+      </FollowUsListItemStyle>
+      <FollowUsListItemStyle>
         <InstagramButtonStyle
           data-network-name="instagram"
           target="_blank"
@@ -83,8 +83,8 @@ export const FollowUs = () => (
         >
           <SvgInstagramLogo aria-hidden />
         </InstagramButtonStyle>
-      </li>
-      <li>
+      </FollowUsListItemStyle>
+      <FollowUsListItemStyle>
         <LinkedInButtonStyle
           data-network-name="linkedin"
           target="_blank"
@@ -96,7 +96,7 @@ export const FollowUs = () => (
         >
           <SvgLinkedinLogoIn aria-hidden />
         </LinkedInButtonStyle>
-      </li>
+      </FollowUsListItemStyle>
     </FollowUsStyle>
     <RedLinkHTMLElementStyle
       target="_blank"
@@ -105,10 +105,7 @@ export const FollowUs = () => (
       onClick={trackClickViewBlog}
     >
       {i18n.t('consultation.followus.discover')}
-      <SvgExternalLink
-        aria-label={i18n.t('common.open_new_window')}
-        style={NewWindowIconStyle}
-      />
+      <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
     </RedLinkHTMLElementStyle>
   </TileWithTitle>
 );

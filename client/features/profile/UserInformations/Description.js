@@ -16,7 +16,7 @@ type Props = {
 export const UserDescription = ({ description }: Props) => {
   const [isCollapsed, setCollapse] = useState(false);
   const isMobile = useMobile();
-  const renderCollapseTrigger = description.length > 150 && isMobile;
+  const renderCollapseTrigger = description.length > 280 && isMobile;
 
   useEffect(() => {
     if (isMobile) {
@@ -25,7 +25,7 @@ export const UserDescription = ({ description }: Props) => {
   }, [isMobile]);
 
   return (
-    <React.Fragment>
+    <>
       <ProfileDescriptionStyle isCollapsed={isCollapsed}>
         {description}
       </ProfileDescriptionStyle>
@@ -41,6 +41,6 @@ export const UserDescription = ({ description }: Props) => {
       ) : (
         <ProfileSeparatorStyle />
       )}
-    </React.Fragment>
+    </>
   );
 };

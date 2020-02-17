@@ -106,7 +106,6 @@ const SequencePageContainer = ({ question }: Props) => {
           handleOpenSequence={handleOpenSequence}
         />
       </SequencePageContentStyle>
-
       <SequenceFooterStyle aria-labelledby="footer_title">
         <SequenceFooterTitleStyle id="footer_title">
           {question.question}

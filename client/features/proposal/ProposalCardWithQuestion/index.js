@@ -16,23 +16,27 @@ import { isInProgress } from 'Shared/helpers/date';
 import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   /** Object with all proposal's properties */
   proposal: TypeProposal,
-  /** Show or not organisation who voted */
-  withOrganisations?: boolean,
   /** Proposal's position in list */
   position: number,
   /** Size of proposals list */
   size: number,
+  /** Show or not organisation who voted */
+  withOrganisations?: boolean,
+  /** Enable radius on Mobile */
+  withMobileRadius?: boolean,
 };
 
 export const ProposalCardWithQuestion = ({
   proposal,
-  withOrganisations = false,
   position,
   size,
+  withOrganisations = false,
+  withMobileRadius = false,
 }: Props) => {
   const proposalLink = getProposalLink(
     proposal.country,
@@ -45,7 +49,7 @@ export const ProposalCardWithQuestion = ({
 
   return (
     <ProposalCardStyle
-      role="article"
+      className={withMobileRadius ? 'mobile-radius' : ''}
       aria-posinset={position}
       aria-setsize={size}
     >
@@ -53,24 +57,26 @@ export const ProposalCardWithQuestion = ({
         <ProposalAuthorElement proposal={proposal} withAvatar />
       </AuthorWrapperStyle>
       <ProposalInnerStyle>
-        <ScreenReaderItemStyle>
-          {i18n.t('proposal_card.content')}
-        </ScreenReaderItemStyle>
-        <ProposalStyle to={proposalLink}>{proposal.content}</ProposalStyle>
-        {canVote ? (
-          <Vote
-            proposalId={proposal.id}
-            questionSlug={proposal.question.slug}
-            votes={proposal.votes}
-            proposalKey={proposal.proposalKey}
-            index={position}
-          />
-        ) : (
-          <DetailledVoteResults
-            votes={proposal.votes}
-            proposalId={proposal.id}
-          />
-        )}
+        <ColumnElementStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('proposal_card.content')}
+          </ScreenReaderItemStyle>
+          <ProposalStyle to={proposalLink}>{proposal.content}</ProposalStyle>
+          {canVote ? (
+            <Vote
+              proposalId={proposal.id}
+              questionSlug={proposal.question.slug}
+              votes={proposal.votes}
+              proposalKey={proposal.proposalKey}
+              index={position}
+            />
+          ) : (
+            <DetailledVoteResults
+              votes={proposal.votes}
+              proposalId={proposal.id}
+            />
+          )}
+        </ColumnElementStyle>
         {withOrganisations && proposal.organisations && (
           <OrganisationsVote
             organisations={proposal.organisations}

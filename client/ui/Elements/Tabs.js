@@ -83,6 +83,9 @@ const TabStyle = styled.li`
     text-align: center;
     color: ${BasicColors.PureBlack};
     text-transform: uppercase;
+    &.inline {
+      display: inline;
+    }
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
       flex-flow: row;
       font-size: 18px;

@@ -4,41 +4,44 @@ import { i18n } from 'Shared/i18n';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
-import { ProposalsShowcase } from '../Slider';
 import {
   ProposalsContentStyle,
   ProposalsIntroStyle,
   ProposalsTitleStyle,
   ProposalsSliderListStyle,
   ProposalsSliderListItemStyle,
-} from '../Styled';
+} from './style';
+import { ProposalsShowcase } from './Slider';
 
-type HomepagePopularProposalsProps = {
+type ControversialProposalsProps = {
   proposals: TypeProposal[],
 };
 
-export const HomepagePopularProposals = ({
+export const ControversialProposals = ({
   proposals,
-}: HomepagePopularProposalsProps) => {
+}: ControversialProposalsProps) => {
+  const isDeskop = useDesktop();
   const hasProposals = proposals.length > 0;
-  const POPULAR_SLIDER = 'popularshowcase';
-  const isDesktop = useDesktop();
+  const CONTROVERSIAL_SLIDER = 'controversialshowcase';
 
   if (!hasProposals) {
     return null;
   }
 
   return (
-    <ProposalsContentStyle aria-labelledby="popular_proposals_title">
-      <ProposalsTitleStyle id="popular_proposals_title">
+    <ProposalsContentStyle aria-labelledby="controversial_proposals_title">
+      <ProposalsTitleStyle id="controversial_proposals_title">
         <ProposalsIntroStyle>
-          {i18n.t('homepage.proposals.popular.intro')}
-          <React.Fragment> </React.Fragment>
+          {i18n.t('homepage.proposals.controversial.intro')}
+          <> </>
         </ProposalsIntroStyle>
-        {i18n.t('homepage.proposals.popular.title')}
+        {i18n.t('homepage.proposals.controversial.title')}
       </ProposalsTitleStyle>
-      {!isDesktop ? (
-        <ProposalsShowcase proposals={proposals} sliderName={POPULAR_SLIDER} />
+      {!isDeskop ? (
+        <ProposalsShowcase
+          proposals={proposals}
+          sliderName={CONTROVERSIAL_SLIDER}
+        />
       ) : (
         <ProposalsSliderListStyle>
           {proposals.map((proposal, index) => (

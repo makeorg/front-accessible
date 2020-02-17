@@ -13,6 +13,7 @@ export const AvatarStyle = styled.span`
 `;
 
 export const AvatarImageStyle = styled.img`
+  box-sizing: content-box;
   min-width: ${props => intToPx(props.avatarSize)};
   width: ${props => intToPx(props.avatarSize)};
   height: ${props => intToPx(props.avatarSize)};

@@ -10,7 +10,7 @@ import {
 } from 'Shared/constants/notification';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
-import { SvgCheckStyle, SvgIconStyle } from '../Styled';
+import { SvgCheckStyle, SvgIconStyle } from './style';
 
 export const NotificationIcon = () => {
   /** Level of the Notification */

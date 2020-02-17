@@ -25,7 +25,9 @@ import {
   CommitmentPreviewSeparatorStyle,
   CommitmentPreviewOpinionsIconWrapperStyle,
   CommitmentPreviewBoxStyle,
+  CommitmentPreviewOpinionsWrapperStyle,
 } from '../Commitment/Preview/style';
+import { OpinionCommentAuthorStyle } from '../style';
 
 type Props = {
   question: TypeQuestion,
@@ -56,7 +58,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
         </Link>
         {isMobile ? (
           <ColumnElementStyle>
-            <MiddleRowStyle>
+            <OpinionCommentAuthorStyle>
               <CandidateLinkStyle
                 to={getPersonalityProfileLink(
                   question.country,
@@ -68,7 +70,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
                 {comment.personality.displayName}
               </CandidateLinkStyle>
               <SvgCheckedSymbol style={CertifiedIconStyle} />
-            </MiddleRowStyle>
+            </OpinionCommentAuthorStyle>
             <PoliticalPartyStyle>
               {comment.personality.politicalParty}
             </PoliticalPartyStyle>
@@ -94,7 +96,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
         )}
       </FlexElementStyle>
       <CommitmentPreviewSeparatorStyle />
-      <FlexElementStyle>
+      <CommitmentPreviewOpinionsWrapperStyle>
         <CommitmentPreviewOpinionsIconWrapperStyle
           transform={opinionsVoteStaticParams[comment.vote].transform}
           color={opinionsVoteStaticParams[comment.vote].color}
@@ -113,7 +115,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
               : i18n.t(`personality.opinions.preview.${comment.vote}`),
           }}
         />
-      </FlexElementStyle>
+      </CommitmentPreviewOpinionsWrapperStyle>
       {comment.comment1 && (
         <CommitmentPreviewBoxStyle>
           {comment.comment1}

@@ -19,7 +19,7 @@ export const DetailledVoteResults = (props: Props) => {
   const votesPercent = getVotesPercent(votes, totalVotesCount);
 
   return (
-    <React.Fragment>
+    <>
       <VoteProgress
         key={`vote_progress_${proposalId}`}
         votes={votes}
@@ -37,6 +37,6 @@ export const DetailledVoteResults = (props: Props) => {
           />
         ))}
       </DetailledItemListStyle>
-    </React.Fragment>
+    </>
   );
 };

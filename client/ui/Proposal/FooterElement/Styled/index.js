@@ -7,8 +7,8 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 export const ProposalFooterStyle = styled.div`
   width: 100%;
   display: inline-block;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
   border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 

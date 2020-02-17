@@ -6,7 +6,7 @@ import {
   ShadowColors,
   TextColors,
 } from 'Client/app/assets/vars/Colors';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
   Breakpoints,
   Layouts,
@@ -15,7 +15,6 @@ import {
 import {
   FlexElementStyle,
   MiddleRowStyle,
-  ColumnToRowElementStyle,
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { TabsOffsetDesktop } from 'Shared/constants/tabs';
@@ -37,20 +36,23 @@ export const ProfileWrapperStyle = styled.div`
 `;
 
 export const ProfileHeaderStyle = styled.header`
-  height: 40px;
+  height: 100px;
   width: 100%;
   background-color: ${MakeThemeColors.Blue};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    height: 100px;
-  }
+  margin-top: -5px;
 `;
 
-export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
+export const ProfilePageContentWrapperStyle = styled.div`
+  display: flex;
+  flex-flow: column;
+  box-sizing: border-box;
   width: 100%;
   align-items: flex-start;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
+  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
   margin: 0 auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 0 20px;
+    flex-flow: row;
     justify-content: space-between;
     margin: 0 auto ${intToPx(DesktopMarginWithOffset)};
     transform: translateY(-${DesktopOffset});
@@ -59,14 +61,14 @@ export const ProfilePageContentWrapperStyle = styled(ColumnToRowElementStyle)`
 
 export const ContentElementStyle = styled(ColumnElementStyle)`
   width: 100%;
-  flex: 1 1 auto;
+  height: 100%;
 `;
 
 export const ProfilePageWithoutTabsContentStyle = styled(ContentElementStyle)`
   margin: ${intToPx(DefaultPadding.Mobile)} 0 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 90px 0 0;
-    max-width: 750px;
+    width: ${pxToPercent(780, 1140)};
   }
 `;
 
@@ -74,30 +76,30 @@ export const ProfilePageContentStyle = styled(ContentElementStyle)`
   margin: ${intToPx(DefaultPadding.Mobile)} 0 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 0;
-    max-width: 750px;
+    width: ${pxToPercent(760, 1140)};
+    padding-left: ${pxToPercent(20, 1140)};
   }
 `;
 
 export const ProfilePageSidebarWrapperStyle = styled.div`
   width: 100%;
-
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: 360px;
+    width: ${pxToPercent(360, 1140)};
   }
 `;
 
 export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   align-items: center;
   background-color: ${BasicColors.PureWhite};
-  border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: 0 ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
+  padding: 0 20px 20px;
   margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 360px;
-    margin-right: 30px;
-    padding: 0 ${intToPx(DefaultPadding.Desktop)}
-      ${intToPx(DefaultPadding.Desktop)};
+    border-radius: ${intToPx(Elements.BorderRadius)};
+    padding: 0 20px 30px;
   }
 `;
 
@@ -130,31 +132,39 @@ export const ProfileAvatarLayoutStyle = styled(FlexElementStyle)`
 export const ProfileAvatarStyle = styled.div`
   display: flex;
   justify-content: center;
-  transform: translateY(-20px);
-  margin-bottom: -20px;
+  transform: translateY(-50%);
+  margin-bottom: -50%;
+  > span {
+    margin: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    transform: translateY(-20px);
+    margin-bottom: -20px;
     margin-right: 0;
   }
 `;
 
 export const ProfileContentWrapperStyle = styled(ColumnElementStyle)`
   align-content: flex-start;
+  margin: 20px 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     align-content: center;
   }
 `;
 
-export const ProfileNavigationStyle = styled.div`
-  display: flex;
-  flex-direction: column;
+export const ProfileNavigationStyle = styled(ColumnElementStyle)`
+  margin-top: 10px;
 `;
 
 export const ProfileTitleStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: 16px;
   text-transform: uppercase;
-  margin: 5px 0;
+  margin-bottom: 10px;
   text-align: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }
@@ -162,11 +172,14 @@ export const ProfileTitleStyle = styled.p`
 
 export const ProfileContentStyle = styled(ParagraphStyle)`
   margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    text-align: center;
-  }
   svg {
     fill: ${TextColors.MediumGrey};
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    text-align: center;
   }
 `;
 
@@ -180,9 +193,8 @@ export const ProfileAlignLeftContentStyle = styled(ProfileContentStyle)`
 export const ProfileDescriptionStyle = styled(ParagraphStyle)`
   width: 100%;
   overflow-wrap: break-word;
-  padding: 0 5px;
   align-self: flex-start;
-  max-height: ${props => (props.isCollapsed ? '42px' : '100%')};
+  max-height: ${props => (props.isCollapsed ? '126px' : '100%')};
   overflow: ${props => (props.isCollapsed ? 'hidden' : 'visible')};
 `;
 
@@ -218,7 +230,7 @@ export const ProfileCollapseSeparatorStyle = styled(SeparatorStyle)`
     bottom: 100%;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 100px;
     background-image: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0),

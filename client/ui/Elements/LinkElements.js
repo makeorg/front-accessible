@@ -7,6 +7,7 @@ import {
 } from 'Client/ui/Elements/ButtonElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { SvgExternalLink } from '../Svg/elements';
 
 const linkStyle = color => `
   color: ${color};
@@ -26,10 +27,10 @@ const linkStyle = color => `
   }
 `;
 
-export const NewWindowIconStyle = {
-  marginLeft: '5px',
-  fill: MakeThemeColors.Red,
-};
+export const NewWindowIconStyle = styled(SvgExternalLink)`
+  margin-left: 5px;
+  fill: ${MakeThemeColors.Red};
+`;
 
 export const RedLinkRouterStyle = styled(Link)`
   ${linkStyle(MakeThemeColors.Red)}

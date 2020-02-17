@@ -30,7 +30,7 @@ export const BreadcrumbsLinkStyle = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 1.5;
   border-bottom: 3px solid ${MakeThemeColors.Red};
   &:hover,
   &:focus {
@@ -38,7 +38,6 @@ export const BreadcrumbsLinkStyle = styled(Link)`
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 24px;
-    line-height: 32px;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 26px;

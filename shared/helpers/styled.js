@@ -7,6 +7,12 @@ export const pxToRem = (value: string | number, base: number = 16) => {
   return `${rem}rem`;
 };
 
+export const pxToPercent = (childValue: number, parentValue: number) => {
+  const percentValue = (childValue * 100) / parentValue;
+
+  return `${percentValue}%`;
+};
+
 export const intToPx = (value: number) => {
   return `${value}px`;
 };

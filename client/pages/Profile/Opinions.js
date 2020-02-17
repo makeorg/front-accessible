@@ -16,6 +16,7 @@ import {
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
   ProfilePageContentStyle,
+  ProfilePageSidebarWrapperStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 import { Opinions } from 'Client/features/opinions';
@@ -62,9 +63,11 @@ const ProfilePage = ({ match }: Props) => {
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
-        <ProfilePageSidebarStyle id="sidebar_content">
-          <UserInformations user={user} navigationBar={NavigationBar} />
-        </ProfilePageSidebarStyle>
+        <ProfilePageSidebarWrapperStyle>
+          <ProfilePageSidebarStyle id="sidebar_content">
+            <UserInformations user={user} navigationBar={NavigationBar} />
+          </ProfilePageSidebarStyle>
+        </ProfilePageSidebarWrapperStyle>
         <ProfilePageContentStyle>
           <ProfilePageContentStyle>
             <TabNavStyle

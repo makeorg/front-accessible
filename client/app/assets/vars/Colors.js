@@ -29,13 +29,14 @@ export const BackgroundColors = {
 
 export const BorderColors = {
   MediumGrey: 'rgba(0,0,0,0.5)',
-  LightGrey: 'rgb(204, 204, 204)',
+  LightGrey: 'rgb(205, 205, 205)',
   ErrorRed: 'rgb(237,24,68)',
 };
 
 export const TextColors = {
   DarkGrey: 'rgb(83,83,83)',
   MediumGrey: 'rgb(74,74,74)',
+  AltMediumgrey: 'rgb(102,102,102)',
   LightGrey,
   Blue: 'rgb(74, 144, 226)',
   WhiteWithOpacity: 'rgb(255,255,255, 0.65)',

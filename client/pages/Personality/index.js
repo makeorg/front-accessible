@@ -18,7 +18,6 @@ import {
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
-  ProfileSeparatorStyle,
   ProfileAlignLeftContentStyle,
   ProfileWebsiteLinkStyle,
   ProfileContentStyle,
@@ -45,7 +44,6 @@ type Props = {
 const PersonalityPage = ({ match }: Props) => {
   const [personality, setPersonality] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
   const { userId } = match.params;
 
@@ -62,11 +60,7 @@ const PersonalityPage = ({ match }: Props) => {
     };
 
     fetchPersonality();
-
-    if (!isMobile) {
-      setAvatarSize(160);
-    }
-  }, [userId, isMobile]);
+  }, [userId]);
 
   if (!personality && isLoading) {
     return (
@@ -95,7 +89,7 @@ const PersonalityPage = ({ match }: Props) => {
             <ProfileAvatarLayoutStyle>
               <ProfileAvatarStyle>
                 <Avatar
-                  avatarSize={avatarSize}
+                  avatarSize={isMobile ? 120 : 160}
                   avatarUrl={personality.profile.avatarUrl}
                 />
               </ProfileAvatarStyle>
@@ -125,7 +119,6 @@ const PersonalityPage = ({ match }: Props) => {
             )}
             {personality.profile.description && (
               <>
-                <ProfileSeparatorStyle />
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.biography')}
                 </ScreenReaderItemStyle>

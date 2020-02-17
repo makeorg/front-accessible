@@ -40,9 +40,9 @@ export const Partners = (props: Props) => {
     : [];
 
   return (
-    <React.Fragment>
+    <>
       {isInProgress(question) && (
-        <React.Fragment>
+        <>
           <ParagraphStyle>
             {i18n.t('consultation.partners.intro_text')}
           </ParagraphStyle>
@@ -57,7 +57,7 @@ export const Partners = (props: Props) => {
             {i18n.t('consultation.partners.commitment_title')}
           </FourthLevelTitleStyle>
           <TileSeparatorStyle />
-        </React.Fragment>
+        </>
       )}
       <ParagraphStyle>
         {i18n.t('consultation.partners.commitment_text')}
@@ -68,6 +68,6 @@ export const Partners = (props: Props) => {
         linkText={i18n.t('consultation.partners.commitment_link')}
         tracking={() => trackSeeMorePartners()}
       />
-    </React.Fragment>
+    </>
   );
 };

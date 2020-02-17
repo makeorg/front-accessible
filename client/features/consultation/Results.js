@@ -40,7 +40,7 @@ import {
   ResultsThumbIconStyle,
   ResultsDownloadItemStyle,
   ResultsDownloadButtonStyle,
-} from './Results/Styled';
+} from './Results/style';
 import { KeyFigures } from './Results/KeyFigures';
 import { ProposalsResults } from './Results/Proposals';
 import { TopIdeas } from './Results/TopIdeas';

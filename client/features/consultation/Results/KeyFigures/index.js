@@ -5,7 +5,7 @@ import {
   KeyFiguresListStyle,
   KeyFiguresListItemStyle,
   KeyFiguresCountStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   results: {

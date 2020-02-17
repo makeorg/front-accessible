@@ -3,6 +3,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const DisclaimerSubtitleStyle = styled.h4`
   font-size: 12px;
@@ -29,4 +30,8 @@ export const OpinionCardListItemStyle = styled.li`
   &:last-child {
     margin-bottom: 0;
   }
+`;
+
+export const OpinionCommentAuthorStyle = styled(FlexElementStyle)`
+  align-items: center;
 `;

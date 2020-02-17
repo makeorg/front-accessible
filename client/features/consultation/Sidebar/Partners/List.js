@@ -6,8 +6,8 @@ import {
 } from 'Client/features/consultation/Styled/Partners';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { FOUNDER_PARTNER } from 'Shared/constants/partner';
-import { PartnerTooltip } from '../Tooltip';
-import { PartnerAvatar } from '../Avatar';
+import { PartnerTooltip } from './Tooltip';
+import { PartnerAvatar } from './Avatar';
 
 type TooltipProps = {
   partner: TypePartner,

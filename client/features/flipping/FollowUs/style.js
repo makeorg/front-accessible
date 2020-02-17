@@ -12,6 +12,16 @@ export const FollowUsStyle = styled(SpaceBetweenRowStyle)`
   margin: 15px 0;
 `;
 
+export const FollowUsListItemStyle = styled.li`
+  margin: 0 5px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
 export const FollowUsButtonStyle = styled(UnstyledButtonStyle)`
   width: 40px;
   height: 40px;

@@ -31,3 +31,7 @@ export const ButtonWrapperStyle = styled(RedButtonStyle)`
 export const FooterStyle = styled(ParagraphStyle)`
   margin-top: 20px;
 `;
+
+export const LocalActorCountStyle = styled.div`
+  margin-top: 5px;
+`;

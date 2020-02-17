@@ -33,7 +33,6 @@ import {
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
-  ProfileSeparatorStyle,
   ProfileAlignLeftContentStyle,
   ProfileWebsiteLinkStyle,
 } from 'Client/ui/Elements/ProfileElements';
@@ -64,7 +63,6 @@ type Props = {
 const OrganisationPage = (props: Props) => {
   const [organisation, setOrganisation] = useState(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [avatarSize, setAvatarSize] = useState<number>(60);
   const isMobile = useMobile();
   const { match, location } = props;
   const { country, language, organisationSlug } = match.params;
@@ -103,11 +101,7 @@ const OrganisationPage = (props: Props) => {
     };
 
     fetchOrganisation();
-
-    if (!isMobile) {
-      setAvatarSize(160);
-    }
-  }, [organisationSlug, isMobile]);
+  }, [organisationSlug]);
 
   if (!organisation && isLoading) {
     return (
@@ -132,7 +126,7 @@ const OrganisationPage = (props: Props) => {
             <ProfileAvatarLayoutStyle>
               <ProfileAvatarStyle>
                 <Avatar
-                  avatarSize={avatarSize}
+                  avatarSize={isMobile ? 120 : 160}
                   avatarUrl={organisation.avatarUrl}
                 />
               </ProfileAvatarStyle>
@@ -148,13 +142,12 @@ const OrganisationPage = (props: Props) => {
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {organisation.description && (
-              <React.Fragment>
-                <ProfileSeparatorStyle />
+              <>
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.biography')}
                 </ScreenReaderItemStyle>
                 <UserDescription description={organisation.description} />
-              </React.Fragment>
+              </>
             )}
             {organisation.website && (
               <ProfileAlignLeftContentStyle>
