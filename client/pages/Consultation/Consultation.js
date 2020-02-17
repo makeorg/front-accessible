@@ -22,6 +22,7 @@ import { isInProgress } from 'Shared/helpers/date';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
+import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -73,17 +74,13 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         description={question.wording.metas.description}
         picture={question.wording.metas.picture}
       />
-      {isMobile && question.descriptionImage && (
-        <img
-          src={question.descriptionImage}
-          style={{ marginTop: '-5px' }}
-          alt=""
-        />
-      )}
       <ConsultationSkipLinks
         canPropose={question.canPropose}
         isGreatCause={questionIsGreatCause}
       />
+      {isMobile && question.descriptionImage && (
+        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+      )}
       {isNavigationBetweenQuestionActive && hasSiblingQuestions && (
         <NavigationBetweenQuestions question={question} />
       )}

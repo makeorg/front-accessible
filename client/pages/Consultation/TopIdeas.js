@@ -18,6 +18,8 @@ import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngageme
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
+import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
+import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -68,6 +70,10 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
         })}
         picture={i18n.t('meta.top-ideas.picture')}
       />
+      <TopIdeasSkipLinks />
+      {isMobile && question.descriptionImage && (
+        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+      )}
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
