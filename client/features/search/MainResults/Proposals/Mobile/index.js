@@ -37,6 +37,7 @@ export const MainResultsProposalsMobile = ({ proposals }: Props) => {
                   proposal={proposal}
                   position={index + 1}
                   size={proposals.length}
+                  withMobileRadius
                 />
               </SearchSliderListItemStyle>
             ))}

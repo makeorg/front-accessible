@@ -14,6 +14,9 @@ export const MainResultsProposalsItemStyle = styled.li`
 
 export const SearchSliderListStyle = styled(UnstyledListStyle)`
   padding: 0 20px 5px;
+  &.with-avatar {
+    padding-top: 42px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 0 0 5px;
   }

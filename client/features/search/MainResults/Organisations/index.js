@@ -10,6 +10,7 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { Avatar } from 'Client/ui/Avatar';
 import {
   SearchOrganisationsListStyle,
+  SearchOrganisationsListItemStyle,
   SearchOrganisationItemStyle,
   SearchOrganisationAvatarStyle,
 } from 'Client/features/search/Styled';
@@ -40,30 +41,31 @@ export const MainResultsOrganisations = ({ organisations }: Props) => {
     <div id="organisations_list" role="feed">
       <SearchOrganisationsListStyle>
         {organisations.map(organisation => (
-          <SearchOrganisationItemStyle
-            key={organisation.organisationId}
-            as={Link}
-            to={getOrganisationProfileLink(
-              country,
-              language,
-              organisation.slug
-            )}
-          >
-            <ProfileAvatarLayoutStyle>
-              <SearchOrganisationAvatarStyle>
-                <Avatar avatarSize={80} avatarUrl={organisation.avatarUrl} />
-              </SearchOrganisationAvatarStyle>
-              <ProfileContentWrapperStyle>
-                <ProfileTitleStyle>
-                  <ScreenReaderItemStyle>
-                    {i18n.t('profile.common.labels.organisation')}
-                  </ScreenReaderItemStyle>
-                  {organisation.organisationName}
-                  <SvgCheckedSymbol style={CertifiedIconStyle} />
-                </ProfileTitleStyle>
-              </ProfileContentWrapperStyle>
-            </ProfileAvatarLayoutStyle>
-          </SearchOrganisationItemStyle>
+          <SearchOrganisationsListItemStyle key={organisation.organisationId}>
+            <SearchOrganisationItemStyle
+              as={Link}
+              to={getOrganisationProfileLink(
+                country,
+                language,
+                organisation.slug
+              )}
+            >
+              <ProfileAvatarLayoutStyle>
+                <SearchOrganisationAvatarStyle>
+                  <Avatar avatarSize={80} avatarUrl={organisation.avatarUrl} />
+                </SearchOrganisationAvatarStyle>
+                <ProfileContentWrapperStyle>
+                  <ProfileTitleStyle>
+                    <ScreenReaderItemStyle>
+                      {i18n.t('profile.common.labels.organisation')}
+                    </ScreenReaderItemStyle>
+                    {organisation.organisationName}
+                    <SvgCheckedSymbol style={CertifiedIconStyle} />
+                  </ProfileTitleStyle>
+                </ProfileContentWrapperStyle>
+              </ProfileAvatarLayoutStyle>
+            </SearchOrganisationItemStyle>
+          </SearchOrganisationsListItemStyle>
         ))}
       </SearchOrganisationsListStyle>
     </div>
