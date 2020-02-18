@@ -46,6 +46,7 @@ export const AvatarWithDotsStyle = styled.div`
   border: 2px solid ${BasicColors.PureWhite};
   overflow: hidden;
   background-color: rgb(127, 127, 127);
+  box-sizing: content-box;
 `;
 
 export const DotsStyle = styled.span`

@@ -31,20 +31,22 @@ export const SearchOrganisationsListStyle = styled(UnstyledListStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0 30px;
+    grid-gap: 15px 30px;
   }
   @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 20px;
   }
 `;
 
+export const SearchOrganisationsListItemStyle = styled.li`
+  padding: 20px 0 0;
+`;
+
 export const SearchOrganisationItemStyle = styled(ProfilePageSidebarStyle)`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  @media (max-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-bottom: 40px;
-  }
   text-decoration: none;
+  &.mobile-radius {
+    border-radius: ${intToPx(Elements.BorderRadius)};
+  }
 `;
 
 export const SearchOrganisationAvatarStyle = styled(ProfileAvatarStyle)`

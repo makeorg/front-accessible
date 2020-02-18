@@ -7,16 +7,14 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
-import {
-  SearchOrganisationItemStyle,
-  SearchOrganisationAvatarStyle,
-} from 'Client/features/search/Styled';
+import { SearchOrganisationItemStyle } from 'Client/features/search/Styled';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
+  ProfileAvatarStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
@@ -43,12 +41,12 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
   useSlider(sliderRef, SearchOrganisationsSliderParams, hasOrganisations);
 
   return (
-    <React.Fragment>
+    <>
       <GliderStylesheet />
       <div className={`${SEARCH_ORGANISATION_SLIDER} glider-contain`}>
         <div className={`${SEARCH_ORGANISATION_SLIDER} glider`} ref={sliderRef}>
           <SearchSliderListStyle
-            className={`${SEARCH_ORGANISATION_SLIDER} glider-track`}
+            className={`${SEARCH_ORGANISATION_SLIDER} glider-track with-avatar`}
           >
             {organisations.map(organisation => (
               <SearchSliderListItemStyle
@@ -56,6 +54,7 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                 className={SEARCH_ORGANISATION_SLIDER}
               >
                 <SearchOrganisationItemStyle
+                  className="mobile-radius"
                   key={organisation.slug}
                   as={Link}
                   to={getOrganisationProfileLink(
@@ -65,12 +64,12 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                   )}
                 >
                   <ProfileAvatarLayoutStyle>
-                    <SearchOrganisationAvatarStyle>
+                    <ProfileAvatarStyle>
                       <Avatar
                         avatarSize={80}
                         avatarUrl={organisation.avatarUrl}
                       />
-                    </SearchOrganisationAvatarStyle>
+                    </ProfileAvatarStyle>
                     <ProfileContentWrapperStyle>
                       <ProfileTitleStyle>
                         <ScreenReaderItemStyle>
@@ -87,6 +86,6 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
           </SearchSliderListStyle>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
