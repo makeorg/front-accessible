@@ -18,7 +18,7 @@ import {
   VoteDataBoldItemStyle,
   VoteDataItemStyle,
   QualificationDataListStyle,
-} from '../Styled';
+} from '../style';
 
 type Props = {
   /** Object with vote's properties */

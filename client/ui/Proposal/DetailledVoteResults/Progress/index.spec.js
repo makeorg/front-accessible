@@ -7,7 +7,7 @@ jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
 }));
 
-jest.mock('../Styled/Progress', () => ({
+jest.mock('../style', () => ({
   VoteProgressContainerStyle: 'VoteProgressContainerStyle',
   VoteProgressWrapperStyle: 'VoteProgressWrapperStyle',
   VoteCounterStyle: 'VoteCounterStyle',

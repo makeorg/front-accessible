@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
-.c1 {
+.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c7 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19,20 +19,20 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   justify-content: space-between;
 }
 
-.c8 {
+.c3 {
   font-size: 12px;
   line-height: 22px;
   font-family: 'Circular Standard Bold',Arial,sans-serif;
   color: rgb(80,122,31);
 }
 
-.c9 {
+.c4 {
   font-size: 12px;
   line-height: 22px;
   color: rgb(74,74,74);
 }
 
-.c4 {
+.c1 {
   position: absolute;
   display: none;
   width: 0;
@@ -41,114 +41,23 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   visibility: hidden;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 0 15px;
-  min-width: 200px;
-}
-
-.c0.disagree {
-  border-left: 1px solid rgb(229,229,229);
-  border-right: 1px solid rgb(229,229,229);
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  margin-left: 10px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c5 {
-  font-size: 12px;
-  line-height: 18px;
-  color: rgb(74,74,74);
-  margin: 3px 0;
-}
-
-.c3 {
-  font-size: 12px;
-  line-height: 18px;
-  color: rgb(74,74,74);
-  margin: 3px 0;
-  font-size: 14px;
-  font-family: 'Circular Standard Bold',Arial,sans-serif;
-}
-
-.c6 {
-  padding: 0;
-  list-style: none;
-  margin-top: 10px;
-}
-
 @media (min-width:767px) {
-  .c8 {
+  .c3 {
     font-size: 14px;
   }
 }
 
 @media (min-width:767px) {
-  .c9 {
+  .c4 {
     font-size: 14px;
   }
 }
 
-@media (min-width:360px) {
-  .c5 {
-    font-size: 14px;
-    line-height: 21px;
-  }
-}
-
-@media (min-width:969px) {
-  .c5 {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media (min-width:360px) {
-  .c3 {
-    font-size: 14px;
-    line-height: 21px;
-  }
-}
-
-@media (min-width:969px) {
-  .c3 {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media (min-width:767px) {
-  .c3 {
-    font-size: 16px;
-  }
-}
-
-<li
-  className="c0 agree"
+<DetailledItemStyle
+  className="agree"
 >
   <div
-    className="c1"
+    className="c0"
   >
     <ScreenReaderItemStyle>
       vote.agree
@@ -183,44 +92,38 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
         </svg>
       </ButtonIconWrapperStyle>
     </IsVotedButtonStyle>
-    <span
-      className="f9ghfa-2 c2"
+    <VoteDataListStyle
+      as="span"
     >
-      <span
-        className="c3"
-      >
+      <VoteDataBoldItemStyle>
         common.percent
-      </span>
+      </VoteDataBoldItemStyle>
       <span
         aria-hidden={true}
-        className="c4"
+        className="c1"
       >
          (
       </span>
-      <span
-        className="c5"
-      >
+      <VoteDataItemStyle>
         vote.label
-      </span>
+      </VoteDataItemStyle>
       <span
         aria-hidden={true}
-        className="c4"
+        className="c1"
       >
         ) 
       </span>
-    </span>
+    </VoteDataListStyle>
   </div>
   <ScreenReaderItemStyle>
     qualification.static_repartition
   </ScreenReaderItemStyle>
-  <ul
-    className="qfibtu-0 c6"
-  >
+  <QualificationDataListStyle>
     <li
-      className="c7"
+      className="c2"
     >
       <span
-        className="c8"
+        className="c3"
         color="rgb(80,122,31)"
       >
         qualification.likeIt
@@ -229,7 +132,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c9"
+        className="c4"
       >
          4 
       </span>
@@ -238,10 +141,10 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c7"
+      className="c2"
     >
       <span
-        className="c8"
+        className="c3"
         color="rgb(80,122,31)"
       >
         qualification.doable
@@ -250,7 +153,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c9"
+        className="c4"
       >
          2 
       </span>
@@ -259,10 +162,10 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c7"
+      className="c2"
     >
       <span
-        className="c8"
+        className="c3"
         color="rgb(80,122,31)"
       >
         qualification.platitudeAgree
@@ -271,7 +174,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
          : 
       </ScreenReaderItemStyle>
       <span
-        className="c9"
+        className="c4"
       >
          2 
       </span>
@@ -279,6 +182,6 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
         qualification.times
       </ScreenReaderItemStyle>
     </li>
-  </ul>
-</li>
+  </QualificationDataListStyle>
+</DetailledItemStyle>
 `;
