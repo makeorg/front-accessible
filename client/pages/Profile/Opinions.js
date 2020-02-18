@@ -69,23 +69,21 @@ const ProfilePage = ({ match }: Props) => {
           </ProfilePageSidebarStyle>
         </ProfilePageSidebarWrapperStyle>
         <ProfilePageContentStyle>
-          <ProfilePageContentStyle>
-            <TabNavStyle
-              aria-label={i18n.t('common.secondary_nav')}
-              id="organisation_nav"
-            >
-              <TabListStyle as="div">
-                <TabStyle as="div" isSelected>
-                  <span>{i18n.t('personality.tabs.top_ideas')}</span>
-                </TabStyle>
-              </TabListStyle>
-            </TabNavStyle>
-            {loadPersonality ? (
-              <Spinner />
-            ) : (
-              <Opinions personality={personality} privateProfile />
-            )}
-          </ProfilePageContentStyle>
+          <TabNavStyle
+            aria-label={i18n.t('common.secondary_nav')}
+            id="organisation_nav"
+          >
+            <TabListStyle as="div">
+              <TabStyle as="div" isSelected>
+                <span>{i18n.t('personality.tabs.top_ideas')}</span>
+              </TabStyle>
+            </TabListStyle>
+          </TabNavStyle>
+          {loadPersonality ? (
+            <Spinner />
+          ) : (
+            <Opinions personality={personality} privateProfile />
+          )}
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
     </ProfileWrapperStyle>
