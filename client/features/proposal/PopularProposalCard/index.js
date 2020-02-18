@@ -13,7 +13,11 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { Vote } from 'Client/features/vote';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { getProposalLink } from 'Shared/helpers/url';
-import { PopularProposalWrapperStyle, PopularProposalHeader } from './style';
+import {
+  PopularProposalWrapperStyle,
+  PopularProposalHeader,
+  PopularProposalTagStyle,
+} from './style';
 
 type Props = {
   /** Object with all proposal's properties */
@@ -73,6 +77,16 @@ export const PopularProposalCard = ({
           />
         )}
       </ProposalInnerStyle>
+      {proposal.selectedStakeTag && (
+        <PopularProposalTagStyle>
+          <ScreenReaderItemStyle
+            dangerouslySetInnerHTML={{
+              __html: i18n.t('consultation.tags.proposal_list'),
+            }}
+          />
+          {proposal.selectedStakeTag.label}
+        </PopularProposalTagStyle>
+      )}
     </PopularProposalWrapperStyle>
   );
 };

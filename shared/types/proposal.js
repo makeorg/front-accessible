@@ -62,6 +62,7 @@ export type Proposal = {
   language: string,
   themeId: string,
   tags: Tag[],
+  selectedStakeTag: Tag,
   myProposal: boolean,
   idea: string,
   questionId: string,

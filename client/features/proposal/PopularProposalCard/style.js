@@ -21,3 +21,12 @@ export const PopularProposalHeader = styled.div`
   margin: -20px -20px 10px -20px;
   padding: 11px 20px;
 `;
+
+export const PopularProposalTagStyle = styled.div`
+  padding-top: 15px;
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
+  font-family: ${MakeFonts.CircularStandardBold};
+  &::first-letter {
+    text-transform: uppercase;
+  }
+`;
