@@ -49,7 +49,8 @@ export const PlaceholderParagraphStyle = styled(ParagraphStyle)`
 `;
 
 export const FavouritesCardStyle = styled.aside`
-  padding: 0 30px;
+  width: 100%;
+  padding: 20px;
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-top: 30px;
@@ -61,7 +62,7 @@ export const FavouritesProposalStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBold};
   font-weight: bold;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }

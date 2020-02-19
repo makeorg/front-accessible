@@ -89,7 +89,7 @@ export const TopIdeaCollapseWrapperStyle = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 20px;
-  margin-top: 15px;
+  margin-top: 10px;
   border-top: 1px solid ${BackgroundColors.TaintedWhite};
 `;
 

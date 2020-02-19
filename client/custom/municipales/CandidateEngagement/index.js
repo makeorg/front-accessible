@@ -149,12 +149,24 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
 
   useSlider(sliderRef, sliderParams, personalities.length > 0);
 
-  useLayoutEffect(() => {
+  const updateSlideOffset = () => {
     const mainContainer = document.getElementById('main');
     const containerLeftOffset = mainContainer
       ? mainContainer.getBoundingClientRect().left
       : 0;
+
     setSlideOffset(containerLeftOffset);
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(updateSlideOffset);
+    });
+    updateSlideOffset();
+    return () =>
+      window.removeEventListener('resize', () => {
+        requestAnimationFrame(updateSlideOffset);
+      });
   }, [personalities]);
 
   return (

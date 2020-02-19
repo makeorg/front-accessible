@@ -42,61 +42,44 @@ export const ProfileFavouritesPlaceholder = () => {
         <FavouritesProposalStyle as="p">
           {i18n.t('profile.favourites.card_title')}
         </FavouritesProposalStyle>
-        <VoteContainerStyle>
+        <VoteContainerStyle className="placeholder">
           <VoteResultContainerStyle>
             <IsVotedButtonStyle color={VoteColors.Agree} disabled>
               <SvgThumbsUp />
             </IsVotedButtonStyle>
-            <aside>
-              <VoteResultGraphStyle>
-                <VoteResultItemStyle>
-                  <Tooltip
-                    content={
-                      <ResultTooltip votePercent={100} voteKey="agree" />
-                    }
-                    direction="bottom"
-                  >
-                    <VoteResultBarStyle
-                      color={VoteColors.Agree}
-                      percent={100}
-                    />
-                  </Tooltip>
-                </VoteResultItemStyle>
-                <VoteResultItemStyle>
-                  <Tooltip
-                    content={
-                      <ResultTooltip votePercent={0} voteKey="disagree" />
-                    }
-                    direction="bottom"
-                  >
-                    <VoteResultBarStyle
-                      color={VoteColors.Disagree}
-                      percent={0}
-                    />
-                  </Tooltip>
-                </VoteResultItemStyle>
-                <VoteResultItemStyle>
-                  <Tooltip
-                    content={
-                      <ResultTooltip votePercent={0} voteKey="neutral" />
-                    }
-                    direction="bottom"
-                  >
-                    <VoteResultBarStyle
-                      color={VoteColors.Neutral}
-                      percent={0}
-                    />
-                  </Tooltip>
-                </VoteResultItemStyle>
-              </VoteResultGraphStyle>
-              <VoteResultTotalLabelStyle>
-                {i18n.t('vote.label', { count: 4242 })}
-              </VoteResultTotalLabelStyle>
-            </aside>
+            <VoteResultGraphStyle>
+              <VoteResultItemStyle>
+                <Tooltip
+                  content={<ResultTooltip votePercent={100} voteKey="agree" />}
+                  direction="bottom"
+                >
+                  <VoteResultBarStyle color={VoteColors.Agree} percent={100} />
+                </Tooltip>
+              </VoteResultItemStyle>
+              <VoteResultItemStyle>
+                <Tooltip
+                  content={<ResultTooltip votePercent={0} voteKey="disagree" />}
+                  direction="bottom"
+                >
+                  <VoteResultBarStyle color={VoteColors.Disagree} percent={0} />
+                </Tooltip>
+              </VoteResultItemStyle>
+              <VoteResultItemStyle>
+                <Tooltip
+                  content={<ResultTooltip votePercent={0} voteKey="neutral" />}
+                  direction="bottom"
+                >
+                  <VoteResultBarStyle color={VoteColors.Neutral} percent={0} />
+                </Tooltip>
+              </VoteResultItemStyle>
+            </VoteResultGraphStyle>
+            <VoteResultTotalLabelStyle>
+              {i18n.t('vote.label', { count: 4242 })}
+            </VoteResultTotalLabelStyle>
           </VoteResultContainerStyle>
           <SpaceBetweenColumnStyle>
             <QualifyButtonStyle
-              class="qualified"
+              className="qualified"
               color={VoteColors.Agree}
               disabled
             >

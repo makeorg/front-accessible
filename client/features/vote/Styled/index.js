@@ -11,11 +11,17 @@ export const VoteContainerStyle = styled.div`
   &.opinions {
     margin: 30px 0 10px;
   }
+  &.placeholder {
+    margin: 20px 0 10px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     min-width: 250px;
     margin: 30px 0 60px;
     &.opinions {
       margin: 30px 0 10px;
+    }
+    &.placeholder {
+      margin: 20px 0 10px;
     }
   }
 `;

@@ -28,9 +28,11 @@ export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
 export const TileWithCollapseWrapperStyle = styled(CollapseWrapperStyle)`
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: 14px 20px 8px;
+  padding: 20px;
+  &.collapsed {
+    padding: 14px 20px 8px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 20px;
     border-radius: ${intToPx(Elements.BorderRadius)};
   }
 `;
@@ -83,7 +85,7 @@ export const CollapseContentStyle = styled.div`
 `;
 
 export const CollapseSeparatorStyle = styled(SeparatorStyle)`
-  margin-top: 4px;
+  margin: 10px 0;
 `;
 
 export const TileWithCollapseSeparatorStyle = styled(SeparatorStyle)`

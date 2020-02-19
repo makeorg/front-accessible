@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
+import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import { MakeThemeColors, BasicColors } from '../assets/vars/Colors';
 import { MakeFonts } from '../assets/vars/Fonts';
 import { Breakpoints } from '../assets/vars/Breakpoints';
@@ -8,15 +9,16 @@ import { Breakpoints } from '../assets/vars/Breakpoints';
 export const BreadcrumbsListStyle = styled.ol`
   padding: 0;
   list-style: none;
-  margin: 0 0 40px;
+  margin: 30px 0 20px;
   padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0;
+    margin: 0 0 40px;
   }
 `;
 
 export const BreadcrumbsListItemStyle = styled.li`
-  display: inline;
+  display: inline-flex;
   &.selected > a {
     color: ${BasicColors.PureBlack};
     border-bottom: none;
@@ -29,27 +31,25 @@ export const BreadcrumbsLinkStyle = styled(Link)`
   color: ${MakeThemeColors.Red};
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 20px;
-  line-height: 1.5;
-  border-bottom: 3px solid ${MakeThemeColors.Red};
+  font-size: 16px;
+  line-height: 1.25;
+  border-bottom: 2px solid ${MakeThemeColors.Red};
   &:hover,
   &:focus {
     color: ${MakeThemeColors.Red};
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
-    font-size: 24px;
-  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 26px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 28px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    font-size: 30px;
+    font-size: 18px;
   }
 `;
 
-export const BreadcrumbsSeparatorIconStyle = {
-  margin: '0 5px',
-};
+export const BreadcrumbsSeparatorIconStyle = styled(SvgAngleArrowRight)`
+  width: 16px;
+  height: 16px;
+  margin: 1px 5px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+  }
+`;

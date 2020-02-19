@@ -64,7 +64,7 @@ const ProfileFavouritesPage = ({ user }: Props) => {
   const renderPlaceholder = !proposalsLength && !isLoading;
   const displayLoadMoreButton = hasMore && !isLoading;
   return (
-    <React.Fragment>
+    <>
       <MetaTags title={i18n.t('meta.profile.favorites.title')} />
       <ProfileContentHeaderStyle>
         <ThirdLevelTitleStyle as="h2">
@@ -93,7 +93,7 @@ const ProfileFavouritesPage = ({ user }: Props) => {
         </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && <ProfileFavouritesPlaceholder />}
-    </React.Fragment>
+    </>
   );
 };
 
