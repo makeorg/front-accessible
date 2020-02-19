@@ -99,7 +99,6 @@ export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};
-    padding: 0 20px 30px;
   }
 `;
 

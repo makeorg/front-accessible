@@ -1,6 +1,5 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
 import {
   BreadcrumbsListItemStyle,
   BreadcrumbsListStyle,
@@ -28,10 +27,7 @@ export const Breadcrumbs = ({ parentPages, currentPage }: Props) => (
           <BreadcrumbsLinkStyle to={parentPage.link}>
             {parentPage.name}
           </BreadcrumbsLinkStyle>
-          <SvgAngleArrowRight
-            style={BreadcrumbsSeparatorIconStyle}
-            aria-hidden
-          />
+          <BreadcrumbsSeparatorIconStyle aria-hidden />
         </BreadcrumbsListItemStyle>
       ))}
       <BreadcrumbsListItemStyle className="selected">

@@ -38,6 +38,7 @@ export const Collapse = ({
   return (
     <CollapseWrapperStyle
       as={withTileStyle ? TileWithCollapseWrapperStyle : CollapseWrapperStyle}
+      className={isCollapsed && 'collapsed'}
     >
       <CollapseTriggerStyle
         onClick={toggleCollapse}

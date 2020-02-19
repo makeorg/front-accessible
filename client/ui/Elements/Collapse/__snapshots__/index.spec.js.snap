@@ -7,6 +7,8 @@ Snapshot Diff:
 
   <TileSeparatorStyle
     as="TileSeparatorStyle"
+-   className={false}
++   className="collapsed"
   >
     <CollapseTriggerStyle
 -     aria-expanded={true}
@@ -45,12 +47,12 @@ Snapshot Diff:
   <TileSeparatorStyle
 -   as="TileWithCollapseWrapperStyle"
 +   as="TileSeparatorStyle"
+    className="collapsed"
   >
     <CollapseTriggerStyle
       aria-expanded={false}
       aria-label="common.expand_collapse"
-      onClick={[Function toggleCollapse]}
-@@ -12,13 +12,13 @@
+@@ -13,13 +13,13 @@
         iscollapsed={true}
       >
         <SvgAngleArrowRight />
@@ -70,6 +72,7 @@ Snapshot Diff:
 exports[`Collapse must match the snapshot with default Props 1`] = `
 <TileSeparatorStyle
   as="TileSeparatorStyle"
+  className="collapsed"
 >
   <CollapseTriggerStyle
     aria-expanded={false}

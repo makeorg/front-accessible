@@ -12,7 +12,6 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgChat } from 'Client/ui/Svg/elements';
 
 export const ConsultationHeaderWrapperStyle = styled.div`
@@ -75,12 +74,15 @@ export const ConsultationIconStyle = styled.span`
   }
 `;
 
-export const TopIdeasPageTitleStyle = styled(SecondLevelTitleStyle)`
-  margin: 0 0 30px;
+export const TopIdeasPageTitleStyle = styled.h2`
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0 20px;
   padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0 0 30px;
+    margin: 0 0 20px;
     padding: 0;
+    font-size: 18px;
   }
 `;
 
