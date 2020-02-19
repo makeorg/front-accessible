@@ -10,7 +10,7 @@ import {
   VoteProgressWrapperStyle,
   VoteCounterStyle,
   VoteProgressItemStyle,
-} from '../Styled/Progress';
+} from '../style';
 
 type Props = {
   /** Array of votes */
