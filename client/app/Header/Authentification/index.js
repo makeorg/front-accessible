@@ -19,6 +19,10 @@ import {
 } from 'Shared/constants/user';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import {
+  formatUserName,
+  formatOrganisationName,
+} from 'Shared/helpers/stringFormatter';
+import {
   ProfileAccessWrapperStyle,
   ProfileAccessButtonLabelStyle,
   ProfileAccessLinkStyle,
@@ -48,14 +52,16 @@ export const HeaderAuthentification = () => {
           <Avatar avatarUrl={user.profile.avatarUrl} />
           {isOrganisation && (
             <>
-              {user.organisationName}
+              {formatOrganisationName(user.organisationName)}
               <SvgCheckedSymbol style={CertifiedIconStyle} />
             </>
           )}
-          {isBasicUser && user.firstName}
+          {isBasicUser && formatUserName(user.firstName)}
           {isPersonality && (
             <>
-              {`${user.firstName} ${user.lastName}`}
+              {`${formatUserName(user.firstName)} ${formatUserName(
+                user.lastName
+              )}`}
               <SvgCheckedSymbol style={CertifiedIconStyle} />
             </>
           )}

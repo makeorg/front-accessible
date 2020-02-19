@@ -18,6 +18,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {
   SearchSliderListStyle,
   SearchSliderListItemStyle,
@@ -75,7 +76,7 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                         <ScreenReaderItemStyle>
                           {i18n.t('profile.common.labels.organisation')}
                         </ScreenReaderItemStyle>
-                        {organisation.organisationName}
+                        {formatOrganisationName(organisation.organisationName)}
                         <SvgCheckedSymbol style={CertifiedIconStyle} />
                       </ProfileTitleStyle>
                     </ProfileContentWrapperStyle>

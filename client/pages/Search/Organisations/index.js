@@ -29,6 +29,7 @@ import {
 } from 'Client/ui/Elements/ProfileElements';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
@@ -123,7 +124,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
                       <ScreenReaderItemStyle>
                         {i18n.t('profile.common.labels.organisation')}
                       </ScreenReaderItemStyle>
-                      {organisation.organisationName}
+                      {formatOrganisationName(organisation.organisationName)}
                       <SvgCheckedSymbol style={CertifiedIconStyle} />
                     </ProfileTitleStyle>
                   </ProfileContentWrapperStyle>

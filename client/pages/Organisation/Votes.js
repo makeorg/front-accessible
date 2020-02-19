@@ -18,6 +18,7 @@ import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { OrganisationVotesPlaceholder } from './Placeholders/Votes';
 
 type Props = {
@@ -82,13 +83,13 @@ const OrganisationVotesPage = ({ organisation }: Props) => {
     <React.Fragment>
       <MetaTags
         title={i18n.t('meta.organisation.positions.title', {
-          organisation: organisation.organisationName,
+          organisation: formatOrganisationName(organisation.organisationName),
         })}
       />
       <ProfileContentHeaderStyle>
         <SecondLevelTitleStyle>
           {i18n.t('organisation.votes.title', {
-            name: organisation.organisationName,
+            name: formatOrganisationName(organisation.organisationName),
           })}
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
@@ -116,7 +117,9 @@ const OrganisationVotesPage = ({ organisation }: Props) => {
         </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && (
-        <OrganisationVotesPlaceholder name={organisation.organisationName} />
+        <OrganisationVotesPlaceholder
+          name={formatOrganisationName(organisation.organisationName)}
+        />
       )}
     </React.Fragment>
   );

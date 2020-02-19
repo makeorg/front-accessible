@@ -7,6 +7,7 @@ import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { i18n } from 'Shared/i18n';
 import { SvgLightning } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { formatAuthorName } from 'Shared/helpers/stringFormatter';
 import {
   ProposalsListStyle,
   ProposalsListItemStyle,
@@ -31,7 +32,7 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
             <ScreenReaderItemStyle>
               {i18n.t('proposal_card.author.from')}
             </ScreenReaderItemStyle>
-            {proposal.author}
+            {formatAuthorName(proposal.author)}
           </ProposalAuthorStyle>
           <ProposalStyle as="p">
             <ScreenReaderItemStyle>

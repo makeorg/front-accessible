@@ -5,6 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { trackClickProposalProfile } from 'Shared/services/Tracking';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { OrganisationsVoteWrapperStyle } from './Styled';
 
 type Props = {
@@ -36,7 +37,7 @@ export const OrganisationsVote = (props: Props) => {
             )}
             onClick={trackClickProposalProfile}
           >
-            {organisation.organisationName}
+            {formatOrganisationName(organisation.organisationName)}
           </RedLinkRouterStyle>
         </React.Fragment>
       ))}
