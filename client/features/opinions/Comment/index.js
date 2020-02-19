@@ -20,6 +20,8 @@ import {
 } from 'Client/custom/municipales/CandidateEngagement/style';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { useMobile } from 'Client/hooks/useMedia';
+import { trackClickPublicProfile } from 'Shared/services/Tracking';
+import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import {
   CommitmentPreviewOpinionsParagraphStyle,
   CommitmentPreviewSeparatorStyle,
@@ -34,6 +36,11 @@ type Props = {
   comment: TopIdeaCommentsType,
 };
 
+const handleClickProfile = () => {
+  scrollToTop();
+  trackClickPublicProfile(TYPE_PERSONALITY);
+};
+
 export const OpinionComment = ({ question, comment }: Props) => {
   const isMobile = useMobile();
 
@@ -46,7 +53,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
             question.language,
             comment.personality.personalityId
           )}
-          onClick={scrollToTop}
+          onClick={handleClickProfile}
         >
           <Avatar
             avatarUrl={comment.personality.avatarUrl}
@@ -65,7 +72,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
                   question.language,
                   comment.personality.personalityId
                 )}
-                onClick={scrollToTop}
+                onClick={handleClickProfile}
               >
                 {comment.personality.displayName}
               </CandidateLinkStyle>
@@ -83,7 +90,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
                 question.language,
                 comment.personality.personalityId
               )}
-              onClick={scrollToTop}
+              onClick={handleClickProfile}
             >
               {comment.personality.displayName}
             </CandidateLinkStyle>

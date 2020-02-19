@@ -22,9 +22,11 @@ import { getPersonalityProfileLink } from 'Shared/helpers/url';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, scrollToTop } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { trackClickPublicProfile } from 'Shared/services/Tracking';
+import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import {
   CandidateInformationsStyle,
   CandidateWrapperStyle,
@@ -188,6 +190,11 @@ type CandidateProps = {
   personality: TypePersonality,
 };
 
+const handleClickProfile = () => {
+  scrollToTop();
+  trackClickPublicProfile(TYPE_PERSONALITY);
+};
+
 export const CandidateItem = ({ personality }: CandidateProps) => {
   const isMobile = useMobile();
   const { country, language } = useSelector(
@@ -200,6 +207,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
     <CenterRowStyle as={isMobile && MiddleColumnStyle}>
       <Link
         to={getPersonalityProfileLink(country, language, personality.userId)}
+        onClick={handleClickProfile}
       >
         <Avatar
           avatarUrl={personality.avatarUrl}
@@ -217,6 +225,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
               language,
               personality.userId
             )}
+            onClick={handleClickProfile}
           >
             {personalityFullName}
           </CandidateLinkStyle>
