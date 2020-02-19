@@ -17,6 +17,7 @@ import {
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {
   AvatarStyle,
   LocalActorItemStyle,
@@ -78,7 +79,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
               <AvatarStyle>
                 <Avatar
                   avatarUrl={actor.avatarUrl}
-                  avatarAlt={actor.organisationName}
+                  avatarAlt={formatOrganisationName(actor.organisationName)}
                   avatarSize={50}
                 />
               </AvatarStyle>
@@ -92,7 +93,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                     )}
                     onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
                   >
-                    {actor.organisationName}
+                    {formatOrganisationName(actor.organisationName)}
                   </RedLinkRouterStyle>
                   <SvgCheckedSymbol style={CertifiedIconStyle} />
                 </div>

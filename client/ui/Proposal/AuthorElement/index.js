@@ -18,6 +18,10 @@ import {
   TYPE_USER,
 } from 'Shared/constants/user';
 import {
+  formatAuthorName,
+  formatOrganisationName,
+} from 'Shared/helpers/stringFormatter';
+import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
   ProposalStatusStyle,
@@ -76,7 +80,7 @@ export const ProposalAuthorElement = ({
                 author.organisationSlug
               )}
             >
-              {author.organisationName}
+              {formatOrganisationName(author.organisationName)}
             </RedLinkRouterStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
           </>
@@ -87,12 +91,12 @@ export const ProposalAuthorElement = ({
               onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
               to={getPersonalityProfileLink(country, language, proposal.userId)}
             >
-              {author.firstName}
+              {formatAuthorName(author.firstName)}
             </RedLinkRouterStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
           </>
         )}
-        {isBasicUser && author.firstName}
+        {isBasicUser && formatAuthorName(author.firstName)}
         <ProposalAuthorAge age={author.age} />
         {withCreationDate && !!proposal.createdAt && (
           <>

@@ -24,6 +24,7 @@ import {
 import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CardStyle } from 'Client/ui/Cards';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -71,7 +72,7 @@ export const ProfileVoteCard = ({
               organisation.slug
             )}
           >
-            {organisation.organisationName}
+            {formatOrganisationName(organisation.organisationName)}
           </RedLinkRouterStyle>
           <SvgCheckedSymbol style={CertifiedIconStyle} />
           &nbsp;

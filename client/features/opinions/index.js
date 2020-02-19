@@ -20,6 +20,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { getPersonnalityOpinion } from 'Shared/services/Personality';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { formatUserName } from 'Shared/helpers/stringFormatter';
 import { DisclaimerSubtitleStyle, OpinionCardListItemStyle } from './style';
 import { OpinionCard } from './Card';
 
@@ -44,8 +45,8 @@ const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {
         </ThumbsUpWrapperStyle>
         <PlaceholderParagraphStyle>
           {i18n.t('personality.opinions.placeholder_text', {
-            firstname: personality.firstName,
-            lastname: personality.lastName,
+            firstname: formatUserName(personality.firstName),
+            lastname: formatUserName(personality.lastName),
           })}
         </PlaceholderParagraphStyle>
       </CenterColumnStyle>
@@ -92,8 +93,8 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
         <ProfileContentHeaderStyle>
           <SecondLevelTitleStyle>
             {i18n.t('personality.opinions.title', {
-              firstname: personality.firstName,
-              lastname: personality.lastName,
+              firstname: formatUserName(personality.firstName),
+              lastname: formatUserName(personality.lastName),
             })}
           </SecondLevelTitleStyle>
           <ProfileTitleSeparatorStyle />
@@ -103,8 +104,8 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
           <ScreenReaderItemStyle>
             <SecondLevelTitleStyle>
               {i18n.t('personality.opinions.title', {
-                firstname: personality.firstName,
-                lastname: personality.lastName,
+                firstname: formatUserName(personality.firstName),
+                lastname: formatUserName(personality.lastName),
               })}
             </SecondLevelTitleStyle>
             <ProfileTitleSeparatorStyle />

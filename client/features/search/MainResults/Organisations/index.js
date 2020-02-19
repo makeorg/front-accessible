@@ -22,6 +22,7 @@ import {
   ProfileAvatarLayoutStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { MainResultsOrganisationsMobile } from './Mobile';
 
 type Props = {
@@ -59,7 +60,7 @@ export const MainResultsOrganisations = ({ organisations }: Props) => {
                     <ScreenReaderItemStyle>
                       {i18n.t('profile.common.labels.organisation')}
                     </ScreenReaderItemStyle>
-                    {organisation.organisationName}
+                    {formatOrganisationName(organisation.organisationName)}
                     <SvgCheckedSymbol style={CertifiedIconStyle} />
                   </ProfileTitleStyle>
                 </ProfileContentWrapperStyle>

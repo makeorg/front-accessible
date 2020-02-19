@@ -28,6 +28,10 @@ import {
   TYPE_USER,
 } from 'Shared/constants/user';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import {
+  formatUserName,
+  formatOrganisationName,
+} from 'Shared/helpers/stringFormatter';
 import { UserDescription } from './Description';
 
 type Props = {
@@ -58,7 +62,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.organisation')}
               </ScreenReaderItemStyle>
-              {user.organisationName}
+              {formatOrganisationName(user.organisationName)}
               <SvgCheckedSymbol style={CertifiedIconStyle} />
             </ProfileTitleStyle>
           </ProfileContentWrapperStyle>
@@ -73,14 +77,14 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.firstname')}
                 </ScreenReaderItemStyle>
-                {user.firstName}
+                {formatUserName(user.firstName)}
                 &nbsp;
                 {isPersonality && (
                   <>
                     <ScreenReaderItemStyle>
                       {i18n.t('profile.common.labels.lastname')}
                     </ScreenReaderItemStyle>
-                    {user.lastName}
+                    {formatUserName(user.lastName)}
                     <SvgCheckedSymbol style={CertifiedIconStyle} />
                   </>
                 )}

@@ -47,6 +47,7 @@ import { Sharing } from 'Client/features/sharing';
 import { TYPE_ORGANISATION } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
+import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 
 const OrganisationProposalsPage = loadable(() =>
   import('Client/pages/Organisation/Proposals')
@@ -136,7 +137,7 @@ const OrganisationPage = (props: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.organisation')}
                 </ScreenReaderItemStyle>
-                {organisation.organisationName}
+                {formatOrganisationName(organisation.organisationName)}
 
                 <SvgCheckedSymbol style={CertifiedIconStyle} />
               </ProfileTitleStyle>
