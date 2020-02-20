@@ -9,7 +9,7 @@ import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposal
 import { ConsultationProposal } from 'Client/features/consultation/Proposal';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { trackDisplayConsultation } from 'Shared/services/Tracking';
-import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
+import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { fetchPopularTags } from 'Shared/store/reducers/questions/actions';
 import { type StateRoot } from 'Shared/store/types';
@@ -28,7 +28,7 @@ export const ConsultationContent = ({ question }: Props) => {
 
   // Sorting
   const AVAILABLE_SORTS_KEYS: string[] = useMemo(
-    () => Object.keys(SORT_ALGORITHM),
+    () => Object.keys(PROPOSALS_FEED_ALGORITHMS),
     []
   );
   const [sort, setSort] = useState<string>(AVAILABLE_SORTS_KEYS[0]);

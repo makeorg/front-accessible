@@ -20,7 +20,7 @@ type TypeSort =
   | 'language'
   | 'popular';
 
-type TypeSortAlgortithm = {
+type TypeFeedAlgortithms = {
   CONTROVERSY: { key: string, value: string },
   ACTORS: { key: string, value: string },
   POPULAR: { key: string, value: TypeSort },
@@ -29,14 +29,40 @@ type TypeSortAlgortithm = {
   TAGGED_FIRST: { key: string, value: string },
 };
 
-// type "sort" also support values : "content", "slug", "createdAt", "updatedAt", "trending", "labels", "country", "language"
-export const SORT_ALGORITHM: TypeSortAlgortithm = {
+export const PROPOSALS_FEED_ALGORITHMS: TypeFeedAlgortithms = {
   TAGGED_FIRST: { key: 'sortAlgorithm', value: 'taggedFirst' },
   POPULAR: { key: 'sortAlgorithm', value: 'popular' },
   ACTORS: { key: 'userType', value: 'ORGANISATION,PERSONALITY' },
   RECENT: { key: 'sort', value: 'createdAt' },
   REALISTIC: { key: 'sortAlgorithm', value: 'realistic' },
   CONTROVERSY: { key: 'sortAlgorithm', value: 'controversy' },
+};
+
+type TypeAvailableAlgorithms = {
+  CONTROVERSY: { key: string, value: string },
+  ACTORS: { key: string, value: string },
+  POPULAR: { key: string, value: TypeSort },
+  REALISTIC: { key: string, value: string },
+  RECENT: { key: string, value: string },
+  TAGGED_FIRST: { key: string, value: string },
+  TOP_SCORE: { key: string, value: string },
+};
+
+export const AVAILABLE_ALGORITHMS: TypeAvailableAlgorithms = {
+  TAGGED_FIRST: { key: 'sortAlgorithm', value: 'taggedFirst' },
+  POPULAR: { key: 'sortAlgorithm', value: 'popular' },
+  ACTORS: { key: 'userType', value: 'ORGANISATION,PERSONALITY' },
+  REALISTIC: { key: 'sortAlgorithm', value: 'realistic' },
+  CONTROVERSY: { key: 'sortAlgorithm', value: 'controversy' },
+  TOP_SCORE: { key: 'sort', value: 'scores.topScoreAjustedWithVotes' },
+  CONTENT: { key: 'sort', value: 'content' },
+  SLUG: { key: 'sort', value: 'slug' },
+  RECENT: { key: 'sort', value: 'createdAt' },
+  UPDATED: { key: 'sort', value: 'updatedAt' },
+  TRENDING: { key: 'sort', value: 'trending' },
+  LABELS: { key: 'sort', value: 'labels' },
+  COUNTRY: { key: 'sort', value: 'country' },
+  LANGUAGE: { key: 'sort', value: 'language' },
 };
 
 export class ProposalApiService {
@@ -104,10 +130,10 @@ export class ProposalApiService {
     };
 
     if (sortTypeKey) {
-      const sortType = SORT_ALGORITHM[sortTypeKey];
+      const sortType = AVAILABLE_ALGORITHMS[sortTypeKey];
       params[sortType.key] = sortType.value;
 
-      if (SORT_ALGORITHM[sortTypeKey].key === 'sort') {
+      if (AVAILABLE_ALGORITHMS[sortTypeKey].key === 'sort') {
         params.order = 'DESC';
       }
     }
