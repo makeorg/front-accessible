@@ -12,6 +12,7 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import { trackFirstVote } from 'Shared/services/Tracking';
 import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
+import { startSequence } from 'Shared/services/Sequence';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
@@ -39,12 +40,9 @@ export const fetchSequenceProposals = (
   includedProposalIds?: string[] = []
 ) => async (dispatch: any => void) => {
   try {
-    const response = await QuestionApiService.startSequence(
-      questionId,
-      includedProposalIds
-    );
+    const proposals = await startSequence(questionId, includedProposalIds);
 
-    return dispatch(loadSequenceProposals(response.proposals));
+    return dispatch(loadSequenceProposals(proposals));
   } catch (error) {
     return Logger.logError(Error(error));
   }
