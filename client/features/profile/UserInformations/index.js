@@ -50,7 +50,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
   return (
     <>
       <ProfileAvatarLayoutStyle>
-        <ProfileAvatarStyle>
+        <ProfileAvatarStyle avatarSize={isMobile ? 120 : 160}>
           <Avatar
             avatarSize={isMobile ? 120 : 160}
             avatarUrl={profile.avatarUrl}

@@ -20,12 +20,13 @@ import { Avatar } from 'Client/ui/Avatar';
 import {
   SearchOrganisationsListStyle,
   SearchOrganisationItemStyle,
-  SearchOrganisationAvatarStyle,
+  SearchOrganisationsListItemStyle,
 } from 'Client/features/search/Styled';
 import {
   ProfileContentWrapperStyle,
   ProfileTitleStyle,
   ProfileAvatarLayoutStyle,
+  ProfileAvatarStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
@@ -103,33 +104,37 @@ export const SearchOrganisations = ({ history, location }: Props) => {
         <SearchPageResultsStyle>
           <SearchOrganisationsListStyle>
             {organisations.map(organisation => (
-              <SearchOrganisationItemStyle
+              <SearchOrganisationsListItemStyle
                 key={organisation.organisationId}
-                as={Link}
-                to={getOrganisationProfileLink(
-                  country,
-                  language,
-                  organisation.slug
-                )}
               >
-                <ProfileAvatarLayoutStyle>
-                  <SearchOrganisationAvatarStyle>
-                    <Avatar
-                      avatarSize={80}
-                      avatarUrl={organisation.avatarUrl}
-                    />
-                  </SearchOrganisationAvatarStyle>
-                  <ProfileContentWrapperStyle>
-                    <ProfileTitleStyle>
-                      <ScreenReaderItemStyle>
-                        {i18n.t('profile.common.labels.organisation')}
-                      </ScreenReaderItemStyle>
-                      {formatOrganisationName(organisation.organisationName)}
-                      <SvgCheckedSymbol style={CertifiedIconStyle} />
-                    </ProfileTitleStyle>
-                  </ProfileContentWrapperStyle>
-                </ProfileAvatarLayoutStyle>
-              </SearchOrganisationItemStyle>
+                <SearchOrganisationItemStyle
+                  className="mobile-radius"
+                  as={Link}
+                  to={getOrganisationProfileLink(
+                    country,
+                    language,
+                    organisation.slug
+                  )}
+                >
+                  <ProfileAvatarLayoutStyle>
+                    <ProfileAvatarStyle avatarSize={80}>
+                      <Avatar
+                        avatarSize={80}
+                        avatarUrl={organisation.avatarUrl}
+                      />
+                    </ProfileAvatarStyle>
+                    <ProfileContentWrapperStyle>
+                      <ProfileTitleStyle>
+                        <ScreenReaderItemStyle>
+                          {i18n.t('profile.common.labels.organisation')}
+                        </ScreenReaderItemStyle>
+                        {formatOrganisationName(organisation.organisationName)}
+                        <SvgCheckedSymbol style={CertifiedIconStyle} />
+                      </ProfileTitleStyle>
+                    </ProfileContentWrapperStyle>
+                  </ProfileAvatarLayoutStyle>
+                </SearchOrganisationItemStyle>
+              </SearchOrganisationsListItemStyle>
             ))}
           </SearchOrganisationsListStyle>
         </SearchPageResultsStyle>
