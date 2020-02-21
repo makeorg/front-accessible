@@ -15,6 +15,7 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { SingleProposalSharingComponent } from 'Client/features/flipping/Sharing/SingleProposal';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
+import { isInProgress } from 'Shared/helpers/date';
 
 type Props = {
   match: TypeMatch,
@@ -71,7 +72,9 @@ const ProposalPage = (props: Props) => {
           </>
         )}
 
-        {!isSharingDisabled && <SingleProposalSharingComponent />}
+        {!isSharingDisabled && isInProgress(question) && (
+          <SingleProposalSharingComponent />
+        )}
       </MiddlePageWrapperStyle>
     </ThemeProvider>
   );

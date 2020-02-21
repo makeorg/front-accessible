@@ -30,7 +30,7 @@ type Props = {
 };
 
 export const SingleProposalCard = ({ proposal }: Props) => {
-  const canVote = isInProgress(proposal.question);
+  const isConsultationOpened = isInProgress(proposal.question);
 
   return (
     <TallCardStyle id="proposal_card">
@@ -43,7 +43,7 @@ export const SingleProposalCard = ({ proposal }: Props) => {
           </ScreenReaderItemStyle>
           {proposal.content}
         </SequenceProposalStyle>
-        {canVote ? (
+        {isConsultationOpened ? (
           <Vote
             proposalId={proposal.id}
             questionSlug={proposal.question.slug}
@@ -73,16 +73,18 @@ export const SingleProposalCard = ({ proposal }: Props) => {
           />
           <FooterContentSeparatorStyle />
           <ButtonWrapperStyle>
-            <ButtonStyle
-              as={Link}
-              to={getSequenceLink(
-                proposal.country,
-                proposal.language,
-                proposal.question.slug
-              )}
-            >
-              {i18n.t('proposal_page.button_1')}
-            </ButtonStyle>
+            {isConsultationOpened && (
+              <ButtonStyle
+                as={Link}
+                to={getSequenceLink(
+                  proposal.country,
+                  proposal.language,
+                  proposal.question.slug
+                )}
+              >
+                {i18n.t('proposal_page.button_1')}
+              </ButtonStyle>
+            )}
             <ButtonStyle
               as={Link}
               to={getConsultationLink(
