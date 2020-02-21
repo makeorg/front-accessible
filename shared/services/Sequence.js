@@ -56,6 +56,9 @@ export const startSequence = async (
       'start sequence return duplicates or voted proposals: fix that on API'
     );
   }
+  if (uniqueUnvotedProposals.length === 0) {
+    Logger.logError(`Empty sequence - questionId: ${questionId}`);
+  }
 
   return uniqueUnvotedProposals;
 };
