@@ -3,7 +3,9 @@ import { generatePath } from 'react-router';
 import {
   type ApiServiceHeaders,
   type ApiSearchQuestionsResponseType,
-} from 'Shared/types/api';
+  type ApiIdeasResponseType,
+  type ApiIdeaDetailsResponseType,
+} from '../types/api';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTIONS_SEARCH = '/questions/search';
@@ -11,7 +13,10 @@ const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
 const PATH_QUESTION_PERSONALITIES = '/questions/:questionId/personalities';
-export const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
+const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
+const PATH_QUESTION_TOP_IDEAS = '/questions/:questionId/top-ideas';
+const PATH_QUESTION_TOP_IDEA_DETAILS =
+  '/questions/:questionId/top-ideas/:topIdeaId';
 
 export class QuestionApiService {
   static getQuestionPartners(
@@ -111,5 +116,29 @@ export class QuestionApiService {
         order,
       },
     });
+  }
+
+  static getTopIdeas(questionId: string): Promise<ApiIdeasResponseType> {
+    return ApiService.callApi(
+      PATH_QUESTION_TOP_IDEAS.replace(':questionId', questionId),
+      {
+        method: 'GET',
+      }
+    );
+  }
+
+  static getTopIdea(
+    questionId: string,
+    topIdeaId: string
+  ): Promise<ApiIdeaDetailsResponseType> {
+    return ApiService.callApi(
+      PATH_QUESTION_TOP_IDEA_DETAILS.replace(':questionId', questionId).replace(
+        ':topIdeaId',
+        topIdeaId
+      ),
+      {
+        method: 'GET',
+      }
+    );
   }
 }

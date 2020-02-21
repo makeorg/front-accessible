@@ -1,5 +1,5 @@
 // @flow
-import { TopIdeaApiService } from 'Shared/api/TopIdeaApiService';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import {
   type ApiIdeaResponseType,
@@ -13,7 +13,7 @@ export const getTopIdeas = async (
     return topIdea2.weight - topIdea1.weight;
   };
   try {
-    const topIdeasResponse = await TopIdeaApiService.getTopIdeas(questionId);
+    const topIdeasResponse = await QuestionApiService.getTopIdeas(questionId);
 
     return topIdeasResponse.questionTopIdeas.sort(orderByWeight);
   } catch (error) {
@@ -27,7 +27,7 @@ export const getTopIdea = async (
   topIdeaId: string
 ): Promise<ApiIdeaDetailsResponseType> => {
   try {
-    const topIdea = await TopIdeaApiService.getTopIdea(questionId, topIdeaId);
+    const topIdea = await QuestionApiService.getTopIdea(questionId, topIdeaId);
 
     return topIdea;
   } catch (error) {
