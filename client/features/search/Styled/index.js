@@ -39,7 +39,12 @@ export const SearchOrganisationsListStyle = styled(UnstyledListStyle)`
 `;
 
 export const SearchOrganisationsListItemStyle = styled.li`
-  padding: 20px 0 0;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 export const SearchOrganisationItemStyle = styled(ProfilePageSidebarStyle)`

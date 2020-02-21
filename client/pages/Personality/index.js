@@ -87,7 +87,7 @@ const PersonalityPage = ({ match }: Props) => {
         <ProfilePageSidebarWrapperStyle>
           <ProfilePageSidebarStyle>
             <ProfileAvatarLayoutStyle>
-              <ProfileAvatarStyle>
+              <ProfileAvatarStyle avatarSize={80}>
                 <Avatar
                   avatarSize={isMobile ? 120 : 160}
                   avatarUrl={personality.profile.avatarUrl}

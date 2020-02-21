@@ -65,7 +65,7 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                   )}
                 >
                   <ProfileAvatarLayoutStyle>
-                    <ProfileAvatarStyle>
+                    <ProfileAvatarStyle avatarSize={80}>
                       <Avatar
                         avatarSize={80}
                         avatarUrl={organisation.avatarUrl}

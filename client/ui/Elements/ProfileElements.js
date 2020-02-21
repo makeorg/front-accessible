@@ -131,8 +131,8 @@ export const ProfileAvatarLayoutStyle = styled(FlexElementStyle)`
 export const ProfileAvatarStyle = styled.div`
   display: flex;
   justify-content: center;
-  transform: translateY(-50%);
-  margin-bottom: -50%;
+  transform: translateY(-${props => intToPx(props.avatarSize / 2)});
+  margin-bottom: -${props => intToPx(props.avatarSize / 2)};
   > span {
     margin: 0;
   }
