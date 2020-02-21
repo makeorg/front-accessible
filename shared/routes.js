@@ -30,6 +30,7 @@ export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
 export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
 export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
 export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG}/no-cookies`;
+export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY_LANG}/not-found`;
 
 export const matchRoute = (
   pathname: string,
