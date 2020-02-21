@@ -8,7 +8,7 @@ import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
-import { SORT_ALGORITHM } from 'Shared/api/ProposalApiService';
+import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
@@ -36,7 +36,10 @@ export const SortAndFilter = ({
   setTags,
   resetTags,
 }: Props) => {
-  const AVAILABLE_SORTS_KEYS = useMemo(() => Object.keys(SORT_ALGORITHM), []);
+  const AVAILABLE_SORTS_KEYS = useMemo(
+    () => Object.keys(PROPOSALS_FEED_ALGORITHMS),
+    []
+  );
 
   const isMobile = useMobile();
 

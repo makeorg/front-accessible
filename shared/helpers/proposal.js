@@ -15,7 +15,7 @@ import {
 } from 'Shared/types/card';
 import {
   ProposalApiService,
-  SORT_ALGORITHM,
+  AVAILABLE_ALGORITHMS,
 } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 import { FEED_PROPOSAL, FEED_TOP_PROPOSALS } from 'Shared/constants/card';
@@ -103,7 +103,7 @@ export const searchTaggedProposals = async (
   TagIdsArray: string[] = [],
   seed: ?number = undefined,
   page: number = 0,
-  sortTypeKey?: string = SORT_ALGORITHM.TAGGED_FIRST.value,
+  sortTypeKey?: string = AVAILABLE_ALGORITHMS.TAGGED_FIRST.value,
   ideaIds?: string
 ): ApiSearchProposalsResponseType | Object => {
   const limit = PROPOSALS_LISTING_LIMIT;

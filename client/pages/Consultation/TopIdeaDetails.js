@@ -80,7 +80,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       undefined,
       question.questionId,
       undefined,
-      'TAGGED_FIRST',
+      'TOP_SCORE',
       idea
     );
 
@@ -104,7 +104,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       seed,
       question.questionId,
       undefined,
-      'TAGGED_FIRST',
+      'TOP_SCORE',
       ideaId
     );
 

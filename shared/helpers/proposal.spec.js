@@ -5,7 +5,7 @@ import {
 } from 'Shared/constants/proposal';
 import {
   ProposalApiService,
-  SORT_ALGORITHM,
+  AVAILABLE_ALGORITHMS,
 } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 import * as ProposalHelper from './proposal';
@@ -139,7 +139,7 @@ describe('Proposal Helper', () => {
         undefined,
         PROPOSALS_LISTING_LIMIT,
         0,
-        SORT_ALGORITHM.TAGGED_FIRST.value,
+        AVAILABLE_ALGORITHMS.TAGGED_FIRST.value,
         undefined
       );
     });
@@ -163,7 +163,7 @@ describe('Proposal Helper', () => {
         999,
         PROPOSALS_LISTING_LIMIT,
         30,
-        SORT_ALGORITHM.TAGGED_FIRST.value,
+        AVAILABLE_ALGORITHMS.TAGGED_FIRST.value,
         undefined
       );
     });
