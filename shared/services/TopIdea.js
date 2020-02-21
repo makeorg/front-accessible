@@ -7,7 +7,8 @@ import {
 } from 'Shared/types/api';
 
 export const getTopIdeas = async (
-  questionId: string
+  questionId: string,
+  notFound: () => void
 ): Promise<ApiIdeaResponseType[]> => {
   const orderByWeight = (topIdea1, topIdea2) => {
     return topIdea2.weight - topIdea1.weight;
@@ -18,13 +19,19 @@ export const getTopIdeas = async (
     return topIdeasResponse.questionTopIdeas.sort(orderByWeight);
   } catch (error) {
     Logger.logError(Error(error));
+
+    if (error.message === '404') {
+      notFound();
+    }
+
     return [];
   }
 };
 
 export const getTopIdea = async (
   questionId: string,
-  topIdeaId: string
+  topIdeaId: string,
+  notFound: () => void
 ): Promise<ApiIdeaDetailsResponseType> => {
   try {
     const topIdea = await QuestionApiService.getTopIdea(questionId, topIdeaId);
@@ -32,6 +39,11 @@ export const getTopIdea = async (
     return topIdea;
   } catch (error) {
     Logger.logError(Error(error));
+
+    if (error.message === '404') {
+      notFound();
+    }
+
     return {};
   }
 };

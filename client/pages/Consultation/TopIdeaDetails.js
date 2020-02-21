@@ -20,7 +20,7 @@ import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged'
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
-import { getTopIdeasLink } from 'Shared/helpers/url';
+import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
 import {
@@ -124,7 +124,8 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const initTopIdea = async () => {
     const { questionTopIdea } = await getTopIdea(
       question.questionId,
-      topIdeaId
+      topIdeaId,
+      () => redirectToNotFoundPage(question.country, question.language)
     );
 
     setIdeaId(questionTopIdea.ideaId);

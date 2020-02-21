@@ -20,6 +20,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
+import { redirectToNotFoundPage } from 'Shared/helpers/url';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -49,10 +50,15 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
     question.activeFeatures
   );
 
+  const initTopIdeas = async () => {
+    const results = await getTopIdeas(question.questionId, () =>
+      redirectToNotFoundPage(question.country, question.language)
+    );
+    setTopIdeas(results);
+  };
+
   useEffect(() => {
-    getTopIdeas(question.questionId).then(response => {
-      setTopIdeas(response);
-    });
+    initTopIdeas();
   }, []);
 
   useEffect(() => {
