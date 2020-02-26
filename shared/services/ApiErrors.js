@@ -16,7 +16,6 @@ export const mapErrors = (
     (apiError: TypeErrorObject) => {
       const apiErrorField = apiError.field.toLowerCase();
       const apiErrorMessage = i18n.t(`common.form.messages.${apiError.key}`);
-
       const errorMatch = internalErrors.find(
         (internalError: TypeErrorObject) =>
           apiErrorField === internalError.field &&

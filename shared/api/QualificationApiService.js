@@ -4,13 +4,13 @@ import { ApiService } from './ApiService';
 export const PATH_QUALIFICATION = '/proposals/:proposalId/qualification';
 export const PATH_UNQUALIFICATION = '/proposals/:proposalId/unqualification';
 
-export class QualificationService {
+export class QualificationApiService {
   static qualify(
     proposalId: string,
     proposalKey: string,
     voteKey: string,
     qualificationKey: string
-  ): Promise<Object> {
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_QUALIFICATION.replace(':proposalId', proposalId),
       {
@@ -30,7 +30,7 @@ export class QualificationService {
     proposalKey: string,
     voteKey: string,
     qualificationKey: string
-  ): Promise<Object> {
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_UNQUALIFICATION.replace(':proposalId', proposalId),
       {

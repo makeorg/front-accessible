@@ -2,7 +2,7 @@ import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import * as actionTypes from 'Shared/store/actionTypes';
-import { UserApiService } from 'Shared/api/UserApiService';
+import { UserService } from 'Shared/services/User';
 
 export const passwordRecoveryRequest = (
   newPassword: string,
@@ -27,7 +27,7 @@ export const passwordRecovery = (newPassword: string) => (
   const { resetToken, userId } = getState().user.passwordRecovery;
   dispatch(passwordRecoveryRequest(newPassword, resetToken, userId));
   if (newPassword.length < 8) {
-    return dispatch(
+    dispatch(
       passwordRecoveryFailure(
         i18n.t('common.form.invalid_password', {
           context: 'dynamic',
@@ -38,12 +38,8 @@ export const passwordRecovery = (newPassword: string) => (
       )
     );
   }
-
-  return UserApiService.changePassword(newPassword, resetToken, userId)
-    .then(() => {
-      dispatch(passwordRecoverySuccess());
-    })
-    .catch(error => {
-      dispatch(passwordRecoveryFailure(error));
-    });
+  const success = () => dispatch(passwordRecoverySuccess());
+  const failure = () =>
+    dispatch(passwordRecoveryFailure('Fail to recover password'));
+  UserService.changePassword(newPassword, resetToken, userId, success, failure);
 };

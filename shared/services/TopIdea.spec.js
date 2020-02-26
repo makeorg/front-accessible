@@ -1,7 +1,7 @@
 // @flow
 
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { getTopIdeas } from 'Shared/services/TopIdea';
+import { TopIdeaService } from 'Shared/services/TopIdea';
 
 jest.mock('Shared/api/QuestionApiService');
 jest.mock('Shared/services/Logger');
@@ -15,24 +15,26 @@ describe('TopIdea Service', () => {
     it('order top ideas by weight', async () => {
       jest.spyOn(QuestionApiService, 'getTopIdeas');
       QuestionApiService.getTopIdeas.mockResolvedValue({
-        questionTopIdeas: [
-          {
-            id: 1,
-            weight: 10,
-          },
-          {
-            id: 2,
-            weight: 20,
-          },
-          {
-            id: 3,
-            weight: 30,
-          },
-        ],
-        seed: 123123231,
+        data: {
+          questionTopIdeas: [
+            {
+              id: 1,
+              weight: 10,
+            },
+            {
+              id: 2,
+              weight: 20,
+            },
+            {
+              id: 3,
+              weight: 30,
+            },
+          ],
+          seed: 123123231,
+        },
       });
 
-      const ideas = await getTopIdeas('fooQuestionId');
+      const ideas = await TopIdeaService.getTopIdeas('fooQuestionId');
 
       expect(QuestionApiService.getTopIdeas).toHaveBeenNthCalledWith(
         1,

@@ -1,11 +1,6 @@
 // @flow
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
-import { Logger } from 'Shared/services/Logger';
-import * as HttpStatus from 'Shared/constants/httpStatus';
-import {
-  type ApiServiceHeaders,
-  type ApiSearchProposalsResponseType,
-} from 'Shared/types/api';
+import { type ApiServiceHeaders } from 'Shared/types/api';
 import { setEmptyStringToNull } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { ApiService } from './ApiService';
@@ -36,17 +31,19 @@ export class UserApiService {
    * Get user info
    * @return {Promise}
    */
-  static me(): Promise<Object> {
+  static me(): Promise<any> {
     return ApiService.callApi(PATH_USER_ME, {
       method: 'GET',
     });
   }
 
   /**
+   * @toDo actualy not used
+   *
    * Get user token
    * @return {Promise}
    */
-  static getUserToken(): Promise<Object> {
+  static getUserToken(): Promise<any> {
     return ApiService.callApi(PATH_USER_GET_TOKEN, {
       method: 'GET',
     });
@@ -58,7 +55,7 @@ export class UserApiService {
    * @param  {String} password
    * @return {Promise}
    */
-  static login(email: string, password: string): Promise<Object> {
+  static login(email: string, password: string): Promise<any> {
     const data = {
       username: email,
       password,
@@ -83,7 +80,7 @@ export class UserApiService {
    *
    * @return {Promise}
    */
-  static logout(): Promise<Object> {
+  static logout(): Promise<any> {
     return ApiService.callApi(PATH_USER_LOGOUT, {
       method: 'POST',
     });
@@ -95,7 +92,7 @@ export class UserApiService {
    * @param  {String} token
    * @return {Promise}
    */
-  static loginSocial(provider: string, token: string): Promise<Object> {
+  static loginSocial(provider: string, token: string): Promise<any> {
     return ApiService.callApi(PATH_USER_LOGIN_SOCIAL, {
       method: 'POST',
       body: JSON.stringify({
@@ -112,7 +109,7 @@ export class UserApiService {
    * @param  {Object}  user
    * @return {Promise}
    */
-  static register(user: Object): Promise<Object> {
+  static register(user: Object): Promise<any> {
     const dateOfBirth = getDateOfBirthFromAge(user.age);
     return ApiService.callApi(PATH_USER, {
       method: 'POST',
@@ -145,7 +142,7 @@ export class UserApiService {
     description,
     optInNewsletter,
     website,
-  }: Object): Promise<void> {
+  }: Object): Promise<any> {
     return ApiService.callApi(PATH_USER, {
       method: 'PATCH',
       body: JSON.stringify({
@@ -188,7 +185,7 @@ export class UserApiService {
    * @param  {String}  email
    * @return {Promise}
    */
-  static forgotPassword(email: string): Promise<Object> {
+  static forgotPassword(email: string): Promise<any> {
     return ApiService.callApi(PATH_USER_FORGOT_PASSWORD, {
       method: 'POST',
       body: JSON.stringify({ email }),
@@ -199,13 +196,14 @@ export class UserApiService {
    * Request a verification user
    * @param  {String}  userId
    * @param  {String}  verificationToken
+   * @param  {ApiServiceHeaders} headers
    * @return {Promise}
    */
   static verifyUser(
     userId: string,
     verificationToken: string,
     headers: ApiServiceHeaders = {}
-  ): Promise<Object> {
+  ): Promise<any> {
     const newPath = PATH_USER_VERIFICATION.replace(':userId', userId).replace(
       ':verificationToken',
       verificationToken
@@ -214,26 +212,21 @@ export class UserApiService {
     return ApiService.callApi(newPath, {
       method: 'POST',
       headers,
-    })
-      .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch(error => {
-        Logger.logError(`Error in verifyUser for 
-      userId ->${userId}, verificationToken -> ${verificationToken} : ${error}`);
-        throw error;
-      });
+    });
   }
 
-  /*
+  /**
    * Check forgot password token validity
-   * @param  {String}  userId
-   * @param  {String}  resetToken
+   * @param  {String}            userId
+   * @param  {String}            resetToken
+   * @param  {ApiServiceHeaders} headers
    * @return {Promise}
    */
   static resetPasswordTokenCheck(
     userId: string,
     resetToken: string,
-    headers: ApiServiceHeaders
-  ): Promise<Object> {
+    headers?: ApiServiceHeaders = {}
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_RESET_TOKEN_CHECK.replace(':userId', userId).replace(
         ':resetToken',
@@ -243,55 +236,51 @@ export class UserApiService {
         method: 'POST',
         headers,
       }
-    )
-      .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch(error => {
-        Logger.logError(
-          `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
-        );
-
-        throw error;
-      });
+    );
   }
 
   /**
    * change password
-   * @param  {String}  userId
+   * @param  {String}  newPassword
    * @param  {String}  resetToken
+   * @param  {String}  userId
+   * @param  {ApiServiceHeaders} headers
+   * @return {Promise}
    */
   static changePassword(
     newPassword: string,
     resetToken: string,
-    userId: string
-  ): Promise<Object> {
+    userId: string,
+    headers?: ApiServiceHeaders = {}
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_CHANGE_PASSWORD.replace(':userId', userId),
       {
         method: 'POST',
+        headers,
         body: JSON.stringify({ password: newPassword, resetToken }),
       }
-    )
-      .then(() => HttpStatus.HTTP_NO_CONTENT)
-      .catch(error => {
-        Logger.logError(
-          `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${error}`
-        );
-
-        throw error;
-      });
+    );
   }
 
   /**
    * delete account
-   * @param  {String}  password
    * @param  {String}  userId
+   * @param  {String}  password
+   * @param  {ApiServiceHeaders} headers
+   * @return {Promise}
    */
-  static deleteAccount(userId: string, password?: string): Promise<any> {
+  static deleteAccount(
+    userId: string,
+    password?: string,
+    headers?: ApiServiceHeaders = {}
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_DELETE_ACCOUNT.replace(':userId', userId),
       {
         method: 'POST',
         body: JSON.stringify({ password }),
+        headers,
       }
     );
   }
@@ -305,7 +294,7 @@ export class UserApiService {
     seed?: ?number = null,
     limit?: number = PROPOSALS_LISTING_LIMIT,
     skip?: number = 0
-  ): Promise<ApiSearchProposalsResponseType> {
+  ): Promise<any> {
     return ApiService.callApi(PATH_USER_PROPOSALS.replace(':userId', userId), {
       method: 'GET',
       params: { sort: 'createdAt', order: 'desc', seed, limit, skip },
@@ -320,7 +309,7 @@ export class UserApiService {
     userId: string,
     limit?: number = PROPOSALS_LISTING_LIMIT,
     skip?: number = 0
-  ): Promise<ApiSearchProposalsResponseType> {
+  ): Promise<any> {
     return ApiService.callApi(PATH_USER_FAVOURITES.replace(':userId', userId), {
       method: 'GET',
       params: { qualifications: 'likeIt', limit, skip },

@@ -7,9 +7,8 @@ import {
 import { type TypeTag } from 'Shared/types/tag';
 import { type TypePersonality } from 'Shared/types/user';
 import { type PopularProposals } from 'Shared/store/types';
-import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { ProposalApiService } from 'Shared/api/ProposalApiService';
-import { Logger } from 'Shared/services/Logger';
+import { QuestionService } from 'Shared/services/Question';
+import { ProposalService } from 'Shared/services/Proposal';
 
 export const QUESTION_POPULAR_TAGS_LOAD = 'QUESTION_POPULAR_TAGS_LOAD';
 export const QUESTION_PERSONALITIES_LOAD = 'QUESTION_PERSONALITIES_LOAD';
@@ -32,15 +31,12 @@ export const fetchPopularTags = (
   questionSlug: string,
   limit: ?number = undefined
 ) => async (dispatch: Dispatch) => {
-  try {
-    const popularTags = await QuestionApiService.getQuestionPopularTags(
-      questionId,
-      limit
-    );
-
-    return dispatch(loadPopularTags(questionSlug, popularTags));
-  } catch (error) {
-    return Logger.logError(Error(error));
+  const popularTags = await QuestionService.getQuestionPopularTags(
+    questionId,
+    limit
+  );
+  if (popularTags) {
+    dispatch(loadPopularTags(questionSlug, popularTags));
   }
 };
 
@@ -59,18 +55,15 @@ export const fechQuestionPersonalities = (
   limit: ?number = undefined,
   skip: ?number = undefined
 ) => async (dispatch: Dispatch) => {
-  try {
-    const response = await QuestionApiService.getQuestionPersonalities(
-      questionId,
-      personalityRole,
-      limit,
-      skip
-    );
+  const response = await QuestionService.getQuestionPersonalities(
+    questionId,
+    personalityRole,
+    limit,
+    skip
+  );
 
-    return dispatch(loadQuestionPersonalities(questionSlug, response.results));
-  } catch (error) {
-    return Logger.logError(Error(error));
-  }
+  const results = response ? response.results : [];
+  return dispatch(loadQuestionPersonalities(questionSlug, results));
 };
 
 export const setPopularProposals = (
@@ -85,12 +78,10 @@ export const fetchPopularProposals = (
   questionId: string,
   questionSlug: string
 ) => async (dispatch: Dispatch) => {
-  try {
-    const popularProposals = await ProposalApiService.getPopularProposals(
-      questionId
-    );
+  const popularProposals = await ProposalService.getPopularProposals(
+    questionId
+  );
+  if (popularProposals) {
     dispatch(setPopularProposals(questionSlug, popularProposals));
-  } catch (error) {
-    Logger.logError(Error(error));
   }
 };

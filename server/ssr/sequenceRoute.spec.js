@@ -1,16 +1,15 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
 import { isInProgress } from 'Shared/helpers/date';
+import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { sequenceRoute } from './sequenceRoute';
 import { reactRender } from '../reactRender';
-import { getQuestion } from '../service/QuestionService';
 
 jest.mock('Shared/helpers/date', () => ({
   isInProgress: jest.fn(),
 }));
-jest.mock('../service/QuestionService', () => ({
-  getQuestion: jest.fn(),
-}));
+
+jest.mock('Shared/api/QuestionApiService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('./helpers/ssr.helper', () => ({
   logError: jest.fn(),
@@ -44,7 +43,7 @@ describe('Sequence page route', () => {
 
   describe('The route', () => {
     it('construct route initial state and render', async () => {
-      getQuestion.mockReturnValue(fooQuestion);
+      QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
       createInitialState.mockReturnValue({});
       isInProgress.mockReturnValue(true);
 
@@ -61,7 +60,7 @@ describe('Sequence page route', () => {
 
     it('redirect to about url if consultation is closed', async () => {
       isInProgress.mockReturnValue(false);
-      getQuestion.mockReturnValue(fooQuestion);
+      QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
       jest.spyOn(response, 'redirect');
 
       await sequenceRoute(request, response);

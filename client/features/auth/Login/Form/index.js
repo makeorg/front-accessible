@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import {
   trackLoginEmailSuccess,
   trackSignupEmailFailure,
@@ -25,6 +25,7 @@ import {
 import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
 import { loginSuccess, getUser } from 'Shared/store/actions/authentification';
+import { modalClose } from 'Shared/store/actions/modal';
 
 type TypeLoginValues = {
   email: string,
@@ -64,17 +65,25 @@ export const LoginForm = () => {
   const handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    try {
-      await UserService.login(formValues.email, formValues.password);
+    const success = () => {
       handleLoginSuccess();
       trackLoginEmailSuccess();
-      handleLoginSuccess();
       setErrors([]);
-      return handleGetUser();
-    } catch (serviceErrors) {
+      handleGetUser();
+    };
+    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
       setErrors(serviceErrors);
-      return trackSignupEmailFailure();
-    }
+      trackSignupEmailFailure();
+    };
+    const unexpectedError = () => dispatch(modalClose());
+
+    await UserService.login(
+      formValues.email,
+      formValues.password,
+      success,
+      handleErrors,
+      unexpectedError
+    );
   };
 
   return (

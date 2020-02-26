@@ -39,7 +39,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const { results, total, seed: apiSeed } = await searchTaggedProposals(
+    const result = await searchTaggedProposals(
       country,
       language,
       question.questionId,
@@ -48,19 +48,23 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       0,
       sortTypeKey
     );
-    const feed: Array<
-      TypeProposalListCard | TypeTopProposalListCard
-    > = buildProposalsFeed(results, question, sortTypeKey);
-    setProposalCards(feed);
-    setHasMore(feed.length < total);
-    setSeed(apiSeed);
-    setPage(1);
+    if (result) {
+      const { results, total, seed: apiSeed } = result;
+      const feed: Array<
+        TypeProposalListCard | TypeTopProposalListCard
+      > = buildProposalsFeed(results, question, sortTypeKey);
+      setProposalCards(feed);
+      setHasMore(feed.length < total);
+      setSeed(apiSeed);
+      setPage(1);
+    }
     setIsLoading(false);
   };
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const { results, total, seed: apiSeed } = await searchTaggedProposals(
+
+    const result = await searchTaggedProposals(
       country,
       language,
       question.questionId,
@@ -69,18 +73,24 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       page,
       sortTypeKey
     );
-    const addNewProposalCards: TypeProposalListCard[] = results.map(result => ({
-      type: FEED_PROPOSAL,
-      proposal: result,
-    }));
 
-    const newProposalList: Array<
-      TypeProposalListCard | TypeTopProposalListCard
-    > = [...proposalCards, ...addNewProposalCards];
-    setProposalCards(newProposalList);
-    setHasMore(newProposalList.length < total);
-    setSeed(apiSeed);
-    setPage(page + 1);
+    if (result) {
+      const { results, total, seed: apiSeed } = result;
+      const addNewProposalCards: TypeProposalListCard[] = results.map(
+        proposal => ({
+          type: FEED_PROPOSAL,
+          proposal,
+        })
+      );
+
+      const newProposalList: Array<
+        TypeProposalListCard | TypeTopProposalListCard
+      > = [...proposalCards, ...addNewProposalCards];
+      setProposalCards(newProposalList);
+      setHasMore(newProposalList.length < total);
+      setSeed(apiSeed);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 

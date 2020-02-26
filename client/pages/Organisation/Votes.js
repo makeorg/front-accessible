@@ -1,9 +1,10 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import * as OrganisationService from 'Shared/services/Organisation';
+import { OrganisationService } from 'Shared/services/Organisation';
 import {
   type OrganisationVote as TypeOrganisationVote,
   type Organisation as TypeOrganisation,
+  type OrganisationVotesType,
 } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -34,34 +35,35 @@ const OrganisationVotesPage = ({ organisation }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const {
-      results,
-      total,
-      seed: apiSeed,
-    } = await OrganisationService.getVotes(organisation.organisationId);
-    setVotes(results);
-    setHasMore(results.length < total);
-    setSeed(apiSeed);
-    setPage(1);
+    const response: ?OrganisationVotesType = await OrganisationService.getVotes(
+      organisation.organisationId
+    );
+    if (response) {
+      const { results, total, seed: apiSeed } = response;
+      setVotes(results);
+      setHasMore(results.length < total);
+      setSeed(apiSeed);
+      setPage(1);
+    }
+
     setIsLoading(false);
   };
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const {
-      results,
-      total,
-      seed: apiSeed,
-    } = await OrganisationService.getVotes(
+    const response: ?OrganisationVotesType = await OrganisationService.getVotes(
       organisation.organisationId,
       seed,
       page
     );
-    const newVotesList = [...votes, ...results];
-    setVotes(newVotesList);
-    setHasMore(newVotesList.length < total);
-    setSeed(apiSeed);
-    setPage(page + 1);
+    if (response) {
+      const { results, total, seed: apiSeed } = response;
+      const newVotesList = [...votes, ...results];
+      setVotes(newVotesList);
+      setHasMore(newVotesList.length < total);
+      setSeed(apiSeed);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 

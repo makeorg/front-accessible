@@ -1,49 +1,59 @@
 // @flow
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { Logger } from 'Shared/services/Logger';
 import {
-  type ApiIdeaResponseType,
-  type ApiIdeaDetailsResponseType,
-} from 'Shared/types/api';
+  type TopIdea as TopIdeaType,
+  type TopIdeaDetailType,
+} from 'Shared/types/topIdea';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-export const getTopIdeas = async (
+const orderByWeight = (topIdea1, topIdea2) => {
+  return topIdea2.weight - topIdea1.weight;
+};
+
+const getTopIdeas = async (
   questionId: string,
-  notFound: () => void
-): Promise<ApiIdeaResponseType[]> => {
-  const orderByWeight = (topIdea1, topIdea2) => {
-    return topIdea2.weight - topIdea1.weight;
-  };
+  notFound: () => void = () => {}
+): Promise<?(TopIdeaType[])> => {
   try {
     const topIdeasResponse = await QuestionApiService.getTopIdeas(questionId);
 
-    return topIdeasResponse.questionTopIdeas.sort(orderByWeight);
-  } catch (error) {
-    Logger.logError(Error(error));
-
-    if (error.message === '404') {
+    return topIdeasResponse.data.questionTopIdeas.sort(orderByWeight);
+  } catch (apiServiceError) {
+    if (apiServiceError.status === '404') {
       notFound();
+      return null;
     }
 
-    return [];
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
   }
 };
 
-export const getTopIdea = async (
+const getTopIdea = async (
   questionId: string,
   topIdeaId: string,
   notFound: () => void
-): Promise<ApiIdeaDetailsResponseType> => {
+): Promise<?TopIdeaDetailType> => {
   try {
-    const topIdea = await QuestionApiService.getTopIdea(questionId, topIdeaId);
+    const topIdeaResponse = await QuestionApiService.getTopIdea(
+      questionId,
+      topIdeaId
+    );
 
-    return topIdea;
-  } catch (error) {
-    Logger.logError(Error(error));
-
-    if (error.message === '404') {
+    return topIdeaResponse.data;
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 404) {
       notFound();
+      return null;
     }
+    defaultUnexpectedError(apiServiceError);
 
-    return {};
+    return null;
   }
+};
+
+export const TopIdeaService = {
+  getTopIdeas,
+  getTopIdea,
 };

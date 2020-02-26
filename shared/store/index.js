@@ -1,6 +1,6 @@
 // @flow
 
-import { UserApiService } from 'Shared/api/UserApiService';
+import { UserService } from 'Shared/services/User';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { rootReducer } from './reducers';
 import { middlewares } from './middleware';
@@ -20,19 +20,12 @@ export function configureStore(initialState: StateRoot = {}) {
 }
 
 export const authenticationState = async () => {
-  let authentificationState;
-  try {
-    const user = await UserApiService.me();
-    authentificationState = {
-      isLoggedIn: !!user,
-      user,
-    };
-  } catch (error) {
-    authentificationState = {
-      isLoggedIn: false,
-      user: undefined,
-    };
-  }
+  const user = await UserService.me();
+
+  const authentificationState = {
+    isLoggedIn: !!user,
+    user: user || undefined,
+  };
 
   return authentificationState;
 };

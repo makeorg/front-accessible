@@ -1,22 +1,25 @@
 // @flow
-import { Logger } from 'Shared/services/Logger';
 import { type TypeUser } from 'Shared/types/user';
 import {
   type PersonalityCommentsType,
   type PersonalityOpinionType,
 } from 'Shared/types/personality';
 import { PersonalityApiService } from 'Shared/api/PersonalityApiService';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-export const getPersonalityById = async (userId: string): Promise<TypeUser> => {
+const getPersonalityById = async (userId: string): Promise<?TypeUser> => {
   try {
     const response = await PersonalityApiService.getPersonality(userId);
-    return response;
-  } catch (error) {
-    return Logger.logError(Error(error));
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
   }
 };
 
-export const postPersonnalityComments = async (
+const postPersonnalityComments = async (
   userId: string,
   topIdeaId: string,
   comment1: string,
@@ -26,7 +29,7 @@ export const postPersonnalityComments = async (
   qualification: string
 ): Promise<?PersonalityCommentsType> => {
   try {
-    return await PersonalityApiService.postPersonnalityComments(
+    const response = await PersonalityApiService.postPersonnalityComments(
       userId,
       topIdeaId,
       comment1,
@@ -35,23 +38,34 @@ export const postPersonnalityComments = async (
       vote,
       qualification
     );
-  } catch (error) {
-    Logger.logError(Error(error));
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
 
     return null;
   }
 };
 
-export const getPersonnalityOpinion = async (
+const getPersonnalityOpinion = async (
   userId: string,
   questionId?: string
-): Promise<PersonalityOpinionType[]> => {
+): Promise<?(PersonalityOpinionType[])> => {
   try {
-    return await PersonalityApiService.getPersonnalityOpinion(
+    const response = await PersonalityApiService.getPersonnalityOpinion(
       userId,
       questionId
     );
-  } catch (error) {
-    return Logger.logError(Error(error));
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
   }
+};
+
+export const PersonalityService = {
+  getPersonalityById,
+  postPersonnalityComments,
+  getPersonnalityOpinion,
 };

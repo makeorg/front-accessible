@@ -14,7 +14,7 @@ import {
   startAnimatingVoteState,
   getVoteKey,
 } from 'Shared/helpers/vote';
-import { VoteService } from 'Shared/api/VoteService';
+import { VoteService } from 'Shared/services/Vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
@@ -117,7 +117,7 @@ export class Vote extends React.Component<Props, State> {
     }));
   };
 
-  handleUnvote = (voteKey: string) => {
+  handleUnvote = async (voteKey: string) => {
     const {
       proposalId,
       questionSlug,
@@ -126,17 +126,17 @@ export class Vote extends React.Component<Props, State> {
       onUnvote,
     } = this.props;
 
-    VoteService.unvote(proposalId, voteKey, proposalKey)
-      .then(vote => {
-        this.delayStateUpdateOnEndVote(() =>
-          this.setState(prevState => doUnvote(prevState, vote))
-        );
-        onUnvote(proposalId, questionSlug, voteKey, index);
-        trackUnvote(proposalId, voteKey, index, this.context);
-      })
-      .catch(() => {
-        this.setState(finishPendingState);
-      });
+    const vote = await VoteService.unvote(proposalId, voteKey, proposalKey);
+    if (!vote) {
+      this.setState(finishPendingState);
+      return;
+    }
+
+    this.delayStateUpdateOnEndVote(() =>
+      this.setState(prevState => doUnvote(prevState, vote))
+    );
+    onUnvote(proposalId, questionSlug, voteKey, index);
+    trackUnvote(proposalId, voteKey, index, this.context);
   };
 
   wait = async (ms: number) => {
@@ -149,18 +149,15 @@ export class Vote extends React.Component<Props, State> {
     const { proposalId, questionSlug, proposalKey, index, onVote } = this.props;
     this.setState(prevState => startAnimatingVoteState(prevState, voteKey));
     await this.wait(500);
-    VoteService.vote(proposalId, voteKey, proposalKey)
-      .then(vote => {
-        this.delayStateUpdateOnEndVote(() =>
-          this.setState(prevState => doVote(prevState, vote))
-        );
-
-        onVote(proposalId, questionSlug, voteKey, index);
-        trackVote(proposalId, voteKey, index, this.context);
-      })
-      .catch(() => {
-        this.setState(finishPendingState);
-      });
+    const vote = await VoteService.vote(proposalId, voteKey, proposalKey);
+    if (!vote) {
+      this.setState(finishPendingState);
+    }
+    this.delayStateUpdateOnEndVote(() =>
+      this.setState(prevState => doVote(prevState, vote))
+    );
+    onVote(proposalId, questionSlug, voteKey, index);
+    trackVote(proposalId, voteKey, index, this.context);
   };
 
   handleVoting = (voteKey: string) => {

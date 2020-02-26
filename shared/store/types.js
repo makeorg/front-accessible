@@ -103,6 +103,8 @@ export type StateActor = $ReadOnly<{
   votesCount: number,
   language: string,
   country: string,
+  website: ?string,
+  countsByQuestion: Object,
 }>;
 
 export type StateActors = $ReadOnly<{

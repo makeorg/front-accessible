@@ -28,8 +28,8 @@ import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { getRouteNoCookies } from 'Shared/routes';
 import { NoCookies } from './pages/Static/NoCookies';
-import { ErrorBoundary } from './app/Error';
 import { history, initHistory } from './app/History';
+import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -159,24 +159,26 @@ const initApp = async state => {
           <Provider store={store}>
             <Router history={history}>
               <React.StrictMode>
-                <ErrorBoundary>
-                  <Switch>
-                    <Route
-                      path={getRouteNoCookies(
-                        state.appConfig.country,
-                        state.appConfig.language
-                      )}
-                      component={NoCookies}
-                    />
-                    <Redirect
-                      from="/"
-                      to={getRouteNoCookies(
-                        state.appConfig.country,
-                        state.appConfig.language
-                      )}
-                    />
-                  </Switch>
-                </ErrorBoundary>
+                <ServiceErrorHandler>
+                  <ErrorBoundary>
+                    <Switch>
+                      <Route
+                        path={getRouteNoCookies(
+                          state.appConfig.country,
+                          state.appConfig.language
+                        )}
+                        component={NoCookies}
+                      />
+                      <Redirect
+                        from="/"
+                        to={getRouteNoCookies(
+                          state.appConfig.country,
+                          state.appConfig.language
+                        )}
+                      />
+                    </Switch>
+                  </ErrorBoundary>
+                </ServiceErrorHandler>
               </React.StrictMode>
             </Router>
           </Provider>

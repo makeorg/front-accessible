@@ -3,7 +3,6 @@
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
 import { type TypeErrorObject } from 'Shared/types/api';
-import { UserApiService } from 'Shared/api/UserApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
@@ -14,6 +13,7 @@ import {
 } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 import { Logger } from 'Shared/services/Logger';
+import { UserService } from 'Shared/services/User';
 import {
   showLoginSuccess,
   showLogoutSuccess,
@@ -51,7 +51,8 @@ export const getUser = (afterRegistration?: boolean) => (
   getState: () => StateRoot
 ) => {
   const { isOpen: isModalOpen } = getState().modal;
-  return UserApiService.me().then(user => {
+
+  return UserService.me().then(user => {
     dispatch(setUserInfo(user));
     if (isModalOpen) {
       dispatch(modalClose());
@@ -59,6 +60,7 @@ export const getUser = (afterRegistration?: boolean) => (
     if (afterRegistration) {
       return dispatch(showRegisterSuccess(user));
     }
+
     return null;
   });
 };
@@ -67,31 +69,32 @@ export const login = (email: string, password: string) => (
   dispatch: Dispatch
 ) => {
   dispatch(loginRequest());
-  return UserApiService.login(email, password)
-    .then(() => {
-      dispatch(loginSuccess());
-      trackLoginEmailSuccess();
+  const success = (): void => {
+    dispatch(loginSuccess());
+    trackLoginEmailSuccess();
 
-      dispatch(getUser());
-      dispatch(showLoginSuccess());
-    })
-    .catch(() => {
-      dispatch(
-        loginFailure({
-          field: 'email',
-          key: 'email_doesnot_exist',
-          message: i18n.t('login.email_doesnot_exist', {
-            emailLabel: `<label for="email">${i18n.t(
-              'common.form.label.email'
-            )}</label>`,
-            passwordLabel: `<label for="password">${i18n.t(
-              'common.form.label.password'
-            )}</label>`,
-          }),
-        })
-      );
-      trackLoginEmailFailure();
-    });
+    dispatch(getUser());
+    dispatch(showLoginSuccess());
+  };
+  const errors = (): void => {
+    dispatch(
+      loginFailure({
+        field: 'email',
+        key: 'email_doesnot_exist',
+        message: i18n.t('login.email_doesnot_exist', {
+          emailLabel: `<label for="email">${i18n.t(
+            'common.form.label.email'
+          )}</label>`,
+          passwordLabel: `<label for="password">${i18n.t(
+            'common.form.label.password'
+          )}</label>`,
+        }),
+      })
+    );
+    trackLoginEmailFailure();
+  };
+
+  UserService.login(email, password, success, errors);
 };
 
 export const loginSocial = (provider: string, socialToken: string) => (
@@ -106,31 +109,38 @@ export const loginSocial = (provider: string, socialToken: string) => (
     return Promise.resolve();
   }
 
-  return UserApiService.loginSocial(provider, socialToken)
-    .then(response => {
-      dispatch(loginSocialSuccess());
-      trackAuthentificationSocialSuccess(
-        provider,
-        response.account_creation.toString()
-      );
+  const success = () => {
+    dispatch(loginSocialSuccess());
+    dispatch(getUser());
+    dispatch(showLoginSuccess());
+  };
+  const failure = () => {
+    dispatch(loginSocialFailure());
+    trackAuthentificationSocialFailure(provider);
+  };
 
-      dispatch(getUser());
-      dispatch(showLoginSuccess());
-    })
-    .catch(() => {
-      dispatch(loginSocialFailure());
-      trackAuthentificationSocialFailure(provider);
-    });
+  return UserService.loginSocial(provider, socialToken, success, failure).then(
+    auth => {
+      if (auth) {
+        trackAuthentificationSocialSuccess(
+          provider,
+          auth.account_creation.toString()
+        );
+      }
+    }
+  );
 };
 
 export const logout = (afterAccountDeletion?: boolean) => (
   dispatch: Dispatch
 ) => {
-  return UserApiService.logout().then(() => {
+  const success = () => {
     dispatch(logoutSuccess());
     if (afterAccountDeletion) {
       return dispatch(showAccountDeletionSuccess());
     }
     return dispatch(showLogoutSuccess());
-  });
+  };
+
+  return UserService.logout(success);
 };

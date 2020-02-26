@@ -2,14 +2,12 @@ import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
 import { topIdeasRoute } from './topIdeasRoute';
 import { reactRender } from '../reactRender';
-import { getQuestion } from '../service/QuestionService';
+import { QuestionService } from '../service/QuestionService';
 
 jest.mock('Shared/helpers/date', () => ({
   isInProgress: jest.fn(),
 }));
-jest.mock('../service/QuestionService', () => ({
-  getQuestion: jest.fn(),
-}));
+jest.mock('../service/QuestionService');
 jest.mock('Shared/api/QuestionNodeService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('./helpers/ssr.helper', () => ({
@@ -44,7 +42,7 @@ describe('Ideas page route', () => {
 
   describe('The route', () => {
     it('construct route initial state and render', async () => {
-      getQuestion.mockReturnValue(fooQuestion);
+      QuestionService.getQuestion.mockReturnValue(fooQuestion);
       createInitialState.mockReturnValue({});
 
       await topIdeasRoute(request, response);

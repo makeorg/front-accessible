@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import * as OrganisationService from 'Shared/services/Organisation';
+import { OrganisationService } from 'Shared/services/Organisation';
 import {
   Redirect,
   matchPath,

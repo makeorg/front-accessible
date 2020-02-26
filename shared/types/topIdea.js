@@ -35,3 +35,8 @@ export type TopIdea = {
   weight: number,
   commentsCount: number,
 };
+
+export type TopIdeaDetailType = {
+  questionTopIdea: TopIdea,
+  seed: number,
+};

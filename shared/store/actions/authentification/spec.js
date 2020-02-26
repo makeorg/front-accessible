@@ -6,13 +6,13 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { UserApiService } from 'Shared/api/UserApiService';
 import * as Tracking from 'Shared/services/Tracking';
 import * as actions from './index';
-
 // mocks
 jest.mock('Shared/api/UserApiService');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore();
+const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
 describe('Authentification Actions', () => {
   beforeEach(() => {
@@ -56,7 +56,7 @@ describe('Authentification Actions', () => {
       });
 
       // mocks
-      UserApiService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue({ data: user });
       UserApiService.login.mockResolvedValue();
 
       // spy
@@ -69,12 +69,11 @@ describe('Authentification Actions', () => {
         { type: actionTypes.GET_INFO, user },
       ];
 
-      return newStore
-        .dispatch(actions.login(user.email, user.password))
-        .then(() => {
-          expect(Tracking.trackLoginEmailSuccess).toHaveBeenCalled();
-          expect(newStore.getActions()).toEqual(expectedActions);
-        });
+      newStore.dispatch(actions.login(user.email, user.password));
+      return wait().then(() => {
+        expect(Tracking.trackLoginEmailSuccess).toHaveBeenCalled();
+        expect(newStore.getActions()).toEqual(expectedActions);
+      });
     });
 
     it('creates an action to login when failure', () => {
@@ -92,7 +91,7 @@ describe('Authentification Actions', () => {
         sequence: { question: { questionId } },
       });
 
-      UserApiService.login.mockRejectedValue();
+      UserApiService.login.mockRejectedValue({ status: 400 });
 
       // spy
       jest.spyOn(Tracking, 'trackLoginEmailFailure');
@@ -102,12 +101,11 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_FAILURE, error },
       ];
 
-      return newStore
-        .dispatch(actions.login(user.email, user.password))
-        .then(() => {
-          expect(Tracking.trackLoginEmailFailure).toHaveBeenCalled();
-          expect(newStore.getActions()).toEqual(expectedActions);
-        });
+      newStore.dispatch(actions.login(user.email, user.password));
+      return wait().then(() => {
+        expect(Tracking.trackLoginEmailFailure).toHaveBeenCalled();
+        expect(newStore.getActions()).toEqual(expectedActions);
+      });
     });
   });
 
@@ -157,8 +155,8 @@ describe('Authentification Actions', () => {
       const socialToken = 'fooToken';
 
       // mock
-      UserApiService.me.mockResolvedValue(user);
-      UserApiService.loginSocial.mockResolvedValue(successAuth);
+      UserApiService.me.mockResolvedValue({ data: user });
+      UserApiService.loginSocial.mockResolvedValue({ data: successAuth });
 
       // spy
       jest.spyOn(Tracking, 'trackAuthentificationSocialSuccess');
@@ -174,10 +172,12 @@ describe('Authentification Actions', () => {
       return loginStore
         .dispatch(actions.loginSocial(provider, socialToken))
         .then(() => {
-          expect(
-            Tracking.trackAuthentificationSocialSuccess
-          ).toHaveBeenCalledWith(provider, successAuth.account_creation);
-          expect(loginStore.getActions()).toEqual(expectedActions);
+          wait().then(() => {
+            expect(
+              Tracking.trackAuthentificationSocialSuccess
+            ).toHaveBeenCalledWith(provider, successAuth.account_creation);
+            expect(loginStore.getActions()).toEqual(expectedActions);
+          });
         });
     });
 
@@ -274,7 +274,7 @@ describe('Authentification Actions', () => {
       });
 
       // mock
-      UserApiService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue({ data: user });
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },
@@ -293,7 +293,7 @@ describe('Authentification Actions', () => {
       });
 
       // mock
-      UserApiService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue({ data: user });
 
       const expectedActions = [{ type: actionTypes.GET_INFO, user }];
 
@@ -309,7 +309,7 @@ describe('Authentification Actions', () => {
       });
 
       // mock
-      UserApiService.me.mockResolvedValue(user);
+      UserApiService.me.mockResolvedValue({ data: user });
 
       const expectedActions = [
         { type: actionTypes.GET_INFO, user },

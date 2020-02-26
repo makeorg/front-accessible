@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type Location } from 'history';
 import { type TypeSearchViews } from 'Shared/types/views';
-import { ViewsService } from 'Shared/api/ViewsService';
+import { ViewsService } from 'Shared/services/Views';
 import { i18n } from 'Shared/i18n';
 import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
@@ -59,8 +59,12 @@ export const SearchMainResults = ({ location }: Props) => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await ViewsService.searchViews(term, country, language);
-      setData(response);
+      const searchResult = await ViewsService.searchViews(
+        term,
+        country,
+        language
+      );
+      setData(searchResult || data);
       setIsLoading(false);
     }
 

@@ -37,9 +37,9 @@ export const getErrorMessages = (
   switch (true) {
     case !Array.isArray(serviceErrors):
       Logger.logError(`Unexpected error (array expected): ${serviceErrors}`);
-      throw Array(defaultApiError);
+      return Array(defaultApiError);
     default:
-      throw mapErrors(internalErrors, serviceErrors);
+      return mapErrors(internalErrors, serviceErrors);
   }
 };
 

@@ -6,12 +6,15 @@ import { i18n } from 'Shared/i18n';
 import { type Location, type History } from 'history';
 import { getRouteSearch } from 'Shared/routes';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import {
+  type Organisation as TypeOrganisation,
+  type OrganisationsType,
+} from 'Shared/types/organisation';
 import {
   trackDisplaySearchOragnisationsResult,
   trackClickSearchReturn,
 } from 'Shared/services/Tracking';
-import { searchOrganisations } from 'Shared/services/Organisation';
+import { OrganisationService } from 'Shared/services/Organisation';
 import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -59,13 +62,17 @@ export const SearchOrganisations = ({ history, location }: Props) => {
 
   const initOrganisations = async () => {
     setIsLoading(true);
-    const { results, total } = await searchOrganisations(
+    const organisationsResponse: ?OrganisationsType = await OrganisationService.searchOrganisations(
       country,
       language,
       term
     );
-    setOrganisations(results);
-    setCount(total);
+
+    if (organisationsResponse) {
+      const { results, total } = organisationsResponse;
+      setOrganisations(results);
+      setCount(total);
+    }
     setIsLoading(false);
   };
   useEffect(() => {

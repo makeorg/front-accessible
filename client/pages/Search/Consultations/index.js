@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getRouteSearch } from 'Shared/routes';
 import { type Question as TypeQuestion } from 'Shared/types/question';
-import { searchQuestions } from 'Shared/services/Question';
+import { QuestionService } from 'Shared/services/Question';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import {
@@ -57,9 +57,16 @@ export const SearchConsultations = ({ location, history }: Props) => {
 
   const initQuestions = async () => {
     setIsLoading(true);
-    const { results, total } = await searchQuestions(country, language, term);
-    setConsultations(results);
-    setCount(total);
+    const questions = await QuestionService.searchQuestions(
+      country,
+      language,
+      term
+    );
+    if (questions) {
+      const { results, total } = questions;
+      setConsultations(results);
+      setCount(total);
+    }
     setIsLoading(false);
   };
 

@@ -9,7 +9,7 @@ import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { getUser } from 'Shared/store/actions/authentification';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { throttle } from 'Shared/helpers/throttle';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
@@ -77,20 +77,28 @@ export const UpdatePassword = ({ userId, hasPassword }: Props) => {
 
   const handleSubmit = async (
     event: SyntheticInputEvent<HTMLButtonElement>
-  ) => {
+  ): Promise<void> => {
     event.preventDefault();
 
-    try {
-      await UserService.updatePassword(userId, formValues, hasPassword);
+    const success = () => {
       setFormValues(defaultFormValues);
       setErrors([]);
       setIsSubmitSuccessful(true);
       setCanSubmit(false);
       dispatch(getUser());
-    } catch (serviceErrors) {
+    };
+    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
       setErrors(serviceErrors);
       setCanSubmit(false);
-    }
+    };
+
+    await UserService.updatePassword(
+      userId,
+      formValues,
+      hasPassword,
+      success,
+      handleErrors
+    );
   };
 
   return (

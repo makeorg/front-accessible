@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { Logger } from 'Shared/services/Logger';
-import { ApiServiceShared, API_URL, handleErrors } from './ApiService.shared';
+import {
+  ApiServiceShared,
+  API_URL,
+  handleErrors,
+  ApiServiceError,
+} from './ApiService.shared';
 
 describe('ApiServiceShared', () => {
   const headers = {
@@ -44,9 +49,10 @@ describe('ApiServiceShared', () => {
     });
 
     it('must return data', async () => {
-      axios.mockResolvedValue({ data: 'success' });
+      const result = { data: 'success' };
+      axios.mockResolvedValue(result);
       const response = await ApiServiceShared.callApi('/url');
-      expect(response).toBe('success');
+      expect(response).toBe(result);
     });
 
     it('must handle promise', async () => {
@@ -66,7 +72,9 @@ describe('ApiServiceShared', () => {
           status: 200,
         },
       };
-      expect(() => handleErrors(error)).toThrow('200');
+      expect(() => handleErrors(error)).toThrow(
+        new ApiServiceError('', 200, 'none')
+      );
     });
 
     it('status 400', () => {
@@ -76,27 +84,29 @@ describe('ApiServiceShared', () => {
           data: 'error 400',
         },
       };
-      expect(() => handleErrors(error)).toThrow('error 400');
+      expect(() => handleErrors(error, 'http://test', 'GET')).toThrow(
+        new ApiServiceError('', 400, 'error data')
+      );
     });
 
     it('status 500', () => {
       jest.spyOn(Logger, 'logError');
       const error = {
+        message: 'error message',
         response: {
+          data: 'error data',
           status: 500,
           headers: {
             'x-headers': 'foo',
           },
         },
       };
-      expect(() => handleErrors(error)).toThrow(
-        Error({
-          'x-headers': 'foo',
-        })
+      expect(() => handleErrors(error, null, 'GET')).toThrow(
+        new ApiServiceError('error message', 500, 'error data')
       );
       expect(Logger.logError).toHaveBeenNthCalledWith(
         1,
-        'API call error - undefined - {"status":"500","url":"none","method":"none"}'
+        'API call error - error message - {"status":"500","url":"none","method":"GET","responseData":"error data"}'
       );
     });
   });

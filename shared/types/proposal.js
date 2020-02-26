@@ -70,3 +70,9 @@ export type Proposal = {
   proposalKey: string,
   question: TypeQuestion,
 };
+
+export type ProposalsType = {
+  total: number,
+  seed?: number,
+  results: Proposal[],
+};

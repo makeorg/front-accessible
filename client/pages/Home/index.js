@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { type TypeHome } from 'Shared/types/views';
-import { getHome } from 'Shared/services/Views';
+import { ViewsService } from 'Shared/services/Views';
 import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
 import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
@@ -33,8 +33,8 @@ export const HomePage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await getHome();
-      setData(response);
+      const homeData = await ViewsService.getHome();
+      setData(homeData || data);
     }
     setIsLoading(true);
     trackDisplayHomepage();

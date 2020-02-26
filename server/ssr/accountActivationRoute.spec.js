@@ -38,7 +38,8 @@ describe('Account activation route', () => {
   });
 
   it('add the question to the initialState and set headers', async () => {
-    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
+
     const routeState = {
       ...initialState,
       questions: {
@@ -47,6 +48,10 @@ describe('Account activation route', () => {
         },
       },
       currentQuestion: fooQuestion.slug,
+      notification: {
+        contentType: 'ACTIVATION_SUCCESS_MESSAGE',
+        level: 'success',
+      },
     };
 
     const request = httpMocks.createRequest({
@@ -97,7 +102,9 @@ describe('Account activation route', () => {
 
   it('activate fail and add fail notification to state', async () => {
     UserApiService.verifyUser.mockRejectedValue(HTTP_NOT_FOUND);
-    QuestionApiService.getDetail.mockReturnValue({ id: fooQuestion.id });
+    QuestionApiService.getDetail.mockReturnValue({
+      data: { id: fooQuestion.id },
+    });
 
     const request = httpMocks.createRequest({
       params: requestParams,

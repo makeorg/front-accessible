@@ -57,31 +57,31 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
   const isDesktop = useDesktop();
 
   const initProposal = async () => {
-    const { results, total } = await searchProposals(
-      country,
-      language,
-      term,
-      page
-    );
-
-    setProposalsResult(results);
-    setProposalsCount(total);
-    setPage(1);
+    const result = await searchProposals(country, language, term, page);
+    if (result) {
+      const { results, total } = result;
+      setProposalsResult(results);
+      setProposalsCount(total);
+      setPage(1);
+    }
     setIsLoading(false);
   };
 
   const loadMoreProposals = async () => {
     setIsLoading(true);
-    const { results } = await searchProposals(
+    const result = await searchProposals(
       country,
       language,
       term,
       page,
       PROPOSALS_LIMIT
     );
-    const newProposalList = [...proposalsResult, ...results];
-    setProposalsResult(newProposalList);
-    setPage(page + 1);
+    if (result) {
+      const { results } = result;
+      const newProposalList = [...proposalsResult, ...results];
+      setProposalsResult(newProposalList);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 

@@ -6,9 +6,10 @@ import {
   startPendingState,
   finishPendingState,
 } from 'Shared/helpers/qualification';
-import { QualificationService } from 'Shared/api/QualificationService';
 import { trackQualify, trackUnqualify } from 'Shared/services/Tracking';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
+import { QualificationService } from 'Shared/services/Qualification';
+import { type Qualification as TypeQualification } from 'Shared/types/qualification';
 import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
@@ -51,46 +52,50 @@ export class QualificationContainer extends React.Component<Props, State> {
     };
   }
 
-  handleUnqualify = (qualificationKey: string, voteKey: string) => {
+  handleUnqualify = async (qualificationKey: string, voteKey: string) => {
     const { proposalId, proposalKey, index } = this.props;
-    QualificationService.unqualify(
+
+    const qualificationResult: ?TypeQualification = await QualificationService.unqualify(
       proposalId,
       proposalKey,
       voteKey,
-      qualificationKey
-    )
-      .then(qualificationResult => {
-        this.setState(prevState =>
-          doUpdateState(prevState, qualificationResult)
-        );
-      })
-      .catch(() => {
+      qualificationKey,
+      () => {
         this.setState(prevState =>
           finishPendingState(prevState, qualificationKey)
         );
-      });
-    trackUnqualify(proposalId, qualificationKey, voteKey, index, this.context);
+      }
+    );
+    if (qualificationResult) {
+      this.setState(prevState => doUpdateState(prevState, qualificationResult));
+      trackUnqualify(
+        proposalId,
+        qualificationKey,
+        voteKey,
+        index,
+        this.context
+      );
+    }
   };
 
-  handleQualify = (qualificationKey: string, voteKey: string) => {
+  handleQualify = async (qualificationKey: string, voteKey: string) => {
     const { proposalId, proposalKey, index } = this.props;
-    QualificationService.qualify(
+
+    const qualificationResult: ?TypeQualification = await QualificationService.qualify(
       proposalId,
       proposalKey,
       voteKey,
-      qualificationKey
-    )
-      .then(qualificationResult => {
-        this.setState(prevState =>
-          doUpdateState(prevState, qualificationResult)
-        );
-      })
-      .catch(() => {
+      qualificationKey,
+      () => {
         this.setState(prevState =>
           finishPendingState(prevState, qualificationKey)
         );
-      });
-    trackQualify(proposalId, qualificationKey, voteKey, index, this.context);
+      }
+    );
+    if (qualificationResult) {
+      this.setState(prevState => doUpdateState(prevState, qualificationResult));
+      trackQualify(proposalId, qualificationKey, voteKey, index, this.context);
+    }
   };
 
   handleQualification = (qualification: Object, voteKey: string) => {
