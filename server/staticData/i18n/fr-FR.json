@@ -149,7 +149,8 @@
         "alert": "Message d'alerte : "
       },
       "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
-      "thank_you": "C'est noté, merci !"
+      "thank_you": "C'est noté, merci !",
+      "unexpected_error": "Nous rencontrons actuellement une erreur, merci de réessayer ultérieurement."
     },
     "from": "sur",
     "email": "Email",

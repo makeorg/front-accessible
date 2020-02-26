@@ -4,6 +4,7 @@ import {
   NOTIFICATION_LOGOUT_SUCCESS,
   NOTIFICATION_REGISTER_SUCCESS,
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
+  NOTIFICATION_UNEXPECTED_ERROR,
 } from 'Shared/store/actionTypes';
 
 export const clearNotification = () => ({ type: NOTIFICATION_CLOSE });
@@ -22,4 +23,8 @@ export const showLogoutSuccess = () => (dispatch: Function) => {
 
 export const showRegisterSuccess = (user: Object) => (dispatch: Function) => {
   dispatch({ type: NOTIFICATION_REGISTER_SUCCESS, user });
+};
+
+export const showUnexpectedError = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_UNEXPECTED_ERROR });
 };

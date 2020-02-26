@@ -76,7 +76,7 @@ export const handleErrors = (error: ErrorResponse) => {
             responseData: error.response.data,
           })}`
         );
-        break;
+        throw Error(error.response.status.toString());
       case 400:
         if (
           !error.response ||
@@ -88,18 +88,9 @@ export const handleErrors = (error: ErrorResponse) => {
         break;
       default:
         logDefaultError();
-    }
-
-    switch (error.response.status) {
-      case 400:
-        throw error.response.data;
-      case 500:
-        throw Error(error.response.headers);
-      default:
         throw Error(error.response.status.toString());
     }
   }
-
   Logger.logError(error);
   throw Error(error.message);
 };
