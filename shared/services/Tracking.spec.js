@@ -3,7 +3,6 @@
 import { ApiService } from 'Shared/api/ApiService';
 import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
-import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import TrackingService, {
   trackClickMakeLogo,
   trackDisplaySequence,
@@ -354,10 +353,10 @@ describe('Tracking Service', () => {
 
   it('track Authentification Social Success', () => {
     const eventName = trackingConstants.AUTHEN_SOCIAL_SUCCESS;
-    const trackParams = { 'social-network': 'foo' };
+    const trackParams = { 'social-network': 'foo', 'account-creation': false };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    trackAuthentificationSocialSuccess('foo');
+    trackAuthentificationSocialSuccess('foo', false);
     expect(TrackingService.track).toHaveBeenNthCalledWith(
       1,
       eventName,
