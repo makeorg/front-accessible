@@ -4,9 +4,11 @@ import { i18n } from 'Shared/i18n';
 import { trackClickMakeLogo } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
-import { WHOAREWE_FR_LINK } from 'Shared/constants/url';
+import { WHOAREWE_FR_LINK, WHOAREWE_EN_LINK } from 'Shared/constants/url';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { SearchInput } from 'Client/features/search/Form';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { HeaderAuthentification } from './Authentification';
 import {
   HeaderStyle,
@@ -22,6 +24,9 @@ import {
  */
 export const Header = () => {
   const isDesktop = useDesktop();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const isFR = country === 'FR';
+
   return (
     <HeaderStyle>
       <HeaderInnerStyle>
@@ -43,8 +48,7 @@ export const Header = () => {
               as="a"
               target="_blank"
               rel="noreferrer noopener"
-              href={WHOAREWE_FR_LINK}
-              to={WHOAREWE_FR_LINK}
+              href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
             >
               {i18n.t('header.whoarewe')}
             </WhoAreWeLinkStyle>

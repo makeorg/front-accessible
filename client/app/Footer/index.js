@@ -13,6 +13,7 @@ import {
 import {
   JOBS_LINK,
   WHOAREWE_FR_LINK,
+  WHOAREWE_EN_LINK,
   NEWS_LINK,
   DOTATION_FUNDS_LINK,
 } from 'Shared/constants/url';
@@ -39,6 +40,7 @@ export const Footer = () => {
     (state: StateRoot) => state.appConfig
   );
   const isDesktop = useDesktop();
+  const isFR = country === 'FR';
 
   return (
     <FooterStyle id="main_footer">
@@ -51,46 +53,49 @@ export const Footer = () => {
           />
         </Link>
         <FooterItemListStyle>
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              as="a"
-              href={JOBS_LINK}
-              to={JOBS_LINK}
-              dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
-            />
-          </FooterItemStyle>
+          {isFR && (
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                as="a"
+                href={JOBS_LINK}
+                to={JOBS_LINK}
+                dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
+              />
+            </FooterItemStyle>
+          )}
           {!isDesktop && (
             <FooterItemStyle>
               <FooterItemLinkStyle
                 as="a"
-                href={WHOAREWE_FR_LINK}
-                to={WHOAREWE_FR_LINK}
+                href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
               >
                 {i18n.t('main-footer.whoarewe')}
               </FooterItemLinkStyle>
             </FooterItemStyle>
           )}
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              as="a"
-              href={NEWS_LINK}
-              to={NEWS_LINK}
-              onClick={trackClickViewBlog}
-            >
-              {i18n.t('main-footer.news')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              as="a"
-              href={DOTATION_FUNDS_LINK}
-              to={DOTATION_FUNDS_LINK}
-            >
-              {i18n.t('main-footer.dotation_funds')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-
+          {isFR && (
+            <>
+              <FooterItemStyle>
+                <FooterItemLinkStyle
+                  as="a"
+                  href={NEWS_LINK}
+                  to={NEWS_LINK}
+                  onClick={trackClickViewBlog}
+                >
+                  {i18n.t('main-footer.news')}
+                </FooterItemLinkStyle>
+              </FooterItemStyle>
+              <FooterItemStyle>
+                <FooterItemLinkStyle
+                  as="a"
+                  href={DOTATION_FUNDS_LINK}
+                  to={DOTATION_FUNDS_LINK}
+                >
+                  {i18n.t('main-footer.dotation_funds')}
+                </FooterItemLinkStyle>
+              </FooterItemStyle>
+            </>
+          )}
           <FooterItemStyle>
             <FooterItemLinkStyle to={getLegalPageLink(country, language)}>
               {i18n.t('main-footer.legal')}
