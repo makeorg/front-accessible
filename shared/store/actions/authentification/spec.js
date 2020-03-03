@@ -146,12 +146,19 @@ describe('Authentification Actions', () => {
         modal: { isOpen: true },
       });
       const user = { firstname: 'baz' };
+      const successAuth = {
+        token_type: 'Bearer',
+        access_token: '265f29cb-cc2e-444e-8590-cfe4ff652a0a',
+        expires_in: 299,
+        refresh_token: '815dfeec-f3e6-4085-b020-c27d7ea4e1aa',
+        account_creation: false,
+      };
       const provider = 'fooProvider';
       const socialToken = 'fooToken';
 
       // mock
       UserApiService.me.mockResolvedValue(user);
-      UserApiService.loginSocial.mockResolvedValue();
+      UserApiService.loginSocial.mockResolvedValue(successAuth);
 
       // spy
       jest.spyOn(Tracking, 'trackAuthentificationSocialSuccess');
@@ -169,7 +176,7 @@ describe('Authentification Actions', () => {
         .then(() => {
           expect(
             Tracking.trackAuthentificationSocialSuccess
-          ).toHaveBeenCalled();
+          ).toHaveBeenCalledWith(provider, successAuth.account_creation);
           expect(loginStore.getActions()).toEqual(expectedActions);
         });
     });
