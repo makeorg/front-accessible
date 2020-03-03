@@ -878,5 +878,24 @@
     "link": "www.accepterlescookies.com",
     "thanks": "Merci de votre compréhension et à bientôt !",
     "footer": "Make.org est une plateforme d’engagement qui permet d'identifier les idées plébiscitées sur divers sujets. Pour en savoir + sur notre initiative, découvrez <a href=\"https://about.make.org\">notre actualité</a>."
+  },
+  "contact": {
+    "contactUs": "Contactez-nous",
+    "paragraph": "Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en envoyant un e-mail à notre adresse :", 
+    "email_address": "contact@make.org"
+  },
+  "legal":{
+    "title": "Mentions légales",
+    "make_infos": "Editeur du site : MAKE.ORG, Société par Actions Simplifiées au capital de 1000 euros, ayant son siège social au 4 rue René Villermé, 75011, PARIS, immatriculée au RCS de PARIS sous le numéro 820 016 095 (ci-après« MAKE.ORG »).",
+    "mail": "Adresse de courrier électronique : ",
+    "make_phone": "Numéro de téléphone : ",
+    "make_phone_number": "01 44 74 77 46",
+    "director": "Directeur de Publication : ",
+    "host": "Hébergeur du site : ",
+    "host_address": "OVH, 2 rue Kellermann, 59100, ROUBAIX", 
+    "host_phone": "Numéro de téléphone : ",
+    "host_phone_number": "08 99 70 17 61",
+    "cnil": "Numéro de déclaration CNIL : ",
+    "cnil_number": "2005312"
   }
 }

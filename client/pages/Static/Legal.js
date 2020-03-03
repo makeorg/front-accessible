@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
+import { i18n } from 'Shared/i18n';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -11,34 +12,35 @@ export const LegalPage = () => {
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
-        Mentions légales
+        {i18n.t('legal.title')}
       </StaticSecondLevelTitleStyle>
+      <StaticParagraphStyle>{i18n.t('legal.make_infos')}</StaticParagraphStyle>
       <StaticParagraphStyle>
-        Editeur du site : MAKE.ORG, Société par Actions Simplifiées au capital
-        de 1000 euros, ayant son siège social au 4 rue René Villermé, 75011,
-        PARIS, immatriculée au RCS de PARIS sous le numéro 820 016 095
-        (ci-après« MAKE.ORG »).
-      </StaticParagraphStyle>
-      <StaticParagraphStyle>
-        Adresse de courrier électronique :&nbsp;
+        {i18n.t('legal.mail')}
+        &nbsp;
         <RedLinkHTMLElementStyle as="a" href="mailto:contact@make.org">
           contact@make.org
         </RedLinkHTMLElementStyle>
       </StaticParagraphStyle>
       <StaticParagraphStyle>
-        Numéro de téléphone : 01.44.74.77.46
+        {i18n.t('legal.make_phone')}
+        {i18n.t('legal.make_phone_number')}
       </StaticParagraphStyle>
       <StaticParagraphStyle>
-        Directeur de Publication : Axel Dauchez
+        {i18n.t('legal.director')}
+        Axel Dauchez
       </StaticParagraphStyle>
       <StaticParagraphStyle>
-        Hébergeur du site : OVH, 2 rue Kellermann, 59100, ROUBAIX
+        {i18n.t('legal.host')}
+        {i18n.t('legal.host_address')}
       </StaticParagraphStyle>
       <StaticParagraphStyle>
-        Numéro de téléphone : 08 99 70 17 61
+        {i18n.t('legal.host_phone')}
+        {i18n.t('legal.host_phone_number')}
       </StaticParagraphStyle>
       <StaticParagraphStyle>
-        Numéro de déclaration CNIL : 2005312
+        {i18n.t('legal.cnil')}
+        {i18n.t('legal.cnil_number')}
       </StaticParagraphStyle>
     </StaticPageWrapperStyle>
   );
