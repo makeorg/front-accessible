@@ -202,7 +202,7 @@ export const trackDisplaySigninForm = () => {
 
 export const trackAuthentificationSocialSuccess = (
   socialNetwork: string,
-  accountCreation: boolean
+  accountCreation: string
 ) => {
   TrackingService.sendAllTrackers(trackingConstants.AUTHEN_SOCIAL_SUCCESS, {
     'social-network': socialNetwork,

@@ -109,7 +109,10 @@ export const loginSocial = (provider: string, socialToken: string) => (
   return UserApiService.loginSocial(provider, socialToken)
     .then(response => {
       dispatch(loginSocialSuccess());
-      trackAuthentificationSocialSuccess(provider, response.account_creation);
+      trackAuthentificationSocialSuccess(
+        provider,
+        response.account_creation.toString()
+      );
 
       dispatch(getUser());
       dispatch(showLoginSuccess());

@@ -353,10 +353,13 @@ describe('Tracking Service', () => {
 
   it('track Authentification Social Success', () => {
     const eventName = trackingConstants.AUTHEN_SOCIAL_SUCCESS;
-    const trackParams = { 'social-network': 'foo', 'account-creation': false };
+    const trackParams = {
+      'social-network': 'foo',
+      'account-creation': 'false',
+    };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    trackAuthentificationSocialSuccess('foo', false);
+    trackAuthentificationSocialSuccess('foo', 'false');
     expect(TrackingService.track).toHaveBeenNthCalledWith(
       1,
       eventName,

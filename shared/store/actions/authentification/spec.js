@@ -151,7 +151,7 @@ describe('Authentification Actions', () => {
         access_token: '265f29cb-cc2e-444e-8590-cfe4ff652a0a',
         expires_in: 299,
         refresh_token: '815dfeec-f3e6-4085-b020-c27d7ea4e1aa',
-        account_creation: false,
+        account_creation: 'false',
       };
       const provider = 'fooProvider';
       const socialToken = 'fooToken';
