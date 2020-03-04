@@ -1,8 +1,8 @@
 export const initialStateDebug = {
   appConfig: {
     source: 'core',
-    language: 'fr',
-    country: 'FR',
+    language: 'en',
+    country: 'GB',
     translations: require('../../server/staticData/i18n/fr-FR.json'),
   },
   user: {
