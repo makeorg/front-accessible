@@ -51,7 +51,7 @@ export const FooterContentSeparatorStyle = styled(SeparatorStyle)`
 
 export const ButtonWrapperStyle = styled(FlexElementStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
+      Breakpoints.LargeDesktop
     )}) {
     flex-flow: column;
   }
@@ -61,7 +61,7 @@ export const ButtonStyle = styled(LinkAsRedButton)`
   margin: 0 5px;
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) and (max-width: ${intToPx(
-      Breakpoints.Desktop
+      Breakpoints.LargeDesktop
     )}) {
     margin: 5px 0;
   }
