@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
+import { i18n } from 'Shared/i18n';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
@@ -10,12 +11,16 @@ import {
 export const Contact = () => {
   return (
     <StaticPageWrapperStyle>
-      <StaticSecondLevelTitleStyle>Contactez-nous </StaticSecondLevelTitleStyle>
+      <StaticSecondLevelTitleStyle>
+        {i18n.t('contact.contactUs')}
+      </StaticSecondLevelTitleStyle>
       <StaticParagraphStyle>
-        Une idée, une suggestion, un bug ? N’hésitez pas à nous contacter en
-        envoyant un e-mail à notre adresse :&nbsp;
-        <RedLinkHTMLElementStyle href="mailto:contact@make.org">
-          contact@make.org
+        {i18n.t('contact.paragraph')}
+        &nbsp;
+        <RedLinkHTMLElementStyle
+          href={`mailto:${i18n.t('contact.email_address')}`}
+        >
+          {i18n.t('contact.email_address')}
         </RedLinkHTMLElementStyle>
       </StaticParagraphStyle>
     </StaticPageWrapperStyle>

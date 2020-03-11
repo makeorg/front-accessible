@@ -395,5 +395,24 @@
       "title": "Our actions' partners",
       "text": "At Make.org we believe in gathering all agents (citizens but also companies, organizations, institutions...) to bring about major change."
     }
+  },
+  "contact": {
+    "contactUs": "Contact us!",
+    "paragraph": "An idea, a suggestion, a bug? Don’t hesitate to contact us by sending a mail at",
+    "email_address": "contact-ie@make.org."
+  },
+  "legal":{
+    "title": "Legal Notices",
+    "make_infos": "Publisher of the site: MAKE.ORG, a simplified joint stock company with a capital of €1,000, with its headquarters at 4 Rue René Villermé, 75011, PARIS, registered at the Trade and Companies Register (RCS) of Paris under number 820 016 095 (hereinafter “MAKE.ORG”).",
+    "mail": "E-mail address:",
+    "make_phone": "Telephone number: ",
+    "make_phone_number": "+33 (0)1 44 74 77 46",
+    "director": "Publication Manager: ",
+    "host": "Site host: ",
+    "host_address": "OVH, 2 rue Kellermann, 59100, ROUBAIX FRANCE",  
+    "host_phone": "Telephone number: ",
+    "host_phone_number": "+33 (0)8 99 70 17 61",
+    "cnil": "",
+    "cnil_number": ""
   }
 }
