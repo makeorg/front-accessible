@@ -19,6 +19,7 @@ import {
   TopIdeaCardHeaderStyle,
   TopIdeaLinkStyle,
   ProposalsAssociatedStyle,
+  ProposalsAssociatedTextStyle,
   PositionStyle,
   PositionContentStyle,
   TopIdeaCardContentStyle,
@@ -72,9 +73,11 @@ export const TopIdeaCard = ({
       </TopIdeaCardHeaderStyle>
       <ProposalsAssociatedStyle as="div">
         {hasAvatars && <AvatarRows avatars={topIdea.avatars} />}
-        {i18n.t('idea_card.associated_proposals', {
-          count: topIdea.proposalsCount,
-        })}
+        <ProposalsAssociatedTextStyle>
+          {i18n.t('idea_card.associated_proposals', {
+            count: topIdea.proposalsCount,
+          })}
+        </ProposalsAssociatedTextStyle>
       </ProposalsAssociatedStyle>
       <TopIdeaCardContentStyle>
         <ScreenReaderItemStyle>
