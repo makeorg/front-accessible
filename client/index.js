@@ -3,7 +3,7 @@ import React from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Provider } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { HeadProvider } from 'react-head';
 import { loadableReady } from '@loadable/component';
 import { AppContainer } from 'Client/app';
@@ -29,6 +29,7 @@ import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { getRouteNoCookies } from 'Shared/routes';
 import { NoCookies } from './pages/Static/NoCookies';
 import { ErrorBoundary } from './app/Error';
+import { history, initHistory } from './app/History';
 
 window.onerror = (message, source, lineNumber, columnNumber, error) => {
   if (error && error.stack) {
@@ -145,6 +146,9 @@ const initApp = async state => {
     logAndTrackEvent('third-cookie-is-disabled');
   }
 
+  // Init history
+  initHistory(store);
+
   loadableReady(() => {
     const appDom = document.getElementById('app');
     const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
@@ -153,7 +157,7 @@ const initApp = async state => {
       return ReactDOM.hydrate(
         <HeadProvider>
           <Provider store={store}>
-            <BrowserRouter>
+            <Router history={history}>
               <React.StrictMode>
                 <ErrorBoundary>
                   <Switch>
@@ -174,7 +178,7 @@ const initApp = async state => {
                   </Switch>
                 </ErrorBoundary>
               </React.StrictMode>
-            </BrowserRouter>
+            </Router>
           </Provider>
         </HeadProvider>,
         appDom
@@ -185,11 +189,11 @@ const initApp = async state => {
       <CookiesProvider>
         <HeadProvider>
           <Provider store={store}>
-            <BrowserRouter>
+            <Router history={history}>
               <React.StrictMode>
                 <AppContainer />
               </React.StrictMode>
-            </BrowserRouter>
+            </Router>
           </Provider>
         </HeadProvider>
       </CookiesProvider>,

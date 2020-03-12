@@ -9,10 +9,7 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import {
-  loadQuestion,
-  unloadCurrentQuestion,
-} from 'Shared/store/actions/sequence';
+import { loadQuestion } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -73,12 +70,10 @@ const callQuestionData = Component =>
 
     useEffect(() => {
       if (question) {
+        // current question is reset by an history listener
+        // in Router
         dispatch(updateCurrentQuestion(question.slug));
       }
-
-      return () => {
-        dispatch(unloadCurrentQuestion());
-      };
     }, [question]);
 
     useEffect(() => {

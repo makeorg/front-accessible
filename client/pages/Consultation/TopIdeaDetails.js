@@ -128,8 +128,9 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   };
 
   useEffect(() => {
-    initTopIdea();
-    trackDisplayTopIdeas('top-idea-details');
+    initTopIdea().then(() => {
+      trackDisplayTopIdeas('top-idea-details');
+    });
   }, [question, topIdeaId]);
 
   const hasProposals = relatedProposals && relatedProposals.length > 0;
