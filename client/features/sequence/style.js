@@ -153,7 +153,7 @@ export const SequenceTitleWrapperStyle = styled.header`
 `;
 
 export const SequenceIntroTitleStyle = styled(SequenceMainTitleStyle)`
-  color: ${props => props.theme.color};
+  color: ${TextColors.DarkGrey};
 `;
 
 export const SequenceAltMainTitleStyle = styled(SequenceMainTitleStyle)`

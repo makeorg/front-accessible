@@ -159,7 +159,7 @@
     "click_there": "cliquez ici",
     "open_new_window": "Ouverture dans un nouvel onglet",
     "loading": "Merci de patienter pendant le chargement.",
-    "participate": "Participer",
+    "participate": "Participez",
     "vote_on_proposals": "Votez sur les propositions",
     "display_pannel": "Afficher le contenu du panneau déroulant",
     "hide_pannel": "Masquer le contenu du panneau déroulant",
@@ -630,7 +630,7 @@
       "popular_title": "Les sujets les plus discutés"
     },
     "banner": {
-      "title": "Donnez votre avis en 3 minutes",
+      "title": "Proposez vos solutions et votez sur celles des autres",
       "description": "sur une série de propositions aléatoires"
     },
     "proposal": {

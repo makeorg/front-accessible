@@ -1,36 +1,55 @@
 import styled from 'styled-components';
-import {
-  DefaultPadding,
-  Breakpoints,
-} from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const ParticipateWrapperStyle = styled.div`
-  display: flex;
-  align-items: center;
   background-color: ${BasicColors.PureWhite};
-  padding: 20px ${intToPx(DefaultPadding.Mobile)};
+  text-decoration: none;
+  padding: 20px 40px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin: 15px 0 20px;
+  margin-bottom: 20px;
+  box-sizing: content-box;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    padding: 30px 60px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};
-    margin: 25px 0 20px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 30px 60px 30px 70px;
+  }
+`;
+
+export const ParticipateInnerStyle = styled(ColumnToRowElementStyle)`
+  align-items: center;
+  justify-content: center;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    justify-content: flex-end;
   }
 `;
 
 export const ParticipateIntroductionStyle = styled(ThirdLevelTitleStyle)`
-  display: flex;
-  flex-flow: column;
+  display: inline-flex;
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
-  text-align: right;
+  text-align: center;
   width: 100%;
-  max-width: 450px;
+  max-width: 350px;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    text-align: right;
+    margin-bottom: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 20px;
   }
@@ -45,12 +64,16 @@ export const ParticipateDescriptionStyle = styled(ParagraphStyle)`
 `;
 
 export const ParticipateSeparatorStyle = styled.div`
-  width: 1px;
-  min-height: 75px;
-  background-color: ${BasicColors.PureBlack};
-  opacity: 0.3;
-  margin: 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    display: inline-flex;
+    width: 1px;
+    min-width: 1px;
+    min-height: 75px;
+    background-color: ${BasicColors.PureBlack};
+    opacity: 0.3;
     margin: 0 20px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 0 45px;
   }
 `;
