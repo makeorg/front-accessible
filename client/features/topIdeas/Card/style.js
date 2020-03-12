@@ -68,6 +68,10 @@ export const ProposalsAssociatedStyle = styled(ParagraphStyle)`
   align-items: center;
 `;
 
+export const ProposalsAssociatedTextStyle = styled(ParagraphStyle)`
+  padding-bottom: 5px;
+`;
+
 export const TopIdeaCardContentStyle = styled.div`
   margin: 15px 0;
 `;
