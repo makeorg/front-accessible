@@ -111,7 +111,7 @@ export const initRoutes = app => {
   const frontMiddlewares = [countryLanguageMiddleware, metricsMiddleware];
 
   // Front Routes
-  app.get('/robot.txt', technicalPages.renderRobot);
+  app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
