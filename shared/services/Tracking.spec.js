@@ -489,15 +489,17 @@ describe('Tracking Service', () => {
   it('track Vote', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_VOTE;
 
-    trackVote('foo', 'bar', 999);
+    trackVote('foo', 'bar', 999, 'my-component');
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': '999',
+      component: 'my-component',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': '999',
+      component: 'my-component',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -510,10 +512,12 @@ describe('Tracking Service', () => {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': '999',
+      component: '',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': '999',
+      component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -526,10 +530,12 @@ describe('Tracking Service', () => {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': 'single-proposal',
+      component: '',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': 'single-proposal',
+      component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -542,10 +548,12 @@ describe('Tracking Service', () => {
       proposalId: 'foo',
       nature: 'bar',
       'card-position': 'single-proposal',
+      component: '',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': 'single-proposal',
+      component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -559,10 +567,12 @@ describe('Tracking Service', () => {
       type: 'baz',
       nature: 'bar',
       'card-position': '999',
+      component: '',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': '999',
+      component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
@@ -576,10 +586,12 @@ describe('Tracking Service', () => {
       type: 'baz',
       nature: 'bar',
       'card-position': '999',
+      component: '',
     });
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       'card-position': '999',
+      component: '',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });

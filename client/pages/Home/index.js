@@ -13,6 +13,11 @@ import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { HomepagePopularProposals } from 'Client/features/homepage/Proposals/Popular';
 import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { HomepageWrapperStyle } from './Styled';
 
 export const HomePage = () => {
@@ -37,21 +42,28 @@ export const HomePage = () => {
     setIsLoading(false);
   }, []);
 
+  const popularProposalsContext: TopComponentContextValueType = TopComponentContextValue.getPopularProposals();
+  const controversialProposals: TopComponentContextValueType = TopComponentContextValue.getControversialProposals();
+
   return (
     <HomepageWrapperStyle>
       <HomepageSkipLinks />
       <MetaTags />
       <FeaturedConsultations featureds={data.featuredConsultations} />
       <CurrentConsultations consultations={data.currentConsultations} />
-      <HomepagePopularProposals
-        proposals={data.popularProposals}
-        isLoading={isLoading}
-      />
+      <TopComponentContext.Provider value={popularProposalsContext}>
+        <HomepagePopularProposals
+          proposals={data.popularProposals}
+          isLoading={isLoading}
+        />
+      </TopComponentContext.Provider>
       <CorporateBanner />
-      <ControversialProposals
-        proposals={data.controverseProposals}
-        isLoading={isLoading}
-      />
+      <TopComponentContext.Provider value={controversialProposals}>
+        <ControversialProposals
+          proposals={data.controverseProposals}
+          isLoading={isLoading}
+        />
+      </TopComponentContext.Provider>
       <BusinessConsultations consultations={data.businessConsultations} />
     </HomepageWrapperStyle>
   );

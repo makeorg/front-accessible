@@ -19,6 +19,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { voteStaticParams } from 'Shared/constants/vote';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
+import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { Qualification } from './Qualification';
 import { VoteResult } from './Result';
 import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
@@ -72,6 +73,8 @@ type State = {
  * Vote Business Logic
  */
 export class Vote extends React.Component<Props, State> {
+  static contextType = TopComponentContext;
+
   static defaultProps = {
     index: 0,
     goToNextCard: undefined,
@@ -129,7 +132,7 @@ export class Vote extends React.Component<Props, State> {
           this.setState(prevState => doUnvote(prevState, vote))
         );
         onUnvote(proposalId, questionSlug, voteKey, index);
-        trackUnvote(proposalId, voteKey, index);
+        trackUnvote(proposalId, voteKey, index, this.context);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -153,7 +156,7 @@ export class Vote extends React.Component<Props, State> {
         );
 
         onVote(proposalId, questionSlug, voteKey, index);
-        trackVote(proposalId, voteKey, index);
+        trackVote(proposalId, voteKey, index, this.context);
       })
       .catch(() => {
         this.setState(finishPendingState);
@@ -164,6 +167,7 @@ export class Vote extends React.Component<Props, State> {
     this.delayStateUpdateOnStartVote(() =>
       this.setState(prevState => startPendingState(prevState, voteKey))
     );
+
     const { hasVoted } = this.state;
     if (hasVoted) {
       this.handleUnvote(voteKey);

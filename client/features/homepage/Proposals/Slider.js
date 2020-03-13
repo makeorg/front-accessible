@@ -54,6 +54,7 @@ export const ProposalsShowcase = ({
         {i18n.t('common.slider.introduction')}
       </ScreenReaderItemStyle>
       <GliderStylesheet />
+
       <ProposalsSliderWrapperStyle className={`${sliderName} glider-contain`}>
         <div className={`${sliderName} glider`} ref={sliderRef}>
           <ProposalsSliderListStyle className={`${sliderName} glider-track`}>

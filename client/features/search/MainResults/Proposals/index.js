@@ -10,6 +10,11 @@ import { searchProposals } from 'Shared/helpers/proposal';
 import { type StateRoot } from 'Shared/store/types';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { SearchMoreProposalsButtonStyle } from 'Client/pages/Search/Styled';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { MainResultsProposalsMobile } from './Mobile';
 import { MainResultsProposalsItemStyle } from './Styled';
 
@@ -58,26 +63,29 @@ export const MainResultsProposals = ({
   if (isMobile) {
     return <MainResultsProposalsMobile proposals={proposals} />;
   }
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <div id="proposal_list" role="feed" aria-live="polite">
-      <UnstyledListStyle>
-        {proposalsResult.map((proposal, index) => (
-          <MainResultsProposalsItemStyle key={proposal.id}>
-            <ProposalCardWithQuestion
-              proposal={proposal}
-              position={index + 1}
-              size={proposalsResult.length}
-            />
-          </MainResultsProposalsItemStyle>
-        ))}
-      </UnstyledListStyle>
-      {isLoading && <Spinner />}
-      {getMoreButton && (
-        <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>
-          {i18n.t('consultation.proposal.load_more')}
-        </SearchMoreProposalsButtonStyle>
-      )}
+      <TopComponentContext.Provider value={topComponentContext}>
+        <UnstyledListStyle>
+          {proposalsResult.map((proposal, index) => (
+            <MainResultsProposalsItemStyle key={proposal.id}>
+              <ProposalCardWithQuestion
+                proposal={proposal}
+                position={index + 1}
+                size={proposalsResult.length}
+              />
+            </MainResultsProposalsItemStyle>
+          ))}
+        </UnstyledListStyle>
+        {isLoading && <Spinner />}
+        {getMoreButton && (
+          <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>
+            {i18n.t('consultation.proposal.load_more')}
+          </SearchMoreProposalsButtonStyle>
+        )}
+      </TopComponentContext.Provider>
     </div>
   );
 };

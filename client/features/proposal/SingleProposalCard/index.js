@@ -15,6 +15,11 @@ import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
+import {
   InnerProposalStyle,
   ProposalFooterStyle,
   FooterContentSeparatorStyle,
@@ -31,73 +36,76 @@ type Props = {
 
 export const SingleProposalCard = ({ proposal }: Props) => {
   const isConsultationOpened = isInProgress(proposal.question);
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSingleProposal();
 
   return (
-    <TallCardStyle id="proposal_card">
-      <InnerProposalStyle>
-        <ProposalAuthorElement proposal={proposal} />
-        <SequenceCardSeparatorStyle />
-        <SequenceProposalStyle>
-          <ScreenReaderItemStyle>
-            {i18n.t('proposal_card.content')}
-          </ScreenReaderItemStyle>
-          {proposal.content}
-        </SequenceProposalStyle>
-        {isConsultationOpened ? (
-          <Vote
-            proposalId={proposal.id}
-            questionSlug={proposal.question.slug}
-            votes={proposal.votes}
-            proposalKey={proposal.proposalKey}
-          />
-        ) : (
-          <DetailledVoteResults
-            votes={proposal.votes}
-            proposalId={proposal.id}
-          />
-        )}
-      </InnerProposalStyle>
-      <ProposalFooterStyle>
-        <ContentSeparatorStyle />
-        <FooterContentStyle>
-          <DescriptionStyle
-            dangerouslySetInnerHTML={{
-              __html: i18n.t('proposal_page.footer_text', {
-                operation_name: `<a href="${getConsultationLink(
-                  proposal.country,
-                  proposal.language,
-                  proposal.question.slug
-                )}">${proposal.question.wording.title}</a>`,
-              }),
-            }}
-          />
-          <FooterContentSeparatorStyle />
-          <ButtonWrapperStyle>
-            {isConsultationOpened && (
+    <TopComponentContext.Provider value={topComponentContext}>
+      <TallCardStyle id="proposal_card">
+        <InnerProposalStyle>
+          <ProposalAuthorElement proposal={proposal} />
+          <SequenceCardSeparatorStyle />
+          <SequenceProposalStyle>
+            <ScreenReaderItemStyle>
+              {i18n.t('proposal_card.content')}
+            </ScreenReaderItemStyle>
+            {proposal.content}
+          </SequenceProposalStyle>
+          {isConsultationOpened ? (
+            <Vote
+              proposalId={proposal.id}
+              questionSlug={proposal.question.slug}
+              votes={proposal.votes}
+              proposalKey={proposal.proposalKey}
+            />
+          ) : (
+            <DetailledVoteResults
+              votes={proposal.votes}
+              proposalId={proposal.id}
+            />
+          )}
+        </InnerProposalStyle>
+        <ProposalFooterStyle>
+          <ContentSeparatorStyle />
+          <FooterContentStyle>
+            <DescriptionStyle
+              dangerouslySetInnerHTML={{
+                __html: i18n.t('proposal_page.footer_text', {
+                  operation_name: `<a href="${getConsultationLink(
+                    proposal.country,
+                    proposal.language,
+                    proposal.question.slug
+                  )}">${proposal.question.wording.title}</a>`,
+                }),
+              }}
+            />
+            <FooterContentSeparatorStyle />
+            <ButtonWrapperStyle>
+              {isConsultationOpened && (
+                <ButtonStyle
+                  as={Link}
+                  to={getSequenceLink(
+                    proposal.country,
+                    proposal.language,
+                    proposal.question.slug
+                  )}
+                >
+                  {i18n.t('proposal_page.button_1')}
+                </ButtonStyle>
+              )}
               <ButtonStyle
                 as={Link}
-                to={getSequenceLink(
+                to={getConsultationLink(
                   proposal.country,
                   proposal.language,
                   proposal.question.slug
                 )}
               >
-                {i18n.t('proposal_page.button_1')}
+                {i18n.t('proposal_page.button_2')}
               </ButtonStyle>
-            )}
-            <ButtonStyle
-              as={Link}
-              to={getConsultationLink(
-                proposal.country,
-                proposal.language,
-                proposal.question.slug
-              )}
-            >
-              {i18n.t('proposal_page.button_2')}
-            </ButtonStyle>
-          </ButtonWrapperStyle>
-        </FooterContentStyle>
-      </ProposalFooterStyle>
-    </TallCardStyle>
+            </ButtonWrapperStyle>
+          </FooterContentStyle>
+        </ProposalFooterStyle>
+      </TallCardStyle>
+    </TopComponentContext.Provider>
   );
 };
