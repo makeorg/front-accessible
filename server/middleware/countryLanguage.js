@@ -6,9 +6,19 @@ export const countryLanguageMiddleware = (req, res, next) => {
     return next();
   }
 
+  const xDetectedCountry = req.headers['x-detected-country'];
+  const xForcedCountry = req.headers['x-forced-country'];
+
   const { country, language } = req.params;
 
   if (!country || !language) {
+    if (
+      (xForcedCountry && xForcedCountry !== 'FR') ||
+      (xDetectedCountry && xDetectedCountry !== 'FR')
+    ) {
+      return res.redirect('/soon');
+    }
+
     return res.redirect('/FR-fr');
   }
 
