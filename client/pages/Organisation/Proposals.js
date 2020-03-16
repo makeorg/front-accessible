@@ -17,6 +17,11 @@ import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Propos
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { OrganisationProposalsPlaceholder } from './Placeholders/Proposals';
 
 type Props = {
@@ -76,6 +81,9 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
   const renderProposals = !!proposalsLength;
   const renderPlaceholder = !proposalsLength && !isLoading;
   const displayLoadMoreButton = hasMore && !isLoading;
+
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getOrganisationProposalList();
+
   return (
     <React.Fragment>
       <MetaTags
@@ -91,18 +99,20 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
         </SecondLevelTitleStyle>
         <ProfileTitleSeparatorStyle />
       </ProfileContentHeaderStyle>
-      {renderProposals && (
-        <section role="feed" aria-live="polite">
-          {proposals.map((proposal, index) => (
-            <ProposalCardWithQuestion
-              key={proposal.id}
-              proposal={proposal}
-              position={index + 1}
-              size={proposalsLength}
-            />
-          ))}
-        </section>
-      )}
+      <TopComponentContext.Provider value={topComponentContext}>
+        {renderProposals && (
+          <section role="feed" aria-live="polite">
+            {proposals.map((proposal, index) => (
+              <ProposalCardWithQuestion
+                key={proposal.id}
+                proposal={proposal}
+                position={index + 1}
+                size={proposalsLength}
+              />
+            ))}
+          </section>
+        )}
+      </TopComponentContext.Provider>
       {isLoading && <Spinner />}
       {displayLoadMoreButton && (
         <LoadMoreWrapperStyle>

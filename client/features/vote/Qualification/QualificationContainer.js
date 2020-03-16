@@ -8,6 +8,7 @@ import {
 } from 'Shared/helpers/qualification';
 import { QualificationService } from 'Shared/api/QualificationService';
 import { trackQualify, trackUnqualify } from 'Shared/services/Tracking';
+import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
@@ -36,6 +37,8 @@ type State = {
  * Handles Qualification Business Logic
  */
 export class QualificationContainer extends React.Component<Props, State> {
+  static contextType = TopComponentContext;
+
   static defaultProps = {
     index: undefined,
   };
@@ -66,7 +69,7 @@ export class QualificationContainer extends React.Component<Props, State> {
           finishPendingState(prevState, qualificationKey)
         );
       });
-    trackUnqualify(proposalId, qualificationKey, voteKey, index);
+    trackUnqualify(proposalId, qualificationKey, voteKey, index, this.context);
   };
 
   handleQualify = (qualificationKey: string, voteKey: string) => {
@@ -87,7 +90,7 @@ export class QualificationContainer extends React.Component<Props, State> {
           finishPendingState(prevState, qualificationKey)
         );
       });
-    trackQualify(proposalId, qualificationKey, voteKey, index);
+    trackQualify(proposalId, qualificationKey, voteKey, index, this.context);
   };
 
   handleQualification = (qualification: Object, voteKey: string) => {

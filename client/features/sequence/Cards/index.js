@@ -17,6 +17,11 @@ import { i18n } from 'Shared/i18n';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrementSequenceIndex } from 'Shared/store/actions/sequence';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { IntroCard } from './Intro';
 import {
   SequenceProposalCardStyle,
@@ -101,7 +106,7 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
   const activeGaugeIndex = index + card.offset;
   const maxGaugeIndex = cardsCount + card.offset;
   const firstCard = index === 0;
-
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
   return (
     <>
       <ScreenReaderItemStyle
@@ -117,46 +122,48 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
               total: maxGaugeIndex,
             })}
       </ScreenReaderItemStyle>
-      <SequenceProposalCardStyle
-        position={position}
-        scaling={scale}
-        zindex={zindex}
-        isCardCollapsed={isCardCollapsed}
-        isCardVisible={isCardVisible}
-        aria-hidden={!isCardVisible}
-        as={isIntroCard && SequenceProposalCardCenteredStyle}
-        id={`card-${index + card.offset}`}
-        data-cy-card-type={card.type}
-        data-cy-card-number={index + card.offset}
-      >
-        {!isIntroCard && (
-          <CardHeaderStyle
-            as={
-              firstCard ? CardHeaderFlexEndStyle : CardHeaderSpaceBetweenStyle
-            }
-          >
-            {!firstCard && (
-              <CardHeaderPreviousButtonStyle
-                onClick={() => {
-                  dispatch(decrementSequenceIndex());
-                  trackClickPreviousCard();
-                }}
-              >
-                <CardHeaderPreviousIconStyle aria-hidden>
-                  <SvgArrowLeft />
-                </CardHeaderPreviousIconStyle>
-                {i18n.t('proposal_card.previous')}
-              </CardHeaderPreviousButtonStyle>
-            )}
-            <ProgressCircleComponent
-              cardOffset={card.offset}
-              index={index}
-              cardsCount={cardsCount}
-            />
-          </CardHeaderStyle>
-        )}
-        <CardType card={card} index={index} isCardVisible={isCardVisible} />
-      </SequenceProposalCardStyle>
+      <TopComponentContext.Provider value={topComponentContext}>
+        <SequenceProposalCardStyle
+          position={position}
+          scaling={scale}
+          zindex={zindex}
+          isCardCollapsed={isCardCollapsed}
+          isCardVisible={isCardVisible}
+          aria-hidden={!isCardVisible}
+          as={isIntroCard && SequenceProposalCardCenteredStyle}
+          id={`card-${index + card.offset}`}
+          data-cy-card-type={card.type}
+          data-cy-card-number={index + card.offset}
+        >
+          {!isIntroCard && (
+            <CardHeaderStyle
+              as={
+                firstCard ? CardHeaderFlexEndStyle : CardHeaderSpaceBetweenStyle
+              }
+            >
+              {!firstCard && (
+                <CardHeaderPreviousButtonStyle
+                  onClick={() => {
+                    dispatch(decrementSequenceIndex());
+                    trackClickPreviousCard();
+                  }}
+                >
+                  <CardHeaderPreviousIconStyle aria-hidden>
+                    <SvgArrowLeft />
+                  </CardHeaderPreviousIconStyle>
+                  {i18n.t('proposal_card.previous')}
+                </CardHeaderPreviousButtonStyle>
+              )}
+              <ProgressCircleComponent
+                cardOffset={card.offset}
+                index={index}
+                cardsCount={cardsCount}
+              />
+            </CardHeaderStyle>
+          )}
+          <CardType card={card} index={index} isCardVisible={isCardVisible} />
+        </SequenceProposalCardStyle>
+      </TopComponentContext.Provider>
     </>
   );
 };

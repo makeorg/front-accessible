@@ -17,6 +17,11 @@ import {
 } from 'Shared/services/Tracking';
 import { useDesktop } from 'Client/hooks/useMedia';
 import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
+import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
@@ -92,6 +97,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
     trackClickSearchReturn();
     history.push(getRouteSearch(country, language, term));
   };
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <SearchPageWrapperStyle>
@@ -119,17 +125,19 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
           role="feed"
           aria-busy={isLoading}
         >
-          <SearchResultsProposalListStyle>
-            {proposalsResult.map((proposal, index) => (
-              <SearchResultsProposalItemStyle key={proposal.id}>
-                <ProposalCardWithQuestion
-                  proposal={proposal}
-                  position={index + 1}
-                  size={proposalsResult.length}
-                />
-              </SearchResultsProposalItemStyle>
-            ))}
-          </SearchResultsProposalListStyle>
+          <TopComponentContext.Provider value={topComponentContext}>
+            <SearchResultsProposalListStyle>
+              {proposalsResult.map((proposal, index) => (
+                <SearchResultsProposalItemStyle key={proposal.id}>
+                  <ProposalCardWithQuestion
+                    proposal={proposal}
+                    position={index + 1}
+                    size={proposalsResult.length}
+                  />
+                </SearchResultsProposalItemStyle>
+              ))}
+            </SearchResultsProposalListStyle>
+          </TopComponentContext.Provider>
           {isLoading && <Spinner />}
           {getMoreButton && (
             <SearchMoreProposalsButtonStyle onClick={loadMoreProposals}>

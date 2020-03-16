@@ -35,6 +35,11 @@ import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { TopIdeaDetailsSkipLinks } from 'Client/app/SkipLinks/TopIdeaDetails';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -146,6 +151,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
     name: i18n.t('idea_details.current_page'),
     link: location,
   };
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getTopideaProposalList();
 
   return (
     <>
@@ -205,20 +211,22 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
               <TopIdeaDetailsPageTitleStyle>
                 {i18n.t('idea_details.proposals')}
               </TopIdeaDetailsPageTitleStyle>
-              <InfiniteProposalsContainerStyle
-                id="proposal_list"
-                role="feed"
-                aria-live="polite"
-              >
-                {relatedProposals.map((proposal, index) => (
-                  <ProposalCardTagged
-                    key={proposal.id}
-                    proposal={proposal}
-                    position={index + 1}
-                    size={relatedProposals.length}
-                  />
-                ))}
-              </InfiniteProposalsContainerStyle>
+              <TopComponentContext.Provider value={topComponentContext}>
+                <InfiniteProposalsContainerStyle
+                  id="proposal_list"
+                  role="feed"
+                  aria-live="polite"
+                >
+                  {relatedProposals.map((proposal, index) => (
+                    <ProposalCardTagged
+                      key={proposal.id}
+                      proposal={proposal}
+                      position={index + 1}
+                      size={relatedProposals.length}
+                    />
+                  ))}
+                </InfiniteProposalsContainerStyle>
+              </TopComponentContext.Provider>
             </ColumnElementStyle>
           )}
           {isLoading && <Spinner />}

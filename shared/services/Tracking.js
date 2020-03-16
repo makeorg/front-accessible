@@ -284,11 +284,12 @@ export const trackFilter = (label: string, action: string) => {
 export const trackVote = (
   proposalId: string,
   nature: string,
-  position?: number
+  position?: number,
+  topComponent?: string = ''
 ) => {
   const eventName: string = trackingConstants.CLICK_PROPOSAL_VOTE;
   const cardPosition: string = getPosition(position);
-  const params = { 'card-position': cardPosition };
+  const params = { 'card-position': cardPosition, component: topComponent };
   const internalParams = { proposalId, nature };
 
   TrackingService.track(eventName, {
@@ -319,11 +320,12 @@ export const trackFirstVote = (
 export const trackUnvote = (
   proposalId: string,
   nature: string,
-  position?: number
+  position?: number,
+  topComponent?: string = ''
 ) => {
   const eventName: string = trackingConstants.CLICK_PROPOSAL_UNVOTE;
   const cardPosition = getPosition(position);
-  const params = { 'card-position': cardPosition };
+  const params = { 'card-position': cardPosition, component: topComponent };
   const internalParams = { proposalId, nature };
 
   TrackingService.track(eventName, {
@@ -339,11 +341,12 @@ export const trackQualify = (
   proposalId: string,
   type: string,
   nature: string,
-  position?: number
+  position?: number,
+  topComponent?: string = ''
 ) => {
   const eventName: string = trackingConstants.CLICK_PROPOSAL_QUALIFY;
   const cardPosition = getPosition(position);
-  const params = { 'card-position': cardPosition };
+  const params = { 'card-position': cardPosition, component: topComponent };
   const internalParams = { proposalId, type, nature };
 
   TrackingService.track(eventName, {
@@ -358,11 +361,12 @@ export const trackUnqualify = (
   proposalId: string,
   type: string,
   nature: string,
-  position?: number
+  position?: number,
+  topComponent?: string = ''
 ) => {
   const eventName: string = trackingConstants.CLICK_PROPOSAL_UNQUALIFY;
   const cardPosition = getPosition(position);
-  const params = { 'card-position': cardPosition };
+  const params = { 'card-position': cardPosition, component: topComponent };
   const internalParams = { proposalId, type, nature };
 
   TrackingService.track(eventName, {

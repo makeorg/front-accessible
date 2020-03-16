@@ -5,6 +5,11 @@ import { type TypeSliderParams } from 'Shared/types/views';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { useSlider } from 'Client/hooks/useSlider';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
+import {
+  TopComponentContext,
+  type TopComponentContextValueType,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
 import { SearchSliderListStyle, SearchSliderListItemStyle } from '../Styled';
 
 type Props = {
@@ -21,29 +26,32 @@ export const MainResultsProposalsMobile = ({ proposals }: Props) => {
   const sliderRef = useRef();
   const hasProposals = proposals.length > 0;
   useSlider(sliderRef, SearchSliderParams, hasProposals);
+  const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
 
   return (
     <React.Fragment>
-      <GliderStylesheet />
-      <div className={`${SEARCH_SLIDER} glider-contain`}>
-        <div className={`${SEARCH_SLIDER} glider`} ref={sliderRef}>
-          <SearchSliderListStyle className={`${SEARCH_SLIDER} glider-track`}>
-            {proposals.map((proposal, index) => (
-              <SearchSliderListItemStyle
-                key={proposal.id}
-                className={SEARCH_SLIDER}
-              >
-                <ProposalCardWithQuestion
-                  proposal={proposal}
-                  position={index + 1}
-                  size={proposals.length}
-                  withMobileRadius
-                />
-              </SearchSliderListItemStyle>
-            ))}
-          </SearchSliderListStyle>
+      <TopComponentContext.Provider value={topComponentContext}>
+        <GliderStylesheet />
+        <div className={`${SEARCH_SLIDER} glider-contain`}>
+          <div className={`${SEARCH_SLIDER} glider`} ref={sliderRef}>
+            <SearchSliderListStyle className={`${SEARCH_SLIDER} glider-track`}>
+              {proposals.map((proposal, index) => (
+                <SearchSliderListItemStyle
+                  key={proposal.id}
+                  className={SEARCH_SLIDER}
+                >
+                  <ProposalCardWithQuestion
+                    proposal={proposal}
+                    position={index + 1}
+                    size={proposals.length}
+                    withMobileRadius
+                  />
+                </SearchSliderListItemStyle>
+              ))}
+            </SearchSliderListStyle>
+          </div>
         </div>
-      </div>
+      </TopComponentContext.Provider>
     </React.Fragment>
   );
 };
