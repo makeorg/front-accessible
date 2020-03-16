@@ -9,8 +9,8 @@ import { type Organisation as TypeOrganisation } from 'Shared/types/organisation
 // Home view
 export type TypeBusinessConsultation = {
   theme: TypeQuestionTheme,
-  startDate: string | null,
-  endDate: string | null,
+  startDate: ?string | null,
+  endDate: ?string | null,
   slug: string,
   aboutUrl: string,
   question: string,

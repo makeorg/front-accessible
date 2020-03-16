@@ -26,26 +26,3 @@ export const swapIndexes = (initalArray: any[]) => {
 
   return swapedArray;
 };
-
-export const sortConsultationsByLatestDate: (
-  TypeBusinessConsultation[]
-) => TypeBusinessConsultation[] = consultations => {
-  const sortedArray = consultations.sort((a, b) => {
-    const dateA = new Date(a.startDate !== null ? a.startDate : undefined);
-    const dateB = new Date(b.startDate !== null ? b.startDate : undefined);
-    const isDefinedDate = dateToCheck => !Number.isNaN(dateToCheck.getTime());
-
-    switch (true) {
-      case isDefinedDate(dateA) && !isDefinedDate(dateB):
-        return 1;
-      case !isDefinedDate(dateA) && isDefinedDate(dateB):
-        return -1;
-      case !isDefinedDate(dateA) && !isDefinedDate(dateB):
-        return 0;
-      default:
-        return dateB - dateA;
-    }
-  });
-
-  return sortedArray;
-};
