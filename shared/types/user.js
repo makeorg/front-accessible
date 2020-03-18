@@ -1,3 +1,5 @@
+import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+
 // @flow
 export type TypeProfile = {
   dateOfBirth: string,
@@ -77,4 +79,18 @@ export type UserInformationFormErrors = {
   profession?: string,
   postalCode?: string,
   description?: string,
+};
+
+export type TypeSearchProposals = {
+  total: number,
+  seed?: number,
+  results: TypeProposal[],
+};
+
+export type UserAuthType = {
+  token_type: string,
+  access_token: string,
+  expires_in: number,
+  refresh_token: string,
+  account_creation: boolean,
 };

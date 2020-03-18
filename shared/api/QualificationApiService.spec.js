@@ -1,13 +1,13 @@
 import { ApiService } from 'Shared/api/ApiService';
 import {
-  QualificationService,
+  QualificationApiService,
   PATH_QUALIFICATION,
   PATH_UNQUALIFICATION,
-} from './QualificationService';
+} from './QualificationApiService';
 
 jest.mock('./ApiService');
 
-describe('QualificationService', () => {
+describe('QualificationApiService', () => {
   beforeEach(() => {
     ApiService.callApi.mockClear();
     jest.spyOn(ApiService, 'callApi');
@@ -15,7 +15,7 @@ describe('QualificationService', () => {
 
   describe('qualify', () => {
     it('must call ApiService.callApi', async () => {
-      await QualificationService.qualify(
+      await QualificationApiService.qualify(
         '12345',
         'proposalKey',
         'voteKey',
@@ -39,7 +39,7 @@ describe('QualificationService', () => {
 
   describe('unqualify', () => {
     it('must call ApiService.callApi', async () => {
-      await QualificationService.unqualify(
+      await QualificationApiService.unqualify(
         '12345',
         'proposalKey',
         'voteKey',

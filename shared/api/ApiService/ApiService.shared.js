@@ -31,77 +31,57 @@ export const API_URL =
   BROWSER_API_URL || process.env.API_URL || 'http://localhost:9000';
 export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
 
+export class ApiServiceError extends Error {
+  status: ?number;
+
+  data: ?Object;
+
+  constructor(message: string, status: ?number, data: ?Object) {
+    super(message);
+    this.status = status;
+    this.data = data;
+
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, ApiServiceError);
+    }
+  }
+}
+
 axiosRetry(axios, {
   retries: 5,
   retryDelay: retryCount => retryCount * 100,
 });
+
 /**
  * handle error for http response
- * @param  {Object} response
- * @return {String|Object}
+ * @param  {ErrorResponse} error
+ * @param {string} apiUrl
+ * @param {string} method
+ * @return {void}
  */
-export const handleErrors = (error: ErrorResponse) => {
-  const logDefaultError = () => {
+export const handleErrors = (
+  error: ErrorResponse,
+  requestUrl: string,
+  requestMethod: string
+) => {
+  const status = error.response ? error.response.status : null;
+  const responseData = error.response ? error.response.data : null;
+  const hasConfig = error.response && error.response.config;
+  const url = hasConfig ? error.response.config.url : null;
+  const method = hasConfig ? error.response.config.method : null;
+
+  if (!status || status >= 500) {
     Logger.logError(
       `API call error - ${error.message} - ${JSON.stringify({
-        status: error.response.status.toString(),
-        url:
-          error.response.config && error.response.config.url
-            ? error.response.config.url
-            : 'none',
-        method:
-          error.response.config && error.response.config.method
-            ? error.response.config.method
-            : 'none',
-        responseData: error.response.data,
+        status: status ? status.toString() : 'none',
+        url: url || requestUrl || 'none',
+        method: method || requestMethod || 'none',
+        responseData: responseData || 'none',
       })}`
     );
-  };
-  if (error.response) {
-    switch (error.response.status) {
-      case 401:
-        break; // logs should not be managed here for 401
-      case 404:
-        Logger.logInfo(
-          `API call error - ${error.message} - ${JSON.stringify({
-            status: error.response.status.toString(),
-            url:
-              error.response.config && error.response.config.url
-                ? error.response.config.url
-                : 'none',
-            method:
-              error.response.config && error.response.config.method
-                ? error.response.config.method
-                : 'none',
-            responseData: error.response.data,
-          })}`
-        );
-        break;
-      case 400:
-        if (
-          !error.response ||
-          !error.response.data ||
-          !JSON.stringify(error.response.data).includes('already_registered')
-        ) {
-          logDefaultError();
-        }
-        break;
-      default:
-        logDefaultError();
-    }
-
-    switch (error.response.status) {
-      case 400:
-        throw error.response.data;
-      case 500:
-        throw Error(error.response.headers);
-      default:
-        throw Error(error.response.status.toString());
-    }
   }
 
-  Logger.logError(error);
-  throw Error(error.message);
+  throw new ApiServiceError(error.message, status, responseData);
 };
 
 class ApiServiceSharedClass {
@@ -121,17 +101,16 @@ class ApiServiceSharedClass {
         'x-get-parameters': paramsQuery,
       });
     }
+    const apiUrl = `${API_URL}${url}`;
 
-    return axios(`${API_URL}${url}`, {
+    return axios(apiUrl, {
       method: options.method,
       headers,
       data: options.body,
       params: options.params,
       withCredentials: true,
       httpsAgent: options.httpsAgent || undefined,
-    })
-      .then(response => response.data)
-      .catch(handleErrors);
+    }).catch(error => handleErrors(error, apiUrl, options.method));
   }
 }
 

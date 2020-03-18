@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type TypeRegisterFormData } from 'Shared/types/form';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
 import { getUser } from 'Shared/store/actions/authentification';
 import { modalClose } from 'Shared/store/actions/modal';
@@ -66,32 +66,41 @@ export const RegisterForm = () => {
   };
 
   const logAndLoadUser = async (email, password) => {
-    try {
-      await UserService.login(email, password);
-      dispatch(getUser(true));
-    } catch {
+    const success = () => dispatch(getUser(true));
+    const handleErrors = () => {};
+    const unexpectedError = () => {
+      dispatch(modalClose());
       // @toDo: notify user
       Logger.logError(`Login fail for ${email}`);
-    }
+    };
+    await UserService.login(
+      email,
+      password,
+      success,
+      handleErrors,
+      unexpectedError
+    );
   };
 
   const handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setInProgress(true);
-
-    try {
-      await UserService.register(user);
-      await logAndLoadUser(user.email, user.password);
-
-      trackSignupEmailSuccess();
-      dispatch(modalClose());
-      setErrors([]);
-      setInProgress(false);
-    } catch (serviceErrors) {
+    const success = () => {
+      logAndLoadUser(user.email, user.password).then(() => {
+        trackSignupEmailSuccess();
+        dispatch(modalClose());
+        setErrors([]);
+      });
+    };
+    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
       trackSignupEmailFailure();
       setErrors(serviceErrors);
-      setInProgress(false);
-    }
+    };
+    const unexpectedError = () => dispatch(modalClose());
+    setInProgress(true);
+
+    await UserService.register(user, success, handleErrors, unexpectedError);
+
+    setInProgress(false);
   };
 
   const emailError = getFieldError('email', errors);

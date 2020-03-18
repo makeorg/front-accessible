@@ -85,14 +85,12 @@ describe('getErrorMessages', () => {
   };
 
   it('getMessage with an array of Errors returned from Api', () => {
-    expect(() => getErrorMessages(internalErrors, serviceErrors)).toThrow(
-      internalErrors.toString()
-    );
+    const errors = getErrorMessages(internalErrors, serviceErrors);
+    expect(errors).toEqual(internalErrors);
   });
   it('getMessage with an single object error returned from Api', () => {
-    expect(() => getErrorMessages(internalErrors, apiObjectError)).toThrow(
-      defaultApiError.toString()
-    );
+    const errors = getErrorMessages(internalErrors, apiObjectError);
+    expect(errors).toEqual([defaultApiError]);
   });
 });
 

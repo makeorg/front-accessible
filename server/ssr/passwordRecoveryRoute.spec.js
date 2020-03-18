@@ -32,7 +32,8 @@ describe('Account activation route', () => {
   });
 
   it('add the question to the initialState and set headers', async () => {
-    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
+    UserApiService.resetPasswordTokenCheck.mockRejectedValue({ status: 400 });
     const routeState = {
       ...initialState,
       user: {
@@ -49,6 +50,10 @@ describe('Account activation route', () => {
         },
       },
       currentQuestion: fooQuestion.slug,
+      notification: {
+        contentType: 'PASSWORD_RECOVERY_FAILURE_MESSAGE',
+        level: 'error',
+      },
     };
 
     const request = httpMocks.createRequest({
@@ -68,7 +73,7 @@ describe('Account activation route', () => {
 
   it('activate successfully and add success notification to state', async () => {
     UserApiService.resetPasswordTokenCheck.mockReturnValue(HTTP_NO_CONTENT);
-    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
 
     const request = httpMocks.createRequest({
       params: requestParams,
@@ -105,7 +110,7 @@ describe('Account activation route', () => {
 
   it('activate fail and add fail notification to state', async () => {
     UserApiService.resetPasswordTokenCheck.mockRejectedValue(HTTP_NOT_FOUND);
-    QuestionApiService.getDetail.mockReturnValue(fooQuestion);
+    QuestionApiService.getDetail.mockReturnValue({ data: fooQuestion });
 
     const request = httpMocks.createRequest({
       params: requestParams,

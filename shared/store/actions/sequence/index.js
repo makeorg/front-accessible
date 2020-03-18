@@ -8,11 +8,10 @@ import {
   type Question as TypeQuestion,
   type QuestionResults as TypeQuestionResults,
 } from 'Shared/types/question';
-import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Logger } from 'Shared/services/Logger';
 import { trackFirstVote } from 'Shared/services/Tracking';
 import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
-import { startSequence } from 'Shared/services/Sequence';
+import { SequenceService } from 'Shared/services/Sequence';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
@@ -39,13 +38,15 @@ export const fetchSequenceProposals = (
   questionId: string,
   includedProposalIds?: string[] = []
 ) => async (dispatch: any => void) => {
-  try {
-    const proposals = await startSequence(questionId, includedProposalIds);
-
-    return dispatch(loadSequenceProposals(proposals));
-  } catch (error) {
-    return Logger.logError(Error(error));
+  const proposals = await SequenceService.startSequence(
+    questionId,
+    includedProposalIds
+  );
+  if (!proposals) {
+    return null;
   }
+
+  return dispatch(loadSequenceProposals(proposals));
 };
 
 export const resetSequenceIndex = () => (dispatch: Dispatch) =>
@@ -110,20 +111,6 @@ export const sequenceUnvote = (proposalId: string, questionSlug: string) => (
 ) => {
   dispatch(unvoteProposal(proposalId, questionSlug));
 };
-
-export const fetchQuestionData = (questionSlugOrId: string) => (
-  dispatch: any => void
-) =>
-  QuestionApiService.getDetail(questionSlugOrId)
-    .then(question => {
-      dispatch(loadQuestion(question));
-
-      // Important ! Do not remove: use by the parent to use question.questionId
-      return question;
-    })
-    .catch(error => {
-      Logger.logError(Error(error));
-    });
 
 export const fetchQuestionResults = (questionSlug: string) => (
   dispatch: any => void

@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { type TypeUser } from 'Shared/types/user';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -30,23 +30,26 @@ const ProfileFavouritesPage = ({ user }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const { results, total } = await UserService.myFavourites(user.userId);
-    setProposals(results);
-    setHasMore(results.length < total);
-    setPage(1);
+    const result = await UserService.myFavourites(user.userId);
+    if (result) {
+      const { results, total } = result;
+      setProposals(results);
+      setHasMore(results.length < total);
+      setPage(1);
+    }
     setIsLoading(false);
   };
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const { results, total } = await UserService.myFavourites(
-      user.userId,
-      page
-    );
-    const newProposalList = [...proposals, ...results];
-    setProposals(newProposalList);
-    setHasMore(newProposalList.length < total);
-    setPage(page + 1);
+    const result = await UserService.myFavourites(user.userId, page);
+    if (result) {
+      const { results, total } = result;
+      const newProposalList = [...proposals, ...results];
+      setProposals(newProposalList);
+      setHasMore(newProposalList.length < total);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 

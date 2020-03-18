@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, type match as TypeMatch } from 'react-router';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type TypeUser } from 'Shared/types/user';
 import { useMobile } from 'Client/hooks/useMedia';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -31,7 +30,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { SvgLink } from 'Client/ui/Svg/elements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
-import { getPersonalityById } from 'Shared/services/Personality';
+import { PersonalityService } from 'Shared/services/Personality';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
@@ -52,14 +51,10 @@ const PersonalityPage = ({ match }: Props) => {
   }, []);
 
   useEffect(() => {
-    const fetchPersonality = async () => {
-      const personalityResponse: ?TypeUser = await getPersonalityById(userId);
-
+    PersonalityService.getPersonalityById(userId).then(personalityResponse => {
       setPersonality(personalityResponse);
       setIsLoading(false);
-    };
-
-    fetchPersonality();
+    });
   }, [userId]);
 
   if (!personality && isLoading) {

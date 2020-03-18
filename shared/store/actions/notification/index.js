@@ -4,6 +4,8 @@ import {
   NOTIFICATION_LOGOUT_SUCCESS,
   NOTIFICATION_REGISTER_SUCCESS,
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
+  NOTIFICATION_UNEXPECTED_ERROR,
+  NOTIFICATION_NETWORK_ERROR,
 } from 'Shared/store/actionTypes';
 
 export const clearNotification = () => ({ type: NOTIFICATION_CLOSE });
@@ -22,4 +24,21 @@ export const showLogoutSuccess = () => (dispatch: Function) => {
 
 export const showRegisterSuccess = (user: Object) => (dispatch: Function) => {
   dispatch({ type: NOTIFICATION_REGISTER_SUCCESS, user });
+};
+
+export const showUnexpectedError = () => (dispatch: Function) => {
+  if (
+    typeof window !== 'undefined' &&
+    window &&
+    window.navigator &&
+    window.navigator.onLine === false
+  ) {
+    dispatch({ type: NOTIFICATION_NETWORK_ERROR });
+  } else {
+    dispatch({ type: NOTIFICATION_UNEXPECTED_ERROR });
+  }
+};
+
+export const showNetworkError = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_NETWORK_ERROR });
 };

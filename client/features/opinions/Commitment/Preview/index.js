@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { postPersonnalityComments } from 'Shared/services/Personality';
+import { PersonalityService } from 'Shared/services/Personality';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
 import { setEmptyStringToNull } from 'Shared/helpers/form';
@@ -45,7 +45,7 @@ export const CommitmentPreview = ({
   const comment2 = secondComment.trim();
   const comment3 = thirdComment.trim();
   const postOpinion = async () => {
-    const comment = await postPersonnalityComments(
+    const comment = await PersonalityService.postPersonnalityComments(
       userId,
       topIdeaId,
       setEmptyStringToNull(comment1),

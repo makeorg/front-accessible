@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PROFILE_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -74,17 +74,17 @@ export const UpdateInformations = ({ user }: Props) => {
     event: SyntheticInputEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-
-    try {
-      await UserService.update(formValues);
+    const success = () => {
       setIsSubmitSuccessful(true);
       setErrors([]);
       dispatch(getUser());
-    } catch (serviceErrors) {
+    };
+    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
       setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
       setCanSubmit(false);
-    }
+    };
+    await UserService.update(formValues, success, handleErrors);
   };
 
   const firstNameError = getFieldError('firstname', errors);

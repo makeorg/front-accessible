@@ -16,7 +16,7 @@ import {
   trackClickModerationLink,
 } from 'Shared/services/Tracking';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
-import { propose } from 'Shared/services/Proposal';
+import { ProposalService } from 'Shared/services/Proposal';
 import { ProposalSubmitAuthentification } from './Authentification';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitSuccessComponent } from './Success';
@@ -84,8 +84,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     const { question, handleProposeSuccess } = this.props;
     const { content } = this.state;
 
-    try {
-      await propose(content, question.questionId);
+    const success = () => {
       handleProposeSuccess();
       this.setState({
         isSucess: true,
@@ -93,11 +92,18 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         length: getProposalLength(),
       });
       trackDisplayProposalSubmitValidation();
-    } catch {
+    };
+    const handleError = () => {
       this.setState({
         isSucess: false,
       });
-    }
+    };
+    await ProposalService.propose(
+      content,
+      question.questionId,
+      success,
+      handleError
+    );
   };
 
   handleOnChange = (event: SyntheticEvent<HTMLTextAreaElement>) => {

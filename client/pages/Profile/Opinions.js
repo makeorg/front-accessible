@@ -21,7 +21,7 @@ import {
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 import { Opinions } from 'Client/features/opinions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { getPersonalityById } from 'Shared/services/Personality';
+import { PersonalityService } from 'Shared/services/Personality';
 import { getRouteProfileEdit } from 'Shared/routes';
 
 type Props = {
@@ -37,7 +37,7 @@ const ProfilePage = ({ match }: Props) => {
   const [loadPersonality, setLoadPersonality] = useState(true);
 
   const fetchPersonality = async () => {
-    const personalityResponse: ?TypeUser = await getPersonalityById(
+    const personalityResponse: ?TypeUser = await PersonalityService.getPersonalityById(
       user.userId
     );
 

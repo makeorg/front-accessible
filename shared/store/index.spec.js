@@ -17,7 +17,7 @@ describe('Client authenticate state', () => {
   it('authenticated state with user', async () => {
     const user = { email: 'mike@make.org', password: 'pass' };
     // mocks
-    UserApiService.me.mockResolvedValue(user);
+    UserApiService.me.mockResolvedValue({ data: user });
 
     const state = await authenticationState();
     expect(state.isLoggedIn).toBe(true);

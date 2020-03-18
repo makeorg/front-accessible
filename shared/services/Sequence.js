@@ -3,17 +3,32 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { type SequenceType } from 'Shared/types/sequence';
 import { type Proposal as TypeProposal } from 'Shared/types/proposal';
 import { Logger } from './Logger';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-export const startSequence = async (
+const startSequence = async (
   questionId: string,
   includedProposalIds: string[]
-) => {
-  const response: SequenceType = await QuestionApiService.startSequence(
-    questionId,
-    includedProposalIds
-  );
+): Promise<?(TypeProposal[])> => {
+  const getProposals = await (async (): Promise<TypeProposal[] | null> => {
+    try {
+      const response = await QuestionApiService.startSequence(
+        questionId,
+        includedProposalIds
+      );
+      const sequence: SequenceType = response.data;
+      const { proposals } = sequence;
 
-  const { proposals } = response;
+      return proposals;
+    } catch (apiServiceError) {
+      defaultUnexpectedError(apiServiceError);
+
+      return null;
+    }
+  });
+  const proposals = await getProposals();
+  if (!proposals) {
+    return null;
+  }
 
   // Order proposal by included first
   const orderedProposals: TypeProposal[] = proposals.sort(
@@ -61,4 +76,8 @@ export const startSequence = async (
   }
 
   return uniqueUnvotedProposals;
+};
+
+export const SequenceService = {
+  startSequence,
 };

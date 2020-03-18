@@ -1,5 +1,5 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { getQuestion } from './QuestionService';
+import { QuestionService } from './QuestionService';
 import { logger } from '../logger';
 
 const cache = require('memory-cache');
@@ -23,7 +23,7 @@ describe('Question Service', () => {
 
       cache.get.mockReturnValueOnce('fooCache');
 
-      const result = await getQuestion('foo');
+      const result = await QuestionService.getQuestion('foo');
 
       expect(cache.get).toHaveBeenCalledWith('QUESTION_foo');
 
@@ -33,9 +33,9 @@ describe('Question Service', () => {
     it('return content from Api and put it in cache', async () => {
       jest.spyOn(cache, 'put');
 
-      QuestionApiService.getDetail.mockReturnValueOnce('QuestionFoo');
+      QuestionApiService.getDetail.mockReturnValueOnce({ data: 'QuestionFoo' });
 
-      const result = await getQuestion('foo');
+      const result = await QuestionService.getQuestion('foo');
 
       expect(cache.put).toHaveBeenCalledWith(
         'QUESTION_foo',
@@ -46,12 +46,17 @@ describe('Question Service', () => {
       expect(result).toBe('QuestionFoo');
     });
 
-    it('thorw error when fetching content from Api and log it', async () => {
+    it('throw error when fetching content from Api and log it', async () => {
       jest.spyOn(logger, 'log');
-      const error = new Error('Api error');
+      const error = {
+        response: {
+          status: 500,
+        },
+        message: 'error',
+      };
       QuestionApiService.getDetail.mockRejectedValue(error);
 
-      const result = await getQuestion('foo');
+      const result = await QuestionService.getQuestion('foo');
 
       expect(cache.put).not.toHaveBeenCalled();
       expect(logger.log).toHaveBeenCalledWith('error', error);

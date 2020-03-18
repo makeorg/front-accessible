@@ -25,8 +25,19 @@ export type OrganisationVote = {
   voteDetails: TypeVote,
 };
 
+export type OrganisationVotesType = {
+  total: number,
+  seed: number,
+  results: OrganisationVote[],
+};
+
 export type OrganisationSoft = {
   organisationId: string,
   organisationName: string,
   organisationSlug: string,
+};
+
+export type OrganisationsType = {
+  total: number,
+  results: Organisation[],
 };

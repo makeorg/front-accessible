@@ -11,7 +11,7 @@ import {
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
-import { getTopIdea } from 'Shared/services/TopIdea';
+import { TopIdeaService } from 'Shared/services/TopIdea';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { i18n } from 'Shared/i18n';
@@ -20,7 +20,7 @@ import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged'
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
-import { getTopIdeasLink } from 'Shared/helpers/url';
+import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
 import {
@@ -58,7 +58,6 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const { topIdeaId } = useParams();
   const location = useLocation();
   const [topIdea, setTopIdea] = useState<?TopIdea>(undefined);
-  const [ideaId, setIdeaId] = useState<string>('');
   const [relatedProposals, setRelatedProposals] = useState<TypeProposal[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState<?number>(undefined);
@@ -75,8 +74,12 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
     question.activeFeatures
   );
 
-  const initRelatedProposals = async (idea: string) => {
-    const { results, total, seed: apiSeed } = await searchProposals(
+  const initRelatedProposals = async ideaId => {
+    if (!ideaId) {
+      return;
+    }
+
+    const result = await searchProposals(
       question.country,
       question.language,
       undefined,
@@ -86,21 +89,26 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       question.questionId,
       undefined,
       'TOP_SCORE',
-      idea
+      ideaId
     );
 
-    setRelatedProposals(results);
-    setHasMore(results.length < total);
-    setSeed(apiSeed);
-    setPage(1);
+    if (result) {
+      const { results, total, seed: apiSeed } = result;
+      setRelatedProposals(results);
+      setHasMore(results.length < total);
+      setSeed(apiSeed);
+      setPage(1);
+    }
     setIsLoading(false);
   };
 
   const loadProposals = async () => {
+    if (!topIdea) {
+      return;
+    }
     trackLoadMoreProposals(COMPONENT_PARAM_DETAIL_IDEAS, page);
     setIsLoading(true);
-
-    const { results, total, seed: apiSeed } = await searchProposals(
+    const result = await searchProposals(
       question.country,
       question.language,
       undefined,
@@ -110,26 +118,30 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
       question.questionId,
       undefined,
       'TOP_SCORE',
-      ideaId
+      topIdea.ideaId
     );
-
-    const newProposalList: TypeProposal[] = [...relatedProposals, ...results];
-    setRelatedProposals(newProposalList);
-    setHasMore(newProposalList.length < total);
-    setSeed(apiSeed);
-    setPage(page + 1);
+    if (result) {
+      const { results, total, seed: apiSeed } = result;
+      const newProposalList: TypeProposal[] = [...relatedProposals, ...results];
+      setRelatedProposals(newProposalList);
+      setHasMore(newProposalList.length < total);
+      setSeed(apiSeed);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 
   const initTopIdea = async () => {
-    const { questionTopIdea } = await getTopIdea(
+    const result = await TopIdeaService.getTopIdea(
       question.questionId,
-      topIdeaId
+      topIdeaId,
+      () => redirectToNotFoundPage(question.country, question.language)
     );
-
-    setIdeaId(questionTopIdea.ideaId);
-    setTopIdea(questionTopIdea);
-    initRelatedProposals(questionTopIdea.ideaId);
+    if (result) {
+      const { questionTopIdea } = result;
+      setTopIdea(questionTopIdea);
+      initRelatedProposals(questionTopIdea.ideaId);
+    }
   };
 
   useEffect(() => {

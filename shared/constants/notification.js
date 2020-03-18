@@ -9,6 +9,8 @@ import { LogoutSuccessMessage } from 'Client/app/Notification/Messages/LogoutSuc
 import { AccountDeletionSuccessMessage } from 'Client/app/Notification/Messages/AccountDeletionSuccess';
 import { SecureExpiredMessage } from 'Client/app/Notification/Messages/SecureExpired';
 import { RegisterSuccessValidateMessage } from 'Client/app/Notification/Messages/RegisterSuccessValidate';
+import { UnexpectedErrorMessage } from 'Client/app/Notification/Messages/UnexpectedError';
+import { NetworkErrorMessage } from 'Client/app/Notification/Messages/NetworkError';
 
 export const ACTIVATION_SUCCESS_MESSAGE: string = 'ACTIVATION_SUCCESS_MESSAGE';
 export const ACTIVATION_FAILURE_MESSAGE: string = 'ACTIVATION_FAILURE_MESSAGE';
@@ -23,6 +25,8 @@ export const REGISTER_SUCCESS_VALIDATE_MESSAGE: string =
   'REGISTER_SUCCESS_VALIDATE_MESSAGE';
 export const SESSION_EXPIRED_MESSAGE: string = 'SESSION_EXPIRED_MESSAGE';
 export const SECURE_EXPIRED_MESSAGE: string = 'SECURE_EXPIRED_MESSAGE';
+export const UNEXPECTED_ERROR_MESSAGE: string = 'UNEXPECTED_ERROR_MESSAGE';
+export const NETWORK_ERROR_MESSAGE: string = 'NETWORK_ERROR_MESSAGE';
 
 const createNotification = component => replacements =>
   React.createElement(component, { replacements });
@@ -47,6 +51,8 @@ export const notifcationContent = {
     RegisterSuccessValidateMessage
   ),
   [SECURE_EXPIRED_MESSAGE]: () => <SecureExpiredMessage />,
+  [UNEXPECTED_ERROR_MESSAGE]: createNotification(UnexpectedErrorMessage),
+  [NETWORK_ERROR_MESSAGE]: createNotification(NetworkErrorMessage),
 };
 
 export const NOTIFICATION_LEVEL_INFORMATION: string = 'information';

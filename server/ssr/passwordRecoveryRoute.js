@@ -1,22 +1,13 @@
-import { UserApiService } from 'Shared/api/UserApiService';
 import {
   PASSWORD_RECOVERY_FAILURE_MESSAGE,
   NOTIFICATION_LEVEL_ERROR,
 } from 'Shared/constants/notification';
-import { HTTP_NO_CONTENT } from 'Shared/constants/httpStatus';
 import { createInitialState } from 'Shared/store/initialState';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
-import { logError } from './helpers/ssr.helper';
+import { UserService } from '../service/UserService';
 import { reactRender } from '../reactRender';
-import { getQuestion } from '../service/QuestionService';
-
-async function postResetPasswordTokenCheck(
-  userId: string,
-  resetToken: string,
-  headers
-) {
-  return UserApiService.resetPasswordTokenCheck(userId, resetToken, headers);
-}
+import { QuestionService } from '../service/QuestionService';
+import { logError } from './helpers/ssr.helper';
 
 export const passwordRecoveryRoute = async (req, res) => {
   const initialState = createInitialState();
@@ -33,44 +24,55 @@ export const passwordRecoveryRoute = async (req, res) => {
     },
   };
 
-  try {
-    const questionId = req.query.question;
+  const questionId = req.query.question || '';
+  if (questionId !== '') {
+    const notFound = () => {
+      logError(
+        `Question not found on activate account questionId='${questionId}' request='${JSON.stringify(
+          {
+            url: req.url,
+            query: req.query,
+          }
+        )}'`
+      );
+    };
+    const question = await QuestionService.getQuestion(
+      questionId,
+      country,
+      language,
+      notFound
+    );
 
-    if (questionId) {
-      const question = await getQuestion(questionId, {
-        'x-make-question-id': questionId,
-        'x-make-country': country,
-        'x-make-language': language,
-      });
-
-      if (question) {
-        routeState.currentQuestion = question.slug;
-        routeState.questions = {
-          [question.slug]: {
-            question,
-          },
-        };
-        updateTrackingQuestionParam(question);
-      }
+    if (question) {
+      routeState.currentQuestion = question.slug;
+      routeState.questions = {
+        [question.slug]: {
+          question,
+        },
+      };
+      updateTrackingQuestionParam(question);
     }
+  }
 
-    const status = await postResetPasswordTokenCheck(userId, resetToken, {
-      'x-make-question-id': questionId,
-      'x-make-country': country,
-      'x-make-language': language,
-    });
-
-    if (status === HTTP_NO_CONTENT) {
-      routeState.user.passwordRecovery.validToken = true;
-      routeState.user.passwordRecovery.resetToken = resetToken;
-    }
-  } catch (error) {
-    logError(error);
+  const success = () => {
+    routeState.user.passwordRecovery.validToken = true;
+    routeState.user.passwordRecovery.resetToken = resetToken;
+  };
+  const failure = () => {
     routeState.notification = {
       level: NOTIFICATION_LEVEL_ERROR,
       contentType: PASSWORD_RECOVERY_FAILURE_MESSAGE,
     };
-  }
+  };
+  await UserService.resetPasswordTokenCheck(
+    userId,
+    resetToken,
+    country,
+    language,
+    questionId,
+    success,
+    failure
+  );
 
   return reactRender(req, res, routeState);
 };

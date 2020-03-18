@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState, type Node as TypeReactNode } from 'react';
 import { useCookies } from 'react-cookie';
 import { useLocation } from 'react-router-dom';
-import { UserApiService } from 'Shared/api/UserApiService';
+import { UserService } from 'Shared/services/User';
 
 type Props = {
   /** Children content */
@@ -38,8 +38,9 @@ export const SecureExpiration = ({ children }: Props) => {
       if (cookieData !== cookies[SecureExpirationDateCookieName]) {
         setCookieData(cookies[SecureExpirationDateCookieName]);
       } else {
-        await UserApiService.logout();
-        window.location = `${location.pathname}?secureExpired=true`;
+        UserService.logout(() => {
+          window.location = `${location.pathname}?secureExpired=true`;
+        });
       }
     }, timeBeforeExpire);
     return () => clearTimeout(timer);

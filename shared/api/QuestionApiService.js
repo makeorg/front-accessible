@@ -1,9 +1,6 @@
 // @flow
 import { generatePath } from 'react-router';
-import {
-  type ApiServiceHeaders,
-  type ApiSearchQuestionsResponseType,
-} from 'Shared/types/api';
+import { type ApiServiceHeaders } from '../types/api';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTIONS_SEARCH = '/questions/search';
@@ -11,7 +8,10 @@ const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
 const PATH_QUESTION_PARTNERS = '/questions/:questionId/partners';
 const PATH_QUESTION_PERSONALITIES = '/questions/:questionId/personalities';
-export const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
+const PATH_QUESTION_POPULAR_TAGS = '/questions/:questionId/popular-tags';
+const PATH_QUESTION_TOP_IDEAS = '/questions/:questionId/top-ideas';
+const PATH_QUESTION_TOP_IDEA_DETAILS =
+  '/questions/:questionId/top-ideas/:topIdeaId';
 
 export class QuestionApiService {
   static getQuestionPartners(
@@ -20,7 +20,7 @@ export class QuestionApiService {
     sortAlgorithm?: string,
     limit: ?number = undefined,
     skip: ?number = undefined
-  ): Promise<Object> {
+  ): Promise<any> {
     const headers = {};
     return ApiService.callApi(
       generatePath(PATH_QUESTION_PARTNERS, { questionId }),
@@ -35,7 +35,7 @@ export class QuestionApiService {
   static getDetail(
     questionSlugOrId: string,
     headers: ApiServiceHeaders = {}
-  ): Promise<Object> {
+  ): Promise<any> {
     return ApiService.callApi(
       PATH_QUESTION_DETAIL.replace(':questionSlugOrId', questionSlugOrId),
       {
@@ -50,7 +50,7 @@ export class QuestionApiService {
     limit: ?number = undefined,
     skip: ?number = undefined,
     headers?: ApiServiceHeaders = {}
-  ): Promise<Object> {
+  ): Promise<any> {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_POPULAR_TAGS, { questionId }),
       { method: 'GET', headers, params: { limit, skip } }
@@ -63,7 +63,7 @@ export class QuestionApiService {
     limit: ?number = undefined,
     skip: ?number = undefined,
     headers?: ApiServiceHeaders = {}
-  ): Promise<Object> {
+  ): Promise<any> {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_PERSONALITIES, { questionId }),
       { method: 'GET', headers, params: { personalityRole, limit, skip } }
@@ -74,7 +74,7 @@ export class QuestionApiService {
     questionId: string,
     includedProposalIds: string[] = [],
     headers?: ApiServiceHeaders = {}
-  ): Promise<Object> {
+  ): Promise<any> {
     let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
       ':questionId',
       questionId
@@ -99,7 +99,7 @@ export class QuestionApiService {
     sort?: string = 'endDate',
     order?: string = 'DESC',
     headers?: ApiServiceHeaders = {}
-  ): Promise<ApiSearchQuestionsResponseType> {
+  ): Promise<any> {
     return ApiService.callApi(PATH_QUESTIONS_SEARCH, {
       method: 'GET',
       headers,
@@ -111,5 +111,35 @@ export class QuestionApiService {
         order,
       },
     });
+  }
+
+  static getTopIdeas(
+    questionId: string,
+    headers?: ApiServiceHeaders = {}
+  ): Promise<any> {
+    return ApiService.callApi(
+      PATH_QUESTION_TOP_IDEAS.replace(':questionId', questionId),
+      {
+        method: 'GET',
+        headers,
+      }
+    );
+  }
+
+  static getTopIdea(
+    questionId: string,
+    topIdeaId: string,
+    headers?: ApiServiceHeaders = {}
+  ): Promise<any> {
+    return ApiService.callApi(
+      PATH_QUESTION_TOP_IDEA_DETAILS.replace(':questionId', questionId).replace(
+        ':topIdeaId',
+        topIdeaId
+      ),
+      {
+        method: 'GET',
+        headers,
+      }
+    );
   }
 }

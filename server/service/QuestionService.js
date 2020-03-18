@@ -3,23 +3,48 @@ import { logger } from '../logger';
 
 const cache = require('memory-cache');
 
-export async function getQuestion(questionSlugOrId, headers) {
-  const CACHE_KEY = `QUESTION_${questionSlugOrId}`;
+const clearCache = () => {
+  cache.clear();
+};
+
+const getQuestion = async (
+  questionIdOrSlug: string,
+  country: string,
+  language: string,
+  notFound: () => void = () => {},
+  unexpectedError: () => void = () => {}
+) => {
+  const CACHE_KEY = `QUESTION_${questionIdOrSlug}`;
   const content = cache.get(CACHE_KEY);
   if (content) {
     return content;
   }
 
   try {
-    const questionDetail = await QuestionApiService.getDetail(
-      questionSlugOrId,
-      headers
+    const questionDetailResponse = await QuestionApiService.getDetail(
+      questionIdOrSlug,
+      {
+        'x-make-question-id': questionIdOrSlug,
+        'x-make-country': country,
+        'x-make-language': language,
+      }
     );
-    cache.put(CACHE_KEY, questionDetail, 300000);
+    cache.put(CACHE_KEY, questionDetailResponse.data, 300000);
 
-    return questionDetail;
-  } catch (error) {
-    logger.log('error', error);
+    return questionDetailResponse.data;
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 404) {
+      notFound();
+      return null;
+    }
+    logger.log('error', apiServiceError);
+    unexpectedError();
+
     return null;
   }
-}
+};
+
+export const QuestionService = {
+  getQuestion,
+  clearCache,
+};

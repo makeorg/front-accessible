@@ -2,7 +2,7 @@
 import { Dispatch } from 'redux';
 
 import { type StateActors, type StateRoot } from 'Shared/store/types';
-import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { QuestionService } from 'Shared/services/Question';
 import { ACTOR_PARTNER } from 'Shared/constants/partner';
 
 export const QUESTION_LOCAL_ACTORS_LOAD = 'QUESTION_LOCAL_ACTORS_LOAD';
@@ -27,14 +27,16 @@ export const getLocalActors = (
   skip?: number
 ) => async (dispatch: Dispatch) => {
   dispatch(loadLocalActors());
-  const actors = await QuestionApiService.getQuestionPartners(
+  const actors = await QuestionService.getQuestionPartners(
     questionId,
     partnerKind,
     sortAlgorithm,
     limit,
     skip
   );
-  dispatch(setLocalActors(slug, actors));
+  if (actors) {
+    dispatch(setLocalActors(slug, actors));
+  }
 };
 
 export const loadMoreLocalActors = (
@@ -47,17 +49,19 @@ export const loadMoreLocalActors = (
 ) => async (dispatch: Dispatch, getState: () => StateRoot) => {
   dispatch(loadLocalActors());
   const { results } = getState().partners[slug].actors;
-  const actors = await QuestionApiService.getQuestionPartners(
+  const actors = await QuestionService.getQuestionPartners(
     questionId,
     partnerKind,
     sortAlgorithm,
     limit,
     skip
   );
-  dispatch(
-    setLocalActors(slug, {
-      total: actors.total,
-      results: [...results, ...actors.results],
-    })
-  );
+  if (actors) {
+    dispatch(
+      setLocalActors(slug, {
+        total: actors.total,
+        results: [...results, ...actors.results],
+      })
+    );
+  }
 };

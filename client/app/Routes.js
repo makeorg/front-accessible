@@ -31,6 +31,7 @@ import {
   ROUTE_PERSONALITY_PROFILE,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PROFILE_OPINIONS,
+  ROUTE_STATIC_NOTFOUND,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -123,6 +124,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
       <Route path={ROUTE_STATIC_DATA} component={Data} />
       <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
+      <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       <Route exact path="/" component={HomePage} />
       <Route component={NotFoundPage} />
     </Switch>

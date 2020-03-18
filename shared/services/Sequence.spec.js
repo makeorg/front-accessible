@@ -1,7 +1,7 @@
 // @flow
 
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { startSequence } from 'Shared/services/Sequence';
+import { SequenceService } from 'Shared/services/Sequence';
 
 jest.mock('Shared/api/QuestionApiService');
 
@@ -28,7 +28,7 @@ describe('Question Service', () => {
 
       jest.spyOn(QuestionApiService, 'startSequence');
 
-      await startSequence('foo', includedProposalIds);
+      await SequenceService.startSequence('foo', includedProposalIds);
 
       expect(QuestionApiService.startSequence).toHaveBeenNthCalledWith(
         1,
@@ -37,14 +37,19 @@ describe('Question Service', () => {
       );
     });
 
-    it('order only incuded proposal', async () => {
+    it('order only included proposal', async () => {
       const includedProposalIds = ['baz', 'foo'];
       QuestionApiService.startSequence.mockResolvedValue({
-        id: 'foo',
-        proposals,
+        data: {
+          id: 'foo',
+          proposals,
+        },
       });
 
-      const result = await startSequence('foo', includedProposalIds);
+      const result = await SequenceService.startSequence(
+        'foo',
+        includedProposalIds
+      );
       expect(result).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'foo', votes: [{ hasVoted: false }] },
@@ -52,14 +57,19 @@ describe('Question Service', () => {
       ]);
     });
 
-    it('order when incuded proposal contain all proposal', async () => {
+    it('order when included proposal contain all proposal', async () => {
       const includedProposalIds = ['baz', 'bar', 'foo'];
       QuestionApiService.startSequence.mockResolvedValue({
-        id: 'foo',
-        proposals,
+        data: {
+          id: 'foo',
+          proposals,
+        },
       });
 
-      const result = await startSequence('foo', includedProposalIds);
+      const result = await SequenceService.startSequence(
+        'foo',
+        includedProposalIds
+      );
       expect(result).toEqual([
         { id: 'baz', votes: [{ hasVoted: false }] },
         { id: 'bar', votes: [{ hasVoted: false }] },

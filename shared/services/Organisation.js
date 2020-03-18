@@ -1,18 +1,19 @@
 // @flow
 import { OrganisationApiService } from 'Shared/api/OrganisationApiService';
-import { Logger } from 'Shared/services/Logger';
-import {
-  type ApiSearchOrganisationsResponseType,
-  type ApiSearchProposalsResponseType,
-  type ApiOrganisationVotesResponseType,
-} from 'Shared/types/api';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
+import {
+  type OrganisationsType,
+  type Organisation as OrganisationType,
+  type OrganisationVotesType,
+} from 'Shared/types/organisation';
+import { type ProposalsType } from 'Shared/types/proposal';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-export const searchOrganisations = async (
+const searchOrganisations = async (
   country: string,
   language: string,
   content: string
-): ApiSearchOrganisationsResponseType | Object => {
+): Promise<?OrganisationsType> => {
   try {
     const response = await OrganisationApiService.search(
       country,
@@ -20,77 +21,104 @@ export const searchOrganisations = async (
       content
     );
 
-    return response;
-  } catch (error) {
-    Logger.logError(Error(error));
-    return {};
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
   }
 };
-export const getOrganisationBySlug = async (slug: string) => {
+
+const getOrganisationBySlug = async (
+  slug: string
+): Promise<?OrganisationType> => {
   try {
     const response = await OrganisationApiService.getOrganisations(slug);
-    const organisation = response.results.find(result => result.slug === slug);
+
+    const organisation = response.data.results.find(
+      result => result.slug === slug
+    );
 
     if (!organisation) {
       return null;
     }
 
     return organisation;
-  } catch (error) {
-    Logger.logError(Error(error));
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
     return null;
   }
 };
 
-export const getProposals = async (
+const getProposals = async (
   organisationId: string,
   seed: ?number = null,
   page: number = 0
-): Promise<ApiSearchProposalsResponseType> => {
+): Promise<?ProposalsType> => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
 
-  const response = await OrganisationApiService.getOrganisationProposals(
-    organisationId,
-    seed,
-    limit,
-    skip
-  );
+  try {
+    const response = await OrganisationApiService.getOrganisationProposals(
+      organisationId,
+      seed,
+      limit,
+      skip
+    );
 
-  return response;
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
 };
 
-export const getVotes = async (
+const getVotes = async (
   organisationId: string,
   seed: ?number = null,
   page: number = 0
-): Promise<ApiOrganisationVotesResponseType> => {
+): Promise<?OrganisationVotesType> => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
 
-  const response = await OrganisationApiService.getOrganisationVotes(
-    organisationId,
-    seed,
-    limit,
-    skip
-  );
-  const { results } = response;
-
-  const proposals = results.map(result => result.proposal);
-
-  const organisationVotes = results.map(result => {
-    const Proposal = proposals.find(
-      proposal => proposal.id === result.proposal.id
+  try {
+    const response = await OrganisationApiService.getOrganisationVotes(
+      organisationId,
+      seed,
+      limit,
+      skip
     );
-    return {
-      ...result,
-      proposal: Proposal,
-    };
-  });
+    const { results } = response.data;
 
-  return {
-    results: organisationVotes,
-    total: response.total,
-    seed: response.seed,
-  };
+    const proposals = results.map(result => result.proposal);
+
+    const organisationVotes = results.map(result => {
+      const Proposal = proposals.find(
+        proposal => proposal.id === result.proposal.id
+      );
+      return {
+        ...result,
+        proposal: Proposal,
+      };
+    });
+
+    return {
+      results: organisationVotes,
+      total: response.total,
+      seed: response.seed,
+    };
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+export const OrganisationService = {
+  searchOrganisations,
+  getOrganisationBySlug,
+  getProposals,
+  getVotes,
 };

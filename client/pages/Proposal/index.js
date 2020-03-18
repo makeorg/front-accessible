@@ -10,12 +10,12 @@ import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalSkipLinks } from 'Client/app/SkipLinks/Proposal';
 import { SingleProposalCard } from 'Client/features/proposal/SingleProposalCard';
-import { ProposalApiService } from 'Shared/api/ProposalApiService';
-import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { SingleProposalSharingComponent } from 'Client/features/flipping/Sharing/SingleProposal';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
 import { isInProgress } from 'Shared/helpers/date';
+import { QuestionService } from 'Shared/services/Question';
+import { ProposalService } from 'Shared/services/Proposal';
 
 type Props = {
   match: TypeMatch,
@@ -28,18 +28,16 @@ const ProposalPage = (props: Props) => {
   const [question, setQuestion] = useState<?TypeQuestion>(undefined);
 
   useEffect(() => {
-    ProposalApiService.getProposal(proposalId).then(response => {
-      setProposal(response);
+    ProposalService.getProposal(proposalId).then(response => {
+      setProposal(response || undefined);
     });
   }, []);
 
   useEffect(() => {
     if (proposal) {
-      QuestionApiService.getDetail(proposal.question.questionId).then(
-        response => {
-          setQuestion(response);
-        }
-      );
+      QuestionService.getDetail(proposal.question.questionId).then(response => {
+        setQuestion(response || question);
+      });
     }
   }, [proposal]);
 

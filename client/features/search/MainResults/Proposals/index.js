@@ -47,16 +47,19 @@ export const MainResultsProposals = ({
 
   const loadMoreProposals = async () => {
     setIsLoading(true);
-    const { results } = await searchProposals(
+    const result = await searchProposals(
       country,
       language,
       searchTerm,
       page,
       4
     );
-    const newProposalList = [...proposalsResult, ...results];
-    setProposalsResult(newProposalList);
-    setPage(page + 1);
+    if (result) {
+      const { results } = result;
+      const newProposalList = [...proposalsResult, ...results];
+      setProposalsResult(newProposalList);
+      setPage(page + 1);
+    }
     setIsLoading(false);
   };
 

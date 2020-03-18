@@ -1,6 +1,6 @@
 // @flow
-
 import 'url-search-params-polyfill';
+import { generatePath } from 'react-router';
 import queryString from 'query-string';
 import { FRONT_URL } from 'Shared/constants/config';
 import {
@@ -17,8 +17,8 @@ import {
   ROUTE_RESULTS,
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
+  ROUTE_STATIC_NOTFOUND,
 } from 'Shared/routes';
-import { generatePath } from 'react-router';
 
 export const getParamsQuery = (searchParams: string) => {
   const params = new URLSearchParams(searchParams);
@@ -270,4 +270,27 @@ export const getGTUPageLink = (country: string, language: string) => {
  */
 export const getLegalPageLink = (country: string, language: string) => {
   return generatePath(ROUTE_STATIC_LEGAL, { country, language });
+};
+
+/**
+ * Get the Not found page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getNotFoundPageLink = (country: string, language: string) => {
+  return generatePath(ROUTE_STATIC_NOTFOUND, { country, language });
+};
+
+/**
+ * Get the Not found page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+
+export const redirectToNotFoundPage = (country: string, language: string) => {
+  window.location = generatePath(ROUTE_STATIC_NOTFOUND, { country, language });
 };

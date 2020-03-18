@@ -15,7 +15,7 @@ import {
 } from 'Shared/constants/icons';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { logout } from 'Shared/store/actions/authentification';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { getFieldError } from 'Shared/helpers/form';
@@ -75,19 +75,23 @@ export const DeleteAccount = ({ user }: Props) => {
   ) => {
     event.preventDefault();
 
-    try {
-      await UserService.deleteAccount(user.userId, formValues.password);
-      dispatch(logout(true));
-    } catch {
+    const success = () => dispatch(logout(true));
+    const invalidPassword = () => {
       setCanSubmit(false);
-      if (formValues.password === '') {
-        setErrors([invalidEmailError]);
-      }
+      setErrors([invalidPasswordError]);
+    };
+    const invalidEmail = () => {
+      setCanSubmit(false);
+      setErrors([invalidEmailError]);
+    };
 
-      if (formValues.email === '') {
-        setErrors([invalidPasswordError]);
-      }
-    }
+    await UserService.deleteAccount(
+      user.userId,
+      formValues.password,
+      success,
+      invalidPassword,
+      invalidEmail
+    );
   };
 
   return (

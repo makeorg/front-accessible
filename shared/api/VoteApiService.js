@@ -5,7 +5,7 @@ import { ApiService } from './ApiService';
 export const PATH_VOTE = '/proposals/:proposalId/vote';
 export const PATH_UNVOTE = '/proposals/:proposalId/unvote';
 
-export class VoteService {
+export class VoteApiService {
   static vote(
     proposalId: string,
     voteKey: string,

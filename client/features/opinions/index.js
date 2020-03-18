@@ -17,7 +17,7 @@ import { i18n } from 'Shared/i18n';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { getPersonnalityOpinion } from 'Shared/services/Personality';
+import { PersonalityService } from 'Shared/services/Personality';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { formatUserName } from 'Shared/helpers/stringFormatter';
@@ -73,14 +73,16 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchPersonnalityOpinions = async () => {
-    getPersonnalityOpinion(personality.userId).then(personalityOpinions => {
-      if (privateProfile) {
-        setOpinions(personalityOpinions);
-      } else {
-        setOpinions(getCommentedOpinions(personalityOpinions));
+    PersonalityService.getPersonnalityOpinion(personality.userId).then(
+      personalityOpinions => {
+        if (privateProfile) {
+          setOpinions(personalityOpinions);
+        } else {
+          setOpinions(getCommentedOpinions(personalityOpinions));
+        }
+        setIsLoading(false);
       }
-      setIsLoading(false);
-    });
+    );
   };
 
   useEffect(() => {

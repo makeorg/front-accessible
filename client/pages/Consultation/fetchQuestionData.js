@@ -11,10 +11,10 @@ import {
 } from 'Shared/types/question';
 import { loadQuestion } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
-import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { updateCurrentQuestion } from 'Shared/store/reducers/questions/actions';
+import { QuestionService } from 'Shared/services/Question';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
@@ -57,15 +57,13 @@ const callQuestionData = Component =>
     const questions = useSelector(state => state.questions);
     const currentQuestionSlug = useSelector(state => state.currentQuestion);
     const updateQuestion = () => {
-      QuestionApiService.getDetail(match.params.questionSlug)
-        .then(questionDetail => {
+      QuestionService.getDetail(match.params.questionSlug, () =>
+        setAlternativeContent(<NotFoundPage />)
+      ).then(questionDetail => {
+        if (questionDetail) {
           dispatch(loadQuestion(questionDetail));
-        })
-        .catch(error => {
-          if (error.message === '404') {
-            setAlternativeContent(<NotFoundPage />);
-          }
-        });
+        }
+      });
     };
 
     useEffect(() => {
@@ -93,10 +91,12 @@ const callQuestionData = Component =>
             questions[relQuestion.questionSlug] !== undefined;
           // If not, they fetch/store it
           if (!isRelQuestionInState) {
-            const siblingQuestionDetails = await QuestionApiService.getDetail(
+            const siblingQuestionDetails = await QuestionService.getDetail(
               relQuestion.questionSlug
             );
-            dispatch(loadQuestion(siblingQuestionDetails));
+            if (siblingQuestionDetails) {
+              dispatch(loadQuestion(siblingQuestionDetails));
+            }
           }
         });
       }

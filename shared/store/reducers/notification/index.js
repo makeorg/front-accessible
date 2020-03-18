@@ -6,6 +6,8 @@ import {
   NOTIFICATION_REGISTER_SUCCESS,
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
   NOTIFICATION_SECURE_EXPIRED,
+  NOTIFICATION_UNEXPECTED_ERROR,
+  NOTIFICATION_NETWORK_ERROR,
 } from 'Shared/store/actionTypes';
 import {
   LOGIN_SUCCESS_MESSAGE,
@@ -17,6 +19,8 @@ import {
   ACCOUNT_DELETION_SUCCESS_MESSAGE,
   SECURE_EXPIRED_MESSAGE,
   REGISTER_SUCCESS_VALIDATE_MESSAGE,
+  UNEXPECTED_ERROR_MESSAGE,
+  NETWORK_ERROR_MESSAGE,
 } from 'Shared/constants/notification';
 
 type NotificationState = {
@@ -71,6 +75,18 @@ export function notification(
         ...state,
         level: NOTIFICATION_LEVEL_INFORMATION,
         contentType: SECURE_EXPIRED_MESSAGE,
+      };
+    case NOTIFICATION_UNEXPECTED_ERROR:
+      return {
+        ...state,
+        level: NOTIFICATION_LEVEL_ALERT,
+        contentType: UNEXPECTED_ERROR_MESSAGE,
+      };
+    case NOTIFICATION_NETWORK_ERROR:
+      return {
+        ...state,
+        level: NOTIFICATION_LEVEL_ALERT,
+        contentType: NETWORK_ERROR_MESSAGE,
       };
     default:
       return state;

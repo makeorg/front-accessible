@@ -9,7 +9,7 @@ export const ORGANISATION_PROPOSALS_PATH =
 export const ORGANISATION_VOTES_PATH = '/organisations/:organisationId/votes';
 
 export class OrganisationApiService {
-  static getOrganisations(slug: string) {
+  static getOrganisations(slug: string): Promise<any> {
     return ApiService.callApi(ORGANISATIONS_PATH, {
       method: 'GET',
       params: {
@@ -18,7 +18,11 @@ export class OrganisationApiService {
     });
   }
 
-  static search(country: string, language: string, query: string) {
+  static search(
+    country: string,
+    language: string,
+    query: string
+  ): Promise<any> {
     return ApiService.callApi(ORGANISATIONS_PATH, {
       method: 'GET',
       params: {
@@ -34,7 +38,7 @@ export class OrganisationApiService {
     seed?: ?number = null,
     limit?: number = PROPOSALS_LISTING_LIMIT,
     skip?: number = 0
-  ) {
+  ): Promise<any> {
     return ApiService.callApi(
       ORGANISATION_PROPOSALS_PATH.replace(':organisationId', organisationId),
       {
@@ -49,7 +53,7 @@ export class OrganisationApiService {
     seed?: ?number = null,
     limit?: number = PROPOSALS_LISTING_LIMIT,
     skip?: number = 0
-  ) {
+  ): Promise<any> {
     return ApiService.callApi(
       ORGANISATION_VOTES_PATH.replace(':organisationId', organisationId),
       {

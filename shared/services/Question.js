@@ -1,27 +1,39 @@
 // @flow
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { type Question as TypeQuestion } from 'Shared/types/question';
-import { Logger } from 'Shared/services/Logger';
-import { type ApiSearchQuestionsResponseType } from 'Shared/types/api';
+import {
+  type Question as TypeQuestion,
+  type QuestionPartnerType,
+} from 'Shared/types/question';
+import { type TypeTag } from 'Shared/types/tag';
+import { type TypePersonality } from 'Shared/types/user';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-export const getQuestions = async (
-  questionSlugsOrIds: string[]
-): Promise<TypeQuestion[]> => {
-  const questionsPromises = questionSlugsOrIds.map(async questionSlugOrId => {
-    const question = await QuestionApiService.getDetail(questionSlugOrId);
-    return question;
-  });
+const getDetail = async (
+  questionSlugOrId: string,
+  notFound: () => void = () => {}
+): Promise<?TypeQuestion> => {
+  try {
+    const response = await QuestionApiService.getDetail(questionSlugOrId);
 
-  const questions = await Promise.all(questionsPromises);
+    return response.data;
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 404) {
+      notFound();
 
-  return questions;
+      return null;
+    }
+
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
 };
 
-export const searchQuestions = async (
+const searchQuestions = async (
   country: string,
   language: string,
   content: string
-): ApiSearchQuestionsResponseType | Object => {
+): Promise<?{ total: number, results: TypeQuestion[] }> => {
   try {
     const response = await QuestionApiService.searchQuestions(
       country,
@@ -29,9 +41,84 @@ export const searchQuestions = async (
       content
     );
 
-    return response;
-  } catch (error) {
-    Logger.logError(Error(error));
-    return {};
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
   }
+};
+
+const getQuestionPopularTags = async (
+  questionId: string,
+  limit: ?number = undefined,
+  skip: ?number = undefined
+): Promise<?(TypeTag[])> => {
+  try {
+    const response = await QuestionApiService.getQuestionPopularTags(
+      questionId,
+      limit,
+      skip
+    );
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+const getQuestionPartners = async (
+  questionId: string,
+  partnerKind: string,
+  sortAlgorithm?: string,
+  limit: ?number = undefined,
+  skip: ?number = undefined
+): Promise<?{ total: number, results: QuestionPartnerType[] }> => {
+  try {
+    const response = await QuestionApiService.getQuestionPartners(
+      questionId,
+      partnerKind,
+      sortAlgorithm,
+      limit,
+      skip
+    );
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+const getQuestionPersonalities = async (
+  questionId: string,
+  personalityRole: ?string = undefined,
+  limit: ?number = undefined,
+  skip: ?number = undefined
+): Promise<?{ total: number, results: TypePersonality[] }> => {
+  try {
+    const response = await QuestionApiService.getQuestionPersonalities(
+      questionId,
+      personalityRole,
+      limit,
+      skip
+    );
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+export const QuestionService = {
+  getDetail,
+  searchQuestions,
+  getQuestionPopularTags,
+  getQuestionPartners,
+  getQuestionPersonalities,
 };

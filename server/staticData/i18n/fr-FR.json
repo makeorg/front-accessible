@@ -149,7 +149,9 @@
         "alert": "Message d'alerte : "
       },
       "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
-      "thank_you": "C'est noté, merci !"
+      "thank_you": "C'est noté, merci !",
+      "unexpected_error": "Nous rencontrons actuellement une erreur, merci de réessayer ultérieurement.",
+      "network_error": "Il est impossible d'accéder à l'intégralité du contenu de Make.org car il semblerait que vous soyez hors ligne"
     },
     "from": "sur",
     "email": "Email",

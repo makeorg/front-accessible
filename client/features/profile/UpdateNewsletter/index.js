@@ -8,7 +8,7 @@ import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { type TypeProfile } from 'Shared/types/user';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
@@ -40,15 +40,16 @@ export const UpdateNewsletter = ({ profile }: Props) => {
 
   const handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    try {
-      await UserService.updateNewsletter(optInNewsletter);
+    const success = () => {
       setIsSubmitSuccessful(true);
       setCanSubmit(false);
       dispatch(getUser());
-    } catch {
+    };
+    const handleErrors = () => {
       setErrors([defaultApiError]);
       setIsSubmitSuccessful(false);
-    }
+    };
+    await UserService.updateNewsletter(optInNewsletter, success, handleErrors);
   };
 
   return (

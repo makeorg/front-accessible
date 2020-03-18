@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import * as UserService from 'Shared/services/User';
+import { UserService } from 'Shared/services/User';
 import { type TypeErrorObject } from 'Shared/types/api';
 import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -26,13 +26,12 @@ export const ForgotPasswordForm = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    const success = () => setSuccess(true);
+    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+      setErrors(serviceErrors);
+    };
     if (email.trim() !== '') {
-      try {
-        await UserService.forgotPassword(email.trim());
-        setSuccess(true);
-      } catch (serviceErrors) {
-        setErrors(serviceErrors);
-      }
+      await UserService.forgotPassword(email.trim(), success, handleErrors);
     }
   };
 

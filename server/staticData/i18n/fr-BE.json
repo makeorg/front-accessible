@@ -149,7 +149,9 @@
         "alert": "Message d'alerte : "
       },
       "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
-      "thank_you": "C'est noté, merci !"
+      "thank_you": "C'est noté, merci !",
+      "unexpected_error": "Nous rencontrons actuellement une erreur, merci de réessayer ultérieurement.",
+      "network_error": "Il est impossible d'accéder à l'intégralité du contenu de Make.org car il semblerait que vous soyez hors ligne"
     },
     "from": "sur",
     "email": "Email",
@@ -888,5 +890,14 @@
     "host_phone_number": "08 99 70 17 61",
     "cnil": "Numéro de déclaration CNIL : ",
     "cnil_number": "2005312"
+  },
+  "no_cookies": {
+    "title": "Ooops ! Vos cookies sont désactivés",
+    "first_paragraph": "Nous sommes dans l'incapacité de vous laisser accéder au site car nous utilisons les cookies pour assurer la qualité de notre service.",
+    "second_paragraph": "Afin de pouvoir naviguer en toute tranquillité sur Make.org nous vous invitons à autoriser les cookies sur ce navigateur ou à en utiliser un autre. Pour autoriser les cookies sur votre navigateur allez dans le menu puis dans les paramètres.",
+    "information": "Pour plus d'informations sur la façon de gérer vos cookies, cliquez sur ce lien :",
+    "link": "www.accepterlescookies.com",
+    "thanks": "Merci de votre compréhension et à bientôt !",
+    "footer": "Make.org est une plateforme d’engagement qui permet d'identifier les idées plébiscitées sur divers sujets. Pour en savoir + sur notre initiative, découvrez <a href=\"https://about.make.org\">notre actualité</a>."
   }
 }

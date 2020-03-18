@@ -1,13 +1,13 @@
 /* @flow */
 import { type Dispatch } from 'redux';
-import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { Logger } from 'Shared/services/Logger';
+import { ProposalService } from 'Shared/services/Proposal';
 
 export const proposeSuccess = () => ({ type: actionTypes.PROPOSE_SUCCESS });
 
 export const fetchProposalData = (proposalId: string) => (dispatch: Dispatch) =>
-  ProposalApiService.getProposal(proposalId)
+  ProposalService.getProposal(proposalId)
     .then(proposal => {
       dispatch({ type: actionTypes.PROPOSAL_LOAD, payload: proposal });
       // Important ! Do not remove: use by the parent to use proposal.question.questionId

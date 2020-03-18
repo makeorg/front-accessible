@@ -1,8 +1,11 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import * as OrganisationService from 'Shared/services/Organisation';
+import { OrganisationService } from 'Shared/services/Organisation';
 import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import {
+  type Proposal as TypeProposal,
+  type ProposalsType,
+} from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
@@ -37,34 +40,35 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
 
   const initProposal = async () => {
     setIsLoading(true);
-    const {
-      results,
-      total,
-      seed: apiSeed,
-    } = await OrganisationService.getProposals(organisation.organisationId);
-    setProposals(results);
-    setHasMore(results.length < total);
-    setSeed(apiSeed);
-    setPage(1);
+    const proposalsResponse: ?ProposalsType = await OrganisationService.getProposals(
+      organisation.organisationId
+    );
+    if (proposalsResponse) {
+      const { results, total, seed: apiSeed } = proposalsResponse;
+      setProposals(results);
+      setHasMore(results.length < total);
+      setSeed(apiSeed);
+      setPage(1);
+    }
     setIsLoading(false);
   };
 
   const loadProposals = async () => {
     setIsLoading(true);
-    const {
-      results,
-      total,
-      seed: apiSeed,
-    } = await OrganisationService.getProposals(
+    const proposalsResponse: ?ProposalsType = await OrganisationService.getProposals(
       organisation.organisationId,
       seed,
       page
     );
-    const newProposalList = [...proposals, ...results];
-    setProposals(newProposalList);
-    setHasMore(newProposalList.length < total);
-    setSeed(apiSeed);
-    setPage(page + 1);
+    if (proposalsResponse) {
+      const { results, total, seed: apiSeed } = proposalsResponse;
+      const newProposalList = [...proposals, ...results];
+      setProposals(newProposalList);
+      setHasMore(newProposalList.length < total);
+      setSeed(apiSeed);
+      setPage(page + 1);
+    }
+
     setIsLoading(false);
   };
 
