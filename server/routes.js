@@ -26,6 +26,10 @@ import {
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PERSONALITY_PROFILE,
   ROUTE_PROFILE_OPINIONS,
+  ROUTE_STATIC_GTU_EN,
+  ROUTE_STATIC_DATA_EN,
+  ROUTE_STATIC_CONTACT_EN,
+  ROUTE_STATIC_LEGAL_EN,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -140,10 +144,17 @@ export const initRoutes = app => {
   app.get(ROUTE_SEARCH_PROPOSALS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_ORGANISATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_SEARCH_CONSULTATIONS, frontMiddlewares, defaultRoute);
+
   app.get(ROUTE_STATIC_LEGAL, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_CONTACT, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_DATA, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU, frontMiddlewares, defaultRoute);
+
+  // routes for en language
+  app.get(ROUTE_STATIC_LEGAL_EN, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_CONTACT_EN, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_DATA_EN, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_STATIC_GTU_EN, frontMiddlewares, defaultRoute);
 
   app.get('*', frontMiddlewares, defaultRoute);
 };

@@ -178,8 +178,8 @@ export const TermsOfUseEN = () => {
               <StaticParagraphStyle>
                 The Registered User commits to updating his/her information in
                 his/her Personal Space by contacting Make.org by e-mail at&nbsp;
-                <RedLinkHTMLElementStyle href="mailto:contact@Make.org">
-                  contact@Make.org.
+                <RedLinkHTMLElementStyle href="mailto:contact@make.org">
+                  contact@make.org.
                 </RedLinkHTMLElementStyle>
               </StaticParagraphStyle>
               <StaticParagraphStyle>

@@ -18,6 +18,10 @@ import {
   ROUTE_TOP_IDEAS,
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_STATIC_NOTFOUND,
+  ROUTE_STATIC_GTU_EN,
+  ROUTE_STATIC_LEGAL_EN,
+  ROUTE_STATIC_DATA_EN,
+  ROUTE_STATIC_CONTACT_EN,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -236,7 +240,12 @@ export const getPersonalityProfileLink = (
  * @return {string}
  */
 export const getContactPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_CONTACT, { country, language });
+  return generatePath(
+    language === 'fr' || !language
+      ? ROUTE_STATIC_CONTACT
+      : ROUTE_STATIC_CONTACT_EN,
+    { country, language }
+  );
 };
 
 /**
@@ -247,7 +256,10 @@ export const getContactPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getDataPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_DATA, { country, language });
+  return generatePath(
+    language === 'fr' || !language ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
+    { country, language }
+  );
 };
 
 /**
@@ -258,7 +270,13 @@ export const getDataPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getGTUPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_GTU, { country, language });
+  return generatePath(
+    language === 'fr' || !language ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
+    {
+      country,
+      language,
+    }
+  );
 };
 
 /**
@@ -269,7 +287,10 @@ export const getGTUPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getLegalPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_LEGAL, { country, language });
+  return generatePath(
+    language === 'fr' || !language ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
+    { country, language }
+  );
 };
 
 /**

@@ -1,6 +1,7 @@
 import { matchPath, generatePath } from 'react-router';
 
 export const ROUTE_COUNTRY_LANG = '/:country(\\w{2})-:language(\\w{2})';
+export const ROUTE_COUNTRY_LANG_FR = '/:country(\\w{2})-fr';
 
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/consultation`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY_LANG}/search`;
@@ -25,12 +26,20 @@ export const ROUTE_PERSONALITY_PROFILE = `${ROUTE_PROFILE}/personality/:userId`;
 export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/organisation/:organisationSlug`;
 export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
 export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
-export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
-export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
-export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
-export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
-export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG}/no-cookies`;
 export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY_LANG}/not-found`;
+export const ROUTE_SOON = '/soon';
+export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG_FR}/no-cookies`;
+
+export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
+export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG_FR}/conditions-dutilisation`;
+export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG_FR}/politique-donnees`;
+export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG_FR}/contact`;
+
+// routes for en language
+export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY_LANG}/legal-mentions`;
+export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY_LANG}/terms-of-use`;
+export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY_LANG}/data-terms`;
+export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY_LANG}/contact`;
 
 export const matchRoute = (
   pathname: string,

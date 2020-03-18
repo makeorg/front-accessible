@@ -189,6 +189,7 @@ describe('getLocationContext', () => {
 
     const routesToExcludes = [
       'ROUTE_COUNTRY_LANG',
+      'ROUTE_COUNTRY_LANG_FR',
       'ROUTE_RESULTS',
       'ROUTE_TOP_IDEAS',
       'ROUTE_ACCOUNT_ACTIVATION',
@@ -205,7 +206,12 @@ describe('getLocationContext', () => {
       'ROUTE_STATIC_GTU',
       'ROUTE_STATIC_DATA',
       'ROUTE_STATIC_CONTACT',
+      'ROUTE_STATIC_LEGAL_EN',
+      'ROUTE_STATIC_GTU_EN',
+      'ROUTE_STATIC_DATA_EN',
+      'ROUTE_STATIC_CONTACT_EN',
       'ROUTE_STATIC_NOCOOKIES',
+      'ROUTE_SOON',
     ];
 
     // .map(route => route.replace(/:/g, ''));
@@ -213,8 +219,13 @@ describe('getLocationContext', () => {
       route => !routesToExcludes.includes(route.name)
     );
     filteredRoutes.forEach(route => {
-      const pathFromFixtures = fixtures.find(item => item.name === route.name)
-        .path;
+      const elementFromFixture = fixtures.find(
+        item => item.name === route.name
+      );
+      if (!elementFromFixture) {
+        throw new Error(`Not found. Route: ${route.name}`);
+      }
+      const pathFromFixtures = elementFromFixture.path;
 
       expect(pathFromFixtures !== undefined).toBe(true);
 
