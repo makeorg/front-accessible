@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { type TypeBusinessConsultation } from 'Shared/types/views';
 import { isInProgress } from 'Shared/helpers/date';
-import { sortConsultationsByLatestDate } from 'Shared/helpers/views';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
 import {
@@ -39,7 +38,6 @@ export const BusinessConsultations = ({ consultations }: Props) => {
   );
   const ListRef = useRef<any>(null);
   const initialDisplayedConsultationsLength = 3;
-  const sortedConsultations = sortConsultationsByLatestDate(consultations);
   const [limitedConsultations, setConsultationsLimit] = useState(
     initialDisplayedConsultationsLength
   );
@@ -48,10 +46,7 @@ export const BusinessConsultations = ({ consultations }: Props) => {
     return null;
   }
 
-  const slicedConsultations = sortedConsultations.slice(
-    0,
-    limitedConsultations
-  );
+  const slicedConsultations = consultations.slice(0, limitedConsultations);
 
   const displayViewMore =
     slicedConsultations.length === initialDisplayedConsultationsLength;

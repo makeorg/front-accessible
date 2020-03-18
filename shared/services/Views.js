@@ -1,6 +1,6 @@
 // @flow
 import { type TypeHome, type TypeSearchViews } from 'Shared/types/views';
-import * as ViewsApiService from 'Shared/api/ViewsApiService';
+import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { Logger } from './Logger';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
@@ -38,7 +38,6 @@ const orderByEndDate = (consultationA, consultationB) => {
 const getHome = async (): Promise<?TypeHome> => {
   try {
     const viewsResponse = await ViewsApiService.getHome();
-
     const {
       currentConsultations,
       popularProposals,
@@ -51,7 +50,7 @@ const getHome = async (): Promise<?TypeHome> => {
       popularProposals,
       controverseProposals,
       featuredConsultations,
-      businessConsultations,
+      businessConsultations: businessConsultations.sort(orderByEndDate),
       currentConsultations: currentConsultations.sort(orderByEndDate),
     };
   } catch (apiServiceError) {

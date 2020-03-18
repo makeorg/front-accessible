@@ -67,18 +67,21 @@ export const getAgeFromDateOfBirth = (dateOfBirth: string) => {
 };
 
 type ConsultationDates = {
-  startDate: string,
-  endDate: string,
+  startDate: ?string | null,
+  endDate: ?string | null,
 };
 
 export const isInProgress = (dates: ConsultationDates) => {
-  if (dates.endDate === null) {
+  if (!dates.endDate) {
     return true;
   }
-
-  const today = new Date();
-  const start = new Date(dates.startDate);
   const end = new Date(dates.endDate);
+  const today = new Date();
+
+  if (!dates.startDate) {
+    return today < end;
+  }
+  const start = new Date(dates.startDate);
 
   return start <= today && today < end;
 };
@@ -102,7 +105,10 @@ export class DateHelperSingleton {
     return this._language;
   }
 
-  creationDateFormat(date: string) {
+  creationDateFormat(date: ?string | null) {
+    if (!date) {
+      return null;
+    }
     const objectDate = new Date(date);
 
     if (Number.isNaN(objectDate.getMonth())) {
