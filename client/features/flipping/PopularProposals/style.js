@@ -12,7 +12,7 @@ import {
   TileWithTitleStyle,
   TileTitleStyle,
   TileSeparatorStyle,
-} from 'Client/ui/Elements/TileWithTitle/Styled';
+} from 'Client/ui/Elements/TileWithTitle/style';
 import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -20,7 +20,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 export const PopularProposalsSliderWrapperStyle = styled.div`
   background-color: ${BackgroundColors.ExtraLightGrey};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin-top: 15px;
+  margin-top: 20px;
   padding: 20px 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};

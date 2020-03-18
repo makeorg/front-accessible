@@ -3,7 +3,7 @@ import {
   TileWithTitleStyle,
   TileTitleStyle,
   TileSeparatorStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   /** Title of the tile */

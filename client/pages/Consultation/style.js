@@ -30,9 +30,10 @@ export const ConsultationPageWrapperStyle = styled.div`
   box-sizing: border-box;
   width: 100%;
   max-width: ${intToPx(Layouts.SpecialContainerWidth)};
-  margin: 15px auto;
+  margin: ${props => (props.isGreatCause ? '20px auto' : '0 auto 20px')};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 20px;
+    margin: 20px auto;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     flex-flow: row;
@@ -52,9 +53,10 @@ export const ConsultationPageContentStyle = styled(ContentElementStyle)`
 `;
 
 export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
-  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-bottom: 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin-bottom: 0;
     padding-left: ${pxToPercent(20, 1140)};
     order: 1;
     width: ${pxToPercent(390, 1140)};

@@ -15,7 +15,7 @@ export const ProposalWrapperStyle = styled.div`
   padding: ${intToPx(DefaultPadding.Mobile)};
   background-color: ${BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin: 0 0 15px;
+  margin: 0 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};
     margin: 0 0 30px;
@@ -30,5 +30,5 @@ export const ProposalTitleStyle = styled(FourthLevelTitleStyle)`
 `;
 
 export const LoadMoreWrapperStyle = styled(CenterColumnStyle)`
-  margin-top: 15px;
+  margin-top: 20px;
 `;

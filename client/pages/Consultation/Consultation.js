@@ -14,6 +14,7 @@ import {
   OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
   MUNICIPAL_TEASING_HEADER,
+  CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
 } from 'Shared/constants/featureFlipping';
 import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
@@ -23,6 +24,7 @@ import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
+import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -49,6 +51,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   );
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
+    question.activeFeatures
+  );
+  const isSidebarActiveActors = checkIsFeatureActivated(
+    CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
     question.activeFeatures
   );
   // @todo remove or refactor when Municipales is over
@@ -94,9 +100,12 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       </ConsultationHeaderWrapperStyle>
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
-      <ConsultationPageWrapperStyle>
+      <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ConsultationContent question={question} />
       </ConsultationPageWrapperStyle>
+      {isMobile && isSidebarActiveActors && (
+        <LocalActorsTile question={question} />
+      )}
       {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );
