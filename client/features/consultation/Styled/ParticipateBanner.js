@@ -9,7 +9,10 @@ import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const ParticipateWrapperStyle = styled.div`
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${props =>
+    props.theme.secondaryColor
+      ? props.theme.secondaryColor
+      : BasicColors.PureWhite};
   text-decoration: none;
   padding: 20px 40px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
@@ -41,6 +44,10 @@ export const ParticipateInnerStyle = styled(ColumnToRowElementStyle)`
 export const ParticipateIntroductionStyle = styled(ThirdLevelTitleStyle)`
   display: inline-flex;
   font-family: ${MakeFonts.CircularStandardBold};
+  color: ${props =>
+    props.theme.secondaryFontColor
+      ? props.theme.secondaryFontColor
+      : BasicColors.PureBlack};
   text-transform: none;
   text-align: center;
   width: 100%;
@@ -69,7 +76,10 @@ export const ParticipateSeparatorStyle = styled.div`
     width: 1px;
     min-width: 1px;
     min-height: 75px;
-    background-color: ${BasicColors.PureBlack};
+    background-color: ${props =>
+      props.theme.secondaryFontColor
+        ? props.theme.secondaryFontColor
+        : BasicColors.PureBlack};
     opacity: 0.3;
     margin: 0 20px;
   }

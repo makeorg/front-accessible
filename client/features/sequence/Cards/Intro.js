@@ -17,7 +17,7 @@ import {
   SequenceTitleWrapperStyle,
   SequenceIntroButtonStyle,
   ExtraLogoStyle,
-  SequenceIntroTitleStyle,
+  SequenceMainTitleStyle,
   SequenceIntroParagraphStyle,
   SequencePartnerFooterStyle,
   SequencePartnerListStyle,
@@ -50,7 +50,7 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
     <>
       <SequenceTitleWrapperStyle>
         {extraLogo && <ExtraLogoStyle src={extraLogo} alt="" />}
-        <SequenceIntroTitleStyle>
+        <SequenceMainTitleStyle>
           {title ? (
             <>
               <HiddenItemStyle>{i18n.t('sequence.title')}</HiddenItemStyle>
@@ -59,7 +59,7 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
           ) : (
             i18n.t('intro_card.title')
           )}
-        </SequenceIntroTitleStyle>
+        </SequenceMainTitleStyle>
       </SequenceTitleWrapperStyle>
       <SmallSeparatorWithMarginStyle />
       {descriptionText.split('\n').map(text => (

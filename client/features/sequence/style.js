@@ -26,6 +26,7 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const SequenceStyle = styled.section`
   display: flex;
@@ -128,16 +129,10 @@ export const CardHeaderPreviousIconStyle = styled(IconWrapperStyle)`
   }
 `;
 
-export const SequenceMainTitleStyle = styled.h2`
+export const SequenceMainTitleStyle = styled(SecondLevelTitleStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 18px;
-  line-height: 26px;
   text-transform: none;
   text-align: center;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 42px;
-    line-height: 54px;
-  }
 `;
 
 export const ExtraLogoStyle = styled.img`
@@ -150,10 +145,6 @@ export const ExtraLogoStyle = styled.img`
 
 export const SequenceTitleWrapperStyle = styled.header`
   width: 100%;
-`;
-
-export const SequenceIntroTitleStyle = styled(SequenceMainTitleStyle)`
-  color: ${TextColors.DarkGrey};
 `;
 
 export const SequenceAltMainTitleStyle = styled(SequenceMainTitleStyle)`
