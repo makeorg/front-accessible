@@ -76,7 +76,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <IntroBanner question={question} />
         {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
-      <ConsultationPageWrapperStyle>
+      <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
       {isMobile && isFollowUsActive && <FollowUs />}

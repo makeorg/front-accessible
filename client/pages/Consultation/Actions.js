@@ -8,12 +8,16 @@ import { ActionsContent } from 'Client/features/consultation/Actions';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
 import { useMobile } from 'Client/hooks/useMedia';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
+import {
+  CONSULTATION_FOLLOW_US_ACTIVE,
+  CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
+} from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
+import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -29,6 +33,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
+    question.activeFeatures
+  );
+  const isSidebarActiveActors = checkIsFeatureActivated(
+    CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
     question.activeFeatures
   );
 
@@ -57,9 +65,12 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <IntroBanner question={question} />
         {questionIsGreatCause && <NavigationWithTabs question={question} />}
       </ConsultationHeaderWrapperStyle>
-      <ConsultationPageWrapperStyle className="great-cause-container">
+      <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ActionsContent question={question} />
       </ConsultationPageWrapperStyle>
+      {isMobile && isSidebarActiveActors && (
+        <LocalActorsTile question={question} />
+      )}
       {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );

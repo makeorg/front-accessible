@@ -13,15 +13,9 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   &:last-child {
     margin-bottom: 0;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 `;
 

@@ -4,7 +4,7 @@ import snapshotDiff from 'snapshot-diff';
 import { SvgInfos } from 'Client/ui/Svg/elements';
 import { TileWithTitle } from './index';
 
-jest.mock('Client/ui/Elements/TileWithTitle/Styled', () => ({
+jest.mock('Client/ui/Elements/TileWithTitle/style', () => ({
   TileWithTitleStyle: 'TileWithTitleStyle',
   TileTitleStyle: 'TileTitleStyle',
   TileSeparatorStyle: 'TileSeparatorStyle',

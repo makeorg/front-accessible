@@ -6,7 +6,7 @@ import {
   type Question as TypeQuestion,
   type TypePartner,
 } from 'Shared/types/question';
-import { PresentationTileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
+import { PresentationTileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { DescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { isGreatCause } from 'Shared/helpers/question';

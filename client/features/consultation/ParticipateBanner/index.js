@@ -8,16 +8,18 @@ import { trackOpenSequence } from 'Shared/services/Tracking';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
   ParticipateWrapperStyle,
+  ParticipateInnerStyle,
   ParticipateSeparatorStyle,
   ParticipateIntroductionStyle,
-  ParticipateDescriptionStyle,
 } from 'Client/features/consultation/Styled/ParticipateBanner';
+import { useMobile } from 'Client/hooks/useMedia';
 
 type Props = {
   question: TypeQuestion,
 };
 
 export const ParticipateBanner = ({ question }: Props) => {
+  const isMobile = useMobile();
   const sequenceLink = getSequenceLink(
     question.country,
     question.language,
@@ -26,16 +28,19 @@ export const ParticipateBanner = ({ question }: Props) => {
 
   return (
     <ParticipateWrapperStyle aria-labelledby="participate_aside_title">
-      <ParticipateIntroductionStyle id="participate_aside_title" as="p">
-        {i18n.t('consultation.banner.title')}
-        <ParticipateDescriptionStyle as="span">
-          {i18n.t('consultation.banner.description')}
-        </ParticipateDescriptionStyle>
-      </ParticipateIntroductionStyle>
-      <ParticipateSeparatorStyle />
-      <LinkAsRedButton as={Link} to={sequenceLink} onClick={trackOpenSequence}>
-        {i18n.t('common.participate')}
-      </LinkAsRedButton>
+      <ParticipateInnerStyle>
+        <ParticipateIntroductionStyle id="participate_aside_title" as="p">
+          {i18n.t('consultation.banner.title')}
+        </ParticipateIntroductionStyle>
+        {!isMobile && <ParticipateSeparatorStyle />}
+        <LinkAsRedButton
+          as={Link}
+          to={sequenceLink}
+          onClick={trackOpenSequence}
+        >
+          {i18n.t('common.participate')}
+        </LinkAsRedButton>
+      </ParticipateInnerStyle>
     </ParticipateWrapperStyle>
   );
 };

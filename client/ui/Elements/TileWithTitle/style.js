@@ -4,7 +4,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { FourthLevelTitleStyle } from '../../TitleElements';
+import { FourthLevelTitleStyle } from '../TitleElements';
 
 export const TileWithTitleStyle = styled.div`
   background-color: ${props => props.backgroundColor || BasicColors.PureWhite};

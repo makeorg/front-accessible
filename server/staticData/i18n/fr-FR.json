@@ -159,7 +159,7 @@
     "click_there": "cliquez ici",
     "open_new_window": "Ouverture dans un nouvel onglet",
     "loading": "Merci de patienter pendant le chargement.",
-    "participate": "Participer",
+    "participate": "Participez",
     "vote_on_proposals": "Votez sur les propositions",
     "display_pannel": "Afficher le contenu du panneau déroulant",
     "hide_pannel": "Masquer le contenu du panneau déroulant",
@@ -630,7 +630,7 @@
       "popular_title": "Les sujets les plus discutés"
     },
     "banner": {
-      "title": "Donnez votre avis en 3 minutes",
+      "title": "Proposez vos solutions et votez sur celles des autres",
       "description": "sur une série de propositions aléatoires"
     },
     "proposal": {
@@ -894,7 +894,7 @@
     "make_phone_number": "01 44 74 77 46",
     "director": "Directeur de Publication : ",
     "host": "Hébergeur du site : ",
-    "host_address": "OVH, 2 rue Kellermann, 59100, ROUBAIX", 
+    "host_address": "OVH, 2 rue Kellermann, 59100, ROUBAIX FRANCE", 
     "host_phone": "Numéro de téléphone : ",
     "host_phone_number": "08 99 70 17 61",
     "cnil": "Numéro de déclaration CNIL : ",

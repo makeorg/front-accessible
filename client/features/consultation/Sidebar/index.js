@@ -48,7 +48,9 @@ export const ConsultationSidebar = ({ question }: Props) => {
       {isGreatCause(question.operationKind) && (
         <PartnersTile question={question} />
       )}
-      {isSidebarActiveActors && <LocalActorsTile question={question} />}
+      {isSidebarActiveActors && !isMobile && (
+        <LocalActorsTile question={question} />
+      )}
       {question.displayResults && <MethodologyTile />}
       {/* @todo remove or refactor when CDC consultation is over */}
       {isActiveFeature(CONSULTATION_DEPARTMENT_COMPULSORY) && departmentNumber && (

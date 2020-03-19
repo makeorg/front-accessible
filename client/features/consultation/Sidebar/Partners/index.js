@@ -8,7 +8,7 @@ import {
 } from 'Shared/types/question';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/Styled';
+import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { getPartnerAnchor, getSequenceLink } from 'Shared/helpers/url';
 import {
   trackSeeMorePartners,
