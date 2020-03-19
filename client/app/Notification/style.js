@@ -34,7 +34,7 @@ export const NotificationWrapperStyle = styled.section`
 
 export const NotificationContentStyle = styled(ParagraphStyle)`
   display: flex;
-  align-items: end;
+  align-items: center;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding-right: ${intToPx(DefaultPadding.Mobile)};
