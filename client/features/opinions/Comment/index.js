@@ -43,6 +43,12 @@ const handleClickProfile = () => {
 
 export const OpinionComment = ({ question, comment }: Props) => {
   const isMobile = useMobile();
+  const {
+    politicalParty,
+    displayName,
+    personalityId,
+    avatarUrl,
+  } = comment.personality;
 
   return (
     <ProposalCardStyle>
@@ -51,15 +57,15 @@ export const OpinionComment = ({ question, comment }: Props) => {
           to={getPersonalityProfileLink(
             question.country,
             question.language,
-            comment.personality.personalityId
+            personalityId
           )}
           onClick={handleClickProfile}
         >
           <Avatar
-            avatarUrl={comment.personality.avatarUrl}
+            avatarUrl={avatarUrl}
             avatarSize={isMobile ? 35 : 50}
             avatarAlt={i18n.t('consultation.partners.profile_link', {
-              name: comment.personality.displayName,
+              name: displayName,
             })}
           />
         </Link>
@@ -70,17 +76,15 @@ export const OpinionComment = ({ question, comment }: Props) => {
                 to={getPersonalityProfileLink(
                   question.country,
                   question.language,
-                  comment.personality.personalityId
+                  personalityId
                 )}
                 onClick={handleClickProfile}
               >
-                {comment.personality.displayName}
+                {displayName}
               </CandidateLinkStyle>
               <SvgCheckedSymbol style={CertifiedIconStyle} />
             </OpinionCommentAuthorStyle>
-            <PoliticalPartyStyle>
-              {comment.personality.politicalParty}
-            </PoliticalPartyStyle>
+            <PoliticalPartyStyle>{politicalParty}</PoliticalPartyStyle>
           </ColumnElementStyle>
         ) : (
           <MiddleRowStyle>
@@ -88,17 +92,19 @@ export const OpinionComment = ({ question, comment }: Props) => {
               to={getPersonalityProfileLink(
                 question.country,
                 question.language,
-                comment.personality.personalityId
+                personalityId
               )}
               onClick={handleClickProfile}
             >
-              {comment.personality.displayName}
+              {displayName}
             </CandidateLinkStyle>
             <SvgCheckedSymbol style={CertifiedIconStyle} />
-            <PoliticalPartyStyle>
-              &nbsp;&bull;&nbsp;
-              {comment.personality.politicalParty}
-            </PoliticalPartyStyle>
+            {politicalParty && (
+              <PoliticalPartyStyle>
+                &nbsp;&bull;&nbsp;
+                {politicalParty}
+              </PoliticalPartyStyle>
+            )}
           </MiddleRowStyle>
         )}
       </FlexElementStyle>
