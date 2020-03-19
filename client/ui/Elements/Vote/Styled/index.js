@@ -18,6 +18,7 @@ export const ButtonStyle = styled.button`
   border-radius: 50%;
   border-color: ${props => props.color};
   overflow: hidden;
+  padding: 0;
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     width: 43px;
     height: 43px;
