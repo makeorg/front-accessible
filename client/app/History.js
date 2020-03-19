@@ -6,7 +6,10 @@ import { Store } from 'redux';
 export const history = createBrowserHistory();
 
 export const initHistory = (store: Store) => {
-  history.listen(() => {
+  history.listen(location => {
     store.dispatch(unloadCurrentQuestion());
+    if (location.pathname === '/soon' && window) {
+      window.location.reload();
+    }
   });
 };

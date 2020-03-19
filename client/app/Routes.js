@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 import loadable from '@loadable/component';
 import {
   ROUTE_SEARCH,
@@ -32,6 +33,11 @@ import {
   ROUTE_TOP_IDEA_DETAILS,
   ROUTE_PROFILE_OPINIONS,
   ROUTE_STATIC_NOTFOUND,
+  ROUTE_STATIC_LEGAL_EN,
+  ROUTE_STATIC_GTU_EN,
+  ROUTE_STATIC_DATA_EN,
+  ROUTE_STATIC_CONTACT_EN,
+  ROUTE_SOON,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -83,6 +89,7 @@ const Contact = loadable(() => import('Client/pages/Static/Contact'));
 
 export const Routes = () => {
   const location = useLocation();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   React.useEffect(() => {
     TwitterUniversalTag.pageView();
@@ -120,12 +127,23 @@ export const Routes = () => {
       />
       <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
       <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
+
       <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
       <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
       <Route path={ROUTE_STATIC_DATA} component={Data} />
       <Route path={ROUTE_STATIC_CONTACT} component={Contact} />
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      <Route exact path="/" component={HomePage} />
+
+      {/* Routes used for en language */}
+      <Route path={ROUTE_STATIC_LEGAL_EN} component={LegalPage} />
+      <Route path={ROUTE_STATIC_GTU_EN} component={TermsOfUse} />
+      <Route path={ROUTE_STATIC_DATA_EN} component={Data} />
+      <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
+
+      <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
+      {country === 'FR' && <Route exact path="/" component={HomePage} />}
+      {country !== 'FR' && <Redirect exact path="/" to={ROUTE_SOON} />}
+
       <Route component={NotFoundPage} />
     </Switch>
   );
