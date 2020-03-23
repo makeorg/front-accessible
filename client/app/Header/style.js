@@ -78,12 +78,22 @@ export const ProfileAccessLinkStyle = styled(Link)`
   }
 `;
 
-export const WhoAreWeLinkStyle = styled(ProfileAccessLinkStyle)`
+export const WhoAreWeLinkStyle = styled.a`
   color: ${MakeThemeColors.Red};
   justify-self: flex-end;
   margin-right: ${intToPx(DefaultPadding.Desktop)};
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
+  display: inline-flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
   &:hover,
   &:focus {
     color: ${MakeThemeColors.Red};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 16px;
   }
 `;

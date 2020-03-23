@@ -61,3 +61,11 @@ export const FooterItemLinkStyle = styled(Link)`
   font-size: 14px;
   line-height: 1.43;
 `;
+
+export const FooterItemHTMLLinkStyle = styled.a`
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 1.43;
+`;

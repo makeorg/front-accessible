@@ -30,6 +30,7 @@ import {
   FooterItemStyle,
   FooterItemListStyle,
   FooterItemLinkStyle,
+  FooterItemHTMLLinkStyle,
 } from './style';
 
 /**
@@ -55,44 +56,34 @@ export const Footer = () => {
         <FooterItemListStyle>
           {isFR && (
             <FooterItemStyle>
-              <FooterItemLinkStyle
-                as="a"
-                href={JOBS_LINK}
-                to={JOBS_LINK}
-                dangerouslySetInnerHTML={{ __html: i18n.t('main-footer.jobs') }}
-              />
+              <FooterItemHTMLLinkStyle href={JOBS_LINK} to={JOBS_LINK}>
+                {i18n.t('main-footer.jobs')}
+              </FooterItemHTMLLinkStyle>
             </FooterItemStyle>
           )}
           {!isDesktop && (
             <FooterItemStyle>
-              <FooterItemLinkStyle
-                as="a"
+              <FooterItemHTMLLinkStyle
                 href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
               >
                 {i18n.t('main-footer.whoarewe')}
-              </FooterItemLinkStyle>
+              </FooterItemHTMLLinkStyle>
             </FooterItemStyle>
           )}
           {isFR && (
             <>
               <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
+                <FooterItemHTMLLinkStyle
                   href={NEWS_LINK}
-                  to={NEWS_LINK}
                   onClick={trackClickViewBlog}
                 >
                   {i18n.t('main-footer.news')}
-                </FooterItemLinkStyle>
+                </FooterItemHTMLLinkStyle>
               </FooterItemStyle>
               <FooterItemStyle>
-                <FooterItemLinkStyle
-                  as="a"
-                  href={DOTATION_FUNDS_LINK}
-                  to={DOTATION_FUNDS_LINK}
-                >
+                <FooterItemHTMLLinkStyle href={DOTATION_FUNDS_LINK}>
                   {i18n.t('main-footer.dotation_funds')}
-                </FooterItemLinkStyle>
+                </FooterItemHTMLLinkStyle>
               </FooterItemStyle>
             </>
           )}
