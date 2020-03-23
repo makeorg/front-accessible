@@ -37,6 +37,18 @@ test:
     - yarn install
     - yarn test-with-coverage-codacy
 
+jscpd:
+  stage: check
+  image: node:11.14
+  script:
+    - yarn install
+    - yarn jscpd
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+      - reports
+  
 e2e-test:
   stage: e2e
   image: cypress/base:12.13.0
