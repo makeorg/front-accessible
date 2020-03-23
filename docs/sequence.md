@@ -1,12 +1,3 @@
-# Sequence configuration 
-
-There is 2 ways to configure the Sequence :
-- in [operationsParams json](https://gitlab.com/makeorg/platform/front-accessible/tree/preproduction/server/staticData/operationsParams) of each consultation
-- with query params in url
-
-Query params prevail over operationsParams.
-
-___ 
 
 ## Operations Params
 
