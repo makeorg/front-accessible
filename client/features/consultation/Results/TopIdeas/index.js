@@ -41,6 +41,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
             name: topIdea.name,
           })}
           open={index === 0}
+          noMargin
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (

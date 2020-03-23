@@ -20,6 +20,8 @@ type Props = {
   open?: boolean,
   /** Set collapse styling like a Tile Component */
   withTileStyle?: boolean,
+  /** Optional boolean to avoid margin */
+  noMargin?: boolean,
 };
 
 export const Collapse = ({
@@ -27,6 +29,7 @@ export const Collapse = ({
   children,
   open = false,
   withTileStyle = false,
+  noMargin = false,
 }: Props) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(!open);
 
@@ -39,6 +42,7 @@ export const Collapse = ({
     <CollapseWrapperStyle
       as={withTileStyle ? TileWithCollapseWrapperStyle : CollapseWrapperStyle}
       className={isCollapsed && 'collapsed'}
+      noMargin={noMargin}
     >
       <CollapseTriggerStyle
         onClick={toggleCollapse}

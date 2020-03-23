@@ -90,6 +90,7 @@ export type TypeHistogram = {
 export type QuestionResults = {
   context: string,
   reports: ?Array<TypeReports>,
+  contact: boolean,
   key_figures: {
     participants: number,
     proposals: number,
