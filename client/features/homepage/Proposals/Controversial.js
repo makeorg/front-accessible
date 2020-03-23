@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { useDesktop } from 'Client/hooks/useMedia';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import {
@@ -14,7 +14,7 @@ import {
 import { ProposalsShowcase } from './Slider';
 
 type ControversialProposalsProps = {
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
 };
 
 export const ControversialProposals = ({

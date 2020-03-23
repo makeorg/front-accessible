@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type TypePartner } from 'Shared/types/question';
+import { type PartnerType } from 'Shared/types/question';
 import { FOUNDER_PARTNER, MEDIA_PARTNER } from 'Shared/constants/partner';
 import { SidebarSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { PartnersList } from '../Partners/List';
@@ -9,12 +9,12 @@ import { FoundersTitleStyle } from './style';
 
 type Props = {
   isGreatCause: boolean,
-  founders: TypePartner[],
+  founders: PartnerType[],
 };
 
 type PartnersTypeListProps = {
   isGreatCause: boolean,
-  partners: TypePartner[],
+  partners: PartnerType[],
 };
 
 const PartnersListByType = ({

@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import {
   trackDisplaySequence,
   trackClickConsultation,
@@ -29,7 +29,7 @@ import {
 import { withQuestionData } from './fetchQuestionData';
 
 type Props = {
-  question: Question,
+  question: QuestionType,
 };
 
 const SequencePageContainer = ({ question }: Props) => {

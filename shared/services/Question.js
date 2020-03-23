@@ -1,17 +1,17 @@
 // @flow
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import {
-  type Question as TypeQuestion,
+  type QuestionType,
   type QuestionPartnerType,
 } from 'Shared/types/question';
-import { type TypeTag } from 'Shared/types/tag';
-import { type TypePersonality } from 'Shared/types/user';
+import { type TagType } from 'Shared/types/tag';
+import { type PersonalityType } from 'Shared/types/user';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const getDetail = async (
   questionSlugOrId: string,
   notFound: () => void = () => {}
-): Promise<?TypeQuestion> => {
+): Promise<?QuestionType> => {
   try {
     const response = await QuestionApiService.getDetail(questionSlugOrId);
 
@@ -33,7 +33,7 @@ const searchQuestions = async (
   country: string,
   language: string,
   content: string
-): Promise<?{ total: number, results: TypeQuestion[] }> => {
+): Promise<?{ total: number, results: QuestionType[] }> => {
   try {
     const response = await QuestionApiService.searchQuestions(
       country,
@@ -53,7 +53,7 @@ const getQuestionPopularTags = async (
   questionId: string,
   limit: ?number = undefined,
   skip: ?number = undefined
-): Promise<?(TypeTag[])> => {
+): Promise<?(TagType[])> => {
   try {
     const response = await QuestionApiService.getQuestionPopularTags(
       questionId,
@@ -98,7 +98,7 @@ const getQuestionPersonalities = async (
   personalityRole: ?string = undefined,
   limit: ?number = undefined,
   skip: ?number = undefined
-): Promise<?{ total: number, results: TypePersonality[] }> => {
+): Promise<?{ total: number, results: PersonalityType[] }> => {
   try {
     const response = await QuestionApiService.getQuestionPersonalities(
       questionId,

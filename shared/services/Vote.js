@@ -1,13 +1,13 @@
 // @flow
 import { VoteApiService } from 'Shared/api/VoteApiService';
-import { type Vote as TypeVote } from 'Shared/types/vote';
+import { type VoteType } from 'Shared/types/vote';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const vote = async (
   proposalId: string,
   voteKey: string,
   proposalKey: string
-): Promise<?TypeVote> => {
+): Promise<?VoteType> => {
   try {
     const response = await VoteApiService.vote(
       proposalId,
@@ -27,7 +27,7 @@ const unvote = async (
   proposalId: string,
   voteKey: string,
   proposalKey: string
-): Promise<?TypeVote> => {
+): Promise<?VoteType> => {
   try {
     const response = await VoteApiService.unvote(
       proposalId,

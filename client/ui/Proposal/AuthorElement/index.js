@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { DateHelper } from 'Shared/helpers/date';
 import {
   getOrganisationProfileLink,
@@ -30,7 +30,7 @@ import {
 
 type Props = {
   /** Object with author's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Include avatar */
   withAvatar?: boolean,
   /** Include creation date */

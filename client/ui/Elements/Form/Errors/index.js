@@ -1,6 +1,6 @@
 // @flow
 import React, { useRef, useLayoutEffect } from 'react';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { i18n } from 'Shared/i18n';
 import {
@@ -10,7 +10,7 @@ import {
 } from '../Styled/Errors';
 
 type Props = {
-  errors: TypeErrorObject[],
+  errors: ErrorObjectType[],
 };
 
 export const FormErrors = ({ errors }: Props) => {

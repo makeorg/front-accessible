@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type FeaturedConsultationType } from 'Shared/types/views';
 import { FeaturedArticle } from '../Article';
 import { FeaturedArticleWrapperStyle, FeaturedArticleStyle } from '../Styled';
 
 type Props = {
-  featureds: TypeFeaturedConsultation[],
+  featureds: FeaturedConsultationType[],
   country: string,
   language: string,
 };

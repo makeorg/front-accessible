@@ -1,6 +1,6 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type QuestionResults as TypeQuestionResults } from 'Shared/types/question';
+import { type QuestionResultsType } from 'Shared/types/question';
 import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
@@ -15,7 +15,7 @@ import {
 } from 'Shared/constants/ids';
 
 type Props = {
-  questionResults: TypeQuestionResults,
+  questionResults: QuestionResultsType,
 };
 
 export const ResultsSkipLinks = ({ questionResults }: Props) => (

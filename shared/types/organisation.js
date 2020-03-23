@@ -1,10 +1,8 @@
 // @flow
-import {
-  type Proposal as TypePropsal,
-  type Vote as TypeVote,
-} from './proposal';
+import { type ProposalType } from './proposal';
+import { type VoteType } from './vote';
 
-export type Organisation = {
+export type OrganisationType = {
   avatarUrl: string,
   country: string,
   description: string,
@@ -18,20 +16,20 @@ export type Organisation = {
   website: string,
 };
 
-export type OrganisationVote = {
-  proposal: TypePropsal,
+export type OrganisationVoteType = {
+  proposal: ProposalType,
   vote: string,
   voteDate: string,
-  voteDetails: TypeVote,
+  voteDetails: VoteType,
 };
 
 export type OrganisationVotesType = {
   total: number,
   seed: number,
-  results: OrganisationVote[],
+  results: OrganisationVoteType[],
 };
 
-export type OrganisationSoft = {
+export type OrganisationSoftType = {
   organisationId: string,
   organisationName: string,
   organisationSlug: string,
@@ -39,5 +37,5 @@ export type OrganisationSoft = {
 
 export type OrganisationsType = {
   total: number,
-  results: Organisation[],
+  results: OrganisationType[],
 };

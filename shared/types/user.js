@@ -1,7 +1,7 @@
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 
 // @flow
-export type TypeProfile = {
+export type ProfileType = {
   dateOfBirth: string,
   avatarUrl: string,
   profession: string,
@@ -23,7 +23,7 @@ export type TypeProfile = {
   politicalParty: string,
 };
 
-export type TypePersonality = {
+export type PersonalityType = {
   userId: string,
   firstName: string,
   lastName: string,
@@ -32,7 +32,7 @@ export type TypePersonality = {
   gender: string,
 };
 
-export type TypeUser = {
+export type UserType = {
   userId: string,
   email: string,
   firstName: string,
@@ -56,12 +56,12 @@ export type TypeUser = {
   userType: string,
 };
 
-export type TypePasswords = {
+export type PasswordsType = {
   newPassword: string,
   actualPassword: string,
 };
 
-export type TypeUserInformationForm = {
+export type UserInformationFormType = {
   firstName: string,
   lastName: string,
   organisationName: string,
@@ -73,18 +73,10 @@ export type TypeUserInformationForm = {
   website: string,
 };
 
-export type UserInformationFormErrors = {
-  firstName?: string,
-  age?: string,
-  profession?: string,
-  postalCode?: string,
-  description?: string,
-};
-
-export type TypeSearchProposals = {
+export type SearchProposalsType = {
   total: number,
   seed?: number,
-  results: TypeProposal[],
+  results: ProposalType[],
 };
 
 export type UserAuthType = {

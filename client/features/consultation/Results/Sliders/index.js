@@ -1,6 +1,6 @@
 // @flow
 import React, { useRef } from 'react';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
 import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
 import { ChartType } from 'Client/ui/Data';
@@ -21,7 +21,7 @@ type Props = {
 export const ResultsSlider = ({ data, sliderName }: Props) => {
   const sliderRef = useRef();
   const dataLength = data.length;
-  const sliderParams: TypeSliderParams = {
+  const sliderParams: SliderParamsType = {
     slidesToShow: 1,
     arrows: {
       prev: `.${sliderName}.glider-prev`,

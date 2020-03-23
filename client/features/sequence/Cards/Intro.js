@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
-import { type IntroCardConfig } from 'Shared/types/card';
+import { type IntroCardConfigType } from 'Shared/types/card';
 import {
   trackDisplayIntroCard,
   trackClickStartSequence,
@@ -26,7 +26,7 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Intro Card */
-  configuration: IntroCardConfig,
+  configuration: IntroCardConfigType,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
 };

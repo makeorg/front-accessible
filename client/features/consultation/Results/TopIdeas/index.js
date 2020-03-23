@@ -4,7 +4,7 @@ import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import React from 'react';
 import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
 import { i18n } from 'Shared/i18n';
-import { TypeThemeItem } from 'Shared/types/question';
+import { ThemeItemType } from 'Shared/types/question';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 import {
@@ -20,8 +20,8 @@ import {
 
 type Props = {
   topIdeas: {
-    first_theme: TypeThemeItem,
-    second_theme: TypeThemeItem,
+    first_theme: ThemeItemType,
+    second_theme: ThemeItemType,
   },
 };
 

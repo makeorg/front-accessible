@@ -1,8 +1,8 @@
 // @flow
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { type Question } from 'Shared/types/question';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type QuestionType } from 'Shared/types/question';
+import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
 import { fetchPopularProposals } from 'Shared/store/reducers/questions/actions';
 import {
@@ -30,13 +30,13 @@ import {
 } from './style';
 
 type Props = {
-  question: Question,
+  question: QuestionType,
   position: number,
   size: number,
 };
 
 const sliderName = 'popularProposals';
-const sliderParams: TypeSliderParams = {
+const sliderParams: SliderParamsType = {
   slidesToShow: 1.15,
   draggable: true,
   responsive: [

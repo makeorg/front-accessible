@@ -3,7 +3,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type FeaturedConsultationType } from 'Shared/types/views';
 import { type StateRoot } from 'Shared/store/types';
 import { useTablet } from 'Client/hooks/useMedia';
 import {
@@ -15,7 +15,7 @@ import { DesktopTwoColumns } from './Layouts/DesktopTwoColumns';
 import { FeaturedMobile } from './Layouts/Mobile';
 
 export type TypeFeaturedsProps = {
-  featureds: TypeFeaturedConsultation[],
+  featureds: FeaturedConsultationType[],
 };
 
 export const FeaturedConsultations = ({ featureds }: TypeFeaturedsProps) => {
@@ -51,7 +51,7 @@ export const FeaturedConsultations = ({ featureds }: TypeFeaturedsProps) => {
 };
 
 type FeaturedDesktopProps = {
-  featureds: TypeFeaturedConsultation[],
+  featureds: FeaturedConsultationType[],
   country: string,
   language: string,
 };

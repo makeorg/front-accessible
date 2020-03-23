@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { sortSlotsBySmallest, swapIndexes } from 'Shared/helpers/views';
-import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type FeaturedConsultationType } from 'Shared/types/views';
 import { FeaturedArticle } from '../Article';
 import {
   FeaturedArticleWrapperStyle,
@@ -10,7 +10,7 @@ import {
 } from '../Styled';
 
 type Props = {
-  featureds: TypeFeaturedConsultation[],
+  featureds: FeaturedConsultationType[],
   country: string,
   language: string,
 };

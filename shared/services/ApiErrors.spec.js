@@ -1,9 +1,9 @@
 // @flow
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { mapErrors } from './ApiErrors';
 
 describe('mapErrors', () => {
-  const internalErrors: TypeErrorObject[] = [
+  const internalErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooKey',
@@ -21,7 +21,7 @@ describe('mapErrors', () => {
     },
   ];
 
-  const apiErrors: TypeErrorObject[] = [
+  const apiErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooKey',
@@ -39,7 +39,7 @@ describe('mapErrors', () => {
     },
   ];
 
-  const badFieldErrors: TypeErrorObject[] = [
+  const badFieldErrors: ErrorObjectType[] = [
     {
       field: 'fooBad',
       key: 'fooKey',
@@ -57,7 +57,7 @@ describe('mapErrors', () => {
     },
   ];
 
-  const badFieldExpectedErrors: TypeErrorObject[] = [
+  const badFieldExpectedErrors: ErrorObjectType[] = [
     {
       field: 'foobad',
       key: 'fooKey',
@@ -75,7 +75,7 @@ describe('mapErrors', () => {
     },
   ];
 
-  const badKeyErrors: TypeErrorObject[] = [
+  const badKeyErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooBadKey',
@@ -93,7 +93,7 @@ describe('mapErrors', () => {
     },
   ];
 
-  const badKeyExpectedErrors: TypeErrorObject[] = [
+  const badKeyExpectedErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooBadKey',

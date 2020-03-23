@@ -6,9 +6,9 @@ import {
   getCardIndex,
 } from 'Shared/helpers/sequence';
 import { type StateRoot } from 'Shared/store/types';
-import { type TypeSequenceCard } from 'Shared/types/card';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type SequenceCardType } from 'Shared/types/card';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type QuestionType } from 'Shared/types/question';
 import { searchFirstUnvotedProposal } from 'Shared/helpers/proposal';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
@@ -40,7 +40,7 @@ import {
 
 export type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: TypeQuestion,
+  question: QuestionType,
   /** Boolean toggled when Sequence is collapsed / expanded */
   isClosed: boolean,
   /** Method called when "Return to proposal" button is clicked */
@@ -72,7 +72,7 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
         const proposalIds = votedProposalIds[question.slug] || [];
 
         if (sequenceProposals && sequenceProposals.length) {
-          const buildedCards: TypeSequenceCard[] = buildCards(
+          const buildedCards: SequenceCardType[] = buildCards(
             sequenceProposals,
             question.sequenceConfig,
             isLoggedIn,
@@ -82,7 +82,7 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
 
           const firstUnvotedProposal:
             | typeof undefined
-            | TypeProposal = searchFirstUnvotedProposal(sequenceProposals);
+            | ProposalType = searchFirstUnvotedProposal(sequenceProposals);
 
           const indexOfFirstUnvotedCard: number = findIndexOfFirstUnvotedCard(
             firstUnvotedProposal,

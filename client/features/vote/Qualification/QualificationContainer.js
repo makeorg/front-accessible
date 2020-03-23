@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { type QualificationType } from 'Shared/types/proposal';
 import {
   doUpdateState,
   startPendingState,
@@ -9,7 +8,7 @@ import {
 import { trackQualify, trackUnqualify } from 'Shared/services/Tracking';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { QualificationService } from 'Shared/services/Qualification';
-import { type Qualification as TypeQualification } from 'Shared/types/qualification';
+import { type QualificationType } from 'Shared/types/qualification';
 import { QualificationComponent } from './QualificationComponent';
 
 type Props = {
@@ -55,7 +54,7 @@ export class QualificationContainer extends React.Component<Props, State> {
   handleUnqualify = async (qualificationKey: string, voteKey: string) => {
     const { proposalId, proposalKey, index } = this.props;
 
-    const qualificationResult: ?TypeQualification = await QualificationService.unqualify(
+    const qualificationResult: ?QualificationType = await QualificationService.unqualify(
       proposalId,
       proposalKey,
       voteKey,
@@ -81,7 +80,7 @@ export class QualificationContainer extends React.Component<Props, State> {
   handleQualify = async (qualificationKey: string, voteKey: string) => {
     const { proposalId, proposalKey, index } = this.props;
 
-    const qualificationResult: ?TypeQualification = await QualificationService.qualify(
+    const qualificationResult: ?QualificationType = await QualificationService.qualify(
       proposalId,
       proposalKey,
       voteKey,

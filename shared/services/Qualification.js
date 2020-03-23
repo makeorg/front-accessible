@@ -1,6 +1,6 @@
 // @flow
 import { QualificationApiService } from 'Shared/api/QualificationApiService';
-import { type Qualification as TypeQualification } from 'Shared/types/qualification';
+import { type QualificationType } from 'Shared/types/qualification';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const qualify = async (
@@ -9,7 +9,7 @@ const qualify = async (
   voteKey: string,
   qualificationKey: string,
   unexpectedError: () => void
-): Promise<?TypeQualification> => {
+): Promise<?QualificationType> => {
   try {
     const response = await QualificationApiService.qualify(
       proposalId,
@@ -33,7 +33,7 @@ const unqualify = async (
   voteKey: string,
   qualificationKey: string,
   unexpectedError: () => void
-): Promise<?TypeQualification> => {
+): Promise<?QualificationType> => {
   try {
     const response = await QualificationApiService.unqualify(
       proposalId,

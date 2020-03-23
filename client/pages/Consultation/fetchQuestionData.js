@@ -6,8 +6,8 @@ import { type match as TypeMatch } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import { MetaTags } from 'Client/app/MetaTags';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
 import { loadQuestion } from 'Shared/store/actions/sequence';
 import { selectQuestionData } from 'Shared/store/selectors/questions.selector';
@@ -18,8 +18,8 @@ import { QuestionService } from 'Shared/services/Question';
 import { NotFoundPage } from '../NotFound';
 
 type Props = {
-  question: TypeQuestion,
-  questionResults: TypeQuestionResults,
+  question: QuestionType,
+  questionResults: QuestionResultsType,
   match: TypeMatch,
 };
 
@@ -28,7 +28,7 @@ export const PageQuestionWrapper = ({
   question,
 }: {
   children: Node,
-  question: TypeQuestion,
+  question: QuestionType,
 }) => {
   const { metas } = question.wording;
   return (

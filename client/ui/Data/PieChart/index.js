@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { type TypePieChartData } from 'Shared/types/question';
+import { type PieChartDataType } from 'Shared/types/question';
 import { useMobile } from 'Client/hooks/useMedia';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -15,7 +15,7 @@ type Props = {
   unit: string,
   name: string,
   legend: string,
-  data: TypePieChartData[],
+  data: PieChartDataType[],
 };
 
 export const PieChart = ({ unit, name, legend, data }: Props) => {

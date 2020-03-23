@@ -1,7 +1,7 @@
 // @flow
-import { type QuestionExtraSlidesConfig as TypeQuestionExtraSlidesConfig } from 'Shared/types/question';
-import { type TypeSequenceCard } from 'Shared/types/card';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type QuestionExtraSlidesConfigType } from 'Shared/types/question';
+import { type SequenceCardType } from 'Shared/types/card';
+import { type ProposalType } from 'Shared/types/proposal';
 import {
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -44,12 +44,12 @@ export const getCardIndex = (index: number = 0) => `cardKey_${index}`;
 /**
  * Find the index of first no voted card
  * @param  {Object} firstNoVotedProposal
- * @param  {TypeSequenceCard[]} cards
+ * @param  {SequenceCardType[]} cards
  * @return {number}
  */
 export const findIndexOfFirstUnvotedCard = (
-  firstUnvotedProposal?: TypeProposal,
-  cards: TypeSequenceCard[],
+  firstUnvotedProposal?: ProposalType,
+  cards: SequenceCardType[],
   currentIndex: number
 ): number => {
   if (!firstUnvotedProposal) {
@@ -73,17 +73,17 @@ export const findIndexOfFirstUnvotedCard = (
 
 /**
  * Build cards array
- * @param  {TypeProposal[]} proposals
- * @param  {TypeQuestionExtraSlidesConfig} extraSlidesConfig
- * @return {TypeSequenceCard[]}
+ * @param  {ProposalType[]} proposals
+ * @param  {QuestionExtraSlidesConfigType} extraSlidesConfig
+ * @return {SequenceCardType[]}
  */
 export const buildCards = (
-  proposals: TypeProposal[],
-  extraSlidesConfig: TypeQuestionExtraSlidesConfig,
+  proposals: ProposalType[],
+  extraSlidesConfig: QuestionExtraSlidesConfigType,
   isLoggedIn: boolean,
   hasProposed: boolean,
   canPropose: boolean
-): TypeSequenceCard[] => {
+): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
     extraSlidesConfig.pushProposalCard.enabled &&
@@ -100,7 +100,7 @@ export const buildCards = (
 
   const cardOffset = withIntroCard ? 0 : 1;
 
-  const cards: TypeSequenceCard[] = proposals.map(proposal => ({
+  const cards: SequenceCardType[] = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
     configuration: proposal,
     offset: cardOffset,

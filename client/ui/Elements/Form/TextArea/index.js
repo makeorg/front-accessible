@@ -1,5 +1,5 @@
 import React from 'react';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 import { throttle } from 'Shared/helpers/throttle';
 import { BasicTextAreaStyle, TextAreaCounterStyle } from '../Styled/TextArea';
@@ -22,7 +22,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Array containing form errors */
-  errors?: TypeErrorObject[],
+  errors?: ErrorObjectType[],
   /** Is input required or optional */
   required?: boolean,
   /** Setting rows attribute for Textarea */

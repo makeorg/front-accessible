@@ -1,5 +1,5 @@
 // @flow
-import { type TypeUser } from 'Shared/types/user';
+import { type UserType } from 'Shared/types/user';
 import {
   type PersonalityCommentsType,
   type PersonalityOpinionType,
@@ -7,7 +7,7 @@ import {
 import { PersonalityApiService } from 'Shared/api/PersonalityApiService';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-const getPersonalityById = async (userId: string): Promise<?TypeUser> => {
+const getPersonalityById = async (userId: string): Promise<?UserType> => {
   try {
     const response = await PersonalityApiService.getPersonality(userId);
 

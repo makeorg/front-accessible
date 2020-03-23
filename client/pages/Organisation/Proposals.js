@@ -1,11 +1,8 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { OrganisationService } from 'Shared/services/Organisation';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
-import {
-  type Proposal as TypeProposal,
-  type ProposalsType,
-} from 'Shared/types/proposal';
+import { type OrganisationType } from 'Shared/types/organisation';
+import { type ProposalType, type ProposalsType } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
@@ -28,11 +25,11 @@ import {
 import { OrganisationProposalsPlaceholder } from './Placeholders/Proposals';
 
 type Props = {
-  organisation: TypeOrganisation,
+  organisation: OrganisationType,
 };
 
 const OrganisationProposalsPage = ({ organisation }: Props) => {
-  const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const [proposals, setProposals] = useState<ProposalType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState(undefined);

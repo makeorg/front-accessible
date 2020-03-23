@@ -1,5 +1,5 @@
 import React from 'react';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
@@ -9,7 +9,7 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
 
 type Props = {
-  question: Question,
+  question: QuestionType,
 };
 
 export const ConsultationProposalComponent = ({ question }: Props) => {

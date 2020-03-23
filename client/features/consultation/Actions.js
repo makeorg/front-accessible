@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import {
   ConsultationPageContentStyle,
   ConsultationPageSidebarStyle,
@@ -18,7 +18,7 @@ import { SupportContent } from 'Client/features/consultation/Actions/Support';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const ActionsContent = ({ question }: Props) => {

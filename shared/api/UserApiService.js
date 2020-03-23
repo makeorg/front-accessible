@@ -1,6 +1,6 @@
 // @flow
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
-import { type ApiServiceHeaders } from 'Shared/types/api';
+import { type ApiServiceHeadersType } from 'Shared/types/api';
 import { setEmptyStringToNull } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { ApiService } from './ApiService';
@@ -196,13 +196,13 @@ export class UserApiService {
    * Request a verification user
    * @param  {String}  userId
    * @param  {String}  verificationToken
-   * @param  {ApiServiceHeaders} headers
+   * @param  {ApiServiceHeadersType} headers
    * @return {Promise}
    */
   static verifyUser(
     userId: string,
     verificationToken: string,
-    headers: ApiServiceHeaders = {}
+    headers: ApiServiceHeadersType = {}
   ): Promise<any> {
     const newPath = PATH_USER_VERIFICATION.replace(':userId', userId).replace(
       ':verificationToken',
@@ -219,13 +219,13 @@ export class UserApiService {
    * Check forgot password token validity
    * @param  {String}            userId
    * @param  {String}            resetToken
-   * @param  {ApiServiceHeaders} headers
+   * @param  {ApiServiceHeadersType} headers
    * @return {Promise}
    */
   static resetPasswordTokenCheck(
     userId: string,
     resetToken: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_RESET_TOKEN_CHECK.replace(':userId', userId).replace(
@@ -244,14 +244,14 @@ export class UserApiService {
    * @param  {String}  newPassword
    * @param  {String}  resetToken
    * @param  {String}  userId
-   * @param  {ApiServiceHeaders} headers
+   * @param  {ApiServiceHeadersType} headers
    * @return {Promise}
    */
   static changePassword(
     newPassword: string,
     resetToken: string,
     userId: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_CHANGE_PASSWORD.replace(':userId', userId),
@@ -267,13 +267,13 @@ export class UserApiService {
    * delete account
    * @param  {String}  userId
    * @param  {String}  password
-   * @param  {ApiServiceHeaders} headers
+   * @param  {ApiServiceHeadersType} headers
    * @return {Promise}
    */
   static deleteAccount(
     userId: string,
     password?: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_USER_DELETE_ACCOUNT.replace(':userId', userId),

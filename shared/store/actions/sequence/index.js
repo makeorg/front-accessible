@@ -3,10 +3,10 @@
 import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
 import { Logger } from 'Shared/services/Logger';
 import { trackFirstVote } from 'Shared/services/Tracking';
@@ -26,7 +26,7 @@ export const resetSequenceVotedProposals = (questionSlug: string) => ({
   payload: { questionSlug },
 });
 
-export const loadSequenceProposals = (proposals: TypeProposal[]) => ({
+export const loadSequenceProposals = (proposals: ProposalType[]) => ({
   type: actionTypes.SEQUENCE_LOAD_PROPOSALS,
   payload: { proposals },
 });
@@ -73,7 +73,7 @@ export const unvoteProposal = (proposalId: string, questionSlug: string) => ({
   payload: { proposalId, questionSlug },
 });
 
-export const loadQuestion = (question: TypeQuestion) => ({
+export const loadQuestion = (question: QuestionType) => ({
   type: actionTypes.QUESTION_LOAD,
   payload: { question },
 });
@@ -83,7 +83,7 @@ export const unloadCurrentQuestion = () => ({
 });
 
 export const loadQuestionResults = (
-  questionResults: TypeQuestionResults,
+  questionResults: QuestionResultsType,
   questionSlug: string
 ) => ({
   type: actionTypes.QUESTION_RESULTS_LOAD,

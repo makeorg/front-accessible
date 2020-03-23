@@ -1,6 +1,6 @@
 // @flow
 import React, { useMemo } from 'react';
-import { type TypeTag } from 'Shared/types/tag';
+import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ConsultationIconStyle } from 'Client/pages/Consultation/style';
@@ -24,8 +24,8 @@ import {
 type Props = {
   sort: string,
   setSort: (arg: string) => void,
-  tags: TypeTag[],
-  setTags: (args: TypeTag[]) => void,
+  tags: TagType[],
+  setTags: (args: TagType[]) => void,
   resetTags: () => void,
 };
 

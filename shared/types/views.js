@@ -1,14 +1,14 @@
 // @flow
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import {
-  type QuestionTheme as TypeQuestionTheme,
-  type Question as TypeQuestion,
+  type QuestionThemeType,
+  type QuestionType,
 } from 'Shared/types/question';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { type OrganisationType } from 'Shared/types/organisation';
 
 // Home view
-export type TypeBusinessConsultation = {
-  theme: TypeQuestionTheme,
+export type BusinessConsultationType = {
+  theme: QuestionThemeType,
   startDate: ?string | null,
   endDate: ?string | null,
   slug: string,
@@ -16,7 +16,7 @@ export type TypeBusinessConsultation = {
   question: string,
 };
 
-export type TypeFeaturedConsultation = {
+export type FeaturedConsultationType = {
   questionSlug: string | null,
   title: string,
   description: string | null,
@@ -30,7 +30,7 @@ export type TypeFeaturedConsultation = {
   slot: number,
 };
 
-export type TypeCurrentConsultation = {
+export type CurrentConsultationType = {
   questionId: string | null,
   questionSlug: string | null,
   title: string,
@@ -44,36 +44,36 @@ export type TypeCurrentConsultation = {
   proposalsNumber: number,
 };
 
-export type TypeHome = {
-  popularProposals: TypeProposal[],
-  controverseProposals: TypeProposal[],
-  businessConsultations: TypeBusinessConsultation[],
-  featuredConsultations: TypeFeaturedConsultation[],
-  currentConsultations: TypeCurrentConsultation[],
+export type HomeType = {
+  popularProposals: ProposalType[],
+  controverseProposals: ProposalType[],
+  businessConsultations: BusinessConsultationType[],
+  featuredConsultations: FeaturedConsultationType[],
+  currentConsultations: CurrentConsultationType[],
 };
 
-export type TypeSearchViews = {
+export type SearchViewsType = {
   proposals: {
     total: number,
-    results: TypeProposal[],
+    results: ProposalType[],
   },
   questions: {
     total: number,
-    results: TypeQuestion[],
+    results: QuestionType[],
   },
   organisations: {
     total: number,
-    results: TypeOrganisation[],
+    results: OrganisationType[],
   },
 };
 
-export type TypeInteractiveChildren = {
+export type InteractiveChildrenType = {
   inputs?: boolean,
   buttons?: boolean,
   links?: boolean,
 };
 
-export type TypeSliderParams = {
+export type SliderParamsType = {
   slidesToShow?: number | string,
   slidesToScroll?: number | string,
   skipTrack?: boolean,
@@ -81,7 +81,7 @@ export type TypeSliderParams = {
     prev: string,
     next: string,
   },
-  responsive?: TypeSliderParams[],
-  interactiveChildren?: TypeInteractiveChildren,
+  responsive?: SliderParamsType[],
+  interactiveChildren?: InteractiveChildrenType,
   counterName?: string,
 };

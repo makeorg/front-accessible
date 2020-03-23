@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { trackClickNextCard } from 'Shared/services/Tracking';
 import {
   sequenceVote,
@@ -21,7 +21,7 @@ import {
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Index of the card */
   index: number,
 };

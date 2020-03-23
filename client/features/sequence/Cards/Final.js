@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
-import { type FinalCardConfig } from 'Shared/types/card';
+import { type FinalCardConfigType } from 'Shared/types/card';
 import {
   trackDisplayFinalCard,
   trackClickLearnMore,
@@ -30,14 +30,14 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Final Card */
-  configuration: FinalCardConfig,
+  configuration: FinalCardConfigType,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
 };
 
 type QuestionState = {
-  question: TypeQuestion,
-  questionResults?: TypeQuestionResults,
+  question: QuestionType,
+  questionResults?: QuestionResultsType,
 };
 
 /** @toDo: remove or refactor after the end of bretagne consultation */

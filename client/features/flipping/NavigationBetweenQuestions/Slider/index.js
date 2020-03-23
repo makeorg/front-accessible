@@ -1,10 +1,10 @@
 // @flow
 import React, { useEffect, useRef } from 'react';
 import Glider from 'glider-js';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink } from 'Shared/helpers/url';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useSlider } from 'Client/hooks/useSlider';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -16,11 +16,11 @@ import {
 import { getNavName } from '..';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const CONSULTATION_SLIDER: string = 'consultation';
-const ConsultationNavSliderParams: TypeSliderParams = {
+const ConsultationNavSliderParams: SliderParamsType = {
   slidesToShow: 1.5,
   interactiveChildren: {
     links: true,

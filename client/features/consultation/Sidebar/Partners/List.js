@@ -1,5 +1,5 @@
 import React from 'react';
-import { type TypePartner } from 'Shared/types/question';
+import { type PartnerType } from 'Shared/types/question';
 import {
   PartnersListStyle,
   AvatarWrapperStyle,
@@ -10,7 +10,7 @@ import { PartnerTooltip } from './Tooltip';
 import { PartnerAvatar } from './Avatar';
 
 type TooltipProps = {
-  partner: TypePartner,
+  partner: PartnerType,
 };
 const PartnerAvatarWithTooltip = ({ partner }: TooltipProps) => {
   const content = (
@@ -28,7 +28,7 @@ const PartnerAvatarWithTooltip = ({ partner }: TooltipProps) => {
 };
 
 type Props = {
-  partners: TypePartner[],
+  partners: PartnerType[],
 };
 
 export const orderByWeight = (partner1, partner2) => {

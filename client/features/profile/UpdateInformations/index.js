@@ -17,8 +17,8 @@ import {
   WebsiteLinkFieldIcon,
 } from 'Shared/constants/icons';
 import { TextArea } from 'Client/ui/Elements/Form/TextArea';
-import { type TypeUser, type TypeUserInformationForm } from 'Shared/types/user';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type UserType, type UserInformationFormType } from 'Shared/types/user';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { NumberInput } from 'Client/ui/Elements/Form/NumberInput';
 import { getUser } from 'Shared/store/actions/authentification';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
@@ -36,12 +36,12 @@ import {
 
 type Props = {
   /** User */
-  user: TypeUser,
+  user: UserType,
 };
 
 export const UpdateInformations = ({ user }: Props) => {
   const dispatch = useDispatch();
-  const [formValues, setFormValues] = useState<TypeUserInformationForm>({
+  const [formValues, setFormValues] = useState<UserInformationFormType>({
     firstName: user.firstName,
     lastName: setNullToEmptyString(user.lastName),
     organisationName: user.organisationName,
@@ -54,7 +54,7 @@ export const UpdateInformations = ({ user }: Props) => {
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const isOrganisation = user.userType === TYPE_ORGANISATION;
   const isPersonality = user.userType === TYPE_PERSONALITY;
   const isBasicUser = user.userType === TYPE_USER;
@@ -79,7 +79,7 @@ export const UpdateInformations = ({ user }: Props) => {
       setErrors([]);
       dispatch(getUser());
     };
-    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
       setCanSubmit(false);

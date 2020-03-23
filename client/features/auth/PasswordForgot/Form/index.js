@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/services/User';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { getFieldError } from 'Shared/helpers/form';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -17,7 +17,7 @@ import { ForgotPasswordFormStyle, ForgotPasswordTitleStyle } from '../Styled';
 export const ForgotPasswordForm = () => {
   const [email, setEmail] = useState<string>('');
   const [isSuccess, setSuccess] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const emailError = getFieldError('email', errors);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ export const ForgotPasswordForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     const success = () => setSuccess(true);
-    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setErrors(serviceErrors);
     };
     if (email.trim() !== '') {

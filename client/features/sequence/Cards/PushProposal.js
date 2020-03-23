@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
-import { type PushProposalCardConfig } from 'Shared/types/card';
+import { type PushProposalCardConfigType } from 'Shared/types/card';
 import {
   trackDisplayProposalPushCard,
   trackClickProposalPushCardIgnore,
@@ -23,7 +23,7 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Push Proposal Card */
-  configuration: PushProposalCardConfig,
+  configuration: PushProposalCardConfigType,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
 };

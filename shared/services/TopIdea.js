@@ -1,9 +1,6 @@
 // @flow
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import {
-  type TopIdea as TopIdeaType,
-  type TopIdeaDetailType,
-} from 'Shared/types/topIdea';
+import { type TopIdeaType, type TopIdeaDetailType } from 'Shared/types/topIdea';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const orderByWeight = (topIdea1, topIdea2) => {

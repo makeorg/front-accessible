@@ -1,11 +1,11 @@
 // @flow
 import React, { useRef } from 'react';
 import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type SliderParamsType } from 'Shared/types/views';
 import { useSlider } from 'Client/hooks/useSlider';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { DetailledResultItem } from './Item';
@@ -13,7 +13,7 @@ import { VoteProgress } from './Progress';
 import { DetailledItemListStyle } from './style';
 
 type Props = {
-  votes: TypeVote[],
+  votes: VoteType[],
   proposalId: string,
 };
 
@@ -25,7 +25,7 @@ export const DetailledVoteResults = (props: Props) => {
   const sliderRef = useRef();
   const sliderName = 'detailed_results';
   const hasVotes = votes.length > 0;
-  const sliderParams: TypeSliderParams = {
+  const sliderParams: SliderParamsType = {
     slidesToShow: 1.15,
   };
 

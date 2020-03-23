@@ -8,7 +8,7 @@ import {
   proposalHasValidLength,
 } from 'Shared/helpers/proposal';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
 import {
   trackDisplayProposalSubmitValidation,
@@ -24,7 +24,7 @@ import { ProposalSubmitDescriptionComponent } from './Description';
 
 type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
-  question: Question,
+  question: QuestionType,
   /** Boolean toggled when user is connected */
   isLoggedIn: boolean,
   /** Boolean to check if prposal submit can be expanded */

@@ -1,8 +1,8 @@
 // @flow
 import React, { useEffect, useState, useRef } from 'react';
 import {
-  type TypeHistogramLegend,
-  type TypeHistogramData,
+  type HistogramLegendType,
+  type HistogramDataType,
 } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -28,9 +28,9 @@ import {
 type Props = {
   unit: string,
   name: string,
-  legend: TypeHistogramLegend,
+  legend: HistogramLegendType,
   forcedHigherValue?: number,
-  data: TypeHistogramData[],
+  data: HistogramDataType[],
 };
 
 export const Histogram = ({

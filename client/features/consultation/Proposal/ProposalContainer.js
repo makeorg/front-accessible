@@ -1,9 +1,9 @@
 import React from 'react';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { ConsultationProposalComponent } from './ProposalComponent';
 
 type Props = {
-  question: Question,
+  question: QuestionType,
 };
 
 export class ConsultationProposalContainer extends React.Component<Props> {

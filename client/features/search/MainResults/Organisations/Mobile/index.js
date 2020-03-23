@@ -1,7 +1,7 @@
 // @flow
 import React, { useRef } from 'react';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type OrganisationType } from 'Shared/types/organisation';
+import { type SliderParamsType } from 'Shared/types/views';
 import { useSlider } from 'Client/hooks/useSlider';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
@@ -25,11 +25,11 @@ import {
 } from '../../Proposals/Styled';
 
 type Props = {
-  organisations: TypeOrganisation[],
+  organisations: OrganisationType[],
 };
 
 const SEARCH_ORGANISATION_SLIDER: string = 'search-organisation';
-const SearchOrganisationsSliderParams: TypeSliderParams = {
+const SearchOrganisationsSliderParams: SliderParamsType = {
   slidesToShow: 1.15,
   interactiveChildren: {
     links: true,

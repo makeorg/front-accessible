@@ -1,9 +1,9 @@
 // @flow
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type SliderParamsType } from 'Shared/types/views';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const CURRENT_CONSULTATION_SLIDER: string = 'consultation';
-export const CurrentConsultationSliderParams: TypeSliderParams = {
+export const CurrentConsultationSliderParams: SliderParamsType = {
   slidesToShow: 1.5,
   responsive: [
     {

@@ -11,7 +11,7 @@ import {
 import loadable from '@loadable/component';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { type OrganisationType } from 'Shared/types/organisation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
@@ -93,7 +93,7 @@ const OrganisationPage = (props: Props) => {
 
   useEffect(() => {
     const fetchOrganisation = async () => {
-      const loadedOrganisation: ?TypeOrganisation = await OrganisationService.getOrganisationBySlug(
+      const loadedOrganisation: ?OrganisationType = await OrganisationService.getOrganisationBySlug(
         organisationSlug
       );
 

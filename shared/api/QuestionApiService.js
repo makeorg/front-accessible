@@ -1,6 +1,6 @@
 // @flow
 import { generatePath } from 'react-router';
-import { type ApiServiceHeaders } from '../types/api';
+import { type ApiServiceHeadersType } from '../types/api';
 import { ApiService } from './ApiService';
 
 const PATH_QUESTIONS_SEARCH = '/questions/search';
@@ -34,7 +34,7 @@ export class QuestionApiService {
 
   static getDetail(
     questionSlugOrId: string,
-    headers: ApiServiceHeaders = {}
+    headers: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_QUESTION_DETAIL.replace(':questionSlugOrId', questionSlugOrId),
@@ -49,7 +49,7 @@ export class QuestionApiService {
     questionId: string,
     limit: ?number = undefined,
     skip: ?number = undefined,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_POPULAR_TAGS, { questionId }),
@@ -62,7 +62,7 @@ export class QuestionApiService {
     personalityRole: ?string = undefined,
     limit: ?number = undefined,
     skip: ?number = undefined,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       generatePath(PATH_QUESTION_PERSONALITIES, { questionId }),
@@ -73,7 +73,7 @@ export class QuestionApiService {
   static startSequence(
     questionId: string,
     includedProposalIds: string[] = [],
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     let startSequenceUrl = PATH_QUESTION_START_SEQUENCE.replace(
       ':questionId',
@@ -98,7 +98,7 @@ export class QuestionApiService {
     content: string,
     sort?: string = 'endDate',
     order?: string = 'DESC',
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(PATH_QUESTIONS_SEARCH, {
       method: 'GET',
@@ -115,7 +115,7 @@ export class QuestionApiService {
 
   static getTopIdeas(
     questionId: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_QUESTION_TOP_IDEAS.replace(':questionId', questionId),
@@ -129,7 +129,7 @@ export class QuestionApiService {
   static getTopIdea(
     questionId: string,
     topIdeaId: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_QUESTION_TOP_IDEA_DETAILS.replace(':questionId', questionId).replace(

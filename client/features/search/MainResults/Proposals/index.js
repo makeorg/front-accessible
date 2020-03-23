@@ -1,7 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { useMobile } from 'Client/hooks/useMedia';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
@@ -20,7 +20,7 @@ import { MainResultsProposalsItemStyle } from './Styled';
 
 type Props = {
   searchTerm: string,
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
   count: number,
 };
 
@@ -35,7 +35,7 @@ export const MainResultsProposals = ({
   const isMobile = useMobile();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>(
+  const [proposalsResult, setProposalsResult] = useState<ProposalType[]>(
     proposals
   );
   const getMoreButton =

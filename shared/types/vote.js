@@ -1,9 +1,9 @@
 // @flow
-import { type Qualification as TypeQualification } from './qualification';
+import { type QualificationType } from './qualification';
 
-export type Vote = {
+export type VoteType = {
   voteKey: string,
   count: number,
-  qualifications: TypeQualification[],
+  qualifications: QualificationType[],
   hasVoted: boolean,
 };

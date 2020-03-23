@@ -1,5 +1,5 @@
 // @flow
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { BadArgumentError } from 'Shared/errors';
 import {
   VOTE_AGREE_KEY,
@@ -10,9 +10,9 @@ import {
 /**
  * calculate total number of vote
  *
- * @param {TypeVote[]} votes
+ * @param {VoteType[]} votes
  */
-export const getTotalVotesCount = (votes: TypeVote[]): number => {
+export const getTotalVotesCount = (votes: VoteType[]): number => {
   if (!votes.length) {
     throw new BadArgumentError('votes cannot be an empty array');
   }
@@ -25,10 +25,10 @@ export const getTotalVotesCount = (votes: TypeVote[]): number => {
 /**
  * calculate the percent by vote key
  *
- * @param {TypeVote} votes
+ * @param {VoteType} votes
  * @param {number} votesCount
  */
-export const getVotesPercent = (votes: TypeVote[], votesCount: number) => {
+export const getVotesPercent = (votes: VoteType[], votesCount: number) => {
   const agreeVote: ?Object = votes.find(
     vote => vote.voteKey === VOTE_AGREE_KEY
   );

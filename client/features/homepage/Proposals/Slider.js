@@ -1,8 +1,8 @@
 // @flow
 import React, { useRef } from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type SliderParamsType } from 'Shared/types/views';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
@@ -15,11 +15,11 @@ import {
 } from './style';
 
 type PopularProposalsProps = {
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
   sliderName: string,
 };
 
-const sliderParams: TypeSliderParams = {
+const sliderParams: SliderParamsType = {
   slidesToShow: 1.15,
   responsive: [
     {

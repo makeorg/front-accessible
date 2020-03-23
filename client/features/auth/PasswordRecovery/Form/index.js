@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
@@ -28,7 +28,7 @@ export const PasswordRecoveryForm = () => {
     selectPasswordRecovery(state)
   );
   const [password, setPassword] = useState<string>('');
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const passwordError = getFieldError('password', errors);
 
   if (error) {

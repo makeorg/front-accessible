@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useMobile } from 'Client/hooks/useMedia';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
-import { type TypeCurrentConsultation } from 'Shared/types/views';
+import { type CurrentConsultationType } from 'Shared/types/views';
 import { type StateRoot } from 'Shared/store/types';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { SvgArrowLeft, SvgArrowRight } from 'Client/ui/Svg/elements';
@@ -35,7 +35,7 @@ import {
 } from './sliderParams';
 
 const setConsultationLink = (
-  consultation: TypeCurrentConsultation,
+  consultation: CurrentConsultationType,
   country: string,
   language: string
 ) => {
@@ -62,7 +62,7 @@ const setConsultationLink = (
 };
 
 type CurrentConsultationsProps = {
-  consultations: TypeCurrentConsultation[],
+  consultations: CurrentConsultationType[],
 };
 
 export const CurrentConsultations = ({

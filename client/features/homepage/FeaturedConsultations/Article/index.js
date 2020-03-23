@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
-import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type FeaturedConsultationType } from 'Shared/types/views';
 import { useDesktop, useTablet } from 'Client/hooks/useMedia';
 import { trackClickHomepageFeatured } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -28,7 +28,7 @@ export const FeaturedArticle = ({
   isAlone,
   featuredsLength,
 }: {
-  featured: TypeFeaturedConsultation,
+  featured: FeaturedConsultationType,
   country: string,
   language: string,
   index: number,

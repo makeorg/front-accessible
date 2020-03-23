@@ -1,5 +1,5 @@
 import { createInitialState } from 'Shared/store/initialState';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { disableExtraSlidesByQuery } from './helpers/query.helper';
@@ -10,7 +10,7 @@ export const sequenceRoute = async (req, res) => {
   const routeState = createInitialState();
 
   const { questionSlug, country, language } = req.params;
-  const question: TypeQuestion = await QuestionService.getQuestion(
+  const question: QuestionType = await QuestionService.getQuestion(
     questionSlug,
     country,
     language

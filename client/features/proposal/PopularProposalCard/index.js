@@ -2,7 +2,7 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { isInProgress } from 'Shared/helpers/date';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import {
   ProposalStyle,
   ProposalInnerStyle,
@@ -21,7 +21,7 @@ import {
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Proposal's position in list */
   position: number,
   /** Size of proposals list */

@@ -1,7 +1,7 @@
 // flow
 import * as React from 'react';
 import * as VoteResultHelper from 'Shared/helpers/voteResult';
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
@@ -22,7 +22,7 @@ type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array of votes */
-  votes: TypeVote[],
+  votes: VoteType[],
   /** Voted key property */
   votedKey: string,
   /** Method called when vote button is clicked */

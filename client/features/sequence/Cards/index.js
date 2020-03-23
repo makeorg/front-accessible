@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type TypeSequenceCard } from 'Shared/types/card';
+import { type SequenceCardType } from 'Shared/types/card';
 import { type StateRoot } from 'Shared/store/types';
 import {
   CARD_TYPE_EXTRASLIDE_INTRO,
@@ -85,7 +85,7 @@ export const CardType = ({ card, index, isCardVisible }: CardProps) => {
 
 type Props = {
   /** Attribute of the card */
-  card: TypeSequenceCard,
+  card: SequenceCardType,
   /** Index of the card */
   index: number,
   /** Total of cards */

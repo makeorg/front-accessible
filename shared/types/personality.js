@@ -1,7 +1,7 @@
 // @flow
 
-import { type Question } from './question';
-import { type TopIdea } from './topIdea';
+import { type QuestionType } from './question';
+import { type TopIdeaType } from './topIdea';
 
 export type PersonalityCommentsType = {
   id: string,
@@ -15,7 +15,7 @@ export type PersonalityCommentsType = {
 };
 
 export type PersonalityOpinionType = {
-  question: Question,
-  topIdea: TopIdea,
+  question: QuestionType,
+  topIdea: TopIdeaType,
   comment: PersonalityCommentsType,
 };

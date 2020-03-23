@@ -7,7 +7,7 @@ import {
   trackLoginEmailSuccess,
   trackSignupEmailFailure,
 } from 'Shared/services/Tracking';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import {
   FormStyle,
   FormRequirementsStyle,
@@ -41,7 +41,7 @@ export const LoginForm = () => {
   const [formValues, setFormValues] = useState<TypeLoginValues>(
     defaultFormValues
   );
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const globalError = getFieldError('global', errors);
 
   /** Method called when login form succeed */
@@ -71,7 +71,7 @@ export const LoginForm = () => {
       setErrors([]);
       handleGetUser();
     };
-    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setErrors(serviceErrors);
       trackSignupEmailFailure();
     };

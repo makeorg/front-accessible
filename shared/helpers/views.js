@@ -1,9 +1,9 @@
-import { type TypeFeaturedConsultation } from 'Shared/types/views';
+import { type FeaturedConsultationType } from 'Shared/types/views';
 
 export const sortSlotsBySmallest: (
-  TypeFeaturedConsultation[]
+  FeaturedConsultationType[]
 ) => TypeFeaturedConsultation = featureds => {
-  const sortedFeatureds: TypeFeaturedConsultation[] = featureds.sort((a, b) => {
+  const sortedFeatureds: FeaturedConsultationType[] = featureds.sort((a, b) => {
     if (!a.slot || !b.slot) {
       return 0;
     }

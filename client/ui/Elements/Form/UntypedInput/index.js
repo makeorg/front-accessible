@@ -1,6 +1,6 @@
 // @flow
 import React, { useRef } from 'react';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { useIsFieldValid } from 'Client/hooks/useFieldValidation';
 import { emptyError } from 'Shared/errors/Messages';
 import { BasicInputStyle } from '../Styled/Input';
@@ -25,7 +25,7 @@ type Props = {
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
   /** Object containing field errors */
-  error?: TypeErrorObject,
+  error?: ErrorObjectType,
   /** Is input required or optional */
   required?: boolean,
 };

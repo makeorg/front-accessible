@@ -2,10 +2,7 @@
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import {
-  type Question as TypeQuestion,
-  type TypePartner,
-} from 'Shared/types/question';
+import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { PresentationTileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { DescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -17,11 +14,11 @@ import { Founders } from '../Founders';
 import { SidebarNewWindowLink } from '../Link';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 export const PresentationTile = ({ question }: Props) => {
   const isMobile = useMobile();
-  const foundersOrMedia: TypePartner[] = question.partners
+  const foundersOrMedia: PartnerType[] = question.partners
     ? question.partners.filter(
         partner =>
           partner.partnerKind === FOUNDER_PARTNER ||

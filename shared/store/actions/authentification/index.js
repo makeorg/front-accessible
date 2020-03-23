@@ -2,7 +2,7 @@
 
 import { i18n } from 'Shared/i18n';
 import { type Dispatch } from 'redux';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import * as actionTypes from 'Shared/store/actionTypes';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
@@ -22,7 +22,7 @@ import {
 } from '../notification';
 
 export const loginRequest = () => ({ type: actionTypes.LOGIN_REQUEST });
-export const loginFailure = (error: TypeErrorObject) => ({
+export const loginFailure = (error: ErrorObjectType) => ({
   type: actionTypes.LOGIN_FAILURE,
   error,
 });

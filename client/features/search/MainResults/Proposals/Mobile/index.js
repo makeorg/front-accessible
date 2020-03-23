@@ -1,7 +1,7 @@
 // @flow
 import React, { useRef } from 'react';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type SliderParamsType } from 'Shared/types/views';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { useSlider } from 'Client/hooks/useSlider';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
@@ -13,11 +13,11 @@ import {
 import { SearchSliderListStyle, SearchSliderListItemStyle } from '../Styled';
 
 type Props = {
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
 };
 
 const SEARCH_SLIDER: string = 'search';
-const SearchSliderParams: TypeSliderParams = {
+const SearchSliderParams: SliderParamsType = {
   slidesToShow: 1.15,
   interactiveChildren: { links: true, buttons: true },
 };

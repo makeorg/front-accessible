@@ -22,7 +22,7 @@ export type TopIdeaCommentsType = {
   qualification: string,
 };
 
-export type TopIdea = {
+export type TopIdeaType = {
   id: string,
   ideaId: string,
   questionId: string,
@@ -37,6 +37,6 @@ export type TopIdea = {
 };
 
 export type TopIdeaDetailType = {
-  questionTopIdea: TopIdea,
+  questionTopIdea: TopIdeaType,
   seed: number,
 };

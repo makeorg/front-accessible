@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 import {
   MessageWithDynamicLabel,
@@ -8,7 +8,7 @@ import {
 } from 'Client/ui/Elements/Form/Errors/Message';
 import { ErrorMessageForgotPassword } from 'Client/ui/Elements/Form/Errors/Message/Password';
 
-export const loginErrors: TypeErrorObject[] = [
+export const loginErrors: ErrorObjectType[] = [
   {
     field: 'global',
     key: 'invalid',
@@ -16,7 +16,7 @@ export const loginErrors: TypeErrorObject[] = [
   },
 ];
 
-export const registerErrors: TypeErrorObject[] = [
+export const registerErrors: ErrorObjectType[] = [
   {
     field: 'email',
     key: 'already_registered',
@@ -85,7 +85,7 @@ export const registerErrors: TypeErrorObject[] = [
   },
 ];
 
-export const updateUserErrors: TypeErrorObject[] = [
+export const updateUserErrors: ErrorObjectType[] = [
   {
     field: 'firstname',
     key: 'mandatory',
@@ -132,7 +132,7 @@ export const updateUserErrors: TypeErrorObject[] = [
   },
 ];
 
-export const updatePasswordErrors: TypeErrorObject[] = [
+export const updatePasswordErrors: ErrorObjectType[] = [
   {
     field: 'password',
     key: 'invalid_password',
@@ -156,7 +156,7 @@ export const updatePasswordErrors: TypeErrorObject[] = [
   },
 ];
 
-export const forgotPasswordErrors: TypeErrorObject[] = [
+export const forgotPasswordErrors: ErrorObjectType[] = [
   {
     field: 'email',
     key: 'invalid_email',
@@ -170,7 +170,7 @@ export const forgotPasswordErrors: TypeErrorObject[] = [
   },
 ];
 
-export const emailNotExistError: TypeErrorObject = {
+export const emailNotExistError: ErrorObjectType = {
   field: 'email',
   key: 'invalid_email',
   message: (

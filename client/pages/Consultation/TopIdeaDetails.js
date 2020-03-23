@@ -1,9 +1,9 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type TopIdea } from 'Shared/types/topIdea';
+import { type QuestionType } from 'Shared/types/question';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type TopIdeaType } from 'Shared/types/topIdea';
 import {
   trackDisplayTopIdeas,
   trackLoadMoreProposals,
@@ -50,15 +50,15 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const { topIdeaId } = useParams();
   const location = useLocation();
-  const [topIdea, setTopIdea] = useState<?TopIdea>(undefined);
-  const [relatedProposals, setRelatedProposals] = useState<TypeProposal[]>([]);
+  const [topIdea, setTopIdea] = useState<?TopIdeaType>(undefined);
+  const [relatedProposals, setRelatedProposals] = useState<ProposalType[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState<?number>(undefined);
   const [page, setPage] = useState<number>(0);
@@ -122,7 +122,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
     );
     if (result) {
       const { results, total, seed: apiSeed } = result;
-      const newProposalList: TypeProposal[] = [...relatedProposals, ...results];
+      const newProposalList: ProposalType[] = [...relatedProposals, ...results];
       setRelatedProposals(newProposalList);
       setHasMore(newProposalList.length < total);
       setSeed(apiSeed);

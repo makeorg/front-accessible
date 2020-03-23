@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { type TypePartner } from 'Shared/types/question';
+import { type PartnerType } from 'Shared/types/question';
 import { Link } from 'react-router-dom';
 import { PartnerAvatarStyle } from 'Client/ui/Avatar/style';
 import { i18n } from 'Shared/i18n';
@@ -50,7 +50,7 @@ const altProps = partner => {
 };
 
 type Props = {
-  partner: TypePartner,
+  partner: PartnerType,
 };
 
 export const PartnerAvatar = ({ partner }: Props) => {

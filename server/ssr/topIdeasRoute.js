@@ -1,8 +1,8 @@
 // @flow
 import { createInitialState } from 'Shared/store/initialState';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
@@ -13,8 +13,8 @@ export const topIdeasRoute = async (req: any, res: any) => {
   const routeState: TypeStateRoot = createInitialState();
 
   const { questionSlug, country, language } = req.params;
-  let questionResults: TypeQuestionResults;
-  const question: TypeQuestion = await QuestionService.getQuestion(
+  let questionResults: QuestionResultsType;
+  const question: QuestionType = await QuestionService.getQuestion(
     questionSlug,
     country,
     language

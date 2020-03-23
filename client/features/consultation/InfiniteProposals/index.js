@@ -6,13 +6,13 @@ import {
   buildProposalsFeed,
   getProposalCardIndex,
 } from 'Shared/helpers/proposal';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import {
-  type TypeProposalListCard,
-  type TypeTopProposalListCard,
+  type ProposalListCardType,
+  type TopProposalListCardType,
 } from 'Shared/types/card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -23,7 +23,7 @@ import { InfiniteProposalsContainerStyle } from './style';
 import { ProposalType } from './type';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
   tags: string[],
   sortTypeKey: string,
 };
@@ -51,7 +51,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     if (result) {
       const { results, total, seed: apiSeed } = result;
       const feed: Array<
-        TypeProposalListCard | TypeTopProposalListCard
+        ProposalListCardType | TopProposalListCardType
       > = buildProposalsFeed(results, question, sortTypeKey);
       setProposalCards(feed);
       setHasMore(feed.length < total);
@@ -76,7 +76,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
 
     if (result) {
       const { results, total, seed: apiSeed } = result;
-      const addNewProposalCards: TypeProposalListCard[] = results.map(
+      const addNewProposalCards: ProposalListCardType[] = results.map(
         proposal => ({
           type: FEED_PROPOSAL,
           proposal,
@@ -84,7 +84,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       );
 
       const newProposalList: Array<
-        TypeProposalListCard | TypeTopProposalListCard
+        ProposalListCardType | TopProposalListCardType
       > = [...proposalCards, ...addNewProposalCards];
       setProposalCards(newProposalList);
       setHasMore(newProposalList.length < total);

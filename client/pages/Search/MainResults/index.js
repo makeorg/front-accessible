@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type Location } from 'history';
-import { type TypeSearchViews } from 'Shared/types/views';
+import { type SearchViewsType } from 'Shared/types/views';
 import { ViewsService } from 'Shared/services/Views';
 import { i18n } from 'Shared/i18n';
 import { trackDisplaySearchMainResult } from 'Shared/services/Tracking';
@@ -41,7 +41,7 @@ export const SearchMainResults = ({ location }: Props) => {
   const term = params.get('query') || '';
 
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<TypeSearchViews>({
+  const [data, setData] = useState<SearchViewsType>({
     proposals: { total: 0, results: [] },
     questions: { total: 0, results: [] },
     organisations: { total: 0, results: [] },

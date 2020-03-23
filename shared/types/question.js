@@ -1,12 +1,12 @@
 // @flow
 import {
-  type IntroCardConfig,
-  type PushProposalCardConfig,
-  type SignUpCardConfig,
-  type FinalCardConfig,
+  type IntroCardConfigType,
+  type PushProposalCardConfigType,
+  type SignUpCardConfigType,
+  type FinalCardConfigType,
 } from 'Shared/types/card';
 
-export type QuestionTheme = {
+export type QuestionThemeType = {
   color?: string,
   fontColor?: string,
   secondaryColor?: string,
@@ -15,32 +15,32 @@ export type QuestionTheme = {
   gradientEnd: string,
 };
 
-export type TypeThemeItem = {
+export type ThemeItemType = {
   name: string,
   ideas: string[],
 };
 
-export type TypeReports = {
+export type ReportsType = {
   type: string,
   path: string,
   size: string,
 };
 
-export type TypeControversialProposals = {
+export type ControversialProposalsType = {
   author: string,
   content: string,
   like_it: number,
   no_way: number,
 };
 
-export type TypeRejectedProposals = {
+export type RejectedProposalsType = {
   author: string,
   content: string,
   disagree: number,
   no_way: number,
 };
 
-export type TypePieChartData = {
+export type PieChartDataType = {
   label: string,
   sublabel?: string,
   percent: number,
@@ -53,15 +53,15 @@ export type TypePieChartData = {
   },
 };
 
-export type TypePieChart = {
+export type PieChartType = {
   type: string,
   unit: string,
   name: string,
   legend?: string,
-  data: TypePieChartData[],
+  data: PieChartDataType[],
 };
 
-export type TypeHistogramLegend = {
+export type HistogramLegendType = {
   title: string,
   dimensions: {
     first: string,
@@ -69,7 +69,7 @@ export type TypeHistogramLegend = {
   },
 };
 
-export type TypeHistogramData = {
+export type HistogramDataType = {
   label: string,
   color?: string,
   bars: {
@@ -78,52 +78,52 @@ export type TypeHistogramData = {
   },
 };
 
-export type TypeHistogram = {
+export type HistogramType = {
   type: string,
   name: string,
   unit: string,
-  legend: TypeHistogramLegend,
+  legend: HistogramLegendType,
   forcedHigherValue?: number,
-  data: TypeHistogramData[],
+  data: HistogramDataType[],
 };
 
-export type QuestionResults = {
+export type QuestionResultsType = {
   context: string,
-  reports: ?Array<TypeReports>,
+  reports: ?Array<ReportsType>,
   contact: boolean,
   key_figures: {
     participants: number,
     proposals: number,
     votes: number,
   },
-  top_ideas: TypeThemeItem[],
-  controversials: TypeControversialProposals[],
-  rejected: TypeRejectedProposals[],
-  cartography: TypePieChart[],
-  participation: Array<TypeHistogram | TypePieChart>,
+  top_ideas: ThemeItemType[],
+  controversials: ControversialProposalsType[],
+  rejected: RejectedProposalsType[],
+  cartography: PieChartType[],
+  participation: Array<HistogramType | PieChartType>,
 };
 
-export type Metas = {
+export type MetasType = {
   title: string,
   description: string,
   picture: string,
 };
 
-export type QuestionWording = {
+export type QuestionWordingType = {
   question: string,
   description: string,
   title: string,
-  metas: Metas,
+  metas: MetasType,
 };
 
-export type QuestionExtraSlidesConfig = {
-  introCard: IntroCardConfig,
-  pushProposalCard: PushProposalCardConfig,
-  signUpCard: SignUpCardConfig,
-  finalCard: FinalCardConfig,
+export type QuestionExtraSlidesConfigType = {
+  introCard: IntroCardConfigType,
+  pushProposalCard: PushProposalCardConfigType,
+  signUpCard: SignUpCardConfigType,
+  finalCard: FinalCardConfigType,
 };
 
-export type SimpleOperationData = {
+export type SimpleOperationDataType = {
   questionId: string,
   questionSlug: string,
   question: string,
@@ -134,24 +134,24 @@ export type SimpleOperationData = {
   endDate: string,
 };
 
-export type PartnerOrganisation = {
+export type PartnerOrganisationType = {
   organisationId: string,
   slug: string,
 };
 
-export type TypePartner = {
+export type PartnerType = {
   name: string,
   logo?: string,
   link?: string,
-  organisation?: PartnerOrganisation,
+  organisation?: PartnerOrganisationType,
   partnerKind: 'ACTOR' | 'FOUNDER' | 'MEDIA' | 'ACTION_PARTNER',
   weight: number,
 };
 
-export type Question = {
+export type QuestionType = {
   questionId: string,
   operationId: string,
-  wording: QuestionWording,
+  wording: QuestionWordingType,
   question: string,
   slug: string,
   country: string,
@@ -162,15 +162,15 @@ export type Question = {
   landingSequenceId: string,
   canPropose: boolean,
   operationKind: 'PUBLIC_CONSULTATION' | 'PRIVATE_CONSULTATION' | 'GREAT_CAUSE',
-  sequenceConfig: QuestionExtraSlidesConfig,
+  sequenceConfig: QuestionExtraSlidesConfigType,
   aboutUrl: string,
-  partners: TypePartner[],
-  theme: QuestionTheme,
+  partners: PartnerType[],
+  theme: QuestionThemeType,
   consultationImage?: string,
   descriptionImage?: string,
   displayResults: boolean,
   operation: {
-    questions: SimpleOperationData[],
+    questions: SimpleOperationDataType[],
   },
   activeFeatures: string[],
 };

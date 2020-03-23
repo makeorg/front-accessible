@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { type OrganisationType } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
@@ -26,7 +26,7 @@ import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { MainResultsOrganisationsMobile } from './Mobile';
 
 type Props = {
-  organisations: TypeOrganisation[],
+  organisations: OrganisationType[],
 };
 
 export const MainResultsOrganisations = ({ organisations }: Props) => {

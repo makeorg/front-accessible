@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type Organisation as TypeOrganisation } from 'Shared/types/organisation';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type OrganisationType } from 'Shared/types/organisation';
 import {
   getProposalLink,
   getOrganisationProfileLink,
@@ -34,9 +34,9 @@ import {
 
 type Props = {
   /** Object with all organisation's properties */
-  organisation: TypeOrganisation,
+  organisation: OrganisationType,
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Nature of the organisation's vote */
   voteKey: string,
   /** Proposal's position in list */

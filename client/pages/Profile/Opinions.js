@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type match as TypeMatch, Redirect } from 'react-router';
-import { type TypeUser } from 'Shared/types/user';
+import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -37,7 +37,7 @@ const ProfilePage = ({ match }: Props) => {
   const [loadPersonality, setLoadPersonality] = useState(true);
 
   const fetchPersonality = async () => {
-    const personalityResponse: ?TypeUser = await PersonalityService.getPersonalityById(
+    const personalityResponse: ?UserType = await PersonalityService.getPersonalityById(
       user.userId
     );
 

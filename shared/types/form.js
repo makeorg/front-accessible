@@ -1,6 +1,6 @@
 // @flow
 
-export type TypeRegisterFormData = {
+export type RegisterFormDataType = {
   email: string,
   password: string,
   firstname: string,

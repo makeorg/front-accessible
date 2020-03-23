@@ -3,7 +3,7 @@ import { OrganisationApiService } from 'Shared/api/OrganisationApiService';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import {
   type OrganisationsType,
-  type Organisation as OrganisationType,
+  type OrganisationType,
   type OrganisationVotesType,
 } from 'Shared/types/organisation';
 import { type ProposalsType } from 'Shared/types/proposal';

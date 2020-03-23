@@ -2,10 +2,8 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackVote, trackUnvote } from 'Shared/services/Tracking';
-import {
-  type QualificationType,
-  type Vote as TypeVote,
-} from 'Shared/types/proposal';
+import { type QualificationType } from 'Shared/types/qualification';
+import { type VoteType } from 'Shared/types/vote';
 import {
   doVote,
   doUnvote,
@@ -31,7 +29,7 @@ type Props = {
   /** Question Slug */
   questionSlug: string,
   /** Array with votes received from Api */
-  votes: TypeVote[],
+  votes: VoteType[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Index of the card */
@@ -58,7 +56,7 @@ type State = {
   /** Voted key property */
   votedKey: string,
   /** Array with votes received from Api */
-  votes: TypeVote[],
+  votes: VoteType[],
   /** Array with qualifications received from Api */
   qualifications: QualificationType[],
   /** When waiting response from API */
@@ -110,7 +108,7 @@ export class Vote extends React.Component<Props, State> {
     }
   }
 
-  updateVotes = (votes: TypeVote[]) => {
+  updateVotes = (votes: VoteType[]) => {
     this.setState(prevState => ({
       ...prevState,
       votes,

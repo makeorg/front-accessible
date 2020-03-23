@@ -2,7 +2,7 @@
 import React, { type Element } from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from 'Shared/store/actions/authentification';
-import { type TypeUser } from 'Shared/types/user';
+import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
@@ -35,7 +35,7 @@ import {
 import { UserDescription } from './Description';
 
 type Props = {
-  user: TypeUser,
+  user: UserType,
   navigationBar: Element<any>,
 };
 

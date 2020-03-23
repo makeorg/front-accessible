@@ -11,7 +11,7 @@ import {
 import { AvatarRows } from 'Client/ui/AvatarRows';
 import { TopIdeaScore } from 'Client/features/topIdeas/Score';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
-import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
+import { type TopIdeaType } from 'Shared/types/topIdea';
 import { getTopIdeaDetailsLink } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { scrollToTop } from 'Shared/helpers/styled';
@@ -37,7 +37,7 @@ import {
 
 type Props = {
   position?: number,
-  topIdea: TypeTopIdea,
+  topIdea: TopIdeaType,
   withDetails?: boolean,
 };
 

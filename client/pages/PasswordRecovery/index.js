@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import 'url-search-params-polyfill';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { type StateRoot } from 'Shared/store/types';
 import { PasswordRecovery } from 'Client/features/auth/PasswordRecovery';
 import {
@@ -20,7 +20,7 @@ const PasswordRecoveryPage = () => {
     selectPasswordRecovery(state)
   );
 
-  const question: Question = useSelector((state: StateRoot) =>
+  const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
 

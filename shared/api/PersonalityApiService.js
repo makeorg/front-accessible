@@ -1,5 +1,5 @@
 // @flow
-import { type ApiServiceHeaders } from 'Shared/types/api';
+import { type ApiServiceHeadersType } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
 export const PERSONALITY_PATH = '/personalities/:userId';
@@ -10,7 +10,7 @@ export class PersonalityApiService {
   static getPersonality(
     userId: string,
     questionId?: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(PERSONALITY_PATH.replace(':userId', userId), {
       method: 'GET',
@@ -29,7 +29,7 @@ export class PersonalityApiService {
     comment3: string,
     vote: string,
     qualification: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PERSONALITY_COMMENTS_PATH.replace(':userId', userId),
@@ -51,7 +51,7 @@ export class PersonalityApiService {
   static getPersonnalityOpinion(
     userId: string,
     questionId?: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PERSONALITY_OPINION_PATH.replace(':userId', userId),

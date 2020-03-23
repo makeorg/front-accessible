@@ -1,5 +1,5 @@
 // @flow
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 
 export type ConsultationType = {
   presentation: string,
@@ -8,5 +8,5 @@ export type ConsultationType = {
 
 export type SequenceType = {
   id: string,
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
 };
