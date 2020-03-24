@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
@@ -27,7 +27,7 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const ConsultationPageWrapper = ({ question }: Props) => {
@@ -39,7 +39,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     question.activeFeatures
   );
 
-  const questionResults: TypeQuestionResults = useSelector(
+  const questionResults: QuestionResultsType = useSelector(
     state => state.questions[question.slug].questionResults
   );
 

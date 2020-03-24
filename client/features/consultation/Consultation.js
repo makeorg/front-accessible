@@ -1,8 +1,8 @@
 // @flow
 import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type TypeTag } from 'Shared/types/tag';
+import { type QuestionType } from 'Shared/types/question';
+import { type TagType } from 'Shared/types/tag';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ParticipateBanner } from 'Client/features/consultation/ParticipateBanner';
 import { InfiniteProposals } from 'Client/features/consultation/InfiniteProposals';
@@ -17,12 +17,12 @@ import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const ConsultationContent = ({ question }: Props) => {
   const dispatch = useDispatch();
-  const questionTags: TypeTag[] = useSelector((state: StateRoot) =>
+  const questionTags: TagType[] = useSelector((state: StateRoot) =>
     selectQuestionPopularTags(state, question.slug)
   );
 
@@ -34,7 +34,7 @@ export const ConsultationContent = ({ question }: Props) => {
   const [sort, setSort] = useState<string>(AVAILABLE_SORTS_KEYS[0]);
 
   // Filtering
-  const [tags, setTags] = useState<TypeTag[]>([]);
+  const [tags, setTags] = useState<TagType[]>([]);
 
   useEffect(() => {
     dispatch(fetchPopularTags(question.questionId, question.slug));

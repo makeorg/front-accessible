@@ -1,6 +1,6 @@
 // @flow
 import { ApiService } from './ApiService';
-import { type ApiServiceHeaders } from '../types/api';
+import { type ApiServiceHeadersType } from '../types/api';
 
 export const PATH_PROPOSALS = '/proposals';
 export const PATH_TOP_PROPOSALS = '/questions/:questionId/top-proposals';
@@ -77,7 +77,7 @@ export class ProposalApiService {
 
   static getProposal(
     proposalId: string,
-    headers: ApiServiceHeaders = {}
+    headers: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_PROPOSAL_GET.replace(':proposalId', proposalId),
@@ -91,7 +91,7 @@ export class ProposalApiService {
 
   static getPopularProposals(
     questionId: string,
-    headers: ApiServiceHeaders = {}
+    headers: ApiServiceHeadersType = {}
   ): Promise<any> {
     return ApiService.callApi(
       PATH_TOP_PROPOSALS.replace(':questionId', questionId),
@@ -114,7 +114,7 @@ export class ProposalApiService {
     content?: string,
     ideaIds?: string,
     order?: string,
-    headers?: ApiServiceHeaders = {}
+    headers?: ApiServiceHeadersType = {}
   ): Promise<any> {
     const params = {
       questionId,

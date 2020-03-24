@@ -1,0 +1,8 @@
+{
+  "threshold": 0.2,
+  "reporters": ["html", "console"],
+  "ignore": ["**/__snapshots__/**", "**/__fixtures__/**", "**/*.spec.js", "**/spec.js", "**/i18n/*.json", "**/*.svg"],
+  "absolute": true,
+  "output": "./reports",
+  "minTokens": 100
+}

@@ -4,8 +4,8 @@ import {
   CURRENT_QUESTION_UPDATE,
   PROPOSAL_POPULAR_LOAD,
 } from 'Shared/store/actionTypes';
-import { type TypeTag } from 'Shared/types/tag';
-import { type TypePersonality } from 'Shared/types/user';
+import { type TagType } from 'Shared/types/tag';
+import { type PersonalityType } from 'Shared/types/user';
 import { type PopularProposals } from 'Shared/store/types';
 import { QuestionService } from 'Shared/services/Question';
 import { ProposalService } from 'Shared/services/Proposal';
@@ -20,7 +20,7 @@ export const updateCurrentQuestion = (questionSlug: string) => ({
 
 export const loadPopularTags = (
   questionSlug: string,
-  popularTags: TypeTag[]
+  popularTags: TagType[]
 ) => ({
   type: QUESTION_POPULAR_TAGS_LOAD,
   payload: { questionSlug, popularTags },
@@ -42,7 +42,7 @@ export const fetchPopularTags = (
 
 export const loadQuestionPersonalities = (
   questionSlug: string,
-  personalities: TypePersonality[]
+  personalities: PersonalityType[]
 ) => ({
   type: QUESTION_PERSONALITIES_LOAD,
   payload: { questionSlug, personalities },

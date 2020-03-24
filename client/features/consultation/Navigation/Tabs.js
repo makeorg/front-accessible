@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
 import {
@@ -25,7 +25,7 @@ import {
 } from 'Shared/routes';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 export const NavigationWithTabs = ({ question }: Props) => {
   const consultationLink = getConsultationLink(

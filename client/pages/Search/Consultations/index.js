@@ -5,7 +5,7 @@ import { type Location, type History } from 'history';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { getRouteSearch } from 'Shared/routes';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { QuestionService } from 'Shared/services/Question';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
@@ -52,7 +52,7 @@ export const SearchConsultations = ({ location, history }: Props) => {
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
-  const [consultations, setConsultations] = useState<TypeQuestion[]>([]);
+  const [consultations, setConsultations] = useState<QuestionType[]>([]);
   const isDesktop = useDesktop();
 
   const initQuestions = async () => {

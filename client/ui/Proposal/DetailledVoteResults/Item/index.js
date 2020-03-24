@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { voteStaticParams } from 'Shared/constants/vote';
 import {
   IsVotedButtonStyle,
@@ -22,7 +22,7 @@ import {
 
 type Props = {
   /** Object with vote's properties */
-  vote: TypeVote,
+  vote: VoteType,
   /** Vote percentage */
   votePercent: number,
 };

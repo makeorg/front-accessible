@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeUser } from 'Shared/types/user';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type UserType } from 'Shared/types/user';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { PROFILE_DELETE_ACCOUNT_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -24,7 +24,7 @@ import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import { FormParagraphStyle } from '../Styled/Forms';
 
 type Props = {
-  user: TypeUser,
+  user: UserType,
 };
 
 type TypeDeletePassword = {
@@ -32,13 +32,13 @@ type TypeDeletePassword = {
   email: string,
 };
 
-const invalidPasswordError: TypeErrorObject = {
+const invalidPasswordError: ErrorObjectType = {
   field: 'password',
   key: 'invalid_password',
   message: <ErrorMessageForgotPassword />,
 };
 
-const invalidEmailError: TypeErrorObject = {
+const invalidEmailError: ErrorObjectType = {
   field: 'email',
   key: 'invalid_email',
   message: i18n.t('common.form.messages.email_doesnot_exist', {
@@ -55,7 +55,7 @@ export const DeleteAccount = ({ user }: Props) => {
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
 

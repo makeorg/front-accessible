@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { OrganisationService } from 'Shared/services/Organisation';
 import {
-  type OrganisationVote as TypeOrganisationVote,
-  type Organisation as TypeOrganisation,
+  type OrganisationVoteType,
+  type OrganisationType,
   type OrganisationVotesType,
 } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
@@ -23,11 +23,11 @@ import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { OrganisationVotesPlaceholder } from './Placeholders/Votes';
 
 type Props = {
-  organisation: TypeOrganisation,
+  organisation: OrganisationType,
 };
 
 const OrganisationVotesPage = ({ organisation }: Props) => {
-  const [votes, setVotes] = useState<TypeOrganisationVote[]>([]);
+  const [votes, setVotes] = useState<OrganisationVoteType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState(undefined);

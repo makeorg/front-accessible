@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { VoteResult } from 'Client/features/vote/Result';
@@ -13,7 +13,7 @@ type Props = {
   /** Proposal's Id */
   proposalId: string,
   /** Array of votes */
-  votes: TypeVote[],
+  votes: VoteType[],
   /** Voted key property */
   votedKey: string,
   /** Status of vote */

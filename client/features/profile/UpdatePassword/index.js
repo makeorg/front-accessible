@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { PASSWORD_UPDATE_FORMNAME } from 'Shared/constants/form';
 import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
@@ -39,7 +39,7 @@ export const UpdatePassword = ({ userId, hasPassword }: Props) => {
   );
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const actualPasswordError = getFieldError('password', errors);
   const newPasswordError = getFieldError('newPassword', errors);
   const actualPasswordIsEmptyAndWrong =
@@ -87,7 +87,7 @@ export const UpdatePassword = ({ userId, hasPassword }: Props) => {
       setCanSubmit(false);
       dispatch(getUser());
     };
-    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setErrors(serviceErrors);
       setCanSubmit(false);
     };

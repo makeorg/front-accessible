@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type TypeTag } from 'Shared/types/tag';
+import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { trackTag } from 'Shared/services/Tracking';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -23,9 +23,9 @@ import { ScreenReaderItemStyle } from '../AccessibilityElements';
 
 type Props = {
   /** Array of tags to populate the list */
-  tags: TypeTag[],
+  tags: TagType[],
   /** Function to execute when we select one tag */
-  setTags: (args: TypeTag[]) => void,
+  setTags: (args: TagType[]) => void,
   /** close the panel, closePanel prop is sent by SelectPanel */
   closePanel?: () => void,
   /** Function that reset the tags */
@@ -53,7 +53,7 @@ export const TagList = ({
   tagsSelected = 0,
 }: Props) => {
   const isMobile = useMobile();
-  const updateSelectedTags = (tag: TypeTag) => {
+  const updateSelectedTags = (tag: TagType) => {
     trackTag(tag.label, tag.isSelected ? 'deselect' : 'select');
     const newTags = tags.map(tagItem => ({
       ...tagItem,

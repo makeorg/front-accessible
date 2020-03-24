@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   type TypeControversialsProposals,
-  type TypeRejectedProposals,
+  type RejectedProposalsType,
 } from 'Shared/types/question';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { i18n } from 'Shared/i18n';
@@ -19,7 +19,7 @@ import {
 } from './style';
 
 type Props = {
-  proposals: TypeControversialsProposals[] | TypeRejectedProposals[],
+  proposals: TypeControversialsProposals[] | RejectedProposalsType[],
   isRejected?: boolean,
 };
 

@@ -1,12 +1,12 @@
 // @flow
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type TypeTag } from 'Shared/types/tag';
-import { type TypePersonality } from 'Shared/types/user';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type TagType } from 'Shared/types/tag';
+import { type PersonalityType } from 'Shared/types/user';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -18,7 +18,7 @@ export type StateConfig = $ReadOnly<{
 
 export type PopularProposals = {
   total: number,
-  results: TypeProposal[],
+  results: ProposalType[],
 };
 
 // Proposal State
@@ -32,7 +32,7 @@ export type StateSequence = $ReadOnly<{
   firstProposal?: string,
   currentIndex: number,
   votedProposalIds: { [string]: string[] },
-  proposals: TypeProposal[],
+  proposals: ProposalType[],
 }>;
 
 // Notification State
@@ -43,7 +43,7 @@ export type StateNotification = $ReadOnly<{
 // Authentification State
 export type StateAuthentification = $ReadOnly<{
   isLoggedIn: boolean,
-  errors: TypeErrorObject[],
+  errors: ErrorObjectType[],
   user?: {
     userId: string,
   },
@@ -78,11 +78,11 @@ export type StateUser = $ReadOnly<{
 
 export type StateQuestions = $ReadOnly<{
   [string]: {
-    question: TypeQuestion,
-    questionResults: TypeQuestionResults,
-    popularTags: TypeTag[],
+    question: QuestionType,
+    questionResults: QuestionResultsType,
+    popularTags: TagType[],
     popularProposals: PopularProposals[],
-    personalities: TypePersonality[],
+    personalities: PersonalityType[],
   },
 }>;
 

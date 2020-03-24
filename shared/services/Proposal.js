@@ -1,10 +1,7 @@
 // @flow
 import { ProposalApiService } from 'Shared/api/ProposalApiService';
 import { getBaitText } from 'Shared/constants/proposal';
-import {
-  type Proposal as ProposalType,
-  type ProposalsType,
-} from 'Shared/types/proposal';
+import { type ProposalType, type ProposalsType } from 'Shared/types/proposal';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const propose = async (

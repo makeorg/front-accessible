@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { type TypePersonality } from 'Shared/types/user';
+import { type PersonalityType } from 'Shared/types/user';
 import { type PersonalityOpinionType } from 'Shared/types/personality';
 import {
   ThumbsUpWrapperStyle,
@@ -25,13 +25,13 @@ import { DisclaimerSubtitleStyle, OpinionCardListItemStyle } from './style';
 import { OpinionCard } from './Card';
 
 type Props = {
-  personality: TypePersonality,
+  personality: PersonalityType,
   privateProfile?: boolean,
 };
 
 type OpinionsProps = {
   opinions: PersonalityOpinionType,
-  personality: TypePersonality,
+  personality: PersonalityType,
 };
 
 const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {

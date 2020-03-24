@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { type Question as TypeQuestion } from 'Shared/types/question';
-import { type TopIdea as TypeTopIdea } from 'Shared/types/topIdea';
+import { type QuestionType } from 'Shared/types/question';
+import { type TopIdeaType } from 'Shared/types/topIdea';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { TopIdeaService } from 'Shared/services/TopIdea';
 import { trackDisplayTopIdeas } from 'Shared/services/Tracking';
@@ -32,12 +32,12 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const TopIdeasPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
-  const [topIdeas, setTopIdeas] = useState<TypeTopIdea[]>([]);
+  const [topIdeas, setTopIdeas] = useState<TopIdeaType[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
 
   const isFollowUsActive: boolean = checkIsFeatureActivated(

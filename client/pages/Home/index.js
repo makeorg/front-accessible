@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { useEffect, useState } from 'react';
-import { type TypeHome } from 'Shared/types/views';
+import { type HomeType } from 'Shared/types/views';
 import { ViewsService } from 'Shared/services/Views';
 import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -22,7 +22,7 @@ import { HomepageWrapperStyle } from './Styled';
 
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<TypeHome>({
+  const [data, setData] = useState<HomeType>({
     popularProposals: [],
     controverseProposals: [],
     businessConsultations: [],

@@ -1,15 +1,15 @@
 /* @flow */
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { type SequenceType } from 'Shared/types/sequence';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { Logger } from './Logger';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const startSequence = async (
   questionId: string,
   includedProposalIds: string[]
-): Promise<?(TypeProposal[])> => {
-  const getProposals = await (async (): Promise<TypeProposal[] | null> => {
+): Promise<?(ProposalType[])> => {
+  const getProposals = await (async (): Promise<ProposalType[] | null> => {
     try {
       const response = await QuestionApiService.startSequence(
         questionId,
@@ -31,7 +31,7 @@ const startSequence = async (
   }
 
   // Order proposal by included first
-  const orderedProposals: TypeProposal[] = proposals.sort(
+  const orderedProposals: ProposalType[] = proposals.sort(
     (firstProposal, secondProposal) => {
       const indexOfFirst = includedProposalIds.indexOf(firstProposal.id);
       const indexOfSecond = includedProposalIds.indexOf(secondProposal.id);
@@ -49,7 +49,7 @@ const startSequence = async (
   );
 
   // remove duplicates and voted
-  const reducer = (accumulator: TypeProposal[], proposal: TypeProposal) => {
+  const reducer = (accumulator: ProposalType[], proposal: ProposalType) => {
     if (
       accumulator.find(item => item.id === proposal.id) === undefined &&
       (proposal.votes.every(vote => vote.hasVoted === false) ||
@@ -62,7 +62,7 @@ const startSequence = async (
   };
 
   // toDo: remove reducer when API deduplicate proposals and return only unvoted proposals
-  const uniqueUnvotedProposals: TypeProposal[] = orderedProposals.reduce(
+  const uniqueUnvotedProposals: ProposalType[] = orderedProposals.reduce(
     reducer,
     []
   );

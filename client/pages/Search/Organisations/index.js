@@ -7,7 +7,7 @@ import { type Location, type History } from 'history';
 import { getRouteSearch } from 'Shared/routes';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import {
-  type Organisation as TypeOrganisation,
+  type OrganisationType,
   type OrganisationsType,
 } from 'Shared/types/organisation';
 import {
@@ -57,7 +57,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
-  const [organisations, setOrganisations] = useState<TypeOrganisation[]>([]);
+  const [organisations, setOrganisations] = useState<OrganisationType[]>([]);
   const isDesktop = useDesktop();
 
   const initOrganisations = async () => {

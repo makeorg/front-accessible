@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Vote } from 'Client/features/vote';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { OrganisationsVote } from 'Client/features/vote/Organisation';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
@@ -20,7 +20,7 @@ import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Proposal's position in list */
   position: number,
   /** Size of proposals list */

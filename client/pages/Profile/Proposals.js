@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/services/User';
-import { type TypeUser } from 'Shared/types/user';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type UserType } from 'Shared/types/user';
+import { type ProposalType } from 'Shared/types/proposal';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard';
@@ -19,11 +19,11 @@ import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 
 type Props = {
-  user: TypeUser,
+  user: UserType,
 };
 
 const ProfileProposalsPage = ({ user }: Props) => {
-  const [proposals, setProposals] = useState<TypeProposal[]>([]);
+  const [proposals, setProposals] = useState<ProposalType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [seed, setSeed] = useState(undefined);

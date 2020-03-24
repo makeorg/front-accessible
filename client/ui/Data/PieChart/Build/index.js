@@ -1,5 +1,5 @@
 import { type ElementRef as TypeElementRef } from 'react';
-import { type TypePieChartData } from 'Shared/types/question';
+import { type PieChartDataType } from 'Shared/types/question';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -10,7 +10,7 @@ const offsetCanvasValue = (canvasValue: number, offset: number) => {
 
 export const buildPieChart = (
   ref: TypeElementRef<HTMLCanvasElement>,
-  data: TypePieChartData[],
+  data: PieChartDataType[],
   isMobile: boolean
 ) => {
   const canvas: HTMLCanvasElement = ref.current;

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Tag as TypeTag } from 'Shared/types/proposal';
+import { type TagType } from 'Shared/types/proposal';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProposalFooterTagListStyle,
@@ -11,7 +11,7 @@ import {
 const NUMBER_OF_TAGS_TO_DISPLAY = 4;
 
 type ProposalFooterWithTagElementProps = {
-  tags: TypeTag[],
+  tags: TagType[],
 };
 
 export const ProposalFooterWithTagElement = ({

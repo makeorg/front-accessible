@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Vote as TypeVote } from 'Shared/types/proposal';
+import { type VoteType } from 'Shared/types/vote';
 import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -14,7 +14,7 @@ import {
 
 type Props = {
   /** Array of votes */
-  votes: TypeVote[],
+  votes: VoteType[],
   /** Id of the proposal */
   proposalId: string,
 };

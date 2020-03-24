@@ -1,6 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
-import { type SignUpCardConfig } from 'Shared/types/card';
+import { type SignUpCardConfigType } from 'Shared/types/card';
 import {
   trackSkipSignUpCard,
   trackDisplaySignUpCard,
@@ -35,7 +35,7 @@ import {
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
-  configuration: SignUpCardConfig,
+  configuration: SignUpCardConfigType,
   /** Boolean toggled when card is visible / hidden */
   isCardVisible: boolean,
 };

@@ -104,6 +104,7 @@
 		"jest": "~24.7.1",
 		"jest-dom": "^3.2.2",
 		"jest-styled-components": "~7.0.0-beta.1",
+		"jscpd": "^3.1.0",
 		"jsdom": "~12.2.0",
 		"json-server": "^0.15.0",
 		"mockdate": "~2.0.2",
@@ -157,6 +158,7 @@
 		"cypress:open": "cypress open",
 		"lighthouse:run": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 test:lighthouse:home",
 		"test:lighthouse:home": "lighthouse-ci http://localhost:9009 --accessibility=100 --report='.' --filename=report-home.html --chrome-flags='--headless --no-sandbox'",
-		"svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source"
+		"svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source",
+		"jscpd": "jscpd client server shared"
 	}
 }

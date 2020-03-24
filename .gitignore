@@ -11,3 +11,5 @@
 .idea
 .DS_Store
 /client/ui/Svg/svgr
+/reports
+.jscpd/

@@ -6,20 +6,17 @@ import {
   MAX_PROPOSAL_LENGTH,
   PROPOSALS_LISTING_LIMIT,
 } from 'Shared/constants/proposal';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import {
-  type TypeProposalListCard,
-  type TypeTopProposalListCard,
+  type ProposalListCardType,
+  type TopProposalListCardType,
 } from 'Shared/types/card';
 import { AVAILABLE_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { FEED_PROPOSAL, FEED_TOP_PROPOSALS } from 'Shared/constants/card';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_POPULAR_PROPOSALS } from 'Shared/constants/featureFlipping';
 import { ProposalService } from 'Shared/services/Proposal';
-import {
-  type ProposalsType,
-  type Proposal as TypeProposal,
-} from 'Shared/types/proposal';
+import { type ProposalsType, type ProposalType } from 'Shared/types/proposal';
 
 export const getProposalLength = (content: string = '') => {
   if (content === '') {
@@ -39,12 +36,12 @@ export const proposalHasValidLength = (length: number = 0) => {
 
 /**
  * Sort proposal by voted first
- * @param  {TypeProposal[]} proposals
- * @return {TypeProposal[]}
+ * @param  {ProposalType[]} proposals
+ * @return {ProposalType[]}
  */
 export const sortProposalsByVoted = (
-  proposals: TypeProposal[]
-): TypeProposal[] =>
+  proposals: ProposalType[]
+): ProposalType[] =>
   proposals.sort((first, second) => {
     const firstHasVoted = first.votes.some(vote => vote.hasVoted);
     const secondHasVoted = second.votes.some(vote => vote.hasVoted);
@@ -56,7 +53,7 @@ export const sortProposalsByVoted = (
  * Search the first no voted proposal
  * @type {Object|undefined}
  */
-export const searchFirstUnvotedProposal = (proposals: TypeProposal[]) =>
+export const searchFirstUnvotedProposal = (proposals: ProposalType[]) =>
   proposals.find(proposal =>
     proposal.votes.every(vote => vote.hasVoted === false)
   );
@@ -121,10 +118,10 @@ export const searchTaggedProposals = async (
 };
 
 export const buildProposalsFeed = (
-  proposals: TypeProposal[],
-  question: TypeQuestion,
+  proposals: ProposalType[],
+  question: QuestionType,
   sortTypeKey: string
-): Array<TypeProposalListCard | TypeTopProposalListCard> => {
+): Array<ProposalListCardType | TopProposalListCardType> => {
   const hasPopularProposals = checkIsFeatureActivated(
     CONSULTATION_POPULAR_PROPOSALS,
     question.activeFeatures

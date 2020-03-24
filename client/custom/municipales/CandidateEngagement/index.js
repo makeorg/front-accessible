@@ -1,10 +1,10 @@
 // @flow
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { useSlider } from 'Client/hooks/useSlider';
 import { type StateRoot } from 'Shared/store/types';
-import { type TypeSliderParams } from 'Shared/types/views';
-import { type TypePersonality } from 'Shared/types/user';
+import { type SliderParamsType } from 'Shared/types/views';
+import { type PersonalityType } from 'Shared/types/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { fechQuestionPersonalities } from 'Shared/store/reducers/questions/actions';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -39,13 +39,13 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const CandidateEngagement = ({ question }: Props) => {
   const [personalities, setPersonalities] = useState(null);
   const dispatch = useDispatch();
-  const personalitiesState: TypePersonality[] = useSelector(
+  const personalitiesState: PersonalityType[] = useSelector(
     (state: StateRoot) => state.questions[question.slug].personalities
   );
   const isMobile = useMobile();
@@ -83,13 +83,13 @@ export const CandidateEngagement = ({ question }: Props) => {
 };
 
 type SliderProps = {
-  personalities: TypePersonality[],
+  personalities: PersonalityType[],
 };
 
 export const CandidateMobileSlider = ({ personalities }: SliderProps) => {
   const sliderName = 'candidate_mobile';
   const sliderRef = useRef();
-  const sliderParams: TypeSliderParams = {
+  const sliderParams: SliderParamsType = {
     slidesToShow: 'auto',
   };
   useSlider(sliderRef, sliderParams, personalities.length > 0);
@@ -119,7 +119,7 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
   const [slideOffset, setSlideOffset] = useState(0);
   const sliderName = 'candidate_desktop';
   const sliderRef = useRef();
-  let sliderParams: TypeSliderParams = {
+  let sliderParams: SliderParamsType = {
     responsive: [
       {
         breakpoint: Breakpoints.Tablet,
@@ -199,7 +199,7 @@ export const CandidateDesktopSlider = ({ personalities }: SliderProps) => {
 };
 
 type CandidateProps = {
-  personality: TypePersonality,
+  personality: PersonalityType,
 };
 
 const handleClickProfile = () => {

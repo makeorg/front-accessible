@@ -1,12 +1,12 @@
 // @flow
-import { type QuestionExtraSlidesConfig as TypeQuestionExtraSlidesConfig } from 'Shared/types/question';
+import { type QuestionExtraSlidesConfigType } from 'Shared/types/question';
 
 export function queryParamIsDisable(query: Object, param: string) {
   return query[param] === 'false';
 }
 
 export function disableExtraSlidesByQuery(
-  sequenceExtraSlides: TypeQuestionExtraSlidesConfig,
+  sequenceExtraSlides: QuestionExtraSlidesConfigType,
   query: Object
 ) {
   const extraSlidesConfig = { ...sequenceExtraSlides };

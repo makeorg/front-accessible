@@ -1,6 +1,6 @@
 // @flow
 import { useEffect, type ElementRef as TypeElementRef } from 'react';
-import { type TypeSliderParams } from 'Shared/types/views';
+import { type SliderParamsType } from 'Shared/types/views';
 import Glider from 'glider-js';
 import {
   setAriaHidden,
@@ -14,7 +14,7 @@ import {
 
 export const useSlider = (
   sliderRef: TypeElementRef<any>,
-  sliderParams: TypeSliderParams,
+  sliderParams: SliderParamsType,
   canBeInitialize: boolean
 ) => {
   let gliderElement;

@@ -97,18 +97,6 @@ const toto: Toto = {
   value: null
 };
 ```
-- [Importing Type] use alias and prefix it with Type:
-
-**Good :**
-```js static
-import { type User as TypeUser } from '/user';
-```
-
-**Bad :**
-```js static
-import { type User as TypeUser } from '/user';
-```
-
 
 ## Redux
 

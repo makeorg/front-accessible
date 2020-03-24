@@ -2,14 +2,14 @@
 
 import { selectQuestion } from 'Shared/store/selectors/questions.selector';
 import { Store, Dispatch, Action } from 'redux';
-import { type Question } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import {
   CURRENT_QUESTION_UPDATE,
   QUESTION_UNLOAD,
 } from 'Shared/store/actionTypes';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 
-export const updateTrackingQuestionParam = (question: ?Question) => {
+export const updateTrackingQuestionParam = (question: ?QuestionType) => {
   if (question) {
     trackingParamsService.questionId = question.questionId;
     trackingParamsService.questionSlug = question.slug;

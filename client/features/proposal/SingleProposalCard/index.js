@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { getSequenceLink, getConsultationLink } from 'Shared/helpers/url';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { Vote } from 'Client/features/vote';
@@ -31,7 +31,7 @@ import {
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
 };
 
 export const SingleProposalCard = ({ proposal }: Props) => {

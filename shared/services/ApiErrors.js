@@ -1,23 +1,23 @@
 // @flow
 import { Logger } from 'Shared/services/Logger';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 
 /**
  * Map errors from API to internal error message
  *
- * @param {TypeErrorObject[]} errors an array of error map object {field: 'value', key: 'key of the error', message: 'error message to display'}
+ * @param {ErrorObjectType[]} errors an array of error map object {field: 'value', key: 'key of the error', message: 'error message to display'}
  */
 export const mapErrors = (
-  internalErrors: TypeErrorObject[],
-  apiErrors: TypeErrorObject[]
+  internalErrors: ErrorObjectType[],
+  apiErrors: ErrorObjectType[]
 ) => {
-  const errors: TypeErrorObject[] = apiErrors.map(
-    (apiError: TypeErrorObject) => {
+  const errors: ErrorObjectType[] = apiErrors.map(
+    (apiError: ErrorObjectType) => {
       const apiErrorField = apiError.field.toLowerCase();
       const apiErrorMessage = i18n.t(`common.form.messages.${apiError.key}`);
       const errorMatch = internalErrors.find(
-        (internalError: TypeErrorObject) =>
+        (internalError: ErrorObjectType) =>
           apiErrorField === internalError.field &&
           apiError.key === internalError.key
       );

@@ -1,5 +1,5 @@
 // @flow
-import { type TypeHome, type TypeSearchViews } from 'Shared/types/views';
+import { type HomeType, type SearchViewsType } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
 import { Logger } from './Logger';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
@@ -35,7 +35,7 @@ const orderByEndDate = (consultationA, consultationB) => {
   return dateB - dateA;
 };
 
-const getHome = async (): Promise<?TypeHome> => {
+const getHome = async (): Promise<?HomeType> => {
   try {
     const viewsResponse = await ViewsApiService.getHome();
     const {
@@ -67,7 +67,7 @@ const searchViews = async (
   proposalLimit?: number = 4,
   questionLimit?: number = 4,
   organisationLimit?: number = 4
-): Promise<?TypeSearchViews> => {
+): Promise<?SearchViewsType> => {
   try {
     const searchResponse = await ViewsApiService.searchViews(
       content,

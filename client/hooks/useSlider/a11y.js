@@ -1,4 +1,4 @@
-import { type TypeInteractiveChildren } from 'Shared/types/views';
+import { type InteractiveChildrenType } from 'Shared/types/views';
 // Define by default all slides with aria hidden
 export const setAriaHidden = (glider: TypeElementRef<any>) => {
   const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
@@ -26,7 +26,7 @@ export const handleVisibleSlides = (glider: TypeElementRef<any>) => {
 
 const getInteractiveElements = (
   slide: HTMLElement,
-  interactiveChildren: TypeInteractiveChildren
+  interactiveChildren: InteractiveChildrenType
 ) => {
   let linksArray = [];
   let inputsArray = [];
@@ -60,7 +60,7 @@ const disableTabIndex = (elementsArray: HTMLElement[]) => {
 
 const setTabIdex = (
   glider: TypeElementRef<any>,
-  interactiveChildren: TypeInteractiveChildren
+  interactiveChildren: InteractiveChildrenType
 ) => {
   const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
     '.glider-slide'
@@ -90,7 +90,7 @@ const enableTabIndex = (elementsArray: HTMLElement[]) => {
 
 const setTabIdexForVisibleSlides = (
   glider: TypeElementRef<any>,
-  interactiveChildren: TypeInteractiveChildren
+  interactiveChildren: InteractiveChildrenType
 ) => {
   const slides: NodeList<HTMLElement> | null = glider.querySelectorAll(
     '.glider-slide.visible'
@@ -159,7 +159,7 @@ export const setCounter = (counterName: string, index: number) => {
 // Enabling a11y Rules.
 export const setA11yRules = (
   glider: TypeElementRef<any>,
-  interactiveChildren?: TypeInteractiveChildren
+  interactiveChildren?: InteractiveChildrenType
 ) => {
   if (interactiveChildren) {
     setTabIdex(glider, interactiveChildren);

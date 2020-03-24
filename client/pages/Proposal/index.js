@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { i18n } from 'Shared/i18n';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type QuestionType } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type match as TypeMatch } from 'react-router';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
@@ -24,8 +24,8 @@ type Props = {
 const ProposalPage = (props: Props) => {
   const { match } = props;
   const { proposalId } = match.params;
-  const [proposal, setProposal] = useState<?TypeProposal>(undefined);
-  const [question, setQuestion] = useState<?TypeQuestion>(undefined);
+  const [proposal, setProposal] = useState<?ProposalType>(undefined);
+  const [question, setQuestion] = useState<?QuestionType>(undefined);
 
   useEffect(() => {
     ProposalService.getProposal(proposalId).then(response => {

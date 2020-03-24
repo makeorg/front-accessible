@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type TypePartner } from 'Shared/types/question';
+import { type PartnerType } from 'Shared/types/question';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { i18n } from 'Shared/i18n';
 import { PartnersList } from 'Client/features/consultation/Sidebar/Partners/List';
@@ -9,7 +9,7 @@ import { SidebarNewWindowLink } from 'Client/features/consultation/Sidebar/Link'
 import { trackSeeMorePartners } from 'Shared/services/Tracking';
 
 type Props = {
-  partners: TypePartner[],
+  partners: PartnerType[],
   aboutUrl: string,
 };
 

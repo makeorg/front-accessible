@@ -1,8 +1,8 @@
 // @flow
 import React, { useEffect } from 'react';
 import {
-  type Question as TypeQuestion,
-  type QuestionResults as TypeQuestionResults,
+  type QuestionType,
+  type QuestionResultsType,
 } from 'Shared/types/question';
 import { ConsultationPageContentStyle } from 'Client/pages/Consultation/style';
 import { i18n } from 'Shared/i18n';
@@ -47,8 +47,8 @@ import { TopIdeas } from './Results/TopIdeas';
 import { ResultsSlider } from './Results/Sliders';
 
 type Props = {
-  questionResults: TypeQuestionResults,
-  question: TypeQuestion,
+  questionResults: QuestionResultsType,
+  question: QuestionType,
 };
 
 const CARTOGRAPHY_SLIDER: string = 'cartography';

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { getProposalLink, getConsultationLink } from 'Shared/helpers/url';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -13,7 +13,7 @@ import { ProfileProposalCardStyle } from './Styled';
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: TypeProposal,
+  proposal: ProposalType,
   /** Proposal's position in list */
   position: number,
   /** Size of proposals list */

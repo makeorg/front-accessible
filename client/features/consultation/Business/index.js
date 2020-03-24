@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
-import { type TypeBusinessConsultation } from 'Shared/types/views';
+import { type BusinessConsultationType } from 'Shared/types/views';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
@@ -29,7 +29,7 @@ import {
 } from './Styled';
 
 type Props = {
-  consultations: TypeBusinessConsultation[],
+  consultations: BusinessConsultationType[],
 };
 
 export const BusinessConsultations = ({ consultations }: Props) => {

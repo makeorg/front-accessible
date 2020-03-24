@@ -1,35 +1,35 @@
 // @flow
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type ProposalType } from 'Shared/types/proposal';
+import { type QuestionType } from 'Shared/types/question';
 
-export type PartnerItem = {
+export type PartnerItemType = {
   name: string,
   imageUrl: string,
 };
 
-export type IntroCardConfig = {|
+export type IntroCardConfigType = {|
   enabled: boolean,
   title?: string,
   description?: string,
-  partners?: PartnerItem[],
+  partners?: PartnerItemType[],
   extraLogo?: string,
   id?: string,
 |};
 
-export type PushProposalCardConfig = {|
+export type PushProposalCardConfigType = {|
   enabled: boolean,
   extraLogo?: string,
   id?: string,
 |};
 
-export type SignUpCardConfig = {|
+export type SignUpCardConfigType = {|
   enabled: boolean,
   title?: string,
   nextCtaText?: string,
   id?: string,
 |};
 
-export type FinalCardConfig = {|
+export type FinalCardConfigType = {|
   enabled: boolean,
   withSharing: boolean,
   title?: string,
@@ -40,23 +40,23 @@ export type FinalCardConfig = {|
   id?: string,
 |};
 
-export type TypeSequenceCard = {|
+export type SequenceCardType = {|
   type: string,
   configuration:
-    | IntroCardConfig
-    | PushProposalCardConfig
-    | SignUpCardConfig
-    | FinalCardConfig
-    | TypeProposal,
+    | IntroCardConfigType
+    | PushProposalCardConfigType
+    | SignUpCardConfigType
+    | FinalCardConfigType
+    | ProposalType,
   offset: number,
 |};
 
-export type TypeProposalListCard = {|
+export type ProposalListCardType = {|
   type: string,
-  proposal: TypeProposal,
+  proposal: ProposalType,
 |};
 
-export type TypeTopProposalListCard = {|
+export type TopProposalListCardType = {|
   type: string,
-  question: TypeQuestion,
+  question: QuestionType,
 |};

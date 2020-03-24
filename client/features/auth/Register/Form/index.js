@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeRegisterFormData } from 'Shared/types/form';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type RegisterFormDataType } from 'Shared/types/form';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
 import { UserService } from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
@@ -46,7 +46,7 @@ export const RegisterForm = () => {
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const [user, setUser] = useState<TypeRegisterFormData>({
+  const [user, setUser] = useState<RegisterFormDataType>({
     email: '',
     password: '',
     firstname: '',
@@ -54,7 +54,7 @@ export const RegisterForm = () => {
     postalcode: '',
     profession: '',
   });
-  const [errors, setErrors] = useState<TypeErrorObject[]>([]);
+  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const [inProgress, setInProgress] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
@@ -91,7 +91,7 @@ export const RegisterForm = () => {
         setErrors([]);
       });
     };
-    const handleErrors = (serviceErrors: TypeErrorObject[]) => {
+    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       trackSignupEmailFailure();
       setErrors(serviceErrors);
     };

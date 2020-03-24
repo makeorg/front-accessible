@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { i18n } from 'Shared/i18n';
 import { getConsultationLink } from 'Shared/helpers/url';
@@ -22,7 +22,7 @@ import {
 import { SearchResultsConsultationListStyle } from '../../Styled';
 
 type Props = {
-  questions: TypeQuestion[],
+  questions: QuestionType[],
 };
 
 export const MainResultsConsultations = ({ questions }: Props) => {

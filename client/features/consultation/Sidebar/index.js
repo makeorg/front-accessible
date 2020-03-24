@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
 import { ConsultationPageSidebarStyle } from 'Client/pages/Consultation/style';
@@ -27,7 +27,7 @@ import { PartnersTile } from './Tiles/Partners';
 import { MethodologyTile } from './Tiles/Methodology';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 export const ConsultationSidebar = ({ question }: Props) => {
   const isMobile = useMobile();

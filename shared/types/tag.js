@@ -1,5 +1,5 @@
 // @flow
-export type TypeTag = {
+export type TagType = {
   tagId: string,
   label: string,
   display: string,

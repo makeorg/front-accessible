@@ -1,6 +1,6 @@
 import React from 'react';
 import { type TopIdeaCommentsType } from 'Shared/types/topIdea';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { ProposalCardStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { Link } from 'react-router-dom';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
@@ -32,7 +32,7 @@ import {
 import { OpinionCommentAuthorStyle } from '../style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
   comment: TopIdeaCommentsType,
 };
 

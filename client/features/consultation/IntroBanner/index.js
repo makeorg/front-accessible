@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { isGreatCause } from 'Shared/helpers/question';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
 import {
@@ -14,7 +14,7 @@ import {
 } from 'Client/features/consultation/Styled/IntroBanner';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const IntroBanner = ({ question }: Props) => {

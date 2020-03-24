@@ -2,12 +2,12 @@
 
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
-import { type ProposalAction } from 'Shared/types/action';
+import { type ProposalActionType } from 'Shared/types/action';
 import { type StateProposal } from 'Shared/store/types';
 
 export function proposal(
   state: StateProposal = initialState.proposal,
-  action: ProposalAction
+  action: ProposalActionType
 ) {
   switch (action.type) {
     case actionTypes.PROPOSE_SUCCESS:

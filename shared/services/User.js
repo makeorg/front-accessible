@@ -1,15 +1,15 @@
 // @flow
 import { UserApiService } from 'Shared/api/UserApiService';
 import {
-  type TypeUserInformationForm,
-  type TypeSearchProposals,
-  type TypePasswords,
+  type UserInformationFormType,
+  type SearchProposalsType,
+  type PasswordsType,
   type UserAuthType,
-  type TypeUser,
+  type UserType,
 } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import { mapErrors } from 'Shared/services/ApiErrors';
-import { type TypeRegisterFormData } from 'Shared/types/form';
+import { type RegisterFormDataType } from 'Shared/types/form';
 import {
   loginErrors,
   registerErrors,
@@ -20,13 +20,13 @@ import {
 } from 'Shared/errors/Messages/User';
 import { getErrorMessages } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const update = (
-  userInformation: TypeUserInformationForm,
+  userInformation: UserInformationFormType,
   success: () => void,
-  handleErrors: (errors: TypeErrorObject[]) => void
+  handleErrors: (errors: ErrorObjectType[]) => void
 ): void => {
   UserApiService.update({
     firstName: userInformation.firstName,
@@ -67,10 +67,10 @@ const updateNewsletter = (
 
 const updatePassword = (
   userId: string,
-  passwords: TypePasswords,
+  passwords: PasswordsType,
   hasPassword: boolean,
   success: () => void,
-  handleErrors: (errors: TypeErrorObject[]) => void
+  handleErrors: (errors: ErrorObjectType[]) => void
 ): void => {
   const actualPassword =
     hasPassword && passwords.actualPassword
@@ -127,7 +127,7 @@ const deleteAccount = (
 const forgotPassword = (
   email: string,
   success: () => void,
-  errors: (errors: TypeErrorObject[]) => void
+  errors: (errors: ErrorObjectType[]) => void
 ): void => {
   UserApiService.forgotPassword(email)
     .then(success)
@@ -145,9 +145,9 @@ const forgotPassword = (
 };
 
 const register = (
-  user: TypeRegisterFormData,
+  user: RegisterFormDataType,
   success: () => void,
-  errors: (errors: TypeErrorObject[]) => void,
+  errors: (errors: ErrorObjectType[]) => void,
   unexpectedError: () => void = () => {}
 ): void => {
   UserApiService.register(user)
@@ -166,7 +166,7 @@ const login = (
   email: string,
   password: string,
   success?: () => void = () => {},
-  errors?: (errors: TypeErrorObject[]) => void = () => {},
+  errors?: (errors: ErrorObjectType[]) => void = () => {},
   unexpectedError?: () => void = () => {}
 ): void => {
   UserApiService.login(email, password)
@@ -185,7 +185,7 @@ const myProposals = async (
   userId: string,
   seed: ?number = null,
   page: number = 0
-): Promise<?TypeSearchProposals> => {
+): Promise<?SearchProposalsType> => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
   try {
@@ -207,7 +207,7 @@ const myProposals = async (
 const myFavourites = async (
   userId: string,
   page: number = 0
-): Promise<?TypeSearchProposals> => {
+): Promise<?SearchProposalsType> => {
   const limit = PROPOSALS_LISTING_LIMIT;
   const skip = page * limit;
   try {
@@ -267,7 +267,7 @@ const changePassword = async (
   }
 };
 
-const me = async (unauthorized?: () => void = () => {}): Promise<TypeUser> => {
+const me = async (unauthorized?: () => void = () => {}): Promise<UserType> => {
   try {
     const response = await UserApiService.me();
 

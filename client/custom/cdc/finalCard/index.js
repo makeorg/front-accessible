@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { getConsultationLink, getSequenceLink } from 'Shared/helpers/url';
 import {
   SequenceContentWrapperStyle,
@@ -25,7 +25,7 @@ import {
 } from './Styled';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const CustomFinalCard = ({ question }: Props) => {

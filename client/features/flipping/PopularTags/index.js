@@ -2,8 +2,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { type TypeTag } from 'Shared/types/tag';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type TagType } from 'Shared/types/tag';
+import { type QuestionType } from 'Shared/types/question';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
@@ -22,7 +22,7 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const focusSelectTrigger = (id: string) => {
@@ -64,7 +64,7 @@ const scrollAndTrigger = (panelId: string, tagId: string) => {
 };
 
 export const PopularTags = ({ question }: Props) => {
-  const tags: TypeTag[] = useSelector(state =>
+  const tags: TagType[] = useSelector(state =>
     selectQuestionPopularTags(state, question.slug)
   );
 

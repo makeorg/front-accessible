@@ -4,7 +4,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import React from 'react';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import {
   ConsultationNavItemStyle,
   ConsultationNavLinkStyle,
@@ -13,7 +13,7 @@ import {
 import { SliderNavigationBetweenQuestions } from './Slider';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 /** @toDo: remove or refactor after the end of bretagne consultation */

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type QualificationType } from 'Shared/types/proposal';
+import { type QualificationType } from 'Shared/types/qualification';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';

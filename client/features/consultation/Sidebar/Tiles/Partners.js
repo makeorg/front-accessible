@@ -4,12 +4,12 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import React from 'react';
 import { i18n } from 'Shared/i18n';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { Partners } from '../Partners';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 export const PartnersTile = ({ question }: Props) => {
   const isMobile = useMobile();

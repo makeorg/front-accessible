@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { type Location, type History } from 'history';
-import { type Proposal as TypeProposal } from 'Shared/types/proposal';
+import { type ProposalType } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
 import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -49,7 +49,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState<number>(0);
   const [proposalsCount, setProposalsCount] = useState<number>(0);
-  const [proposalsResult, setProposalsResult] = useState<TypeProposal[]>([]);
+  const [proposalsResult, setProposalsResult] = useState<ProposalType[]>([]);
   const getMoreButton =
     proposalsCount > PROPOSALS_LIMIT &&
     proposalsCount > proposalsResult.length &&

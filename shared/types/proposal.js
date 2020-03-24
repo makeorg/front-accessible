@@ -1,14 +1,9 @@
 // @flow
-import { type Question as TypeQuestion } from './question';
-import { type OrganisationSoft as TypeOrganisationSoft } from './organisation';
+import { type QuestionType } from './question';
+import { type OrganisationSoftType } from './organisation';
+import { type VoteType } from './vote';
 
-export type QualificationType = {
-  count: number,
-  hasQualified: boolean,
-  qualificationKey: string,
-};
-
-export type Author = {
+export type AuthorType = {
   firstName: string,
   organisationName: string,
   organisationSlug: string,
@@ -18,33 +13,20 @@ export type Author = {
   userType: string,
 };
 
-export type Context = {
+export type ContextType = {
   operation: string,
   source: string,
   location: string,
   question: string,
 };
 
-export type Vote = {
-  voteKey: string,
-  count: number,
-  qualifications: QualificationType[],
-  hasVoted: boolean,
-};
-
-export type VotesPercentObject = {
-  agree: number,
-  disagree: number,
-  neutral: number,
-};
-
-export type Tag = {
+export type TagType = {
   tagId: string,
   label: string,
   display: boolean,
 };
 
-export type Proposal = {
+export type ProposalType = {
   id: string,
   userId: string,
   content: string,
@@ -52,27 +34,27 @@ export type Proposal = {
   status: string,
   createdAt: string,
   updatedAt: string,
-  votes: Vote[],
-  context: Context,
+  votes: VoteType[],
+  context: ContextType,
   trending: string,
   labels: any[],
-  author: Author,
-  organisations: TypeOrganisationSoft[],
+  author: AuthorType,
+  organisations: OrganisationSoftType[],
   country: string,
   language: string,
   themeId: string,
-  tags: Tag[],
-  selectedStakeTag: Tag,
+  tags: TagType[],
+  selectedStakeTag: TagType,
   myProposal: boolean,
   idea: string,
   questionId: string,
   operationId: string,
   proposalKey: string,
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export type ProposalsType = {
   total: number,
   seed?: number,
-  results: Proposal[],
+  results: ProposalType[],
 };

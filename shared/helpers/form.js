@@ -1,6 +1,6 @@
 // @flow
 import { i18n } from 'Shared/i18n';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { Logger } from 'Shared/services/Logger';
@@ -16,8 +16,8 @@ export const errorTranslation = (message: string): string => {
 
 export const getFieldError = (
   field: string,
-  errors: TypeErrorObject[]
-): TypeErrorObject => {
+  errors: ErrorObjectType[]
+): ErrorObjectType => {
   let fieldError = errors.find(error => error.field === field);
 
   if (fieldError === undefined) {
@@ -31,7 +31,7 @@ export const getFieldError = (
 };
 
 export const getErrorMessages = (
-  internalErrors: TypeErrorObject[],
+  internalErrors: ErrorObjectType[],
   serviceErrors: any
 ) => {
   switch (true) {

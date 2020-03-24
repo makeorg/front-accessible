@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type TypeUser } from 'Shared/types/user';
+import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
@@ -11,7 +11,7 @@ import {
 import { ProfileFollowingPlaceholder } from 'Client/pages/Profile/Placeholders/Following';
 
 type Props = {
-  user: TypeUser,
+  user: UserType,
 };
 
 const ProfileFollowingPage = ({ user }: Props) => {

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Redirect } from 'react-router';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ActionsContent } from 'Client/features/consultation/Actions';
@@ -25,7 +25,7 @@ import {
 } from './style';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 const ConsultationPageWrapper = ({ question }: Props) => {

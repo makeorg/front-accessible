@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type Question as TypeQuestion } from 'Shared/types/question';
+import { type QuestionType } from 'Shared/types/question';
 import { getSequenceLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ import {
 import { useMobile } from 'Client/hooks/useMedia';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const ParticipateBanner = ({ question }: Props) => {

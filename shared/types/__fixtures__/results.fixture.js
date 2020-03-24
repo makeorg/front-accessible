@@ -1,8 +1,8 @@
 // @flow
-import { type TypePieChart } from 'Shared/types/question';
+import { type PieChartType } from 'Shared/types/question';
 import { PIE_CHART, HISTOGRAM_CHART } from 'Client/app/constants/elements';
 
-export const MockedPieChartResults: TypePieChart = {
+export const MockedPieChartResults: PieChartType = {
   type: PIE_CHART,
   unit: 'percentage',
   name: 'Pie Chart n° 1',

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { type OrganisationSoft as TypeOrganisationSoft } from 'Shared/types/organisation';
+import { type OrganisationSoftType } from 'Shared/types/organisation';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
@@ -9,7 +9,7 @@ import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { OrganisationsVoteWrapperStyle } from './Styled';
 
 type Props = {
-  organisations: TypeOrganisationSoft[],
+  organisations: OrganisationSoftType[],
   country: string,
   language: string,
 };

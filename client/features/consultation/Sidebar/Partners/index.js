@@ -2,10 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
-import {
-  type Question as TypeQuestion,
-  type TypePartner,
-} from 'Shared/types/question';
+import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { TileSeparatorStyle } from 'Client/ui/Elements/TileWithTitle/style';
@@ -21,7 +18,7 @@ import { ACTION_PARTNER } from 'Shared/constants/partner';
 import { PartnersList } from './List';
 
 type Props = {
-  question: TypeQuestion,
+  question: QuestionType,
 };
 
 export const Partners = (props: Props) => {
@@ -33,7 +30,7 @@ export const Partners = (props: Props) => {
     question.slug
   );
 
-  const partners: TypePartner[] = question.partners
+  const partners: PartnerType[] = question.partners
     ? question.partners.filter(
         partner => partner.partnerKind === ACTION_PARTNER
       )

@@ -1,12 +1,12 @@
 // @flow
 import { type ElementRef as TypeElementRef, useEffect, useState } from 'react';
 import { type BasicInputStyle as TypeBasicInput } from 'Client/ui/Elements/Form/Styled/Input';
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 
 export const useIsFieldValid = (
   ref: TypeElementRef<TypeBasicInput>,
-  initialError: TypeErrorObject
+  initialError: ErrorObjectType
 ) => {
   const [isFieldValid, setFieldValidation] = useState<boolean>(true);
   let isInitialErrorEmpty = true;

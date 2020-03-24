@@ -1,5 +1,5 @@
 // @flow
-import { type TypeErrorObject } from 'Shared/types/api';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { defaultApiError, emptyError } from 'Shared/errors/Messages';
 import {
   getFieldError,
@@ -9,7 +9,7 @@ import {
 } from './form';
 
 describe('getFieldError', () => {
-  const errors: TypeErrorObject[] = [
+  const errors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooKey',
@@ -42,7 +42,7 @@ describe('getFieldError', () => {
 });
 
 describe('getErrorMessages', () => {
-  const internalErrors: TypeErrorObject[] = [
+  const internalErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooKey',
@@ -60,7 +60,7 @@ describe('getErrorMessages', () => {
     },
   ];
 
-  const serviceErrors: TypeErrorObject[] = [
+  const serviceErrors: ErrorObjectType[] = [
     {
       field: 'foo',
       key: 'fooKey',
@@ -78,7 +78,7 @@ describe('getErrorMessages', () => {
     },
   ];
 
-  const apiObjectError: TypeErrorObject = {
+  const apiObjectError: ErrorObjectType = {
     field: 'foo',
     key: 'fooKey',
     message: 'fooMessage',
