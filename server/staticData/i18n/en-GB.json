@@ -37,7 +37,7 @@
             "title": "Results of the consultation '{{question}}"
         },
         "sequence": {
-            "title": "Contribute to the consultation '{{question}}'"
+            "title": "Participate to the consultation '{{question}}'"
         },
         "top-ideas": {
             "title": "Top ideas on the consultation '{{question}}'",
@@ -50,14 +50,14 @@
             "picture": "https://assets.make.org/assets/metas/meta-top-ideas.jpg"
         },
         "search": {
-            "main_results": "Search - {{count}} results for « {{term}} »",
-            "main_results_plural": "Search - {{count}} results for « {{term}} »",
-            "proposals": "Search - {{count}} solution for « {{term}} »",
-            "proposals_plural": "Search - {{count}} solution for « {{term}} »",
-            "consultations": "Search - {{count}} consultation for « {{term}} »",
-            "consultations_plural": "Search - {{count}} consultations for « {{term}} »",
-            "organisations": "Search - {{count}} organisations for « {{term}} »",
-            "organisations_plural": "Search - {{count}} organisations for « {{term}} »"
+            "main_results": "Search - {{count}} result for '{{term}}'",
+            "main_results_plural": "Search - {{count}} results for '{{term}}'",
+            "proposals": "Search - {{count}} solution for '{{term}}'",
+            "proposals_plural": "Search - {{count}} solutions for '{{term}}'",
+            "consultations": "Search - {{count}} consultation for '{{term}}'",
+            "consultations_plural": "Search - {{count}} consultations for '{{term}}'",
+            "organisations": "Search - {{count}} organization for '{{term}}'",
+            "organisations_plural": "Search - {{count}} organizations for '{{term}}'"
         },
         "proposal": {
             "title": "Solution '{{proposal}}'",
@@ -132,8 +132,8 @@
         "click_there": "Click here",
         "open_new_window": "Open in a new window",
         "loading": "Loading, please wait...",
-        "participate": "Contribute",
-        "vote_on_proposals": "React to these solutions",
+        "participate": "Participate",
+        "vote_on_proposals": "Vote for these solutions",
         "display_pannel": "Display the content of the collapse pannel",
         "hide_pannel": "Hide the content of the collapse pannel",
         "display_modal": "Display the content of the dialog modal",
@@ -149,7 +149,7 @@
             "bad_link": "This link is not valid anymore.",
             "activate_account_success": "Congrats, your account has been validated. Start browsing solutions or submit yours.",
             "delete_account_success": "Your account has been deleted. It was good to have you.",
-            "login_success": "Yu logged in successfully.",
+            "login_success": "You logged in successfully.",
             "logout_success": "You logged out successfully.",
             "register_success": "Welcome, you are now signed up.",
             "register_validate": "Thanks for signing up! We sent you an email at {{email}} to validate your account.",
@@ -202,7 +202,7 @@
         "whoarewe": "About Make.org"
     },
     "proposal_page": {
-        "button_1": "Contribute",
+        "button_1": "Participate",
         "button_2": "Learn more",
         "share_text": "Show your support by sharing this solution:",
         "footer_text": "This solution was submitted as part of the {{operation_name}} consultation."
@@ -213,7 +213,7 @@
         "number": "Solution number",
         "posted_label": "Published in ",
         "author": {
-            "age": "{{age}} years",
+            "age": "{{age}}",
             "from": "Proposition de : ",
             "date": "published on: "
         },
@@ -257,16 +257,16 @@
         "next-cta": "Not yet, I prefer to keep voting for the moment."
     },
     "proposal_submit": {
-        "bait": "Let's",
+        "bait": "We should",
         "title": "Fill this form to submit your solution (140 characters max) :",
         "description": "Don't worry, we’ll fix any spelling mistakes if needed.",
-        "moderation_charter": "Learn more about our moderation guidelines,",
+        "moderation_charter": "Learn more about our",
         "success": "Congrats, your solution has been submitted. We will send you an email as soon as it is reviewed.",
-        "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
-        "moderation_charter_label": "notre charte de modération"
+        "counter": "Your solution contains {{current}} characters out of {{total}} available characters.",
+        "moderation_charter_label": "moderation guidelines"
     },
     "vote": {
-        "intro_title": "I want to react to this solution. ",
+        "intro_title": "I want to vote for this solution. ",
         "agree": "Agree",
         "disagree": "Disagree",
         "neutral": "I am neutral",
@@ -315,8 +315,8 @@
         "times": "times"
     },
     "sequence": {
-        "return": "Back to the solutions",
-        "title": "React to the solutions of the consultation: "
+        "return": "Vote for solutions",
+        "title": "Vote for the solutions of the consultation: "
     },
     "authentification": {
         "title": "Sign up to submit your solution",
@@ -425,22 +425,22 @@
         },
         "common": {
             "log_out": "Log out",
-            "age": "{{age}} years",
+            "age": "{{age}}",
             "submit_label": "Save changes",
             "submit_success": "Your request was taken into account.",
             "error": "Sorry, an error occurred and your information cannot be saved. Please try again later.",
-            "infos": "Mes informations personnelles",
+            "infos": "My personal information",
             "labels": {
-                "organisation": "Nom de l'organisation : ",
-                "firstname": "Prénom : ",
-                "lastname": "Nom : ",
-                "email": "Adresse e-mail : ",
-                "postal_code": "Code postal : ",
-                "age": "Âge : ",
-                "profession": "Profession : ",
-                "biography": "Biographie : ",
-                "website": "Site Internet : ",
-                "political_party": "Parti politique : "
+                "organisation": "Name of the organization: ",
+                "firstname": "First name: ",
+                "lastname": "Last name: ",
+                "email": "Email: ",
+                "postal_code": "Postcode: ",
+                "age": "Age: ",
+                "profession": "Job: ",
+                "biography": "Bio: ",
+                "website": "Website: ",
+                "political_party": "Political party: "
             }
         },
         "informations_update": {
@@ -452,9 +452,9 @@
         "password_update": {
             "title": "Edit password",
             "submit_label": "Save changes",
-            "newpassword": "Nouveau mot de passe",
+            "newpassword": "New password",
             "actual_password": {
-                "label": "Mot de passe actuel",
+                "label": "Current password",
                 "invalid_password": "The {{label}} indicated is invalid.",
                 "trigger": "Forgot your password?"
             }
@@ -469,7 +469,7 @@
             "submit_label": "I want to delete my account",
             "wrong_email": "Invalid login.",
             "wrong_password": "Invalid password.",
-            "password": "J'indique mon mot de passe"
+            "password": "Enter my password"
         },
         "organisation": {
             "proposal_agree": "agrees with the proposal",
@@ -517,8 +517,8 @@
         },
         "partners": {
             "intro_title": "The community of actions",
-            "intro_text": "Thousands of citizens contributed to the consultation.",
-            "commitment_title": "They contributed too!",
+            "intro_text": "Thousands of citizens participated to the consultation.",
+            "commitment_title": "They participated too!",
             "commitment_text": "They support the consultation and the action plan that will follow.",
             "commitment_link": "See all partners",
             "founder": "Founder Partner",
@@ -544,7 +544,7 @@
             "popular_title": "Most discussed topics"
         },
         "banner": {
-            "title": "Vote on the latest solutions on this topic",
+            "title": "Vote for trending solutions on this topic",
             "description": "on a series of random solutions"
         },
         "proposal": {
@@ -557,7 +557,7 @@
         },
         "sort": {
             "TAGGED_FIRST": "All the solutions",
-            "ACTORS": "Solutions from stakeholders",
+            "ACTORS": "From organizations",
             "RECENT": "Most recent",
             "REALISTIC": "Most realistic",
             "CONTROVERSY": "Most discussed",
@@ -603,7 +603,7 @@
                 "title": "Mapping of the debate"
             },
             "participation": {
-                "title": "Who contributed to this consultation?"
+                "title": "Who participated to this consultation?"
             },
             "table": {
                 "name": "Name",
@@ -626,7 +626,7 @@
             "proposals_plural": "{{ count }} solutions",
             "votes": "{{ count }} vote",
             "votes_plural": "{{ count }} votes",
-            "participate": "Are you an association? And do you want to contribute to the consultation? {{ contact_us }}",
+            "participate": "Are you an association? And do you want to participate to the consultation? {{ contact_us }}",
             "contact_us": "Contact us",
             "more": "See more"
         },
@@ -872,7 +872,7 @@
             "introduction": "Your search query must be between 3 and 140 characters long. Enter it in the field, then click on \"Search\"",
             "introduction_searched": "To clear the search field, click on \"Clear search field\"",
             "label": "Search field",
-            "placeholder": "Search for an idea, a theme, a topic",
+            "placeholder": "Search for an idea, a theme, a topic...",
             "placeholder_mobile": "Search...",
             "submit": "Search",
             "flush": "Clear search field"
