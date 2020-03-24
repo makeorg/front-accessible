@@ -57,6 +57,7 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
     margin-bottom: 20px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 0;
     padding-left: ${pxToPercent(20, 1140)};
     order: 1;
     width: ${pxToPercent(390, 1140)};

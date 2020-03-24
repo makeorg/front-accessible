@@ -45,7 +45,6 @@ export const Header = () => {
         <HeaderFlexRightStyle>
           {isDesktop && (
             <WhoAreWeLinkStyle
-              as="a"
               target="_blank"
               rel="noreferrer noopener"
               href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}

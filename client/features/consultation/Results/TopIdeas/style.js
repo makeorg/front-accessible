@@ -21,7 +21,7 @@ export const TopIdeasParagraphStyle = styled(ParagraphStyle)`
 `;
 
 export const ThemeListItemStyle = styled.li`
-  margin-top: 15px;
+  margin-bottom: 15px;
   padding: 20px;
   background-color: ${BackgroundColors.TaintedWhite};
   border-radius: ${intToPx(Elements.BorderRadius)};

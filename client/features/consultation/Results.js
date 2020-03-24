@@ -58,7 +58,9 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   const isMobile = useMobile();
   const isDesktop = useDesktop();
   const displaySidebar = isMobile || isDesktop;
-  const hasReports = questionResults && questionResults.reports;
+  const hasReports =
+    (questionResults && questionResults.reports) ||
+    (questionResults && questionResults.contact);
 
   useEffect(() => {
     if (question) {
@@ -143,27 +145,39 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             title={i18n.t('consultation.results.download.title')}
             id={RESULTS_REPORT}
           >
-            <UnstyledListStyle>
-              {questionResults.reports &&
-                questionResults.reports.map(report => (
-                  <ResultsDownloadItemStyle as="li" key={report.type}>
-                    <ParagraphStyle as="span">
-                      {i18n.t('consultation.results.download.type', {
-                        extension: report.type,
-                        weight: report.size,
-                      })}
-                    </ParagraphStyle>
-                    <ResultsDownloadButtonStyle
-                      as="a"
-                      href={report.path}
-                      download={`${question.slug}`}
-                      onClick={() => trackDownloadReport(report.type)}
-                    >
-                      {i18n.t('consultation.results.download.button')}
-                    </ResultsDownloadButtonStyle>
-                  </ResultsDownloadItemStyle>
-                ))}
-            </UnstyledListStyle>
+            {questionResults.reports && (
+              <UnstyledListStyle>
+                {questionResults.reports &&
+                  questionResults.reports.map(report => (
+                    <ResultsDownloadItemStyle as="li" key={report.type}>
+                      <ParagraphStyle as="span">
+                        {i18n.t('consultation.results.download.type', {
+                          extension: report.type,
+                          weight: report.size,
+                        })}
+                      </ParagraphStyle>
+                      <ResultsDownloadButtonStyle
+                        as="a"
+                        href={report.path}
+                        download={`${question.slug}`}
+                        onClick={() => trackDownloadReport(report.type)}
+                      >
+                        {i18n.t('consultation.results.download.button')}
+                      </ResultsDownloadButtonStyle>
+                    </ResultsDownloadItemStyle>
+                  ))}
+              </UnstyledListStyle>
+            )}
+            {questionResults.contact && (
+              <ParagraphStyle
+                dangerouslySetInnerHTML={{
+                  __html: i18n.t('consultation.results.download.contact', {
+                    contact_us:
+                      '<a class="red-link" href="mailto:contact@make.org">contact@make.org</a>',
+                  }),
+                }}
+              />
+            )}
           </TileWithTitle>
         )}
       </ConsultationPageContentStyle>
