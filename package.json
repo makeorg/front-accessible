@@ -34,6 +34,8 @@
 		"history": "~4.7.2",
 		"i18next": "~17.0.3",
 		"memory-cache": "~0.2.0",
+		"moment": "^2.24.0",
+		"moment-locales-webpack-plugin": "^1.2.0",
 		"prom-client": "~11.2.1",
 		"react": "^16.9.0",
 		"react-autosize-textarea": "~7.0.0",

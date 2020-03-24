@@ -1,36 +1,7 @@
 /* @flow */
-let instance = null;
+import moment from 'moment';
 
-const localeMonths = {
-  fr: [
-    'janvier',
-    'février',
-    'mars',
-    'avril',
-    'mai',
-    'juin',
-    'juillet',
-    'août',
-    'septembre',
-    'octobre',
-    'novembre',
-    'décembre',
-  ],
-  en: [
-    'january',
-    'february',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ],
-};
+let instance = null;
 
 export const getDateOfBirthFromAge = (age: string = '') => {
   if (!age) {
@@ -115,13 +86,9 @@ export class DateHelperSingleton {
       return null;
     }
 
-    if (localeMonths[this._language] === undefined) {
-      return null;
-    }
+    moment.locale(this._language);
 
-    const localeMonth = localeMonths[this._language][objectDate.getMonth()];
-
-    return `${objectDate.getDate()} ${localeMonth} ${objectDate.getFullYear()}`;
+    return moment(objectDate).format('LL');
   }
 }
 
