@@ -148,6 +148,10 @@ Bad:
 @media (max-width: ${pxToRem(Breakpoints.Tablet)})
 ```
 
+## Internationalisation
+- ```i18next``` for translation
+- ```moment``` for localisation
+
 ## TODO:
 
 - [ ] update all redux Action with FSA standard

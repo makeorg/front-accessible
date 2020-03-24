@@ -36,6 +36,9 @@ Then you can lauch the dev server using this preprod api
 ## Linter
 To launch linter `yarn lint`
 
+## Detect duplications
+To launch jscpd `yarn jscpd`
+
 ## Flow
 To launch flow type checking `yarn flow`
 

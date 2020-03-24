@@ -70,18 +70,19 @@ describe('Date Helper', () => {
       );
     });
 
+    it('creationDateFormat with valid date and en locale', () => {
+      DateHelper.language = 'en';
+      expect(DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')).toBe(
+        'October 24, 2018'
+      );
+    });
+
     it('creationDateFormat with invalid date', () => {
       expect(DateHelper.creationDateFormat('foo')).toBeNull();
     });
 
-    it('creationDateFormat with invalid language', () => {
-      DateHelper.language = 'de';
-      expect(
-        DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')
-      ).toBeNull();
-    });
-
     it('getLanguage', () => {
+      DateHelper.language = 'de';
       const { language } = DateHelper;
       expect(language).toBe('de');
     });

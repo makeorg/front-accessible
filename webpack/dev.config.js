@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 const baseConfig = require('./base.config.js');
 
@@ -19,6 +20,9 @@ module.exports = merge(baseConfig, {
         NODE_ENV: JSON.stringify('development'),
         API_URL: JSON.stringify('https://api.preprod.makeorg.tech'),
       },
+    }),
+    new MomentLocalesPlugin({
+      localesToKeep: ['fr', 'en'],
     }),
   ],
   devServer: {
