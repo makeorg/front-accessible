@@ -13,7 +13,6 @@ import {
   ConsultationNavLinkStyle,
   ConsultationNavListStyle,
 } from 'Client/features/consultation/Styled/Navigation';
-import { getNavName } from '..';
 
 type Props = {
   question: QuestionType,
@@ -70,10 +69,7 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
                     siblingQuestion.questionId === question.questionId
                   }
                 >
-                  {getNavName(
-                    siblingQuestion.questionSlug,
-                    siblingQuestion.question
-                  )}
+                  {siblingQuestion.question}
                 </ConsultationNavLinkStyle>
               </ConsultationNavItemStyle>
             ))}

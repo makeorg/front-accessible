@@ -12,9 +12,6 @@ import { type QuestionType } from 'Shared/types/question';
 import { searchFirstUnvotedProposal } from 'Shared/helpers/proposal';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentification } from 'Shared/store/selectors/user.selector';
-import { useCustomDataSelector } from 'Client/hooks/useCustomDataSelector';
-import { DEPARTMENT_STORAGE_KEY } from 'Shared/constants/ids';
-import { getBretagneQuestionSlug } from 'Client/custom/cdc/helpers';
 import {
   fetchSequenceProposals,
   unloadSequenceProposals,
@@ -60,8 +57,6 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
   const [isSequenceLoaded, setIsSequenceLoaded] = useState(false);
   const [cards, setCards] = useState([]);
   const [cardsCount, setCardsCount] = useState(0);
-  /** @toDo: remove or refactor after the end of bretagne consultation */
-  const department = useCustomDataSelector(DEPARTMENT_STORAGE_KEY);
   const sequenceProposals = useSelector(
     (state: StateRoot) => state.sequence && state.sequence.proposals
   );
@@ -106,10 +101,6 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
   }, [question, firstProposal, isLoggedIn, hasProposed, sequenceProposals]);
 
   useEffect(() => {
-    /** @toDo: remove or refactor after the end of bretagne consultation */
-    if (getBretagneQuestionSlug(question.slug) && !department) {
-      return setIsSequenceLoaded(false);
-    }
     const proposalIds = votedProposalIds[question.slug] || [];
 
     const startSequence = async () => {
