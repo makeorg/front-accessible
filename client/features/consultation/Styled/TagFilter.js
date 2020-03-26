@@ -55,4 +55,5 @@ export const TextStyle = styled.div`
 export const SelectContainerStyle = styled.div`
   display: flex;
   align-items: center;
+  z-index: 2;
 `;
