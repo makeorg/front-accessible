@@ -1,12 +1,10 @@
 // @flow
 
 import React from 'react';
-import { i18n } from 'Shared/i18n';
 import { type VoteType } from 'Shared/types/vote';
-import { QualificationButtonElement } from 'Client/ui/Elements/Qualification/Button';
-import { voteStaticParams } from 'Shared/constants/vote';
 import { VoteResult } from 'Client/features/vote/Result';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
+import { QualificationButton } from 'Client/features/vote/Qualification/Button';
 import { VoteResultStyle } from './Styled';
 
 type Props = {
@@ -16,6 +14,8 @@ type Props = {
   votes: VoteType[],
   /** Voted key property */
   votedKey: string,
+  /** Proposal's Key */
+  proposalKey: string,
   /** Status of vote */
   isPending?: boolean,
   /** handle click on vote */
@@ -28,6 +28,7 @@ export const VoteResultElement = ({
   votedKey,
   isPending,
   handleVote,
+  proposalKey,
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
 
@@ -46,15 +47,14 @@ export const VoteResultElement = ({
       />
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
-          <QualificationButtonElement
+          <QualificationButton
             key={`vote_result_${proposalId}_qualifcation_${
               qualification.qualificationKey
             }`}
-            color={voteStaticParams[votedKey].color}
-            label={i18n.t(`qualification.${qualification.qualificationKey}`)}
-            qualificationCounter={qualification.count}
-            isQualified={qualification.hasQualified}
-            qualificationKey={qualification.qualificationKey}
+            qualification={qualification}
+            votedKey={votedKey}
+            proposalId={proposalId}
+            proposalKey={proposalKey}
           />
         ))}
       </SpaceBetweenColumnStyle>

@@ -101,9 +101,11 @@ export const ProfileVoteCard = ({
               {proposal.content}
             </ProposalStyle>
             <VoteResultElement
+              proposal={proposal}
               proposalId={proposal.id}
               votes={proposal.votes}
               votedKey={voteKey}
+              proposalKey={proposal.proposalKey}
             />
           </ProposalInnerStyle>
 
