@@ -6,7 +6,6 @@ import {
   trackDisplaySequence,
   trackClickConsultation,
 } from 'Shared/services/Tracking';
-import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { sequenceStart } from 'Shared/store/actions/sequence';
 import { SequenceSkipLinks } from 'Client/app/SkipLinks/Sequence';
 import { MetaTags } from 'Client/app/MetaTags';
@@ -121,9 +120,7 @@ const SequencePageContainer = ({ question }: Props) => {
   );
 };
 
-const SequencePage = withQuestionData(
-  withDepartmentCheck(SequencePageContainer)
-);
+const SequencePage = withQuestionData(SequencePageContainer);
 
 // default export needed for loadable component
 export default SequencePage; // eslint-disable-line import/no-default-export

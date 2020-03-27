@@ -16,17 +16,6 @@ type Props = {
   question: QuestionType,
 };
 
-/** @toDo: remove or refactor after the end of bretagne consultation */
-const bretagneNavNames = {
-  'bretagne-qualite-vie': 'Qualité de vie',
-  'bretagne-ecologique-durable': 'Environnement',
-  'bretagne-dynamisme-economique': 'Emploi',
-  'bretagne-vivre-ensemble': 'Solidarité',
-};
-
-export const getNavName = (slug: string, defaultName: string) =>
-  slug in bretagneNavNames ? bretagneNavNames[slug] : defaultName;
-
 export const NavigationBetweenQuestions = ({ question }: Props) => {
   const isMobile = useMobile();
 
@@ -57,10 +46,7 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
                   siblingQuestion.questionId === question.questionId
                 }
               >
-                {getNavName(
-                  siblingQuestion.questionSlug,
-                  siblingQuestion.question
-                )}
+                {siblingQuestion.question}
               </ConsultationNavLinkStyle>
             </ConsultationNavItemStyle>
           ))}

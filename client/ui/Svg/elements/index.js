@@ -47,8 +47,6 @@ export { SvgSearch } from './Search';
 export { SvgCalculator } from './Calculator';
 export { SvgLightning } from './Lightning';
 export { SvgMap } from './Map';
-export { SvgBretagneMap } from './BretagneMap';
-export { SvgBretagneMapMobile } from './BretagneMapMobile';
 export { SvgInstagramLogo } from './InstagramLogo';
 export { SvgTrending } from './Trending';
 export { SvgLink } from './Link';

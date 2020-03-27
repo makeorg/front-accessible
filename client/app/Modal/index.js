@@ -8,13 +8,11 @@ import {
   MODAL_LOGIN,
   MODAL_REGISTER,
   MODAL_FORGOT_PASSWORD,
-  MODAL_DEPARTMENT,
 } from 'Shared/constants/modal';
 import { type StateRoot } from 'Shared/store/types';
 import { Login } from 'Client/features/auth/Login';
 import { Register } from 'Client/features/auth/Register';
 import { PasswordForgot } from 'Client/features/auth/PasswordForgot';
-import { DepartmentForm } from 'Client/custom/cdc/departmentCheck/DepartmentForm';
 import { trackClickCloseModal } from 'Shared/services/Tracking';
 import { ModalComponent } from './ModalComponent';
 
@@ -24,7 +22,6 @@ const modalContents = {
   [MODAL_LOGIN]: <Login />,
   [MODAL_REGISTER]: <Register />,
   [MODAL_FORGOT_PASSWORD]: <PasswordForgot />,
-  [MODAL_DEPARTMENT]: <DepartmentForm />,
 };
 
 export const Modal = () => {
@@ -42,11 +39,6 @@ export const Modal = () => {
   };
 
   if (isModalOpen) {
-    // @todo remove or refactor when CDC is over
-    if (contentType === MODAL_DEPARTMENT) {
-      return modalContents[contentType];
-    }
-
     return (
       <ModalComponent
         isModalOpen={isModalOpen}

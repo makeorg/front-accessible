@@ -16,7 +16,6 @@ import {
   MUNICIPAL_TEASING_HEADER,
   CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
 } from 'Shared/constants/featureFlipping';
-import { withDepartmentCheck } from 'Client/custom/cdc/departmentCheck/withDepartmentCheck';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { isInProgress } from 'Shared/helpers/date';
@@ -111,9 +110,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   );
 };
 
-const ConsultationPage = withQuestionData(
-  withDepartmentCheck(ConsultationPageWrapper)
-);
+const ConsultationPage = withQuestionData(ConsultationPageWrapper);
 
 // default export needed for loadable component
 export default ConsultationPage; // eslint-disable-line import/no-default-export
