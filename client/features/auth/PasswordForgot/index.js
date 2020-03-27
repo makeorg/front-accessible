@@ -8,7 +8,7 @@ import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { ForgotPasswordForm } from './Form';
-import { ForgotPasswordStyle } from './Styled';
+import { ForgotPasswordStyle } from './style';
 
 /**
  * Renders Forgot Password component

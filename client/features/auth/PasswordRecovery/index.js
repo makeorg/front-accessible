@@ -7,7 +7,7 @@ import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 import { PasswordRecoveryForm } from './Form';
-import { PasswordRecoveryStyle, PasswordRecoveryTitleStyle } from './Styled';
+import { PasswordRecoveryStyle, PasswordRecoveryTitleStyle } from './style';
 
 export const PasswordRecoverySuccess = () => (
   <Fragment>

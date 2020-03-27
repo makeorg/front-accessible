@@ -9,7 +9,7 @@ import { PasswordRecovery } from 'Client/features/auth/PasswordRecovery';
 import {
   PasswordRecoveryWrapperStyle,
   PasswordRecoveryContentStyle,
-} from 'Client/features/auth/PasswordRecovery/Styled';
+} from 'Client/features/auth/PasswordRecovery/style';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 
