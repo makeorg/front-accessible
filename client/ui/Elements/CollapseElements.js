@@ -13,6 +13,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
+  margin-top: 20px;
   margin-bottom: ${props => (props.noMargin ? '0' : '20px')};
   &:last-child {
     margin-bottom: 0;

@@ -677,7 +677,7 @@
         "percentage": "pourcentage"
       },
       "download": { 
-        "title": "Télécharger le rapport complet",
+        "title": "Obtenir le rapport complet",
         "type": "Format : {{extension}} - Poids : {{weight}}",
         "button": "Télécharger",
         "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse {{ contact_us }}"

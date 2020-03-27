@@ -1,5 +1,5 @@
 {
-    "context": "Consultation citoyenne réalisée par Make.org pour la ministêre de l'Economie et des Finances du 03/12/2019 au 25/01/2020, autour de la question : \"Comment assurer l'égalité femmes-hommes dans l'économie ?\"",
+    "context": "Consultation citoyenne réalisée par Make.org pour la ministère de l'Economie et des Finances du 03/12/2019 au 25/01/2020, autour de la question : \"Comment assurer l'égalité femmes-hommes dans l'économie ?\"",
     "contact": true,
     "key_figures": {
         "participants": 79400,
@@ -8,10 +8,10 @@
     },
     "top_ideas": [
         {
-            "name": "Axe 1 : Parentalité",
+            "name": "Parentalité",
             "ideas": [
                 {
-                    "idea": "le congé parternité",
+                    "idea": "Allonger le congé parternité",
                     "agreement": 85,
                     "adhesion": 19,
                     "realistic": 23
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "name": "Axe 2 : Fonctionnement de l'entreprise",
+            "name": "Fonctionnement de l'entreprise",
             "ideas": [
                 {
                     "idea": "Amener plus de transparence sur les inégalités salariales et sanctionner les entreprises qui les pratiquent",
@@ -52,7 +52,7 @@
                     "realistic": 23
                 },
                 {
-                    "idea": "Faciliter l'amênagement des horaires de travail (télétravail, temps partiel) pour s'occuper des enfants sans impacter la carriêre",
+                    "idea": "Faciliter l'aménagement des horaires de travail (télétravail, temps partiel) pour s'occuper des enfants sans impacter la carrière",
                     "agreement": 86,
                     "adhesion": 14,
                     "realistic": 23
@@ -70,7 +70,7 @@
                     "realistic": 25
                 },
                 {
-                    "idea": "Pouvoir signaler les situations harcêlement et de sexisme au travail tout en assurant des sanctions et un suivi des plaignants",
+                    "idea": "Pouvoir signaler les situations harcèlement et de sexisme au travail tout en assurant des sanctions et un suivi des plaignants",
                     "agreement": 87,
                     "adhesion": 12,
                     "realistic": 22
@@ -78,10 +78,10 @@
             ]
         },
         {
-            "name": "Axe 3 : Sensibilisation",
+            "name": "Sensibilisation",
             "ideas": [
                 {
-                    "idea": "Eduquer dês le plus jeune à l'égalité femmes hommes ainsi qu'aux stéréotypes et discriminations",
+                    "idea": "Eduquer dès le plus jeune à l'égalité femmes hommes ainsi qu'aux stéréotypes et discriminations",
                     "agreement": 83,
                     "adhesion": 15,
                     "realistic": 21
@@ -116,7 +116,7 @@
         },
         {
             "author": "Louise",
-            "content": "Il faut intégrer la notion de genre dans les programmes d'éducation pour déconstruire les stéréotypes dês le plus jeune âge",
+            "content": "Il faut intégrer la notion de genre dans les programmes d'éducation pour déconstruire les stéréotypes dès le plus jeune âge",
             "like_it": 30,
             "no_way": 61
         },
