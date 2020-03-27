@@ -18,7 +18,7 @@ import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Soci
 import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { RegisterForm } from './Form';
-import { AuthentificationWrapperStyle } from '../Login/Styled';
+import { AuthentificationWrapperStyle } from '../style';
 
 export const Register = () => {
   const dispatch = useDispatch();

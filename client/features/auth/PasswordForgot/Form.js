@@ -9,7 +9,7 @@ import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { FORGOT_PASSWORD_FORMNAME } from 'Shared/constants/form';
 import { EmailFieldIcon, SubmitPaperPlaneIcon } from 'Shared/constants/icons';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
-import { ForgotPasswordFormStyle, ForgotPasswordTitleStyle } from '../Styled';
+import { ForgotPasswordFormStyle, ForgotPasswordTitleStyle } from './style';
 
 /**
  * Renders ForgotPassword Form

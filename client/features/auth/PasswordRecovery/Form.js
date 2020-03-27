@@ -17,7 +17,7 @@ import { throttle } from 'Shared/helpers/throttle';
 import { selectPasswordRecovery } from 'Shared/store/selectors/user.selector';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { getFieldError } from 'Shared/helpers/form';
-import { PasswordRecoveryFormStyle } from '../Styled';
+import { PasswordRecoveryFormStyle } from './style';
 
 /**
  * Renders ForgotPassword Form

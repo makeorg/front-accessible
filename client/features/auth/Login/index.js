@@ -7,10 +7,7 @@ import {
   modalShowRegister,
   modalShowForgotPassword,
 } from 'Shared/store/actions/modal';
-import {
-  SecondLevelTitleStyle,
-  FourthLevelTitleStyle,
-} from 'Client/ui/Elements/TitleElements';
+import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
   ExtraParagraphStyle,
   ExtraAltParagraphStyle,
@@ -23,7 +20,10 @@ import {
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { LoginForm } from './Form';
-import { AuthentificationWrapperStyle } from './Styled';
+import {
+  AuthentificationWrapperStyle,
+  AuthentificationTitleStyle,
+} from '../style';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -38,9 +38,9 @@ export const Login = () => {
 
   return (
     <AuthentificationWrapperStyle aria-labelledby="login_title">
-      <SecondLevelTitleStyle id="login_title">
+      <AuthentificationTitleStyle id="login_title">
         {i18n.t('login.title')}
-      </SecondLevelTitleStyle>
+      </AuthentificationTitleStyle>
       <SmallSeparatorWithMarginStyle />
       <FourthLevelTitleStyle as="h3">
         {i18n.t('login.social_connect')}

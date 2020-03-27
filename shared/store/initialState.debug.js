@@ -16,9 +16,6 @@ export const initialStateDebug = {
     hasProposed: false,
   },
   sequence: {
-    /* 
-    questionSlug: 'mieuxmanger',
-    */
     votedProposalIds: {},
   },
   currentQuestion: '',
