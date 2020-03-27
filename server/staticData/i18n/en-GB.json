@@ -257,10 +257,10 @@
         "next-cta": "Not yet, I prefer to keep voting for the moment."
     },
     "proposal_submit": {
-        "bait": "We should",
+        "bait": "We should ",
         "title": "Fill this form to submit your solution (140 characters max) :",
-        "description": "Don't worry, we’ll fix any spelling mistakes if needed.",
-        "moderation_charter": "Learn more about our",
+        "description": "Don't worry, we’ll fix any spelling mistake we find.",
+        "moderation_charter": "Learn more about our ",
         "success": "Congrats, your solution has been submitted. We will send you an email as soon as it is reviewed.",
         "counter": "Your solution contains {{current}} characters out of {{total}} available characters.",
         "moderation_charter_label": "moderation guidelines"
@@ -860,7 +860,7 @@
             "results": "{{count}} result",
             "results_plural": "{{count}} results",
             "view_all": "See all",
-            "no_results": "Ne result found for your search '{{term}}'",
+            "no_results": "No result found for your search '{{term}}'",
             "no_query": "Searching for a solution, an idea, a consultation? Just write it down."
         },
         "sidebar": {
