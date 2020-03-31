@@ -1,20 +1,12 @@
 // @flow
-import * as React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackVote, trackUnvote } from 'Shared/services/Tracking';
-import { type QualificationType } from 'Shared/types/qualification';
 import { type VoteType } from 'Shared/types/vote';
-import {
-  doVote,
-  doUnvote,
-  startPendingState,
-  finishPendingState,
-  startAnimatingVoteState,
-  getVoteKey,
-} from 'Shared/helpers/vote';
+import { getVoteKey } from 'Shared/helpers/vote';
 import { VoteService } from 'Shared/services/Vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { voteStaticParams } from 'Shared/constants/vote';
+import { voteStaticParams, voteStaticParamsKeys } from 'Shared/constants/vote';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { VoteButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
@@ -35,14 +27,14 @@ type Props = {
   /** Index of the card */
   index: number,
   /** Method called when Vote */
-  onVote: (
+  onVote?: (
     proposalId: string,
     questionSlug: string,
     voteKey: string,
     index: number
   ) => void,
   /** Method called when Unvote */
-  onUnvote: (
+  onUnvote?: (
     proposalId: string,
     questionSlug: string,
     voteKey: string,
@@ -50,229 +42,153 @@ type Props = {
   ) => void,
 };
 
-type State = {
-  /** hasVoted State */
-  hasVoted: boolean,
-  /** Voted key property */
-  votedKey: string,
-  /** Array with votes received from Api */
-  votes: VoteType[],
-  /** Array with qualifications received from Api */
-  qualifications: QualificationType[],
-  /** When waiting response from API */
-  pending: boolean,
-  /** Trigged animation on vote button after API response */
-  animateVote: boolean,
-  /** pending Vote key property */
-  pendingVoteKey: string,
-};
+export const Vote = ({
+  proposalId,
+  questionSlug,
+  votes,
+  proposalKey,
+  index = 0,
+  onVote = () => {},
+  onUnvote = () => {},
+}: Props) => {
+  const contextType = useContext(TopComponentContext);
+  const [currentVotes, setVotes] = useState(votes);
+  const [userVote, setUserVote] = useState(
+    currentVotes.find(vote => vote.hasVoted === true)
+  );
+  const [votedKey, setVotedKey] = useState(userVote ? userVote.voteKey : '');
+  const [pending, setPending] = useState(false);
+  const [animateVote, setAnimateVote] = useState(false);
+  const [pendingVoteKey, setPendingVoteKey] = useState('');
 
-/**
- * Vote Business Logic
- */
-export class Vote extends React.Component<Props, State> {
-  static contextType = TopComponentContext;
-
-  static defaultProps = {
-    index: 0,
-    goToNextCard: undefined,
-    onVote: () => {},
-    onUnvote: () => {},
-  };
-
-  constructor(props: Props) {
-    super(props);
-    clearTimeout(this.timer);
-    const userVote =
-      props.votes && props.votes.find(vote => vote.hasVoted === true);
-    const hasVoted = userVote !== undefined;
-    const votedKey = userVote !== undefined ? userVote.voteKey : '';
-    const qualifications =
-      userVote !== undefined ? userVote.qualifications : [];
-
-    this.state = {
-      hasVoted,
-      votedKey,
-      qualifications,
-      votes: props.votes,
-      pending: false,
-      animateVote: false,
-      pendingVoteKey: '',
-    };
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    const { votes } = this.props;
-    if (prevProps.votes !== votes) {
-      this.updateVotes(votes);
-    }
-  }
-
-  updateVotes = (votes: VoteType[]) => {
-    this.setState(prevState => ({
-      ...prevState,
-      votes,
-    }));
-  };
-
-  handleUnvote = async (voteKey: string) => {
-    const {
-      proposalId,
-      questionSlug,
-      proposalKey,
-      index,
-      onUnvote,
-    } = this.props;
-
-    const vote = await VoteService.unvote(proposalId, voteKey, proposalKey);
-    if (!vote) {
-      this.setState(finishPendingState);
-      return;
-    }
-
-    this.delayStateUpdateOnEndVote(() =>
-      this.setState(prevState => doUnvote(prevState, vote))
+  const updateAndGetVotes = (votesToUpdate: Object, vote: Object) => {
+    return votesToUpdate.map(oldVote =>
+      oldVote.voteKey === vote.voteKey ? vote : oldVote
     );
-    onUnvote(proposalId, questionSlug, voteKey, index);
-    trackUnvote(proposalId, voteKey, index, this.context);
   };
 
-  wait = async (ms: number) => {
+  let timeout;
+  const wait = async (ms: number) => {
     return new Promise(resolve => {
-      setTimeout(resolve, ms);
+      timeout = setTimeout(resolve, ms);
+    });
+  };
+  const clearWait = async () => {
+    clearTimeout(timeout);
+  };
+
+  const startAnimationPending = () => {
+    wait(750).then(() => {
+      setAnimateVote(false);
+      setPending(true);
     });
   };
 
-  handleVote = async (voteKey: string) => {
-    const { proposalId, questionSlug, proposalKey, index, onVote } = this.props;
-    this.setState(prevState => startAnimatingVoteState(prevState, voteKey));
-    await this.wait(500);
+  const stopAnimation = () => {
+    clearWait();
+    if (pending) {
+      wait(500);
+    }
+    setPending(false);
+    setAnimateVote(false);
+  };
+
+  const handleUnvote = async (voteKey: string) => {
+    const vote = await VoteService.unvote(proposalId, voteKey, proposalKey);
+    if (!vote) {
+      stopAnimation();
+      return;
+    }
+    setVotedKey('');
+    setVotes(updateAndGetVotes(currentVotes, vote));
+    onUnvote(proposalId, questionSlug, voteKey, index);
+    trackUnvote(proposalId, voteKey, index, contextType);
+  };
+
+  const handleVote = async (voteKey: string) => {
     const vote = await VoteService.vote(proposalId, voteKey, proposalKey);
     if (!vote) {
-      this.setState(finishPendingState);
+      stopAnimation();
+      return;
     }
-    this.delayStateUpdateOnEndVote(() =>
-      this.setState(prevState => doVote(prevState, vote))
-    );
+    setVotedKey(vote.voteKey);
+    setVotes(updateAndGetVotes(currentVotes, vote));
     onVote(proposalId, questionSlug, voteKey, index);
-    trackVote(proposalId, voteKey, index, this.context);
+    trackVote(proposalId, voteKey, index, contextType);
   };
 
-  handleVoting = (voteKey: string) => {
-    this.delayStateUpdateOnStartVote(() =>
-      this.setState(prevState => startPendingState(prevState, voteKey))
-    );
-
-    const { hasVoted } = this.state;
-    if (hasVoted) {
-      this.handleUnvote(voteKey);
-    } else {
-      this.handleVote(voteKey);
+  const handleVoting = async (voteKey: string) => {
+    if (pendingVoteKey !== '') {
+      return;
     }
-  };
-
-  /**
-   * Delay the pending display
-   */
-  delayStateUpdateOnStartVote = (updateStateMethod: () => void) => {
-    clearTimeout(this.timer);
-    const timeBeforeStartUpdateState = 750;
-    this.hasStartedPending = false;
-    this.timer = setTimeout(() => {
-      this.hasStartedPending = true;
-      updateStateMethod();
-    }, timeBeforeStartUpdateState);
-  };
-
-  /**
-   * Pending should be displayed
-   * a minimum time
-   */
-  delayStateUpdateOnEndVote = (updateStateMethod: () => void) => {
-    const timeBeforeEndUpdateState = 500;
-    clearTimeout(this.timer);
-    if (this.hasStartedPending) {
-      this.timer = setTimeout(() => {
-        updateStateMethod();
-      }, timeBeforeEndUpdateState);
+    setPendingVoteKey(voteKey);
+    setAnimateVote(true);
+    await wait(500);
+    startAnimationPending();
+    if (userVote) {
+      await handleUnvote(voteKey);
     } else {
-      updateStateMethod();
+      await handleVote(voteKey);
     }
-    this.hasStartedPending = false;
+    stopAnimation();
+    setPendingVoteKey('');
   };
 
-  timer: TimeoutID;
+  useEffect(() => {
+    setUserVote(currentVotes.find(vote => vote.hasVoted === true));
+  }, [currentVotes]);
 
-  hasStartedPending: boolean;
-
-  render() {
-    const { proposalId, proposalKey, index } = this.props;
-    const {
-      hasVoted,
-      votedKey,
-      votes,
-      qualifications,
-      pending,
-      animateVote,
-      pendingVoteKey,
-    } = this.state;
-
-    const voteKeys = Object.keys(voteStaticParams);
-
-    const handleVoteIfAnyPending = voteKey => () => {
-      if (!pending) {
-        this.handleVoting(voteKey);
-      }
+  useEffect(() => {
+    return () => {
+      clearWait();
     };
+  }, []);
 
-    if (hasVoted) {
-      return (
-        <React.Fragment>
-          <VoteContainerStyle>
-            <VoteResult
-              proposalId={proposalId}
-              votes={votes}
-              votedKey={votedKey}
-              handleVote={() => this.handleVoting(votedKey)}
-              pending={pending}
-            />
-            <Qualification
-              proposalId={proposalId}
-              qualifications={qualifications}
-              proposalKey={proposalKey}
-              votedKey={votedKey}
-              index={index}
-              pendingVote={pending}
-            />
-          </VoteContainerStyle>
-        </React.Fragment>
-      );
-    }
-
+  if (userVote && votedKey) {
     return (
       <VoteContainerStyle>
-        <ScreenReaderItemStyle as="p">
-          {i18n.t('vote.intro_title')}
-        </ScreenReaderItemStyle>
-        <VoteWrapperStyle>
-          {voteKeys.map<React.Node>((voteKey: string) => (
-            <li key={getVoteKey(voteKey, proposalId)}>
-              <VoteButton
-                key={getVoteKey(voteKey, proposalId)}
-                color={voteStaticParams[voteKey].color}
-                transform={voteStaticParams[voteKey].transform}
-                voteKey={voteKey}
-                label={i18n.t(`vote.${voteKey}`)}
-                icon={<SvgThumbsUp />}
-                buttonType={VoteButtonStyle}
-                animateVote={animateVote && pendingVoteKey === voteKey}
-                handleVote={handleVoteIfAnyPending(voteKey)}
-                displayPending={pendingVoteKey === voteKey}
-              />
-            </li>
-          ))}
-        </VoteWrapperStyle>
+        <VoteResult
+          proposalId={proposalId}
+          votes={currentVotes}
+          votedKey={votedKey}
+          handleVote={async () => handleVoting(votedKey)}
+          pending={pending}
+        />
+        <Qualification
+          proposalId={proposalId}
+          qualifications={userVote.qualifications}
+          proposalKey={proposalKey}
+          votedKey={votedKey}
+          index={index}
+          pendingVote={pending}
+        />
       </VoteContainerStyle>
     );
   }
-}
+
+  return (
+    <VoteContainerStyle>
+      <ScreenReaderItemStyle as="p">
+        {i18n.t('vote.intro_title')}
+      </ScreenReaderItemStyle>
+      <VoteWrapperStyle>
+        {voteStaticParamsKeys.map((voteKey: string) => (
+          <li key={getVoteKey(voteKey, proposalId)}>
+            <VoteButton
+              key={getVoteKey(voteKey, proposalId)}
+              color={voteStaticParams[voteKey].color}
+              transform={voteStaticParams[voteKey].transform}
+              voteKey={voteKey}
+              label={i18n.t(`vote.${voteKey}`)}
+              icon={<SvgThumbsUp />}
+              buttonType={VoteButtonStyle}
+              animateVote={animateVote && pendingVoteKey === voteKey}
+              handleVote={async () => handleVoting(voteKey)}
+              displayPending={pendingVoteKey === voteKey}
+            />
+          </li>
+        ))}
+      </VoteWrapperStyle>
+    </VoteContainerStyle>
+  );
+};

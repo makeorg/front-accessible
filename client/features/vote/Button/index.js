@@ -20,7 +20,7 @@ type Props = {
   /** When button is in pending mode */
   displayPending: boolean,
   /** Method called when vote button is clicked */
-  handleVote: () => void,
+  handleVote: () => void | Promise<void>,
   /** Trigged animation on vote button after API response */
   animateVote: boolean,
   /** add tooltip for vote button */

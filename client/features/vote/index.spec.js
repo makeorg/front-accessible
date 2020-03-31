@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { SequenceNextButtonStyle } from 'Client/features/sequence/style';
 import { Vote } from './index';
-import { VoteContainerStyle, VoteWrapperStyle } from './Styled';
+import { VoteWrapperStyle } from './Styled';
 
 describe('VoteContainer', () => {
   let wrapper;
@@ -40,41 +40,5 @@ describe('VoteContainer', () => {
       SequenceNextButtonStyle
     );
     expect(NextButtonWrapper).toHaveLength(0);
-  });
-
-  it('render VoteComponent and change state', () => {
-    wrapper.setState({ hasVoted: true });
-    expect(wrapper.find(VoteWrapperStyle)).toHaveLength(0);
-    expect(wrapper.find(VoteContainerStyle)).toHaveLength(1);
-  });
-
-  it('initialise state from props', () => {
-    const props = {
-      ...defaultProps,
-      votes: [
-        {
-          voteKey: 'agree',
-          count: 12,
-          hasVoted: true,
-          qualifications: ['foo', 'bar'],
-        },
-        {
-          voteKey: 'disagree',
-          count: 6,
-          hasVoted: false,
-          qualifications: ['foo', 'bar'],
-        },
-        {
-          voteKey: 'neutral',
-          count: 6,
-          hasVoted: false,
-          qualifications: ['foo', 'bar'],
-        },
-      ],
-    };
-
-    const voteWrapper = shallow(<Vote {...props} />);
-    expect(voteWrapper.state().hasVoted).toBe(true);
-    expect(voteWrapper.state().votedKey).toBe('agree');
   });
 });

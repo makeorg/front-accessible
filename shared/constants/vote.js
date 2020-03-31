@@ -23,3 +23,7 @@ export const voteStaticParams: Object = {
     transform: 'rotate(-90deg)',
   },
 };
+
+export const voteStaticParamsKeys: Array<string> = Object.keys(
+  voteStaticParams
+);
