@@ -1,11 +1,11 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import ReactModal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { closeSessionExpirationModal } from 'Shared/store/actions/modal';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgClose } from 'Client/ui/Svg/elements';
 import { ThirdLevelTitleCircularStyle } from 'Client/ui/Elements/TitleElements';
 import SessionExpiredPicture from 'Client/app/assets/images/session-expired.png';

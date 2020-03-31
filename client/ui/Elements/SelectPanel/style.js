@@ -10,7 +10,7 @@ import {
   MakeThemeColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { UnstyledButtonStyle } from '../ButtonElements';
+import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const SelectPanelWrapperStyle = styled.div`
   position: relative;

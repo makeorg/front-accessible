@@ -13,7 +13,7 @@ import {
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { QualifyButtonStyle } from 'Client/features/vote/Qualification/style';
+import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   OpinionQualificationListStyle,
   OpinionQualificationListItemStyle,

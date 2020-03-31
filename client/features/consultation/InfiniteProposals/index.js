@@ -15,7 +15,7 @@ import {
   type TopProposalListCardType,
 } from 'Shared/types/card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { FEED_PROPOSAL } from 'Shared/constants/card';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';

@@ -12,7 +12,7 @@ import {
   IconWrapperStyle,
   ButtonSmallWrapperStyle,
   RedLinkButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';

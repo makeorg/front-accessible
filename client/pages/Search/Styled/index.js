@@ -6,7 +6,7 @@ import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
   UnstyledButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 

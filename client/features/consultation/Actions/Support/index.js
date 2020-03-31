@@ -5,7 +5,7 @@ import {
   SupportWrapperStyle,
   SupportSeparatorStyle,
 } from 'Client/features/consultation/Styled/Actions';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 

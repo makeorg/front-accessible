@@ -7,7 +7,7 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import { BasicButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';

@@ -9,7 +9,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledButtonStyle } from '../ButtonElements';
+import { UnstyledButtonStyle } from '../Buttons/style';
 import { UnstyledListStyle } from '../ListElements';
 
 export const SortedListStyle = styled(UnstyledListStyle)`

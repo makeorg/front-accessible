@@ -36,7 +36,7 @@ Array [
 }
 
 <button
-    className="hs2zb-1 c0"
+    className="sc-11o2adg-1 c0"
     onClick={[Function]}
   >
     profile.password_update.actual_password.trigger

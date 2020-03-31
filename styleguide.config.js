@@ -55,7 +55,7 @@ module.exports = {
     'client/ui/**/Styled/*.js',
     'client/ui/Cards/index.js',
     'client/ui/Data/PieChart/Build/index.js',
-    'client/ui/Elements/ButtonElements/index.js',
+    'client/ui/Elements/Button/style.js',
     'client/ui/ProgressCircle/index.js',
     'client/ui/Proposal/DetailledVoteResults/Item/index.js',
     'client/ui/Elements/Form/PasswordInput/Button/index.js',

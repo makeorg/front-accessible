@@ -4,7 +4,6 @@ import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { trackTag } from 'Shared/services/Tracking';
 import { useMobile } from 'Client/hooks/useMedia';
-import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton/index';
 import { SvgClose } from 'Client/ui/Svg/elements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { FLUSH_TAGS_TRIGGER } from 'Shared/constants/ids';
@@ -20,6 +19,7 @@ import {
   ProposalCountStyle,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
+import { ActiveButtonStyle } from '../Buttons/style';
 
 type Props = {
   /** Array of tags to populate the list */
@@ -54,7 +54,7 @@ export const TagList = ({
 }: Props) => {
   const isMobile = useMobile();
   const updateSelectedTags = (tag: TagType) => {
-    trackTag(tag.label, tag.isSelected ? 'deselect' : 'select');
+    trackTag(tag.label, tag.isSelected ? 'unselect' : 'select');
     const newTags = tags.map(tagItem => ({
       ...tagItem,
       isSelected:
@@ -108,9 +108,9 @@ export const TagList = ({
         <TagListFooterStyle onClick={closePanel}>
           {tagsSelected > 0 ? (
             <CenterButtonStyle>
-              <SubmitButton
-                label={i18n.t('consultation.proposal.see_proposals')}
-              />
+              <ActiveButtonStyle>
+                {i18n.t('consultation.proposal.see_proposals')}
+              </ActiveButtonStyle>
             </CenterButtonStyle>
           ) : (
             <span>{i18n.t('consultation.close')}</span>

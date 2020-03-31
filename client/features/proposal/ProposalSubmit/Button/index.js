@@ -1,7 +1,8 @@
-import * as React from 'react';
+// @flow
+import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenOnTablet } from 'Client/ui/Elements/HiddenElements';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgPencil } from 'Client/ui/Svg/elements';
 import { useDesktop } from 'Client/hooks/useMedia';
 import {

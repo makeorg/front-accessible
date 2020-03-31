@@ -14,7 +14,7 @@ import {
   TileSeparatorStyle,
 } from 'Client/ui/Elements/TileWithTitle/style';
 import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const PopularProposalsSliderWrapperStyle = styled.div`

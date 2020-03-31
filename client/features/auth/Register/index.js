@@ -12,7 +12,7 @@ import {
   SeparatorWrapperStyle,
   TextSeparatorStyle,
 } from 'Client/ui/Elements/Separators';
-import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Social/FacebookAuthentification/Link';
 import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   BasicColors,
   MakeThemeColors,

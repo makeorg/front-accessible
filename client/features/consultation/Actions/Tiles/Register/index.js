@@ -1,5 +1,5 @@
 import React from 'react';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   ActionsFourthLevelTitleStyle,
   ActionsParagraphStyle,

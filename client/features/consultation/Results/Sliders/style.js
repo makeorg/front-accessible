@@ -6,7 +6,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 

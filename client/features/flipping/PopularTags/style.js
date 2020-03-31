@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const PopularTagsListStyle = styled.ol`
   padding: 0;

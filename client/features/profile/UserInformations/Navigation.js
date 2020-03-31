@@ -1,11 +1,10 @@
 // @flow
-
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
 import { LinkAsGreyButton } from 'Client/ui/Elements/LinkElements';
 import { SvgPencil, SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const EditProfileLink = ({ link }: { link: string }) => {
   return (

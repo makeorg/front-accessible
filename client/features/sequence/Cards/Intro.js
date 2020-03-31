@@ -6,7 +6,7 @@ import {
   trackClickStartSequence,
 } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
 import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';

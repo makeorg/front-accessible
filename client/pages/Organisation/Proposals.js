@@ -14,7 +14,7 @@ import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardW
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import {

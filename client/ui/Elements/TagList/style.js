@@ -8,7 +8,7 @@ import {
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { UnstyledButtonStyle } from '../ButtonElements';
+import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const TaglistWrapperStyle = styled.div`
   display: flex;

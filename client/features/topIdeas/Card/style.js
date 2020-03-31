@@ -13,7 +13,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { SvgIdea, SvgLike, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { Link } from 'react-router-dom';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { CardStyle } from 'Client/ui/Cards';
 
 export const TopIdeaCardStyle = styled(CardStyle)`

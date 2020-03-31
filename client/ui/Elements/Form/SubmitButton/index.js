@@ -1,8 +1,9 @@
-import * as React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import {
   IconWrapperStyle,
   ActiveButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 
 type Props = {
   /** Name of the input */
@@ -14,7 +15,7 @@ type Props = {
   /** disabled interaction */
   disabled?: boolean,
   /** Icon of the input */
-  icon?: IconDefinition,
+  icon?: Node,
 };
 
 export const SubmitButton = ({

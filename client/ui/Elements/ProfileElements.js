@@ -23,7 +23,7 @@ import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import {
   GreyButtonStyle,
   UnstyledButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { RedLinkHTMLElementStyle } from './LinkElements';

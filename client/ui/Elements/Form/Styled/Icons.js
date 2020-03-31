@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const InputIconStyle = styled.span`
   display: flex;

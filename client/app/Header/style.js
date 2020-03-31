@@ -13,7 +13,7 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
-import { NavButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import { NavButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const HeaderStyle = styled.header`
   display: flex;

@@ -8,7 +8,8 @@ import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import { i18n } from 'Shared/i18n';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { showUnexpectedError } from 'Shared/store/actions/notification';
-import { QualifyButtonStyle, CounterStyle } from './style';
+import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { CounterStyle } from './style';
 
 type Props = {
   /** qualification object */

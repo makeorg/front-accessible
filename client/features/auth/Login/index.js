@@ -18,7 +18,7 @@ import {
   SeparatorWrapperStyle,
   TextSeparatorStyle,
 } from 'Client/ui/Elements/Separators';
-import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { LoginForm } from './Form';
 import {
   AuthentificationWrapperStyle,

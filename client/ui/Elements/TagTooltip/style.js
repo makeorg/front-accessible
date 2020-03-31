@@ -4,7 +4,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledButtonStyle } from '../ButtonElements';
+import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const TagsTooltipContainerStyle = styled.div`
   order: 1;

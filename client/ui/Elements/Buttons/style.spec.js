@@ -15,7 +15,8 @@ import {
   RedLinkButtonStyle,
   ButtonSmallWrapperStyle,
   CloseButtonStyle,
-} from '.';
+  QualifyButtonStyle,
+} from './style';
 
 describe('ButtonElements/Styled', () => {
   describe('ButtonsWrapperStyle', () => {
@@ -112,6 +113,13 @@ describe('ButtonElements/Styled', () => {
   describe('CloseButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<CloseButtonStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('QualifyButtonStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<QualifyButtonStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

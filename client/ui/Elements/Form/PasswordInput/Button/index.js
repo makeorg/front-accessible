@@ -1,5 +1,6 @@
-import * as React from 'react';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+// @flow
+import React from 'react';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { HidePasswordIconStyle } from 'Client/ui/Elements/Form/Styled/Icons';
 import { SvgEyeSlash, SvgEye } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';

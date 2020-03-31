@@ -9,7 +9,7 @@ import {
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const CollapseWrapperStyle = styled(MiddleColumnStyle)`

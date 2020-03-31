@@ -1,15 +1,14 @@
-/* @flow */
-
-import * as React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import { i18n } from 'Shared/i18n';
 import ReactModal from 'react-modal';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgClose } from 'Client/ui/Svg/elements';
 
 type Props = {
   isModalOpen: boolean,
   handleClose: Function,
-  children: React.Node,
+  children: Node,
 };
 
 export const ModalComponent = ({

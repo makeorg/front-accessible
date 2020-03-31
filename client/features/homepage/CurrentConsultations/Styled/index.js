@@ -9,7 +9,7 @@ import {
   TextColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ConsultationLabelStyle } from 'Client/ui/Elements/ConsultationElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
