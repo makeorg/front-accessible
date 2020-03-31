@@ -41,16 +41,27 @@ type Props = {
 
 export const UpdateInformations = ({ user }: Props) => {
   const dispatch = useDispatch();
+  const {
+    firstName,
+    lastName,
+    dateOfBirth,
+    profession,
+    postalCode,
+    description,
+    optInNewsletter,
+    website,
+  } = user.profile;
+  const { displayName } = user;
   const [formValues, setFormValues] = useState<UserInformationFormType>({
-    firstName: user.firstName,
-    lastName: setNullToEmptyString(user.lastName),
-    organisationName: user.organisationName,
-    age: setNullToEmptyString(getAgeFromDateOfBirth(user.profile.dateOfBirth)),
-    profession: setNullToEmptyString(user.profile.profession),
-    postalCode: setNullToEmptyString(user.profile.postalCode),
-    description: setNullToEmptyString(user.profile.description),
-    optInNewsletter: user.profile.optInNewsletter,
-    website: setNullToEmptyString(user.profile.website),
+    firstName,
+    lastName: setNullToEmptyString(lastName),
+    organisationName: displayName,
+    age: setNullToEmptyString(getAgeFromDateOfBirth(dateOfBirth)),
+    profession: setNullToEmptyString(profession),
+    postalCode: setNullToEmptyString(postalCode),
+    description: setNullToEmptyString(description),
+    optInNewsletter,
+    website: setNullToEmptyString(website),
   });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);

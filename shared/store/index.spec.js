@@ -7,7 +7,7 @@ jest.mock('Shared/api/UserApiService');
 describe('Client authenticate state', () => {
   it('authenticated state without user', async () => {
     // mocks
-    UserApiService.me.mockRejectedValue(['Unauthorized']);
+    UserApiService.current.mockRejectedValue(['Unauthorized']);
 
     const state = await authenticationState();
     expect(state.isLoggedIn).toBe(false);
@@ -16,11 +16,14 @@ describe('Client authenticate state', () => {
 
   it('authenticated state with user', async () => {
     const user = { email: 'mike@make.org', password: 'pass' };
+    const profile = { avatarUrl: 'https://example.com' };
+
     // mocks
-    UserApiService.me.mockResolvedValue({ data: user });
+    UserApiService.current.mockResolvedValue({ data: user });
+    UserApiService.getProfile.mockResolvedValue({ data: profile });
 
     const state = await authenticationState();
     expect(state.isLoggedIn).toBe(true);
-    expect(state.user).toBe(user);
+    expect(state.user).toMatchObject({ ...user, profile });
   });
 });

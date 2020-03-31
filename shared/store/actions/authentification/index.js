@@ -14,6 +14,7 @@ import {
 import { type StateRoot } from 'Shared/store/types';
 import { Logger } from 'Shared/services/Logger';
 import { UserService } from 'Shared/services/User';
+import { type UserType, type UserProfileType } from 'Shared/types/user';
 import {
   showLoginSuccess,
   showLogoutSuccess,
@@ -39,30 +40,37 @@ export const loginSocialFailure = () => ({
 export const loginSocialSuccess = () => ({
   type: actionTypes.LOGIN_SOCIAL_SUCCESS,
 });
-export const setUserInfo = (user: Object) => ({
+export const setUserInfo = (
+  user: UserType,
+  profile: UserProfileType | null
+) => ({
   type: actionTypes.GET_INFO,
-  user,
+  user: {
+    ...user,
+    profile,
+  },
 });
 
 export const logoutSuccess = () => ({ type: actionTypes.LOGOUT });
 
-export const getUser = (afterRegistration?: boolean) => (
+export const getUser = (afterRegistration?: boolean) => async (
   dispatch: Dispatch,
   getState: () => StateRoot
 ) => {
   const { isOpen: isModalOpen } = getState().modal;
+  const user = await UserService.current();
+  const profile = user ? await UserService.getProfile(user.userId) : null;
+  if (user) {
+    dispatch(setUserInfo(user, profile));
+  }
+  if (isModalOpen) {
+    dispatch(modalClose());
+  }
+  if (afterRegistration) {
+    return dispatch(showRegisterSuccess(user));
+  }
 
-  return UserService.me().then(user => {
-    dispatch(setUserInfo(user));
-    if (isModalOpen) {
-      dispatch(modalClose());
-    }
-    if (afterRegistration) {
-      return dispatch(showRegisterSuccess(user));
-    }
-
-    return null;
-  });
+  return null;
 };
 
 export const login = (email: string, password: string) => (
@@ -72,7 +80,6 @@ export const login = (email: string, password: string) => (
   const success = (): void => {
     dispatch(loginSuccess());
     trackLoginEmailSuccess();
-
     dispatch(getUser());
     dispatch(showLoginSuccess());
   };

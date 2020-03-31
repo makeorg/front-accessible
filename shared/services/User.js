@@ -6,6 +6,7 @@ import {
   type PasswordsType,
   type UserAuthType,
   type UserType,
+  type UserProfileType,
 } from 'Shared/types/user';
 import { getDateOfBirthFromAge } from 'Shared/helpers/date';
 import { mapErrors } from 'Shared/services/ApiErrors';
@@ -267,15 +268,32 @@ const changePassword = async (
   }
 };
 
-const me = async (unauthorized?: () => void = () => {}): Promise<UserType> => {
+const current = async (
+  unauthorized?: () => void = () => {}
+): Promise<UserType | null> => {
   try {
-    const response = await UserApiService.me();
+    const response = await UserApiService.current();
 
     return response.data;
   } catch (apiServiceError) {
     if (apiServiceError.status === 401) {
       unauthorized();
 
+      return null;
+    }
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+const getProfile = async (userId: string): Promise<UserProfileType | null> => {
+  try {
+    const response = await UserApiService.getProfile(userId);
+
+    return response.data;
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 401) {
       return null;
     }
     defaultUnexpectedError(apiServiceError);
@@ -297,5 +315,6 @@ export const UserService = {
   logout,
   loginSocial,
   changePassword,
-  me,
+  current,
+  getProfile,
 };
