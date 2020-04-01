@@ -1,5 +1,5 @@
 {
-    "context": "Consultation citoyenne réalisée par Make.org pour la ministère de l'Economie et des Finances du 03/12/2019 au 25/01/2020, autour de la question : \"Comment assurer l'égalité femmes-hommes dans l'économie ?\"",
+    "context": "Consultation citoyenne réalisée par Make.org pour le ministère de l'Economie et des Finances du 03/12/2019 au 25/01/2020, autour de la question : \"Comment assurer l'égalité femmes-hommes dans l'économie ?\"",
     "contact": true,
     "key_figures": {
         "participants": 79400,
@@ -98,7 +98,7 @@
     "controversials": [
         {
             "author": "Sophie",
-            "content": "Il faut encourager voir imposer la parité pour les postes de managers et les postes de direction ",
+            "content": "Il faut encourager voire imposer la parité pour les postes de managers et les postes de direction ",
             "like_it": 33,
             "no_way": 64
         },
@@ -157,7 +157,7 @@
         {
             "type": "pie",
             "unit": "percentage",
-            "name": "Thêmes plébiscités",
+            "name": "Thèmes plébiscités",
             "legend": "",
             "data": [
                 {
@@ -333,7 +333,7 @@
         {
             "type": "pie",
             "unit": "percentage",
-            "name": "Acteur plébiscités",
+            "name": "Acteurs plébiscités",
             "legend": "",
             "data": [
                 {
