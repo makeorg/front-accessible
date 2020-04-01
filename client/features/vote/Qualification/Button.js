@@ -7,7 +7,6 @@ import { type QualificationType } from 'Shared/types/qualification';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import { i18n } from 'Shared/i18n';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
-import { showUnexpectedError } from 'Shared/store/actions/notification';
 import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { CounterStyle } from './style';
 
@@ -49,8 +48,7 @@ export const QualificationButton = ({
       proposalId,
       proposalKey,
       votedKey,
-      qualificationKey,
-      () => showUnexpectedError()
+      qualificationKey
     );
 
     if (qualificationResult) {
@@ -65,8 +63,7 @@ export const QualificationButton = ({
       proposalId,
       proposalKey,
       votedKey,
-      qualificationKey,
-      () => showUnexpectedError()
+      qualificationKey
     );
 
     if (qualificationResult) {
@@ -113,7 +110,7 @@ export const QualificationButton = ({
             <>
               <span aria-hidden>{buttonLabel}</span>
               <CounterStyle aria-hidden>
-                {isQualified ? count : '+1'}
+                {isQualified ? count + 1 : '+1'}
               </CounterStyle>
             </>
           )}

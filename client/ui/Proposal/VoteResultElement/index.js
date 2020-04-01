@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { type VoteType } from 'Shared/types/vote';
 import { VoteResult } from 'Client/features/vote/Result';
