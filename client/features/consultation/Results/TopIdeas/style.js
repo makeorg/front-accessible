@@ -6,7 +6,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { ProfileHasVotedStyle } from 'Client/features/proposal/ProfileVoteCard/Styled';
+import { ProfileHasVotedStyle } from 'Client/features/proposal/ProfileVoteCard/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { intToPx } from 'Shared/helpers/styled';

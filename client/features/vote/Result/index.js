@@ -29,6 +29,10 @@ type Props = {
   handleVote?: string => void,
   /** When waiting response from API */
   pending?: boolean,
+  /** Optional boolean to disable click event on the qualification button */
+  disableClick?: boolean,
+  /** Optional boolean to enable or not tooltip toggling */
+  showTooltip?: boolean,
 };
 
 /**
@@ -40,6 +44,8 @@ export const VoteResult = ({
   votedKey,
   proposalId,
   pending = false,
+  disableClick = false,
+  showTooltip = true,
 }: Props) => {
   const votesCount = VoteResultHelper.getTotalVotesCount(votes);
   const voteKeys = Object.keys(voteStaticParams);
@@ -61,6 +67,8 @@ export const VoteResult = ({
         handleVote={() => handleVote(votedKey)}
         buttonType={IsVotedButtonStyle}
         displayPending={pending}
+        disableClick={disableClick}
+        showTooltip={showTooltip}
       />
       <ScreenReaderItemStyle as="p">
         {i18n.t('results.total', { count: votesCount })}

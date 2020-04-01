@@ -22,6 +22,8 @@ type Props = {
   proposalKey: string,
   /** Index of the card */
   index?: number,
+  /** Optional boolean to disable click event on the qualification button */
+  disableClick?: boolean,
 };
 
 /**
@@ -33,6 +35,7 @@ export const QualificationButton = ({
   proposalId,
   proposalKey,
   index,
+  disableClick = false,
 }: Props) => {
   const { hasQualified, qualificationKey, count } = qualification;
   const buttonLabel = i18n.t(`qualification.${qualificationKey}`);
@@ -102,7 +105,7 @@ export const QualificationButton = ({
           aria-busy={pendingQualification}
           data-cy-button="qualification"
           data-cy-qualification-key={qualificationKey}
-          disabled={pendingQualification}
+          disabled={pendingQualification || disableClick}
         >
           {pendingQualification ? (
             <LoadingDots />

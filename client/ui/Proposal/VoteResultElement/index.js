@@ -20,6 +20,8 @@ type Props = {
   isPending?: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
+  /** Optional boolean to enable or not tooltip toggling */
+  showTooltip?: boolean,
 };
 
 export const VoteResultElement = ({
@@ -29,6 +31,7 @@ export const VoteResultElement = ({
   isPending,
   handleVote,
   proposalKey,
+  showTooltip = true,
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
 
@@ -44,6 +47,8 @@ export const VoteResultElement = ({
         votedKey={votedKey}
         handleVote={handleVote}
         pending={isPending}
+        showTooltip={showTooltip}
+        disableClick
       />
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
@@ -55,6 +60,7 @@ export const VoteResultElement = ({
             votedKey={votedKey}
             proposalId={proposalId}
             proposalKey={proposalKey}
+            disableClick
           />
         ))}
       </SpaceBetweenColumnStyle>
