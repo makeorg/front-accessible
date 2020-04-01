@@ -3,7 +3,7 @@
         "home": {
             "title": "Bring your ideas to life with Make.org",
             "description": "Finding solutions is easier when working together. Make.org helps you share ideas with forward-thinking people like you. Discover a democratic place where you can discuss, vote and submit your solutions on the big issues you care about.",
-            "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
+            "picture": "https://assets.make.org/assets/metas/default-meta-en.png"
         },
         "organisation": {
             "proposals": {
@@ -28,7 +28,7 @@
         },
         "proposals": {},
         "consultation": {
-            "title": "Consultation '{{questions}}'"
+            "title": "Consultation '{{question}}'"
         },
         "actions": {
             "title": "Actions '{{question}}'"
@@ -37,7 +37,7 @@
             "title": "Results of the consultation '{{question}}"
         },
         "sequence": {
-            "title": "Participate to the consultation '{{question}}'"
+            "title": "Participate in the consultation '{{question}}'"
         },
         "top-ideas": {
             "title": "Top ideas on the consultation '{{question}}'",
@@ -626,7 +626,7 @@
             "proposals_plural": "{{ count }} solutions",
             "votes": "{{ count }} vote",
             "votes_plural": "{{ count }} votes",
-            "participate": "Are you an association? And do you want to participate to the consultation? {{ contact_us }}",
+            "participate": "Are you an association? And do you want to participate in the consultation? {{ contact_us }}",
             "contact_us": "Contact us",
             "more": "See more"
         },
