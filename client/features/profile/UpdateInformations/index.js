@@ -82,8 +82,8 @@ export const UpdateInformations = ({ user }: Props) => {
     const handleErrors = (serviceErrors: ErrorObjectType[]) => {
       setIsSubmitSuccessful(false);
       setErrors(serviceErrors);
-      setCanSubmit(false);
     };
+    setCanSubmit(false);
     await UserService.update(formValues, success, handleErrors);
   };
 
