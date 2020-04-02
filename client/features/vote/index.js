@@ -119,15 +119,17 @@ export const Vote = ({
 
   const handleVoting = async (voteKey: string) => {
     if (pendingVoteKey !== '') {
+      stopAnimation();
       return;
     }
     setPendingVoteKey(voteKey);
     setAnimateVote(true);
-    await wait(500);
-    startAnimationPending();
     if (userVote) {
+      startAnimationPending();
       await handleUnvote(voteKey);
     } else {
+      await wait(500);
+      startAnimationPending();
       await handleVote(voteKey);
     }
     stopAnimation();
