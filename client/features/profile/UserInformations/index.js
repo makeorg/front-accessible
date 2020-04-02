@@ -7,7 +7,7 @@ import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
 import { SvgMapMarker, SvgSignOut, SvgLink } from 'Client/ui/Svg/elements';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import {
   ProfileAvatarStyle,

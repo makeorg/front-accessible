@@ -15,7 +15,7 @@ import {
 import {
   ActiveButtonStyle,
   IconWrapperStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 

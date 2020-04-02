@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
-import { RedLinkButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { ForgotPasswordForm } from './Form';
 import { ForgotPasswordStyle } from './style';

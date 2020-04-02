@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { i18n } from 'Shared/i18n';
 import { throttle } from 'Shared/helpers/throttle';
@@ -14,7 +15,7 @@ type Props = {
   /** Name of the TextArea */
   name: string,
   /** Icon of the TextArea */
-  icon: IconDefinition,
+  icon: Node,
   /** Value of the TextArea */
   value: string,
   /** Label of the TextArea */

@@ -10,7 +10,7 @@ import {
   IconWrapperStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import {
   BackgroundColors,
   TextColors,

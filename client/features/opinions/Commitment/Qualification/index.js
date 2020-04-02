@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
@@ -12,7 +13,7 @@ import {
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { QualifyButtonStyle } from 'Client/ui/Elements/Qualification/Styled';
+import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   OpinionQualificationListStyle,
   OpinionQualificationListItemStyle,
@@ -23,7 +24,7 @@ type Props = {
   unvote: () => void,
   qualifications: string[],
   qualificationValue: string,
-  handleQualification: () => void,
+  handleQualification: (qualification: string) => void,
 };
 
 export const CommitmentQualification = ({

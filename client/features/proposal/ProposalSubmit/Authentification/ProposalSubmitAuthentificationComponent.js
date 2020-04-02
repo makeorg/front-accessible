@@ -13,7 +13,7 @@ import {
   IconWrapperStyle,
   ButtonsWrapperStyle,
   ButtonSmallWrapperStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import {
   ThirdLevelTitleStyle,
   FourthLevelTitleStyle,

@@ -8,7 +8,7 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const SearchFormStyle = styled.form`

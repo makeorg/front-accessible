@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   BasicColors,
   SocialNetworksColors,

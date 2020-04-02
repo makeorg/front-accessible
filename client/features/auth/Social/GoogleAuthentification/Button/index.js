@@ -1,9 +1,9 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import {
   IconWrapperStyle,
   GoogleButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import { GoogleAuthentificationComponent } from '../index';
 

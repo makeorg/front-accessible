@@ -4,7 +4,7 @@ import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
   GreyButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { SvgExternalLink } from '../Svg/elements';

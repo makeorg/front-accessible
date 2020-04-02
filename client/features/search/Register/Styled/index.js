@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 

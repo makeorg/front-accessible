@@ -30,7 +30,7 @@ import {
   ProfileVoteWrapperStyle,
   ProfileVoteTitleStyle,
   ProfileHasVotedStyle,
-} from './Styled';
+} from './style';
 
 type Props = {
   /** Object with all organisation's properties */
@@ -104,6 +104,9 @@ export const ProfileVoteCard = ({
               proposalId={proposal.id}
               votes={proposal.votes}
               votedKey={voteKey}
+              proposalKey={proposal.proposalKey}
+              showTooltip={false}
+              disableClick
             />
           </ProposalInnerStyle>
 

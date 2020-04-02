@@ -3,7 +3,7 @@ import { FormColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { UnstyledButtonStyle } from '../../ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const FormErrorsContainerStyle = styled.div`
   width: 100%;

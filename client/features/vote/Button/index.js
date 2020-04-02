@@ -25,6 +25,8 @@ type Props = {
   animateVote: boolean,
   /** add tooltip for vote button */
   showTooltip?: boolean,
+  /** Boolean to disable click event on the qualification button */
+  disableClick?: boolean,
 };
 
 /**
@@ -41,6 +43,7 @@ export const VoteButton = ({
   handleVote,
   animateVote,
   showTooltip = true,
+  disableClick = false,
 }: Props) => {
   const handleVoteAction = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -63,6 +66,7 @@ export const VoteButton = ({
             handleVote={handleVoteAction}
             animateVote={animateVote}
             displayPending={displayPending}
+            disableClick={disableClick}
           />
         </Tooltip>
       ) : (
@@ -76,6 +80,7 @@ export const VoteButton = ({
           handleVote={handleVoteAction}
           animateVote={animateVote}
           displayPending={displayPending}
+          disableClick={disableClick}
         />
       )}
     </VoteButtonWrapperStyle>

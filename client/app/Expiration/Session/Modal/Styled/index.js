@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ActiveButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { ActiveButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const ExpirationSessionModalContentStyle = styled.div`

@@ -7,7 +7,7 @@ import {
 } from 'Shared/services/Tracking';
 import { focusProposalField } from 'Client/app/SkipLinks/Consultation';
 import { i18n } from 'Shared/i18n';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { SvgPencil, SvgStepForward } from 'Client/ui/Svg/elements';
 import { incrementSequenceIndex } from 'Shared/store/actions/sequence';

@@ -18,7 +18,7 @@ import { i18n } from 'Shared/i18n';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { ProposalCardTagged } from 'Client/features/proposal/ProposalCardTagged';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
 import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';

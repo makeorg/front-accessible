@@ -19,11 +19,22 @@ export const QualificationLabelStyle = styled.span`
   }
 `;
 
-export const QualificationContStyle = styled.span`
+export const QualificationContentStyle = styled.span`
   font-size: 12px;
   line-height: 22px;
   color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
+  }
+`;
+
+export const CounterStyle = styled.span`
+  font-size: 14.4px;
+  margin-left: 10px;
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    font-size: 16.2px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    font-size: 18px;
   }
 `;

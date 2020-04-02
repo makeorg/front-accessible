@@ -7,7 +7,7 @@ import { modalShowRegister } from 'Shared/store/actions/modal';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import RegisterBackground from 'Client/app/assets/images/search_register.jpg';
-import { IconWrapperStyle } from 'Client/ui/Elements/ButtonElements';
+import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { SearchSidebarTileStyle } from '../Styled';
 import { SeachRegisterButtonStyle } from './Styled';
 

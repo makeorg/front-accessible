@@ -9,7 +9,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { NavButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import { NavButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const BusinessConsultationsTitleStyle = styled.h2`
   font-size: 20px;

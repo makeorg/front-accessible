@@ -27,6 +27,8 @@ type Props = {
   animateVote?: boolean,
   /** Method called when vote button is clicked */
   handleVote?: (SyntheticEvent<HTMLButtonElement>) => void,
+  /** Optional boolean to disable click event on the qualification button */
+  disableClick?: boolean,
 };
 
 /**
@@ -43,6 +45,7 @@ export const VoteButtonElement = (props: Props) => {
     voteKey = '',
     animateVote = false,
     displayPending,
+    disableClick = false,
   } = props;
 
   return (
@@ -57,6 +60,7 @@ export const VoteButtonElement = (props: Props) => {
       aria-busy={displayPending}
       data-cy-button="vote"
       data-cy-vote-key={voteKey}
+      disabled={displayPending || disableClick}
     >
       {displayPending && !animateVote ? (
         <LoadingDots />

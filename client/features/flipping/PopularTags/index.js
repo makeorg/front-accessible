@@ -6,7 +6,7 @@ import { type TagType } from 'Shared/types/tag';
 import { type QuestionType } from 'Shared/types/question';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   TAGS_LIST,
   TAGS_SECTION,

@@ -3,7 +3,7 @@ import snapshotDiff from 'snapshot-diff';
 import renderer from 'react-test-renderer';
 import { PasswordButton } from './index';
 
-jest.mock('Client/ui/Elements/ButtonElements', () => ({
+jest.mock('Client/ui/Elements/Buttons/style', () => ({
   UnstyledButtonStyle: 'UnstyledButtonStyle',
 }));
 

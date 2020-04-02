@@ -7,7 +7,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
+import { BasicButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   CenterRowStyle,
   ColumnToRowElementStyle,

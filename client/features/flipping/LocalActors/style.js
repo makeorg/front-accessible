@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const LocalActorItemStyle = styled.li`

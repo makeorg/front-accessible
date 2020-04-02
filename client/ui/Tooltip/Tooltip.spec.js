@@ -2,12 +2,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Tooltip } from './index';
 
-jest.mock('Client/ui/Elements/ButtonElements', () => ({
+jest.mock('Client/ui/Elements/Buttons/style', () => ({
   TooltipWrapperStyle: 'TooltipWrapperStyle',
   TooltipStyle: 'TooltipStyle',
-}));
-
-jest.mock('Client/ui/Elements/ButtonElements', () => ({
   UnstyledButtonStyle: 'UnstyledButtonStyle',
 }));
 

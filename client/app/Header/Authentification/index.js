@@ -9,7 +9,7 @@ import { getRouteProfile } from 'Shared/routes';
 import { SvgUser, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Avatar } from 'Client/ui/Avatar';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickProfile } from 'Shared/services/Tracking';
 import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';

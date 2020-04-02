@@ -5,9 +5,11 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
-import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import {
+  UnstyledButtonStyle,
+  BasicButtonStyle,
+} from 'Client/ui/Elements/Buttons/style';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { BasicButtonStyle } from 'Client/ui/Elements/ButtonElements/Styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const CommitmentPreviewSeparatorStyle = styled(SeparatorStyle)`

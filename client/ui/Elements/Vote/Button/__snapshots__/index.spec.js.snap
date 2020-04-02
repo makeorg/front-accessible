@@ -9,6 +9,7 @@ exports[`VoteButtonElement must match the snapshot with default Props 1`] = `
   color="red"
   data-cy-button="vote"
   data-cy-vote-key=""
+  disabled={false}
 >
   <ButtonIconWrapperStyle>
     SvgThumbsup
@@ -31,5 +32,5 @@ Snapshot Diff:
     color="red"
     data-cy-button="vote"
     data-cy-vote-key=""
-  >
+    disabled={false}
 `;

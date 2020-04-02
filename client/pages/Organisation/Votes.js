@@ -17,7 +17,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { LoadMoreWrapperStyle } from 'Client/features/consultation/Styled/Proposal';
-import { RedButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { OrganisationVotesPlaceholder } from './Placeholders/Votes';
@@ -82,7 +82,7 @@ const OrganisationVotesPage = ({ organisation }: Props) => {
   const displayLoadMoreButton = hasMore && !isLoading;
 
   return (
-    <React.Fragment>
+    <>
       <MetaTags
         title={i18n.t('meta.organisation.positions.title', {
           organisation: formatOrganisationName(organisation.organisationName),
@@ -123,7 +123,7 @@ const OrganisationVotesPage = ({ organisation }: Props) => {
           name={formatOrganisationName(organisation.organisationName)}
         />
       )}
-    </React.Fragment>
+    </>
   );
 };
 

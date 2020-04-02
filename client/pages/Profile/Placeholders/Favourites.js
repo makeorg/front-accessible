@@ -15,10 +15,6 @@ import {
   SpaceBetweenColumnStyle,
   CenterColumnStyle,
 } from 'Client/ui/Elements/FlexElements';
-import {
-  QualifyButtonStyle,
-  CounterStyle,
-} from 'Client/ui/Elements/Qualification/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { ResultTooltip } from 'Client/features/vote/Result/Tooltip';
 import {
@@ -27,6 +23,8 @@ import {
   FavouritesCardStyle,
   FavouritesProposalStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
+import { CounterStyle } from 'Client/features/vote/Qualification/style';
+import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const ProfileFavouritesPlaceholder = () => {
   return (

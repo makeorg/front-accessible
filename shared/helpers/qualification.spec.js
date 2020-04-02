@@ -1,10 +1,10 @@
 /* @flow */
 
-import * as helpers from './qualification';
+import { getQualificationIndex } from './qualification';
 
 describe('Qualification Helper', () => {
   it('getQualificationIndex with qualificationKey & proposalId', () => {
-    const qualificationIndex = helpers.getQualificationIndex('foo',1234);
+    const qualificationIndex = getQualificationIndex('foo', 1234);
     expect(qualificationIndex).toBe('foo_1234');
   });
 });

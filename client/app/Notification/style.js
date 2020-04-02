@@ -11,7 +11,7 @@ import {
   VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
-import { CloseButtonStyle } from 'Client/ui/Elements/ButtonElements';
+import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const NotificationWrapperStyle = styled.section`

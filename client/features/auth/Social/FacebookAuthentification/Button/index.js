@@ -1,9 +1,9 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import {
   IconWrapperStyle,
   FacebookButtonStyle,
-} from 'Client/ui/Elements/ButtonElements';
+} from 'Client/ui/Elements/Buttons/style';
 import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
 import { FacebookAuthentificationComponent } from '../index';
 
