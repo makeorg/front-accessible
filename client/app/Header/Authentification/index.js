@@ -12,11 +12,7 @@ import { Avatar } from 'Client/ui/Avatar';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/ButtonElements';
 import { useMobile } from 'Client/hooks/useMedia';
 import { trackClickProfile } from 'Shared/services/Tracking';
-import {
-  TYPE_ORGANISATION,
-  TYPE_PERSONALITY,
-  TYPE_USER,
-} from 'Shared/constants/user';
+import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import {
   formatUserName,
@@ -38,7 +34,6 @@ export const HeaderAuthentification = () => {
   if (user && user.userType !== 'undefined') {
     const isOrganisation = user.userType === TYPE_ORGANISATION;
     const isPersonality = user.userType === TYPE_PERSONALITY;
-    const isBasicUser = user.userType === TYPE_USER;
 
     return (
       <ProfileAccessWrapperStyle
@@ -50,21 +45,11 @@ export const HeaderAuthentification = () => {
           onClick={trackClickProfile}
         >
           <Avatar avatarUrl={user.profile.avatarUrl} />
-          {isOrganisation && (
-            <>
-              {formatOrganisationName(user.organisationName)}
-              <SvgCheckedSymbol style={CertifiedIconStyle} />
-            </>
-          )}
-          {isBasicUser && formatUserName(user.firstName)}
-          {isPersonality && (
-            <>
-              {`${formatUserName(user.firstName)} ${formatUserName(
-                user.lastName
-              )}`}
-              <SvgCheckedSymbol style={CertifiedIconStyle} />
-            </>
-          )}
+          {isOrganisation
+            ? formatOrganisationName(user.displayName)
+            : formatUserName(user.displayName)}
+          {isOrganisation && <SvgCheckedSymbol style={CertifiedIconStyle} />}
+          {isPersonality && <SvgCheckedSymbol style={CertifiedIconStyle} />}
         </ProfileAccessLinkStyle>
       </ProfileAccessWrapperStyle>
     );

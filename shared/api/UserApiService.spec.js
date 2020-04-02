@@ -37,10 +37,12 @@ describe('UserApiService', () => {
       await UserApiService.register({
         email: 'foo',
         password: 'bar',
-        firstname: 'baz',
-        age: 33,
-        postalcode: 12345,
-        profession: 'qux',
+        profile: {
+          firstname: 'baz',
+          age: 33,
+          postalcode: 12345,
+          profession: 'qux',
+        },
       });
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_USER, {
         method: 'POST',
@@ -63,10 +65,12 @@ describe('UserApiService', () => {
       await UserApiService.register({
         email: 'foo',
         password: 'bar',
-        firstname: 'baz',
-        age: 33,
-        postalcode: 12345,
-        profession: 'qux',
+        profile: {
+          firstname: 'baz',
+          age: 33,
+          postalcode: 12345,
+          profession: 'qux',
+        },
       });
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_USER, {
         method: 'POST',

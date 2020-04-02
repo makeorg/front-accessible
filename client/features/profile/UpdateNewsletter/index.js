@@ -7,7 +7,7 @@ import { type ErrorObjectType } from 'Shared/types/api';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
-import { type ProfileType } from 'Shared/types/user';
+import { type UserProfileType } from 'Shared/types/user';
 import { UserService } from 'Shared/services/User';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
@@ -18,7 +18,7 @@ import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
   /** User Profile */
-  profile: ProfileType,
+  profile: UserProfileType,
 };
 
 export const UpdateNewsletter = ({ profile }: Props) => {

@@ -20,12 +20,18 @@ export function configureStore(initialState: StateRoot = {}) {
 }
 
 export const authenticationState = async () => {
-  const user = await UserService.me();
+  const user = await UserService.current();
+  const profile = user ? await UserService.getProfile(user.userId) : null;
 
-  const authentificationState = {
+  const userWithProfile = user
+    ? {
+        ...user,
+        profile,
+      }
+    : user;
+
+  return {
     isLoggedIn: !!user,
-    user: user || undefined,
+    user: userWithProfile || undefined,
   };
-
-  return authentificationState;
 };

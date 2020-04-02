@@ -6,6 +6,8 @@ import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { ApiService } from './ApiService';
 
 export const PATH_USER_ME = '/user/me';
+export const PATH_USER_CURRENT = '/user/current';
+export const PATH_USER_PROFILE = '/user/:userId/profile';
 export const PATH_USER_LOGIN = '/oauth/make_access_token';
 export const PATH_USER_GET_TOKEN = '/oauth/access_token';
 export const PATH_USER_LOGOUT = '/logout';
@@ -28,11 +30,34 @@ export const GOOGLE_PROVIDER_ENUM = 'google';
 
 export class UserApiService {
   /**
-   * Get user info
+   * Get user and profile info
+   * @deprecated
    * @return {Promise}
    */
   static me(): Promise<any> {
     return ApiService.callApi(PATH_USER_ME, {
+      method: 'GET',
+    });
+  }
+
+  /**
+   * Get user
+   * @return {Promise}
+   */
+  static current(): Promise<any> {
+    return ApiService.callApi(PATH_USER_CURRENT, {
+      method: 'GET',
+    });
+  }
+
+  /**
+   * Get profile
+   * @param  {String}  userId
+   *
+   * @return {Promise}
+   */
+  static getProfile(userId: string): Promise<any> {
+    return ApiService.callApi(PATH_USER_PROFILE.replace(':userId', userId), {
       method: 'GET',
     });
   }
@@ -110,16 +135,19 @@ export class UserApiService {
    * @return {Promise}
    */
   static register(user: Object): Promise<any> {
-    const dateOfBirth = getDateOfBirthFromAge(user.age);
+    const { age, firstname, postalcode, profession } = user.profile;
+    const { email, password } = user;
+
+    const dateOfBirth = getDateOfBirthFromAge(age);
     return ApiService.callApi(PATH_USER, {
       method: 'POST',
       body: JSON.stringify({
-        email: user.email,
-        password: user.password,
-        firstName: setEmptyStringToNull(user.firstname),
+        email,
+        password,
+        firstName: setEmptyStringToNull(firstname),
         dateOfBirth: setEmptyStringToNull(dateOfBirth),
-        postalCode: setEmptyStringToNull(user.postalcode),
-        profession: user.profession,
+        postalCode: setEmptyStringToNull(postalcode),
+        profession,
         country: ApiService.country,
         language: ApiService.language,
         questionId: ApiService.questionId,

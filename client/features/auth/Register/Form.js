@@ -49,16 +49,31 @@ export const RegisterForm = () => {
   const [user, setUser] = useState<RegisterFormDataType>({
     email: '',
     password: '',
-    firstname: '',
-    age: '',
-    postalcode: '',
-    profession: '',
+    profile: {
+      firstname: '',
+      age: '',
+      postalcode: '',
+      profession: '',
+    },
   });
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
   const [inProgress, setInProgress] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
+    if (id.includes('profile.')) {
+      const [, name] = id.split('.');
+      setUser({
+        ...user,
+        profile: {
+          ...user.profile,
+          [name]: value,
+        },
+      });
+
+      return;
+    }
+
     setUser({
       ...user,
       [id]: value,
@@ -135,18 +150,18 @@ export const RegisterForm = () => {
       />
       <UntypedInput
         type="text"
-        name="firstname"
+        name="profile.firstname"
         icon={FirstNameFieldIcon}
         error={firstnameError}
-        value={user.firstname}
+        value={user.profile.firstname}
         label={i18n.t('common.form.label.firstname')}
         required
         handleChange={handleChange}
       />
       <NumberInput
-        name="age"
+        name="profile.age"
         icon={AgeFieldIcon}
-        value={user.age}
+        value={user.profile.age}
         error={ageError}
         label={i18n.t('common.form.label.age', { context: 'optional' })}
         handleChange={handleChange}
@@ -155,9 +170,9 @@ export const RegisterForm = () => {
       />
       <CustomPatternInput
         type="text"
-        name="postalcode"
+        name="profile.postalcode"
         icon={PostalCodeFieldIcon}
-        value={user.postalcode}
+        value={user.profile.postalcode}
         error={postalcodeError}
         label={i18n.t('common.form.label.postalcode', { context: 'optional' })}
         handleChange={handleChange}
@@ -166,9 +181,9 @@ export const RegisterForm = () => {
       />
       <UntypedInput
         type="text"
-        name="profession"
+        name="profile.profession"
         icon={JobFieldIcon}
-        value={user.profession}
+        value={user.profile.profession}
         label={i18n.t('common.form.label.profession', { context: 'optional' })}
         handleChange={handleChange}
       />

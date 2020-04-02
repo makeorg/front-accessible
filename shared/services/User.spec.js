@@ -202,4 +202,48 @@ describe('User Service', () => {
       }
     });
   });
+
+  describe('get current user', () => {
+    it('success', async () => {
+      jest.spyOn(UserApiService, 'current');
+      const user = {
+        userId: '12',
+        displayName: 'john',
+        email: 'john@example.com',
+      };
+      UserApiService.current.mockResolvedValue({ data: user });
+
+      const response = await UserService.current();
+      expect(UserApiService.current).toHaveBeenCalled();
+      expect(response).toMatchObject(user);
+    });
+  });
+
+  it('unauthorized', async () => {
+    jest.spyOn(UserApiService, 'current');
+    jest.spyOn(Logger, 'logError');
+    Logger.logError.mockClear();
+
+    UserApiService.current.mockRejectedValue({ status: 401 });
+
+    const response = await UserService.current();
+    expect(UserApiService.current).toHaveBeenCalled();
+    expect(response).toEqual(null);
+    expect(Logger.logError).not.toHaveBeenCalled();
+  });
+
+  it('error', async () => {
+    jest.spyOn(UserApiService, 'current');
+    jest.spyOn(Logger, 'logError');
+    Logger.logError.mockClear();
+
+    UserApiService.current.mockRejectedValue({ status: 500 });
+
+    const response = await UserService.current();
+    expect(UserApiService.current).toHaveBeenCalled();
+    expect(response).toEqual(null);
+    expect(Logger.logError).toHaveBeenCalledWith(
+      'you should handle unexpected errors'
+    );
+  });
 });

@@ -48,6 +48,8 @@ describe('Authentification Actions', () => {
 
     it('creates an action to login when success', () => {
       const user = { email: 'baz@make.org', password: 'foo' };
+      const profile = { avatarUrl: 'https://example.com' };
+      const userWithProfile = { ...user, profile };
 
       const newStore = mockStore({
         proposal: { canSubmit: false },
@@ -56,7 +58,8 @@ describe('Authentification Actions', () => {
       });
 
       // mocks
-      UserApiService.me.mockResolvedValue({ data: user });
+      UserApiService.current.mockResolvedValue({ data: user });
+      UserApiService.getProfile.mockResolvedValue({ data: profile });
       UserApiService.login.mockResolvedValue();
 
       // spy
@@ -66,13 +69,13 @@ describe('Authentification Actions', () => {
         { type: actionTypes.LOGIN_REQUEST },
         { type: actionTypes.LOGIN_SUCCESS },
         { type: actionTypes.NOTIFICATION_LOGIN_SUCCESS },
-        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.GET_INFO, user: userWithProfile },
       ];
 
       newStore.dispatch(actions.login(user.email, user.password));
       return wait().then(() => {
         expect(Tracking.trackLoginEmailSuccess).toHaveBeenCalled();
-        expect(newStore.getActions()).toEqual(expectedActions);
+        expect(newStore.getActions()).toMatchObject(expectedActions);
       });
     });
 
@@ -155,7 +158,6 @@ describe('Authentification Actions', () => {
       const socialToken = 'fooToken';
 
       // mock
-      UserApiService.me.mockResolvedValue({ data: user });
       UserApiService.loginSocial.mockResolvedValue({ data: successAuth });
 
       // spy
@@ -269,33 +271,41 @@ describe('Authentification Actions', () => {
 
     it('creates an action to getUser when modal is open', () => {
       const user = { firstname: 'baz' };
+      const profile = { avatarUrl: 'https://example.com' };
+      const userWithProfile = { ...user, profile };
       const newStore = mockStore({
         modal: { isOpen: true },
       });
 
       // mock
-      UserApiService.me.mockResolvedValue({ data: user });
+      UserApiService.current.mockResolvedValue({ data: user });
+      UserApiService.getProfile.mockResolvedValue({ data: profile });
 
       const expectedActions = [
-        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.GET_INFO, user: userWithProfile },
         { type: actionTypes.MODAL_CLOSE },
       ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
-        expect(newStore.getActions()).toEqual(expectedActions);
+        expect(newStore.getActions()).toMatchObject(expectedActions);
       });
     });
 
     it('creates an action to getUser when modal is closed', () => {
       const user = { firstname: 'baz' };
+      const profile = { avatarUrl: 'https://example.com' };
+      const userWithProfile = { ...user, profile };
       const newStore = mockStore({
         modal: { isOpen: false },
       });
 
       // mock
-      UserApiService.me.mockResolvedValue({ data: user });
+      UserApiService.current.mockResolvedValue({ data: user });
+      UserApiService.getProfile.mockResolvedValue({ data: profile });
 
-      const expectedActions = [{ type: actionTypes.GET_INFO, user }];
+      const expectedActions = [
+        { type: actionTypes.GET_INFO, user: userWithProfile },
+      ];
 
       return newStore.dispatch(actions.getUser()).then(() => {
         expect(newStore.getActions()).toEqual(expectedActions);
@@ -304,15 +314,18 @@ describe('Authentification Actions', () => {
 
     it('creates an action to getUser after registration', () => {
       const user = { firstname: 'baz' };
+      const profile = { avatarUrl: 'https://example.com' };
+      const userWithProfile = { ...user, profile };
       const newStore = mockStore({
         modal: { isOpen: true },
       });
 
       // mock
-      UserApiService.me.mockResolvedValue({ data: user });
+      UserApiService.current.mockResolvedValue({ data: user });
+      UserApiService.getProfile.mockResolvedValue({ data: profile });
 
       const expectedActions = [
-        { type: actionTypes.GET_INFO, user },
+        { type: actionTypes.GET_INFO, user: userWithProfile },
         { type: actionTypes.MODAL_CLOSE },
         { type: actionTypes.NOTIFICATION_REGISTER_SUCCESS, user },
       ];

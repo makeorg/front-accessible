@@ -40,21 +40,29 @@ type Props = {
 };
 
 export const UserInformations = ({ user, navigationBar }: Props) => {
-  const { profile } = user;
   const dispatch = useDispatch();
   const isMobile = useMobile();
   const isOrganisation = user.userType === TYPE_ORGANISATION;
   const isPersonality = user.userType === TYPE_PERSONALITY;
   const isBasicUser = user.userType === TYPE_USER;
 
+  const { avatarUrl, displayName, email } = user;
+  const {
+    firstName,
+    lastName,
+    politicalParty,
+    postalCode,
+    dateOfBirth,
+    profession,
+    description,
+    website,
+  } = user.profile;
+
   return (
     <>
       <ProfileAvatarLayoutStyle>
         <ProfileAvatarStyle avatarSize={isMobile ? 120 : 160}>
-          <Avatar
-            avatarSize={isMobile ? 120 : 160}
-            avatarUrl={profile.avatarUrl}
-          />
+          <Avatar avatarSize={isMobile ? 120 : 160} avatarUrl={avatarUrl} />
         </ProfileAvatarStyle>
         {isOrganisation && (
           <ProfileContentWrapperStyle>
@@ -62,7 +70,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.organisation')}
               </ScreenReaderItemStyle>
-              {formatOrganisationName(user.organisationName)}
+              {formatOrganisationName(displayName)}
               <SvgCheckedSymbol style={CertifiedIconStyle} />
             </ProfileTitleStyle>
           </ProfileContentWrapperStyle>
@@ -77,14 +85,14 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.firstname')}
                 </ScreenReaderItemStyle>
-                {formatUserName(user.firstName)}
+                {formatUserName(firstName)}
                 &nbsp;
                 {isPersonality && (
                   <>
                     <ScreenReaderItemStyle>
                       {i18n.t('profile.common.labels.lastname')}
                     </ScreenReaderItemStyle>
-                    {formatUserName(user.lastName)}
+                    {formatUserName(lastName)}
                     <SvgCheckedSymbol style={CertifiedIconStyle} />
                   </>
                 )}
@@ -93,56 +101,56 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.email')}
                 </ScreenReaderItemStyle>
-                {user.email}
+                {email}
               </ProfileContentStyle>
             </>
           )}
-          {profile.politicalParty && (
+          {politicalParty && (
             <ProfileContentStyle>
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.political_party')}
               </ScreenReaderItemStyle>
-              {profile.politicalParty}
+              {politicalParty}
             </ProfileContentStyle>
           )}
-          {profile.postalCode && (
+          {postalCode && (
             <ProfileContentStyle>
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.postal_code')}
               </ScreenReaderItemStyle>
               <SvgMapMarker aria-hidden style={{ marginRight: '3px' }} />
-              {profile.postalCode}
+              {postalCode}
             </ProfileContentStyle>
           )}
-          {profile.dateOfBirth && (
+          {dateOfBirth && (
             <ProfileContentStyle>
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.age')}
               </ScreenReaderItemStyle>
               {i18n.t('profile.common.age', {
-                age: getAgeFromDateOfBirth(profile.dateOfBirth),
+                age: getAgeFromDateOfBirth(dateOfBirth),
               })}
             </ProfileContentStyle>
           )}
-          {profile.profession && (
+          {profession && (
             <ProfileContentStyle>
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.profession')}
               </ScreenReaderItemStyle>
-              {profile.profession}
+              {profession}
             </ProfileContentStyle>
           )}
         </ProfileContentWrapperStyle>
       </ProfileAvatarLayoutStyle>
-      {profile.description && (
+      {description && (
         <>
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.biography')}
           </ScreenReaderItemStyle>
-          <UserDescription description={profile.description} />
+          <UserDescription description={description} />
         </>
       )}
-      {!isBasicUser && profile.website && (
+      {!isBasicUser && website && (
         <ProfileAlignLeftContentStyle>
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.website')}
@@ -152,9 +160,9 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
             as="a"
             target="_blank"
             rel="noreferrer noopener"
-            href={profile.website}
+            href={website}
           >
-            {profile.website}
+            {website}
           </ProfileWebsiteLinkStyle>
         </ProfileAlignLeftContentStyle>
       )}
