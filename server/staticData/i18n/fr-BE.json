@@ -160,7 +160,7 @@
     "open_new_window": "Ouverture dans un nouvel onglet",
     "loading": "Merci de patienter pendant le chargement.",
     "participate": "Participez",
-    "vote_on_proposals": "Votez sur les propositions",
+    "vote_on_proposals": "Votez sur toutes les propositions",
     "display_pannel": "Afficher le contenu du panneau déroulant",
     "hide_pannel": "Masquer le contenu du panneau déroulant",
     "display_modal": "Afficher le contenu de la fenêtre de dialogue",
@@ -630,11 +630,11 @@
       "popular_title": "Les sujets les plus discutés"
     },
     "banner": {
-      "title": "Proposez vos solutions et votez sur celles des autres",
+      "title": "Participez en 5 minutes à la consultation",
       "description": "sur une série de propositions aléatoires"
     },
     "proposal": {
-      "title": "Proposez une solution",
+      "title": "Proposez directement une solution",
       "load_more": "Voir + de propositions",
       "see_proposals": "Voir les propositions"
     },
