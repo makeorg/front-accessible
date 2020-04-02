@@ -1,6 +1,8 @@
 /* @flow */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { configureStore } from 'Shared/store';
+import { Provider } from 'react-redux';
 import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
@@ -13,6 +15,7 @@ jest.mock('Shared/constants/proposal', () => ({
   getBaitText: () => 'should',
   MAX_PROPOSAL_LENGTH: 35,
 }));
+const store = configureStore();
 
 describe('ProposalSubmitFormComponent', () => {
   it('Renders and Props', () => {
@@ -20,7 +23,11 @@ describe('ProposalSubmitFormComponent', () => {
       canSubmit: true,
       length: 15,
     };
-    const wrapper = shallow(<ProposalSubmitFormComponent {...props} />);
+    const wrapper = mount(
+      <Provider store={store}>
+        <ProposalSubmitFormComponent {...props} />
+      </Provider>
+    );
 
     expect(wrapper.find(ProposalSubmitFormStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalLabelStyle)).toHaveLength(1);

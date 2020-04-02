@@ -1,10 +1,15 @@
-/* @flow */
-import * as React from 'react';
+// @flow
+import React from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { getBaitText, MAX_PROPOSAL_LENGTH } from 'Shared/constants/proposal';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
+import {
+  MODERATION_CHARTER_FR_LINK,
+  MODERATION_CHARTER_EN_LINK,
+} from 'Shared/constants/url';
+import { useSelector } from 'react-redux';
 import { ProposalSubmitButtonComponent } from './Button';
 import {
   ProposalSubmitFormStyle,
@@ -36,20 +41,20 @@ type Props = {
 /**
  * Render the Proposal Field
  */
-export const ProposalSubmitFormComponent = (props: Props) => {
-  const {
-    content,
-    length,
-    canSubmit,
-    isOpen,
-    handleOnChange,
-    handleOnFocus,
-    handleOnSubmit,
-    handleOnKeydown,
-  } = props;
-
+export const ProposalSubmitFormComponent = ({
+  content,
+  length,
+  canSubmit,
+  isOpen,
+  handleOnChange,
+  handleOnFocus,
+  handleOnSubmit,
+  handleOnKeydown,
+}: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const baitLength: number = getBaitText().length;
   const inputMaxLength: number = MAX_PROPOSAL_LENGTH - baitLength;
+  const isFR = country === 'FR';
 
   return (
     <ProposalSubmitFormStyle isOpen={isOpen}>
@@ -61,7 +66,11 @@ export const ProposalSubmitFormComponent = (props: Props) => {
           </CenterParagraphStyle>
           <CenterParagraphStyle>
             {i18n.t('proposal_submit.moderation_charter')}
-            <a href={MODERATION_CHARTER_LINK}>
+            <a
+              href={
+                isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK
+              }
+            >
               {i18n.t('proposal_submit.moderation_charter_label')}
             </a>
           </CenterParagraphStyle>

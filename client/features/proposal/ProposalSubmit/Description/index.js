@@ -1,9 +1,16 @@
 // @flow
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { MODERATION_CHARTER_LINK } from 'Shared/constants/url';
+import {
+  MODERATION_CHARTER_FR_LINK,
+  MODERATION_CHARTER_EN_LINK,
+} from 'Shared/constants/url';
 import { trackDisplayModerationText } from 'Shared/services/Tracking';
+import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { DescriptionWrapperStyle } from '../Styled';
 
 type Props = {
@@ -14,25 +21,36 @@ type Props = {
 /**
  * Renders description component after proposal submit button is clicked
  */
-export class ProposalSubmitDescriptionComponent extends React.Component<Props> {
-  componentDidMount() {
-    trackDisplayModerationText();
-  }
+export const ProposalSubmitDescriptionComponent = ({
+  trackModerationLink,
+}: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const isFR = country === 'FR';
 
-  render() {
-    const { trackModerationLink } = this.props;
-    return (
-      <DescriptionWrapperStyle id="proposal-submit-description">
-        <CenterParagraphStyle>
-          {i18n.t('proposal_submit.description')}
-        </CenterParagraphStyle>
-        <CenterParagraphStyle>
-          {i18n.t('proposal_submit.moderation_charter')}
-          <a href={MODERATION_CHARTER_LINK} onClick={trackModerationLink}>
-            {i18n.t('proposal_submit.moderation_charter_label')}
-          </a>
-        </CenterParagraphStyle>
-      </DescriptionWrapperStyle>
-    );
-  }
-}
+  useEffect(() => {
+    trackDisplayModerationText();
+  }, []);
+
+  return (
+    <DescriptionWrapperStyle id="proposal-submit-description">
+      <CenterParagraphStyle>
+        {i18n.t('proposal_submit.description')}
+      </CenterParagraphStyle>
+      <CenterParagraphStyle>
+        {i18n.t('proposal_submit.moderation_charter')}
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href={isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK}
+          onClick={trackModerationLink}
+        >
+          {i18n.t('proposal_submit.moderation_charter_label')}
+          <SvgExternalLink
+            aria-label={i18n.t('common.open_new_window')}
+            style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
+          />
+        </a>
+      </CenterParagraphStyle>
+    </DescriptionWrapperStyle>
+  );
+};
