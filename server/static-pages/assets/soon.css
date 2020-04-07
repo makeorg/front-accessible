@@ -212,6 +212,18 @@ h6 {
   margin: 0;
 }
 
+.textParagraph {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 968px){
+  .textParagraph{
+    font-size: 14px;
+  }  
+}
+
 a {
   font-family: 'Circular Standard Book', Arial, sans-serif;
   color: rgb(0, 0, 0);
@@ -243,6 +255,7 @@ label,
 button {
   cursor: pointer;
 }
+
 
 button:disabled {
   cursor: not-allowed;
@@ -747,12 +760,12 @@ dd {
   flex-flow: column;
   width: 100%;
   margin-bottom: 30px;
+  padding: 0 20px;
 }
 
 @media (min-width:969px) {
   .erUecw {
       max-width: 1180px;
-      padding: 0 20px;
       margin-bottom: 50px;
   }
 }
@@ -762,7 +775,6 @@ dd {
   line-height: 24px;
   width: 100%;
   margin-bottom: 8px;
-  padding: 0 20px;
 }
 
 @media (min-width:360px) {
@@ -804,7 +816,7 @@ dd {
 
 @media (min-width:1140px) {
   .hETRCi {
-      margin-bottom: 16px;
+      margin-bottom: 21px;
   }
 }
 
@@ -819,7 +831,6 @@ dd {
   -webkit-align-content: space-between;
   -ms-flex-line-pack: space-between;
   align-content: space-between;
-  padding: 0 20px;
 }
 
 @media (min-width:767px) {
@@ -871,7 +882,7 @@ dd {
   justify-content: space-between;
   background-color: rgb(247, 247, 247);
   color: rgb(0, 0, 0);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   overflow: hidden;
   border-radius: 8px;
   max-width: 555px;
