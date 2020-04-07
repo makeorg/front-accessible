@@ -91,7 +91,6 @@ export const VoteResult = ({
               direction="bottom"
             >
               <VoteResultBarStyle
-                tabIndex={0}
                 aria-label={i18n.t('common.display_tooltip')}
                 color={voteStaticParams[voteKey].color}
                 percent={votesPercent[voteKey]}
