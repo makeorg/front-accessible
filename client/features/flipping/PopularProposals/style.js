@@ -57,6 +57,7 @@ export const PopularProposalsSliderListItemStyle = styled.li`
     flex: 1;
     &:last-child {
       margin-right: 0;
+      padding-right: 20px;
     }
   }
 `;

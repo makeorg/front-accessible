@@ -35,11 +35,7 @@ export const PopularProposalCard = ({
 }: Props) => {
   const canVote = isInProgress(proposal.question);
   return (
-    <PopularProposalWrapperStyle
-      role="article"
-      aria-posinset={position}
-      aria-setsize={size}
-    >
+    <PopularProposalWrapperStyle aria-posinset={position} aria-setsize={size}>
       <PopularProposalHeader aria-hidden>
         {`#${position}`}
       </PopularProposalHeader>

@@ -38,11 +38,7 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
   const canVote = isInProgress(proposal.question);
 
   return (
-    <ProposalCardStyle
-      role="article"
-      aria-posinset={position}
-      aria-setsize={size}
-    >
+    <ProposalCardStyle aria-posinset={position} aria-setsize={size}>
       <AuthorWrapperStyle>
         <ProposalAuthorElement
           proposal={proposal}
