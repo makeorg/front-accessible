@@ -6,7 +6,7 @@ import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { trackClickProposalProfile } from 'Shared/services/Tracking';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
-import { OrganisationsVoteWrapperStyle } from './Styled';
+import { OrganisationsVoteWrapperStyle } from './style';
 
 type Props = {
   organisations: OrganisationSoftType[],

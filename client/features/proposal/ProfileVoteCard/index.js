@@ -7,9 +7,8 @@ import {
   getProposalLink,
   getOrganisationProfileLink,
 } from 'Shared/helpers/url';
-import { voteStaticParams } from 'Shared/constants/vote';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
-import { SvgCheckedSymbol, SvgThumbsUp } from 'Client/ui/Svg/elements';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { VoteResultElement } from 'Client/ui/Proposal/VoteResultElement';
 import { ProposalFooterWithTagElement } from 'Client/ui/Proposal/FooterElement/ProposalWithTag';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
@@ -21,10 +20,10 @@ import {
   AuthorWrapperStyle,
   CertifiedIconStyle,
 } from 'Client/ui/Proposal/AuthorElement/Styled';
-import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { CardStyle } from 'Client/ui/Cards';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -52,17 +51,14 @@ export const ProfileVoteCard = ({
   position,
   size,
 }: Props) => {
-  const voteAttributes = voteStaticParams[voteKey];
   return (
     <ProfileVoteWrapperStyle aria-posinset={position} aria-setsize={size}>
       <ProfileVoteTitleStyle>
         <ProfileHasVotedStyle
-          aria-label={voteAttributes.label}
-          color={voteAttributes.color}
+          aria-label={i18n.t(`vote.${voteKey}`)}
+          className={`${voteKey} voted`}
         >
-          <ButtonIconWrapperStyle transform={voteAttributes.transform}>
-            <SvgThumbsUp aria-hidden />
-          </ButtonIconWrapperStyle>
+          <VoteIconStyle className={`${voteKey} voted`} aria-hidden />
         </ProfileHasVotedStyle>
         <div>
           <RedLinkRouterStyle

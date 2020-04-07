@@ -16,6 +16,8 @@ import {
   ButtonSmallWrapperStyle,
   CloseButtonStyle,
   QualifyButtonStyle,
+  VoteIconStyle,
+  VoteButtonStyle,
 } from './style';
 
 describe('ButtonElements/Styled', () => {
@@ -120,6 +122,20 @@ describe('ButtonElements/Styled', () => {
   describe('QualifyButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<QualifyButtonStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('VoteButtonStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<VoteButtonStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('VoteIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<VoteIconStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

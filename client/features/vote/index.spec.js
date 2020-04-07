@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { SequenceNextButtonStyle } from 'Client/features/sequence/style';
 import { Vote } from './index';
-import { VoteWrapperStyle } from './Styled';
+import { VoteWrapperStyle } from './style';
 
 describe('VoteContainer', () => {
   let wrapper;
@@ -22,12 +22,6 @@ describe('VoteContainer', () => {
   it('render VoteComponent and passed props', () => {
     const voteComponentWrapper = wrapper.find(VoteWrapperStyle);
     expect(voteComponentWrapper).toHaveLength(1);
-  });
-
-  it('SequenceNextButtonStyle should not be rendered if user has not voted yet', () => {
-    // check next button is not visible
-    const NextButtonWrapper = wrapper.find(SequenceNextButtonStyle);
-    expect(NextButtonWrapper).toHaveLength(0);
   });
 
   it('SequenceNextButtonStyle should not be rendered if goToNextCard Props is undefined', () => {

@@ -16,9 +16,9 @@ jest.mock('../style', () => ({
   QualificationDataListStyle: 'QualificationDataListStyle',
 }));
 
-jest.mock('Client/ui/Elements/Vote/Styled', () => ({
-  IsVotedButtonStyle: 'IsVotedButtonStyle',
-  ButtonIconWrapperStyle: 'ButtonIconWrapperStyle',
+jest.mock('Client/ui/Elements/Buttons/style', () => ({
+  VoteButtonStyle: 'VoteButtonStyle',
+  VoteIconStyle: 'VoteIconStyle',
 }));
 
 const totalVotesCount = getTotalVotesCount(proposalTypeFixture.votes);

@@ -4,7 +4,7 @@ import { type VoteType } from 'Shared/types/vote';
 import { VoteResult } from 'Client/features/vote/Result';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { QualificationButton } from 'Client/features/vote/Qualification/Button';
-import { VoteResultStyle } from './Styled';
+import { VoteResultStyle } from 'Client/features/vote/Result/style';
 
 type Props = {
   /** Proposal's Id */
@@ -19,18 +19,15 @@ type Props = {
   isPending?: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
-  /** Optional boolean to enable or not tooltip toggling */
-  showTooltip?: boolean,
 };
 
 export const VoteResultElement = ({
   proposalId,
   votes,
   votedKey,
-  isPending,
-  handleVote,
   proposalKey,
-  showTooltip = true,
+  isPending = false,
+  handleVote = () => {},
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
 
@@ -46,7 +43,6 @@ export const VoteResultElement = ({
         votedKey={votedKey}
         handleVote={handleVote}
         pending={isPending}
-        showTooltip={showTooltip}
         disableClick
       />
       <SpaceBetweenColumnStyle>
@@ -65,9 +61,4 @@ export const VoteResultElement = ({
       </SpaceBetweenColumnStyle>
     </VoteResultStyle>
   );
-};
-
-VoteResultElement.defaultProps = {
-  handleVote: () => {},
-  isPending: false,
 };

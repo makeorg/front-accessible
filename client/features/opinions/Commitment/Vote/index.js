@@ -3,14 +3,13 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import {
   VoteContainerStyle,
   VoteWrapperStyle,
-} from 'Client/features/vote/Styled';
+} from 'Client/features/vote/style';
 import { i18n } from 'Shared/i18n';
 import {
   VoteButtonStyle,
-  ButtonIconWrapperStyle,
-} from 'Client/ui/Elements/Vote/Styled';
+  VoteIconStyle,
+} from 'Client/ui/Elements/Buttons/style';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 
 const voteKeys = Object.keys(opinionsVoteStaticParams);
 
@@ -28,17 +27,12 @@ export const CommitmentVote = ({ vote }: Props) => (
         <li key={opinionsVoteStaticParams[voteKey].label}>
           <VoteButtonStyle
             aria-label={opinionsVoteStaticParams[voteKey].label}
-            color={opinionsVoteStaticParams[voteKey].color}
             className={voteKey}
             data-cy-button="vote"
             data-cy-vote-key={voteKey}
             onClick={() => vote(voteKey)}
           >
-            <ButtonIconWrapperStyle
-              transform={opinionsVoteStaticParams[voteKey].transform}
-            >
-              <SvgThumbsUp />
-            </ButtonIconWrapperStyle>
+            <VoteIconStyle className={voteKey} aria-hidden />
           </VoteButtonStyle>
         </li>
       ))}
