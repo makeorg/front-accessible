@@ -21,7 +21,9 @@ export function configureStore(initialState: StateRoot = {}) {
 
 export const authenticationState = async () => {
   const user = await UserService.current();
-  const profile = user ? await UserService.getProfile(user.userId) : null;
+  const profile = user
+    ? await UserService.getProfileByUserType(user.userId, user.userType)
+    : null;
 
   const userWithProfile = user
     ? {

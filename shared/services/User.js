@@ -1,14 +1,13 @@
 // @flow
 import { UserApiService } from 'Shared/api/UserApiService';
 import {
-  type UserInformationFormType,
   type SearchProposalsType,
   type PasswordsType,
   type UserAuthType,
   type UserType,
   type UserProfileType,
 } from 'Shared/types/user';
-import { getDateOfBirthFromAge } from 'Shared/helpers/date';
+import { type OrganisationProfileType } from 'Shared/types/organisation';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { type RegisterFormDataType } from 'Shared/types/form';
 import {
@@ -22,164 +21,130 @@ import {
 import { getErrorMessages } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { type ErrorObjectType } from 'Shared/types/api';
+import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
+import { OrganisationService } from './Organisation';
+import { PersonalityService } from './Personality';
 
-const update = (
-  userInformation: UserInformationFormType,
-  success: () => void,
-  handleErrors: (errors: ErrorObjectType[]) => void
-): void => {
-  UserApiService.update({
-    firstName: userInformation.firstName,
-    lastName: userInformation.lastName,
-    organisationName: userInformation.organisationName,
-    dateOfBirth: getDateOfBirthFromAge(userInformation.age),
-    postalCode: userInformation.postalCode,
-    profession: userInformation.profession,
-    description: userInformation.description,
-    optInNewsletter: userInformation.optInNewsletter,
-    website: userInformation.website,
-  })
-    .then(success)
-    .catch(apiServiceError => {
-      if (apiServiceError.status === 400) {
-        handleErrors(getErrorMessages(updateUserErrors, apiServiceError.data));
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-    });
-};
-
-const updateNewsletter = (
-  optInNewsletter: boolean,
-  success: () => void,
-  onErrors: () => void
-): void => {
-  UserApiService.update({ optInNewsletter })
-    .then(success)
-    .catch(apiServiceError => {
-      if (apiServiceError.status === 400) {
-        onErrors();
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-    });
-};
-
-const updatePassword = (
+const updatePassword = async (
   userId: string,
   passwords: PasswordsType,
   hasPassword: boolean,
   success: () => void,
   handleErrors: (errors: ErrorObjectType[]) => void
-): void => {
+): Promise<void> => {
   const actualPassword =
     hasPassword && passwords.actualPassword
       ? passwords.actualPassword
       : undefined;
   const { newPassword } = passwords;
 
-  UserApiService.updatePassword(userId, actualPassword, newPassword)
-    .then(success)
-    .catch(apiServiceError => {
-      if (apiServiceError.status === 400 && apiServiceError.data) {
-        handleErrors(
-          getErrorMessages(updatePasswordErrors, apiServiceError.data)
-        );
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-    });
+  try {
+    await UserApiService.updatePassword(userId, actualPassword, newPassword);
+    success();
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 400 && apiServiceError.data) {
+      handleErrors(
+        getErrorMessages(updatePasswordErrors, apiServiceError.data)
+      );
+      return;
+    }
+    defaultUnexpectedError(apiServiceError);
+  }
 };
 
-const deleteAccount = (
+const deleteAccount = async (
   userId: string,
   password: string,
   success: () => void = () => {},
   invalidPassword: () => void,
   invalidEmail: () => void
-): void => {
+): Promise<void> => {
   const INVALID_PASSWORD_KEY_ERROR = 'invalid_password';
   const INVALID_EMAIL_KEY_ERROR = 'invalid_email';
 
-  UserApiService.deleteAccount(userId, password)
-    .then(success)
-    .catch(apiServiceError => {
-      if (
-        apiServiceError.status === 400 &&
-        apiServiceError.data &&
-        apiServiceError.data.shift().key === INVALID_PASSWORD_KEY_ERROR
-      ) {
-        invalidPassword();
-        return;
-      }
-      if (
-        apiServiceError.status === 400 &&
-        apiServiceError.data &&
-        apiServiceError.data.shift().key === INVALID_EMAIL_KEY_ERROR
-      ) {
-        invalidEmail();
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-    });
+  try {
+    await UserApiService.deleteAccount(userId, password);
+    success();
+  } catch (apiServiceError) {
+    if (
+      apiServiceError.status === 400 &&
+      apiServiceError.data &&
+      apiServiceError.data.shift().key === INVALID_PASSWORD_KEY_ERROR
+    ) {
+      invalidPassword();
+      return;
+    }
+    if (
+      apiServiceError.status === 400 &&
+      apiServiceError.data &&
+      apiServiceError.data.shift().key === INVALID_EMAIL_KEY_ERROR
+    ) {
+      invalidEmail();
+      return;
+    }
+    defaultUnexpectedError(apiServiceError);
+  }
 };
 
-const forgotPassword = (
+const forgotPassword = async (
   email: string,
   success: () => void,
   errors: (errors: ErrorObjectType[]) => void
-): void => {
-  UserApiService.forgotPassword(email)
-    .then(success)
-    .catch(apiServiceError => {
-      if (apiServiceError.status === 404) {
-        errors(Array(emailNotExistError));
-        return;
-      }
-      if (apiServiceError.status === 400) {
-        errors(mapErrors(forgotPasswordErrors, apiServiceError.data));
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-    });
+): Promise<void> => {
+  try {
+    await UserApiService.forgotPassword(email);
+    success();
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 404) {
+      errors(Array(emailNotExistError));
+      return;
+    }
+    if (apiServiceError.status === 400) {
+      errors(mapErrors(forgotPasswordErrors, apiServiceError.data));
+      return;
+    }
+    defaultUnexpectedError(apiServiceError);
+  }
 };
 
-const register = (
+const register = async (
   user: RegisterFormDataType,
   success: () => void,
   errors: (errors: ErrorObjectType[]) => void,
   unexpectedError: () => void = () => {}
-): void => {
-  UserApiService.register(user)
-    .then(success)
-    .catch(apiServiceError => {
-      if (apiServiceError.status === 400) {
-        errors(getErrorMessages(registerErrors, apiServiceError.data));
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-      unexpectedError();
-    });
+): Promise<void> => {
+  try {
+    await UserApiService.register(user);
+    success();
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 400) {
+      errors(getErrorMessages(registerErrors, apiServiceError.data));
+      return;
+    }
+    defaultUnexpectedError(apiServiceError);
+    unexpectedError();
+  }
 };
 
-const login = (
+const login = async (
   email: string,
   password: string,
   success?: () => void = () => {},
   errors?: (errors: ErrorObjectType[]) => void = () => {},
   unexpectedError?: () => void = () => {}
-): void => {
-  UserApiService.login(email, password)
-    .then(success)
-    .catch(apiServiceError => {
-      if ([400, 401, 403, 404].includes(apiServiceError.status)) {
-        errors(loginErrors);
-        return;
-      }
-      defaultUnexpectedError(apiServiceError);
-      unexpectedError();
-    });
+): Promise<void> => {
+  try {
+    await UserApiService.login(email, password);
+    success();
+  } catch (apiServiceError) {
+    if ([400, 401, 403, 404].includes(apiServiceError.status)) {
+      errors(loginErrors);
+      return;
+    }
+    defaultUnexpectedError(apiServiceError);
+    unexpectedError();
+  }
 };
 
 const myProposals = async (
@@ -302,9 +267,65 @@ const getProfile = async (userId: string): Promise<UserProfileType | null> => {
   }
 };
 
+const getProfileByUserType = async (
+  userId: string,
+  userType: string
+): UserProfileType | OrganisationProfileType => {
+  if (userType === TYPE_ORGANISATION) {
+    return OrganisationService.getProfile(userId);
+  }
+  if (userType === TYPE_PERSONALITY) {
+    return PersonalityService.getProfile(userId);
+  }
+
+  return getProfile(userId);
+};
+
+const update = async (
+  userId: string,
+  profile: UserProfileType,
+  success: () => void,
+  handleErrors: (errors: ErrorObjectType[]) => void
+): Promise<void> => {
+  const {
+    firstName,
+    lastName,
+    dateOfBirth,
+    postalCode,
+    profession,
+    description,
+    optInNewsletter,
+    website,
+    avatarUrl,
+  } = profile;
+
+  try {
+    await UserApiService.update(
+      userId,
+      firstName,
+      lastName,
+      dateOfBirth,
+      avatarUrl,
+      profession,
+      description,
+      postalCode,
+      optInNewsletter,
+      website
+    );
+
+    success();
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 400) {
+      handleErrors(getErrorMessages(updateUserErrors, apiServiceError.data));
+      return;
+    }
+
+    defaultUnexpectedError(apiServiceError);
+  }
+};
+
 export const UserService = {
   update,
-  updateNewsletter,
   updatePassword,
   deleteAccount,
   forgotPassword,
@@ -316,5 +337,5 @@ export const UserService = {
   loginSocial,
   changePassword,
   current,
-  getProfile,
+  getProfileByUserType,
 };

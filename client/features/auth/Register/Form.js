@@ -27,7 +27,7 @@ import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import {
   EmailFieldIcon,
   PasswordFieldIcon,
-  FirstNameFieldIcon,
+  NameFiledIcon,
   AgeFieldIcon,
   PostalCodeFieldIcon,
   JobFieldIcon,
@@ -151,7 +151,7 @@ export const RegisterForm = () => {
       <UntypedInput
         type="text"
         name="profile.firstname"
-        icon={FirstNameFieldIcon}
+        icon={NameFiledIcon}
         error={firstnameError}
         value={user.profile.firstname}
         label={i18n.t('common.form.label.firstname')}

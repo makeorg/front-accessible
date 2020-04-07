@@ -10,6 +10,7 @@ import {
   registerErrors,
 } from 'Shared/errors/Messages/User';
 import { defaultApiError } from 'Shared/errors/Messages';
+import { type ErrorObjectType } from 'Shared/types/api';
 
 jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/services/Logger');
@@ -19,143 +20,173 @@ jest.mock('Shared/helpers/date', () => ({
 
 describe('User Service', () => {
   describe('update function', () => {
-    const userInformation = {
+    const profile = {
       firstName: 'foo',
-      age: '33',
+      lastName: null,
+      dateOfBirth: '30',
       profession: 'bar',
       postalCode: '77000',
       description: 'baz description',
       optInNewsletter: false,
+      avatarUrl: null,
+      website: null,
     };
-    it('Call UserApi service with right params', async () => {
+    it('Call UserApi service with right params', async done => {
       jest.spyOn(UserApiService, 'update');
       UserApiService.update.mockResolvedValue({ data: 'ok' });
-      let successed = false;
+
       const success = () => {
-        successed = true;
+        expect(UserApiService.update).toHaveBeenNthCalledWith(
+          1,
+          'userId',
+          profile.firstName,
+          null,
+          profile.dateOfBirth,
+          null,
+          profile.profession,
+          profile.description,
+          profile.postalCode,
+          profile.optInNewsletter,
+          null
+        );
+        done();
       };
-
-      await UserService.update(userInformation, success);
-
-      expect(UserApiService.update).toHaveBeenNthCalledWith(1, {
-        firstName: userInformation.firstName,
-        dateOfBirth: 30,
-        postalCode: userInformation.postalCode,
-        profession: userInformation.profession,
-        description: userInformation.description,
-        optInNewsletter: userInformation.optInNewsletter,
-      });
-      expect(successed).toBe(true);
+      UserService.update('userId', profile, success);
     });
 
-    it('return a bad request content', async () => {
+    it('return a bad request content', async done => {
       jest.spyOn(UserApiService, 'update');
-      UserApiService.update.mockRejectedValue(updateUserErrors);
-      try {
-        await UserService.update({});
-      } catch (errors) {
-        errors.map((error, index) => {
+      UserApiService.update.mockRejectedValue({
+        status: 400,
+        data: updateUserErrors,
+      });
+
+      const handleErrors = (errors: ErrorObjectType[]) => {
+        errors.forEach((error, index) => {
           expect(errors[index].message).toBe(updateUserErrors[index].message);
           expect(errors[index].key).toBe(updateUserErrors[index].key);
-          return expect(errors[index].field).toBe(
-            updateUserErrors[index].field
-          );
+          expect(errors[index].field).toBe(updateUserErrors[index].field);
         });
-      }
+        done();
+      };
+
+      UserService.update('userId', {}, () => {}, handleErrors);
     });
   });
 
   describe('deleteAccount function', () => {
-    it('return a no content http status', async () => {
+    it('return a no content http status', async done => {
       jest.spyOn(UserApiService, 'deleteAccount');
       UserApiService.deleteAccount.mockResolvedValue({ data: 'ok' });
 
-      let successed = false;
       const success = () => {
-        successed = true;
+        expect(UserApiService.deleteAccount).toHaveBeenNthCalledWith(
+          1,
+          'barUserId',
+          'fooPassword'
+        );
+        done();
       };
-      await UserService.deleteAccount('barUserId', 'fooPassword', success);
-      expect(UserApiService.deleteAccount).toHaveBeenNthCalledWith(
-        1,
-        'barUserId',
-        'fooPassword'
-      );
 
-      expect(successed).toBe(true);
+      UserService.deleteAccount('barUserId', 'fooPassword', success);
     });
 
-    it('return a bad request content', async () => {
+    it('return a bad request content', async done => {
+      Logger.logError.mockClear();
       jest.spyOn(Logger, 'logError');
+      UserApiService.deleteAccount.mockRejectedValue({ status: 404 });
 
-      UserApiService.deleteAccount.mockRejectedValue(404);
-      try {
-        await UserService.deleteAccount('barUserId', 'fooPassword');
-      } catch (error) {
+      UserService.deleteAccount(
+        'barUserId',
+        'fooPassword',
+        () => {},
+        () => {},
+        () => {}
+      ).then(() => {
+        expect(Logger.logError).toHaveBeenNthCalledWith(1, { status: 404 });
         expect(Logger.logError).toHaveBeenNthCalledWith(
-          1,
-          'Error in deleting account for userId -> barUserId : status -> 404'
+          2,
+          'you should handle unexpected errors'
         );
-      }
+        done();
+      });
     });
   });
 
   describe('forgotPassword function', () => {
-    it('success', async () => {
+    it('success', async done => {
       jest.spyOn(UserApiService, 'forgotPassword');
       UserApiService.forgotPassword.mockResolvedValue();
-      const response = await UserService.forgotPassword('foo@example.com');
-      expect(UserApiService.forgotPassword).toHaveBeenNthCalledWith(
-        1,
-        'foo@example.com'
-      );
 
-      expect(response).toBe();
+      const success = () => {
+        expect(UserApiService.forgotPassword).toHaveBeenNthCalledWith(
+          1,
+          'foo@example.com'
+        );
+        done();
+      };
+      await UserService.forgotPassword('foo@example.com', success);
     });
 
-    it('return a bad request content', async () => {
+    it('return a bad request content', async done => {
       jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue(forgotPasswordErrors);
-      try {
-        await UserService.forgotPassword('foo2@example.com');
-      } catch (errors) {
-        errors.map((error, index) => {
+      UserApiService.forgotPassword.mockRejectedValue({
+        status: 400,
+        data: forgotPasswordErrors,
+      });
+
+      const handleErrors = errors => {
+        errors.forEach((error, index) => {
           expect(errors[index].message).toBe(
             forgotPasswordErrors[index].message
           );
           expect(errors[index].key).toBe(forgotPasswordErrors[index].key);
-          return expect(errors[index].field).toBe(
-            forgotPasswordErrors[index].field
+          expect(errors[index].field).toBe(forgotPasswordErrors[index].field);
+          done();
+        });
+      };
+
+      UserService.forgotPassword('foo2@example.com', () => {}, handleErrors);
+    });
+
+    it('return an unexpected error', async done => {
+      jest.spyOn(UserApiService, 'forgotPassword');
+      Logger.logError.mockClear();
+      jest.spyOn(Logger, 'logError');
+
+      UserApiService.forgotPassword.mockRejectedValue({
+        status: 500,
+        data: defaultApiError,
+      });
+
+      UserService.forgotPassword('foo2@example.com', () => {}, () => {}).then(
+        () => {
+          expect(Logger.logError).toHaveBeenNthCalledWith(1, {
+            status: 500,
+            data: defaultApiError,
+          });
+          expect(Logger.logError).toHaveBeenNthCalledWith(
+            2,
+            'you should handle unexpected errors'
           );
-        });
-      }
+          done();
+        }
+      );
     });
 
-    it('return an unexpected error message content', async () => {
+    it('return a 404', async done => {
       jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue(defaultApiError);
-      try {
-        await UserService.forgotPassword('foo2@example.com');
-      } catch (errors) {
-        errors.map((error, index) => {
-          expect(errors[index].message).toBe(defaultApiError.message);
-          expect(errors[index].key).toBe(defaultApiError.key);
-          return expect(errors[index].field).toBe(defaultApiError.field);
-        });
-      }
-    });
-
-    it('return a 404', async () => {
-      jest.spyOn(UserApiService, 'forgotPassword');
-      UserApiService.forgotPassword.mockRejectedValue('Error: 404');
-      try {
-        await UserService.forgotPassword('foo2@example.com');
-      } catch (errors) {
-        errors.map((error, index) => {
+      UserApiService.forgotPassword.mockRejectedValue({ status: 404 });
+      const handleErrors = errors => {
+        errors.forEach((error, index) => {
           expect(errors[index].message).toBe(emailNotExistError.message);
           expect(errors[index].key).toBe(emailNotExistError.key);
-          return expect(errors[index].field).toBe(emailNotExistError.field);
+          expect(errors[index].field).toBe(emailNotExistError.field);
         });
-      }
+        done();
+      };
+
+      UserService.forgotPassword('foo2@example.com', () => {}, handleErrors);
     });
   });
 
@@ -164,47 +195,57 @@ describe('User Service', () => {
       firstname: 'john',
       email: 'john@example.com',
     };
-    it('success', async () => {
+    it('success', async done => {
       jest.spyOn(UserApiService, 'register');
       UserApiService.register.mockResolvedValue();
 
-      const response = await UserService.register(johnData);
-      expect(UserApiService.register).toHaveBeenNthCalledWith(1, johnData);
-
-      expect(response).toBe();
+      UserService.register(johnData).then(() => {
+        expect(UserApiService.register).toHaveBeenNthCalledWith(1, johnData);
+        done();
+      });
     });
 
-    it('return a bad request content', async () => {
+    it('return a bad request content', async done => {
       jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue(registerErrors);
-      try {
-        await UserService.register(johnData);
-      } catch (errors) {
-        errors.map((error, index) => {
+      UserApiService.register.mockRejectedValue({
+        status: 400,
+        data: registerErrors,
+      });
+
+      const handleErrors = errors => {
+        errors.forEach((error, index) => {
           expect(errors[index].message).toBe(registerErrors[index].message);
           expect(errors[index].key).toBe(registerErrors[index].key);
-          return expect(errors[index].field).toBe(registerErrors[index].field);
+          expect(errors[index].field).toBe(registerErrors[index].field);
         });
-      }
+        done();
+      };
+
+      UserService.register(johnData, () => {}, handleErrors);
     });
 
-    it('return a global error if error message is not referenced', async () => {
+    it('return a global error if error message is not referenced', async done => {
       jest.spyOn(UserApiService, 'register');
-      UserApiService.register.mockRejectedValue(defaultApiError);
-      try {
-        await UserService.register(johnData);
-      } catch (errors) {
-        errors.map((error, index) => {
+      UserApiService.register.mockRejectedValue({
+        status: 400,
+        data: defaultApiError,
+      });
+
+      const handleErrors = errors => {
+        errors.forEach((error, index) => {
           expect(errors[index].message).toBe(defaultApiError.message);
           expect(errors[index].key).toBe(defaultApiError.key);
-          return expect(errors[index].field).toBe(defaultApiError.field);
+          expect(errors[index].field).toBe(defaultApiError.field);
         });
-      }
+        done();
+      };
+
+      await UserService.register(johnData, () => {}, handleErrors);
     });
   });
 
   describe('get current user', () => {
-    it('success', async () => {
+    it('success', async done => {
       jest.spyOn(UserApiService, 'current');
       const user = {
         userId: '12',
@@ -213,37 +254,43 @@ describe('User Service', () => {
       };
       UserApiService.current.mockResolvedValue({ data: user });
 
-      const response = await UserService.current();
-      expect(UserApiService.current).toHaveBeenCalled();
-      expect(response).toMatchObject(user);
+      UserService.current().then(response => {
+        expect(UserApiService.current).toHaveBeenCalled();
+        expect(response).toBe(user);
+        done();
+      });
     });
   });
 
-  it('unauthorized', async () => {
+  it('unauthorized', async done => {
     jest.spyOn(UserApiService, 'current');
     jest.spyOn(Logger, 'logError');
     Logger.logError.mockClear();
 
     UserApiService.current.mockRejectedValue({ status: 401 });
 
-    const response = await UserService.current();
-    expect(UserApiService.current).toHaveBeenCalled();
-    expect(response).toEqual(null);
-    expect(Logger.logError).not.toHaveBeenCalled();
+    UserService.current().then(response => {
+      expect(UserApiService.current).toHaveBeenCalled();
+      expect(response).toEqual(null);
+      expect(Logger.logError).not.toHaveBeenCalled();
+      done();
+    });
   });
 
-  it('error', async () => {
+  it('error', async done => {
     jest.spyOn(UserApiService, 'current');
     jest.spyOn(Logger, 'logError');
     Logger.logError.mockClear();
 
     UserApiService.current.mockRejectedValue({ status: 500 });
 
-    const response = await UserService.current();
-    expect(UserApiService.current).toHaveBeenCalled();
-    expect(response).toEqual(null);
-    expect(Logger.logError).toHaveBeenCalledWith(
-      'you should handle unexpected errors'
-    );
+    UserService.current().then(response => {
+      expect(UserApiService.current).toHaveBeenCalled();
+      expect(response).toEqual(null);
+      expect(Logger.logError).toHaveBeenCalledWith(
+        'you should handle unexpected errors'
+      );
+      done();
+    });
   });
 });

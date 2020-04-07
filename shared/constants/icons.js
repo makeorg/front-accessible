@@ -17,7 +17,7 @@ import {
 export const EmailFieldIcon = <SvgEnvelope />;
 export const PasswordFieldIcon = <SvgLock />;
 export const AgeFieldIcon = <SvgChild />;
-export const FirstNameFieldIcon = <SvgUser />;
+export const NameFiledIcon = <SvgUser />;
 export const PostalCodeFieldIcon = <SvgMapMarker />;
 export const WebsiteLinkFieldIcon = (
   <SvgLink style={{ width: '18px', height: '18px' }} />

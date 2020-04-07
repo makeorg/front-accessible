@@ -97,17 +97,26 @@ describe('getErrorMessages', () => {
 describe('setEmptyStringToNull', () => {
   it('empty string should return null', () => {
     expect(setEmptyStringToNull('')).toEqual(null);
+    expect(setEmptyStringToNull(' ')).toEqual(null);
+    expect(setEmptyStringToNull(undefined)).toEqual(null);
+    expect(setEmptyStringToNull(null)).toEqual(null);
   });
   it('value should be returned', () => {
     expect(setEmptyStringToNull('foo')).toEqual('foo');
+    expect(setEmptyStringToNull('         foo          ')).toEqual('foo');
+    expect(setEmptyStringToNull(0)).toEqual(0);
+    expect(setEmptyStringToNull(55)).toEqual(55);
   });
 });
 
 describe('setNullToEmptyString', () => {
   it('null should return empty string', () => {
     expect(setNullToEmptyString(null)).toEqual('');
+    expect(setNullToEmptyString(undefined)).toEqual('');
   });
   it('value should be returned', () => {
     expect(setNullToEmptyString('foo')).toEqual('foo');
+    expect(setNullToEmptyString(0)).toEqual(0);
+    expect(setNullToEmptyString(5)).toEqual(5);
   });
 });

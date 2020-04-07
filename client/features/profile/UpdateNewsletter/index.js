@@ -17,11 +17,13 @@ import { getUser } from 'Shared/store/actions/authentification';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 
 type Props = {
+  /** User id */
+  userId: string,
   /** User Profile */
   profile: UserProfileType,
 };
 
-export const UpdateNewsletter = ({ profile }: Props) => {
+export const UpdateNewsletter = ({ userId, profile }: Props) => {
   const dispatch = useDispatch();
   const [optInNewsletter, setOptInNewsletter] = useState<boolean>(
     profile.optInNewsletter
@@ -49,7 +51,15 @@ export const UpdateNewsletter = ({ profile }: Props) => {
       setErrors([defaultApiError]);
       setIsSubmitSuccessful(false);
     };
-    await UserService.updateNewsletter(optInNewsletter, success, handleErrors);
+    await UserService.update(
+      userId,
+      {
+        ...profile,
+        optInNewsletter,
+      },
+      success,
+      handleErrors
+    );
   };
 
   return (

@@ -7,6 +7,7 @@ export const ORGANISATIONS_PATH = '/organisations';
 export const ORGANISATION_PROPOSALS_PATH =
   '/organisations/:organisationId/proposals';
 export const ORGANISATION_VOTES_PATH = '/organisations/:organisationId/votes';
+export const ORGANISATION_PROFILE = '/organisations/:organisationId/profile';
 
 export class OrganisationApiService {
   static getOrganisations(slug: string): Promise<any> {
@@ -44,6 +45,39 @@ export class OrganisationApiService {
       {
         method: 'GET',
         params: { sort: 'createdAt', order: 'desc', seed, limit, skip },
+      }
+    );
+  }
+
+  static getProfile(organisationId: string): Promise<any> {
+    return ApiService.callApi(
+      ORGANISATION_PROFILE.replace(':organisationId', organisationId),
+      {
+        method: 'GET',
+      }
+    );
+  }
+
+  static update(
+    organisationId: string,
+    organisationName: string,
+    avatarUrl: string,
+    description: string,
+    website: string,
+    optInNewsletter: boolean
+  ): Promise<any> {
+    return ApiService.callApi(
+      ORGANISATION_PROFILE.replace(':organisationId', organisationId),
+      {
+        method: 'PUT',
+        body: JSON.stringify({
+          organisationId,
+          organisationName,
+          avatarUrl,
+          description,
+          website,
+          optInNewsletter,
+        }),
       }
     );
   }

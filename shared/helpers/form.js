@@ -5,6 +5,30 @@ import { defaultApiError } from 'Shared/errors/Messages';
 import { mapErrors } from 'Shared/services/ApiErrors';
 import { Logger } from 'Shared/services/Logger';
 
+export const setEmptyStringToNull = (
+  initialValue: string | number
+): string | number | null => {
+  if (typeof initialValue === 'number') {
+    return initialValue;
+  }
+
+  if (!initialValue || !initialValue.trim()) {
+    return null;
+  }
+
+  return initialValue.trim();
+};
+
+export const setNullToEmptyString = (
+  initialValue: string | number | null
+): string | number => {
+  if (typeof initialValue === 'number') {
+    return initialValue;
+  }
+
+  return !initialValue ? '' : initialValue;
+};
+
 export const errorTranslation = (message: string): string => {
   const translatedError = i18n.t(message);
   if (translatedError === undefined) {
@@ -43,20 +67,18 @@ export const getErrorMessages = (
   }
 };
 
-export const setEmptyStringToNull = (initialValue: string): string | null => {
-  let value = initialValue;
-  if (initialValue === '') {
-    value = null;
-  }
-
-  return value;
+export const transformFieldValueToProfileValue = (
+  initialValue: string | number
+): string | number | null => {
+  return setEmptyStringToNull(initialValue);
 };
 
-export const setNullToEmptyString = (initialValue: string): string => {
-  let value = initialValue;
-  if (initialValue === null) {
-    value = '';
-  }
+export const transformProfileToFormData = (profile: Object) => {
+  const formData = { ...profile };
 
-  return value;
+  Object.keys(formData).forEach(key => {
+    formData[key] = setNullToEmptyString(formData[key]);
+  });
+
+  return formData;
 };

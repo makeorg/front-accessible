@@ -19,3 +19,13 @@ export type PersonalityOpinionType = {
   topIdea: TopIdeaType,
   comment: PersonalityCommentsType,
 };
+
+export type PersonalityProfileType = {
+  firstName: string,
+  lastName: string,
+  avatarUrl: string,
+  description: string,
+  optInNewsletter: boolean,
+  website: string,
+  politicalParty: string,
+};
