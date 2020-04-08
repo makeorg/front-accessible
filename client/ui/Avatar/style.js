@@ -25,7 +25,7 @@ export const AvatarImageStyle = styled.img`
 
 export const PartnerAvatarStyle = styled.span`
   margin: 0;
-  display: inline-flex;
+  display: block;
   svg,
   img {
     border-radius: ${intToPx(Elements.BorderRadius)};
