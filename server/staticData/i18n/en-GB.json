@@ -190,7 +190,7 @@
             "index_count": "Item {{index}} on {{total}}"
         },
         "max_characters": "maximum characters",
-        "back": "Retour",
+        "back": "Back",
         "proposal_count": "{{count}} solution",
         "proposal_count_plural": "{{count}} solutions",
         "vote_count": "{{count}} vote",
@@ -254,7 +254,7 @@
     },
     "push_proposal_card": {
         "title": "Do you have a solution you want to submit on this topic?",
-        "next-cta": "Not yet, I prefer to keep voting for the moment."
+        "next-cta": "Not yet, I prefer to keep voting for the moment"
     },
     "proposal_submit": {
         "bait": "We should ",
@@ -305,11 +305,11 @@
         "likeIt": "Genius",
         "doable": "Realistic",
         "platitudeAgree": "Obvious",
-        "noWay": "Irrelevant",
+        "noWay": "Irrelevant !",
         "impossible": "Unrealistic",
         "platitudeDisagree": "Nonsense",
         "doNotUnderstand": "I don't understand",
-        "noOpinion": "I'm neutral",
+        "noOpinion": "No opinion",
         "doNotCare": "I don't care",
         "static_repartition": "This solution was perceved as: ",
         "times": "times"
@@ -544,7 +544,7 @@
             "popular_title": "Most discussed topics"
         },
         "banner": {
-            "title": "Vote for trending solutions on this topic",
+            "title": "Vote for a selection of solutions on this topic",
             "description": "on a series of random solutions"
         },
         "proposal": {
@@ -589,15 +589,15 @@
             "top_ideas": {
                 "skiplink": "Top emerging ideas",
                 "title": "Top emerging ideas, grouped into {{count}} themes",
-                "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant' and 'Nonsense'.",
+                "introduction": ", The best citizen solutions are grouped into big ideas that structure the consultation. To classify these ideas, the Make.org algorithm takes into account the votes 'Agree' and 'Disagree' as well as the mentions 'Genius', 'Obvious', 'Irrelevant !' and 'Nonsense'.",
                 "theme_title": "Theme {{count}} : {{name}}"
             },
             "proposals": {
                 "controversials": "Most discussed solutions",
                 "rejected": "Most rejected solutions",
-                "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant'",
+                "rejected_results": "{{disagree}}% 'Disagree' including {{no_way}}% 'Irrelevant !'",
                 "controversials_like_it": "{{count}}% 'Genius'",
-                "controversials_no_way": "{{count}}% 'Irrelevant'"
+                "controversials_no_way": "{{count}}% 'Irrelevant !'"
             },
             "cartography": {
                 "title": "Mapping of the debate"
@@ -761,7 +761,7 @@
             "qualification": {
                 "priority": "Prioritary",
                 "doable": "Realistic",
-                "noWay": "Irrelevant",
+                "noWay": "Irrelevant !",
                 "nonPriority": "Not a priority",
                 "exists": "Already exists",
                 "toBePrecised": "To be specified"
