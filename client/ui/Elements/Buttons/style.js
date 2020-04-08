@@ -210,6 +210,9 @@ export const QualifyButtonStyle = styled.button`
     color: ${BasicColors.PureWhite};
     background-color: ${props => props.color};
   }
+  &.wait {
+    cursor: wait;
+  }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 12.6px;
     line-height: 23px;
