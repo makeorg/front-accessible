@@ -18,13 +18,13 @@ export const SearchFormStyle = styled.form`
   max-width: 235px;
   margin-left: 10px;
   margin-right: 15px;
-  padding: 0 15px;
+  padding: 6.5px 15px;
   border-radius: 15px;
   background-color: ${BackgroundColors.LightGrey};
   border: 0.5px solid ${BorderColors.LightGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 430px;
-    padding: 0 20px;
+    padding: 11.5px 20px;
     border-radius: 20px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
@@ -45,25 +45,23 @@ export const SearchInputStyle = styled.input`
   width: 100%;
   color: ${BasicColors.PureBlack};
   font-size: 16px;
-  line-height: 29px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    line-height: 39px;
-  }
+  line-height: 1;
 `;
 
 export const SearchLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.DarkGrey};
   font-size: 16px;
-  line-height: 29px;
+  line-height: 1;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
   left: 0;
-  top: 0;
+  top: 50%;
   transition: 0.25s ease opacity;
   white-space: nowrap;
   z-index: 1;
+  transform: translateY(-50%);
   &.hide {
     opacity: 0;
   }
