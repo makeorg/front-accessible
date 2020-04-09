@@ -510,10 +510,6 @@ exports[`ButtonElements/Styled QualifyButtonStyle snapshot by default 1`] = `
   color: rgb(255,255,255);
 }
 
-.c0.wait {
-  cursor: wait;
-}
-
 @media (min-width:360px) {
   .c0 {
     font-size: 12.6px;
