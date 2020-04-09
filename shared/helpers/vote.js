@@ -14,6 +14,7 @@ export const getSameKey = (wantedKey: string, voteKey: string) => {
 export const getVoteButtonClass = (
   voteKey: string,
   animateVote: string,
+  pendingVoteKey: string,
   isVoted: boolean
 ) => {
   if (animateVote === voteKey) {

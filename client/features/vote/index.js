@@ -168,7 +168,12 @@ export const Vote = ({
           <VoteButtonWrapperStyle as="li" key={getVoteKey(voteKey, proposalId)}>
             <VoteButton
               voteKey={voteKey}
-              buttonClass={getVoteButtonClass(voteKey, animateVoteKey, false)}
+              buttonClass={getVoteButtonClass(
+                voteKey,
+                animateVoteKey,
+                pendingVoteKey,
+                false
+              )}
               displayPending={getSameKey(pendingVoteKey, voteKey)}
               handleVote={() => handleVote(voteKey)}
               animateVote={getSameKey(animateVoteKey, voteKey)}
