@@ -19,8 +19,10 @@ type Props = {
   handleVote?: () => void | Promise<void>,
   /** Trigged animation on vote button after API response */
   animateVote?: boolean,
-  /** Boolean to disable click event on the qualification button */
+  /** Boolean to disable click event on the vote button */
   disableClick?: boolean,
+  /** Boolean to disable tooltip on button hover event */
+  withTooltip?: boolean,
 };
 
 /**
@@ -33,8 +35,36 @@ export const VoteButton = ({
   handleVote = () => {},
   animateVote = false,
   disableClick = false,
-}: Props) => (
-  <Tooltip content={i18n.t(`vote.${voteKey}`)} direction="bottom">
+  withTooltip = true,
+}: Props) => {
+  if (withTooltip) {
+    return (
+      <Tooltip content={i18n.t(`vote.${voteKey}`)} direction="bottom">
+        <VoteButtonStyle
+          aria-label={
+            displayPending
+              ? i18n.t('common.loading')
+              : i18n.t(`vote.${voteKey}`)
+          }
+          className={buttonClass}
+          onClick={handleVote}
+          onTouchEnd={handleVote}
+          aria-busy={displayPending}
+          data-cy-button="vote"
+          data-cy-vote-key={voteKey}
+          disabled={disableClick}
+        >
+          {displayPending && !animateVote ? (
+            <LoadingDots />
+          ) : (
+            <VoteIconStyle className={buttonClass} aria-hidden />
+          )}
+        </VoteButtonStyle>
+      </Tooltip>
+    );
+  }
+
+  return (
     <VoteButtonStyle
       aria-label={
         displayPending ? i18n.t('common.loading') : i18n.t(`vote.${voteKey}`)
@@ -53,5 +83,5 @@ export const VoteButton = ({
         <VoteIconStyle className={buttonClass} aria-hidden />
       )}
     </VoteButtonStyle>
-  </Tooltip>
-);
+  );
+};

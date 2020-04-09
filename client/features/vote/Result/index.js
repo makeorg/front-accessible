@@ -28,6 +28,10 @@ type Props = {
   handleUnvote?: () => void | Promise<void>,
   /** When waiting response from API */
   pending?: boolean,
+  /** Disable click on unvote button */
+  disableClick?: boolean,
+  /** Disable click on unvote button */
+  withTooltip?: boolean,
 };
 
 /**
@@ -39,6 +43,8 @@ export const VoteResult = ({
   votedKey,
   proposalId,
   pending = false,
+  disableClick = false,
+  withTooltip = true,
 }: Props) => {
   const votesCount = getTotalVotesCount(votes);
   const voteKeys = Object.keys(voteStaticParams);
@@ -58,6 +64,8 @@ export const VoteResult = ({
           buttonClass={`${votedKey} voted`}
           handleUnvote={handleUnvote}
           displayPending={pending}
+          disableClick={disableClick}
+          withTooltip={withTooltip}
         />
       </VoteButtonWrapperStyle>
 

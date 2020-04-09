@@ -101,8 +101,8 @@ export const ProfileVoteCard = ({
               votes={proposal.votes}
               votedKey={voteKey}
               proposalKey={proposal.proposalKey}
-              showTooltip={false}
               disableClick
+              withTooltip={false}
             />
           </ProposalInnerStyle>
 

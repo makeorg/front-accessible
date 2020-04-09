@@ -17,8 +17,10 @@ type Props = {
   displayPending?: boolean,
   /** Method called when vote button is clicked */
   handleUnvote?: () => void | Promise<void>,
-  /** Boolean to disable click event on the qualification button */
+  /** Boolean to disable click event on the vote button */
   disableClick?: boolean,
+  /** Boolean to disable tooltip on button hover event */
+  withTooltip?: boolean,
 };
 
 export const UnvoteButton = ({
@@ -27,27 +29,53 @@ export const UnvoteButton = ({
   displayPending = false,
   handleUnvote = () => {},
   disableClick = false,
+  withTooltip = true,
 }: Props) => {
+  if (withTooltip) {
+    return (
+      <Tooltip content={i18n.t(`unvote.title`)} direction="bottom">
+        <VoteButtonStyle
+          aria-label={
+            displayPending
+              ? i18n.t('common.loading')
+              : i18n.t(`vote.${voteKey}`)
+          }
+          className={buttonClass}
+          onClick={handleUnvote}
+          onTouchEnd={handleUnvote}
+          aria-busy={displayPending}
+          data-cy-button="vote"
+          data-cy-vote-key={voteKey}
+          disabled={disableClick}
+        >
+          {displayPending ? (
+            <LoadingDots />
+          ) : (
+            <VoteIconStyle className={buttonClass} aria-hidden />
+          )}
+        </VoteButtonStyle>
+      </Tooltip>
+    );
+  }
+
   return (
-    <Tooltip content={i18n.t(`unvote.title`)} direction="bottom">
-      <VoteButtonStyle
-        aria-label={
-          displayPending ? i18n.t('common.loading') : i18n.t(`vote.${voteKey}`)
-        }
-        className={buttonClass}
-        onClick={handleUnvote}
-        onTouchEnd={handleUnvote}
-        aria-busy={displayPending}
-        data-cy-button="vote"
-        data-cy-vote-key={voteKey}
-        disabled={disableClick}
-      >
-        {displayPending ? (
-          <LoadingDots />
-        ) : (
-          <VoteIconStyle className={buttonClass} aria-hidden />
-        )}
-      </VoteButtonStyle>
-    </Tooltip>
+    <VoteButtonStyle
+      aria-label={
+        displayPending ? i18n.t('common.loading') : i18n.t(`vote.${voteKey}`)
+      }
+      className={buttonClass}
+      onClick={handleUnvote}
+      onTouchEnd={handleUnvote}
+      aria-busy={displayPending}
+      data-cy-button="vote"
+      data-cy-vote-key={voteKey}
+      disabled={disableClick}
+    >
+      {displayPending ? (
+        <LoadingDots />
+      ) : (
+        <VoteIconStyle className={buttonClass} aria-hidden />
+      )}
+    </VoteButtonStyle>
   );
 };

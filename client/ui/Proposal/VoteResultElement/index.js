@@ -15,8 +15,12 @@ type Props = {
   votedKey: string,
   /** Proposal's Key */
   proposalKey: string,
-  /** Status of vote */
+  /** When waiting response from API */
   isPending?: boolean,
+  /** Disable click on unvote button */
+  disableClick?: boolean,
+  /** Disable click on unvote button */
+  withTooltip?: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
 };
@@ -27,6 +31,8 @@ export const VoteResultElement = ({
   votedKey,
   proposalKey,
   isPending = false,
+  disableClick = false,
+  withTooltip = true,
   handleVote = () => {},
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
@@ -43,7 +49,8 @@ export const VoteResultElement = ({
         votedKey={votedKey}
         handleVote={handleVote}
         pending={isPending}
-        disableClick
+        disableClick={disableClick}
+        withTooltip={withTooltip}
       />
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
