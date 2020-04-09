@@ -4,7 +4,7 @@ import { type VoteType } from 'Shared/types/vote';
 import { voteStaticParams } from 'Shared/constants/vote';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
-import { QualificationResults } from 'Client/features/vote/Qualification/Results';
+import { QualificationResults } from 'Client/features/qualification/Results';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {

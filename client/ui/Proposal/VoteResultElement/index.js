@@ -3,7 +3,7 @@ import React from 'react';
 import { type VoteType } from 'Shared/types/vote';
 import { VoteResult } from 'Client/features/vote/Result';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { QualificationButton } from 'Client/features/vote/Qualification/Button';
+import { QualificationButton } from 'Client/features/qualification/Button';
 import { VoteResultStyle } from 'Client/features/vote/Result/style';
 
 type Props = {

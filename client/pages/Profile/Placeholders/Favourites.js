@@ -22,7 +22,7 @@ import {
   FavouritesCardStyle,
   FavouritesProposalStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
-import { CounterStyle } from 'Client/features/vote/Qualification/style';
+import { CounterStyle } from 'Client/features/qualification/style';
 import {
   QualifyButtonStyle,
   VoteButtonStyle,

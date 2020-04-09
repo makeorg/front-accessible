@@ -13,7 +13,7 @@ import { VoteService } from 'Shared/services/Vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParamsKeys } from 'Shared/constants/vote';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
-import { Qualification } from './Qualification';
+import { Qualification } from '../qualification';
 import { VoteResult } from './Result';
 import {
   VoteContainerStyle,
