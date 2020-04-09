@@ -19,7 +19,7 @@ describe('PersonalityApiService', () => {
       await PersonalityApiService.getPersonality('1234');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
-        PERSONALITY_PATH.replace(':userId', '1234'),
+        PERSONALITY_PATH.replace(':personalityId', '1234'),
         {
           method: 'GET',
           headers: {},
@@ -42,7 +42,7 @@ describe('PersonalityApiService', () => {
       );
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
-        PERSONALITY_COMMENTS_PATH.replace(':userId', '1234'),
+        PERSONALITY_COMMENTS_PATH.replace(':personalityId', '1234'),
         {
           method: 'POST',
           headers: {},
@@ -64,7 +64,7 @@ describe('PersonalityApiService', () => {
       await PersonalityApiService.getPersonnalityOpinion('1234');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
-        PERSONALITY_OPINION_PATH.replace(':userId', '1234'),
+        PERSONALITY_OPINION_PATH.replace(':personalityId', '1234'),
         {
           method: 'GET',
           headers: {},
@@ -79,7 +79,7 @@ describe('PersonalityApiService', () => {
       await PersonalityApiService.getPersonnalityOpinion('1234', '5678');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(
         1,
-        PERSONALITY_OPINION_PATH.replace(':userId', '1234'),
+        PERSONALITY_OPINION_PATH.replace(':personalityId', '1234'),
         {
           method: 'GET',
           headers: {},

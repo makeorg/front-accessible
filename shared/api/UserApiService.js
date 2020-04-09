@@ -155,32 +155,28 @@ export class UserApiService {
     });
   }
 
-  /**
-   * Update a user
-   * @param  {Object}  userInformation
-   * @return {Promise}
-   */
-  static update({
-    firstName,
-    lastName,
-    organisationName,
-    dateOfBirth,
-    postalCode,
-    profession,
-    description,
-    optInNewsletter,
-    website,
-  }: Object): Promise<any> {
-    return ApiService.callApi(PATH_USER, {
-      method: 'PATCH',
+  static update(
+    userId: string,
+    firstName: string,
+    lastName: string,
+    dateOfBirth: string,
+    avatarUrl: string,
+    profession: string,
+    description: string,
+    postalCode: string,
+    optInNewsletter: boolean,
+    website: string
+  ): Promise<any> {
+    return ApiService.callApi(PATH_USER_PROFILE.replace(':userId', userId), {
+      method: 'PUT',
       body: JSON.stringify({
         firstName,
         lastName,
-        organisationName,
         dateOfBirth,
+        avatarUrl,
         profession,
-        postalCode,
         description,
+        postalCode,
         optInNewsletter,
         website,
       }),

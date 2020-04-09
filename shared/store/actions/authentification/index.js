@@ -15,6 +15,8 @@ import { type StateRoot } from 'Shared/store/types';
 import { Logger } from 'Shared/services/Logger';
 import { UserService } from 'Shared/services/User';
 import { type UserType, type UserProfileType } from 'Shared/types/user';
+import { type OrganisationProfileType } from 'Shared/types/organisation';
+import { type PersonalityProfileType } from 'Shared/types/personality';
 import {
   showLoginSuccess,
   showLogoutSuccess,
@@ -59,7 +61,12 @@ export const getUser = (afterRegistration?: boolean) => async (
 ) => {
   const { isOpen: isModalOpen } = getState().modal;
   const user = await UserService.current();
-  const profile = user ? await UserService.getProfile(user.userId) : null;
+  const profile:
+    | UserProfileType
+    | OrganisationProfileType
+    | PersonalityProfileType = user
+    ? await UserService.getProfileByUserType(user.userId, user.userType)
+    : null;
   if (user) {
     dispatch(setUserInfo(user, profile));
   }

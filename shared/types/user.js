@@ -42,18 +42,6 @@ export type PasswordsType = {
   actualPassword: string,
 };
 
-export type UserInformationFormType = {
-  firstName: string,
-  lastName: string,
-  organisationName: string,
-  age: string,
-  profession: string,
-  postalCode: string,
-  description: string,
-  optInNewsletter: boolean,
-  website: string,
-};
-
 export type SearchProposalsType = {
   total: number,
   seed?: number,

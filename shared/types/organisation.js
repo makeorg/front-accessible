@@ -39,3 +39,11 @@ export type OrganisationsType = {
   total: number,
   results: OrganisationType[],
 };
+
+export type OrganisationProfileType = {
+  organisationName: string,
+  avatarUrl: string,
+  description: string,
+  website: string,
+  optInNewsletter: boolean,
+};

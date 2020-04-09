@@ -5,8 +5,12 @@ import {
   type OrganisationsType,
   type OrganisationType,
   type OrganisationVotesType,
+  type OrganisationProfileType,
 } from 'Shared/types/organisation';
 import { type ProposalsType } from 'Shared/types/proposal';
+import { updateOrganisationErrors } from 'Shared/errors/Messages/Organisation';
+import { getErrorMessages } from 'Shared/helpers/form';
+import { type ErrorObjectType } from 'Shared/types/api';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const searchOrganisations = async (
@@ -116,9 +120,64 @@ const getVotes = async (
   }
 };
 
+const getProfile = async (
+  organisationId: string
+): Promise<OrganisationProfileType | null> => {
+  try {
+    const response = await OrganisationApiService.getProfile(organisationId);
+
+    return response.data;
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 401) {
+      return null;
+    }
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
+
+const update = async (
+  organisationId: string,
+  profile: OrganisationProfileType,
+  success: () => void,
+  handleErrors: (errors: ErrorObjectType[]) => void
+): Promise<void> => {
+  try {
+    const {
+      organisationName,
+      avatarUrl,
+      description,
+      website,
+      optInNewsletter,
+    } = profile;
+    await OrganisationApiService.update(
+      organisationId,
+      organisationName,
+      avatarUrl,
+      description,
+      website,
+      optInNewsletter
+    );
+
+    success();
+  } catch (apiServiceError) {
+    if (apiServiceError.status === 400) {
+      handleErrors(
+        getErrorMessages(updateOrganisationErrors, apiServiceError.data)
+      );
+      return;
+    }
+
+    defaultUnexpectedError(apiServiceError);
+  }
+};
+
 export const OrganisationService = {
   searchOrganisations,
   getOrganisationBySlug,
   getProposals,
   getVotes,
+  getProfile,
+  update,
 };

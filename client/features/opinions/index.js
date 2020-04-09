@@ -73,16 +73,19 @@ export const Opinions = ({ personality, privateProfile = false }: Props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchPersonnalityOpinions = async () => {
-    PersonalityService.getPersonnalityOpinion(personality.userId).then(
-      personalityOpinions => {
-        if (privateProfile) {
-          setOpinions(personalityOpinions);
-        } else {
-          setOpinions(getCommentedOpinions(personalityOpinions));
-        }
-        setIsLoading(false);
-      }
+    const personalityOpinions = await PersonalityService.getPersonnalityOpinion(
+      personality.userId
     );
+    if (!personalityOpinions) {
+      return;
+    }
+
+    if (privateProfile) {
+      setOpinions(personalityOpinions);
+    } else {
+      setOpinions(getCommentedOpinions(personalityOpinions));
+    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
