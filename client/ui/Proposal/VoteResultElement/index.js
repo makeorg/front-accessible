@@ -19,7 +19,7 @@ type Props = {
   isPending?: boolean,
   /** Disable click on unvote button */
   disableClick?: boolean,
-  /** Disable click on unvote button */
+  /** Boolean to disable tooltip on button hover event */
   withTooltip?: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
