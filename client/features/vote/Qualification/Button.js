@@ -89,11 +89,23 @@ export const QualificationButton = ({
     setPendingQualification(false);
   };
 
+  const getButtonClass = () => {
+    if (pendingQualification) {
+      return 'wait';
+    }
+
+    if (isQualified) {
+      return 'qualified';
+    }
+
+    return '';
+  };
+
   return (
     <TopComponentContext.Consumer>
       {cardContext => (
         <QualifyButtonStyle
-          className={isQualified && 'qualified'}
+          className={getButtonClass()}
           color={voteStaticParams[votedKey].color}
           onClick={() => handleQualification(cardContext)}
           aria-label={
@@ -102,7 +114,7 @@ export const QualificationButton = ({
           aria-busy={pendingQualification}
           data-cy-button="qualification"
           data-cy-qualification-key={qualificationKey}
-          disabled={pendingQualification || disableClick}
+          disabled={disableClick}
         >
           {pendingQualification ? (
             <LoadingDots />

@@ -48,10 +48,22 @@ export const VoteButtonElement = (props: Props) => {
     disableClick = false,
   } = props;
 
+  const getButtonClass = () => {
+    if (animateVote) {
+      return `${voteKey} animated wait`;
+    }
+
+    if (displayPending) {
+      return `${voteKey} wait`;
+    }
+
+    return voteKey;
+  };
+
   return (
     <ButtonStyle
       aria-label={displayPending ? i18n.t('common.loading') : label}
-      className={animateVote ? `${voteKey} animated` : `${voteKey}`}
+      className={getButtonClass()}
       color={color}
       transform={transform}
       as={buttonType}
@@ -60,7 +72,7 @@ export const VoteButtonElement = (props: Props) => {
       aria-busy={displayPending}
       data-cy-button="vote"
       data-cy-vote-key={voteKey}
-      disabled={displayPending || disableClick}
+      disabled={disableClick}
     >
       {displayPending && !animateVote ? (
         <LoadingDots />
