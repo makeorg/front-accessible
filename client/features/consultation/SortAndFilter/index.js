@@ -23,10 +23,10 @@ import {
 
 type Props = {
   sort: string,
-  setSort: (arg: string) => void,
+  setSort: (arg: string) => void | Promise<void>,
   tags: TagType[],
-  setTags: (args: TagType[]) => void,
-  resetTags: () => void,
+  setTags: (args: TagType[]) => void | Promise<void>,
+  resetTags: () => void | Promise<void>,
 };
 
 export const SortAndFilter = ({
