@@ -58,9 +58,6 @@ export const ButtonIconWrapperStyle = styled.span`
 export const IsVotedButtonStyle = styled(ButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${props => props.color};
-  &.wait {
-    cursor: wait;
-  }
   .tofill {
     fill: ${BasicColors.PureWhite};
   }
@@ -101,8 +98,5 @@ export const VoteButtonStyle = styled(ButtonStyle)`
   }
   &.animated.disagree {
     animation: ${InverseRotateButton} 0.5s 1;
-  }
-  &.wait {
-    cursor: wait;
   }
 `;
