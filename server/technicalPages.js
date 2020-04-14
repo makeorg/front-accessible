@@ -1,5 +1,3 @@
-import { env } from 'Shared/env';
-
 const fs = require('fs');
 const { VERSION_PATH } = require('./paths');
 
@@ -25,11 +23,11 @@ export function renderVersion(req, res) {
   }
 }
 
+/**
+ * robots.txt is set to Allow by default
+ * Disallow is set in each nginx configuration to disable robot indexing on tech environments
+ * */
 export function renderRobot(req, res) {
-  const robotContent =
-    env.contextEnvName() === 'prod'
-      ? 'User-agent: *\nAllow: /'
-      : 'User-agent: *\nDisallow: /';
   res.type('text/plain');
-  res.send(robotContent);
+  res.send('User-agent: *\nAllow: /');
 }
