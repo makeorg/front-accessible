@@ -1,14 +1,8 @@
 // @flow
-import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useRef, useState } from 'react';
 import { type QuestionType } from 'Shared/types/question';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
-import { fetchPopularProposals } from 'Shared/store/reducers/questions/actions';
-import {
-  type StateRoot,
-  type PopularProposals as PopularProposalsType,
-} from 'Shared/store/types';
 import { PopularProposalCard } from 'Client/features/proposal/PopularProposalCard';
 import { useSlider } from 'Client/hooks/useSlider';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -20,6 +14,7 @@ import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { COMPONENT_PARAM_TOP_PROPOSALS } from 'Shared/constants/tracking';
+import { ProposalService } from 'Shared/services/Proposal';
 import {
   PopularProposalsSliderListItemStyle,
   PopularProposalsSliderListStyle,
@@ -75,16 +70,20 @@ const sliderParams: SliderParamsType = {
 export const PopularProposals = ({ question, position, size }: Props) => {
   const sliderRef = useRef();
   const isMobile = useMobile();
-  const dispatch = useDispatch();
-  const proposals: PopularProposalsType = useSelector(
-    (state: StateRoot) => state.questions[question.slug].popularProposals
-  );
+  const [proposals, setProposals] = useState([]);
+  const hasProposals = proposals && proposals.length > 0;
+
+  const initPopularProposals = async (questionId: string) => {
+    const response = await ProposalService.getPopularProposals(questionId);
+
+    if (response) {
+      setProposals(response.results);
+    }
+  };
 
   useEffect(() => {
-    dispatch(fetchPopularProposals(question.questionId, question.slug));
-  }, [dispatch, question.questionId]);
-
-  const hasProposals = proposals && proposals.results.length > 0;
+    initPopularProposals(question.questionId);
+  }, [question.questionId]);
 
   useSlider(sliderRef, sliderParams, hasProposals);
 
@@ -100,7 +99,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
     >
       <PopularProposalsSliderTitleStyle as="h3">
         {i18n.t('consultation.popular_proposals.title', {
-          count: proposals.results.length,
+          count: proposals.length,
         })}
         <PopularProposalsSliderSeparatorStyle />
       </PopularProposalsSliderTitleStyle>
@@ -132,7 +131,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
         <PopularProposalsSliderListStyle
           className={`${sliderName} glider-track`}
         >
-          {proposals.results.map((proposal, index) => (
+          {proposals.map((proposal, index) => (
             <PopularProposalsSliderListItemStyle
               key={proposal.id}
               className={sliderName}
@@ -140,7 +139,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
               <PopularProposalCard
                 proposal={proposal}
                 position={index + 1}
-                size={proposals.results.length}
+                size={proposals.length}
               />
             </PopularProposalsSliderListItemStyle>
           ))}

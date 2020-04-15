@@ -16,11 +16,6 @@ export type StateConfig = $ReadOnly<{
   translations: Object,
 }>;
 
-export type PopularProposals = {
-  total: number,
-  results: ProposalType[],
-};
-
 // Proposal State
 export type StateProposal = $ReadOnly<{
   hasProposed: boolean,
@@ -81,7 +76,7 @@ export type StateQuestions = $ReadOnly<{
     question: QuestionType,
     questionResults: QuestionResultsType,
     popularTags: TagType[],
-    popularProposals: PopularProposals[],
+    popularProposals: ProposalType[],
     personalities: PersonalityType[],
   },
 }>;

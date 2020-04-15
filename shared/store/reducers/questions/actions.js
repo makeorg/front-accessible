@@ -1,14 +1,9 @@
 // @flow
 import { type Dispatch } from 'redux';
-import {
-  CURRENT_QUESTION_UPDATE,
-  PROPOSAL_POPULAR_LOAD,
-} from 'Shared/store/actionTypes';
+import { CURRENT_QUESTION_UPDATE } from 'Shared/store/actionTypes';
 import { type TagType } from 'Shared/types/tag';
 import { type PersonalityType } from 'Shared/types/user';
-import { type PopularProposals } from 'Shared/store/types';
 import { QuestionService } from 'Shared/services/Question';
-import { ProposalService } from 'Shared/services/Proposal';
 
 export const QUESTION_POPULAR_TAGS_LOAD = 'QUESTION_POPULAR_TAGS_LOAD';
 export const QUESTION_PERSONALITIES_LOAD = 'QUESTION_PERSONALITIES_LOAD';
@@ -64,24 +59,4 @@ export const fechQuestionPersonalities = (
 
   const results = response ? response.results : [];
   return dispatch(loadQuestionPersonalities(questionSlug, results));
-};
-
-export const setPopularProposals = (
-  questionSlug: string,
-  popularProposals: PopularProposals
-) => ({
-  type: PROPOSAL_POPULAR_LOAD,
-  payload: { questionSlug, popularProposals },
-});
-
-export const fetchPopularProposals = (
-  questionId: string,
-  questionSlug: string
-) => async (dispatch: Dispatch) => {
-  const popularProposals = await ProposalService.getPopularProposals(
-    questionId
-  );
-  if (popularProposals) {
-    dispatch(setPopularProposals(questionSlug, popularProposals));
-  }
 };
