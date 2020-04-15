@@ -1,11 +1,9 @@
-// flow
-import * as React from 'react';
-import * as VoteResultHelper from 'Shared/helpers/voteResult';
+// @flow
+import React from 'react';
+import { getTotalVotesCount, getVotesPercent } from 'Shared/helpers/voteResult';
 import { type VoteType } from 'Shared/types/vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParams } from 'Shared/constants/vote';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
-import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
 import { Tooltip } from 'Client/ui/Tooltip';
 import { i18n } from 'Shared/i18n';
 import {
@@ -14,9 +12,10 @@ import {
   VoteResultItemStyle,
   VoteResultTotalLabelStyle,
   VoteResultBarStyle,
-} from './Styled';
-import { VoteButton } from '../Button';
+} from './style';
 import { ResultTooltip } from './Tooltip';
+import { UnvoteButton } from '../Button/Unvote';
+import { VoteButtonWrapperStyle } from '../style';
 
 type Props = {
   /** Proposal's Id */
@@ -26,13 +25,13 @@ type Props = {
   /** Voted key property */
   votedKey: string,
   /** Method called when vote button is clicked */
-  handleVote?: string => void,
+  handleUnvote?: () => void | Promise<void>,
   /** When waiting response from API */
   pending?: boolean,
-  /** Optional boolean to disable click event on the qualification button */
+  /** Disable click on unvote button */
   disableClick?: boolean,
-  /** Optional boolean to enable or not tooltip toggling */
-  showTooltip?: boolean,
+  /** Boolean to disable tooltip on button hover event */
+  withTooltip?: boolean,
 };
 
 /**
@@ -40,16 +39,16 @@ type Props = {
  */
 export const VoteResult = ({
   votes,
-  handleVote = () => {},
+  handleUnvote = () => {},
   votedKey,
   proposalId,
   pending = false,
   disableClick = false,
-  showTooltip = true,
+  withTooltip = true,
 }: Props) => {
-  const votesCount = VoteResultHelper.getTotalVotesCount(votes);
+  const votesCount = getTotalVotesCount(votes);
   const voteKeys = Object.keys(voteStaticParams);
-  const votesPercent = VoteResultHelper.getVotesPercent(votes, votesCount);
+  const votesPercent = getVotesPercent(votes, votesCount);
   const tooltipContent = (percent, voteKey) => (
     <ResultTooltip votePercent={percent} voteKey={voteKey} />
   );
@@ -59,17 +58,17 @@ export const VoteResult = ({
       <ScreenReaderItemStyle as="p">
         {i18n.t(`results.voted.${votedKey}`)}
       </ScreenReaderItemStyle>
-      <VoteButton
-        color={voteStaticParams[votedKey].color}
-        label={i18n.t('unvote.title')}
-        icon={<SvgThumbsUp />}
-        transform={voteStaticParams[votedKey].transform}
-        handleVote={() => handleVote(votedKey)}
-        buttonType={IsVotedButtonStyle}
-        displayPending={pending}
-        disableClick={disableClick}
-        showTooltip={showTooltip}
-      />
+      <VoteButtonWrapperStyle>
+        <UnvoteButton
+          voteKey={votedKey}
+          buttonClass={`${votedKey} voted`}
+          handleUnvote={handleUnvote}
+          displayPending={pending}
+          disableClick={disableClick}
+          withTooltip={withTooltip}
+        />
+      </VoteButtonWrapperStyle>
+
       <ScreenReaderItemStyle as="p">
         {i18n.t('results.total', { count: votesCount })}
       </ScreenReaderItemStyle>

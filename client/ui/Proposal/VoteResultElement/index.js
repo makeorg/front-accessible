@@ -3,8 +3,8 @@ import React from 'react';
 import { type VoteType } from 'Shared/types/vote';
 import { VoteResult } from 'Client/features/vote/Result';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { QualificationButton } from 'Client/features/vote/Qualification/Button';
-import { VoteResultStyle } from './Styled';
+import { QualificationButton } from 'Client/features/qualification/Button';
+import { VoteResultStyle } from 'Client/features/vote/Result/style';
 
 type Props = {
   /** Proposal's Id */
@@ -15,22 +15,25 @@ type Props = {
   votedKey: string,
   /** Proposal's Key */
   proposalKey: string,
-  /** Status of vote */
+  /** When waiting response from API */
   isPending?: boolean,
+  /** Disable click on unvote button */
+  disableClick?: boolean,
+  /** Boolean to disable tooltip on button hover event */
+  withTooltip?: boolean,
   /** handle click on vote */
   handleVote?: (voteKey: string) => void,
-  /** Optional boolean to enable or not tooltip toggling */
-  showTooltip?: boolean,
 };
 
 export const VoteResultElement = ({
   proposalId,
   votes,
   votedKey,
-  isPending,
-  handleVote,
   proposalKey,
-  showTooltip = true,
+  isPending = false,
+  disableClick = false,
+  withTooltip = true,
+  handleVote = () => {},
 }: Props) => {
   const resultVote = votes.find(vote => vote.voteKey === votedKey);
 
@@ -46,8 +49,8 @@ export const VoteResultElement = ({
         votedKey={votedKey}
         handleVote={handleVote}
         pending={isPending}
-        showTooltip={showTooltip}
-        disableClick
+        disableClick={disableClick}
+        withTooltip={withTooltip}
       />
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
@@ -65,9 +68,4 @@ export const VoteResultElement = ({
       </SpaceBetweenColumnStyle>
     </VoteResultStyle>
   );
-};
-
-VoteResultElement.defaultProps = {
-  handleVote: () => {},
-  isPending: false,
 };

@@ -1,8 +1,21 @@
 import styled from 'styled-components';
-import { getBarHeight } from 'Shared/helpers/styled';
+import { getBarHeight, intToPx } from 'Shared/helpers/styled';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { TextColors } from 'Client/app/assets/vars/Colors';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+
+export const VoteResultStyle = styled.form`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 275px;
+  margin: 10px 0;
+  padding: 0 10px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 30px 0;
+  }
+`;
 
 export const VoteResultContainerStyle = styled(CenterColumnStyle)`
   margin-right: 10px;

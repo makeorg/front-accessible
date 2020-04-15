@@ -2,15 +2,14 @@ import React from 'react';
 import { SvgLike, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { VoteColors } from 'Client/app/assets/vars/Colors';
-import { IsVotedButtonStyle } from 'Client/ui/Elements/Vote/Styled';
-import { VoteContainerStyle } from 'Client/features/vote/Styled';
+import { VoteContainerStyle } from 'Client/features/vote/style';
 import {
   VoteResultContainerStyle,
   VoteResultGraphStyle,
   VoteResultItemStyle,
   VoteResultBarStyle,
   VoteResultTotalLabelStyle,
-} from 'Client/features/vote/Result/Styled';
+} from 'Client/features/vote/Result/style';
 import {
   SpaceBetweenColumnStyle,
   CenterColumnStyle,
@@ -23,8 +22,11 @@ import {
   FavouritesCardStyle,
   FavouritesProposalStyle,
 } from 'Client/ui/Elements/PlaceholdersElements';
-import { CounterStyle } from 'Client/features/vote/Qualification/style';
-import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { CounterStyle } from 'Client/features/qualification/style';
+import {
+  QualifyButtonStyle,
+  VoteButtonStyle,
+} from 'Client/ui/Elements/Buttons/style';
 
 export const ProfileFavouritesPlaceholder = () => {
   return (
@@ -42,9 +44,13 @@ export const ProfileFavouritesPlaceholder = () => {
         </FavouritesProposalStyle>
         <VoteContainerStyle className="placeholder">
           <VoteResultContainerStyle>
-            <IsVotedButtonStyle color={VoteColors.Agree} disabled>
-              <SvgThumbsUp />
-            </IsVotedButtonStyle>
+            <VoteButtonStyle
+              className="voted"
+              color={VoteColors.Agree}
+              disabled
+            >
+              <SvgThumbsUp aria-hidden />
+            </VoteButtonStyle>
             <VoteResultGraphStyle>
               <VoteResultItemStyle>
                 <Tooltip

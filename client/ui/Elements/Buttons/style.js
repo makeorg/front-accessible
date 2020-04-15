@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -10,6 +11,7 @@ import {
   MakeThemeColors,
   BackgroundColors,
   TextColors,
+  VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -217,5 +219,122 @@ export const QualifyButtonStyle = styled.button`
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 14px;
     line-height: 26px;
+  }
+`;
+
+const RotateButton = keyframes`
+  0% { transform: rotate(0deg); }
+  45% { transform: rotate(-20deg); }
+  65% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+`;
+
+const InverseRotateButton = keyframes`
+  0% { transform: rotate(0deg); }
+  45% { transform: rotate(20deg); }
+  65% { transform: rotate(-20deg); }
+  100% { transform: rotate(0deg); }
+`;
+
+export const VoteButtonStyle = styled.button`
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  background-color: ${BasicColors.PureWhite};
+  transform: scale(1);
+  transition: transform 0.1s ease-in;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+  &.agree {
+    color: ${VoteColors.Agree};
+    border-color: ${VoteColors.Agree};
+  }
+  &.disagree {
+    color: ${VoteColors.Disagree};
+    border-color: ${VoteColors.Disagree};
+  }
+  &.neutral {
+    color: ${VoteColors.Neutral};
+    border-color: ${VoteColors.Neutral};
+  }
+  &.animated {
+    box-shadow: 0 0 0 0 ${props => props.color};
+    animation: ${RotateButton} 0.5s 1;
+    transform: scale(0.9);
+  }
+  &.animated.disagree {
+    animation: ${InverseRotateButton} 0.5s 1;
+  }
+  &.agree.voted {
+    background-color: ${VoteColors.Agree};
+  }
+  &.disagree.voted {
+    background-color: ${VoteColors.Disagree};
+  }
+  &.neutral.voted {
+    background-color: ${VoteColors.Neutral};
+  }
+  &.voted {
+    color: ${BasicColors.PureWhite};
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    min-height: 43px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+`;
+
+export const VoteIconStyle = styled(SvgThumbsUp)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 16px;
+  &.agree {
+    transform: translate(-50%, -50%);
+  }
+  &.disagree {
+    transform: translate(-50%, -50%) rotate(180deg) scaleX(-1);
+  }
+  &.neutral {
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  &.agree .tofill {
+    fill: ${VoteColors.Agree};
+  }
+  &.disagree .tofill {
+    fill: ${VoteColors.Disagree};
+  }
+  &.neutral .tofill {
+    fill: ${VoteColors.Neutral};
+  }
+  &.voted .tofill {
+    fill: ${BasicColors.PureWhite};
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
+    width: 22px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    width: 25px;
   }
 `;

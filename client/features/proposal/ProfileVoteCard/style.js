@@ -3,6 +3,7 @@ import {
   BasicColors,
   ShadowColors,
   BackgroundColors,
+  VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import {
   DefaultPadding,
@@ -46,11 +47,21 @@ export const ProfileHasVotedStyle = styled.div`
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;
-  border-color: ${props => props.color};
   overflow: hidden;
   color: ${BasicColors.PureWhite};
-  background-color: ${props => props.color};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  &.agree {
+    background-color: ${VoteColors.Agree};
+    border-color: ${VoteColors.Agree};
+  }
+  &.disagree {
+    background-color: ${VoteColors.Disagree};
+    border-color: ${VoteColors.Disagree};
+  }
+  &.neutral {
+    background-color: ${VoteColors.Neutral};
+    border-color: ${VoteColors.Neutral};
+  }
   .tofill {
     fill: ${BasicColors.PureWhite};
   }

@@ -1,12 +1,11 @@
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ButtonIconWrapperStyle } from 'Client/ui/Elements/Vote/Styled';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import React from 'react';
 import { voteStaticParams, VOTE_AGREE_KEY } from 'Shared/constants/vote';
 import { i18n } from 'Shared/i18n';
 import { ThemeItemType } from 'Shared/types/question';
 import { Collapse } from 'Client/ui/Elements/Collapse';
 import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
+import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   TopIdeasParagraphStyle,
   ThemeAgreeResultsStyle,
@@ -54,11 +53,7 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                     aria-hidden
                     color={voteAttributes.color}
                   >
-                    <ButtonIconWrapperStyle
-                      transform={voteAttributes.transform}
-                    >
-                      <SvgThumbsUp aria-hidden />
-                    </ButtonIconWrapperStyle>
+                    <VoteIconStyle className={voteAttributes.key} aria-hidden />
                   </ThemeResultsButtonStyle>
                   <ThemeResultsDetailsStyle>
                     <ThemeAgreeResultsStyle

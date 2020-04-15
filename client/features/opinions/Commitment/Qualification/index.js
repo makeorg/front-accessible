@@ -4,16 +4,15 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import {
   VoteContainerStyle,
   VoteWrapperStyle,
-} from 'Client/features/vote/Styled';
+} from 'Client/features/vote/style';
 import { i18n } from 'Shared/i18n';
-import {
-  ButtonIconWrapperStyle,
-  IsVotedButtonStyle,
-} from 'Client/ui/Elements/Vote/Styled';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import {
+  VoteButtonStyle,
+  QualifyButtonStyle,
+  VoteIconStyle,
+} from 'Client/ui/Elements/Buttons/style';
 import {
   OpinionQualificationListStyle,
   OpinionQualificationListItemStyle,
@@ -40,20 +39,18 @@ export const CommitmentQualification = ({
         <ScreenReaderItemStyle as="p">
           {i18n.t(`personality.opinions.vote.${voteValue}`)}
         </ScreenReaderItemStyle>
-        <IsVotedButtonStyle
-          aria-label={opinionsVoteStaticParams[voteValue].label}
-          color={opinionsVoteStaticParams[voteValue].color}
-          className={voteValue}
+        <VoteButtonStyle
+          aria-label={i18n.t(`personality.opinions.vote.${voteValue}`)}
+          className={`${voteValue} voted`}
           data-cy-button="vote"
           data-cy-vote-key={voteValue}
           onClick={unvote}
         >
-          <ButtonIconWrapperStyle
-            transform={opinionsVoteStaticParams[voteValue].transform}
-          >
-            <SvgThumbsUp />
-          </ButtonIconWrapperStyle>
-        </IsVotedButtonStyle>
+          <VoteIconStyle
+            className={opinionsVoteStaticParams[voteValue]}
+            aria-hidden
+          />
+        </VoteButtonStyle>
         <ScreenReaderItemStyle as="p">
           {i18n.t('qualification.title')}
         </ScreenReaderItemStyle>

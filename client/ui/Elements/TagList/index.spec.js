@@ -14,6 +14,10 @@ jest.mock('./style', () => ({
   CenterButtonStyle: 'CenterButtonStyle',
 }));
 
+jest.mock('Client/ui/Elements/Buttons/style', () => ({
+  VoteIconStyle: 'VoteIconStyle',
+}));
+
 jest.mock('Client/ui/Elements/Form/SubmitButton/index', () => ({
   SubmitButton: 'SubmitButton',
 }));
