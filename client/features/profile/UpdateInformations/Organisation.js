@@ -57,7 +57,7 @@ export const organisationForm = (
         handleChange={onChange}
       />
       <CustomPatternInput
-        type="text"
+        type="url"
         name="website"
         icon={WebsiteLinkFieldIcon}
         value={website}
@@ -66,7 +66,7 @@ export const organisationForm = (
         })}
         error={websiteError}
         handleChange={onChange}
-        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"
+        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.%]+$"
       />
     </>
   );

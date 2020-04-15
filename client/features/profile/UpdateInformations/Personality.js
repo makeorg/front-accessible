@@ -76,7 +76,7 @@ export const personalityForm = (
       />
 
       <CustomPatternInput
-        type="text"
+        type="url"
         name="website"
         icon={WebsiteLinkFieldIcon}
         value={website}
@@ -85,7 +85,7 @@ export const personalityForm = (
         })}
         error={websiteError}
         handleChange={onChange}
-        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"
+        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.%]+$"
       />
     </>
   );
