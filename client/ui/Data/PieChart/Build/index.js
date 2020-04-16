@@ -1,15 +1,19 @@
-import { type ElementRef as TypeElementRef } from 'react';
+// @flow
+import { type ElementRef } from 'react';
 import { type PieChartDataType } from 'Shared/types/question';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-
-const offsetCanvasValue = (canvasValue: number, offset: number) => {
-  const value = offset > 0 ? canvasValue / offset : 0;
-  return value;
-};
+import {
+  getPercentDeltaY,
+  getLabelDeltaY,
+  getItemDeltaX,
+  setCanvasStyles,
+  getSublabelDeltaY,
+  setPercentAsLabel,
+  setMainLabel,
+  setSubLabel,
+} from './helpers';
 
 export const buildPieChart = (
-  ref: TypeElementRef<HTMLCanvasElement>,
+  ref: ElementRef<any>,
   data: PieChartDataType[],
   isMobile: boolean
 ) => {
@@ -20,7 +24,6 @@ export const buildPieChart = (
   const total = data.reduce((ttl, item) => {
     return ttl + item.percent;
   }, 0);
-  // const offset = data[data.length - 1].percent;
   let startAngle = 4.725;
   const radius = isMobile ? 75 : 100;
   const cx = canvas.width / 2;
@@ -32,88 +35,47 @@ export const buildPieChart = (
 
   data.map(item => {
     // define adjustLabel const
-    const isTextAlignAjusted = item.adjustLabel && item.adjustLabel.textAlign;
     const hasASublabel = item.sublabel;
-    const isXAxisAdjusted = item.adjustLabel && item.adjustLabel.xAxis;
-    const isYAxisAdjusted = item.adjustLabel && item.adjustLabel.yAxis;
-    const hidePercentLabel = item.adjustLabel && item.adjustLabel.hidePercent;
-
     // draw the pie wedges
     const endAngle = (item.percent / total) * Math.PI * 2 + startAngle;
     // midpoint between the two angles
     const theta = (startAngle + endAngle) / 2;
-
     // 1.5 * radius is the length of the Hypotenuses
     const deltaY = Math.sin(theta) * 1.5 * radius;
     const deltaX = Math.cos(theta) * 1.5 * radius;
 
     // set XAxis position
-    const defaultDeltaX = deltaX + cx;
-    const itemDeltaX = isXAxisAdjusted
-      ? deltaX + offsetCanvasValue(canvas.width, item.adjustLabel.xAxis)
-      : defaultDeltaX;
+    const itemDeltaX = getItemDeltaX(item, canvas, deltaX, cx);
 
     // set yAxis position
-    const percentDeltaY = isYAxisAdjusted
-      ? deltaY + offsetCanvasValue(canvas.height, item.adjustLabel.yAxis)
-      : deltaY + cy;
-    const labelDeltaY = isYAxisAdjusted
-      ? deltaY +
-        offsetCanvasValue(canvas.height, item.adjustLabel.yAxis - labelYOffset)
-      : deltaY + labelCy;
-    const sublabelDeltaY = isYAxisAdjusted
-      ? deltaY +
-        offsetCanvasValue(
-          canvas.height,
-          item.adjustLabel.yAxis - sublabelYOffset
-        )
-      : deltaY + sublabelCy;
-
-    // set the styles before beginPath
-    ctx.fillStyle = item.color;
-    ctx.beginPath();
-
-    ctx.moveTo(cx, cy);
-    ctx.arc(cx, cy, radius, startAngle, endAngle, false);
-    ctx.lineTo(cx, cy);
-    ctx.fill();
-    ctx.closePath();
-
-    // add the percent as label
-    ctx.beginPath();
-    ctx.font = isMobile
-      ? `10px ${MakeFonts.CircularStandardBold}`
-      : `15px ${MakeFonts.CircularStandardBold}`;
-    ctx.textAlign = isTextAlignAjusted ? item.adjustLabel.textAlign : 'center';
-    ctx.fillStyle = BasicColors.PureBlack;
-    ctx.fillText(
-      hidePercentLabel ? item.label : `${item.percent}%`,
-      itemDeltaX,
-      percentDeltaY
+    const percentDeltaY = getPercentDeltaY(item, canvas, deltaY, cy);
+    const labelDeltaY = getLabelDeltaY(
+      item,
+      canvas,
+      deltaY,
+      labelYOffset,
+      labelCy
+    );
+    const sublabelDeltaY = getSublabelDeltaY(
+      item,
+      canvas,
+      deltaY,
+      sublabelYOffset,
+      sublabelCy
     );
 
+    // set the styles before beginPath
+    setCanvasStyles(ctx, item, cx, cy, radius, startAngle, endAngle);
+
+    // add the percent as label
+    setPercentAsLabel(ctx, item, itemDeltaX, percentDeltaY, isMobile);
+
     // add the label
-    ctx.beginPath();
-    ctx.font = isMobile
-      ? `8px ${MakeFonts.CircularStandardBook}`
-      : `11px ${MakeFonts.CircularStandardBook}`;
-    ctx.textAlign = isTextAlignAjusted ? item.adjustLabel.textAlign : 'center';
-    ctx.fillStyle = BasicColors.PureBlack;
-    // use altCy to display the label under the percent
-    ctx.fillText(hidePercentLabel ? '' : item.label, itemDeltaX, labelDeltaY);
+    setMainLabel(ctx, item, itemDeltaX, labelDeltaY, isMobile);
 
     // add the sublabel if the element has one
     if (hasASublabel) {
-      ctx.beginPath();
-      ctx.font = isMobile
-        ? `8px ${MakeFonts.CircularStandardBook}`
-        : `11px ${MakeFonts.CircularStandardBook}`;
-      ctx.textAlign = isTextAlignAjusted
-        ? item.adjustLabel.textAlign
-        : 'center';
-      ctx.fillStyle = BasicColors.PureBlack;
-      // use altCy to display the label under the percent
-      ctx.fillText(item.sublabel, itemDeltaX, sublabelDeltaY);
+      setSubLabel(ctx, item, itemDeltaX, sublabelDeltaY, isMobile);
     }
 
     ctx.closePath();
