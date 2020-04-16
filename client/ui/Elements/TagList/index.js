@@ -25,11 +25,11 @@ type Props = {
   /** Array of tags to populate the list */
   tags: TagType[],
   /** Function to execute when we select one tag */
-  setTags: (args: TagType[]) => void | Promise<void>,
+  setTags: (args: TagType[]) => void,
   /** close the panel, closePanel prop is sent by SelectPanel */
   closePanel?: () => void,
   /** Function that reset the tags */
-  resetTags: () => void | Promise<void>,
+  resetTags: () => void,
   /** count of tags */
   tagsSelected?: number,
 };

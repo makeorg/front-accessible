@@ -13,7 +13,6 @@ import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { selectQuestionPopularTags } from 'Shared/store/selectors/questions.selector';
 import { fetchPopularTags } from 'Shared/store/reducers/questions/actions';
 import { type StateRoot } from 'Shared/store/types';
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ConsultationSidebar } from './Sidebar';
 import { SortAndFilter } from './SortAndFilter';
 
@@ -22,7 +21,6 @@ type Props = {
 };
 
 export const ConsultationContent = ({ question }: Props) => {
-  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const questionTags: TagType[] = useSelector((state: StateRoot) =>
     selectQuestionPopularTags(state, question.slug)
@@ -38,18 +36,6 @@ export const ConsultationContent = ({ question }: Props) => {
   // Filtering
   const [tags, setTags] = useState<TagType[]>([]);
 
-  const handleSort = async (sortKey: string) => {
-    setIsLoading(true);
-    await setSort(sortKey);
-    setIsLoading(false);
-  };
-
-  const handleTags = async (TagList: TagType[]) => {
-    setIsLoading(true);
-    await setTags(TagList);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
     dispatch(fetchPopularTags(question.questionId, question.slug));
     trackDisplayConsultation('consultation');
@@ -61,7 +47,7 @@ export const ConsultationContent = ({ question }: Props) => {
         ...tag,
         isSelected: false,
       }));
-      handleTags(extendedTags);
+      setTags(extendedTags);
     }
   }, [questionTags]);
 
@@ -69,10 +55,8 @@ export const ConsultationContent = ({ question }: Props) => {
   const renderMobileProposal = question.canPropose && isMobile;
   const renderDesktopProposal = question.canPropose && !isMobile;
 
-  const resetTags = async (): Promise<any> => {
-    setIsLoading(true);
-    await setTags(tags.map(tag => ({ ...tag, isSelected: false })));
-    setIsLoading(false);
+  const resetTags = () => {
+    setTags(tags.map(tag => ({ ...tag, isSelected: false })));
   };
 
   const selectedTags = tags.filter(tag => tag.isSelected);
@@ -86,20 +70,16 @@ export const ConsultationContent = ({ question }: Props) => {
         {renderDesktopProposal && <ConsultationProposal question={question} />}
         <SortAndFilter
           sort={sort}
-          setSort={handleSort}
+          setSort={setSort}
           tags={tags}
-          setTags={handleTags}
+          setTags={setTags}
           resetTags={resetTags}
         />
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <InfiniteProposals
-            question={question}
-            sortTypeKey={sort}
-            tags={selectedTags.map(tag => tag.tagId)}
-          />
-        )}
+        <InfiniteProposals
+          question={question}
+          sortTypeKey={sort}
+          tags={selectedTags.map(tag => tag.tagId)}
+        />
       </ConsultationPageContentStyle>
     </>
   );
