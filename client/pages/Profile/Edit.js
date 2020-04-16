@@ -67,7 +67,11 @@ const ProfileEditPage = ({ match }: Props) => {
           </TabNavStyle>
           <UpdateInformations user={user} />
           <UpdatePassword userId={user.userId} hasPassword={user.hasPassword} />
-          <UpdateNewsletter userId={user.userId} profile={user.profile} />
+          <UpdateNewsletter
+            userId={user.userId}
+            userType={user.userType}
+            profile={user.profile}
+          />
           <DeleteAccount user={user} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>

@@ -9,21 +9,26 @@ import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { type UserProfileType } from 'Shared/types/user';
 import { UserService } from 'Shared/services/User';
+import { OrganisationService } from 'Shared/services/Organisation';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import { getUser } from 'Shared/store/actions/authentification';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';
+import { PersonalityService } from 'Shared/services/Personality';
 
 type Props = {
   /** User id */
   userId: string,
+  /** User type */
+  userType: String,
   /** User Profile */
   profile: UserProfileType,
 };
 
-export const UpdateNewsletter = ({ userId, profile }: Props) => {
+export const UpdateNewsletter = ({ userId, userType, profile }: Props) => {
   const dispatch = useDispatch();
   const [optInNewsletter, setOptInNewsletter] = useState<boolean>(
     profile.optInNewsletter
@@ -51,15 +56,39 @@ export const UpdateNewsletter = ({ userId, profile }: Props) => {
       setErrors([defaultApiError]);
       setIsSubmitSuccessful(false);
     };
-    await UserService.update(
-      userId,
-      {
-        ...profile,
-        optInNewsletter,
-      },
-      success,
-      handleErrors
-    );
+    const newProfile = {
+      ...profile,
+      optInNewsletter,
+    };
+    switch (userType) {
+      case TYPE_ORGANISATION:
+        await OrganisationService.update(
+          userId,
+          newProfile,
+          success,
+          handleErrors
+        );
+        break;
+      case TYPE_PERSONALITY:
+        await PersonalityService.update(
+          userId,
+          newProfile,
+          success,
+          handleErrors
+        );
+        break;
+      default:
+        await UserService.update(
+          userId,
+          {
+            ...profile,
+            optInNewsletter,
+          },
+          success,
+          handleErrors
+        );
+        break;
+    }
   };
 
   return (
