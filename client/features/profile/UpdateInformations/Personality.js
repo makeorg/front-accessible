@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { useState } from 'react';
 import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { i18n } from 'Shared/i18n';
@@ -18,27 +18,35 @@ import {
 } from 'Shared/helpers/form';
 import { type ErrorObjectType } from 'Shared/types/api';
 
-export const personalityForm = (
+type ProfileFormProps = {
   profile: PersonalityProfileType,
   handleChange: (name: string, value: string | number | null) => void,
-  errors: ErrorObjectType[]
-) => {
+  errors: ErrorObjectType[],
+};
+
+export const PersonalityForm = ({
+  profile,
+  handleChange,
+  errors,
+}: ProfileFormProps) => {
   const firstNameError = getFieldError('firstname', errors);
   const websiteError = getFieldError('website', errors);
 
+  const [values, setValues] = useState<Object>(
+    transformProfileToFormData(profile)
+  );
+
   const onChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
 
     handleChange(name, transformFieldValueToProfileValue(value));
   };
 
-  const {
-    firstName,
-    lastName,
-    description,
-    website,
-    gender,
-  } = transformProfileToFormData(profile);
+  const { firstName, lastName, description, website, gender } = values;
 
   return (
     <>
