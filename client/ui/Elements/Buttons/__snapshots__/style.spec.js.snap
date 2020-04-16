@@ -824,8 +824,31 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
   background-color: rgb(117,117,117);
 }
 
+.c0.agree .tofill {
+  fill: rgb(80,122,31);
+}
+
+.c0.disagree .tofill {
+  fill: rgb(190,24,44);
+}
+
+.c0.neutral .tofill {
+  fill: rgb(117,117,117);
+}
+
 .c0.voted {
   color: rgb(255,255,255);
+}
+
+.c0.voted .tofill {
+  fill: rgb(255,255,255);
+}
+
+.c0.voted:hover,
+.c0.voted:focus {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 
 @media (min-width:360px) {
@@ -876,22 +899,6 @@ exports[`ButtonElements/Styled VoteIconStyle snapshot by default 1`] = `
   -webkit-transform: translate(-50%,-50%) rotate(-90deg);
   -ms-transform: translate(-50%,-50%) rotate(-90deg);
   transform: translate(-50%,-50%) rotate(-90deg);
-}
-
-.c0.agree .tofill {
-  fill: rgb(80,122,31);
-}
-
-.c0.disagree .tofill {
-  fill: rgb(190,24,44);
-}
-
-.c0.neutral .tofill {
-  fill: rgb(117,117,117);
-}
-
-.c0.voted .tofill {
-  fill: rgb(255,255,255);
 }
 
 @media (min-width:360px) {

@@ -287,8 +287,24 @@ export const VoteButtonStyle = styled.button`
   &.neutral.voted {
     background-color: ${VoteColors.Neutral};
   }
+  &.agree .tofill {
+    fill: ${VoteColors.Agree};
+  }
+  &.disagree .tofill {
+    fill: ${VoteColors.Disagree};
+  }
+  &.neutral .tofill {
+    fill: ${VoteColors.Neutral};
+  }
   &.voted {
     color: ${BasicColors.PureWhite};
+  }
+  &.voted .tofill {
+    fill: ${BasicColors.PureWhite};
+  }
+  &.voted:hover,
+  &.voted:focus {
+    transform: scale(1);
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     width: 43px;
@@ -318,18 +334,6 @@ export const VoteIconStyle = styled(SvgThumbsUp)`
   }
   &.neutral {
     transform: translate(-50%, -50%) rotate(-90deg);
-  }
-  &.agree .tofill {
-    fill: ${VoteColors.Agree};
-  }
-  &.disagree .tofill {
-    fill: ${VoteColors.Disagree};
-  }
-  &.neutral .tofill {
-    fill: ${VoteColors.Neutral};
-  }
-  &.voted .tofill {
-    fill: ${BasicColors.PureWhite};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     width: 22px;
