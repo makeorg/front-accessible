@@ -18,6 +18,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { FEED_PROPOSAL } from 'Shared/constants/card';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
+import { Logger } from 'Shared/services/Logger';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 import { InfiniteProposalsContainerStyle } from './style';
 import { ProposalType } from './type';
@@ -83,9 +84,28 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
         })
       );
 
+      // @toDo: temporary log to evaluate frequency of duplicates in feed
+      const logDuplicates = proposalList => {
+        const proposalIds = proposalList
+          // $FlowFixMe
+          .filter(item => !!item.proposal)
+          // $FlowFixMe
+          .map(item => item.proposal.id);
+
+        const initialListLength = proposalIds.length;
+        const deduplicatedListLength = [...new Set(proposalIds)].length;
+
+        if (initialListLength !== deduplicatedListLength) {
+          Logger.logError(
+            `Duplicates are present in feed. Initial feed length: ${initialListLength} | After deduplication: ${deduplicatedListLength}`
+          );
+        }
+      };
+
       const newProposalList: Array<
         ProposalListCardType | TopProposalListCardType
       > = [...proposalCards, ...addNewProposalCards];
+      logDuplicates(newProposalList);
       setProposalCards(newProposalList);
       setHasMore(newProposalList.length < total);
       setSeed(apiSeed);
