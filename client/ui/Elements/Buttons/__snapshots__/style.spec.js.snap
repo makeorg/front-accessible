@@ -793,7 +793,8 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
   border-color: rgb(190,24,44);
 }
 
-.c0.neutral {
+.c0.neutral,
+.c0.other {
   color: rgb(117,117,117);
   border-color: rgb(117,117,117);
 }
@@ -820,7 +821,8 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
   background-color: rgb(190,24,44);
 }
 
-.c0.neutral.voted {
+.c0.neutral.voted,
+.c0.other.voted {
   background-color: rgb(117,117,117);
 }
 
@@ -832,7 +834,8 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
   fill: rgb(190,24,44);
 }
 
-.c0.neutral .tofill {
+.c0.neutral .tofill,
+.c0.other .tofill {
   fill: rgb(117,117,117);
 }
 
@@ -895,7 +898,8 @@ exports[`ButtonElements/Styled VoteIconStyle snapshot by default 1`] = `
   transform: translate(-50%,-50%) rotate(180deg) scaleX(-1);
 }
 
-.c0.neutral {
+.c0.neutral,
+.c0.other {
   -webkit-transform: translate(-50%,-50%) rotate(-90deg);
   -ms-transform: translate(-50%,-50%) rotate(-90deg);
   transform: translate(-50%,-50%) rotate(-90deg);
