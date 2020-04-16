@@ -5,7 +5,6 @@ import {
   type QuestionType,
   type QuestionResultsType,
 } from 'Shared/types/question';
-import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsContent } from 'Client/features/consultation/Results';
@@ -15,16 +14,12 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
-import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
+import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { withQuestionData } from './fetchQuestionData';
-import {
-  ConsultationPageWrapperStyle,
-  ConsultationHeaderWrapperStyle,
-} from './style';
+import { ConsultationPageWrapperStyle } from './style';
 
 type Props = {
   question: QuestionType,
@@ -65,17 +60,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         picture={question.wording.metas.picture}
       />
       <ResultsSkipLinks questionResults={questionResults} />
-      {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
-      )}
-      <ConsultationHeaderWrapperStyle
-        gradientStart={question.theme.gradientStart}
-        gradientEnd={question.theme.gradientEnd}
-        backgroundcolor={question.theme.gradientStart}
-      >
-        <IntroBanner question={question} />
-        {questionIsGreatCause && <NavigationWithTabs question={question} />}
-      </ConsultationHeaderWrapperStyle>
+      <ConsultationHeader question={question} />
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
@@ -86,5 +71,6 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
 const ConsultationPage = withQuestionData(ConsultationPageWrapper);
 
-// default export needed for loadable component
-export default ConsultationPage; // eslint-disable-line import/no-default-export
+// default export needed for loadable coomponent
+// eslint-disable-next-line import/no-default-export
+export default ConsultationPage;

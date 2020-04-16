@@ -3,15 +3,12 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { type QuestionType } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
-import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
 import { useMobile } from 'Client/hooks/useMedia';
-import { NavigationBetweenQuestions } from 'Client/features/flipping/NavigationBetweenQuestions';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { TeasingHeader } from 'Client/custom/municipales/TeasingHeader';
 import {
-  OPERATION_MULTI_QUESTIONS_NAVIGATION,
   CONSULTATION_FOLLOW_US_ACTIVE,
   MUNICIPAL_TEASING_HEADER,
   CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
@@ -19,16 +16,12 @@ import {
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { isInProgress } from 'Shared/helpers/date';
-import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
-import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
+import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { withQuestionData } from './fetchQuestionData';
-import {
-  ConsultationPageWrapperStyle,
-  ConsultationHeaderWrapperStyle,
-} from './style';
+import { ConsultationPageWrapperStyle } from './style';
 
 type Props = {
   question: QuestionType,
@@ -43,11 +36,6 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
-  const hasSiblingQuestions = question.operation.questions.length > 0;
-  const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
-    OPERATION_MULTI_QUESTIONS_NAVIGATION,
-    question.activeFeatures
-  );
   const isFollowUsActive: boolean = checkIsFeatureActivated(
     CONSULTATION_FOLLOW_US_ACTIVE,
     question.activeFeatures
@@ -83,20 +71,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         canPropose={question.canPropose}
         isGreatCause={questionIsGreatCause}
       />
-      {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
-      )}
-      {isNavigationBetweenQuestionActive && hasSiblingQuestions && (
-        <NavigationBetweenQuestions question={question} />
-      )}
-      <ConsultationHeaderWrapperStyle
-        gradientStart={question.theme.gradientStart}
-        gradientEnd={question.theme.gradientEnd}
-        backgroundcolor={question.theme.gradientStart}
-      >
-        <IntroBanner question={question} />
-        {questionIsGreatCause && <NavigationWithTabs question={question} />}
-      </ConsultationHeaderWrapperStyle>
+      <ConsultationHeader question={question} />
       {/** @todo remove or refactor when Municipales is over */}
       {isTeasingHeader && <TeasingHeader />}
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>

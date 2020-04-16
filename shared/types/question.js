@@ -132,6 +132,7 @@ export type SimpleOperationDataType = {
   language: string,
   startDate: string,
   endDate: string,
+  displayResults: boolean,
 };
 
 export type PartnerOrganisationType = {

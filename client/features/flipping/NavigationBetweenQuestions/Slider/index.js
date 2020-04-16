@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Glider from 'glider-js';
 import { type SliderParamsType } from 'Shared/types/views';
 import { i18n } from 'Shared/i18n';
-import { getConsultationLink } from 'Shared/helpers/url';
+import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
 import { type QuestionType } from 'Shared/types/question';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import { useSlider } from 'Client/hooks/useSlider';
@@ -41,7 +41,7 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <GliderStylesheet />
       <ScreenReaderItemStyle>
         {i18n.t('consultation.navigation.introduction', {
@@ -60,11 +60,19 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
                 className={CONSULTATION_SLIDER}
               >
                 <ConsultationNavLinkStyle
-                  to={getConsultationLink(
-                    siblingQuestion.country,
-                    siblingQuestion.language,
-                    siblingQuestion.questionSlug
-                  )}
+                  to={
+                    siblingQuestion.displayResults
+                      ? getResultsLink(
+                          siblingQuestion.country,
+                          siblingQuestion.language,
+                          siblingQuestion.questionSlug
+                        )
+                      : getConsultationLink(
+                          siblingQuestion.country,
+                          siblingQuestion.language,
+                          siblingQuestion.questionSlug
+                        )
+                  }
                   aria-current={
                     siblingQuestion.questionId === question.questionId
                   }
@@ -76,6 +84,6 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
           </ConsultationNavListStyle>
         </nav>
       </div>
-    </React.Fragment>
+    </>
   );
 };

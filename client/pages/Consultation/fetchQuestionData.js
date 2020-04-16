@@ -33,14 +33,14 @@ export const PageQuestionWrapper = ({
   const { metas } = question.wording;
   return (
     <ThemeProvider theme={question.theme}>
-      <React.Fragment>
+      <>
         <MetaTags
           title={metas.title}
           description={metas.description}
           picture={metas.picture}
         />
         {children}
-      </React.Fragment>
+      </>
     </ThemeProvider>
   );
 };
