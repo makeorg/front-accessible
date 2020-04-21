@@ -6,7 +6,7 @@ import { mapErrors } from 'Shared/services/ApiErrors';
 import { Logger } from 'Shared/services/Logger';
 
 export const setEmptyStringToNull = (
-  initialValue: string | number
+  initialValue: string | number | null
 ): string | number | null => {
   if (typeof initialValue === 'number') {
     return initialValue;

@@ -33,7 +33,7 @@ describe('Date Helper', () => {
 
     it('getDateOfBirthFromAge without age', () => {
       const dateOfBirth = getDateOfBirthFromAge();
-      expect(dateOfBirth).toBe('');
+      expect(dateOfBirth).toBe(null);
     });
   });
 

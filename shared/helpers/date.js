@@ -5,7 +5,7 @@ let instance = null;
 
 export const getDateOfBirthFromAge = (age: string = '') => {
   if (!age) {
-    return '';
+    return null;
   }
 
   const birthYear = new Date().getFullYear() - Number(age);
