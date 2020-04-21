@@ -6,6 +6,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
+import { isGreatCause } from 'Shared/helpers/question';
 import { Partners } from '../Partners';
 
 type Props = {
@@ -13,6 +14,11 @@ type Props = {
 };
 export const PartnersTile = ({ question }: Props) => {
   const isMobile = useMobile();
+  const questionIsGreatCause = isGreatCause(question.operationKind);
+
+  if (!questionIsGreatCause) {
+    return null;
+  }
 
   if (isMobile) {
     return (

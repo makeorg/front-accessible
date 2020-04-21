@@ -10,6 +10,8 @@ import {
   ConsultationNavLinkStyle,
   ConsultationNavListStyle,
 } from 'Client/features/consultation/Styled/Navigation';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { OPERATION_MULTI_QUESTIONS_NAVIGATION } from 'Shared/constants/featureFlipping';
 import { SliderNavigationBetweenQuestions } from './Slider';
 
 type Props = {
@@ -18,10 +20,20 @@ type Props = {
 
 export const NavigationBetweenQuestions = ({ question }: Props) => {
   const isMobile = useMobile();
+  const hasSiblingQuestions = question.operation.questions.length > 0;
+  const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
+    OPERATION_MULTI_QUESTIONS_NAVIGATION,
+    question.activeFeatures
+  );
+
+  if (!isNavigationBetweenQuestionActive || !hasSiblingQuestions) {
+    return null;
+  }
 
   if (isMobile) {
     return <SliderNavigationBetweenQuestions question={question} />;
   }
+
   return (
     <>
       <ScreenReaderItemStyle>

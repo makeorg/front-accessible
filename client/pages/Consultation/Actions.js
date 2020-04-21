@@ -6,18 +6,13 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { ActionsContent } from 'Client/features/consultation/Actions';
 import { ActionsSkipLinks } from 'Client/app/SkipLinks/Actions';
-import { useMobile } from 'Client/hooks/useMedia';
-import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import {
-  CONSULTATION_FOLLOW_US_ACTIVE,
-  CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
-} from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
-import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
+import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
+import { useMobile } from 'Client/hooks/useMedia';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageWrapperStyle,
@@ -31,14 +26,6 @@ type Props = {
 const ConsultationPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
-  const isFollowUsActive: boolean = checkIsFeatureActivated(
-    CONSULTATION_FOLLOW_US_ACTIVE,
-    question.activeFeatures
-  );
-  const isSidebarActiveActors = checkIsFeatureActivated(
-    CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
-    question.activeFeatures
-  );
 
   if (!questionIsGreatCause) {
     return <Redirect to="/notfound" />;
@@ -54,9 +41,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         picture={question.wording.metas.picture}
       />
       <ActionsSkipLinks />
-      {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
-      )}
+      <MobileDescriptionImage question={question} />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
@@ -68,10 +53,12 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ActionsContent question={question} />
       </ConsultationPageWrapperStyle>
-      {isMobile && isSidebarActiveActors && (
-        <LocalActorsTile question={question} />
+      {isMobile && (
+        <>
+          <LocalActorsTile question={question} />
+          <FollowUs question={question} />
+        </>
       )}
-      {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );
 };

@@ -139,7 +139,7 @@
 		"server:preprod": "env NODE_ENV=development PORT=9009 API_URL=https://api.preprod.makeorg.tech node bin/start",
 		"server": "env PORT=9009 pm2-runtime start ecosystem.config.js",
 		"version:build": "node server/versionBuild.js",
-		"prepush": "yarn lint && yarn flow && yarn test:unit:all",
+		"prepush": "yarn lint && yarn flow && yarn test:unit:all && yarn jscpd",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
 		"lint": "eslint client server shared",

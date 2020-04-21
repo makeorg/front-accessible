@@ -5,17 +5,12 @@ import {
   transformFieldValueToProfileValue,
   transformProfileToFormData,
 } from 'Shared/helpers/form';
-import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { i18n } from 'Shared/i18n';
-import {
-  NameFiledIcon,
-  DescriptionFieldIcon,
-  WebsiteLinkFieldIcon,
-} from 'Shared/constants/icons';
-import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
+import { NameFiledIcon } from 'Shared/constants/icons';
 import { type OrganisationProfileType } from 'Shared/types/organisation';
 import { type ErrorObjectType } from 'Shared/types/api';
+import { CommonProfileFields } from '.';
 
 type ProfileFormProps = {
   profile: OrganisationProfileType,
@@ -29,9 +24,8 @@ export const OrganisationForm = ({
   errors,
 }: ProfileFormProps) => {
   const organisationNameError = getFieldError('organisationname', errors);
-  const websiteError = getFieldError('website', errors);
 
-  const [values, setValues] = useState<Object>(
+  const [values, setValues] = useState<OrganisationProfileType>(
     transformProfileToFormData(profile)
   );
 
@@ -45,7 +39,7 @@ export const OrganisationForm = ({
     handleChange(name, transformFieldValueToProfileValue(value));
   };
 
-  const { organisationName, description, website } = values;
+  const { organisationName } = values;
 
   return (
     <>
@@ -59,26 +53,10 @@ export const OrganisationForm = ({
         required
         handleChange={onChange}
       />
-      <TextArea
-        name="description"
-        icon={DescriptionFieldIcon}
-        value={description}
-        label={i18n.t('common.form.label.biography', { context: 'optional' })}
-        maxLength={450}
-        withCounter
-        handleChange={onChange}
-      />
-      <CustomPatternInput
-        type="url"
-        name="website"
-        icon={WebsiteLinkFieldIcon}
-        value={website}
-        label={i18n.t('common.form.label.website', {
-          context: 'optional',
-        })}
-        error={websiteError}
-        handleChange={onChange}
-        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.%]+$"
+      <CommonProfileFields
+        profile={values}
+        onChange={onChange}
+        errors={errors}
       />
     </>
   );

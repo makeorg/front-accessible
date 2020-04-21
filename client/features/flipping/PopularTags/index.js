@@ -14,6 +14,8 @@ import {
 } from 'Shared/constants/ids';
 import { SvgTrending } from 'Client/ui/Svg/elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
+import { CONSULTATION_POPULAR_TAGS } from 'Shared/constants/featureFlipping';
 import {
   PopularTagsListStyle,
   PopularTagsListItemStyle,
@@ -67,8 +69,12 @@ export const PopularTags = ({ question }: Props) => {
   const tags: TagType[] = useSelector(state =>
     selectQuestionPopularTags(state, question.slug)
   );
+  const isPopularTagsActive = checkIsFeatureActivated(
+    CONSULTATION_POPULAR_TAGS,
+    question.activeFeatures
+  );
 
-  if (!tags) {
+  if (!tags || !isPopularTagsActive) {
     return null;
   }
 

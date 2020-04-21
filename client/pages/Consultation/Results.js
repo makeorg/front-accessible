@@ -6,13 +6,10 @@ import {
   type QuestionResultsType,
 } from 'Shared/types/question';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
-import { useMobile } from 'Client/hooks/useMedia';
 import { ResultsContent } from 'Client/features/consultation/Results';
 import { fetchQuestionResults } from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
-import { CONSULTATION_FOLLOW_US_ACTIVE } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
@@ -26,14 +23,8 @@ type Props = {
 };
 
 const ConsultationPageWrapper = ({ question }: Props) => {
-  const isMobile = useMobile();
   const dispatch = useDispatch();
   const questionIsGreatCause = isGreatCause(question.operationKind);
-  const isFollowUsActive: boolean = checkIsFeatureActivated(
-    CONSULTATION_FOLLOW_US_ACTIVE,
-    question.activeFeatures
-  );
-
   const questionResults: QuestionResultsType = useSelector(
     state => state.questions[question.slug].questionResults
   );
@@ -64,7 +55,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
-      {isMobile && isFollowUsActive && <FollowUs />}
+      <FollowUs question={question} />
     </>
   );
 };

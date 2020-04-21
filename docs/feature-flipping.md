@@ -1,6 +1,6 @@
 # Feature flipping
 
-Activate and deactivate features depending ```Question.activeFeatures``` values (see [Question type](https://gitlab.com/makeorg/platform/front-accessible/blob/preproduction/shared/types/question.js#L114)).
+Activate and deactivate features depending ``question.activeFeatures``` values (see [Question type](https://gitlab.com/makeorg/platform/front-accessible/blob/preproduction/shared/types/question.js#L114)).
 
 ## Adding a new feature
 
@@ -15,25 +15,35 @@ Declare the new feature by adding the feature slug to ```features``` in [client/
 
 
 ## Using feature flipping in components
+To avoid code duplication, we isolate the logic in the component
 
-**Import** ```getIsActiveFeature(activeFeatures: string[]): isActiveFeatureFunction``` 
+**Create your feature component** and check if the feature is activated in the question with ```checkIsFeatureActivated```
 ``` javascript
-import { getIsActiveFeature } from 'Client/helper/featureFlipping'
-```
+import { checkIsFeatureActivated } from 'Client/helper/featureFlipping'
 
-**Define** ```isActiveFeature``` using React hooks
-``` javascript
-const [isActiveFeature, setFeatureFlipping] = useState(() => () => false);
-useEffect(() => {
-  setFeatureFlipping(() => getIsActiveFeature(question.activeFeatures));
-}, [question]);
+export const MyFeatureComponent = ({ question }: Props) = {
+  const isTheFeaturedActivated  = checkIsFeatureActivated(
+    NAME_OF_THE_ACTIVED_FEATURED,
+      question.activeFeatures
+  )
+
+  if(!isTheFeaturedActivated) {
+    return null;
+  }
+
+  return(
+   <>
+    My Feature component
+   </>
+  )
+}
 ```
 
 **Use** ```isActiveFeature```
 ``` javascript
 return (
   <firstComponent />
-  { isActiveFeature('my-feature-slug') && (<MyFeatureComponent/>) }
+  <MyFeatureComponent question={question} />
   <lastComponent />>
 );
 ```
