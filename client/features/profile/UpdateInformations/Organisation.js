@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import {
   getFieldError,
   transformFieldValueToProfileValue,
@@ -17,23 +17,35 @@ import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { type OrganisationProfileType } from 'Shared/types/organisation';
 import { type ErrorObjectType } from 'Shared/types/api';
 
-export const organisationForm = (
+type ProfileFormProps = {
   profile: OrganisationProfileType,
   handleChange: (name: string, value: string | number | null) => void,
-  errors: ErrorObjectType[]
-) => {
+  errors: ErrorObjectType[],
+};
+
+export const OrganisationForm = ({
+  profile,
+  handleChange,
+  errors,
+}: ProfileFormProps) => {
   const organisationNameError = getFieldError('organisationname', errors);
   const websiteError = getFieldError('website', errors);
 
+  const [values, setValues] = useState<Object>(
+    transformProfileToFormData(profile)
+  );
+
   const onChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
 
     handleChange(name, transformFieldValueToProfileValue(value));
   };
 
-  const { organisationName, description, website } = transformProfileToFormData(
-    profile
-  );
+  const { organisationName, description, website } = values;
 
   return (
     <>

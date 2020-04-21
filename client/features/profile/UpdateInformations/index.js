@@ -21,9 +21,9 @@ import {
 } from 'Shared/constants/user';
 import { OrganisationService } from 'Shared/services/Organisation';
 import { PersonalityService } from 'Shared/services/Personality';
-import { organisationForm } from './Organisation';
-import { personalityForm } from './Personality';
-import { userForm } from './User';
+import { OrganisationForm } from './Organisation';
+import { PersonalityForm } from './Personality';
+import { UserForm } from './User';
 
 type Props = {
   /** User */
@@ -34,19 +34,15 @@ export const UpdateInformations = ({ user }: Props) => {
   const dispatch = useDispatch();
 
   let updateProfile;
-  let profileForm;
   switch (user.userType) {
     case TYPE_ORGANISATION:
       updateProfile = OrganisationService.update;
-      profileForm = organisationForm;
       break;
     case TYPE_PERSONALITY:
       updateProfile = PersonalityService.update;
-      profileForm = personalityForm;
       break;
     case TYPE_USER:
       updateProfile = UserService.update;
-      profileForm = userForm;
       break;
     default:
       throw new Error(`Unexpected user type "${user.userType}"`);
@@ -90,8 +86,27 @@ export const UpdateInformations = ({ user }: Props) => {
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
         <FormErrors errors={errors} />
-
-        {profileForm(profile, handleChange, errors)}
+        {user.userType === TYPE_ORGANISATION && (
+          <OrganisationForm
+            profile={user.profile}
+            handleChange={handleChange}
+            errors={errors}
+          />
+        )}
+        {user.userType === TYPE_PERSONALITY && (
+          <PersonalityForm
+            profile={user.profile}
+            handleChange={handleChange}
+            errors={errors}
+          />
+        )}
+        {user.userType === TYPE_USER && (
+          <UserForm
+            profile={user.profile}
+            handleChange={handleChange}
+            errors={errors}
+          />
+        )}
 
         <SubmitButton
           disabled={!canSubmit}
