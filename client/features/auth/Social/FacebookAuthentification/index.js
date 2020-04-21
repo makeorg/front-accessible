@@ -41,7 +41,7 @@ class FacebookAuthentification extends React.Component<Props, State> {
         <FacebookLogin
           {...this.props}
           appId="317128238675603"
-          version="3.0"
+          version="6.0"
           fields="name,email,picture"
           callback={handleFacebookLoginCallback}
           disableMobileRedirect
