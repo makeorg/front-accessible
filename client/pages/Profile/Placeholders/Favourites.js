@@ -45,7 +45,7 @@ export const ProfileFavouritesPlaceholder = () => {
         <VoteContainerStyle className="placeholder">
           <VoteResultContainerStyle>
             <VoteButtonStyle
-              className="voted"
+              className="agree voted"
               color={VoteColors.Agree}
               disabled
             >
