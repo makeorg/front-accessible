@@ -266,7 +266,8 @@ export const VoteButtonStyle = styled.button`
     color: ${VoteColors.Disagree};
     border-color: ${VoteColors.Disagree};
   }
-  &.neutral {
+  &.neutral,
+  &.other {
     color: ${VoteColors.Neutral};
     border-color: ${VoteColors.Neutral};
   }
@@ -284,7 +285,8 @@ export const VoteButtonStyle = styled.button`
   &.disagree.voted {
     background-color: ${VoteColors.Disagree};
   }
-  &.neutral.voted {
+  &.neutral.voted,
+  &.other.voted {
     background-color: ${VoteColors.Neutral};
   }
   &.agree .tofill {
@@ -293,7 +295,8 @@ export const VoteButtonStyle = styled.button`
   &.disagree .tofill {
     fill: ${VoteColors.Disagree};
   }
-  &.neutral .tofill {
+  &.neutral .tofill,
+  &.other .tofill {
     fill: ${VoteColors.Neutral};
   }
   &.voted {
@@ -332,7 +335,8 @@ export const VoteIconStyle = styled(SvgThumbsUp)`
   &.disagree {
     transform: translate(-50%, -50%) rotate(180deg) scaleX(-1);
   }
-  &.neutral {
+  &.neutral,
+  &.other {
     transform: translate(-50%, -50%) rotate(-90deg);
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {

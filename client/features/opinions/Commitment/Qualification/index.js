@@ -46,10 +46,7 @@ export const CommitmentQualification = ({
           data-cy-vote-key={voteValue}
           onClick={unvote}
         >
-          <VoteIconStyle
-            className={opinionsVoteStaticParams[voteValue]}
-            aria-hidden
-          />
+          <VoteIconStyle className={voteValue} aria-hidden />
         </VoteButtonStyle>
         <ScreenReaderItemStyle as="p">
           {i18n.t('qualification.title')}
