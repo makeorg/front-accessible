@@ -43,7 +43,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     selectAuthentification(state)
   );
   const proposalsLength = proposalCards.length;
-  const displayLoadMoreButton = hasMore && !isLoading;
+  const displayLoadMoreButton = hasMore && !isLoading && !pendingForMore;
   const flatTags = tags.join();
 
   const initProposal = async () => {
