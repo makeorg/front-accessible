@@ -49,11 +49,8 @@ export const TopIdeas = ({ topIdeas }: Props) => {
                   {idea.idea}
                 </ThemeItemProposalStyle>
                 <ThemeResultsWrapperStyle>
-                  <ThemeResultsButtonStyle
-                    aria-hidden
-                    color={voteAttributes.color}
-                  >
-                    <VoteIconStyle className={voteAttributes.key} aria-hidden />
+                  <ThemeResultsButtonStyle className="agree voted">
+                    <VoteIconStyle className="agree" aria-hidden />
                   </ThemeResultsButtonStyle>
                   <ThemeResultsDetailsStyle>
                     <ThemeAgreeResultsStyle
