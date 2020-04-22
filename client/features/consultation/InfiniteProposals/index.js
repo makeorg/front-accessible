@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
   searchTaggedProposals,
@@ -19,6 +19,7 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { FEED_PROPOSAL } from 'Shared/constants/card';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { Logger } from 'Shared/services/Logger';
+import { selectAuthentification } from 'Shared/store/selectors/user.selector';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 import { InfiniteProposalsContainerStyle } from './style';
 import { ProposalType } from './type';
@@ -34,9 +35,16 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
   const language = useSelector((state: StateRoot) => state.appConfig.language);
   const [proposalCards, setProposalCards] = useState([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
-  const [seed, setSeed] = useState<?number>(undefined);
+  const [pendingForMore, setPendingForMore] = useState<boolean>(false);
+  const [seed, setSeed] = useState(undefined);
   const [page, setPage] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { user } = useSelector((state: StateRoot) =>
+    selectAuthentification(state)
+  );
+  const proposalsLength = proposalCards.length;
+  const displayLoadMoreButton = hasMore && !isLoading;
+  const flatTags = tags.join();
 
   const initProposal = async () => {
     setIsLoading(true);
@@ -63,8 +71,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
   };
 
   const loadProposals = async () => {
-    setIsLoading(true);
-
+    setPendingForMore(true);
     const result = await searchTaggedProposals(
       country,
       language,
@@ -111,21 +118,16 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       setSeed(apiSeed);
       setPage(page + 1);
     }
-    setIsLoading(false);
+    setPendingForMore(false);
   };
-
   const clickLoadMore = () => {
     loadProposals();
     trackLoadMoreProposals(COMPONENT_PARAM_PROPOSALS, page);
   };
-  const flatTags = tags.join();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     initProposal();
-  }, [flatTags, sortTypeKey, question]);
-
-  const proposalsLength = proposalCards.length;
-  const displayLoadMoreButton = hasMore && !isLoading;
+  }, [flatTags, sortTypeKey, question, user]);
 
   return (
     <InfiniteProposalsContainerStyle
@@ -133,7 +135,10 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
       role="feed"
       aria-live="polite"
     >
-      {proposalCards &&
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        proposalCards &&
         proposalCards.map((card, index) => (
           <ProposalType
             key={getProposalCardIndex(index)}
@@ -141,8 +146,9 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
             index={index}
             proposalsLength={proposalsLength}
           />
-        ))}
-      {isLoading && <Spinner />}
+        ))
+      )}
+      {pendingForMore && <Spinner />}
       {displayLoadMoreButton && (
         <LoadMoreWrapperStyle>
           <RedButtonStyle onClick={clickLoadMore}>

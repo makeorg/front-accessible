@@ -3,7 +3,6 @@
 /** Proposal Action */
 export const PROPOSE_SUCCESS = 'PROPOSAL_PROPOSE_SUCCESS';
 export const PROPOSAL_LOAD = 'PROPOSAL_LOAD';
-export const PROPOSAL_POPULAR_LOAD = 'PROPOSAL_POPULAR_LOAD';
 /** Register Action */
 export const REGISTER_REQUEST = 'USER_REGISTER_REQUEST';
 export const REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS';

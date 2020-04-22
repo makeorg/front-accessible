@@ -17,7 +17,7 @@ type Props = {
   /** Array that will populate the sorted list */
   availableSorts: string[],
   /** Function to execute when we select one element */
-  setSort: (arg: string) => void | Promise<void>,
+  setSort: (arg: string) => void,
   /** closePanel prop is sent by SelectPanel */
   closePanel?: () => void,
 };

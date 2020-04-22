@@ -46,14 +46,6 @@ export function questions(
           personalities: action.payload.personalities,
         },
       };
-    case actionTypes.PROPOSAL_POPULAR_LOAD:
-      return {
-        ...state,
-        [action.payload.questionSlug]: {
-          ...state[action.payload.questionSlug],
-          popularProposals: action.payload.popularProposals,
-        },
-      };
     default:
       return state;
   }
