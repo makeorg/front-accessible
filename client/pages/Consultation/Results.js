@@ -15,6 +15,7 @@ import { isGreatCause } from 'Shared/helpers/question';
 import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationHeader } from 'Client/features/consultation/Header/index';
+import { useMobile } from 'Client/hooks/useMedia';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -23,6 +24,7 @@ type Props = {
 };
 
 const ConsultationPageWrapper = ({ question }: Props) => {
+  const isMobile = useMobile();
   const dispatch = useDispatch();
   const questionIsGreatCause = isGreatCause(question.operationKind);
   const questionResults: QuestionResultsType = useSelector(
@@ -55,7 +57,7 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
-      <FollowUs question={question} />
+      {isMobile && <FollowUs question={question} />}
     </>
   );
 };

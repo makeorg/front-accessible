@@ -17,6 +17,7 @@ import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
 import { redirectToNotFoundPage } from 'Shared/helpers/url';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
+import { useMobile } from 'Client/hooks/useMedia';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -32,6 +33,7 @@ type Props = {
 };
 
 const TopIdeasPageWrapper = ({ question }: Props) => {
+  const isMobile = useMobile();
   const [topIdeas, setTopIdeas] = useState<TopIdeaType[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
   // @todo remove or refactor when Municipales is over
@@ -100,7 +102,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
           </TopIdeasListStyle>
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
-      <FollowUs question={question} />
+      {isMobile && <FollowUs question={question} />}
     </>
   );
 };

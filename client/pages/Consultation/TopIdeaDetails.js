@@ -36,6 +36,7 @@ import {
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
+import { useMobile } from 'Client/hooks/useMedia';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -50,6 +51,7 @@ type Props = {
 };
 
 const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
+  const isMobile = useMobile();
   const { topIdeaId } = useParams();
   const location = useLocation();
   const [topIdea, setTopIdea] = useState<?TopIdeaType>(undefined);
@@ -239,7 +241,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
           )}
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
-      <FollowUs question={question} />
+      {isMobile && <FollowUs question={question} />}
     </>
   );
 };
