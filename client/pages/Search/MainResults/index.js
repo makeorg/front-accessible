@@ -10,7 +10,6 @@ import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { MainResultsHeader } from 'Client/features/search/MainResults/Header';
 import { MainResultsProposals } from 'Client/features/search/MainResults/Proposals';
-import { MainResultsConsultations } from 'Client/features/search/MainResults/Consultations';
 import { MainResultsOrganisations } from 'Client/features/search/MainResults/Organisations';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
@@ -20,6 +19,7 @@ import {
   getRouteSearchOrganisations,
 } from 'Shared/routes';
 import { useDesktop } from 'Client/hooks/useMedia';
+import { BusinessConsultationsList } from 'Client/features/search/MainResults/BusinessConsultationItem';
 import {
   SearchPageWrapperStyle,
   SearchPageTitleStyle,
@@ -151,7 +151,7 @@ export const SearchMainResults = ({ location }: Props) => {
                     count={questionsCount}
                     link={getRouteSearchConsultations(country, language, term)}
                   />
-                  <MainResultsConsultations
+                  <BusinessConsultationsList
                     questions={data.questions.results}
                   />
                 </MainResultsSectionStyle>

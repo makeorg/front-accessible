@@ -5,22 +5,18 @@ import { type TopIdeaType } from 'Shared/types/topIdea';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
 import { TopIdeaService } from 'Shared/services/TopIdea';
 import { trackDisplayTopIdeas } from 'Shared/services/Tracking';
-import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { i18n } from 'Shared/i18n';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import {
-  MUNICIPAL_PERSONALITY_HEADER,
-  CONSULTATION_FOLLOW_US_ACTIVE,
-} from 'Shared/constants/featureFlipping';
+import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
-import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
 import { redirectToNotFoundPage } from 'Shared/helpers/url';
+import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { withQuestionData } from './fetchQuestionData';
 import {
   ConsultationPageContentStyle,
@@ -36,14 +32,8 @@ type Props = {
 };
 
 const TopIdeasPageWrapper = ({ question }: Props) => {
-  const isMobile = useMobile();
   const [topIdeas, setTopIdeas] = useState<TopIdeaType[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
-
-  const isFollowUsActive: boolean = checkIsFeatureActivated(
-    CONSULTATION_FOLLOW_US_ACTIVE,
-    question.activeFeatures
-  );
   // @todo remove or refactor when Municipales is over
   const withPersonalityHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_PERSONALITY_HEADER,
@@ -77,9 +67,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
         picture={i18n.t('meta.top-ideas.picture')}
       />
       <TopIdeasSkipLinks />
-      {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
-      )}
+      <MobileDescriptionImage question={question} />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
@@ -112,7 +100,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
           </TopIdeasListStyle>
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
-      {isMobile && isFollowUsActive && <FollowUs />}
+      <FollowUs question={question} />
     </>
   );
 };

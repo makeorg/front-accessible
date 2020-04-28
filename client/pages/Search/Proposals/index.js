@@ -1,32 +1,27 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { type Location, type History } from 'history';
+import { type RouterHistory } from 'react-router-dom';
+import { type Location } from 'history';
 import { type ProposalType } from 'Shared/types/proposal';
 import { i18n } from 'Shared/i18n';
-import { getRouteSearch } from 'Shared/routes';
 import { MetaTags } from 'Client/app/MetaTags';
-import { SvgAngleArrowLeft } from 'Client/ui/Svg/elements';
 import { searchProposals } from 'Shared/helpers/proposal';
 import { type StateRoot } from 'Shared/store/types';
 import { ProposalCardWithQuestion } from 'Client/features/proposal/ProposalCardWithQuestion';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import {
-  trackDisplaySearchProposalsResult,
-  trackClickSearchReturn,
-} from 'Shared/services/Tracking';
+import { trackDisplaySearchProposalsResult } from 'Shared/services/Tracking';
 import { useDesktop } from 'Client/hooks/useMedia';
 import {
   TopComponentContext,
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
+import { SearchBackButton } from 'Client/features/search/BackButton';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
-  SearchBackStyle,
-  SearchBackArrowStyle,
   SearchResultsProposalItemStyle,
   SearchMoreProposalsButtonStyle,
   SearchResultsProposalListStyle,
@@ -36,7 +31,7 @@ import { SearchSidebar } from '../Sidebar';
 
 type Props = {
   location: Location,
-  history: History,
+  history: RouterHistory,
 };
 const PROPOSALS_LIMIT = 10;
 
@@ -93,10 +88,6 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
     trackDisplaySearchProposalsResult();
   }, []);
 
-  const handleReturn = () => {
-    trackClickSearchReturn();
-    history.push(getRouteSearch(country, language, term));
-  };
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
 
   return (
@@ -107,10 +98,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
           count: proposalsCount,
         })}
       />
-      <SearchBackStyle onClick={() => handleReturn()}>
-        <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
-        {i18n.t('common.back')}
-      </SearchBackStyle>
+      <SearchBackButton term={term} history={history} />
       <SearchPageTitleStyle>
         {isLoading
           ? i18n.t('search.titles.loading')

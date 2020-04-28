@@ -28,4 +28,5 @@ export type PersonalityProfileType = {
   optInNewsletter: boolean,
   website: string,
   politicalParty: string,
+  gender: string,
 };

@@ -5,14 +5,10 @@ import { type QuestionType } from 'Shared/types/question';
 import { getResultsLink } from 'Shared/helpers/url';
 import { ConsultationContent } from 'Client/features/consultation/Consultation';
 import { ConsultationSkipLinks } from 'Client/app/SkipLinks/Consultation';
-import { useMobile } from 'Client/hooks/useMedia';
+
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { TeasingHeader } from 'Client/custom/municipales/TeasingHeader';
-import {
-  CONSULTATION_FOLLOW_US_ACTIVE,
-  MUNICIPAL_TEASING_HEADER,
-  CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
-} from 'Shared/constants/featureFlipping';
+import { MUNICIPAL_TEASING_HEADER } from 'Shared/constants/featureFlipping';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { isGreatCause } from 'Shared/helpers/question';
 import { isInProgress } from 'Shared/helpers/date';
@@ -20,6 +16,7 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { ConsultationHeader } from 'Client/features/consultation/Header/index';
+import { useMobile } from 'Client/hooks/useMedia';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -28,22 +25,14 @@ type Props = {
 };
 
 const ConsultationPageWrapper = ({ question }: Props) => {
+  const isMobile = useMobile();
   const resultsLink = getResultsLink(
     question.country,
     question.language,
     question.slug
   );
 
-  const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
-  const isFollowUsActive: boolean = checkIsFeatureActivated(
-    CONSULTATION_FOLLOW_US_ACTIVE,
-    question.activeFeatures
-  );
-  const isSidebarActiveActors = checkIsFeatureActivated(
-    CONSULTATION_SIDEBAR_ACTIVE_ACTORS,
-    question.activeFeatures
-  );
   // @todo remove or refactor when Municipales is over
   const isTeasingHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_TEASING_HEADER,
@@ -77,10 +66,12 @@ const ConsultationPageWrapper = ({ question }: Props) => {
       <ConsultationPageWrapperStyle isGreatCause={questionIsGreatCause}>
         <ConsultationContent question={question} />
       </ConsultationPageWrapperStyle>
-      {isMobile && isSidebarActiveActors && (
-        <LocalActorsTile question={question} />
+      {isMobile && (
+        <>
+          <LocalActorsTile question={question} />
+          <FollowUs question={question} />
+        </>
       )}
-      {isMobile && isFollowUsActive && <FollowUs />}
     </>
   );
 };

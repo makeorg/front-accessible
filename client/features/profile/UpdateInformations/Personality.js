@@ -1,15 +1,8 @@
 // @flow
-
 import React, { useState } from 'react';
-import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
 import { i18n } from 'Shared/i18n';
-import {
-  NameFiledIcon,
-  DescriptionFieldIcon,
-  WebsiteLinkFieldIcon,
-} from 'Shared/constants/icons';
-import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
+import { NameFiledIcon } from 'Shared/constants/icons';
 import { type PersonalityProfileType } from 'Shared/types/personality';
 import {
   getFieldError,
@@ -17,6 +10,7 @@ import {
   transformProfileToFormData,
 } from 'Shared/helpers/form';
 import { type ErrorObjectType } from 'Shared/types/api';
+import { CommonProfileFields } from '.';
 
 type ProfileFormProps = {
   profile: PersonalityProfileType,
@@ -30,9 +24,8 @@ export const PersonalityForm = ({
   errors,
 }: ProfileFormProps) => {
   const firstNameError = getFieldError('firstname', errors);
-  const websiteError = getFieldError('website', errors);
 
-  const [values, setValues] = useState<Object>(
+  const [values, setValues] = useState<PersonalityProfileType>(
     transformProfileToFormData(profile)
   );
 
@@ -46,7 +39,7 @@ export const PersonalityForm = ({
     handleChange(name, transformFieldValueToProfileValue(value));
   };
 
-  const { firstName, lastName, description, website, gender } = values;
+  const { firstName, lastName, gender } = values;
 
   return (
     <>
@@ -72,28 +65,10 @@ export const PersonalityForm = ({
         required
         handleChange={onChange}
       />
-
-      <TextArea
-        name="description"
-        icon={DescriptionFieldIcon}
-        value={description}
-        label={i18n.t('common.form.label.biography', { context: 'optional' })}
-        maxLength={450}
-        withCounter
-        handleChange={onChange}
-      />
-
-      <CustomPatternInput
-        type="url"
-        name="website"
-        icon={WebsiteLinkFieldIcon}
-        value={website}
-        label={i18n.t('common.form.label.website', {
-          context: 'optional',
-        })}
-        error={websiteError}
-        handleChange={onChange}
-        pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.%]+$"
+      <CommonProfileFields
+        profile={values}
+        onChange={onChange}
+        errors={errors}
       />
     </>
   );

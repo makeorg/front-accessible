@@ -1,24 +1,20 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, type RouterHistory } from 'react-router-dom';
 import { i18n } from 'Shared/i18n';
-import { type Location, type History } from 'history';
-import { getRouteSearch } from 'Shared/routes';
+import { type Location } from 'history';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import {
   type OrganisationType,
   type OrganisationsType,
 } from 'Shared/types/organisation';
-import {
-  trackDisplaySearchOragnisationsResult,
-  trackClickSearchReturn,
-} from 'Shared/services/Tracking';
+import { trackDisplaySearchOragnisationsResult } from 'Shared/services/Tracking';
 import { OrganisationService } from 'Shared/services/Organisation';
 import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { SvgAngleArrowLeft, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 import { Avatar } from 'Client/ui/Avatar';
 import {
   SearchOrganisationsListStyle,
@@ -34,19 +30,18 @@ import {
 import { useDesktop } from 'Client/hooks/useMedia';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
+import { SearchBackButton } from 'Client/features/search/BackButton';
 import {
   SearchPageTitleStyle,
   SearchPageContentStyle,
   SearchPageResultsStyle,
-  SearchBackStyle,
-  SearchBackArrowStyle,
   SearchPageWrapperStyle,
 } from '../Styled';
 import { SearchSidebar } from '../Sidebar';
 
 type Props = {
   location: Location,
-  history: History,
+  history: RouterHistory,
 };
 
 export const SearchOrganisations = ({ history, location }: Props) => {
@@ -79,14 +74,10 @@ export const SearchOrganisations = ({ history, location }: Props) => {
     initOrganisations();
   }, [term]);
 
-  const handleReturn = () => {
-    trackClickSearchReturn();
-    history.push(getRouteSearch(country, language, term));
-  };
-
   useEffect(() => {
     trackDisplaySearchOragnisationsResult();
   }, []);
+
   return (
     <SearchPageWrapperStyle>
       <MetaTags
@@ -95,10 +86,8 @@ export const SearchOrganisations = ({ history, location }: Props) => {
           count,
         })}
       />
-      <SearchBackStyle onClick={() => handleReturn()}>
-        <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
-        {i18n.t('common.back')}
-      </SearchBackStyle>
+
+      <SearchBackButton term={term} history={history} />
       <SearchPageTitleStyle>
         {isLoading
           ? i18n.t('search.titles.loading')

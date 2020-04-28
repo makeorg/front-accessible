@@ -40,7 +40,7 @@ export const UserForm = ({
   const postalCodeError = getFieldError('postalCode', errors);
   const firstNameError = getFieldError('firstName', errors);
 
-  const [values, setValues] = useState<Object>({
+  const [values, setValues] = useState<UserProfileType>({
     ...transformProfileToFormData(profile),
     age: getAgeFromDateOfBirth(profile.dateOfBirth),
   });

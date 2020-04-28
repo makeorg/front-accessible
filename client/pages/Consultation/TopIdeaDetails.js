@@ -9,7 +9,6 @@ import {
   trackLoadMoreProposals,
 } from 'Shared/services/Tracking';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
-import { useMobile } from 'Client/hooks/useMedia';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { TopIdeaService } from 'Shared/services/TopIdea';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
@@ -23,23 +22,20 @@ import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
 import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { InfiniteProposalsContainerStyle } from 'Client/features/consultation/InfiniteProposals/style';
 import { COMPONENT_PARAM_DETAIL_IDEAS } from 'Shared/constants/tracking';
-import {
-  MUNICIPAL_PERSONALITY_HEADER,
-  CONSULTATION_FOLLOW_US_ACTIVE,
-} from 'Shared/constants/featureFlipping';
+import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { OpinionComment } from 'Client/features/opinions/Comment';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
-import { MobileDescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
 import { TopIdeaDetailsSkipLinks } from 'Client/app/SkipLinks/TopIdeaDetails';
 import {
   TopComponentContext,
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
+import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { withQuestionData } from './fetchQuestionData';
 import {
   TopIdeaDetailsPageTitleStyle,
@@ -54,7 +50,6 @@ type Props = {
 };
 
 const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
-  const isMobile = useMobile();
   const { topIdeaId } = useParams();
   const location = useLocation();
   const [topIdea, setTopIdea] = useState<?TopIdeaType>(undefined);
@@ -63,11 +58,6 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   const [seed, setSeed] = useState<?number>(undefined);
   const [page, setPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  const isFollowUsActive: boolean = checkIsFeatureActivated(
-    CONSULTATION_FOLLOW_US_ACTIVE,
-    question.activeFeatures
-  );
   // @todo remove or refactor when Municipales is over
   const withPersonalityHeader: boolean = checkIsFeatureActivated(
     MUNICIPAL_PERSONALITY_HEADER,
@@ -181,9 +171,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
         hasComments={hasComments}
         hasProposals={hasProposals}
       />
-      {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
-      )}
+      <MobileDescriptionImage question={question} />
       <ConsultationHeaderWrapperStyle
         gradientStart={question.theme.gradientStart}
         gradientEnd={question.theme.gradientEnd}
@@ -251,7 +239,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
           )}
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
-      {isMobile && isFollowUsActive && <FollowUs />}
+      <FollowUs question={question} />
     </>
   );
 };
