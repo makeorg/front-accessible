@@ -801,16 +801,16 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
 
 .c0.animated {
   box-shadow: 0 0 0 0;
-  -webkit-animation: hnlfsR 0.5s 1;
-  animation: hnlfsR 0.5s 1;
+  -webkit-animation: kqtAfh 0.5s 1;
+  animation: kqtAfh 0.5s 1;
   -webkit-transform: scale(0.9);
   -ms-transform: scale(0.9);
   transform: scale(0.9);
 }
 
 .c0.animated.disagree {
-  -webkit-animation: MCVOt 0.5s 1;
-  animation: MCVOt 0.5s 1;
+  -webkit-animation: fQXnsZ 0.5s 1;
+  animation: fQXnsZ 0.5s 1;
 }
 
 .c0.agree.voted {
