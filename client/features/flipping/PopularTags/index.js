@@ -52,17 +52,24 @@ const flushTags = () => {
   return flushTagsElement.click();
 };
 
-const scrollAndTrigger = (panelId: string, tagId: string) => {
-  const tagListElement = document.getElementById(TAGS_SECTION);
-  if (!tagListElement) {
-    return null;
+const scrollAndTriggerTag = (panelId: string, tagId: string) => {
+  const elementToScroll = document.getElementById(TAGS_SECTION);
+  if (!elementToScroll) {
+    return;
   }
-  tagListElement.scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => flushTags(), 750);
-  return setTimeout(() => {
-    toggleStake(tagId);
-    focusSelectTrigger(panelId);
-  }, 1000);
+
+  const elementTop = elementToScroll.getBoundingClientRect().top;
+  const scrollTop = window.pageYOffset;
+
+  elementToScroll.scrollIntoView({ behavior: 'smooth' });
+  document.addEventListener('scroll', () => {
+    if (Math.round(elementTop + scrollTop) === Math.round(window.pageYOffset)) {
+      flushTags();
+      toggleStake(tagId);
+      focusSelectTrigger(panelId);
+      document.removeEventListener('scroll', () => {});
+    }
+  });
 };
 
 export const PopularTags = ({ question }: Props) => {
@@ -92,7 +99,7 @@ export const PopularTags = ({ question }: Props) => {
               </ParagraphStyle>
               <FilterTriggerStyle
                 as={UnstyledButtonStyle}
-                onClick={() => scrollAndTrigger(TAGS_LIST, tag.tagId)}
+                onClick={() => scrollAndTriggerTag(TAGS_LIST, tag.tagId)}
               >
                 {tag.label}
               </FilterTriggerStyle>
