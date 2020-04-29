@@ -80,6 +80,9 @@ export const QualificationButton = ({
   };
 
   const handleQualification = async (cardContext: string) => {
+    if (pendingQualification) {
+      return;
+    }
     setPendingQualification(true);
     if (isQualified) {
       await handleUnqualify(cardContext);
