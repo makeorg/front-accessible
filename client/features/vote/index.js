@@ -78,14 +78,6 @@ export const Vote = ({
     clearTimeout(timeout);
   };
 
-  const startPending = (voteKey: string) => {
-    setPendingVoteKey(voteKey);
-    wait(750).then(() => {
-      setAnimatedVoteKey('');
-      setPending(true);
-    });
-  };
-
   const stopPending = () => {
     clearWait();
     if (pending) {
@@ -97,7 +89,9 @@ export const Vote = ({
   };
 
   const handleUnvote = async (voteKey: string) => {
-    startPending(voteKey);
+    setPendingVoteKey(voteKey);
+    setPending(true);
+
     const unvote = await VoteService.unvote(proposalId, voteKey, proposalKey);
     if (!unvote) {
       stopPending();
@@ -113,7 +107,12 @@ export const Vote = ({
   const handleVote = async (voteKey: string) => {
     setAnimatedVoteKey(voteKey);
     await wait(500);
-    startPending(voteKey);
+    setPendingVoteKey(voteKey);
+    wait(750).then(() => {
+      setAnimatedVoteKey('');
+      setPending(true);
+    });
+
     const vote = await VoteService.vote(proposalId, voteKey, proposalKey);
     if (!vote) {
       stopPending();

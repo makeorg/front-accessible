@@ -27,26 +27,30 @@ const UnvoteButtonItem = ({
   displayPending = false,
   handleUnvote = () => {},
   disableClick = false,
-}: ButtonProps) => (
-  <VoteButtonStyle
-    aria-label={
-      displayPending ? i18n.t('common.loading') : i18n.t(`vote.${voteKey}`)
-    }
-    className={buttonClass}
-    onClick={handleUnvote}
-    onTouchEnd={handleUnvote}
-    aria-busy={displayPending}
-    data-cy-button="vote"
-    data-cy-vote-key={voteKey}
-    disabled={disableClick}
-  >
-    {displayPending ? (
-      <LoadingDots />
-    ) : (
-      <VoteIconStyle className={buttonClass} aria-hidden />
-    )}
-  </VoteButtonStyle>
-);
+}: ButtonProps) => {
+  const handleAPICall = !displayPending && handleUnvote;
+
+  return (
+    <VoteButtonStyle
+      aria-label={
+        displayPending ? i18n.t('common.loading') : i18n.t(`vote.${voteKey}`)
+      }
+      className={buttonClass}
+      onClick={handleAPICall}
+      onTouchEnd={handleAPICall}
+      aria-busy={displayPending}
+      data-cy-button="vote"
+      data-cy-vote-key={voteKey}
+      disabled={disableClick}
+    >
+      {displayPending ? (
+        <LoadingDots />
+      ) : (
+        <VoteIconStyle className={buttonClass} aria-hidden />
+      )}
+    </VoteButtonStyle>
+  );
+};
 
 type Props = {
   /** Vote key */
