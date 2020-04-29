@@ -1,5 +1,6 @@
 // @flow
 import { createInitialState } from 'Shared/store/initialState';
+import { type Request, type Response } from 'express';
 import {
   type QuestionType,
   type QuestionResultsType,
@@ -12,7 +13,7 @@ import { logError } from './helpers/ssr.helper';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
 
-export const consultationRoute = async (req: any, res: any) => {
+export const consultationRoute = async (req: Request, res: Response) => {
   const routeState: TypeStateRoot = createInitialState();
 
   const { questionSlug, country, language } = req.params;

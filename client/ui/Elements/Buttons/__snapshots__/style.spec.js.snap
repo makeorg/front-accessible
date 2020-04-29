@@ -242,7 +242,7 @@ exports[`ButtonElements/Styled EmailButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-7 sc-11o2adg-9 c0"
+  className="sc-11o2adg-2 sc-11o2adg-8 sc-11o2adg-10 c0"
 />
 `;
 
@@ -315,7 +315,7 @@ exports[`ButtonElements/Styled FacebookButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-7 sc-11o2adg-9 c0"
+  className="sc-11o2adg-2 sc-11o2adg-8 sc-11o2adg-10 c0"
 />
 `;
 
@@ -395,7 +395,7 @@ exports[`ButtonElements/Styled GoogleButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-7 sc-11o2adg-9 c0"
+  className="sc-11o2adg-2 sc-11o2adg-8 sc-11o2adg-10 c0"
 />
 `;
 
@@ -660,7 +660,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-4 c0"
+  className="sc-11o2adg-2 sc-11o2adg-5 c0"
 />
 `;
 
@@ -714,7 +714,7 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-3 c0"
+  className="sc-11o2adg-2 sc-11o2adg-4 c0"
 />
 `;
 
@@ -937,4 +937,51 @@ exports[`ButtonElements/Styled VoteIconStyle snapshot by default 1`] = `
     />
   </g>
 </svg>
+`;
+
+exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  font-family: 'Trade Gothic Bold Condensed',Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  border: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  padding: 12px 25px 8px;
+  color: rgb(0,0,0);
+  background-color: rgb(255,255,255);
+}
+
+.c0 svg {
+  fill: rgb(0,0,0);
+}
+
+@media (min-width:767px) {
+  .c0 {
+    font-size: 16px;
+    padding: 13px 25px 10px;
+  }
+}
+
+@media (min-width:1140px) {
+  .c0 {
+    font-size: 18px;
+  }
+}
+
+<button
+  className="sc-11o2adg-2 c0"
+/>
 `;

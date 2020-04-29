@@ -55,4 +55,16 @@ describe('Notification Actions', () => {
 
     expect(store.getActions()).toEqual(expectedActions);
   });
+
+  it('Creates NOTIFICATION_VOTE_ONLY when calling action', () => {
+    const expectedActions = [
+      {
+        type: actionTypes.NOTIFICATION_VOTE_ONLY,
+      },
+    ];
+
+    store.dispatch(actions.showVoteOnlyBanner());
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

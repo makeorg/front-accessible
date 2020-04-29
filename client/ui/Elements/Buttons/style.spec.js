@@ -5,6 +5,7 @@ import {
   UnstyledButtonStyle,
   ActiveButtonStyle,
   RedButtonStyle,
+  WhiteButtonStyle,
   GreyButtonStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
@@ -52,6 +53,13 @@ describe('ButtonElements/Styled', () => {
   describe('GreyButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<GreyButtonStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('WhiteButtonStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<WhiteButtonStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

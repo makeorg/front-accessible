@@ -18,6 +18,7 @@ import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
 import { isGreatCause } from 'Shared/helpers/question';
 import { Redirect } from 'react-router';
 import { isInProgress } from 'Shared/helpers/date';
+import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
 import {
   SequencePageContentStyle,
   SequenceProposalFieldStyle,
@@ -73,6 +74,10 @@ const SequencePageContainer = ({ question }: Props) => {
 
   if (!isInProgress(question) && !question.displayResults) {
     window.location = question.aboutUrl;
+  }
+
+  if (!question.canPropose) {
+    dispatch(showVoteOnlyBanner());
   }
 
   return (

@@ -57,6 +57,14 @@ export const BasicButtonStyle = styled.button`
   }
 `;
 
+export const WhiteButtonStyle = styled(BasicButtonStyle)`
+  color: ${BasicColors.PureBlack};
+  background-color: ${BasicColors.PureWhite};
+  svg {
+    fill: ${BasicColors.PureBlack};
+  }
+`;
+
 export const RedButtonStyle = styled(BasicButtonStyle)`
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};

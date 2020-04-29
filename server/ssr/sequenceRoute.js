@@ -1,4 +1,6 @@
+// @flow
 import { createInitialState } from 'Shared/store/initialState';
+import { type Request, type Response } from 'express';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
@@ -6,7 +8,7 @@ import { disableExtraSlidesByQuery } from './helpers/query.helper';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
 
-export const sequenceRoute = async (req, res) => {
+export const sequenceRoute = async (req: Request, res: Response) => {
   const routeState = createInitialState();
 
   const { questionSlug, country, language } = req.params;
