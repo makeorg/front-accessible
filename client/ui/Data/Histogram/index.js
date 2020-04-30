@@ -146,7 +146,7 @@ export const Histogram = ({
                   barHeight={getHistogramBarHeight(item.bars.second, maxValue)}
                 >
                   <HistogramPercentStyle>
-                    {`${item.bars.second}%`}
+                    {`${item.bars.second || 'undefined'}%`}
                   </HistogramPercentStyle>
                 </HistogramBarStyle>
               )}

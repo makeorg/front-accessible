@@ -21,6 +21,7 @@ type TypeLinkObject = {
   to?: ?string,
   href?: string,
   target?: string,
+  className?: string,
 };
 
 type CurrentConsultationArticleDesktopProps = {
