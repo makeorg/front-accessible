@@ -11,7 +11,7 @@ import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionType } from 'Shared/types/question';
 import { searchFirstUnvotedProposal } from 'Shared/helpers/proposal';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
   fetchSequenceProposals,
   unloadSequenceProposals,
@@ -53,7 +53,7 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
     state => state.sequence
   );
   const { hasProposed } = useSelector(state => state.proposal);
-  const { isLoggedIn } = useSelector(state => selectAuthentification(state));
+  const { isLoggedIn } = useSelector(state => selectAuthentication(state));
   const [isSequenceLoaded, setIsSequenceLoaded] = useState(false);
   const [cards, setCards] = useState([]);
   const [cardsCount, setCardsCount] = useState(0);

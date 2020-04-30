@@ -10,7 +10,7 @@ import {
   MODERATION_CHARTER_EN_LINK,
 } from 'Shared/constants/url';
 import { useSelector } from 'react-redux';
-import { ProposalSubmitButtonComponent } from './Button';
+import { ProposalSubmitButton } from '../Button';
 import {
   ProposalSubmitFormStyle,
   ProposalInputWrapperStyle,
@@ -18,8 +18,8 @@ import {
   ProposalTextareaStyle,
   ProposalButtonWrapperStyle,
   DescriptionWrapperStyle,
-} from './Styled';
-import { CharsCounter } from './Counter';
+} from '../Styled';
+import { CharsCounter } from '../Counter';
 
 type Props = {
   /** Value's content */
@@ -41,7 +41,7 @@ type Props = {
 /**
  * Render the Proposal Field
  */
-export const ProposalSubmitFormComponent = ({
+export const ProposalSubmitForm = ({
   content,
   length,
   canSubmit,
@@ -99,7 +99,7 @@ export const ProposalSubmitFormComponent = ({
       </ProposalInputWrapperStyle>
       <ProposalButtonWrapperStyle isOpen={isOpen}>
         <CharsCounter currentLength={length} />
-        <ProposalSubmitButtonComponent
+        <ProposalSubmitButton
           handleOnSubmit={handleOnSubmit}
           canSubmit={canSubmit}
           isOpen={isOpen}

@@ -8,7 +8,7 @@ import { PasswordInput } from 'Client/ui/Elements/Form/PasswordInput';
 import { SubmitButton } from 'Client/ui/Elements/Form/SubmitButton';
 import { PasswordFieldIcon, SubmitThumbsUpIcon } from 'Shared/constants/icons';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { getUser } from 'Shared/store/actions/authentification';
+import { getUser } from 'Shared/store/actions/authentication';
 import { UserService } from 'Shared/services/User';
 import { throttle } from 'Shared/helpers/throttle';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';

@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Gaukite rezultatus ir informaciją apie būsimas veiklas",
-    "authentification-text": "Prisijungiu naudodamas",
+    "authentication-text": "Prisijungiu naudodamas",
     "next-cta": "Ne, ačiū, nenoriu gauti informacijos apie rezultatus"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Grįžti į pasiūlymų skiltį"
   },
-  "authentification": {
+  "authentication": {
     "title": "Jei norite patvirtinti savo pasiūlymą, prisiregistruokite",
     "description": "naudodami",
     "commitment": "Make.org įsipareigoja saugoti Jūsų ",

@@ -39,8 +39,8 @@ export const DISPLAY_SIGN_UP_CARD: string = 'display-sign-up-card';
 export const DISPLAY_FINAL_CARD: string = 'display-final-card';
 
 /* Sign up journey */
-export const DISPLAY_AUTHENTIFICATION_FORM: string =
-  'display-authentification-form';
+export const DISPLAY_AUTHENTICATION_FORM: string =
+  'display-authentication-form';
 export const DISPLAY_SIGN_UP_FORM: string = 'display-signup-form';
 export const DISPLAY_SIGN_IN_FORM: string = 'display-signin-form';
 export const DISPLAY_FORGOTPASSWORD_FORM: string =

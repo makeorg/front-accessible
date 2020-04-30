@@ -5,7 +5,7 @@ import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { IconColors } from 'Client/app/assets/vars/Colors';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 
-export const AuthentificationStyle = styled(SpaceBetweenColumnToRowStyle)`
+export const AuthenticationStyle = styled(SpaceBetweenColumnToRowStyle)`
   width: 100%;
   margin-top: ${pxToRem('10px')};
   @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
@@ -13,7 +13,7 @@ export const AuthentificationStyle = styled(SpaceBetweenColumnToRowStyle)`
   }
 `;
 
-export const AuthentificationLinkStyle = styled.button`
+export const AuthenticationLinkStyle = styled.button`
   font-size: ${pxToRem('16px')};
   border: none;
   padding: 0;
@@ -24,7 +24,7 @@ export const AuthentificationLinkStyle = styled.button`
   border-bottom-style: solid;
 `;
 
-export const FacebookLinkStyle = styled(AuthentificationLinkStyle)`
+export const FacebookLinkStyle = styled(AuthenticationLinkStyle)`
   color: ${IconColors.Facebook};
   border-bottom-color: ${IconColors.Facebook};
   svg {
@@ -32,7 +32,7 @@ export const FacebookLinkStyle = styled(AuthentificationLinkStyle)`
   }
 `;
 
-export const GoogleLinkStyle = styled(AuthentificationLinkStyle)`
+export const GoogleLinkStyle = styled(AuthenticationLinkStyle)`
   color: ${IconColors.Google};
   border-bottom-color: ${IconColors.Google};
   svg {

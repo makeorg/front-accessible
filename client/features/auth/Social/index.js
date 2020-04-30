@@ -1,4 +1,4 @@
 // @flow
 export {
-  AuthentificationSocialComponent as AuthentificationSocial,
-} from './AuthentificationSocialComponent';
+  AuthenticationSocialComponent as AuthenticationSocial,
+} from './AuthenticationSocialComponent';

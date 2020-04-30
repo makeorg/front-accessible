@@ -88,7 +88,7 @@ const logAndTrackEvent = (eventName: string) => {
 };
 
 const initApp = async state => {
-  const authentificationState = await authenticationState();
+  const authenticationStateData = await authenticationState();
 
   // Set in session storage some keys from query params
   customDataHelper.setDataFromQueryParams(state.appConfig.queryParams);
@@ -97,9 +97,9 @@ const initApp = async state => {
     ...state,
     user: {
       ...state.user,
-      authentification: {
-        ...state.user.authentification,
-        ...authentificationState,
+      authentication: {
+        ...state.user.authentication,
+        ...authenticationStateData,
       },
     },
     customData: customDataHelper.getAll(), // custom_data already saved in session_storage

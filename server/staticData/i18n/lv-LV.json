@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Saņemiet apspriešanās rezultātus un esiet informēti par turpmākām darbībām",
-    "authentification-text": "Es identificējos ar",
+    "authentication-text": "Es identificējos ar",
     "next-cta": "Nē, paldies, es nevēlos saņemt informāciju par rezultātiem"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Atgriezties pie ierosinājumiem"
   },
-  "authentification": {
+  "authentication": {
     "title": "Pierakstieties, lai apstiprinātu jūsu ierosinājumu",
     "description": "ar",
     "commitment": "Make.org aizsargā jūsu ",

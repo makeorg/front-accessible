@@ -14,7 +14,7 @@ import {
   SubmitThumbsUpIcon,
 } from 'Shared/constants/icons';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
-import { logout } from 'Shared/store/actions/authentification';
+import { logout } from 'Shared/store/actions/authentication';
 import { UserService } from 'Shared/services/User';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';

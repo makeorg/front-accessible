@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Arutelu tulemused ja teave tulevaste meetmete kohta",
-    "authentification-text": "Oma isiku tuvastamiseks kasutan",
+    "authentication-text": "Oma isiku tuvastamiseks kasutan",
     "next-cta": "Tänan, aga ma ei soovi tulemuste kohta teavet saada."
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Tagasipöördumine ettepanekute juurde"
   },
-  "authentification": {
+  "authentication": {
     "title": "Registreeruge, et kinnitada oma ettepanek,",
     "description": "kasutades",
     "commitment": "Make.org kohustub kaitsma teie ",

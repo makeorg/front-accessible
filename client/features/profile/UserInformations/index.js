@@ -1,7 +1,7 @@
 // @flow
 import React, { type Element } from 'react';
 import { useDispatch } from 'react-redux';
-import { logout } from 'Shared/store/actions/authentification';
+import { logout } from 'Shared/store/actions/authentication';
 import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';

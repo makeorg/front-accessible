@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Otrzymuj wyniki konsultacji i informacje o przyszłych akcjach",
-    "authentification-text": "Chcę się zalogować za pomocą",
+    "authentication-text": "Chcę się zalogować za pomocą",
     "next-cta": "Nie, dziękuję, nie chcę być informowany(a) o wynikach"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Wróć do propozycji"
   },
-  "authentification": {
+  "authentication": {
     "title": "Zarejestruj się, by zatwierdzić swoją propozycję",
     "description": "za pomocą",
     "commitment": "Make.org dba o bezpieczeństwo ",

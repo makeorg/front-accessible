@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
@@ -24,10 +24,10 @@ import {
   ProfileAccessLinkStyle,
 } from '../style';
 
-export const HeaderAuthentification = () => {
+export const HeaderAuthentication = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
   const isMobile = useMobile();
 
@@ -38,7 +38,7 @@ export const HeaderAuthentification = () => {
     return (
       <ProfileAccessWrapperStyle
         as="nav"
-        aria-label={i18n.t('common.header_authentification_nav')}
+        aria-label={i18n.t('common.header_authentication_nav')}
       >
         <ProfileAccessLinkStyle
           to={getRouteProfile(user.country, user.language)}

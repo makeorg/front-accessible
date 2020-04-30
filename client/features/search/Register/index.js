@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
@@ -14,7 +14,7 @@ import { SeachRegisterButtonStyle } from './Styled';
 export const SearchRegister = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
 
   if (isLoggedIn) {

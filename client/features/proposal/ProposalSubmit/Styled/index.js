@@ -19,7 +19,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 
-export const ProposalSubmitAuthentificationWrapperStyle = styled.div`
+export const ProposalSubmitAuthenticationWrapperStyle = styled.div`
   max-width: 620px;
   min-height: 340px;
   display: flex;

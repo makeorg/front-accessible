@@ -35,7 +35,7 @@ Object {
     "votedProposalIds": Object {},
   },
   "user": Object {
-    "authentification": Object {
+    "authentication": Object {
       "errors": Array [],
       "isLoggedIn": false,
       "user": undefined,

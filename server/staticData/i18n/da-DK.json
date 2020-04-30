@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Modtag resultatet af konsultationen og bliv underrettet om de kommende handlinger",
-    "authentification-text": "Jeg identificerer mig med",
+    "authentication-text": "Jeg identificerer mig med",
     "next-cta": "Nej tak, jeg ønsker ikke at blive underrettet om resultatet"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Vend tilbage til forslag"
   },
-  "authentification": {
+  "authentication": {
     "title": "Tilmeld dig for at godkende dit forslag",
     "description": "med",
     "commitment": "Make.org forpligter sig til at beskytte dine ",

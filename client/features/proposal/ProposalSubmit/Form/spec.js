@@ -3,13 +3,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { configureStore } from 'Shared/store';
 import { Provider } from 'react-redux';
-import { ProposalSubmitFormComponent } from './ProposalSubmitFormComponent';
-import { ProposalSubmitButtonComponent } from './Button';
+import { ProposalSubmitForm } from './index';
+import { ProposalSubmitButton } from '../Button';
 import {
   ProposalSubmitFormStyle,
   ProposalLabelStyle,
   ProposalTextareaStyle,
-} from './Styled';
+} from '../Styled';
 
 jest.mock('Shared/constants/proposal', () => ({
   getBaitText: () => 'should',
@@ -17,11 +17,11 @@ jest.mock('Shared/constants/proposal', () => ({
 }));
 const store = configureStore();
 
-describe('ProposalSubmitFormComponent', () => {
+describe('ProposalSubmitForm', () => {
   it('Renders and Props', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ProposalSubmitFormComponent canSubmit length={15} />
+        <ProposalSubmitForm canSubmit length={15} />
       </Provider>
     );
 
@@ -40,9 +40,7 @@ describe('ProposalSubmitFormComponent', () => {
       35 - 'should'.length
     );
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
-    expect(wrapper.find(ProposalSubmitButtonComponent)).toHaveLength(1);
-    expect(wrapper.find(ProposalSubmitButtonComponent).prop('canSubmit')).toBe(
-      true
-    );
+    expect(wrapper.find(ProposalSubmitButton)).toHaveLength(1);
+    expect(wrapper.find(ProposalSubmitButton).prop('canSubmit')).toBe(true);
   });
 });

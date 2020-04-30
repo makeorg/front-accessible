@@ -9,7 +9,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { SubmitSaveIcon } from 'Shared/constants/icons';
 import { type UserType } from 'Shared/types/user';
 import { type ErrorObjectType } from 'Shared/types/api';
-import { getUser } from 'Shared/store/actions/authentification';
+import { getUser } from 'Shared/store/actions/authentication';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';

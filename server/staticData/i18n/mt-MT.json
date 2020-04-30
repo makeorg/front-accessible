@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Irċievi r-riżultati tal-konsultazzjoni biex tibqa’ infurmat(a) bl-azzjonijiet li ser jittieħdu",
-    "authentification-text": "Qed nidentifika ruħi permezz ta’  ",
+    "authentication-text": "Qed nidentifika ruħi permezz ta’  ",
     "next-cta": "Le grazzi, ma rridx inkun infurmat(a) bir-riżultati"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Erġa’ lura għall-proposti"
   },
-  "authentification": {
+  "authentication": {
     "title": "Irreġistra biex tivvalida l-proposta tiegħek",
     "description": "permezz ta’ ",
     "commitment": "Make.org tieħu ħsieb tipproteġi  ",

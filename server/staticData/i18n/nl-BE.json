@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Ontvang de resultaten van de raadpleging en blijf op de hoogte van toekomstige acties",
-    "authentification-text": "Ik meld me aan met",
+    "authentication-text": "Ik meld me aan met",
     "next-cta": "Nee, bedankt. Ik wil niet op de hoogte blijven van de resultaten"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Terug naar de voorstellen"
   },
-  "authentification": {
+  "authentication": {
     "title": "Schrijf u in om uw voorstel te bevestigen",
     "description": "met",
     "commitment": "Make.org verbindt zich ertoe om ",

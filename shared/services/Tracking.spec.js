@@ -12,7 +12,7 @@ import TrackingService, {
   trackClickHomepageConsultations,
   trackDisplaySignupForm,
   trackDisplayModerationText,
-  trackDisplayAuthentificationForm,
+  trackDisplayAuthenticationForm,
   trackClickPersonnalDataLink,
   trackClickProposalSubmit,
   trackDisplayForgotPasswordForm,
@@ -33,8 +33,8 @@ import TrackingService, {
   trackClickNextCard,
   trackLoginEmailFailure,
   trackLoginEmailSuccess,
-  trackAuthentificationSocialFailure,
-  trackAuthentificationSocialSuccess,
+  trackAuthenticationSocialFailure,
+  trackAuthenticationSocialSuccess,
   trackDisplaySigninForm,
   trackSignupEmailFailure,
   trackSignupEmailSuccess,
@@ -214,10 +214,10 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
-  it('track Display Authentification Form', () => {
-    const eventName = trackingConstants.DISPLAY_AUTHENTIFICATION_FORM;
+  it('track Display Authentication Form', () => {
+    const eventName = trackingConstants.DISPLAY_AUTHENTICATION_FORM;
 
-    trackDisplayAuthentificationForm();
+    trackDisplayAuthenticationForm();
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,
@@ -351,7 +351,7 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
-  it('track Authentification Social Success', () => {
+  it('track Authentication Social Success', () => {
     const eventName = trackingConstants.AUTHEN_SOCIAL_SUCCESS;
     const trackParams = {
       'social-network': 'foo',
@@ -359,7 +359,7 @@ describe('Tracking Service', () => {
     };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    trackAuthentificationSocialSuccess('foo', 'false');
+    trackAuthenticationSocialSuccess('foo', 'false');
     expect(TrackingService.track).toHaveBeenNthCalledWith(
       1,
       eventName,
@@ -373,12 +373,12 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
-  it('track Authentification Social Failure', () => {
+  it('track Authentication Social Failure', () => {
     const eventName = trackingConstants.AUTHEN_SOCIAL_FAILURE;
     const trackParams = { 'social-network': 'foo' };
     const fbParams = { ...eventParameters, ...trackParams };
 
-    trackAuthentificationSocialFailure('foo');
+    trackAuthenticationSocialFailure('foo');
     expect(TrackingService.track).toHaveBeenNthCalledWith(
       1,
       eventName,

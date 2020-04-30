@@ -15,8 +15,8 @@ import {
 } from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
-import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
+import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
+import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
 import { SvgEnvelope, SvgStepForward } from 'Client/ui/Svg/elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
@@ -66,15 +66,15 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
           </SequenceSignUpTitleStyle>
         </SequenceTitleWrapperStyle>
         <SequenceSecondaryTitleStyle as="p">
-          {i18n.t('sign_up_card.authentification-text')}
+          {i18n.t('sign_up_card.authentication-text')}
         </SequenceSecondaryTitleStyle>
         <CenterColumnStyle>
           <ButtonSmallWrapperStyle data-cy-container="signup-auth-buttons">
-            <FacebookAuthentificationButtonComponent />
-            <GoogleAuthentificationButtonComponent />
+            <FacebookAuthentication />
+            <GoogleAuthentication />
             <EmailButtonStyle
               onClick={() => dispatch(modalShowRegister())}
-              id="authentification-register-button"
+              id="authentication-register-button"
             >
               <IconWrapperStyle>
                 <SvgEnvelope />

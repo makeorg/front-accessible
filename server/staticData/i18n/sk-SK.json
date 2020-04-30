@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Dostávajte výsledky ankety a buďte informovaný (-á) o budúcich akciách.",
-    "authentification-text": "Prihlasujem sa prostredníctvom",
+    "authentication-text": "Prihlasujem sa prostredníctvom",
     "next-cta": "Nie, ďakujem, nechcem byť informovaný (-á) o výsledkoch."
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Vrátiť sa k návrhom"
   },
-  "authentification": {
+  "authentication": {
     "title": "Prihláste sa, aby ste potvrdili svoj návrh",
     "description": "prostredníctvom",
     "commitment": "Make.org sa zaväzuje chrániť vaše ",

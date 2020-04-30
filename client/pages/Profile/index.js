@@ -13,7 +13,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
 import { EditProfileLink } from 'Client/features/profile/UserInformations/Navigation';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
   ROUTE_PROFILE_PROPOSALS,
@@ -54,7 +54,7 @@ type Props = {
 
 const ProfilePage = ({ match, location }: Props) => {
   const { user } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
   const { country, language } = match.params;
   const isPersonality = user && user.userType === TYPE_PERSONALITY;

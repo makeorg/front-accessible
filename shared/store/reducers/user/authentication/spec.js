@@ -1,9 +1,9 @@
 /* @flow */
 
-import * as actionCreators from 'Shared/store/actions/authentification';
-import { authentification } from './index';
+import * as actionCreators from 'Shared/store/actions/authentication';
+import { authentication } from './index';
 
-describe('Authentification reducer', () => {
+describe('Authentication reducer', () => {
   it('Return the initial state', () => {
     const expectedState = {
       isLoggedIn: false,
@@ -11,7 +11,7 @@ describe('Authentification reducer', () => {
       user: undefined,
     };
 
-    expect(authentification(undefined, {})).toEqual(expectedState);
+    expect(authentication(undefined, {})).toEqual(expectedState);
   });
 
   describe('Login action reducers', () => {
@@ -29,7 +29,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Success', () => {
@@ -46,7 +46,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Failure', () => {
@@ -63,7 +63,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -82,7 +82,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Social Success', () => {
@@ -99,7 +99,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
 
     it('Login Social Failure', () => {
@@ -116,7 +116,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -139,7 +139,7 @@ describe('Authentification reducer', () => {
         user,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
   });
 
@@ -158,7 +158,7 @@ describe('Authentification reducer', () => {
         user: undefined,
       };
 
-      expect(authentification(previousState, action)).toEqual(expectedState);
+      expect(authentication(previousState, action)).toEqual(expectedState);
     });
   });
 });

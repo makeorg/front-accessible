@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Primiți rezultatele consultației și fiți informat(ă) cu privire la acțiunile viitoare",
-    "authentification-text": "Mă identific cu",
+    "authentication-text": "Mă identific cu",
     "next-cta": "Nu, mulțumesc, nu doresc să fiu informat(ă) cu privire la rezultate"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Revenire la propuneri"
   },
-  "authentification": {
+  "authentication": {
     "title": "Înscrieți-vă pentru a vă valida propunerea",
     "description": "cu",
     "commitment": "Make.org se angajează să vă protejeze ",

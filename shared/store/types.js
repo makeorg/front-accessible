@@ -35,8 +35,8 @@ export type StateNotification = $ReadOnly<{
   contentType?: string,
 }>;
 
-// Authentification State
-export type StateAuthentification = $ReadOnly<{
+// Authentication State
+export type StateAuthentication = $ReadOnly<{
   isLoggedIn: boolean,
   errors: ErrorObjectType[],
   user?: {
@@ -67,7 +67,7 @@ export type StateUserPasswordRecovery = $ReadOnly<{
 
 // User State
 export type StateUser = $ReadOnly<{
-  authentification: StateAuthentification,
+  authentication: StateAuthentication,
   passwordRecovery: StateUserPasswordRecovery,
 }>;
 

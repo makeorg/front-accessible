@@ -96,7 +96,6 @@ const SequencePageContainer = ({ question }: Props) => {
               {i18n.t('consultation.proposal.title')}
             </HiddenItemStyle>
             <ProposalSubmit
-              question={question}
               handleFocus={handleCloseSequence}
               canBeOpen={isClosed}
             />
