@@ -8,6 +8,7 @@ import {
   NOTIFICATION_SECURE_EXPIRED,
   NOTIFICATION_UNEXPECTED_ERROR,
   NOTIFICATION_NETWORK_ERROR,
+  NOTIFICATION_VOTE_ONLY,
 } from 'Shared/store/actionTypes';
 import {
   LOGIN_SUCCESS_MESSAGE,
@@ -21,6 +22,7 @@ import {
   REGISTER_SUCCESS_VALIDATE_MESSAGE,
   UNEXPECTED_ERROR_MESSAGE,
   NETWORK_ERROR_MESSAGE,
+  VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notification';
 
 type NotificationState = {
@@ -87,6 +89,12 @@ export function notification(
         ...state,
         level: NOTIFICATION_LEVEL_ALERT,
         contentType: NETWORK_ERROR_MESSAGE,
+      };
+    case NOTIFICATION_VOTE_ONLY:
+      return {
+        ...state,
+        level: NOTIFICATION_LEVEL_INFORMATION,
+        contentType: VOTE_ONLY_MESSAGE,
       };
     default:
       return state;

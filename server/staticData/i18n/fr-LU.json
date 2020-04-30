@@ -151,7 +151,11 @@
       "tags_filter": "Utilisez les filtres pour trouver les propositions qui vous intéressent.",
       "thank_you": "C'est noté, merci !",
       "unexpected_error": "Nous rencontrons actuellement une erreur, merci de réessayer ultérieurement.",
-      "network_error": "Il est impossible d'accéder à l'intégralité du contenu de Make.org car il semblerait que vous soyez hors ligne"
+      "network_error": "Il est impossible d'accéder à l'intégralité du contenu de Make.org car il semblerait que vous soyez hors ligne",
+      "vote_only": {
+          "message": "Nous avons recueilli de nombreuses propositions citoyennes depuis le début de la consultation et avons besoin de vos votes pour les départager. En attendant, nous ne pouvons pas accepter de nouvelles propositions.",
+          "button": "j'ai compris"
+      }
     },
     "from": "sur",
     "email": "Email",

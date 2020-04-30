@@ -6,6 +6,7 @@ import {
   NOTIFICATION_ACCOUNT_DELETION_SUCCESS,
   NOTIFICATION_UNEXPECTED_ERROR,
   NOTIFICATION_NETWORK_ERROR,
+  NOTIFICATION_VOTE_ONLY,
 } from 'Shared/store/actionTypes';
 
 export const clearNotification = () => ({ type: NOTIFICATION_CLOSE });
@@ -41,4 +42,8 @@ export const showUnexpectedError = () => (dispatch: Function) => {
 
 export const showNetworkError = () => (dispatch: Function) => {
   dispatch({ type: NOTIFICATION_NETWORK_ERROR });
+};
+
+export const showVoteOnlyBanner = () => (dispatch: Function) => {
+  dispatch({ type: NOTIFICATION_VOTE_ONLY });
 };

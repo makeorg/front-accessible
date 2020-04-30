@@ -11,10 +11,14 @@ import {
   VoteColors,
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
-import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import {
+  CloseButtonStyle,
+  WhiteButtonStyle,
+} from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 
-export const NotificationWrapperStyle = styled.section`
+export const NotificationWrapperStyle = styled.aside`
   position: sticky;
   display: flex;
   justify-content: center;
@@ -52,6 +56,7 @@ export const NotificationCloseButtonStyle = styled(CloseButtonStyle)`
 export const SecuredExpirationStyle = styled.span`
   flex: 1;
 `;
+
 export const SvgIconStyle = {
   minWidth: '19px',
   marginRight: '10px',
@@ -63,3 +68,19 @@ export const SvgCheckStyle = {
   fontSize: '22px',
   marginRight: '10px',
 };
+
+export const VoteOnlyMessageStyle = styled(ColumnToRowElementStyle)`
+  align-items: flex-start;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    align-items: center;
+  }
+`;
+
+export const VoteOnlyButtonStyle = styled(WhiteButtonStyle)`
+  white-space: nowrap;
+  margin-top: 15px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin-top: 0;
+    margin-left: 15px;
+  }
+`;

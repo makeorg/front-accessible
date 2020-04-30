@@ -17,6 +17,8 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { useMobile } from 'Client/hooks/useMedia';
+import { useDispatch } from 'react-redux';
+import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
 import { withQuestionData } from './fetchQuestionData';
 import { ConsultationPageWrapperStyle } from './style';
 
@@ -26,6 +28,7 @@ type Props = {
 
 const ConsultationPageWrapper = ({ question }: Props) => {
   const isMobile = useMobile();
+  const dispatch = useDispatch();
   const resultsLink = getResultsLink(
     question.country,
     question.language,
@@ -45,6 +48,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
 
   if (!isInProgress(question) && !question.displayResults) {
     window.location = question.aboutUrl;
+  }
+
+  if (!question.canPropose) {
+    dispatch(showVoteOnlyBanner());
   }
 
   return (

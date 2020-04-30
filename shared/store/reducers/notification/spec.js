@@ -8,6 +8,7 @@ import {
   NOTIFICATION_LEVEL_INFORMATION,
   REGISTER_SUCCESS_VALIDATE_MESSAGE,
   NOTIFICATION_LEVEL_ALERT,
+  VOTE_ONLY_MESSAGE,
 } from 'Shared/constants/notification';
 import { notification } from './index';
 
@@ -81,6 +82,23 @@ describe('Notification reducer', () => {
       level: NOTIFICATION_LEVEL_ALERT,
       contentType: REGISTER_SUCCESS_VALIDATE_MESSAGE,
       replacements: { email: 'myemail@make.org' },
+    };
+
+    expect(notification(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Show Vote Only Message', () => {
+    const action = {
+      type: 'NOTIFICATION_VOTE_ONLY',
+    };
+    const previousState = {
+      level: NOTIFICATION_LEVEL_SUCCESS,
+      contentType: undefined,
+    };
+
+    const expectedState = {
+      level: NOTIFICATION_LEVEL_INFORMATION,
+      contentType: VOTE_ONLY_MESSAGE,
     };
 
     expect(notification(previousState, action)).toEqual(expectedState);
