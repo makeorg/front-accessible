@@ -6,7 +6,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const PlanTileContent = () => {
   return (
-    <React.Fragment>
+    <>
       <ParagraphStyle>{i18n.t('actions.plan.text')}</ParagraphStyle>
       <ActionsParagraphStyle>
         {i18n.t('actions.plan.list-bait')}
@@ -23,6 +23,6 @@ export const PlanTileContent = () => {
           {i18n.t('actions.plan.list-third-item')}
         </ParagraphStyle>
       </UnstyledListStyle>
-    </React.Fragment>
+    </>
   );
 };

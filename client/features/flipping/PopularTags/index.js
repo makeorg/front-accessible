@@ -88,7 +88,7 @@ export const PopularTags = ({ question }: Props) => {
   return (
     <TileWithTitle
       title={i18n.t('consultation.tags.popular_title')}
-      icon={<SvgTrending aria-hidden style={{ marginRight: '10px' }} />}
+      icon={<SvgTrending style={{ marginRight: '10px' }} />}
     >
       <PopularTagsListStyle>
         {tags.slice(0, 5).map((tag, index) => (

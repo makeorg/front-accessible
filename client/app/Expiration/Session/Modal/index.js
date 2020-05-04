@@ -43,7 +43,7 @@ export const ExpirationSessionModal = () => {
         aria-expanded="false"
         onClick={handleClose}
       >
-        <SvgClose aria-hidden />
+        <SvgClose />
       </CloseButtonStyle>
       <ExpirationSessionModalContentStyle>
         <SessionExpiredPictureStyle src={SessionExpiredPicture} alt="" />

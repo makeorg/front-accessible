@@ -27,7 +27,7 @@ export const TermsOfUseFR = () => {
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
-        {"Conditions d'utilisation de Make.org"}
+        Conditions d’utilisation de Make.org
         <StaticTitleExtra>- en date du 30 octobre 2017 -</StaticTitleExtra>
       </StaticSecondLevelTitleStyle>
       <StaticParagraphStyle>
@@ -124,14 +124,14 @@ export const TermsOfUseFR = () => {
             prend connaissance.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "L'utilisation du Service implique l’acceptation entière et sans réserve des présentes CGUS. La non-acceptation entraîne ainsi la renonciation à l’utilisation de celui-ci."
-            }
+            L’utilisation du Service implique l’acceptation entière et sans
+            réserve des présentes CGUS. La non-acceptation entraîne ainsi la
+            renonciation à l’utilisation de celui-ci.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "L’utilisation du Service implique également l’acceptation entière et sans réserve de la Politique d'utilisation des données de Make.org qui fait partie intégrante des présentes CGUS et est disponible "
-            }
+            L’utilisation du Service implique également l’acceptation entière et
+            sans réserve de la Politique d’utilisation des données de Make.org
+            qui fait partie intégrante des présentes CGUS et est disponible
             <RedLinkHTMLElementStyle href={getDataPageLink(country, language)}>
               ici.
             </RedLinkHTMLElementStyle>
@@ -328,16 +328,16 @@ export const TermsOfUseFR = () => {
                 fréquence d’apparition, ni son audience.
               </StaticParagraphStyle>
               <StaticParagraphStyle>
-                {
-                  "Make.org s'engage à ne pas modifier arbitrairement les contenus licites et répondant à ses règles de modération qui lui seraient proposés, en dehors des éventuelles corrections liées à l'orthographe."
-                }
+                Make.org s’engage à ne pas modifier arbitrairement les contenus
+                licites et répondant à ses règles de modération qui lui seraient
+                proposés, en dehors des éventuelles corrections liées à
+                l’orthographe.
               </StaticParagraphStyle>
             </StaticSecondaryOrderedListItemStyle>
             <StaticSecondaryOrderedListItemStyle className="section6">
               <StaticFourthLevelTitleStyle>
-                {
-                  "Demande de suppression d'une Proposition Citoyenne par un Utilisateur inscrit"
-                }
+                Demande de suppression d’une Proposition Citoyenne par un
+                Utilisateur inscrit
               </StaticFourthLevelTitleStyle>
               <StaticParagraphStyle>
                 Dans l’hypothèse où un Utilisateur inscrit souhaiterait que sa
@@ -483,7 +483,7 @@ export const TermsOfUseFR = () => {
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>
-            {"OBLIGATIONS DE L'UTILISATEUR"}
+            OBLIGATIONS DE L’UTILISATEUR
           </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
             Sans préjudice des autres obligations prévues aux présentes,
@@ -611,7 +611,7 @@ export const TermsOfUseFR = () => {
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>
-            {"GARANTIES DE L'UTILISATEUR"}
+            GARANTIES DE L’UTILISATEUR
           </StaticThirdLevelTitleStyle>
           <StaticSecondaryOrderedListStyle>
             <StaticSecondaryOrderedListItemStyle className="section9">
@@ -671,7 +671,7 @@ export const TermsOfUseFR = () => {
             </StaticSecondaryOrderedListItemStyle>
             <StaticSecondaryOrderedListItemStyle className="section9">
               <StaticFourthLevelTitleStyle>
-                {"Limites de l'usage des Services"}
+                Limites de l’usage des Services
               </StaticFourthLevelTitleStyle>
               <StaticParagraphStyle>
                 L’Utilisateur reconnaît que les Services lui offrent une
@@ -823,14 +823,16 @@ export const TermsOfUseFR = () => {
                 dirigée en premier lieu vers l’auteur des Contenus en question.
               </StaticParagraphStyle>
               <StaticParagraphStyle>
-                {
-                  "Les Contenus préjudiciables à un tiers peuvent faire l’objet d’une notification à Make.org selon les modalités prévues par l’article 6 I 5 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, Make.org se réservant de prendre les mesures décrites à l’article 12."
-                }
+                Les Contenus préjudiciables à un tiers peuvent faire l’objet
+                d’une notification à Make.org selon les modalités prévues par
+                l’article 6 I 5 de la loi n° 2004-575 du 21 juin 2004 pour la
+                confiance dans l’économie numérique, Make.org se réservant de
+                prendre les mesures décrites à l’article 12.
               </StaticParagraphStyle>
             </StaticSecondaryOrderedListItemStyle>
             <StaticSecondaryOrderedListItemStyle className="section11">
               <StaticFourthLevelTitleStyle>
-                {"Perte d'informations"}
+                Perte d’informations
               </StaticFourthLevelTitleStyle>
               <StaticParagraphStyle>
                 Le service étant fourni à titre gratuit, Make.org décline toute
@@ -910,19 +912,26 @@ export const TermsOfUseFR = () => {
             LIENS ET SITES TIERS
           </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
-            {
-              "Make.org ne pourra en aucun cas être tenue pour responsable de la disponibilité technique de sites internet ou d’applications mobiles exploités par des tiers (y compris ses éventuels partenaires) auxquels l’Utilisateur accéderait par l'intermédiaire du site."
-            }
+            Make.org ne pourra en aucun cas être tenue pour responsable de la
+            disponibilité technique de sites internet ou d’applications mobiles
+            exploités par des tiers (y compris ses éventuels partenaires)
+            auxquels l’Utilisateur accéderait par l’intermédiaire du site.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "Make.org n'endosse aucune responsabilité au titre des contenus, publicités, produits et/ou services disponibles sur de tels sites et applications mobiles tiers dont il est rappelé qu’ils sont régis par leurs propres conditions d’utilisation."
-            }
+            Make.org n’endosse aucune responsabilité au titre des contenus,
+            publicités, produits et/ou services disponibles sur de tels sites et
+            applications mobiles tiers dont il est rappelé qu’ils sont régis par
+            leurs propres conditions d’utilisation.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "Make.org n'est pas non plus responsable des transactions intervenues entre l’Utilisateur et un quelconque annonceur, professionnel ou commerçant (y compris ses éventuels partenaires) vers lequel l’Utilisateur serait orienté par l'intermédiaire du site et ne saurait en aucun cas être partie à quelques litiges éventuels que ce soit avec ces tiers concernant notamment la livraison de produits et/ou services, les garanties, déclarations et autres obligations quelconques auxquelles ces tiers sont tenus."
-            }
+            Make.org n’est pas non plus responsable des transactions intervenues
+            entre l’Utilisateur et un quelconque annonceur, professionnel ou
+            commerçant (y compris ses éventuels partenaires) vers lequel
+            l’Utilisateur serait orienté par l’intermédiaire du site et ne
+            saurait en aucun cas être partie à quelques litiges éventuels que ce
+            soit avec ces tiers concernant notamment la livraison de produits
+            et/ou services, les garanties, déclarations et autres obligations
+            quelconques auxquelles ces tiers sont tenus.
           </StaticParagraphStyle>
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>
@@ -1025,9 +1034,9 @@ export const TermsOfUseFR = () => {
             utile.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "L’Utilisateur qui n’accepte pas les conditions générales modifiées doit se désinscrire des Services selon les modalités prévues aux présentes conditions générales d'utilisation du site."
-            }
+            L’Utilisateur qui n’accepte pas les conditions générales modifiées
+            doit se désinscrire des Services selon les modalités prévues aux
+            présentes conditions générales d’utilisation du site.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Tout Utilisateur qui a recours aux Services postérieurement à
@@ -1038,9 +1047,15 @@ export const TermsOfUseFR = () => {
         <StaticPrimaryOrderedListItemStyle>
           <StaticThirdLevelTitleStyle>INTÉGRITÉ</StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
-            {
-              "Si une ou plusieurs stipulations des présentes sont tenues pour nulles par une loi ou un règlement, ou déclarées telles par décision définitive d'une juridiction compétente, elles seront réputées non écrites. Les autres stipulations des présentes resteront en vigueur en conservant toute leur force et leur portée, pour autant qu’il soit possible, les Parties s’engageant, en tant que de besoin, à se rapprocher afin de remplacer la clause nulle par une clause valide, aussi proche que possible, dans son esprit, de celle qu’elle a vocation à remplacer."
-            }
+            Si une ou plusieurs stipulations des présentes sont tenues pour
+            nulles par une loi ou un règlement, ou déclarées telles par décision
+            définitive d’une juridiction compétente, elles seront réputées non
+            écrites. Les autres stipulations des présentes resteront en vigueur
+            en conservant toute leur force et leur portée, pour autant qu’il
+            soit possible, les Parties s’engageant, en tant que de besoin, à se
+            rapprocher afin de remplacer la clause nulle par une clause valide,
+            aussi proche que possible, dans son esprit, de celle qu’elle a
+            vocation à remplacer.
           </StaticParagraphStyle>
         </StaticPrimaryOrderedListItemStyle>
         <StaticPrimaryOrderedListItemStyle>

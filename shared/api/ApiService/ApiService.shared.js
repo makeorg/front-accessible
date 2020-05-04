@@ -1,35 +1,12 @@
+/* eslint-disable max-classes-per-file */
 /* @flow */
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Shared/helpers/url';
 import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
-import { env } from 'Shared/env';
 import { type ErrorResponse } from './types';
-
-const HOSTNAME =
-  (typeof window !== 'undefined' &&
-    window &&
-    window.location &&
-    window.location.hostname) ||
-  null;
-const LOCATION_PARAMS =
-  (typeof window !== 'undefined' &&
-    window &&
-    window.location &&
-    window.location.search) ||
-  '';
-const BROWSER_API_URL =
-  (typeof window !== 'undefined' &&
-    window &&
-    window.API_URL &&
-    window.API_URL !== '__API_URL__' &&
-    window.API_URL) ||
-  null;
-
-export const API_URL =
-  BROWSER_API_URL || process.env.API_URL || 'http://localhost:9000';
-export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
+import { HOSTNAME, LOCATION_PARAMS, API_URL } from './configuration';
 
 export class ApiServiceError extends Error {
   status: ?number;
@@ -94,12 +71,10 @@ class ApiServiceSharedClass {
       'x-make-app-name': APP_NAME,
       'x-make-location': 'core',
     };
-    let headers = Object.assign({}, defaultHeaders, options.headers || {});
+    let headers = { ...defaultHeaders, ...(options.headers || {}) };
 
     if (paramsQuery) {
-      headers = Object.assign({}, headers, {
-        'x-get-parameters': paramsQuery,
-      });
+      headers = { ...headers, 'x-get-parameters': paramsQuery };
     }
     const apiUrl = `${API_URL}${url}`;
 

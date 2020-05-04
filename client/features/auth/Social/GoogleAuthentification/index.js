@@ -17,9 +17,11 @@ export const GoogleAuthentificationComponent = (props: any) => {
     dispatch(loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId));
   };
 
+  const { render } = props;
+
   return (
     <GoogleLogin
-      {...props}
+      render={render}
       clientId={GOOGLE_LOGIN_ID}
       buttonText="Google"
       onSuccess={handleGoogleLoginCallback}

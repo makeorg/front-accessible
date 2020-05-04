@@ -158,9 +158,16 @@ export const DataFR = () => {
         <StaticPrimaryUnorderedListItemStyle>
           <StaticThirdLevelTitleStyle>COOKIES </StaticThirdLevelTitleStyle>
           <StaticParagraphStyle>
-            {
-              "Afin de permettre à l’Utilisateur de ne pas avoir à s'identifier à chaque accès au Service, hormis lors du premier accès, Make.org utilise des cookies de session. Ces fichiers déposés sur  l’ordinateur permettent d'identifier l’Utilisateur lors de chacune de ses connexions au Site. Par ailleurs, afin d’améliorer le Service, Make.org utilise des cookies de mesures d’audience telles que le nombre de pages vues, le nombre de visites, l’activité des visiteurs sur le Site et leur fréquence de retour."
-            }
+            <>
+              Afin de permettre à l’Utilisateur de ne pas avoir à s’identifier à
+              chaque accès au Service, hormis lors du premier accès, Make.org
+              utilise des cookies de session. Ces fichiers déposés sur
+              l’ordinateur permettent d’identifier l’Utilisateur lors de chacune
+              de ses connexions au Site. Par ailleurs, afin d’améliorer le
+              Service, Make.org utilise des cookies de mesures d’audience telles
+              que le nombre de pages vues, le nombre de visites, l’activité des
+              visiteurs sur le Site et leur fréquence de retour.
+            </>
           </StaticParagraphStyle>
           <StaticParagraphStyle>
             Ces cookies permettent seulement d’améliorer le fonctionnement du

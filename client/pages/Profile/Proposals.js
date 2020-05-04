@@ -70,7 +70,7 @@ const ProfileProposalsPage = ({ user }: Props) => {
   const renderProposals = !!proposalsLength;
   const displayLoadMoreButton = hasMore && !isLoading;
   return (
-    <React.Fragment>
+    <>
       <MetaTags title={i18n.t('meta.profile.proposals.title')} />
       <ProfileContentHeaderStyle>
         <ThirdLevelTitleStyle as="h2">
@@ -100,7 +100,7 @@ const ProfileProposalsPage = ({ user }: Props) => {
         </LoadMoreWrapperStyle>
       )}
       {renderPlaceholder && <ProfileProposalsPlaceholder />}
-    </React.Fragment>
+    </>
   );
 };
 

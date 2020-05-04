@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { type QuestionResultsType } from 'Shared/types/question';
 import { Logger } from 'Shared/services/Logger';
-import { NODE_API_BASE } from './ApiService';
+import { NODE_API_BASE } from './ApiService/configuration';
 
 const PATH_RESULTS_CONFIGURATION = '/api/results/:questionSlug';
 

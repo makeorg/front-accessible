@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgInstagramLogo = props => (
-  <svg width={38} height={38} {...props}>
+export const SvgInstagramLogo = ({ style }) => (
+  <svg width={38} height={38} aria-hidden style={style}>
     <defs>
       <linearGradient
         id="instagram_svg__a"

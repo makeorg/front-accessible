@@ -6,16 +6,16 @@ import { ProposalSubmitDescriptionComponent } from '.';
 
 describe('ProposalSubmitDescriptionComponent', () => {
   const store = configureStore();
-  const props = {
-    trackModerationLink: () => {},
-  };
+  const trackModerationLink = () => {};
 
   it('Render & Props', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ProposalSubmitDescriptionComponent {...props} />
+        <ProposalSubmitDescriptionComponent
+          trackModerationLink={trackModerationLink}
+        />
       </Provider>
     );
-    expect(wrapper.find('a').prop('onClick')).toBe(props.trackModerationLink);
+    expect(wrapper.find('a').prop('onClick')).toBe(trackModerationLink);
   });
 });

@@ -86,7 +86,7 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getOrganisationProposalList();
 
   return (
-    <React.Fragment>
+    <>
       <MetaTags
         title={i18n.t('meta.organisation.proposals.title', {
           organisation: formatOrganisationName(organisation.organisationName),
@@ -127,7 +127,7 @@ const OrganisationProposalsPage = ({ organisation }: Props) => {
           name={formatOrganisationName(organisation.organisationName)}
         />
       )}
-    </React.Fragment>
+    </>
   );
 };
 

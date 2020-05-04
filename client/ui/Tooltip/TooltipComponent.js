@@ -27,7 +27,7 @@ export const TooltipComponent = (props: Props) => {
   } = props;
 
   return (
-    <React.Fragment>
+    <>
       <TooltipStyle as={type} aria-hidden={!displayTooltip} role="tooltip">
         {content}
       </TooltipStyle>
@@ -39,6 +39,6 @@ export const TooltipComponent = (props: Props) => {
       >
         {children}
       </div>
-    </React.Fragment>
+    </>
   );
 };

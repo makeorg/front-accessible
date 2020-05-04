@@ -29,7 +29,7 @@ export const MainResultsProposalsMobile = ({ proposals }: Props) => {
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSearchResultProposalList();
 
   return (
-    <React.Fragment>
+    <>
       <TopComponentContext.Provider value={topComponentContext}>
         <GliderStylesheet />
         <div className={`${SEARCH_SLIDER} glider-contain`}>
@@ -52,6 +52,6 @@ export const MainResultsProposalsMobile = ({ proposals }: Props) => {
           </div>
         </div>
       </TopComponentContext.Provider>
-    </React.Fragment>
+    </>
   );
 };

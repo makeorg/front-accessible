@@ -8,8 +8,8 @@ import {
 
 export const ProfileFollowingPlaceholder = () => {
   return (
-    <React.Fragment>
-      <SvgLike aria-hidden style={SvgLikeStyle} />
+    <>
+      <SvgLike style={SvgLikeStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('profile.following.description.introduction')}
       </PlaceholderParagraphStyle>
@@ -19,6 +19,6 @@ export const ProfileFollowingPlaceholder = () => {
       <PlaceholderParagraphStyle>
         {i18n.t('profile.following.description.explanation_step_two')}
       </PlaceholderParagraphStyle>
-    </React.Fragment>
+    </>
   );
 };

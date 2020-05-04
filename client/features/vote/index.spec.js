@@ -7,16 +7,22 @@ import { VoteWrapperStyle } from './style';
 describe('VoteContainer', () => {
   let wrapper;
 
-  const defaultProps = {
-    proposalId: 'fooId',
-    votes: [],
-    index: 1,
-    currentIndex: 1,
-    goToNextCard: () => {},
-  };
+  const proposalId = 'fooId';
+  const votes = [];
+  const index = 1;
+  const currentIndex = 1;
+  const goToNextCard = () => {};
 
   beforeEach(() => {
-    wrapper = shallow(<Vote {...defaultProps} />);
+    wrapper = shallow(
+      <Vote
+        proposalId={proposalId}
+        votes={votes}
+        index={index}
+        currentIndex={currentIndex}
+        goToNextCard={goToNextCard}
+      />
+    );
   });
 
   it('render VoteComponent and passed props', () => {

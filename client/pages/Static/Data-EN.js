@@ -21,12 +21,17 @@ export const DataEN = () => {
         <StaticTitleExtra>Dated 03/01/2019</StaticTitleExtra>
       </StaticSecondLevelTitleStyle>
       <StaticParagraphStyle>
-        {
-          'The present document supplements MAKE.ORG’s Terms of Service and concerns Make.org’s commitments relative to the respect of the regulations in force concerning the processing of personal data and, in particular, Regulation ('
-        }
+        <>
+          The present document supplements MAKE.ORG’s Terms of Service and
+          concerns Make.org’s commitments relative to the respect of the
+          regulations in force concerning the processing of personal data and,
+          in particular, Regulation (
+        </>
         <abbr title="European Union">EU</abbr>
-        )&nbsp;2016/679 of the European Parliament and of the Council of 27
-        April 2016 and applicable as of 25 May 2018 (hereinafter “the GDPR”).
+        <>
+          )&nbsp;2016/679 of the European Parliament and of the Council of 27
+          April 2016 and applicable as of 25 May 2018 (hereinafter “the GDPR”).
+        </>
       </StaticParagraphStyle>
       <StaticParagraphStyle>
         In this framework, Make.org will be the data controller.
@@ -168,9 +173,10 @@ export const DataEN = () => {
             completely anonymous.
           </StaticParagraphStyle>
           <StaticParagraphStyle>
-            {
-              "Generally speaking, any User can, should he/she so desire, refuse the use of cookies by selecting the appropriate settings on his/her browser to disable cookies (the browser's help menu will specify the steps to take)."
-            }
+            Generally speaking, any User can, should he/she so desire, refuse
+            the use of cookies by selecting the appropriate settings on his/her
+            browser to disable cookies (the browser&apos;s help menu will
+            specify the steps to take).
           </StaticParagraphStyle>
         </StaticPrimaryUnorderedListItemStyle>
         <StaticPrimaryUnorderedListItemStyle>

@@ -13,7 +13,7 @@ export class ApiServiceServer implements IApiServiceStrategy {
     const agent = new https.Agent({
       rejectUnauthorized: false,
     });
-    const serverOptions = Object.assign({}, { httpsAgent: agent }, options);
+    const serverOptions = { httpsAgent: agent, ...options };
 
     return ApiServiceShared.callApi(url, {
       ...serverOptions,

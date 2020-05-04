@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgDisconnect = props => (
-  <svg width={11} height={11} viewBox="0 0 11 11" {...props}>
+export const SvgDisconnect = ({ style }) => (
+  <svg width={11} height={11} viewBox="0 0 11 11" aria-hidden style={style}>
     <g fill="none" fillRule="evenodd" transform="translate(-1 -1)">
       <g>
         <path

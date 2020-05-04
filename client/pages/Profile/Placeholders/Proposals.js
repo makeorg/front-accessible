@@ -10,7 +10,7 @@ import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 export const ProfileProposalsPlaceholder = () => {
   return (
     <CenterColumnStyle>
-      <SvgLightBulb aria-hidden style={LightBulbStyle} />
+      <SvgLightBulb style={LightBulbStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('profile.proposals.text')}
       </PlaceholderParagraphStyle>

@@ -59,7 +59,7 @@ import {
 class SvgElementsExample extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowBottom /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgEmptyAvatar /></span>
         <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowRight /></span>
@@ -113,7 +113,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInstagramLogo /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgTrending /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLink /></span>
-      </React.Fragment>
+      </>
     );
   }
 }

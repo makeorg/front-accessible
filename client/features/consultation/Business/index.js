@@ -62,6 +62,43 @@ export const BusinessConsultations = ({ consultations }: Props) => {
     ListRef.current.focus();
   };
 
+  const consultationItem = consultation => {
+    const inProgress = isInProgress(consultation);
+    const to = inProgress
+      ? getConsultationLink(country, language, consultation.slug)
+      : undefined;
+    const as = inProgress ? Link : 'a';
+    const href = inProgress ? undefined : consultation.aboutUrl;
+
+    return (
+      <BusinessConsultationsItemStyle key={consultation.slug}>
+        <BusinessConsultationsItemLinkStyle
+          to={to}
+          as={as}
+          href={href}
+          onClick={() => trackClickHomepageConsultations()}
+        >
+          <BusinessConsultationsItemBorderStyle
+            colorStart={consultation.theme.gradientStart}
+            colorEnd={consultation.theme.gradientEnd}
+          />
+          <BusinessConsultationStyle>
+            <BusinessConsultationsItemStatusStyle>
+              <ScreenReaderItemStyle>
+                {i18n.t('homepage.business_consultations.status')}
+              </ScreenReaderItemStyle>
+              {inProgress
+                ? i18n.t('homepage.business_consultations.question_inprogress')
+                : i18n.t('homepage.business_consultations.question_ended')}
+            </BusinessConsultationsItemStatusStyle>
+            {consultation.question}
+          </BusinessConsultationStyle>
+          <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
+        </BusinessConsultationsItemLinkStyle>
+      </BusinessConsultationsItemStyle>
+    );
+  };
+
   return (
     <HomepagePaddingContentStyle
       id="business_consultations"
@@ -71,58 +108,19 @@ export const BusinessConsultations = ({ consultations }: Props) => {
         {i18n.t('homepage.business_consultations.title')}
       </BusinessConsultationsTitleStyle>
       <BusinessConsultationsStyle ref={ListRef} tabIndex={0}>
-        {slicedConsultations.map(consultation => (
-          <BusinessConsultationsItemStyle key={consultation.slug}>
-            <BusinessConsultationsItemLinkStyle
-              {...(isInProgress(consultation)
-                ? {
-                    to: getConsultationLink(
-                      country,
-                      language,
-                      consultation.slug
-                    ),
-                    as: Link,
-                  }
-                : { href: consultation.aboutUrl, as: 'a' })}
-              onClick={() => trackClickHomepageConsultations()}
-            >
-              <BusinessConsultationsItemBorderStyle
-                colorStart={consultation.theme.gradientStart}
-                colorEnd={consultation.theme.gradientEnd}
-              />
-              <BusinessConsultationStyle>
-                <BusinessConsultationsItemStatusStyle>
-                  <ScreenReaderItemStyle>
-                    {i18n.t('homepage.business_consultations.status')}
-                  </ScreenReaderItemStyle>
-                  {isInProgress(consultation)
-                    ? i18n.t(
-                        'homepage.business_consultations.question_inprogress'
-                      )
-                    : i18n.t('homepage.business_consultations.question_ended')}
-                </BusinessConsultationsItemStatusStyle>
-                {consultation.question}
-              </BusinessConsultationStyle>
-              <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
-            </BusinessConsultationsItemLinkStyle>
-          </BusinessConsultationsItemStyle>
-        ))}
+        {slicedConsultations.map(consultation =>
+          consultationItem(consultation)
+        )}
       </BusinessConsultationsStyle>
       {displayViewMore && (
         <BusinessConsultationsMoreStyle onClick={expandConsultations}>
           {i18n.t('homepage.business_consultations.more')}
-          <SvgAngleArrowBottom
-            style={BusinessConsultationsMoreArrowStyle}
-            aria-hidden
-          />
+          <SvgAngleArrowBottom style={BusinessConsultationsMoreArrowStyle} />
         </BusinessConsultationsMoreStyle>
       )}
       {displayViewLess && (
         <BusinessConsultationsMoreStyle onClick={collapseConsultations}>
-          <SvgAngleArrowTop
-            style={BusinessConsultationsMoreArrowStyle}
-            aria-hidden
-          />
+          <SvgAngleArrowTop style={BusinessConsultationsMoreArrowStyle} />
           {i18n.t('homepage.business_consultations.less')}
         </BusinessConsultationsMoreStyle>
       )}

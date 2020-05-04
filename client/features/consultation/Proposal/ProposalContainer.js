@@ -8,6 +8,7 @@ type Props = {
 
 export class ConsultationProposalContainer extends React.Component<Props> {
   render() {
-    return <ConsultationProposalComponent {...this.props} />;
+    const { question } = this.props;
+    return <ConsultationProposalComponent question={question} />;
   }
 }

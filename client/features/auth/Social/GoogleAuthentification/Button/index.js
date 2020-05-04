@@ -10,7 +10,7 @@ import { GoogleAuthentificationComponent } from '../index';
 const renderGoogleLogin = () => renderProps => (
   <GoogleButtonStyle onClick={renderProps.onClick}>
     <IconWrapperStyle>
-      <SvgGoogleLogoG aria-hidden />
+      <SvgGoogleLogoG />
     </IconWrapperStyle>
     Google
   </GoogleButtonStyle>

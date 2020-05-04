@@ -15,14 +15,12 @@ jest.mock('../style', () => ({
 }));
 
 describe('VoteProgress', () => {
-  const defaultProps = {
-    votes: proposalTypeFixture.votes,
-    proposalId: proposalTypeFixture.id,
-  };
+  const { votes } = proposalTypeFixture;
+  const { id: proposalId } = proposalTypeFixture;
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<VoteProgress {...defaultProps} />)
+      .create(<VoteProgress votes={votes} proposalId={proposalId} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

@@ -1,7 +1,5 @@
 // @flow
 
-export { NODE_API_BASE } from './ApiService.shared';
-
 export interface IApiServiceStrategy {
   callApi(url: string, options: Object): Promise<any>;
   get country(): string;

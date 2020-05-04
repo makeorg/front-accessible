@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
@@ -10,11 +10,11 @@ import { PasswordRecoveryForm } from './Form';
 import { PasswordRecoveryStyle, PasswordRecoveryTitleStyle } from './style';
 
 export const PasswordRecoverySuccess = () => (
-  <Fragment>
+  <>
     <SecondLevelTitleStyle id="password_recovery_title">
       {i18n.t('reset_password.success.title')}
     </SecondLevelTitleStyle>
-  </Fragment>
+  </>
 );
 
 /**

@@ -127,7 +127,7 @@ const PersonalityPage = ({ match }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.website')}
                 </ScreenReaderItemStyle>
-                <SvgLink aria-hidden style={{ marginRight: '5px' }} />
+                <SvgLink style={{ marginRight: '5px' }} />
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"

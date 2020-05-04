@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const PartnersTileContent = ({ partners, aboutUrl }: Props) => (
-  <React.Fragment>
+  <>
     <ParagraphStyle>{i18n.t('actions.partners.text')}</ParagraphStyle>
     {partners && <PartnersList partners={partners} />}
     <SidebarNewWindowLink
@@ -22,5 +22,5 @@ export const PartnersTileContent = ({ partners, aboutUrl }: Props) => (
       linkText={i18n.t('consultation.partners.commitment_link')}
       tracking={() => trackSeeMorePartners()}
     />
-  </React.Fragment>
+  </>
 );

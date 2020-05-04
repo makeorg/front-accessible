@@ -7,7 +7,7 @@ import { GoogleAuthentificationComponent } from '..';
 const renderGoogleLogin = () => renderProps => (
   <GoogleLinkStyle onClick={renderProps.onClick}>
     <SocialIconStyle>
-      <SvgGoogleLogoG aria-hidden />
+      <SvgGoogleLogoG />
     </SocialIconStyle>
     Google
   </GoogleLinkStyle>

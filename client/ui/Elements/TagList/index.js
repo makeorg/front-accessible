@@ -97,7 +97,6 @@ export const TagList = ({
                 {tag.isSelected && (
                   <SvgClose
                     style={{ width: '10px', fill: BasicColors.PureWhite }}
-                    aria-hidden
                   />
                 )}
               </TagButtonElementStyle>

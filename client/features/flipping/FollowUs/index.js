@@ -55,7 +55,7 @@ export const FollowUs = ({ question }: Props) => {
 
   return (
     <TileWithTitle
-      icon={<SvgMegaphone aria-hidden style={FollowUsIconsStyle} />}
+      icon={<SvgMegaphone style={FollowUsIconsStyle} />}
       title={i18n.t('consultation.followus.title')}
     >
       <ParagraphStyle>
@@ -72,7 +72,7 @@ export const FollowUs = ({ question }: Props) => {
             href={facebookMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgFacebookLogoF aria-hidden />
+            <SvgFacebookLogoF />
           </FacebookButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -85,7 +85,7 @@ export const FollowUs = ({ question }: Props) => {
             href={twitterMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgTwitterLogo aria-hidden />
+            <SvgTwitterLogo />
           </TwitterButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -98,7 +98,7 @@ export const FollowUs = ({ question }: Props) => {
             href={instagramMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgInstagramLogo aria-hidden />
+            <SvgInstagramLogo />
           </InstagramButtonStyle>
         </FollowUsListItemStyle>
         <FollowUsListItemStyle>
@@ -111,7 +111,7 @@ export const FollowUs = ({ question }: Props) => {
             href={linkedinMakeUrl}
             onClick={trackClickFollowUs}
           >
-            <SvgLinkedinLogoIn aria-hidden />
+            <SvgLinkedinLogoIn />
           </LinkedInButtonStyle>
         </FollowUsListItemStyle>
       </FollowUsStyle>

@@ -69,7 +69,7 @@ export const ProposalSubmitAuthentificationComponent = () => {
           id="authentification-register-button"
         >
           <IconWrapperStyle>
-            <SvgEnvelope aria-hidden />
+            <SvgEnvelope />
           </IconWrapperStyle>
           {i18n.t('common.email')}
         </EmailButtonStyle>

@@ -37,7 +37,7 @@ export const ProposalSubmitButtonComponent = (props: Props) => {
       aria-label={i18n.t('common.propose')}
     >
       <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
-        <SvgPencil aria-hidden />
+        <SvgPencil />
       </IconWrapperStyle>
       {(isOpen || isDesktop) && (
         <ProposalButtonLabelStyle

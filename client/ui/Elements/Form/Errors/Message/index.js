@@ -44,7 +44,5 @@ export const LoginErrorMessage = () => {
 };
 
 export const DefaultApiErrorMessage = () => {
-  return (
-    <React.Fragment>{i18n.t('common.form.messages.api_error')}</React.Fragment>
-  );
+  return <>{i18n.t('common.form.messages.api_error')}</>;
 };

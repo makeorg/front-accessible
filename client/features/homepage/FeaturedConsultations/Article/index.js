@@ -6,7 +6,7 @@ import { i18n } from 'Shared/i18n';
 import { buildInternalConsultationLink } from 'Shared/helpers/url';
 import { type FeaturedConsultationType } from 'Shared/types/views';
 import { useDesktop, useTablet } from 'Client/hooks/useMedia';
-import { trackClickHomepageFeatured } from 'Shared/services/Tracking';
+import { trackClickHomepageFeatured as trackClick } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import {
@@ -44,29 +44,37 @@ export const FeaturedArticle = ({
         href: featured.externalLink,
         target: '_blank',
         rel: 'noopener noreferrer',
+        to: undefined,
       }
     : {
+        as: Link,
+        href: undefined,
+        target: undefined,
+        rel: undefined,
         to: buildInternalConsultationLink(
           featured.internalLink,
           featured.questionSlug,
           country,
           language
         ),
-        as: Link,
       };
 
   const firstSlotImage = featuredsLength === 3 && index === 1;
+  const { as, href, target, rel, to } = linkObject;
+
   return (
     <FeaturedArticleStyle
       as={isAlone ? FeaturedArticleCol1Style : FeaturedArticleStyle}
     >
       <FeaturedPictureWraperStyle
-        onClick={() =>
-          trackClickHomepageFeatured(blockPosition, featured.title)
-        }
+        onClick={() => trackClick(blockPosition, featured.title)}
         aria-hidden
         tabIndex={-1}
-        {...linkObject}
+        as={as}
+        href={href}
+        target={target}
+        rel={rel}
+        to={to}
       >
         {firstSlotImage ? (
           <img
@@ -106,10 +114,12 @@ export const FeaturedArticle = ({
           )}
         </FeaturedInnerContent>
         <LinkAsRedButton
-          onClick={() =>
-            trackClickHomepageFeatured(blockPosition, featured.title)
-          }
-          {...linkObject}
+          onClick={() => trackClick(blockPosition, featured.title)}
+          as={as}
+          href={href}
+          target={target}
+          rel={rel}
+          to={to}
         >
           {featured.buttonLabel}
         </LinkAsRedButton>

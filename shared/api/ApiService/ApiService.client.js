@@ -93,7 +93,7 @@ export class ApiServiceClient implements IApiServiceStrategy {
       'x-make-referrer': this._referrer,
       'x-make-custom-data': this._customData,
     };
-    const headers = Object.assign({}, defaultHeaders, options.headers || {});
+    const headers = { ...defaultHeaders, ...(options.headers || {}) };
 
     return ApiServiceShared.callApi(url, { ...options, headers });
   }

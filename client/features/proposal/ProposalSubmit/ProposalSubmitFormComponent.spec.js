@@ -19,13 +19,9 @@ const store = configureStore();
 
 describe('ProposalSubmitFormComponent', () => {
   it('Renders and Props', () => {
-    const props = {
-      canSubmit: true,
-      length: 15,
-    };
     const wrapper = mount(
       <Provider store={store}>
-        <ProposalSubmitFormComponent {...props} />
+        <ProposalSubmitFormComponent canSubmit length={15} />
       </Provider>
     );
 

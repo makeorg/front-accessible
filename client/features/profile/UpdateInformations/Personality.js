@@ -10,7 +10,7 @@ import {
   transformProfileToFormData,
 } from 'Shared/helpers/form';
 import { type ErrorObjectType } from 'Shared/types/api';
-import { CommonProfileFields } from '.';
+import { CommonProfileFields } from './Common';
 
 type ProfileFormProps = {
   profile: PersonalityProfileType,

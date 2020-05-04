@@ -67,7 +67,7 @@ export const TopIdeaCard = ({
             onClick={scrollToTop}
           >
             {i18n.t('idea_card.link')}
-            <SvgAngleArrowRight aria-hidden />
+            <SvgAngleArrowRight />
           </TopIdeaLinkStyle>
         )}
       </TopIdeaCardHeaderStyle>
@@ -98,7 +98,7 @@ export const TopIdeaCard = ({
       </TopIdeaCardContentStyle>
       {topIdea.commentsCount > 0 && (
         <PositionStyle>
-          <SvgChat aria-hidden />
+          <SvgChat />
           <PositionContentStyle>
             <RedLinkRouterStyle
               to={getTopIdeaDetailsLink(
@@ -134,7 +134,6 @@ export const TopIdeaCard = ({
                 width={12}
                 height={12}
                 style={TopIdeaCollapseIconStyle}
-                aria-hidden
               />
             </>
           ) : (
@@ -147,7 +146,6 @@ export const TopIdeaCard = ({
                 width={12}
                 height={12}
                 style={TopIdeaCollapseIconStyle}
-                aria-hidden
               />
             </>
           )}

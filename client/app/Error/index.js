@@ -17,9 +17,12 @@ type State = {
  * Handles Error Logger Business Logic
  */
 export class ErrorBoundary extends React.Component<Props, State> {
-  state = {
-    hasError: false,
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
 
   componentDidCatch(error: Error) {
     this.setState({ hasError: true });

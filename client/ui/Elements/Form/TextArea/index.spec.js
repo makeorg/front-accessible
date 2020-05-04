@@ -13,41 +13,92 @@ jest.mock('../Styled/TextArea', () => ({
   TextAreaCounterStyle: 'TextAreaCounterStyle',
 }));
 
-const defaultProps = {
-  name: 'bar',
-  icon: 'SvgPencil',
-  value: 'baz',
-  label: 'qux',
-  handleChange: () => {},
-};
+const name = 'bar';
+const icon = 'SvgPencil';
+const value = 'baz';
+const label = 'qux';
+const handleChange = () => {};
 
 describe('TextArea', () => {
   it('must return the diff between snapshot when TextArea is required or optionnal', () => {
     const RequiredTextArea = renderer
-      .create(<TextArea {...defaultProps} required />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          required
+        />
+      )
       .toJSON();
     const OptionnalTextArea = renderer
-      .create(<TextArea {...defaultProps} required={false} />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          required={false}
+        />
+      )
       .toJSON();
     expect(snapshotDiff(RequiredTextArea, OptionnalTextArea)).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot when TextArea has a limit of characters or not', () => {
     const NoLimitTextArea = renderer
-      .create(<TextArea {...defaultProps} />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+        />
+      )
       .toJSON();
     const LimitedTextArea = renderer
-      .create(<TextArea {...defaultProps} minLength="25" maxLength="450" />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          minLength="25"
+          maxLength="450"
+        />
+      )
       .toJSON();
     expect(snapshotDiff(NoLimitTextArea, LimitedTextArea)).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot when TextArea has a enable vs disable spellchecking', () => {
     const EnabledSpellchecking = renderer
-      .create(<TextArea {...defaultProps} />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+        />
+      )
       .toJSON();
     const DisabledSpellchecking = renderer
-      .create(<TextArea {...defaultProps} spellCheck={false} />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          spellCheck={false}
+        />
+      )
       .toJSON();
     expect(
       snapshotDiff(EnabledSpellchecking, DisabledSpellchecking)
@@ -56,10 +107,27 @@ describe('TextArea', () => {
 
   it('must return the diff between snapshot when TextArea has a disable vs enable autocomplete', () => {
     const DisabledAutocomplete = renderer
-      .create(<TextArea {...defaultProps} />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+        />
+      )
       .toJSON();
     const EnabledAutocomplete = renderer
-      .create(<TextArea {...defaultProps} autoComplete="on" />)
+      .create(
+        <TextArea
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          autoComplete="on"
+        />
+      )
       .toJSON();
     expect(
       snapshotDiff(DisabledAutocomplete, EnabledAutocomplete)
