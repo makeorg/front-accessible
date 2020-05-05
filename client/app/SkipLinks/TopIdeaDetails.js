@@ -5,13 +5,9 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 type Props = {
   hasComments: boolean,
-  hasProposals: boolean,
 };
 
-export const TopIdeaDetailsSkipLinks = ({
-  hasComments,
-  hasProposals,
-}: Props) => (
+export const TopIdeaDetailsSkipLinks = ({ hasComments }: Props) => (
   <UnstyledListStyle>
     <li>
       <SkipLink as="a" href="#sidebar_content">
@@ -34,14 +30,12 @@ export const TopIdeaDetailsSkipLinks = ({
         </SkipLink>
       </li>
     )}
-    {hasProposals && (
-      <li>
-        <SkipLink as="a" href="#proposals_list">
-          {i18n.t('skip_links.dynamic_section', {
-            name: i18n.t('idea_details.proposals'),
-          })}
-        </SkipLink>
-      </li>
-    )}
+    <li>
+      <SkipLink as="a" href="#proposals_list">
+        {i18n.t('skip_links.dynamic_section', {
+          name: i18n.t('idea_details.proposals'),
+        })}
+      </SkipLink>
+    </li>
   </UnstyledListStyle>
 );
