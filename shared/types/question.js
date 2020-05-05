@@ -127,6 +127,7 @@ export type SimpleOperationDataType = {
   questionId: string,
   questionSlug: string,
   question: string,
+  shortTitle: string,
   operationTitle: string,
   country: string,
   language: string,

@@ -66,7 +66,9 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
                   siblingQuestion.questionId === question.questionId
                 }
               >
-                {siblingQuestion.question}
+                {siblingQuestion.shortTitle
+                  ? siblingQuestion.shortTitle
+                  : siblingQuestion.question}
               </ConsultationNavLinkStyle>
             </ConsultationNavItemStyle>
           ))}
