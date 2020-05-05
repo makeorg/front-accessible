@@ -38,11 +38,14 @@ export const NotificationWrapperStyle = styled.aside`
 
 export const NotificationContentStyle = styled(ParagraphStyle)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding-right: ${intToPx(DefaultPadding.Mobile)};
   color: ${BasicColors.PureWhite};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    align-items: center;
+  }
 `;
 
 export const NotificationCloseButtonStyle = styled(CloseButtonStyle)`
