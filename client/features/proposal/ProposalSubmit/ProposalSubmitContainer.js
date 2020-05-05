@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 /* eslint-disable react/default-props-match-prop-types */
 /* @flow */
 
@@ -54,6 +55,11 @@ type State = {
  */
 export class ProposalSubmitHandler extends React.Component<Props, State> {
   throttleOnSubmit: any = undefined;
+
+  static defaultProps = {
+    canBeOpen: true,
+    handleFocus: () => {},
+  };
 
   constructor(props: Props) {
     super(props);
@@ -185,11 +191,6 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     );
   }
 }
-
-ProposalSubmitHandler.defaultProps = {
-  canBeOpen: true,
-  handleFocus: () => {},
-};
 
 const mapStateToProps = state => {
   const { isLoggedIn } = selectAuthentification(state);

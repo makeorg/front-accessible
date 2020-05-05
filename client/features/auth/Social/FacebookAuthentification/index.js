@@ -41,6 +41,8 @@ class FacebookAuthentification extends React.Component<Props, State> {
     if (!isFacebookBrowser) {
       return (
         <FacebookLogin
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...this.props}
           handleFacebookLoginCallback={handleFacebookLoginCallback}
           appId="317128238675603"
           version="6.0"

@@ -15,8 +15,7 @@ jest.mock('../style', () => ({
 }));
 
 describe('VoteProgress', () => {
-  const { votes } = proposalTypeFixture;
-  const { id: proposalId } = proposalTypeFixture;
+  const { votes, id: proposalId } = proposalTypeFixture;
 
   it('must match the snapshot with default Props', () => {
     const component = renderer

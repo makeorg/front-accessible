@@ -10,6 +10,7 @@ import { getFieldError } from 'Shared/helpers/form';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { TextArea } from 'Client/ui/Elements/Form/TextArea';
 import { i18n } from 'Shared/i18n';
+import { type ErrorObjectType } from 'Shared/types/api';
 
 type CommonProfileFieldsProps = {
   profile: OrganisationProfileType | PersonalityProfileType,

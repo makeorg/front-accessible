@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgChat = props => (
+export const SvgChat = (props: Object) => (
   <svg
     width="23px"
     height="22px"
