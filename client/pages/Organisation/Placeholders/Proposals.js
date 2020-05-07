@@ -15,7 +15,7 @@ export const OrganisationProposalsPlaceholder = (props: Props) => {
   const { name } = props;
   return (
     <CenterColumnStyle>
-      <SvgLightBulb aria-hidden style={LightBulbStyle} />
+      <SvgLightBulb style={LightBulbStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('organisation.proposals.text', {
           name,

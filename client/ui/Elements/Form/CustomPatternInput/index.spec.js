@@ -17,23 +17,42 @@ jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
   CenterInputIconStyle: 'CenterInputIconStyle',
 }));
 
-const defaultProps = {
-  type: 'foo',
-  name: 'bar',
-  icon: 'SvgEnvelope',
-  value: 'baz',
-  label: 'qux',
-  pattern: '[0-9]{5}',
-  handleChange: () => {},
-};
+const type = 'foo';
+const name = 'bar';
+const icon = 'SvgEnvelope';
+const value = 'baz';
+const label = 'qux';
+const pattern = '[0-9]{5}';
+const handleChange = () => {};
 
 describe('CustomPatternInput', () => {
   it('must return the diff between snapshot when input is required or optionnal', () => {
     const RequiredInput = renderer
-      .create(<CustomPatternInput {...defaultProps} required />)
+      .create(
+        <CustomPatternInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          pattern={pattern}
+          handleChange={handleChange}
+          required
+        />
+      )
       .toJSON();
     const OptionnalInput = renderer
-      .create(<CustomPatternInput {...defaultProps} />)
+      .create(
+        <CustomPatternInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          pattern={pattern}
+          handleChange={handleChange}
+        />
+      )
       .toJSON();
     expect(snapshotDiff(RequiredInput, OptionnalInput)).toMatchSnapshot();
   });

@@ -13,7 +13,7 @@ type Props = {
  */
 export const CharsCounter = ({ currentLength }: Props) => {
   return (
-    <React.Fragment>
+    <>
       <ProposalCharLimitStyle aria-hidden>
         {`${currentLength}/140`}
       </ProposalCharLimitStyle>
@@ -23,6 +23,6 @@ export const CharsCounter = ({ currentLength }: Props) => {
           total: 140,
         })}
       </ScreenReaderItemStyle>
-    </React.Fragment>
+    </>
   );
 };

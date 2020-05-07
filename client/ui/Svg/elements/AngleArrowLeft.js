@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgAngleArrowLeft = props => (
-  <svg width={21} height={21} viewBox="0 0 21 21" {...props}>
+export const SvgAngleArrowLeft = ({ style }) => (
+  <svg width={21} height={21} viewBox="0 0 21 21" aria-hidden style={style}>
     <path
       className="tofill"
       transform="rotate(-180 7 9)"

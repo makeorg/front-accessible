@@ -31,7 +31,7 @@ import {
 export const ProfileFavouritesPlaceholder = () => {
   return (
     <CenterColumnStyle>
-      <SvgLike aria-hidden style={SvgLikeStyle} />
+      <SvgLike style={SvgLikeStyle} />
       <PlaceholderParagraphStyle>
         {i18n.t('profile.favourites.description.introduction')}
       </PlaceholderParagraphStyle>
@@ -49,7 +49,7 @@ export const ProfileFavouritesPlaceholder = () => {
               color={VoteColors.Agree}
               disabled
             >
-              <SvgThumbsUp aria-hidden />
+              <SvgThumbsUp />
             </VoteButtonStyle>
             <VoteResultGraphStyle>
               <VoteResultItemStyle>

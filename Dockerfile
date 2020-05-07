@@ -1,4 +1,4 @@
-FROM keymetrics/pm2:latest-alpine
+FROM keymetrics/pm2:12-alpine
 
 RUN apk --no-cache add curl git
 

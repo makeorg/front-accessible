@@ -33,7 +33,7 @@ export const ProgressCircleComponent = (props: Props) => {
   const maxGaugeIndex = cardsCount + cardOffset;
 
   return (
-    <React.Fragment>
+    <>
       <ScreenReaderItemStyle
         as="progress"
         value={activeGaugeIndex}
@@ -76,6 +76,6 @@ export const ProgressCircleComponent = (props: Props) => {
           {`/${maxGaugeIndex}`}
         </ProgressCounterStyle>
       </ProgressWrapperStyle>
-    </React.Fragment>
+    </>
   );
 };

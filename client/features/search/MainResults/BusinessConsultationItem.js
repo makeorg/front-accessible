@@ -25,6 +25,40 @@ type Props = {
   questions: QuestionType[],
 };
 
+const businessConsultation = (question, country, language) => (
+  <BusinessConsultationsItemStyle
+    key={question.slug}
+    backgroundColor={BasicColors.PureWhite}
+  >
+    <BusinessConsultationsItemLinkStyle
+      to={
+        isInProgress(question)
+          ? getConsultationLink(country, language, question.slug)
+          : undefined
+      }
+      as={isInProgress(question) ? Link : 'a'}
+      href={isInProgress(question) ? undefined : question.aboutUrl || '#'}
+      onClick={() => trackClickHomepageConsultations()}
+    >
+      <BusinessConsultationsItemBorderStyle
+        colorStart={question.theme.gradientStart}
+        colorEnd={question.theme.gradientEnd}
+      />
+      <BusinessConsultationStyle>
+        <BusinessConsultationsItemStatusStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('homepage.business_consultations.status')}
+          </ScreenReaderItemStyle>
+          {isInProgress(question)
+            ? i18n.t('homepage.business_consultations.question_inprogress')
+            : i18n.t('homepage.business_consultations.question_ended')}
+        </BusinessConsultationsItemStatusStyle>
+        {question.question}
+      </BusinessConsultationStyle>
+      <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
+    </BusinessConsultationsItemLinkStyle>
+  </BusinessConsultationsItemStyle>
+);
 export const BusinessConsultationsList = ({ questions }: Props) => {
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
@@ -32,41 +66,9 @@ export const BusinessConsultationsList = ({ questions }: Props) => {
 
   return (
     <SearchResultsConsultationListStyle>
-      {questions.map(question => (
-        <BusinessConsultationsItemStyle
-          key={question.slug}
-          backgroundColor={BasicColors.PureWhite}
-        >
-          <BusinessConsultationsItemLinkStyle
-            {...(isInProgress(question)
-              ? {
-                  to: getConsultationLink(country, language, question.slug),
-                  as: Link,
-                }
-              : { href: question.aboutUrl, as: 'a' })}
-            onClick={() => trackClickHomepageConsultations()}
-          >
-            <BusinessConsultationsItemBorderStyle
-              colorStart={question.theme.gradientStart}
-              colorEnd={question.theme.gradientEnd}
-            />
-            <BusinessConsultationStyle>
-              <BusinessConsultationsItemStatusStyle>
-                <ScreenReaderItemStyle>
-                  {i18n.t('homepage.business_consultations.status')}
-                </ScreenReaderItemStyle>
-                {isInProgress(question)
-                  ? i18n.t(
-                      'homepage.business_consultations.question_inprogress'
-                    )
-                  : i18n.t('homepage.business_consultations.question_ended')}
-              </BusinessConsultationsItemStatusStyle>
-              {question.question}
-            </BusinessConsultationStyle>
-            <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
-          </BusinessConsultationsItemLinkStyle>
-        </BusinessConsultationsItemStyle>
-      ))}
+      {questions.map(question =>
+        businessConsultation(question, country, language)
+      )}
     </SearchResultsConsultationListStyle>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgSearch = props => (
-  <svg width={20} height={20} viewBox="0 0 20 20" {...props}>
+export const SvgSearch = ({ style }) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" aria-hidden style={style}>
     <g fill="none" fillRule="evenodd">
       <g>
         <path

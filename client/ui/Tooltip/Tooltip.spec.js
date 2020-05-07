@@ -9,13 +9,13 @@ jest.mock('Client/ui/Elements/Buttons/style', () => ({
 }));
 
 describe('TooltipWithTrigger', () => {
-  const defaultProps = {
-    triggerContent: 'foo',
-    children: 'bar',
-  };
+  const triggerContent = 'foo';
+  const children = 'bar';
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<Tooltip {...defaultProps} />).toJSON();
+    const component = renderer
+      .create(<Tooltip triggerContent={triggerContent}>{children}</Tooltip>)
+      .toJSON();
     expect(component).toMatchSnapshot();
   });
 });

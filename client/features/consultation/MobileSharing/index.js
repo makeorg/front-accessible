@@ -27,7 +27,7 @@ export const MobileSharing = () => {
           onClick={() => toggleExpand()}
           aria-label={i18n.t('consultation.sharing.hide_pannel')}
         >
-          <SvgClose aria-hidden />
+          <SvgClose />
         </CloseSharingStyle>
       </SharingWrapperStyle>
     );
@@ -38,7 +38,7 @@ export const MobileSharing = () => {
       onClick={() => toggleExpand()}
       aria-label={i18n.t('consultation.sharing.display_pannel')}
     >
-      <SvgShare aria-hidden />
+      <SvgShare />
     </ExpandSharingStyle>
   );
 };

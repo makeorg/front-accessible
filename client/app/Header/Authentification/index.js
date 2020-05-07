@@ -66,7 +66,6 @@ export const HeaderAuthentification = () => {
             fontSize: '16px',
             fill: TextColors.MediumGrey,
           }}
-          aria-hidden
         />
         {!isMobile && (
           <ProfileAccessButtonLabelStyle as="span" aria-hidden>
@@ -75,7 +74,7 @@ export const HeaderAuthentification = () => {
         )}
       </UnstyledButtonStyle>
       {!isMobile && (
-        <React.Fragment>
+        <>
           <span aria-hidden>/</span>
           <UnstyledButtonStyle
             onClick={() => dispatch(modalShowRegister())}
@@ -85,7 +84,7 @@ export const HeaderAuthentification = () => {
               {i18n.t('common.register_label')}
             </ProfileAccessButtonLabelStyle>
           </UnstyledButtonStyle>
-        </React.Fragment>
+        </>
       )}
     </ProfileAccessWrapperStyle>
   );

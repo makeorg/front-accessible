@@ -81,15 +81,15 @@ export const Histogram = ({
           <caption>{name}</caption>
           <thead>
             <tr>
-              <th />
-              <th>
+              <td />
+              <th scope="col">
                 {legend.dimensions.first}
                 {` (${i18n.t('consultation.results.table.value_with_unit', {
                   unit: i18n.t(`consultation.results.table.${unit}`),
                 })})`}
               </th>
               {legend.dimensions.second && (
-                <th>
+                <th scope="col">
                   {legend.dimensions.second}
                   {` (${i18n.t('consultation.results.table.value_with_unit', {
                     unit: i18n.t(`consultation.results.table.${unit}`),
@@ -101,7 +101,7 @@ export const Histogram = ({
           <tbody>
             {data.map(item => (
               <tr key={item.label}>
-                <td>{item.label}</td>
+                <th scope="row">{item.label}</th>
                 <td>{`${item.bars.first}%`}</td>
                 {item.bars.second && <td>{`${item.bars.second}%`}</td>}
               </tr>
@@ -146,7 +146,7 @@ export const Histogram = ({
                   barHeight={getHistogramBarHeight(item.bars.second, maxValue)}
                 >
                   <HistogramPercentStyle>
-                    {`${item.bars.second}%`}
+                    {`${item.bars.second || 'undefined'}%`}
                   </HistogramPercentStyle>
                 </HistogramBarStyle>
               )}

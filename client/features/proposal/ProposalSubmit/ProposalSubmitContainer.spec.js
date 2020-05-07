@@ -8,19 +8,29 @@ import { ProposalSubmitHandler } from './ProposalSubmitContainer';
 
 // @todo: update this test, do it with different state
 describe('ProposalSubmitContainer', () => {
-  const defaultProps = {
-    question: {},
-    isSequenceCollapsed: true,
-    isLoggedIn: true,
-    isPannelOpen: false,
-    language: 'fr',
-    country: 'FR',
-    handleProposeSuccess: () => {},
-    handleCollapse: () => {},
-  };
+  const question = {};
+  const isSequenceCollapsed = true;
+  const isLoggedIn = true;
+  const isPannelOpen = false;
+  const language = 'fr';
+  const country = 'FR';
+  const handleProposeSuccess = () => {};
+  const handleCollapse = () => {};
+
   const baitText = 'proposal_submit.bait';
   it('Renders Initial Props & State', () => {
-    const wrapper = shallow(<ProposalSubmitHandler {...defaultProps} />);
+    const wrapper = shallow(
+      <ProposalSubmitHandler
+        question={question}
+        isSequenceCollapsed={isSequenceCollapsed}
+        isLoggedIn={isLoggedIn}
+        isPannelOpen={isPannelOpen}
+        language={language}
+        country={country}
+        handleProposeSuccess={handleProposeSuccess}
+        handleCollapse={handleCollapse}
+      />
+    );
 
     expect(wrapper.find(ProposalSubmitFormComponent)).toHaveLength(1);
     const proposalSubmitProps = wrapper
@@ -37,10 +47,18 @@ describe('ProposalSubmitContainer', () => {
   });
 
   it('Renders DescriptionStyle', () => {
-    const descriptionProps = {
-      ...defaultProps,
-    };
-    const wrapper = shallow(<ProposalSubmitHandler {...descriptionProps} />);
+    const wrapper = shallow(
+      <ProposalSubmitHandler
+        question={question}
+        isSequenceCollapsed={isSequenceCollapsed}
+        isLoggedIn={isLoggedIn}
+        isPannelOpen={isPannelOpen}
+        language={language}
+        country={country}
+        handleProposeSuccess={handleProposeSuccess}
+        handleCollapse={handleCollapse}
+      />
+    );
 
     wrapper.setState({ isTyping: true });
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(1);
@@ -48,11 +66,18 @@ describe('ProposalSubmitContainer', () => {
   });
 
   it('Renders Authentification', () => {
-    const notLoggedInProps = {
-      ...defaultProps,
-      isLoggedIn: false,
-    };
-    const wrapper = shallow(<ProposalSubmitHandler {...notLoggedInProps} />);
+    const wrapper = shallow(
+      <ProposalSubmitHandler
+        question={question}
+        isSequenceCollapsed={isSequenceCollapsed}
+        isLoggedIn={false}
+        isPannelOpen={isPannelOpen}
+        language={language}
+        country={country}
+        handleProposeSuccess={handleProposeSuccess}
+        handleCollapse={handleCollapse}
+      />
+    );
 
     wrapper.setState({ isSubmitted: true });
     expect(wrapper.find(ProposalSubmitDescriptionComponent)).toHaveLength(0);

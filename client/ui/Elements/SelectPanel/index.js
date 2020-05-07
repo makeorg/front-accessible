@@ -90,7 +90,7 @@ export const SelectPanel = ({
               {i18n.t('consultation.tags.collapse')}
             </ScreenReaderItemStyle>
             <ArrowStyle>
-              <SvgAngleArrowTop aria-hidden />
+              <SvgAngleArrowTop />
             </ArrowStyle>
           </>
         ) : (
@@ -99,7 +99,7 @@ export const SelectPanel = ({
               {i18n.t('consultation.tags.expand')}
             </ScreenReaderItemStyle>
             <ArrowStyle>
-              <SvgAngleArrowBottom aria-hidden />
+              <SvgAngleArrowBottom />
             </ArrowStyle>
           </>
         )}

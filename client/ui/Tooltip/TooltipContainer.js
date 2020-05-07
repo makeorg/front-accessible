@@ -29,9 +29,12 @@ const TooltipType = {
 };
 
 export class TooltipContainer extends React.Component<Props, State> {
-  state = {
-    displayTooltip: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayTooltip: false,
+    };
+  }
 
   showTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();

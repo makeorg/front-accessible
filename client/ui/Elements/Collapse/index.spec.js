@@ -17,32 +17,40 @@ jest.mock('Client/ui/Svg/elements', () => ({
 }));
 
 describe('Collapse', () => {
-  const defaultProps = {
-    title: 'foo',
-    children: 'bar',
-  };
+  const title = 'foo';
+  const children = 'bar';
 
   it('must match the snapshot with default Props', () => {
-    const component = renderer.create(<Collapse {...defaultProps} />).toJSON();
+    const component = renderer
+      .create(<Collapse title={title}>{children}</Collapse>)
+      .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('must match the diff snapshot between Expand vs Collapse Props', () => {
     const expandedComponent = renderer
-      .create(<Collapse {...defaultProps} open />)
+      .create(
+        <Collapse title={title} open>
+          {children}
+        </Collapse>
+      )
       .toJSON();
     const defaultCollapse = renderer
-      .create(<Collapse {...defaultProps} />)
+      .create(<Collapse title={title}>{children}</Collapse>)
       .toJSON();
     expect(snapshotDiff(expandedComponent, defaultCollapse)).toMatchSnapshot();
   });
 
   it('must match the diff snapshot between Tile vs default Collapse Style', () => {
     const collapseWithTile = renderer
-      .create(<Collapse {...defaultProps} withTileStyle />)
+      .create(
+        <Collapse title={title} withTileStyle>
+          {children}
+        </Collapse>
+      )
       .toJSON();
     const defaultCollapse = renderer
-      .create(<Collapse {...defaultProps} />)
+      .create(<Collapse title={title}>{children}</Collapse>)
       .toJSON();
     expect(snapshotDiff(collapseWithTile, defaultCollapse)).toMatchSnapshot();
   });

@@ -22,38 +22,89 @@ jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
 }));
 
 describe('PasswordInput', () => {
-  const defaultProps = {
-    type: 'foo',
-    name: 'bar',
-    icon: 'SvgLock',
-    value: 'baz',
-    label: 'qux',
-    handleChange: () => {},
-    togglePasswordIsDisplayed: () => {},
-  };
+  const type = 'foo';
+  const name = 'bar';
+  const icon = 'SvgLock';
+  const value = 'baz';
+  const label = 'qux';
+  const handleChange = () => {};
+  const togglePasswordIsDisplayed = () => {};
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<PasswordInput {...defaultProps} />)
+      .create(
+        <PasswordInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+        />
+      )
       .toJSON();
     expect(component).toMatchSnapshot();
   });
   it('must return the diff between snapshot when password is displayed vs hidden', () => {
     const ShowPassword = renderer
-      .create(<PasswordInput {...defaultProps} passwordIsDisplayed />)
+      .create(
+        <PasswordInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+          passwordIsDisplayed
+        />
+      )
       .toJSON();
     const HidePassword = renderer
-      .create(<PasswordInput {...defaultProps} passwordIsDisplayed={false} />)
+      .create(
+        <PasswordInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+          passwordIsDisplayed={false}
+        />
+      )
       .toJSON();
     expect(snapshotDiff(ShowPassword, HidePassword)).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot when password is required or optionnal', () => {
     const RequiredPassword = renderer
-      .create(<PasswordInput {...defaultProps} required />)
+      .create(
+        <PasswordInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+          required
+        />
+      )
       .toJSON();
     const OptionnalPassword = renderer
-      .create(<PasswordInput {...defaultProps} />)
+      .create(
+        <PasswordInput
+          type={type}
+          name={name}
+          icon={icon}
+          value={value}
+          label={label}
+          handleChange={handleChange}
+          togglePasswordIsDisplayed={togglePasswordIsDisplayed}
+        />
+      )
       .toJSON();
     expect(snapshotDiff(RequiredPassword, OptionnalPassword)).toMatchSnapshot();
   });

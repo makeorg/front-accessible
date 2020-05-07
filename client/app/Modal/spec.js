@@ -16,7 +16,13 @@ describe('ModalComponent', () => {
       children: '<p>Foo bar</p>',
     };
 
-    const wrapper = shallow(<ModalComponent {...childrenProps} />);
+    const { isModalOpen, handleClose, children } = childrenProps;
+
+    const wrapper = shallow(
+      <ModalComponent isModalOpen={isModalOpen} handleClose={handleClose}>
+        {children}
+      </ModalComponent>
+    );
 
     expect(wrapper.text()).toBe('<Modal />');
   });

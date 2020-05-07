@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgAlert = props => (
-  <svg width={19} height={17} {...props}>
+export const SvgAlert = ({ 'aria-label': ariaLabel, style }) => (
+  <svg width={19} height={17} aria-label={ariaLabel} style={style}>
     <g fill="none" fillRule="evenodd">
       <path fill="#FFF" d="M6 5h5v11H6z" />
       <path

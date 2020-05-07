@@ -10,7 +10,7 @@ import { FacebookAuthentificationComponent } from '../index';
 const renderFacebookLogin = () => renderProps => (
   <FacebookButtonStyle onClick={renderProps.onClick}>
     <IconWrapperStyle>
-      <SvgFacebookLogoF aria-hidden />
+      <SvgFacebookLogoF />
     </IconWrapperStyle>
     Facebook
   </FacebookButtonStyle>

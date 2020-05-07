@@ -10,7 +10,7 @@ import { i18n } from 'Shared/i18n';
 import { NameFiledIcon } from 'Shared/constants/icons';
 import { type OrganisationProfileType } from 'Shared/types/organisation';
 import { type ErrorObjectType } from 'Shared/types/api';
-import { CommonProfileFields } from '.';
+import { CommonProfileFields } from './Common';
 
 type ProfileFormProps = {
   profile: OrganisationProfileType,

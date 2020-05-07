@@ -28,7 +28,7 @@ export const SearchBackButton = ({ term, history }: Props) => {
 
   return (
     <SearchBackStyle onClick={() => handleReturn()}>
-      <SvgAngleArrowLeft style={SearchBackArrowStyle} aria-hidden />
+      <SvgAngleArrowLeft style={SearchBackArrowStyle} />
       {i18n.t('common.back')}
     </SearchBackStyle>
   );

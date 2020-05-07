@@ -59,7 +59,7 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
                   }
                 )}
               </ResultsLikeItStyle>
-              <SvgLightning aria-hidden style={ResultsProposalIconStyle} />
+              <SvgLightning style={ResultsProposalIconStyle} />
               <ResultsNoWayStyle>
                 {i18n.t(
                   'consultation.results.proposals.controversials_no_way',

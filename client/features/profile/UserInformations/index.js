@@ -118,7 +118,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.postal_code')}
               </ScreenReaderItemStyle>
-              <SvgMapMarker aria-hidden style={{ marginRight: '3px' }} />
+              <SvgMapMarker style={{ marginRight: '3px' }} />
               {postalCode}
             </ProfileContentStyle>
           )}
@@ -155,7 +155,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.website')}
           </ScreenReaderItemStyle>
-          <SvgLink aria-hidden style={{ marginRight: '5px' }} />
+          <SvgLink style={{ marginRight: '5px' }} />
           <ProfileWebsiteLinkStyle
             as="a"
             target="_blank"

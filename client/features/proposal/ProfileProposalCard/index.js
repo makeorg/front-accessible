@@ -42,17 +42,18 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
       </ScreenReaderItemStyle>
       <ProposalStyle
         id={`proposal_content_${position}`}
-        {...(isProposalAccepted
-          ? {
-              to: getProposalLink(
+        to={
+          isProposalAccepted
+            ? getProposalLink(
                 proposal.country,
                 proposal.language,
                 proposal.question.slug,
                 proposal.id,
                 proposal.slug
-              ),
-            }
-          : { as: 'p' })}
+              )
+            : undefined
+        }
+        as={isProposalAccepted ? undefined : 'p'}
       >
         {proposal.content}
       </ProposalStyle>

@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgSadEmoji = props => (
-  <svg viewBox="0 0 45 45" {...props}>
+export const SvgSadEmoji = ({ style, 'aria-label': arialLabel }) => (
+  <svg viewBox="0 0 45 45" style={style} aria-label={arialLabel}>
     <defs>
       <clipPath>
         <path d="M0 36h36V0H0v36z" />

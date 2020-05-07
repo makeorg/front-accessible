@@ -1,8 +1,16 @@
 // @flow
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgChat = (props: any) => (
-  <svg width="23px" height="22px" viewBox="0 0 23 22" version="1.1" {...props}>
+export const SvgChat = (props: Object) => (
+  <svg
+    width="23px"
+    height="22px"
+    viewBox="0 0 23 22"
+    version="1.1"
+    aria-hidden
+    {...props}
+  >
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
         transform="translate(-176.000000, -1023.000000)"

@@ -8,8 +8,8 @@ export function queryParamIsDisable(query: Object, param: string) {
 export function disableExtraSlidesByQuery(
   sequenceExtraSlides: QuestionExtraSlidesConfigType,
   query: Object
-) {
-  const extraSlidesConfig = { ...sequenceExtraSlides };
+): Object {
+  const extraSlidesConfig: Object = { ...sequenceExtraSlides };
   if (queryParamIsDisable(query, 'introCard'))
     delete extraSlidesConfig.introCard;
   if (queryParamIsDisable(query, 'pushProposal'))

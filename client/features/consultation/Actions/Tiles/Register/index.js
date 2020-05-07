@@ -14,7 +14,7 @@ type Props = {
 export const RegisterTileContent = (props: Props) => {
   const { handleRegisterModal } = props;
   return (
-    <React.Fragment>
+    <>
       <ActionsFourthLevelTitleStyle>
         {i18n.t('actions.register.title')}
       </ActionsFourthLevelTitleStyle>
@@ -24,6 +24,6 @@ export const RegisterTileContent = (props: Props) => {
       <RedButtonStyle onClick={handleRegisterModal}>
         {i18n.t('actions.register.button')}
       </RedButtonStyle>
-    </React.Fragment>
+    </>
   );
 };

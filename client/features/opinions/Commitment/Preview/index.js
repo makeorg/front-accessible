@@ -67,7 +67,7 @@ export const CommitmentPreview = ({
           transform={opinionsVoteStaticParams[vote].transform}
           color={opinionsVoteStaticParams[vote].color}
         >
-          <SvgThumbsUp aria-hidden />
+          <SvgThumbsUp />
         </CommitmentPreviewOpinionsIconWrapperStyle>
         <CommitmentPreviewOpinionsParagraphStyle
           color={opinionsVoteStaticParams[vote].color}

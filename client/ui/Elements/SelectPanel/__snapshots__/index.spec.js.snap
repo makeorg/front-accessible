@@ -20,7 +20,7 @@ Snapshot Diff:
         consultation.tags.expand
       </ScreenReaderItemStyle>
       <ArrowStyle>
-        <SvgAngleArrowBottom
+        <SvgAngleArrowBottom />
 `;
 
 exports[`SelectPanel must match the diff snapshot between shouldHighlight vs Default Props 1`] = `
@@ -55,9 +55,7 @@ exports[`SelectPanel must match the snapshot with default Props 1`] = `
       consultation.tags.expand
     </ScreenReaderItemStyle>
     <ArrowStyle>
-      <SvgAngleArrowBottom
-        aria-hidden={true}
-      />
+      <SvgAngleArrowBottom />
     </ArrowStyle>
   </SelectButtonStyle>
   <PanelStyle

@@ -114,7 +114,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
           transform={opinionsVoteStaticParams[comment.vote].transform}
           color={opinionsVoteStaticParams[comment.vote].color}
         >
-          <SvgThumbsUp aria-hidden />
+          <SvgThumbsUp />
         </CommitmentPreviewOpinionsIconWrapperStyle>
         <CommitmentPreviewOpinionsParagraphStyle
           color={opinionsVoteStaticParams[comment.vote].color}

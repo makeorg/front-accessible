@@ -77,7 +77,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
               id="authentification-register-button"
             >
               <IconWrapperStyle>
-                <SvgEnvelope aria-hidden />
+                <SvgEnvelope />
               </IconWrapperStyle>
               {i18n.t('common.email')}
             </EmailButtonStyle>
@@ -96,7 +96,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
           }}
         >
           <IconWrapperStyle>
-            <SvgStepForward aria-hidden />
+            <SvgStepForward />
           </IconWrapperStyle>
           {configuration.nextCtaText
             ? configuration.nextCtaText

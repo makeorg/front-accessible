@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { env } from 'Shared/env';
-import { NODE_API_BASE } from 'Shared/api/ApiService';
+import { NODE_API_BASE } from 'Shared/api/ApiService/configuration';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';

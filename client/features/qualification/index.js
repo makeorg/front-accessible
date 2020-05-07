@@ -17,8 +17,6 @@ type Props = {
   proposalKey: string,
   /** Voted key property */
   votedKey: string,
-  /** When waiting vote response from API */
-  pendingVote: boolean,
   /** Index of the card */
   index: number,
 };

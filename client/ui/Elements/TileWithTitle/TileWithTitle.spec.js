@@ -15,30 +15,27 @@ jest.mock('Client/ui/Svg/elements', () => ({
 }));
 
 describe('TileWithTitle', () => {
-  const defaultProps = {
-    title: 'foo',
-    children: 'bar',
-  };
-
-  const iconProps = {
-    title: 'foo',
-    children: 'bar',
-    icon: <SvgInfos />,
-  };
+  const title = 'foo';
+  const children = 'bar';
+  const icon = <SvgInfos />;
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<TileWithTitle {...defaultProps} />)
+      .create(<TileWithTitle title={title}>{children}</TileWithTitle>)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
 
   it('must match the diff snapshot between default vs with Icon', () => {
     const defaultTile = renderer
-      .create(<TileWithTitle {...defaultProps} />)
+      .create(<TileWithTitle title={title}>{children}</TileWithTitle>)
       .toJSON();
     const withIconTile = renderer
-      .create(<TileWithTitle {...iconProps} />)
+      .create(
+        <TileWithTitle title={title} icon={icon}>
+          {children}
+        </TileWithTitle>
+      )
       .toJSON();
     expect(snapshotDiff(defaultTile, withIconTile)).toMatchSnapshot();
   });

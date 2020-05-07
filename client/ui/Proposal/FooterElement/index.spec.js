@@ -18,13 +18,11 @@ jest.mock('./Styled', () => ({
 }));
 
 describe('ProposalFooterWithTagElement', () => {
-  const defaultProps = {
-    tags: proposalTypeFixture.tags,
-  };
+  const { tags } = proposalTypeFixture;
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<ProposalFooterWithTagElement {...defaultProps} />)
+      .create(<ProposalFooterWithTagElement tags={tags} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });
@@ -32,15 +30,16 @@ describe('ProposalFooterWithTagElement', () => {
 
 describe('ProposalFooterWithQuestionElement', () => {
   it('must match the diff snapshot between default vs custom avatar', () => {
-    const props = {
-      question: proposalTypeFixture.question,
-      consultationLink: 'fooLink',
-    };
+    const { question } = proposalTypeFixture;
+    const consultationLink = 'fooLink';
 
     const defaultProposalFooter = renderer
       .create(
         <BrowserRouter>
-          <ProposalFooterWithQuestionElement {...props} />
+          <ProposalFooterWithQuestionElement
+            question={question}
+            consultationLink={consultationLink}
+          />
         </BrowserRouter>
       )
       .toJSON();
@@ -49,7 +48,8 @@ describe('ProposalFooterWithQuestionElement', () => {
       .create(
         <BrowserRouter>
           <ProposalFooterWithQuestionElement
-            {...props}
+            question={question}
+            consultationLink={consultationLink}
             isProposalAccepted={false}
           />
         </BrowserRouter>

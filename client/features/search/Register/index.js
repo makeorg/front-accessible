@@ -28,7 +28,7 @@ export const SearchRegister = () => {
       </FourthLevelTitleStyle>
       <SeachRegisterButtonStyle onClick={() => dispatch(modalShowRegister())}>
         <IconWrapperStyle aria-hidden>
-          <SvgThumbsUp aria-hidden />
+          <SvgThumbsUp />
         </IconWrapperStyle>
         {i18n.t('common.register_label')}
       </SeachRegisterButtonStyle>

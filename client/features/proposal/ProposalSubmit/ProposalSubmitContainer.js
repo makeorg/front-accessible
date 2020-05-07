@@ -1,3 +1,5 @@
+/* eslint-disable react/static-property-placement */
+/* eslint-disable react/default-props-match-prop-types */
 /* @flow */
 
 import * as React from 'react';
@@ -52,23 +54,22 @@ type State = {
  * Handles Proposal Submit Business Logic
  */
 export class ProposalSubmitHandler extends React.Component<Props, State> {
-  state = {
-    content: '',
-    length: getProposalLength(),
-    isTyping: false,
-    isSubmitted: false,
-    isSucess: false,
-  };
+  throttleOnSubmit: any = undefined;
 
   static defaultProps = {
     canBeOpen: true,
     handleFocus: () => {},
   };
 
-  throttleOnSubmit: any = undefined;
-
   constructor(props: Props) {
     super(props);
+    this.state = {
+      content: '',
+      length: getProposalLength(),
+      isTyping: false,
+      isSubmitted: false,
+      isSucess: false,
+    };
     this.throttleOnSubmit = throttle(this.handleOnSubmit);
   }
 
@@ -162,7 +163,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
     const isOpen = isDescriptionShown || isAuthentificationShown;
 
     return (
-      <React.Fragment>
+      <>
         <ProposalSubmitFormComponent
           key="ProposalSubmitFormComponent"
           content={content}
@@ -186,7 +187,7 @@ export class ProposalSubmitHandler extends React.Component<Props, State> {
         {isAuthentificationShown ? (
           <ProposalSubmitAuthentification key="ProposalSubmitAuthentificationContainer" />
         ) : null}
-      </React.Fragment>
+      </>
     );
   }
 }

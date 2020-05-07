@@ -5,13 +5,15 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -12,43 +12,158 @@
-            <th />
-            <th>
+@@ -14,10 +14,16 @@
+              scope="col"
+            >
               participants
                (consultation.results.table.value_with_unit)
             </th>
-+           <th>
++           <th
++             scope="col"
++           >
 +             population générale
 +              (consultation.results.table.value_with_unit)
 +           </th>
@@ -19,42 +21,49 @@ Snapshot Diff:
         </thead>
         <tbody>
           <tr>
-            <td>
+            <th
+@@ -26,41 +32,170 @@
               Ile-de-France
-            </td>
+            </th>
             <td>
               16%
-+           </td>
+            </td>
 +           <td>
 +             19%
-            </td>
++           </td>
           </tr>
           <tr>
-            <td>
+            <th
+              scope="row"
+            >
               Auvergne-Rhone-Alpes
-            </td>
+            </th>
             <td>
               13%
-            </td>
++           </td>
 +           <td>
 +             12%
-+           </td>
+            </td>
           </tr>
           <tr>
-            <td>
+            <th
+              scope="row"
+            >
               Nouvelle-Aquitaine
-            </td>
+            </th>
             <td>
               10%
-            </td>
++           </td>
 +           <td>
 +             9%
-+           </td>
+            </td>
           </tr>
           <tr>
-            <td>
+            <th
+              scope="row"
+            >
               Occitanie
-            </td>
+            </th>
             <td>
               10%
 +           </td>
@@ -63,9 +72,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Provence-Alpes-Côte-d-Azur
-+           </td>
++           </th>
 +           <td>
 +             9%
 +           </td>
@@ -74,9 +85,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Grand-Est
-+           </td>
++           </th>
 +           <td>
 +             8%
 +           </td>
@@ -85,9 +98,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Hauts-de-France
-+           </td>
++           </th>
 +           <td>
 +             8%
 +           </td>
@@ -96,9 +111,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Bretagne
-+           </td>
++           </th>
 +           <td>
 +             6%
 +           </td>
@@ -107,9 +124,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Pays-de-la-Loire
-+           </td>
++           </th>
 +           <td>
 +             6%
 +           </td>
@@ -118,9 +137,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Normandie
-+           </td>
++           </th>
 +           <td>
 +             5%
 +           </td>
@@ -129,9 +150,11 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Bourgogne-Franche-Comté
-+           </td>
++           </th>
 +           <td>
 +             4%
 +           </td>
@@ -140,31 +163,37 @@ Snapshot Diff:
 +           </td>
 +         </tr>
 +         <tr>
-+           <td>
++           <th
++             scope="row"
++           >
 +             Centre-Val-de-Loire
-+           </td>
++           </th>
 +           <td>
 +             4%
 +           </td>
 +           <td>
 +             4%
-+           </td>
-+         </tr>
-+         <tr>
-+           <td>
-+             Corse
-+           </td>
-+           <td>
-+             1%
-+           </td>
-+           <td>
-+             1%
             </td>
           </tr>
++         <tr>
++           <th
++             scope="row"
++           >
++             Corse
++           </th>
++           <td>
++             1%
++           </td>
++           <td>
++             1%
++           </td>
++         </tr>
         </tbody>
       </table>
     </ScreenReaderItemStyle>
-@@ -60,10 +175,16 @@
+    <HistogramLegendStyle
+      aria-hidden={true}
+@@ -70,10 +205,16 @@
       </h5>
       <HistogramLegendLabelStyle>
         participants
@@ -181,7 +210,7 @@ Snapshot Diff:
       aria-hidden={true}
       itemGap={0}
     >
-@@ -75,14 +196,23 @@
+@@ -85,14 +226,23 @@
           Ile-de-France
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
@@ -206,7 +235,7 @@ Snapshot Diff:
         </HistogramBarContainerStyle>
       </HistogramListItemStyle>
       <HistogramListItemStyle
-@@ -93,14 +223,23 @@
+@@ -103,14 +253,23 @@
           Auvergne-Rhone-Alpes
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
@@ -231,7 +260,7 @@ Snapshot Diff:
         </HistogramBarContainerStyle>
       </HistogramListItemStyle>
       <HistogramListItemStyle
-@@ -111,16 +250,25 @@
+@@ -121,16 +280,25 @@
           Nouvelle-Aquitaine
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
@@ -258,7 +287,7 @@ Snapshot Diff:
       <HistogramListItemStyle
         itemGap={0}
         itemWidth={0}
-@@ -129,14 +277,266 @@
+@@ -139,14 +307,266 @@
           Occitanie
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
@@ -540,8 +569,10 @@ exports[`Histogram snapshot by default 1`] = `
       </caption>
       <thead>
         <tr>
-          <th />
-          <th>
+          <td />
+          <th
+            scope="col"
+          >
             participants
              (consultation.results.table.value_with_unit)
           </th>
@@ -549,33 +580,41 @@ exports[`Histogram snapshot by default 1`] = `
       </thead>
       <tbody>
         <tr>
-          <td>
+          <th
+            scope="row"
+          >
             Ile-de-France
-          </td>
+          </th>
           <td>
             16%
           </td>
         </tr>
         <tr>
-          <td>
+          <th
+            scope="row"
+          >
             Auvergne-Rhone-Alpes
-          </td>
+          </th>
           <td>
             13%
           </td>
         </tr>
         <tr>
-          <td>
+          <th
+            scope="row"
+          >
             Nouvelle-Aquitaine
-          </td>
+          </th>
           <td>
             10%
           </td>
         </tr>
         <tr>
-          <td>
+          <th
+            scope="row"
+          >
             Occitanie
-          </td>
+          </th>
           <td>
             10%
           </td>

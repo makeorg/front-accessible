@@ -33,7 +33,7 @@ export const ResultsSlider = ({ data, sliderName }: Props) => {
   useSlider(sliderRef, sliderParams, dataLength > 0);
 
   return (
-    <React.Fragment>
+    <>
       <ScreenReaderItemStyle>
         {i18n.t('common.slider.introduction')}
       </ScreenReaderItemStyle>
@@ -57,19 +57,19 @@ export const ResultsSlider = ({ data, sliderName }: Props) => {
           className={`${sliderName} glider-prev`}
           aria-label={i18n.t('common.slider.previous')}
         >
-          <SvgArrowLeft aria-hidden />
+          <SvgArrowLeft />
         </ResultsSliderArrowsStyle>
         <ResultsSliderArrowsStyle
           className={`${sliderName} glider-next`}
           aria-label={i18n.t('common.slider.next')}
         >
-          <SvgArrowRight aria-hidden />
+          <SvgArrowRight />
         </ResultsSliderArrowsStyle>
         <ResultsCounterStyle aria-hidden>
           <span className={`${sliderName} glider-index`}>1</span>
           {` / ${dataLength}`}
         </ResultsCounterStyle>
       </div>
-    </React.Fragment>
+    </>
   );
 };

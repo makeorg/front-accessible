@@ -73,7 +73,7 @@ export const PopularProposalCard = ({
           />
         )}
       </ProposalInnerStyle>
-      {proposal.selectedStakeTag && (
+      {proposal.selectedStakeTag && proposal.selectedStakeTag.display && (
         <PopularProposalTagStyle>
           <ScreenReaderItemStyle
             dangerouslySetInnerHTML={{

@@ -2,10 +2,10 @@ import axios from 'axios';
 import { Logger } from 'Shared/services/Logger';
 import {
   ApiServiceShared,
-  API_URL,
   handleErrors,
   ApiServiceError,
 } from './ApiService.shared';
+import { API_URL } from './configuration';
 
 describe('ApiServiceShared', () => {
   const headers = {

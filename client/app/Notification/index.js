@@ -39,7 +39,7 @@ export const Notification = () => {
         aria-expanded="false"
         onClick={() => dispatch(clearNotification())}
       >
-        <SvgDisconnect aria-hidden />
+        <SvgDisconnect />
       </NotificationCloseButtonStyle>
     </NotificationWrapperStyle>
   );

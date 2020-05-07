@@ -27,7 +27,7 @@ export const TermsOfUseEN = () => {
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
-        {'MAKE.ORG terms of service'}
+        <>MAKE.ORG terms of service</>
         <StaticTitleExtra>- dated 30 October 2017 -</StaticTitleExtra>
       </StaticSecondLevelTitleStyle>
       <StaticParagraphStyle>
@@ -314,9 +314,11 @@ export const TermsOfUseEN = () => {
                 Moderation and publication of Citizen Proposals
               </StaticFourthLevelTitleStyle>
               <StaticParagraphStyle>
-                {
-                  "The publication of a User's Citizen Proposal is subject to moderation in the conditions defined by the present GTS. Therequest for publication of a Citizen Proposal will be processed as quickly as possible by Make.org’s teams, with the aim of responding in under 48 hours."
-                }
+                The publication of a User’s Citizen Proposal is subject to
+                moderation in the conditions defined by the present GTS.
+                Therequest for publication of a Citizen Proposal will be
+                processed as quickly as possible by Make.org’s teams, with the
+                aim of responding in under 48 hours.
               </StaticParagraphStyle>
               <StaticParagraphStyle>
                 Make.org’s moderation team examines each Citizen Proposal before

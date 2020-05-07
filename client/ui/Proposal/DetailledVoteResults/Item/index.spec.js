@@ -28,14 +28,12 @@ const votesPercent = getVotesPercent(
 );
 
 describe('DetailledResultItem', () => {
-  const defaultProps = {
-    vote: proposalTypeFixture.votes[0],
-    votePercent: votesPercent[proposalTypeFixture.votes[0].voteKey],
-  };
+  const vote = proposalTypeFixture.votes[0];
+  const votePercent = votesPercent[proposalTypeFixture.votes[0].voteKey];
 
   it('must match the snapshot with default Props', () => {
     const component = renderer
-      .create(<DetailledResultItem {...defaultProps} />)
+      .create(<DetailledResultItem vote={vote} votePercent={votePercent} />)
       .toJSON();
     expect(component).toMatchSnapshot();
   });

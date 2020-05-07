@@ -29,16 +29,14 @@ jest.mock('./Styled', () => ({
 
 describe('ProposalAuthorElement', () => {
   it('must match the diff snapshot between default vs custom avatar', () => {
-    const props = {
-      proposal: proposalTypeFixture,
-    };
+    const proposal = proposalTypeFixture;
 
     const authorWithoutAvatar = renderer
-      .create(<ProposalAuthorElement {...props} />)
+      .create(<ProposalAuthorElement proposal={proposal} />)
       .toJSON();
 
     const authorWithAvatar = renderer
-      .create(<ProposalAuthorElement {...props} withAvatar />)
+      .create(<ProposalAuthorElement proposal={proposal} withAvatar />)
       .toJSON();
 
     expect(

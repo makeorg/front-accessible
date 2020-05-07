@@ -116,7 +116,7 @@ const ProfilePage = ({ match, location }: Props) => {
                   className="inline"
                 >
                   {i18n.t('profile.tabs.favourites')}
-                  <SvgLike aria-hidden style={ProfileTabIconStyle} />
+                  <SvgLike style={ProfileTabIconStyle} />
                 </Link>
               </TabStyle>
             </TabListStyle>

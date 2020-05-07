@@ -1,7 +1,18 @@
 import React from 'react';
 
-export const SvgInfos = props => (
-  <svg width={20} height={20} viewBox="0 0 20 20" {...props}>
+export const SvgInfos = ({
+  'aria-hidden': ariaHidden,
+  'aria-label': ariaLabel,
+  style,
+}) => (
+  <svg
+    width={20}
+    height={20}
+    viewBox="0 0 20 20"
+    aria-hidden={ariaHidden}
+    aria-label={ariaLabel}
+    style={style}
+  >
     <g fill="none" fillRule="evenodd">
       <path
         className="tofill"

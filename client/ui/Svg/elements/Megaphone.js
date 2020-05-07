@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const SvgMegaphone = props => (
-  <svg width={20} height={20} {...props}>
+export const SvgMegaphone = ({ style }) => (
+  <svg width={20} height={20} aria-hidden style={style}>
     <defs>
       <path
         id="megaphone_svg__a"

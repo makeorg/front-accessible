@@ -6,45 +6,49 @@ import { Qualification } from './index';
 import { QualificationButton } from './Button';
 
 describe('ProposalSubmitContainer', () => {
-  const defaultProps = {
-    qualifications: [
-      {
-        qualificationKey: 'doNotUnderstand',
-        count: 2,
-        hasQualified: false,
-      },
-      {
-        qualificationKey: 'noOpinion',
-        count: 4,
-        hasQualified: false,
-      },
-      {
-        qualificationKey: 'doNotCare',
-        count: 6,
-        hasQualified: false,
-      },
-    ],
-    votedKey: 'neutral',
-    proposalId: 'fooProposalId',
-    proposalKey: 'fooProposalKey',
-    index: 2,
-  };
+  const qualifications = [
+    {
+      qualificationKey: 'doNotUnderstand',
+      count: 2,
+      hasQualified: false,
+    },
+    {
+      qualificationKey: 'noOpinion',
+      count: 4,
+      hasQualified: false,
+    },
+    {
+      qualificationKey: 'doNotCare',
+      count: 6,
+      hasQualified: false,
+    },
+  ];
+  const votedKey = 'neutral';
+  const proposalId = 'fooProposalId';
+  const proposalKey = 'fooProposalKey';
+  const index = 2;
 
   it('Renders Initial Props & State', () => {
-    const wrapper = shallow(<Qualification {...defaultProps} />);
+    const wrapper = shallow(
+      <Qualification
+        qualifications={qualifications}
+        votedKey={votedKey}
+        proposalId={proposalId}
+        proposalKey={proposalKey}
+        index={index}
+      />
+    );
 
     const QualifyButtonProps = wrapper
       .find(QualificationButton)
       .first()
       .props();
 
-    expect(QualifyButtonProps.qualification).toBe(
-      defaultProps.qualifications[0]
-    );
-    expect(QualifyButtonProps.votedKey).toBe(defaultProps.votedKey);
-    expect(QualifyButtonProps.proposalId).toBe(defaultProps.proposalId);
-    expect(QualifyButtonProps.proposalKey).toBe(defaultProps.proposalKey);
-    expect(QualifyButtonProps.index).toBe(defaultProps.index);
+    expect(QualifyButtonProps.qualification).toBe(qualifications[0]);
+    expect(QualifyButtonProps.votedKey).toBe(votedKey);
+    expect(QualifyButtonProps.proposalId).toBe(proposalId);
+    expect(QualifyButtonProps.proposalKey).toBe(proposalKey);
+    expect(QualifyButtonProps.index).toBe(index);
 
     expect(wrapper.find(LoadingDots)).toHaveLength(0);
   });

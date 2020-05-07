@@ -99,7 +99,7 @@ export const SearchInput = () => {
           type="button"
           onClick={handleFlush}
         >
-          <SvgDisconnect aria-hidden />
+          <SvgDisconnect />
         </SearchButtonStyle>
       ) : (
         <SearchButtonStyle
@@ -107,7 +107,7 @@ export const SearchInput = () => {
           type="submit"
           disabled={!canSubmit}
         >
-          <SvgSearch aria-hidden />
+          <SvgSearch />
         </SearchButtonStyle>
       )}
     </SearchFormStyle>

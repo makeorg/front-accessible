@@ -17,7 +17,7 @@ export const MetaTags = (props: Props) => {
   const { title, description, picture } = props;
 
   return (
-    <React.Fragment>
+    <>
       <Title>{`${title || i18n.t('meta.home.title')} - Make.org`}</Title>
       <Meta
         name="description"
@@ -52,7 +52,7 @@ export const MetaTags = (props: Props) => {
         property="twitter:image"
         content={picture || i18n.t('meta.home.picture')}
       />
-    </React.Fragment>
+    </>
   );
 };
 

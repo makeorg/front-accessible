@@ -18,28 +18,40 @@ stages:
 
 lint:
   stage: check
-  image: node:11.14
+  image: node:12.16-alpine
+  before_script:
+    - export YARN_VERSION="1.22.4"
   script:
     - yarn install
     - yarn lint
 
 flow-static:
   stage: check
-  image: node:11.14
+  image: node:12.16-alpine
+  before_script:
+    - export YARN_VERSION="1.22.4"
   script:
+    - wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
+    - wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk && \
+    - apk add glibc-2.25-r0.apk
     - yarn install
     - yarn flow
 
 test:
   stage: check
-  image: node:11.14
-  script:
+  image: node:12.16-alpine
+  before_script:
+    - export YARN_VERSION="1.22.4"
+  script:    
+    - node -v
     - yarn install
     - yarn test-with-coverage-codacy
 
 jscpd:
   stage: check
-  image: node:11.14
+  image: node:12.16-alpine
+  before_script:
+    - export YARN_VERSION="1.22.4"
   script:
     - yarn install
     - yarn jscpd
@@ -51,7 +63,7 @@ jscpd:
   
 e2e-test:
   stage: e2e
-  image: cypress/base:12.13.0
+  image: cypress/base:12.16.1
   script:
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list 

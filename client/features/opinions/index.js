@@ -41,7 +41,7 @@ const RenderOpinions = ({ opinions, personality }: OpinionsProps) => {
     return (
       <CenterColumnStyle>
         <ThumbsUpWrapperStyle>
-          <SvgThumbsUp aria-hidden style={ThumbsUpStyle} />
+          <SvgThumbsUp style={ThumbsUpStyle} />
         </ThumbsUpWrapperStyle>
         <PlaceholderParagraphStyle>
           {i18n.t('personality.opinions.placeholder_text', {

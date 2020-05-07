@@ -93,7 +93,7 @@ export const SearchMainResults = ({ location }: Props) => {
         <SearchPageResultsStyle>
           {isLoading && <Spinner />}
           {!isLoading && noResults && (
-            <React.Fragment>
+            <>
               <HiddenItemStyle>
                 <h2>{i18n.t('search.titles.no_results')}</h2>
               </HiddenItemStyle>
@@ -104,10 +104,10 @@ export const SearchMainResults = ({ location }: Props) => {
                     })
                   : i18n.t('search.main_results.no_query')}
               </NoResultsStyle>
-            </React.Fragment>
+            </>
           )}
           {!isLoading && !!responseCount && (
-            <React.Fragment>
+            <>
               {!!proposalsCount && (
                 <MainResultsSectionStyle>
                   <MainResultsHeader
@@ -156,7 +156,7 @@ export const SearchMainResults = ({ location }: Props) => {
                   />
                 </MainResultsSectionStyle>
               )}
-            </React.Fragment>
+            </>
           )}
         </SearchPageResultsStyle>
         {isDesktop && <SearchSidebar />}

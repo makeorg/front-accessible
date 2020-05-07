@@ -14,28 +14,26 @@ jest.mock('Client/ui/Elements/Form/Styled/Icons', () => ({
 }));
 
 describe('CheckBox', () => {
-  const defaultProps = {
-    id: 'foo',
-    name: 'bar',
-    label: 'baz',
-  };
+  const id = 'foo';
+  const name = 'bar';
+  const label = 'baz';
 
   it('must return the diff between snapshot when checkbox is required or optionnal', () => {
     const RequiredCheckbox = renderer
-      .create(<CheckBox {...defaultProps} required />)
+      .create(<CheckBox id={id} name={name} label={label} required />)
       .toJSON();
     const OptionnalCheckbox = renderer
-      .create(<CheckBox {...defaultProps} />)
+      .create(<CheckBox id={id} name={name} label={label} />)
       .toJSON();
     expect(snapshotDiff(RequiredCheckbox, OptionnalCheckbox)).toMatchSnapshot();
   });
 
   it('must return the diff between snapshot when checkbox has a defined value or not', () => {
     const CheckboxWithValue = renderer
-      .create(<CheckBox {...defaultProps} value="qux" />)
+      .create(<CheckBox id={id} name={name} label={label} value="qux" />)
       .toJSON();
     const DefaultCheckbox = renderer
-      .create(<CheckBox {...defaultProps} />)
+      .create(<CheckBox id={id} name={name} label={label} />)
       .toJSON();
     expect(snapshotDiff(CheckboxWithValue, DefaultCheckbox)).toMatchSnapshot();
   });

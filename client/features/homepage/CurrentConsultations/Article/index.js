@@ -21,6 +21,7 @@ type TypeLinkObject = {
   to?: ?string,
   href?: string,
   target?: string,
+  className?: string,
 };
 
 type CurrentConsultationArticleDesktopProps = {
@@ -47,6 +48,8 @@ export const CurrentConsultationArticleDesktop = ({
   language,
 }: CurrentConsultationArticleDesktopProps) => {
   const [isOverlayDisplayed, setDisplayOverlay] = React.useState(false);
+  const { as, to, href, target, className } = linkObject;
+
   return (
     <CurrentConsultationArticleStyle>
       <CurrentConsultationLabelStyle>{label}</CurrentConsultationLabelStyle>
@@ -76,8 +79,11 @@ export const CurrentConsultationArticleDesktop = ({
         </>
       </ProposalsCountWrapperStyle>
       <CurrentConsultationLinkOverlayStyle
-        className="overlay"
-        {...linkObject}
+        className={className || 'overlay'}
+        as={as}
+        to={to}
+        href={href}
+        target={target}
         aria-hidden={!isOverlayDisplayed}
         onFocus={() => setDisplayOverlay(true)}
         onBlur={() => setDisplayOverlay(false)}
@@ -118,10 +124,17 @@ export const CurrentConsultationArticleMobile = ({
   country,
   language,
 }: CurrentConsultationArticleMobileProps) => {
+  const { as, to, href, target, className } = linkObject;
   return (
     <CurrentConsultationArticleStyle>
       <CurrentConsultationLabelStyle>{label}</CurrentConsultationLabelStyle>
-      <CurrentConsultationLinkStyle {...linkObject}>
+      <CurrentConsultationLinkStyle
+        className={className}
+        as={as}
+        to={to}
+        href={href}
+        target={target}
+      >
         <img
           src={image}
           alt={linkObject.target ? i18n.t('common.new_tab', { title }) : title}

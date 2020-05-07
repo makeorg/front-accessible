@@ -22,7 +22,7 @@ export const ProposalFooterWithTagElement = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       <ScreenReaderItemStyle
         as="p"
         dangerouslySetInnerHTML={{
@@ -39,6 +39,6 @@ export const ProposalFooterWithTagElement = ({
             </ProposalFooterTagListItemStyle>
           ))}
       </ProposalFooterTagListStyle>
-    </React.Fragment>
+    </>
   );
 };
