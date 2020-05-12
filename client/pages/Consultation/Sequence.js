@@ -15,7 +15,6 @@ import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
 import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
-import { isGreatCause } from 'Shared/helpers/question';
 import { Redirect } from 'react-router';
 import { isInProgress } from 'Shared/helpers/date';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
@@ -45,7 +44,6 @@ const SequencePageContainer = ({ question }: Props) => {
     question.language,
     question.slug
   );
-  const questionIsGreatCause = isGreatCause(question.operationKind);
 
   useEffect(() => {
     trackDisplaySequence();
@@ -68,11 +66,11 @@ const SequencePageContainer = ({ question }: Props) => {
     );
   }
 
-  if (questionIsGreatCause && question.displayResults) {
+  if (question.displayResults) {
     return <Redirect to={resultsLink} />;
   }
 
-  if (!isInProgress(question) && !question.displayResults) {
+  if (!isInProgress(question)) {
     window.location = question.aboutUrl;
   }
 
