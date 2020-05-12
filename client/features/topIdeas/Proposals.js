@@ -37,12 +37,7 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
   const displayLoadMoreButton =
     hasProposals && hasMore && !isLoading && !isPendingForMore;
 
-  const initProposals = async ideaId => {
-    if (!ideaId) {
-      setIsLoading(false);
-      return;
-    }
-
+  const initProposals = async () => {
     const result = await searchProposals(
       question.country,
       question.language,
@@ -53,7 +48,7 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
       question.questionId,
       undefined,
       'TOP_SCORE',
-      ideaId
+      topIdea.ideaId
     );
 
     if (result) {
@@ -67,9 +62,6 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
   };
 
   const loadProposals = async () => {
-    if (!topIdea) {
-      return;
-    }
     setIsPendingForMore(true);
     const result = await searchProposals(
       question.country,
