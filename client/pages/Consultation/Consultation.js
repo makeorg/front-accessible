@@ -42,11 +42,11 @@ const ConsultationPageWrapper = ({ question }: Props) => {
     question.activeFeatures
   );
 
-  if (questionIsGreatCause && question.displayResults) {
+  if (question.displayResults) {
     return <Redirect to={resultsLink} />;
   }
 
-  if (!isInProgress(question) && !question.displayResults) {
+  if (!isInProgress(question)) {
     window.location = question.aboutUrl;
   }
 
