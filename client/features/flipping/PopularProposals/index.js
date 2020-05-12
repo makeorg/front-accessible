@@ -15,11 +15,12 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { COMPONENT_PARAM_TOP_PROPOSALS } from 'Shared/constants/tracking';
 import { ProposalService } from 'Shared/services/Proposal';
+import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
 import {
   PopularProposalsSliderListItemStyle,
-  PopularProposalsSliderListStyle,
   PopularProposalsArrowsStyle,
   PopularProposalsSliderWrapperStyle,
+  PopularProposalsSliderListWrapperStyle,
   PopularProposalsSliderTitleStyle,
   PopularProposalsSliderSeparatorStyle,
 } from './style';
@@ -127,10 +128,11 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           <SvgArrowRight />
         </PopularProposalsArrowsStyle>
       </FlexElementStyle>
-      <div className={`${sliderName} glider`} ref={sliderRef}>
-        <PopularProposalsSliderListStyle
-          className={`${sliderName} glider-track`}
-        >
+      <PopularProposalsSliderListWrapperStyle
+        className={`${sliderName} glider`}
+        ref={sliderRef}
+      >
+        <ProposalsSliderListStyle className={`${sliderName} glider-track`}>
           {proposals.map((proposal, index) => (
             <PopularProposalsSliderListItemStyle
               key={proposal.id}
@@ -143,8 +145,8 @@ export const PopularProposals = ({ question, position, size }: Props) => {
               />
             </PopularProposalsSliderListItemStyle>
           ))}
-        </PopularProposalsSliderListStyle>
-      </div>
+        </ProposalsSliderListStyle>
+      </PopularProposalsSliderListWrapperStyle>
     </PopularProposalsSliderWrapperStyle>
   );
 };

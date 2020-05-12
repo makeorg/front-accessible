@@ -13,15 +13,16 @@ import {
   TileTitleStyle,
   TileSeparatorStyle,
 } from 'Client/ui/Elements/TileWithTitle/style';
-import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { Elements } from 'Client/app/assets/vars/Elements';
 
 export const PopularProposalsSliderWrapperStyle = styled.div`
   background-color: ${BackgroundColors.ExtraLightGrey};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  margin-top: 20px;
   padding: 20px 0;
+  &.glider-contain {
+    margin-top: 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};
   }
@@ -41,17 +42,14 @@ export const PopularProposalsWrapperStyle = styled(TileWithTitleStyle)`
   background-color: ${BackgroundColors.ExtraLightGrey};
 `;
 
-export const PopularProposalsSliderListStyle = styled(ProposalsSliderListStyle)`
-  padding: 5px 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 5px 20px;
-  }
+export const PopularProposalsSliderListWrapperStyle = styled.div`
+  padding: 0 20px 5px;
 `;
 
 export const PopularProposalsSliderListItemStyle = styled.li`
   margin-right: 10px;
   &:last-child {
-    margin-right: 0;
+    margin-right: 20px;
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex: 1;
