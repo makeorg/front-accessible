@@ -2,36 +2,39 @@ Feature: Vote on sequence
   I want to track votes 
   Background: 
     Given monitor api requests
-    And fix auto cypress scroll
   Scenario: Display vote buttons
     Given I am on "sequence page" of the question "question-0-slug"
-    When I click on "intro card start button" of the sequence
+    When I click on "intro card start button" of the current card
     Then card "1" is visible
     And I see vote buttons on card "1"
   Scenario: Vote agree
     Given I am on "sequence page" of the question "question-1-slug"
-    And I click on "intro card start button" of the sequence
+    When I click on "intro card start button" of the current card
+    Then card "1" is visible
     When I vote "agree" on the first proposal of sequence
     Then I see agree qualifications buttons on card "1"
     And total votes are equal to "6"
     And I see "next proposal" button on card "1"
   Scenario: Vote disagree
     Given I am on "sequence page" of the question "question-1-slug"
-    And I click on "intro card start button" of the sequence
+    When I click on "intro card start button" of the current card
+    Then card "1" is visible
     When I vote "disagree" on the first proposal of sequence
     Then I see disagree qualifications buttons on card "1"
     And total votes are equal to "6"
     And I see "next proposal" button on card "1"
   Scenario: Vote neutral
     Given I am on "sequence page" of the question "question-1-slug"
-    And I click on "intro card start button" of the sequence
+    When I click on "intro card start button" of the current card
+    Then card "1" is visible
     When I vote "neutral" on the first proposal of sequence
     Then I see neutral qualifications buttons on card "1"
     And total votes are equal to "7"
     And I see "next proposal" button on card "1"
   Scenario: Unvote voted and qualified proposal
      Given I am on "sequence page" of the question "question-1-slug"
-     And I click on "intro card start button" of the sequence
+     When I click on "intro card start button" of the current card
+     Then card "1" is visible
      And I vote "agree" on the current card
      When I qualify "likeIt" on the current card
      Then "likeIt" qualification button is highlight on the current card
@@ -49,7 +52,8 @@ Feature: Vote on sequence
      And total "likeIt" qualifications are equal to "+1" on the current card
   Scenario: Track vote
     Given I am on "sequence page" of the question "question-0-slug"
-    And I click on "intro card start button" of the sequence
+    When I click on "intro card start button" of the current card
+    Then card "1" is visible
     And I monitor API "postVote" requests
     And I monitor API "postTracking" requests
     When I vote "agree" on the first proposal of sequence
@@ -95,6 +99,22 @@ Feature: Vote on sequence
     | location            | sequence                                                            |
     | nature              | agree                                                               |
     | proposalId          | proposal-question-0-slug-0-id                                       |
+    | questionId          | question-0-id                                                       |
+    | questionSlug        | question-0-slug                                                     |
+    | referrer            | http://localhost:9009/__/                                           |
+    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+    When I click on "next proposal" of the current card
+    Then card "2" is visible
+    And I vote "neutral" on the current card
+    Then event "click-proposal-vote" should be tracked by Make with parameters values:
+    | name                | value                                                               |
+    | eventType           | trackCustom                                                         |
+    | card-position       | 2                                                                   |
+    | country             | FR                                                                  |
+    | language            | fr                                                                  |
+    | location            | sequence                                                            |
+    | nature              | neutral                                                               |
+    | proposalId          | proposal-question-0-slug-1-id                                       |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |

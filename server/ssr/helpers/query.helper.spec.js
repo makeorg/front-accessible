@@ -1,4 +1,7 @@
-import { queryParamIsDisable, disableExtraSlidesByQuery } from './query.helper';
+import {
+  queryParamIsDisable,
+  transformExtraSlidesConfigFromQuery,
+} from './query.helper';
 
 describe('query helper', () => {
   describe('queryParamIsDisable', () => {
@@ -30,7 +33,7 @@ describe('query helper', () => {
     });
   });
 
-  describe('disableExtraSlidesByQuery', () => {
+  describe('transformExtraSlidesConfigFromQuery', () => {
     let extraSlidesConfig;
     beforeEach(() => {
       extraSlidesConfig = {
@@ -42,7 +45,10 @@ describe('query helper', () => {
       // given
       const query = {};
       // when
-      const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
+      const extraSlides = transformExtraSlidesConfigFromQuery(
+        extraSlidesConfig,
+        query
+      );
       // then
       expect(extraSlides).toEqual(extraSlidesConfig);
     });
@@ -51,7 +57,10 @@ describe('query helper', () => {
       // given
       const query = { introCard: 'true' };
       // when
-      const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
+      const extraSlides = transformExtraSlidesConfigFromQuery(
+        extraSlidesConfig,
+        query
+      );
       // then
       expect(extraSlides).toEqual(extraSlidesConfig);
     });
@@ -60,7 +69,10 @@ describe('query helper', () => {
       // given
       const query = { introCard: 'false' };
       // when
-      const extraSlides = disableExtraSlidesByQuery(extraSlidesConfig, query);
+      const extraSlides = transformExtraSlidesConfigFromQuery(
+        extraSlidesConfig,
+        query
+      );
       // then
       expect(extraSlides).toEqual({ signUpCard: { param: 'active' } });
     });

@@ -65,6 +65,7 @@ export const PushProposalCard = ({ configuration, isCardVisible }: Props) => {
               trackClickProposalPushCardIgnore();
               dispatch(incrementSequenceIndex());
             }}
+            data-cy-button="push-proposal-next"
           >
             <IconWrapperStyle aria-hidden>
               <SvgStepForward />

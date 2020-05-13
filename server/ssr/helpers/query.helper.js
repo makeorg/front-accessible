@@ -5,7 +5,7 @@ export function queryParamIsDisable(query: Object, param: string) {
   return query[param] === 'false';
 }
 
-export function disableExtraSlidesByQuery(
+export function transformExtraSlidesConfigFromQuery(
   sequenceExtraSlides: QuestionExtraSlidesConfigType,
   query: Object
 ): Object {
@@ -16,5 +16,6 @@ export function disableExtraSlidesByQuery(
     delete extraSlidesConfig.pushProposalCard;
   if (queryParamIsDisable(query, 'signUpCard'))
     delete extraSlidesConfig.signUpCard;
+
   return extraSlidesConfig;
 }

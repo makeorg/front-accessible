@@ -13,17 +13,22 @@ export let xhrTrackingRequests = {list: {}}
 export let asserts = {list: {}};
 
 then ('some make data header should be sent to {string}:', (endpoint, expectedHeaders) => {
-  const assertCallback = () => expectedHeaders.hashes().forEach( expectedHeader => {
+  const assertCallback = () => {
     expect(xhrRequests.list).to.have.any.keys(endpoint);
-    const headerValue = xhrRequests.list[endpoint].request.headers[`x-make-${expectedHeader.name}`];
-    const expectedValue = expectedHeader.value === '' ? null : expectedHeader.value; 
-    expect(headerValue ? headerValue.trim() : null, `header x-make-${expectedHeader.name} on ${endpoint}`).to.equal(expectedValue);
-  });
+    const xhrRequest = xhrRequests.list[endpoint].shift();
+    expect(xhrRequest, `Endpoint ${endpoint} not called`).to.not.be.undefined;
+    expectedHeaders.hashes().forEach( expectedHeader => {
+      const headerValue = xhrRequest.request.headers[`x-make-${expectedHeader.name}`];
+      const expectedValue = expectedHeader.value === '' ? null : expectedHeader.value;
+      expect(headerValue ? headerValue.trim() : null, `header x-make-${expectedHeader.name} on ${endpoint}`).to.equal(expectedValue);
+    });
+  };
   if (!asserts.list[endpoint]) {
     asserts.list[endpoint] = [];
   } 
   asserts.list[endpoint].push(assertCallback);
 });
+
 then('event {string} should not be tracked by Make', (trackerName) => {
   const assertCallback = () => expect(xhrTrackingRequests.list).to.not.have.any.keys(trackerName);
   if (!asserts.list['postTracking']) {
@@ -33,21 +38,26 @@ then('event {string} should not be tracked by Make', (trackerName) => {
 });
 
 then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
-  const assertCallback = () => expectedParameters.hashes().forEach( expectedParameter => {
+  const assertCallback = () => {
     expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
-    const body = xhrTrackingRequests.list[trackerName].request.body || {};
-    if (expectedParameter.name == 'eventType') {
-      expect(
-        body.eventType, 
-        `tracking Make ${expectedParameter.name}`
-      ).to.equal(expectedParameter.value);
-    } else {
-      expect(
-        body.eventParameters[expectedParameter.name], 
-        `tracking Make ${expectedParameter.name}`
-      ).to.equal(expectedParameter.value);
-    }
-  });
+    const xhrRequest = xhrTrackingRequests.list[trackerName].shift();
+    expect(xhrRequest, `Track "${trackerName}" not called`).to.not.be.undefined;
+    expectedParameters.hashes().forEach( expectedParameter => {
+      
+      const body = xhrRequest.request.body || {};
+      if (expectedParameter.name == 'eventType') {
+        expect(
+          body.eventType,
+          `tracking Make ${expectedParameter.name}`
+        ).to.equal(expectedParameter.value);
+      } else {
+        expect(
+          body.eventParameters[expectedParameter.name],
+          `tracking Make ${expectedParameter.name}`
+        ).to.equal(expectedParameter.value);
+      }
+    })
+  };
   if (!asserts.list['postTracking']) {
     asserts.list['postTracking'] = [];
   } 
@@ -57,9 +67,15 @@ then('event {string} should be tracked by Make with parameters values:', (tracke
 given('I monitor API {string} requests', (endpoint) => {  
   cy.server();
   const onRequest = (xhr) => {
-    xhrRequests.list[endpoint] = xhr;
+    if (!xhrRequests.list[endpoint]) {
+      xhrRequests.list[endpoint] = [];
+    }
+    xhrRequests.list[endpoint].push(xhr);
     if (xhr.request.body && xhr.request.body.eventName) {
-      xhrTrackingRequests.list[xhr.request.body.eventName] = xhr;
+      if (!xhrTrackingRequests.list[xhr.request.body.eventName]) {
+        xhrTrackingRequests.list[xhr.request.body.eventName] = [];
+      }
+      xhrTrackingRequests.list[xhr.request.body.eventName].push(xhr);
     }
   };
   cy.route({

@@ -50,7 +50,7 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
     <>
       <SequenceTitleWrapperStyle>
         {extraLogo && <ExtraLogoStyle src={extraLogo} alt="" />}
-        <SequenceMainTitleStyle>
+        <SequenceMainTitleStyle data-cy-container="intro-card-title">
           {title ? (
             <>
               <HiddenItemStyle>{i18n.t('sequence.title')}</HiddenItemStyle>
@@ -62,8 +62,11 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
         </SequenceMainTitleStyle>
       </SequenceTitleWrapperStyle>
       <SmallSeparatorWithMarginStyle />
-      {descriptionText.split('\n').map(text => (
-        <SequenceIntroParagraphStyle key={text}>
+      {descriptionText.split('\n').map((text, index) => (
+        <SequenceIntroParagraphStyle
+          key={text}
+          data-cy-container={`intro-card-text-${index}`}
+        >
           {text}
         </SequenceIntroParagraphStyle>
       ))}

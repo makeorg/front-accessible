@@ -23,6 +23,7 @@ const fooQuestion = {
   id: 'fooId',
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
+  sequenceConfig: {},
 };
 const questionSlug = 'bar';
 

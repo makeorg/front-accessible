@@ -33,7 +33,12 @@ questionsRouter.get('/:questionId/start-sequence', (req, res) => {
   const proposalsOfQuestion = fixtures.proposals.filter(proposal => {
     return proposal.question.questionId === req.params.questionId;
   });
-  const proposals = proposalsOfQuestion.slice(0, 12);
+  let proposals;
+  if (req.params.questionId === 'question-3-id') {
+    proposals = proposalsOfQuestion.slice(0, 2);
+  } else {
+    proposals = proposalsOfQuestion.slice(0, 12);
+  }
   return res.send({
     id: 'sequence-id',
     proposals,

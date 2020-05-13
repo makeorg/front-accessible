@@ -1,3 +1,5 @@
+import { getIdentifierButtonByName } from '../mapping';
+
 // pages list
 export const pages = {
   'homepage': '/',
@@ -22,6 +24,12 @@ given('I am/go on/to {string} of the question {string}', (targetPage, questionSl
   checkPageExist(targetPage);
   const page = pages[targetPage].replace(':questionSlug', questionSlug);
   cy.visit(page);
+});
+
+given('I am/go on/to {string} of the question {string} with intro card disabled', (targetPage, questionSlug) => {
+  checkPageExist(targetPage);
+  const page = pages[targetPage].replace(':questionSlug', questionSlug);
+  cy.visit(`${page}?introCard=false`);
 });
 
 When('I focus {string} field', (fieldName) => {
@@ -60,8 +68,17 @@ then('I don\'t see the link {string}', (label) => {
 then('I see a button {string} in {string} container', (buttonName, containerName) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
-    .find(`button[data-cy-button=${buttonName}]`)
+    .find(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .scrollIntoView()
+    .should('exist')
+    .and('is.visible');
+});
+
+then('I see a button {string} with label {string}', (buttonName, containerName, label) => {
+  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
+    .first()
+    .scrollIntoView()
+    .contains(new RegExp(label))
     .should('exist')
     .and('is.visible');
 });
@@ -69,7 +86,7 @@ then('I see a button {string} in {string} container', (buttonName, containerName
 then('I see a button {string} in {string} container with label {string}', (buttonName, containerName, label) => {
   cy.get(`[data-cy-container=${containerName}]`)
     .first()
-    .find(`button[data-cy-button=${buttonName}]`)
+    .find(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .scrollIntoView()
     .contains(new RegExp(label))
     .should('exist')
@@ -99,13 +116,12 @@ then('I type {string} in field {string}', (text, fieldName) => {
 
 // disabled
 then('the {string} button is disabled', (buttonName) => {
-  cy.get(`[data-cy-button=${buttonName}]`).first().should('have.attr', 'disabled');
+  cy.get(`[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).first().should('have.attr', 'disabled');
 });
 
 then('the {string} button is enabled', (buttonName) => {
-  cy.get(`[data-cy-button=${buttonName}]`).first().should('not.have.attr', 'disabled');
+  cy.get(`[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).first().should('not.have.attr', 'disabled');
 });
-
 
 // others
 then('The mouse is focused in {string} field', (field) => {

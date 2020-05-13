@@ -27,12 +27,14 @@ const fooQuestion = {
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
   displayResults: false,
+  sequenceConfig: {},
 };
 const fooQuestionWithResults = {
   id: 'fooId',
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
   displayResults: true,
+  sequenceConfig: {},
 };
 const questionSlug = 'bar';
 
