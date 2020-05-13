@@ -17,7 +17,9 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const CurrentConsultationContainerStyle = styled.section`
   width: 100%;
-  margin: 30px 0;
+  &.glider-contain {
+    margin: 30px 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     max-width: ${intToPx(Layouts.SpecialContainerWidth)};
     padding: 0 20px;
