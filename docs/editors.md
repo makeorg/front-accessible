@@ -9,4 +9,4 @@ If you use Visual Studio Code its preferable that you install those extension:
 - [styled components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
 - [Autoimport](https://marketplace.visualstudio.com/items?itemName=NuclleaR.vscode-extension-auto-import)
 - [VsCode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons)
-- [Prettier]
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
