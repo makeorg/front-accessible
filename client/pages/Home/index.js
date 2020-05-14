@@ -1,5 +1,4 @@
 /* @flow */
-
 import React, { useEffect, useState } from 'react';
 import { type HomeType } from 'Shared/types/views';
 import { ViewsService } from 'Shared/services/Views';
