@@ -52,3 +52,6 @@ export { SvgTrending } from './Trending';
 export { SvgLink } from './Link';
 export { SvgChat } from './Chat';
 export { SvgIdea } from './Idea';
+export { SvgPeople } from './People';
+export { SvgLight } from './Light';
+export { SvgHandHeart } from './HandHeart';

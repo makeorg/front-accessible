@@ -841,7 +841,22 @@
             "question_inprogress": "Ongoing consultation",
             "more": "See more",
             "less": "See less"
-        }
+        },
+        "highlights":{
+            "title": "",
+            "participants":{
+              "figure": "",
+              "subtitle": ""
+            },
+            "proposals":{
+              "figure": "",
+              "subtitle": ""
+            },
+            "partners":{
+              "figure": "",
+              "subtitle": ""  
+            }
+          }
     },
     "search": {
         "titles": {
