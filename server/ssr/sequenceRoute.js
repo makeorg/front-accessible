@@ -4,7 +4,7 @@ import { type Request, type Response } from 'express';
 import { type QuestionType } from 'Shared/types/question';
 import { isInProgress } from 'Shared/helpers/date';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
-import { disableExtraSlidesByQuery } from './helpers/query.helper';
+import { transformExtraSlidesConfigFromQuery } from './helpers/query.helper';
 import { reactRender } from '../reactRender';
 import { QuestionService } from '../service/QuestionService';
 
@@ -27,18 +27,21 @@ export const sequenceRoute = async (req: Request, res: Response) => {
   }
 
   const { sequenceConfig } = question;
-  question.sequenceConfig = disableExtraSlidesByQuery(
-    sequenceConfig,
-    req.query
-  );
+  const questionModified = {
+    ...question,
+    sequenceConfig: transformExtraSlidesConfigFromQuery(
+      sequenceConfig,
+      req.query
+    ),
+  };
 
   routeState.currentQuestion = questionSlug;
   routeState.questions = {
     [questionSlug]: {
-      question,
+      question: questionModified,
     },
   };
-  updateTrackingQuestionParam(question);
+  updateTrackingQuestionParam(questionModified);
 
   const { firstProposal } = req.query;
   if (firstProposal) {

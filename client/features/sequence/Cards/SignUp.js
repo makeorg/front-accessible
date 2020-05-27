@@ -69,7 +69,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
           {i18n.t('sign_up_card.authentification-text')}
         </SequenceSecondaryTitleStyle>
         <CenterColumnStyle>
-          <ButtonSmallWrapperStyle>
+          <ButtonSmallWrapperStyle data-cy-container="signup-auth-buttons">
             <FacebookAuthentificationButtonComponent />
             <GoogleAuthentificationButtonComponent />
             <EmailButtonStyle
@@ -94,6 +94,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
             trackSkipSignUpCard();
             dispatch(incrementSequenceIndex());
           }}
+          data-cy-button="skip-sign-up"
         >
           <IconWrapperStyle>
             <SvgStepForward />

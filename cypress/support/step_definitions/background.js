@@ -4,7 +4,6 @@ let executed = false;
 
 given('monitor api requests', () => {
   beforeEach(() => {
-    
     asserts.list = {};
     xhrRequests.list = {};
     xhrTrackingRequests.list = {};
@@ -16,9 +15,9 @@ given('monitor api requests', () => {
       executed = true;
       const endpoints = Object.keys(asserts.list);
       endpoints.forEach((endpoint) => {
-        cy.wait(`@${endpoint}`).then (() => {
-          asserts.list[endpoint].forEach(callBack => callBack());
-        });
+        while (asserts.list[endpoint].length) {
+          asserts.list[endpoint].shift()();
+        }
       });
     }
   });
@@ -28,7 +27,6 @@ given('monitor api requests', () => {
 given('fix auto cypress scroll', () => {
   beforeEach(() => {
     Cypress.on('scrolled', el => {
-      console.log(el.get(0));
       el.get(0).scrollIntoView({
         block: 'center',
         inline: 'center'

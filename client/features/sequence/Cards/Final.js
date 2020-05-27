@@ -59,16 +59,16 @@ export const FinalCard = ({ configuration, isCardVisible }: Props) => {
   return (
     <SequenceContentWrapperStyle>
       <SequenceInnerContentStyle>
-        <SequenceAltMainTitleStyle>
+        <SequenceAltMainTitleStyle data-cy-container="final-card-title">
           {configuration.title
             ? configuration.title
             : i18n.t('final_card.title')}
         </SequenceAltMainTitleStyle>
-        <SequenceFinalCardContentWrapperStyle>
+        <SequenceFinalCardContentWrapperStyle data-cy-container="final-card-share">
           {configuration.share && !isSharingDisabled && (
             <Sharing text={configuration.share} />
           )}
-          <SequenceMoreWrapperStyle>
+          <SequenceMoreWrapperStyle data-cy-container="final-card-learn-more">
             <SequenceIntroParagraphStyle>
               {configuration.learnMoreTitle
                 ? configuration.learnMoreTitle

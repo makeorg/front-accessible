@@ -92,6 +92,8 @@ lighthouse:
   artifacts:
     paths:
       - ./report-home.html
+      - ./report-sequence.html
+      - ./report-consultation.html
     expire_in: 1 week
 
 build:

@@ -133,7 +133,7 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
           as={isIntroCard && SequenceProposalCardCenteredStyle}
           id={`card-${index + card.offset}`}
           data-cy-card-type={card.type}
-          data-cy-card-number={index + card.offset}
+          data-cy-card-number={index}
         >
           {!isIntroCard && (
             <CardHeaderStyle
@@ -147,6 +147,7 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
                     dispatch(decrementSequenceIndex());
                     trackClickPreviousCard();
                   }}
+                  data-cy-button="previous-card"
                 >
                   <CardHeaderPreviousIconStyle aria-hidden>
                     <SvgArrowLeft />

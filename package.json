@@ -80,7 +80,8 @@
 		"codacy-coverage": "~3.4.0",
 		"core-js": "^3.3.3",
 		"cypress": "3.8.1",
-		"cypress-cucumber-preprocessor": "~1.11.0",
+		"cypress-cucumber-preprocessor": "~2.3.1",
+		"cypress-wait-until": "^1.7.1",
 		"deep-freeze": "~0.0.1",
 		"enzyme": "~3.7.0",
 		"enzyme-adapter-react-16": "~1.6.0",
@@ -158,8 +159,12 @@
 		"test:cypress": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 cypress:run",
 		"cypress:run": "cypress run -b chrome",
 		"cypress:open": "cypress open",
-		"lighthouse:run": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 test:lighthouse:home",
+		"lighthouse:run": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 test:lighthouse:all",
+		"test:lighthouse:all": "yarn test:lighthouse:home && yarn test:lighthouse:sequence && yarn test:lighthouse:consultation && yarn test:lighthouse:proposal",
 		"test:lighthouse:home": "lighthouse-ci http://localhost:9009 --accessibility=100 --report='.' --filename=report-home.html --chrome-flags='--headless --no-sandbox'",
+		"test:lighthouse:sequence": "lighthouse-ci http://localhost:9009/FR-fr/consultation/question-0-slug/selection --accessibility=100 --report='.' --filename=report-sequence.html --chrome-flags='--headless --no-sandbox'",
+		"test:lighthouse:consultation": "lighthouse-ci http://localhost:9009/FR-fr/consultation/question-0-slug/consultation --accessibility=100 --report='.' --filename=report-consultation.html --chrome-flags='--headless --no-sandbox'",
+		"test:lighthouse:proposal": "lighthouse-ci http://localhost:9009/FR-fr/consultation/question-0-slug/proposal/proposal-question-0-slug-0-id/proposal-question-0-slug-0-slug --accessibility=100 --report='.' --filename=report-proposal.html --chrome-flags='--headless --no-sandbox'",
 		"svg": "svgr -d ./client/ui/Svg/elements ./client/ui/Svg/svgr --template ./client/ui/Svg/svgrTemplate.js && cp -r ./client/ui/Svg/svgr/* ./client/ui/Svg/source",
 		"jscpd": "jscpd client server shared"
 	}
