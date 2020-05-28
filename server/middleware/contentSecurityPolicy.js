@@ -23,6 +23,7 @@ export const cspMiddleware = csp({
       'http://localhost:9000',
       'https://*.makeorg.tech',
       'https://*.make.org',
+      'https://*.placebymake.org',
       'https://*.facebook.com',
       'https://*.facebook.net',
     ],
