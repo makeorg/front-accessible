@@ -8,12 +8,13 @@ import {
   AppWrapperStyle,
   AppMainContentStyle,
 } from 'Client/app/Styled/MainElements';
-import { Notification } from './Notification';
+import { Browse } from 'Client/pages/Consultation/Browse';
+// import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { Modal } from './Modal';
-import { Routes } from './Routes';
+// import { Routes } from './Routes';
 import { SecureExpiration } from './Expiration/Secure';
 import { SessionExpiration } from './Expiration/Session';
 import { ErrorBoundary, ServiceErrorHandler } from './Error';
@@ -36,8 +37,9 @@ export const AppContainer = () => (
             <MainSkipLinks />
             <Header />
             <AppMainContentStyle id="main_content" data-cy-container="main">
-              <Notification />
-              <Routes />
+              {/* <Notification />
+              <Routes /> */}
+              <Browse />
             </AppMainContentStyle>
             <Modal />
             <Footer />
