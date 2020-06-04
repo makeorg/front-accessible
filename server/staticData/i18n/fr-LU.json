@@ -175,7 +175,7 @@
     "shrink_collapse": "{{name}} - Masquer le contenu de la section déroulante",
     "secondary_nav": "Navigation secondaire",
     "percent": "{{percent}}%",
-    "header_authentification_nav": "Accès à mon profil utilisateur",
+    "header_authentication_nav": "Accès à mon profil utilisateur",
     "footer_nav": "Navigation de bas de page",
     "sidebar_area": "Barre latérale de contenu",
     "cookie_area": "Bannière de notification sur l'utilisation des cookies",
@@ -273,7 +273,7 @@
   },
   "sign_up_card": {
     "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
-    "authentification-text": "Je m'identifie avec",
+    "authentication-text": "Je m'identifie avec",
     "next-cta": "Non merci, je ne souhaite pas être informé(e) des résultats"
   },
   "push_proposal_card": {
@@ -342,7 +342,7 @@
     "return": "Revenir aux propositions",
     "title": "Votez sur les propostions de la consultation : "
   },
-  "authentification": {
+  "authentication": {
     "title": "Inscrivez-vous pour valider votre proposition",
     "description": "avec",
     "commitment": "Make.org s‘engage à protéger vos ",

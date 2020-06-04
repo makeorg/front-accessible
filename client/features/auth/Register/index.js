@@ -14,11 +14,11 @@ import {
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import { FacebookAuthentificationLinkComponent } from 'Client/features/auth/Social/FacebookAuthentification/Link';
-import { GoogleAuthentificationLinkComponent } from 'Client/features/auth/Social/GoogleAuthentification/Link';
+import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
+import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { RegisterForm } from './Form';
-import { AuthentificationWrapperStyle } from '../style';
+import { AuthenticationWrapperStyle } from '../style';
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const Register = () => {
   };
 
   return (
-    <AuthentificationWrapperStyle aria-labelledby="register_title">
+    <AuthenticationWrapperStyle aria-labelledby="register_title">
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('register.title')}
       </SecondLevelTitleStyle>
@@ -36,11 +36,11 @@ export const Register = () => {
       <FourthLevelTitleStyle as="h3">
         {i18n.t('register.social_connect')}
         &nbsp;
-        <FacebookAuthentificationLinkComponent />
+        <FacebookAuthentication link />
         &nbsp;
         {i18n.t('register.or')}
         &nbsp;
-        <GoogleAuthentificationLinkComponent />
+        <GoogleAuthentication link />
       </FourthLevelTitleStyle>
       <SeparatorWrapperStyle>
         <LargeSeparatorStyle />
@@ -57,6 +57,6 @@ export const Register = () => {
           {i18n.t('register.login_link')}
         </RedLinkButtonStyle>
       </ExtraParagraphStyle>
-    </AuthentificationWrapperStyle>
+    </AuthenticationWrapperStyle>
   );
 };

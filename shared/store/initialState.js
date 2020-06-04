@@ -29,7 +29,7 @@ export const initialState: StateRoot = {
     contentType: undefined,
   },
   user: {
-    authentification: {
+    authentication: {
       errors: [],
       isLoggedIn: false,
       user: undefined,

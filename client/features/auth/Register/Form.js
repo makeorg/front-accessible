@@ -7,7 +7,7 @@ import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
 import { UserService } from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
-import { getUser } from 'Shared/store/actions/authentification';
+import { getUser } from 'Shared/store/actions/authentication';
 import { modalClose } from 'Shared/store/actions/modal';
 import {
   trackSignupEmailSuccess,
@@ -200,7 +200,7 @@ export const RegisterForm = () => {
       />
       <SubmitButton
         formName={REGISTER_FORMNAME}
-        id="authentification-register-submit"
+        id="authentication-register-submit"
         icon={SubmitThumbsUpIcon}
         label={i18n.t('common.register_label')}
         disabled={inProgress}

@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Kapja meg a konzultáció eredményeit, és értesüljön a közelgő intézkedésekről",
-    "authentification-text": "Az alábbival szeretném azonosítani magamat",
+    "authentication-text": "Az alábbival szeretném azonosítani magamat",
     "next-cta": "Köszönöm, de nem szeretnék értesülni az eredményekről"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Vissza a javaslatokhoz"
   },
-  "authentification": {
+  "authentication": {
     "title": "Regisztráljon, hogy érvényesíthesse a javaslatot",
     "description": "a",
     "commitment": "Make.org elkötelezetten védi az Ön ",

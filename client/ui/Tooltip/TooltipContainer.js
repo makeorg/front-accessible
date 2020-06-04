@@ -1,4 +1,6 @@
-import React from 'react';
+/* @flow */
+
+import React, { useState } from 'react';
 import {
   TopTooltipStyle,
   BottomTooltipStyle,
@@ -9,16 +11,11 @@ import { TooltipComponent } from './TooltipComponent';
 
 type Props = {
   /** Content of the button */
-  content: React.Component | string,
+  content: any,
   /** Content of the Tooltip */
-  children: React.Component | string,
+  children: Object | string,
   /** Styled Component Element */
   direction?: string,
-};
-
-type State = {
-  /** Boolean toggled when tooltip is shown / hidden */
-  displayTooltip: boolean,
 };
 
 const TooltipType = {
@@ -28,45 +25,33 @@ const TooltipType = {
   right: RightTooltipStyle,
 };
 
-export class TooltipContainer extends React.Component<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayTooltip: false,
-    };
-  }
+export const TooltipContainer = ({
+  content,
+  children,
+  direction = 'top',
+}: Props) => {
+  /** Boolean when tooltip is displayed */
+  const [displayTooltip, setDisplayTooltip] = useState<boolean>(false);
 
-  showTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
+  const showTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    this.setState({
-      displayTooltip: true,
-    });
+    setDisplayTooltip(true);
   };
 
-  hideTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
+  const hideTooltip = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    this.setState({
-      displayTooltip: false,
-    });
+    setDisplayTooltip(false);
   };
 
-  render() {
-    const { content, children, direction } = this.props;
-    const { displayTooltip } = this.state;
-    return (
-      <TooltipComponent
-        type={TooltipType[direction]}
-        content={content}
-        displayTooltip={displayTooltip}
-        showTooltip={this.showTooltip}
-        hideTooltip={this.hideTooltip}
-      >
-        {children}
-      </TooltipComponent>
-    );
-  }
-}
-
-TooltipContainer.defaultProps = {
-  direction: 'top',
+  return (
+    <TooltipComponent
+      type={TooltipType[direction]}
+      content={content}
+      displayTooltip={displayTooltip}
+      showTooltip={showTooltip}
+      hideTooltip={hideTooltip}
+    >
+      {children}
+    </TooltipComponent>
+  );
 };

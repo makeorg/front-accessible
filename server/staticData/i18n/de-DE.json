@@ -60,7 +60,7 @@
   },
   "sign_up_card": {
     "title": "Lassen Sie sich die Ergebnisse der Umfrage zukommen und bleiben Sie auf dem Laufenden über zukünftige Maßnahmen",
-    "authentification-text": "Ich identifiziere mich mit",
+    "authentication-text": "Ich identifiziere mich mit",
     "next-cta": "Nein, ich möchte nicht über die Ergebnisse informiert werden"
   },
   "push_proposal_card": {
@@ -113,7 +113,7 @@
   "sequence": {
     "return": "Zurück zu den Vorschlägen"
   },
-  "authentification": {
+  "authentication": {
     "title": "Melden Sie sich an, um Ihren Vorschlag zu validieren",
     "description": "mit",
     "commitment": "Make.org garantiert den Schutz Ihrer ",

@@ -1,10 +1,10 @@
 /* @flow */
 import * as actionTypes from 'Shared/store/actionTypes';
 import { initialState } from 'Shared/store/initialState';
-import { type StateAuthentification } from 'Shared/store/types';
+import { type StateAuthentication } from 'Shared/store/types';
 
-export function authentification(
-  state: StateAuthentification = initialState.user.authentification,
+export function authentication(
+  state: StateAuthentication = initialState.user.authentication,
   action: Object
 ) {
   switch (action.type) {

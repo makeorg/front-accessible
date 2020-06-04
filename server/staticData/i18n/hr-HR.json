@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Primite rezultate rasprave i primite obavijest o narednim akcijama",
-    "authentification-text": "Prijavljujem se uporabom",
+    "authentication-text": "Prijavljujem se uporabom",
     "next-cta": "Ne, zahvaljujem vam, ali ne želim dobiti obavijest o rezultatima"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Povratak na prijedloge"
   },
-  "authentification": {
+  "authentication": {
     "title": "Prijavite se kako biste potvrdili vlastiti prijedlog",
     "description": "uporabom",
     "commitment": "Make. org obvezuje se štititi vaše ",

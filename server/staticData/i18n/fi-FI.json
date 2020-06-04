@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Vastaanota tietoa selvityksen tuloksista ja jatkotoimenpiteistä",
-    "authentification-text": "Kirjaudu tunnuksilla:",
+    "authentication-text": "Kirjaudu tunnuksilla:",
     "next-cta": "Ei kiitos, en halua tietoa tuloksista"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Takaisin ehdotuksiin"
   },
-  "authentification": {
+  "authentication": {
     "title": "Rekisteröidy, jotta ehdotuksesi voidaan vahvistaa",
     "description": "tunnuksilla",
     "commitment": "Make.org on sitoutunut suojaamaan ",

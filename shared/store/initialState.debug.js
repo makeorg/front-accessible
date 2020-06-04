@@ -6,7 +6,7 @@ export const initialStateDebug = {
     translations: require('../../server/staticData/i18n/fr-FR.json'),
   },
   user: {
-    authentification: {
+    authentication: {
       errors: [],
       isLoggedIn: false,
       user: undefined,

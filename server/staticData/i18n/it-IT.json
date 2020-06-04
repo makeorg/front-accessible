@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Ricevi i risultati della consultazione e gli aggiornamenti sulle azioni future",
-    "authentification-text": "Accedi con",
+    "authentication-text": "Accedi con",
     "next-cta": "No grazie, non desidero ricevere informazioni sui risultati"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Torna alle proposte"
   },
-  "authentification": {
+  "authentication": {
     "title": "Iscriviti per confermare la tua proposta",
     "description": "con",
     "commitment": "Make.org s’impegna a proteggere i tuoi ",

@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { AuthentificationSocial } from 'Client/features/auth/Social';
+import { AuthenticationSocial } from 'Client/features/auth/Social';
 import {
   modalShowRegister,
   modalShowForgotPassword,
@@ -20,10 +20,7 @@ import {
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { LoginForm } from './Form';
-import {
-  AuthentificationWrapperStyle,
-  AuthentificationTitleStyle,
-} from '../style';
+import { AuthenticationWrapperStyle, AuthenticationTitleStyle } from '../style';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -37,15 +34,15 @@ export const Login = () => {
   };
 
   return (
-    <AuthentificationWrapperStyle aria-labelledby="login_title">
-      <AuthentificationTitleStyle id="login_title">
+    <AuthenticationWrapperStyle aria-labelledby="login_title">
+      <AuthenticationTitleStyle id="login_title">
         {i18n.t('login.title')}
-      </AuthentificationTitleStyle>
+      </AuthenticationTitleStyle>
       <SmallSeparatorWithMarginStyle />
       <FourthLevelTitleStyle as="h3">
         {i18n.t('login.social_connect')}
       </FourthLevelTitleStyle>
-      <AuthentificationSocial />
+      <AuthenticationSocial />
       <SeparatorWrapperStyle>
         <LargeSeparatorStyle />
         <TextSeparatorStyle>{i18n.t('login.or')}</TextSeparatorStyle>
@@ -67,6 +64,6 @@ export const Login = () => {
           {i18n.t('login.registration_link')}
         </RedLinkButtonStyle>
       </ExtraAltParagraphStyle>
-    </AuthentificationWrapperStyle>
+    </AuthenticationWrapperStyle>
   );
 };

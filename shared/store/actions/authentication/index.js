@@ -8,8 +8,8 @@ import { modalClose } from 'Shared/store/actions/modal';
 import {
   trackLoginEmailSuccess,
   trackLoginEmailFailure,
-  trackAuthentificationSocialSuccess,
-  trackAuthentificationSocialFailure,
+  trackAuthenticationSocialSuccess,
+  trackAuthenticationSocialFailure,
 } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
 import { Logger } from 'Shared/services/Logger';
@@ -117,7 +117,7 @@ export const loginSocial = (provider: string, socialToken: string) => (
   dispatch(loginSocialRequest(provider));
   if (!socialToken) {
     dispatch(loginSocialFailure());
-    trackAuthentificationSocialFailure(provider);
+    trackAuthenticationSocialFailure(provider);
     Logger.logInfo(`No token from ${provider} callBack auth`);
 
     return Promise.resolve();
@@ -130,13 +130,13 @@ export const loginSocial = (provider: string, socialToken: string) => (
   };
   const failure = () => {
     dispatch(loginSocialFailure());
-    trackAuthentificationSocialFailure(provider);
+    trackAuthenticationSocialFailure(provider);
   };
 
   return UserService.loginSocial(provider, socialToken, success, failure).then(
     auth => {
       if (auth) {
-        trackAuthentificationSocialSuccess(
+        trackAuthenticationSocialSuccess(
           provider,
           auth.account_creation.toString()
         );

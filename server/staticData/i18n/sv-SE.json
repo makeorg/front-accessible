@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Få resultaten av samrådet och få information om kommande kampanjer",
-    "authentification-text": "Jag identifierar mig med",
+    "authentication-text": "Jag identifierar mig med",
     "next-cta": "Nej tack, jag vill inte få information om resultaten"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Gå tillbaka till förslagen"
   },
-  "authentification": {
+  "authentication": {
     "title": "Registrera dig för att bekräfta ditt förslag",
     "description": "med",
     "commitment": "Make.org förbinder sig att skydda dina ",

@@ -9,7 +9,7 @@ import { UpdateNewsletter } from 'Client/features/profile/UpdateNewsletter';
 import { DeleteAccount } from 'Client/features/profile/DeleteAccount';
 import { MetaTags } from 'Client/app/MetaTags';
 import { UserInformations } from 'Client/features/profile/UserInformations';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { GoToProfileLink } from 'Client/features/profile/UserInformations/Navigation';
 import { ROUTE_PROFILE_EDIT, getRouteProfile } from 'Shared/routes';
@@ -30,7 +30,7 @@ type Props = {
 
 const ProfileEditPage = ({ match }: Props) => {
   const { user } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
   const { country, language } = match.params;
   const editProfileLink = generatePath(ROUTE_PROFILE_EDIT, {

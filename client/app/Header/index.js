@@ -9,7 +9,7 @@ import { useDesktop } from 'Client/hooks/useMedia';
 import { SearchInput } from 'Client/features/search/Form';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
-import { HeaderAuthentification } from './Authentification';
+import { HeaderAuthentication } from './Authentication';
 import {
   HeaderStyle,
   HeaderInnerStyle,
@@ -52,7 +52,7 @@ export const Header = () => {
               {i18n.t('header.whoarewe')}
             </WhoAreWeLinkStyle>
           )}
-          <HeaderAuthentification />
+          <HeaderAuthentication />
         </HeaderFlexRightStyle>
       </HeaderInnerStyle>
     </HeaderStyle>

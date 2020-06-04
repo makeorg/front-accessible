@@ -149,9 +149,9 @@ export const trackClickModerationLink = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_MODERATION_LINK);
 };
 
-export const trackDisplayAuthentificationForm = () => {
+export const trackDisplayAuthenticationForm = () => {
   TrackingService.sendAllTrackers(
-    trackingConstants.DISPLAY_AUTHENTIFICATION_FORM
+    trackingConstants.DISPLAY_AUTHENTICATION_FORM
   );
 };
 
@@ -200,7 +200,7 @@ export const trackDisplaySigninForm = () => {
   TrackingService.sendAllTrackers(trackingConstants.DISPLAY_SIGN_IN_FORM);
 };
 
-export const trackAuthentificationSocialSuccess = (
+export const trackAuthenticationSocialSuccess = (
   socialNetwork: string,
   accountCreation: string
 ) => {
@@ -210,7 +210,7 @@ export const trackAuthentificationSocialSuccess = (
   });
 };
 
-export const trackAuthentificationSocialFailure = (socialNetwork: string) => {
+export const trackAuthenticationSocialFailure = (socialNetwork: string) => {
   TrackingService.sendAllTrackers(trackingConstants.AUTHEN_SOCIAL_FAILURE, {
     'social-network': socialNetwork,
   });

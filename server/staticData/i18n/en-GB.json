@@ -144,7 +144,7 @@
         "shrink_collapse": "{{name}} - Hide the content of the collapse section",
         "secondary_nav": "Secondary navigation",
         "percent": "{{percent}}%",
-        "header_authentification_nav": "Go to my user profile",
+        "header_authentication_nav": "Go to my user profile",
         "notifications": {
             "bad_link": "This link is not valid anymore.",
             "activate_account_success": "Congrats, your account has been validated. Start browsing solutions or submit yours.",
@@ -253,7 +253,7 @@
     },
     "sign_up_card": {
         "title": "Send me the results and let me know about upcoming actions on this consultation by email.",
-        "authentification-text": "Sign in with",
+        "authentication-text": "Sign in with",
         "next-cta": "No thanks, I'm not interested."
     },
     "push_proposal_card": {
@@ -322,7 +322,7 @@
         "return": "Vote for solutions",
         "title": "Vote for the solutions of the consultation: "
     },
-    "authentification": {
+    "authentication": {
         "title": "Sign up to submit your solution",
         "description": "with",
         "commitment": "Make.org is committed to protecting your ",

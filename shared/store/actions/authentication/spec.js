@@ -14,7 +14,7 @@ const mockStore = configureMockStore(middlewares);
 const store = mockStore();
 const wait = () => new Promise(resolve => setTimeout(resolve, 10));
 
-describe('Authentification Actions', () => {
+describe('Authentication Actions', () => {
   beforeEach(() => {
     store.clearActions();
   });
@@ -54,7 +54,7 @@ describe('Authentification Actions', () => {
       const newStore = mockStore({
         proposal: { canSubmit: false },
         modal: { isModalClose: false },
-        authentification: { isLoggedIn: false },
+        authentication: { isLoggedIn: false },
       });
 
       // mocks
@@ -142,7 +142,7 @@ describe('Authentification Actions', () => {
     it('creates an action to login social when success', () => {
       const loginStore = mockStore({
         proposal: { canSubmit: false },
-        authentification: { isLoggedIn: false },
+        authentication: { isLoggedIn: false },
         notification: { level: undefined, contentType: undefined },
         modal: { isOpen: true },
       });
@@ -161,7 +161,7 @@ describe('Authentification Actions', () => {
       UserApiService.loginSocial.mockResolvedValue({ data: successAuth });
 
       // spy
-      jest.spyOn(Tracking, 'trackAuthentificationSocialSuccess');
+      jest.spyOn(Tracking, 'trackAuthenticationSocialSuccess');
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
@@ -176,7 +176,7 @@ describe('Authentification Actions', () => {
         .then(() => {
           wait().then(() => {
             expect(
-              Tracking.trackAuthentificationSocialSuccess
+              Tracking.trackAuthenticationSocialSuccess
             ).toHaveBeenCalledWith(provider, successAuth.account_creation);
             expect(loginStore.getActions()).toEqual(expectedActions);
           });
@@ -196,7 +196,7 @@ describe('Authentification Actions', () => {
       UserApiService.loginSocial.mockRejectedValue();
 
       // spy
-      jest.spyOn(Tracking, 'trackAuthentificationSocialFailure');
+      jest.spyOn(Tracking, 'trackAuthenticationSocialFailure');
 
       const expectedActions = [
         { type: actionTypes.LOGIN_SOCIAL_REQUEST, provider },
@@ -206,9 +206,7 @@ describe('Authentification Actions', () => {
       return newStore
         .dispatch(actions.loginSocial(provider, socialToken))
         .then(() => {
-          expect(
-            Tracking.trackAuthentificationSocialFailure
-          ).toHaveBeenCalled();
+          expect(Tracking.trackAuthenticationSocialFailure).toHaveBeenCalled();
           expect(newStore.getActions()).toEqual(expectedActions);
         });
     });
@@ -229,7 +227,7 @@ describe('Authentification Actions', () => {
 
     it('creates an action to logout a user', () => {
       const newStore = mockStore({
-        user: { authentification: {} },
+        user: { authentication: {} },
       });
 
       const expectedActions = [
@@ -246,7 +244,7 @@ describe('Authentification Actions', () => {
 
     it('creates an action to logout a user after account deletion', () => {
       const newStore = mockStore({
-        user: { authentification: {} },
+        user: { authentication: {} },
       });
 
       const expectedActions = [

@@ -19,7 +19,7 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { FEED_PROPOSAL } from 'Shared/constants/card';
 import { COMPONENT_PARAM_PROPOSALS } from 'Shared/constants/tracking';
 import { Logger } from 'Shared/services/Logger';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { LoadMoreWrapperStyle } from '../Styled/Proposal';
 import { InfiniteProposalsContainerStyle } from './style';
 import { ProposalType } from './type';
@@ -40,7 +40,7 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
   const [page, setPage] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { user } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
   const proposalsLength = proposalCards.length;
   const displayLoadMoreButton = hasMore && !isLoading && !pendingForMore;

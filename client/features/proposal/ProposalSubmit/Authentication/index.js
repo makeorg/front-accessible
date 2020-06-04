@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import {
-  trackDisplayAuthentificationForm,
+  trackDisplayAuthenticationForm,
   trackClickPersonnalDataLink,
 } from 'Shared/services/Tracking';
 import { type StateRoot } from 'Shared/store/types';
@@ -19,20 +19,20 @@ import {
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { FacebookAuthentificationButtonComponent } from 'Client/features/auth/Social/FacebookAuthentification/Button';
-import { GoogleAuthentificationButtonComponent } from 'Client/features/auth/Social/GoogleAuthentification/Button';
+import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
+import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
 import { SvgEnvelope } from 'Client/ui/Svg/elements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import {
-  ProposalSubmitAuthentificationWrapperStyle,
+  ProposalSubmitAuthenticationWrapperStyle,
   ProposalSubmitSeparatorStyle,
 } from '../Styled';
 
 /**
- * Renders authentification component after proposal submit button is clicked
+ * Renders authentication component after proposal submit button is clicked
  */
-export const ProposalSubmitAuthentificationComponent = () => {
+export const ProposalSubmitAuthentication = () => {
   const authetificationRef = useRef(null);
   const dispatch = useDispatch();
   const { country, language } = useSelector(
@@ -40,7 +40,7 @@ export const ProposalSubmitAuthentificationComponent = () => {
   );
 
   useEffect(() => {
-    trackDisplayAuthentificationForm();
+    trackDisplayAuthenticationForm();
   }, []);
 
   useEffect(() => {
@@ -50,23 +50,23 @@ export const ProposalSubmitAuthentificationComponent = () => {
   }, [authetificationRef.current]);
 
   return (
-    <ProposalSubmitAuthentificationWrapperStyle
-      id="proposal-submit-authentification"
+    <ProposalSubmitAuthenticationWrapperStyle
+      id="proposal-submit-authentication"
       ref={authetificationRef}
       tabIndex={0}
     >
       <ThirdLevelTitleStyle>
-        {i18n.t('authentification.title')}
+        {i18n.t('authentication.title')}
       </ThirdLevelTitleStyle>
       <FourthLevelTitleStyle>
-        {i18n.t('authentification.description')}
+        {i18n.t('authentication.description')}
       </FourthLevelTitleStyle>
       <ButtonSmallWrapperStyle>
-        <FacebookAuthentificationButtonComponent />
-        <GoogleAuthentificationButtonComponent />
+        <FacebookAuthentication />
+        <GoogleAuthentication />
         <EmailButtonStyle
           onClick={() => dispatch(modalShowRegister())}
-          id="authentification-register-button"
+          id="authentication-register-button"
         >
           <IconWrapperStyle>
             <SvgEnvelope />
@@ -75,13 +75,13 @@ export const ProposalSubmitAuthentificationComponent = () => {
         </EmailButtonStyle>
       </ButtonSmallWrapperStyle>
       <CenterParagraphStyle>
-        {i18n.t('authentification.commitment')}
+        {i18n.t('authentication.commitment')}
         <a
           href={getDataPageLink(country, language)}
           rel="noopener noreferrer"
           onClick={() => trackClickPersonnalDataLink()}
         >
-          {i18n.t('authentification.personal_data')}
+          {i18n.t('authentication.personal_data')}
         </a>
       </CenterParagraphStyle>
       <ProposalSubmitSeparatorStyle />
@@ -89,11 +89,11 @@ export const ProposalSubmitAuthentificationComponent = () => {
       <ButtonsWrapperStyle>
         <RedButtonStyle
           onClick={() => dispatch(modalShowLogin())}
-          id="authentification-login-button"
+          id="authentication-login-button"
         >
           {i18n.t('login.button_connect')}
         </RedButtonStyle>
       </ButtonsWrapperStyle>
-    </ProposalSubmitAuthentificationWrapperStyle>
+    </ProposalSubmitAuthenticationWrapperStyle>
   );
 };

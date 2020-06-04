@@ -1,7 +1,5 @@
 // @flow
-import React from 'react';
 import { i18n } from 'Shared/i18n';
 
-export const UnexpectedErrorMessage = () => (
-  <>{i18n.t('common.notifications.unexpected_error')}</>
-);
+export const UnexpectedErrorMessage = () =>
+  i18n.t('common.notifications.unexpected_error');

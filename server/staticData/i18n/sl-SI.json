@@ -58,7 +58,7 @@
   },
   "sign_up_card": {
     "title": "Zavzemite stališče o posvetovanju in bodite obveščeni o prihodnjih ukrepih",
-    "authentification-text": "Sem se poistovetil/a z",
+    "authentication-text": "Sem se poistovetil/a z",
     "next-cta": "Ne, hvala, ne želim biti obveščen(a) o rezultatih"
   },
   "push_proposal_card": {
@@ -111,7 +111,7 @@
   "sequence": {
     "return": "Nazaj na predloge"
   },
-  "authentification": {
+  "authentication": {
     "title": "Registrirajte se, da potrdite svoj predlog",
     "description": "z",
     "commitment": "Make.org se zavzema za zaščito ",

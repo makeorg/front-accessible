@@ -14,7 +14,7 @@ import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
-import { getUser } from 'Shared/store/actions/authentification';
+import { getUser } from 'Shared/store/actions/authentication';
 import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';
 import { PersonalityService } from 'Shared/services/Personality';

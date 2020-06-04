@@ -15,7 +15,7 @@ import { PlanTileContent } from 'Client/features/consultation/Actions/Tiles/Side
 import { RegisterTileContent } from 'Client/features/consultation/Actions/Tiles/Register';
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { SupportContent } from 'Client/features/consultation/Actions/Support';
-import { selectAuthentification } from 'Shared/store/selectors/user.selector';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 
 type Props = {
   question: QuestionType,
@@ -24,7 +24,7 @@ type Props = {
 export const ActionsContent = ({ question }: Props) => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state: StateRoot) =>
-    selectAuthentification(state)
+    selectAuthentication(state)
   );
 
   return (

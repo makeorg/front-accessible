@@ -24,7 +24,7 @@ import {
 } from 'Shared/constants/icons';
 import { throttle } from 'Shared/helpers/throttle';
 import { getFieldError } from 'Shared/helpers/form';
-import { loginSuccess, getUser } from 'Shared/store/actions/authentification';
+import { loginSuccess, getUser } from 'Shared/store/actions/authentication';
 import { modalClose } from 'Shared/store/actions/modal';
 
 type TypeLoginValues = {
@@ -114,7 +114,7 @@ export const LoginForm = () => {
       <SubmitButton
         formName={LOGIN_FORMNAME}
         icon={SubmitThumbsUpIcon}
-        id="authentification-login-submit"
+        id="authentication-login-submit"
         label={i18n.t('common.connexion_label')}
       />
     </FormStyle>

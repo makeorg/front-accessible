@@ -23,7 +23,7 @@ type Props = {
 /**
  * Renders submit button in proposal's field
  */
-export const ProposalSubmitButtonComponent = (props: Props) => {
+export const ProposalSubmitButton = (props: Props) => {
   const { handleOnSubmit, canSubmit, isOpen } = props;
   const isDesktop = useDesktop();
 

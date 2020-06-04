@@ -1,10 +1,10 @@
 import { type StateRoot } from '../types';
 /**
- * authentification selector
+ * authentication selector
  * @param {*} state
  */
-export const selectAuthentification = (state: StateRoot) =>
-  state.user.authentification;
+export const selectAuthentication = (state: StateRoot) =>
+  state.user.authentication;
 
 /**
  * registration selector
