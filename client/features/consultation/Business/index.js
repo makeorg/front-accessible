@@ -12,7 +12,7 @@ import {
   SvgAngleArrowBottom,
   SvgAngleArrowTop,
 } from 'Client/ui/Svg/elements';
-import { HomepagePaddingContentStyle } from 'Client/pages/Home/Styled';
+import { HomepagePaddingContentStyle } from 'Client/pages/DeprecatedHome/Styled';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {

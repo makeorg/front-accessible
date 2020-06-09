@@ -32,7 +32,6 @@ const isInitialized = (): boolean => {
 export const TwitterTracking = {
   track(action: string): void {
     if (twitterEventMapping[action] === undefined) {
-      Logger.logInfo(`twitter action not found: ${action}`);
       return;
     }
 

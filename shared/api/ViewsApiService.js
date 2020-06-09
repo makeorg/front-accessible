@@ -1,15 +1,28 @@
 // @flow
 import { ApiService } from './ApiService';
 
-export const HOMEPAGE_PATH = '/views/home';
-export const SEARCH_VIEWS_PATH =
+const HOMEPAGE_PATH_DEPRECATED = '/views/home';
+const HOMEPAGE_PATH = '/views/home-page/:country/:language';
+const SEARCH_VIEWS_PATH =
   '/views/search?content=:content&proposalLimit=:proposalLimit&questionLimit=:questionLimit&organisationLimit=:organisationLimit&country=:country&language=:language';
 
 export class ViewsApiService {
-  static getHome = async (): Promise<Object> => {
-    return ApiService.callApi(HOMEPAGE_PATH, {
+  static getDeprecatedHome = async (): Promise<Object> => {
+    return ApiService.callApi(HOMEPAGE_PATH_DEPRECATED, {
       method: 'GET',
     });
+  };
+
+  static getHome = async (
+    country: string,
+    language: string
+  ): Promise<Object> => {
+    return ApiService.callApi(
+      HOMEPAGE_PATH.replace(':country', country).replace(':language', language),
+      {
+        method: 'GET',
+      }
+    );
   };
 
   static searchViews = async (

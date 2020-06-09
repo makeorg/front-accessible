@@ -38,6 +38,7 @@ import {
   ROUTE_STATIC_DATA_EN,
   ROUTE_STATIC_CONTACT_EN,
   ROUTE_SOON,
+  ROUTE_BETA_HOME, // @todo beta
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -63,7 +64,8 @@ const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
 );
 const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
-const HomePage = loadable(() => import('Client/pages/Home'));
+const HomePage = loadable(() => import('Client/pages/DeprecatedHome'));
+const HomeBeta = loadable(() => import('Client/pages/Home'));
 const ProposalPage = loadable(() => import('Client/pages/Proposal'));
 const AccountActivationPage = loadable(() =>
   import('Client/pages/AccountActivation')
@@ -142,6 +144,10 @@ export const Routes = () => {
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
       {country === 'FR' && <Route exact path="/" component={HomePage} />}
+      {/* @todo beta */}
+      {country === 'FR' && (
+        <Route exact path={ROUTE_BETA_HOME} component={HomeBeta} />
+      )}
       {country !== 'FR' && <Redirect exact path="/" to={ROUTE_SOON} />}
 
       <Route component={NotFoundPage} />

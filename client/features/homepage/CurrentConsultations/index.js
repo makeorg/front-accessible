@@ -16,7 +16,7 @@ import {
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { useSlider } from 'Client/hooks/useSlider';
 import { trackClickHomepageSliderArrows } from 'Shared/services/Tracking';
-import { HomeTitleStyle } from 'Client/pages/Home/Styled';
+import { HomeTitleStyle } from 'Client/pages/DeprecatedHome/Styled';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import {
   CurrentConsultationContainerStyle,

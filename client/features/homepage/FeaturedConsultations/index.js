@@ -9,7 +9,7 @@ import { useTablet } from 'Client/hooks/useMedia';
 import {
   HomepageInnerContentStyle,
   HomeTitleStyle,
-} from 'Client/pages/Home/Styled';
+} from 'Client/pages/DeprecatedHome/Styled';
 import { DesktopOneColumn } from './Layouts/DesktopOneColumn';
 import { DesktopTwoColumns } from './Layouts/DesktopTwoColumns';
 import { FeaturedMobile } from './Layouts/Mobile';

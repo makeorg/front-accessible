@@ -4,7 +4,7 @@ const questionsRouter = require('./routes/questions');
 const userRouter = require('./routes/user');
 const tagsRouter = require('./routes/tags');
 const organisationsRouter = require('./routes/organisations');
-const { fixtures } = require('./fixtures/generator');
+const viewsRouter = require('./routes/views');
 
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults({ logger: false });
@@ -16,6 +16,7 @@ server.use('/user', userRouter);
 server.use('/proposals', proposalsRouter);
 server.use('/tags', tagsRouter);
 server.use('/organisations', organisationsRouter);
+server.use('/views', viewsRouter);
 server.use('/tracking/front', (req, res) => {
   res.sendStatus(204);
 });
@@ -25,9 +26,6 @@ server.use(
     '/:resource': '/:resource/data',
   })
 );
-server.use('/views', (req, res) => {
-  return res.send(fixtures.homeView);
-});
 
 server.listen(9000, () => {
   console.log('JSON Server is running');
