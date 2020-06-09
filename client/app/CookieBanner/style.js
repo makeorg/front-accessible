@@ -13,6 +13,7 @@ import {
   ColumnToRowElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { SvgInfos } from 'Client/ui/Svg/elements';
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
@@ -37,10 +38,18 @@ export const CookieContentInnerStyle = styled(ColumnToRowElementStyle)`
   }
 `;
 
+export const CookieIconStyle = styled(SvgInfos)`
+  min-width: 20px;
+  margin-top: 4px;
+  margin-right: 10px;
+`;
+
 export const CookieParagraphStyle = styled(ParagraphStyle)`
   color: ${BasicColors.PureWhite};
   flex: 1 1 auto;
-  a {
+  a,
+  a:hover,
+  a:focus {
     font-family: ${MakeFonts.CircularStandardBold};
     color: ${BasicColors.PureWhite};
   }

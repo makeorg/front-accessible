@@ -3,14 +3,14 @@ Feature: Intro card on sequence
   Background:
     Given monitor api requests
   Scenario: display intro card
-    Given I am on "sequence page" of the question "question-0-slug"
+    Given I am on "sequence" page of the question "question-0-slug"
     Then I see "Des milliers de citoyens proposent des solutions." in "intro-card-title" container
     And I see "Prenez position sur ces solutions & proposez les vôtres." in "intro-card-text-0" container
     And I see "Les meilleures détermineront nos actions." in "intro-card-text-1" container
 
   Scenario: Track start sequence after click on intro card button
     Given I monitor API "postTracking" requests
-    And I am on "sequence page" of the question "question-0-slug"
+    And I am on "sequence" page of the question "question-0-slug"
     When I click on "intro card start button" of the current card
     Then event "click-start-sequence" should be tracked by Make with parameters values:
       | name                | value                                                               |
@@ -28,12 +28,12 @@ Feature: Intro card on sequence
     And progress gauge is "1" on "15"
 
   Scenario: Disable intro card from query
-    Given I am on "sequence page" of the question "question-0-slug" with intro card disabled
+    Given I am on "sequence" page of the question "question-0-slug" with intro card disabled
     Then card "0" is visible
     And card "0" is a proposal card
 
   Scenario: Track vote with intro card disabled
-    Given I am on "sequence page" of the question "question-0-slug" with intro card disabled
+    Given I am on "sequence" page of the question "question-0-slug" with intro card disabled
     And I monitor API "postVote" requests
     And I monitor API "postTracking" requests
     When I vote "agree" on the first proposal of sequence

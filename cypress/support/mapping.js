@@ -9,6 +9,7 @@ const sequenceButtons = {
   "skip sign up": 'skip-sign-up',
   "previous card": 'previous-card',
   "proposal submit": "proposal-submit",
+  "cookie accept": "cookie-accept"
 }
 
 const buttonIdentifiers = {
