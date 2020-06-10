@@ -30,6 +30,7 @@ import {
   ROUTE_STATIC_DATA_EN,
   ROUTE_STATIC_CONTACT_EN,
   ROUTE_STATIC_LEGAL_EN,
+  ROUTE_BETA_HOME, // @todo beta
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -118,6 +119,7 @@ export const initRoutes = app => {
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
+  app.get(ROUTE_BETA_HOME, frontMiddlewares, defaultRoute); // @todo beta
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_RESULTS, frontMiddlewares, consultationRoute);

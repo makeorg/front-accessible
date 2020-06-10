@@ -111,24 +111,49 @@ const partners = generatePartners(5);
 const popularTags = generatePopularTags(4);
 const tags = generateTags(4);
 
-const generateHomeView = () => ({
-  ...defaultHomeView.home,
+const generateDeprecatedHomeView = () => ({
+  ...defaultHomeView.deprecatedHome,
   popularProposals: proposals.slice(0, 2),
   controverseProposals: proposals.slice(3, 5),
-  featuredConsultations: defaultHomeView.home.featuredConsultations.map(
+  featuredConsultations: defaultHomeView.deprecatedHome.featuredConsultations.map(
     featured => ({
       ...featured,
       questionId: questions[0].questionId,
       questionSlug: questions[0].slug,
     })
   ),
-  currentConsultations: defaultHomeView.home.currentConsultations.map(
+  currentConsultations: defaultHomeView.deprecatedHome.currentConsultations.map(
     current => ({
       ...current,
       questionId: questions[1].questionId,
       questionSlug: questions[1].slug,
     })
   ),
+});
+const deprecatedHomeView = generateDeprecatedHomeView();
+
+const generateHomeView = () => ({
+  ...defaultHomeView.home,
+  currentQuestions: range(0, 4).map(number => ({
+    ...defaultHomeView.home.currentQuestions[0],
+    questionId: questions[number].questionId,
+    questionSlug: questions[number].slug,
+    question: questions[number].question,
+    shortTitle: questions[number].shortTitle,
+    consultationImage: questions[number].wording.metas.picture,
+    participantsCount: `${12 + number}`,
+    proposalsCount: `${12 + number}`,
+  })),
+  featuredQuestions: range(5, 8).map(number => ({
+    ...defaultHomeView.home.currentQuestions[0],
+    questionId: questions[number].questionId,
+    questionSlug: questions[number].slug,
+    question: questions[number].question,
+    shortTitle: questions[number].shortTitle,
+    consultationImage: questions[number].wording.metas.picture,
+    participantsCount: `${12 + number}`,
+    proposalsCount: `${12 + number}`,
+  })),
 });
 const homeView = generateHomeView();
 
@@ -169,6 +194,7 @@ const fixtures = {
   popularTags,
   tags,
   vote: defaultVote,
+  deprecatedHomeView,
   homeView,
   organisations,
   qualifications: {

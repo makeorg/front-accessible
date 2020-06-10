@@ -3,7 +3,7 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { PlayfairParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { HomeTitleStyle } from 'Client/pages/Home/Styled';
+import { HomeTitleStyle } from 'Client/pages/DeprecatedHome/Styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const ProposalsContentStyle = styled.section`

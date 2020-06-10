@@ -1,66 +1,1124 @@
 {
   "home": {
-    "popularProposals":[
+    "highlights": {
+      "participantsCount": 10,
+      "proposalsCount": 20,
+      "partnersCount": 30
+    },
+    "currentQuestions": [{
+      "questionId": "78cf8534-5a3e-41b5-b3d6-64061dd05b3a",
+      "questionSlug": "bretagne-qualite-vie",
+      "question": "Comment améliorer la qualité de vie en Bretagne ?",
+      "shortTitle": "Qualité de vie",
+      "operationTitle": "Comment améliorer la qualité de vie en Bretagne ?",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-12T22:00:00Z",
+      "endDate": "2020-07-10T22:00:00Z",
+      "theme": {
+        "gradientStart": "#b3b5c5",
+        "gradientEnd": "#b3b5c5",
+        "color": "#b3b5c5",
+        "fontColor": "#ff0000",
+        "secondaryColor": "#469a7f",
+        "secondaryFontColor": "#ffffff"
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": false,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "7b23ef97-d52a-4cca-98aa-d4be75056ccf",
+      "questionSlug": "bretagne-ecologique-durable",
+      "question": "Comment mieux protéger l’environnement en Bretagne ?",
+      "shortTitle": "Environnement",
+      "operationTitle": "Comment faire de la Bretagne une région plus écologique et durable ?",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-12T22:00:00Z",
+      "endDate": "2020-07-31T22:00:00Z",
+      "theme": {
+        "gradientStart": "#21816e",
+        "gradientEnd": "#21816e",
+        "color": "#21816e",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": false,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "f400bc32-d898-494c-a4fb-2099ee8ad55c",
+      "questionSlug": "bretagne-dynamisme-economique",
+      "question": "Comment développer l’emploi en Bretagne ?",
+      "shortTitle": null,
+      "operationTitle": "Comment favoriser le dynamisme économique en Bretagne ?",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-12T22:00:00Z",
+      "endDate": "2020-07-31T22:00:00Z",
+      "theme": {
+        "gradientStart": "#a7104f",
+        "gradientEnd": "#a7104f",
+        "color": "#a7104f",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": false,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "fabfeda2-ebb0-4307-9ba8-8b82598eeecc",
+      "questionSlug": "bretagne-vivre-ensemble",
+      "question": "Comment rendre la Bretagne plus solidaire (lien social, intergénérationnel, égalité territoriale) ?",
+      "shortTitle": null,
+      "operationTitle": "Comment mieux vivre ensemble en Bretagne ?",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-12T22:00:00Z",
+      "endDate": "2020-07-31T22:00:00Z",
+      "theme": {
+        "gradientStart": "#0055aa",
+        "gradientEnd": "#0055aa",
+        "color": "#0055aa",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": false,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "66a9230b-08cb-4f37-8ed8-aa95a8eac19a",
+      "questionSlug": "environnement",
+      "question": "Comment agir ensemble dès maintenant pour l'environnement ?",
+      "shortTitle": null,
+      "operationTitle": "Agir ensemble pour l'environnement",
+      "consultationImage": "https://assets.preprod.makeorg.tech/assets/content/operations/environnement/b06f1826-d885-4b5f-801b-d07c945a8ccc.svg",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-16T22:00:00Z",
+      "endDate": "2020-08-31T08:00:00Z",
+      "theme": {
+        "gradientStart": "#a4d693",
+        "gradientEnd": "#007d83",
+        "color": "#007d83",
+        "fontColor": "#e5ef5a",
+        "secondaryColor": "#000000",
+        "secondaryFontColor": "#ffffff"
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": "https://about.make.org/about-environnement",
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }],
+    "featuredQuestions": [{
+      "questionId": "66a9230b-08cb-4f37-8ed8-aa95a8eac19a",
+      "questionSlug": "environnement",
+      "question": "Comment agir ensemble dès maintenant pour l'environnement ?",
+      "shortTitle": null,
+      "operationTitle": "Agir ensemble pour l'environnement",
+      "consultationImage": "https://assets.preprod.makeorg.tech/assets/content/operations/environnement/b06f1826-d885-4b5f-801b-d07c945a8ccc.svg",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-10-16T22:00:00Z",
+      "endDate": "2020-08-31T08:00:00Z",
+      "theme": {
+        "gradientStart": "#a4d693",
+        "gradientEnd": "#007d83",
+        "color": "#007d83",
+        "fontColor": "#e5ef5a",
+        "secondaryColor": "#000000",
+        "secondaryFontColor": "#ffffff"
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": "https://about.make.org/about-environnement",
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "3548602e-7592-4ecc-9825-6ce80870cab9",
+      "questionSlug": "chance-aux-jeunes",
+      "question": "Comment donner une chance à chaque jeune ???",
+      "shortTitle": null,
+      "operationTitle": "Comment donner une chance à chaque jeune ?",
+      "consultationImage": "https://assets.preprod.makeorg.tech/assets/avatars/1ebacbca-8c19-4cbd-a809-6c322ed93c38/4c0a6dfb-a509-4173-9a70-aee59b8bf5c6.jpg",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2018-08-29T18:00:00Z",
+      "endDate": "2020-05-01T14:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "2af93db3-b589-4693-b984-dfd04a5cf534",
+      "questionSlug": "mp894",
+      "question": "Comment tester MP-894 ?",
+      "shortTitle": null,
+      "operationTitle": "Test ",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2020-03-07T23:00:00Z",
+      "endDate": "2020-03-30T22:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#000000",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "aa35389b-7ba7-44a8-811c-e3a7ee3502fc",
+      "questionSlug": "handicap",
+      "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?",
+      "shortTitle": null,
+      "operationTitle": "Une vraie place pour les personnes handicapées",
+      "consultationImage": "https://assets.preprod.makeorg.tech/assets/content/operations/handicap/a186311c-c668-4e71-8bc8-9a0d48756bb9.svg",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-05-28T00:00:00Z",
+      "endDate": "2019-09-17T00:00:00Z",
+      "theme": {
+        "gradientStart": "#2639ad",
+        "gradientEnd": "#2639ad",
+        "color": "#2639ad",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": true,
+      "resultsLink": null,
+      "aboutUrl": "https://about.make.org/about-handicap",
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "978542c4-4f0b-4382-b447-97f8c0d22fd8",
+      "questionSlug": "test-question",
+      "question": "test-questio",
+      "shortTitle": null,
+      "operationTitle": "test",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-05-15T00:00:00Z",
+      "endDate": "2019-05-31T00:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "0054db0a-9ae0-402b-9189-b88c457d501e",
+      "questionSlug": "aines",
+      "question": "Comment mieux prendre soin de nos aînés ?",
+      "shortTitle": null,
+      "operationTitle": "Comment mieux prendre soin de nos aînés ?",
+      "consultationImage": "https://assets.preprod.makeorg.tech/assets/content/operations/aines/f699ef46-c3f5-4a1b-ab0c-9ec49d127a11.png",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-01-23T00:00:00Z",
+      "endDate": "2019-05-23T00:00:00Z",
+      "theme": {
+        "gradientStart": "#9C6BDA",
+        "gradientEnd": "#8DDCF6",
+        "color": "#9C6BDA",
+        "fontColor": "#000000",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": "https://about.make.org/about-aines",
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "efd59e93-64a2-4e6f-8dcb-c87a879cabf8",
+      "questionSlug": "place-handicap",
+      "question": "Comment donner une vraie place aux personnes handicapées ?",
+      "shortTitle": null,
+      "operationTitle": "Handicap",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2019-04-06T00:00:00Z",
+      "endDate": "2019-04-30T00:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#07e0d0",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": true,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "7108965b-0229-4e00-b313-abb491dee6ac",
+      "questionSlug": "culture",
+      "question": "Comment rendre la culture accessible à tous?",
+      "shortTitle": null,
+      "operationTitle": "Comment rendre la culture accessible à tous?",
+      "consultationImage": "https://image.com",
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2018-06-27T00:00:00Z",
+      "endDate": "2018-10-05T00:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }, {
+      "questionId": "c27b4109-68d8-4e12-91e2-eebb563f0ce8",
+      "questionSlug": "vff",
+      "question": "Stop aux violences faites aux femmes",
+      "shortTitle": null,
+      "operationTitle": "Stop aux violences faites aux femmes",
+      "consultationImage": null,
+      "country": "FR",
+      "language": "fr",
+      "startDate": "2018-03-08T00:00:00Z",
+      "endDate": "2018-03-08T00:00:00Z",
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000",
+        "color": "#000000",
+        "fontColor": "#FFFFFF",
+        "secondaryColor": null,
+        "secondaryFontColor": null
+      },
+      "displayResults": false,
+      "resultsLink": null,
+      "aboutUrl": null,
+      "actions": null,
+      "featured": true,
+      "participantsCount": 0,
+      "proposalsCount": 0
+    }],
+    "articles": [
       {
-        "id":"6a6e23fe-c4cb-485f-a2fb-91dc2584566e","userId":"377d638d-b16a-412c-bc6e-c05d271a115d","content":"Il faut que la CAF tienne compte des revenus actuel et non pas les revenus d'il y a deux ans pour accorder des aides convenables au handicap","slug":"il-faut-que-la-caf-tienne-compte-des-revenus-actuel-et-non-pas-les-revenus-d-il-y-a-deux-ans-pour-accorder-des-aides-convenables-au-handicap","status":"Accepted","createdAt":"2019-07-27T23:43:10.469Z","updatedAt":"2019-07-28T16:57:20.966Z","votes":[{"voteKey":"agree","count":387,"qualifications":[{"qualificationKey":"likeIt","count":76,"countVerified":68,"hasQualified":false},{"qualificationKey":"doable","count":138,"countVerified":129,"hasQualified":false},{"qualificationKey":"platitudeAgree","count":9,"countVerified":7,"hasQualified":false}],"hasVoted":false},{"voteKey":"disagree","count":5,"qualifications":[{"qualificationKey":"noWay","count":3,"countVerified":3,"hasQualified":false},{"qualificationKey":"impossible","count":0,"countVerified":0,"hasQualified":false},{"qualificationKey":"platitudeDisagree","count":0,"countVerified":0,"hasQualified":false}],"hasVoted":false},{"voteKey":"neutral","count":23,"qualifications":[{"qualificationKey":"doNotUnderstand","count":3,"countVerified":0,"hasQualified":false},{"qualificationKey":"noOpinion","count":10,"countVerified":1,"hasQualified":false},{"qualificationKey":"doNotCare","count":2,"countVerified":0,"hasQualified":false}],"hasVoted":false}],"context":{"operation":"7b88606c-2d75-4c9f-8855-7092aadc34b9","source":"core","location":"sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719","question":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","getParameters":[{"key":"introCard","value":"false"},{"key":"utm_source","value":"pole-emploi"},{"key":"utm_medium","value":"banner"},{"key":"utm_campaign","value":"handicap"}]},"trending":"popular","labels":[],"author":{"firstName":"John","organisationName":null,"organisationSlug":null,"postalCode":"91540","age":54,"avatarUrl":"https://graph.facebook.com/v3.0/926858334331260/picture"},"organisations":[],"country":"FR","language":"fr","themeId":null,"tags":[{"tagId":"6300d9f4-2bf1-44c8-8944-98746f598395","label":"Générale ","display":false},{"tagId":"63d9fbb0-a1d7-4a35-a32d-aee44aff5a21","label":"réforme des politiques publiques ","display":true},{"tagId":"6b422fde-a8a1-4ab2-9bfa-eda56db55ccf","label":"protection sociale et services publics ","display":true},{"tagId":"9da573ca-ba27-4d7c-aeb6-40da921d4e28","label":"Etat","display":false}],"myProposal":false,"idea":"e35b8798-72da-491e-96b2-7d107a23530d","question":{"questionId":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","slug":"handicap","wording":{"title":"Une vraie place pour les personnes handicapées","question":"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"},"startDate":"2019-05-28T00:00:00.000Z","endDate":"2019-09-17T16:00:00.000Z"},"operationId":"7b88606c-2d75-4c9f-8855-7092aadc34b9","proposalKey":"c75b20e3fd6287391e4bb2ca3b6b7c3af813835acd1f7d738592f6c7597acb923580c5539c1ff116c1cd709a4927ae1db6df88995b9c2dd74f9a569f3a234658"
+        "title": "first article",
+        "description": "first article description",
+        "picture": "https://via.placeholder.com/28?text=article1",
+        "link": "https://exemple.com"
       },
       {
-        "id":"c7e234c4-f90b-48d5-b06a-c73f98739bc5","userId":"d8a585aa-6a0b-47ee-8d97-69a8f30a606c","content":"Il faut faire prendre conscience des différentes formes de handicap, notamment invisibles","slug":"il-faut-faire-prendre-conscience-des-differentes-formes-de-handicap-notamment-invisibles","status":"Accepted","createdAt":"2019-05-28T10:16:55.406Z","updatedAt":"2019-07-04T10:34:22.147Z","votes":[{"voteKey":"agree","count":415,"qualifications":[{"qualificationKey":"likeIt","count":112,"countVerified":89,"hasQualified":false},{"qualificationKey":"doable","count":126,"countVerified":111,"hasQualified":false},{"qualificationKey":"platitudeAgree","count":14,"countVerified":9,"hasQualified":false}],"hasVoted":false},{"voteKey":"disagree","count":10,"qualifications":[{"qualificationKey":"noWay","count":0,"countVerified":0,"hasQualified":false},{"qualificationKey":"impossible","count":1,"countVerified":1,"hasQualified":false},{"qualificationKey":"platitudeDisagree","count":1,"countVerified":1,"hasQualified":false}],"hasVoted":false},{"voteKey":"neutral","count":19,"qualifications":[{"qualificationKey":"doNotUnderstand","count":2,"countVerified":0,"hasQualified":false},{"qualificationKey":"noOpinion","count":4,"countVerified":1,"hasQualified":false},{"qualificationKey":"doNotCare","count":1,"countVerified":0,"hasQualified":false}],"hasVoted":false}],"context":{"operation":"7b88606c-2d75-4c9f-8855-7092aadc34b9","source":"core","location":"sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719","question":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","getParameters":[]},"trending":"popular","labels":[],"author":{"firstName":"Daphné","organisationName":null,"organisationSlug":null,"postalCode":null,"age":null,"avatarUrl":"https://lh3.googleusercontent.com/-i98TQSWMrrQ/AAAAAAAAAAI/AAAAAAAAFWI/R1NJJ4x0A2Y/s96-c/photo.jpg"},"organisations":[],"country":"FR","language":"fr","themeId":null,"tags":[{"tagId":"84dc3817-4f17-4c3b-ad5a-b45aaf90e3a3","label":"citoyens","display":false},{"tagId":"e684f801-2acb-4ba5-9fe1-d04f264fe41f","label":"actionnable ","display":false},{"tagId":"e7e70e80-bd19-499b-a9db-e064d0410ed1","label":"regards et représentations","display":true},{"tagId":"ee7d5c31-2b8e-4388-9c81-76fbd602c635","label":"sensibilisation et communication","display":true}],"myProposal":false,"idea":"78e27568-da79-472e-b532-5d504cd5e44a","question":{"questionId":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","slug":"handicap","wording":{"title":"Une vraie place pour les personnes handicapées","question":"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"},"startDate":"2019-05-28T00:00:00.000Z","endDate":"2019-09-17T16:00:00.000Z"},"operationId":"7b88606c-2d75-4c9f-8855-7092aadc34b9","proposalKey":"c9903dc51b00a0e489a1a0770f923fdb25114ee41c96f3caecd135977d2509fb1bcbeac5f65a1e61c968003d0ad9dc271d6a31888ae8e7c8bf01d1734f1cbf2e"
-      }
-    ],
-    "controverseProposals":[
-      {
-        "id":"d48302a2-fa26-4cd1-a0a4-92b22f2621bb","userId":"bbed4f8c-d47e-4dea-9389-00811721699a","content":"Il faut changer le mot handicap en besoins spécifiques ","slug":"il-faut-changer-le-mot-handicap-en-besoins-specifiques","status":"Accepted","createdAt":"2019-06-28T08:57:10.235Z","updatedAt":"2019-06-28T12:48:34.451Z","votes":[{"voteKey":"agree","count":91,"qualifications":[{"qualificationKey":"likeIt","count":25,"countVerified":10,"hasQualified":false},{"qualificationKey":"doable","count":34,"countVerified":10,"hasQualified":false},{"qualificationKey":"platitudeAgree","count":7,"countVerified":2,"hasQualified":false}],"hasVoted":false},{"voteKey":"disagree","count":44,"qualifications":[{"qualificationKey":"noWay","count":16,"countVerified":10,"hasQualified":false},{"qualificationKey":"impossible","count":1,"countVerified":0,"hasQualified":false},{"qualificationKey":"platitudeDisagree","count":12,"countVerified":5,"hasQualified":false}],"hasVoted":false},{"voteKey":"neutral","count":30,"qualifications":[{"qualificationKey":"doNotUnderstand","count":1,"countVerified":1,"hasQualified":false},{"qualificationKey":"noOpinion","count":13,"countVerified":8,"hasQualified":false},{"qualificationKey":"doNotCare","count":7,"countVerified":3,"hasQualified":false}],"hasVoted":false}],"context":{"operation":"7b88606c-2d75-4c9f-8855-7092aadc34b9","source":"core","location":"sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719","question":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","getParameters":[]},"trending":null,"labels":[],"author":{"firstName":"Nathalie","organisationName":null,"organisationSlug":null,"postalCode":null,"age":null,"avatarUrl":"https://graph.facebook.com/v3.0/10156089010425974/picture"},"organisations":[{"organisationId":"10fe5edf-1393-482f-b656-6a36a7cd8cef","organisationName":"JobinLive","organisationSlug":"jobinlive"}],"country":"FR","language":"fr","themeId":null,"tags":[{"tagId":"5858828a-540b-4253-b652-c82725c80c56","label":"acteur non mentionné ","display":false},{"tagId":"6300d9f4-2bf1-44c8-8944-98746f598395","label":"Générale ","display":false},{"tagId":"e7e70e80-bd19-499b-a9db-e064d0410ed1","label":"regards et représentations","display":true},{"tagId":"ee7d5c31-2b8e-4388-9c81-76fbd602c635","label":"sensibilisation et communication","display":true}],"myProposal":false,"idea":"78e27568-da79-472e-b532-5d504cd5e44a","question":{"questionId":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","slug":"handicap","wording":{"title":"Une vraie place pour les personnes handicapées","question":"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"},"startDate":"2019-05-28T00:00:00.000Z","endDate":"2019-09-17T16:00:00.000Z"},"operationId":"7b88606c-2d75-4c9f-8855-7092aadc34b9","proposalKey":"2f67906b405bb9b998c579ff7e39cbb01093c4105f4d0b199248be281c5b6c71dda81ecfda6eb7f1bf706827b04320f5f17db4d720c5c4327c2bd7db7a07e97e"
-      },{
-        "id":"5f3e0606-668a-4336-98f2-ecc7f6d4e821","userId":"0bd17528-d9a2-4115-ab00-38a1685513df","content":"Il faut savoir et garder à l'esprit que tous les enfants handicapés ne sont pas scolarisables, et même les scolariser serait maltraitant","slug":"il-faut-savoir-et-garder-a-l-esprit-que-tous-les-enfants-handicapes-ne-sont-pas-scolarisables-et-meme-les-scolariser-serait-maltraitant","status":"Accepted","createdAt":"2019-06-09T20:15:10.103Z","updatedAt":"2019-06-11T22:12:50.141Z","votes":[{"voteKey":"agree","count":55,"qualifications":[{"qualificationKey":"likeIt","count":16,"countVerified":4,"hasQualified":false},{"qualificationKey":"doable","count":21,"countVerified":3,"hasQualified":false},{"qualificationKey":"platitudeAgree","count":1,"countVerified":1,"hasQualified":false}],"hasVoted":false},{"voteKey":"disagree","count":24,"qualifications":[{"qualificationKey":"noWay","count":10,"countVerified":3,"hasQualified":false},{"qualificationKey":"impossible","count":2,"countVerified":1,"hasQualified":false},{"qualificationKey":"platitudeDisagree","count":3,"countVerified":2,"hasQualified":false}],"hasVoted":false},{"voteKey":"neutral","count":23,"qualifications":[{"qualificationKey":"doNotUnderstand","count":7,"countVerified":1,"hasQualified":false},{"qualificationKey":"noOpinion","count":4,"countVerified":0,"hasQualified":false},{"qualificationKey":"doNotCare","count":1,"countVerified":0,"hasQualified":false}],"hasVoted":false}],"context":{"operation":"7b88606c-2d75-4c9f-8855-7092aadc34b9","source":"core","location":"page-operation 1e6a81fe-6e8a-48cb-bb6f-8459b868b719","question":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","getParameters":[]},"trending":null,"labels":[],"author":{"firstName":"Christine","organisationName":null,"organisationSlug":null,"postalCode":"90170","age":61,"avatarUrl":"https://graph.facebook.com/v3.0/2674632259218963/picture"},"organisations":[],"country":"FR","language":"fr","themeId":null,"tags":[{"tagId":"2d1bc958-6821-4fbd-888e-b1d856edaf75","label":"scolarité","display":true},{"tagId":"6300d9f4-2bf1-44c8-8944-98746f598395","label":"Générale ","display":false},{"tagId":"91750729-41a9-466e-93e8-c7a362ae326e","label":"insertion ","display":true},{"tagId":"c6667728-551f-43b7-8f74-91a59a61c81f","label":"établissements scolaires ","display":false}],"myProposal":false,"idea":"5323198f-a0f0-469a-ac27-2bf32904ae58","question":{"questionId":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","slug":"handicap","wording":{"title":"Une vraie place pour les personnes handicapées","question":"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"},"startDate":"2019-05-28T00:00:00.000Z","endDate":"2019-09-17T16:00:00.000Z"},"operationId":"7b88606c-2d75-4c9f-8855-7092aadc34b9","proposalKey":"986d1620dbfb4d05e8e7a60f207f9ca334d83a03cc75a4f13f07d1a81187ceea0f4d1d203928f0274e82b3a8b18c7927613f712928b9790d2d410818ac5b6d57"
-      }
-    ],
-    "businessConsultations":[
-      {
-        "theme":{"gradientStart":"#1657ec","gradientEnd":"#1657ec"},"startDate":"2019-03-05T00:00:00.000Z","endDate":"2019-05-04T00:00:00.000Z","slug":"economiebienveillante","aboutUrl":"https://about.make.org/about-economiebienveillante","question":"Comment agir pour rendre notre économie plus bienveillante ?"
-      },{
-        "theme":{"gradientStart":"#f5515f","gradientEnd":"#9f041b"},"startDate":"2019-07-08T04:00:00.000Z","endDate":"2019-09-20T16:00:00.000Z","slug":"medias-citoyens","aboutUrl":"https://about.make.org/medias-citoyens","question":"Comment les médias peuvent-ils améliorer la société ? "
-      },{
-        "theme":{"gradientStart":"#424242","gradientEnd":"#000000"},"startDate":"2018-10-18T00:00:00.000Z","endDate":"2018-12-31T00:00:00.000Z","slug":"plan-climat","aboutUrl":"https://about.make.org/about-plan-climat","question":"Comment lutter ensemble contre le réchauffement climatique ?"
-      },{
-        "theme":{"gradientStart":"#000000","gradientEnd":"#000000"},"startDate":"2018-10-21T00:00:00.000Z","endDate":"2019-02-01T00:00:00.000Z","slug":"villededemain","aboutUrl":"https://about.make.org/about-villededemain","question":"Comment réinventer la ville de demain ?"
-      },{
-        "theme":{"gradientStart":"#FF5757","gradientEnd":"#FFB662"},"startDate":"2019-05-06T00:00:00.000Z","endDate":"2019-07-07T17:00:00.000Z","slug":"prevention-jeunes","aboutUrl":"https://about.make.org/about-prevention-jeunes","question":"Comment inciter les jeunes à mieux prendre soin de leur santé ?"
-      },{
-        "theme":{"gradientStart":"#fea8fe","gradientEnd":"#35bfff"},"startDate":"2018-10-07T00:00:00.000Z","endDate":"2019-01-03T00:00:00.000Z","slug":"jeunesse-hautsdefrance","aboutUrl":"https://about.make.org/about-jeunesse-hautsdefrance","question":"Comment vous aider à construire votre avenir en Hauts-de-France ?"
-      },{
-        "theme":{"gradientStart":"#673475","gradientEnd":"#673475"},"startDate":"2017-12-31T23:00:00.000Z","endDate":"2018-03-01T00:00:00.000Z","slug":"lpae","aboutUrl":"https://about.make.org/about-lpae","question":"Vous avez les clés du monde, que changez-vous ? "
-      }
-    ],
-    "featuredConsultations":[
-      {
-        "questionId":"1e6a81fe-6e8a-48cb-bb6f-8459b868b719","questionSlug":"handicap","title":"Comment la société peut-elle garantir une vraie place aux personnes handicapées ?","description":null,"landscapePicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f61fc69ff7c57e291c6_desktop_visuel_cards_handicap.png","portraitPicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f677a6dfadb8728b9e8_mobile-visuel_cards_handicap.png","altPicture":"Aller sur la page de la consultation : Comment la société peut-elle garantir une vraie place aux personnes handicapées ?","label":"GRANDE CAUSE","buttonLabel":"PARTICIPEZ","internalLink":"CONSULTATION","externalLink":null,"slot":1
-      },{
-        "questionId":"09f58eff-ead2-402a-b7a5-f5f1b07e26ef","questionSlug":"medias-citoyens","title":"Comment les médias peuvent-ils améliorer la société ?","description":null,"landscapePicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f617a6dfac85328b9df_desktop_visuel_cards_media.png","portraitPicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f6734bd365fe6e948c8_mobile-visuel_cards_media.png","altPicture":"Aller sur la page de la consultation : Comment les médias peuvent-ils améliorer la société ?","label":"ACTUALITÉ","buttonLabel":"PARTICIPEZ","internalLink":"CONSULTATION","externalLink":null,"slot":2
-      },{
-        "questionId":null,"questionSlug":null,"title":"Comment agir ensemble dès maintenant pour l’environnement ?","description":null,"landscapePicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f617288d530de3f9a34_desktop_visuel_cards_environemment.png","portraitPicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f677a6dfa089328b9e7_mobile-visuel_cards_environemment.png","altPicture":"Comment agir ensemble dès maintenant pour l’environnement ?","label":"GRANDE CAUSE","buttonLabel":"EN SAVOIR PLUS","internalLink":null,"externalLink":"https://about.make.org/about-environnement","slot":3
-      },{
-        "questionId":null,"questionSlug":null,"title":"Violences faites aux femmes : (re)découvrez notre plan d'actions","description":null,"landscapePicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f61fc69ff6d8fe291c7_desktop_visuel_cards_vff.png","portraitPicture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f686f4ae125246d822a_mobile-visuel_cards_vff.png","altPicture":"Violences faites aux femmes","label":"ACTUALITÉ","buttonLabel":"En savoir plus","internalLink":null,"externalLink":"https://about.make.org/about-vff","slot":4
-      }
-    ],
-    "currentConsultations":[
-      {
-        "questionId":"0054db0a-9ae0-402b-9189-b88c457d501e","questionSlug":"aines","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be776e11fbef2536053c3_CTA_aines.svg","altPicture":"Comment mieux prendre soin de nos aînés ?","description":"Découvrez les idées qui ont émergé de notre consultation sur les aînés.","label":"Grande Cause","linkLabel":"Résultats","internalLink":null,"externalLink":"https://about.make.org/about-aines","proposalsNumber":17162,"startDate":"2018-09-27T00:00:00.000Z","endDate":"2019-01-15T00:00:00.000Z"
-      },{
-        "questionId":"c27b4109-68d8-4e12-91e2-eebb563f0ce8","questionSlug":"vff","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be94e7ec366680fbdc2d8_CTA_vff.svg","altPicture":"Stop aux violences faîtes aux femmes","description":"Découvrez l’état d’avancement de nos actions.","label":"Grande Cause","linkLabel":"Plan d'actions","internalLink":null,"externalLink":"https://about.make.org/about-vff","proposalsNumber":3239,"startDate":"2017-11-25T00:00:00.000Z","endDate":"2018-02-09T00:00:00.000Z"
-      },{
-        "questionId":"7108965b-0229-4e00-b313-abb491dee6ac","questionSlug":"culture","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777313d9ab4ab596598_CTA_culture.svg","altPicture":"Comment rendre la Culture accessible à tous ?","description":"Découvrez les idées qui ont émergé de notre consultation.","label":"Grande Cause","linkLabel":"Résultats","internalLink":null,"externalLink":"https://about.make.org/about-culture","proposalsNumber":1848,"startDate":"2018-06-27T00:00:00.000Z","endDate":"2018-10-05T00:00:00.000Z"
-      },{
-        "questionId":"927516b2-d1c9-4791-9344-5705eb556de2","questionSlug":"weeuropeans-fr","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777e11fbea0626053c5_CTA_weeuropeans.svg","altPicture":"Comment réinventer l'Europe, concrètement ?","description":"Top 10 des propositions sélectionnées par les citoyens européens","label":"Consultation","linkLabel":"Découvrir","internalLink":null,"externalLink":"https://weeuropeans.eu","proposalsNumber":6706,"startDate":"2018-11-30T23:00:00.000Z","endDate":"2019-02-28T23:00:00.000Z"
-      },{
-        "questionId":"1dcad768-0b5e-4f36-a524-9fed07f1b0b5","questionSlug":"gilets-jaunes","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7768620ae4664329d4e_CTA_granddebat.svg","altPicture":"Grand débat national : quelles sont vos propositions ?","description":"La première synthèse faite par les français eux-mêmes","label":"Consultation","linkLabel":"Résultats","internalLink":null,"externalLink":"https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions","proposalsNumber":8518,"startDate":"2019-01-15T23:00:00.000Z","endDate":"2019-03-14T23:00:00.000Z"
-      },{
-        "questionId":"b8678934-f35a-4420-bac4-a5c57b0f09d8","questionSlug":"mieux-vivre-ensemble","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7767ec3667d01bdbdbc_CTA_vivre-ensemble.svg","altPicture":"mieux vivre ensemble","description":"Imaginer ensemble de nouvelles manières de recréer du lien social","label":"consultation","linkLabel":"Découvrir","internalLink":null,"externalLink":"https://about.make.org/about-mieux-vivre-ensemble","proposalsNumber":1826,"startDate":"2018-03-13T00:00:00.000Z","endDate":"2018-07-30T00:00:00.000Z"
-      },{
-        "questionId":"3548602e-7592-4ecc-9825-6ce80870cab9","questionSlug":"chance-aux-jeunes","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777e11fbe57096053c6_CTA_jeune.svg","altPicture":"Une chance pour chaque jeune","description":"Découvrez les idées qui ont émergé de notre consultation.","label":"Grande Cause","linkLabel":"Découvrir","internalLink":null,"externalLink":"https://about.make.org/about-chance-aux-jeunes","proposalsNumber":1366,"startDate":"2018-04-05T00:00:00.000Z","endDate":"2018-07-20T00:00:00.000Z"
-      },{
-        "questionId":"bee1e1a1-5c63-45f7-bc31-93a45406298c","questionSlug":"mieuxmanger","picture":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7777ec3668240bdbdbd_CTA_manger.svg","altPicture":"Comment permettre à chacun de mieux manger ?","description":"Découvrez les résultats issus de la consultation","label":"Découvrir","linkLabel":"Résultats","internalLink":null,"externalLink":"https://about.make.org/about-mieuxmanger","proposalsNumber":6106,"startDate":"2019-03-26T00:00:00.000Z","endDate":"2019-05-31T00:00:00.000Z"
+        "title": "second article",
+        "description": "second article description",
+        "picture": "https://via.placeholder.com/28?text=article2",
+        "link": "https://exemple.com"
       }
     ]
+  },
+  "deprecatedHome": {
+    "popularProposals": [{
+        "id": "6a6e23fe-c4cb-485f-a2fb-91dc2584566e",
+        "userId": "377d638d-b16a-412c-bc6e-c05d271a115d",
+        "content": "Il faut que la CAF tienne compte des revenus actuel et non pas les revenus d'il y a deux ans pour accorder des aides convenables au handicap",
+        "slug": "il-faut-que-la-caf-tienne-compte-des-revenus-actuel-et-non-pas-les-revenus-d-il-y-a-deux-ans-pour-accorder-des-aides-convenables-au-handicap",
+        "status": "Accepted",
+        "createdAt": "2019-07-27T23:43:10.469Z",
+        "updatedAt": "2019-07-28T16:57:20.966Z",
+        "votes": [{
+          "voteKey": "agree",
+          "count": 387,
+          "qualifications": [{
+            "qualificationKey": "likeIt",
+            "count": 76,
+            "countVerified": 68,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "doable",
+            "count": 138,
+            "countVerified": 129,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "platitudeAgree",
+            "count": 9,
+            "countVerified": 7,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }, {
+          "voteKey": "disagree",
+          "count": 5,
+          "qualifications": [{
+            "qualificationKey": "noWay",
+            "count": 3,
+            "countVerified": 3,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "impossible",
+            "count": 0,
+            "countVerified": 0,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "platitudeDisagree",
+            "count": 0,
+            "countVerified": 0,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }, {
+          "voteKey": "neutral",
+          "count": 23,
+          "qualifications": [{
+            "qualificationKey": "doNotUnderstand",
+            "count": 3,
+            "countVerified": 0,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "noOpinion",
+            "count": 10,
+            "countVerified": 1,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "doNotCare",
+            "count": 2,
+            "countVerified": 0,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }],
+        "context": {
+          "operation": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+          "source": "core",
+          "location": "sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "question": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "getParameters": [{
+            "key": "introCard",
+            "value": "false"
+          }, {
+            "key": "utm_source",
+            "value": "pole-emploi"
+          }, {
+            "key": "utm_medium",
+            "value": "banner"
+          }, {
+            "key": "utm_campaign",
+            "value": "handicap"
+          }]
+        },
+        "trending": "popular",
+        "labels": [],
+        "author": {
+          "firstName": "John",
+          "organisationName": null,
+          "organisationSlug": null,
+          "postalCode": "91540",
+          "age": 54,
+          "avatarUrl": "https://graph.facebook.com/v3.0/926858334331260/picture"
+        },
+        "organisations": [],
+        "country": "FR",
+        "language": "fr",
+        "themeId": null,
+        "tags": [{
+          "tagId": "6300d9f4-2bf1-44c8-8944-98746f598395",
+          "label": "Générale ",
+          "display": false
+        }, {
+          "tagId": "63d9fbb0-a1d7-4a35-a32d-aee44aff5a21",
+          "label": "réforme des politiques publiques ",
+          "display": true
+        }, {
+          "tagId": "6b422fde-a8a1-4ab2-9bfa-eda56db55ccf",
+          "label": "protection sociale et services publics ",
+          "display": true
+        }, {
+          "tagId": "9da573ca-ba27-4d7c-aeb6-40da921d4e28",
+          "label": "Etat",
+          "display": false
+        }],
+        "myProposal": false,
+        "idea": "e35b8798-72da-491e-96b2-7d107a23530d",
+        "question": {
+          "questionId": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "slug": "handicap",
+          "wording": {
+            "title": "Une vraie place pour les personnes handicapées",
+            "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"
+          },
+          "startDate": "2019-05-28T00:00:00.000Z",
+          "endDate": "2019-09-17T16:00:00.000Z"
+        },
+        "operationId": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+        "proposalKey": "c75b20e3fd6287391e4bb2ca3b6b7c3af813835acd1f7d738592f6c7597acb923580c5539c1ff116c1cd709a4927ae1db6df88995b9c2dd74f9a569f3a234658"
+      },
+      {
+        "id": "c7e234c4-f90b-48d5-b06a-c73f98739bc5",
+        "userId": "d8a585aa-6a0b-47ee-8d97-69a8f30a606c",
+        "content": "Il faut faire prendre conscience des différentes formes de handicap, notamment invisibles",
+        "slug": "il-faut-faire-prendre-conscience-des-differentes-formes-de-handicap-notamment-invisibles",
+        "status": "Accepted",
+        "createdAt": "2019-05-28T10:16:55.406Z",
+        "updatedAt": "2019-07-04T10:34:22.147Z",
+        "votes": [{
+          "voteKey": "agree",
+          "count": 415,
+          "qualifications": [{
+            "qualificationKey": "likeIt",
+            "count": 112,
+            "countVerified": 89,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "doable",
+            "count": 126,
+            "countVerified": 111,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "platitudeAgree",
+            "count": 14,
+            "countVerified": 9,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }, {
+          "voteKey": "disagree",
+          "count": 10,
+          "qualifications": [{
+            "qualificationKey": "noWay",
+            "count": 0,
+            "countVerified": 0,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "impossible",
+            "count": 1,
+            "countVerified": 1,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "platitudeDisagree",
+            "count": 1,
+            "countVerified": 1,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }, {
+          "voteKey": "neutral",
+          "count": 19,
+          "qualifications": [{
+            "qualificationKey": "doNotUnderstand",
+            "count": 2,
+            "countVerified": 0,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "noOpinion",
+            "count": 4,
+            "countVerified": 1,
+            "hasQualified": false
+          }, {
+            "qualificationKey": "doNotCare",
+            "count": 1,
+            "countVerified": 0,
+            "hasQualified": false
+          }],
+          "hasVoted": false
+        }],
+        "context": {
+          "operation": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+          "source": "core",
+          "location": "sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "question": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "getParameters": []
+        },
+        "trending": "popular",
+        "labels": [],
+        "author": {
+          "firstName": "Daphné",
+          "organisationName": null,
+          "organisationSlug": null,
+          "postalCode": null,
+          "age": null,
+          "avatarUrl": "https://lh3.googleusercontent.com/-i98TQSWMrrQ/AAAAAAAAAAI/AAAAAAAAFWI/R1NJJ4x0A2Y/s96-c/photo.jpg"
+        },
+        "organisations": [],
+        "country": "FR",
+        "language": "fr",
+        "themeId": null,
+        "tags": [{
+          "tagId": "84dc3817-4f17-4c3b-ad5a-b45aaf90e3a3",
+          "label": "citoyens",
+          "display": false
+        }, {
+          "tagId": "e684f801-2acb-4ba5-9fe1-d04f264fe41f",
+          "label": "actionnable ",
+          "display": false
+        }, {
+          "tagId": "e7e70e80-bd19-499b-a9db-e064d0410ed1",
+          "label": "regards et représentations",
+          "display": true
+        }, {
+          "tagId": "ee7d5c31-2b8e-4388-9c81-76fbd602c635",
+          "label": "sensibilisation et communication",
+          "display": true
+        }],
+        "myProposal": false,
+        "idea": "78e27568-da79-472e-b532-5d504cd5e44a",
+        "question": {
+          "questionId": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+          "slug": "handicap",
+          "wording": {
+            "title": "Une vraie place pour les personnes handicapées",
+            "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"
+          },
+          "startDate": "2019-05-28T00:00:00.000Z",
+          "endDate": "2019-09-17T16:00:00.000Z"
+        },
+        "operationId": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+        "proposalKey": "c9903dc51b00a0e489a1a0770f923fdb25114ee41c96f3caecd135977d2509fb1bcbeac5f65a1e61c968003d0ad9dc271d6a31888ae8e7c8bf01d1734f1cbf2e"
+      }
+    ],
+    "controverseProposals": [{
+      "id": "d48302a2-fa26-4cd1-a0a4-92b22f2621bb",
+      "userId": "bbed4f8c-d47e-4dea-9389-00811721699a",
+      "content": "Il faut changer le mot handicap en besoins spécifiques ",
+      "slug": "il-faut-changer-le-mot-handicap-en-besoins-specifiques",
+      "status": "Accepted",
+      "createdAt": "2019-06-28T08:57:10.235Z",
+      "updatedAt": "2019-06-28T12:48:34.451Z",
+      "votes": [{
+        "voteKey": "agree",
+        "count": 91,
+        "qualifications": [{
+          "qualificationKey": "likeIt",
+          "count": 25,
+          "countVerified": 10,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "doable",
+          "count": 34,
+          "countVerified": 10,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "platitudeAgree",
+          "count": 7,
+          "countVerified": 2,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }, {
+        "voteKey": "disagree",
+        "count": 44,
+        "qualifications": [{
+          "qualificationKey": "noWay",
+          "count": 16,
+          "countVerified": 10,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "impossible",
+          "count": 1,
+          "countVerified": 0,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "platitudeDisagree",
+          "count": 12,
+          "countVerified": 5,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }, {
+        "voteKey": "neutral",
+        "count": 30,
+        "qualifications": [{
+          "qualificationKey": "doNotUnderstand",
+          "count": 1,
+          "countVerified": 1,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "noOpinion",
+          "count": 13,
+          "countVerified": 8,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "doNotCare",
+          "count": 7,
+          "countVerified": 3,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }],
+      "context": {
+        "operation": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+        "source": "core",
+        "location": "sequence 1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "question": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "getParameters": []
+      },
+      "trending": null,
+      "labels": [],
+      "author": {
+        "firstName": "Nathalie",
+        "organisationName": null,
+        "organisationSlug": null,
+        "postalCode": null,
+        "age": null,
+        "avatarUrl": "https://graph.facebook.com/v3.0/10156089010425974/picture"
+      },
+      "organisations": [{
+        "organisationId": "10fe5edf-1393-482f-b656-6a36a7cd8cef",
+        "organisationName": "JobinLive",
+        "organisationSlug": "jobinlive"
+      }],
+      "country": "FR",
+      "language": "fr",
+      "themeId": null,
+      "tags": [{
+        "tagId": "5858828a-540b-4253-b652-c82725c80c56",
+        "label": "acteur non mentionné ",
+        "display": false
+      }, {
+        "tagId": "6300d9f4-2bf1-44c8-8944-98746f598395",
+        "label": "Générale ",
+        "display": false
+      }, {
+        "tagId": "e7e70e80-bd19-499b-a9db-e064d0410ed1",
+        "label": "regards et représentations",
+        "display": true
+      }, {
+        "tagId": "ee7d5c31-2b8e-4388-9c81-76fbd602c635",
+        "label": "sensibilisation et communication",
+        "display": true
+      }],
+      "myProposal": false,
+      "idea": "78e27568-da79-472e-b532-5d504cd5e44a",
+      "question": {
+        "questionId": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "slug": "handicap",
+        "wording": {
+          "title": "Une vraie place pour les personnes handicapées",
+          "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"
+        },
+        "startDate": "2019-05-28T00:00:00.000Z",
+        "endDate": "2019-09-17T16:00:00.000Z"
+      },
+      "operationId": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+      "proposalKey": "2f67906b405bb9b998c579ff7e39cbb01093c4105f4d0b199248be281c5b6c71dda81ecfda6eb7f1bf706827b04320f5f17db4d720c5c4327c2bd7db7a07e97e"
+    }, {
+      "id": "5f3e0606-668a-4336-98f2-ecc7f6d4e821",
+      "userId": "0bd17528-d9a2-4115-ab00-38a1685513df",
+      "content": "Il faut savoir et garder à l'esprit que tous les enfants handicapés ne sont pas scolarisables, et même les scolariser serait maltraitant",
+      "slug": "il-faut-savoir-et-garder-a-l-esprit-que-tous-les-enfants-handicapes-ne-sont-pas-scolarisables-et-meme-les-scolariser-serait-maltraitant",
+      "status": "Accepted",
+      "createdAt": "2019-06-09T20:15:10.103Z",
+      "updatedAt": "2019-06-11T22:12:50.141Z",
+      "votes": [{
+        "voteKey": "agree",
+        "count": 55,
+        "qualifications": [{
+          "qualificationKey": "likeIt",
+          "count": 16,
+          "countVerified": 4,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "doable",
+          "count": 21,
+          "countVerified": 3,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "platitudeAgree",
+          "count": 1,
+          "countVerified": 1,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }, {
+        "voteKey": "disagree",
+        "count": 24,
+        "qualifications": [{
+          "qualificationKey": "noWay",
+          "count": 10,
+          "countVerified": 3,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "impossible",
+          "count": 2,
+          "countVerified": 1,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "platitudeDisagree",
+          "count": 3,
+          "countVerified": 2,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }, {
+        "voteKey": "neutral",
+        "count": 23,
+        "qualifications": [{
+          "qualificationKey": "doNotUnderstand",
+          "count": 7,
+          "countVerified": 1,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "noOpinion",
+          "count": 4,
+          "countVerified": 0,
+          "hasQualified": false
+        }, {
+          "qualificationKey": "doNotCare",
+          "count": 1,
+          "countVerified": 0,
+          "hasQualified": false
+        }],
+        "hasVoted": false
+      }],
+      "context": {
+        "operation": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+        "source": "core",
+        "location": "page-operation 1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "question": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "getParameters": []
+      },
+      "trending": null,
+      "labels": [],
+      "author": {
+        "firstName": "Christine",
+        "organisationName": null,
+        "organisationSlug": null,
+        "postalCode": "90170",
+        "age": 61,
+        "avatarUrl": "https://graph.facebook.com/v3.0/2674632259218963/picture"
+      },
+      "organisations": [],
+      "country": "FR",
+      "language": "fr",
+      "themeId": null,
+      "tags": [{
+        "tagId": "2d1bc958-6821-4fbd-888e-b1d856edaf75",
+        "label": "scolarité",
+        "display": true
+      }, {
+        "tagId": "6300d9f4-2bf1-44c8-8944-98746f598395",
+        "label": "Générale ",
+        "display": false
+      }, {
+        "tagId": "91750729-41a9-466e-93e8-c7a362ae326e",
+        "label": "insertion ",
+        "display": true
+      }, {
+        "tagId": "c6667728-551f-43b7-8f74-91a59a61c81f",
+        "label": "établissements scolaires ",
+        "display": false
+      }],
+      "myProposal": false,
+      "idea": "5323198f-a0f0-469a-ac27-2bf32904ae58",
+      "question": {
+        "questionId": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+        "slug": "handicap",
+        "wording": {
+          "title": "Une vraie place pour les personnes handicapées",
+          "question": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?"
+        },
+        "startDate": "2019-05-28T00:00:00.000Z",
+        "endDate": "2019-09-17T16:00:00.000Z"
+      },
+      "operationId": "7b88606c-2d75-4c9f-8855-7092aadc34b9",
+      "proposalKey": "986d1620dbfb4d05e8e7a60f207f9ca334d83a03cc75a4f13f07d1a81187ceea0f4d1d203928f0274e82b3a8b18c7927613f712928b9790d2d410818ac5b6d57"
+    }],
+    "businessConsultations": [{
+      "theme": {
+        "gradientStart": "#1657ec",
+        "gradientEnd": "#1657ec"
+      },
+      "startDate": "2019-03-05T00:00:00.000Z",
+      "endDate": "2019-05-04T00:00:00.000Z",
+      "slug": "economiebienveillante",
+      "aboutUrl": "https://about.make.org/about-economiebienveillante",
+      "question": "Comment agir pour rendre notre économie plus bienveillante ?"
+    }, {
+      "theme": {
+        "gradientStart": "#f5515f",
+        "gradientEnd": "#9f041b"
+      },
+      "startDate": "2019-07-08T04:00:00.000Z",
+      "endDate": "2019-09-20T16:00:00.000Z",
+      "slug": "medias-citoyens",
+      "aboutUrl": "https://about.make.org/medias-citoyens",
+      "question": "Comment les médias peuvent-ils améliorer la société ? "
+    }, {
+      "theme": {
+        "gradientStart": "#424242",
+        "gradientEnd": "#000000"
+      },
+      "startDate": "2018-10-18T00:00:00.000Z",
+      "endDate": "2018-12-31T00:00:00.000Z",
+      "slug": "plan-climat",
+      "aboutUrl": "https://about.make.org/about-plan-climat",
+      "question": "Comment lutter ensemble contre le réchauffement climatique ?"
+    }, {
+      "theme": {
+        "gradientStart": "#000000",
+        "gradientEnd": "#000000"
+      },
+      "startDate": "2018-10-21T00:00:00.000Z",
+      "endDate": "2019-02-01T00:00:00.000Z",
+      "slug": "villededemain",
+      "aboutUrl": "https://about.make.org/about-villededemain",
+      "question": "Comment réinventer la ville de demain ?"
+    }, {
+      "theme": {
+        "gradientStart": "#FF5757",
+        "gradientEnd": "#FFB662"
+      },
+      "startDate": "2019-05-06T00:00:00.000Z",
+      "endDate": "2019-07-07T17:00:00.000Z",
+      "slug": "prevention-jeunes",
+      "aboutUrl": "https://about.make.org/about-prevention-jeunes",
+      "question": "Comment inciter les jeunes à mieux prendre soin de leur santé ?"
+    }, {
+      "theme": {
+        "gradientStart": "#fea8fe",
+        "gradientEnd": "#35bfff"
+      },
+      "startDate": "2018-10-07T00:00:00.000Z",
+      "endDate": "2019-01-03T00:00:00.000Z",
+      "slug": "jeunesse-hautsdefrance",
+      "aboutUrl": "https://about.make.org/about-jeunesse-hautsdefrance",
+      "question": "Comment vous aider à construire votre avenir en Hauts-de-France ?"
+    }, {
+      "theme": {
+        "gradientStart": "#673475",
+        "gradientEnd": "#673475"
+      },
+      "startDate": "2017-12-31T23:00:00.000Z",
+      "endDate": "2018-03-01T00:00:00.000Z",
+      "slug": "lpae",
+      "aboutUrl": "https://about.make.org/about-lpae",
+      "question": "Vous avez les clés du monde, que changez-vous ? "
+    }],
+    "featuredConsultations": [{
+      "questionId": "1e6a81fe-6e8a-48cb-bb6f-8459b868b719",
+      "questionSlug": "handicap",
+      "title": "Comment la société peut-elle garantir une vraie place aux personnes handicapées ?",
+      "description": null,
+      "landscapePicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f61fc69ff7c57e291c6_desktop_visuel_cards_handicap.png",
+      "portraitPicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f677a6dfadb8728b9e8_mobile-visuel_cards_handicap.png",
+      "altPicture": "Aller sur la page de la consultation : Comment la société peut-elle garantir une vraie place aux personnes handicapées ?",
+      "label": "GRANDE CAUSE",
+      "buttonLabel": "PARTICIPEZ",
+      "internalLink": "CONSULTATION",
+      "externalLink": null,
+      "slot": 1
+    }, {
+      "questionId": "09f58eff-ead2-402a-b7a5-f5f1b07e26ef",
+      "questionSlug": "medias-citoyens",
+      "title": "Comment les médias peuvent-ils améliorer la société ?",
+      "description": null,
+      "landscapePicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f617a6dfac85328b9df_desktop_visuel_cards_media.png",
+      "portraitPicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f6734bd365fe6e948c8_mobile-visuel_cards_media.png",
+      "altPicture": "Aller sur la page de la consultation : Comment les médias peuvent-ils améliorer la société ?",
+      "label": "ACTUALITÉ",
+      "buttonLabel": "PARTICIPEZ",
+      "internalLink": "CONSULTATION",
+      "externalLink": null,
+      "slot": 2
+    }, {
+      "questionId": null,
+      "questionSlug": null,
+      "title": "Comment agir ensemble dès maintenant pour l’environnement ?",
+      "description": null,
+      "landscapePicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f617288d530de3f9a34_desktop_visuel_cards_environemment.png",
+      "portraitPicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f677a6dfa089328b9e7_mobile-visuel_cards_environemment.png",
+      "altPicture": "Comment agir ensemble dès maintenant pour l’environnement ?",
+      "label": "GRANDE CAUSE",
+      "buttonLabel": "EN SAVOIR PLUS",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-environnement",
+      "slot": 3
+    }, {
+      "questionId": null,
+      "questionSlug": null,
+      "title": "Violences faites aux femmes : (re)découvrez notre plan d'actions",
+      "description": null,
+      "landscapePicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f61fc69ff6d8fe291c7_desktop_visuel_cards_vff.png",
+      "portraitPicture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d761f686f4ae125246d822a_mobile-visuel_cards_vff.png",
+      "altPicture": "Violences faites aux femmes",
+      "label": "ACTUALITÉ",
+      "buttonLabel": "En savoir plus",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-vff",
+      "slot": 4
+    }],
+    "currentConsultations": [{
+      "questionId": "0054db0a-9ae0-402b-9189-b88c457d501e",
+      "questionSlug": "aines",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be776e11fbef2536053c3_CTA_aines.svg",
+      "altPicture": "Comment mieux prendre soin de nos aînés ?",
+      "description": "Découvrez les idées qui ont émergé de notre consultation sur les aînés.",
+      "label": "Grande Cause",
+      "linkLabel": "Résultats",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-aines",
+      "proposalsNumber": 17162,
+      "startDate": "2018-09-27T00:00:00.000Z",
+      "endDate": "2019-01-15T00:00:00.000Z"
+    }, {
+      "questionId": "c27b4109-68d8-4e12-91e2-eebb563f0ce8",
+      "questionSlug": "vff",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be94e7ec366680fbdc2d8_CTA_vff.svg",
+      "altPicture": "Stop aux violences faîtes aux femmes",
+      "description": "Découvrez l’état d’avancement de nos actions.",
+      "label": "Grande Cause",
+      "linkLabel": "Plan d'actions",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-vff",
+      "proposalsNumber": 3239,
+      "startDate": "2017-11-25T00:00:00.000Z",
+      "endDate": "2018-02-09T00:00:00.000Z"
+    }, {
+      "questionId": "7108965b-0229-4e00-b313-abb491dee6ac",
+      "questionSlug": "culture",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777313d9ab4ab596598_CTA_culture.svg",
+      "altPicture": "Comment rendre la Culture accessible à tous ?",
+      "description": "Découvrez les idées qui ont émergé de notre consultation.",
+      "label": "Grande Cause",
+      "linkLabel": "Résultats",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-culture",
+      "proposalsNumber": 1848,
+      "startDate": "2018-06-27T00:00:00.000Z",
+      "endDate": "2018-10-05T00:00:00.000Z"
+    }, {
+      "questionId": "927516b2-d1c9-4791-9344-5705eb556de2",
+      "questionSlug": "weeuropeans-fr",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777e11fbea0626053c5_CTA_weeuropeans.svg",
+      "altPicture": "Comment réinventer l'Europe, concrètement ?",
+      "description": "Top 10 des propositions sélectionnées par les citoyens européens",
+      "label": "Consultation",
+      "linkLabel": "Découvrir",
+      "internalLink": null,
+      "externalLink": "https://weeuropeans.eu",
+      "proposalsNumber": 6706,
+      "startDate": "2018-11-30T23:00:00.000Z",
+      "endDate": "2019-02-28T23:00:00.000Z"
+    }, {
+      "questionId": "1dcad768-0b5e-4f36-a524-9fed07f1b0b5",
+      "questionSlug": "gilets-jaunes",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7768620ae4664329d4e_CTA_granddebat.svg",
+      "altPicture": "Grand débat national : quelles sont vos propositions ?",
+      "description": "La première synthèse faite par les français eux-mêmes",
+      "label": "Consultation",
+      "linkLabel": "Résultats",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/grande-consultation-nationale-quelles-sont-vos-propositions",
+      "proposalsNumber": 8518,
+      "startDate": "2019-01-15T23:00:00.000Z",
+      "endDate": "2019-03-14T23:00:00.000Z"
+    }, {
+      "questionId": "b8678934-f35a-4420-bac4-a5c57b0f09d8",
+      "questionSlug": "mieux-vivre-ensemble",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7767ec3667d01bdbdbc_CTA_vivre-ensemble.svg",
+      "altPicture": "mieux vivre ensemble",
+      "description": "Imaginer ensemble de nouvelles manières de recréer du lien social",
+      "label": "consultation",
+      "linkLabel": "Découvrir",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-mieux-vivre-ensemble",
+      "proposalsNumber": 1826,
+      "startDate": "2018-03-13T00:00:00.000Z",
+      "endDate": "2018-07-30T00:00:00.000Z"
+    }, {
+      "questionId": "3548602e-7592-4ecc-9825-6ce80870cab9",
+      "questionSlug": "chance-aux-jeunes",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be777e11fbe57096053c6_CTA_jeune.svg",
+      "altPicture": "Une chance pour chaque jeune",
+      "description": "Découvrez les idées qui ont émergé de notre consultation.",
+      "label": "Grande Cause",
+      "linkLabel": "Découvrir",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-chance-aux-jeunes",
+      "proposalsNumber": 1366,
+      "startDate": "2018-04-05T00:00:00.000Z",
+      "endDate": "2018-07-20T00:00:00.000Z"
+    }, {
+      "questionId": "bee1e1a1-5c63-45f7-bc31-93a45406298c",
+      "questionSlug": "mieuxmanger",
+      "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5d4be7777ec3668240bdbdbd_CTA_manger.svg",
+      "altPicture": "Comment permettre à chacun de mieux manger ?",
+      "description": "Découvrez les résultats issus de la consultation",
+      "label": "Découvrir",
+      "linkLabel": "Résultats",
+      "internalLink": null,
+      "externalLink": "https://about.make.org/about-mieuxmanger",
+      "proposalsNumber": 6106,
+      "startDate": "2019-03-26T00:00:00.000Z",
+      "endDate": "2019-05-31T00:00:00.000Z"
+    }]
   }
 }

@@ -5,9 +5,9 @@ import { ViewsService } from './Views';
 
 jest.mock('Shared/api/ViewsApiService');
 
-describe('getHome function', () => {
+describe('getDeprecatedHome function', () => {
   it('return an ordered business consultations', async () => {
-    jest.spyOn(ViewsApiService, 'getHome');
+    jest.spyOn(ViewsApiService, 'getDeprecatedHome');
     const mockApiResult = {
       currentConsultations: [],
       popularProposals: [],
@@ -36,8 +36,10 @@ describe('getHome function', () => {
         },
       ],
     };
-    ViewsApiService.getHome.mockResolvedValue({ data: mockApiResult });
-    const response = await ViewsService.getHome();
+    ViewsApiService.getDeprecatedHome.mockResolvedValue({
+      data: mockApiResult,
+    });
+    const response = await ViewsService.getDeprecatedHome();
     expect(response.businessConsultations.map(item => item.slug)).toStrictEqual(
       ['consultation-4', 'consultation-3', 'consultation-1', 'consultation-2']
     );

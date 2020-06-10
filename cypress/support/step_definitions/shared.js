@@ -3,7 +3,8 @@ import { getIdentifierButtonByName } from '../mapping';
 // pages list
 export const pages = {
   'homepage': '/',
-  'france homepage': '/FR-fr',
+  'france deprecated homepage': '/FR-fr',
+  'france homepage': '/FR-fr/beta/home',
   'sequence page': '/FR-fr/consultation/:questionSlug/selection'
 };
 

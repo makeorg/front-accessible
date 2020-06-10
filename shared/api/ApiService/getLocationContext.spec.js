@@ -140,7 +140,13 @@ describe('getLocationContext', () => {
     },
     {
       name: 'home fr',
-      path: '/Fr-fr-fr/',
+      path: '/FR-fr/',
+      expected: `homepage`,
+      expectedTracking: `homepage`,
+    },
+    {
+      name: 'ROUTE_BETA_HOME',
+      path: '/FR-fr/beta/home',
       expected: `homepage`,
       expectedTracking: `homepage`,
     },

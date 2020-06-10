@@ -89,6 +89,12 @@ export const getLocationContext = (
     },
     { route: '/', name: `homepage`, exact: true, strict: true },
     { route: '/:countryLang', name: `homepage`, exact: true, strict: false },
+    {
+      route: '/:countryLang/beta/home',
+      name: `homepage`,
+      exact: true,
+      strict: true,
+    },
   ];
 
   const location = locations.find(item => {

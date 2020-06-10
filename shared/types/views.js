@@ -44,12 +44,53 @@ export type CurrentConsultationType = {
   proposalsNumber: number,
 };
 
-export type HomeType = {
+export type DeprecatedHomeType = {
   popularProposals: ProposalType[],
   controverseProposals: ProposalType[],
   businessConsultations: BusinessConsultationType[],
   featuredConsultations: FeaturedConsultationType[],
   currentConsultations: CurrentConsultationType[],
+};
+
+export type HomeHighlightsType = {
+  participantsCount: number,
+  proposalsCount: number,
+  partnersCount: number,
+};
+
+export type HomeQuestionType = {
+  questionId: string,
+  questionSlug: string,
+  question: string,
+  shortTitle: ?string,
+  operationTitle: string,
+  consultationImage: ?string | null,
+  country: string,
+  language: string,
+  startDate: ?string | null,
+  endDate: ?string | null,
+  theme: QuestionThemeType,
+  displayResults: boolean,
+  resultsLink: ?string | null,
+  aboutUrl: ?string | null,
+  actions: ?string | null,
+  featured: boolean,
+  participantsCount: number,
+  proposalsCount: number,
+};
+
+export type HomeArticleType = {
+  title: string,
+  description: string,
+  picture: string,
+  link: ?string | null,
+};
+
+export type HomeViewType = {
+  highlights: HomeHighlightsType,
+  currentQuestions: HomeQuestionType[],
+  featuredQuestions: HomeQuestionType[],
+  articles: HomeArticleType[],
 };
 
 export type SearchViewsType = {

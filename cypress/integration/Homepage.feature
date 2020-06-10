@@ -1,35 +1,36 @@
 Feature: The Home Page
   I want to vist the Make.org home page
+  Background: 
+    Given monitor api requests
   Scenario: Redirect to france Homepage
     Given I go to "homepage"
-    Then I should be redirect to "france homepage"
+    Then I should be redirect to "france deprecated homepage"
   
   Scenario: Homepage has a title
     Given I go to "france homepage"
     Then I see "Agir avec Make.org - Make.org" in the title
 
-  Scenario: Homepage contain the featured operations
-    Given I go to "france homepage"
-    Then I see "En ce moment sur Make.org" as the title of the first section
-
-  Scenario: Homepage contain the current operations
-    Given I go to "france homepage"
-    Then I see "Nos opérations en cours" as the title of the second section
-
-  Scenario: Homepage contain the popular proposals
-    Given I go to "france homepage"
-    Then I see "Les propositions les + populaires du moment" as the title of the "popular" section
-
-  Scenario: Homepage contain the controversial proposals
-    Given I go to "france homepage"
-    Then I see "Les propositions les + débattues du moment" as the title of the "controversial" section
-
-  Scenario: Homepage contain the coprorate section
-    Given I go to "france homepage"
-    Then I see the first corporate bloc
-    And I see the second corporate bloc
-
-  Scenario: Homepage contain the consultation list section
-    Given I go to "france homepage"
-    Then I see a list of consultation
-    
+  Scenario: Track display home page
+    Given I monitor API "postTracking" requests
+    When I go to "france homepage"
+    Then event "display-page-home" should be tracked by Make with parameters values:
+      | name                | value                                                               |
+      | eventType           | trackCustom                                                         |
+      | country             | FR                                                                  |
+      | language            | fr                                                                  |
+      | source              | core                                                                |
+      | location            | homepage                                                            |
+      | questionId          |                                                                     |
+      | questionSlug        |                                                                     |
+      | referrer            | http://localhost:9009/__/                                           |
+      | url                 | http://localhost:9009/FR-fr/beta/home                               |
+    And some make data header should be sent to "postTracking":
+      | name          | value                                       |
+      | app-name      | main-front                                  |
+      | source        | core                                        |
+      | location      | homepage                                    |
+      | language      | fr                                          |
+      | country       | FR                                          |
+      | question-id   |                                             |
+      | referrer      | http://localhost:9009/__/                   |
+      | custom-data   |                                             |

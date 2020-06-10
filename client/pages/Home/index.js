@@ -1,38 +1,31 @@
 /* @flow */
 import React, { useEffect, useState } from 'react';
-import { type HomeType } from 'Shared/types/views';
+import { useSelector } from 'react-redux';
+import { type HomeViewType } from 'Shared/types/views';
 import { ViewsService } from 'Shared/services/Views';
 import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
-import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
-import { CorporateBanner } from 'Client/features/homepage/Corporate';
-import { BusinessConsultations } from 'Client/features/consultation/Business';
-import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
-import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
-import { HomepagePopularProposals } from 'Client/features/homepage/Proposals/Popular';
-import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
-import { trackingParamsService } from 'Shared/services/TrackingParamsService';
-import {
-  TopComponentContext,
-  type TopComponentContextValueType,
-  TopComponentContextValue,
-} from 'Client/context/TopComponentContext';
-import { HomepageWrapperStyle } from './Styled';
+import { type StateRoot } from 'Shared/store/types';
 
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<HomeType>({
-    popularProposals: [],
-    controverseProposals: [],
-    businessConsultations: [],
-    featuredConsultations: [],
-    currentConsultations: [],
+  const [data, setData] = useState<HomeViewType>({
+    highlights: { participantsCount: 0, proposalsCount: 0, partnersCount: 0 },
+    currentQuestions: [],
+    featuredQuestions: [],
+    articles: [],
   });
-  trackingParamsService.questionSlug = '';
+  // trackingParamsService.questionSlug = '';
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
 
   useEffect(() => {
     async function fetchData() {
-      const homeData = await ViewsService.getHome();
+      const homeData: ?HomeViewType = await ViewsService.getHome(
+        country,
+        language
+      );
       setData(homeData || data);
     }
     setIsLoading(true);
@@ -41,30 +34,55 @@ export const HomePage = () => {
     setIsLoading(false);
   }, []);
 
-  const popularProposalsContext: TopComponentContextValueType = TopComponentContextValue.getPopularProposals();
-  const controversialProposals: TopComponentContextValueType = TopComponentContextValue.getControversialProposals();
-
   return (
-    <HomepageWrapperStyle>
-      <HomepageSkipLinks />
+    <>
       <MetaTags />
-      <FeaturedConsultations featureds={data.featuredConsultations} />
-      <CurrentConsultations consultations={data.currentConsultations} />
-      <TopComponentContext.Provider value={popularProposalsContext}>
-        <HomepagePopularProposals
-          proposals={data.popularProposals}
-          isLoading={isLoading}
-        />
-      </TopComponentContext.Provider>
-      <CorporateBanner />
-      <TopComponentContext.Provider value={controversialProposals}>
-        <ControversialProposals
-          proposals={data.controverseProposals}
-          isLoading={isLoading}
-        />
-      </TopComponentContext.Provider>
-      <BusinessConsultations consultations={data.businessConsultations} />
-    </HomepageWrapperStyle>
+      {isLoading && 'is loading...'}
+      {!isLoading && (
+        <>
+          <div>
+            <ul>
+              <li>
+                participantsCount:
+                {data.highlights.participantsCount}
+              </li>
+              <li>
+                proposalsCount:
+                {data.highlights.proposalsCount}
+              </li>
+              <li>
+                partnersCount:
+                {data.highlights.partnersCount}
+              </li>
+            </ul>
+          </div>
+          <div>
+            currentQuestions:
+            <ul>
+              {data.currentQuestions.map(question => (
+                <li>{question.questionSlug}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            featuredQuestions:
+            <ul>
+              {data.featuredQuestions.map(question => (
+                <li>{question.questionSlug}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            articles:
+            <ul>
+              {data.articles.map(article => (
+                <li>{article.title}</li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
