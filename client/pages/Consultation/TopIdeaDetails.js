@@ -9,7 +9,10 @@ import { FollowUs } from 'Client/features/flipping/FollowUs';
 import { TopIdeaService } from 'Shared/services/TopIdea';
 import { TopIdeaCard } from 'Client/features/topIdeas/Card';
 import { i18n } from 'Shared/i18n';
-import { type BreadcrumbsPagesType, Breadcrumbs } from 'Client/app/Breadcrumbs';
+import {
+  type BreadcrumbsPagesType,
+  Breadcrumbs,
+} from 'Client/app/Breadcrumbs/DeprecatedBreadcrumbs';
 import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';

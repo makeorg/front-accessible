@@ -199,7 +199,7 @@
     "breadcrumbs": "fil d'ariane"
   },
   "header": {
-    "logo_alt": "Aller à l'acceuil du site Make.org",
+    "logo_alt": "Aller à l'accueil du site Make.org",
     "whoarewe": "Qui sommes-nous ?"
   },
   "proposal_page": {
@@ -716,6 +716,21 @@
       "title": "TOP {{ count }} des propositions les plus populaires du moment par sujet"
     }
   },
+  "browse_consultations": {
+    "title":"Parcourir les consultations",
+    "nav_consultations": "Les consultations en cours",
+    "nav_results": "Les résultats des consultations",
+    "current": {
+      "title": "Participez aux consultations en cours",
+      "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",
+      "participate": "Participer"
+    },
+    "date": "Consultation du {{startDate}} au {{endDate}}",
+    "browse": "Parcourir les consultations",
+    "text_content_zero": "Aucune consultation en cours, mais restons en contact",
+    "text_content_one": "Inscrivez-vous pour être informé de la prochaine consultation",
+    "subscribe": "S'inscrire"
+  },
   "sharing": {
     "facebook": "Partager sur Facebook",
     "twitter": "Partager sur Twitter",
@@ -768,6 +783,7 @@
       "status": "Label de l'opération : ",
       "link": "Aller sur la page de la consultation : {{name}}"
     },
+    "title" : "Page d'accueil",
     "current_consultations": {
       "title": "Nos opérations en cours",
       "expand_panel": "{{type}} : {{name}} - Afficher le contenu du panneau déroulant",
@@ -808,18 +824,18 @@
       "less": "En voir moins"
     },
     "highlights":{
-      "title": " Make.org en quelques chiffres",
+      "title": "Make.org en quelques chiffres",
       "participants":{
         "figure": "5 millions",
         "subtitle": "de participant(e)s"
       },
       "proposals":{
-        "figure": "50 000",
-        "subtitle": "propositions"
+        "figure":"50 000",
+        "subtitle": "propositions déposées"
       },
       "partners":{
-        "figure": "300+",
-        "subtitle": "associations & entreprises partenaires"  
+        "figure": "300",
+        "subtitle": "associations & entreprises engagées"
       }
     }
   },

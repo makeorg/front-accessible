@@ -1,15 +1,20 @@
 import styled from 'styled-components';
+import { SvgClock } from 'Client/ui/Svg/elements';
 import {
   TextColors,
   BasicColors,
   MakeThemeColors,
+  ShadowColors,
+  BackgroundColors,
 } from 'Client/app/assets/vars/Colors';
-// import { intToPx } from 'Shared/helpers/styled';
-// import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   FlexElementStyle,
   SpaceBetweenColumnStyle,
+  ColumnElementStyle,
+  StartColumnStyle,
 } from '../../../ui/Elements/FlexElements';
 
 const linkStyle = color => `
@@ -21,38 +26,167 @@ const linkStyle = color => `
   }
 `;
 
-export const BrowseWrapperStyle = styled(FlexElementStyle)`
+// BROWSE ELEMENTS//
+
+export const BrowseBannerWrapperStyle = styled(ColumnElementStyle)`
+  padding-top: 28px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding-top: 36px;
+  }
+`;
+
+export const BrowseBannerTitleStyle = styled.h1`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 36px;
+  margin-bottom: 24px;
+  text-transform: none;
+  max-width: 308px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 56px;
+    margin-bottom: 33px;
+    max-width: 646px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 1110px;
+  }
+`;
+
+export const BrowseNavListStyle = styled.ol`
+  display: flex;
+  justify-content: start;
+  max-width: 308px;
+  padding-inline-start: 0px;
+  margin: 0px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 646px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 1110px;
+  }
+`;
+
+export const BrowseNavItemStyle = styled.li`
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 106px;
+  margin-right: 45px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 228px;
+    margin-right: 80px;
+  }
+`;
+
+export const BrowseNavLinkStyle = styled.a`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 13px;
+  line-height: 1.25;
+  text-decoration: none;
+  padding-bottom: 8px;
+  &:link,
+  &:visited {
+    color: ${TextColors.BlackWithOpacity};
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: ${MakeThemeColors.Red};
+  }
+  color: ${props =>
+    props.isSelected
+      ? `${MakeThemeColors.Red}`
+      : `${TextColors.BlackWithOpacity}`};
+  border-bottom: ${props =>
+    props.isSelected
+      ? `2px solid ${MakeThemeColors.Red};`
+      : `2px solid transparent`};
+
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 16px;
+    line-height: 1.25;
+    padding-bottom: 14px;
+  }
+`;
+
+// CONSULTATION ELEMENTS //
+
+export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
+  flex-wrap: wrap;
+  padding: 30px 0px;
+  background-color: ${BasicColors.PureWhite};
+`;
+
+export const ConsultationsTitleStyle = styled.h2`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 30px;
+  margin: 30px 0px;
+  text-transform: none;
+  max-width: 308px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 42px;
+    max-width: 646px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin: 50px 0px 30px 0px;
+    font-size: 42px;
+    max-width: 1110px;
+  }
+`;
+
+export const ConsultationsSubtitleStyle = styled.p`
+  font-family: ${MakeFonts.CircularStandardBook};
+  font-size: 14px;
+  max-width: 308px;
+  color: ${ShadowColors.BlackZeroSixOpacity};
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 646px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 1110px;
+  }
+`;
+
+export const ConsultationsWrapperStyle = styled(FlexElementStyle)`
   flex-flow: row;
   flex-wrap: wrap;
+  background-color: ${BasicColors.PureWhite};
 `;
 
-// review margins
-export const BrowseElementStyle = styled(SpaceBetweenColumnStyle)`
-  padding: 20px 0 px;
-  margin-right: 30px;
-  max-width: 254px;
-  margin-top: 40px;
-  margin-bottom: 30px;
+export const ConsultationElementStyle = styled(SpaceBetweenColumnStyle)`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 20px 30px 20px 0px;
+  max-width: 308px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 254px;
+    margin: 20px 30px 40px 0px;
+  }
 `;
 
-// to be changed when new endpoint search is done
-// Alson, add media queries
-export const BrowseElementPicture = styled.div`
-  height: 254px;
-  width: 248px;
+// to be changed when new endpoint search is done with .img
+export const ConsultationElementPicture = styled.div`
+  height: 174px;
+  width: 308px;
   background-color: #d8d8d8;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    height: 248px;
+    width: 254px;
+  }
 `;
 
-export const BrowseElementSubtitle = styled.div`
+export const ConsultationElementSubtitle = styled.p`
   font-size: 15px;
   text-transform: uppercase;
   color: ${TextColors.BlackWithOpacity};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  padding-top: 26px;
   padding-bottom: 6px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 6px 0px;
+  }
 `;
 
-export const BrowseElementQuestion = styled.div`
+export const ConsultationElementQuestion = styled.p`
   font-size: 18px;
   color: ${BasicColors.PureBlack};
   font-family: ${MakeFonts.CircularStandardBold};
@@ -60,25 +194,64 @@ export const BrowseElementQuestion = styled.div`
   padding-bottom: 20px;
 `;
 
-export const BrowseElementDateContainer = styled.div`
+export const ConsultationElementDateWrapper = styled.div`
   display: flex;
   padding-bottom: 20px;
 `;
 
-export const SvgWrapperStyle = styled.span`
-  margin-right: 12px;
-  margin-bottom: 20px;
+export const BrowseClockIconStyle = styled(SvgClock)`
+  margin-right: 22px;
 `;
 
-export const BrowseElementDateStyle = styled.div`
+export const ConsultationElementDateStyle = styled.p`
   font-size: 14px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
   max-width: 258px;
 `;
 
-export const BrowseRedLinkElementStyle = styled.a`
+export const ConsultationRedLinkElementStyle = styled.a`
   ${linkStyle(MakeThemeColors.Red)};
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
+`;
+
+// NO CONSULTATION ELEMENTS //
+
+export const NoConsultationWrapperStyle = styled(StartColumnStyle)`
+  background-color: ${BasicColors.PureWhite};
+  /* to remove when component is implemented */
+  height: 100vh;
+`;
+
+export const NoConsultationImageStyle = styled.div`
+  background-color: ${BackgroundColors.LightGrey};
+  width: 308px;
+  height: 174px;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 540px;
+    height: 248px;
+    margin-bottom: 26px;
+  }
+`;
+
+export const SvgMailWrapperStyle = styled.span`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NoConsultationTextStyle = styled.p`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 18px;
+  line-height: 1.44;
+  max-width: 308px;
+  margin-bottom: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 540px;
+    line-height: 1.22;
+  }
 `;
