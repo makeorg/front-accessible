@@ -5,7 +5,9 @@ export const pages = {
   'homepage': '/',
   'france deprecated homepage': '/FR-fr',
   'france homepage': '/FR-fr/beta/home',
-  'sequence page': '/FR-fr/consultation/:questionSlug/selection'
+  'sequence': '/FR-fr/consultation/:questionSlug/selection',
+  'general terms of use': '/FR-fr/conditions-dutilisation',
+  'data policy': '/FR-fr/politique-donnees'
 };
 
 // helpers
@@ -21,13 +23,13 @@ given('I go to {string}', (targetPage) => {
   cy.visit(pages[targetPage]);
 });
 
-given('I am/go on/to {string} of the question {string}', (targetPage, questionSlug) => {
+given('I am/go on/to {string} page of the question {string}', (targetPage, questionSlug) => {
   checkPageExist(targetPage);
   const page = pages[targetPage].replace(':questionSlug', questionSlug);
   cy.visit(page);
 });
 
-given('I am/go on/to {string} of the question {string} with intro card disabled', (targetPage, questionSlug) => {
+given('I am/go on/to {string} page of the question {string} with intro card disabled', (targetPage, questionSlug) => {
   checkPageExist(targetPage);
   const page = pages[targetPage].replace(':questionSlug', questionSlug);
   cy.visit(`${page}?introCard=false`);
@@ -36,6 +38,23 @@ given('I am/go on/to {string} of the question {string} with intro card disabled'
 When('I focus {string} field', (fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`).first().focus();
 });
+
+When('I click on {string} link', link => {
+  cy.get(`[data-cy-link=${link}]`).click()
+});
+
+When('I click on {string} button', buttonName => {
+  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).click()
+});
+
+then('I see the {string} page', (targetPage) => {
+  if (!pages[targetPage]) {
+    throw Error(`You should define "${targetPage}"`);
+  }
+
+  cy.url().should('include', pages[targetPage]);
+});
+
 
 // I see
 then('I see {string} in {string} container', (text, containerName) => {

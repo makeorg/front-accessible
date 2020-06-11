@@ -3,12 +3,12 @@ Feature: Vote on sequence
   Background: 
     Given monitor api requests
   Scenario: Display vote buttons
-    Given I am on "sequence page" of the question "question-0-slug"
+    Given I am on "sequence" page of the question "question-0-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
     And I see vote buttons on card "1"
   Scenario: Vote agree
-    Given I am on "sequence page" of the question "question-1-slug"
+    Given I am on "sequence" page of the question "question-1-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
     When I vote "agree" on the first proposal of sequence
@@ -16,7 +16,7 @@ Feature: Vote on sequence
     And total votes are equal to "6"
     And I see "next proposal" button on card "1"
   Scenario: Vote disagree
-    Given I am on "sequence page" of the question "question-1-slug"
+    Given I am on "sequence" page of the question "question-1-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
     When I vote "disagree" on the first proposal of sequence
@@ -24,7 +24,7 @@ Feature: Vote on sequence
     And total votes are equal to "6"
     And I see "next proposal" button on card "1"
   Scenario: Vote neutral
-    Given I am on "sequence page" of the question "question-1-slug"
+    Given I am on "sequence" page of the question "question-1-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
     When I vote "neutral" on the first proposal of sequence
@@ -32,7 +32,7 @@ Feature: Vote on sequence
     And total votes are equal to "7"
     And I see "next proposal" button on card "1"
   Scenario: Unvote voted and qualified proposal
-     Given I am on "sequence page" of the question "question-1-slug"
+     Given I am on "sequence" page of the question "question-1-slug"
      When I click on "intro card start button" of the current card
      Then card "1" is visible
      And I vote "agree" on the current card
@@ -51,7 +51,7 @@ Feature: Vote on sequence
      Then "likeIt" qualification button is not highlight on the current card
      And total "likeIt" qualifications are equal to "+1" on the current card
   Scenario: Track vote
-    Given I am on "sequence page" of the question "question-0-slug"
+    Given I am on "sequence" page of the question "question-0-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
     And I monitor API "postVote" requests

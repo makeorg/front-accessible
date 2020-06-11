@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { SvgInfos } from 'Client/ui/Svg/elements';
 import { useCookies } from 'react-cookie';
 import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
@@ -12,7 +11,8 @@ import {
   CookieParagraphStyle,
   CookieButtonStyle,
   CookieContentInnerStyle,
-} from './Styled';
+  CookieIconStyle,
+} from './style';
 
 const acceptCookieName: string = 'make-cookie';
 
@@ -35,11 +35,13 @@ export const CookieBanner = () => {
   }
 
   return (
-    <CookieWrapperStyle aria-label={i18n.t('common.cookie_area')}>
+    <CookieWrapperStyle
+      aria-label={i18n.t('common.cookie_area')}
+      data-cy-container="cookie-banner"
+    >
       <CookieContentStyle>
-        <SvgInfos
+        <CookieIconStyle
           aria-label={i18n.t('common.notifications.icons.information')}
-          style={{ minWidth: '20px', marginTop: '4px', marginRight: '10px' }}
         />
         <CookieContentInnerStyle>
           <CookieParagraphStyle
@@ -48,15 +50,20 @@ export const CookieBanner = () => {
                 gtu_link: `<a href="${getGTUPageLink(
                   country,
                   language
-                )}">$t(cookie_alert.gtu)</a>`,
+                )}" data-cy-link="gtu">$t(cookie_alert.gtu)</a>`,
                 policy_link: `<a href="${getDataPageLink(
                   country,
                   language
-                )}">$t(cookie_alert.policy)</a>`,
+                )}" data-cy-link="policy">$t(cookie_alert.policy)</a>`,
               }),
             }}
           />
-          <CookieButtonStyle onClick={handleClose}>OK</CookieButtonStyle>
+          <CookieButtonStyle
+            onClick={handleClose}
+            data-cy-button="cookie-accept"
+          >
+            OK
+          </CookieButtonStyle>
         </CookieContentInnerStyle>
       </CookieContentStyle>
     </CookieWrapperStyle>

@@ -23,6 +23,7 @@ import {
   getDataPageLink,
   getContactPageLink,
 } from 'Shared/helpers/url';
+import { scrollToTop } from 'Shared/helpers/styled';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -46,7 +47,7 @@ export const Footer = () => {
   return (
     <FooterStyle id="main_footer">
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
-        <Link to="/">
+        <Link onClick={scrollToTop} to="/">
           <FooterLogoStyle
             onClick={() => trackClickMakeLogo()}
             src={Logo}
@@ -88,25 +89,37 @@ export const Footer = () => {
             </>
           )}
           <FooterItemStyle>
-            <FooterItemLinkStyle to={getLegalPageLink(country, language)}>
+            <FooterItemLinkStyle
+              onClick={scrollToTop}
+              to={getLegalPageLink(country, language)}
+            >
               {i18n.t('main-footer.legal')}
             </FooterItemLinkStyle>
           </FooterItemStyle>
 
           <FooterItemStyle>
-            <FooterItemLinkStyle to={getGTUPageLink(country, language)}>
+            <FooterItemLinkStyle
+              onClick={scrollToTop}
+              to={getGTUPageLink(country, language)}
+            >
               {i18n.t('main-footer.terms')}
             </FooterItemLinkStyle>
           </FooterItemStyle>
 
           <FooterItemStyle>
-            <FooterItemLinkStyle to={getDataPageLink(country, language)}>
+            <FooterItemLinkStyle
+              onClick={scrollToTop}
+              to={getDataPageLink(country, language)}
+            >
               {i18n.t('main-footer.data')}
             </FooterItemLinkStyle>
           </FooterItemStyle>
 
           <FooterItemStyle>
-            <FooterItemLinkStyle to={getContactPageLink(country, language)}>
+            <FooterItemLinkStyle
+              onClick={scrollToTop}
+              to={getContactPageLink(country, language)}
+            >
               {i18n.t('main-footer.contact')}
             </FooterItemLinkStyle>
           </FooterItemStyle>

@@ -33,9 +33,9 @@ export const ROUTE_SOON = '/soon';
 export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG_FR}/no-cookies`;
 
 export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
-export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG_FR}/conditions-dutilisation`;
-export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG_FR}/politique-donnees`;
-export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG_FR}/contact`;
+export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
+export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
+export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
 
 // routes for en language
 export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY_LANG}/legal-mentions`;
