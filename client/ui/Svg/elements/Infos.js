@@ -1,18 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgInfos = ({
-  'aria-hidden': ariaHidden,
-  'aria-label': ariaLabel,
-  style,
-}) => (
-  <svg
-    width={20}
-    height={20}
-    viewBox="0 0 20 20"
-    aria-hidden={ariaHidden}
-    aria-label={ariaLabel}
-    style={style}
-  >
+export const SvgInfos = (props: Object) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
         className="tofill"
