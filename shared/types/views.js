@@ -3,6 +3,7 @@ import { type ProposalType } from 'Shared/types/proposal';
 import {
   type QuestionThemeType,
   type QuestionType,
+  type HomeQuestionType,
 } from 'Shared/types/question';
 import { type OrganisationType } from 'Shared/types/organisation';
 
@@ -56,27 +57,6 @@ export type HomeHighlightsType = {
   participantsCount: number,
   proposalsCount: number,
   partnersCount: number,
-};
-
-export type HomeQuestionType = {
-  questionId: string,
-  questionSlug: string,
-  question: string,
-  shortTitle: ?string,
-  operationTitle: string,
-  consultationImage: ?string | null,
-  country: string,
-  language: string,
-  startDate: ?string | null,
-  endDate: ?string | null,
-  theme: QuestionThemeType,
-  displayResults: boolean,
-  resultsLink: ?string | null,
-  aboutUrl: ?string | null,
-  actions: ?string | null,
-  featured: boolean,
-  participantsCount: number,
-  proposalsCount: number,
 };
 
 export type HomeArticleType = {

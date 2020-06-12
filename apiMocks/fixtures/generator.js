@@ -1,3 +1,4 @@
+const defaultHomepageQuestion = require('../db/defaultHomepageQuestion.json');
 const defaultQuestion = require('../db/defaultQuestion.json');
 const defaultProposal = require('../db/defaultProposal.json');
 const defaultPartner = require('../db/defaultPartner.json');
@@ -23,6 +24,54 @@ const range = (start, end) => {
 const today = new Date();
 const day = `0${today.getDate()}`.slice(-2);
 const month = `0${today.getMonth() + 1}`.slice(-2);
+
+const generateOpenedHomepageQuestions = count => {
+  const startDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
+
+  return range(0, count).map(number => ({
+    ...defaultHomepageQuestion,
+    questionId: `question-${number}-id`,
+    questionSlug: `question-${number}-slug`,
+    startDate,
+    endDate,
+    question: `question-${number} ${defaultQuestion.question} ?`,
+    shortTitle: `shortTitle-${number}`,
+    operattionTitle: `operation-${number}`,
+  }));
+};
+
+const generateFinishedHomepageQuestions = count => {
+  const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
+
+  return range(0, count).map(number => ({
+    ...defaultHomepageQuestion,
+    questionId: `question-${number}-id`,
+    questionSlug: `question-${number}-slug`,
+    startDate,
+    endDate,
+    question: `question-${number} ${defaultQuestion.question} ?`,
+    shortTitle: `shortTitle-${number}`,
+    operattionTitle: `operation-${number}`,
+  }));
+};
+
+const generateUpcomingHomepageQuestions = count => {
+  const startDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() + 2}-${month}-${day}T01:00:00.000Z`;
+
+  return range(0, count).map(number => ({
+    ...defaultHomepageQuestion,
+    questionId: `question-${number}-id`,
+    questionSlug: `question-${number}-slug`,
+    startDate,
+    endDate,
+    question: `question-${number} ${defaultQuestion.question} ?`,
+    shortTitle: `shortTitle-${number}`,
+    operattionTitle: `operation-${number}`,
+  }));
+};
 
 const generateOpenedQuestions = count => {
   const startDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
@@ -98,6 +147,9 @@ const generateOrganisations = count => {
   }));
 };
 
+const openedHomepageQuestions = generateOpenedHomepageQuestions(6);
+const finishedHomepageQuestions = generateFinishedHomepageQuestions(24);
+const upcomingHomepageQuestions = generateUpcomingHomepageQuestions(4);
 const questions = generateOpenedQuestions(10);
 const organisations = generateOrganisations(2);
 const authorProposal = {
@@ -188,6 +240,9 @@ const generateTopIdeas = () => {
 const topIdeas = generateTopIdeas();
 
 const fixtures = {
+  openedHomepageQuestions,
+  finishedHomepageQuestions,
+  upcomingHomepageQuestions,
   questions,
   proposals,
   partners,

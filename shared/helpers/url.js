@@ -22,6 +22,8 @@ import {
   ROUTE_STATIC_LEGAL_EN,
   ROUTE_STATIC_DATA_EN,
   ROUTE_STATIC_CONTACT_EN,
+  ROUTE_BROWSE_CONSULTATIONS,
+  ROUTE_BROWSE_RESULTS,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -72,6 +74,33 @@ export const getSequenceLink = (
       ? `?${queryString.stringify(params)}`
       : ''
   );
+};
+
+/**
+ * Get the browse consultations link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ *
+ * @return {string}
+ */
+export const getBrowseConsultationsLink = (
+  country: string,
+  language: string
+) => {
+  return generatePath(ROUTE_BROWSE_CONSULTATIONS, { country, language });
+};
+
+/**
+ * Get the browse results link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ *
+ * @return {string}
+ */
+export const getBrowseResultsLink = (country: string, language: string) => {
+  return generatePath(ROUTE_BROWSE_RESULTS, { country, language });
 };
 
 /**
