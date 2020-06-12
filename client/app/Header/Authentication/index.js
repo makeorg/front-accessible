@@ -44,7 +44,7 @@ export const HeaderAuthentication = () => {
           to={getRouteProfile(user.country, user.language)}
           onClick={trackClickProfile}
         >
-          <Avatar avatarUrl={user.profile.avatarUrl} />
+          <Avatar avatarUrl={user.avatarUrl} />
           {isOrganisation
             ? formatOrganisationName(user.displayName)
             : formatUserName(user.displayName)}
