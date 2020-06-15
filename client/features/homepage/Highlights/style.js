@@ -6,9 +6,10 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
 export const HighlightsWrapperStyle = styled.div`
+  background-color: ${BasicColors.PureWhite};
   display: flex;
   flex-flow: column;
-  margin-top: 60px;
+  padding-top: 60px;
 `;
 
 export const HighlightsBannerTitle = styled.h2`
@@ -27,6 +28,16 @@ export const HighlightsBannerFiguresContainer = styled(SpaceBetweenRowStyle)`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 308px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 646px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    max-width: 800px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    max-width: 1110px;
+  }
 `;
 
 export const HighlightFigureContainer = styled.div`

@@ -55,3 +55,7 @@ export { SvgIdea } from './Idea';
 export { SvgPeople } from './People';
 export { SvgLight } from './Light';
 export { SvgHandHeart } from './HandHeart';
+export { SvgHouse } from './House';
+export { SvgMail } from './Mail';
+export { SvgClock } from './Clock';
+export { SvgBigArrowRight } from './BigArrowRight';

@@ -40,6 +40,7 @@ export const TextColors = {
   LightGrey,
   Blue: 'rgb(74, 144, 226)',
   WhiteWithOpacity: 'rgb(255,255,255, 0.65)',
+  BlackWithOpacity: 'rgba(0,0,0,0.65)',
 };
 
 export const ShadowColors = {
