@@ -133,6 +133,18 @@ describe('getLocationContext', () => {
       expectedTracking: `not-found-page`,
     },
     {
+      name: 'ROUTE_BROWSE_CONSULTATIONS',
+      path: '/FR-fr/browse/consultations',
+      expected: `browse-consultations-page`,
+      expectedTracking: `browse-consultations-page`,
+    },
+    {
+      name: 'ROUTE_BROWSE_RESULTS',
+      path: '/FR-fr/browse/results',
+      expected: `browse-results-page`,
+      expectedTracking: `browse-results-page`,
+    },
+    {
       name: 'home',
       path: '/',
       expected: `homepage`,

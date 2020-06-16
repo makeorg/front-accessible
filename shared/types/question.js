@@ -191,3 +191,24 @@ export type QuestionPartnerType = $ReadOnly<{
   website: ?string,
   countsByQuestion: Object,
 }>;
+
+export type HomeQuestionType = {
+  questionId: string,
+  questionSlug: string,
+  question: string,
+  shortTitle: string,
+  operationTitle: string,
+  consultationImage: string,
+  country: string,
+  language: string,
+  startDate: string,
+  endDate: string,
+  theme: QuestionThemeType,
+  displayResults: boolean,
+  resultsLink: string,
+  aboutUrl: string,
+  actions: string,
+  featured: boolean,
+  participantsCount: number,
+  proposalsCount: number,
+};

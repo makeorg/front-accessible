@@ -22,6 +22,8 @@ import {
   ROUTE_PROFILE_OPINIONS,
   ROUTE_STATIC_NOCOOKIES,
   ROUTE_STATIC_NOTFOUND,
+  ROUTE_BROWSE_CONSULTATIONS,
+  ROUTE_BROWSE_RESULTS,
 } from 'Shared/routes';
 
 export const getLocationContext = (
@@ -86,6 +88,14 @@ export const getLocationContext = (
     {
       route: ROUTE_STATIC_NOTFOUND,
       name: `not-found-page`,
+    },
+    {
+      route: ROUTE_BROWSE_CONSULTATIONS,
+      name: `browse-consultations-page`,
+    },
+    {
+      route: ROUTE_BROWSE_RESULTS,
+      name: `browse-results-page`,
     },
     { route: '/', name: `homepage`, exact: true, strict: true },
     { route: '/:countryLang', name: `homepage`, exact: true, strict: false },

@@ -3,8 +3,49 @@ const { fixtures } = require('../fixtures/generator');
 
 const questionsRouter = jsonServer.create();
 
+const getLimitAndSkip = (questions, req) => {
+  return questions.slice(
+    parseInt(req.query.skip, 10),
+    parseInt(req.query.limit, 10) + parseInt(req.query.skip, 10)
+  );
+};
+
 questionsRouter.get('/', (req, res) => {
-  return res.send(fixtures.questions);
+  const { status } = req.query;
+  const allHomepageQuestions = fixtures.openedHomepageQuestions
+    .concat(fixtures.finishedHomepageQuestions)
+    .concat(fixtures.upcomingHomepageQuestions);
+
+  let questions = getLimitAndSkip(allHomepageQuestions, req);
+
+  if (status === 'open') {
+    questions = getLimitAndSkip(fixtures.openedHomepageQuestions, req);
+    return res.send({
+      total: questions.length,
+      results: questions,
+    });
+  }
+
+  if (status === 'finished') {
+    questions = getLimitAndSkip(fixtures.finishedHomepageQuestions, req);
+    return res.send({
+      total: questions.length,
+      results: questions,
+    });
+  }
+
+  if (status === 'upcoming') {
+    questions = getLimitAndSkip(fixtures.upcomingHomepageQuestions, req);
+    return res.send({
+      total: questions.length,
+      results: questions,
+    });
+  }
+
+  return res.send({
+    total: questions.length,
+    results: questions,
+  });
 });
 
 questionsRouter.get('/:questionIdOrQuestionSlug/details', (req, res) => {

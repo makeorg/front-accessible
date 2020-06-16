@@ -3,6 +3,7 @@ import { generatePath } from 'react-router';
 import { type ApiServiceHeadersType } from '../types/api';
 import { ApiService } from './ApiService';
 
+const PATH_QUESTIONS_LIST = '/questions';
 const PATH_QUESTIONS_SEARCH = '/questions/search';
 const PATH_QUESTION_DETAIL = '/questions/:questionSlugOrId/details';
 const PATH_QUESTION_START_SEQUENCE = '/questions/:questionId/start-sequence';
@@ -14,6 +15,22 @@ const PATH_QUESTION_TOP_IDEA_DETAILS =
   '/questions/:questionId/top-ideas/:topIdeaId';
 
 export class QuestionApiService {
+  static getQuestions(
+    country: string,
+    language: string,
+    status: ?string, // Upcoming, Open, Finished
+    sortAlgorithm: ?string, // Chronological, Featured
+    limit: ?number,
+    skip: ?number,
+    headers: ?ApiServiceHeadersType = {}
+  ): Promise<any> {
+    return ApiService.callApi(generatePath(PATH_QUESTIONS_LIST), {
+      method: 'GET',
+      headers,
+      params: { country, language, status, sortAlgorithm, limit, skip },
+    });
+  }
+
   static getQuestionPartners(
     questionId: string,
     partnerKind: string,

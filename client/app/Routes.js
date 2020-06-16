@@ -39,9 +39,14 @@ import {
   ROUTE_STATIC_CONTACT_EN,
   ROUTE_SOON,
   ROUTE_BETA_HOME, // @todo beta
+  ROUTE_BROWSE_CONSULTATIONS,
+  ROUTE_BROWSE_RESULTS,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
+const BrowseConsultationsPage = loadable(() =>
+  import('Client/pages/Browse/Consultations.js')
+);
 const ConsultationPage = loadable(() =>
   import('Client/pages/Consultation/Consultation.js')
 );
@@ -99,6 +104,11 @@ export const Routes = () => {
 
   return (
     <Switch>
+      <Route
+        path={ROUTE_BROWSE_CONSULTATIONS}
+        component={BrowseConsultationsPage}
+      />
+      <Route path={ROUTE_BROWSE_RESULTS} component={BrowseConsultationsPage} />
       <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
       <Route path={ROUTE_ACTION} component={ActionsPage} />
       <Route path={ROUTE_RESULTS} component={ResultsPage} />

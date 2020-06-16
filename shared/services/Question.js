@@ -3,10 +3,37 @@ import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import {
   type QuestionType,
   type QuestionPartnerType,
+  type HomeQuestionType,
 } from 'Shared/types/question';
 import { type TagType } from 'Shared/types/tag';
 import { type PersonalityType } from 'Shared/types/user';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
+
+const getQuestions = async (
+  country: string,
+  language: string,
+  status: ?string = undefined,
+  sortAlgorithm: ?string = undefined,
+  limit: ?number = undefined,
+  skip: ?number = undefined
+): Promise<?{ total: number, results: HomeQuestionType[] }> => {
+  try {
+    const response = await QuestionApiService.getQuestions(
+      country,
+      language,
+      status,
+      sortAlgorithm,
+      limit,
+      skip
+    );
+
+    return response.data;
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+
+    return null;
+  }
+};
 
 const getDetail = async (
   questionSlugOrId: string,
@@ -116,6 +143,7 @@ const getQuestionPersonalities = async (
 };
 
 export const QuestionService = {
+  getQuestions,
   getDetail,
   searchQuestions,
   getQuestionPopularTags,
