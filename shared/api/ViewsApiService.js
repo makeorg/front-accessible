@@ -1,4 +1,5 @@
 // @flow
+import { type ApiServiceHeadersType } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
 const HOMEPAGE_PATH_DEPRECATED = '/views/home';
@@ -15,12 +16,14 @@ export class ViewsApiService {
 
   static getHome = async (
     country: string,
-    language: string
+    language: string,
+    headers?: ApiServiceHeadersType = {}
   ): Promise<Object> => {
     return ApiService.callApi(
       HOMEPAGE_PATH.replace(':country', country).replace(':language', language),
       {
         method: 'GET',
+        headers,
       }
     );
   };

@@ -37,7 +37,10 @@ const getQuestion = async (
       notFound();
       return null;
     }
-    logger.log('error', apiServiceError);
+    logger.log(
+      'error in server/service/QuestionService/getQuestion',
+      apiServiceError
+    );
     unexpectedError();
 
     return null;
