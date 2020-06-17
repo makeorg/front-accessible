@@ -3,6 +3,7 @@
 import { combineReducers } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import { appConfig } from './appConfig';
+import { views } from './views';
 import { proposal } from './proposal';
 import { modal } from './modal';
 import { currentQuestion } from './currentQuestion';
@@ -15,6 +16,7 @@ import { partners } from './partners';
 
 export const rootReducer: StateRoot = combineReducers({
   appConfig,
+  views,
   proposal,
   modal,
   sequence,

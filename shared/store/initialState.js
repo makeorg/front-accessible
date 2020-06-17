@@ -9,6 +9,7 @@ export const initialState: StateRoot = {
     translations: {},
     queryParams: {},
   },
+  views: {},
   proposal: {
     hasProposed: false,
     popularProposals: [],

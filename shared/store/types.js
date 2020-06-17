@@ -1,5 +1,6 @@
 // @flow
 import { type ErrorObjectType } from 'Shared/types/api';
+import { type HomeViewType } from 'Shared/types/views';
 import {
   type QuestionType,
   type QuestionResultsType,
@@ -14,6 +15,11 @@ export type StateConfig = $ReadOnly<{
   language: string,
   country: string,
   translations: Object,
+}>;
+
+// Config Homepage
+export type StateViews = $ReadOnly<{
+  homepage?: HomeViewType,
 }>;
 
 // Proposal State
@@ -116,6 +122,7 @@ export type StatePartners = $ReadOnly<{
 // All state
 export type StateRoot = {
   appConfig: StateConfig,
+  views: StateViews,
   proposal: StateProposal,
   sequence: StateSequence,
   currentQuestion: ?string,

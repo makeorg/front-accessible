@@ -47,6 +47,7 @@ import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
 import { topIdeasRoute } from './ssr/topIdeasRoute';
+import { homepageRoute } from './ssr/homepageRoute';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -121,7 +122,7 @@ export const initRoutes = app => {
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_BETA_HOME, frontMiddlewares, defaultRoute); // @todo beta
+  app.get(ROUTE_BETA_HOME, frontMiddlewares, homepageRoute); // @todo beta
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);

@@ -1,65 +1,66 @@
 /* @flow */
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type HomeViewType } from 'Shared/types/views';
-import { ViewsService } from 'Shared/services/Views';
 import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
 import { type StateRoot } from 'Shared/store/types';
+import { loadHomepage } from 'Shared/store/reducers/views/actions';
+import { ViewsService } from 'Shared/services/Views';
 
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<HomeViewType>({
-    highlights: { participantsCount: 0, proposalsCount: 0, partnersCount: 0 },
-    currentQuestions: [],
-    featuredQuestions: [],
-    articles: [],
-  });
-  // trackingParamsService.questionSlug = '';
+  const dispatch = useDispatch();
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
+  const { homepage } = useSelector((state: StateRoot) => state.views);
+
+  const initHomepage = async () => {
+    setIsLoading(true);
+    const homepageResponse: ?HomeViewType = await ViewsService.getHome(
+      country,
+      language
+    );
+    if (homepageResponse) {
+      dispatch(loadHomepage(homepageResponse));
+    }
+    setIsLoading(false);
+  };
 
   useEffect(() => {
-    async function fetchData() {
-      const homeData: ?HomeViewType = await ViewsService.getHome(
-        country,
-        language
-      );
-      setData(homeData || data);
+    if (!homepage) {
+      initHomepage();
     }
-    setIsLoading(true);
     trackDisplayHomepage();
-    fetchData();
-    setIsLoading(false);
   }, []);
 
   return (
     <>
       <MetaTags />
       {isLoading && 'is loading...'}
-      {!isLoading && (
+      {!isLoading && homepage && (
         <>
           <div>
             <ul>
               <li>
                 participantsCount:
-                {data.highlights.participantsCount}
+                {homepage.highlights.participantsCount}
               </li>
               <li>
                 proposalsCount:
-                {data.highlights.proposalsCount}
+                {homepage.highlights.proposalsCount}
               </li>
               <li>
                 partnersCount:
-                {data.highlights.partnersCount}
+                {homepage.highlights.partnersCount}
               </li>
             </ul>
           </div>
           <div>
             currentQuestions:
             <ul>
-              {data.currentQuestions.map(question => (
+              {homepage.currentQuestions.map(question => (
                 <li>{question.questionSlug}</li>
               ))}
             </ul>
@@ -67,7 +68,7 @@ export const HomePage = () => {
           <div>
             featuredQuestions:
             <ul>
-              {data.featuredQuestions.map(question => (
+              {homepage.featuredQuestions.map(question => (
                 <li>{question.questionSlug}</li>
               ))}
             </ul>
@@ -75,7 +76,7 @@ export const HomePage = () => {
           <div>
             articles:
             <ul>
-              {data.articles.map(article => (
+              {homepage.articles.map(article => (
                 <li>{article.title}</li>
               ))}
             </ul>

@@ -49,5 +49,6 @@ Object {
       "userId": undefined,
     },
   },
+  "views": Object {},
 }
 `;
