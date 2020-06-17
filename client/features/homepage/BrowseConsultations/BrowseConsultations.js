@@ -1,5 +1,8 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { type HomeQuestionType } from 'Shared/types/views';
+import { DateHelper } from 'Shared/helpers/date';
+import { getConsultationLink } from 'Shared/helpers/url';
 import {
   ConsultationsWrapperStyle,
   ConsultationElementStyle,
@@ -9,49 +12,41 @@ import {
   ConsultationElementDateWrapper,
   ConsultationElementDateStyle,
   ConsultationRedLinkElementStyle,
-  ConsultationsTitleWrapperStyle,
-  ConsultationsTitleStyle,
-  ConsultationsSubtitleStyle,
   BrowseClockIconStyle,
 } from 'Client/features/consultation/Browse/style';
-import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
-import { BrowseConsultationsWrapperStyle } from './style';
 
-export const BrowseConsultations = () => {
-  return (
-    <>
-      <BrowseConsultationsWrapperStyle>
-        <ConsultationsTitleWrapperStyle>
-          <ConsultationsTitleStyle>
-            {i18n.t('browse_consultations.title')}
-          </ConsultationsTitleStyle>
-          <ConsultationsSubtitleStyle>
-            {i18n.t('browse_consultations.current.subtitle')}
-          </ConsultationsSubtitleStyle>
-        </ConsultationsTitleWrapperStyle>
-        <ConsultationsWrapperStyle>
-          {/* todo: when endpoint is created, map on data to build <BrowseElement/> */}
-          <ConsultationElementStyle>
-            <ConsultationElementPicture />
-            <ConsultationElementSubtitle>
-              Grande Cause Make.org
-            </ConsultationElementSubtitle>
-            <ConsultationElementQuestion>
-              Comment agir ensemble dès maintenant pour l&apos;environnement ?
-            </ConsultationElementQuestion>
-            <ConsultationElementDateWrapper>
-              <BrowseClockIconStyle />
-              <ConsultationElementDateStyle>
-                {i18n.t('browse_consultations.date')}
-              </ConsultationElementDateStyle>
-            </ConsultationElementDateWrapper>
-            <ConsultationRedLinkElementStyle>
-              {i18n.t('browse_consultations.current.participate')}
-            </ConsultationRedLinkElementStyle>
-          </ConsultationElementStyle>
-        </ConsultationsWrapperStyle>
-        <RedButtonStyle>{i18n.t('browse_consultations.browse')}</RedButtonStyle>
-      </BrowseConsultationsWrapperStyle>
-    </>
-  );
-};
+export const BrowseConsultations = ({ currentQuestions }: HomeQuestionType) => (
+  <ConsultationsWrapperStyle as="ul">
+    {currentQuestions.map(question => (
+      <ConsultationElementStyle as="li">
+        <ConsultationElementPicture src={question.consultationImage} alt="" />
+        {question.featured && (
+          <ConsultationElementSubtitle>
+            {i18n.t('browse_consultations.initiative')}
+          </ConsultationElementSubtitle>
+        )}
+        <ConsultationElementQuestion>
+          {question.question}
+        </ConsultationElementQuestion>
+        <ConsultationElementDateWrapper>
+          <BrowseClockIconStyle />
+          <ConsultationElementDateStyle>
+            {i18n.t('browse_consultations.date', {
+              startDate: DateHelper.creationDateFormat(question.startDate),
+              endDate: DateHelper.creationDateFormat(question.endDate),
+            })}
+          </ConsultationElementDateStyle>
+        </ConsultationElementDateWrapper>
+        <ConsultationRedLinkElementStyle
+          to={getConsultationLink(
+            question.country,
+            question.language,
+            question.questionSlug
+          )}
+        >
+          {i18n.t('browse_consultations.current.participate')}
+        </ConsultationRedLinkElementStyle>
+      </ConsultationElementStyle>
+    ))}
+  </ConsultationsWrapperStyle>
+);

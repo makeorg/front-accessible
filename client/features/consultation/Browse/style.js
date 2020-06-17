@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { SvgClock } from 'Client/ui/Svg/elements';
+import { Link } from 'react-router-dom';
 import {
   TextColors,
   BasicColors,
@@ -118,7 +119,7 @@ export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
 export const ConsultationsTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 30px;
-  margin: 30px 0px;
+  padding: 30px 0px 20px;
   text-transform: none;
   max-width: 308px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -126,7 +127,6 @@ export const ConsultationsTitleStyle = styled.h2`
     max-width: 646px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: 50px 0px 30px 0px;
     font-size: 42px;
     max-width: 1110px;
   }
@@ -149,30 +149,42 @@ export const ConsultationsWrapperStyle = styled(FlexElementStyle)`
   flex-flow: row;
   flex-wrap: wrap;
   background-color: ${BasicColors.PureWhite};
+  padding-inline-start: 0px;
 `;
 
 export const ConsultationElementStyle = styled(SpaceBetweenColumnStyle)`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  margin: 20px 30px 20px 0px;
-  max-width: 308px;
+  box-sizing: border-box;
+  padding: 20px 0px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 50%;
+    &:nth-child(odd) {
+      padding-right: 30px;
+    }
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    max-width: 254px;
-    margin: 20px 30px 40px 0px;
+    width: 33%;
+    padding-right: 30px;
+    &:nth-child(3) {
+      padding-right: 0px;
+    }
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
+    width: 25%;
+    padding-right: 30px;
+    &:nth-child(3) {
+      padding-right: 30px;
+    }
+    &:nth-child(4) {
+      padding-right: 0px;
+    }
   }
 `;
 
-// to be changed when new endpoint search is done with .img
-export const ConsultationElementPicture = styled.div`
-  height: 174px;
-  width: 308px;
-  background-color: #d8d8d8;
+export const ConsultationElementPicture = styled.img`
   margin-bottom: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    height: 248px;
-    width: 254px;
-  }
 `;
 
 export const ConsultationElementSubtitle = styled.p`
@@ -210,7 +222,7 @@ export const ConsultationElementDateStyle = styled.p`
   max-width: 258px;
 `;
 
-export const ConsultationRedLinkElementStyle = styled.a`
+export const ConsultationRedLinkElementStyle = styled(Link)`
   ${linkStyle(MakeThemeColors.Red)};
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
@@ -220,15 +232,14 @@ export const ConsultationRedLinkElementStyle = styled.a`
 
 export const NoConsultationWrapperStyle = styled(StartColumnStyle)`
   background-color: ${BasicColors.PureWhite};
-  /* to remove when component is implemented */
-  height: 100vh;
+  margin-bottom: 50px;
 `;
 
 export const NoConsultationImageStyle = styled.div`
   background-color: ${BackgroundColors.LightGrey};
   width: 308px;
   height: 174px;
-  margin-bottom: 20px;
+  margin: 20px 0px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 540px;
     height: 248px;

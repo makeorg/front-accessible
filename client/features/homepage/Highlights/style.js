@@ -18,7 +18,7 @@ export const HighlightsBannerTitle = styled.h2`
   color: ${BasicColors.PureBlack};
   padding: 20px 0px;
   text-transform: none;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 42px;
   }
 `;
