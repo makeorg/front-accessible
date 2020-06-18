@@ -21,6 +21,8 @@
   "landingSequenceId":"f7f8b8d9-cff9-46ec-befa-05014235513c",
   "canPropose":true,
   "operationKind":"BUSINESS_CONSULTATION",
+  "shortTitle": "shortTitle",
+  "operationTitle": "operationTitle",
   "sequenceConfig": {
     "introCard": {
       "enabled":true,

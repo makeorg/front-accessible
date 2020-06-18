@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
-  // Layouts,
-  // DefaultPadding,
-  Breakpoints,
-} from 'Client/app/assets/vars/Breakpoints';
-import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
+  MiddleColumnStyle,
+  SpaceBetweenColumnStyle,
+} from 'Client/ui/Elements/FlexElements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 
-export const HomepageWrapperStyle = styled(SpaceBetweenColumnStyle)`
+export const HomepageWrapperStyle = styled(MiddleColumnStyle)`
   width: 100%;
+  height: 100%;
+  min-height: 100%;
   background-color: ${BasicColors.PureWhite};
-  padding: 30px 34px;
+  padding: 30px 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 35px 50px;
+    padding: 35px 20px;
   }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    padding: 35px 165px;
-  }
+`;
+
+export const HomepageInnerStyle = styled(SpaceBetweenColumnStyle)`
+  width: 100%;
+  margin: 0 auto;
+  max-width: ${intToPx(Layouts.ContainerWidth)};
 `;

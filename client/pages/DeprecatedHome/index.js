@@ -4,13 +4,13 @@ import { type DeprecatedHomeType } from 'Shared/types/views';
 import { ViewsService } from 'Shared/services/Views';
 import { trackDisplayHomepage } from 'Shared/services/Tracking';
 import { MetaTags } from 'Client/app/MetaTags';
-import { FeaturedConsultations } from 'Client/features/homepage/FeaturedConsultations';
-import { CorporateBanner } from 'Client/features/homepage/Corporate';
+import { FeaturedConsultations } from 'Client/features/homepage/Deprecated/FeaturedConsultations';
+import { CorporateBanner } from 'Client/features/homepage/Deprecated/Corporate';
 import { BusinessConsultations } from 'Client/features/consultation/Business';
-import { CurrentConsultations } from 'Client/features/homepage/CurrentConsultations';
+import { CurrentConsultations } from 'Client/features/homepage/Deprecated/CurrentConsultations';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
-import { HomepagePopularProposals } from 'Client/features/homepage/Proposals/Popular';
-import { ControversialProposals } from 'Client/features/homepage/Proposals/Controversial';
+import { HomepagePopularProposals } from 'Client/features/homepage/Deprecated/Proposals/Popular';
+import { ControversialProposals } from 'Client/features/homepage/Deprecated/Proposals/Controversial';
 import { trackingParamsService } from 'Shared/services/TrackingParamsService';
 import {
   TopComponentContext,

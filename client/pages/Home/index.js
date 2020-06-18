@@ -26,7 +26,9 @@ import {
   ConsultationsWrapperStyle,
   ConsultationsTitleStyle,
 } from 'Client/features/consultation/Browse/style';
-import { HomepageWrapperStyle } from './style';
+import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
+import { FeaturedQuestions } from 'Client/features/homepage/FeaturedQuestions';
+import { HomepageWrapperStyle, HomepageInnerStyle } from './style';
 
 export const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -59,51 +61,58 @@ export const HomePage = () => {
   const hasOneQuestion = homepage && homepage.currentQuestions.length === 1;
 
   return (
-    <HomepageWrapperStyle>
+    <>
       <MetaTags />
-      {isLoading && <Spinner />}
-      {!isLoading && homepage && (
-        <>
-          <HighlightsBanner
-            participantsCount={homepage.highlights.participantsCount}
-            proposalsCount={homepage.highlights.proposalsCount}
-            partnersCount={homepage.highlights.partnersCount}
-          />
-          <ConsultationsWrapperStyle>
-            <ConsultationsTitleStyle>
-              {i18n.t('browse_consultations.title')}
-            </ConsultationsTitleStyle>
-            {hasQuestions && (
-              <BrowseConsultations
-                currentQuestions={homepage.currentQuestions}
-              />
-            )}
-            {hasOneQuestion && (
-              <NoConsultation length={homepage.currentQuestions.length} />
-            )}
-            {!hasQuestions && (
-              <StartColumnStyle>
-                <NoConsultation length={homepage.currentQuestions.length} />
-                <ResultsLinkAsRedButton
-                  as={Link}
-                  to={getBrowseResultsLink(country, language)}
-                >
-                  {i18n.t('browse_consultations.see_closed_consultations')}
-                </ResultsLinkAsRedButton>
-              </StartColumnStyle>
-            )}
-            {hasQuestions && (
-              <LinkAsRedButton
-                as={Link}
-                to={getBrowseConsultationsLink(country, language)}
-              >
-                {i18n.t('browse_consultations.browse')}
-              </LinkAsRedButton>
-            )}
-          </ConsultationsWrapperStyle>
-        </>
+      {isLoading && (
+        <MiddlePageWrapperStyle>
+          <Spinner />
+        </MiddlePageWrapperStyle>
       )}
-    </HomepageWrapperStyle>
+      {!isLoading && homepage && (
+        <HomepageWrapperStyle>
+          <HomepageInnerStyle>
+            <HighlightsBanner
+              participantsCount={homepage.highlights.participantsCount}
+              proposalsCount={homepage.highlights.proposalsCount}
+              partnersCount={homepage.highlights.partnersCount}
+            />
+            <ConsultationsWrapperStyle>
+              <ConsultationsTitleStyle>
+                {i18n.t('browse_consultations.title')}
+              </ConsultationsTitleStyle>
+              {hasQuestions && (
+                <BrowseConsultations
+                  currentQuestions={homepage.currentQuestions}
+                />
+              )}
+              {hasOneQuestion && (
+                <NoConsultation length={homepage.currentQuestions.length} />
+              )}
+              {!hasQuestions && (
+                <StartColumnStyle>
+                  <NoConsultation length={homepage.currentQuestions.length} />
+                  <ResultsLinkAsRedButton
+                    as={Link}
+                    to={getBrowseResultsLink(country, language)}
+                  >
+                    {i18n.t('browse_consultations.see_closed_consultations')}
+                  </ResultsLinkAsRedButton>
+                </StartColumnStyle>
+              )}
+              {hasQuestions && (
+                <LinkAsRedButton
+                  as={Link}
+                  to={getBrowseConsultationsLink(country, language)}
+                >
+                  {i18n.t('browse_consultations.browse')}
+                </LinkAsRedButton>
+              )}
+            </ConsultationsWrapperStyle>
+            <FeaturedQuestions questions={homepage.featuredQuestions} />
+          </HomepageInnerStyle>
+        </HomepageWrapperStyle>
+      )}
+    </>
   );
 };
 
