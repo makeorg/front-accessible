@@ -3,7 +3,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import {
-  matchPath,
   type Location as TypeLocation,
   type match as TypeMatch,
 } from 'react-router';
@@ -16,6 +15,8 @@ import { EditProfileLink } from 'Client/features/profile/UserInformations/Naviga
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
+  isProfileProposals as getIsProfileProposals,
+  isProfileFavourites as getIsProfileFavourites,
   ROUTE_PROFILE_PROPOSALS,
   ROUTE_PROFILE_FAVOURITES,
   ROUTE_PROFILE_FOLLOWING,
@@ -62,15 +63,8 @@ const ProfilePage = ({ match, location }: Props) => {
   const profileProposalsLink = getRouteProfileProposals(country, language);
   const profileFavouritesLink = getRouteProfileFavourites(country, language);
   const profileOpinions = getRouteProfileOpinions(country, language);
-
-  const isProfileProposalsActive = !!matchPath(
-    location.pathname,
-    ROUTE_PROFILE_PROPOSALS
-  );
-  const isProfileFavouritesActive = !!matchPath(
-    location.pathname,
-    ROUTE_PROFILE_FAVOURITES
-  );
+  const isProfileProposalsActive = getIsProfileProposals(location.pathname);
+  const isProfileFavouritesActive = getIsProfileFavourites(location.pathname);
 
   if (!user) {
     return <Redirect to="/" />;

@@ -4,7 +4,6 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { OrganisationService } from 'Shared/services/Organisation';
 import {
   Redirect,
-  matchPath,
   type match as TypeMatch,
   type Location as TypeLocation,
 } from 'react-router';
@@ -15,10 +14,12 @@ import { type OrganisationType } from 'Shared/types/organisation';
 import { useMobile } from 'Client/hooks/useMedia';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
-  ROUTE_ORGANISATION_PROPOSALS,
-  ROUTE_ORGANISATION_VOTES,
+  isOrganisationProposals as getIsOrganisationProposals,
+  isOrganisationVotes as getIsOrganisationVotes,
   getRouteOrganisationProposals,
   getRouteOrganisationVotes,
+  ROUTE_ORGANISATION_PROPOSALS,
+  ROUTE_ORGANISATION_VOTES,
 } from 'Shared/routes';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
@@ -78,14 +79,10 @@ const OrganisationPage = (props: Props) => {
     organisationSlug
   );
 
-  const isOrganisationProposalsActive = !!matchPath(
-    location.pathname,
-    ROUTE_ORGANISATION_PROPOSALS
+  const isOrganisationProposalsActive = getIsOrganisationProposals(
+    location.pathname
   );
-  const isOrganisationVotesActive = !!matchPath(
-    location.pathname,
-    ROUTE_ORGANISATION_VOTES
-  );
+  const isOrganisationVotesActive = getIsOrganisationVotes(location.pathname);
 
   useEffect(() => {
     trackDisplayPublicProfile(TYPE_ORGANISATION);

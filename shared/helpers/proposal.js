@@ -35,21 +35,6 @@ export const proposalHasValidLength = (length: number = 0) => {
 };
 
 /**
- * Sort proposal by voted first
- * @param  {ProposalType[]} proposals
- * @return {ProposalType[]}
- */
-export const sortProposalsByVoted = (
-  proposals: ProposalType[]
-): ProposalType[] =>
-  proposals.sort((first, second) => {
-    const firstHasVoted = first.votes.some(vote => vote.hasVoted);
-    const secondHasVoted = second.votes.some(vote => vote.hasVoted);
-
-    return Number(secondHasVoted) - Number(firstHasVoted);
-  });
-
-/**
  * Search the first no voted proposal
  * @type {Object|undefined}
  */

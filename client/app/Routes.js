@@ -41,6 +41,7 @@ import {
   ROUTE_BETA_HOME, // @todo beta
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
+  BASE_PREVIEW_PATH,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
@@ -112,6 +113,10 @@ export const Routes = () => {
       <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
       <Route path={ROUTE_ACTION} component={ActionsPage} />
       <Route path={ROUTE_RESULTS} component={ResultsPage} />
+      <Route
+        path={`${BASE_PREVIEW_PATH}${ROUTE_RESULTS}`}
+        component={ResultsPage}
+      />
       <Route path={ROUTE_TOP_IDEA_DETAILS} component={TopIdeaDetailsPage} />
       <Route path={ROUTE_TOP_IDEAS} component={TopIdeasPage} />
       <Route path={ROUTE_SEQUENCE} component={SequencePage} />
