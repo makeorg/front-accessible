@@ -81,7 +81,6 @@ export class DateHelperSingleton {
       return null;
     }
     const objectDate = new Date(date);
-
     if (Number.isNaN(objectDate.getMonth())) {
       return null;
     }
