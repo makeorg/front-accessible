@@ -62,43 +62,6 @@ describe('Proposal Helper', () => {
     });
   });
 
-  describe('sortProposalsByVoted function', () => {
-    it('sortProposalsByVoted with empty array', () => {
-      const sortedProposals = ProposalHelper.sortProposalsByVoted([]);
-      expect(sortedProposals).toEqual([]);
-    });
-
-    it('sortProposalsByVoted with proposals', () => {
-      const proposals = [
-        {
-          id: 'foo',
-          votes: [
-            { hasVoted: false },
-            { hasVoted: false },
-            { hasVoted: false },
-          ],
-        },
-        {
-          id: 'bar',
-          votes: [
-            { hasVoted: false },
-            { hasVoted: false },
-            { hasVoted: false },
-          ],
-        },
-        {
-          id: 'baz',
-          votes: [{ hasVoted: true }, { hasVoted: false }, { hasVoted: false }],
-        },
-      ];
-
-      const sortedProposals = ProposalHelper.sortProposalsByVoted(proposals);
-      expect(Array.isArray(sortedProposals)).toBe(true);
-      expect(sortedProposals).toHaveLength(3);
-      expect(sortedProposals[0].id).toBe('baz');
-    });
-  });
-
   describe('searchFirstUnvotedProposal function', () => {
     it('searchFirstUnvotedProposal with empty array', () => {
       const firstUnvotedProposal = ProposalHelper.searchFirstUnvotedProposal(

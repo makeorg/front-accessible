@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { matchPath, useLocation } from 'react-router';
+import { useLocation } from 'react-router';
 import { type QuestionType } from 'Shared/types/question';
 import { i18n } from 'Shared/i18n';
 import { DateHelper } from 'Shared/helpers/date';
@@ -17,11 +17,11 @@ import {
 } from 'Shared/helpers/url';
 import { trackClickActionsTab } from 'Shared/services/Tracking';
 import {
-  ROUTE_CONSULTATION,
-  ROUTE_ACTION,
-  ROUTE_RESULTS,
-  ROUTE_TOP_IDEA_DETAILS,
-  ROUTE_TOP_IDEAS,
+  isConsultationPage as getIsConsultationPage,
+  isActionsPage as getIsActionsPage,
+  isResultsPage as getIsResultsPage,
+  isTopIdeaDetailsPage as getIsTopIdeaDetailsPage,
+  isTopIdeasPage as getIsTopIdeasPage,
 } from 'Shared/routes';
 
 type Props = {
@@ -45,14 +45,12 @@ export const NavigationWithTabs = ({ question }: Props) => {
   );
 
   const location = useLocation();
-  const isConsultationPage = !!matchPath(location.pathname, ROUTE_CONSULTATION);
-  const isActionsPage = !!matchPath(location.pathname, ROUTE_ACTION);
-  const isResultsPage = !!matchPath(location.pathname, ROUTE_RESULTS);
-  const isTopIdeasPage = !!matchPath(location.pathname, ROUTE_TOP_IDEAS);
-  const isTopIdeaDetailsPage = !!matchPath(
-    location.pathname,
-    ROUTE_TOP_IDEA_DETAILS
-  );
+
+  const isConsultationPage = getIsConsultationPage(location.pathname);
+  const isActionsPage = getIsActionsPage(location.pathname);
+  const isResultsPage = getIsResultsPage(location.pathname);
+  const isTopIdeasPage = getIsTopIdeasPage(location.pathname);
+  const isTopIdeaDetailsPage = getIsTopIdeaDetailsPage(location.pathname);
 
   if (isTopIdeasPage || isTopIdeaDetailsPage) {
     return null;
@@ -66,16 +64,10 @@ export const NavigationWithTabs = ({ question }: Props) => {
       id="consultation_nav"
     >
       <TabListStyle>
-        <FullWidthTabStyle
-          isSelected={
-            question.displayResults ? isResultsPage : isConsultationPage
-          }
-        >
+        <FullWidthTabStyle isSelected={isResultsPage || isConsultationPage}>
           <Link
-            to={question.displayResults ? resultsLink : consultationLink}
-            aria-current={
-              question.displayResults ? isResultsPage : isConsultationPage
-            }
+            to={isResultsPage ? resultsLink : consultationLink}
+            aria-current={isResultsPage || isConsultationPage}
           >
             {i18n.t('consultation.tabs.consultation')}
             <ExtraTabsInformationsStyle>

@@ -45,14 +45,23 @@ export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY_LANG}/terms-of-use`;
 export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY_LANG}/data-terms`;
 export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY_LANG}/contact`;
 
+// preview
+export const BASE_PREVIEW_PATH: string = '/preview';
+const BASE_PREVIEW_PATH_REG = /^\/preview/;
+
 export const matchRoute = (
   pathname: string,
   routePath: string,
   exact: boolean = false,
   strict: boolean = false,
-  sensitive: ?boolean = false
+  sensitive: ?boolean = false,
+  matchPreview: ?boolean = false
 ): boolean => {
-  return !!matchPath(pathname, {
+  const pathToCheck: string = matchPreview
+    ? pathname.replace(BASE_PREVIEW_PATH_REG, '')
+    : pathname;
+
+  return !!matchPath(pathToCheck, {
     path: routePath,
     exact,
     strict,
@@ -166,3 +175,89 @@ export const getRouteSearchOrganisations = (
     country,
     language,
   })}?query=${query}`;
+
+export const isConsultationPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_CONSULTATION,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isActionsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) => matchRoute(pathname, ROUTE_ACTION, false, false, false, includingPreview);
+export const isResultsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) => matchRoute(pathname, ROUTE_RESULTS, false, false, false, includingPreview);
+export const isTopIdeasPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(pathname, ROUTE_TOP_IDEAS, false, false, false, includingPreview);
+export const isTopIdeaDetailsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_TOP_IDEA_DETAILS,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isOrganisationProposals = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_ORGANISATION_PROPOSALS,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isOrganisationVotes = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_ORGANISATION_VOTES,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isProfileProposals = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_PROFILE_PROPOSALS,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isProfileFavourites = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_PROFILE_FAVOURITES,
+    false,
+    false,
+    false,
+    includingPreview
+  );

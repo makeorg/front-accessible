@@ -30,7 +30,6 @@ const ConsultationPageWrapper = ({ question }: Props) => {
   const questionResults: QuestionResultsType = useSelector(
     state => state.questions[question.slug].questionResults
   );
-
   useEffect(() => {
     dispatch(fetchQuestionResults(question.slug));
   }, [!questionResults]);

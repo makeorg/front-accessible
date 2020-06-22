@@ -33,6 +33,7 @@ import {
   ROUTE_BETA_HOME,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS, // @todo beta
+  BASE_PREVIEW_PATH,
 } from 'Shared/routes';
 import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
@@ -118,6 +119,12 @@ export const initRoutes = app => {
 
   const frontMiddlewares = [countryLanguageMiddleware, metricsMiddleware];
 
+  // manage preview routes
+  const addGetWithPreview = (path, customMiddleware, route) => {
+    app.get(path, customMiddleware, route);
+    app.get(`${BASE_PREVIEW_PATH}${path}`, customMiddleware, route);
+  };
+
   // Front Routes
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
@@ -127,7 +134,7 @@ export const initRoutes = app => {
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
   app.get(ROUTE_ACTION, frontMiddlewares, consultationRoute);
-  app.get(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
+  addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
   app.get(ROUTE_TOP_IDEAS, frontMiddlewares, topIdeasRoute);
   app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, topIdeasRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);

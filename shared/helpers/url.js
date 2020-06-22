@@ -24,6 +24,7 @@ import {
   ROUTE_STATIC_CONTACT_EN,
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
+  BASE_PREVIEW_PATH,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -344,3 +345,6 @@ export const getNotFoundPageLink = (country: string, language: string) => {
 export const redirectToNotFoundPage = (country: string, language: string) => {
   window.location = generatePath(ROUTE_STATIC_NOTFOUND, { country, language });
 };
+
+export const isPreviewPath = (path: string): boolean =>
+  path.includes(BASE_PREVIEW_PATH, 0);
