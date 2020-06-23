@@ -1,5 +1,6 @@
 {
-    "context": "Consultation citoyenne réalisée par Make.org pour le Comité des Champs-Elysées du 13/02/2020 au 04/06/2020, autour de la question : \"Qu’aimeriez-vous changer pour réenchanter les Champs-Elysées ?”",
+    "context": "Le Comité des Champs-Elysées (association qui réunit les acteurs culturels et économiques de l’avenue : musées, théâtres, cinémas, foncières, enseignes et commerces indépendants) a lancé une consultation citoyenne consacrée à l'avenir des Champs-Elysées. Elle a permis d'identifier 6 grands consensus citoyens qui peuvent se lire aussi comme une synthèse des attentes des Franciliens sur la ville de demain. Les conclusions de la consultation sont remis à l'ensemble des candidats à l'élection municipale 2020.",
+    "contact": true,
     "key_figures": {
         "participants": 96762,
         "proposals": 2067,
@@ -16,7 +17,7 @@
                     "realistic": 21
                 },
                 {
-                    "idea": "Faire des Champs un espace de vie et de promenade agréable",
+                    "idea": "Faire des Champs Elysées un espace de vie et de promenade agréable",
                     "agreement": 77,
                     "adhesion": 11,
                     "realistic": 23
@@ -33,7 +34,7 @@
                     "realistic": 17
                 },
                 {
-                    "idea": "Refaire des Champs un espace de vie culturelle",
+                    "idea": "Refaire des Champs Elysées un espace de vie culturelle",
                     "agreement": 75,
                     "adhesion": 17,
                     "realistic": 18
@@ -66,7 +67,7 @@
             "name": "Propreté",
             "ideas": [
                 {
-                    "idea": "Rendre l'Avenue des Champs Elysées plus propre",
+                    "idea": "Rendre l'avenue des Champs Elysées plus propre",
                     "agreement": 84,
                     "adhesion": 14,
                     "realistic": 22
@@ -77,7 +78,7 @@
             "name": "Sécurité",
             "ideas": [
                 {
-                    "idea": "Améliorer la sécurité sur l'Avenue notamment contre les vols et agressions",
+                    "idea": "Améliorer la sécurité sur l'avenue notamment contre les vols et agressions",
                     "agreement": 74,
                     "adhesion": 16,
                     "realistic": 23
@@ -199,7 +200,7 @@
                 },
                 {
                     "label": "Image des",
-                    "sublabel": " champs elysées",
+                    "sublabel": " Champs Elysées",
                     "percent": 9,
                     "color": "#fff689",
                     "adjustLabel": {
