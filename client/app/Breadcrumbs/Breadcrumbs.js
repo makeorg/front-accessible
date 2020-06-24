@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import {
@@ -8,34 +9,39 @@ import {
   BrowseHomeIconStyle,
 } from './style';
 
-// @to do: add link: string props Type
 export type BreadcrumbsPagesType = {
   name: string,
-  // link: string,
+  link: string,
 };
 
 type Props = {
   /** Array with parentPages object (name: string, link: string) */
-  parentPages: BreadcrumbsPagesType[],
-  /** Name of the current page */
+  parentPages?: BreadcrumbsPagesType[],
+  /** The currentPage object (name: string, link: string) */
   currentPage: BreadcrumbsPagesType,
 };
 
-// @to do: add link in props
 export const Breadcrumbs = ({ parentPages, currentPage }: Props) => (
   <nav aria-label={i18n.t('common.breadcrumbs')}>
     <BrowseBreadcrumbWrapperStyle as="ol">
-      <BrowseHomeIconStyle />
-      {parentPages.map(parentPage => (
-        <BrowseBannerBreadcrumbListStyle>
-          <BrowseBreadcrumbsLinkStyle>
-            {parentPage.name}
-          </BrowseBreadcrumbsLinkStyle>
-          <BrowseArrowIconStyle />
-        </BrowseBannerBreadcrumbListStyle>
-      ))}
+      <BrowseBannerBreadcrumbListStyle>
+        <BrowseHomeIconStyle />
+        <BrowseBreadcrumbsLinkStyle to="/">
+          {i18n.t('homepage.title')}
+        </BrowseBreadcrumbsLinkStyle>
+        <BrowseArrowIconStyle />
+      </BrowseBannerBreadcrumbListStyle>
+      {parentPages &&
+        parentPages.map(parentPage => (
+          <BrowseBannerBreadcrumbListStyle key={parentPage.link}>
+            <BrowseBreadcrumbsLinkStyle to={parentPage.link}>
+              {parentPage.name}
+            </BrowseBreadcrumbsLinkStyle>
+            <BrowseArrowIconStyle />
+          </BrowseBannerBreadcrumbListStyle>
+        ))}
       <BrowseBannerBreadcrumbListStyle className="selected">
-        <BrowseBreadcrumbsLinkStyle aria-current="page">
+        <BrowseBreadcrumbsLinkStyle aria-current="page" to={currentPage.link}>
           {currentPage.name}
         </BrowseBreadcrumbsLinkStyle>
       </BrowseBannerBreadcrumbListStyle>

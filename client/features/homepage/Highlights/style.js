@@ -11,12 +11,18 @@ import { intToPx } from 'Shared/helpers/styled';
 export const HighlightsBannerFiguresContainerStyle = styled(
   SpaceBetweenRowStyle
 )`
-  padding: 20px 0px;
+  padding: 0;
   flex-wrap: wrap;
 `;
 
 export const HighlightFigureContainerStyle = styled(ColumnElementStyle)`
   margin-bottom: 50px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const SvgWrapperStyle = styled.span`

@@ -26,7 +26,6 @@ const getQuestions = async (
       limit,
       skip
     );
-
     return response.data;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);

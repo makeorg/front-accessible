@@ -45,9 +45,7 @@ import {
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 
-const BrowseConsultationsPage = loadable(() =>
-  import('Client/pages/Browse/Consultations.js')
-);
+const BrowsePage = loadable(() => import('Client/pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
   import('Client/pages/Consultation/Consultation.js')
 );
@@ -105,11 +103,8 @@ export const Routes = () => {
 
   return (
     <Switch>
-      <Route
-        path={ROUTE_BROWSE_CONSULTATIONS}
-        component={BrowseConsultationsPage}
-      />
-      <Route path={ROUTE_BROWSE_RESULTS} component={BrowseConsultationsPage} />
+      <Route path={ROUTE_BROWSE_CONSULTATIONS} component={BrowsePage} />
+      <Route path={ROUTE_BROWSE_RESULTS} component={BrowsePage} />
       <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
       <Route path={ROUTE_ACTION} component={ActionsPage} />
       <Route path={ROUTE_RESULTS} component={ResultsPage} />

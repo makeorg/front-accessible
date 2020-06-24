@@ -38,10 +38,7 @@ export const FeaturedQuestions = ({ questions }: Props) => {
       >
         {i18n.t('homepage.featured_questions.title')}
       </HomepageSectionTitleStyle>
-      <nav
-        aria-label={i18n.t('common.secondary_nav')}
-        data-cy-container="featured_questions_navigation"
-      >
+      <nav data-cy-container="featured_questions_navigation">
         <UnstyledListStyle>
           {sortedQuestions.map(question => (
             <FeaturedListItemStyle key={question.questionId}>

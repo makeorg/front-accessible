@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { type HomeViewType } from 'Shared/types/views';
