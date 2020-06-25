@@ -1,48 +1,21 @@
 import styled from 'styled-components';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
-import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
+import {
+  SpaceBetweenRowStyle,
+  ColumnElementStyle,
+} from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
-export const HighlightsWrapperStyle = styled.div`
-  background-color: ${BasicColors.PureWhite};
-  display: flex;
-  flex-flow: column;
-  padding-top: 60px;
-`;
-
-export const HighlightsBannerTitle = styled.h2`
-  font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 30px;
-  color: ${BasicColors.PureBlack};
+export const HighlightsBannerFiguresContainerStyle = styled(
+  SpaceBetweenRowStyle
+)`
   padding: 20px 0px;
-  text-transform: none;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 42px;
-  }
-`;
-
-export const HighlightsBannerFiguresContainer = styled(SpaceBetweenRowStyle)`
-  padding: 20px 0px;
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  max-width: 308px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 646px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    max-width: 800px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    max-width: 1110px;
-  }
 `;
 
-export const HighlightFigureContainer = styled.div`
-  display: flex;
-  flex-flow: column;
+export const HighlightFigureContainerStyle = styled(ColumnElementStyle)`
   margin-bottom: 50px;
 `;
 
@@ -50,7 +23,7 @@ export const SvgWrapperStyle = styled.span`
   margin-bottom: 30px;
 `;
 
-export const FiguresWrapperStyle = styled.span`
+export const FiguresStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 22px;
   color: ${BasicColors.PureBlack};
@@ -59,7 +32,7 @@ export const FiguresWrapperStyle = styled.span`
   }
 `;
 
-export const SubtitleFiguresWrapperStyle = styled.span`
+export const SubtitleFiguresStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 14px;
   color: ${ShadowColors.BlackZeroSixOpacity};
@@ -67,7 +40,7 @@ export const SubtitleFiguresWrapperStyle = styled.span`
   padding-bottom: 30px;
 `;
 
-export const FigureSeparationLine = styled.hr`
+export const FigureSeparationLineStyle = styled.hr`
   margin: 0px;
   width: 50px;
   height: 4px;

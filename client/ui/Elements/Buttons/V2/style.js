@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { BasicColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { Link } from 'react-router-dom';
 
-export const BasicButtonStyle = styled.button`
-  display: flex;
+const BasicButtonStyle = `
+  display: flex
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
@@ -12,30 +13,25 @@ export const BasicButtonStyle = styled.button`
   border: none;
   font-size: 16px;
   padding: 12px 25px 7px 25px;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: ${BasicColors.PureWhite};
+    text-decoration: none;
+  }
 `;
 
-export const RedButtonStyle = styled(BasicButtonStyle)`
+const RedStyle = `
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
-  margin: 50px 0px;
 `;
 
-export const LinkAsRedButton = styled(RedButtonStyle)`
-  display: inline-flex;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    color: ${BasicColors.PureWhite};
-    text-decoration: none;
-  }
+export const RedButtonStyle = styled.button`
+  ${BasicButtonStyle};
+  ${RedStyle};
 `;
 
-export const ResultsLinkAsRedButton = styled(RedButtonStyle)`
-  text-decoration: none;
-  width: 263px;
-  &:hover,
-  &:focus {
-    color: ${BasicColors.PureWhite};
-    text-decoration: none;
-  }
+export const LinkAsRedButtonStyle = styled(Link)`
+  ${BasicButtonStyle};
+  ${RedStyle};
 `;

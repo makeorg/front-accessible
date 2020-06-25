@@ -13,7 +13,6 @@ import { Breakpoints } from '../assets/vars/Breakpoints';
 // BREADCRUMBS STYLES //
 
 export const BrowseBreadcrumbWrapperStyle = styled.ol`
-  padding-inline-start: 0px;
   padding-bottom: 24px;
   margin: 0px;
 `;

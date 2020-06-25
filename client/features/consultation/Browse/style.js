@@ -8,15 +8,14 @@ import {
   ShadowColors,
   BackgroundColors,
 } from 'Client/app/assets/vars/Colors';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, getFullWidthDividedByItems } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
-  FlexElementStyle,
   SpaceBetweenColumnStyle,
   ColumnElementStyle,
-  StartColumnStyle,
-} from '../../../ui/Elements/FlexElements';
+  MiddleColumnStyle,
+} from 'Client/ui/Elements/FlexElements';
 
 const linkStyle = color => `
   color: ${color};
@@ -56,7 +55,6 @@ export const BrowseNavListStyle = styled.ol`
   display: flex;
   justify-content: start;
   max-width: 308px;
-  padding-inline-start: 0px;
   margin: 0px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 646px;
@@ -116,22 +114,6 @@ export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
   background-color: ${BasicColors.PureWhite};
 `;
 
-export const ConsultationsTitleStyle = styled.h2`
-  font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 30px;
-  padding: 30px 0px 20px;
-  text-transform: none;
-  max-width: 308px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 42px;
-    max-width: 646px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 42px;
-    max-width: 1110px;
-  }
-`;
-
 export const ConsultationsSubtitleStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 14px;
@@ -145,81 +127,80 @@ export const ConsultationsSubtitleStyle = styled.p`
   }
 `;
 
-export const ConsultationsWrapperStyle = styled(FlexElementStyle)`
-  flex-flow: row;
-  flex-wrap: wrap;
-  background-color: ${BasicColors.PureWhite};
-  padding-inline-start: 0px;
-`;
-
 export const ConsultationElementStyle = styled(SpaceBetweenColumnStyle)`
-  display: flex;
   flex-direction: column;
-  justify-content: start;
-  box-sizing: border-box;
-  padding: 20px 0px;
+  margin-bottom: 50px;
+  flex: 1 1 auto;
+  &:last-child {
+    margin-bottom: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: 50%;
+    width: ${getFullWidthDividedByItems(2)};
     &:nth-child(odd) {
-      padding-right: 30px;
+      padding-right: 15px;
+    }
+    &:nth-child(even) {
+      padding-left: 15px;
+    }
+    &:nth-child(3) {
+      margin-bottom: 0;
     }
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    width: 33%;
-    padding-right: 30px;
-    &:nth-child(3) {
-      padding-right: 0px;
+    width: ${getFullWidthDividedByItems(props => props.itemsCount)};
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0;
+    &:first-child {
+      padding-left: 0px;
     }
-  }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    width: 25%;
-    padding-right: 30px;
-    &:nth-child(3) {
-      padding-right: 30px;
-    }
-    &:nth-child(4) {
+    &:last-child {
       padding-right: 0px;
     }
   }
 `;
 
-export const ConsultationElementPicture = styled.img`
+export const ConsultationArticleStyle = styled.article`
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+`;
+
+export const ConsultationElementPictureStyle = styled.img`
   margin-bottom: 20px;
 `;
 
-export const ConsultationElementSubtitle = styled.p`
+export const ConsultationElementSubtitleStyle = styled.span`
   font-size: 15px;
   text-transform: uppercase;
   color: ${TextColors.BlackWithOpacity};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  padding-bottom: 6px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding: 6px 0px;
-  }
+  margin-bottom: 5px;
 `;
 
-export const ConsultationElementQuestion = styled.p`
+export const ConsultationElementTitleStyle = styled.p`
   font-size: 18px;
   color: ${BasicColors.PureBlack};
   font-family: ${MakeFonts.CircularStandardBold};
   line-height: 1.44;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 `;
 
-export const ConsultationElementDateWrapper = styled.div`
+export const ConsultationElementDateWrapperStyle = styled.div`
   display: flex;
-  padding-bottom: 20px;
 `;
 
-export const BrowseClockIconStyle = styled(SvgClock)`
-  margin-right: 22px;
+export const ClockIconStyle = styled(SvgClock)`
+  min-width: 12px;
+  min-height: 12px;
+  margin-right: 20px;
 `;
 
 export const ConsultationElementDateStyle = styled.p`
   font-size: 14px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
-  max-width: 258px;
+  margin-bottom: 20px;
 `;
 
 export const ConsultationRedLinkElementStyle = styled(Link)`
@@ -230,39 +211,17 @@ export const ConsultationRedLinkElementStyle = styled(Link)`
 
 // NO CONSULTATION ELEMENTS //
 
-export const NoConsultationWrapperStyle = styled(StartColumnStyle)`
-  background-color: ${BasicColors.PureWhite};
-  margin-bottom: 50px;
+export const NoConsultationWrapperStyle = styled(ColumnElementStyle)`
+  max-width: 540px;
+  flex: 1;
 `;
 
-export const NoConsultationImageStyle = styled.div`
+export const NoConsultationImageStyle = styled(MiddleColumnStyle)`
   background-color: ${BackgroundColors.LightGrey};
-  width: 308px;
-  height: 174px;
-  margin: 20px 0px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: 540px;
-    height: 248px;
-    margin-bottom: 26px;
-  }
-`;
-
-export const SvgMailWrapperStyle = styled.span`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const NoConsultationTextStyle = styled.p`
-  font-family: ${MakeFonts.CircularStandardBold};
-  font-size: 18px;
-  line-height: 1.44;
-  max-width: 308px;
+  min-height: 174px;
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 540px;
-    line-height: 1.22;
+    min-height: 248px;
+    margin-bottom: 25px;
   }
 `;

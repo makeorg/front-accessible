@@ -5,24 +5,24 @@ import {
   type BreadcrumbsPagesType,
   Breadcrumbs,
 } from 'Client/app/Breadcrumbs/Breadcrumbs';
+import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
+import { HomepageSectionTitleStyle } from 'Client/pages/Home/style';
 import {
-  ConsultationsWrapperStyle,
   ConsultationElementStyle,
-  ConsultationElementPicture,
-  ConsultationElementSubtitle,
-  ConsultationElementQuestion,
-  ConsultationElementDateWrapper,
+  ConsultationElementPictureStyle,
+  ConsultationElementSubtitleStyle,
+  ConsultationElementTitleStyle,
+  ConsultationElementDateWrapperStyle,
   ConsultationElementDateStyle,
   ConsultationRedLinkElementStyle,
   BrowseBannerWrapperStyle,
   BrowseBannerTitleStyle,
   ConsultationsTitleWrapperStyle,
-  ConsultationsTitleStyle,
   ConsultationsSubtitleStyle,
   BrowseNavListStyle,
   BrowseNavItemStyle,
   BrowseNavLinkStyle,
-  BrowseClockIconStyle,
+  ClockIconStyle,
 } from './style';
 
 export const BrowseConsultations = () => {
@@ -60,34 +60,34 @@ export const BrowseConsultations = () => {
         </BrowseNavListStyle>
       </BrowseBannerWrapperStyle>
       <ConsultationsTitleWrapperStyle>
-        <ConsultationsTitleStyle>
+        <HomepageSectionTitleStyle>
           {i18n.t('browse_consultations.current.title')}
-        </ConsultationsTitleStyle>
+        </HomepageSectionTitleStyle>
         <ConsultationsSubtitleStyle>
           {i18n.t('browse_consultations.current.subtitle')}
         </ConsultationsSubtitleStyle>
       </ConsultationsTitleWrapperStyle>
-      <ConsultationsWrapperStyle>
+      <ColumnElementStyle>
         {/* todo: when endpoint is created, map on data to build <BrowseElement/> */}
         <ConsultationElementStyle>
-          <ConsultationElementPicture />
-          <ConsultationElementSubtitle>
+          <ConsultationElementPictureStyle />
+          <ConsultationElementSubtitleStyle>
             Grande Cause Make.org
-          </ConsultationElementSubtitle>
-          <ConsultationElementQuestion>
+          </ConsultationElementSubtitleStyle>
+          <ConsultationElementTitleStyle>
             Comment agir ensemble dès maintenant pour l&apos;environnement ?
-          </ConsultationElementQuestion>
-          <ConsultationElementDateWrapper>
-            <BrowseClockIconStyle />
+          </ConsultationElementTitleStyle>
+          <ConsultationElementDateWrapperStyle>
+            <ClockIconStyle />
             <ConsultationElementDateStyle>
               {i18n.t('browse_consultations.date')}
             </ConsultationElementDateStyle>
-          </ConsultationElementDateWrapper>
+          </ConsultationElementDateWrapperStyle>
           <ConsultationRedLinkElementStyle>
             {i18n.t('browse_consultations.current.participate')}
           </ConsultationRedLinkElementStyle>
         </ConsultationElementStyle>
-      </ConsultationsWrapperStyle>
+      </ColumnElementStyle>
     </>
   );
 };

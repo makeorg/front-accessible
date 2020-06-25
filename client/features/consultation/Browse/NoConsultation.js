@@ -6,8 +6,7 @@ import { modalShowRegister } from 'Shared/store/actions/modal';
 import {
   NoConsultationWrapperStyle,
   NoConsultationImageStyle,
-  SvgMailWrapperStyle,
-  NoConsultationTextStyle,
+  ConsultationElementTitleStyle,
   ConsultationRedLinkElementStyle,
 } from './style';
 
@@ -16,15 +15,13 @@ export const NoConsultation = ({ length }: Number) => {
   return (
     <NoConsultationWrapperStyle>
       <NoConsultationImageStyle>
-        <SvgMailWrapperStyle>
-          <SvgMail />
-        </SvgMailWrapperStyle>
+        <SvgMail aria-hidden />
       </NoConsultationImageStyle>
-      <NoConsultationTextStyle>
+      <ConsultationElementTitleStyle>
         {length === 0
           ? i18n.t('browse_consultations.text_content_zero')
           : i18n.t('browse_consultations.text_content_one')}
-      </NoConsultationTextStyle>
+      </ConsultationElementTitleStyle>
       <ConsultationRedLinkElementStyle
         onClick={() => dispatch(modalShowRegister())}
         aria-label={i18n.t('common.register_label')}

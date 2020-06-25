@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 export const pxToRem = (value: string | number, base: number = 16) => {
   const px = parseInt(value, 10);
@@ -29,4 +29,8 @@ export const scrollToTop = () => {
     return null;
   }
   return window.scrollTo(0, app.getBoundingClientRect().top);
+};
+
+export const getFullWidthDividedByItems = (count: number) => {
+  return `${100 / count}%`;
 };

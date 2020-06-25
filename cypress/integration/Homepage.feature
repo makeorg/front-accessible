@@ -10,7 +10,15 @@ Feature: The Home Page
     Given I go to "france homepage"
     Then I see "Agir avec Make.org - Make.org" in the title
 
-  Scenario: Homepage has featured questions
+  Scenario: Homepage has highlights section
+    Given I go to "france homepage"
+    Then I see "Make.org en quelques chiffres" in "highlights_title" container
+
+  Scenario: Homepage has currentQuestion section
+    Given I go to "france homepage"
+    Then I see "Participez aux consultations en cours" in "current_consultations_title" container
+
+  Scenario: Homepage has featuredQuestions section
     Given I go to "france homepage"
     Then I see "Grandes causes Make.org" in "featured_questions_subtitle" container
     And I see "Make.org passe à l’action sur les grands sujets de société" in "featured_questions_title" container
