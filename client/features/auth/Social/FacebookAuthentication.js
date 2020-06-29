@@ -44,7 +44,7 @@ export const FacebookAuthentication = ({ link }: Props) => {
     return (
       <FacebookLogin
         appId="317128238675603"
-        version="3.0"
+        version="7.0"
         fields="name,email,picture"
         callback={handleFacebookLoginCallback}
         disableMobileRedirect
