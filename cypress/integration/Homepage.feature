@@ -10,6 +10,12 @@ Feature: The Home Page
     Given I go to "france homepage"
     Then I see "Agir avec Make.org - Make.org" in the title
 
+  Scenario: Homepage has featured questions
+    Given I go to "france homepage"
+    Then I see "Grandes causes Make.org" in "featured_questions_subtitle" container
+    And I see "Make.org passe à l’action sur les grands sujets de société" in "featured_questions_title" container
+    And I see a link "operationTitle_5" to "/FR-fr/consultation/question-5-slug/consultation" in "featured_questions_navigation" container
+
   Scenario: Track display home page
     Given I monitor API "postTracking" requests
     When I go to "france homepage"

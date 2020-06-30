@@ -37,7 +37,7 @@ const generateOpenedHomepageQuestions = count => {
     endDate,
     question: `question-${number} ${defaultQuestion.question} ?`,
     shortTitle: `shortTitle-${number}`,
-    operattionTitle: `operation-${number}`,
+    operationTitle: `operation-${number}`,
   }));
 };
 
@@ -53,7 +53,7 @@ const generateFinishedHomepageQuestions = count => {
     endDate,
     question: `question-${number} ${defaultQuestion.question} ?`,
     shortTitle: `shortTitle-${number}`,
-    operattionTitle: `operation-${number}`,
+    operationTitle: `operation-${number}`,
   }));
 };
 
@@ -69,7 +69,7 @@ const generateUpcomingHomepageQuestions = count => {
     endDate,
     question: `question-${number} ${defaultQuestion.question} ?`,
     shortTitle: `shortTitle-${number}`,
-    operattionTitle: `operation-${number}`,
+    operationTitle: `operation-${number}`,
   }));
 };
 
@@ -184,29 +184,53 @@ const generateDeprecatedHomeView = () => ({
 });
 const deprecatedHomeView = generateDeprecatedHomeView();
 
-const generateHomeView = () => ({
-  ...defaultHomeView.home,
-  currentQuestions: range(0, 4).map(number => ({
-    ...defaultHomeView.home.currentQuestions[0],
-    questionId: questions[number].questionId,
-    questionSlug: questions[number].slug,
-    question: questions[number].question,
-    shortTitle: questions[number].shortTitle,
-    consultationImage: questions[number].wording.metas.picture,
-    participantsCount: `${12 + number}`,
-    proposalsCount: `${12 + number}`,
-  })),
-  featuredQuestions: range(5, 8).map(number => ({
-    ...defaultHomeView.home.currentQuestions[0],
-    questionId: questions[number].questionId,
-    questionSlug: questions[number].slug,
-    question: questions[number].question,
-    shortTitle: questions[number].shortTitle,
-    consultationImage: questions[number].wording.metas.picture,
-    participantsCount: `${12 + number}`,
-    proposalsCount: `${12 + number}`,
-  })),
-});
+const mixPastAndFutureDates = count => {
+  const pastEndDate = `${today.getFullYear() -
+    1}-${month}-${day}T01:00:00.000Z`;
+  const futureEndDate = `${today.getFullYear() +
+    1}-${month}-${day}T01:00:00.000Z`;
+
+  if (count % 2 === 0) {
+    return pastEndDate;
+  }
+
+  return futureEndDate;
+};
+
+const generateHomeView = () => {
+  const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+  return {
+    ...defaultHomeView.home,
+    currentQuestions: range(0, 4).map(number => ({
+      ...defaultHomeView.home.currentQuestions[0],
+      questionId: questions[number].questionId,
+      questionSlug: questions[number].slug,
+      question: questions[number].question,
+      shortTitle: `${questions[number].shortTitle}_${number}`,
+      operationTitle: `${questions[number].operationTitle}_${number}`,
+      consultationImage: questions[number].wording.metas.picture,
+      participantsCount: `${12 + number}`,
+      proposalsCount: `${12 + number}`,
+      aboutUrl: questions[number].aboutUrl,
+      startDate,
+      endDate: mixPastAndFutureDates(number),
+    })),
+    featuredQuestions: range(5, 8).map(number => ({
+      ...defaultHomeView.home.currentQuestions[0],
+      questionId: questions[number].questionId,
+      questionSlug: questions[number].slug,
+      question: questions[number].question,
+      shortTitle: `${questions[number].shortTitle}_${number}`,
+      operationTitle: `${questions[number].operationTitle}_${number}`,
+      consultationImage: questions[number].wording.metas.picture,
+      participantsCount: `${12 + number}`,
+      proposalsCount: `${12 + number}`,
+      aboutUrl: questions[number].aboutUrl,
+      startDate,
+      endDate: mixPastAndFutureDates(number),
+    })),
+  };
+};
 const homeView = generateHomeView();
 
 const generateTopIdeas = () => {

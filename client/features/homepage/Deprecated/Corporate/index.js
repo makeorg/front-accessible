@@ -13,7 +13,7 @@ import {
   CorporateListItemStyle,
   CorporateIconStyle,
   CorporateLinkStyle,
-} from 'Client/features/homepage/Corporate/Styled';
+} from 'Client/features/homepage/Deprecated/Corporate/Styled';
 import { SvgLightBulb, SvgThumbsUp, SvgUsers } from 'Client/ui/Svg/elements';
 
 export const CorporateBanner = () => {

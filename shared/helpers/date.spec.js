@@ -6,6 +6,8 @@ import {
   getDateOfBirthFromAge,
   getAgeFromDateOfBirth,
   isInProgress,
+  getDate,
+  orderByEndDate,
 } from './date';
 
 describe('Date Helper', () => {
@@ -107,6 +109,46 @@ describe('Date Helper', () => {
     it('consultation is closed', () => {
       endDate = '1980-01-02';
       expect(isInProgress({ startDate, endDate })).toBe(false);
+    });
+  });
+
+  describe('getDate', () => {
+    const nullDate = null;
+    const dateString = '1984-02-15';
+    const date = new Date(dateString);
+
+    it('receive an null date', () => {
+      expect(getDate(nullDate)).toBe(null);
+    });
+
+    it('receive a string date', () => {
+      expect(getDate(dateString)).toMatchObject(date);
+    });
+  });
+
+  describe('orderByEndDate', () => {
+    const questionA = { endDate: '1980-01-02' };
+    const questionB = { endDate: '2075-01-01' };
+    const questionANullDate = { endDate: null };
+    const questionBNullDate = { endDate: null };
+
+    it('receive null end date for both questions', () => {
+      expect(orderByEndDate(questionANullDate, questionBNullDate)).toBe(0);
+    });
+
+    it('receive null end date for questionA', () => {
+      expect(orderByEndDate(questionANullDate, questionB)).toBe(-1);
+    });
+
+    it('receive null end date for questionB', () => {
+      expect(orderByEndDate(questionA, questionBNullDate)).toBe(1);
+    });
+
+    it('receive endDates for questionA & questionB', () => {
+      const dateA = getDate(questionA.endDate);
+      const dateB = getDate(questionB.endDate);
+
+      expect(orderByEndDate(questionA, questionB)).toBe(dateB - dateA);
     });
   });
 });

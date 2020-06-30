@@ -15,7 +15,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { trackLoadMoreProposals } from 'Shared/services/Tracking';
 import { COMPONENT_PARAM_TOP_PROPOSALS } from 'Shared/constants/tracking';
 import { ProposalService } from 'Shared/services/Proposal';
-import { ProposalsSliderListStyle } from 'Client/features/homepage/Proposals/style';
+import { ProposalsSliderListStyle } from 'Client/features/homepage/Deprecated/Proposals/style';
 import {
   PopularProposalsSliderListItemStyle,
   PopularProposalsArrowsStyle,

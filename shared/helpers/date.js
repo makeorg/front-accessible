@@ -1,5 +1,6 @@
-/* @flow */
+// @flow
 import moment from 'moment';
+import { type HomeQuestionType } from 'Shared/types/question';
 
 let instance = null;
 
@@ -90,5 +91,37 @@ export class DateHelperSingleton {
     return moment(objectDate).format('LL');
   }
 }
+
+export const getDate = (dateString: ?string) => {
+  if (!dateString) {
+    return null;
+  }
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) {
+    return null;
+  }
+
+  return date;
+};
+
+export const orderByEndDate = (
+  questionA: HomeQuestionType,
+  questionB: HomeQuestionType
+) => {
+  const dateA = getDate(questionA.endDate);
+  const dateB = getDate(questionB.endDate);
+
+  if (dateA === null && dateB === null) {
+    return 0;
+  }
+  if (dateB === null) {
+    return 1;
+  }
+  if (dateA === null) {
+    return -1;
+  }
+
+  return dateB - dateA;
+};
 
 export const DateHelper = new DateHelperSingleton();

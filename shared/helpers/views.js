@@ -1,8 +1,9 @@
+// @flow
 import { type FeaturedConsultationType } from 'Shared/types/views';
 
 export const sortSlotsBySmallest: (
   FeaturedConsultationType[]
-) => TypeFeaturedConsultation = featureds => {
+) => FeaturedConsultationType[] = featureds => {
   const sortedFeatureds: FeaturedConsultationType[] = featureds.sort((a, b) => {
     if (!a.slot || !b.slot) {
       return 0;
