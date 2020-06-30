@@ -190,6 +190,13 @@
       "next": "Aller à l'élement suivant",
       "index_count": "Élément {{index}} sur {{total}}"
     },
+    "pagination":{
+      "title": "pagination",
+      "next": "Page suivante",
+      "previous": "Page précédente",
+      "page": "Page",
+      "from": "sur"
+    },
     "max_characters": "caractères maximum",
     "back": "Retour",
     "proposal_count": "{{count}} proposition",
