@@ -35,7 +35,12 @@ import {
   ROUTE_BROWSE_RESULTS, // @todo beta
   BASE_PREVIEW_PATH,
 } from 'Shared/routes';
-import { countryLanguageMiddleware } from './middleware/countryLanguage';
+import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
+import {
+  countryLanguageMiddleware,
+  redirectToCountry,
+  configureCountryLanguage,
+} from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
 import { questionResults } from './api/question';
 import { loggerApi } from './api/logger';
@@ -126,10 +131,12 @@ export const initRoutes = app => {
   };
 
   // Front Routes
+  app.get('/', redirectToCountry);
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
   app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BETA_HOME, frontMiddlewares, homepageRoute); // @todo beta
+
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_CONSULTATION, frontMiddlewares, consultationRoute);
@@ -169,5 +176,10 @@ export const initRoutes = app => {
   app.get(ROUTE_STATIC_DATA_EN, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU_EN, frontMiddlewares, defaultRoute);
 
-  app.get('*', frontMiddlewares, defaultRoute);
+  app.get('*', (req, res) => {
+    res.status(404);
+    configureCountryLanguage(req, DEFAULT_COUNTRY, DEFAULT_LANGUAGE);
+
+    return defaultRoute(req, res);
+  });
 };

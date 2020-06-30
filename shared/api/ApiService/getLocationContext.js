@@ -100,7 +100,7 @@ export const getLocationContext = (
     { route: '/', name: `homepage`, exact: true, strict: true },
     { route: '/:countryLang', name: `homepage`, exact: true, strict: false },
     {
-      route: '/:countryLang/beta/home',
+      route: '/beta/:country-:language/home',
       name: `homepage`,
       exact: true,
       strict: true,

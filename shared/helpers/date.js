@@ -1,6 +1,7 @@
 // @flow
 import moment from 'moment';
 import { type HomeQuestionType } from 'Shared/types/question';
+import { DEFAULT_LANGUAGE } from 'Shared/constants/config';
 
 let instance = null;
 
@@ -61,12 +62,12 @@ export const isInProgress = (dates: ConsultationDates) => {
 export class DateHelperSingleton {
   _language: string;
 
-  constructor() {
+  constructor(language: string) {
     if (!instance) {
       instance = this;
     }
 
-    this._language = 'fr';
+    this._language = language;
   }
 
   set language(language: string) {
@@ -85,7 +86,6 @@ export class DateHelperSingleton {
     if (Number.isNaN(objectDate.getMonth())) {
       return null;
     }
-
     moment.locale(this._language);
 
     return moment(objectDate).format('LL');
@@ -124,4 +124,4 @@ export const orderByEndDate = (
   return dateB - dateA;
 };
 
-export const DateHelper = new DateHelperSingleton();
+export const DateHelper = new DateHelperSingleton(DEFAULT_LANGUAGE);

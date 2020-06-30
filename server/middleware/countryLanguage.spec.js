@@ -50,28 +50,6 @@ describe('Country Language middelware', () => {
       expect(request.params.language).toBe('fr');
       expect(response.redirect).toHaveBeenCalledTimes(0);
     });
-    it('redirect to FR-fr on unknow language', () => {
-      const request = httpMocks.createRequest({
-        params: { country: 'FR' },
-      });
-      const response = httpMocks.createResponse();
-      jest.spyOn(response, 'redirect');
-
-      countryLanguageMiddleware(request, response, () => {});
-
-      expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
-    });
-    it('redirect to FR-fr on unknow country', () => {
-      const request = httpMocks.createRequest({
-        params: { language: 'fr' },
-      });
-      const response = httpMocks.createResponse();
-      jest.spyOn(response, 'redirect');
-
-      countryLanguageMiddleware(request, response, () => {});
-
-      expect(response.redirect).toHaveBeenCalledWith('/FR-fr');
-    });
     it('must call i18n changeLanguage on a new instance', () => {
       jest.spyOn(i18n, 'changeLanguage');
       jest.spyOn(i18n, 'cloneInstance');

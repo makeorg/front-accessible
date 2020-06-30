@@ -415,7 +415,7 @@
   "not_found": {
     "intro": "oups",
     "title": "Erreur 404",
-    "description": "La page que vous avez demandé n’existe pas ou plus."
+    "description": "La page que vous avez demandée n’existe pas ou plus."
   },
   "profile": {
     "tabs": {

@@ -18,7 +18,6 @@ export const homepageRoute = async (req: Request, res: Response) => {
   if (!homepageData) {
     return reactRender(req, res.status(404), routeState);
   }
-
   routeState.views = {
     homepage: homepageData,
   };
