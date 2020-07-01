@@ -59,3 +59,5 @@ export { SvgHouse } from './House';
 export { SvgMail } from './Mail';
 export { SvgClock } from './Clock';
 export { SvgBigArrowRight } from './BigArrowRight';
+export { SvgNextArrow } from './NextArrow';
+export { SvgPreviousArrow } from './PreviousArrow';

@@ -4,6 +4,7 @@ import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { QuestionService } from 'Shared/services/Question';
+import { Pagination } from 'Client/ui/Elements/Pagination';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { useLocation } from 'react-router';
 import { getBrowseConsultationsLink } from 'Shared/helpers/url';
@@ -65,7 +66,7 @@ const BrowseConsultationsPage = () => {
                 <li key={question.questionId}>{question.question}</li>
               ))}
           </ul>
-          {questionsTotal > 0 && <>PaginationComponent</>}
+          {questionsTotal > 0 && <Pagination />}
         </>
       )}
     </>

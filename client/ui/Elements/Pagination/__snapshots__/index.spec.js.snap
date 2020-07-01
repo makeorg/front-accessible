@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination snapshot by default 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: inline;
+  -ms-flex-direction: inline;
+  flex-direction: inline;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 35px 0px;
+}
+
+.c2 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 14px;
+  font-family: 'Circular Standard Book',Arial,sans-serif;
+  color: rgb(74,74,74);
+  padding: 0px 35px;
+}
+
+.c1 {
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.c1 .tofill {
+  fill: rgb(222,26,66);
+}
+
+.c1:disabled .tofill {
+  fill: rgb(102,102,102);
+}
+
+<nav
+  aria-label="common.pagination.title"
+  className="c0"
+>
+  <button
+    aria-label="common.pagination.previous"
+    className="c1"
+    disabled={true}
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      height="16"
+      style={
+        Object {
+          "height": "17px",
+          "width": "10px",
+        }
+      }
+      viewBox="0 0 9 16"
+      width="9"
+    >
+      <path
+        className="tofill"
+        d="M0 8.444c0 .251.11.487.297.665l7 6.61c.187.178.437.281.703.281.547 0 1-.428 1-.944V1.833C9 1.317 8.547.89 8 .89c-.266 0-.516.103-.703.28l-7 6.611C.109 7.957 0 8.194 0 8.444z"
+      />
+    </svg>
+  </button>
+  <span
+    className="c2"
+  >
+    common.pagination.page
+    common.pagination.from
+  </span>
+  <button
+    aria-label="common.pagination.next"
+    className="c1"
+    type="button"
+  >
+    <svg
+      aria-hidden={true}
+      height="16"
+      style={
+        Object {
+          "height": "17px",
+          "width": "10px",
+        }
+      }
+      viewBox="0 0 9 16"
+      width="9"
+    >
+      <path
+        className="tofill"
+        d="M9 7.556c0-.251-.11-.487-.297-.665l-7-6.61C1.516.102 1.266 0 1 0 .453 0 0 .428 0 .944v13.223c0 .516.453.944 1 .944.266 0 .516-.103.703-.28l7-6.611c.188-.177.297-.414.297-.664z"
+      />
+    </svg>
+  </button>
+</nav>
+`;
