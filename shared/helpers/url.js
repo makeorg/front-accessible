@@ -86,16 +86,19 @@ export const getSequenceLink = (
  *
  * @param  {string} country
  * @param  {string} language
+ * @param  {number} pageId
  *
  * @return {string}
  */
 export const getBrowseConsultationsLink = (
   country: string,
-  language: string
+  language: string,
+  pageId?: number = 1
 ) => {
   return generatePath(ROUTE_BROWSE_CONSULTATIONS, {
     country: country || DEFAULT_COUNTRY,
     language: language || DEFAULT_LANGUAGE,
+    pageId,
   });
 };
 
@@ -104,13 +107,19 @@ export const getBrowseConsultationsLink = (
  *
  * @param  {string} country
  * @param  {string} language
+ * @param  {number} pageId
  *
  * @return {string}
  */
-export const getBrowseResultsLink = (country: string, language: string) => {
+export const getBrowseResultsLink = (
+  country: string,
+  language: string,
+  pageId?: number = 1
+) => {
   return generatePath(ROUTE_BROWSE_RESULTS, {
     country: country || DEFAULT_COUNTRY,
     language: language || DEFAULT_LANGUAGE,
+    pageId,
   });
 };
 

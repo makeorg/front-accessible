@@ -1,41 +1,70 @@
 // @flow
 import React from 'react';
-import { useDesktop } from 'Client/hooks/useMedia';
 import { i18n } from 'Shared/i18n';
-import { SvgPreviousArrow, SvgNextArrow } from 'Client/ui/Svg/elements';
+import { getPaginatedRoute } from 'Shared/routes';
+import { scrollToTop } from 'Shared/helpers/styled';
+import { useHistory, useParams, useRouteMatch } from 'react-router';
 import {
-  PaginationWrapperStyle,
+  PaginationNavStyle,
   PaginationTextStyle,
   PaginationButtonStyle,
-  DesktopStyle,
-  MobileStyle,
+  PreviousArrowStyle,
+  NextArrowStyle,
 } from './style';
 
-export const Pagination = () => {
-  // add aria-current="page" to the link that points to the current page
-  // add aria-disabled="true" to the link when it is disabled
+type Props = {
+  itemsPerPage: number,
+  itemsTotal: number,
+};
 
-  const isDesktop = useDesktop();
+export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
+  const history = useHistory();
+  const params = useParams();
+  const match = useRouteMatch();
+  const { country, language, pageId } = params;
+  const intPageId = parseInt(pageId, 10);
+  const pagesTotal = Math.ceil(itemsTotal / itemsPerPage);
+
+  const incrementPagination = () => {
+    // add tracking
+    scrollToTop();
+    return history.push(
+      getPaginatedRoute(match.path, country, language, intPageId + 1)
+    );
+  };
+
+  const decrementPagination = () => {
+    // add tracking
+    scrollToTop();
+    return history.push(
+      getPaginatedRoute(match.path, country, language, intPageId - 1)
+    );
+  };
 
   return (
-    <PaginationWrapperStyle aria-label={i18n.t('common.pagination.title')}>
+    <PaginationNavStyle aria-label={i18n.t('common.pagination.title')}>
       <PaginationButtonStyle
         type="button"
         aria-label={i18n.t('common.pagination.previous')}
-        disabled
+        onClick={decrementPagination}
+        disabled={intPageId === 1}
       >
-        <SvgPreviousArrow style={isDesktop ? DesktopStyle : MobileStyle} />
+        <PreviousArrowStyle aria-hidden />
       </PaginationButtonStyle>
       <PaginationTextStyle>
-        {i18n.t('common.pagination.page')}
-        {i18n.t('common.pagination.from')}
+        {i18n.t('common.pagination.index_count', {
+          index: intPageId,
+          total: pagesTotal,
+        })}
       </PaginationTextStyle>
       <PaginationButtonStyle
         type="button"
         aria-label={i18n.t('common.pagination.next')}
+        onClick={incrementPagination}
+        disabled={intPageId === pagesTotal}
       >
-        <SvgNextArrow style={isDesktop ? DesktopStyle : MobileStyle} />
+        <NextArrowStyle aria-hidden />
       </PaginationButtonStyle>
-    </PaginationWrapperStyle>
+    </PaginationNavStyle>
   );
 };

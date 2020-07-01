@@ -6,24 +6,21 @@ exports[`Pagination snapshot by default 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: inline;
-  -ms-flex-direction: inline;
-  flex-direction: inline;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 35px 0px;
+  margin-bottom: 50px;
 }
 
-.c2 {
+.c3 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   font-size: 14px;
   font-family: 'Circular Standard Book',Arial,sans-serif;
   color: rgb(74,74,74);
-  padding: 0px 35px;
+  padding: 0px 30px;
 }
 
 .c1 {
@@ -40,6 +37,30 @@ exports[`Pagination snapshot by default 1`] = `
   fill: rgb(102,102,102);
 }
 
+.c2 {
+  width: 10px;
+  height: 17px;
+}
+
+.c4 {
+  width: 10px;
+  height: 17px;
+}
+
+@media (min-width:767px) {
+  .c2 {
+    width: 7px;
+    height: 12px;
+  }
+}
+
+@media (min-width:767px) {
+  .c4 {
+    width: 7px;
+    height: 12px;
+  }
+}
+
 <nav
   aria-label="common.pagination.title"
   className="c0"
@@ -47,18 +68,14 @@ exports[`Pagination snapshot by default 1`] = `
   <button
     aria-label="common.pagination.previous"
     className="c1"
-    disabled={true}
+    disabled={false}
+    onClick={[Function]}
     type="button"
   >
     <svg
       aria-hidden={true}
+      className="c2"
       height="16"
-      style={
-        Object {
-          "height": "17px",
-          "width": "10px",
-        }
-      }
       viewBox="0 0 9 16"
       width="9"
     >
@@ -69,25 +86,21 @@ exports[`Pagination snapshot by default 1`] = `
     </svg>
   </button>
   <span
-    className="c2"
+    className="c3"
   >
-    common.pagination.page
-    common.pagination.from
+    common.pagination.index_count
   </span>
   <button
     aria-label="common.pagination.next"
     className="c1"
+    disabled={false}
+    onClick={[Function]}
     type="button"
   >
     <svg
       aria-hidden={true}
+      className="c4"
       height="16"
-      style={
-        Object {
-          "height": "17px",
-          "width": "10px",
-        }
-      }
       viewBox="0 0 9 16"
       width="9"
     >

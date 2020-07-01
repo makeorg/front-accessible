@@ -194,8 +194,7 @@
       "title": "pagination",
       "next": "Page suivante",
       "previous": "Page précédente",
-      "page": "Page",
-      "from": "sur"
+      "index_count": "Page {{index}} sur {{total}}"
     },
     "max_characters": "caractères maximum",
     "back": "Retour",
@@ -729,7 +728,7 @@
     "initiative": "Grande cause Make.org",
     "nav_consultations": "Les consultations en cours",
     "nav_results": "Les résultats des consultations",
-    "current": {
+    "consultations": {
       "label": "En ce moment",
       "title": "Participez aux consultations en cours",
       "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",

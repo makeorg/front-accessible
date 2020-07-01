@@ -1,12 +1,10 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { type StateRoot } from 'Shared/store/types';
 import { type HomeQuestionType } from 'Shared/types/question';
-import { useSelector } from 'react-redux';
 import { QuestionService } from 'Shared/services/Question';
 import { Pagination } from 'Client/ui/Elements/Pagination';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
-import { useLocation } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
 import { isBrowseConsultationsPage } from 'Shared/routes';
 import { BrowseConsultationsHeader } from 'Client/features/consultation/Browse/Header';
@@ -15,18 +13,18 @@ import { BrowsePageWrapperStyle, BrowsePageInnerStyle } from './style';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const params = useParams();
+  const { country, language, pageId } = params;
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [questions, setQuestions] = useState<?(HomeQuestionType[])>(null);
+  const [questionsTotal, setTotal] = useState<number>(0);
+  const currentPageId = parseInt(pageId, 10);
+
   const CONSULTATIONS_STATUS = consultationsPage ? 'open' : 'finished';
   const SORT_ALGORITHM = consultationsPage ? 'featured' : 'chronological';
   const CONSULTATIONS_LIMIT = 8;
-
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  // const [page, setPage] = useState<number>(0);
-  const [questions, setQuestions] = useState<?(HomeQuestionType[])>(null);
-  const [questionsTotal, setTotal] = useState<number>(0);
+  const CONSULTATIONS_SKIP = CONSULTATIONS_LIMIT * (currentPageId - 1);
 
   const initConsultationsList = async () => {
     setIsLoading(true);
@@ -36,8 +34,7 @@ const BrowseConsultationsPage = () => {
       CONSULTATIONS_STATUS,
       SORT_ALGORITHM,
       CONSULTATIONS_LIMIT,
-      // CONSULTATIONS_LIMIT * page
-      CONSULTATIONS_LIMIT * 0
+      CONSULTATIONS_SKIP
     );
 
     if (response) {
@@ -50,7 +47,7 @@ const BrowseConsultationsPage = () => {
   useEffect(() => {
     initConsultationsList();
     /** todo Tracking */
-  }, [CONSULTATIONS_STATUS, SORT_ALGORITHM]);
+  }, [CONSULTATIONS_STATUS, SORT_ALGORITHM, params]);
 
   return (
     // todo Meta
@@ -69,7 +66,12 @@ const BrowseConsultationsPage = () => {
                   resultsContext={!consultationsPage}
                 />
               )}
-              {questionsTotal > 0 && <Pagination />}
+              {questionsTotal > CONSULTATIONS_LIMIT && (
+                <Pagination
+                  itemsPerPage={CONSULTATIONS_LIMIT}
+                  itemsTotal={questionsTotal}
+                />
+              )}
             </>
           )}
         </BrowsePageInnerStyle>

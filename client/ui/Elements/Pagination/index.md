@@ -3,7 +3,7 @@
 
 import { Pagination } from './';
 
-<Pagination/>
+<Pagination itemsPerPage={8} itemsTotal={45}/>
 
 
 ```
