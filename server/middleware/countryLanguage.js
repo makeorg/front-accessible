@@ -1,34 +1,34 @@
 import { i18n } from 'Shared/i18n';
-import { METRIC_PATH } from './metrics';
 
-export const countryLanguageMiddleware = (req, res, next) => {
-  if (req.url === METRIC_PATH) {
-    return next();
-  }
+export const configureCountryLanguage = (req, country, language) => {
+  req.params.country = country;
+  req.params.language = language;
+  i18n.cloneInstance();
+  i18n.changeLanguage(`${language}-${country}`);
+};
 
+export const redirectToCountry = (req, res) => {
   const xDetectedCountry = req.headers['x-detected-country'];
   const xForcedCountry = req.headers['x-forced-country'];
 
+  if (
+    (xForcedCountry && xForcedCountry !== 'FR') ||
+    (xDetectedCountry && xDetectedCountry !== 'FR')
+  ) {
+    return res.redirect('/soon');
+  }
+
+  return res.redirect('/FR-fr');
+};
+
+export const countryLanguageMiddleware = (req, res, next) => {
   const { country, language } = req.params;
 
   if (!country || !language) {
-    if (
-      (xForcedCountry && xForcedCountry !== 'FR') ||
-      (xDetectedCountry && xDetectedCountry !== 'FR')
-    ) {
-      return res.redirect('/soon');
-    }
-
-    return res.redirect('/FR-fr');
+    return next();
   }
 
-  const languageLowerCsed = language.toLowerCase();
-  const countryUpperCased = country.toUpperCase();
-
-  req.params.country = countryUpperCased;
-  req.params.language = languageLowerCsed;
-  i18n.cloneInstance();
-  i18n.changeLanguage(`${languageLowerCsed}-${countryUpperCased}`);
+  configureCountryLanguage(req, country.toUpperCase(), language.toLowerCase());
 
   return next();
 };

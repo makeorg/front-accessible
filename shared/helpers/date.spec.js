@@ -67,8 +67,8 @@ describe('Date Helper', () => {
 
   describe('creationDateFormat', () => {
     it('creationDateFormat with valid date', () => {
-      expect(DateHelper.creationDateFormat('2018-10-24T12:45:25.752Z')).toBe(
-        '24 octobre 2018'
+      expect(DateHelper.creationDateFormat('2018-10-25T12:45:25.752Z')).toBe(
+        '25 octobre 2018'
       );
     });
 

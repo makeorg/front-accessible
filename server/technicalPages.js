@@ -29,5 +29,5 @@ export function renderVersion(req, res) {
  * */
 export function renderRobot(req, res) {
   res.type('text/plain');
-  res.send('User-agent: *\nDisallow: /beta/*');
+  res.send('User-agent: *\nDisallow: /beta/*\nDisallow: /preview/*');
 }

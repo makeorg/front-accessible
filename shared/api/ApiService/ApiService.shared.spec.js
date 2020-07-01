@@ -11,7 +11,7 @@ describe('ApiServiceShared', () => {
   const headers = {
     'Content-Type': 'application/json; charset=UTF-8',
     'x-hostname': 'localhost',
-    'x-make-app-name': undefined,
+    'x-make-app-name': 'main-front',
     'x-make-location': 'core',
   };
 
@@ -29,6 +29,7 @@ describe('ApiServiceShared', () => {
         data: undefined,
         headers,
         method: 'POST',
+        params: undefined,
         withCredentials: true,
         httpsAgent: undefined,
       });

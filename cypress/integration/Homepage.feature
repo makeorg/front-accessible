@@ -29,7 +29,7 @@ Feature: The Home Page
       | questionId          |                                                                     |
       | questionSlug        |                                                                     |
       | referrer            | http://localhost:9009/__/                                           |
-      | url                 | http://localhost:9009/FR-fr/beta/home                               |
+      | url                 | http://localhost:9009/beta/FR-fr/home                               |
     And some make data header should be sent to "postTracking":
       | name          | value                                       |
       | app-name      | main-front                                  |

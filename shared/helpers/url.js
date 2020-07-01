@@ -2,7 +2,11 @@
 import 'url-search-params-polyfill';
 import { generatePath } from 'react-router';
 import queryString from 'query-string';
-import { FRONT_URL } from 'Shared/constants/config';
+import {
+  FRONT_URL,
+  DEFAULT_COUNTRY,
+  DEFAULT_LANGUAGE,
+} from 'Shared/constants/config';
 import {
   ROUTE_CONSULTATION,
   ROUTE_ACTION,
@@ -89,7 +93,10 @@ export const getBrowseConsultationsLink = (
   country: string,
   language: string
 ) => {
-  return generatePath(ROUTE_BROWSE_CONSULTATIONS, { country, language });
+  return generatePath(ROUTE_BROWSE_CONSULTATIONS, {
+    country: country || DEFAULT_COUNTRY,
+    language: language || DEFAULT_LANGUAGE,
+  });
 };
 
 /**
@@ -101,7 +108,10 @@ export const getBrowseConsultationsLink = (
  * @return {string}
  */
 export const getBrowseResultsLink = (country: string, language: string) => {
-  return generatePath(ROUTE_BROWSE_RESULTS, { country, language });
+  return generatePath(ROUTE_BROWSE_RESULTS, {
+    country: country || DEFAULT_COUNTRY,
+    language: language || DEFAULT_LANGUAGE,
+  });
 };
 
 /**
@@ -118,7 +128,11 @@ export const getConsultationLink = (
   language: string,
   questionSlug: string
 ) => {
-  return generatePath(ROUTE_CONSULTATION, { country, language, questionSlug });
+  return generatePath(ROUTE_CONSULTATION, {
+    country,
+    language,
+    questionSlug,
+  });
 };
 
 /**
@@ -135,7 +149,11 @@ export const getActionLink = (
   language: string,
   questionSlug: string
 ) => {
-  return generatePath(ROUTE_ACTION, { country, language, questionSlug });
+  return generatePath(ROUTE_ACTION, {
+    country,
+    language,
+    questionSlug,
+  });
 };
 
 /**
@@ -152,7 +170,11 @@ export const getResultsLink = (
   language: string,
   questionSlug: string
 ) => {
-  return generatePath(ROUTE_RESULTS, { country, language, questionSlug });
+  return generatePath(ROUTE_RESULTS, {
+    country,
+    language,
+    questionSlug,
+  });
 };
 
 /**
@@ -169,7 +191,11 @@ export const getTopIdeasLink = (
   language: string,
   questionSlug: string
 ) => {
-  return generatePath(ROUTE_TOP_IDEAS, { country, language, questionSlug });
+  return generatePath(ROUTE_TOP_IDEAS, {
+    country,
+    language,
+    questionSlug,
+  });
 };
 
 /**
@@ -274,7 +300,10 @@ export const getContactPageLink = (country: string, language: string) => {
     language === 'fr' || !language
       ? ROUTE_STATIC_CONTACT
       : ROUTE_STATIC_CONTACT_EN,
-    { country, language }
+    {
+      country: country || DEFAULT_COUNTRY,
+      language: language || DEFAULT_LANGUAGE,
+    }
   );
 };
 
@@ -288,7 +317,10 @@ export const getContactPageLink = (country: string, language: string) => {
 export const getDataPageLink = (country: string, language: string) => {
   return generatePath(
     language === 'fr' || !language ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
-    { country, language }
+    {
+      country: country || DEFAULT_COUNTRY,
+      language: language || DEFAULT_LANGUAGE,
+    }
   );
 };
 
@@ -303,8 +335,8 @@ export const getGTUPageLink = (country: string, language: string) => {
   return generatePath(
     language === 'fr' || !language ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
     {
-      country,
-      language,
+      country: country || DEFAULT_COUNTRY,
+      language: language || DEFAULT_LANGUAGE,
     }
   );
 };
@@ -319,7 +351,10 @@ export const getGTUPageLink = (country: string, language: string) => {
 export const getLegalPageLink = (country: string, language: string) => {
   return generatePath(
     language === 'fr' || !language ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
-    { country, language }
+    {
+      country: country || DEFAULT_COUNTRY,
+      language: language || DEFAULT_LANGUAGE,
+    }
   );
 };
 
@@ -331,7 +366,10 @@ export const getLegalPageLink = (country: string, language: string) => {
  * @return {string}
  */
 export const getNotFoundPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_NOTFOUND, { country, language });
+  return generatePath(ROUTE_STATIC_NOTFOUND, {
+    country: country || DEFAULT_COUNTRY,
+    language: language || DEFAULT_LANGUAGE,
+  });
 };
 
 /**
@@ -343,7 +381,10 @@ export const getNotFoundPageLink = (country: string, language: string) => {
  */
 
 export const redirectToNotFoundPage = (country: string, language: string) => {
-  window.location = generatePath(ROUTE_STATIC_NOTFOUND, { country, language });
+  window.location = generatePath(ROUTE_STATIC_NOTFOUND, {
+    country: country || DEFAULT_COUNTRY,
+    language: language || DEFAULT_LANGUAGE,
+  });
 };
 
 export const isPreviewPath = (path: string): boolean =>

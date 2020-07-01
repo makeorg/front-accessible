@@ -4,7 +4,7 @@ import { getIdentifierButtonByName } from '../mapping';
 export const pages = {
   'homepage': '/',
   'france deprecated homepage': '/FR-fr',
-  'france homepage': '/FR-fr/beta/home',
+  'france homepage': '/beta/FR-fr/home',
   'sequence': '/FR-fr/consultation/:questionSlug/selection',
   'general terms of use': '/FR-fr/conditions-dutilisation',
   'data policy': '/FR-fr/politique-donnees'
