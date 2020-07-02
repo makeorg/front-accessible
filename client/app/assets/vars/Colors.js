@@ -74,6 +74,6 @@ export const SocialNetworksColors = {
 export const FormColors = {
   Success: 'rgb(98, 169, 20)',
   SuccessBackground: 'rgb(239, 246, 231)',
-  Error: 'rgb(190, 24, 44);',
+  Error: 'rgb(190, 24, 44)',
   ErrorBackground: 'rgb(248, 231, 233)',
 };

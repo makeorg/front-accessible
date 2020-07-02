@@ -28,6 +28,10 @@ module.exports = {
       content: 'docs/sequence.md',
     },
     {
+      name: 'Colors',
+      content: 'docs/colors.md',
+    },
+    {
       name: 'UI',
       description: 'UI',
       components: 'client/ui/**/index.js',
