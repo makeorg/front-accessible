@@ -85,9 +85,10 @@ lighthouse:
   script:
     - npm install -g n
     - n stable
-    - npm i -g lighthouse lighthouse-ci yarn
+    - npm i -g lighthouse@~6.1.0 lighthouse-ci@1.10.0 yarn
     - yarn install
     - yarn build
+    - lighthouse --version && lighthouse-ci --version
     - yarn lighthouse:run
   artifacts:
     paths:
