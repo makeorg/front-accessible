@@ -134,13 +134,13 @@ describe('getLocationContext', () => {
     },
     {
       name: 'ROUTE_BROWSE_CONSULTATIONS',
-      path: '/FR-fr/browse/consultations',
+      path: '/FR-fr/browse/consultations/page/1',
       expected: `browse-consultations-page`,
       expectedTracking: `browse-consultations-page`,
     },
     {
       name: 'ROUTE_BROWSE_RESULTS',
-      path: '/FR-fr/browse/results',
+      path: '/FR-fr/browse/results/page/1',
       expected: `browse-results-page`,
       expectedTracking: `browse-results-page`,
     },

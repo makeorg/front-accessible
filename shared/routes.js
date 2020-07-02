@@ -5,8 +5,8 @@ export const ROUTE_COUNTRY_LANG_FR = '/:country(\\w{2})-fr';
 // @todo beta
 export const ROUTE_BETA_HOME = `/beta${ROUTE_COUNTRY_LANG}/home`;
 
-export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/browse/consultations`;
-export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY_LANG}/browse/results`;
+export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/browse/consultations/page/:pageId`;
+export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY_LANG}/browse/results/page/:pageId`;
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/consultation`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY_LANG}/search`;
 export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY_LANG}/search/proposals`;
@@ -175,6 +175,22 @@ export const getRouteSearchOrganisations = (
     country,
     language,
   })}?query=${query}`;
+
+/**
+ * Get a path with pagination params
+ *
+ * @param  {string} path
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} query
+ * @return {string}
+ */
+export const getPaginatedRoute = (
+  path: string,
+  country: string,
+  language: string,
+  pageId: number
+) => generatePath(path, { country, language, pageId });
 
 export const isConsultationPage = (
   pathname: string,
