@@ -13,16 +13,18 @@ import { Breakpoints } from '../assets/vars/Breakpoints';
 // BREADCRUMBS STYLES //
 
 export const BrowseBreadcrumbWrapperStyle = styled.ol`
-  padding-inline-start: 0px;
-  padding-bottom: 24px;
-  margin: 0px;
+  padding: 0;
+  list-style: none;
+  margin: 0 0 24px;
+  display: flex;
+  flex-flow: wrap;
 `;
 
 export const BrowseBannerBreadcrumbListStyle = styled.li`
   display: inline-flex;
+  align-items: center;
   &.selected > a {
-    color: ${BasicColors.PureBlack};
-    border-bottom: none;
+    text-decoration: none;
     cursor: default;
   }
 `;
@@ -30,9 +32,9 @@ export const BrowseBannerBreadcrumbListStyle = styled.li`
 export const BrowseBreadcrumbsLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${BasicColors.PureBlack};
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 12px;
-  line-height: 1.67;
+  line-height: 20px;
   &:hover,
   &:focus {
     color: ${BasicColors.PureBlack};
@@ -44,7 +46,7 @@ export const BrowseHomeIconStyle = styled(SvgHouse)`
 `;
 
 export const BrowseArrowIconStyle = styled(SvgBigArrowRight)`
-  margin: 6px 11px;
+  margin: 0 10px;
 `;
 
 // DEPRECATED BREADCRUMBS STYLES //

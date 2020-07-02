@@ -261,3 +261,15 @@ export const isProfileFavourites = (
     false,
     includingPreview
   );
+export const isBrowseConsultationsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_BROWSE_CONSULTATIONS,
+    false,
+    false,
+    false,
+    includingPreview
+  );

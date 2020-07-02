@@ -7,16 +7,20 @@ import { QuestionService } from 'Shared/services/Question';
 import { Pagination } from 'Client/ui/Elements/Pagination';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { useLocation } from 'react-router';
-import { getBrowseConsultationsLink } from 'Shared/helpers/url';
+import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
+import { isBrowseConsultationsPage } from 'Shared/routes';
+import { BrowseConsultationsHeader } from 'Client/features/consultation/Browse/Header';
+import { BrowseConsultationsTitles } from 'Client/features/consultation/Browse/Titles';
+import { BrowsePageWrapperStyle, BrowsePageInnerStyle } from './style';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const isBrowseConsultationsPath =
-    location.pathname === getBrowseConsultationsLink(country, language);
-  const CONSULTATIONS_STATUS = isBrowseConsultationsPath ? 'open' : 'finished';
+  const consultationsPage = isBrowseConsultationsPage(location.pathname);
+  const CONSULTATIONS_STATUS = consultationsPage ? 'open' : 'finished';
+  const SORT_ALGORITHM = consultationsPage ? 'featured' : 'chronological';
   const CONSULTATIONS_LIMIT = 8;
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -30,7 +34,7 @@ const BrowseConsultationsPage = () => {
       country,
       language,
       CONSULTATIONS_STATUS,
-      undefined,
+      SORT_ALGORITHM,
       CONSULTATIONS_LIMIT,
       // CONSULTATIONS_LIMIT * page
       CONSULTATIONS_LIMIT * 0
@@ -46,29 +50,30 @@ const BrowseConsultationsPage = () => {
   useEffect(() => {
     initConsultationsList();
     /** todo Tracking */
-  }, []);
+  }, [CONSULTATIONS_STATUS, SORT_ALGORITHM]);
 
   return (
+    // todo Meta
     <>
-      {/** todo Meta */}
-      {isBrowseConsultationsPath ? (
-        <h2>Consultations Component</h2>
-      ) : (
-        <h2>Results Component</h2>
-      )}
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <ul>
-            {questions &&
-              questions.map(question => (
-                <li key={question.questionId}>{question.question}</li>
-              ))}
-          </ul>
-          {questionsTotal > 0 && <Pagination />}
-        </>
-      )}
+      <BrowseConsultationsHeader />
+      <BrowsePageWrapperStyle as="section" aria-labelledby="browse_title">
+        <BrowsePageInnerStyle>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              <BrowseConsultationsTitles />
+              {questions && (
+                <BrowseConsultationsList
+                  questions={questions}
+                  resultsContext={!consultationsPage}
+                />
+              )}
+              {questionsTotal > 0 && <Pagination />}
+            </>
+          )}
+        </BrowsePageInnerStyle>
+      </BrowsePageWrapperStyle>
     </>
   );
 };

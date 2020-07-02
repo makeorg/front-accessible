@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { SvgMail } from 'Client/ui/Svg/elements';
@@ -6,30 +7,31 @@ import { modalShowRegister } from 'Shared/store/actions/modal';
 import {
   NoConsultationWrapperStyle,
   NoConsultationImageStyle,
-  SvgMailWrapperStyle,
-  NoConsultationTextStyle,
+  ConsultationElementTitleStyle,
   ConsultationRedLinkElementStyle,
 } from './style';
 
-export const NoConsultation = ({ length }: Number) => {
+type Props = {
+  length: number,
+};
+
+export const RegistrationIncentive = ({ length }: Props) => {
   const dispatch = useDispatch();
   return (
     <NoConsultationWrapperStyle>
       <NoConsultationImageStyle>
-        <SvgMailWrapperStyle>
-          <SvgMail />
-        </SvgMailWrapperStyle>
+        <SvgMail />
       </NoConsultationImageStyle>
-      <NoConsultationTextStyle>
+      <ConsultationElementTitleStyle>
         {length === 0
-          ? i18n.t('browse_consultations.text_content_zero')
-          : i18n.t('browse_consultations.text_content_one')}
-      </NoConsultationTextStyle>
+          ? i18n.t('browse.text_content_zero')
+          : i18n.t('browse.text_content_one')}
+      </ConsultationElementTitleStyle>
       <ConsultationRedLinkElementStyle
         onClick={() => dispatch(modalShowRegister())}
         aria-label={i18n.t('common.register_label')}
       >
-        {i18n.t('browse_consultations.subscribe')}
+        {i18n.t('browse.subscribe')}
       </ConsultationRedLinkElementStyle>
     </NoConsultationWrapperStyle>
   );
