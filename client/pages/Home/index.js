@@ -11,7 +11,7 @@ import { HighlightsBanner } from 'Client/features/homepage/Highlights';
 import { CurrentQuestions } from 'Client/features/homepage/CurrentQuestions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-import { FeaturedQuestions } from 'Client/features/homepage/FeaturedQuestions';
+import { FeaturedNews } from 'Client/features/homepage/Featured';
 import { HomepageWrapperStyle } from './style';
 
 export const HomePage = () => {
@@ -53,7 +53,10 @@ export const HomePage = () => {
         <HomepageWrapperStyle>
           <HighlightsBanner highlights={homepage.highlights} />
           <CurrentQuestions questions={homepage.currentQuestions} />
-          <FeaturedQuestions questions={homepage.featuredQuestions} />
+          <FeaturedNews
+            questions={homepage.featuredQuestions}
+            posts={homepage.posts}
+          />
         </HomepageWrapperStyle>
       )}
     </>

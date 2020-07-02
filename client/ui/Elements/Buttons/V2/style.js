@@ -24,6 +24,9 @@ const BasicButtonStyle = `
 const RedStyle = `
   color: ${BasicColors.PureWhite};
   background-color: ${MakeThemeColors.Red};
+  .tofill {
+    fill: ${BasicColors.PureWhite};
+  }
 `;
 
 export const RedButtonStyle = styled.button`

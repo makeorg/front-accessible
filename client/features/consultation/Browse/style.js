@@ -162,9 +162,9 @@ export const ClockIconStyle = styled(SvgClock)`
   margin-right: 20px;
 `;
 
-export const ConsultationElementDateStyle = styled.p`
-  display: flex;
+export const ConsultationElementParagraphStyle = styled.p`
   font-size: 14px;
+  line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
   margin-bottom: 20px;
