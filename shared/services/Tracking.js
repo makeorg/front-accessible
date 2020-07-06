@@ -1,9 +1,7 @@
 /* @flow */
 
-import { ApiService } from 'Shared/api/ApiService';
+import { TrackingApiService } from 'Shared/api/TrackingApiService';
 import * as trackingConstants from 'Shared/constants/tracking';
-import { Logger } from 'Shared/services/Logger';
-import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import { env } from 'Shared/env';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -42,16 +40,7 @@ export const track = (eventName: string, parameters: Object = {}) => {
     eventType: 'trackCustom',
   };
 
-  return ApiService.callApi(PATH_POST_TRACKING, {
-    method: 'POST',
-    body: JSON.stringify(params),
-  }).catch(error =>
-    Logger.logError({
-      source: 'Tracking api call error',
-      error,
-      ...params,
-    })
-  );
+  return TrackingApiService.track(params);
 };
 
 export const trackFacebookPixel = (

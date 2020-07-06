@@ -8,4 +8,5 @@ export type ErrorResponse = {
     config: Object,
   },
   message: string,
+  request: Object,
 };

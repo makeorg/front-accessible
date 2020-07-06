@@ -1,7 +1,13 @@
 import { Logger } from './Logger';
 
-let unexpectedError = () => {
-  Logger.logError('you should handle unexpected errors');
+let unexpectedError = error => {
+  const message = 'You should handle unexpected errors';
+  try {
+    const errorAsString = JSON.stringify(error);
+    Logger.logError(`${message}: ${errorAsString}`);
+  } catch (e) {
+    Logger.logError(message);
+  }
 };
 
 export const setUnexpectedError = (func: (apiServiceError: Object) => void) => {

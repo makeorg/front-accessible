@@ -58,11 +58,9 @@ describe('ApiServiceShared', () => {
 
     it('must handle promise', async () => {
       axios.mockRejectedValue({ message: 'error' });
-      try {
-        await ApiServiceShared.callApi('/url');
-      } catch (error) {
-        expect(error).toEqual(Error('error'));
-      }
+      await expect(ApiServiceShared.callApi('/url')).rejects.toThrow(
+        new ApiServiceError('error', null, null)
+      );
     });
   });
 
@@ -107,7 +105,7 @@ describe('ApiServiceShared', () => {
       );
       expect(Logger.logError).toHaveBeenNthCalledWith(
         1,
-        'API call error - error message - {"status":"500","url":"none","method":"GET","responseData":"error data"}'
+        'API call error - server error - error message - {"status":"500","url":"none","method":"GET","responseData":"error data"}'
       );
     });
   });

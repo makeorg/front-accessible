@@ -2,13 +2,21 @@
 import { useState, useEffect } from 'react';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { Logger } from 'Shared/services/Logger';
 
 export const useMedia = (query: string) => {
   const [value, setValue] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
+    if (!window.matchMedia) {
+      Logger.logWarning('window.matchMedia is not supported');
+      return () => {
+        isMounted = false;
+      };
+    }
     const mql = window.matchMedia(query);
+
     const onChange = () => {
       if (!isMounted) {
         return;
