@@ -8,6 +8,7 @@ import {
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 
 export const AuthorWrapperStyle = styled.div`
   width: 100%;
@@ -52,8 +53,9 @@ export const ProposalStatusStyle = styled.span`
   }
 `;
 
-export const CertifiedIconStyle = {
-  fontSize: '14px',
-  marginLeft: '5px',
-  fill: TextColors.Blue,
-};
+export const CertifiedIconStyle = styled(SvgCheckedSymbol)`
+  margin-left: 5px;
+  .tofill {
+    fill: ${TextColors.Blue};
+  }
+`;

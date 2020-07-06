@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgAlert = ({ 'aria-label': ariaLabel, style }) => (
-  <svg width={19} height={17} aria-label={ariaLabel} style={style}>
+export const SvgAlert = props => (
+  <svg width={19} height={17} viewBox="0 0 19 17" {...props}>
     <g fill="none" fillRule="evenodd">
       <path fill="#FFF" d="M6 5h5v11H6z" />
       <path

@@ -98,7 +98,7 @@ export const TopIdeaCard = ({
       </TopIdeaCardContentStyle>
       {topIdea.commentsCount > 0 && (
         <PositionStyle>
-          <SvgChat />
+          <SvgChat aria-hidden />
           <PositionContentStyle>
             <RedLinkRouterStyle
               to={getTopIdeaDetailsLink(
@@ -130,11 +130,7 @@ export const TopIdeaCard = ({
               <ScreenReaderItemStyle>
                 {i18n.t('idea_card.collapse')}
               </ScreenReaderItemStyle>
-              <SvgAngleArrowTop
-                width={12}
-                height={12}
-                style={TopIdeaCollapseIconStyle}
-              />
+              <SvgAngleArrowTop aria-hidden style={TopIdeaCollapseIconStyle} />
             </>
           ) : (
             <>
@@ -143,8 +139,7 @@ export const TopIdeaCard = ({
                 {i18n.t('idea_card.expand')}
               </ScreenReaderItemStyle>
               <SvgAngleArrowBottom
-                width={12}
-                height={12}
+                aria-hidden
                 style={TopIdeaCollapseIconStyle}
               />
             </>

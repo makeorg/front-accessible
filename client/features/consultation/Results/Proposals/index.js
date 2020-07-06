@@ -5,7 +5,6 @@ import {
 } from 'Shared/types/question';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { i18n } from 'Shared/i18n';
-import { SvgLightning } from 'Client/ui/Svg/elements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { formatAuthorName } from 'Shared/helpers/stringFormatter';
 import {
@@ -59,7 +58,7 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
                   }
                 )}
               </ResultsLikeItStyle>
-              <SvgLightning style={ResultsProposalIconStyle} />
+              <ResultsProposalIconStyle aria-hidden />
               <ResultsNoWayStyle>
                 {i18n.t(
                   'consultation.results.proposals.controversials_no_way',

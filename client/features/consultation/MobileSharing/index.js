@@ -23,22 +23,16 @@ export const MobileSharing = () => {
           {i18n.t('consultation.sharing.title')}
         </HiddenItemStyle>
         <Sharing />
-        <CloseSharingStyle
-          onClick={() => toggleExpand()}
-          aria-label={i18n.t('consultation.sharing.hide_pannel')}
-        >
-          <SvgClose />
+        <CloseSharingStyle onClick={() => toggleExpand()}>
+          <SvgClose aria-label={i18n.t('consultation.sharing.hide_pannel')} />
         </CloseSharingStyle>
       </SharingWrapperStyle>
     );
   }
 
   return (
-    <ExpandSharingStyle
-      onClick={() => toggleExpand()}
-      aria-label={i18n.t('consultation.sharing.display_pannel')}
-    >
-      <SvgShare />
+    <ExpandSharingStyle onClick={() => toggleExpand()}>
+      <SvgShare aria-label={i18n.t('consultation.sharing.display_pannel')} />
     </ExpandSharingStyle>
   );
 };

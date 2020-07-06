@@ -5,7 +5,7 @@ import {
   SvgAngleArrowRight,
   SvgAngleArrowLeft,
   SvgAngleArrowTop,
-  SvgAngleArrowBottom,
+  SvgArrowLeft,
   SvgArrowRight,
   SvgArrowLeft,
   SvgArrowTop,
@@ -72,68 +72,58 @@ class SvgElementsExample extends React.Component {
   render() {
     return (
       <>
-        <span style={WrapperStyle}><SvgEmptyAvatar style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgAngleArrowRight style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgAngleArrowLeft style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgAngleArrowTop style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgAngleArrowBottom style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgArrowRight style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgArrowLeft style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgArrowTop style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgArrowBottom style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgPlayButton style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgThumbsUp style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgShare style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgClose style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLightBulb style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgPencil style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgFacebookLogo style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgFacebookLogoF style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgGoogleLogoG style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLinkedinLogoIn style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgTwitterLogo style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgEnvelope style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLock style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgExternalLink style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgStepForward style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgEye style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgEyeSlash style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgCheck style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgPaperPlane style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgUser style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgChild style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgMapMarker style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgMegaphone style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgSuitcase style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgClapping style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgSignOut style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgSaveFileOption style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLike style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgCheckedSymbol style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgUsers style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgSadEmoji style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgInfos style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgDisconnect style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgAlert style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgSearch style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgCalculator style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLightning style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgMap style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgInstagramLogo style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgTrending style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLink style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgChat style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgIdea style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgPeople style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgLight style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgHandHeart style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgHouse style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgMail style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgClock style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgBigArrowRight style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgNextArrow style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgPreviousArrow style={SvgStyle} /></span>
-        <span style={WrapperStyle}><SvgExternalLinkPlain style={SvgStyle} /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowBottom /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgEmptyAvatar /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowRight /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowLeft /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowTop /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowRight /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowLeft /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowTop /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgPlayButton /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsUp aria-hidden /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsDown /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsLeft /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsRight /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgShare /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgClose /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgLightBulb /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgPencil /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgFacebookLogo /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgFacebookLogoF /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgGoogleLogoG /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgLinkedinLogoIn /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgTwitterLogo /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgEnvelope /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgLock /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgExternalLink /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgStepForward /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgEye /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgEyeSlash /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgCheck /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgPaperPlane /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgUser /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgChild /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgMapMarker /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgMegaphone /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgSuitcase /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgClapping /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgSignOut /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgLike /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgSaveFileOption /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgCheckedSymbol aria-hidden /></span>
+        <span style={{padding: '5px', fontSize: '26px'}}><SvgUsers /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSadEmoji /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgDisconnect /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInfos /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgAlert /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSearch /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgCalculator /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLightning /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgMap /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInstagramLogo /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgTrending /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLink /></span>
       </>
     );
   }

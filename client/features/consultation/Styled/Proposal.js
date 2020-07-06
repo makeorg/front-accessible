@@ -9,6 +9,7 @@ import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { SvgLightBulb } from 'Client/ui/Svg/elements';
 
 export const ProposalWrapperStyle = styled.div`
   width: 100%;
@@ -27,6 +28,14 @@ export const ProposalTitleStyle = styled(FourthLevelTitleStyle)`
   text-transform: none;
   color: ${props => props.fontColor};
   margin: 5px 0 10px;
+`;
+
+export const ProposalTitleIconStyle = styled(SvgLightBulb)`
+  display: inline-flex;
+  margin-right: 7.5px;
+  .tofill {
+    fill: ${BasicColors.PureBlack};
+  }
 `;
 
 export const LoadMoreWrapperStyle = styled(CenterColumnStyle)`

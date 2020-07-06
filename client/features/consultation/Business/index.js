@@ -115,12 +115,18 @@ export const BusinessConsultations = ({ consultations }: Props) => {
       {displayViewMore && (
         <BusinessConsultationsMoreStyle onClick={expandConsultations}>
           {i18n.t('homepage.business_consultations.more')}
-          <SvgAngleArrowBottom style={BusinessConsultationsMoreArrowStyle} />
+          <SvgAngleArrowBottom
+            aria-hidden
+            style={BusinessConsultationsMoreArrowStyle}
+          />
         </BusinessConsultationsMoreStyle>
       )}
       {displayViewLess && (
         <BusinessConsultationsMoreStyle onClick={collapseConsultations}>
-          <SvgAngleArrowTop style={BusinessConsultationsMoreArrowStyle} />
+          <SvgAngleArrowTop
+            aria-hidden
+            style={BusinessConsultationsMoreArrowStyle}
+          />
           {i18n.t('homepage.business_consultations.less')}
         </BusinessConsultationsMoreStyle>
       )}

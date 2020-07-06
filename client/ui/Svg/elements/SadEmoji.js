@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgSadEmoji = ({ style, 'aria-label': arialLabel }) => (
-  <svg viewBox="0 0 45 45" style={style} aria-label={arialLabel}>
+export const SvgSadEmoji = props => (
+  <svg width={45} height={45} viewBox="0 0 45 45" {...props}>
     <defs>
       <clipPath>
         <path d="M0 36h36V0H0v36z" />

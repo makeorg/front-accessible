@@ -102,7 +102,7 @@ export const CurrentConsultations = ({
             aria-controls="glide_translator"
             onClick={() => trackClickHomepageSliderArrows()}
           >
-            <SvgArrowLeft />
+            <SvgArrowLeft aria-hidden />
           </CurrentConsultationArrowsStyle>
           <CurrentConsultationArrowsStyle
             className={`${CURRENT_CONSULTATION_SLIDER} glider-next`}
@@ -110,7 +110,7 @@ export const CurrentConsultations = ({
             aria-controls="glide_translator"
             onClick={() => trackClickHomepageSliderArrows()}
           >
-            <SvgArrowRight />
+            <SvgArrowRight aria-hidden />
           </CurrentConsultationArrowsStyle>
         </FlexElementStyle>
       </SpaceBetweenRowStyle>

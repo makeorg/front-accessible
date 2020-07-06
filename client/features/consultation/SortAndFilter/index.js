@@ -3,8 +3,6 @@ import React, { useMemo } from 'react';
 import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { useMobile } from 'Client/hooks/useMedia';
-import { ConsultationIconStyle } from 'Client/pages/Consultation/style';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { SelectPanel } from 'Client/ui/Elements/SelectPanel';
 import { TagList } from 'Client/ui/Elements/TagList';
 import { SortedList } from 'Client/ui/Elements/SortedList';
@@ -12,6 +10,7 @@ import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
+import { TagIconStyle } from 'Client/ui/Elements/TagList/style';
 import {
   TagSectionTitle,
   FiltersContainerStyle,
@@ -50,9 +49,7 @@ export const SortAndFilter = ({
   return (
     <>
       <TagSectionTitle as="h3" id={TAGS_SECTION}>
-        <ConsultationIconStyle aria-hidden>
-          <SvgThumbsUp style={{ width: '18px', height: '18px' }} />
-        </ConsultationIconStyle>
+        <TagIconStyle aria-hidden />
         {i18n.t('common.vote_on_proposals')}
       </TagSectionTitle>
       <ColumnElementStyle>

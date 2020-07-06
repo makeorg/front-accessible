@@ -6,9 +6,8 @@ import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgMapMarker, SvgSignOut, SvgLink } from 'Client/ui/Svg/elements';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
+import { SvgMapMarker } from 'Client/ui/Svg/elements';
+import { SignOutIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   ProfileAvatarStyle,
   ProfileContentWrapperStyle,
@@ -19,6 +18,7 @@ import {
   ProfileNavigationStyle,
   ProfileAlignLeftContentStyle,
   ProfileWebsiteLinkStyle,
+  ProfileLinkIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -71,7 +71,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                 {i18n.t('profile.common.labels.organisation')}
               </ScreenReaderItemStyle>
               {formatOrganisationName(displayName)}
-              <SvgCheckedSymbol style={CertifiedIconStyle} />
+              <CertifiedIconStyle aria-hidden />
             </ProfileTitleStyle>
           </ProfileContentWrapperStyle>
         )}
@@ -93,7 +93,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
                       {i18n.t('profile.common.labels.lastname')}
                     </ScreenReaderItemStyle>
                     {formatUserName(lastName)}
-                    <SvgCheckedSymbol style={CertifiedIconStyle} />
+                    <CertifiedIconStyle aria-hidden />
                   </>
                 )}
               </ProfileTitleStyle>
@@ -155,7 +155,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
           <ScreenReaderItemStyle>
             {i18n.t('profile.common.labels.website')}
           </ScreenReaderItemStyle>
-          <SvgLink style={{ marginRight: '5px' }} />
+          <ProfileLinkIconStyle aria-hidden />
           <ProfileWebsiteLinkStyle
             as="a"
             target="_blank"
@@ -169,9 +169,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
       <ProfileNavigationStyle>
         {navigationBar}
         <ProfileInformationButtonStyle onClick={() => dispatch(logout())}>
-          <IconWrapperStyle aria-hidden>
-            <SvgSignOut />
-          </IconWrapperStyle>
+          <SignOutIconStyle aria-hidden />
           {i18n.t('profile.common.log_out')}
         </ProfileInformationButtonStyle>
       </ProfileNavigationStyle>

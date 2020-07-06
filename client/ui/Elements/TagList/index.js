@@ -4,8 +4,6 @@ import { type TagType } from 'Shared/types/tag';
 import { i18n } from 'Shared/i18n';
 import { trackTag } from 'Shared/services/Tracking';
 import { useMobile } from 'Client/hooks/useMedia';
-import { SvgClose } from 'Client/ui/Svg/elements';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { FLUSH_TAGS_TRIGGER } from 'Shared/constants/ids';
 import {
   TagListStyle,
@@ -17,6 +15,7 @@ import {
   CenterButtonStyle,
   TagLabelStyle,
   ProposalCountStyle,
+  TagIconStyle,
 } from './style';
 import { ScreenReaderItemStyle } from '../AccessibilityElements';
 import { ActiveButtonStyle } from '../Buttons/style';
@@ -94,11 +93,7 @@ export const TagList = ({
                     {`(${tag.proposalCount})`}
                   </ProposalCountStyle>
                 </TagLabelStyle>
-                {tag.isSelected && (
-                  <SvgClose
-                    style={{ width: '10px', fill: BasicColors.PureWhite }}
-                  />
-                )}
+                {tag.isSelected && <TagIconStyle aria-hidden />}
               </TagButtonElementStyle>
             </li>
           ))}

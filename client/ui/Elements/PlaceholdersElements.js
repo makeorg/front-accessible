@@ -14,13 +14,15 @@ import {
 import { ParagraphStyle } from './ParagraphElements';
 
 export const SvgLikeStyle = {
-  fontSize: '72px',
+  width: '72px',
+  height: '72px',
   margin: '15px 0 5px',
   fill: `${MakeThemeColors.Red}`,
 };
 
 export const LightBulbStyle = {
-  fontSize: '72px',
+  width: '72px',
+  height: '72px',
   margin: '15px 0 5px',
   fill: 'rgb(255, 212, 0)',
 };

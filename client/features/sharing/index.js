@@ -36,7 +36,7 @@ export const Sharing = () => {
           href={facebookShareUrl(location.pathname)}
           onClick={() => trackClickShare('facebook', { location: 'profile' })}
         >
-          <SvgFacebookLogoF />
+          <SvgFacebookLogoF aria-hidden />
         </FacebookButtonStyle>
       </li>
       <li>
@@ -47,7 +47,7 @@ export const Sharing = () => {
           href={twitterShareUrl(location.pathname, '', '')}
           onClick={() => trackClickShare('twitter')}
         >
-          <SvgTwitterLogo />
+          <SvgTwitterLogo aria-hidden />
         </TwitterButtonStyle>
       </li>
       <li>
@@ -58,7 +58,7 @@ export const Sharing = () => {
           href={linkedinShareUrl(location.pathname)}
           onClick={() => trackClickShare('linkedin')}
         >
-          <SvgLinkedinLogoIn />
+          <SvgLinkedinLogoIn aria-hidden />
         </LinkedInButtonStyle>
       </li>
     </SharingStyle>

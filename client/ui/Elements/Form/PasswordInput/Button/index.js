@@ -27,7 +27,11 @@ export const PasswordButton = (props: Props) => {
           : i18n.t('common.form.show_password')
       }
     >
-      {isPasswordDisplayed ? <SvgEyeSlash /> : <SvgEye />}
+      {isPasswordDisplayed ? (
+        <SvgEyeSlash aria-hidden />
+      ) : (
+        <SvgEye aria-hidden />
+      )}
     </UnstyledButtonStyle>
   );
 };

@@ -1,9 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import {
-  IconWrapperStyle,
-  ActiveButtonStyle,
-} from 'Client/ui/Elements/Buttons/style';
+import { ActiveButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 type Props = {
   /** Name of the input */
@@ -32,7 +29,7 @@ export const SubmitButton = ({
       id={id}
       disabled={disabled}
     >
-      {icon && <IconWrapperStyle aria-hidden>{icon}</IconWrapperStyle>}
+      {icon}
       {label}
     </ActiveButtonStyle>
   );

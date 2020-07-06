@@ -9,15 +9,15 @@ import { i18n } from 'Shared/i18n';
 
 import {
   EmailButtonStyle,
-  IconWrapperStyle,
   ButtonSmallWrapperStyle,
   RedLinkButtonStyle,
+  EmailIconStyle,
+  ForwardIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
 import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
-import { SvgEnvelope, SvgStepForward } from 'Client/ui/Svg/elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import {
@@ -76,9 +76,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
               onClick={() => dispatch(modalShowRegister())}
               id="authentication-register-button"
             >
-              <IconWrapperStyle>
-                <SvgEnvelope />
-              </IconWrapperStyle>
+              <EmailIconStyle aria-hidden />
               {i18n.t('common.email')}
             </EmailButtonStyle>
           </ButtonSmallWrapperStyle>
@@ -96,9 +94,7 @@ export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
           }}
           data-cy-button="skip-sign-up"
         >
-          <IconWrapperStyle>
-            <SvgStepForward />
-          </IconWrapperStyle>
+          <ForwardIconStyle aria-hidden />
           {configuration.nextCtaText
             ? configuration.nextCtaText
             : i18n.t('sign_up_card.next-cta')}

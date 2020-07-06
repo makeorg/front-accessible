@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { DescriptionWrapperStyle } from '../Styled';
+import { DescriptionWrapperStyle } from '../style';
 
 /**
  * Renders succes message after proposal is submitted

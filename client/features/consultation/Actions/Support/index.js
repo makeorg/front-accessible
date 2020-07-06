@@ -1,11 +1,10 @@
 import React from 'react';
-import { SvgClapping } from 'Client/ui/Svg/elements';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import {
   SupportWrapperStyle,
   SupportSeparatorStyle,
 } from 'Client/features/consultation/Styled/Actions';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
+import { ClappingIconStyle } from 'Client/ui/Elements/Buttons/style';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
@@ -13,9 +12,7 @@ export const SupportContent = () => {
   return (
     <SupportWrapperStyle>
       <ThirdLevelTitleStyle>
-        <IconWrapperStyle>
-          <SvgClapping />
-        </IconWrapperStyle>
+        <ClappingIconStyle aria-hidden />
         {i18n.t('actions.support.title')}
       </ThirdLevelTitleStyle>
       <SupportSeparatorStyle />

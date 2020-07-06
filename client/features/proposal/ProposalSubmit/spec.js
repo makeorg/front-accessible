@@ -7,7 +7,7 @@ import { ProposalSubmitDescription } from './Description';
 import { ProposalSubmitForm } from './Form';
 import { ProposalSubmitAuthentication } from './Authentication';
 import { ProposalSubmit } from '.';
-import { ProposalTextareaStyle, ProposalButtonStyle } from './Styled';
+import { ProposalTextareaStyle, ProposalButtonStyle } from './style';
 import { ProposalSubmitButton } from './Button/index';
 
 // @todo: update this test, do it with different state

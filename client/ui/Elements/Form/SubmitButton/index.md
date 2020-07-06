@@ -5,7 +5,7 @@ import { SubmitButton } from './index';
 
 <SubmitButton
   formName="formName"
-  icon={<SvgThumbsUp />}
+  icon={<SvgThumbsUp aria-hidden />}
   label="Submit Button"
 />
 ```

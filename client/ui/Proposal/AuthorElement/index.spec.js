@@ -25,6 +25,7 @@ jest.mock('./Styled', () => ({
   AuthorInfosStyle: 'AuthorInfosStyle',
   AuthorSeparatorStyle: 'AuthorSeparatorStyle',
   ProposalStatusStyle: 'ProposalStatusStyle',
+  CertifiedIconStyle: 'CertifiedIconStyle',
 }));
 
 describe('ProposalAuthorElement', () => {

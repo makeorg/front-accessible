@@ -27,6 +27,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { RedLinkHTMLElementStyle } from './LinkElements';
+import { SvgLink, SvgLike } from '../Svg/elements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -117,11 +118,19 @@ export const ProfileTitleSeparatorStyle = styled.div`
   margin: 5px auto ${intToPx(DefaultPadding.Mobile)};
 `;
 
-export const ProfileTabIconStyle = {
-  alignSelf: 'center',
-  marginLeft: '5px',
-  fill: MakeThemeColors.Red,
-};
+export const ProfileTabIconStyle = styled(SvgLike)`
+  width: 14px;
+  height: 14px;
+  align-self: center;
+  margin-left: 5px;
+  .tofill {
+    fill: ${MakeThemeColors.Red};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 18px;
+    height: 18px;
+  }
+`;
 
 export const ProfileAvatarLayoutStyle = styled(FlexElementStyle)`
   align-self: center;
@@ -203,6 +212,10 @@ export const ProfileSeparatorStyle = styled(SeparatorStyle)`
 
 export const ProfileInformationButtonStyle = styled(GreyButtonStyle)`
   margin: 10px 0 0;
+`;
+
+export const ProfileLinkIconStyle = styled(SvgLink)`
+  margin-right: 5px;
 `;
 
 export const ProfileWebsiteLinkStyle = styled(RedLinkHTMLElementStyle)`

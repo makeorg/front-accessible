@@ -5,9 +5,8 @@ import { i18n } from 'Shared/i18n';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import RegisterBackground from 'Client/app/assets/images/search_register.jpg';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
+import { ThumbsUpIconStyle } from 'Client/ui/Elements/Buttons/style';
 import { SearchSidebarTileStyle } from '../Styled';
 import { SeachRegisterButtonStyle } from './Styled';
 
@@ -27,9 +26,7 @@ export const SearchRegister = () => {
         {i18n.t('search.sidebar.register.title')}
       </FourthLevelTitleStyle>
       <SeachRegisterButtonStyle onClick={() => dispatch(modalShowRegister())}>
-        <IconWrapperStyle aria-hidden>
-          <SvgThumbsUp />
-        </IconWrapperStyle>
+        <ThumbsUpIconStyle aria-hidden />
         {i18n.t('common.register_label')}
       </SeachRegisterButtonStyle>
     </SearchSidebarTileStyle>

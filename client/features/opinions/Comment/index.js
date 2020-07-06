@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { opinionsVoteStaticParams } from 'Shared/constants/opinions';
 import { i18n } from 'Shared/i18n';
 import { scrollToTop } from 'Shared/helpers/styled';
-import { SvgThumbsUp, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 import {
   MiddleRowStyle,
   FlexElementStyle,
@@ -82,7 +82,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
               >
                 {displayName}
               </CandidateLinkStyle>
-              <SvgCheckedSymbol style={CertifiedIconStyle} />
+              <CertifiedIconStyle aria-hidden />
             </OpinionCommentAuthorStyle>
             <PoliticalPartyStyle>{politicalParty}</PoliticalPartyStyle>
           </ColumnElementStyle>
@@ -98,7 +98,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
             >
               {displayName}
             </CandidateLinkStyle>
-            <SvgCheckedSymbol style={CertifiedIconStyle} />
+            <CertifiedIconStyle aria-hidden />
             {politicalParty && (
               <PoliticalPartyStyle>
                 &nbsp;&bull;&nbsp;
@@ -114,7 +114,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
           transform={opinionsVoteStaticParams[comment.vote].transform}
           color={opinionsVoteStaticParams[comment.vote].color}
         >
-          <SvgThumbsUp />
+          <SvgThumbsUp aria-hidden />
         </CommitmentPreviewOpinionsIconWrapperStyle>
         <CommitmentPreviewOpinionsParagraphStyle
           color={opinionsVoteStaticParams[comment.vote].color}

@@ -116,7 +116,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           direction="left"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowLeft />
+          <SvgArrowLeft aria-hidden />
         </PopularProposalsArrowsStyle>
         <PopularProposalsArrowsStyle
           className={`${sliderName} glider-next`}
@@ -125,7 +125,7 @@ export const PopularProposals = ({ question, position, size }: Props) => {
           direction="right"
           onClick={() => trackLoadMoreProposals(COMPONENT_PARAM_TOP_PROPOSALS)}
         >
-          <SvgArrowRight />
+          <SvgArrowRight aria-hidden />
         </PopularProposalsArrowsStyle>
       </FlexElementStyle>
       <PopularProposalsSliderListWrapperStyle

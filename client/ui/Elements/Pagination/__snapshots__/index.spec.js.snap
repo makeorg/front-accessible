@@ -75,9 +75,9 @@ exports[`Pagination snapshot by default 1`] = `
     <svg
       aria-hidden={true}
       className="c2"
-      height="16"
+      height={16}
       viewBox="0 0 9 16"
-      width="9"
+      width={9}
     >
       <path
         className="tofill"
@@ -100,9 +100,9 @@ exports[`Pagination snapshot by default 1`] = `
     <svg
       aria-hidden={true}
       className="c4"
-      height="16"
+      height={16}
       viewBox="0 0 9 16"
-      width="9"
+      width={9}
     >
       <path
         className="tofill"

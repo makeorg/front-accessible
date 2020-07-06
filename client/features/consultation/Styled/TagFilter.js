@@ -5,12 +5,23 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { BorderColors } from 'Client/app/assets/vars/Colors';
+import { BorderColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 
 export const TagSectionTitle = styled(FourthLevelTitleStyle)`
   padding: 0 ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0;
+  }
+`;
+
+export const TagIconStyle = styled(SvgThumbsUp)`
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  margin-right: 7.5px;
+  .tofill {
+    fill: ${BasicColors.PureBlack};
   }
 `;
 

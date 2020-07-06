@@ -40,27 +40,6 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   fill: rgb(74,74,74);
 }
 
-.c1 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  font-size: 12px;
-  margin-right: 5px;
-}
-
-.c1 svg {
-  width: 12px;
-  height: 12px;
-}
-
 @media (min-width:767px) {
   .c0 {
     font-size: 16px;
@@ -74,25 +53,13 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   }
 }
 
-@media (min-width:1140px) {
-  .c1 svg {
-    width: 14px;
-    height: 14px;
-  }
-}
-
 <button
   className="sc-11o2adg-2 c0"
   disabled={false}
   form="foo"
   type="submit"
 >
-  <span
-    aria-hidden={true}
-    className="c1"
-  >
-    SvgThumbsUp
-  </span>
+  SvgThumbsUp
   bar
 </button>
 `;
@@ -110,6 +77,6 @@ Snapshot Diff:
     form="foo"
     type="submit"
   >
-    <span
-      aria-hidden={true}
+    SvgThumbsUp
+    bar
 `;

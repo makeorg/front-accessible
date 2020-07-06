@@ -8,7 +8,6 @@ export { SvgAngleArrowBottom } from './AngleArrowBottom';
 export { SvgArrowRight } from './ArrowRight';
 export { SvgArrowLeft } from './ArrowLeft';
 export { SvgArrowTop } from './ArrowTop';
-export { SvgArrowBottom } from './ArrowBottom';
 export { SvgPlayButton } from './PlayButton';
 export { SvgThumbsUp } from './ThumbsUp';
 export { SvgShare } from './Share';

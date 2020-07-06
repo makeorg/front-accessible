@@ -6,13 +6,12 @@ import {
   trackClickStartSequence,
 } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { SmallSeparatorWithMarginStyle } from 'Client/ui/Elements/Separators';
-import { SvgPlayButton } from 'Client/ui/Svg/elements';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { MiddleRowStyle } from 'Client/ui/Elements/FlexElements';
 import { useDispatch } from 'react-redux';
 import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
+import { PlayIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   SequenceTitleWrapperStyle,
   SequenceIntroButtonStyle,
@@ -75,9 +74,7 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
         data-cy-button="start-sequence"
         onClick={handleStartSequence}
       >
-        <IconWrapperStyle aria-hidden>
-          <SvgPlayButton />
-        </IconWrapperStyle>
+        <PlayIconStyle aria-hidden />
         {i18n.t('intro_card.button')}
       </SequenceIntroButtonStyle>
       {partners && (

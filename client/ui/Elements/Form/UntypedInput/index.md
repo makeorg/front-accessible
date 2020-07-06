@@ -25,7 +25,7 @@ class UntypedInputExample extends React.Component {
       <UntypedInput
         type="email"
         name="email"
-        icon={<SvgEnvelope />}
+        icon={<SvgEnvelope aria-hidden />}
         value={this.state.value}
         label="placeholder"
         handleChange={this.handleChange}

@@ -2,14 +2,9 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { HiddenOnTablet } from 'Client/ui/Elements/HiddenElements';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
-import { SvgPencil } from 'Client/ui/Svg/elements';
+import { ProposalIconStyle } from 'Client/ui/Elements/Buttons/style';
 import { useDesktop } from 'Client/hooks/useMedia';
-import {
-  ProposalButtonStyle,
-  ProposalIconStyle,
-  ProposalButtonLabelStyle,
-} from '../Styled';
+import { ProposalButtonStyle, ProposalButtonLabelStyle } from '../style';
 
 type Props = {
   /** Method called when field's value is submitted */
@@ -36,9 +31,7 @@ export const ProposalSubmitButton = (props: Props) => {
       disabled={!canSubmit}
       aria-label={i18n.t('common.propose')}
     >
-      <IconWrapperStyle as={isOpen ? IconWrapperStyle : ProposalIconStyle}>
-        <SvgPencil />
-      </IconWrapperStyle>
+      <ProposalIconStyle className={!isOpen && 'closed'} aria-hidden />
       {(isOpen || isDesktop) && (
         <ProposalButtonLabelStyle
           as={isOpen || isDesktop ? ProposalButtonLabelStyle : HiddenOnTablet}

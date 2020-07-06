@@ -5,12 +5,11 @@ import GoogleLogin from 'react-google-login';
 import { GOOGLE_PROVIDER_ENUM } from 'Shared/api/UserApiService';
 import { GOOGLE_LOGIN_ID } from 'Shared/constants/config';
 import { loginSocial } from 'Shared/store/actions/authentication';
-import { SvgGoogleLogoG } from 'Client/ui/Svg/elements';
 import {
-  IconWrapperStyle,
   GoogleButtonStyle,
+  GoogleIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
-import { GoogleLinkStyle, SocialIconStyle } from './Styled';
+import { GoogleLinkStyle } from './Styled';
 
 type Props = {
   link?: boolean,
@@ -36,16 +35,12 @@ export const GoogleAuthentication = ({ link }: Props) => {
       render={renderProps =>
         link ? (
           <GoogleLinkStyle onClick={renderProps.onClick}>
-            <SocialIconStyle>
-              <SvgGoogleLogoG />
-            </SocialIconStyle>
+            <GoogleIconStyle aria-hidden />
             Google
           </GoogleLinkStyle>
         ) : (
           <GoogleButtonStyle onClick={renderProps.onClick}>
-            <IconWrapperStyle>
-              <SvgGoogleLogoG />
-            </IconWrapperStyle>
+            <GoogleIconStyle aria-hidden />
             Google
           </GoogleButtonStyle>
         )

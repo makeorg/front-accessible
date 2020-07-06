@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar } from 'Client/ui/Avatar';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
 import { i18n } from 'Shared/i18n';
@@ -95,7 +95,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
                   >
                     {formatOrganisationName(actor.organisationName)}
                   </RedLinkRouterStyle>
-                  <SvgCheckedSymbol style={CertifiedIconStyle} />
+                  <CertifiedIconStyle aria-hidden />
                 </div>
                 <LocalActorCountStyle>
                   {i18n.t('consultation.local_actors.proposals', {

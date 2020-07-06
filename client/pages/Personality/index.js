@@ -21,13 +21,12 @@ import {
   ProfileWebsiteLinkStyle,
   ProfileContentStyle,
   ProfilePageContentStyle,
+  ProfileLinkIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements/CheckedSymbol';
 import { UserDescription } from 'Client/features/profile/UserInformations/Description';
 import { OrganisationProfileSkipLinks } from 'Client/app/SkipLinks/Organisation';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { SvgLink } from 'Client/ui/Svg/elements';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { Sharing } from 'Client/features/sharing';
 import { PersonalityService } from 'Shared/services/Personality';
@@ -101,7 +100,7 @@ const PersonalityPage = ({ match }: Props) => {
                 </ScreenReaderItemStyle>
                 {personality.lastName}
                 &nbsp;
-                <SvgCheckedSymbol style={CertifiedIconStyle} />
+                <CertifiedIconStyle aria-hidden />
               </ProfileTitleStyle>
             </ProfileContentWrapperStyle>
             {personality.profile.politicalParty && (
@@ -127,7 +126,7 @@ const PersonalityPage = ({ match }: Props) => {
                 <ScreenReaderItemStyle>
                   {i18n.t('profile.common.labels.website')}
                 </ScreenReaderItemStyle>
-                <SvgLink style={{ marginRight: '5px' }} />
+                <ProfileLinkIconStyle aria-hidden />
                 <ProfileWebsiteLinkStyle
                   as="a"
                   target="_blank"

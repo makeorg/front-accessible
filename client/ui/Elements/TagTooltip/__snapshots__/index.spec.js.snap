@@ -20,7 +20,9 @@ exports[`TagTooltip must match the snapshot with default Props 1`] = `
       aria-label="common.notifications.icons.close"
       onClick={[Function]}
     >
-      <SvgClose />
+      <SvgClose
+        aria-hidden={true}
+      />
     </TagsTooltipCrossStyle>
   </TagsTooltipWrapperStyle>
 </TagsTooltipContainerStyle>

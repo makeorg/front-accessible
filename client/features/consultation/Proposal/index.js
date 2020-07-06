@@ -3,10 +3,12 @@ import { type QuestionType } from 'Shared/types/question';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
-import { SvgLightBulb } from 'Client/ui/Svg/elements';
-import { ConsultationIconStyle } from 'Client/pages/Consultation/style';
 import { isGreatCause } from 'Shared/helpers/question';
-import { ProposalWrapperStyle, ProposalTitleStyle } from '../Styled/Proposal';
+import {
+  ProposalWrapperStyle,
+  ProposalTitleStyle,
+  ProposalTitleIconStyle,
+} from '../Styled/Proposal';
 
 type Props = {
   question: QuestionType,
@@ -25,9 +27,7 @@ export const ConsultationProposal = ({ question }: Props) => {
         id="proposal_aside_title"
         className={!questionIsGreatCause && 'not-great-cause-proposal'}
       >
-        <ConsultationIconStyle aria-hidden>
-          <SvgLightBulb style={{ fontSize: '16px' }} />
-        </ConsultationIconStyle>
+        <ProposalTitleIconStyle aria-hidden />
         {i18n.t('consultation.proposal.title')}
       </FourthLevelTitleStyle>
       {questionIsGreatCause && (

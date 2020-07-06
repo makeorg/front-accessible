@@ -19,7 +19,7 @@ import {
 import { Avatar } from 'Client/ui/Avatar';
 import { Link } from 'react-router-dom';
 import { getPersonalityProfileLink } from 'Shared/helpers/url';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+
 import { i18n } from 'Shared/i18n';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { intToPx, scrollToTop } from 'Shared/helpers/styled';
@@ -241,7 +241,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
           >
             {personalityFullName}
           </CandidateLinkStyle>
-          <SvgCheckedSymbol style={CertifiedIconStyle} />
+          <CertifiedIconStyle aria-hidden />
         </MiddleRowStyle>
         <PoliticalPartyStyle>{personality.politicalParty}</PoliticalPartyStyle>
       </CandidateInformationsStyle>

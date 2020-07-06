@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { IconWrapperStyle } from 'Client/ui/Elements/Buttons/style';
 import { IconColors } from 'Client/app/assets/vars/Colors';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 
@@ -37,12 +36,5 @@ export const GoogleLinkStyle = styled(AuthenticationLinkStyle)`
   border-bottom-color: ${IconColors.Google};
   svg {
     fill: ${IconColors.Google};
-  }
-`;
-
-export const SocialIconStyle = styled(IconWrapperStyle)`
-  margin-right: ${pxToRem('5px')};
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin-right: ${pxToRem('5px')};
   }
 `;
