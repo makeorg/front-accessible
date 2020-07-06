@@ -7,7 +7,7 @@ import {
   ConsultationElementPictureStyle,
   ConsultationElementSubtitleStyle,
   ConsultationElementTitleStyle,
-  ConsultationElementDateStyle,
+  ConsultationElementParagraphStyle,
   ConsultationRedLinkElementStyle,
   ClockIconStyle,
   ConsultationArticleStyle,
@@ -52,13 +52,13 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
       <ConsultationElementTitleStyle>
         {question.question}
       </ConsultationElementTitleStyle>
-      <ConsultationElementDateStyle>
+      <ConsultationElementParagraphStyle>
         <ClockIconStyle aria-hidden />
         {i18n.t('browse.date', {
           startDate: DateHelper.creationDateFormat(startDate),
           endDate: DateHelper.creationDateFormat(endDate),
         })}
-      </ConsultationElementDateStyle>
+      </ConsultationElementParagraphStyle>
       <ConsultationRedLinkElementStyle
         to={getConsultationLink(country, language, questionSlug)}
       >

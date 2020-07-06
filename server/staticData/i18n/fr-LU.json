@@ -858,6 +858,10 @@
     "featured_questions": {
       "label": "Grandes causes Make.org",
       "title": "Make.org passe à l’action sur les grands sujets de société"
+    },
+    "posts": {
+      "link_text": "Lire l'article",
+      "see_all": "Voir toute l'actualité"
     }
   },
   "search": {

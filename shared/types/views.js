@@ -59,7 +59,7 @@ export type HomeHighlightsType = {
   partnersCount: number,
 };
 
-export type HomeArticleType = {
+export type HomePostType = {
   title: string,
   description: string,
   picture: string,
@@ -70,7 +70,7 @@ export type HomeViewType = {
   highlights: HomeHighlightsType,
   currentQuestions: HomeQuestionType[],
   featuredQuestions: HomeQuestionType[],
-  articles: HomeArticleType[],
+  posts: HomePostType[],
 };
 
 export type SearchViewsType = {
