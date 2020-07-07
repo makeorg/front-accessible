@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { intToPx } from 'Shared/helpers/styled';
+import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
   MiddleColumnStyle,
@@ -20,6 +20,12 @@ export const HomepageSectionStyle = styled(ColumnElementStyle)`
   width: 100%;
   margin: 0 auto 100px;
   max-width: ${intToPx(Layouts.ContainerWidth)};
+  &:first-child {
+    margin-top: 50px;
+    @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
+      margin-top: 166px;
+    }
+  }
   &:last-child {
     margin-bottom: 50px;
   }

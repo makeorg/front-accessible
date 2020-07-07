@@ -11,7 +11,9 @@ import { HighlightsBanner } from 'Client/features/homepage/Highlights';
 import { CurrentQuestions } from 'Client/features/homepage/CurrentQuestions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
+
 import { FeaturedNews } from 'Client/features/homepage/Featured';
+import { Hero } from 'Client/features/homepage/Hero';
 import { HomepageWrapperStyle } from './style';
 
 export const HomePage = () => {
@@ -50,14 +52,17 @@ export const HomePage = () => {
         </MiddlePageWrapperStyle>
       )}
       {!isLoading && homepage && (
-        <HomepageWrapperStyle>
-          <HighlightsBanner highlights={homepage.highlights} />
-          <CurrentQuestions questions={homepage.currentQuestions} />
-          <FeaturedNews
-            questions={homepage.featuredQuestions}
-            posts={homepage.posts}
-          />
-        </HomepageWrapperStyle>
+        <>
+          <Hero />
+          <HomepageWrapperStyle>
+            <HighlightsBanner highlights={homepage.highlights} />
+            <CurrentQuestions questions={homepage.currentQuestions} />
+            <FeaturedNews
+              questions={homepage.featuredQuestions}
+              posts={homepage.posts}
+            />
+          </HomepageWrapperStyle>
+        </>
       )}
     </>
   );
