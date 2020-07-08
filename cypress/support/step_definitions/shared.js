@@ -29,12 +29,6 @@ given('I am/go on/to {string} page of the question {string}', (targetPage, quest
   cy.visit(page);
 });
 
-given('I am/go on/to {string} page of the question {string} with intro card disabled', (targetPage, questionSlug) => {
-  checkPageExist(targetPage);
-  const page = pages[targetPage].replace(':questionSlug', questionSlug);
-  cy.visit(`${page}?introCard=false`);
-});
-
 When('I focus {string} field', (fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`).first().focus();
 });

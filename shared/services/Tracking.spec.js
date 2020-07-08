@@ -2,6 +2,7 @@
 
 import { ApiService } from 'Shared/api/ApiService';
 import * as trackingConstants from 'Shared/constants/tracking';
+import { TrackingApiService } from 'Shared/api/TrackingApiService';
 import TrackingService, {
   trackClickMakeLogo,
   trackDisplaySequence,
@@ -39,6 +40,7 @@ import TrackingService, {
   trackSignupEmailSuccess,
   trackDisplayProposalSubmitValidation,
   trackClickStartSequence,
+  trackPerformance,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -87,6 +89,42 @@ describe('Tracking Service', () => {
     TrackingService.track.mockRestore();
     FacebookTracking.trackCustom.mockRestore();
     TwitterTracking.track.mockRestore();
+  });
+
+  it('track performance', async () => {
+    jest.spyOn(TrackingApiService, 'trackPerformance');
+    const performanceTiming = {
+      connectStart: 1,
+      connectEnd: 2,
+      domComplete: 3,
+      domContentLoadedEventEnd: 4,
+      domContentLoadedEventStart: 5,
+      domInteractive: 6,
+      domLoading: 7,
+      domainLookupEnd: 8,
+      domainLookupStart: 9,
+      fetchStart: 10,
+      loadEventEnd: 11,
+      loadEventStart: 12,
+      navigationStart: 13,
+      redirectEnd: 14,
+      redirectStart: 15,
+      requestStart: 16,
+      responseEnd: 17,
+      responseStart: 18,
+      secureConnectionStart: 19,
+      unloadEventEnd: 20,
+      unloadEventStart: 21,
+    };
+    const response = {
+      status: 204,
+    };
+
+    TrackingApiService.trackPerformance.mockResolvedValue(response);
+
+    const performance = await trackPerformance('foo', performanceTiming);
+
+    expect(performance).toEqual(undefined);
   });
 
   it('merge default event params with passed params', () => {

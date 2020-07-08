@@ -9,6 +9,7 @@ import { getIdentifierButtonByName } from '../mapping';
 const waitCardTransition = () => {};
 const waitVoteTransition = () => cy.wait(500);
 const waitQualificationTransition = () => cy.wait(500);
+const sequencePage = '/FR-fr/consultation/:questionSlug/selection';
 
 const getCurrentCard = () => {
   return cy.get('[data-cy-container=sequence]')
@@ -26,6 +27,20 @@ const getCurrentCard = () => {
     })
   ;
 };
+
+
+given('I am/go on/to the sequence page of the question {string}', questionSlug => {
+  const page = sequencePage.replace(':questionSlug', questionSlug);
+  cy.visit(page);
+  cy.wait(500);
+});
+
+
+given('I am/go on/to the sequence page of the question {string} with intro card disabled', questionSlug => {
+  const page = sequencePage.replace(':questionSlug', questionSlug);
+  cy.visit(`${page}?introCard=false`);
+  cy.wait(500);
+});
 
 when ('I click on {string} of the sequence', (buttonName) => {
   const button = getIdentifierButtonByName(buttonName);
