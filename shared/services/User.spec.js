@@ -106,7 +106,7 @@ describe('User Service', () => {
         expect(Logger.logError).toHaveBeenNthCalledWith(1, { status: 404 });
         expect(Logger.logError).toHaveBeenNthCalledWith(
           2,
-          'you should handle unexpected errors'
+          'You should handle unexpected errors: {"status":404}'
         );
         done();
       });
@@ -167,7 +167,7 @@ describe('User Service', () => {
           });
           expect(Logger.logError).toHaveBeenNthCalledWith(
             2,
-            'you should handle unexpected errors'
+            'You should handle unexpected errors: {"status":500,"data":{"field":"global","key":"api_error","message":{"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}}}'
           );
           done();
         }
@@ -288,7 +288,7 @@ describe('User Service', () => {
       expect(UserApiService.current).toHaveBeenCalled();
       expect(response).toEqual(null);
       expect(Logger.logError).toHaveBeenCalledWith(
-        'you should handle unexpected errors'
+        'You should handle unexpected errors: {"status":500}'
       );
       done();
     });

@@ -1,7 +1,6 @@
 /* @flow */
 
 import { ApiService } from 'Shared/api/ApiService';
-import { PATH_POST_TRACKING } from 'Shared/constants/paths';
 import * as trackingConstants from 'Shared/constants/tracking';
 import TrackingService, {
   trackClickMakeLogo,
@@ -45,7 +44,7 @@ import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 import { trackingParamsService } from './TrackingParamsService';
 
-export const eventParameters = {
+const eventParameters = {
   location: 'homepage',
   source: 'foo',
   language: 'foo',
@@ -101,7 +100,7 @@ describe('Tracking Service', () => {
     jest.spyOn(ApiService, 'callApi');
 
     TrackingService.track(eventName, eventParameters);
-    expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_POST_TRACKING, {
+    expect(ApiService.callApi).toHaveBeenNthCalledWith(1, '/tracking/front', {
       body: expectedBody,
       method: 'POST',
     });

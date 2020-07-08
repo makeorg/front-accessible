@@ -47,13 +47,32 @@ export const handleErrors = (
   const url = hasConfig ? error.response.config.url : null;
   const method = hasConfig ? error.response.config.method : null;
 
-  if (!status || status >= 500) {
+  if (status && status >= 500) {
     Logger.logError(
-      `API call error - ${error.message} - ${JSON.stringify({
+      `API call error - server error - ${error.message} - ${JSON.stringify({
         status: status ? status.toString() : 'none',
         url: url || requestUrl || 'none',
         method: method || requestMethod || 'none',
         responseData: responseData || 'none',
+      })}`
+    );
+  }
+
+  if (!status && error.request) {
+    Logger.logWarning(
+      `API call error - no response - ${error.message} - ${JSON.stringify({
+        url: url || requestUrl || 'none',
+        method: method || requestMethod || 'none',
+      })}`
+    );
+  }
+
+  if (!status && !error.request) {
+    Logger.logError(
+      `API call error - request error - ${error.message} - ${JSON.stringify({
+        url: url || requestUrl || 'none',
+        method: method || requestMethod || 'none',
+        error: JSON.stringify(error),
       })}`
     );
   }
