@@ -16,6 +16,7 @@ import {
   MiddleColumnStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { Image } from 'Client/ui/Image';
 
 export const BrowseHeaderStyle = styled.header`
   background-color: ${BackgroundColors.LightGrey};
@@ -135,8 +136,9 @@ export const ConsultationArticleStyle = styled.article`
   flex: 1;
 `;
 
-export const ConsultationElementPictureStyle = styled.img`
+export const ConsultationElementPictureStyle = styled(Image)`
   margin-bottom: 20px;
+  object-fit: cover;
 `;
 
 export const ConsultationElementSubtitleStyle = styled.span`

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { type QuestionType } from 'Shared/types/question';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useMobile, useScreenWidth } from 'Client/hooks/useMedia';
 import { MobileDescriptionImageStyle } from '../Styled/Presentation';
 
 type Props = {
@@ -10,11 +10,16 @@ type Props = {
 
 export const MobileDescriptionImage = ({ question }: Props) => {
   const isMobile = useMobile();
+  const screenWidth = useScreenWidth();
 
   return (
     <>
       {isMobile && question.descriptionImage && (
-        <MobileDescriptionImageStyle src={question.descriptionImage} alt="" />
+        <MobileDescriptionImageStyle
+          src={question.descriptionImage}
+          alt=""
+          width={screenWidth}
+        />
       )}
     </>
   );

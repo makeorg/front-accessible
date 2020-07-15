@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ActiveButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { Image } from 'Client/ui/Image';
 
 export const ExpirationSessionModalContentStyle = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ export const ReloadButtonStyle = styled(ActiveButtonStyle)`
   margin-top: 20px;
 `;
 
-export const SessionExpiredPictureStyle = styled.img`
+export const SessionExpiredPictureStyle = styled(Image)`
   margin-bottom: 20px;
 `;
 

@@ -49,3 +49,32 @@ export const useMobile = () => {
     `only screen and (max-device-width: ${intToPx(Breakpoints.Tablet)})`
   );
 };
+
+export const useScreenWidth = () => {
+  const hasWindowObject = typeof window === 'object';
+
+  const screenWidth = hasWindowObject ? window.screen.width : null;
+  const [value, setValue] = useState(screenWidth);
+
+  const resize = () => setValue(window.screen.width);
+  if (hasWindowObject) {
+    window.addEventListener('resize', resize);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (hasWindowObject) {
+        window.removeEventListener('resize', resize);
+      }
+    };
+  }, []);
+
+  return value;
+};
+
+export const useScreenMobileContainerWidth = () => {
+  const screenWidth = useScreenWidth();
+  const mobileContainerPadding = 20 * 2;
+
+  return screenWidth ? screenWidth - mobileContainerPadding : null;
+};

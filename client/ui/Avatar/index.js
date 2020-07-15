@@ -30,9 +30,10 @@ export const Avatar = ({
     <AvatarStyle>
       {avatarUrl ? (
         <AvatarImageStyle
-          avatarSize={avatarSize}
           src={avatarUrl}
           alt={avatarAlt}
+          width={avatarSize}
+          avatarSize={avatarSize}
         />
       ) : (
         <SvgEmptyAvatar aria-hidden width={avatarSize} height={avatarSize} />

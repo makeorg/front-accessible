@@ -7,6 +7,7 @@ import {
 import { ClappingIconStyle } from 'Client/ui/Elements/Buttons/style';
 import { i18n } from 'Shared/i18n';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
+import { Image } from 'Client/ui/Image';
 
 export const SupportContent = () => {
   return (
@@ -17,7 +18,7 @@ export const SupportContent = () => {
       </ThirdLevelTitleStyle>
       <SupportSeparatorStyle />
       <ParagraphStyle>{i18n.t('actions.support.text')}</ParagraphStyle>
-      <img
+      <Image
         src="/images/consultation/actions.png"
         srcSet="/images/consultation/actions@2x.png 2x, /images/consultation/actions@3x.png 3x"
         alt=""

@@ -12,6 +12,7 @@ import {
   DefaultBannerMainContainer,
   DefaultBannerTimeStyle,
 } from 'Client/features/consultation/Styled/IntroBanner';
+import { Image } from 'Client/ui/Image';
 
 type Props = {
   question: QuestionType,
@@ -25,9 +26,10 @@ export const IntroBanner = ({ question }: Props) => {
       </GreatCauseIntroLabelStyle>
       {question.consultationImage ? (
         <h2>
-          <img
+          <Image
             src={question.consultationImage}
             alt={question.wording.question}
+            height={88}
           />
         </h2>
       ) : (

@@ -9,6 +9,7 @@ import {
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
+import { Image } from 'Client/ui/Image';
 
 export const FooterStyle = styled.footer`
   display: flex;
@@ -19,7 +20,7 @@ export const FooterStyle = styled.footer`
   padding: ${intToPx(DefaultPadding.Mobile)};
 `;
 
-export const FooterLogoStyle = styled.img`
+export const FooterLogoStyle = styled(Image)`
   max-width: 50px;
   height: 100%;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { PartnerAvatarStyle } from 'Client/ui/Avatar/style';
 import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
+import { Image } from 'Client/ui/Image';
 
 const linkProps = (partner, country, language) => {
   const defaultProps = {
@@ -69,7 +70,9 @@ export const PartnerAvatar = ({ partner }: Props) => {
 
   return (
     <PartnerAvatarStyle as={as} to={to} href={href} target={target} rel={rel}>
-      {partner.logo && <img src={partner.logo} alt={altProps(partner)} />}
+      {partner.logo && (
+        <Image src={partner.logo} alt={altProps(partner)} height={65} />
+      )}
     </PartnerAvatarStyle>
   );
 };

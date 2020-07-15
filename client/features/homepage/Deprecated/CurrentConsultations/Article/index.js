@@ -5,6 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { Image } from 'Client/ui/Image';
 import {
   CurrentConsultationArticleStyle,
   CurrentConsultationLinkOverlayStyle,
@@ -135,7 +136,7 @@ export const CurrentConsultationArticleMobile = ({
         href={href}
         target={target}
       >
-        <img
+        <Image
           src={image}
           alt={linkObject.target ? i18n.t('common.new_tab', { title }) : title}
         />
