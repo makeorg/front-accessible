@@ -15,6 +15,7 @@ import {
   LinkAsRedButtonStyle,
   BasicButtonStyle,
 } from 'Client/ui/Elements/Buttons/V2/style';
+import { Image } from 'Client/ui/Image';
 
 export const HeroWrapperStyle = styled(FlexElementStyle)`
   padding: 30px 20px 50px;
@@ -117,7 +118,7 @@ export const PicturesWrapperStyle = styled.div`
   }
 `;
 
-export const FirstPicture = styled.img`
+export const FirstPicture = styled(Image)`
   z-index: 1;
   position: relative;
   left: -20px;
@@ -126,7 +127,7 @@ export const FirstPicture = styled.img`
   }
 `;
 
-export const SecondPicture = styled.img`
+export const SecondPicture = styled(Image)`
   position: absolute;
   right: -20px;
   bottom: 45%;
@@ -141,7 +142,7 @@ export const SecondPicture = styled.img`
   }
 `;
 
-export const ThirdPicture = styled.img`
+export const ThirdPicture = styled(Image)`
   position: absolute;
   left: 45%;
   bottom: 10%;

@@ -27,20 +27,20 @@ export const HeroPictures = () => {
       <FirstPicture
         width={FirstPictureSize.width}
         height={FirstPictureSize.heigth}
-        src="https://via.placeholder.com/398x465.png"
-        alt="statue de la place de la republique"
+        src="https://assets.make.org/assets/home/republique-150720.png"
+        alt=""
       />
       <SecondPicture
         width={OtherPicturesSize.width}
         height={OtherPicturesSize.heigth}
-        src="https://via.placeholder.com/262x238.png"
-        alt="groupe de personnes se prenant dans les bras"
+        src="https://assets.make.org/assets/home/equipe-15072020.png"
+        alt=""
       />
       <ThirdPicture
         width={OtherPicturesSize.width}
         height={OtherPicturesSize.heigth}
-        src="https://via.placeholder.com/262x238.png"
-        alt="femme faisant un discours en public"
+        src="https://assets.make.org/assets/home/prise-de-parole-150720.png"
+        alt=""
       />
     </PicturesWrapperStyle>
   );
