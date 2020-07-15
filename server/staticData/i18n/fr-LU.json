@@ -1,6 +1,6 @@
 {
   "meta": {
-    "home": {
+    "deprecated-home": {
       "title": "Agir avec Make.org",
       "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires.",
       "picture": "https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5b977480cd07ff475b914214_default%20meta%20card%20il%20faut.png"
@@ -839,6 +839,12 @@
       "question_inprogress": "Consultation en cours",
       "more": "En voir plus",
       "less": "En voir moins"
+    },
+    "hero":{
+      "title": "Ensemble, nous avons le pouvoir d'améliorer la société",
+      "description": "Donnez votre avis sur des sujets de société qui vous tiennent à coeur en participant à nos consultations citoyennes. Ensemble, citoyens, associations et entreprises, définissons nos priorités et réalisons des changements concrets.",
+      "participate": "Participez aux consultations",
+      "discover": "Découvrir nos grandes causes"
     },
     "highlights":{
       "title": "Make.org en quelques chiffres",

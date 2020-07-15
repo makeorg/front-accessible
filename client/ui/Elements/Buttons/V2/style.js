@@ -3,7 +3,7 @@ import { BasicColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
 
-const BasicButtonStyle = `
+export const BasicButtonStyle = `
   display: flex
   justify-content: center;
   align-items: baseline;
