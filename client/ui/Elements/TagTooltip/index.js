@@ -36,7 +36,7 @@ export const TagTooltip = () => {
           aria-label={i18n.t('common.notifications.icons.close')}
           onClick={() => setIsClosed(true)}
         >
-          <SvgClose />
+          <SvgClose aria-hidden />
         </TagsTooltipCrossStyle>
       </TagsTooltipWrapperStyle>
     </TagsTooltipContainerStyle>

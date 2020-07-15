@@ -69,14 +69,6 @@ export const ConsultationPageSidebarStyle = styled(ContentElementStyle)`
   }
 `;
 
-export const ConsultationIconStyle = styled.span`
-  display: inline-flex;
-  margin-right: 7.5px;
-  path.tofill {
-    fill: ${BasicColors.PureBlack};
-  }
-`;
-
 export const TopIdeasPageTitleStyle = styled.h2`
   font-size: 16px;
   line-height: 1.5;

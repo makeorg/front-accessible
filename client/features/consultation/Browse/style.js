@@ -160,6 +160,9 @@ export const ClockIconStyle = styled(SvgClock)`
   min-height: 12px;
   margin-top: 2px;
   margin-right: 20px;
+  .tofill {
+    fill: rgb(37, 49, 134);
+  }
 `;
 
 export const ConsultationElementParagraphStyle = styled.p`

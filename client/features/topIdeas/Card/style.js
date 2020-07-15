@@ -78,7 +78,7 @@ export const TopIdeaCardContentStyle = styled.div`
 
 export const PositionStyle = styled.div`
   display: flex;
-  svg {
+  .tofill {
     fill: ${MakeThemeColors.Red};
   }
 `;
@@ -129,6 +129,8 @@ export const TopIdeaCollapseTriggerStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const TopIdeaCollapseIconStyle = {
+  width: '22px',
+  height: '22px',
   marginLeft: '7.5px',
 };
 

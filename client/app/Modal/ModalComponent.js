@@ -26,7 +26,7 @@ export const ModalComponent = ({
       aria-expanded="false"
       onClick={handleClose}
     >
-      <SvgClose />
+      <SvgClose aria-hidden />
     </CloseButtonStyle>
     {children}
   </ReactModal>

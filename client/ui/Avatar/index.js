@@ -35,7 +35,7 @@ export const Avatar = ({
           alt={avatarAlt}
         />
       ) : (
-        <SvgEmptyAvatar width={avatarSize} height={avatarSize} />
+        <SvgEmptyAvatar aria-hidden width={avatarSize} height={avatarSize} />
       )}
     </AvatarStyle>
   );

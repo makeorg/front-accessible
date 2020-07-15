@@ -14,7 +14,7 @@ import { OrganisationService } from 'Shared/services/Organisation';
 import { type StateRoot } from 'Shared/store/types';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+
 import { Avatar } from 'Client/ui/Avatar';
 import {
   SearchOrganisationsListStyle,
@@ -125,7 +125,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
                           {i18n.t('profile.common.labels.organisation')}
                         </ScreenReaderItemStyle>
                         {formatOrganisationName(organisation.organisationName)}
-                        <SvgCheckedSymbol style={CertifiedIconStyle} />
+                        <CertifiedIconStyle aria-hidden />
                       </ProfileTitleStyle>
                     </ProfileContentWrapperStyle>
                   </ProfileAvatarLayoutStyle>

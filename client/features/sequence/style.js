@@ -7,7 +7,6 @@ import {
 import { intToPx } from 'Shared/helpers/styled';
 import {
   UnstyledButtonStyle,
-  IconWrapperStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
 } from 'Client/ui/Elements/Buttons/style';
@@ -27,6 +26,7 @@ import {
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
+import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 
 export const SequenceStyle = styled.section`
   display: flex;
@@ -118,14 +118,17 @@ export const CardHeaderPreviousButtonStyle = styled(UnstyledButtonStyle)`
   }
 `;
 
-export const CardHeaderPreviousIconStyle = styled(IconWrapperStyle)`
-  font-size: 15px;
-  color: ${BackgroundColors.ExtraLightGrey};
-  svg {
+export const CardHeaderPreviousIconStyle = styled(SvgArrowLeft)`
+  display: inline-flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin-right: 5px;
+  width: 15px;
+  .tofill {
     fill: ${BackgroundColors.ExtraLightGrey};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 30px;
+    width: 30px;
   }
 `;
 

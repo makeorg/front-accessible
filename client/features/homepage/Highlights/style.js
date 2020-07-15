@@ -7,6 +7,7 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { SvgPeople, SvgLight, SvgHandHeart } from 'Client/ui/Svg/elements';
 
 export const HighlightsBannerFiguresContainerStyle = styled(
   SpaceBetweenRowStyle
@@ -25,8 +26,23 @@ export const HighlightFigureContainerStyle = styled(ColumnElementStyle)`
   }
 `;
 
-export const SvgWrapperStyle = styled.span`
+const IconStyle = `
   margin-bottom: 30px;
+  .tofill {
+    fill: #253186
+  }
+`;
+
+export const PeopleIconStyle = styled(SvgPeople)`
+  ${IconStyle}
+`;
+
+export const LigthIconStyle = styled(SvgLight)`
+  ${IconStyle}
+`;
+
+export const HeartIconStyle = styled(SvgHandHeart)`
+  ${IconStyle}
 `;
 
 export const FiguresStyle = styled.span`

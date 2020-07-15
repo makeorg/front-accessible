@@ -14,7 +14,7 @@ import {
   SearchOrganisationItemStyle,
   SearchOrganisationAvatarStyle,
 } from 'Client/features/search/Styled';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import {
   ProfileContentWrapperStyle,
@@ -61,7 +61,7 @@ export const MainResultsOrganisations = ({ organisations }: Props) => {
                       {i18n.t('profile.common.labels.organisation')}
                     </ScreenReaderItemStyle>
                     {formatOrganisationName(organisation.organisationName)}
-                    <SvgCheckedSymbol style={CertifiedIconStyle} />
+                    <CertifiedIconStyle aria-hidden />
                   </ProfileTitleStyle>
                 </ProfileContentWrapperStyle>
               </ProfileAvatarLayoutStyle>

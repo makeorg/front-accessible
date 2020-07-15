@@ -4,14 +4,11 @@ import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
-import { SvgFacebookLogo, SvgFacebookLogoF } from 'Client/ui/Svg/elements';
+import { FacebookLinkStyle } from 'Client/features/auth/Social/Styled/index';
 import {
-  FacebookLinkStyle,
-  SocialIconStyle,
-} from 'Client/features/auth/Social/Styled/index';
-import {
-  IconWrapperStyle,
   FacebookButtonStyle,
+  FacebookIconStyle,
+  FacebookPlainIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 
 type Props = {
@@ -51,16 +48,12 @@ export const FacebookAuthentication = ({ link }: Props) => {
         render={renderProps =>
           link ? (
             <FacebookLinkStyle onClick={renderProps.onClick}>
-              <SocialIconStyle>
-                <SvgFacebookLogo />
-              </SocialIconStyle>
+              <FacebookPlainIconStyle aria-hidden />
               Facebook
             </FacebookLinkStyle>
           ) : (
             <FacebookButtonStyle onClick={renderProps.onClick}>
-              <IconWrapperStyle>
-                <SvgFacebookLogoF />
-              </IconWrapperStyle>
+              <FacebookIconStyle aria-hidden />
               Facebook
             </FacebookButtonStyle>
           )

@@ -18,7 +18,7 @@ import {
   ProposalTextareaStyle,
   ProposalButtonWrapperStyle,
   DescriptionWrapperStyle,
-} from '../Styled';
+} from '../style';
 import { CharsCounter } from '../Counter';
 
 type Props = {

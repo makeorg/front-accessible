@@ -25,7 +25,6 @@ import {
   getRouteProfileEdit,
   getRouteProfileOpinions,
 } from 'Shared/routes';
-import { SvgLike } from 'Client/ui/Svg/elements';
 import {
   ProfileWrapperStyle,
   ProfileHeaderStyle,
@@ -110,7 +109,7 @@ const ProfilePage = ({ match, location }: Props) => {
                   className="inline"
                 >
                   {i18n.t('profile.tabs.favourites')}
-                  <SvgLike style={ProfileTabIconStyle} />
+                  <ProfileTabIconStyle aria-hidden />
                 </Link>
               </TabStyle>
             </TabListStyle>

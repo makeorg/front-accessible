@@ -12,7 +12,6 @@ import {
 import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPreviousCard } from 'Shared/services/Tracking';
-import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
 import { ProgressCircleComponent } from 'Client/ui/ProgressCircle';
 import { useSelector, useDispatch } from 'react-redux';
@@ -149,9 +148,7 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
                   }}
                   data-cy-button="previous-card"
                 >
-                  <CardHeaderPreviousIconStyle aria-hidden>
-                    <SvgArrowLeft />
-                  </CardHeaderPreviousIconStyle>
+                  <CardHeaderPreviousIconStyle aria-hidden />
                   {i18n.t('proposal_card.previous')}
                 </CardHeaderPreviousButtonStyle>
               )}

@@ -1,5 +1,24 @@
 import styled, { keyframes } from 'styled-components';
-import { SvgThumbsUp } from 'Client/ui/Svg/elements';
+import {
+  SvgThumbsUp,
+  SvgEnvelope,
+  SvgFacebookLogoF,
+  SvgPencil,
+  SvgGoogleLogoG,
+  SvgClapping,
+  SvgSignOut,
+  SvgAngleArrowLeft,
+  SvgPlayButton,
+  SvgStepForward,
+  SvgLock,
+  SvgUser,
+  SvgChild,
+  SvgMapMarker,
+  SvgSuitcase,
+  SvgPaperPlane,
+  SvgSaveFileOption,
+  SvgLink,
+} from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -112,24 +131,6 @@ export const ActiveButtonStyle = styled(BasicButtonStyle)`
     svg,
     .tofill {
       fill: ${TextColors.MediumGrey};
-    }
-  }
-`;
-
-export const IconWrapperStyle = styled.span`
-  display: inline-flex;
-  justify-content: flex-start;
-  align-content: center;
-  font-size: 12px;
-  margin-right: 5px;
-  svg {
-    width: 12px;
-    height: 12px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
-    svg {
-      width: 14px;
-      height: 14px;
     }
   }
 `;
@@ -353,4 +354,107 @@ export const VoteIconStyle = styled(SvgThumbsUp)`
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     width: 25px;
   }
+`;
+
+/**
+ * Icons in buttons
+ */
+
+const ButtonIconStyle = `
+  display: inline-flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+export const ProposalIconStyle = styled(SvgPencil)`
+  ${ButtonIconStyle};
+  &.closed {
+    margin: 0;
+    @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+      margin-right: 5px;
+    }
+  }
+`;
+
+export const EmailIconStyle = styled(SvgEnvelope)`
+  ${ButtonIconStyle}
+`;
+
+export const FacebookIconStyle = styled(SvgFacebookLogoF)`
+  ${ButtonIconStyle}
+`;
+
+export const FacebookPlainIconStyle = styled(SvgFacebookLogoF)`
+  ${ButtonIconStyle}
+`;
+
+export const GoogleIconStyle = styled(SvgGoogleLogoG)`
+  ${ButtonIconStyle}
+`;
+
+export const ClappingIconStyle = styled(SvgClapping)`
+  ${ButtonIconStyle}
+`;
+
+export const SignOutIconStyle = styled(SvgSignOut)`
+  ${ButtonIconStyle}
+`;
+
+export const PencilIconStyle = styled(SvgPencil)`
+  ${ButtonIconStyle}
+`;
+
+export const AngleArrowLeftIconStyle = styled(SvgAngleArrowLeft)`
+  ${ButtonIconStyle}
+`;
+
+export const ThumbsUpIconStyle = styled(SvgThumbsUp)`
+  ${ButtonIconStyle}
+`;
+
+export const PlayIconStyle = styled(SvgPlayButton)`
+  ${ButtonIconStyle}
+`;
+
+export const ForwardIconStyle = styled(SvgStepForward)`
+  ${ButtonIconStyle}
+`;
+
+export const LockIconStyle = styled(SvgLock)`
+  ${ButtonIconStyle}
+`;
+
+export const UserIconStyle = styled(SvgUser)`
+  ${ButtonIconStyle}
+`;
+
+export const ChildIconStyle = styled(SvgChild)`
+  ${ButtonIconStyle}
+`;
+
+export const MapMarkerIconStyle = styled(SvgMapMarker)`
+  ${ButtonIconStyle}
+`;
+
+export const SuitcaseIconStyle = styled(SvgSuitcase)`
+  ${ButtonIconStyle}
+`;
+
+export const PaperPlaneIconStyle = styled(SvgPaperPlane)`
+  ${ButtonIconStyle}
+`;
+
+export const SaveFileIconStyle = styled(SvgSaveFileOption)`
+  ${ButtonIconStyle}
+`;
+
+export const LinkIconStyle = styled(SvgLink)`
+  ${ButtonIconStyle}
 `;

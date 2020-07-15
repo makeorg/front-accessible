@@ -6,8 +6,6 @@ import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import { getRouteProfile } from 'Shared/routes';
-import { SvgUser, SvgCheckedSymbol } from 'Client/ui/Svg/elements';
-import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Avatar } from 'Client/ui/Avatar';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -22,6 +20,7 @@ import {
   ProfileAccessWrapperStyle,
   ProfileAccessButtonLabelStyle,
   ProfileAccessLinkStyle,
+  ProfileUserIconStyle,
 } from '../style';
 
 export const HeaderAuthentication = () => {
@@ -48,8 +47,8 @@ export const HeaderAuthentication = () => {
           {isOrganisation
             ? formatOrganisationName(user.displayName)
             : formatUserName(user.displayName)}
-          {isOrganisation && <SvgCheckedSymbol style={CertifiedIconStyle} />}
-          {isPersonality && <SvgCheckedSymbol style={CertifiedIconStyle} />}
+          {isOrganisation && <CertifiedIconStyle aria-hidden />}
+          {isPersonality && <CertifiedIconStyle aria-hidden />}
         </ProfileAccessLinkStyle>
       </ProfileAccessWrapperStyle>
     );
@@ -61,12 +60,7 @@ export const HeaderAuthentication = () => {
         onClick={() => dispatch(modalShowLogin())}
         aria-label={i18n.t('common.connexion_extended')}
       >
-        <SvgUser
-          style={{
-            fontSize: '16px',
-            fill: TextColors.MediumGrey,
-          }}
-        />
+        <ProfileUserIconStyle aria-hidden />
         {!isMobile && (
           <ProfileAccessButtonLabelStyle as="span" aria-hidden>
             {i18n.t('common.connexion_label')}

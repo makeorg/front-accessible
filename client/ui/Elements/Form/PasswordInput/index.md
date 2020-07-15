@@ -25,7 +25,7 @@ class PasswordInputExample extends React.Component {
       <PasswordInput
         type={this.state.passwordIsDisplayed ? 'text' : 'password'}
         name="password"
-        icon={<SvgLock />}
+        icon={<SvgLock aria-hidden />}
         value={this.state.value}
         label="placeholder"
         handleChange={this.handleChange}

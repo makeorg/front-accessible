@@ -74,12 +74,12 @@ export const SearchLabelStyle = styled.label`
 export const SearchButtonStyle = styled(UnstyledButtonStyle)`
   svg {
     width: 14px;
-    .search-path {
+    .tofill {
       fill: ${MakeThemeColors.Red};
     }
   }
   &:disabled {
-    .search-path {
+    .tofill {
       fill: ${TextColors.MediumGrey};
     }
   }

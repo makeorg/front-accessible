@@ -57,13 +57,13 @@ export const ResultsSlider = ({ data, sliderName }: Props) => {
           className={`${sliderName} glider-prev`}
           aria-label={i18n.t('common.slider.previous')}
         >
-          <SvgArrowLeft />
+          <SvgArrowLeft aria-hidden />
         </ResultsSliderArrowsStyle>
         <ResultsSliderArrowsStyle
           className={`${sliderName} glider-next`}
           aria-label={i18n.t('common.slider.next')}
         >
-          <SvgArrowRight />
+          <SvgArrowRight aria-hidden />
         </ResultsSliderArrowsStyle>
         <ResultsCounterStyle aria-hidden>
           <span className={`${sliderName} glider-index`}>1</span>

@@ -9,7 +9,6 @@ import {
   GreyButtonStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
-  IconWrapperStyle,
   FacebookButtonStyle,
   GoogleButtonStyle,
   EmailButtonStyle,
@@ -19,6 +18,26 @@ import {
   QualifyButtonStyle,
   VoteIconStyle,
   VoteButtonStyle,
+  ProposalIconStyle,
+  EmailIconStyle,
+  FacebookIconStyle,
+  FacebookPlainIconStyle,
+  GoogleIconStyle,
+  ClappingIconStyle,
+  SignOutIconStyle,
+  PencilIconStyle,
+  AngleArrowLeftIconStyle,
+  ThumbsUpIconStyle,
+  PlayIconStyle,
+  ForwardIconStyle,
+  LockIconStyle,
+  UserIconStyle,
+  ChildIconStyle,
+  MapMarkerIconStyle,
+  SuitcaseIconStyle,
+  PaperPlaneIconStyle,
+  SaveFileIconStyle,
+  LinkIconStyle,
 } from './style';
 
 describe('ButtonElements/Styled', () => {
@@ -74,13 +93,6 @@ describe('ButtonElements/Styled', () => {
   describe('SmallGreyButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<SmallGreyButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('IconWrapperStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<IconWrapperStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });
@@ -144,6 +156,146 @@ describe('ButtonElements/Styled', () => {
   describe('VoteIconStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<VoteIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('ProposalIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<ProposalIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('EmailIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<EmailIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('FacebookIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<FacebookIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('FacebookPlainIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<FacebookPlainIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('GoogleIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<GoogleIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('ClappingIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<ClappingIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('SignOutIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<SignOutIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('PencilIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<PencilIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('AngleArrowLeftIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<AngleArrowLeftIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('ThumbsUpIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<ThumbsUpIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('PlayIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<PlayIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('ForwardIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<ForwardIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('LockIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<LockIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('UserIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<UserIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('ChildIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<ChildIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('MapMarkerIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<MapMarkerIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('SuitcaseIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<SuitcaseIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('PaperPlaneIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<PaperPlaneIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('SaveFileIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<SaveFileIconStyle />).toJSON();
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('LinkIconStyle', () => {
+    it('snapshot by default', () => {
+      const component = renderer.create(<LinkIconStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

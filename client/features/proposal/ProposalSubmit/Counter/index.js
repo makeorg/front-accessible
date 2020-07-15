@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import { ProposalCharLimitStyle } from '../Styled';
+import { ProposalCharLimitStyle } from '../style';
 
 type Props = {
   /** Value's lentgh */

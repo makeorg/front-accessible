@@ -8,7 +8,7 @@ import {
   getPersonalityProfileLink,
 } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
+
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
@@ -82,7 +82,7 @@ export const ProposalAuthorElement = ({
             >
               {formatOrganisationName(author.organisationName)}
             </RedLinkRouterStyle>
-            <SvgCheckedSymbol style={CertifiedIconStyle} />
+            <CertifiedIconStyle aria-hidden />
           </>
         )}
         {isPersonality && (
@@ -93,7 +93,7 @@ export const ProposalAuthorElement = ({
             >
               {formatAuthorName(author.firstName)}
             </RedLinkRouterStyle>
-            <SvgCheckedSymbol style={CertifiedIconStyle} />
+            <CertifiedIconStyle aria-hidden />
           </>
         )}
         {isBasicUser && formatAuthorName(author.firstName)}

@@ -3,7 +3,6 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { type HomeHighlightsType } from 'Shared/types/views';
-import { SvgHandHeart, SvgPeople, SvgLight } from 'Client/ui/Svg/elements';
 import { useSelector } from 'react-redux';
 import { formatNumberByLocalisation } from 'Shared/helpers/numberFormatter';
 import {
@@ -13,10 +12,12 @@ import {
 import {
   HighlightsBannerFiguresContainerStyle,
   HighlightFigureContainerStyle,
-  SvgWrapperStyle,
   FiguresStyle,
   SubtitleFiguresStyle,
   FigureSeparationLineStyle,
+  PeopleIconStyle,
+  LigthIconStyle,
+  HeartIconStyle,
 } from './style';
 
 type Props = {
@@ -37,9 +38,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
       </HomepageSectionTitleStyle>
       <HighlightsBannerFiguresContainerStyle as="ul">
         <HighlightFigureContainerStyle as="li">
-          <SvgWrapperStyle>
-            <SvgPeople />
-          </SvgWrapperStyle>
+          <PeopleIconStyle aria-hidden />
           <FiguresStyle>
             {formatNumberByLocalisation(participantsCount, country, language)}
           </FiguresStyle>
@@ -49,9 +48,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <FigureSeparationLineStyle />
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
-          <SvgWrapperStyle>
-            <SvgLight />
-          </SvgWrapperStyle>
+          <LigthIconStyle aria-hidden />
           <FiguresStyle>
             {formatNumberByLocalisation(proposalsCount, country, language)}
           </FiguresStyle>
@@ -61,9 +58,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
           <FigureSeparationLineStyle />
         </HighlightFigureContainerStyle>
         <HighlightFigureContainerStyle as="li">
-          <SvgWrapperStyle>
-            <SvgHandHeart />
-          </SvgWrapperStyle>
+          <HeartIconStyle aria-hidden />
           <FiguresStyle>
             {formatNumberByLocalisation(partnersCount, country, language)}
           </FiguresStyle>

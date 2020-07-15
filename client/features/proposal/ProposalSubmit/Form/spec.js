@@ -9,7 +9,7 @@ import {
   ProposalSubmitFormStyle,
   ProposalLabelStyle,
   ProposalTextareaStyle,
-} from '../Styled';
+} from '../style';
 
 jest.mock('Shared/constants/proposal', () => ({
   getBaitText: () => 'should',

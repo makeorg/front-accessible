@@ -12,7 +12,6 @@ import {
   TAGS_SECTION,
   FLUSH_TAGS_TRIGGER,
 } from 'Shared/constants/ids';
-import { SvgTrending } from 'Client/ui/Svg/elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_POPULAR_TAGS } from 'Shared/constants/featureFlipping';
@@ -21,6 +20,7 @@ import {
   PopularTagsListItemStyle,
   FilterTriggerStyle,
   ProposalCountStyle,
+  PopularTagsIconStyle,
 } from './style';
 
 type Props = {
@@ -88,7 +88,7 @@ export const PopularTags = ({ question }: Props) => {
   return (
     <TileWithTitle
       title={i18n.t('consultation.tags.popular_title')}
-      icon={<SvgTrending style={{ marginRight: '10px' }} />}
+      icon={<PopularTagsIconStyle aria-hidden />}
     >
       <PopularTagsListStyle>
         {tags.slice(0, 5).map((tag, index) => (

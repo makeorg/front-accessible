@@ -12,10 +12,7 @@ import {
   MiddleRowStyle,
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
-import {
-  ActiveButtonStyle,
-  IconWrapperStyle,
-} from 'Client/ui/Elements/Buttons/style';
+import { ActiveButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 
@@ -122,13 +119,6 @@ export const ProposalButtonStyle = styled(ActiveButtonStyle)`
   }
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 16px;
-  }
-`;
-
-export const ProposalIconStyle = styled(IconWrapperStyle)`
-  margin: 0;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    margin-right: 5px;
   }
 `;
 

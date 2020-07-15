@@ -154,7 +154,7 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
             data-cy-button="back-to-proposals-arrow"
             onClick={handleOpenSequence}
           >
-            <SvgArrowTop />
+            <SvgArrowTop aria-hidden />
           </SequenceCollapseArrowStyle>
           <SequenceCollapseButtonStyle
             onClick={handleOpenSequence}

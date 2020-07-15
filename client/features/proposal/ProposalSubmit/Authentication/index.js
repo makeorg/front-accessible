@@ -10,9 +10,9 @@ import { type StateRoot } from 'Shared/store/types';
 import {
   RedButtonStyle,
   EmailButtonStyle,
-  IconWrapperStyle,
   ButtonsWrapperStyle,
   ButtonSmallWrapperStyle,
+  EmailIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import {
   ThirdLevelTitleStyle,
@@ -21,13 +21,12 @@ import {
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
 import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
-import { SvgEnvelope } from 'Client/ui/Svg/elements';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import {
   ProposalSubmitAuthenticationWrapperStyle,
   ProposalSubmitSeparatorStyle,
-} from '../Styled';
+} from '../style';
 
 /**
  * Renders authentication component after proposal submit button is clicked
@@ -68,9 +67,7 @@ export const ProposalSubmitAuthentication = () => {
           onClick={() => dispatch(modalShowRegister())}
           id="authentication-register-button"
         >
-          <IconWrapperStyle>
-            <SvgEnvelope />
-          </IconWrapperStyle>
+          <EmailIconStyle aria-hidden />
           {i18n.t('common.email')}
         </EmailButtonStyle>
       </ButtonSmallWrapperStyle>

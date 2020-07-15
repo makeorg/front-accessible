@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const SvgThumbsUp = props => (
-  <svg width={25} height={25} viewBox="0 0 25 25" aria-hidden {...props}>
+  <svg width={25} height={25} viewBox="0 0 25 25" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
         className="tofill"

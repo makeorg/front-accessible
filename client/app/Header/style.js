@@ -5,6 +5,7 @@ import {
   MakeThemeColors,
   BasicColors,
   ShadowColors,
+  TextColors,
 } from 'Client/app/assets/vars/Colors';
 import {
   Layouts,
@@ -14,6 +15,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { NavButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { SvgUser } from 'Client/ui/Svg/elements';
 
 export const HeaderStyle = styled.header`
   display: flex;
@@ -55,6 +57,13 @@ export const ProfileAccessWrapperStyle = styled.div`
   align-items: center;
   button:last-child > span {
     margin-right: 0;
+  }
+`;
+
+export const ProfileUserIconStyle = styled(SvgUser)`
+  width: 16px;
+  .tofill {
+    fill: ${TextColors.MediumGrey};
   }
 `;
 

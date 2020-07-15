@@ -11,7 +11,7 @@ import {
 import { trackDisplayModerationText } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
-import { DescriptionWrapperStyle } from '../Styled';
+import { DescriptionWrapperStyle } from '../style';
 
 type Props = {
   /** Method called to track link */

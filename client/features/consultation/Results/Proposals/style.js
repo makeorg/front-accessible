@@ -10,6 +10,7 @@ import {
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { SvgLightning } from 'Client/ui/Svg/elements';
 
 export const ProposalsListStyle = styled(UnstyledListStyle)`
   width: 100%;
@@ -60,8 +61,8 @@ export const ResultsNoWayStyle = styled(ResultsItemStyle)`
   color: ${VoteColors.Disagree};
 `;
 
-export const ResultsProposalIconStyle = {
-  width: '7px',
-  height: '14px',
-  margin: '0 5px 0',
-};
+export const ResultsProposalIconStyle = styled(SvgLightning)`
+  width: 7px,
+  height: 14px,
+  margin: 0 5px 0,
+`;

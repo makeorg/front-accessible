@@ -3,6 +3,11 @@ import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { SvgTrending } from 'Client/ui/Svg/elements';
+
+export const PopularTagsIconStyle = styled(SvgTrending)`
+  margin-right: 10px;
+`;
 
 export const PopularTagsListStyle = styled.ol`
   padding: 0;

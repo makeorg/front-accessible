@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-export const SvgMegaphone = ({ style }) => (
-  <svg width={20} height={20} aria-hidden style={style}>
+export const SvgMegaphone = props => (
+  <svg width={20} height={20} viewBox="0 0 20 20" {...props}>
     <defs>
       <path
         id="megaphone_svg__a"

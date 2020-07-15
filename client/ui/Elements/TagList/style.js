@@ -8,6 +8,7 @@ import {
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
+import { SvgClose } from 'Client/ui/Svg/elements';
 import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const TaglistWrapperStyle = styled.div`
@@ -48,6 +49,13 @@ export const TagButtonElementStyle = styled(UnstyledButtonStyle)`
 export const TagLabelStyle = styled.span`
   &::first-letter {
     text-transform: uppercase;
+  }
+`;
+
+export const TagIconStyle = styled(SvgClose)`
+  width: 10px;
+  .tofill {
+    fill: ${BasicColors.PureWhite};
   }
 `;
 

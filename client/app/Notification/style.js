@@ -49,7 +49,9 @@ export const NotificationContentStyle = styled(ParagraphStyle)`
 `;
 
 export const NotificationCloseButtonStyle = styled(CloseButtonStyle)`
-  fill: ${BasicColors.PureWhite};
+  .tofill {
+    fill: ${BasicColors.PureWhite};
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: 15px;
     right: 15px;
@@ -68,7 +70,6 @@ export const SvgIconStyle = {
 export const SvgCheckStyle = {
   fill: VoteColors.Agree,
   minWidth: '22px',
-  fontSize: '22px',
   marginRight: '10px',
 };
 

@@ -24,7 +24,7 @@ class NumberInputExample extends React.Component {
     return (
       <NumberInput
         name="age"
-        icon={<SvgChild />}
+        icon={<SvgChild aria-hidden />}
         value={this.state.value}
         label="placeholder"
         handleChange={this.handleChange}

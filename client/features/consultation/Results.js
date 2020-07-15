@@ -90,7 +90,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.key_figures.title')}
-          icon={<SvgCalculator style={ResultsIconsStyle} />}
+          icon={<SvgCalculator aria-hidden style={ResultsIconsStyle} />}
           id={RESULTS_KEY_FIGURES}
         >
           <KeyFigures
@@ -102,14 +102,14 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           title={i18n.t('consultation.results.top_ideas.title', {
             count: questionResults.top_ideas.length,
           })}
-          icon={<SvgLightBulb style={ResultsIconsStyle} />}
+          icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
           id={RESULTS_TOP_IDEAS}
         >
           <TopIdeas topIdeas={questionResults.top_ideas} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.cartography.title')}
-          icon={<SvgMap style={ResultsIconsStyle} />}
+          icon={<SvgMap aria-hidden style={ResultsIconsStyle} />}
           id={RESULTS_CARTOGRAPHY}
         >
           <ResultsSlider
