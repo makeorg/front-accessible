@@ -43,16 +43,16 @@ export const Footer = () => {
   );
   const isDesktop = useDesktop();
   const isFR = country === 'FR';
+  const scrollTopAndTrack = () => {
+    scrollToTop();
+    trackClickMakeLogo();
+  };
 
   return (
     <FooterStyle id="main_footer">
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
-        <Link onClick={scrollToTop} to="/">
-          <FooterLogoStyle
-            onClick={() => trackClickMakeLogo()}
-            src={Logo}
-            alt={i18n.t('header.logo_alt')}
-          />
+        <Link onClick={scrollTopAndTrack} to="/">
+          <FooterLogoStyle src={Logo} alt={i18n.t('header.logo_alt')} />
         </Link>
         <FooterItemListStyle>
           {isFR && (

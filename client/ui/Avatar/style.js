@@ -6,13 +6,14 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { Image } from 'Client/ui/Image';
 
 export const AvatarStyle = styled.span`
   margin-right: 10px;
   display: inline-flex;
 `;
 
-export const AvatarImageStyle = styled.img`
+export const AvatarImageStyle = styled(Image)`
   box-sizing: content-box;
   min-width: ${props => intToPx(props.avatarSize)};
   width: ${props => intToPx(props.avatarSize)};

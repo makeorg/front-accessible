@@ -32,12 +32,8 @@ export const Header = () => {
       <HeaderInnerStyle>
         <HeaderFlexLeftStyle>
           <h1>
-            <Link to="/">
-              <HeaderLogoStyle
-                onClick={() => trackClickMakeLogo()}
-                src={Logo}
-                alt={i18n.t('header.logo_alt')}
-              />
+            <Link to="/" onClick={() => trackClickMakeLogo()}>
+              <HeaderLogoStyle src={Logo} alt={i18n.t('header.logo_alt')} />
             </Link>
           </h1>
           <SearchInput />

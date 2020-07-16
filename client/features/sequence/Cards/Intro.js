@@ -85,9 +85,9 @@ export const IntroCard = ({ configuration, isCardVisible }: Props) => {
               partners.map(partner => (
                 <MiddleRowStyle as="li" key={partner.name}>
                   <SequencePartnerAvatarStyle
-                    key={partner.name}
                     src={partner.imageUrl}
                     alt={partner.name}
+                    key={partner.name}
                   />
                 </MiddleRowStyle>
               ))}

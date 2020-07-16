@@ -27,6 +27,7 @@ import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
+import { Image } from 'Client/ui/Image';
 
 export const SequenceStyle = styled.section`
   display: flex;
@@ -138,7 +139,7 @@ export const SequenceMainTitleStyle = styled(SecondLevelTitleStyle)`
   text-align: center;
 `;
 
-export const ExtraLogoStyle = styled.img`
+export const ExtraLogoStyle = styled(Image)`
   max-width: 75px;
   margin: 0 auto 15px;
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
@@ -419,7 +420,7 @@ export const SequencePartnerFooterStyle = styled(MiddleColumnToRowStyle)`
   }
 `;
 
-export const SequencePartnerAvatarStyle = styled.img`
+export const SequencePartnerAvatarStyle = styled(Image)`
   margin: 7.5px;
 `;
 

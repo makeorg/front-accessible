@@ -16,6 +16,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 import { NavButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgUser } from 'Client/ui/Svg/elements';
+import { Image } from 'Client/ui/Image';
 
 export const HeaderStyle = styled.header`
   display: flex;
@@ -45,7 +46,7 @@ export const HeaderFlexRightStyle = styled(FlexElementStyle)`
   align-items: center;
 `;
 
-export const HeaderLogoStyle = styled.img`
+export const HeaderLogoStyle = styled(Image)`
   max-width: 50px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 78px;

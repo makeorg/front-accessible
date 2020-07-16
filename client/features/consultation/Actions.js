@@ -16,6 +16,7 @@ import { RegisterTileContent } from 'Client/features/consultation/Actions/Tiles/
 import { modalShowRegister } from 'Shared/store/actions/modal';
 import { SupportContent } from 'Client/features/consultation/Actions/Support';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
+import { Image } from 'Client/ui/Image';
 
 type Props = {
   question: QuestionType,
@@ -42,7 +43,7 @@ export const ActionsContent = ({ question }: Props) => {
       </ConsultationPageSidebarStyle>
       <ConsultationPageContentStyle id="main" data-cy-container="main">
         {!isLoggedIn && (
-          <TileWithTitle title={<img src={Logo} width={46} alt="Make.org" />}>
+          <TileWithTitle title={<Image src={Logo} width={46} alt="Make.org" />}>
             <RegisterTileContent
               handleRegisterModal={() => dispatch(modalShowRegister())}
             />

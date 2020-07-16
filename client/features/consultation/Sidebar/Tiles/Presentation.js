@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type QuestionType, type PartnerType } from 'Shared/types/question';
 import { PresentationTileWithTitleStyle } from 'Client/ui/Elements/TileWithTitle/style';
 import { DescriptionImageStyle } from 'Client/features/consultation/Styled/Presentation';
-import { useMobile } from 'Client/hooks/useMedia';
+import { useMobile, useDesktop, useScreenWidth } from 'Client/hooks/useMedia';
 import { isGreatCause } from 'Shared/helpers/question';
 import { trackClickLearnMore } from 'Shared/services/Tracking';
 import { FOUNDER_PARTNER, MEDIA_PARTNER } from 'Shared/constants/partner';
@@ -18,6 +18,8 @@ type Props = {
 };
 export const PresentationTile = ({ question }: Props) => {
   const isMobile = useMobile();
+  const isDesktop = useDesktop();
+  const screenWidth = useScreenWidth();
   const foundersOrMedia: PartnerType[] = question.partners
     ? question.partners.filter(
         partner =>
@@ -26,10 +28,18 @@ export const PresentationTile = ({ question }: Props) => {
       )
     : [];
 
+  const descriptionImageHeight = isDesktop ? 165 : null;
+  const descriptionImagewidth = isDesktop ? null : screenWidth;
+
   return (
     <>
       {!isMobile && question.descriptionImage && (
-        <DescriptionImageStyle src={question.descriptionImage} alt="" />
+        <DescriptionImageStyle
+          src={question.descriptionImage}
+          alt=""
+          height={descriptionImageHeight}
+          width={descriptionImagewidth}
+        />
       )}
       <TileWithTitle
         as={

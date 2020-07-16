@@ -13,6 +13,10 @@ import {
   ConsultationArticleStyle,
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
+import {
+  useMobile,
+  useScreenMobileContainerWidth,
+} from 'Client/hooks/useMedia';
 
 type Props = {
   question: HomeQuestionType,
@@ -40,10 +44,24 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
   if (resultsContext && displayResults) {
     linkText = i18n.t('browse.results.see_results');
   }
+  const isMobile = useMobile();
+  const containerWidth = useScreenMobileContainerWidth();
+
+  let imageWidth = null;
+  let imageHeight = 248;
+  if (isMobile) {
+    imageWidth = containerWidth;
+    imageHeight = null;
+  }
 
   return (
     <ConsultationArticleStyle>
-      <ConsultationElementPictureStyle src={descriptionImage} alt="" />
+      <ConsultationElementPictureStyle
+        src={descriptionImage}
+        alt=""
+        width={imageWidth}
+        height={imageHeight}
+      />
       {featured && (
         <ConsultationElementSubtitleStyle>
           {i18n.t('browse.initiative')}
