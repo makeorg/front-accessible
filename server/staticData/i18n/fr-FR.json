@@ -690,7 +690,8 @@
         "title": "Obtenir le rapport complet",
         "type": "Format : {{extension}} - Poids : {{weight}}",
         "button": "Télécharger",
-        "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse {{ contact_us }}"
+        "contact": "Si vous souhaitez obtenir le rapport complet de la consultation, merci de nous contacter à l’adresse : ",
+        "email_object": "Demande de rapport pour la consultation"
       }
     },
     "close": "Fermer",
