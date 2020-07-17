@@ -23,7 +23,7 @@ export const HomepageSectionStyle = styled(ColumnElementStyle)`
   &:first-child {
     margin-top: 50px;
     @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-      margin-top: 166px;
+      margin-top: 100px;
     }
   }
   &:last-child {

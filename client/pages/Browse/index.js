@@ -64,6 +64,7 @@ const BrowseConsultationsPage = () => {
                 <BrowseConsultationsList
                   questions={questions}
                   resultsContext={!consultationsPage}
+                  total={questionsTotal}
                 />
               )}
               {questionsTotal > CONSULTATIONS_LIMIT && (

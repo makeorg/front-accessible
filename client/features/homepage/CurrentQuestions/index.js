@@ -39,6 +39,7 @@ export const CurrentQuestions = ({ questions }: Props) => {
     <HomepageSectionStyle
       as="section"
       aria-labelledby="current_consultations_title"
+      id="current_questions"
     >
       <HomepageSectionTitleStyle
         id="current_consultations_title"
@@ -46,7 +47,7 @@ export const CurrentQuestions = ({ questions }: Props) => {
       >
         {i18n.t('browse.title')}
       </HomepageSectionTitleStyle>
-      <BrowseConsultationsList questions={questions} />
+      <BrowseConsultationsList questions={questions} total={questions.length} />
       <CurrentQuestionsButtonStyle to={buttonLink} onClick={scrollToTop}>
         {buttonText}
       </CurrentQuestionsButtonStyle>

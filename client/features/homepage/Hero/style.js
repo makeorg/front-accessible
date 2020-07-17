@@ -23,11 +23,12 @@ export const HeroWrapperStyle = styled(FlexElementStyle)`
     padding: 50px 20px;
   }
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    padding: 50px 20px 100px;
+    padding: 50px 20px;
   }
 `;
 
 export const HeroContentStyle = styled(FlexElementStyle)`
+  width: 100%;
   flex-flow: column;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   margin: 0 auto;
@@ -71,9 +72,7 @@ export const HeroDescriptionStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
   margin-bottom: 40px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 0px 0px 40px;
-  }
+  margin-top: 30px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-bottom: 57px;
   }
@@ -109,50 +108,13 @@ export const BlackArrowDownIcon = styled(SvgBlackArrowDown)`
   margin-left: 10px;
 `;
 
-export const PicturesWrapperStyle = styled.div`
+export const HeroPicturesStyle = styled(Image)`
   flex: 1;
-  position: relative;
-  margin-bottom: 30px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    object-fit: contain;
+    max-width: 50%;
+  }
+  @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     padding-left: 30px;
-  }
-`;
-
-export const FirstPicture = styled(Image)`
-  z-index: 1;
-  position: relative;
-  left: -20px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    left: 0px;
-  }
-`;
-
-export const SecondPicture = styled(Image)`
-  position: absolute;
-  right: -20px;
-  bottom: 45%;
-  z-index: 2;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    top: 15%;
-    right: 0px;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    top: 27%;
-    right: -25%;
-  }
-`;
-
-export const ThirdPicture = styled(Image)`
-  position: absolute;
-  left: 45%;
-  bottom: 10%;
-  z-index: 3;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    bottom: 5%;
-    left: 50%;
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    bottom: -155px;
-    right: 0px;
   }
 `;
