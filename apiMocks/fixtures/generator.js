@@ -25,6 +25,19 @@ const today = new Date();
 const day = `0${today.getDate()}`.slice(-2);
 const month = `0${today.getMonth() + 1}`.slice(-2);
 
+const mixPastAndFutureDates = count => {
+  const pastEndDate = `${today.getFullYear() -
+    1}-${month}-${day}T01:00:00.000Z`;
+  const futureEndDate = `${today.getFullYear() +
+    1}-${month}-${day}T01:00:00.000Z`;
+
+  if (count % 2 === 0) {
+    return pastEndDate;
+  }
+
+  return futureEndDate;
+};
+
 const generateOpenedHomepageQuestions = count => {
   const startDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
   const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
@@ -93,6 +106,46 @@ const generateOpenedQuestions = count => {
   }));
 };
 
+const generateClosedQuestions = count => {
+  const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
+
+  return range(10, count + 10).map(number => ({
+    ...defaultQuestion,
+    questionId: `question-${number}-id`,
+    slug: `question-${number}-slug`,
+    startDate,
+    endDate,
+    question: `question-${number} ${defaultQuestion.question} ?`,
+    wording: {
+      ...defaultQuestion.wording,
+      title: `question-${number} ${defaultQuestion.wording.title}`,
+      question: `question-${number} ${defaultQuestion.wording.question} ?`,
+      description: `question-${number} ${defaultQuestion.wording.description}`,
+    },
+  }));
+};
+
+const generateQuestionsWithResults = count => {
+  const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
+
+  return range(20, count + 20).map(number => ({
+    ...defaultQuestion,
+    questionId: `question-${number}-id`,
+    slug: `question-${number}-slug`,
+    startDate,
+    endDate: mixPastAndFutureDates(number),
+    displayResults: true,
+    question: `question-${number} ${defaultQuestion.question} ?`,
+    wording: {
+      ...defaultQuestion.wording,
+      title: `question-${number} ${defaultQuestion.wording.title}`,
+      question: `question-${number} ${defaultQuestion.wording.question} ?`,
+      description: `question-${number} ${defaultQuestion.wording.description}`,
+    },
+  }));
+};
+
 const generateProposals = (question, author, count) => {
   return range(0, count).map(number => ({
     ...defaultProposal,
@@ -150,7 +203,12 @@ const generateOrganisations = count => {
 const openedHomepageQuestions = generateOpenedHomepageQuestions(6);
 const finishedHomepageQuestions = generateFinishedHomepageQuestions(24);
 const upcomingHomepageQuestions = generateUpcomingHomepageQuestions(4);
-const questions = generateOpenedQuestions(10);
+const openedQuestions = generateOpenedQuestions(10);
+const closedQuestions = generateClosedQuestions(10);
+const questionsWithResults = generateQuestionsWithResults(10);
+const questions = openedQuestions
+  .concat(closedQuestions)
+  .concat(questionsWithResults);
 const organisations = generateOrganisations(2);
 const authorProposal = {
   organisationName: organisations[0].organisationName,
@@ -183,19 +241,6 @@ const generateDeprecatedHomeView = () => ({
   ),
 });
 const deprecatedHomeView = generateDeprecatedHomeView();
-
-const mixPastAndFutureDates = count => {
-  const pastEndDate = `${today.getFullYear() -
-    1}-${month}-${day}T01:00:00.000Z`;
-  const futureEndDate = `${today.getFullYear() +
-    1}-${month}-${day}T01:00:00.000Z`;
-
-  if (count % 2 === 0) {
-    return pastEndDate;
-  }
-
-  return futureEndDate;
-};
 
 const generateHomeView = () => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;

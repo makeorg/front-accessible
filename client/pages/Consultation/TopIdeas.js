@@ -1,5 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { type TopIdeaType } from 'Shared/types/topIdea';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner/index';
@@ -18,7 +20,8 @@ import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
 import { redirectToNotFoundPage } from 'Shared/helpers/url';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { useMobile } from 'Client/hooks/useMedia';
-import { withQuestionData } from './fetchQuestionData';
+import { ThemeProvider } from 'styled-components';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
@@ -28,11 +31,10 @@ import {
   ConsultationHeaderWrapperStyle,
 } from './style';
 
-type Props = {
-  question: QuestionType,
-};
-
-const TopIdeasPageWrapper = ({ question }: Props) => {
+const TopIdeasPage = () => {
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
   const isMobile = useMobile();
   const [topIdeas, setTopIdeas] = useState<TopIdeaType[]>([]);
   const hasTopIdeas = topIdeas && topIdeas.length > 0;
@@ -58,7 +60,7 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={question.theme}>
       <MetaTags
         title={i18n.t('meta.top-ideas.title', {
           question: question.wording.question,
@@ -103,11 +105,9 @@ const TopIdeasPageWrapper = ({ question }: Props) => {
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && <FollowUs question={question} />}
-    </>
+    </ThemeProvider>
   );
 };
-
-const TopIdeasPage = withQuestionData(TopIdeasPageWrapper);
 
 // default export needed for loadable component
 export default TopIdeasPage; // eslint-disable-line import/no-default-export

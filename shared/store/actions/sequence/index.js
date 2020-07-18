@@ -4,13 +4,8 @@ import * as actionTypes from 'Shared/store/actionTypes';
 import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type ProposalType } from 'Shared/types/proposal';
-import {
-  type QuestionType,
-  type QuestionResultsType,
-} from 'Shared/types/question';
-import { Logger } from 'Shared/services/Logger';
+import { type QuestionType } from 'Shared/types/question';
 import { trackFirstVote } from 'Shared/services/Tracking';
-import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 import { SequenceService } from 'Shared/services/Sequence';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
@@ -82,14 +77,6 @@ export const unloadCurrentQuestion = () => ({
   type: actionTypes.QUESTION_UNLOAD,
 });
 
-export const loadQuestionResults = (
-  questionResults: QuestionResultsType,
-  questionSlug: string
-) => ({
-  type: actionTypes.QUESTION_RESULTS_LOAD,
-  payload: { questionResults, questionSlug },
-});
-
 export const sequenceVote = (
   proposalId: string,
   questionSlug: string,
@@ -111,14 +98,3 @@ export const sequenceUnvote = (proposalId: string, questionSlug: string) => (
 ) => {
   dispatch(unvoteProposal(proposalId, questionSlug));
 };
-
-export const fetchQuestionResults = (questionSlug: string) => (
-  dispatch: any => void
-) =>
-  QuestionNodeService.fetchResults(questionSlug)
-    .then(questionResults => {
-      dispatch(loadQuestionResults(questionResults, questionSlug));
-    })
-    .catch(error => {
-      Logger.logError(Error(error));
-    });

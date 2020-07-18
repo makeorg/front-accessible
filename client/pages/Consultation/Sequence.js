@@ -1,6 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import {
   trackDisplaySequence,
@@ -18,6 +19,8 @@ import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
 import { Redirect } from 'react-router';
 import { isInProgress } from 'Shared/helpers/date';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
+import { ThemeProvider } from 'styled-components';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import {
   SequencePageContentStyle,
   SequenceProposalFieldStyle,
@@ -25,13 +28,11 @@ import {
   SequenceFooterTitleStyle,
   SequenceFooterLinkStyle,
 } from './style';
-import { withQuestionData } from './fetchQuestionData';
 
-type Props = {
-  question: QuestionType,
-};
-
-const SequencePageContainer = ({ question }: Props) => {
+const SequencePage = () => {
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
   const [isClosed, closeSequence] = useState(false);
   const dispatch = useDispatch();
   const consultationLink = getConsultationLink(
@@ -79,11 +80,13 @@ const SequencePageContainer = ({ question }: Props) => {
   }
 
   return (
-    <>
+    <ThemeProvider theme={question.theme}>
       <MetaTags
         title={i18n.t('meta.sequence.title', {
           question: question.wording.question,
         })}
+        description={question.wording.metas.description}
+        picture={question.wording.metas.picture}
       />
       <SequenceSkipLinks canPropose={question.canPropose} />
       <SequencePageContentStyle>
@@ -118,11 +121,9 @@ const SequencePageContainer = ({ question }: Props) => {
           {i18n.t('footer_sequence.link')}
         </SequenceFooterLinkStyle>
       </SequenceFooterStyle>
-    </>
+    </ThemeProvider>
   );
 };
-
-const SequencePage = withQuestionData(SequencePageContainer);
 
 // default export needed for loadable component
 export default SequencePage; // eslint-disable-line import/no-default-export

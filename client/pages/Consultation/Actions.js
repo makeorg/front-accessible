@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Redirect } from 'react-router';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { isGreatCause } from 'Shared/helpers/question';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
@@ -13,26 +13,28 @@ import { i18n } from 'Shared/i18n';
 import { LocalActorsTile } from 'Client/features/flipping/LocalActors/Tille';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { useMobile } from 'Client/hooks/useMedia';
-import { withQuestionData } from './fetchQuestionData';
+import { useSelector } from 'react-redux';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { ThemeProvider } from 'styled-components';
 import {
   ConsultationPageWrapperStyle,
   ConsultationHeaderWrapperStyle,
 } from './style';
+import { NotFoundPage } from '../NotFound';
 
-type Props = {
-  question: QuestionType,
-};
-
-const ConsultationPageWrapper = ({ question }: Props) => {
+const ActionPage = () => {
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
   const isMobile = useMobile();
   const questionIsGreatCause = isGreatCause(question.operationKind);
 
   if (!questionIsGreatCause) {
-    return <Redirect to="/notfound" />;
+    return <NotFoundPage />;
   }
 
   return (
-    <>
+    <ThemeProvider theme={question.theme}>
       <MetaTags
         title={i18n.t('meta.actions.title', {
           question: question.wording.question,
@@ -59,11 +61,9 @@ const ConsultationPageWrapper = ({ question }: Props) => {
           <FollowUs question={question} />
         </>
       )}
-    </>
+    </ThemeProvider>
   );
 };
 
-const ConsultationPage = withQuestionData(ConsultationPageWrapper);
-
 // default export needed for loadable component
-export default ConsultationPage; // eslint-disable-line import/no-default-export
+export default ActionPage; // eslint-disable-line import/no-default-export

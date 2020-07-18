@@ -7,7 +7,9 @@ export const pages = {
   'france homepage': '/beta/FR-fr/home',
   'sequence': '/FR-fr/consultation/:questionSlug/selection',
   'general terms of use': '/FR-fr/conditions-dutilisation',
-  'data policy': '/FR-fr/politique-donnees'
+  'data policy': '/FR-fr/politique-donnees',
+  'about': 'https://about.make.org',
+  'results': '/FR-fr/consultation/:questionSlug/results'
 };
 
 // helpers

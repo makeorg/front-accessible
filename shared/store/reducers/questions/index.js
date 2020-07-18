@@ -22,14 +22,6 @@ export function questions(
           question: action.payload.question,
         },
       };
-    case actionTypes.QUESTION_RESULTS_LOAD:
-      return {
-        ...state,
-        [action.payload.questionSlug]: {
-          ...state[action.payload.questionSlug],
-          questionResults: action.payload.questionResults,
-        },
-      };
     case QUESTION_POPULAR_TAGS_LOAD:
       return {
         ...state,
