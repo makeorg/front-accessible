@@ -38,6 +38,7 @@ then('event {string} should not be tracked by Make', (trackerName) => {
 });
 
 then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
+  cy.wait(100);
   const assertCallback = () => {
     expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
     const xhrRequest = xhrTrackingRequests.list[trackerName].shift();

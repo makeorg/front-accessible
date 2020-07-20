@@ -27,6 +27,7 @@ import { updateRequestContextCustomData } from 'Shared/store/middleware/requestC
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { updateTrackingQuestionParam } from 'Shared/store/middleware/tracking';
 import { getRouteNoCookies } from 'Shared/routes';
+import { postPerfomanceTiming } from 'Shared/helpers/tracking';
 import { NoCookies } from './pages/Static/NoCookies';
 import { history, initHistory } from './app/History';
 import { ErrorBoundary, ServiceErrorHandler } from './app/Error';
@@ -88,6 +89,9 @@ const logAndTrackEvent = (eventName: string) => {
 };
 
 const initApp = async state => {
+  // Track performance
+  postPerfomanceTiming(performance.timing);
+
   const authenticationStateData = await authenticationState();
 
   // Set in session storage some keys from query params

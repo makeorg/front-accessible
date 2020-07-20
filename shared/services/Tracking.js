@@ -3,9 +3,11 @@
 import { TrackingApiService } from 'Shared/api/TrackingApiService';
 import * as trackingConstants from 'Shared/constants/tracking';
 import { env } from 'Shared/env';
+import { type PerformanceTimingType } from 'Shared/types/tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
 import { trackingParamsService } from './TrackingParamsService';
+import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const getPosition = (cardPosition?: number): string => {
   if (cardPosition !== undefined) {
@@ -22,6 +24,17 @@ const getEventParameters = (parameters: Object = {}) => {
     ...defaultParameters,
     ...parameters,
   };
+};
+
+export const trackPerformance = async (
+  applicationName: string,
+  timings: PerformanceTimingType
+): Promise<?void> => {
+  try {
+    await TrackingApiService.trackPerformance(applicationName, timings);
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+  }
 };
 
 export const track = (eventName: string, parameters: Object = {}) => {
