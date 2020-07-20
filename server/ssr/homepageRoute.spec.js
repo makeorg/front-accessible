@@ -1,7 +1,5 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
-import { ViewsApiService } from 'Shared/api/ViewsApiService';
-import homepageFixture from '../../apiMocks/db/views.json';
 import { ViewsService } from '../service/ViewsService';
 import { homepageRoute } from './homepageRoute';
 import { reactRender } from '../reactRender';
@@ -33,15 +31,15 @@ describe('Homepage route', () => {
 
   describe('The route', () => {
     it('construct route initial state and render', async () => {
-      ViewsApiService.getHome.mockReturnValue({ data: homepageFixture });
+      ViewsService.getHome.mockReturnValue({
+        test: 'test',
+      });
       createInitialState.mockReturnValue({});
       ViewsService.clearCache();
 
       await homepageRoute(request, response);
       expect(reactRender).toHaveBeenCalledWith(request, response, {
-        views: {
-          homepage: homepageFixture,
-        },
+        views: { homepage: { test: 'test' } },
       });
     });
   });

@@ -9,7 +9,6 @@ const clearCache = () => {
 };
 
 const getHome = async (
-  questionIdOrSlug: string,
   country: string,
   language: string,
   notFound: () => void = () => {},

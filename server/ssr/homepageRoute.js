@@ -3,7 +3,7 @@ import { createInitialState } from 'Shared/store/initialState';
 import { type Request, type Response } from 'express';
 import { type HomeViewType } from 'Shared/types/views';
 import { type StateRoot as TypeStateRoot } from 'Shared/store/types';
-import { ViewsService } from 'Shared/services/Views';
+import { ViewsService } from '../service/ViewsService';
 import { reactRender } from '../reactRender';
 
 export const homepageRoute = async (req: Request, res: Response) => {
