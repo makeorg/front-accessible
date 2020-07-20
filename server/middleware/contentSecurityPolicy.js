@@ -17,7 +17,7 @@ export const cspMiddleware = csp({
       (req, res) => `'nonce-${res.locals.nonce}'`,
     ],
     styleSrc: ["'self'", "'unsafe-inline'"],
-    imgSrc: ['*'],
+    imgSrc: ['*', 'data:'],
     connectSrc: [
       "'self'",
       'http://localhost:9000',

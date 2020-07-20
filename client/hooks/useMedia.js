@@ -78,3 +78,11 @@ export const useScreenMobileContainerWidth = () => {
 
   return screenWidth ? screenWidth - mobileContainerPadding : null;
 };
+
+export const useDevicePixelRatio = () => {
+  if (typeof window === 'object') {
+    return window.devicePixelRatio;
+  }
+
+  return null;
+};

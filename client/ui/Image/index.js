@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   type ImageDataType,
   IMAGE_SOURCE_INTERNAL,
   IMAGE_SOURCE_EXTERNAL,
 } from 'Shared/types/image';
+import { useDevicePixelRatio } from 'Client/hooks/useMedia';
 
 const imageflowQueryParams = (width: ?number, height: ?number) =>
   `?w=${width || ''}&h=${height || ''}`;
@@ -22,7 +23,9 @@ type Props = {
   /** Image height */
   height?: number,
   /** image key */
-  key: string | number,
+  key?: string | number,
+  /** image loading */
+  loading?: string,
 };
 
 const isInternalSourceUrl = url => {
@@ -38,13 +41,13 @@ const isImageSupportedByImageFlow = url =>
 
 const getImageFlowSrcs = (url, width, height) => {
   if (!url) {
-    return {};
+    return { src1x: '' };
   }
   if (!width && !height) {
-    return { srcValue: url };
+    return { src1x: url };
   }
   if (!isImageSupportedByImageFlow(url)) {
-    return { srcValue: url };
+    return { src1x: url };
   }
   const src = url.replace(/\?.*/g, "$'");
   const paramsSrc1x = imageflowQueryParams(width, height);
@@ -52,7 +55,9 @@ const getImageFlowSrcs = (url, width, height) => {
   const paramsSrc3x = imageflowQueryParams(width * 3, height * 3);
 
   return {
-    srcValue: `${src}${paramsSrc1x}`,
+    src1x: `${src}${paramsSrc1x}`,
+    src2x: `${src}${paramsSrc2x}`,
+    src3x: `${src}${paramsSrc3x}`,
     srcSetValue: `${src}${paramsSrc2x} 2x, ${src}${paramsSrc3x} 3x`,
   };
 };
@@ -67,14 +72,34 @@ const toImageData = (src: string, alt: string) => ({
 
 const isImageData = value => value && !!value.url;
 
-const isImageWithInternalSource = (imageData: ImageDataType) => {
-  return imageData.source === IMAGE_SOURCE_INTERNAL;
+const defaultPlaceHolderImage =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAQAAAAHUWYVAAABKklEQVR42u3RMQEAAAjDMObfLQbABAdHKqFJT+lRAQJEQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAREQIAICBABASIgQAQEiAlABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRABASIgAARECACAkRAgAABIiBABASIgAARECACIiBABASIgAARECACIiBABASILluohIUgz8ZhMAAAAABJRU5ErkJggg==';
+
+const selectImageToLoad = (ratio, src1x, src2x, src3x) => {
+  if (ratio === 2 && src2x) {
+    return src2x;
+  }
+  if (ratio === 3 && src3x) {
+    return src3x;
+  }
+
+  return src1x;
 };
 
-const getSrcs = (imageData, width, height) => {
-  return isImageWithInternalSource(imageData)
-    ? getImageFlowSrcs(imageData.url, width, height)
-    : { srcValue: imageData.url };
+const getSrcValues = (useImageFlow, url, width, height) => {
+  if (!useImageFlow) {
+    return {
+      src1x: url,
+      placeHolder: defaultPlaceHolderImage,
+    };
+  }
+
+  const srcs = getImageFlowSrcs(url, width, height);
+
+  return {
+    ...srcs,
+    placeHolder: `${srcs.src1x}&zoom=0.1`,
+  };
 };
 
 export const Image = ({
@@ -85,22 +110,63 @@ export const Image = ({
   src,
   alt,
   srcSet,
+  loading,
 }: Props) => {
-  // @toDo: API should return the imageData object
-  const imgData = isImageData(src) ? src : toImageData(src, alt);
+  // @toDo: src can be an imageData object or a string
+  const imgData = useMemo(
+    () => (isImageData(src) ? src : toImageData(src, alt)),
+    [src, alt]
+  );
+  const { url, source } = imgData;
+  const altCurrent = alt || imgData.alt || '';
+  const ratio = useDevicePixelRatio();
 
-  const { srcValue, srcSetValue } = getSrcs(imgData, width, height);
+  const { src1x, src2x, src3x, srcSetValue, placeHolder } = useMemo(
+    () => getSrcValues(source === IMAGE_SOURCE_INTERNAL, url, width, height),
+    [url, width, height]
+  );
+
+  const [srcCurrent, setSrcCurrent] = useState(placeHolder);
+  const [srcSetCurrent, setSrcSetCurrent] = useState(null);
+
+  const imageToLoad = useMemo(
+    () => selectImageToLoad(ratio, src1x, src2x, src3x),
+    [ratio, src1x]
+  );
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = imageToLoad;
+    img.onload = () => {
+      setSrcCurrent(src1x);
+      setSrcSetCurrent(srcSet || srcSetValue);
+    };
+
+    return () => {
+      img.src = '';
+    };
+  }, [imageToLoad, src1x, srcSet, srcSetValue]);
 
   return (
-    <img
-      src={srcValue}
-      srcSet={srcSet || srcSetValue}
-      alt={alt || imgData.alt || ''}
-      key={key}
-      className={className}
-      loading="lazy"
-      width={width ? `${width}px` : null}
-      height={height ? `${height}px` : null}
-    />
+    <>
+      <img
+        src={srcCurrent}
+        srcSet={srcSetCurrent}
+        alt={altCurrent}
+        key={key}
+        className={className}
+        loading={loading}
+        width={width ? `${width}px` : null}
+        height={height ? `${height}px` : null}
+      />
+      <noscript>
+        <img
+          src={imageToLoad}
+          alt={altCurrent}
+          width={width ? `${width}px` : null}
+          height={height ? `${height}px` : null}
+        />
+      </noscript>
+    </>
   );
 };
