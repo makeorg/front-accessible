@@ -62,7 +62,7 @@ export const ResultsNoWayStyle = styled(ResultsItemStyle)`
 `;
 
 export const ResultsProposalIconStyle = styled(SvgLightning)`
-  width: 7px,
-  height: 14px,
-  margin: 0 5px 0,
+  width: 7px;
+  height: 14px;
+  margin: 0 5px 0;
 `;

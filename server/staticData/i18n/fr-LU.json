@@ -663,7 +663,8 @@
       },
       "top_ideas": {
         "skiplink": "Le top des idées émergentes",
-        "title": "Le top des idées émergentes, regroupées en {{count}} thèmes",
+        "title": "Le top des idées émergentes, regroupées en {{count}} thème",
+        "title_plural": "Le top des idées émergentes, regroupées en {{count}} thèmes",
         "introduction": "À leur arrivée sur la plateforme, les meilleures propositions citoyennes sont regroupées en grandes idées qui structurent la consultation. Pour classer ces idées, l’algorithme Make.org tient compte des votes « pour » et « contre » ainsi que des mentions « coup de cœur», « banalité », « surtout pas ! » et « réaliste ».",
         "theme_title": "Thème {{count}} : {{name}}"
       },
