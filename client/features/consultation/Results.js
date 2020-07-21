@@ -15,10 +15,7 @@ import {
   SvgLightBulb,
 } from 'Client/ui/Svg/elements';
 import { useDesktop, useMobile } from 'Client/hooks/useMedia';
-import {
-  trackDisplayConsultation,
-  trackDownloadReport,
-} from 'Shared/services/Tracking';
+import { trackDisplayConsultation } from 'Shared/services/Tracking';
 import { GliderStylesheet } from 'Client/app/assets/css-in-js/GliderStyle';
 import {
   RESULTS_CONTEXT,
@@ -30,21 +27,18 @@ import {
   RESULTS_PARTICIPATION,
   RESULTS_REPORT,
 } from 'Shared/constants/ids';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { ConsultationSidebar } from './Sidebar';
 import { ResultsContext } from './Results/Context';
 import {
   ResultsIconsStyle,
   ResultsLightningIconStyle,
   ResultsThumbIconStyle,
-  ResultsDownloadItemStyle,
-  ResultsDownloadButtonStyle,
 } from './Results/style';
 import { KeyFigures } from './Results/KeyFigures';
 import { ProposalsResults } from './Results/Proposals';
 import { TopIdeas } from './Results/TopIdeas';
 import { ResultsSlider } from './Results/Sliders';
+import { ResultsContact } from './Results/Contact';
 
 type Props = {
   questionResults: QuestionResultsType,
@@ -58,9 +52,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
   const isMobile = useMobile();
   const isDesktop = useDesktop();
   const displaySidebar = isMobile || isDesktop;
-  const hasReports =
-    (questionResults && questionResults.reports) ||
-    (questionResults && questionResults.contact);
+  const reports = questionResults && questionResults.reports;
 
   useEffect(() => {
     if (question) {
@@ -140,46 +132,12 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
             sliderName={PARTICIPATION_SLIDER}
           />
         </TileWithTitle>
-        {hasReports && (
-          <TileWithTitle
-            title={i18n.t('consultation.results.download.title')}
-            id={RESULTS_REPORT}
-          >
-            {questionResults.reports && (
-              <UnstyledListStyle>
-                {questionResults.reports &&
-                  questionResults.reports.map(report => (
-                    <ResultsDownloadItemStyle as="li" key={report.type}>
-                      <ParagraphStyle as="span">
-                        {i18n.t('consultation.results.download.type', {
-                          extension: report.type,
-                          weight: report.size,
-                        })}
-                      </ParagraphStyle>
-                      <ResultsDownloadButtonStyle
-                        as="a"
-                        href={report.path}
-                        download={`${question.slug}`}
-                        onClick={() => trackDownloadReport(report.type)}
-                      >
-                        {i18n.t('consultation.results.download.button')}
-                      </ResultsDownloadButtonStyle>
-                    </ResultsDownloadItemStyle>
-                  ))}
-              </UnstyledListStyle>
-            )}
-            {questionResults.contact && (
-              <ParagraphStyle
-                dangerouslySetInnerHTML={{
-                  __html: i18n.t('consultation.results.download.contact', {
-                    contact_us:
-                      '<a class="red-link" href="mailto:contact@make.org">contact@make.org</a>',
-                  }),
-                }}
-              />
-            )}
-          </TileWithTitle>
-        )}
+        <TileWithTitle
+          title={i18n.t('consultation.results.download.title')}
+          id={RESULTS_REPORT}
+        >
+          <ResultsContact reports={reports} question={question} />
+        </TileWithTitle>
       </ConsultationPageContentStyle>
     </>
   );
