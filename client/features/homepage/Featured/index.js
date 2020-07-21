@@ -17,7 +17,11 @@ type Props = {
 };
 
 export const FeaturedNews = ({ questions, posts }: Props) => (
-  <HomepageSectionStyle as="section" aria-labelledby="featured_questions_title">
+  <HomepageSectionStyle
+    as="section"
+    aria-labelledby="featured_questions_title"
+    id="featured_questions"
+  >
     <ConsultationElementSubtitleStyle data-cy-container="featured_questions_subtitle">
       {i18n.t('homepage.featured_questions.label')}
     </ConsultationElementSubtitleStyle>

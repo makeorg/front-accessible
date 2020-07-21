@@ -149,7 +149,8 @@ export const ConsultationElementSubtitleStyle = styled.span`
   margin-bottom: 5px;
 `;
 
-export const ConsultationElementTitleStyle = styled.p`
+export const ConsultationElementTitleStyle = styled.h3`
+  text-transform: none;
   font-size: 18px;
   color: ${BasicColors.PureBlack};
   font-family: ${MakeFonts.CircularStandardBold};
@@ -184,6 +185,7 @@ export const ConsultationRedLinkElementStyle = styled(Link)`
 export const NoConsultationWrapperStyle = styled(ColumnElementStyle)`
   max-width: 540px;
   flex: 1;
+  margin-bottom: 50px;
 `;
 
 export const NoConsultationImageStyle = styled(MiddleColumnStyle)`

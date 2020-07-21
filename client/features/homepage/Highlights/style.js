@@ -35,6 +35,7 @@ const IconStyle = `
 
 export const PeopleIconStyle = styled(SvgPeople)`
   ${IconStyle}
+  height: 31px;
 `;
 
 export const LigthIconStyle = styled(SvgLight)`
@@ -58,8 +59,7 @@ export const SubtitleFiguresStyle = styled.span`
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 14px;
   color: ${ShadowColors.BlackZeroSixOpacity};
-  padding-top: 7px;
-  padding-bottom: 30px;
+  padding: 7px 15px 30px 0px;
 `;
 
 export const FigureSeparationLineStyle = styled.hr`

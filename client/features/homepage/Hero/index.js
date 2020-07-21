@@ -30,11 +30,11 @@ export const Hero = () => {
             {i18n.t('homepage.hero.description')}
           </HeroDescriptionStyle>
           <ColumnToRowToColumnStyle>
-            <HeroRedButtonStyle to="/">
+            <HeroRedButtonStyle as="a" href="#current_questions">
               {i18n.t('homepage.hero.participate')}
               <WhiteArrowDownIcon aria-hidden />
             </HeroRedButtonStyle>
-            <HeroTransparentButtonStyle to="/">
+            <HeroTransparentButtonStyle as="a" href="#featured_questions">
               {i18n.t('homepage.hero.discover')}
               <BlackArrowDownIcon aria-hidden />
             </HeroTransparentButtonStyle>
