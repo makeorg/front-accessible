@@ -11,7 +11,6 @@ import { HighlightsBanner } from 'Client/features/homepage/Highlights';
 import { CurrentQuestions } from 'Client/features/homepage/CurrentQuestions';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-
 import { FeaturedNews } from 'Client/features/homepage/Featured';
 import { Hero } from 'Client/features/homepage/Hero';
 import { HomepageWrapperStyle } from './style';

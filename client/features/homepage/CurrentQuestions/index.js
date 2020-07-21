@@ -13,6 +13,10 @@ import {
   HomepageSectionTitleStyle,
   HomepageSectionStyle,
 } from 'Client/pages/Home/style';
+import {
+  trackClickBrowseConsultations,
+  trackClickBrowseResults,
+} from 'Shared/services/Tracking';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
 import { CurrentQuestionsButtonStyle } from './style';
 
@@ -35,6 +39,15 @@ export const CurrentQuestions = ({ questions }: Props) => {
     buttonText = i18n.t('browse.browse');
   }
 
+  const handleClick = () => {
+    if (!hasQuestions) {
+      trackClickBrowseResults();
+    } else {
+      trackClickBrowseConsultations();
+    }
+    scrollToTop();
+  };
+
   return (
     <HomepageSectionStyle
       as="section"
@@ -48,7 +61,11 @@ export const CurrentQuestions = ({ questions }: Props) => {
         {i18n.t('browse.title')}
       </HomepageSectionTitleStyle>
       <BrowseConsultationsList questions={questions} total={questions.length} />
-      <CurrentQuestionsButtonStyle to={buttonLink} onClick={scrollToTop}>
+      <CurrentQuestionsButtonStyle
+        to={buttonLink}
+        onClick={handleClick}
+        data-cy-link="current-questions-link"
+      >
         {buttonText}
       </CurrentQuestionsButtonStyle>
     </HomepageSectionStyle>

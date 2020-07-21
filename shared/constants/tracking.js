@@ -72,7 +72,7 @@ export const CLICK_FOLLOW_US: string = 'click-follow-us';
 export const CLICK_VIEW_BLOG: string = 'click-view-blog';
 
 /** Homepage */
-export const DISPLAY_HOMEPAGE: string = 'display-page-home';
+// todo: to remove when merged is done
 export const CLICK_HOMEPAGE_FEATURED: string = 'click-homepage-header';
 export const CLICK_HOMEPAGE_CORPORATE: string = 'click-button-whoweare';
 export const CLICK_HOMEPAGE_CONSULTATION: string = 'click-button-consultation';
@@ -105,3 +105,18 @@ export const COMPONENT_PARAM_TOP_PROPOSALS = 'top-proposals';
 export const COMPONENT_PARAM_CURRENT_OPERATIONS = 'current-operations';
 export const COMPONENT_PARAM_FAVOURITES = 'favourites';
 export const COMPONENT_PARAM_DETAIL_IDEAS = 'detail-ideas';
+
+//* * Beta home and Browse */
+export const DISPLAY_HOMEPAGE: string = 'display-page-home';
+export const DISPLAY_BROWSE_CONSULTATIONS = 'display-browse-consultations';
+export const DISPLAY_BROWSE_RESULTS = 'display-browse-results';
+export const CLICK_HOMEPAGE_PARTICIPATE = 'click-button-consultations';
+export const CLICK_HOMEPAGE_GREAT_CAUSES = 'click-button-great-causes';
+export const CLICK_HOMEPAGE_BROWSE_CONSULTATIONS =
+  'click-button-browse-consultations';
+export const CLICK_HOMEPAGE_BROWSE_RESULTS = 'click-button-browse-results';
+export const CLICK_HOMEPAGE_BLOG = 'click-view-blog';
+export const CLICK_BROWSE_PARTICIPATE = 'click-button-participate';
+export const CLICK_PAGINATION = 'click-page';
+export const CLICK_RESULTS = 'click-button-results';
+export const CLICK_SUBSCRIBE = 'click-button-susbscribe';

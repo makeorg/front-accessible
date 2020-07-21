@@ -9,6 +9,13 @@ import { BrowseConsultationsList } from 'Client/features/consultation/Browse/Lis
 import { isBrowseConsultationsPage } from 'Shared/routes';
 import { BrowseConsultationsHeader } from 'Client/features/consultation/Browse/Header';
 import { BrowseConsultationsTitles } from 'Client/features/consultation/Browse/Titles';
+import { MetaTags } from 'Client/app/MetaTags';
+import { i18n } from 'Shared/i18n';
+import {
+  trackDisplayBrowseConsultations,
+  trackDisplayBrowseResults,
+} from 'Shared/services/Tracking';
+
 import { BrowsePageWrapperStyle, BrowsePageInnerStyle } from './style';
 
 const BrowseConsultationsPage = () => {
@@ -46,12 +53,26 @@ const BrowseConsultationsPage = () => {
 
   useEffect(() => {
     initConsultationsList();
-    /** todo Tracking */
+    if (consultationsPage) {
+      trackDisplayBrowseConsultations();
+    } else {
+      trackDisplayBrowseResults();
+    }
   }, [CONSULTATIONS_STATUS, SORT_ALGORITHM, params]);
 
   return (
-    // todo Meta
     <>
+      {consultationsPage ? (
+        <MetaTags
+          title={i18n.t('meta.browse.consultations.title')}
+          description={i18n.t('meta.browse.consultations.description')}
+        />
+      ) : (
+        <MetaTags
+          title={i18n.t('meta.browse.results.title')}
+          description={i18n.t('meta.browse.results.description')}
+        />
+      )}
       <BrowseConsultationsHeader />
       <BrowsePageWrapperStyle as="section" aria-labelledby="browse_title">
         <BrowsePageInnerStyle>

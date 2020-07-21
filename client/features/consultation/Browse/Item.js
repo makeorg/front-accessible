@@ -11,6 +11,7 @@ import {
   ConsultationArticleStyle,
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
+
 import {
   useMobile,
   useScreenMobileContainerWidth,

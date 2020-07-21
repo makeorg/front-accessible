@@ -38,8 +38,9 @@ then('event {string} should not be tracked by Make', (trackerName) => {
 });
 
 then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
-  cy.wait(100);
   const assertCallback = () => {
+    //wait to make sure the 3 first api calls are made before checking trackings results
+    cy.wait('@postTracking.3')
     expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
     const xhrRequest = xhrTrackingRequests.list[trackerName].shift();
     expect(xhrRequest, `Track "${trackerName}" not called`).to.not.be.undefined;

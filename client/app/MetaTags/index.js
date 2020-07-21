@@ -18,15 +18,12 @@ export const MetaTags = (props: Props) => {
 
   return (
     <>
-      <Title>{`${title || i18n.t('meta.home.title')} - Make.org`}</Title>
+      <Title>{title || i18n.t('meta.home.title')}</Title>
       <Meta
         name="description"
         content={description || i18n.t('meta.home.description')}
       />
-      <Meta
-        property="og:title"
-        content={title || `${i18n.t('meta.home.title')} - Make.org`}
-      />
+      <Meta property="og:title" content={title || i18n.t('meta.home.title')} />
       <Meta
         property="og:description"
         content={description || i18n.t('meta.home.description')}
@@ -42,7 +39,7 @@ export const MetaTags = (props: Props) => {
       <Meta name="twitter:card" content="summary" />
       <Meta
         property="twitter:title"
-        content={title || `${i18n.t('meta.home.title')} - Make.org`}
+        content={title || i18n.t('meta.home.title')}
       />
       <Meta
         property="twitter:description"
