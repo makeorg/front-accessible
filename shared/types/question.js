@@ -192,6 +192,11 @@ export type QuestionPartnerType = $ReadOnly<{
   countsByQuestion: Object,
 }>;
 
+export type ResultsLinkType = {
+  kind: string,
+  value: string,
+};
+
 export type HomeQuestionType = {
   questionId: string,
   questionSlug: string,
@@ -206,7 +211,7 @@ export type HomeQuestionType = {
   endDate: ?string,
   theme: QuestionThemeType,
   displayResults: boolean,
-  resultsLink: ?string,
+  resultsLink: ?ResultsLinkType,
   aboutUrl: string,
   actions: string,
   featured: boolean,

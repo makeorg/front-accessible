@@ -3,14 +3,8 @@ import React from 'react';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { orderByEndDate } from 'Shared/helpers/date';
-import { Link } from 'react-router-dom';
-import { getConsultationLink } from 'Shared/helpers/url';
-import { scrollToTop } from 'Shared/helpers/styled';
-import {
-  FeaturedListItemStyle,
-  FeaturedLinkStyle,
-  FeaturedLinkIconStyle,
-} from './style';
+import { FeaturedListItemStyle } from './style';
+import { FeaturedLink } from './Link';
 
 type Props = {
   questions: HomeQuestionType[],
@@ -23,18 +17,7 @@ export const FeaturedQuestions = ({ questions }: Props) => {
       <UnstyledListStyle>
         {sortedQuestions.map(question => (
           <FeaturedListItemStyle key={question.questionId}>
-            <FeaturedLinkStyle
-              as={Link}
-              to={getConsultationLink(
-                question.country,
-                question.language,
-                question.questionSlug
-              )}
-              onClick={scrollToTop}
-            >
-              {question.operationTitle}
-              <FeaturedLinkIconStyle aria-hidden />
-            </FeaturedLinkStyle>
+            <FeaturedLink question={question} />
           </FeaturedListItemStyle>
         ))}
       </UnstyledListStyle>

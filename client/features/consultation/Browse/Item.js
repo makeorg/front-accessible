@@ -2,13 +2,11 @@
 import React from 'react';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { DateHelper } from 'Shared/helpers/date';
-import { getConsultationLink } from 'Shared/helpers/url';
 import {
   ConsultationElementPictureStyle,
   ConsultationElementSubtitleStyle,
   ConsultationElementTitleStyle,
   ConsultationElementParagraphStyle,
-  ConsultationRedLinkElementStyle,
   ClockIconStyle,
   ConsultationArticleStyle,
 } from 'Client/features/consultation/Browse/style';
@@ -17,6 +15,7 @@ import {
   useMobile,
   useScreenMobileContainerWidth,
 } from 'Client/hooks/useMedia';
+import { ConsultationLink } from './Link';
 
 type Props = {
   question: HomeQuestionType,
@@ -25,14 +24,11 @@ type Props = {
 
 export const ConsultationItem = ({ question, resultsContext }: Props) => {
   const {
-    displayResults,
     descriptionImage,
     featured,
     startDate,
     endDate,
-    country,
-    language,
-    questionSlug,
+    resultsLink,
   } = question;
 
   let linkText = i18n.t('browse.consultations.participate');
@@ -41,7 +37,11 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     linkText = i18n.t('browse.results.coming_results');
   }
 
-  if (resultsContext && displayResults) {
+  if (resultsContext && resultsLink && resultsLink.value === 'top-ideas') {
+    linkText = i18n.t('browse.results.see_topideas');
+  }
+
+  if (resultsContext && resultsLink && resultsLink.value === 'results') {
     linkText = i18n.t('browse.results.see_results');
   }
   const isMobile = useMobile();
@@ -77,11 +77,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
           endDate: DateHelper.creationDateFormat(endDate),
         })}
       </ConsultationElementParagraphStyle>
-      <ConsultationRedLinkElementStyle
-        to={getConsultationLink(country, language, questionSlug)}
-      >
-        {linkText}
-      </ConsultationRedLinkElementStyle>
+      <ConsultationLink question={question} label={linkText} />
     </ConsultationArticleStyle>
   );
 };

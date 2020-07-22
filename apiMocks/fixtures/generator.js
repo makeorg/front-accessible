@@ -38,6 +38,31 @@ const mixPastAndFutureDates = count => {
   return futureEndDate;
 };
 
+const generateResultsLink = count => {
+  if (count === 0) {
+    return {
+      kind: 'internal',
+      value: 'results',
+    };
+  }
+
+  if (count === 1) {
+    return {
+      kind: 'internal',
+      value: 'top-ideas',
+    };
+  }
+
+  if (count === 2) {
+    return {
+      kind: 'external',
+      value: 'https://example.com',
+    };
+  }
+
+  return null;
+};
+
 const generateOpenedHomepageQuestions = count => {
   const startDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
   const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
@@ -56,7 +81,7 @@ const generateOpenedHomepageQuestions = count => {
 
 const generateFinishedHomepageQuestions = count => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
-  const endDate = `${today.getFullYear() + 1}-${month}-${day}T01:00:00.000Z`;
+  const endDate = `${today.getFullYear() - 1}-${month}-${day}T01:00:00.000Z`;
 
   return range(0, count).map(number => ({
     ...defaultHomepageQuestion,
@@ -67,6 +92,7 @@ const generateFinishedHomepageQuestions = count => {
     question: `question-${number} ${defaultQuestion.question} ?`,
     shortTitle: `shortTitle-${number}`,
     operationTitle: `operation-${number}`,
+    resultsLink: generateResultsLink(number),
   }));
 };
 

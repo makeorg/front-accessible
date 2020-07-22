@@ -741,6 +741,7 @@
       "title": "Découvrez les résultats",
       "subtitle": "A l'issue de nos consultations, découvrez les priorités des citoyens et les actions menées par Make.org dans le cadre de ses Grandes Causes.",
       "see_results": "Voir les résultats",
+      "see_topideas": "Voir le top des idées",
       "coming_results": "Résultats à venir"
     },
     "date": "Consultation du {{startDate}} au {{endDate}}",

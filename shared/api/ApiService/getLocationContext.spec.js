@@ -230,6 +230,7 @@ describe('getLocationContext', () => {
       'ROUTE_STATIC_CONTACT_EN',
       'ROUTE_STATIC_NOCOOKIES',
       'ROUTE_SOON',
+      'ROUTE_CONSULTATION_STEP',
     ];
 
     // .map(route => route.replace(/:/g, ''));

@@ -29,6 +29,7 @@ import {
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
+  ROUTE_CONSULTATION_STEP,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -227,6 +228,30 @@ export const getTopIdeaDetailsLink = (
     language,
     questionSlug,
     topIdeaId,
+  });
+};
+
+/**
+ * Get the consultation link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @param  {string} questionSlug
+ * @param  {string} consultationStep
+ *
+ * @return {string}
+ */
+export const getDynamicConsultationLink = (
+  country: string,
+  language: string,
+  questionSlug: string,
+  consultationStep: string
+) => {
+  return generatePath(ROUTE_CONSULTATION_STEP, {
+    country,
+    language,
+    questionSlug,
+    consultationStep,
   });
 };
 
