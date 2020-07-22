@@ -48,7 +48,16 @@ export class ErrorBoundary extends React.Component<Props, State> {
  */
 export const ServiceErrorHandler = (props: Object) => {
   const dispatch = useDispatch();
-  setUnexpectedError(() => {
+  setUnexpectedError(error => {
+    try {
+      if (!error.logged) {
+        Logger.logError(
+          error.clone(`You should handle unexpected errors: ${error.message}`)
+        );
+      }
+    } catch (e) {
+      Logger.logError(e);
+    }
     dispatch(showUnexpectedError());
   });
 

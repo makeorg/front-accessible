@@ -4,16 +4,29 @@ import { env } from 'Shared/env';
 const { combine, timestamp, label, simple, printf } = winston.format;
 
 const logFormat = printf(info => {
-  const message =
-    info.message instanceof Object
-      ? JSON.stringify(info.message)
-      : info.message;
+  const data = info instanceof Object ? info : { message: info };
+
+  const { stack, level, os, device, browser } = data;
+  const infoLabel = data.label;
+  const infoTime = data.timestamp;
+  const infoBrowser = JSON.stringify(browser);
+  const infoOS = JSON.stringify(os);
+  const infoDevice = JSON.stringify(device);
+  const infoStack =
+    typeof stack === 'string' ? stack.replace(/\n/g, ' >>> ') : stack;
+
+  delete data.stack;
+  delete data.level;
+  delete data.os;
+  delete data.device;
+  delete data.browser;
+  delete data.label;
+  delete data.timestamp;
+
+  const message = JSON.stringify(data);
+
   // eslint-disable-next-line max-len
-  return `${info.timestamp} ${info.label} browser ${JSON.stringify(
-    info.browser
-  )} - os ${JSON.stringify(info.os)} - device ${JSON.stringify(
-    info.device
-  )} - ${info.level}: ${message} - stackTrace: ${info.stack}`;
+  return `${infoTime} ${infoLabel} browser ${infoBrowser} - os ${infoOS} - device ${infoDevice} - ${level}: ${message} - stackTrace: ${infoStack}`;
 });
 
 const isTestEnv = env.isTest();

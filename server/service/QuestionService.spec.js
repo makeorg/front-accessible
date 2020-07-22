@@ -1,4 +1,5 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { QuestionService } from './QuestionService';
 import { logger } from '../logger';
 
@@ -48,21 +49,33 @@ describe('Question Service', () => {
 
     it('throw error when fetching content from Api and log it', async () => {
       jest.spyOn(logger, 'log');
-      const error = {
-        response: {
-          status: 500,
-        },
-        message: 'error',
-      };
+      const error = new ApiServiceError(
+        'error',
+        500,
+        undefined,
+        undefined,
+        undefined,
+        'error-id'
+      );
+
       QuestionApiService.getDetail.mockRejectedValue(error);
 
       const result = await QuestionService.getQuestion('foo');
 
       expect(cache.put).not.toHaveBeenCalled();
-      expect(logger.log).toHaveBeenCalledWith(
-        'error in server/service/QuestionService/getQuestion',
-        error
-      );
+      expect(logger.log).toHaveBeenCalledWith('error', {
+        name: 'api-service-error',
+        message: 'error in server/service/QuestionService/getQuestion: error',
+        logId: 'error-id',
+        status: 500,
+        columnNumber: undefined,
+        fileName: undefined,
+        lineNumber: undefined,
+        method: undefined,
+        responseData: undefined,
+        url: undefined,
+        stack: expect.any(String),
+      });
 
       expect(result).toBeNull();
     });

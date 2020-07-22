@@ -1,10 +1,7 @@
 import axios from 'axios';
 import { Logger } from 'Shared/services/Logger';
-import {
-  ApiServiceShared,
-  handleErrors,
-  ApiServiceError,
-} from './ApiService.shared';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
+import { ApiServiceShared, handleErrors } from './ApiService.shared';
 import { API_URL } from './configuration';
 
 describe('ApiServiceShared', () => {
@@ -59,7 +56,11 @@ describe('ApiServiceShared', () => {
     it('must handle promise', async () => {
       axios.mockRejectedValue({ message: 'error' });
       await expect(ApiServiceShared.callApi('/url')).rejects.toThrow(
-        new ApiServiceError('error', null, null)
+        expect.objectContaining({
+          name: 'api-service-error',
+          message: 'error',
+          logged: true,
+        })
       );
     });
   });
@@ -67,24 +68,37 @@ describe('ApiServiceShared', () => {
   describe('handleErrors', () => {
     it('default status', () => {
       const error = {
+        message: 'error',
         response: {
           status: 200,
         },
       };
       expect(() => handleErrors(error)).toThrow(
-        new ApiServiceError('', 200, 'none')
+        expect.objectContaining({
+          name: 'api-service-error',
+          message: 'error',
+          status: 200,
+          logged: false,
+        })
       );
     });
 
     it('status 400', () => {
       const error = {
+        message: 'test',
         response: {
           status: 400,
           data: 'error 400',
         },
       };
       expect(() => handleErrors(error, 'http://test', 'GET')).toThrow(
-        new ApiServiceError('', 400, 'error data')
+        expect.objectContaining({
+          name: 'api-service-error',
+          message: 'test',
+          status: 400,
+          data: 'error 400',
+          logged: false,
+        })
       );
     });
 
@@ -95,17 +109,38 @@ describe('ApiServiceShared', () => {
         response: {
           data: 'error data',
           status: 500,
+          config: {
+            url: 'https://example.com',
+            method: 'GET',
+          },
           headers: {
             'x-headers': 'foo',
           },
         },
       };
+
       expect(() => handleErrors(error, null, 'GET')).toThrow(
-        new ApiServiceError('error message', 500, 'error data')
+        expect.objectContaining({
+          name: 'api-service-error',
+          message: 'error message',
+          status: 500,
+          data: 'error data',
+          url: 'https://example.com',
+          method: 'GET',
+          logged: true,
+        })
       );
       expect(Logger.logError).toHaveBeenNthCalledWith(
         1,
-        'API call error - server error - error message - {"status":"500","url":"none","method":"GET","responseData":"error data"}'
+        new ApiServiceError(
+          `API call error - server error - ${error.message}`,
+          500,
+          'error data',
+          'none',
+          'GET',
+          'error-id',
+          false
+        )
       );
     });
   });

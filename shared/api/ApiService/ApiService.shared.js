@@ -5,24 +5,10 @@ import axiosRetry from 'axios-retry';
 import * as UrlHelper from 'Shared/helpers/url';
 import { Logger } from 'Shared/services/Logger';
 import { APP_NAME } from 'Shared/constants/config';
+import { v4 as uuidv4 } from 'uuid';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import { type ErrorResponse } from './types';
 import { HOSTNAME, LOCATION_PARAMS, API_URL } from './configuration';
-
-export class ApiServiceError extends Error {
-  status: ?number;
-
-  data: ?Object;
-
-  constructor(message: string, status: ?number, data: ?Object) {
-    super(message);
-    this.status = status;
-    this.data = data;
-
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, ApiServiceError);
-    }
-  }
-}
 
 axiosRetry(axios, {
   retries: 5,
@@ -46,38 +32,65 @@ export const handleErrors = (
   const hasConfig = error.response && error.response.config;
   const url = hasConfig ? error.response.config.url : null;
   const method = hasConfig ? error.response.config.method : null;
+  const uuid = uuidv4();
+  let logged = false;
 
   if (status && status >= 500) {
     Logger.logError(
-      `API call error - server error - ${error.message} - ${JSON.stringify({
-        status: status ? status.toString() : 'none',
-        url: url || requestUrl || 'none',
-        method: method || requestMethod || 'none',
-        responseData: responseData || 'none',
-      })}`
+      new ApiServiceError(
+        `API call error - server error - ${error.message}`,
+        status,
+        responseData || 'none',
+        url || requestUrl || 'none',
+        method || requestMethod || 'none',
+        uuid
+      )
     );
+
+    logged = true;
   }
 
   if (!status && error.request) {
-    Logger.logWarning(
-      `API call error - no response - ${error.message} - ${JSON.stringify({
-        url: url || requestUrl || 'none',
-        method: method || requestMethod || 'none',
-      })}`
+    Logger.logError(
+      new ApiServiceError(
+        `API call error - no response - ${error.message}`,
+        null,
+        null,
+        url || requestUrl || 'none',
+        method || requestMethod || 'none',
+        uuid
+      )
     );
+
+    logged = true;
   }
 
   if (!status && !error.request) {
-    Logger.logError(
-      `API call error - request error - ${error.message} - ${JSON.stringify({
-        url: url || requestUrl || 'none',
-        method: method || requestMethod || 'none',
-        error: JSON.stringify(error),
-      })}`
+    Logger.logWarning(
+      new ApiServiceError(
+        `API call error - request error - ${error.message} - ${JSON.stringify(
+          error
+        )}`,
+        null,
+        null,
+        url || requestUrl || 'none',
+        method || requestMethod || 'none',
+        uuid
+      )
     );
+
+    logged = true;
   }
 
-  throw new ApiServiceError(error.message, status, responseData);
+  throw new ApiServiceError(
+    error.message,
+    status,
+    responseData,
+    url,
+    method,
+    uuid,
+    logged
+  );
 };
 
 class ApiServiceSharedClass {
