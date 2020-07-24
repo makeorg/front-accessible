@@ -157,12 +157,6 @@ describe('getLocationContext', () => {
       expectedTracking: `homepage`,
     },
     {
-      name: 'ROUTE_BETA_HOME',
-      path: '/beta/FR-fr/home',
-      expected: `homepage`,
-      expectedTracking: `homepage`,
-    },
-    {
       name: 'unknown location',
       path: '/Fr-fr/ho-fake-route',
       expected: `unknown-location /Fr-fr/ho-fake-route`,

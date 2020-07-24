@@ -30,9 +30,8 @@ import {
   ROUTE_STATIC_DATA_EN,
   ROUTE_STATIC_CONTACT_EN,
   ROUTE_STATIC_LEGAL_EN,
-  ROUTE_BETA_HOME,
   ROUTE_BROWSE_CONSULTATIONS,
-  ROUTE_BROWSE_RESULTS, // @todo beta
+  ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
 } from 'Shared/routes';
 import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
@@ -133,8 +132,7 @@ export const initRoutes = app => {
   app.get('/', redirectToCountry);
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
-  app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, defaultRoute);
-  app.get(ROUTE_BETA_HOME, frontMiddlewares, homepageRoute); // @todo beta
+  app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, homepageRoute);
 
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);

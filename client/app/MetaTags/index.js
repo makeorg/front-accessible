@@ -18,41 +18,39 @@ export const MetaTags = (props: Props) => {
 
   return (
     <>
-      <Title>
-        {`${title || i18n.t('meta.deprecated-home.title')} - Make.org`}
-      </Title>
+      <Title>{`${title || i18n.t('meta.home.title')} - Make.org`}</Title>
       <Meta
         name="description"
-        content={description || i18n.t('meta.deprecated-home.description')}
+        content={description || i18n.t('meta.home.description')}
       />
       <Meta
         property="og:title"
-        content={title || `${i18n.t('meta.deprecated-home.title')} - Make.org`}
+        content={title || `${i18n.t('meta.home.title')} - Make.org`}
       />
       <Meta
         property="og:description"
-        content={description || i18n.t('meta.deprecated-home.description')}
+        content={description || i18n.t('meta.home.description')}
       />
       <Meta
         property="og:headline"
-        content={description || i18n.t('meta.deprecated-home.description')}
+        content={description || i18n.t('meta.home.description')}
       />
       <Meta
         property="og:image"
-        content={picture || i18n.t('meta.deprecated-home.picture')}
+        content={picture || i18n.t('meta.home.picture')}
       />
       <Meta name="twitter:card" content="summary" />
       <Meta
         property="twitter:title"
-        content={title || `${i18n.t('meta.deprecated-home.title')} - Make.org`}
+        content={title || `${i18n.t('meta.home.title')} - Make.org`}
       />
       <Meta
         property="twitter:description"
-        content={description || i18n.t('meta.deprecated-home.description')}
+        content={description || i18n.t('meta.home.description')}
       />
       <Meta
         property="twitter:image"
-        content={picture || i18n.t('meta.deprecated-home.picture')}
+        content={picture || i18n.t('meta.home.picture')}
       />
     </>
   );

@@ -1,21 +1,12 @@
 // @flow
 import { type ProposalType } from 'Shared/types/proposal';
 import {
-  type QuestionThemeType,
   type QuestionType,
   type HomeQuestionType,
 } from 'Shared/types/question';
 import { type OrganisationType } from 'Shared/types/organisation';
 
 // Home view
-export type BusinessConsultationType = {
-  theme: QuestionThemeType,
-  startDate: ?string | null,
-  endDate: ?string | null,
-  slug: string,
-  aboutUrl: string,
-  question: string,
-};
 
 export type FeaturedConsultationType = {
   questionSlug: string | null,
@@ -29,28 +20,6 @@ export type FeaturedConsultationType = {
   internalLink: 'consultation' | 'action' | 'sequence' | null,
   externalLink: string | null,
   slot: number,
-};
-
-export type CurrentConsultationType = {
-  questionId: string | null,
-  questionSlug: string | null,
-  title: string,
-  picture: string,
-  altPicture: string,
-  label: string,
-  description: string,
-  linkLabel: string,
-  internalLink: 'consultation' | 'action' | 'sequence' | null,
-  externalLink: string | null,
-  proposalsNumber: number,
-};
-
-export type DeprecatedHomeType = {
-  popularProposals: ProposalType[],
-  controverseProposals: ProposalType[],
-  businessConsultations: BusinessConsultationType[],
-  featuredConsultations: FeaturedConsultationType[],
-  currentConsultations: CurrentConsultationType[],
 };
 
 export type HomeHighlightsType = {
