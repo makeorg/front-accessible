@@ -122,7 +122,7 @@ export const Routes = () => {
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>
-        <QuestionWrapper withRedirect>
+        <QuestionWrapper>
           <ResultsPage />
         </QuestionWrapper>
       </Route>
