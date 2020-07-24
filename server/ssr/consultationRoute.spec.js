@@ -1,7 +1,6 @@
 import httpMocks from 'node-mocks-http';
 import { createInitialState } from 'Shared/store/initialState';
 import { isInProgress } from 'Shared/helpers/date';
-import { QuestionNodeService } from 'Shared/api/QuestionNodeService';
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
 import { QuestionService } from '../service/QuestionService';
 import { consultationRoute } from './consultationRoute';
@@ -11,7 +10,6 @@ jest.mock('Shared/helpers/date', () => ({
   isInProgress: jest.fn(),
 }));
 jest.mock('Shared/api/QuestionApiService');
-jest.mock('Shared/api/QuestionNodeService');
 jest.mock('../reactRender', () => ({ reactRender: jest.fn() }));
 jest.mock('./helpers/ssr.helper', () => ({
   logError: jest.fn(),
@@ -27,13 +25,6 @@ const fooQuestion = {
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
   displayResults: false,
-  sequenceConfig: {},
-};
-const fooQuestionWithResults = {
-  id: 'fooId',
-  questionId: '1234',
-  aboutUrl: 'http://localhost/goo',
-  displayResults: true,
   sequenceConfig: {},
 };
 const questionSlug = 'bar';
@@ -64,44 +55,6 @@ describe('Consultation page route', () => {
         questions: {
           bar: {
             question: fooQuestion,
-            questionResults: undefined,
-          },
-        },
-        currentQuestion: 'bar',
-      });
-    });
-
-    it('redirect to about url if consultation is closed', async () => {
-      isInProgress.mockReturnValue(false);
-      const question = {
-        ...fooQuestion,
-        displayResults: false,
-      };
-      QuestionApiService.getDetail.mockReturnValue({ data: question });
-      jest.spyOn(response, 'redirect');
-      QuestionService.clearCache();
-
-      await consultationRoute(request, response);
-
-      expect(response.redirect).toHaveBeenCalledWith('http://localhost/goo');
-      expect(response.statusCode).toBe(302);
-    });
-
-    it('construct route initial state with questionResults and render', async () => {
-      isInProgress.mockReturnValue(true);
-      QuestionApiService.getDetail.mockReturnValue({
-        data: fooQuestionWithResults,
-      });
-      QuestionNodeService.fetchResults.mockReturnValue('questionResults');
-      createInitialState.mockReturnValue({});
-      QuestionService.clearCache();
-
-      await consultationRoute(request, response);
-      expect(reactRender).toHaveBeenCalledWith(request, response, {
-        questions: {
-          bar: {
-            question: fooQuestionWithResults,
-            questionResults: 'questionResults',
           },
         },
         currentQuestion: 'bar',

@@ -1,13 +1,13 @@
 // @flow
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import {
   type QuestionType,
   type QuestionResultsType,
 } from 'Shared/types/question';
 import { ResultsSkipLinks } from 'Client/app/SkipLinks/Results';
 import { ResultsContent } from 'Client/features/consultation/Results';
-import { fetchQuestionResults } from 'Shared/store/actions/sequence';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { FollowUs } from 'Client/features/flipping/FollowUs';
@@ -16,34 +16,45 @@ import { i18n } from 'Shared/i18n';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationHeader } from 'Client/features/consultation/Header/index';
 import { useMobile } from 'Client/hooks/useMedia';
-import { withQuestionData } from './fetchQuestionData';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
+import { ThemeProvider } from 'styled-components';
+import { ExpressService } from 'Shared/services/Express';
 import { ConsultationPageWrapperStyle } from './style';
+import { NotFoundPage } from '../NotFound';
 
-type Props = {
-  question: QuestionType,
-};
-
-const ConsultationPageWrapper = ({ question }: Props) => {
-  const isMobile = useMobile();
-  const dispatch = useDispatch();
-  const questionIsGreatCause = isGreatCause(question.operationKind);
-  const questionResults: QuestionResultsType = useSelector(
-    state => state.questions[question.slug].questionResults
+const ResultPage = () => {
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
   );
+  const isMobile = useMobile();
+  const questionIsGreatCause = isGreatCause(question.operationKind);
+  const [alternativeContent, setAlternativeContent] = useState(
+    <MiddlePageWrapperStyle>
+      <Spinner />
+    </MiddlePageWrapperStyle>
+  );
+  const [questionResults, setResults] = useState<?QuestionResultsType>(null);
+
+  const initResults = async () => {
+    const response = await ExpressService.getResults(question.slug, () =>
+      setAlternativeContent(<NotFoundPage />)
+    );
+
+    if (response) {
+      setResults(response);
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchQuestionResults(question.slug));
-  }, [!questionResults]);
+    initResults();
+  }, []);
 
   if (!questionResults) {
-    return (
-      <MiddlePageWrapperStyle>
-        <Spinner />
-      </MiddlePageWrapperStyle>
-    );
+    return alternativeContent;
   }
 
   return (
-    <>
+    <ThemeProvider theme={question.theme}>
       <MetaTags
         title={i18n.t('meta.results.title', {
           question: question.wording.question,
@@ -57,12 +68,10 @@ const ConsultationPageWrapper = ({ question }: Props) => {
         <ResultsContent question={question} questionResults={questionResults} />
       </ConsultationPageWrapperStyle>
       {isMobile && <FollowUs question={question} />}
-    </>
+    </ThemeProvider>
   );
 };
 
-const ConsultationPage = withQuestionData(ConsultationPageWrapper);
-
 // default export needed for loadable coomponent
 // eslint-disable-next-line import/no-default-export
-export default ConsultationPage;
+export default ResultPage;

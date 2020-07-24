@@ -1,7 +1,7 @@
 // @flow
+import React, { useEffect } from 'react';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
-import React from 'react';
 import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { type QuestionType } from 'Shared/types/question';
@@ -12,6 +12,9 @@ import {
 } from 'Client/features/consultation/Styled/Navigation';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { OPERATION_MULTI_QUESTIONS_NAVIGATION } from 'Shared/constants/featureFlipping';
+import { QuestionService } from 'Shared/services/Question';
+import { loadQuestion } from 'Shared/store/actions/sequence';
+import { useSelector, useDispatch } from 'react-redux';
 import { SliderNavigationBetweenQuestions } from './Slider';
 
 type Props = {
@@ -20,11 +23,33 @@ type Props = {
 
 export const NavigationBetweenQuestions = ({ question }: Props) => {
   const isMobile = useMobile();
+  const dispatch = useDispatch();
+  const questions = useSelector(state => state.questions);
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
     OPERATION_MULTI_QUESTIONS_NAVIGATION,
     question.activeFeatures
   );
+
+  useEffect(() => {
+    // Try to find related questions
+    if (hasSiblingQuestions) {
+      question.operation.questions.map(async relativeQuestion => {
+        // Check is question has been already fetched
+        const isRelQuestionInState =
+          questions[relativeQuestion.questionSlug] !== undefined;
+        // If not, they fetch/store it
+        if (!isRelQuestionInState) {
+          const siblingQuestionDetails = await QuestionService.getDetail(
+            relativeQuestion.questionSlug
+          );
+          if (siblingQuestionDetails) {
+            dispatch(loadQuestion(siblingQuestionDetails));
+          }
+        }
+      });
+    }
+  }, [question]);
 
   if (!isNavigationBetweenQuestionActive || !hasSiblingQuestions) {
     return null;

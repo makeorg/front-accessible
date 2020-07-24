@@ -26,3 +26,7 @@ Feature: Sequence display
       | country             | FR                                                                  |
       | language            | fr                                                                  |
     And event "click-start-sequence" should not be tracked by Make
+
+ Scenario: Closed question redirect sequence to about page
+    Given I go to "sequence" page of the question "question-10-slug"
+    Then I see the "about" page

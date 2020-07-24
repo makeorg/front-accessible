@@ -44,6 +44,7 @@ import {
   BASE_PREVIEW_PATH,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
+import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 
 const BrowsePage = loadable(() => import('Client/pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
@@ -52,7 +53,7 @@ const ConsultationPage = loadable(() =>
 const ActionsPage = loadable(() =>
   import('Client/pages/Consultation/Actions.js')
 );
-const ResultsPage = loadable(() =>
+export const ResultsPage = loadable(() =>
   import('Client/pages/Consultation/Results.js')
 );
 const TopIdeasPage = loadable(() =>
@@ -105,16 +106,41 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTE_BROWSE_CONSULTATIONS} component={BrowsePage} />
       <Route path={ROUTE_BROWSE_RESULTS} component={BrowsePage} />
-      <Route path={ROUTE_CONSULTATION} component={ConsultationPage} />
-      <Route path={ROUTE_ACTION} component={ActionsPage} />
-      <Route path={ROUTE_RESULTS} component={ResultsPage} />
-      <Route
-        path={`${BASE_PREVIEW_PATH}${ROUTE_RESULTS}`}
-        component={ResultsPage}
-      />
-      <Route path={ROUTE_TOP_IDEA_DETAILS} component={TopIdeaDetailsPage} />
-      <Route path={ROUTE_TOP_IDEAS} component={TopIdeasPage} />
-      <Route path={ROUTE_SEQUENCE} component={SequencePage} />
+      <Route path={ROUTE_CONSULTATION}>
+        <QuestionWrapper withRedirect>
+          <ConsultationPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_ACTION}>
+        <QuestionWrapper>
+          <ActionsPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_SEQUENCE}>
+        <QuestionWrapper withRedirect>
+          <SequencePage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_RESULTS}>
+        <QuestionWrapper withRedirect>
+          <ResultsPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={`${BASE_PREVIEW_PATH}${ROUTE_RESULTS}`}>
+        <QuestionWrapper>
+          <ResultsPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_TOP_IDEA_DETAILS}>
+        <QuestionWrapper>
+          <TopIdeaDetailsPage />
+        </QuestionWrapper>
+      </Route>
+      <Route path={ROUTE_TOP_IDEAS}>
+        <QuestionWrapper>
+          <TopIdeasPage />
+        </QuestionWrapper>
+      </Route>
       <Route
         path={ROUTE_ACCOUNT_ACTIVATION}
         component={AccountActivationPage}

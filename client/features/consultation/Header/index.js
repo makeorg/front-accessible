@@ -3,7 +3,7 @@ import { type QuestionType } from 'Shared/types/question';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { IntroBanner } from 'Client/features/consultation/IntroBanner';
 import { isGreatCause } from 'Shared/helpers/question';
-import { NavigationBetweenQuestions } from 'Client/features/flipping/NavigationBetweenQuestions';
+import { NavigationBetweenQuestions } from 'Client/features/consultation/Navigation/BetweenQuestions';
 import { NavigationWithTabs } from 'Client/features/consultation/Navigation/Tabs';
 import { ConsultationHeaderWrapperStyle } from 'Client/pages/Consultation/style';
 

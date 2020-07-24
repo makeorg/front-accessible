@@ -1,6 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
+import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { type TopIdeaType } from 'Shared/types/topIdea';
 import { trackDisplayTopIdeas } from 'Shared/services/Tracking';
@@ -25,18 +26,19 @@ import { TopIdeaDetailsProposals } from 'Client/features/topIdeas/Proposals';
 import { TopIdeaDetailsComments } from 'Client/features/topIdeas/Comments';
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { useMobile } from 'Client/hooks/useMedia';
-import { withQuestionData } from './fetchQuestionData';
+import { ThemeProvider } from 'styled-components';
+import { useSelector } from 'react-redux';
+import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import {
   ConsultationPageContentStyle,
   ConsultationPageWrapperStyle,
   ConsultationHeaderWrapperStyle,
 } from './style';
 
-type Props = {
-  question: QuestionType,
-};
-
-const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
+const TopIdeaDetailsPage = () => {
+  const question: QuestionType = useSelector((state: StateRoot) =>
+    selectCurrentQuestion(state)
+  );
   const isMobile = useMobile();
   const { topIdeaId } = useParams();
   const location = useLocation();
@@ -79,7 +81,7 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
   }, [question, topIdeaId]);
 
   return (
-    <>
+    <ThemeProvider theme={question.theme}>
       <MetaTags
         title={i18n.t('meta.top-idea-details.title', {
           idea: topIdea ? topIdea.name : '',
@@ -120,11 +122,9 @@ const TopIdeaDetailsPageWrapper = ({ question }: Props) => {
         </ConsultationPageContentStyle>
       </ConsultationPageWrapperStyle>
       {isMobile && <FollowUs question={question} />}
-    </>
+    </ThemeProvider>
   );
 };
-
-const TopIdeaDetailsPage = withQuestionData(TopIdeaDetailsPageWrapper);
 
 // default export needed for loadable component
 export default TopIdeaDetailsPage; // eslint-disable-line import/no-default-export
