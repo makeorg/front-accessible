@@ -30,6 +30,12 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     endDate,
     resultsLink,
   } = question;
+  const hasTopIdeas =
+    resultsContext && resultsLink && resultsLink.value === 'top-ideas';
+  const hasInternalResults =
+    resultsContext && resultsLink && resultsLink.value === 'results';
+  const hasExternalResults =
+    resultsContext && resultsLink && resultsLink.kind === 'external';
 
   let linkText = i18n.t('browse.consultations.participate');
 
@@ -37,13 +43,14 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     linkText = i18n.t('browse.results.coming_results');
   }
 
-  if (resultsContext && resultsLink && resultsLink.value === 'top-ideas') {
+  if (hasTopIdeas) {
     linkText = i18n.t('browse.results.see_topideas');
   }
 
-  if (resultsContext && resultsLink && resultsLink.value === 'results') {
+  if (hasInternalResults || hasExternalResults) {
     linkText = i18n.t('browse.results.see_results');
   }
+
   const isMobile = useMobile();
   const containerWidth = useScreenMobileContainerWidth();
 
