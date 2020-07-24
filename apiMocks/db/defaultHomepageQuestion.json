@@ -16,7 +16,7 @@
     "fontColor":"#ffffff"
   },
   "displayResults":false,
-  "resultsLink": "/FR-fr/consultation/egalite-femmes-hommes/results",
+  "resultsLink": null,
   "aboutUrl":"https://about.make.org",
   "actions": "",
   "featured": false,

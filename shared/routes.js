@@ -8,6 +8,7 @@ export const ROUTE_BETA_HOME = `/beta${ROUTE_COUNTRY_LANG}/home`;
 export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/browse/consultations/page/:pageId`;
 export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY_LANG}/browse/results/page/:pageId`;
 export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/consultation`;
+export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/:consultationStep`;
 export const ROUTE_SEARCH = `${ROUTE_COUNTRY_LANG}/search`;
 export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY_LANG}/search/proposals`;
 export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY_LANG}/search/organisations`;
