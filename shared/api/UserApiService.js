@@ -30,17 +30,6 @@ export const GOOGLE_PROVIDER_ENUM = 'google';
 
 export class UserApiService {
   /**
-   * Get user and profile info
-   * @deprecated
-   * @return {Promise}
-   */
-  static me(): Promise<any> {
-    return ApiService.callApi(PATH_USER_ME, {
-      method: 'GET',
-    });
-  }
-
-  /**
    * Get user
    * @return {Promise}
    */

@@ -4,22 +4,21 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import {
-  BusinessConsultationsItemStyle,
-  BusinessConsultationsItemLinkStyle,
-  BusinessConsultationsItemBorderStyle,
-  BusinessConsultationStyle,
-  BusinessConsultationsItemStatusStyle,
-  BusinessConsultationsItemArrowStyle,
-} from 'Client/features/consultation/Business/Styled';
 import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
-import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
-import { SearchResultsConsultationListStyle } from '../Styled';
+import {
+  SearchResultsConsultationListStyle,
+  BusinessConsultationsItemStyle,
+  BusinessConsultationsItemLinkStyle,
+  BusinessConsultationsItemBorderStyle,
+  BusinessConsultationStyle,
+  BusinessConsultationsItemStatusStyle,
+  BusinessConsultationsItemArrowStyle,
+} from '../Styled';
 
 type Props = {
   questions: QuestionType[],
@@ -55,7 +54,7 @@ const businessConsultation = (question, country, language) => (
         </BusinessConsultationsItemStatusStyle>
         {question.question}
       </BusinessConsultationStyle>
-      <SvgAngleArrowRight style={BusinessConsultationsItemArrowStyle} />
+      <BusinessConsultationsItemArrowStyle aria-hidden />
     </BusinessConsultationsItemLinkStyle>
   </BusinessConsultationsItemStyle>
 );

@@ -2,18 +2,11 @@
 import { type ApiServiceHeadersType } from 'Shared/types/api';
 import { ApiService } from './ApiService';
 
-const HOMEPAGE_PATH_DEPRECATED = '/views/home';
 const HOMEPAGE_PATH = '/views/home-page/:country/:language';
 const SEARCH_VIEWS_PATH =
   '/views/search?content=:content&proposalLimit=:proposalLimit&questionLimit=:questionLimit&organisationLimit=:organisationLimit&country=:country&language=:language';
 
 export class ViewsApiService {
-  static getDeprecatedHome = async (): Promise<Object> => {
-    return ApiService.callApi(HOMEPAGE_PATH_DEPRECATED, {
-      method: 'GET',
-    });
-  };
-
   static getHome = async (
     country: string,
     language: string,

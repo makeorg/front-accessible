@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import {
   BackgroundColors,
   BasicColors,
@@ -15,6 +15,7 @@ import {
 } from 'Client/ui/Elements/TileWithTitle/style';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { Elements } from 'Client/app/assets/vars/Elements';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const PopularProposalsSliderWrapperStyle = styled.div`
   background-color: ${BackgroundColors.ExtraLightGrey};
@@ -44,6 +45,19 @@ export const PopularProposalsWrapperStyle = styled(TileWithTitleStyle)`
 
 export const PopularProposalsSliderListWrapperStyle = styled.div`
   padding: 0 20px 5px;
+`;
+
+export const PopularProposalsSliderListStyle = styled(UnstyledListStyle)`
+  padding: 0 20px 5px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: ${intToPx(Layouts.ContainerWidth)};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 0;
+  }
 `;
 
 export const PopularProposalsSliderListItemStyle = styled.li`

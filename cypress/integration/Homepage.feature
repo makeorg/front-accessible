@@ -4,7 +4,7 @@ Feature: The Home Page
     Given monitor api requests
   Scenario: Redirect to france Homepage
     Given I go to "homepage"
-    Then I should be redirect to "france deprecated homepage"
+    Then I should be redirect to "france homepage"
   
   Scenario: Homepage has a title
     Given I go to "france homepage"
@@ -37,7 +37,7 @@ Feature: The Home Page
       | questionId          |                                                                     |
       | questionSlug        |                                                                     |
       | referrer            | http://localhost:9009/__/                                           |
-      | url                 | http://localhost:9009/beta/FR-fr/home                               |
+      | url                 | http://localhost:9009/FR-fr                                         |
     And some make data header should be sent to "postTracking":
       | name          | value                                       |
       | app-name      | main-front                                  |

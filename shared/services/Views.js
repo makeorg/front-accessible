@@ -1,37 +1,7 @@
 // @flow
-import {
-  type DeprecatedHomeType,
-  type HomeViewType,
-  type SearchViewsType,
-} from 'Shared/types/views';
+import { type HomeViewType, type SearchViewsType } from 'Shared/types/views';
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
-import { orderByEndDate } from 'Shared/helpers/date';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
-
-const getDeprecatedHome = async (): Promise<?DeprecatedHomeType> => {
-  try {
-    const viewsResponse = await ViewsApiService.getDeprecatedHome();
-    const {
-      currentConsultations,
-      popularProposals,
-      controverseProposals,
-      featuredConsultations,
-      businessConsultations,
-    } = viewsResponse.data;
-
-    return {
-      popularProposals,
-      controverseProposals,
-      featuredConsultations,
-      businessConsultations: businessConsultations.sort(orderByEndDate),
-      currentConsultations: currentConsultations.sort(orderByEndDate),
-    };
-  } catch (apiServiceError) {
-    defaultUnexpectedError(apiServiceError);
-
-    return null;
-  }
-};
 
 const getHome = async (
   country: string,
@@ -76,6 +46,5 @@ const searchViews = async (
 
 export const ViewsService = {
   searchViews,
-  getDeprecatedHome,
   getHome,
 };

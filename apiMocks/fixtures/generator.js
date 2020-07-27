@@ -247,27 +247,6 @@ const partners = generatePartners(5);
 const popularTags = generatePopularTags(4);
 const tags = generateTags(4);
 
-const generateDeprecatedHomeView = () => ({
-  ...defaultHomeView.deprecatedHome,
-  popularProposals: proposals.slice(0, 2),
-  controverseProposals: proposals.slice(3, 5),
-  featuredConsultations: defaultHomeView.deprecatedHome.featuredConsultations.map(
-    featured => ({
-      ...featured,
-      questionId: questions[0].questionId,
-      questionSlug: questions[0].slug,
-    })
-  ),
-  currentConsultations: defaultHomeView.deprecatedHome.currentConsultations.map(
-    current => ({
-      ...current,
-      questionId: questions[1].questionId,
-      questionSlug: questions[1].slug,
-    })
-  ),
-});
-const deprecatedHomeView = generateDeprecatedHomeView();
-
 const generateHomeView = () => {
   const startDate = `${today.getFullYear() - 2}-${month}-${day}T01:00:00.000Z`;
   return {
@@ -344,7 +323,6 @@ const fixtures = {
   popularTags,
   tags,
   vote: defaultVote,
-  deprecatedHomeView,
   homeView,
   organisations,
   qualifications: {
