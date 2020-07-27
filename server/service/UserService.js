@@ -1,6 +1,6 @@
 import { UserApiService } from 'Shared/api/UserApiService';
 import { defaultUnexpectedError } from 'Shared/services/DefaultErrorHandler';
-import { logger } from '../logger';
+import { logWarning } from '../ssr/helpers/ssr.helper';
 
 const verifyUser = async (
   userId: string,
@@ -22,7 +22,7 @@ const verifyUser = async (
   } catch (apiServiceError) {
     if ([400, 404].includes(apiServiceError.status)) {
       failure();
-      logger.warn(
+      logWarning(
         `Error in verifyUser for userId ->${userId}, verificationToken -> ${verificationToken} : ${
           apiServiceError.message
         }`
@@ -53,7 +53,7 @@ const resetPasswordTokenCheck = async (
   } catch (apiServiceError) {
     if ([400, 404].includes(apiServiceError.status)) {
       failure();
-      logger.warn(
+      logWarning(
         `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${
           apiServiceError.message
         }`

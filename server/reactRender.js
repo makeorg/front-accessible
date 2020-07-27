@@ -22,7 +22,7 @@ import { env } from 'Shared/env';
 import { TWTTR_SCRIPT } from 'Shared/services/Trackers/twttr';
 import configuration from './configuration';
 import { BUILD_DIR } from './paths';
-import { logger } from './logger';
+import { logInfo } from './ssr/helpers/ssr.helper';
 
 const parser = require('ua-parser-js');
 
@@ -114,17 +114,14 @@ export const reactRender = (req, res, routeState = {}) => {
     return res.status(404).end();
   }
   // add log here
-  logger.log(
-    'info',
-    JSON.stringify({
-      message: { name: 'app-served-from-server' },
-      url: req.originalUrl,
-      browser: ua.browser,
-      os: ua.os,
-      device: ua.device,
-      raw: ua.ua,
-    })
-  );
+  logInfo({
+    message: 'app-served-from-server',
+    url: req.originalUrl,
+    browser: ua.browser,
+    os: ua.os,
+    device: ua.device,
+    raw: ua.ua,
+  });
 
   return res.send(reactHtml);
 };

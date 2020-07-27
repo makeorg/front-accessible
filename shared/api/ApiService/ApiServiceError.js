@@ -1,0 +1,54 @@
+/* @flow */
+import { v4 as uuidv4 } from 'uuid';
+
+export class ApiServiceError extends Error {
+  message: string;
+
+  logId: string;
+
+  status: ?number;
+
+  data: ?Object;
+
+  logged: ?boolean;
+
+  url: ?string;
+
+  method: ?string;
+
+  clone = (message: string) => {
+    return new ApiServiceError(
+      message,
+      this.status,
+      this.data,
+      this.url,
+      this.method,
+      this.logId,
+      this.logged
+    );
+  };
+
+  constructor(
+    message: string,
+    status: ?number,
+    data: ?Object,
+    url: ?string,
+    method: ?string,
+    logId: ?string,
+    logged: ?boolean
+  ) {
+    super(message);
+    this.status = status;
+    this.data = data;
+    this.message = message;
+    this.url = url;
+    this.method = method;
+    this.logId = logId || uuidv4();
+    this.logged = logged || false;
+    this.name = 'api-service-error';
+
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, ApiServiceError);
+    }
+  }
+}

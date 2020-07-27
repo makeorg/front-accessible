@@ -1,6 +1,6 @@
 // @flow
 import { ViewsApiService } from 'Shared/api/ViewsApiService';
-import { logger } from '../logger';
+import { logError } from '../ssr/helpers/ssr.helper';
 
 const cache = require('memory-cache');
 
@@ -33,7 +33,14 @@ const getHome = async (
       notFound();
       return null;
     }
-    logger.log('error in server/service/ViewsService/getHome', apiServiceError);
+    logError(
+      apiServiceError.clone(
+        `error in server/service/ViewsService/getHome: ${
+          apiServiceError.message
+        }`
+      )
+    );
+
     unexpectedError();
 
     return null;

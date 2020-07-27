@@ -1,5 +1,5 @@
 import { QuestionApiService } from 'Shared/api/QuestionApiService';
-import { logger } from '../logger';
+import { logError } from '../ssr/helpers/ssr.helper';
 
 const cache = require('memory-cache');
 
@@ -37,10 +37,14 @@ const getQuestion = async (
       notFound();
       return null;
     }
-    logger.log(
-      'error in server/service/QuestionService/getQuestion',
-      apiServiceError
+    logError(
+      apiServiceError.clone(
+        `error in server/service/QuestionService/getQuestion: ${
+          apiServiceError.message
+        }`
+      )
     );
+
     unexpectedError();
 
     return null;

@@ -45,7 +45,11 @@ const updatePassword = async (
   } catch (apiServiceError) {
     if (apiServiceError.status === 400 && apiServiceError.data) {
       handleErrors(
-        getErrorMessages(updatePasswordErrors, apiServiceError.data)
+        getErrorMessages(
+          updatePasswordErrors,
+          apiServiceError.data,
+          apiServiceError.logId
+        )
       );
       return;
     }
@@ -119,9 +123,16 @@ const register = async (
     success();
   } catch (apiServiceError) {
     if (apiServiceError.status === 400) {
-      errors(getErrorMessages(registerErrors, apiServiceError.data));
+      errors(
+        getErrorMessages(
+          registerErrors,
+          apiServiceError.data,
+          apiServiceError.logId
+        )
+      );
       return;
     }
+
     defaultUnexpectedError(apiServiceError);
     unexpectedError();
   }
@@ -316,7 +327,13 @@ const update = async (
     success();
   } catch (apiServiceError) {
     if (apiServiceError.status === 400) {
-      handleErrors(getErrorMessages(updateUserErrors, apiServiceError.data));
+      handleErrors(
+        getErrorMessages(
+          updateUserErrors,
+          apiServiceError.data,
+          apiServiceError.logId
+        )
+      );
       return;
     }
 

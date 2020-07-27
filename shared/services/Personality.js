@@ -114,7 +114,11 @@ const update = async (
   } catch (apiServiceError) {
     if (apiServiceError.status === 400) {
       handleErrors(
-        getErrorMessages(updatePersonalityErrors, apiServiceError.data)
+        getErrorMessages(
+          updatePersonalityErrors,
+          apiServiceError.data,
+          apiServiceError.logId
+        )
       );
       return;
     }

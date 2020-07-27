@@ -10,7 +10,8 @@ import { i18n } from 'Shared/i18n';
  */
 export const mapErrors = (
   internalErrors: ErrorObjectType[],
-  apiErrors: ErrorObjectType[]
+  apiErrors: ErrorObjectType[],
+  logId: ?string
 ) => {
   const errors: ErrorObjectType[] = apiErrors.map(
     (apiError: ErrorObjectType) => {
@@ -30,11 +31,12 @@ export const mapErrors = (
         };
       }
 
-      Logger.logError(
-        `Unexpected error: "field": "${apiErrorField}", "key": "${
+      Logger.logError({
+        message: `Unexpected error: "field": "${apiErrorField}", "key": "${
           apiError.key
-        }", "message": "${apiError.message}"`
-      );
+        }", "message": "${apiError.message}"`,
+        logId,
+      });
 
       return {
         field: apiErrorField,

@@ -11,6 +11,7 @@ import {
 } from 'Shared/errors/Messages/User';
 import { defaultApiError } from 'Shared/errors/Messages';
 import { type ErrorObjectType } from 'Shared/types/api';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 
 jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/services/Logger');
@@ -94,7 +95,9 @@ describe('User Service', () => {
     it('return a bad request content', async done => {
       Logger.logError.mockClear();
       jest.spyOn(Logger, 'logError');
-      UserApiService.deleteAccount.mockRejectedValue({ status: 404 });
+      UserApiService.deleteAccount.mockRejectedValue(
+        new ApiServiceError('not found', 404)
+      );
 
       UserService.deleteAccount(
         'barUserId',
@@ -103,11 +106,14 @@ describe('User Service', () => {
         () => {},
         () => {}
       ).then(() => {
-        expect(Logger.logError).toHaveBeenNthCalledWith(1, { status: 404 });
         expect(Logger.logError).toHaveBeenNthCalledWith(
-          2,
-          'You should handle unexpected errors: {"status":404}'
+          1,
+          new ApiServiceError(
+            'You should handle unexpected errors (default handler): not found',
+            404
+          )
         );
+
         done();
       });
     });
@@ -154,20 +160,19 @@ describe('User Service', () => {
       Logger.logError.mockClear();
       jest.spyOn(Logger, 'logError');
 
-      UserApiService.forgotPassword.mockRejectedValue({
-        status: 500,
-        data: defaultApiError,
-      });
+      UserApiService.forgotPassword.mockRejectedValue(
+        new ApiServiceError('server error', 500, defaultApiError)
+      );
 
       UserService.forgotPassword('foo2@example.com', () => {}, () => {}).then(
         () => {
-          expect(Logger.logError).toHaveBeenNthCalledWith(1, {
-            status: 500,
-            data: defaultApiError,
-          });
           expect(Logger.logError).toHaveBeenNthCalledWith(
-            2,
-            'You should handle unexpected errors: {"status":500,"data":{"field":"global","key":"api_error","message":{"key":null,"ref":null,"props":{},"_owner":null,"_store":{}}}}'
+            1,
+            new ApiServiceError(
+              'You should handle unexpected errors (default handler): server error',
+              500,
+              defaultApiError
+            )
           );
           done();
         }
@@ -282,13 +287,18 @@ describe('User Service', () => {
     jest.spyOn(Logger, 'logError');
     Logger.logError.mockClear();
 
-    UserApiService.current.mockRejectedValue({ status: 500 });
+    UserApiService.current.mockRejectedValue(
+      new ApiServiceError('server error', 500)
+    );
 
     UserService.current().then(response => {
       expect(UserApiService.current).toHaveBeenCalled();
       expect(response).toEqual(null);
       expect(Logger.logError).toHaveBeenCalledWith(
-        'You should handle unexpected errors: {"status":500}'
+        new ApiServiceError(
+          'You should handle unexpected errors (default handler): server error',
+          500
+        )
       );
       done();
     });

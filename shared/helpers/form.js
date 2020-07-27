@@ -56,14 +56,18 @@ export const getFieldError = (
 
 export const getErrorMessages = (
   internalErrors: ErrorObjectType[],
-  serviceErrors: any
+  serviceErrors: any,
+  logId: ?string
 ) => {
   switch (true) {
     case !Array.isArray(serviceErrors):
-      Logger.logError(`Unexpected error (array expected): ${serviceErrors}`);
+      Logger.logError({
+        message: `Unexpected error (array expected): ${serviceErrors}`,
+        logId,
+      });
       return Array(defaultApiError);
     default:
-      return mapErrors(internalErrors, serviceErrors);
+      return mapErrors(internalErrors, serviceErrors, logId);
   }
 };
 

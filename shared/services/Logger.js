@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { env } from 'Shared/env';
 import { NODE_API_BASE } from 'Shared/api/ApiService/configuration';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
+import { v4 as uuidv4 } from 'uuid';
 
 const LOG_INFO = 'info';
 const LOG_WARNING = 'warn';
@@ -17,25 +19,70 @@ class LoggerSingleton {
     return instance;
   }
 
-  logError = error => {
-    let data = {};
-    if (error instanceof Error) {
-      data = {
-        message: error.message,
-        name: error.name,
-        fileName: error.fileName,
-        lineNumber: error.lineNumber,
-        columnNumber: error.columnNumber,
-        stack: error.stack,
-      };
-    } else {
-      data = {
-        message: error,
+  formatApiServiceError = (error: ApiServiceError) => {
+    return {
+      message: error.message,
+      name: error.name,
+      fileName: error.fileName,
+      lineNumber: error.lineNumber,
+      columnNumber: error.columnNumber,
+      stack: error.stack,
+      status: error.status,
+      responseData: error.data,
+      url: error.url,
+      method: error.method,
+      logId: error.logId,
+    };
+  };
+
+  formatError = (error: Error) => {
+    return {
+      message: error.message,
+      name: error.name,
+      fileName: error.fileName,
+      lineNumber: error.lineNumber,
+      columnNumber: error.columnNumber,
+      stack: error.stack,
+      logId: uuidv4(),
+    };
+  };
+
+  normalizeData = data => {
+    if (data instanceof ApiServiceError) {
+      return this.formatApiServiceError(data);
+    }
+    if (data instanceof Error) {
+      return this.formatError(data);
+    }
+    if (typeof data === 'string') {
+      return {
+        message: data,
         stack: 'no-stack',
+        logId: uuidv4(),
+      };
+    }
+    if (typeof data === 'object') {
+      return {
+        ...data,
+        logId: data.logId || uuidv4(),
       };
     }
 
-    this.log(data, LOG_ERROR);
+    try {
+      return {
+        message: JSON.stringify(data),
+        logId: uuidv4(),
+      };
+    } catch (e) {
+      return {
+        message: e.message,
+        logId: uuidv4(),
+      };
+    }
+  };
+
+  logError = error => {
+    this.log(error, LOG_ERROR);
   };
 
   logInfo = data => {
@@ -60,13 +107,13 @@ class LoggerSingleton {
       },
       data: {
         level: level || 'error',
-        data,
+        data: this.normalizeData(data),
       },
     })
       .then(() => {})
       .catch(e => {
         // eslint-disable-next-line no-console
-        console.log('Error on logger', e);
+        console.log('Fail to log error - ', e);
       });
   };
 }

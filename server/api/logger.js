@@ -7,16 +7,13 @@ export function loggerApi(req, res) {
   const { level, data } = req.body;
   const normalizedData = typeof data === 'string' ? { message: data } : data;
 
-  logger.log(
-    level,
-    JSON.stringify({
-      ...normalizedData,
-      browser: ua.browser,
-      os: ua.os,
-      device: ua.device,
-      raw: ua.ua,
-    })
-  );
+  logger.log(level, {
+    ...normalizedData,
+    browser: ua.browser,
+    os: ua.os,
+    device: ua.device,
+    raw: ua.ua,
+  });
 
   return res.sendStatus(204);
 }

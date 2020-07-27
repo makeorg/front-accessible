@@ -9,6 +9,7 @@ import {
 } from 'Shared/api/ProposalApiService';
 import { Logger } from 'Shared/services/Logger';
 import { ProposalService } from 'Shared/services/Proposal';
+import { ApiServiceError } from 'Shared/api/ApiService/ApiServiceError';
 import * as ProposalHelper from './proposal';
 
 jest.mock('Shared/api/ProposalApiService');
@@ -145,7 +146,9 @@ describe('Proposal Helper', () => {
     });
 
     it('return an empty Array and call Logger when api fail', async () => {
-      ProposalApiService.searchProposals.mockRejectedValue(Error('Api error'));
+      ProposalApiService.searchProposals.mockRejectedValue(
+        new ApiServiceError('Api error')
+      );
 
       const repsonse = await ProposalHelper.searchTaggedProposals(
         'FR',
@@ -154,7 +157,11 @@ describe('Proposal Helper', () => {
         ['foo', 'bar']
       );
 
-      expect(Logger.logError).toHaveBeenCalledWith(Error('Api error'));
+      expect(Logger.logError).toHaveBeenCalledWith(
+        new ApiServiceError(
+          'You should handle unexpected errors (default handler): Api error'
+        )
+      );
 
       expect(repsonse).toEqual(null);
     });
