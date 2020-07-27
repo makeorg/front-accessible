@@ -4,7 +4,7 @@ import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
 import { type HomeHighlightsType } from 'Shared/types/views';
 import { useSelector } from 'react-redux';
-import { formatNumberByLocalisation } from 'Shared/helpers/numberFormatter';
+import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import {
   HomepageSectionStyle,
   HomepageSectionTitleStyle,
@@ -40,7 +40,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
         <HighlightFigureContainerStyle as="li">
           <PeopleIconStyle aria-hidden />
           <FiguresStyle>
-            {formatNumberByLocalisation(participantsCount, country, language)}
+            {formatMillionToText(participantsCount, country, language)}
           </FiguresStyle>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.participants.subtitle')}
@@ -50,7 +50,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
         <HighlightFigureContainerStyle as="li">
           <LigthIconStyle aria-hidden />
           <FiguresStyle>
-            {formatNumberByLocalisation(proposalsCount, country, language)}
+            {formatMillionToText(proposalsCount, country, language)}
           </FiguresStyle>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.proposals.subtitle')}
@@ -60,7 +60,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
         <HighlightFigureContainerStyle as="li">
           <HeartIconStyle aria-hidden />
           <FiguresStyle>
-            {formatNumberByLocalisation(partnersCount, country, language)}
+            {formatMillionToText(partnersCount, country, language)}
           </FiguresStyle>
           <SubtitleFiguresStyle>
             {i18n.t('homepage.highlights.partners.subtitle')}

@@ -61,3 +61,4 @@ export { SvgBigArrowRight } from './BigArrowRight';
 export { SvgNextArrow } from './NextArrow';
 export { SvgPreviousArrow } from './PreviousArrow';
 export { SvgExternalLinkPlain } from './ExternalLinkPlain';
+export { SvgFist } from './Fist';
