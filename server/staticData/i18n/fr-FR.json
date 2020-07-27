@@ -59,6 +59,16 @@
       "consultations_plural": "Recherche - {{count}} consultations pour « {{term}} »",
       "organisations": "Recherche - {{count}} organisations pour « {{term}} »",
       "organisations_plural": "Recherche - {{count}} organisations pour « {{term}} »"
+    },
+    "browse": {
+      "consultations": {
+        "title" : "Participez aux consultations avec Make.org",
+        "description": "Proposez, votez, agissons : ensemble, trouvons des solutions aux grandes problématiques actuelles. Les plus soutenues seront mises en action par Make.org et ses partenaires."
+      },
+      "results": {
+        "title" : "Résultats des consultations avec Make.org",
+        "description" : "Découvrez les résultats de nos consultations ainsi que les actions mises en place par Make.org et ses partenaires."
+      }
     }
   },
   "common": {

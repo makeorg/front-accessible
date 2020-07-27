@@ -12,39 +12,35 @@ const getLimitAndSkip = (questions, req) => {
 
 questionsRouter.get('/', (req, res) => {
   const { status } = req.query;
-  const allHomepageQuestions = fixtures.openedHomepageQuestions
-    .concat(fixtures.finishedHomepageQuestions)
-    .concat(fixtures.upcomingHomepageQuestions);
-
-  let questions = getLimitAndSkip(allHomepageQuestions, req);
 
   if (status === 'open') {
-    questions = getLimitAndSkip(fixtures.openedHomepageQuestions, req);
     return res.send({
-      total: questions.length,
-      results: questions,
+      total: fixtures.openedHomepageQuestions.length,
+      results: getLimitAndSkip(fixtures.openedHomepageQuestions, req),
     });
   }
 
   if (status === 'finished') {
-    questions = getLimitAndSkip(fixtures.finishedHomepageQuestions, req);
     return res.send({
-      total: questions.length,
-      results: questions,
+      total: fixtures.finishedHomepageQuestions.length,
+      results: getLimitAndSkip(fixtures.finishedHomepageQuestions, req),
     });
   }
 
   if (status === 'upcoming') {
-    questions = getLimitAndSkip(fixtures.upcomingHomepageQuestions, req);
     return res.send({
-      total: questions.length,
-      results: questions,
+      total: fixtures.upcomingHomepageQuestions.length,
+      results: getLimitAndSkip(fixtures.upcomingHomepageQuestions, req),
     });
   }
 
+  const allHomepageQuestions = fixtures.openedHomepageQuestions
+    .concat(fixtures.finishedHomepageQuestions)
+    .concat(fixtures.upcomingHomepageQuestions);
+
   return res.send({
-    total: questions.length,
-    results: questions,
+    total: allHomepageQuestions.length,
+    results: getLimitAndSkip(allHomepageQuestions, req),
   });
 });
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { getPaginatedRoute } from 'Shared/routes';
 import { scrollToTop } from 'Shared/helpers/styled';
+import { trackClickPageNumber } from 'Shared/services/Tracking';
 import { useHistory, useParams, useRouteMatch } from 'react-router';
 import {
   PaginationNavStyle,
@@ -26,7 +27,7 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
   const pagesTotal = Math.ceil(itemsTotal / itemsPerPage);
 
   const incrementPagination = () => {
-    // add tracking
+    trackClickPageNumber(intPageId);
     scrollToTop();
     return history.push(
       getPaginatedRoute(match.path, country, language, intPageId + 1)
@@ -34,7 +35,7 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
   };
 
   const decrementPagination = () => {
-    // add tracking
+    trackClickPageNumber(intPageId);
     scrollToTop();
     return history.push(
       getPaginatedRoute(match.path, country, language, intPageId - 1)
@@ -42,12 +43,16 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
   };
 
   return (
-    <PaginationNavStyle aria-label={i18n.t('common.pagination.title')}>
+    <PaginationNavStyle
+      aria-label={i18n.t('common.pagination.title')}
+      data-cy-container="pagination"
+    >
       <PaginationButtonStyle
         type="button"
         aria-label={i18n.t('common.pagination.previous')}
         onClick={decrementPagination}
         disabled={intPageId === 1}
+        data-cy-button="pagination-previous"
       >
         <PreviousArrowStyle aria-hidden />
       </PaginationButtonStyle>
@@ -62,6 +67,7 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
         aria-label={i18n.t('common.pagination.next')}
         onClick={incrementPagination}
         disabled={intPageId === pagesTotal}
+        data-cy-button="pagination-next"
       >
         <NextArrowStyle aria-hidden />
       </PaginationButtonStyle>

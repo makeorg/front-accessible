@@ -501,5 +501,64 @@ export const trackDownloadReport = (extension: string) => {
   });
 };
 
+/** Beta Home and Browse */
+export const trackDisplayBrowseConsultations = () => {
+  TrackingService.sendAllTrackers(
+    trackingConstants.DISPLAY_BROWSE_CONSULTATIONS
+  );
+};
+
+export const trackDisplayBrowseResults = () => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_BROWSE_RESULTS);
+};
+
+export const trackClickHomepageParticipate = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_HOMEPAGE_PARTICIPATE);
+};
+
+export const trackClickHomepageDiscover = () => {
+  TrackingService.sendAllTrackers(
+    trackingConstants.CLICK_HOMEPAGE_GREAT_CAUSES
+  );
+};
+
+export const trackClickBrowseConsultations = () => {
+  TrackingService.sendAllTrackers(
+    trackingConstants.CLICK_HOMEPAGE_BROWSE_CONSULTATIONS
+  );
+};
+
+export const trackClickBrowseResults = () => {
+  TrackingService.sendAllTrackers(
+    trackingConstants.CLICK_HOMEPAGE_BROWSE_RESULTS
+  );
+};
+
+export const trackClickBlog = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_HOMEPAGE_BLOG);
+};
+
+export const trackClickParticipate = (questionId: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_BROWSE_PARTICIPATE, {
+    'question-Id': questionId.toString(),
+  });
+};
+
+export const trackClickPageNumber = (pageNumber: number) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_PAGINATION, {
+    'page-number': pageNumber.toString(),
+  });
+};
+
+export const trackClickResults = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_RESULTS);
+};
+
+export const trackClickSubscribe = (componentName: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_SUBSCRIBE, {
+    component: componentName,
+  });
+};
+
 /* eslint-disable import/no-default-export */
 export default TrackingService;

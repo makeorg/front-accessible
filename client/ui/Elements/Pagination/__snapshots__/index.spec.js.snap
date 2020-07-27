@@ -64,10 +64,12 @@ exports[`Pagination snapshot by default 1`] = `
 <nav
   aria-label="common.pagination.title"
   className="c0"
+  data-cy-container="pagination"
 >
   <button
     aria-label="common.pagination.previous"
     className="c1"
+    data-cy-button="pagination-previous"
     disabled={false}
     onClick={[Function]}
     type="button"
@@ -93,6 +95,7 @@ exports[`Pagination snapshot by default 1`] = `
   <button
     aria-label="common.pagination.next"
     className="c1"
+    data-cy-button="pagination-next"
     disabled={false}
     onClick={[Function]}
     type="button"

@@ -41,6 +41,17 @@ import TrackingService, {
   trackDisplayProposalSubmitValidation,
   trackClickStartSequence,
   trackPerformance,
+  trackDisplayBrowseConsultations,
+  trackDisplayBrowseResults,
+  trackClickHomepageParticipate,
+  trackClickHomepageDiscover,
+  trackClickBrowseConsultations,
+  trackClickBrowseResults,
+  trackClickBlog,
+  trackClickParticipate,
+  trackClickPageNumber,
+  trackClickResults,
+  trackClickSubscribe,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -742,6 +753,143 @@ describe('Tracking Service', () => {
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
       ...eventParameters,
       component: trackingConstants.COMPONENT_PARAM_CURRENT_OPERATIONS,
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Display Browse Consultations', () => {
+    const eventName = trackingConstants.DISPLAY_BROWSE_CONSULTATIONS;
+    trackDisplayBrowseConsultations();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Display Browse Results', () => {
+    const eventName = trackingConstants.DISPLAY_BROWSE_RESULTS;
+    trackDisplayBrowseResults();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Homepage Participate consultations', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_PARTICIPATE;
+    trackClickHomepageParticipate();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Homepage Discover great causes', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_GREAT_CAUSES;
+    trackClickHomepageDiscover();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Homepage Browse Consultations', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_BROWSE_CONSULTATIONS;
+    trackClickBrowseConsultations();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Homepage Browse Results', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_BROWSE_RESULTS;
+    trackClickBrowseResults();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Homepage Blog', () => {
+    const eventName = trackingConstants.CLICK_HOMEPAGE_BLOG;
+    trackClickBlog();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click participate consultations', () => {
+    const eventName = trackingConstants.CLICK_BROWSE_PARTICIPATE;
+
+    trackClickParticipate(999);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      'question-Id': '999',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      'question-Id': '999',
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click page number', () => {
+    const eventName = trackingConstants.CLICK_PAGINATION;
+
+    trackClickPageNumber(9);
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      'page-number': '9',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      'page-number': '9',
+    });
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click see results', () => {
+    const eventName = trackingConstants.CLICK_RESULTS;
+    trackClickResults();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click susbscribe', () => {
+    const eventName = trackingConstants.CLICK_SUBSCRIBE;
+    trackClickSubscribe('foo');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      component: 'foo',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      component: 'foo',
     });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });

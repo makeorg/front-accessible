@@ -8,7 +8,10 @@ export const pages = {
   'general terms of use': '/FR-fr/conditions-dutilisation',
   'data policy': '/FR-fr/politique-donnees',
   'about': 'https://about.make.org',
-  'results': '/FR-fr/consultation/:questionSlug/results'
+  'results': '/FR-fr/consultation/:questionSlug/results',
+  'browse consultations' : '/FR-fr/browse/consultations/page/1',
+  'browse results' : '/FR-fr/browse/results/page/1',
+  'browse results second page' : '/FR-fr/browse/results/page/2',
 };
 
 // helpers
@@ -35,11 +38,14 @@ When('I focus {string} field', (fieldName) => {
 });
 
 When('I click on {string} link', link => {
-  cy.get(`[data-cy-link=${link}]`).click()
+  cy.get(`[data-cy-link=${link}]`)
+    //@todo: change this line to not force click on hidden elements
+    .click({force:true}) 
 });
 
 When('I click on {string} button', buttonName => {
-  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).click()
+  //@todo: wait is necessary to allow page scrolling. See if it can be replaced by something else
+  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).wait(1000).click()
 });
 
 then('I see the {string} page', (targetPage) => {

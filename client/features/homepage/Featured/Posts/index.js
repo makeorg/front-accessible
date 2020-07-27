@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { type HomePostType } from 'Shared/types/views';
+import { trackClickBlog } from 'Shared/services/Tracking';
 import {
   ConsultationsListStyle,
   ConsultationsListItemStyle,
@@ -57,6 +58,8 @@ export const FeaturedPosts = ({ posts }: Props) => {
         href={ABOUT_MAKE_LINK}
         target="_blank"
         rel="noreferrer noopener"
+        onClick={() => trackClickBlog()}
+        data-cy-link="see-blog"
       >
         {i18n.t('homepage.posts.see_all')}
         <FeaturedIconStyle aria-label={i18n.t('common.open_new_window')} />

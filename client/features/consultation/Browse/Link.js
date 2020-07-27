@@ -10,6 +10,10 @@ import {
 } from 'Shared/helpers/url';
 import { scrollToTop } from 'Shared/helpers/styled';
 import { isInProgress } from 'Shared/helpers/date';
+import {
+  trackClickResults,
+  trackClickParticipate,
+} from 'Shared/services/Tracking';
 import { ConsultationRedLinkElementStyle } from './style';
 
 type Props = {
@@ -27,12 +31,22 @@ export const ConsultationLink = ({ question, label }: Props) => {
   const internalResultLink =
     resultsLink && resultsLink.kind === 'internal' && resultsLink.value;
 
+  const handleClick = () => {
+    if (!openedConsultation) {
+      trackClickResults();
+    } else {
+      trackClickParticipate(question.questionId);
+    }
+    scrollToTop();
+  };
+
   if (openedConsultation) {
     return (
       <ConsultationRedLinkElementStyle
         as={Link}
         to={consultationPath}
-        onClick={scrollToTop}
+        onClick={handleClick}
+        data-cy-link={`item-link-${question.questionId}`}
       >
         {label}
       </ConsultationRedLinkElementStyle>
@@ -47,6 +61,8 @@ export const ConsultationLink = ({ question, label }: Props) => {
         href={externalResultLink ? resultsLink.value : aboutUrl}
         target="_blank"
         rel="noreferrer noopener"
+        onClick={handleClick}
+        data-cy-link={`item-link-${question.questionId}`}
       >
         {label}
         <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />
@@ -67,7 +83,8 @@ export const ConsultationLink = ({ question, label }: Props) => {
             )
           : consultationPath
       }
-      onClick={scrollToTop}
+      onClick={handleClick}
+      data-cy-link={`item-link-${question.questionId}`}
     >
       {label}
     </ConsultationRedLinkElementStyle>
