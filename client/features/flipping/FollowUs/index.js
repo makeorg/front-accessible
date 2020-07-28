@@ -16,10 +16,7 @@ import {
   facebookMakeUrl,
   linkedinMakeUrl,
 } from 'Shared/helpers/social';
-import {
-  trackClickFollowUs,
-  trackClickViewBlog,
-} from 'Shared/services/Tracking';
+import { trackClickFollowUs, trackClickBlog } from 'Shared/services/Tracking';
 import { TileWithTitle } from 'Client/ui/Elements/TileWithTitle';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import {
@@ -119,7 +116,7 @@ export const FollowUs = ({ question }: Props) => {
         target="_blank"
         rel="noreferrer noopener"
         href={ABOUT_MAKE_LINK}
-        onClick={trackClickViewBlog}
+        onClick={trackClickBlog}
       >
         {i18n.t('consultation.followus.discover')}
         <NewWindowIconStyle aria-label={i18n.t('common.open_new_window')} />

@@ -7,3 +7,4 @@ export const MODERATION_CHARTER_EN_LINK =
 export const ABOUT_MAKE_LINK = 'https://about.make.org/';
 export const DOTATION_FUNDS_LINK = 'https://foundation.make.org';
 export const NEWS_LINK = 'https://about.make.org';
+export const PRESS_DETAILS = 'https://about.make.org/les-medias-en-parlent';

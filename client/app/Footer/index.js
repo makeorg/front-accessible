@@ -1,21 +1,17 @@
 // @flow
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type StateRoot } from 'Shared/store/types';
+import { trackClickBlog } from 'Shared/services/Tracking';
 import { useDesktop } from 'Client/hooks/useMedia';
-import Logo from 'Client/app/assets/images/logo.svg';
-import {
-  trackClickMakeLogo,
-  trackClickViewBlog,
-} from 'Shared/services/Tracking';
 import {
   JOBS_LINK,
   WHOAREWE_FR_LINK,
   WHOAREWE_EN_LINK,
   NEWS_LINK,
   DOTATION_FUNDS_LINK,
+  PRESS_DETAILS,
 } from 'Shared/constants/url';
 import {
   getLegalPageLink,
@@ -25,106 +21,136 @@ import {
 } from 'Shared/helpers/url';
 import { scrollToTop } from 'Shared/helpers/styled';
 import {
+  FooterSeparationLineStyle,
   FooterStyle,
   FooterNavStyle,
-  FooterLogoStyle,
   FooterItemStyle,
   FooterItemListStyle,
   FooterItemLinkStyle,
   FooterItemHTMLLinkStyle,
+  FooterSeparationDotStyle,
+  FooterLinkIconStyle,
 } from './style';
 
 /**
  * Renders Main Footer
  */
 export const Footer = () => {
+  const isDesktop = useDesktop();
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const isDesktop = useDesktop();
   const isFR = country === 'FR';
-  const scrollTopAndTrack = () => {
-    scrollToTop();
-    trackClickMakeLogo();
-  };
 
   return (
-    <FooterStyle id="main_footer">
-      <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
-        <Link onClick={scrollTopAndTrack} to="/">
-          <FooterLogoStyle src={Logo} alt={i18n.t('header.logo_alt')} />
-        </Link>
-        <FooterItemListStyle>
-          {isFR && (
-            <FooterItemStyle>
-              <FooterItemHTMLLinkStyle href={JOBS_LINK} to={JOBS_LINK}>
-                {i18n.t('main-footer.jobs')}
-              </FooterItemHTMLLinkStyle>
-            </FooterItemStyle>
-          )}
-          {!isDesktop && (
+    <>
+      <FooterStyle id="main_footer">
+        <FooterSeparationLineStyle />
+        <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
+          <FooterItemListStyle>
             <FooterItemStyle>
               <FooterItemHTMLLinkStyle
+                target="_blank"
                 href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
               >
                 {i18n.t('main-footer.whoarewe')}
+                <FooterLinkIconStyle aria-hidden />
               </FooterItemHTMLLinkStyle>
             </FooterItemStyle>
-          )}
-          {isFR && (
-            <>
-              <FooterItemStyle>
-                <FooterItemHTMLLinkStyle
-                  href={NEWS_LINK}
-                  onClick={trackClickViewBlog}
-                >
-                  {i18n.t('main-footer.news')}
-                </FooterItemHTMLLinkStyle>
-              </FooterItemStyle>
-              <FooterItemStyle>
-                <FooterItemHTMLLinkStyle href={DOTATION_FUNDS_LINK}>
-                  {i18n.t('main-footer.dotation_funds')}
-                </FooterItemHTMLLinkStyle>
-              </FooterItemStyle>
-            </>
-          )}
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              onClick={scrollToTop}
-              to={getLegalPageLink(country, language)}
-            >
-              {i18n.t('main-footer.legal')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              onClick={scrollToTop}
-              to={getGTUPageLink(country, language)}
-            >
-              {i18n.t('main-footer.terms')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              onClick={scrollToTop}
-              to={getDataPageLink(country, language)}
-            >
-              {i18n.t('main-footer.data')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              onClick={scrollToTop}
-              to={getContactPageLink(country, language)}
-            >
-              {i18n.t('main-footer.contact')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-        </FooterItemListStyle>
-      </FooterNavStyle>
-    </FooterStyle>
+            <FooterSeparationDotStyle />
+            {isDesktop && (
+              <>
+                <FooterItemStyle>
+                  <FooterItemHTMLLinkStyle
+                    target="_blank"
+                    href={NEWS_LINK}
+                    onClick={trackClickBlog}
+                  >
+                    {i18n.t('main-footer.news')}
+                    <FooterLinkIconStyle aria-hidden />
+                  </FooterItemHTMLLinkStyle>
+                </FooterItemStyle>
+                <FooterSeparationDotStyle />
+              </>
+            )}
+            {isFR && (
+              <>
+                {isDesktop && (
+                  <>
+                    <FooterItemStyle>
+                      <FooterItemHTMLLinkStyle
+                        target="_blank"
+                        href={JOBS_LINK}
+                        to={JOBS_LINK}
+                      >
+                        {i18n.t('main-footer.jobs')}
+                      </FooterItemHTMLLinkStyle>
+                      <FooterLinkIconStyle aria-hidden />
+                    </FooterItemStyle>
+                    <FooterSeparationDotStyle />
+                  </>
+                )}
+                <FooterItemStyle>
+                  <FooterItemHTMLLinkStyle target="_blank" href={PRESS_DETAILS}>
+                    {i18n.t('main-footer.press_details')}
+                  </FooterItemHTMLLinkStyle>
+                  <FooterLinkIconStyle aria-hidden />
+                </FooterItemStyle>
+                <FooterSeparationDotStyle />
+              </>
+            )}
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                onClick={scrollToTop}
+                to={getContactPageLink(country, language)}
+              >
+                {i18n.t('main-footer.contact_us')}
+              </FooterItemLinkStyle>
+            </FooterItemStyle>
+            <FooterSeparationDotStyle />
+            {isFR && (
+              <>
+                <FooterItemStyle>
+                  <FooterItemHTMLLinkStyle
+                    target="_blank"
+                    href={DOTATION_FUNDS_LINK}
+                  >
+                    {i18n.t('main-footer.dotation_funds')}
+                    <FooterLinkIconStyle aria-hidden />
+                  </FooterItemHTMLLinkStyle>
+                </FooterItemStyle>
+                <FooterSeparationDotStyle />
+              </>
+            )}
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                onClick={scrollToTop}
+                to={getLegalPageLink(country, language)}
+              >
+                {i18n.t('main-footer.legal')}
+              </FooterItemLinkStyle>
+            </FooterItemStyle>
+            <FooterSeparationDotStyle />
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                onClick={scrollToTop}
+                to={getGTUPageLink(country, language)}
+              >
+                {i18n.t('main-footer.terms')}
+              </FooterItemLinkStyle>
+            </FooterItemStyle>
+            <FooterSeparationDotStyle />
+            <FooterItemStyle>
+              <FooterItemLinkStyle
+                onClick={scrollToTop}
+                to={getDataPageLink(country, language)}
+              >
+                {i18n.t('main-footer.data')}
+              </FooterItemLinkStyle>
+            </FooterItemStyle>
+          </FooterItemListStyle>
+        </FooterNavStyle>
+      </FooterStyle>
+    </>
   );
 };
