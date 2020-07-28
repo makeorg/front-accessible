@@ -404,13 +404,15 @@
   },
   "main-footer": {
     "jobs": "Jobs",
-    "whoarewe": "Qui sommes-nous ?",
+    "whoarewe": "Notre approche",
     "legal": "Mentions légales",
-    "terms": "Conditions d'utilisation",
-    "data": "Politique d'utilisation des données",
-    "contact": "Contact",
+    "terms": "Conditions générales d'utilisation",
+    "data": "Politique de données",
+    "contact_us": "Contactez nous",
     "news": "Notre actualité",
-    "dotation_funds": "Fonds de dotation"
+    "dotation_funds": "Fonds de dotation Make.org",
+    "moderation_charter": "Charte de modération",
+    "press_details": "Espace presse"
   },
   "cookie_alert": {
     "text": "En poursuivant votre navigation vous consentez à nos {{gtu_link}}, à notre {{policy_link}}, ainsi qu'à l'utilisation de cookies sur notre site dans un but d'améliorer notre service.",

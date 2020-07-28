@@ -1,72 +1,66 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
+import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import {
-  Breakpoints,
   Layouts,
   DefaultPadding,
+  Breakpoints,
 } from 'Client/app/assets/vars/Breakpoints';
-import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { Image } from 'Client/ui/Image';
 
-export const FooterStyle = styled.footer`
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0;
-  background-color: ${BasicColors.PureWhite};
-  box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  padding: ${intToPx(DefaultPadding.Mobile)};
+export const FooterSeparationLineStyle = styled.hr`
+  margin: 0 auto;
+  padding: 0 ${intToPx(DefaultPadding.Mobile)};
+  width: 100%;
+  max-width: ${intToPx(Layouts.ContainerWidth)};
+  height: 1px;
+  border-color: ${BorderColors.LightGrey};
 `;
 
-export const FooterLogoStyle = styled(Image)`
-  max-width: 50px;
-  height: 100%;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    max-width: 60px;
-  }
+export const FooterStyle = styled.footer`
+  padding: 0 20px 20px;
+  background-color: ${BasicColors.PureWhite};
 `;
 
 export const FooterNavStyle = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
+  margin: 30px auto;
   max-width: ${intToPx(Layouts.ContainerWidth)};
 `;
 
-export const FooterItemListStyle = styled(UnstyledListStyle)`
-  display: flex;
-  flex-flow: column;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    flex-flow: row;
-  }
-`;
-
 export const FooterItemStyle = styled.li`
-  text-align: right;
-  margin: 7px 0;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: 0 0 0 30px;
-    &:first-child {
-      margin: 0;
-    }
+  display: inline-block;
+  &:after {
+    content: '.';
+    position: relative;
+    bottom: 3px;
+    margin: 0 5px;
+  }
+  &:last-child :after {
+    display: none;
   }
 `;
 
 export const FooterItemLinkStyle = styled(Link)`
-  font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  text-decoration: none;
-  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: bottom;
+  font-family: ${MakeFonts.CircularStandardBook};
+  text-decoration: underline;
   font-size: 14px;
-  line-height: 1.43;
+  line-height: 24px;
 `;
 
-export const FooterItemHTMLLinkStyle = styled.a`
-  font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 1.43;
+export const FooterLinkIconStyle = styled(SvgExternalLink)`
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  .tofill {
+    fill: ${BasicColors.PureBlack};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: 14px;
+    height: 14px;
+  }
 `;

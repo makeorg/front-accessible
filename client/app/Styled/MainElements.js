@@ -25,12 +25,14 @@ export const AppWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const AppMainContentStyle = styled.main`
+  background-color: ${BasicColors.PureWhite};
   position: relative;
   display: flex;
   flex-flow: column;
   flex: 1 1 auto;
   z-index: 1;
   margin: 5px 0;
+  margin-bottom: 0px;
 `;
 
 export const PageWrapperStyle = styled(CenterColumnStyle)`
