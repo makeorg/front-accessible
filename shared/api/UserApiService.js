@@ -124,7 +124,14 @@ export class UserApiService {
    * @return {Promise}
    */
   static register(user: Object): Promise<any> {
-    const { age, firstname, postalcode, profession } = user.profile;
+    const {
+      age,
+      firstname,
+      postalcode,
+      profession,
+      legalMinorConsent,
+      legalAdvisorApproval,
+    } = user.profile;
     const { email, password } = user;
 
     const dateOfBirth = getDateOfBirthFromAge(age);
@@ -140,6 +147,8 @@ export class UserApiService {
         country: ApiService.country,
         language: ApiService.language,
         questionId: ApiService.questionId,
+        legalMinorConsent,
+        legalAdvisorApproval,
       }),
     });
   }

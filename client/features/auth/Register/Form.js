@@ -1,18 +1,10 @@
 // @flow
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type RegisterFormDataType } from 'Shared/types/form';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
-import { UserService } from 'Shared/services/User';
-import { Logger } from 'Shared/services/Logger';
-import { getUser } from 'Shared/store/actions/authentication';
-import { modalClose } from 'Shared/store/actions/modal';
-import {
-  trackSignupEmailSuccess,
-  trackSignupEmailFailure,
-} from 'Shared/services/Tracking';
 import {
   FormStyle,
   ConditionParagraphStyle,
@@ -38,85 +30,26 @@ import { FormErrors } from 'Client/ui/Elements/Form/Errors';
 import { CustomPatternInput } from 'Client/ui/Elements/Form/CustomPatternInput';
 import { getGTUPageLink } from 'Shared/helpers/url';
 
+type Props = {
+  user: RegisterFormDataType,
+  errors: ErrorObjectType[],
+  handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => any,
+  handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => any,
+  disableSubmit: boolean,
+};
 /**
  * Renders Register Form
  */
-export const RegisterForm = () => {
-  const dispatch = useDispatch();
+export const RegisterForm = ({
+  user,
+  errors,
+  handleChange,
+  handleSubmit,
+  disableSubmit,
+}: Props) => {
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const [user, setUser] = useState<RegisterFormDataType>({
-    email: '',
-    password: '',
-    profile: {
-      firstname: '',
-      age: '',
-      postalcode: '',
-      profession: '',
-    },
-  });
-  const [errors, setErrors] = useState<ErrorObjectType[]>([]);
-  const [inProgress, setInProgress] = useState<boolean>(false);
-
-  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
-    if (id.includes('profile.')) {
-      const [, name] = id.split('.');
-      setUser({
-        ...user,
-        profile: {
-          ...user.profile,
-          [name]: value,
-        },
-      });
-
-      return;
-    }
-
-    setUser({
-      ...user,
-      [id]: value,
-    });
-  };
-
-  const logAndLoadUser = async (email, password) => {
-    const success = () => dispatch(getUser(true));
-    const handleErrors = () => {};
-    const unexpectedError = () => {
-      dispatch(modalClose());
-      // @toDo: notify user
-      Logger.logError(`Login fail for ${email}`);
-    };
-    await UserService.login(
-      email,
-      password,
-      success,
-      handleErrors,
-      unexpectedError
-    );
-  };
-
-  const handleSubmit = async (event: SyntheticInputEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    const success = () => {
-      logAndLoadUser(user.email, user.password).then(() => {
-        trackSignupEmailSuccess();
-        dispatch(modalClose());
-        setErrors([]);
-      });
-    };
-    const handleErrors = (serviceErrors: ErrorObjectType[]) => {
-      trackSignupEmailFailure();
-      setErrors(serviceErrors);
-    };
-    const unexpectedError = () => dispatch(modalClose());
-    setInProgress(true);
-
-    await UserService.register(user, success, handleErrors, unexpectedError);
-
-    setInProgress(false);
-  };
 
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
@@ -163,10 +96,11 @@ export const RegisterForm = () => {
         icon={AgeFieldIcon}
         value={user.profile.age}
         error={ageError}
-        label={i18n.t('common.form.label.age', { context: 'optional' })}
+        label={i18n.t('common.form.label.age')}
         handleChange={handleChange}
-        min={13}
+        min={8}
         max={120}
+        required
       />
       <CustomPatternInput
         type="text"
@@ -203,7 +137,7 @@ export const RegisterForm = () => {
         id="authentication-register-submit"
         icon={SubmitThumbsUpIcon}
         label={i18n.t('common.register_label')}
-        disabled={inProgress}
+        disabled={disableSubmit}
       />
     </FormStyle>
   );

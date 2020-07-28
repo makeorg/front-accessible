@@ -1,6 +1,7 @@
 // @flow
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
@@ -22,6 +23,7 @@ type Props = {
 export const FacebookAuthentication = ({ link }: Props) => {
   // setting facebook browser to true or false
   const [isFacebookBrowser, setFacebookBrowser] = useState(false);
+  const { language } = useSelector((state: StateRoot) => state.appConfig);
   const dispatch = useDispatch();
   const handleFacebookLoginCallback = response => {
     dispatch(loginSocial(FACEBOOK_PROVIDER_ENUM, response.accessToken));
@@ -42,8 +44,9 @@ export const FacebookAuthentication = ({ link }: Props) => {
       <FacebookLogin
         appId="317128238675603"
         version="7.0"
-        fields="name,email,picture"
+        fields="name,email,picture,birthday"
         callback={handleFacebookLoginCallback}
+        language={language}
         disableMobileRedirect
         render={renderProps =>
           link ? (
