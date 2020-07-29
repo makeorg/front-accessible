@@ -9,6 +9,10 @@ import {
   ConsultationElementParagraphStyle,
   ClockIconStyle,
   ConsultationArticleStyle,
+  ConsultationPeopleIconStyle,
+  ConsultationLightIconStyle,
+  ConsultationItemStyle,
+  ConsultationActionIconStyle,
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
 
@@ -16,6 +20,7 @@ import {
   useMobile,
   useScreenMobileContainerWidth,
 } from 'Client/hooks/useMedia';
+import { formatMillionToText } from 'Shared/helpers/numberFormatter';
 import { ConsultationLink } from './Link';
 
 type Props = {
@@ -30,6 +35,11 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     startDate,
     endDate,
     resultsLink,
+    participantsCount,
+    proposalsCount,
+    country,
+    language,
+    actions,
   } = question;
   const hasTopIdeas =
     resultsContext && resultsLink && resultsLink.value === 'top-ideas';
@@ -37,6 +47,8 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
     resultsContext && resultsLink && resultsLink.value === 'results';
   const hasExternalResults =
     resultsContext && resultsLink && resultsLink.kind === 'external';
+  const hasContributors = participantsCount > 0;
+  const hasProposals = proposalsCount > 0;
 
   let linkText = i18n.t('browse.consultations.participate');
 
@@ -79,11 +91,37 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
         {question.question}
       </ConsultationElementTitleStyle>
       <ConsultationElementParagraphStyle>
-        <ClockIconStyle aria-hidden />
-        {i18n.t('browse.date', {
-          startDate: DateHelper.creationDateFormat(startDate),
-          endDate: DateHelper.creationDateFormat(endDate),
-        })}
+        {hasContributors && (
+          <ConsultationItemStyle>
+            <ConsultationPeopleIconStyle aria-hidden />
+            {formatMillionToText(participantsCount, country, language)}
+            {` ${i18n.t('browse.consultations.contributors', {
+              count: participantsCount,
+            })}`}
+          </ConsultationItemStyle>
+        )}
+        {hasProposals && (
+          <ConsultationItemStyle>
+            <ConsultationLightIconStyle aria-hidden />
+            {formatMillionToText(proposalsCount, country, language)}
+            {` ${i18n.t('browse.consultations.proposals', {
+              count: proposalsCount,
+            })}`}
+          </ConsultationItemStyle>
+        )}
+        {actions && (
+          <ConsultationItemStyle className="red">
+            <ConsultationActionIconStyle aria-hidden />
+            {actions}
+          </ConsultationItemStyle>
+        )}
+        <ConsultationItemStyle>
+          <ClockIconStyle aria-hidden />
+          {i18n.t('browse.date', {
+            startDate: DateHelper.creationDateFormat(startDate),
+            endDate: DateHelper.creationDateFormat(endDate),
+          })}
+        </ConsultationItemStyle>
       </ConsultationElementParagraphStyle>
       <ConsultationLink question={question} label={linkText} />
     </ConsultationArticleStyle>

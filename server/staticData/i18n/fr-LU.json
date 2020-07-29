@@ -212,7 +212,9 @@
     "proposal_count_plural": "{{count}} propositions",
     "vote_count": "{{count}} vote",
     "vote_count_plural": "{{count}} votes",
-    "breadcrumbs": "fil d'ariane"
+    "breadcrumbs": "fil d'ariane",
+    "million": "million",
+    "million_plural": "millions"
   },
   "header": {
     "logo_alt": "Aller à l'accueil du site Make.org",
@@ -744,7 +746,11 @@
       "label": "En ce moment",
       "title": "Participez aux consultations en cours",
       "subtitle": "Votre avis compte ! Votez et proposez des solutions pour créer de l'impact sur divers sujets de société et problématiques actuelles.",
-      "participate": "Participer"
+      "participate": "Participer",
+      "contributors": "participant",
+      "contributors_plural": "participants",
+      "proposals": "proposition",
+      "proposals_plural": "propositions"
     },
     "results":{
       "label": "Consultations terminées",

@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { SvgClock } from 'Client/ui/Svg/elements';
+import {
+  SvgClock,
+  SvgPeople,
+  SvgLightBulb,
+  SvgFist,
+} from 'Client/ui/Svg/elements';
 import { Link } from 'react-router-dom';
 import {
   TextColors,
@@ -168,12 +173,54 @@ export const ClockIconStyle = styled(SvgClock)`
   }
 `;
 
+export const ConsultationPeopleIconStyle = styled(SvgPeople)`
+  min-width: 16px;
+  width: 16px;
+  min-height: 14px;
+  height: 14px;
+  margin-right: 16px;
+  .tofill {
+    fill: rgb(37, 49, 134);
+  }
+`;
+
+export const ConsultationLightIconStyle = styled(SvgLightBulb)`
+  min-width: 12px;
+  min-height: 12px;
+  margin-right: 20px;
+  .tofill {
+    fill: rgb(37, 49, 134);
+  }
+`;
+
+export const ConsultationActionIconStyle = styled(SvgFist)`
+  min-width: 11px;
+  min-height: 13px;
+  margin-right: 21px;
+  .tofill {
+    fill: ${MakeThemeColors.Red};
+  }
+`;
+
 export const ConsultationElementParagraphStyle = styled.p`
   font-size: 14px;
   line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
-  margin-bottom: 20px;
+`;
+
+export const ConsultationItemStyle = styled.span`
+  display: block;
+  margin-bottom: 5px;
+  &.red {
+    color: ${MakeThemeColors.Red};
+  }
+  &:last-child {
+    margin: 15px 0;
+  }
+  &:only-child {
+    margin: 0 0 15px;
+  }
 `;
 
 export const ConsultationRedLinkElementStyle = styled(Link)`

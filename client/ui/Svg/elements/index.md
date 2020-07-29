@@ -62,7 +62,8 @@ import {
   SvgBigArrowRight,
   SvgNextArrow,
   SvgPreviousArrow,
-  SvgExternalLinkPlain
+  SvgExternalLinkPlain,
+  SvgFist
 } from './index.js';
 
 const WrapperStyle = { padding: '5px' }
@@ -124,6 +125,7 @@ class SvgElementsExample extends React.Component {
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInstagramLogo /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgTrending /></span>
         <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLink /></span>
+        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgFist /></span>
       </>
     );
   }
