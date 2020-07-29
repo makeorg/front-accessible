@@ -388,6 +388,15 @@
     "gtu_text": "En vous inscrivant, vous acceptez nos {{gtu_link}} et acceptez de recevoir des e-mails (peu nombreux) de Make.org.",
     "gtu": "conditions générales d’utilisation"
   },
+  "legal_consent": {
+    "title": "Autorisation légale",
+    "subtitle": "Nous avons besoin de l’accord de l’un de tes parents",
+    "description": "Nous avons besoin de recueillir deux consentements pour te donner accès à notre plateforme citoyenne. Bientôt tu pourras prendre la parole sur toutes nos consultations !",
+    "minor_consent": "Je consens au traitement de mes données personnelles par Make.org.",
+    "parental_consent": "En tant que titulaire de l'autorité parentale, je consens au traitement des données personnelles de mon enfant par Make.org.",
+    "cancel": "Annuler",
+    "submit": "Valider"
+  },
   "forgot_password": {
     "title": "je réinitialise mon mot de passe",
     "description": "Merci de renseigner l'adresse email liée à votre compte Make.org pour recevoir le lien de réinitialisation.",

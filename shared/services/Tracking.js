@@ -558,5 +558,8 @@ export const trackClickSubscribe = (componentName: string) => {
   });
 };
 
+export const trackDisplayLegalConsent = () => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_LEGAL_CONSENT);
+};
 /* eslint-disable import/no-default-export */
 export default TrackingService;

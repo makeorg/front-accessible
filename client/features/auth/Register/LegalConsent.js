@@ -1,7 +1,24 @@
 // @flow
 import React, { useState } from 'react';
-import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
 import { LEGAL_CONSENT_FORMNAME } from 'Shared/constants/form';
+import { i18n } from 'Shared/i18n';
+import {
+  SecondLevelTitleStyle,
+  FourthLevelTitleStyle,
+} from 'Client/ui/Elements/TitleElements';
+import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
+import { useEffect } from 'react';
+import { trackDisplayLegalConsent } from 'Shared/services/Tracking';
+import {
+  LegalFormStyle,
+  LegalIconStyle,
+  LegalSeparatorStyle,
+  LegalCheckboxWrapperStyle,
+  LegalParagraphStyle,
+  LegalButtonGroupStyle,
+  LegalCancelStyle,
+  LegalSubmitStyle,
+} from '../style';
 
 type Props = {
   handleLegalField: (fieldName: string, value: boolean) => any,
@@ -17,34 +34,62 @@ export const LegalConsent = ({
   const [minorConsent, setMinorConsent] = useState<boolean>(false);
   const [parentalConsent, setParentalConsent] = useState<boolean>(false);
   const agreedAllConsents = minorConsent && parentalConsent;
+
+  useEffect(() => {
+    trackDisplayLegalConsent();
+  }, []);
+
   return (
-    <form name={LEGAL_CONSENT_FORMNAME} onSubmit={handleSubmit}>
-      <CheckBox
-        name="legalMinorConsent"
-        value={minorConsent}
-        handleCheck={() => setMinorConsent(!minorConsent)}
-        handleChange={() => handleLegalField('legalMinorConsent', minorConsent)}
-        label="legalMinorConsent"
-        isChecked={minorConsent}
-        required
-      />
-      <CheckBox
-        name="profile.legalAdvisorApproval"
-        value={parentalConsent}
-        handleCheck={() => setParentalConsent(!parentalConsent)}
-        handleChange={() =>
-          handleLegalField('legalAdvisorApproval', parentalConsent)
-        }
-        label="legalAdvisorApproval"
-        isChecked={parentalConsent}
-        required
-      />
-      <button type="button" onClick={toggleLegalConsent}>
-        cancel
-      </button>
-      <button type="submit" disabled={!agreedAllConsents}>
-        submit
-      </button>
-    </form>
+    <LegalFormStyle name={LEGAL_CONSENT_FORMNAME} onSubmit={handleSubmit}>
+      <SecondLevelTitleStyle id="register_title">
+        {i18n.t('legal_consent.title')}
+      </SecondLevelTitleStyle>
+      <LegalIconStyle aria-hidden />
+      <FourthLevelTitleStyle as="h3">
+        {i18n.t('legal_consent.subtitle')}
+      </FourthLevelTitleStyle>
+      <LegalParagraphStyle>
+        {i18n.t('legal_consent.description')}
+      </LegalParagraphStyle>
+      <LegalSeparatorStyle />
+      <LegalCheckboxWrapperStyle>
+        <CheckBox
+          name="legalMinorConsent"
+          value={minorConsent}
+          handleCheck={() => setMinorConsent(!minorConsent)}
+          handleChange={() =>
+            handleLegalField('legalMinorConsent', minorConsent)
+          }
+          label={i18n.t('legal_consent.minor_consent')}
+          isChecked={minorConsent}
+          required
+        />
+      </LegalCheckboxWrapperStyle>
+      <LegalCheckboxWrapperStyle>
+        <CheckBox
+          name="profile.legalAdvisorApproval"
+          value={parentalConsent}
+          handleCheck={() => setParentalConsent(!parentalConsent)}
+          handleChange={() =>
+            handleLegalField('legalAdvisorApproval', parentalConsent)
+          }
+          label={i18n.t('legal_consent.parental_consent')}
+          isChecked={parentalConsent}
+          required
+        />
+      </LegalCheckboxWrapperStyle>
+      <LegalButtonGroupStyle>
+        <LegalCancelStyle onClick={toggleLegalConsent}>
+          {i18n.t('legal_consent.cancel')}
+        </LegalCancelStyle>
+        <LegalSubmitStyle
+          type="submit"
+          form={LEGAL_CONSENT_FORMNAME}
+          disabled={!agreedAllConsents}
+        >
+          {i18n.t('legal_consent.submit')}
+        </LegalSubmitStyle>
+      </LegalButtonGroupStyle>
+    </LegalFormStyle>
   );
 };
