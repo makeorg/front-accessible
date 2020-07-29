@@ -31,11 +31,9 @@ export const FooterNavStyle = styled.nav`
 `;
 
 export const FooterItemStyle = styled.li`
-  display: inline-block;
+  display: inline-flex;
   &:after {
     content: '.';
-    position: relative;
-    bottom: 3px;
     margin: 0 5px;
   }
   &:last-child :after {
@@ -44,8 +42,8 @@ export const FooterItemStyle = styled.li`
 `;
 
 export const FooterItemLinkStyle = styled(Link)`
-  display: inline-block;
-  vertical-align: bottom;
+  display: inline-flex;
+  align-items: center;
   font-family: ${MakeFonts.CircularStandardBook};
   text-decoration: underline;
   font-size: 14px;

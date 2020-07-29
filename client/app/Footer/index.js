@@ -53,7 +53,9 @@ export const Footer = () => {
                 href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
               >
                 {i18n.t('main-footer.whoarewe')}
-                <FooterLinkIconStyle aria-hidden />
+                <FooterLinkIconStyle
+                  aria-label={i18n.t('common.open_new_window')}
+                />
               </FooterItemLinkStyle>
             </FooterItemStyle>
             {isDesktop && (
@@ -66,7 +68,9 @@ export const Footer = () => {
                     onClick={trackClickBlog}
                   >
                     {i18n.t('main-footer.news')}
-                    <FooterLinkIconStyle aria-hidden />
+                    <FooterLinkIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
                   </FooterItemLinkStyle>
                 </FooterItemStyle>
               </>
@@ -83,8 +87,10 @@ export const Footer = () => {
                         to={JOBS_LINK}
                       >
                         {i18n.t('main-footer.jobs')}
+                        <FooterLinkIconStyle
+                          aria-label={i18n.t('common.open_new_window')}
+                        />
                       </FooterItemLinkStyle>
-                      <FooterLinkIconStyle aria-hidden />
                     </FooterItemStyle>
                   </>
                 )}
@@ -95,8 +101,10 @@ export const Footer = () => {
                     href={PRESS_DETAILS}
                   >
                     {i18n.t('main-footer.press_details')}
+                    <FooterLinkIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
                   </FooterItemLinkStyle>
-                  <FooterLinkIconStyle aria-hidden />
                 </FooterItemStyle>
               </>
             )}
@@ -117,7 +125,9 @@ export const Footer = () => {
                     href={DOTATION_FUNDS_LINK}
                   >
                     {i18n.t('main-footer.dotation_funds')}
-                    <FooterLinkIconStyle aria-hidden />
+                    <FooterLinkIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
                   </FooterItemLinkStyle>
                 </FooterItemStyle>
               </>
