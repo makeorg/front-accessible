@@ -114,7 +114,7 @@ export const CLICK_HOMEPAGE_GREAT_CAUSES = 'click-button-great-causes';
 export const CLICK_HOMEPAGE_BROWSE_CONSULTATIONS =
   'click-button-browse-consultations';
 export const CLICK_HOMEPAGE_BROWSE_RESULTS = 'click-button-browse-results';
-export const CLICK_HOMEPAGE_BLOG = 'click-view-blog';
+export const CLICK_VIEW_BLOG = 'click-view-blog';
 export const CLICK_BROWSE_PARTICIPATE = 'click-button-participate';
 export const CLICK_PAGINATION = 'click-page';
 export const CLICK_RESULTS = 'click-button-results';

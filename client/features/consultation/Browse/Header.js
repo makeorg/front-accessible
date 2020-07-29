@@ -16,10 +16,6 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
 import { isBrowseConsultationsPage } from 'Shared/routes';
 import {
-  trackDisplayBrowseConsultations,
-  trackDisplayBrowseResults,
-} from 'Shared/services/Tracking';
-import {
   BrowseHeaderStyle,
   BrowseHeaderTitleStyle,
   BrowseNavItemStyle,
@@ -51,7 +47,6 @@ export const BrowseConsultationsHeader = () => {
               <BrowseNavLinkStyle
                 to={getBrowseConsultationsLink(country, language)}
                 className={consultationsPage && 'selected'}
-                onClick={() => trackDisplayBrowseConsultations()}
               >
                 {i18n.t('browse.nav_consultations')}
               </BrowseNavLinkStyle>
@@ -60,7 +55,6 @@ export const BrowseConsultationsHeader = () => {
               <BrowseNavLinkStyle
                 to={getBrowseResultsLink(country, language)}
                 className={!consultationsPage && 'selected'}
-                onClick={() => trackDisplayBrowseResults()}
               >
                 {i18n.t('browse.nav_results')}
               </BrowseNavLinkStyle>
