@@ -4,30 +4,18 @@ import { BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
-import {
-  Layouts,
-  DefaultPadding,
-  Breakpoints,
-} from 'Client/app/assets/vars/Breakpoints';
-
-export const FooterSeparationLineStyle = styled.hr`
-  margin: 0 auto;
-  padding: 0 ${intToPx(DefaultPadding.Mobile)};
-  width: 100%;
-  max-width: ${intToPx(Layouts.ContainerWidth)};
-  height: 1px;
-  border-color: ${BorderColors.LightGrey};
-`;
+import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const FooterStyle = styled.footer`
   padding: 0 20px 20px;
-  background-color: ${BasicColors.PureWhite};
 `;
 
 export const FooterNavStyle = styled.nav`
   width: 100%;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding-top: 30px;
   max-width: ${intToPx(Layouts.ContainerWidth)};
+  border-top: 1px solid ${BorderColors.LightGrey};
 `;
 
 export const FooterItemStyle = styled.li`

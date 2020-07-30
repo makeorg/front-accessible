@@ -34,7 +34,6 @@ export const AppWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const AppMainContentStyle = styled.main`
-  background-color: ${BasicColors.PureWhite};
   position: relative;
   display: flex;
   flex-flow: column;
