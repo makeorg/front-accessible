@@ -2,21 +2,24 @@
 import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickMakeLogo } from 'Shared/services/Tracking';
-import Logo from 'Client/app/assets/images/logo.svg';
-import { Link } from 'react-router-dom';
-import { WHOAREWE_FR_LINK, WHOAREWE_EN_LINK } from 'Shared/constants/url';
 import { useDesktop } from 'Client/hooks/useMedia';
-import { DeprecatedSearchInput } from 'Client/features/search/Form/Deprecated';
-import { useSelector } from 'react-redux';
-import { type StateRoot } from 'Shared/store/types';
-import { HeaderAuthentication } from './Authentication';
+import { HeaderAuthentication } from 'Client/features/auth/Header';
+import {
+  NAVIGATION_ELEMENT_ARIA_CLASS,
+  SEARCH_ELEMENT_ARIA_CLASS,
+} from 'Shared/constants/a11y';
+import { MobileSearchInput } from 'Client/features/search/Form/Mobile';
+import { DesktopSearchInput } from 'Client/features/search/Form/Desktop';
+import { MobileMenu } from 'Client/features/navigation/Menu/Mobile';
+import { DesktopMenu } from 'Client/features/navigation/Menu/Desktop';
 import {
   HeaderStyle,
   HeaderInnerStyle,
+  HeaderLogoLinkStyle,
   HeaderLogoStyle,
   HeaderFlexLeftStyle,
   HeaderFlexRightStyle,
-  WhoAreWeLinkStyle,
+  HeaderSeparatorStyle,
 } from './style';
 
 /**
@@ -24,34 +27,24 @@ import {
  */
 export const Header = () => {
   const isDesktop = useDesktop();
-  const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const isFR = country === 'FR';
 
   return (
     <HeaderStyle>
       <HeaderInnerStyle>
-        <HeaderFlexLeftStyle>
+        {!isDesktop && <MobileMenu />}
+        <HeaderFlexLeftStyle
+          className={`${NAVIGATION_ELEMENT_ARIA_CLASS} ${SEARCH_ELEMENT_ARIA_CLASS}`}
+        >
           <h1>
-            <Link to="/" onClick={() => trackClickMakeLogo()}>
-              <HeaderLogoStyle
-                src={Logo}
-                alt={i18n.t('header.logo_alt')}
-                loading="eager"
-              />
-            </Link>
+            <HeaderLogoLinkStyle to="/" onClick={trackClickMakeLogo}>
+              <HeaderLogoStyle aria-label={i18n.t('header.logo_alt')} />
+            </HeaderLogoLinkStyle>
           </h1>
-          <DeprecatedSearchInput />
+          {isDesktop && <DesktopMenu />}
         </HeaderFlexLeftStyle>
-        <HeaderFlexRightStyle>
-          {isDesktop && (
-            <WhoAreWeLinkStyle
-              target="_blank"
-              rel="noreferrer noopener"
-              href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
-            >
-              {i18n.t('header.whoarewe')}
-            </WhoAreWeLinkStyle>
-          )}
+        <HeaderFlexRightStyle className={NAVIGATION_ELEMENT_ARIA_CLASS}>
+          {!isDesktop ? <MobileSearchInput /> : <DesktopSearchInput />}
+          {isDesktop && <HeaderSeparatorStyle />}
           <HeaderAuthentication />
         </HeaderFlexRightStyle>
       </HeaderInnerStyle>

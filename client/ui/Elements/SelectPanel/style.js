@@ -60,7 +60,7 @@ export const PanelStyle = styled.div`
   left: 0;
   width: 100%;
   height: fit-content;
-  z-index: 99;
+  z-index: 3;
   transition: all 0.25s ease-in;
   &.open {
     visibility: visible;

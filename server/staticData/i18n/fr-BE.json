@@ -218,7 +218,6 @@
   },
   "header": {
     "logo_alt": "Aller à l'accueil du site Make.org",
-    "whoarewe": "Qui sommes-nous ?",
     "open_menu": "Accéder au menu de navigation principale",
     "close_menu": "Fermer le menu de navigation principale",
     "main_navigation": "Navigation principale du site"
@@ -942,7 +941,7 @@
       "submit": "Rechercher",
       "flush": "Effacer le champ de recherche",
       "open_panel": "Afficher le champ de recherche",
-      "close_panel": "Fermer le champ de recherche"
+      "cancel": "Annuler"
     }
   },
   "no_cookies": {

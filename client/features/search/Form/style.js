@@ -13,34 +13,35 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const SearchFormTriggerStyle = styled(UnstyledButtonStyle)`
+  margin-right: 25px;
+  svg {
+    width: 19px;
+  }
   .tofill {
     fill: ${BasicColors.PureBlack};
   }
-  &.open-trigger {
-    margin-right: 25px;
-    svg {
-      width: 19px;
-    }
-  }
-  &.close-trigger {
-    margin-left: 25px;
-    margin-right: 0;
-    svg {
-      width: 15px;
-    }
-  }
+`;
+
+export const SearchFormCancelTriggerStyle = styled(UnstyledButtonStyle)`
+  font-size: 14px;
+  color: ${TextColors.AltMediumgrey};
+  text-decoration: underline;
+  margin-left: 25px;
+  flex-shrink: 0;
 `;
 
 export const SearchFormWrapperStyle = styled(FlexElementStyle)`
   position: absolute;
-  top: -56px;
+  top: -100%;
   left: 0;
+  opacity: 0;
   background-color: ${BasicColors.PureWhite};
   width: 100%;
   padding: 10px 20px;
-  transition: 0.5s ease top;
+  transition: 0.5s ease opacity;
   &.expanded {
     top: 0;
+    opacity: 1;
   }
   &[aria-hidden='true'] {
     input,
@@ -54,13 +55,13 @@ export const SearchFormStyle = styled.form`
   display: flex;
   position: relative;
   width: 100%;
-  padding: 7px 15px;
+  padding: 6.5px 15px;
   border-radius: 20px;
   background-color: ${BackgroundColors.TaintedWhite};
   border: 1px solid ${BorderColors.LightGrey};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: 160px;
-    margin: 0 15px;
+    margin-left: 30px;
     transition: 1s ease width;
     &.expanded {
       width: 100%;
@@ -104,7 +105,7 @@ export const SearchLabelStyle = styled.label`
   &.hide {
     opacity: 0;
   }
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 14px;
     line-height: 39px;
   }

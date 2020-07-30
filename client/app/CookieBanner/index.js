@@ -5,6 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { useCookies } from 'react-cookie';
 import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
+import { NAVIGATION_ARIA_CLASS } from 'Shared/constants/a11y';
 import {
   CookieContentStyle,
   CookieWrapperStyle,
@@ -38,7 +39,7 @@ export const CookieBanner = () => {
     <CookieWrapperStyle
       aria-label={i18n.t('common.cookie_area')}
       data-cy-container="cookie-banner"
-      className="expand-navigation-aria"
+      className={NAVIGATION_ARIA_CLASS}
     >
       <CookieContentStyle>
         <CookieIconStyle

@@ -67,67 +67,68 @@ import {
   SvgLegalConsent
 } from './index.js';
 
-const WrapperStyle = { padding: '5px' }
-const SvgStyle = { fontSize: '26px', width: '26px', height: '26px' }
+const SvgStyle = { padding: '5px', width: '26px'}
 
 class SvgElementsExample extends React.Component {
   render() {
     return (
       <>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowBottom /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgEmptyAvatar /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowRight /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowLeft /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgAngleArrowTop /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowRight /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowLeft /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgArrowTop /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgPlayButton /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsUp aria-hidden /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsDown /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsLeft /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgThumbsRight /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgShare /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgClose /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgLightBulb /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgPencil /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgFacebookLogo /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgFacebookLogoF /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgGoogleLogoG /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgLinkedinLogoIn /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgTwitterLogo /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgEnvelope /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgLock /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgExternalLink /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgStepForward /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgEye /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgEyeSlash /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgCheck /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgPaperPlane /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgUser /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgChild /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgMapMarker /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgMegaphone /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgSuitcase /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgClapping /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgSignOut /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgLike /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgSaveFileOption /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgCheckedSymbol aria-hidden /></span>
-        <span style={{padding: '5px', fontSize: '26px'}}><SvgUsers /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSadEmoji /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgDisconnect /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInfos /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgAlert /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgSearch /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgCalculator /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLightning /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgMap /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgInstagramLogo /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgTrending /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLink /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgFist /></span>
-        <span style={{padding: '5px', fontSize: '26px', width: '26px', height: '26px'}}><SvgLegalConsent /></span>
+        <span style={SvgStyle}><SvgAngleArrowBottom /></span>
+        <span style={SvgStyle}><SvgEmptyAvatar /></span>
+        <span style={SvgStyle}><SvgAngleArrowRight /></span>
+        <span style={SvgStyle}><SvgAngleArrowLeft /></span>
+        <span style={SvgStyle}><SvgAngleArrowTop /></span>
+        <span style={SvgStyle}><SvgArrowRight /></span>
+        <span style={SvgStyle}><SvgArrowLeft /></span>
+        <span style={SvgStyle}><SvgArrowTop /></span>
+        <span style={SvgStyle}><SvgPlayButton /></span>
+        <span style={SvgStyle}><SvgThumbsUp aria-hidden /></span>
+        <span style={SvgStyle}><SvgThumbsDown /></span>
+        <span style={SvgStyle}><SvgThumbsLeft /></span>
+        <span style={SvgStyle}><SvgThumbsRight /></span>
+        <span style={SvgStyle}><SvgShare /></span>
+        <span style={SvgStyle}><SvgClose /></span>
+        <span style={SvgStyle}><SvgLightBulb /></span>
+        <span style={SvgStyle}><SvgPencil /></span>
+        <span style={SvgStyle}><SvgFacebookLogo /></span>
+        <span style={SvgStyle}><SvgFacebookLogoF /></span>
+        <span style={SvgStyle}><SvgGoogleLogoG /></span>
+        <span style={SvgStyle}><SvgLinkedinLogoIn /></span>
+        <span style={SvgStyle}><SvgTwitterLogo /></span>
+        <span style={SvgStyle}><SvgEnvelope /></span>
+        <span style={SvgStyle}><SvgLock /></span>
+        <span style={SvgStyle}><SvgExternalLink /></span>
+        <span style={SvgStyle}><SvgStepForward /></span>
+        <span style={SvgStyle}><SvgEye /></span>
+        <span style={SvgStyle}><SvgEyeSlash /></span>
+        <span style={SvgStyle}><SvgCheck /></span>
+        <span style={SvgStyle}><SvgPaperPlane /></span>
+        <span style={SvgStyle}><SvgUser /></span>
+        <span style={SvgStyle}><SvgChild /></span>
+        <span style={SvgStyle}><SvgMapMarker /></span>
+        <span style={SvgStyle}><SvgMegaphone /></span>
+        <span style={SvgStyle}><SvgSuitcase /></span>
+        <span style={SvgStyle}><SvgClapping /></span>
+        <span style={SvgStyle}><SvgSignOut /></span>
+        <span style={SvgStyle}><SvgLike /></span>
+        <span style={SvgStyle}><SvgSaveFileOption /></span>
+        <span style={SvgStyle}><SvgCheckedSymbol aria-hidden /></span>
+        <span style={SvgStyle}><SvgUsers /></span>
+        <span style={SvgStyle}><SvgSadEmoji /></span>
+        <span style={SvgStyle}><SvgDisconnect /></span>
+        <span style={SvgStyle}><SvgInfos /></span>
+        <span style={SvgStyle}><SvgAlert /></span>
+        <span style={SvgStyle}><SvgSearch /></span>
+        <span style={SvgStyle}><SvgCalculator /></span>
+        <span style={SvgStyle}><SvgLightning /></span>
+        <span style={SvgStyle}><SvgMap /></span>
+        <span style={SvgStyle}><SvgInstagramLogo /></span>
+        <span style={SvgStyle}><SvgTrending /></span>
+        <span style={SvgStyle}><SvgLink /></span>
+        <span style={SvgStyle}><SvgFist /></span>
+        <span style={SvgStyle}><SvgLegalConsent /></span>
+        <span style={SvgStyle}><SvgLogoBlack /></span>
+        <span style={SvgStyle}><SvgLogo /></span>
       </>
     );
   }
