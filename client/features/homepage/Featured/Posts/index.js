@@ -46,6 +46,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
                 href={post.link}
                 target="_blank"
                 rel="noreferrer noopener"
+                onClick={() => trackClickBlog('blog item')}
               >
                 {i18n.t('homepage.posts.link_text')}
               </ConsultationRedLinkElementStyle>
@@ -58,7 +59,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
         href={ABOUT_MAKE_LINK}
         target="_blank"
         rel="noreferrer noopener"
-        onClick={() => trackClickBlog()}
+        onClick={() => trackClickBlog('blog list')}
         data-cy-link="see-blog"
       >
         {i18n.t('homepage.posts.see_all')}

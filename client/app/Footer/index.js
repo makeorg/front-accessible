@@ -65,7 +65,7 @@ export const Footer = () => {
                     as="a"
                     target="_blank"
                     href={NEWS_LINK}
-                    onClick={trackClickBlog}
+                    onClick={() => trackClickBlog('blog list')}
                   >
                     {i18n.t('main-footer.news')}
                     <FooterLinkIconStyle

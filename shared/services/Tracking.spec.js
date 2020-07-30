@@ -829,15 +829,16 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
-  it('track Click Homepage Blog', () => {
-    const eventName = trackingConstants.CLICK_HOMEPAGE_BLOG;
-    trackClickBlog();
-    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
-    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
-      1,
-      eventName,
-      eventParameters
-    );
+  it('track Click view Blog', () => {
+    const eventName = trackingConstants.CLICK_VIEW_BLOG;
+    trackClickBlog('foo');
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {
+      component: 'foo',
+    });
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(1, eventName, {
+      ...eventParameters,
+      component: 'foo',
+    });
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 

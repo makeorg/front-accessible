@@ -530,8 +530,10 @@ export const trackClickBrowseResults = () => {
   );
 };
 
-export const trackClickBlog = () => {
-  TrackingService.sendAllTrackers(trackingConstants.CLICK_HOMEPAGE_BLOG);
+export const trackClickBlog = (componentName: string) => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_VIEW_BLOG, {
+    component: componentName,
+  });
 };
 
 export const trackClickParticipate = (questionId: string) => {
