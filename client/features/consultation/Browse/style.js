@@ -22,6 +22,7 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { Image } from 'Client/ui/Image';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const BrowseHeaderStyle = styled.header`
   background-color: ${BackgroundColors.LightGrey};
@@ -207,6 +208,7 @@ export const ConsultationElementParagraphStyle = styled.p`
   line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
+  margin-bottom: 20px;
 `;
 
 export const ConsultationItemStyle = styled.span`
@@ -216,10 +218,10 @@ export const ConsultationItemStyle = styled.span`
     color: ${MakeThemeColors.Red};
   }
   &:last-child {
-    margin: 15px 0;
+    margin: 20px 0 0;
   }
   &:only-child {
-    margin: 0 0 15px;
+    margin: 0;
   }
 `;
 
@@ -243,4 +245,11 @@ export const NoConsultationImageStyle = styled(MiddleColumnStyle)`
     min-height: 248px;
     margin-bottom: 25px;
   }
+`;
+
+export const NoConsultationButtonStyle = styled(UnstyledButtonStyle)`
+  align-self: flex-start;
+  ${linkStyle(MakeThemeColors.Red)};
+  text-transform: uppercase;
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
 `;

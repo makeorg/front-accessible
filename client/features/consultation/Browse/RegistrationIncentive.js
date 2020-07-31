@@ -9,7 +9,7 @@ import {
   NoConsultationWrapperStyle,
   NoConsultationImageStyle,
   ConsultationElementTitleStyle,
-  ConsultationRedLinkElementStyle,
+  NoConsultationButtonStyle,
 } from './style';
 
 type Props = {
@@ -34,13 +34,13 @@ export const RegistrationIncentive = ({ length }: Props) => {
           ? i18n.t('browse.text_content_zero')
           : i18n.t('browse.text_content_one')}
       </ConsultationElementTitleStyle>
-      <ConsultationRedLinkElementStyle
+      <NoConsultationButtonStyle
         onClick={handleClick}
         aria-label={i18n.t('common.register_label')}
         data-cy-link="subscribe"
       >
         {i18n.t('browse.subscribe')}
-      </ConsultationRedLinkElementStyle>
+      </NoConsultationButtonStyle>
     </NoConsultationWrapperStyle>
   );
 };
