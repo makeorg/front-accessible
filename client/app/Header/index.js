@@ -6,7 +6,7 @@ import Logo from 'Client/app/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 import { WHOAREWE_FR_LINK, WHOAREWE_EN_LINK } from 'Shared/constants/url';
 import { useDesktop } from 'Client/hooks/useMedia';
-import { SearchInput } from 'Client/features/search/Form';
+import { DeprecatedSearchInput } from 'Client/features/search/Form/Deprecated';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { HeaderAuthentication } from './Authentication';
@@ -40,7 +40,7 @@ export const Header = () => {
               />
             </Link>
           </h1>
-          <SearchInput />
+          <DeprecatedSearchInput />
         </HeaderFlexLeftStyle>
         <HeaderFlexRightStyle>
           {isDesktop && (
