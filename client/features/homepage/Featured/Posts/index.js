@@ -13,7 +13,8 @@ import {
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
-import { FeaturedSeparatorStyle, FeaturedIconStyle } from './style';
+import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
+import { FeaturedIconStyle } from './style';
 import { CurrentQuestionsButtonStyle } from '../../CurrentQuestions/style';
 
 type Props = {
@@ -29,7 +30,6 @@ export const FeaturedPosts = ({ posts }: Props) => {
 
   return (
     <>
-      <FeaturedSeparatorStyle />
       <ConsultationsListStyle>
         {posts.map(post => (
           <ConsultationsListItemStyle itemsPerRow={3} key={post.title}>
@@ -54,17 +54,19 @@ export const FeaturedPosts = ({ posts }: Props) => {
           </ConsultationsListItemStyle>
         ))}
       </ConsultationsListStyle>
-      <CurrentQuestionsButtonStyle
-        as="a"
-        href={ABOUT_MAKE_LINK}
-        target="_blank"
-        rel="noreferrer noopener"
-        onClick={() => trackClickBlog('blog list')}
-        data-cy-link="see-blog"
-      >
-        {i18n.t('homepage.posts.see_all')}
-        <FeaturedIconStyle aria-label={i18n.t('common.open_new_window')} />
-      </CurrentQuestionsButtonStyle>
+      <BrowsePageInnerStyle>
+        <CurrentQuestionsButtonStyle
+          as="a"
+          href={ABOUT_MAKE_LINK}
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={() => trackClickBlog('blog list')}
+          data-cy-link="see-blog"
+        >
+          {i18n.t('homepage.posts.see_all')}
+          <FeaturedIconStyle aria-label={i18n.t('common.open_new_window')} />
+        </CurrentQuestionsButtonStyle>
+      </BrowsePageInnerStyle>
     </>
   );
 };

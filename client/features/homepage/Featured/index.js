@@ -8,8 +8,10 @@ import {
   HomepageSectionTitleStyle,
   HomepageSectionStyle,
 } from 'Client/pages/Home/style';
+import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
 import { FeaturedQuestions } from './Questions';
 import { FeaturedPosts } from './Posts';
+import { FeaturedSeparatorStyle } from './Posts/style';
 
 type Props = {
   questions: HomeQuestionType[],
@@ -22,16 +24,19 @@ export const FeaturedNews = ({ questions, posts }: Props) => (
     aria-labelledby="featured_questions_title"
     id="featured_questions"
   >
-    <ConsultationElementSubtitleStyle data-cy-container="featured_questions_subtitle">
-      {i18n.t('homepage.featured_questions.label')}
-    </ConsultationElementSubtitleStyle>
-    <HomepageSectionTitleStyle
-      data-cy-container="featured_questions_title"
-      id="featured_questions_title"
-    >
-      {i18n.t('homepage.featured_questions.title')}
-    </HomepageSectionTitleStyle>
-    <FeaturedQuestions questions={questions} />
+    <BrowsePageInnerStyle>
+      <ConsultationElementSubtitleStyle data-cy-container="featured_questions_subtitle">
+        {i18n.t('homepage.featured_questions.label')}
+      </ConsultationElementSubtitleStyle>
+      <HomepageSectionTitleStyle
+        data-cy-container="featured_questions_title"
+        id="featured_questions_title"
+      >
+        {i18n.t('homepage.featured_questions.title')}
+      </HomepageSectionTitleStyle>
+      <FeaturedQuestions questions={questions} />
+      <FeaturedSeparatorStyle />
+    </BrowsePageInnerStyle>
     <FeaturedPosts posts={posts} />
   </HomepageSectionStyle>
 );

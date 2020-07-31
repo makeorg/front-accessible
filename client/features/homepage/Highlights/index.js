@@ -33,6 +33,7 @@ export const HighlightsBanner = ({ highlights }: Props) => {
       <HomepageSectionTitleStyle
         id="highlights_title"
         data-cy-container="highlights_title"
+        className="with-container"
       >
         {i18n.t('homepage.highlights.title')}
       </HomepageSectionTitleStyle>

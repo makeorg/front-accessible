@@ -18,6 +18,7 @@ import {
   trackClickBrowseResults,
 } from 'Shared/services/Tracking';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
+import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
 import { CurrentQuestionsButtonStyle } from './style';
 
 type Props = {
@@ -57,17 +58,20 @@ export const CurrentQuestions = ({ questions }: Props) => {
       <HomepageSectionTitleStyle
         id="current_consultations_title"
         data-cy-container="current_consultations_title"
+        className="with-container"
       >
         {i18n.t('browse.title')}
       </HomepageSectionTitleStyle>
       <BrowseConsultationsList questions={questions} total={questions.length} />
-      <CurrentQuestionsButtonStyle
-        to={buttonLink}
-        onClick={handleClick}
-        data-cy-link="current-questions-link"
-      >
-        {buttonText}
-      </CurrentQuestionsButtonStyle>
+      <BrowsePageInnerStyle>
+        <CurrentQuestionsButtonStyle
+          to={buttonLink}
+          onClick={handleClick}
+          data-cy-link="current-questions-link"
+        >
+          {buttonText}
+        </CurrentQuestionsButtonStyle>
+      </BrowsePageInnerStyle>
     </HomepageSectionStyle>
   );
 };

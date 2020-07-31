@@ -18,6 +18,15 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 
+export const ContainerWithPadding = `
+  width: 100%;
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
   min-height: 100vh;

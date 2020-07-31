@@ -16,24 +16,19 @@ import {
   BasicButtonStyle,
 } from 'Client/ui/Elements/Buttons/V2/style';
 import { Image } from 'Client/ui/Image';
-
-export const HeroWrapperStyle = styled(FlexElementStyle)`
-  padding: 30px 20px 50px;
-  @media (min-width: ${pxToRem(Breakpoints.Tablet)}) {
-    padding: 50px 20px;
-  }
-  @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
-    padding: 50px 20px;
-  }
-`;
+import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const HeroContentStyle = styled(FlexElementStyle)`
   width: 100%;
   flex-flow: column;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  margin: 0 auto;
+  ${ContainerWithPadding}
+  padding-top: 30px;
+  padding-bottom: 50px;
   @media (min-width: ${pxToRem(Breakpoints.Desktop)}) {
     flex-flow: row;
+    padding-top: 50px;
+    align-items: center;
   }
 `;
 
@@ -60,7 +55,6 @@ export const HeroTitleStyle = styled.h2`
     max-width: 520px;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    margin: 60px 0px 30px 0px;
     font-size: 42px;
   }
 `;

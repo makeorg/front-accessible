@@ -12,7 +12,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const SearchPageWrapperStyle = styled.div`
   width: 100%;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin: 0 auto;
   padding: 20px 0;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
