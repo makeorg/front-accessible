@@ -8,7 +8,7 @@ import {
   HomepageSectionTitleStyle,
   HomepageSectionStyle,
 } from 'Client/pages/Home/style';
-import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
+import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
 import { FeaturedQuestions } from './Questions';
 import { FeaturedPosts } from './Posts';
 import { FeaturedSeparatorStyle } from './Posts/style';
@@ -24,7 +24,7 @@ export const FeaturedNews = ({ questions, posts }: Props) => (
     aria-labelledby="featured_questions_title"
     id="featured_questions"
   >
-    <BrowsePageInnerStyle>
+    <HomepagePageInnerStyle>
       <ConsultationElementSubtitleStyle data-cy-container="featured_questions_subtitle">
         {i18n.t('homepage.featured_questions.label')}
       </ConsultationElementSubtitleStyle>
@@ -36,7 +36,7 @@ export const FeaturedNews = ({ questions, posts }: Props) => (
       </HomepageSectionTitleStyle>
       <FeaturedQuestions questions={questions} />
       <FeaturedSeparatorStyle />
-    </BrowsePageInnerStyle>
+    </HomepagePageInnerStyle>
     <FeaturedPosts posts={posts} />
   </HomepageSectionStyle>
 );

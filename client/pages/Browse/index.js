@@ -15,8 +15,7 @@ import {
   trackDisplayBrowseConsultations,
   trackDisplayBrowseResults,
 } from 'Shared/services/Tracking';
-
-import { BrowsePageWrapperStyle } from './style';
+import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
@@ -74,7 +73,7 @@ const BrowseConsultationsPage = () => {
         />
       )}
       <BrowseConsultationsHeader />
-      <BrowsePageWrapperStyle as="section" aria-labelledby="browse_title">
+      <SpaceBetweenColumnStyle as="section" aria-labelledby="browse_title">
         {isLoading ? (
           <Spinner />
         ) : (
@@ -95,7 +94,7 @@ const BrowseConsultationsPage = () => {
             )}
           </>
         )}
-      </BrowsePageWrapperStyle>
+      </SpaceBetweenColumnStyle>
     </>
   );
 };

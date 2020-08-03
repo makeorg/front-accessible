@@ -31,10 +31,12 @@ export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
   min-height: 100vh;
   background-color: ${BackgroundColors.LightGrey};
+  &.white {
+    background-color: ${BasicColors.PureWhite};
+  }
 `;
 
 export const AppMainContentStyle = styled.main`
-  background-color: ${BasicColors.PureWhite};
   position: relative;
   display: flex;
   flex-flow: column;

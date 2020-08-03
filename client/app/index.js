@@ -26,7 +26,8 @@ export const AppContainer = () => (
     <SessionExpiration>
       <ServiceErrorHandler>
         <ErrorBoundary>
-          <AppWrapperStyle>
+          {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
+          <AppWrapperStyle id="page_wrapper">
             <ModernNormalizeStylesheet />
             <FontFacesStylesheet />
             <DefaultStylesheet />

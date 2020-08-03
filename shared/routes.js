@@ -288,3 +288,31 @@ export const isBrowseConsultationsPage = (
     false,
     includingPreview
   );
+export const isBrowseResultsPage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_BROWSE_RESULTS,
+    false,
+    false,
+    false,
+    includingPreview
+  );
+export const isHomepage = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) => matchRoute(pathname, '/', true, false, false, includingPreview);
+export const isHomepageWithLocale = (
+  pathname: string,
+  includingPreview: ?boolean = true
+) =>
+  matchRoute(
+    pathname,
+    ROUTE_COUNTRY_LANG,
+    true,
+    false,
+    false,
+    includingPreview
+  );

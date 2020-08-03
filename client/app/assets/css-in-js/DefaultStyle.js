@@ -19,7 +19,6 @@ export const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.CircularStandardBook};
     color: ${BasicColors.PureBlack};
-    background-color: ${BasicColors.PureWhite};
   }
 
   h1,

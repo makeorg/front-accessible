@@ -44,6 +44,7 @@ import {
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
+import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
 
 const BrowsePage = loadable(() => import('Client/pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
@@ -95,6 +96,9 @@ const Contact = loadable(() => import('Client/pages/Static/Contact'));
 export const Routes = () => {
   const location = useLocation();
   const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { pathname } = location;
+
+  usePageBackgoundColor(pathname);
 
   React.useEffect(() => {
     TwitterUniversalTag.pageView();
