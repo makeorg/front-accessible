@@ -13,7 +13,11 @@ export const HomepageWrapperStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: 100%;
   min-height: 100%;
-  background-color: ${BasicColors.PureWhite};
+  padding: 0 20px;
+`;
+
+export const HomepagePageInnerStyle = styled.div`
+  ${ContainerWithPadding}
 `;
 
 export const HomepageSectionStyle = styled(ColumnElementStyle)`

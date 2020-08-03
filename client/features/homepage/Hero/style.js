@@ -9,7 +9,11 @@ import {
 import { SvgBlackArrowDown } from 'Client/ui/Svg/elements/BlackArrowDown';
 import { SvgWhiteArrowDown } from 'Client/ui/Svg/elements/WhiteArrowDown';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
-import { BasicColors, TextColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   LinkAsRedButtonStyle,
@@ -17,6 +21,10 @@ import {
 } from 'Client/ui/Elements/Buttons/V2/style';
 import { Image } from 'Client/ui/Image';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
+
+export const HeroWrapperStyle = styled(FlexElementStyle)`
+  background-color: ${BackgroundColors.LightGrey};
+`;
 
 export const HeroContentStyle = styled(FlexElementStyle)`
   width: 100%;

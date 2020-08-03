@@ -18,7 +18,7 @@ import {
   trackClickBrowseResults,
 } from 'Shared/services/Tracking';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
-import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
+import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
 import { CurrentQuestionsButtonStyle } from './style';
 
 type Props = {
@@ -63,7 +63,7 @@ export const CurrentQuestions = ({ questions }: Props) => {
         {i18n.t('browse.title')}
       </HomepageSectionTitleStyle>
       <BrowseConsultationsList questions={questions} total={questions.length} />
-      <BrowsePageInnerStyle>
+      <HomepagePageInnerStyle>
         <CurrentQuestionsButtonStyle
           to={buttonLink}
           onClick={handleClick}
@@ -71,7 +71,7 @@ export const CurrentQuestions = ({ questions }: Props) => {
         >
           {buttonText}
         </CurrentQuestionsButtonStyle>
-      </BrowsePageInnerStyle>
+      </HomepagePageInnerStyle>
     </HomepageSectionStyle>
   );
 };

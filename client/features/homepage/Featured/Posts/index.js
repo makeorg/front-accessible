@@ -13,7 +13,7 @@ import {
 } from 'Client/features/consultation/Browse/style';
 import { i18n } from 'Shared/i18n';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
-import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
+import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
 import { FeaturedIconStyle } from './style';
 import { CurrentQuestionsButtonStyle } from '../../CurrentQuestions/style';
 
@@ -54,7 +54,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
           </ConsultationsListItemStyle>
         ))}
       </ConsultationsListStyle>
-      <BrowsePageInnerStyle>
+      <HomepagePageInnerStyle>
         <CurrentQuestionsButtonStyle
           as="a"
           href={ABOUT_MAKE_LINK}
@@ -66,7 +66,7 @@ export const FeaturedPosts = ({ posts }: Props) => {
           {i18n.t('homepage.posts.see_all')}
           <FeaturedIconStyle aria-label={i18n.t('common.open_new_window')} />
         </CurrentQuestionsButtonStyle>
-      </BrowsePageInnerStyle>
+      </HomepagePageInnerStyle>
     </>
   );
 };
