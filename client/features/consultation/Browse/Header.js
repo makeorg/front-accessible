@@ -13,10 +13,10 @@ import {
   Breadcrumbs,
 } from 'Client/app/Breadcrumbs/Breadcrumbs';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
 import { isBrowseConsultationsPage } from 'Shared/routes';
 import {
   BrowseHeaderStyle,
+  BrowseHeaderInnerStyle,
   BrowseHeaderTitleStyle,
   BrowseNavItemStyle,
   BrowseNavLinkStyle,
@@ -36,7 +36,7 @@ export const BrowseConsultationsHeader = () => {
 
   return (
     <BrowseHeaderStyle as="header" aria-labelledby="browse_page_title">
-      <BrowsePageInnerStyle>
+      <BrowseHeaderInnerStyle>
         <Breadcrumbs currentPage={currentPage} />
         <BrowseHeaderTitleStyle id="browse_page_title">
           {i18n.t('browse.page_title')}
@@ -61,7 +61,7 @@ export const BrowseConsultationsHeader = () => {
             </BrowseNavItemStyle>
           </UnstyledListStyle>
         </nav>
-      </BrowsePageInnerStyle>
+      </BrowseHeaderInnerStyle>
     </BrowseHeaderStyle>
   );
 };

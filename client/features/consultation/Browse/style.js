@@ -22,12 +22,18 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { Image } from 'Client/ui/Image';
+import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const BrowseHeaderStyle = styled.header`
   background-color: ${BackgroundColors.LightGrey};
-  padding: 30px 20px 0;
+`;
+
+export const BrowseHeaderInnerStyle = styled.header`
+  ${ContainerWithPadding};
+  padding-top: 30px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding: 35px 20px 0;
+    padding-top: 35px;
   }
 `;
 
@@ -82,8 +88,10 @@ export const BrowseNavLinkStyle = styled(Link)`
 `;
 
 export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
-  margin: 60px 0 40px;
   background-color: ${BasicColors.PureWhite};
+  ${ContainerWithPadding};
+  margin-top: 60px;
+  margin-bottom: 40px;
 `;
 
 export const ConsultationsSubtitleStyle = styled.p`
@@ -105,6 +113,8 @@ const linkStyle = color => `
 export const ConsultationsListStyle = styled(UnstyledListStyle)`
   display: flex;
   flex-flow: column;
+  ${ContainerWithPadding};
+  /* Override padding values handled by children in ConsultationsListItemStyle */
   padding: 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: wrap;
@@ -113,25 +123,13 @@ export const ConsultationsListStyle = styled(UnstyledListStyle)`
 
 export const ConsultationsListItemStyle = styled.li`
   margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: ${getFullWidthDividedByItems(2)};
-    &:nth-child(2n + 1) {
-      padding-right: 15px;
-    }
-    &:nth-child(2n) {
-      padding-left: 15px;
-    }
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     width: ${props => getFullWidthDividedByItems(props.itemsPerRow)};
-    padding-left: 15px;
-    padding-right: 15px;
-    &:nth-child(4n + 1) {
-      padding-left: 0px;
-    }
-    &:nth-child(4n) {
-      padding-right: 0px;
-    }
   }
 `;
 
@@ -207,6 +205,7 @@ export const ConsultationElementParagraphStyle = styled.p`
   line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${TextColors.BlackWithOpacity};
+  margin-bottom: 20px;
 `;
 
 export const ConsultationItemStyle = styled.span`
@@ -216,10 +215,10 @@ export const ConsultationItemStyle = styled.span`
     color: ${MakeThemeColors.Red};
   }
   &:last-child {
-    margin: 15px 0;
+    margin: 20px 0 0;
   }
   &:only-child {
-    margin: 0 0 15px;
+    margin: 0;
   }
 `;
 
@@ -243,4 +242,11 @@ export const NoConsultationImageStyle = styled(MiddleColumnStyle)`
     min-height: 248px;
     margin-bottom: 25px;
   }
+`;
+
+export const NoConsultationButtonStyle = styled(UnstyledButtonStyle)`
+  align-self: flex-start;
+  ${linkStyle(MakeThemeColors.Red)};
+  text-transform: uppercase;
+  font-family: ${MakeFonts.TradeGothicBoldCondensed};
 `;

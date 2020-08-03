@@ -38,7 +38,7 @@ export const SequenceStyle = styled.section`
   width: 100%;
   margin-top: 10px;
   padding: 0 20px;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   transition: transform 0.5s ease-in;
   overflow: hidden;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

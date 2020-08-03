@@ -16,7 +16,7 @@ import {
   trackDisplayBrowseResults,
 } from 'Shared/services/Tracking';
 
-import { BrowsePageWrapperStyle, BrowsePageInnerStyle } from './style';
+import { BrowsePageWrapperStyle } from './style';
 
 const BrowseConsultationsPage = () => {
   const location = useLocation();
@@ -75,28 +75,26 @@ const BrowseConsultationsPage = () => {
       )}
       <BrowseConsultationsHeader />
       <BrowsePageWrapperStyle as="section" aria-labelledby="browse_title">
-        <BrowsePageInnerStyle>
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <>
-              <BrowseConsultationsTitles />
-              {questions && (
-                <BrowseConsultationsList
-                  questions={questions}
-                  resultsContext={!consultationsPage}
-                  total={questionsTotal}
-                />
-              )}
-              {questionsTotal > CONSULTATIONS_LIMIT && (
-                <Pagination
-                  itemsPerPage={CONSULTATIONS_LIMIT}
-                  itemsTotal={questionsTotal}
-                />
-              )}
-            </>
-          )}
-        </BrowsePageInnerStyle>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <BrowseConsultationsTitles />
+            {questions && (
+              <BrowseConsultationsList
+                questions={questions}
+                resultsContext={!consultationsPage}
+                total={questionsTotal}
+              />
+            )}
+            {questionsTotal > CONSULTATIONS_LIMIT && (
+              <Pagination
+                itemsPerPage={CONSULTATIONS_LIMIT}
+                itemsTotal={questionsTotal}
+              />
+            )}
+          </>
+        )}
       </BrowsePageWrapperStyle>
     </>
   );

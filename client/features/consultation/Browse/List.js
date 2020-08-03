@@ -3,6 +3,7 @@ import React from 'react';
 import { type HomeQuestionType } from 'Shared/types/question';
 import { RegistrationIncentive } from 'Client/features/consultation/Browse/RegistrationIncentive';
 import { ConsultationItem } from 'Client/features/consultation/Browse/Item';
+import { BrowsePageInnerStyle } from 'Client/pages/Browse/style';
 import { ConsultationsListStyle, ConsultationsListItemStyle } from './style';
 
 type Props = {
@@ -30,7 +31,11 @@ export const BrowseConsultationsList = ({
   }
 
   if (!hasQuestions) {
-    return <RegistrationIncentive length={total} />;
+    return (
+      <BrowsePageInnerStyle>
+        <RegistrationIncentive length={total} />
+      </BrowsePageInnerStyle>
+    );
   }
 
   return (

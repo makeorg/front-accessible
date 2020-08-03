@@ -9,7 +9,7 @@ export const Breakpoints = {
 
 export const Layouts = {
   ContainerWidth: 1140,
-  SpecialContainerWidth: 1180,
+  ContainerWithPadding: 1180,
 };
 
 export const DefaultPadding = {

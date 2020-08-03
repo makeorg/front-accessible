@@ -29,7 +29,7 @@ export const ConsultationPageWrapperStyle = styled.div`
   flex-flow: column;
   box-sizing: border-box;
   width: 100%;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin: ${props => (props.isGreatCause ? '20px auto' : '0 auto 20px')};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 20px;
@@ -116,7 +116,7 @@ export const SequenceProposalFieldStyle = styled.div`
   display: block;
   flex: 0 0 auto;
   width: 100%;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin-top: 10px;
   padding: 0 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

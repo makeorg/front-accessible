@@ -49,7 +49,7 @@ export const ProfilePageContentWrapperStyle = styled.div`
   box-sizing: border-box;
   width: 100%;
   align-items: flex-start;
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin: 0 auto;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 20px;

@@ -6,23 +6,43 @@ import {
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import { intToPx } from 'Shared/helpers/styled';
+import { intToPx, getFullWidthDividedByItems } from 'Shared/helpers/styled';
 import { SvgPeople, SvgLight, SvgHandHeart } from 'Client/ui/Svg/elements';
+import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
+
+export const ConsultationsListItemStyle = styled.li`
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: ${getFullWidthDividedByItems(2)};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    width: ${props => getFullWidthDividedByItems(props.itemsPerRow)};
+  }
+`;
 
 export const HighlightsBannerFiguresContainerStyle = styled(
   SpaceBetweenRowStyle
 )`
+  ${ContainerWithPadding};
   padding: 0;
   flex-wrap: wrap;
 `;
 
 export const HighlightFigureContainerStyle = styled(ColumnElementStyle)`
   margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    width: ${getFullWidthDividedByItems(2)};
+  }
   &:last-child {
     margin-bottom: 0;
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     margin-bottom: 0;
+    width: ${getFullWidthDividedByItems(3)};
   }
 `;
 

@@ -27,7 +27,7 @@ export const StaticPageWrapperStyle = styled.div`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)} 20px;
   }
-  max-width: ${intToPx(Layouts.SpecialContainerWidth)};
+  max-width: ${intToPx(Layouts.ContainerWithPadding)};
   margin: 30px auto;
 `;
 
