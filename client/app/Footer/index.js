@@ -7,8 +7,6 @@ import { trackClickBlog } from 'Shared/services/Tracking';
 import { useDesktop } from 'Client/hooks/useMedia';
 import {
   JOBS_LINK,
-  WHOAREWE_FR_LINK,
-  WHOAREWE_EN_LINK,
   NEWS_LINK,
   DOTATION_FUNDS_LINK,
   PRESS_DETAILS,
@@ -43,18 +41,6 @@ export const Footer = () => {
     <FooterStyle id="main_footer">
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
         <UnstyledListStyle>
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              as="a"
-              target="_blank"
-              href={isFR ? WHOAREWE_FR_LINK : WHOAREWE_EN_LINK}
-            >
-              {i18n.t('main-footer.whoarewe')}
-              <FooterLinkIconStyle
-                aria-label={i18n.t('common.open_new_window')}
-              />
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
           {isDesktop && (
             <>
               <FooterItemStyle>
@@ -103,18 +89,6 @@ export const Footer = () => {
                   />
                 </FooterItemLinkStyle>
               </FooterItemStyle>
-            </>
-          )}
-          <FooterItemStyle>
-            <FooterItemLinkStyle
-              onClick={scrollToTop}
-              to={getContactPageLink(country, language)}
-            >
-              {i18n.t('main-footer.contact_us')}
-            </FooterItemLinkStyle>
-          </FooterItemStyle>
-          {isFR && (
-            <>
               <FooterItemStyle>
                 <FooterItemLinkStyle
                   as="a"
@@ -129,6 +103,14 @@ export const Footer = () => {
               </FooterItemStyle>
             </>
           )}
+          <FooterItemStyle>
+            <FooterItemLinkStyle
+              onClick={scrollToTop}
+              to={getContactPageLink(country, language)}
+            >
+              {i18n.t('main-footer.contact')}
+            </FooterItemLinkStyle>
+          </FooterItemStyle>
           <FooterItemStyle>
             <FooterItemLinkStyle
               onClick={scrollToTop}
