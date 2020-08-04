@@ -15,9 +15,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
 import { Sequence } from 'Client/features/sequence';
-import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
-import { Redirect } from 'react-router';
-import { isInProgress } from 'Shared/helpers/date';
+import { getConsultationLink } from 'Shared/helpers/url';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
 import { ThemeProvider } from 'styled-components';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
@@ -36,11 +34,6 @@ const SequencePage = () => {
   const [isClosed, closeSequence] = useState(false);
   const dispatch = useDispatch();
   const consultationLink = getConsultationLink(
-    question.country,
-    question.language,
-    question.slug
-  );
-  const resultsLink = getResultsLink(
     question.country,
     question.language,
     question.slug
@@ -65,14 +58,6 @@ const SequencePage = () => {
         <Spinner />
       </SequencePageContentStyle>
     );
-  }
-
-  if (question.displayResults) {
-    return <Redirect to={resultsLink} />;
-  }
-
-  if (!isInProgress(question)) {
-    window.location = question.aboutUrl;
   }
 
   if (!question.canPropose) {
