@@ -38,6 +38,7 @@ export const CookieBanner = () => {
     <CookieWrapperStyle
       aria-label={i18n.t('common.cookie_area')}
       data-cy-container="cookie-banner"
+      className="expand-navigation-aria"
     >
       <CookieContentStyle>
         <CookieIconStyle

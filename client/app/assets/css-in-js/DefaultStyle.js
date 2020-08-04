@@ -19,6 +19,9 @@ export const DefaultStylesheet = createGlobalStyle`
   body {
     font-family: ${MakeFonts.CircularStandardBook};
     color: ${BasicColors.PureBlack};
+    &.locked {
+      overflow-y: hidden;
+    }
   }
 
   h1,
@@ -76,5 +79,11 @@ export const DefaultStylesheet = createGlobalStyle`
   dl,
   dd {
     margin: 0;
+  }
+
+  .expand-navigation-aria[aria-hidden="true"] a,
+  .expand-navigation-aria[aria-hidden="true"] input,
+  .expand-navigation-aria[aria-hidden="true"] button {
+    visibility: hidden;
   }
 `;

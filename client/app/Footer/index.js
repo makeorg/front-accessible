@@ -38,7 +38,7 @@ export const Footer = () => {
   const isFR = country === 'FR';
 
   return (
-    <FooterStyle id="main_footer">
+    <FooterStyle id="main_footer" className="expand-navigation-aria">
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
         <UnstyledListStyle>
           {isDesktop && (

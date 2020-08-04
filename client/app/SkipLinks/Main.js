@@ -4,7 +4,7 @@ import { SkipLink } from 'Client/app/Styled/MainElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const MainSkipLinks = () => (
-  <UnstyledListStyle>
+  <UnstyledListStyle className="expand-navigation-aria">
     <li>
       <SkipLink as="a" href="#main_content">
         {i18n.t('skip_links.main_content')}
