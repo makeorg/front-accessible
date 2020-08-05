@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LEGAL_CONSENT_FORMNAME } from 'Shared/constants/form';
 import { i18n } from 'Shared/i18n';
 import {
@@ -7,7 +7,6 @@ import {
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CheckBox } from 'Client/ui/Elements/Form/CheckBox';
-import { useEffect } from 'react';
 import { trackDisplayLegalConsent } from 'Shared/services/Tracking';
 import {
   LegalFormStyle,
@@ -21,12 +20,14 @@ import {
 } from '../style';
 
 type Props = {
+  needLegalConsent: boolean,
   handleLegalField: (fieldName: string, value: boolean) => any,
   handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => any,
   toggleLegalConsent: () => void,
 };
 
 export const LegalConsent = ({
+  needLegalConsent,
   handleLegalField,
   handleSubmit,
   toggleLegalConsent,
@@ -40,7 +41,12 @@ export const LegalConsent = ({
   }, []);
 
   return (
-    <LegalFormStyle name={LEGAL_CONSENT_FORMNAME} onSubmit={handleSubmit}>
+    <LegalFormStyle
+      id={LEGAL_CONSENT_FORMNAME}
+      name={LEGAL_CONSENT_FORMNAME}
+      onSubmit={handleSubmit}
+      className={!needLegalConsent && 'hidden'}
+    >
       <SecondLevelTitleStyle id="register_title">
         {i18n.t('legal_consent.title')}
       </SecondLevelTitleStyle>
@@ -79,7 +85,7 @@ export const LegalConsent = ({
         />
       </LegalCheckboxWrapperStyle>
       <LegalButtonGroupStyle>
-        <LegalCancelStyle onClick={toggleLegalConsent}>
+        <LegalCancelStyle type="button" onClick={toggleLegalConsent}>
           {i18n.t('legal_consent.cancel')}
         </LegalCancelStyle>
         <LegalSubmitStyle
