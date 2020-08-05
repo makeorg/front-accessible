@@ -15,7 +15,9 @@ type Props = {
   /** handleLabelClick of the checkbox */
   handleCheck: (event: SyntheticEvent<HTMLLabelElement>) => void,
   /** Value of the checkbox */
-  value: string,
+  value: string | boolean,
+  /** onChange of the checkbox */
+  handleChange?: (event: SyntheticEvent<HTMLLabelElement>) => void,
   /** Default value of the checkbox */
   isChecked?: boolean,
   /** Is input required or optional */
@@ -27,6 +29,7 @@ export const CheckBox = ({
   label,
   handleCheck,
   value,
+  handleChange = () => {},
   required = false,
   isChecked = false,
 }: Props) => {
@@ -46,7 +49,7 @@ export const CheckBox = ({
         required={required}
         checked={isChecked}
         aria-checked={isChecked}
-        onChange={() => {}}
+        onChange={handleChange}
         hidden
       />
       <CheckboxLabelStyle

@@ -17,12 +17,12 @@ type Props = {
   name: string,
   /** Icon of the input */
   icon: HTMLElement,
-  /** Value of the input */
-  value: string,
   /** Label of the input */
   label: string,
   /** Mehtod called on change event */
   handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => void,
+  /** Value of the input */
+  value?: number,
   /** Object containing field errors */
   error?: ErrorObjectType,
   /** Is input required or optional */

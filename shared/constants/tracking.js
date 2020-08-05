@@ -51,6 +51,7 @@ export const SIGN_IN_EMAIL_SUCCESS: string = 'signin-email-success';
 export const AUTHEN_SOCIAL_FAILURE: string = 'authen-social-failure';
 export const SIGN_UP_EMAIL_FAILURE: string = 'signup-email-failure';
 export const SIGN_IN_EMAIL_FAILURE: string = 'signin-email-failure';
+export const DISPLAY_LEGAL_CONSENT: string = 'display-legal-consent';
 
 /* Proposal submit journey */
 export const CLICK_PROPOSAL_SUBMIT: string = 'click-proposal-submit';
