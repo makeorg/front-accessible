@@ -19,6 +19,7 @@ export const PasswordButton = (props: Props) => {
 
   return (
     <UnstyledButtonStyle
+      type="button"
       as={isPasswordDisplayed ? HidePasswordIconStyle : UnstyledButtonStyle}
       onClick={toggleIsPasswordDisplayed}
       aria-label={

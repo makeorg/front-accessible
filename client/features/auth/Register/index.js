@@ -122,62 +122,63 @@ export const Register = () => {
       setErrors(serviceErrors);
     };
     const unexpectedError = () => dispatch(modalClose());
+    displayLegalConsent(false);
     setWaitingCallback(true);
 
     await UserService.register(user, success, handleErrors, unexpectedError);
 
     setWaitingCallback(false);
-    displayLegalConsent(false);
   };
 
   const toggleLegalConsent = () => displayLegalConsent(!needLegalConsent);
 
-  if (needLegalConsent) {
-    return (
+  return (
+    <>
       <LegalConsent
+        needLegalConsent={needLegalConsent}
         handleLegalField={handleLegalField}
         handleSubmit={handleSubmit}
         toggleLegalConsent={toggleLegalConsent}
       />
-    );
-  }
-
-  return (
-    <AuthenticationWrapperStyle aria-labelledby="register_title">
-      <SecondLevelTitleStyle id="register_title">
-        {i18n.t('register.title')}
-      </SecondLevelTitleStyle>
-      <SmallSeparatorWithMarginStyle />
-      <FourthLevelTitleStyle as="h3">
-        {i18n.t('register.social_connect')}
-        &nbsp;
-        <FacebookAuthentication link />
-        &nbsp;
-        {i18n.t('register.or')}
-        &nbsp;
-        <GoogleAuthentication link />
-      </FourthLevelTitleStyle>
-      <SeparatorWrapperStyle>
-        <LargeSeparatorStyle />
-        <TextSeparatorStyle>{i18n.t('register.or')}</TextSeparatorStyle>
-        <LargeSeparatorStyle />
-      </SeparatorWrapperStyle>
-      <FourthLevelTitleStyle as="h3">
-        {i18n.t('register.subtitle')}
-      </FourthLevelTitleStyle>
-      <RegisterForm
-        user={user}
-        errors={errors}
-        handleChange={handleChange}
-        handleSubmit={userIsAChild ? toggleLegalConsent : handleSubmit}
-        disableSubmit={waitingCallback}
-      />
-      <ExtraParagraphStyle>
-        {i18n.t('register.login_title')}
-        <RedLinkButtonStyle onClick={handleLoginModal}>
-          {i18n.t('register.login_link')}
-        </RedLinkButtonStyle>
-      </ExtraParagraphStyle>
-    </AuthenticationWrapperStyle>
+      <AuthenticationWrapperStyle
+        aria-labelledby="register_title"
+        className={needLegalConsent && 'hidden'}
+      >
+        <SecondLevelTitleStyle id="register_title">
+          {i18n.t('register.title')}
+        </SecondLevelTitleStyle>
+        <SmallSeparatorWithMarginStyle />
+        <FourthLevelTitleStyle as="h3">
+          {i18n.t('register.social_connect')}
+          &nbsp;
+          <FacebookAuthentication link />
+          &nbsp;
+          {i18n.t('register.or')}
+          &nbsp;
+          <GoogleAuthentication link />
+        </FourthLevelTitleStyle>
+        <SeparatorWrapperStyle>
+          <LargeSeparatorStyle />
+          <TextSeparatorStyle>{i18n.t('register.or')}</TextSeparatorStyle>
+          <LargeSeparatorStyle />
+        </SeparatorWrapperStyle>
+        <FourthLevelTitleStyle as="h3">
+          {i18n.t('register.subtitle')}
+        </FourthLevelTitleStyle>
+        <RegisterForm
+          user={user}
+          errors={errors}
+          handleChange={handleChange}
+          handleSubmit={userIsAChild ? toggleLegalConsent : handleSubmit}
+          disableSubmit={waitingCallback}
+        />
+        <ExtraParagraphStyle>
+          {i18n.t('register.login_title')}
+          <RedLinkButtonStyle onClick={handleLoginModal}>
+            {i18n.t('register.login_link')}
+          </RedLinkButtonStyle>
+        </ExtraParagraphStyle>
+      </AuthenticationWrapperStyle>
+    </>
   );
 };

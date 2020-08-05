@@ -18,6 +18,10 @@ export const AuthenticationWrapperStyle = styled.section`
   align-items: center;
   width: 100%;
   max-width: 470px;
+  &.hidden {
+    visibility: hidden;
+    display: none;
+  }
 `;
 
 export const AuthenticationTitleStyle = styled(SecondLevelTitleStyle)`
@@ -26,6 +30,10 @@ export const AuthenticationTitleStyle = styled(SecondLevelTitleStyle)`
 
 export const LegalFormStyle = styled(FormStyle)`
   max-width: 475px;
+  &.hidden {
+    visibility: hidden;
+    display: none;
+  }
 `;
 
 export const LegalIconStyle = styled(SvgLegalConsent)`
