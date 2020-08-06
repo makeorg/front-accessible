@@ -308,6 +308,8 @@ const update = async (
     optInNewsletter,
     website,
     avatarUrl,
+    legalMinorConsent,
+    legalAdvisorApproval,
   } = profile;
 
   try {
@@ -321,7 +323,9 @@ const update = async (
       description,
       postalCode,
       optInNewsletter,
-      website
+      website,
+      legalMinorConsent,
+      legalAdvisorApproval
     );
 
     success();

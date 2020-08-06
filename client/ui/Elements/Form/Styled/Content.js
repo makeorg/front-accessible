@@ -8,12 +8,25 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from '../../ParagraphElements';
 
-export const FormStyle = styled.form`
+const FormStyle = `
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
+  &.hidden {
+    visibility: hidden;
+    display: none;
+  }
+`;
+
+export const FormLeftAlignStyle = styled.form`
+  ${FormStyle};
+  align-items: flex-start;
+`;
+
+export const FormCenterAlignStyle = styled.form`
+  ${FormStyle};
+  align-items: center;
 `;
 
 export const FormRequirementsStyle = styled.p`

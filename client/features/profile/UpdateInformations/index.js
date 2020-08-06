@@ -11,7 +11,10 @@ import { type UserType } from 'Shared/types/user';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { getUser } from 'Shared/store/actions/authentication';
 import { FormErrors } from 'Client/ui/Elements/Form/Errors';
-import { FormRequirementsStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import {
+  FormRequirementsStyle,
+  FormLeftAlignStyle,
+} from 'Client/ui/Elements/Form/Styled/Content';
 import { throttle } from 'Shared/helpers/throttle';
 import { FormSuccessMessage } from 'Client/ui/Elements/Form/Success';
 import {
@@ -19,8 +22,11 @@ import {
   TYPE_ORGANISATION,
   TYPE_USER,
 } from 'Shared/constants/user';
+import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { OrganisationService } from 'Shared/services/Organisation';
 import { PersonalityService } from 'Shared/services/Personality';
+import { LegalConsent } from 'Client/features/auth/Register/LegalConsent';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { OrganisationForm } from './Organisation';
 import { PersonalityForm } from './Personality';
 import { UserForm } from './User';
@@ -48,12 +54,24 @@ export const UpdateInformations = ({ user }: Props) => {
       throw new Error(`Unexpected user type "${user.userType}"`);
   }
 
-  const [profile, setProfileValues] = useState<Object>(user.profile);
+  const [profile, setProfileValues] = useState<Object>({
+    ...user.profile,
+    legalMinorConsent: false,
+    legalAdvisorApproval: false,
+  });
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState<boolean>(false);
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const [errors, setErrors] = useState<ErrorObjectType[]>([]);
+  const [needLegalConsent, displayLegalConsent] = useState<boolean>(false);
+  const userIsAChild =
+    user.userType === TYPE_USER &&
+    // $FlowFixMe
+    getAgeFromDateOfBirth(profile.dateOfBirth) < 15;
 
-  const handleChange = (name: string, value: string | number | null) => {
+  const handleChange = (
+    name: string,
+    value: string | number | boolean | null
+  ) => {
     setProfileValues({ ...profile, [name]: value });
     setCanSubmit(true);
     setIsSubmitSuccessful(false);
@@ -75,13 +93,33 @@ export const UpdateInformations = ({ user }: Props) => {
       setErrors(serviceErrors);
     };
 
+    displayLegalConsent(false);
+
     const { userId } = user;
     await updateProfile(userId, profile, success, handleErrors);
   };
 
+  const toggleLegalConsent = (event: SyntheticInputEvent<any>) => {
+    event.preventDefault();
+    displayLegalConsent(!needLegalConsent);
+  };
+
   return (
     <TileWithTitle title={i18n.t('profile.informations_update.title')}>
-      <form id={PROFILE_UPDATE_FORMNAME} onSubmit={throttle(handleSubmit)}>
+      <CenterColumnStyle>
+        <LegalConsent
+          needLegalConsent={needLegalConsent}
+          handleLegalField={handleChange}
+          handleSubmit={throttle(handleSubmit)}
+          toggleLegalConsent={toggleLegalConsent}
+        />
+      </CenterColumnStyle>
+      <FormLeftAlignStyle
+        id={PROFILE_UPDATE_FORMNAME}
+        name={PROFILE_UPDATE_FORMNAME}
+        onSubmit={userIsAChild ? toggleLegalConsent : throttle(handleSubmit)}
+        className={needLegalConsent && 'hidden'}
+      >
         <FormRequirementsStyle>
           {i18n.t('common.form.requirements')}
         </FormRequirementsStyle>
@@ -107,7 +145,6 @@ export const UpdateInformations = ({ user }: Props) => {
             errors={errors}
           />
         )}
-
         <SubmitButton
           disabled={!canSubmit}
           formName={PROFILE_UPDATE_FORMNAME}
@@ -115,7 +152,7 @@ export const UpdateInformations = ({ user }: Props) => {
           label={i18n.t('profile.common.submit_label')}
         />
         {isSubmitSuccessful && <FormSuccessMessage />}
-      </form>
+      </FormLeftAlignStyle>
     </TileWithTitle>
   );
 };

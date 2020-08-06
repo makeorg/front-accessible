@@ -6,7 +6,7 @@ import { type RegisterFormDataType } from 'Shared/types/form';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { type StateRoot } from 'Shared/store/types';
 import {
-  FormStyle,
+  FormCenterAlignStyle,
   ConditionParagraphStyle,
   FormRequirementsStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
@@ -58,7 +58,10 @@ export const RegisterForm = ({
   const postalcodeError = getFieldError('postalcode', errors);
 
   return (
-    <FormStyle id={REGISTER_FORMNAME} onSubmit={throttle(handleSubmit)}>
+    <FormCenterAlignStyle
+      id={REGISTER_FORMNAME}
+      onSubmit={throttle(handleSubmit)}
+    >
       <FormRequirementsStyle>
         {i18n.t('common.form.requirements')}
       </FormRequirementsStyle>
@@ -139,6 +142,6 @@ export const RegisterForm = ({
         label={i18n.t('common.register_label')}
         disabled={disableSubmit}
       />
-    </FormStyle>
+    </FormCenterAlignStyle>
   );
 };

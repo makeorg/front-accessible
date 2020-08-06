@@ -18,6 +18,7 @@ jest.mock('Shared/services/Logger');
 jest.mock('Shared/helpers/date', () => ({
   getDateOfBirthFromAge: () => 30,
 }));
+jest.setTimeout(30000);
 
 describe('User Service', () => {
   describe('update function', () => {
@@ -31,8 +32,10 @@ describe('User Service', () => {
       optInNewsletter: false,
       avatarUrl: null,
       website: null,
+      legalMinorConsent: false,
+      legalAdvisorConsent: false,
     };
-    it('Call UserApi service with right params', async done => {
+    it('Call UserApi service with right params', async () => {
       jest.spyOn(UserApiService, 'update');
       UserApiService.update.mockResolvedValue({ data: 'ok' });
 
@@ -48,14 +51,15 @@ describe('User Service', () => {
           profile.description,
           profile.postalCode,
           profile.optInNewsletter,
-          null
+          null,
+          profile.legalMinorConsent,
+          profile.legalAdvisorConsent
         );
-        done();
       };
       UserService.update('userId', profile, success);
     });
 
-    it('return a bad request content', async done => {
+    it('return a bad request content', async () => {
       jest.spyOn(UserApiService, 'update');
       UserApiService.update.mockRejectedValue({
         status: 400,
@@ -68,7 +72,6 @@ describe('User Service', () => {
           expect(errors[index].key).toBe(updateUserErrors[index].key);
           expect(errors[index].field).toBe(updateUserErrors[index].field);
         });
-        done();
       };
 
       UserService.update('userId', {}, () => {}, handleErrors);
