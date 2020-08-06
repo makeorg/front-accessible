@@ -37,8 +37,10 @@ export const LegalConsent = ({
   const agreedAllConsents = minorConsent && parentalConsent;
 
   useEffect(() => {
-    trackDisplayLegalConsent();
-  }, []);
+    if (needLegalConsent) {
+      trackDisplayLegalConsent();
+    }
+  }, [needLegalConsent]);
 
   return (
     <LegalFormStyle

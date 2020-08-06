@@ -12,13 +12,14 @@ import { scrollToTop } from 'Shared/helpers/styled';
 import {
   HomepageSectionTitleStyle,
   HomepageSectionStyle,
+  HomepagePageInnerStyle,
 } from 'Client/pages/Home/style';
 import {
   trackClickBrowseConsultations,
   trackClickBrowseResults,
 } from 'Shared/services/Tracking';
 import { BrowseConsultationsList } from 'Client/features/consultation/Browse/List';
-import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
+
 import { CurrentQuestionsButtonStyle } from './style';
 
 type Props = {
