@@ -34,3 +34,23 @@ export const scrollToTop = () => {
 export const getFullWidthDividedByItems = (count: number) => {
   return `${100 / count}%`;
 };
+
+export const lockBody = () => {
+  const body = document.querySelector('body');
+
+  if (!body) {
+    return undefined;
+  }
+
+  return body.classList.add('locked');
+};
+
+export const unlockBody = () => {
+  const body = document.querySelector('body');
+
+  if (!body) {
+    return undefined;
+  }
+
+  return body.classList.remove('locked');
+};

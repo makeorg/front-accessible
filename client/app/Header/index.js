@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { trackClickMakeLogo } from 'Shared/services/Tracking';
 import Logo from 'Client/app/assets/images/logo.svg';

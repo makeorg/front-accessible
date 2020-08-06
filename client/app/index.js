@@ -35,7 +35,11 @@ export const AppContainer = () => (
             <CookieBanner />
             <MainSkipLinks />
             <Header />
-            <AppMainContentStyle id="main_content" data-cy-container="main">
+            <AppMainContentStyle
+              id="main_content"
+              data-cy-container="main"
+              className="expand-navigation-aria"
+            >
               <Notification />
               <Routes />
             </AppMainContentStyle>

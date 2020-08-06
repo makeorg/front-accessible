@@ -218,7 +218,10 @@
   },
   "header": {
     "logo_alt": "Aller à l'accueil du site Make.org",
-    "whoarewe": "Qui sommes-nous ?"
+    "whoarewe": "Qui sommes-nous ?",
+    "open_menu": "Accéder au menu de navigation principale",
+    "close_menu": "Fermer le menu de navigation principale",
+    "main_navigation": "Navigation principale du site"
   },
   "proposal_page": {
     "button_1": "participer",
