@@ -130,7 +130,10 @@ export const Register = () => {
     setWaitingCallback(false);
   };
 
-  const toggleLegalConsent = () => displayLegalConsent(!needLegalConsent);
+  const toggleLegalConsent = (event: SyntheticInputEvent<any>) => {
+    event.preventDefault();
+    displayLegalConsent(!needLegalConsent);
+  };
 
   return (
     <>

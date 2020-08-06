@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const ForgotPasswordStyle = styled.section`
@@ -12,7 +12,7 @@ export const ForgotPasswordStyle = styled.section`
   max-width: 697px;
 `;
 
-export const ForgotPasswordFormStyle = styled(FormStyle)`
+export const ForgotPasswordFormStyle = styled(FormCenterAlignStyle)`
   max-width: 490px;
 `;
 

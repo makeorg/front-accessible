@@ -163,7 +163,9 @@ export class UserApiService {
     description: string,
     postalCode: string,
     optInNewsletter: boolean,
-    website: string
+    website: string,
+    legalMinorConsent: boolean,
+    legalAdvisorApproval: boolean
   ): Promise<any> {
     return ApiService.callApi(PATH_USER_PROFILE.replace(':userId', userId), {
       method: 'PUT',
@@ -177,6 +179,8 @@ export class UserApiService {
         postalCode,
         optInNewsletter,
         website,
+        legalMinorConsent,
+        legalAdvisorApproval,
       }),
     });
   }

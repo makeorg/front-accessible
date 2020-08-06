@@ -78,11 +78,12 @@ export const UserForm = ({
         name="age"
         icon={AgeFieldIcon}
         value={age}
-        label={i18n.t('common.form.label.age', { context: 'optional' })}
+        label={i18n.t('common.form.label.age')}
         error={ageError}
         handleChange={onChange}
-        min={13}
+        min={8}
         max={120}
+        required
       />
       <UntypedInput
         type="text"
@@ -107,7 +108,6 @@ export const UserForm = ({
         maxLength={5}
         pattern="^[0-9]{5}"
       />
-
       <TextArea
         name="description"
         icon={DescriptionFieldIcon}

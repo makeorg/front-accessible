@@ -23,7 +23,7 @@ type Props = {
   needLegalConsent: boolean,
   handleLegalField: (fieldName: string, value: boolean) => any,
   handleSubmit: (event: SyntheticInputEvent<HTMLInputElement>) => any,
-  toggleLegalConsent: () => void,
+  toggleLegalConsent: (event: SyntheticInputEvent<any>) => void,
 };
 
 export const LegalConsent = ({

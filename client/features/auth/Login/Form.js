@@ -9,7 +9,7 @@ import {
 } from 'Shared/services/Tracking';
 import { type ErrorObjectType } from 'Shared/types/api';
 import {
-  FormStyle,
+  FormCenterAlignStyle,
   FormRequirementsStyle,
 } from 'Client/ui/Elements/Form/Styled/Content';
 import { UntypedInput } from 'Client/ui/Elements/Form/UntypedInput';
@@ -87,7 +87,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <FormStyle id={LOGIN_FORMNAME} onSubmit={throttle(handleSubmit)}>
+    <FormCenterAlignStyle id={LOGIN_FORMNAME} onSubmit={throttle(handleSubmit)}>
       <FormRequirementsStyle>
         {i18n.t('common.form.requirements')}
       </FormRequirementsStyle>
@@ -117,6 +117,6 @@ export const LoginForm = () => {
         id="authentication-login-submit"
         label={i18n.t('common.connexion_label')}
       />
-    </FormStyle>
+    </FormCenterAlignStyle>
   );
 };

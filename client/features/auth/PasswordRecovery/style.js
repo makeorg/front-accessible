@@ -11,7 +11,7 @@ import {
   CALC_RECOVERY_HEIGHT_MOBILE,
   CALC_RECOVERY_HEIGHT_DESKTOP,
 } from 'Client/app/constants/elements';
-import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
 export const PasswordRecoveryWrapperStyle = styled(PageWrapperStyle)`
@@ -38,7 +38,7 @@ export const PasswordRecoveryStyle = styled.section`
   max-width: 697px;
 `;
 
-export const PasswordRecoveryFormStyle = styled(FormStyle)`
+export const PasswordRecoveryFormStyle = styled(FormCenterAlignStyle)`
   max-width: 490px;
 `;
 

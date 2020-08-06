@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgLegalConsent } from 'Client/ui/Svg/elements';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
-import { FormStyle } from 'Client/ui/Elements/Form/Styled/Content';
+import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
@@ -28,7 +28,7 @@ export const AuthenticationTitleStyle = styled(SecondLevelTitleStyle)`
   padding: 0 25px;
 `;
 
-export const LegalFormStyle = styled(FormStyle)`
+export const LegalFormStyle = styled(FormCenterAlignStyle)`
   max-width: 475px;
   &.hidden {
     visibility: hidden;
