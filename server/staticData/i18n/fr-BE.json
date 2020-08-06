@@ -390,7 +390,7 @@
   },
   "legal_consent": {
     "title": "Autorisation légale",
-    "sub_title": "Nous avons besoin de l’accord de l’un de tes parents",
+    "subtitle": "Nous avons besoin de l’accord de l’un de tes parents",
     "description": "Nous avons besoin de recueillir deux consentements pour te donner accès à notre plateforme citoyenne. Bientôt tu pourras prendre la parole sur toutes nos consultations !",
     "minor_consent": "Je consens au traitement de mes données personnelles par Make.org.",
     "parental_consent": "En tant que titulaire de l'autorité parentale, je consens au traitement des données personnelles de mon enfant par Make.org.",
@@ -874,7 +874,7 @@
       "title": "Ensemble, nous avons le pouvoir d'améliorer la société",
       "description": "Donnez votre avis sur des sujets de société qui vous tiennent à coeur en participant à nos consultations citoyennes. Ensemble, citoyens, associations et entreprises, définissons nos priorités et réalisons des changements concrets.",
       "participate": "Participez aux consultations",
-      "discover": "Découvrir nos grandes causes"
+      "discover": "Découvrez nos grandes causes"
     },
     "highlights":{
       "title": "Make.org en quelques chiffres",
