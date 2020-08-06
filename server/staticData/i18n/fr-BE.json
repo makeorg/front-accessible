@@ -933,10 +933,13 @@
       "introduction": "Pour effectuer une recherche, votre requête doit être comprise entre 3 et 140 caratères. Saisissez là dans le champ de recherche puis cliquez sur le bouton \"Rechercher\"",
       "introduction_searched": "Pour vider le champ de recherche, cliquez sur le bouton \"Effacer le champ de recherche\"",
       "label": "Champ de recherche",
-      "placeholder": "Recherchez une idée, un thème, un sujet",
-      "placeholder_mobile": "Recherchez...",
+      "deprecated_placeholder": "Recherchez une idée, un thème, un sujet",
+      "deprecated_placeholder_mobile": "Recherchez...",
+      "placeholder": "Rechercher",
       "submit": "Rechercher",
-      "flush": "Effacer le champ de recherche"
+      "flush": "Effacer le champ de recherche",
+      "open_panel": "Afficher le champ de recherche",
+      "close_panel": "Fermer le champ de recherche"
     }
   },
   "no_cookies": {
