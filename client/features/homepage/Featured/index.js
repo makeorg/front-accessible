@@ -7,8 +7,9 @@ import { i18n } from 'Shared/i18n';
 import {
   HomepageSectionTitleStyle,
   HomepageSectionStyle,
+  HomepagePageInnerStyle,
 } from 'Client/pages/Home/style';
-import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
+
 import { FeaturedQuestions } from './Questions';
 import { FeaturedPosts } from './Posts';
 import { FeaturedSeparatorStyle } from './Posts/style';

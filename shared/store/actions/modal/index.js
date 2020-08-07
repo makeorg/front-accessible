@@ -1,28 +1,20 @@
 /* @flow */
 
 import * as actionTypes from 'Shared/store/actionTypes';
-import {
-  trackDisplaySigninForm,
-  trackDisplaySignupForm,
-  trackDisplayForgotPasswordForm,
-} from 'Shared/services/Tracking';
 
 export const modalClose = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_CLOSE });
 };
 export const modalShowLogin = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_LOGIN });
-  trackDisplaySigninForm();
 };
 
 export const modalShowRegister = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_REGISTER });
-  trackDisplaySignupForm();
 };
 
 export const modalShowForgotPassword = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_SHOW_FORGOT_PASSWORD });
-  trackDisplayForgotPasswordForm();
 };
 
 export const modalShowDepartmentForm = () => {
