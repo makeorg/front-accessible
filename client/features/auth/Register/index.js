@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
 import { type RegisterFormDataType } from 'Shared/types/form';
@@ -22,7 +22,6 @@ import { modalShowLogin, modalClose } from 'Shared/store/actions/modal';
 import {
   trackSignupEmailSuccess,
   trackSignupEmailFailure,
-  trackDisplaySignupForm,
 } from 'Shared/services/Tracking';
 import { UserService } from 'Shared/services/User';
 import { Logger } from 'Shared/services/Logger';
@@ -135,12 +134,6 @@ export const Register = () => {
     event.preventDefault();
     displayLegalConsent(!needLegalConsent);
   };
-
-  useEffect(() => {
-    if (!needLegalConsent) {
-      trackDisplaySignupForm();
-    }
-  }, [needLegalConsent]);
 
   return (
     <>
