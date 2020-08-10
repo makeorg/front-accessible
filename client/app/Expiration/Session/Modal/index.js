@@ -14,7 +14,7 @@ import {
   ReloadButtonStyle,
   SessionExpiredPictureStyle,
   SessionExpiredParagraphStyle,
-} from './Styled';
+} from './style';
 
 ReactModal.setAppElement('#app');
 
