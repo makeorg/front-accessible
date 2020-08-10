@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SequenceNextButtonStyle } from 'Client/features/sequence/style';
+import { SequenceNextButtonStyle } from 'Client/features/sequence/Deprecated/style';
 import { Vote } from './index';
 import { VoteWrapperStyle } from './style';
 

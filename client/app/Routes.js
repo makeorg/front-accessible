@@ -10,6 +10,7 @@ import {
   ROUTE_SEARCH_CONSULTATIONS,
   ROUTE_CONSULTATION,
   ROUTE_ACTION,
+  ROUTE_BETA_SEQUENCE,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
@@ -63,7 +64,10 @@ const TopIdeaDetailsPage = loadable(() =>
   import('Client/pages/Consultation/TopIdeaDetails.js')
 );
 const SequencePage = loadable(() =>
-  import('Client/pages/Consultation/Sequence')
+  import('Client/pages/Consultation/Sequence.js')
+);
+const DeprecatedSequencePage = loadable(() =>
+  import('Client/pages/Consultation/Deprecated/Sequence.js')
 );
 const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
@@ -108,6 +112,11 @@ export const Routes = () => {
     <Switch>
       <Route path={ROUTE_BROWSE_CONSULTATIONS} component={BrowsePage} />
       <Route path={ROUTE_BROWSE_RESULTS} component={BrowsePage} />
+      <Route path={ROUTE_BETA_SEQUENCE}>
+        <QuestionWrapper withRedirect>
+          <SequencePage />
+        </QuestionWrapper>
+      </Route>
       <Route path={ROUTE_CONSULTATION}>
         <QuestionWrapper withRedirect>
           <ConsultationPage />
@@ -120,7 +129,7 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_SEQUENCE}>
         <QuestionWrapper withRedirect>
-          <SequencePage />
+          <DeprecatedSequencePage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>

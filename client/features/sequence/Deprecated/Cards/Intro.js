@@ -30,7 +30,10 @@ type Props = {
   isCardVisible: boolean,
 };
 
-export const IntroCard = ({ configuration, isCardVisible }: Props) => {
+export const DeprecatedIntroCard = ({
+  configuration,
+  isCardVisible,
+}: Props) => {
   const dispatch = useDispatch();
   const { extraLogo, description, title, partners } = configuration;
   const descriptionText = description || i18n.t('intro_card.description');

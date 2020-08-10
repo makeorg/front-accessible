@@ -21,7 +21,6 @@ import {
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
-import { IntroCard } from './Intro';
 import {
   SequenceProposalCardStyle,
   SequenceProposalCardCenteredStyle,
@@ -31,10 +30,11 @@ import {
   CardHeaderPreviousButtonStyle,
   CardHeaderPreviousIconStyle,
 } from '../style';
-import { ProposalCard } from './Proposal';
-import { SignUpCard } from './SignUp';
-import { PushProposalCard } from './PushProposal';
-import { FinalCard } from './Final';
+import { DeprecatedIntroCard } from './Intro';
+import { DeprecatedProposalCard } from './Proposal';
+import { DeprecatedSignUpCard } from './SignUp';
+import { DeprecatedPushProposalCard } from './PushProposal';
+import { DeprecatedFinalCard } from './Final';
 
 type CardProps = {
   /** Attribute of the card */
@@ -45,34 +45,40 @@ type CardProps = {
   isCardVisible: boolean,
 };
 
-export const CardType = ({ card, index, isCardVisible }: CardProps) => {
+export const DeprecatedCardType = ({
+  card,
+  index,
+  isCardVisible,
+}: CardProps) => {
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
-      return <ProposalCard proposal={card.configuration} index={index} />;
+      return (
+        <DeprecatedProposalCard proposal={card.configuration} index={index} />
+      );
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return (
-        <IntroCard
+        <DeprecatedIntroCard
           configuration={card.configuration}
           isCardVisible={isCardVisible}
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP:
       return (
-        <SignUpCard
+        <DeprecatedSignUpCard
           configuration={card.configuration}
           isCardVisible={isCardVisible}
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL:
       return (
-        <PushProposalCard
+        <DeprecatedPushProposalCard
           configuration={card.configuration}
           isCardVisible={isCardVisible}
         />
       );
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:
       return (
-        <FinalCard
+        <DeprecatedFinalCard
           configuration={card.configuration}
           isCardVisible={isCardVisible}
         />
@@ -91,7 +97,7 @@ type Props = {
   cardsCount: number,
 };
 
-export const SequenceCards = ({ card, index, cardsCount }: Props) => {
+export const DeprecatedSequenceCards = ({ card, index, cardsCount }: Props) => {
   const dispatch = useDispatch();
   const currentIndex = useSelector(
     (state: StateRoot) => state.sequence.currentIndex
@@ -159,7 +165,11 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
               />
             </CardHeaderStyle>
           )}
-          <CardType card={card} index={index} isCardVisible={isCardVisible} />
+          <DeprecatedCardType
+            card={card}
+            index={index}
+            isCardVisible={isCardVisible}
+          />
         </SequenceProposalCardStyle>
       </TopComponentContext.Provider>
     </>

@@ -20,7 +20,7 @@ import {
 } from 'Shared/store/actions/sequence';
 import { i18n } from 'Shared/i18n';
 import { SvgArrowTop } from 'Client/ui/Svg/elements';
-import { SequenceCards } from './Cards';
+import { DeprecatedSequenceCards } from './Cards';
 import {
   SequencePlaceholderCardStyle,
   SequencePlaceholderWrapperStyle,
@@ -47,7 +47,11 @@ export type Props = {
 /**
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
-export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
+export const DeprecatedSequence = ({
+  question,
+  isClosed,
+  handleOpenSequence,
+}: Props) => {
   const dispatch = useDispatch();
   const { firstProposal, votedProposalIds, currentIndex } = useSelector(
     state => state.sequence
@@ -171,7 +175,7 @@ export const Sequence = ({ question, isClosed, handleOpenSequence }: Props) => {
           data-cy-container="sequence"
         >
           {cards.map((card, index) => (
-            <SequenceCards
+            <DeprecatedSequenceCards
               key={getCardIndex(index)}
               card={card}
               index={index}
