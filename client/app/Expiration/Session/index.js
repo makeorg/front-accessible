@@ -36,7 +36,7 @@ const SessionExpirationHandler = ({ children, cookies }: Props) => {
   useEffect(() => {
     const currentDate = new Date();
     const timeBeforeExpire =
-      sessionExpirationDate.getTime() - currentDate.getTime() - 5 * 60 * 1000;
+      sessionExpirationDate.getTime() - currentDate.getTime();
     if (Number.isNaN(timeBeforeExpire) || timeBeforeExpire < 0) {
       return undefined;
     }
