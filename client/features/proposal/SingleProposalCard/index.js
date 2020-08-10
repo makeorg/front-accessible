@@ -10,7 +10,7 @@ import { TallCardStyle } from 'Client/ui/Cards';
 import {
   SequenceProposalStyle,
   SequenceCardSeparatorStyle,
-} from 'Client/features/sequence/style';
+} from 'Client/features/sequence/Deprecated/style';
 import { isInProgress } from 'Shared/helpers/date';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';

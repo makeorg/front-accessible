@@ -33,7 +33,10 @@ type Props = {
 /**
  * Handles Push Proposal Card Business Logic
  */
-export const PushProposalCard = ({ configuration, isCardVisible }: Props) => {
+export const DeprecatedPushProposalCard = ({
+  configuration,
+  isCardVisible,
+}: Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (isCardVisible) {

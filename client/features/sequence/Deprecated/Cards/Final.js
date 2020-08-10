@@ -37,7 +37,10 @@ type QuestionState = {
   questionResults?: QuestionResultsType,
 };
 
-export const FinalCard = ({ configuration, isCardVisible }: Props) => {
+export const DeprecatedFinalCard = ({
+  configuration,
+  isCardVisible,
+}: Props) => {
   const dispach = useDispatch();
   const currentQuestion: string = useSelector(state => state.currentQuestion);
   const questionState: QuestionState = useSelector(

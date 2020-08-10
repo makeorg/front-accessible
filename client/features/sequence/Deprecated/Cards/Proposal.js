@@ -29,7 +29,7 @@ type Props = {
 /**
  * Handles Proposal Card Business Logic
  */
-export const ProposalCard = ({ proposal, index }: Props) => {
+export const DeprecatedProposalCard = ({ proposal, index }: Props) => {
   const dispatch = useDispatch();
   const proposalIsVoted = proposal.votes.some(vote => vote.hasVoted === true);
   const [isVoted, setIsVoted] = useState(proposalIsVoted);

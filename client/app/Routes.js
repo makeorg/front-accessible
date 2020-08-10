@@ -62,8 +62,8 @@ const TopIdeasPage = loadable(() =>
 const TopIdeaDetailsPage = loadable(() =>
   import('Client/pages/Consultation/TopIdeaDetails.js')
 );
-const SequencePage = loadable(() =>
-  import('Client/pages/Consultation/Sequence')
+const DeprecatedSequencePage = loadable(() =>
+  import('Client/pages/Consultation/Deprecated/Sequence')
 );
 const PasswordRecoveryPage = loadable(() =>
   import('Client/pages/PasswordRecovery')
@@ -120,7 +120,7 @@ export const Routes = () => {
       </Route>
       <Route path={ROUTE_SEQUENCE}>
         <QuestionWrapper withRedirect>
-          <SequencePage />
+          <DeprecatedSequencePage />
         </QuestionWrapper>
       </Route>
       <Route path={ROUTE_RESULTS}>

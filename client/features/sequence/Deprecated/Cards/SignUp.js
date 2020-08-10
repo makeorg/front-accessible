@@ -43,7 +43,10 @@ type Props = {
 /**
  * Handles Sign Up Card Business Logic
  */
-export const SignUpCard = ({ configuration, isCardVisible }: Props) => {
+export const DeprecatedSignUpCard = ({
+  configuration,
+  isCardVisible,
+}: Props) => {
   const dispatch = useDispatch();
   const dispach = useDispatch();
   const currentQuestion: string = useSelector(state => state.currentQuestion);

@@ -14,7 +14,7 @@ import { i18n } from 'Shared/i18n';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
 import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
-import { Sequence } from 'Client/features/sequence';
+import { DeprecatedSequence } from 'Client/features/sequence/Deprecated';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
 import { ThemeProvider } from 'styled-components';
@@ -25,9 +25,9 @@ import {
   SequenceFooterStyle,
   SequenceFooterTitleStyle,
   SequenceFooterLinkStyle,
-} from './style';
+} from '../style';
 
-const SequencePage = () => {
+const DeprecatedSequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -89,7 +89,7 @@ const SequencePage = () => {
             />
           </SequenceProposalFieldStyle>
         )}
-        <Sequence
+        <DeprecatedSequence
           question={question}
           isClosed={isClosed}
           handleOpenSequence={handleOpenSequence}
@@ -111,4 +111,4 @@ const SequencePage = () => {
 };
 
 // default export needed for loadable component
-export default SequencePage; // eslint-disable-line import/no-default-export
+export default DeprecatedSequencePage; // eslint-disable-line import/no-default-export

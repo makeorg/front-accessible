@@ -6,7 +6,7 @@ import {
   SequenceIntroParagraphStyle,
   SequenceSharingInnerStyle,
   SequenceSharingWrapperStyle,
-} from 'Client/features/sequence/style';
+} from 'Client/features/sequence/Deprecated/style';
 
 type Props = {
   text?: string,
