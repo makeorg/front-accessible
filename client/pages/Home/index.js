@@ -13,6 +13,7 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { FeaturedNews } from 'Client/features/homepage/Featured';
 import { Hero } from 'Client/features/homepage/Hero';
+import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { HomepageWrapperStyle } from './style';
 
 export const HomePage = () => {
@@ -44,6 +45,7 @@ export const HomePage = () => {
 
   return (
     <>
+      <HomepageSkipLinks />
       <MetaTags />
       {isLoading && (
         <MiddlePageWrapperStyle>

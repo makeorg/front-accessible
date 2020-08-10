@@ -8,7 +8,7 @@ Feature: The Home Page
   
   Scenario: Homepage has a title
     Given I go to "france homepage"
-    Then I see "Agir avec Make.org" in the title
+    Then I see "Agir avec Make.org - Make.org" in the title
 
   Scenario: Homepage has hero section
     Given I go to "france homepage"
