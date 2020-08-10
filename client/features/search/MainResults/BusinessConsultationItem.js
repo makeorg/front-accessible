@@ -46,11 +46,11 @@ const businessConsultation = (question, country, language) => (
       <BusinessConsultationStyle>
         <BusinessConsultationsItemStatusStyle>
           <ScreenReaderItemStyle>
-            {i18n.t('homepage.business_consultations.status')}
+            {i18n.t('search.main_results.status')}
           </ScreenReaderItemStyle>
           {isInProgress(question)
-            ? i18n.t('homepage.business_consultations.question_inprogress')
-            : i18n.t('homepage.business_consultations.question_ended')}
+            ? i18n.t('search.main_results.open_consultation')
+            : i18n.t('search.main_results.finished_consultation')}
         </BusinessConsultationsItemStatusStyle>
         {question.question}
       </BusinessConsultationStyle>
