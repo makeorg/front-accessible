@@ -497,7 +497,7 @@ export const trackDownloadReport = (extension: string) => {
   });
 };
 
-/** Beta Home and Browse */
+/** Home and Browse */
 export const trackDisplayBrowseConsultations = () => {
   TrackingService.sendAllTrackers(
     trackingConstants.DISPLAY_BROWSE_CONSULTATIONS

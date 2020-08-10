@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import {
   BasicColors,
   BackgroundColors,
@@ -9,6 +9,11 @@ import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
 import { SvgExternalLinkPlain } from 'Client/ui/Svg/elements';
+import {
+  SEARCH_DESKTOP_EXPANDED,
+  ADD_SEARCH_DESKTOP_ANIMATION,
+  REMOVE_SEARCH_DESKTOP_ANIMATION,
+} from 'Shared/constants/a11y';
 
 export const MenuOpenTriggerStyle = styled(UnstyledButtonStyle)`
   display: flex;
@@ -34,8 +39,8 @@ export const MenuBarStyle = styled.div`
 export const MenuPanelStyle = styled.div`
   position: fixed;
   top: 0;
-  left: -100%;
-  z-index: 100;
+  left: -105%;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   background-color: ${BackgroundColors.TaintedWhite};
@@ -54,7 +59,7 @@ export const MenuCloseTriggerStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: 30px;
   right: 30px;
-  z-index: 101;
+  z-index: 11;
   &.tofill {
     fill: ${BasicColors.PureBlack};
   }
@@ -113,11 +118,33 @@ export const DesktopMenuNavStyle = styled.nav`
   margin-left: 45px;
 `;
 
+const fadeOut = keyframes`
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+`;
+
+const fadeIn = keyframes`
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
 export const DesktopMenuItemStyle = styled.li`
   display: inline-flex;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   &.with-border {
     border-left: 1px solid ${ShadowColors.BlackZeroOneOpacity};
     border-right: 1px solid ${ShadowColors.BlackZeroOneOpacity};
+  }
+  &.${ADD_SEARCH_DESKTOP_ANIMATION}{
+    animation-name: ${fadeOut};
+  }
+  &.${REMOVE_SEARCH_DESKTOP_ANIMATION}{
+    animation-name: ${fadeIn};
+  }
+  &.${SEARCH_DESKTOP_EXPANDED}[aria-hidden='true'] {
+    display: none;
+    visibility: hidden;
   }
 `;
 

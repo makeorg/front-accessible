@@ -1,6 +1,13 @@
-/* @flow */
-
+// @flow
 import { createGlobalStyle } from 'styled-components';
+import {
+  NAVIGATION_ARIA_CLASS,
+  NAVIGATION_ELEMENT_ARIA_CLASS,
+  SEARCH_ARIA_CLASS,
+  SEARCH_ELEMENT_ARIA_CLASS,
+  ADD_ARIA_ANIMATION,
+  REMOVE_ARIA_ANIMATION,
+} from 'Shared/constants/a11y';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
 
@@ -81,9 +88,56 @@ export const DefaultStylesheet = createGlobalStyle`
     margin: 0;
   }
 
-  .expand-navigation-aria[aria-hidden="true"] a,
-  .expand-navigation-aria[aria-hidden="true"] input,
-  .expand-navigation-aria[aria-hidden="true"] button {
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1
+    }
+  }
+
+  .${ADD_ARIA_ANIMATION},
+  .${ADD_ARIA_ANIMATION} a,
+  .${ADD_ARIA_ANIMATION} button,
+  .${ADD_ARIA_ANIMATION} input {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+
+  .${SEARCH_ELEMENT_ARIA_CLASS}.${ADD_ARIA_ANIMATION},
+  .${SEARCH_ARIA_CLASS}.${ADD_ARIA_ANIMATION} {
+    animation-duration: 0.25s;
+  }
+
+  .${SEARCH_ELEMENT_ARIA_CLASS}.${REMOVE_ARIA_ANIMATION},
+  .${SEARCH_ARIA_CLASS}.${REMOVE_ARIA_ANIMATION} {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+  }
+
+  .${NAVIGATION_ELEMENT_ARIA_CLASS}[aria-hidden="true"],
+  .${NAVIGATION_ARIA_CLASS}[aria-hidden="true"] a,
+  .${NAVIGATION_ARIA_CLASS}[aria-hidden="true"] input,
+  .${NAVIGATION_ARIA_CLASS}[aria-hidden="true"] button,
+  .${SEARCH_ELEMENT_ARIA_CLASS}[aria-hidden="true"],
+  .${SEARCH_ARIA_CLASS}[aria-hidden="true"] a,
+  .${SEARCH_ARIA_CLASS}[aria-hidden="true"] input,
+  .${SEARCH_ARIA_CLASS}[aria-hidden="true"] button {
     visibility: hidden;
   }
+
 `;

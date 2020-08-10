@@ -1,109 +1,56 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
-  MakeThemeColors,
-  BasicColors,
-  ShadowColors,
-  TextColors,
-} from 'Client/app/assets/vars/Colors';
-import {
-  Layouts,
-  Breakpoints,
-  DefaultPadding,
-} from 'Client/app/assets/vars/Breakpoints';
-import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
-import { NavButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { SvgUser } from 'Client/ui/Svg/elements';
-import { Image } from 'Client/ui/Image';
+  FlexElementStyle,
+  SpaceBetweenRowStyle,
+} from 'Client/ui/Elements/FlexElements';
+import { SvgLogo } from 'Client/ui/Svg/elements';
 
 export const HeaderStyle = styled.header`
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: center;
   flex-shrink: 0;
-  padding: ${intToPx(DefaultPadding.Mobile)};
-  box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  padding: 11px 20px;
   background-color: ${BasicColors.PureWhite};
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding: 25px 20px;
+  }
 `;
 
-export const HeaderInnerStyle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+export const HeaderInnerStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
 `;
 
 export const HeaderFlexLeftStyle = styled(FlexElementStyle)`
-  flex: 1;
+  flex-shrink: 0;
   justify-items: flex-start;
   align-items: center;
 `;
 
 export const HeaderFlexRightStyle = styled(FlexElementStyle)`
-  justify-items: flex-end;
+  flex: 1;
+  justify-content: flex-end;
   align-items: center;
 `;
 
-export const HeaderLogoStyle = styled(Image)`
-  max-width: 50px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    max-width: 78px;
-  }
-`;
-
-export const ProfileAccessWrapperStyle = styled.div`
+export const HeaderLogoLinkStyle = styled(Link)`
   display: flex;
-  align-items: center;
-  button:last-child > span {
-    margin-right: 0;
-  }
 `;
 
-export const ProfileUserIconStyle = styled(SvgUser)`
-  width: 16px;
-  .tofill {
-    fill: ${TextColors.MediumGrey};
-  }
+export const HeaderLogoStyle = styled(SvgLogo)`
+  width: 66px;
+  height: 33px;
 `;
 
-export const ProfileAccessButtonLabelStyle = styled(NavButtonStyle)`
-  margin: 0 5px;
-`;
-
-export const ProfileAccessLinkStyle = styled(Link)`
-  font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  display: inline-flex;
-  text-decoration: none;
-  text-transform: uppercase;
-  align-items: center;
-  font-size: 14px;
-  line-height: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-  }
-  > span {
-    margin-right: 5px;
-  }
-`;
-
-export const WhoAreWeLinkStyle = styled.a`
-  color: ${MakeThemeColors.Red};
-  justify-self: flex-end;
-  margin-right: ${intToPx(DefaultPadding.Desktop)};
-  font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  display: inline-flex;
-  text-decoration: none;
-  text-transform: uppercase;
-  align-items: center;
-  font-size: 14px;
-  line-height: 20px;
-  &:hover,
-  &:focus {
-    color: ${MakeThemeColors.Red};
-  }
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 16px;
-  }
+export const HeaderSeparatorStyle = styled.div`
+  width: 1px;
+  height: 100%;
+  margin: 0 30px;
+  background-color: ${ShadowColors.BlackZeroOneOpacity};
 `;

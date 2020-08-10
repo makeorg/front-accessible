@@ -25,7 +25,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 10;
     background-color: ${ShadowColors.BlackZeroEightOpacity};
     padding: ${intToPx(DefaultPadding.Mobile)};
     @media (min-width: ${intToPx(Breakpoints.Tablet)}) {

@@ -106,7 +106,7 @@ export const COMPONENT_PARAM_CURRENT_OPERATIONS = 'current-operations';
 export const COMPONENT_PARAM_FAVOURITES = 'favourites';
 export const COMPONENT_PARAM_DETAIL_IDEAS = 'detail-ideas';
 
-//* * Beta home and Browse */
+//* * home and Browse */
 export const DISPLAY_HOMEPAGE: string = 'display-page-home';
 export const DISPLAY_BROWSE_CONSULTATIONS = 'display-browse-consultations';
 export const DISPLAY_BROWSE_RESULTS = 'display-browse-results';

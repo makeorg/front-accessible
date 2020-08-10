@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import { type StateRoot } from 'Shared/store/types';
-import { SvgClose } from 'Client/ui/Svg/elements';
+import { SvgClose, SvgLogoBlack } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
-import { SvgLogoBlack } from 'Client/ui/Svg/elements/LogoBlack';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { useSelector } from 'react-redux';
 import {
@@ -61,6 +60,7 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
       <MenuCloseTriggerStyle
         aria-label={i18n.t('header.close_menu')}
         onClick={toggleExpansion}
+        disabled={!isExpanded}
       >
         <SvgClose aria-hidden />
       </MenuCloseTriggerStyle>
@@ -91,7 +91,6 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                   </MenuInternalLinkStyle>
                 </MenuItemStyle>
               </UnstyledListStyle>
-              <MenuItemStyle />
             </MenuItemStyle>
             <MenuItemStyle className="extra-margin-top">
               <MenuExternalLinkStyle

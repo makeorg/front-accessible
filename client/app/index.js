@@ -8,6 +8,7 @@ import {
   AppWrapperStyle,
   AppMainContentStyle,
 } from 'Client/app/Styled/MainElements';
+import { NAVIGATION_ARIA_CLASS } from 'Shared/constants/a11y';
 import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
@@ -38,7 +39,7 @@ export const AppContainer = () => (
             <AppMainContentStyle
               id="main_content"
               data-cy-container="main"
-              className="expand-navigation-aria"
+              className={NAVIGATION_ARIA_CLASS}
             >
               <Notification />
               <Routes />

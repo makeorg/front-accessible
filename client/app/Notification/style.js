@@ -24,7 +24,7 @@ export const NotificationWrapperStyle = styled.aside`
   justify-content: center;
   align-items: flex-start;
   top: 0;
-  z-index: 15;
+  z-index: 3;
   width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};

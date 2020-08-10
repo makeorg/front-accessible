@@ -17,7 +17,7 @@ import { SvgInfos } from 'Client/ui/Svg/elements';
 
 export const CookieWrapperStyle = styled.section`
   position: relative;
-  z-index: 0;
+  z-index: 4;
   width: 100%;
   background-color: ${BackgroundColors.Notifications};
   color: ${BasicColors.PureWhite};

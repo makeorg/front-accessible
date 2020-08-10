@@ -86,6 +86,10 @@ export const HeroRedButtonStyle = styled(LinkAsRedButtonStyle)`
   margin-bottom: 15px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-right: 24px;
+    margin-bottom: 0;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 15px;
   }
 `;
 
