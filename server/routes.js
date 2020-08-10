@@ -33,6 +33,7 @@ import {
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
+  ROUTE_BETA_SEQUENCE,
 } from 'Shared/routes';
 import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
 import {
@@ -141,6 +142,7 @@ export const initRoutes = app => {
   addGetWithPreview(ROUTE_RESULTS, frontMiddlewares, consultationRoute);
   app.get(ROUTE_TOP_IDEAS, frontMiddlewares, consultationRoute);
   app.get(ROUTE_TOP_IDEA_DETAILS, frontMiddlewares, consultationRoute);
+  app.get(ROUTE_BETA_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_SEQUENCE, frontMiddlewares, sequenceRoute);
   app.get(ROUTE_ACCOUNT_ACTIVATION, frontMiddlewares, accountActivationRoute);
   app.get(ROUTE_PROPOSAL, frontMiddlewares, proposalRoute);

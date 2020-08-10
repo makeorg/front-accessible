@@ -47,7 +47,11 @@ export type Props = {
 /**
  * Renders Sequence component with Intro / Push Proposal / Sign Up & Proposal Cards
  */
-export const DeprecatedSequence = ({ question, isClosed, handleOpenSequence }: Props) => {
+export const DeprecatedSequence = ({
+  question,
+  isClosed,
+  handleOpenSequence,
+}: Props) => {
   const dispatch = useDispatch();
   const { firstProposal, votedProposalIds, currentIndex } = useSelector(
     state => state.sequence
