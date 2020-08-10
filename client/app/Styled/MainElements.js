@@ -74,7 +74,7 @@ export const SkipLink = styled(LinkAsRedButton)`
   top: -100%;
   left: ${intToPx(DefaultPadding.Mobile)};
   max-width: calc(100% - 15px);
-  z-index: 2;
+  z-index: 4;
   &:active,
   &:focus {
     top: ${intToPx(DefaultPadding.Mobile)};

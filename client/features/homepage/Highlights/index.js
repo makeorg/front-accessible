@@ -29,7 +29,11 @@ export const HighlightsBanner = ({ highlights }: Props) => {
   );
   const { participantsCount, proposalsCount, partnersCount } = highlights;
   return (
-    <HomepageSectionStyle as="section" aria-labelledby="highlights_title">
+    <HomepageSectionStyle
+      as="section"
+      aria-labelledby="highlights_title"
+      id="highlights"
+    >
       <HomepageSectionTitleStyle
         id="highlights_title"
         data-cy-container="highlights_title"

@@ -32,7 +32,7 @@ export const SearchFormCancelTriggerStyle = styled(UnstyledButtonStyle)`
 
 export const SearchFormWrapperStyle = styled(FlexElementStyle)`
   position: absolute;
-  top: 500px;
+  top: -500px;
   left: 0;
   opacity: 0;
   background-color: ${BasicColors.PureWhite};

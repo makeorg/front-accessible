@@ -6,30 +6,23 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 export const HomepageSkipLinks = () => (
   <UnstyledListStyle>
     <li>
-      <SkipLink as="a" href="#featured_list">
+      <SkipLink as="a" href="#highlights">
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('homepage.featured.title'),
+          name: i18n.t('homepage.highlights.title'),
         })}
       </SkipLink>
     </li>
     <li>
-      <SkipLink as="a" href="#current_consultations">
+      <SkipLink as="a" href="#current_questions">
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('homepage.current_consultations.title'),
+          name: i18n.t('browse.title'),
         })}
       </SkipLink>
     </li>
     <li>
-      <SkipLink as="a" href="#corporate">
+      <SkipLink as="a" href="#featured_questions">
         {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('homepage.corporate.first-section.title'),
-        })}
-      </SkipLink>
-    </li>
-    <li>
-      <SkipLink as="a" href="#business_consultations">
-        {i18n.t('skip_links.dynamic_section', {
-          name: i18n.t('homepage.business_consultations.title'),
+          name: i18n.t('homepage.featured_questions.title'),
         })}
       </SkipLink>
     </li>
