@@ -12,7 +12,7 @@ import {
 import { useSelector } from 'react-redux';
 import { ProposalSubmitButton } from '../Button';
 import {
-  ProposalSubmitFormStyle,
+  DeprecatedProposalSubmitFormStyle,
   ProposalInputWrapperStyle,
   ProposalLabelStyle,
   ProposalTextareaStyle,
@@ -41,7 +41,7 @@ type Props = {
 /**
  * Render the Proposal Field
  */
-export const ProposalSubmitForm = ({
+export const DeprecatedProposalSubmitForm = ({
   content,
   length,
   canSubmit,
@@ -57,7 +57,7 @@ export const ProposalSubmitForm = ({
   const isFR = country === 'FR';
 
   return (
-    <ProposalSubmitFormStyle isOpen={isOpen}>
+    <DeprecatedProposalSubmitFormStyle isOpen={isOpen}>
       <ScreenReaderItemStyle as="div">
         {i18n.t('proposal_submit.title')}
         <DescriptionWrapperStyle id="proposal-submit-description">
@@ -105,6 +105,6 @@ export const ProposalSubmitForm = ({
           isOpen={isOpen}
         />
       </ProposalButtonWrapperStyle>
-    </ProposalSubmitFormStyle>
+    </DeprecatedProposalSubmitFormStyle>
   );
 };

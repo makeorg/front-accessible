@@ -13,7 +13,7 @@ import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { HiddenItemStyle } from 'Client/ui/Elements/HiddenElements';
-import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
+import { DeprecatedProposalSubmit } from 'Client/features/proposal/Deprecated/ProposalSubmit';
 import { DeprecatedSequence } from 'Client/features/sequence/Deprecated';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
@@ -83,7 +83,7 @@ const DeprecatedSequencePage = () => {
             <HiddenItemStyle as="h2">
               {i18n.t('consultation.proposal.title')}
             </HiddenItemStyle>
-            <ProposalSubmit
+            <DeprecatedProposalSubmit
               handleFocus={handleCloseSequence}
               canBeOpen={isClosed}
             />

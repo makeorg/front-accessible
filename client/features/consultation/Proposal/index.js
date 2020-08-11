@@ -1,6 +1,6 @@
 import React from 'react';
 import { type QuestionType } from 'Shared/types/question';
-import { ProposalSubmit } from 'Client/features/proposal/ProposalSubmit';
+import { DeprecatedProposalSubmit } from 'Client/features/proposal/Deprecated/ProposalSubmit';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { i18n } from 'Shared/i18n';
 import { isGreatCause } from 'Shared/helpers/question';
@@ -35,7 +35,7 @@ export const ConsultationProposal = ({ question }: Props) => {
           {question.question}
         </ProposalTitleStyle>
       )}
-      <ProposalSubmit />
+      <DeprecatedProposalSubmit />
     </ProposalWrapperStyle>
   );
 };

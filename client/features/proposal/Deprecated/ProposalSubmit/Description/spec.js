@@ -2,16 +2,18 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { configureStore } from 'Shared/store';
 import { Provider } from 'react-redux';
-import { ProposalSubmitDescription } from '.';
+import { DeprecatedProposalSubmitDescription } from '.';
 
-describe('ProposalSubmitDescription', () => {
+describe('DeprecatedProposalSubmitDescription', () => {
   const store = configureStore();
   const trackModerationLink = () => {};
 
   it('Render & Props', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ProposalSubmitDescription trackModerationLink={trackModerationLink} />
+        <DeprecatedProposalSubmitDescription
+          trackModerationLink={trackModerationLink}
+        />
       </Provider>
     );
     expect(wrapper.find('a').prop('onClick')).toBe(trackModerationLink);
