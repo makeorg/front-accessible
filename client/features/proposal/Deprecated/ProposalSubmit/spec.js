@@ -3,10 +3,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import * as redux from 'react-redux';
-import { ProposalSubmitDescription } from './Description';
-import { ProposalSubmitForm } from './Form';
-import { ProposalSubmitAuthentication } from './Authentication';
-import { ProposalSubmit } from '.';
+import { DeprecatedProposalSubmitDescription } from './Description';
+import { DeprecatedProposalSubmitForm } from './Form';
+import { DeprecatedProposalSubmitAuthentication } from './Authentication';
+import { DeprecatedProposalSubmit } from '.';
 import { ProposalTextareaStyle, ProposalButtonStyle } from './style';
 import { ProposalSubmitButton } from './Button/index';
 
@@ -33,11 +33,11 @@ describe('ProposalSubmit', () => {
   });
 
   it('Renders Initial Props & State', () => {
-    const wrapper = shallow(<ProposalSubmit {...defaultProps} />);
+    const wrapper = shallow(<DeprecatedProposalSubmit {...defaultProps} />);
 
-    expect(wrapper.find(ProposalSubmitForm)).toHaveLength(1);
+    expect(wrapper.find(DeprecatedProposalSubmitForm)).toHaveLength(1);
     const proposalSubmitProps = wrapper
-      .find(ProposalSubmitForm)
+      .find(DeprecatedProposalSubmitForm)
       .first()
       .props();
 
@@ -45,25 +45,29 @@ describe('ProposalSubmit', () => {
     expect(proposalSubmitProps.length).toBe(baitText.length);
     expect(proposalSubmitProps.canSubmit).toBe(true);
 
-    expect(wrapper.find(ProposalSubmitDescription)).toHaveLength(0);
-    expect(wrapper.find(ProposalSubmitAuthentication)).toHaveLength(0);
+    expect(wrapper.find(DeprecatedProposalSubmitDescription)).toHaveLength(0);
+    expect(wrapper.find(DeprecatedProposalSubmitAuthentication)).toHaveLength(
+      0
+    );
   });
 
   it('Renders DescriptionStyle', () => {
-    const wrapper = shallow(<ProposalSubmit {...defaultProps} />);
+    const wrapper = shallow(<DeprecatedProposalSubmit {...defaultProps} />);
 
     wrapper
-      .find(ProposalSubmitForm)
+      .find(DeprecatedProposalSubmitForm)
       .dive()
       .find(ProposalTextareaStyle)
       .simulate('focus');
-    expect(wrapper.find(ProposalSubmitDescription)).toHaveLength(1);
-    expect(wrapper.find(ProposalSubmitAuthentication)).toHaveLength(0);
+    expect(wrapper.find(DeprecatedProposalSubmitDescription)).toHaveLength(1);
+    expect(wrapper.find(DeprecatedProposalSubmitAuthentication)).toHaveLength(
+      0
+    );
   });
 
   it('Renders Authentication', () => {
-    const wrapper = shallow(<ProposalSubmit {...defaultProps} />);
-    const wrapperForm = wrapper.find(ProposalSubmitForm).dive();
+    const wrapper = shallow(<DeprecatedProposalSubmit {...defaultProps} />);
+    const wrapperForm = wrapper.find(DeprecatedProposalSubmitForm).dive();
 
     wrapperForm
       .find(ProposalTextareaStyle)
@@ -76,7 +80,9 @@ describe('ProposalSubmit', () => {
         preventDefault: () => {},
       });
 
-    expect(wrapper.find(ProposalSubmitDescription)).toHaveLength(0);
-    expect(wrapper.find(ProposalSubmitAuthentication)).toHaveLength(1);
+    expect(wrapper.find(DeprecatedProposalSubmitDescription)).toHaveLength(0);
+    expect(wrapper.find(DeprecatedProposalSubmitAuthentication)).toHaveLength(
+      1
+    );
   });
 });

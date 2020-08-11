@@ -16,7 +16,7 @@ import { ActiveButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 
-export const ProposalSubmitAuthenticationWrapperStyle = styled.div`
+export const DeprecatedProposalSubmitAuthenticationWrapperStyle = styled.div`
   max-width: 620px;
   min-height: 340px;
   display: flex;
@@ -43,7 +43,7 @@ export const DescriptionWrapperStyle = styled.div`
   }
 `;
 
-export const ProposalSubmitFormStyle = styled.form`
+export const DeprecatedProposalSubmitFormStyle = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;

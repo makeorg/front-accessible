@@ -21,7 +21,9 @@ type Props = {
 /**
  * Renders description component after proposal submit button is clicked
  */
-export const ProposalSubmitDescription = ({ trackModerationLink }: Props) => {
+export const DeprecatedProposalSubmitDescription = ({
+  trackModerationLink,
+}: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
 

@@ -16,10 +16,10 @@ import {
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ProposalService } from 'Shared/services/Proposal';
 import { type StateRoot } from 'Shared/store/types';
-import { ProposalSubmitAuthentication } from './Authentication';
-import { ProposalSubmitForm } from './Form';
-import { ProposalSubmitSuccess } from './Success';
-import { ProposalSubmitDescription } from './Description';
+import { DeprecatedProposalSubmitAuthentication } from './Authentication';
+import { DeprecatedProposalSubmitForm } from './Form';
+import { DeprecatedProposalSubmitSuccess } from './Success';
+import { DeprecatedProposalSubmitDescription } from './Description';
 
 type Props = {
   /** Boolean to check if proposal submit can be expanded */
@@ -32,7 +32,7 @@ type Props = {
  * Handles Proposal Submit Business Logic
  */
 
-export const ProposalSubmit = ({
+export const DeprecatedProposalSubmit = ({
   canBeOpen = true,
   handleFocus = () => {},
 }: Props) => {
@@ -124,8 +124,8 @@ export const ProposalSubmit = ({
   const isOpen = isDescriptionShown || isAuthenticationShown;
   return (
     <>
-      <ProposalSubmitForm
-        key="ProposalSubmitForm"
+      <DeprecatedProposalSubmitForm
+        key="DeprecatedProposalSubmitForm"
         content={content}
         length={length}
         canSubmit={proposalHasValidLength(length)}
@@ -136,16 +136,15 @@ export const ProposalSubmit = ({
         handleOnKeydown={handleOnKeydown}
       />
       {isDescriptionShown ? (
-        <ProposalSubmitDescription
-          key="ProposalSubmitDescription"
+        <DeprecatedProposalSubmitDescription
           trackModerationLink={() => trackClickModerationLink()}
         />
       ) : null}
       {isSuccessShown ? (
-        <ProposalSubmitSuccess key="ProposalSubmitSuccess" />
+        <DeprecatedProposalSubmitSuccess key="DeprecatedProposalSubmitSuccess" />
       ) : null}
       {isAuthenticationShown ? (
-        <ProposalSubmitAuthentication key="ProposalSubmitAuthenticationContainer" />
+        <DeprecatedProposalSubmitAuthentication key="DeprecatedProposalSubmitAuthenticationContainer" />
       ) : null}
     </>
   );

@@ -3,10 +3,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { configureStore } from 'Shared/store';
 import { Provider } from 'react-redux';
-import { ProposalSubmitForm } from './index';
+import { DeprecatedProposalSubmitForm } from './index';
 import { ProposalSubmitButton } from '../Button';
 import {
-  ProposalSubmitFormStyle,
+  DeprecatedProposalSubmitFormStyle,
   ProposalLabelStyle,
   ProposalTextareaStyle,
 } from '../style';
@@ -17,15 +17,15 @@ jest.mock('Shared/constants/proposal', () => ({
 }));
 const store = configureStore();
 
-describe('ProposalSubmitForm', () => {
+describe('DeprecatedProposalSubmitForm', () => {
   it('Renders and Props', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <ProposalSubmitForm canSubmit length={15} />
+        <DeprecatedProposalSubmitForm canSubmit length={15} />
       </Provider>
     );
 
-    expect(wrapper.find(ProposalSubmitFormStyle)).toHaveLength(1);
+    expect(wrapper.find(DeprecatedProposalSubmitFormStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalLabelStyle)).toHaveLength(1);
     expect(wrapper.find(ProposalLabelStyle).prop('htmlFor')).toBe('proposal');
     expect(wrapper.find(ProposalTextareaStyle)).toHaveLength(1);

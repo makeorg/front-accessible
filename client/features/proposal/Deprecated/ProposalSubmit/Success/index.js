@@ -7,7 +7,7 @@ import { DescriptionWrapperStyle } from '../style';
 /**
  * Renders succes message after proposal is submitted
  */
-export const ProposalSubmitSuccess = () => {
+export const DeprecatedProposalSubmitSuccess = () => {
   const successRef = useRef(null);
 
   useEffect(() => {

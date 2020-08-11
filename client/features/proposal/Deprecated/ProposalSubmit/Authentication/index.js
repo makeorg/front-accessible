@@ -24,14 +24,14 @@ import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthenti
 import { getDataPageLink } from 'Shared/helpers/url';
 import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
 import {
-  ProposalSubmitAuthenticationWrapperStyle,
+  DeprecatedProposalSubmitAuthenticationWrapperStyle,
   ProposalSubmitSeparatorStyle,
 } from '../style';
 
 /**
  * Renders authentication component after proposal submit button is clicked
  */
-export const ProposalSubmitAuthentication = () => {
+export const DeprecatedProposalSubmitAuthentication = () => {
   const authetificationRef = useRef(null);
   const dispatch = useDispatch();
   const { country, language } = useSelector(
@@ -49,7 +49,7 @@ export const ProposalSubmitAuthentication = () => {
   }, [authetificationRef.current]);
 
   return (
-    <ProposalSubmitAuthenticationWrapperStyle
+    <DeprecatedProposalSubmitAuthenticationWrapperStyle
       id="proposal-submit-authentication"
       ref={authetificationRef}
       tabIndex={0}
@@ -91,6 +91,6 @@ export const ProposalSubmitAuthentication = () => {
           {i18n.t('login.button_connect')}
         </RedButtonStyle>
       </ButtonsWrapperStyle>
-    </ProposalSubmitAuthenticationWrapperStyle>
+    </DeprecatedProposalSubmitAuthenticationWrapperStyle>
   );
 };
