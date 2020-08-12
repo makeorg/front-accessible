@@ -6,7 +6,10 @@ import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
 } from 'Shared/constants/a11y';
-import { addAriaHidden, removeAriaHidden } from 'Shared/helpers/a11y';
+import {
+  addAriaHiddenByClass,
+  removeAriaHiddenByClass,
+} from 'Shared/helpers/a11y';
 import { lockBody, unlockBody } from 'Shared/helpers/styled';
 import { MenuOpenTriggerStyle, MenuBarStyle } from './style';
 import { MenuPanel } from './Panel';
@@ -16,12 +19,12 @@ export const MobileMenu = () => {
 
   const toggleExpansion = () => {
     if (isExpanded) {
-      removeAriaHidden(NAVIGATION_ARIA_CLASS);
-      removeAriaHidden(NAVIGATION_ELEMENT_ARIA_CLASS);
+      removeAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
+      removeAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
       unlockBody();
     } else {
-      addAriaHidden(NAVIGATION_ARIA_CLASS);
-      addAriaHidden(NAVIGATION_ELEMENT_ARIA_CLASS);
+      addAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
+      addAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
       lockBody();
     }
 

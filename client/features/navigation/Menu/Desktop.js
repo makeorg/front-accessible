@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { getBrowseConsultationsLink } from 'Shared/helpers/url';
 import { scrollToTop, unlockBody } from 'Shared/helpers/styled';
 import { WHOAREWE_FR_LINK, WHOAREWE_EN_LINK } from 'Shared/constants/url';
-import { removeAriaHidden } from 'Shared/helpers/a11y';
+import { removeAriaHiddenByClass } from 'Shared/helpers/a11y';
 import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   NAVIGATION_ARIA_CLASS,
@@ -29,8 +29,8 @@ export const DesktopMenu = () => {
   const isFR = country === 'FR';
 
   useEffect(() => {
-    removeAriaHidden(NAVIGATION_ARIA_CLASS);
-    removeAriaHidden(NAVIGATION_ELEMENT_ARIA_CLASS);
+    removeAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
+    removeAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
     unlockBody();
   }, []);
 

@@ -2,7 +2,10 @@
 import React, { useState } from 'react';
 import { SvgSearch } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
-import { removeAriaHidden, addAriaHidden } from 'Shared/helpers/a11y';
+import {
+  removeAriaHiddenByClass,
+  addAriaHiddenByClass,
+} from 'Shared/helpers/a11y';
 import {
   SEARCH_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
@@ -21,13 +24,13 @@ export const MobileSearchInput = () => {
     event.preventDefault();
 
     if (isExpanded) {
-      removeAriaHidden(SEARCH_ARIA_CLASS, 250);
-      removeAriaHidden(SEARCH_ELEMENT_ARIA_CLASS, 250);
+      removeAriaHiddenByClass(SEARCH_ARIA_CLASS, 250);
+      removeAriaHiddenByClass(SEARCH_ELEMENT_ARIA_CLASS, 250);
       return expandForm(!isExpanded);
     }
 
-    addAriaHidden(SEARCH_ARIA_CLASS, 250);
-    addAriaHidden(SEARCH_ELEMENT_ARIA_CLASS, 250);
+    addAriaHiddenByClass(SEARCH_ARIA_CLASS, 250);
+    addAriaHiddenByClass(SEARCH_ELEMENT_ARIA_CLASS, 250);
     return expandForm(!isExpanded);
   };
 

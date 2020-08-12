@@ -37,11 +37,19 @@ export const AppWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const AppMainContentStyle = styled.main`
-  position: relative;
   display: flex;
   flex-flow: column;
   flex: 1 1 auto;
-  z-index: 1;
+  opacity: 1;
+  transform: 0.5s ease-in opacity;
+  &[aria-hidden='true'],
+  &[aria-hidden='true'] div,
+  &[aria-hidden='true'] a,
+  &[aria-hidden='true'] input,
+  &[aria-hidden='true'] button {
+    visibility: hidden;
+    opacity: 1;
+  }
 `;
 
 export const PageWrapperStyle = styled(CenterColumnStyle)`

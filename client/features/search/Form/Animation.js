@@ -4,7 +4,6 @@ import {
   ADD_SEARCH_DESKTOP_ANIMATION,
   REMOVE_SEARCH_DESKTOP_ANIMATION,
 } from 'Shared/constants/a11y';
-import { addAriaAttribute } from 'Shared/helpers/a11y';
 
 export const addSearchDesktopHidden = (animationTiming?: number = 250) => {
   const elementsCollection = document.querySelectorAll(
@@ -18,9 +17,10 @@ export const addSearchDesktopHidden = (animationTiming?: number = 250) => {
 
   const elementWithAttribute: any = elementsArray.map(element => {
     element.classList.add(ADD_SEARCH_DESKTOP_ANIMATION);
-    const timer = setTimeout(() => {
-      addAriaAttribute(element);
-    }, animationTiming);
+    const timer = setTimeout(
+      () => element.setAttribute('aria-hidden', 'true'),
+      animationTiming
+    );
     return () => clearTimeout(timer);
   });
 
