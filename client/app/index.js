@@ -8,7 +8,8 @@ import {
   AppWrapperStyle,
   AppMainContentStyle,
 } from 'Client/app/Styled/MainElements';
-import { NAVIGATION_ARIA_CLASS } from 'Shared/constants/a11y';
+import { NAVIGATION_ARIA_CLASS, PANEL_ARIA_CLASS } from 'Shared/constants/a11y';
+import { MAIN_CONTENT } from 'Shared/constants/ids';
 import { Notification } from './Notification';
 import { CookieBanner } from './CookieBanner';
 import { Header } from './Header';
@@ -19,6 +20,7 @@ import { SecureExpiration } from './Expiration/Secure';
 import { SessionExpiration } from './Expiration/Session';
 import { ErrorBoundary, ServiceErrorHandler } from './Error';
 import { MainSkipLinks } from './SkipLinks/Main';
+import { PanelPortal } from './Panel';
 /**
  * Handles App Business Logic
  */
@@ -37,9 +39,9 @@ export const AppContainer = () => (
             <MainSkipLinks />
             <Header />
             <AppMainContentStyle
-              id="main_content"
+              id={MAIN_CONTENT}
               data-cy-container="main"
-              className={NAVIGATION_ARIA_CLASS}
+              className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
             >
               <Notification />
               <Routes />
@@ -47,6 +49,7 @@ export const AppContainer = () => (
             <Modal />
             <Footer />
           </AppWrapperStyle>
+          <PanelPortal />
         </ErrorBoundary>
       </ServiceErrorHandler>
     </SessionExpiration>

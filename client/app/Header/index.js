@@ -7,11 +7,13 @@ import { HeaderAuthentication } from 'Client/features/auth/Header';
 import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
+  PANEL_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import { MobileSearchInput } from 'Client/features/search/Form/Mobile';
 import { DesktopSearchInput } from 'Client/features/search/Form/Desktop';
 import { MobileMenu } from 'Client/features/navigation/Menu/Mobile';
 import { DesktopMenu } from 'Client/features/navigation/Menu/Desktop';
+import { MAIN_HEADER } from 'Shared/constants/ids';
 import {
   HeaderStyle,
   HeaderInnerStyle,
@@ -29,7 +31,7 @@ export const Header = () => {
   const isDesktop = useDesktop();
 
   return (
-    <HeaderStyle>
+    <HeaderStyle id={MAIN_HEADER} className={PANEL_ARIA_NEGATIVE_TAB_CLASS}>
       <HeaderInnerStyle>
         {!isDesktop && <MobileMenu />}
         <HeaderFlexLeftStyle

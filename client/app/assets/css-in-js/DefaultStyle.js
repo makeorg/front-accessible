@@ -5,8 +5,8 @@ import {
   NAVIGATION_ELEMENT_ARIA_CLASS,
   SEARCH_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
-  ADD_ARIA_ANIMATION,
-  REMOVE_ARIA_ANIMATION,
+  FADE_OUT_ANIMATION,
+  FADE_IN_ANIMATION,
 } from 'Shared/constants/a11y';
 import { MakeFonts } from '../vars/Fonts';
 import { BasicColors } from '../vars/Colors';
@@ -108,22 +108,22 @@ export const DefaultStylesheet = createGlobalStyle`
     }
   }
 
-  .${ADD_ARIA_ANIMATION},
-  .${ADD_ARIA_ANIMATION} a,
-  .${ADD_ARIA_ANIMATION} button,
-  .${ADD_ARIA_ANIMATION} input {
+  .${FADE_OUT_ANIMATION},
+  .${FADE_OUT_ANIMATION} a,
+  .${FADE_OUT_ANIMATION} button,
+  .${FADE_OUT_ANIMATION} input {
     animation-name: fadeOut;
     animation-duration: 1s;
     animation-iteration-count: 1;
   }
 
-  .${SEARCH_ELEMENT_ARIA_CLASS}.${ADD_ARIA_ANIMATION},
-  .${SEARCH_ARIA_CLASS}.${ADD_ARIA_ANIMATION} {
+  .${SEARCH_ELEMENT_ARIA_CLASS}.${FADE_OUT_ANIMATION},
+  .${SEARCH_ARIA_CLASS}.${FADE_OUT_ANIMATION} {
     animation-duration: 0.25s;
   }
 
-  .${SEARCH_ELEMENT_ARIA_CLASS}.${REMOVE_ARIA_ANIMATION},
-  .${SEARCH_ARIA_CLASS}.${REMOVE_ARIA_ANIMATION} {
+  .${SEARCH_ELEMENT_ARIA_CLASS}.${FADE_IN_ANIMATION},
+  .${SEARCH_ARIA_CLASS}.${FADE_IN_ANIMATION} {
     animation-name: fadeIn;
     animation-duration: 1s;
     animation-iteration-count: 1;

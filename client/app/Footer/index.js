@@ -19,7 +19,11 @@ import {
 } from 'Shared/helpers/url';
 import { scrollToTop } from 'Shared/helpers/styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { NAVIGATION_ARIA_CLASS } from 'Shared/constants/a11y';
+import {
+  NAVIGATION_ARIA_CLASS,
+  PANEL_ARIA_NEGATIVE_TAB_CLASS,
+} from 'Shared/constants/a11y';
+import { MAIN_FOOTER } from 'Shared/constants/ids';
 import {
   FooterStyle,
   FooterNavStyle,
@@ -39,7 +43,10 @@ export const Footer = () => {
   const isFR = country === 'FR';
 
   return (
-    <FooterStyle id="main_footer" className={NAVIGATION_ARIA_CLASS}>
+    <FooterStyle
+      id={MAIN_FOOTER}
+      className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+    >
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
         <UnstyledListStyle>
           {isDesktop && (

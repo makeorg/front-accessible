@@ -10,6 +10,7 @@ import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
+import { ProposalPanelTrigger } from 'Client/features/proposal/Submit/PanelTrigger';
 
 const SequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
@@ -40,6 +41,7 @@ const SequencePage = () => {
         picture={question.wording.metas.picture}
       />
       {question.question}
+      <ProposalPanelTrigger />
     </>
   );
 };
