@@ -18,7 +18,7 @@ export const CharsCounter = ({ currentLength }: Props) => {
         {`${currentLength}/140`}
       </ProposalCharLimitStyle>
       <ScreenReaderItemStyle>
-        {i18n.t('proposal_submit.counter', {
+        {i18n.t('proposal_submit.deprecated.counter', {
           current: currentLength,
           total: 140,
         })}

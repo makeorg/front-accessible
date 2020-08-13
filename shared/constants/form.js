@@ -9,3 +9,4 @@ export const NEWSLETTER_UPDATE_FORMNAME = 'newsletter_update';
 export const PROFILE_DELETE_ACCOUNT_FORMNAME = 'profile_delete_account';
 export const PERSONALITY_OPINION_FORMNAME = 'personality_opinion';
 export const SEARCH_FORMNAME = 'search';
+export const PROPOSAL_SUBMIT_FORMNAME = 'proposal_submit';

@@ -301,13 +301,23 @@
     "next-cta": "Pas encore, je continue à voter"
   },
   "proposal_submit": {
+    "deprecated": {
+      "bait": "Il faut ",
+      "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
+      "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
+      "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
+      "moderation_charter": "Pour en savoir plus sur ",
+      "moderation_charter_label": "notre charte de modération",
+      "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
+    },
     "bait": "Il faut ",
-    "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de proposition puis validez en cliquant sur le bouton \"Proposer\"",
+    "title": "Soumettez votre proposition en moins de 140 caractères. Saisissez là dans le champ de proposition puis validez en cliquant sur le bouton \"Valider\"",
+    "field": "Champs de proposition",
     "counter": "Votre proposition comprend {{current}} caractères sur un total de {{total}} caractères disponibles",
-    "description": "Ne vous inquiétez pas, nous corrigerons vos éventuelles fautes d'orthographe.",
-    "moderation_charter": "Pour en savoir plus sur ",
-    "moderation_charter_label": "notre charte de modération",
-    "success": "Votre proposition a bien été prise en compte, elle va maintenant être relue par notre service modération. Vous recevrez un email lorsqu'elle aura été validée."
+    "panel_trigger": "Je propose une solution",
+    "button_cancel": "Annuler et continuer à voter",
+    "button_submit": "Valider",
+    "moderation_link": "En savoir plus sur notre charte de modération"
   },
   "vote": {
     "intro_title": "Je donne mon avis sur cette proposition : ",

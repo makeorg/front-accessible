@@ -162,8 +162,16 @@ export const trackClickPersonnalDataLink = () => {
 };
 
 /* Proposal Submit */
+export const trackDisplayProposalField = () => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_PROPOSAL_FIELD);
+};
+
 export const trackClickProposalSubmit = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_PROPOSAL_SUBMIT);
+};
+
+export const trackClickBackProposals = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_BACK_PROPOSALS);
 };
 
 export const trackDisplayProposalSubmitValidation = () => {

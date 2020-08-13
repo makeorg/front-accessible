@@ -54,11 +54,14 @@ export const SIGN_IN_EMAIL_FAILURE: string = 'signin-email-failure';
 export const DISPLAY_LEGAL_CONSENT: string = 'display-legal-consent';
 
 /* Proposal submit journey */
+export const DISPLAY_PROPOSAL_FIELD: string = 'display-proposal-field';
 export const CLICK_PROPOSAL_SUBMIT: string = 'click-proposal-submit';
+export const CLICK_BACK_PROPOSALS: string = 'click-back-proposals';
 export const DISPLAY_PROPOSAL_SUBMIT_VALIDATION: string =
   'display-proposal-submit-validation';
 
 /* Moderation Text */
+// @todo remove DISPLAY_MODERATION_TEXT with Deprecated/ProposalSubmit
 export const DISPLAY_MODERATION_TEXT: string = 'display-moderation-text';
 export const CLICK_MODERATION_LINK: string = 'click-moderation-link';
 

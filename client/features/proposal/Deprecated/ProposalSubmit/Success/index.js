@@ -18,7 +18,7 @@ export const DeprecatedProposalSubmitSuccess = () => {
   return (
     <DescriptionWrapperStyle ref={successRef} tabIndex={0}>
       <ParagraphStyle id="proposal-submit-success">
-        {i18n.t('proposal_submit.success')}
+        {i18n.t('proposal_submit.deprecated.success')}
       </ParagraphStyle>
     </DescriptionWrapperStyle>
   );
