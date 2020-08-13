@@ -52,6 +52,8 @@ import TrackingService, {
   trackClickPageNumber,
   trackClickResults,
   trackClickSubscribe,
+  trackDisplayProposalField,
+  trackClickBackProposals,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -288,10 +290,36 @@ describe('Tracking Service', () => {
     expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
   });
 
+  it('track Display Proposal Field', () => {
+    const eventName = trackingConstants.DISPLAY_PROPOSAL_FIELD;
+
+    trackDisplayProposalField();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
   it('track Click Proposal Submit', () => {
     const eventName = trackingConstants.CLICK_PROPOSAL_SUBMIT;
 
     trackClickProposalSubmit();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Back Proposals', () => {
+    const eventName = trackingConstants.CLICK_BACK_PROPOSALS;
+
+    trackClickBackProposals();
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,

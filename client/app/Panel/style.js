@@ -26,11 +26,14 @@ export const PanelOverlayStyle = styled.div`
   height: 100%;
   z-index: 15;
   background-color: ${ShadowColors.BlackZeroEightOpacity};
-  display: none;
-  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-in opacity;
   &.expanded {
-    display: block;
-    visibility: visible;
+    opacity: 1;
+  }
+  &[aria-hidden='true'] {
+    height: 0;
+    visibility: hidden;
   }
 `;
 

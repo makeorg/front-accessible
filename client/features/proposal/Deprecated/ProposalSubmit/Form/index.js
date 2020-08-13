@@ -59,19 +59,19 @@ export const DeprecatedProposalSubmitForm = ({
   return (
     <DeprecatedProposalSubmitFormStyle isOpen={isOpen}>
       <ScreenReaderItemStyle as="div">
-        {i18n.t('proposal_submit.title')}
+        {i18n.t('proposal_submit.deprecated.title')}
         <DescriptionWrapperStyle id="proposal-submit-description">
           <CenterParagraphStyle>
-            {i18n.t('proposal_submit.description')}
+            {i18n.t('proposal_submit.deprecated.description')}
           </CenterParagraphStyle>
           <CenterParagraphStyle>
-            {i18n.t('proposal_submit.moderation_charter')}
+            {i18n.t('proposal_submit.deprecated.moderation_charter')}
             <a
               href={
                 isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK
               }
             >
-              {i18n.t('proposal_submit.moderation_charter_label')}
+              {i18n.t('proposal_submit.deprecated.moderation_charter_label')}
             </a>
           </CenterParagraphStyle>
         </DescriptionWrapperStyle>

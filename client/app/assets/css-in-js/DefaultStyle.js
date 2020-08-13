@@ -140,4 +140,10 @@ export const DefaultStylesheet = createGlobalStyle`
     visibility: hidden;
   }
 
+  #panel_content {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%; 
+  }
 `;

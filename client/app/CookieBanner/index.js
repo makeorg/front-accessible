@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 import { getGTUPageLink, getDataPageLink } from 'Shared/helpers/url';
 import { type StateRoot } from 'Shared/store/types';
 import {
-  NAVIGATION_ARIA_CLASS,
+  NAVIGATION_ARIA_NEGATIVE_TAB_CLASS,
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import { COOKIE_BANNER } from 'Shared/constants/ids';
@@ -44,7 +44,7 @@ export const CookieBanner = () => {
       id={COOKIE_BANNER}
       aria-label={i18n.t('common.cookie_area')}
       data-cy-container="cookie-banner"
-      className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
     >
       <CookieContentStyle>
         <CookieIconStyle

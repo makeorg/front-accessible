@@ -145,6 +145,7 @@ export const expandPanel = () => {
 
   /** set animation, aria-hidden and tabindex */
   panelWrapper.removeAttribute('aria-hidden');
+  panelOverlay.removeAttribute('aria-hidden');
   panelOverlay.classList.add('expanded');
   panelPortal.classList.add('expanded');
   addAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
@@ -163,10 +164,11 @@ export const collapsePanel = (animationTiming?: number = 500) => {
 
   /** remove animation, aria-hidden and tabindex */
   panelPortal.classList.remove('expanded');
+  panelOverlay.classList.remove('expanded');
   removeAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
   removeAriaHiddenByClass(PANEL_ARIA_CLASS);
   const timer = setTimeout(() => {
-    panelOverlay.classList.remove('expanded');
+    panelOverlay.setAttribute('aria-hidden', 'true');
     panelWrapper.setAttribute('aria-hidden', 'true');
   }, animationTiming);
   return () => clearTimeout(timer);

@@ -5,10 +5,13 @@ import {
   NAVIGATION_ARIA_CLASS,
   NAVIGATION_ELEMENT_ARIA_CLASS,
   SEARCH_ELEMENT_ARIA_CLASS,
+  NAVIGATION_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import {
   addAriaHiddenByClass,
   removeAriaHiddenByClass,
+  addAriaHiddenAndNegativeTab,
+  removeAriaHiddenAndNegativeTab,
 } from 'Shared/helpers/a11y';
 import { lockBody, unlockBody } from 'Shared/helpers/styled';
 import { MenuOpenTriggerStyle, MenuBarStyle } from './style';
@@ -21,10 +24,12 @@ export const MobileMenu = () => {
     if (isExpanded) {
       removeAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
       removeAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
+      removeAriaHiddenAndNegativeTab(NAVIGATION_ARIA_NEGATIVE_TAB_CLASS);
       unlockBody();
     } else {
       addAriaHiddenByClass(NAVIGATION_ARIA_CLASS);
       addAriaHiddenByClass(NAVIGATION_ELEMENT_ARIA_CLASS);
+      addAriaHiddenAndNegativeTab(NAVIGATION_ARIA_NEGATIVE_TAB_CLASS);
       lockBody();
     }
 

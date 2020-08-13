@@ -5,6 +5,8 @@ export const FADE_IN_ANIMATION = 'fade-in-animation';
 /** Navigation */
 export const NAVIGATION_ARIA_CLASS = 'expand-navigation-aria';
 export const NAVIGATION_ELEMENT_ARIA_CLASS = 'expand-navigation-element-aria';
+export const NAVIGATION_ARIA_NEGATIVE_TAB_CLASS =
+  'expand-navigation-negative-tab';
 
 /** Search */
 export const SEARCH_ARIA_CLASS = 'expand-search-aria';

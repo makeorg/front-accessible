@@ -26,7 +26,7 @@ type Props = {
 
 export const Panel = ({ isExpanded, children }: Props) => {
   const panelPortal = document.getElementById(PANEL_PORTAL);
-  const el = document.createElement('div');
+  const el = document.createElement('section');
   el.id = PANEL_CONTENT;
 
   useEffect(() => {

@@ -34,17 +34,17 @@ export const DeprecatedProposalSubmitDescription = ({
   return (
     <DescriptionWrapperStyle id="proposal-submit-description">
       <CenterParagraphStyle>
-        {i18n.t('proposal_submit.description')}
+        {i18n.t('proposal_submit.deprecated.description')}
       </CenterParagraphStyle>
       <CenterParagraphStyle>
-        {i18n.t('proposal_submit.moderation_charter')}
+        {i18n.t('proposal_submit.deprecated.moderation_charter')}
         <a
           target="_blank"
           rel="noreferrer noopener"
           href={isFR ? MODERATION_CHARTER_FR_LINK : MODERATION_CHARTER_EN_LINK}
           onClick={trackModerationLink}
         >
-          {i18n.t('proposal_submit.moderation_charter_label')}
+          {i18n.t('proposal_submit.deprecated.moderation_charter_label')}
           <SvgExternalLink
             aria-label={i18n.t('common.open_new_window')}
             style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}

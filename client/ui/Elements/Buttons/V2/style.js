@@ -1,7 +1,13 @@
 import styled from 'styled-components';
-import { BasicColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  MakeThemeColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
+import { UnstyledButtonStyle } from '../style';
 
 export const BasicButtonStyle = `
   display: flex
@@ -29,12 +35,33 @@ const RedStyle = `
   }
 `;
 
+const GreyStyle = `
+  color: ${TextColors.AltMediumgrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
+  .tofill {
+    fill: ${TextColors.AltMediumgrey};
+  }
+`;
+
 export const RedButtonStyle = styled.button`
   ${BasicButtonStyle};
   ${RedStyle};
+  &:disabled {
+    ${GreyStyle}
+  }
 `;
 
 export const LinkAsRedButtonStyle = styled(Link)`
   ${BasicButtonStyle};
   ${RedStyle};
+  &:disabled {
+    ${GreyStyle}
+  }
+`;
+
+export const GreyUnderlineButtonStyle = styled(UnstyledButtonStyle)`
+  font-size: 14px;
+  line-height: normal;
+  color: ${TextColors.AltMediumgrey};
+  text-decoration: underline;
 `;
