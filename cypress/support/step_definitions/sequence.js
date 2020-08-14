@@ -195,11 +195,13 @@ then('I see {string} in the current card', (text) => {
 
 then ('I see signup buttons in the current card', () => {
   getCurrentCard()
-    .find('[data-cy-container=signup-auth-buttons] button:nth-child(1)')
-    .should('contain', 'Facebook');
-  getCurrentCard()
-    .find('[data-cy-container=signup-auth-buttons] button:nth-child(2)')
+    .find('[data-cy-container=signup-auth-buttons] button:nth-child(1) svg')
+    .invoke('attr', 'aria-label')
     .should('contain', 'Google');
+  getCurrentCard()
+    .find('[data-cy-container=signup-auth-buttons] button:nth-child(2) svg')
+    .invoke('attr', 'aria-label')
+    .should('contain', 'Facebook');
   getCurrentCard()
     .find('[data-cy-container=signup-auth-buttons] button:nth-child(3)')
     .should('contain', 'Email');

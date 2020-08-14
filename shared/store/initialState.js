@@ -50,6 +50,10 @@ export const initialState: StateRoot = {
     showExpirationSession: false,
   },
   partners: {},
+  panel: {
+    isExpanded: false,
+    panelContent: undefined,
+  },
 };
 
 export const createInitialState = (): StateRoot =>

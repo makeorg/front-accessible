@@ -16,7 +16,7 @@ describe('Proposal Service', () => {
 
       expect(ProposalApiService.propose).toHaveBeenNthCalledWith(
         1,
-        'proposal_submit.baitfoo',
+        'proposal_submit.form.baitfoo',
         'fooQuestionId'
       );
     });

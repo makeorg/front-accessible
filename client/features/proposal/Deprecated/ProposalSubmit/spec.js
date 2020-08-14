@@ -16,7 +16,7 @@ describe('ProposalSubmit', () => {
     canBeOpen: true,
     handleFocus: () => {},
   };
-  const baitText = 'proposal_submit.bait';
+  const baitText = 'proposal_submit.form.bait';
 
   beforeEach(() => {
     // We need to mock both hooks

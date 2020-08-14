@@ -1,52 +1,55 @@
 // @flow
-import ReactDOM from 'react-dom';
-import { document } from 'ssr-window';
-import React, { useEffect } from 'react';
-import {
-  PANEL_PORTAL,
-  PANEL_WRAPPER,
-  PANEL_OVERLAY,
-  PANEL_CONTENT,
-} from 'Shared/constants/ids';
+import React, { useEffect, useRef } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { lockBody, unlockBody } from 'Shared/helpers/styled';
-import { collapsePanel, expandPanel } from 'Shared/helpers/a11y';
+import {
+  addAriaHiddenAndNegativeTab,
+  addAriaHiddenByClass,
+  removeAriaHiddenAndNegativeTab,
+  removeAriaHiddenByClass,
+} from 'Shared/helpers/a11y';
+import { useSelector } from 'react-redux';
+import {
+  PANEL_ARIA_NEGATIVE_TAB_CLASS,
+  PANEL_ARIA_CLASS,
+} from 'Shared/constants/a11y';
 import { PanelWrapperStyle, PanelOverlayStyle, PanelInnerStyle } from './style';
 
-export const PanelPortal = () => (
-  <PanelWrapperStyle id={PANEL_WRAPPER} aria-hidden>
-    <PanelOverlayStyle id={PANEL_OVERLAY} />
-    <PanelInnerStyle id={PANEL_PORTAL} />
-  </PanelWrapperStyle>
-);
-
-type Props = {
-  isExpanded: boolean,
-  children: any,
-};
-
-export const Panel = ({ isExpanded, children }: Props) => {
-  const panelPortal = document.getElementById(PANEL_PORTAL);
-  const el = document.createElement('section');
-  el.id = PANEL_CONTENT;
+export const Panel = () => {
+  const panelRef = useRef();
+  const { isExpanded, panelContent } = useSelector(
+    (state: StateRoot) => state.panel
+  );
 
   useEffect(() => {
-    panelPortal.appendChild(el);
-    return () => {
-      panelPortal.removeChild(el);
-    };
-  });
+    if (!panelRef.current) {
+      return undefined;
+    }
 
-  if (isExpanded && panelPortal && el) {
-    lockBody();
-    expandPanel();
-    return ReactDOM.createPortal(children, el);
-  }
+    if (isExpanded) {
+      lockBody();
+      addAriaHiddenByClass(PANEL_ARIA_CLASS);
+      addAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
+      // $FlowFixMe
+      return panelRef.current.removeAttribute('aria-hidden');
+    }
 
-  if (panelPortal && el) {
-    collapsePanel();
+    removeAriaHiddenByClass(PANEL_ARIA_CLASS);
+    removeAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
+    const timer = setTimeout(() => {
+      // $FlowFixMe
+      panelRef.current.setAttribute('aria-hidden', 'true');
+    }, 500);
     unlockBody();
-    return ReactDOM.createPortal(null, el);
-  }
+    return () => clearTimeout(timer);
+  }, [isExpanded]);
 
-  return null;
+  return (
+    <PanelWrapperStyle ref={panelRef} aria-hidden="true">
+      <PanelOverlayStyle className={isExpanded && 'expanded'} />
+      <PanelInnerStyle className={isExpanded && 'expanded'}>
+        {panelContent}
+      </PanelInnerStyle>
+    </PanelWrapperStyle>
+  );
 };

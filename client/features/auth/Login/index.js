@@ -2,7 +2,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { i18n } from 'Shared/i18n';
-import { AuthenticationSocial } from 'Client/features/auth/Social';
 import {
   modalShowRegister,
   modalShowForgotPassword,
@@ -14,13 +13,16 @@ import {
 } from 'Client/ui/Elements/Form/Styled/Content';
 import {
   SmallSeparatorWithMarginStyle,
-  LargeSeparatorStyle,
   SeparatorWrapperStyle,
   TextSeparatorStyle,
+  SeparatorStyle,
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { LoginForm } from './Form';
 import { AuthenticationWrapperStyle, AuthenticationTitleStyle } from '../style';
+import { AuthenticationButtonWrapperStyle } from '../Social/style';
+import { FacebookAuthentication } from '../Social/FacebookAuthentication';
+import { GoogleAuthentication } from '../Social/GoogleAuthentication';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -42,11 +44,14 @@ export const Login = () => {
       <FourthLevelTitleStyle as="h3">
         {i18n.t('login.social_connect')}
       </FourthLevelTitleStyle>
-      <AuthenticationSocial />
-      <SeparatorWrapperStyle>
-        <LargeSeparatorStyle />
+      <AuthenticationButtonWrapperStyle className="small-wrapper">
+        <FacebookAuthentication />
+        <GoogleAuthentication />
+      </AuthenticationButtonWrapperStyle>
+      <SeparatorWrapperStyle className="no-margin-top">
+        <SeparatorStyle className="no-margin-top" />
         <TextSeparatorStyle>{i18n.t('login.or')}</TextSeparatorStyle>
-        <LargeSeparatorStyle />
+        <SeparatorStyle className="no-margin-top" />
       </SeparatorWrapperStyle>
       <FourthLevelTitleStyle as="h3">
         {i18n.t('login.email_connect')}

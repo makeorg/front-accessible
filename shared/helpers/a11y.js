@@ -1,15 +1,5 @@
 // @flow
-import {
-  FADE_OUT_ANIMATION,
-  FADE_IN_ANIMATION,
-  PANEL_ARIA_NEGATIVE_TAB_CLASS,
-  PANEL_ARIA_CLASS,
-} from 'Shared/constants/a11y';
-import {
-  PANEL_WRAPPER,
-  PANEL_OVERLAY,
-  PANEL_PORTAL,
-} from 'Shared/constants/ids';
+import { FADE_OUT_ANIMATION, FADE_IN_ANIMATION } from 'Shared/constants/a11y';
 
 export const addAriaHiddenAndNegativeTab = (className: string) => {
   /** get elements by className and tranform the NodeList in Array */
@@ -131,45 +121,4 @@ export const removeAriaHiddenByClass = (
   });
 
   return elementWithoutAttribute;
-};
-
-export const expandPanel = () => {
-  /** get panelElements by id */
-  const panelWrapper = document.getElementById(PANEL_WRAPPER);
-  const panelOverlay = document.getElementById(PANEL_OVERLAY);
-  const panelPortal = document.getElementById(PANEL_PORTAL);
-
-  if (!panelWrapper || !panelOverlay || !panelPortal) {
-    return undefined;
-  }
-
-  /** set animation, aria-hidden and tabindex */
-  panelWrapper.removeAttribute('aria-hidden');
-  panelOverlay.removeAttribute('aria-hidden');
-  panelOverlay.classList.add('expanded');
-  panelPortal.classList.add('expanded');
-  addAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
-  return addAriaHiddenByClass(PANEL_ARIA_CLASS);
-};
-
-export const collapsePanel = (animationTiming?: number = 500) => {
-  /** get panelElements by id */
-  const panelWrapper = document.getElementById(PANEL_WRAPPER);
-  const panelOverlay = document.getElementById(PANEL_OVERLAY);
-  const panelPortal = document.getElementById(PANEL_PORTAL);
-
-  if (!panelWrapper || !panelOverlay || !panelPortal) {
-    return undefined;
-  }
-
-  /** remove animation, aria-hidden and tabindex */
-  panelPortal.classList.remove('expanded');
-  panelOverlay.classList.remove('expanded');
-  removeAriaHiddenAndNegativeTab(PANEL_ARIA_NEGATIVE_TAB_CLASS);
-  removeAriaHiddenByClass(PANEL_ARIA_CLASS);
-  const timer = setTimeout(() => {
-    panelOverlay.setAttribute('aria-hidden', 'true');
-    panelWrapper.setAttribute('aria-hidden', 'true');
-  }, animationTiming);
-  return () => clearTimeout(timer);
 };

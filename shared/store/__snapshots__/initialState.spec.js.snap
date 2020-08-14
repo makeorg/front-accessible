@@ -18,6 +18,10 @@ Object {
   "notification": Object {
     "contentType": undefined,
   },
+  "panel": Object {
+    "isExpanded": false,
+    "panelContent": undefined,
+  },
   "partners": Object {},
   "proposal": Object {
     "data": undefined,

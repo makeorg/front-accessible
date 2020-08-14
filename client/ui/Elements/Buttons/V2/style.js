@@ -7,6 +7,8 @@ import {
 } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
+import { intToPx } from 'Shared/helpers/styled';
+import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from '../style';
 
 export const BasicButtonStyle = `
@@ -59,9 +61,37 @@ export const LinkAsRedButtonStyle = styled(Link)`
   }
 `;
 
-export const GreyUnderlineButtonStyle = styled(UnstyledButtonStyle)`
+const ButtonNoBackgroundStyle = `
   font-size: 14px;
-  line-height: normal;
-  color: ${TextColors.AltMediumgrey};
+  line-height: 1.5;
   text-decoration: underline;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 16px;
+  }
+`;
+
+const GreyNoBackgroundStyle = `
+  color: ${TextColors.AltMediumgrey};
+  .tofill {
+    fill: ${TextColors.AltMediumgrey};
+  }
+`;
+
+const RedNoBackgroundStyle = `
+  color: ${MakeThemeColors.Red};
+  .tofill {
+    fill: ${MakeThemeColors.Red};
+  }
+`;
+
+export const GreyNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
+  ${ButtonNoBackgroundStyle};
+  ${GreyNoBackgroundStyle};
+`;
+
+export const RedNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
+  ${ButtonNoBackgroundStyle};
+  ${RedNoBackgroundStyle};
+  &.underline {
+  }
 `;

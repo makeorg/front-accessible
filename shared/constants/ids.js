@@ -15,12 +15,6 @@ export const FLUSH_TAGS_TRIGGER: string = 'flush_tags_trigger';
 
 export const DEPARTMENT_STORAGE_KEY: string = 'declared_department';
 
-/** Panel */
-export const PANEL_PORTAL: string = 'panel_portal';
-export const PANEL_WRAPPER: string = 'panel_wrapper';
-export const PANEL_OVERLAY: string = 'panel_overlay';
-export const PANEL_CONTENT: string = 'panel_content';
-
 /** Main Elements */
 export const COOKIE_BANNER: string = 'cookie_banner';
 export const MAIN_SKIPLINKS: string = 'main_skiplinks';

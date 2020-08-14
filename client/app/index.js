@@ -20,7 +20,7 @@ import { SecureExpiration } from './Expiration/Secure';
 import { SessionExpiration } from './Expiration/Session';
 import { ErrorBoundary, ServiceErrorHandler } from './Error';
 import { MainSkipLinks } from './SkipLinks/Main';
-import { PanelPortal } from './Panel';
+import { Panel } from './Panel';
 /**
  * Handles App Business Logic
  */
@@ -49,7 +49,7 @@ export const AppContainer = () => (
             <Modal />
             <Footer />
           </AppWrapperStyle>
-          <PanelPortal />
+          <Panel />
         </ErrorBoundary>
       </ServiceErrorHandler>
     </SessionExpiration>

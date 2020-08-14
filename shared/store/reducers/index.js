@@ -13,6 +13,7 @@ import { user } from './user';
 import { questions } from './questions';
 import { customData } from './customData';
 import { partners } from './partners';
+import { panel } from './panel';
 
 export const rootReducer: StateRoot = combineReducers({
   appConfig,
@@ -26,4 +27,5 @@ export const rootReducer: StateRoot = combineReducers({
   user,
   customData, // sync with HTML5 Storage API
   partners,
+  panel,
 });

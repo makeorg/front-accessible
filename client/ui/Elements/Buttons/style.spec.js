@@ -9,11 +9,7 @@ import {
   GreyButtonStyle,
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
-  FacebookButtonStyle,
-  GoogleButtonStyle,
-  EmailButtonStyle,
   RedLinkButtonStyle,
-  ButtonSmallWrapperStyle,
   CloseButtonStyle,
   QualifyButtonStyle,
   VoteIconStyle,
@@ -97,37 +93,9 @@ describe('ButtonElements/Styled', () => {
     });
   });
 
-  describe('FacebookButtonStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<FacebookButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('GoogleButtonStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<GoogleButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('EmailButtonStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<EmailButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
   describe('RedLinkButtonStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<RedLinkButtonStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('ButtonSmallWrapperStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<ButtonSmallWrapperStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

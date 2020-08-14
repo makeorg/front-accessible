@@ -26,7 +26,6 @@ import {
 } from 'Client/app/assets/vars/Breakpoints';
 import {
   BasicColors,
-  IconColors,
   MakeThemeColors,
   BackgroundColors,
   TextColors,
@@ -148,35 +147,11 @@ export const SocialButtonStyle = styled(ActiveButtonStyle)`
   }
 `;
 
-const SocialButtonMargin = `
-  margin-top: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin-top: 0;
-  }
-`;
-
-export const FacebookButtonStyle = styled(SocialButtonStyle)`
-  background-color: ${IconColors.Facebook};
-`;
-
-export const GoogleButtonStyle = styled(SocialButtonStyle)`
-  ${SocialButtonMargin};
-  background-color: ${IconColors.Google};
-`;
-export const EmailButtonStyle = styled(SocialButtonStyle)`
-  ${SocialButtonMargin};
-  background-color: ${MakeThemeColors.Red};
-`;
-
 export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
   color: ${MakeThemeColors.Red};
   text-decoration: underline;
   margin: 0 5px;
-`;
-
-export const ButtonSmallWrapperStyle = styled(ButtonsWrapperStyle)`
-  max-width: 410px;
 `;
 
 export const CloseButtonStyle = styled(UnstyledButtonStyle)`
