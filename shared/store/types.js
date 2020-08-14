@@ -119,6 +119,11 @@ export type StatePartners = $ReadOnly<{
   },
 }>;
 
+export type StatePanel = $ReadOnly<{
+  isExpanded: boolean,
+  panelContent: any,
+}>;
+
 // All state
 export type StateRoot = {
   appConfig: StateConfig,
@@ -131,4 +136,5 @@ export type StateRoot = {
   questions: StateQuestions,
   modal: StateModal,
   partners: StatePartners,
+  panel: StatePanel,
 };

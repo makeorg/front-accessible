@@ -22,15 +22,15 @@ export const SmallSeparatorWithMarginStyle = styled(SmallSeparatorStyle)`
   }
 `;
 
-export const LargeSeparatorStyle = styled(SeparatorStyle)`
+export const SeparatorWrapperStyle = styled(MiddleRowStyle)`
+  width: 100%;
   margin: 25px 0;
+  &.no-margin-top {
+    margin-top: 0;
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 35px 0;
   }
-`;
-
-export const SeparatorWrapperStyle = styled(MiddleRowStyle)`
-  width: 100%;
 `;
 
 export const TextSeparatorStyle = styled(MiddleRowStyle)`
@@ -38,7 +38,7 @@ export const TextSeparatorStyle = styled(MiddleRowStyle)`
   font-size: 14px;
 `;
 
-export const ContentSeparatorStyle = styled(LargeSeparatorStyle)`
+export const ContentSeparatorStyle = styled(SeparatorStyle)`
   margin: 10px 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 15px 0;

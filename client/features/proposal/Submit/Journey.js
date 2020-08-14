@@ -2,14 +2,18 @@
 import React, { useState } from 'react';
 import { getBaitText } from 'Shared/constants/proposal';
 import { trackClickBackProposals } from 'Shared/services/Tracking';
+import { useDispatch } from 'react-redux';
+import {
+  closePanel,
+  removePanelContent,
+} from 'Shared/store/reducers/panel/actions';
 import { ProposalForm } from './Form';
+import { ProposalAthentication } from './Authentication';
 
-type Props = {
-  closePanel: () => void,
-};
+const AUTHENTICATION_STEP = 'authentication';
 
-const REGISTER_STEP = 'register';
-export const ProposalJourney = ({ closePanel }: Props) => {
+export const ProposalJourney = () => {
+  const dispatch = useDispatch();
   const [proposalContent, setProposalContent] = useState('');
   const [proposalStep, setProposalStep] = useState('form');
   const baitText = getBaitText();
@@ -27,15 +31,24 @@ export const ProposalJourney = ({ closePanel }: Props) => {
     return setProposalContent(event.currentTarget.value);
   };
 
-  if (proposalStep === REGISTER_STEP) {
-    return <div>register step</div>;
-  }
-
   const handleCancel = () => {
-    closePanel();
+    dispatch(closePanel());
+    dispatch(removePanelContent());
     trackClickBackProposals();
+  };
+
+  const handleStepBack = () => {
     setProposalStep('form');
   };
+
+  if (proposalStep === AUTHENTICATION_STEP) {
+    return (
+      <ProposalAthentication
+        handleStepBack={handleStepBack}
+        handleCancel={handleCancel}
+      />
+    );
+  }
 
   return (
     <ProposalForm
@@ -43,7 +56,7 @@ export const ProposalJourney = ({ closePanel }: Props) => {
       handleValueChange={handleValueChange}
       handleFieldFocus={handleFieldFocus}
       handleCancel={handleCancel}
-      handleSubmit={() => setProposalStep(REGISTER_STEP)}
+      handleSubmit={() => setProposalStep(AUTHENTICATION_STEP)}
     />
   );
 };

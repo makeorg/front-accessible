@@ -10,7 +10,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { i18n } from 'Shared/i18n';
 import {
-  GreyUnderlineButtonStyle,
+  GreyNoBackgroundButtonStyle,
   RedButtonStyle,
 } from 'Client/ui/Elements/Buttons/V2/style';
 import { proposalHasValidLength } from 'Shared/helpers/proposal';
@@ -25,8 +25,8 @@ import {
   trackClickModerationLink,
 } from 'Shared/services/Tracking';
 import {
-  ProposalFormWrapperStyle,
-  ProposalFormTitleStyle,
+  ProposalStepWrapperStyle,
+  ProposalStepTitleStyle,
   ProposalTextareaStyle,
   ProposalFieldWrapperStyle,
   ProposalCharCountStyle,
@@ -65,19 +65,21 @@ export const ProposalForm = ({
   }, []);
 
   return (
-    <ProposalFormWrapperStyle>
+    <ProposalStepWrapperStyle>
       <form
         id={PROPOSAL_SUBMIT_FORMNAME}
         name={PROPOSAL_SUBMIT_FORMNAME}
         onSubmit={throttle(handleSubmit)}
       >
-        <ProposalFormTitleStyle>{question.question}</ProposalFormTitleStyle>
+        <ProposalStepTitleStyle className="with-margin-bottom">
+          {question.question}
+        </ProposalStepTitleStyle>
         <ScreenReaderItemStyle>
-          {i18n.t('proposal_submit.title')}
+          {i18n.t('proposal_submit.form.title')}
         </ScreenReaderItemStyle>
         <ProposalFieldWrapperStyle>
           <ScreenReaderItemStyle as="label" htmlFor="proposal">
-            {i18n.t('proposal_submit.field')}
+            {i18n.t('proposal_submit.form.field')}
           </ScreenReaderItemStyle>
           <ProposalTextareaStyle
             name="proposal"
@@ -97,23 +99,23 @@ export const ProposalForm = ({
             {`${charCounting} / ${MAX_PROPOSAL_LENGTH}`}
           </ProposalCharCountStyle>
           <ScreenReaderItemStyle aria-live="polite">
-            {i18n.t('proposal_submit.counter', {
+            {i18n.t('proposal_submit.form.counter', {
               current: proposalContent.length,
               total: MAX_PROPOSAL_LENGTH,
             })}
           </ScreenReaderItemStyle>
         </ProposalFieldWrapperStyle>
         <SpaceBetweenRowStyle>
-          <GreyUnderlineButtonStyle type="button" onClick={handleCancel}>
-            {i18n.t('proposal_submit.button_cancel')}
-          </GreyUnderlineButtonStyle>
+          <GreyNoBackgroundButtonStyle type="button" onClick={handleCancel}>
+            {i18n.t('proposal_submit.form.button_cancel')}
+          </GreyNoBackgroundButtonStyle>
           <RedButtonStyle
             type="submit"
             form={PROPOSAL_SUBMIT_FORMNAME}
             onClick={trackClickProposalSubmit}
             disabled={!proposalHasValidLength(proposalContent.length)}
           >
-            {i18n.t('proposal_submit.button_submit')}
+            {i18n.t('proposal_submit.form.button_submit')}
           </RedButtonStyle>
         </SpaceBetweenRowStyle>
       </form>
@@ -123,11 +125,11 @@ export const ProposalForm = ({
         rel="noreferrer noopener"
         onClick={trackClickModerationLink}
       >
-        {i18n.t('proposal_submit.moderation_link')}
+        {i18n.t('proposal_submit.form.moderation_link')}
         <ProposalExternalLinkIconStyle
           aria-label={i18n.t('common.open_new_window')}
         />
       </ProposalExternalLinkStyle>
-    </ProposalFormWrapperStyle>
+    </ProposalStepWrapperStyle>
   );
 };

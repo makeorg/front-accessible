@@ -1,25 +1,22 @@
 // & flow
-import React, { useState } from 'react';
-import { Panel } from 'Client/app/Panel';
+import React from 'react';
 import { i18n } from 'Shared/i18n';
+import { useDispatch } from 'react-redux';
+import { setPanelContent } from 'Shared/store/reducers/panel/actions';
 import { PanelTriggerStyle, PanelTriggerIconStyle } from './style';
 import { ProposalJourney } from './Journey';
 
 export const ProposalSubmit = () => {
-  const [isExpanded, setExpansion] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <>
       <PanelTriggerStyle
-        onClick={() => setExpansion(true)}
-        disabled={isExpanded}
+        onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
       >
         <PanelTriggerIconStyle aria-hidden />
-        {i18n.t('proposal_submit.panel_trigger')}
+        {i18n.t('proposal_submit.form.panel_trigger')}
       </PanelTriggerStyle>
-      <Panel isExpanded={isExpanded}>
-        <ProposalJourney closePanel={() => setExpansion(false)} />
-      </Panel>
     </>
   );
 };

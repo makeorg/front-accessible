@@ -10,9 +10,9 @@ import {
 } from 'Client/ui/Elements/TitleElements';
 import {
   SmallSeparatorWithMarginStyle,
-  LargeSeparatorStyle,
   SeparatorWrapperStyle,
   TextSeparatorStyle,
+  SeparatorStyle,
 } from 'Client/ui/Elements/Separators';
 import { RedLinkButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ExtraParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
@@ -161,9 +161,9 @@ export const Register = () => {
           <GoogleAuthentication link />
         </FourthLevelTitleStyle>
         <SeparatorWrapperStyle>
-          <LargeSeparatorStyle />
+          <SeparatorStyle />
           <TextSeparatorStyle>{i18n.t('register.or')}</TextSeparatorStyle>
-          <LargeSeparatorStyle />
+          <SeparatorStyle />
         </SeparatorWrapperStyle>
         <FourthLevelTitleStyle as="h3">
           {i18n.t('register.subtitle')}

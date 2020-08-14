@@ -9,20 +9,16 @@ import {
 import { type StateRoot } from 'Shared/store/types';
 import {
   RedButtonStyle,
-  EmailButtonStyle,
   ButtonsWrapperStyle,
-  ButtonSmallWrapperStyle,
-  EmailIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import {
   ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
 import { CenterParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
-import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
 import { getDataPageLink } from 'Shared/helpers/url';
-import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
+import { modalShowLogin } from 'Shared/store/actions/modal';
+import { AuthenticationRegisterButtons } from 'Client/features/auth/Register/Buttons';
 import {
   DeprecatedProposalSubmitAuthenticationWrapperStyle,
   ProposalSubmitSeparatorStyle,
@@ -60,17 +56,7 @@ export const DeprecatedProposalSubmitAuthentication = () => {
       <FourthLevelTitleStyle>
         {i18n.t('authentication.description')}
       </FourthLevelTitleStyle>
-      <ButtonSmallWrapperStyle>
-        <FacebookAuthentication />
-        <GoogleAuthentication />
-        <EmailButtonStyle
-          onClick={() => dispatch(modalShowRegister())}
-          id="authentication-register-button"
-        >
-          <EmailIconStyle aria-hidden />
-          {i18n.t('common.email')}
-        </EmailButtonStyle>
-      </ButtonSmallWrapperStyle>
+      <AuthenticationRegisterButtons />
       <CenterParagraphStyle>
         {i18n.t('authentication.commitment')}
         <a

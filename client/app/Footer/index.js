@@ -20,7 +20,7 @@ import {
 import { scrollToTop } from 'Shared/helpers/styled';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import {
-  NAVIGATION_ARIA_CLASS,
+  NAVIGATION_ARIA_NEGATIVE_TAB_CLASS,
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
 } from 'Shared/constants/a11y';
 import { MAIN_FOOTER } from 'Shared/constants/ids';
@@ -45,7 +45,7 @@ export const Footer = () => {
   return (
     <FooterStyle
       id={MAIN_FOOTER}
-      className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+      className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
     >
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
         <UnstyledListStyle>

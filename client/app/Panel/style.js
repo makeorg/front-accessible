@@ -10,7 +10,7 @@ export const PanelWrapperStyle = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 15;
+  z-index: 10;
   &[aria-hidden='true'] {
     height: 0;
     overflow: hidden;

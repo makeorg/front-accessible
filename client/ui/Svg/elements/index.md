@@ -64,7 +64,10 @@ import {
   SvgPreviousArrow,
   SvgExternalLinkPlain,
   SvgFist
-  SvgLegalConsent
+  SvgLegalConsent,
+  SvgLogoBlack,
+  SvgLogo,
+  SvgMailPlain
 } from './index.js';
 
 const SvgStyle = { padding: '5px', width: '26px'}
@@ -129,6 +132,7 @@ class SvgElementsExample extends React.Component {
         <span style={SvgStyle}><SvgLegalConsent /></span>
         <span style={SvgStyle}><SvgLogoBlack /></span>
         <span style={SvgStyle}><SvgLogo /></span>
+        <span style={SvgStyle}><SvgMailPlain /></span>
       </>
     );
   }

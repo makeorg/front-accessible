@@ -8,22 +8,18 @@ import {
 import { i18n } from 'Shared/i18n';
 
 import {
-  EmailButtonStyle,
-  ButtonSmallWrapperStyle,
   RedLinkButtonStyle,
-  EmailIconStyle,
   ForwardIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { ExtraAltParagraphStyle } from 'Client/ui/Elements/Form/Styled/Content';
-import { FacebookAuthentication } from 'Client/features/auth/Social/FacebookAuthentication';
-import { GoogleAuthentication } from 'Client/features/auth/Social/GoogleAuthentication';
 import { useDispatch, useSelector } from 'react-redux';
-import { modalShowRegister, modalShowLogin } from 'Shared/store/actions/modal';
+import { modalShowLogin } from 'Shared/store/actions/modal';
 import {
   incrementSequenceIndex,
   resetSequenceVotedProposals,
 } from 'Shared/store/actions/sequence';
+import { AuthenticationRegisterButtons } from 'Client/features/auth/Register/Buttons';
 import {
   SequenceContentWrapperStyle,
   SequenceInnerContentStyle,
@@ -72,17 +68,7 @@ export const DeprecatedSignUpCard = ({
           {i18n.t('sign_up_card.authentication-text')}
         </SequenceSecondaryTitleStyle>
         <CenterColumnStyle>
-          <ButtonSmallWrapperStyle data-cy-container="signup-auth-buttons">
-            <FacebookAuthentication />
-            <GoogleAuthentication />
-            <EmailButtonStyle
-              onClick={() => dispatch(modalShowRegister())}
-              id="authentication-register-button"
-            >
-              <EmailIconStyle aria-hidden />
-              {i18n.t('common.email')}
-            </EmailButtonStyle>
-          </ButtonSmallWrapperStyle>
+          <AuthenticationRegisterButtons />
           <ExtraAltParagraphStyle>
             {i18n.t('register.login_title')}
             <RedLinkButtonStyle onClick={() => dispatch(modalShowLogin())}>

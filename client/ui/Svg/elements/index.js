@@ -65,3 +65,4 @@ export { SvgFist } from './Fist';
 export { SvgLegalConsent } from './LegalConsent';
 export { SvgLogoBlack } from './LogoBlack';
 export { SvgLogo } from './Logo';
+export { SvgMailPlain } from './MailPlain';

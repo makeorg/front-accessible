@@ -5,12 +5,9 @@ import { type StateRoot } from 'Shared/store/types';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
-import { FacebookLinkStyle } from 'Client/features/auth/Social/Styled/index';
-import {
-  FacebookButtonStyle,
-  FacebookIconStyle,
-  FacebookPlainIconStyle,
-} from 'Client/ui/Elements/Buttons/style';
+import { FacebookPlainIconStyle } from 'Client/ui/Elements/Buttons/style';
+import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
+import { FacebookLinkStyle, FacebookButtonStyle } from './style';
 
 type Props = {
   link?: boolean,
@@ -56,8 +53,7 @@ export const FacebookAuthentication = ({ link }: Props) => {
             </FacebookLinkStyle>
           ) : (
             <FacebookButtonStyle onClick={renderProps.onClick}>
-              <FacebookIconStyle aria-hidden />
-              Facebook
+              <SvgFacebookLogoF aria-label="Facebook" />
             </FacebookButtonStyle>
           )
         }
