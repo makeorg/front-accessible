@@ -71,7 +71,7 @@ export const DeprecatedProposalSubmit = ({
 
   const handleProposeAPICall = () => {
     if (isLoggedIn && proposalHasValidLength(length)) {
-      ProposalService.propose(
+      ProposalService.deprecatedPropose(
         content,
         question.questionId,
         handleSuccessResponse,
