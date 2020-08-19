@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
   UnstyledButtonStyle,
@@ -73,13 +73,13 @@ export const SearchBackStyle = styled(UnstyledButtonStyle)`
   align-items: flex-end;
   margin-bottom: 10px;
   margin-left: 0;
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   font-size: 12px;
   padding: 0;
   text-decoration: underline;
   &:hover,
   &:focus {
-    color: ${MakeThemeColors.Red};
+    color: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
@@ -92,7 +92,7 @@ export const SearchBackStyle = styled(UnstyledButtonStyle)`
 export const SearchBackArrowStyle = {
   fontSize: '11px',
   marginRight: '4px',
-  fill: MakeThemeColors.Red,
+  fill: color.brandSecondary,
 };
 
 export const SearchResultsProposalListStyle = styled(UnstyledListStyle)`

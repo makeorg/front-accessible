@@ -19,7 +19,7 @@ exports[`Pagination snapshot by default 1`] = `
   align-self: center;
   font-size: 14px;
   font-family: 'Circular Standard Book',Arial,sans-serif;
-  color: rgb(74,74,74);
+  color: rgba(0,0,0,0.65);
   padding: 0px 30px;
 }
 
@@ -30,11 +30,11 @@ exports[`Pagination snapshot by default 1`] = `
 }
 
 .c1 .tofill {
-  fill: rgb(222,26,66);
+  fill: rgba(222,26,66,1);
 }
 
 .c1:disabled .tofill {
-  fill: rgb(102,102,102);
+  fill: rgba(0,0,0,0.65);
 }
 
 .c2 {

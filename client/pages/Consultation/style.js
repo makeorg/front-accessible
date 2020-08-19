@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { color } from 'athena-design-tokens';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
   ColumnElementStyle,
@@ -10,7 +11,7 @@ import {
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgChat } from 'Client/ui/Svg/elements';
 
@@ -91,7 +92,7 @@ export const TopIdeaDetailsPageTitleStyle = styled(TopIdeasPageTitleStyle)`
 export const TopIdeaDetailsIconStyle = styled(SvgChat)`
   margin-right: 15px;
   .tofill {
-    fill: ${BasicColors.PureBlack};
+    fill: ${color.black};
   }
 `;
 

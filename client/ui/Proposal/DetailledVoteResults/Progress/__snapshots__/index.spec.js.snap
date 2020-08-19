@@ -12,15 +12,15 @@ exports[`VoteProgress must match the snapshot with default Props 1`] = `
   </VoteCounterStyle>
   <VoteProgressWrapperStyle>
     <VoteProgressItemStyle
-      color="rgb(80,122,31)"
+      color="rgba(80,122,31,1)"
       percent={60}
     />
     <VoteProgressItemStyle
-      color="rgb(190,24,44)"
+      color="rgba(190,24,44,1)"
       percent={17}
     />
     <VoteProgressItemStyle
-      color="rgb(117,117,117)"
+      color="rgba(117,117,117,1)"
       percent={23}
     />
   </VoteProgressWrapperStyle>

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { color } from 'athena-design-tokens';
 import {
   SvgThumbsUp,
   SvgEnvelope,
@@ -22,13 +23,6 @@ import {
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import {
-  BasicColors,
-  MakeThemeColors,
-  BackgroundColors,
-  TextColors,
-  VoteColors,
-} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ButtonsWrapperStyle = styled.div`
@@ -74,30 +68,30 @@ export const BasicButtonStyle = styled.button`
 `;
 
 export const WhiteButtonStyle = styled(BasicButtonStyle)`
-  color: ${BasicColors.PureBlack};
-  background-color: ${BasicColors.PureWhite};
+  color: ${color.black};
+  background-color: ${color.white};
   svg {
-    fill: ${BasicColors.PureBlack};
+    fill: ${color.black};
   }
 `;
 
 export const RedButtonStyle = styled(BasicButtonStyle)`
-  color: ${BasicColors.PureWhite};
-  background-color: ${MakeThemeColors.Red};
+  color: ${color.white};
+  background-color: ${color.brandSecondary};
   svg {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
 `;
 
 export const GreyButtonStyle = styled(BasicButtonStyle)`
-  color: ${TextColors.MediumGrey};
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  color: ${color.greyDark};
+  background-color: ${color.greyLighter};
   svg {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
   }
   &:hover,
   &:focus {
-    color: ${TextColors.MediumGrey};
+    color: ${color.greyDark};
   }
 `;
 
@@ -116,18 +110,18 @@ export const SmallGreyButtonStyle = styled(GreyButtonStyle)`
 `;
 
 export const ActiveButtonStyle = styled(BasicButtonStyle)`
-  color: ${BasicColors.PureWhite};
-  background-color: ${MakeThemeColors.Red};
+  color: ${color.white};
+  background-color: ${color.brandSecondary};
   svg,
   .tofill {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
   &:disabled {
-    color: ${TextColors.MediumGrey};
-    background-color: ${BackgroundColors.ExtraLightGrey};
+    color: ${color.grey};
+    background-color: ${color.greyLighter};
     svg,
     .tofill {
-      fill: ${TextColors.MediumGrey};
+      fill: ${color.grey};
     }
   }
 `;
@@ -136,9 +130,9 @@ export const SocialButtonStyle = styled(ActiveButtonStyle)`
   width: 100%;
   margin: 0 5px;
   padding: 5px 15px;
-  color: ${BasicColors.PureWhite};
+  color: ${color.white};
   svg {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 20px;
@@ -147,7 +141,7 @@ export const SocialButtonStyle = styled(ActiveButtonStyle)`
 
 export const RedLinkButtonStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   text-decoration: underline;
   margin: 0 5px;
 `;
@@ -156,11 +150,11 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   position: absolute;
   top: ${intToPx(DefaultPadding.Mobile)};
   right: ${intToPx(DefaultPadding.Mobile)};
-  fill: ${MakeThemeColors.Red};
+  fill: ${color.brandSecondary};
   z-index: 1;
   font-size: 16px;
   .tofill {
-    fill: ${TextColors.AltMediumgrey};
+    fill: ${color.greyDark};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: ${intToPx(DefaultPadding.Desktop)};
@@ -172,7 +166,7 @@ export const NavButtonStyle = styled(UnstyledButtonStyle)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: 14px;
   line-height: 20px;
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   text-transform: uppercase;
   @media (min-width: ${intToPx(Breakpoints.LargeDesktop)}) {
     font-size: 16px;
@@ -192,9 +186,9 @@ export const QualifyButtonStyle = styled.button`
   border-radius: 36px;
   border-color: ${props => props.color};
   color: ${props => props.color};
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   &.qualified {
-    color: ${BasicColors.PureWhite};
+    color: ${color.white};
     background-color: ${props => props.color};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
@@ -236,7 +230,7 @@ export const VoteButtonStyle = styled.button`
   border-radius: 50%;
   overflow: hidden;
   padding: 0;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   transform: scale(1);
   transition: transform 0.1s ease-in;
   &:hover,
@@ -244,17 +238,17 @@ export const VoteButtonStyle = styled.button`
     transform: scale(1.1);
   }
   &.agree {
-    color: ${VoteColors.Agree};
-    border-color: ${VoteColors.Agree};
+    color: ${color.agree};
+    border-color: ${color.agree};
   }
   &.disagree {
-    color: ${VoteColors.Disagree};
-    border-color: ${VoteColors.Disagree};
+    color: ${color.disagree};
+    border-color: ${color.disagree};
   }
   &.neutral,
   &.other {
-    color: ${VoteColors.Neutral};
-    border-color: ${VoteColors.Neutral};
+    color: ${color.neutral};
+    border-color: ${color.neutral};
   }
   &.animated {
     box-shadow: 0 0 0 0 ${props => props.color};
@@ -265,30 +259,30 @@ export const VoteButtonStyle = styled.button`
     animation: ${InverseRotateButton} 0.5s 1;
   }
   &.agree.voted {
-    background-color: ${VoteColors.Agree};
+    background-color: ${color.agree};
   }
   &.disagree.voted {
-    background-color: ${VoteColors.Disagree};
+    background-color: ${color.disagree};
   }
   &.neutral.voted,
   &.other.voted {
-    background-color: ${VoteColors.Neutral};
+    background-color: ${color.neutral};
   }
   &.agree .tofill {
-    fill: ${VoteColors.Agree};
+    fill: ${color.agree};
   }
   &.disagree .tofill {
-    fill: ${VoteColors.Disagree};
+    fill: ${color.disagree};
   }
   &.neutral .tofill,
   &.other .tofill {
-    fill: ${VoteColors.Neutral};
+    fill: ${color.neutral};
   }
   &.voted {
-    color: ${BasicColors.PureWhite};
+    color: ${color.white};
   }
   &.voted .tofill {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
   &.voted:hover,
   &.voted:focus {

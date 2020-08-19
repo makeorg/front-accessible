@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-import {
-  BasicColors,
-  BackgroundColors,
-  TextColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -13,7 +8,7 @@ import { UnstyledButtonStyle } from '../Buttons/style';
 import { UnstyledListStyle } from '../ListElements';
 
 export const SortedListStyle = styled(UnstyledListStyle)`
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${color.greyLighter};
   padding: 15px;
   overflow: auto;
   width: 100%;
@@ -26,8 +21,8 @@ export const SortedListElementStyle = styled.li`
   justify-content: start;
   align-items: center;
   margin-bottom: 7px;
-  color: ${TextColors.MediumGrey};
-  background-color: ${BasicColors.PureWhite};
+  color: ${color.greyDark};
+  background-color: ${color.white};
   border-radius: 3px;
   padding: 7px 15px;
   font-size: 12px;
@@ -48,8 +43,8 @@ export const SortedButtonStyle = styled(UnstyledButtonStyle)`
   justify-content: start;
   align-items: center;
   margin-bottom: 7px;
-  color: ${TextColors.MediumGrey};
-  background-color: ${BasicColors.PureWhite};
+  color: ${color.greyDark};
+  background-color: ${color.white};
   border-radius: 3px;
   padding: 7px 15px;
   font-size: 12px;
@@ -71,7 +66,7 @@ export const SortedRadioStyle = styled.span`
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  border: 1px solid ${BackgroundColors.MediumGrey};
+  border: 1px solid ${color.greyDark};
   margin-right: 15px;
 `;
 
@@ -80,5 +75,5 @@ export const CheckedStyle = {
   bottom: 0,
   left: '1px',
   fontSize: '15px',
-  fill: MakeThemeColors.Red,
+  fill: color.brandSecondary,
 };

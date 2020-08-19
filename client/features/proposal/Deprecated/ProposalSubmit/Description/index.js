@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import { color } from 'athena-design-tokens';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
@@ -10,7 +11,6 @@ import {
 } from 'Shared/constants/url';
 import { trackDisplayModerationText } from 'Shared/services/Tracking';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
-import { MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { DescriptionWrapperStyle } from '../style';
 
 type Props = {
@@ -47,7 +47,7 @@ export const DeprecatedProposalSubmitDescription = ({
           {i18n.t('proposal_submit.deprecated.moderation_charter_label')}
           <SvgExternalLink
             aria-label={i18n.t('common.open_new_window')}
-            style={{ marginLeft: '5px', fill: MakeThemeColors.Red }}
+            style={{ marginLeft: '5px', fill: color.brandSecondary }}
           />
         </a>
       </CenterParagraphStyle>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
@@ -8,7 +8,7 @@ import { FlexElementStyle } from 'Client/ui/Elements/FlexElements';
 export const DisclaimerSubtitleStyle = styled.h4`
   font-size: 12px;
   line-height: 18px;
-  color: ${BasicColors.PureBlack};
+  color: ${color.black};
   font-family: ${MakeFonts.CircularStandardBold};
   text-transform: none;
   margin-bottom: 5px;

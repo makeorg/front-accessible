@@ -1,10 +1,6 @@
 import styled from 'styled-components';
-import {
-  BasicColors,
-  ShadowColors,
-  BackgroundColors,
-  VoteColors,
-} from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   DefaultPadding,
   Breakpoints,
@@ -14,7 +10,7 @@ import { intToPx } from 'Shared/helpers/styled';
 export const ProfileVoteCardStyle = styled.aside`
   width: 100%;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${color.greyLighter};
   padding: ${intToPx(DefaultPadding.Mobile)};
 `;
 
@@ -28,7 +24,7 @@ export const ProfileVoteWrapperStyle = styled.article`
 export const ProfileVoteTitleStyle = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   padding: ${intToPx(DefaultPadding.Mobile)};
   width: 100%;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
@@ -48,22 +44,22 @@ export const ProfileHasVotedStyle = styled.div`
   border-style: solid;
   border-radius: 50%;
   overflow: hidden;
-  color: ${BasicColors.PureWhite};
+  color: ${color.white};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   &.agree {
-    background-color: ${VoteColors.Agree};
-    border-color: ${VoteColors.Agree};
+    background-color: ${color.agree};
+    border-color: ${color.agree};
   }
   &.disagree {
-    background-color: ${VoteColors.Disagree};
-    border-color: ${VoteColors.Disagree};
+    background-color: ${color.disagree};
+    border-color: ${color.disagree};
   }
   &.neutral {
-    background-color: ${VoteColors.Neutral};
-    border-color: ${VoteColors.Neutral};
+    background-color: ${color.neutral};
+    border-color: ${color.neutral};
   }
   .tofill {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     min-width: 43px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from '../Buttons/style';
@@ -13,8 +13,8 @@ export const TagsTooltipContainerStyle = styled.div`
 export const TagsTooltipWrapperStyle = styled.div`
   position: relative;
   font-family: ${MakeFonts.CircularStandardBook};
-  background-color: ${BackgroundColors.Notifications};
-  color: ${BasicColors.PureWhite};
+  background-color: ${color.infos};
+  color: ${color.white};
   padding: 15px 20px;
   border-radius: ${intToPx(Elements.BorderRadius)};
   margin: 0 0 20px 0;
@@ -25,7 +25,7 @@ export const TagsTooltipCrossStyle = styled(UnstyledButtonStyle)`
   top: 5px;
   right: 10px;
   svg {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
     width: 10px;
   }
 `;
@@ -35,8 +35,7 @@ export const TriangleStyle = styled.div`
   height: 0;
   border-style: solid;
   border-width: 0 10px 10px 10px;
-  border-color: transparent transparent ${BackgroundColors.Notifications}
-    transparent;
+  border-color: transparent transparent ${color.infos} transparent;
   margin-left: 73%;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-left: 440px;
@@ -45,11 +44,11 @@ export const TriangleStyle = styled.div`
 
 export const LinkStyle = styled(UnstyledButtonStyle)`
   display: inline;
-  color: ${BasicColors.PureWhite};
+  color: ${color.white};
   text-decoration: underline;
   margin-left: 5px;
   &:hover,
   &:focus {
-    color: ${BasicColors.PureWhite};
+    color: ${color.white};
   }
 `;

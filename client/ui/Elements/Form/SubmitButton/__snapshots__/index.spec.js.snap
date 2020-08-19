@@ -21,23 +21,23 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(255,255,255);
-  background-color: rgb(222,26,66);
+  color: rgba(255,255,255,1);
+  background-color: rgba(222,26,66,1);
 }
 
 .c0 svg,
 .c0 .tofill {
-  fill: rgb(255,255,255);
+  fill: rgba(255,255,255,1);
 }
 
 .c0:disabled {
-  color: rgb(74,74,74);
-  background-color: rgb(229,229,229);
+  color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.05);
 }
 
 .c0:disabled svg,
 .c0:disabled .tofill {
-  fill: rgb(74,74,74);
+  fill: rgba(0,0,0,0.15);
 }
 
 @media (min-width:767px) {
@@ -71,7 +71,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="sc-11o2adg-2 sc-11o2adg-8 cuzaAl"
+    className="sc-11o2adg-2 sc-11o2adg-8 eSoqeG"
 -   disabled={false}
 +   disabled={true}
     form="foo"

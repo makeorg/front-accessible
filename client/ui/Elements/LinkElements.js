@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
-import { MakeThemeColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import {
   RedButtonStyle,
   GreyButtonStyle,
@@ -9,13 +9,13 @@ import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { SvgExternalLink } from '../Svg/elements';
 
-const linkStyle = color => `
-  color: ${color};
+const linkStyle = linkColor => `
+  color: ${linkColor};
   font-size: 12px;
   line-height: 18px;
   &:hover,
   &:focus {
-    color: ${color};
+    color: ${linkColor};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
@@ -29,15 +29,15 @@ const linkStyle = color => `
 
 export const NewWindowIconStyle = styled(SvgExternalLink)`
   margin-left: 5px;
-  fill: ${MakeThemeColors.Red};
+  fill: ${color.brandSecondary};
 `;
 
 export const RedLinkRouterStyle = styled(Link)`
-  ${linkStyle(MakeThemeColors.Red)}
+  ${linkStyle(color.brandSecondary)}
 `;
 
 export const RedLinkHTMLElementStyle = styled.a`
-  ${linkStyle(MakeThemeColors.Red)}
+  ${linkStyle(color.brandSecondary)}
 `;
 
 export const LinkAsRedButton = styled(RedButtonStyle)`
@@ -45,7 +45,7 @@ export const LinkAsRedButton = styled(RedButtonStyle)`
   text-decoration: none;
   &:hover,
   &:focus {
-    color: ${BasicColors.PureWhite};
+    color: ${color.white};
     text-decoration: none;
   }
 `;

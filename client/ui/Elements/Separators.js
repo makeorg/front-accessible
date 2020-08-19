@@ -1,14 +1,14 @@
 /* @flow */
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MiddleRowStyle } from './FlexElements';
 
 export const SeparatorStyle = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${color.greyDark};
 `;
 
 export const SmallSeparatorStyle = styled(SeparatorStyle)`

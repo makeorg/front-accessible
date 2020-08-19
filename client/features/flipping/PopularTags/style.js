@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
@@ -38,7 +38,7 @@ export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
   display: inline-block;
   font-size: 12px;
   line-height: 18px;
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   text-decoration: underline;
   text-align: left;
   &::first-letter {
@@ -56,7 +56,7 @@ export const FilterTriggerStyle = styled(UnstyledButtonStyle)`
 
 export const ProposalCountStyle = styled.span`
   font-size: 10px;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 12px;
   }

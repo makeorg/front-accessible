@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { BackgroundColors, TextColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -24,8 +24,8 @@ export const DetailledItemStyle = styled.li`
   padding: 0 15px;
   min-width: 200px;
   &.disagree {
-    border-left: 1px solid ${BackgroundColors.ExtraLightGrey};
-    border-right: 1px solid ${BackgroundColors.ExtraLightGrey};
+    border-left: 1px solid ${color.greyLighter};
+    border-right: 1px solid ${color.greyLighter};
   }
 `;
 
@@ -45,7 +45,7 @@ export const VoteDataListStyle = styled(ColumnElementStyle)`
 export const VoteDataItemStyle = styled.span`
   font-size: 12px;
   line-height: 18px;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 21px;

@@ -1,21 +1,16 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { Elements } from 'Client/app/assets/vars/Elements';
-import {
-  ShadowColors,
-  BasicColors,
-  BorderColors,
-  TextColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { UnstyledButtonStyle } from '../Buttons/style';
 
 export const SelectPanelWrapperStyle = styled.div`
   position: relative;
   width: 100%;
-  border-left: 1px solid ${BorderColors.LightGrey};
+  border-left: 1px solid ${color.greyLighter};
   &:first-child {
     border-left: none;
   }
@@ -28,9 +23,8 @@ export const SelectPanelWrapperStyle = styled.div`
 export const SelectButtonStyle = styled(UnstyledButtonStyle)`
   font-size: 14px;
   background-color: ${props =>
-    props.isHighlighted ? MakeThemeColors.Red : BasicColors.PureWhite};
-  color: ${props =>
-    props.isHighlighted ? BasicColors.PureWhite : TextColors.MediumGrey};
+    props.isHighlighted ? color.brandSecondary : color.white};
+  color: ${props => (props.isHighlighted ? color.white : color.greyDark)};
   font-family: ${props =>
     props.isHighlighted
       ? MakeFonts.CircularStandardBold
@@ -40,15 +34,14 @@ export const SelectButtonStyle = styled(UnstyledButtonStyle)`
   justify-content: space-between;
   width: 100%;
   svg {
-    fill: ${props => (props.isHighlighted ? BasicColors.PureWhite : 'inherit')};
+    fill: ${props => (props.isHighlighted ? color.white : 'inherit')};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     min-width: 190px;
     padding: 7px 15px;
     border-radius: 20px;
     border: 1px solid
-      ${props =>
-        props.isHighlighted ? BasicColors.PureWhite : BorderColors.LightGrey};
+      ${props => (props.isHighlighted ? color.white : color.greyLighter)};
   }
 `;
 

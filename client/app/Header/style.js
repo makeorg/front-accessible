@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   FlexElementStyle,
@@ -16,7 +17,7 @@ export const HeaderStyle = styled.header`
   justify-content: center;
   flex-shrink: 0;
   padding: 11px 20px;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     padding: 25px 20px;
   }

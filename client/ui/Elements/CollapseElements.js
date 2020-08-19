@@ -1,11 +1,8 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import {
-  BasicColors,
-  ShadowColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -21,7 +18,7 @@ export const CollapseWrapperStyle = styled(MiddleColumnStyle)`
 `;
 
 export const TileWithCollapseWrapperStyle = styled(CollapseWrapperStyle)`
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 20px;
   &.collapsed {
@@ -43,7 +40,7 @@ export const CollapseTriggerStyle = styled(UnstyledButtonStyle)`
   line-height: 15px;
   text-align: left;
   &:disabled {
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
     cursor: text;
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
@@ -66,7 +63,7 @@ export const CollapseIconStyle = styled.span`
   align-items: center;
   transform: ${props => (props.iscollapsed ? `rotate(0)` : `rotate(90deg)`)};
   .tofill {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
   }
 `;
 
