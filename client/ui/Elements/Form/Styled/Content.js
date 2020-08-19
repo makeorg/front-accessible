@@ -28,7 +28,7 @@ export const FormRequirementsStyle = styled.p`
   font-size: 12px;
   line-height: 1.5;
   margin: 2.5px 0 15px;
-  color: ${color.grey};
+  color: ${color.greyDark};
 `;
 
 export const FakeFieldStyle = styled.div`
@@ -40,7 +40,7 @@ export const FakeFieldStyle = styled.div`
   background-color: ${color.greyLighter};
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => (props.hasError ? color.error : color.greyLighter)};
+  border-color: ${props => (props.hasError ? color.error : color.grey)};
   margin-bottom: 15px;
   &:last-child {
     margin-bottom: 0;
@@ -101,7 +101,7 @@ export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
 
 export const FloatingLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.grey};
+  color: ${color.greyDark};
   font-size: 14px;
   line-height: 38px;
   font-weight: normal;

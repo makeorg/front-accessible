@@ -71,7 +71,7 @@ export const LegalCancelStyle = styled(UnstyledButtonStyle)`
 
 export const LegalSubmitStyle = styled(RedButtonStyle)`
   &:disabled {
-    color: ${color.grey};
+    color: ${color.greyDark};
     background-color: ${color.greyLighter};
   }
 `;

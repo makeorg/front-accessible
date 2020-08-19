@@ -8,7 +8,7 @@ import { MiddleRowStyle } from './FlexElements';
 export const SeparatorStyle = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${color.greyDark};
+  background-color: ${color.grey};
 `;
 
 export const SmallSeparatorStyle = styled(SeparatorStyle)`

@@ -21,5 +21,5 @@ export const TextAreaIconStyle = styled(InputIconStyle)`
 `;
 
 export const HidePasswordIconStyle = styled(UnstyledButtonStyle)`
-  color: ${color.grey};
+  color: ${color.greyDark};
 `;

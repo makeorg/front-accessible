@@ -52,7 +52,7 @@ export const TeasingHeaderTextStyle = styled.p`
 `;
 
 export const TeasingHeaderSubTextStyle = styled.p`
-  color: ${color.grey};
+  color: ${color.greyDark};
   margin-top: 5px;
   a {
     font-family: ${MakeFonts.CircularStandardBold};

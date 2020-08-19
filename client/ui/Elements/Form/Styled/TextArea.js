@@ -18,7 +18,7 @@ export const BasicTextAreaStyle = styled(TextareaAutosize)`
 
 export const TextAreaCounterStyle = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.grey};
+  color: ${color.greyDark};
   font-size: 10px;
   line-height: 10px;
   position: absolute;

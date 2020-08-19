@@ -87,7 +87,7 @@ export const BusinessConsultationStyle = styled.div`
 
 export const BusinessConsultationsItemStatusStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${color.grey};
+  color: ${color.greyDark};
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;

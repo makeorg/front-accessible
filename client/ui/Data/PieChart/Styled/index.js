@@ -32,7 +32,7 @@ export const PieChartLegendStyle = styled.p`
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   font-size: 10px;
   line-height: 16px;
-  color: ${color.grey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 12px;
     line-height: 18px;

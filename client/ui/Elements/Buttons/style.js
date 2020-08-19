@@ -85,7 +85,7 @@ export const RedButtonStyle = styled(BasicButtonStyle)`
 
 export const GreyButtonStyle = styled(BasicButtonStyle)`
   color: ${color.greyDark};
-  background-color: ${color.greyLighter};
+  background-color: ${color.grey};
   svg {
     fill: ${color.brandSecondary};
   }
@@ -117,11 +117,11 @@ export const ActiveButtonStyle = styled(BasicButtonStyle)`
     fill: ${color.white};
   }
   &:disabled {
-    color: ${color.grey};
-    background-color: ${color.greyLighter};
+    color: ${color.greyDark};
+    background-color: ${color.grey};
     svg,
     .tofill {
-      fill: ${color.grey};
+      fill: ${color.greyDark};
     }
   }
 `;

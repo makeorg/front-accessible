@@ -31,13 +31,13 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 .c0:disabled {
-  color: rgba(0,0,0,0.15);
-  background-color: rgba(0,0,0,0.05);
+  color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.15);
 }
 
 .c0:disabled svg,
 .c0:disabled .tofill {
-  fill: rgba(0,0,0,0.15);
+  fill: rgba(0,0,0,0.65);
 }
 
 @media (min-width:767px) {
@@ -357,7 +357,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   text-transform: uppercase;
   padding: 12px 25px 8px;
   color: rgba(0,0,0,0.65);
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.15);
 }
 
 .c0 svg {
@@ -884,7 +884,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   text-transform: uppercase;
   padding: 12px 25px 8px;
   color: rgba(0,0,0,0.65);
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.15);
   padding: 5px 15px 2.5px;
 }
 

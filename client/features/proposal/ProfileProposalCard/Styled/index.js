@@ -17,7 +17,7 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &.proposal-postponed,
   &.proposal-pending {
     * {
-      color: ${color.grey};
+      color: ${color.greyDark};
     }
     a {
       color ${color.brandSecondary};

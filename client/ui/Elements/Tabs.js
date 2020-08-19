@@ -54,7 +54,7 @@ const TabStyle = styled.li`
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   background-color: ${props =>
-    props.isSelected ? color.greyLighter : 'rgb(216,216,216)'};
+    props.isSelected ? 'rgb(247,247,247)' : 'rgb(216,216,216)'};
   border-top: ${props =>
     props.isSelected ? `4px solid ${color.black}` : `1px solid ${color.black}`};
   border-bottom: ${props =>

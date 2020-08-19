@@ -13,7 +13,7 @@ export const CheckboxWrapper = styled(FlexElementStyle)`
 
 export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
-  color: ${color.grey};
+  color: ${color.greyDark};
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 12px;
   line-height: 16px;
@@ -29,7 +29,7 @@ export const FakeCheckboxInputStyle = styled.div`
   width: 14px;
   height: 14px;
   min-width: 14px;
-  border: 1px solid ${color.greyLighter};
+  border: 1px solid ${color.grey};
   margin: 2px 8px 0 0;
   z-index: 0;
   svg {
