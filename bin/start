@@ -6,6 +6,8 @@
 
 const debug = require('debug')('front-accessible:server');
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const app = require('../server/start');
 
 /**
@@ -37,7 +39,16 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+const server =
+  port === 443
+    ? https.createServer(
+        {
+          key: fs.readFileSync('certs/server.key'),
+          cert: fs.readFileSync('certs/server.cert'),
+        },
+        app
+      )
+    : http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.

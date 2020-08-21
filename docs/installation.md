@@ -3,24 +3,23 @@
 
 ## Development Mode
 
-#### Start server
-*   yarn build
-*   yarn server:dev
-*   visit `http://localhost:9009`
-
-
 #### Start application with auto-reload
-*   yarn install
 *   yarn start:dev
 *   visit `http://localhost:3000`
 
-#### Start api mock server
-To be independant of the preproduction api you can launch the mock api server:
-`yarn api-mock:start`
+#### Start server with api mock server
+To be independant of the preproduction api you can launch the server and mock api server:
+* yarn build
+* yarn server:dev
+* visit `http://localhost:9009`
 
-Then you can lauch the dev server using this preprod api
-`yarn server:preprod`
-
+#### Start server using preprod API
+*   Add `local.makeorg.tech` to `hosts` file
+> `127.0.0.1 local.makeorg.tech`
+*   yarn build
+*   yarn server:preprod
+*   visit `https://local.makeorg.tech`
+*   authorize unsecure certificate
 
 ## Style Guide
 *   To start development Server : `npx styleguidist server`
