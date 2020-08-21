@@ -24,6 +24,7 @@ import {
   trackClickProposalSubmit,
   trackClickModerationLink,
 } from 'Shared/services/Tracking';
+import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import {
   ProposalStepWrapperStyle,
   ProposalStepTitleStyle,
@@ -40,6 +41,7 @@ type Props = {
   handleFieldFocus: () => void,
   handleCancel: () => void,
   handleSubmit: () => void,
+  waitingApiCallback: boolean,
 };
 
 export const ProposalForm = ({
@@ -48,6 +50,7 @@ export const ProposalForm = ({
   handleFieldFocus,
   handleCancel,
   handleSubmit,
+  waitingApiCallback,
 }: Props) => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
@@ -59,6 +62,8 @@ export const ProposalForm = ({
   const charCounting = proposalIsEmpty
     ? baitText.length
     : proposalContent.length;
+  const disableSubmitButton =
+    !proposalHasValidLength(proposalContent.length) || waitingApiCallback;
 
   useEffect(() => {
     trackDisplayProposalField();
@@ -113,9 +118,13 @@ export const ProposalForm = ({
             type="submit"
             form={PROPOSAL_SUBMIT_FORMNAME}
             onClick={trackClickProposalSubmit}
-            disabled={!proposalHasValidLength(proposalContent.length)}
+            disabled={disableSubmitButton}
           >
-            {i18n.t('proposal_submit.form.button_submit')}
+            {waitingApiCallback ? (
+              <LoadingDots />
+            ) : (
+              i18n.t('proposal_submit.form.button_submit')
+            )}
           </RedButtonStyle>
         </SpaceBetweenRowStyle>
       </form>

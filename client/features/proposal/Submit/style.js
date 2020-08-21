@@ -8,10 +8,12 @@ import {
   SvgPencil,
   SvgExternalLinkPlain,
   SvgArrowLeft,
+  SvgCheckedLightBulb,
 } from 'Client/ui/Svg/elements';
 import {
   SpaceBetweenColumnStyle,
   ColumnElementStyle,
+  CenterColumnStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import TextareaAutosize from 'react-autosize-textarea/lib';
@@ -28,7 +30,7 @@ export const PanelTriggerStyle = styled(RedButtonStyle)`
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 20;
+  z-index: 5;
 `;
 
 export const PanelTriggerIconStyle = styled(SvgPencil)`
@@ -172,10 +174,32 @@ export const ProposalAuthSeparatorStyle = styled.hr`
   margin: 25px auto;
 `;
 
-export const ProposalAuthLogintyle = styled(RedNoBackgroundButtonStyle)`
+export const ProposalAuthLoginStyle = styled(RedNoBackgroundButtonStyle)`
   align-self: center;
 `;
 
-export const ProposalAuthCanceltyle = styled(GreyNoBackgroundButtonStyle)`
+export const ProposalAuthCancelStyle = styled(GreyNoBackgroundButtonStyle)`
   align-self: center;
+`;
+
+export const ProposalSuccessWrapperStyle = styled(CenterColumnStyle)`
+  max-width: 295px;
+`;
+
+export const ProposalSuccessIconStyle = styled(SvgCheckedLightBulb)`
+  margin: 40px auto 30px;
+`;
+
+export const ProposalSuccessTitleStyle = styled.h2`
+  font-family: ${MakeFonts.CircularStandardBold};
+  font-size: 22px;
+  line-height: 1.5;
+  text-transform: none;
+`;
+
+export const ProposalSuccessParagraphStyle = styled.p`
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin: 5px auto 15px;
 `;
