@@ -42,7 +42,7 @@ const DeprecatedSequencePage = () => {
   useEffect(() => {
     trackDisplaySequence();
     dispatch(sequenceStart(question.slug));
-  }, []);
+  }, [dispatch, question.slug]);
 
   const handleCloseSequence = () => {
     closeSequence(true);

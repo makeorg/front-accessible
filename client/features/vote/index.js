@@ -47,6 +47,8 @@ type Props = {
     voteKey: string,
     index: number
   ) => void,
+  /** Specific design for new sequence */
+  isSequence?: boolean,
 };
 
 export const Vote = ({
@@ -57,6 +59,7 @@ export const Vote = ({
   index = 0,
   onVote = () => {},
   onUnvote = () => {},
+  isSequence,
 }: Props) => {
   const contextType = useContext(TopComponentContext);
   const [currentVotes, setVotes] = useState(votes);
@@ -133,11 +136,12 @@ export const Vote = ({
     return () => {
       clearWait();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (userVote && votedKey) {
     return (
-      <VoteContainerStyle>
+      <VoteContainerStyle isSequence={isSequence}>
         <VoteResult
           proposalId={proposalId}
           votes={currentVotes}
@@ -158,7 +162,7 @@ export const Vote = ({
   }
 
   return (
-    <VoteContainerStyle>
+    <VoteContainerStyle isSequence={isSequence}>
       <ScreenReaderItemStyle as="p">
         {i18n.t('vote.intro_title')}
       </ScreenReaderItemStyle>

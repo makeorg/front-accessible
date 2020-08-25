@@ -5,16 +5,15 @@ Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,9 +1,11 @@
+@@ -1,9 +1,10 @@
   <AuthorDescriptionStyle>
     <AuthorInfosStyle
       as="div"
     >
 +     <Avatar />
-+      
       <ScreenReaderItemStyle>
         proposal_card.author.from
       </ScreenReaderItemStyle>
-      , proposal_card.author.age
-    </AuthorInfosStyle>
+      <InfosWrapperStyle>
+        , proposal_card.author.age
 `;

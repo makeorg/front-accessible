@@ -63,7 +63,7 @@ const ProfileProposalsPage = ({ user }: Props) => {
 
   useEffect(() => {
     initProposal();
-  }, [user]);
+  }, [initProposal, user]);
 
   const proposalsLength = proposals.length;
   const renderPlaceholder = !proposalsLength && !isLoading;

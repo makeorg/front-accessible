@@ -15,6 +15,8 @@ type Props = {
   avatarSize?: number,
   /** Width of avatar */
   avatarAlt?: string,
+  /** Special avatar design for sequence */
+  isSequence?: boolean,
 };
 
 type DotsProps = {
@@ -25,9 +27,10 @@ export const Avatar = ({
   avatarSize = 30,
   avatarUrl,
   avatarAlt = '',
+  isSequence,
 }: Props) => {
   return (
-    <AvatarStyle>
+    <AvatarStyle isSequence={isSequence}>
       {avatarUrl ? (
         <AvatarImageStyle
           src={avatarUrl}

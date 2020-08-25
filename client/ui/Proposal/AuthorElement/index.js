@@ -8,7 +8,7 @@ import {
   getPersonalityProfileLink,
 } from 'Shared/helpers/url';
 import { Avatar } from 'Client/ui/Avatar';
-
+import { useMobile } from 'Client/hooks/useMedia';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { trackClickPublicProfile } from 'Shared/services/Tracking';
@@ -26,6 +26,7 @@ import {
   AuthorInfosStyle,
   ProposalStatusStyle,
   CertifiedIconStyle,
+  InfosWrapperStyle,
 } from './Styled';
 
 type Props = {
@@ -37,6 +38,8 @@ type Props = {
   withCreationDate?: boolean,
   /** Include formatted proposal status */
   formattedProposalStatus?: string,
+  /** Specifc design for sequence avatar */
+  isSequence?: boolean,
 };
 
 const ProposalAuthorAge = ({ age }) => {
@@ -52,52 +55,65 @@ export const ProposalAuthorElement = ({
   withAvatar,
   withCreationDate,
   formattedProposalStatus,
+  isSequence,
 }: Props) => {
   const { author, language, country } = proposal;
   const isOrganisation = author.userType === TYPE_ORGANISATION;
   const isPersonality = author.userType === TYPE_PERSONALITY;
   const isBasicUser = author.userType === TYPE_USER;
-
+  const isMobile = useMobile();
   return (
     <AuthorDescriptionStyle>
-      <AuthorInfosStyle as="div">
+      <AuthorInfosStyle as="div" isSequence={isSequence}>
         {withAvatar && (
           <>
-            <Avatar avatarUrl={author.avatarUrl} />
-            <> </>
+            {isSequence && (
+              <Avatar
+                avatarUrl={author.avatarUrl}
+                isSequence={isSequence}
+                avatarSize={isMobile ? 30 : 50}
+              />
+            )}
+            {!isSequence && <Avatar avatarUrl={author.avatarUrl} />}
           </>
         )}
         <ScreenReaderItemStyle>
           {i18n.t('proposal_card.author.from')}
         </ScreenReaderItemStyle>
-        {isOrganisation && (
-          <>
-            <RedLinkRouterStyle
-              onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
-              to={getOrganisationProfileLink(
-                country,
-                language,
-                author.organisationSlug
-              )}
-            >
-              {formatOrganisationName(author.organisationName)}
-            </RedLinkRouterStyle>
-            <CertifiedIconStyle aria-hidden />
-          </>
-        )}
-        {isPersonality && (
-          <>
-            <RedLinkRouterStyle
-              onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
-              to={getPersonalityProfileLink(country, language, proposal.userId)}
-            >
-              {formatAuthorName(author.firstName)}
-            </RedLinkRouterStyle>
-            <CertifiedIconStyle aria-hidden />
-          </>
-        )}
-        {isBasicUser && formatAuthorName(author.firstName)}
-        <ProposalAuthorAge age={author.age} />
+        <InfosWrapperStyle>
+          {isOrganisation && (
+            <>
+              <RedLinkRouterStyle
+                onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
+                to={getOrganisationProfileLink(
+                  country,
+                  language,
+                  author.organisationSlug
+                )}
+              >
+                {formatOrganisationName(author.organisationName)}
+              </RedLinkRouterStyle>
+              <CertifiedIconStyle aria-hidden />
+            </>
+          )}
+          {isPersonality && (
+            <>
+              <RedLinkRouterStyle
+                onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
+                to={getPersonalityProfileLink(
+                  country,
+                  language,
+                  proposal.userId
+                )}
+              >
+                {formatAuthorName(author.firstName)}
+              </RedLinkRouterStyle>
+              <CertifiedIconStyle aria-hidden />
+            </>
+          )}
+          {isBasicUser && formatAuthorName(author.firstName)}
+          <ProposalAuthorAge age={author.age} />
+        </InfosWrapperStyle>
         {withCreationDate && !!proposal.createdAt && (
           <>
             &nbsp;&bull;&nbsp;

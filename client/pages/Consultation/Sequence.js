@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,12 +17,21 @@ import {
   PreviousButtonWrapperStyle,
   PreviousButton,
 } from 'Client/features/sequence/ProgressSection/style';
+import { Sequence } from 'Client/features/sequence/index';
+import { SequencePageContentStyle } from './style';
 
 const SequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
   const dispatch = useDispatch();
+  const { currentIndex } = useSelector(state => state.sequence);
+  const isPushProposal = currentIndex === 7;
+  const [isClosed, closeSequence] = useState(false);
+
+  const handleOpenSequence = () => {
+    closeSequence(false);
+  };
 
   useEffect(() => {
     trackDisplaySequence();
@@ -47,17 +56,24 @@ const SequencePage = () => {
         picture={question.wording.metas.picture}
       />
       {question.question}
-      <SpaceBetweenRowStyle>
-        <>
-          <PreviousButtonWrapperStyle>
-            <PreviousButton />
-          </PreviousButtonWrapperStyle>
-          {/* @todo: add dynamic progress display for number gauge */}
-          1/15
-          <ProgressBar />
-        </>
-      </SpaceBetweenRowStyle>
-      <ProposalSubmit />
+      <SequencePageContentStyle>
+        <Sequence
+          question={question}
+          isClosed={isClosed}
+          handleOpenSequence={handleOpenSequence}
+        />
+        <SpaceBetweenRowStyle>
+          <>
+            <PreviousButtonWrapperStyle>
+              <PreviousButton />
+            </PreviousButtonWrapperStyle>
+            {/* @todo: add dynamic progress display for number gauge */}
+            1/15
+            <ProgressBar />
+          </>
+        </SpaceBetweenRowStyle>
+      </SequencePageContentStyle>
+      {!isPushProposal && <ProposalSubmit />}
     </>
   );
 };

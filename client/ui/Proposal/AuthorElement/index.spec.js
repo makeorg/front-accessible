@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
 import { proposalTypeFixture } from 'Shared/types/__fixtures__/proposal.fixture';
-import { ProposalAuthorElement } from './index';
+import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 
 jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
@@ -14,18 +14,20 @@ jest.mock('Client/ui/Avatar', () => ({
 
 jest.mock('Client/ui/Svg/elements', () => ({
   SvgCheckedSymbol: 'SvgCheckedSymbol',
+  SvgEmptyAvatar: 'SvgEmptyAvatar',
 }));
 
 jest.mock('Client/ui/Elements/LinkElements', () => ({
   RedLinkRouterStyle: 'RedLinkRouterStyle',
 }));
 
-jest.mock('./Styled', () => ({
+jest.mock('Client/ui/Proposal/AuthorElement/Styled', () => ({
   AuthorDescriptionStyle: 'AuthorDescriptionStyle',
   AuthorInfosStyle: 'AuthorInfosStyle',
   AuthorSeparatorStyle: 'AuthorSeparatorStyle',
   ProposalStatusStyle: 'ProposalStatusStyle',
   CertifiedIconStyle: 'CertifiedIconStyle',
+  InfosWrapperStyle: 'InfosWrapperStyle',
 }));
 
 describe('ProposalAuthorElement', () => {
