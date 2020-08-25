@@ -4,7 +4,7 @@ Feature: Gauge and card position on sequence
     Given monitor api requests
   Scenario: Complete a sequence
     Given I monitor API "postTracking" requests
-    And I am on "sequence" page of the question "question-0-slug"
+    And I am on the sequence page of the question "question-0-slug"
     Then card "0" is visible
     And card "0" is an intro card
     And progress gauge is not visible

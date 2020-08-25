@@ -1,7 +1,7 @@
 Feature: Propose on sequence
   I want to propose on sequence
   Scenario: focus input
-    Given I am on "sequence" page of the question "question-0-slug"
+    Given I am on the sequence page of the question "question-0-slug"
     And I don't see the propose note section
     And I don't see the link "notre charte de modération"
     When I focus "proposal" field
@@ -13,7 +13,7 @@ Feature: Propose on sequence
     When I click on "back to proposals" of the sequence
     Then I don't see the link "notre charte de modération"
   Scenario: submit button activation
-    Given I am on "sequence" page of the question "question-0-slug"
+    Given I am on the sequence page of the question "question-0-slug"
     And the "proposal submit" button is disabled
     When I type "tes" in field "proposal"
     Then the "proposal submit" button is disabled

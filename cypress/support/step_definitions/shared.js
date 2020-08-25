@@ -39,15 +39,18 @@ When('I focus {string} field', (fieldName) => {
 
 When('I click on {string} link', link => {
   cy.get(`[data-cy-link=${link}]`)
-    //@todo: change this line to not force click on hidden elements
+    // @todo: change this line to not force click on hidden elements
     .click({force:true}) 
 });
 
 When('I click on {string} button', buttonName => {
-  //@todo: wait is necessary to allow page scrolling. See if it can be replaced by something else
-  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`).wait(1000).click()
+  cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
+    .wait(1000) // @toDo try to remove this after removing deprecated sequence
+    .click()
 });
 
+
+// I see page
 then('I see the {string} page', (targetPage) => {
   if (!pages[targetPage]) {
     throw Error(`You should define "${targetPage}"`);

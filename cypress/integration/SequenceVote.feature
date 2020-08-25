@@ -51,11 +51,12 @@ Feature: Vote on sequence
      Then "likeIt" qualification button is not highlight on the current card
      And total "likeIt" qualifications are equal to "+1" on the current card
   Scenario: Track vote
-    Given I am on the sequence page of the question "question-0-slug"
+    Given I monitor API "postVote" requests
+    And I monitor API "postTracking" requests
+    And I am on the sequence page of the question "question-0-slug"
     When I click on "intro card start button" of the current card
     Then card "1" is visible
-    And I monitor API "postVote" requests
-    And I monitor API "postTracking" requests
+    
     When I vote "agree" on the first proposal of sequence
     Then some make data header should be sent to "postVote":  
     | name          | value                                       |

@@ -25,3 +25,35 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import 'cypress-wait-until';
+
+const endpoints = {
+  postVote: {method: 'POST', url: '**/proposals/*/vote'},
+  postTracking: {method: 'POST', url: '**/tracking/front'},
+  postUnvote: {method: 'POST', url: '**/proposals/*/unvote'},
+  postQualify: {method: 'POST', url: '**/proposals/*/qualification'},
+  postUnqualify: {method: 'POST', url: '**/proposals/*/unqualification'},
+  getStartSequence: {method: 'GET', url: '**/questions/*/start-sequence'}
+}
+
+Cypress.Commands.add('getEndpointParams', (name) => {
+  return endpoints[name];
+});
+
+Cypress.Commands.add('monitorApiCall', (aliasName) => {
+  if (!Object.keys(cy.state('aliases') || {}).includes(aliasName)) {
+    cy.server();
+    cy.route(endpoints[aliasName]).as(aliasName);
+  }
+});
+
+
+Cypress.Commands.add('waitForAll', (aliasName) => {
+    const pending = cy.state('requests').filter(item => {
+      item.alias === aliasName && !item._hasrequestsBeenWaitedOn
+    });
+    if (!pending.length) {
+      return;
+    }
+    
+    return cy.wait(`@${aliasName}`);
+});

@@ -33,9 +33,8 @@ Feature: Intro card on sequence
     And card "0" is a proposal card
 
   Scenario: Track vote with intro card disabled
-    Given I am on the sequence page of the question "question-0-slug" with intro card disabled
-    And I monitor API "postVote" requests
-    And I monitor API "postTracking" requests
+    Given I monitor API "postTracking" requests
+    And I am on the sequence page of the question "question-0-slug" with intro card disabled
     When I vote "agree" on the first proposal of sequence
     And event "click-sequence-first-vote" should be tracked by Make with parameters values:
     | name                | value                                                                               |

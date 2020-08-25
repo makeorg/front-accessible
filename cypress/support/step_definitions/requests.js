@@ -1,8 +1,3 @@
-export const endpoints = {
-  postVote: {method: 'POST', url: '**/proposals/*/vote'},
-  postTracking: {method: 'POST', url: '**/tracking/front'},
-}
-
 // register requests by endpoint
 export let xhrRequests = {list: {}};
 
@@ -39,8 +34,6 @@ then('event {string} should not be tracked by Make', (trackerName) => {
 
 then('event {string} should be tracked by Make with parameters values:', (trackerName, expectedParameters) => {
   const assertCallback = () => {
-    //wait to make sure the 3 first api calls are made before checking trackings results
-    cy.wait('@postTracking.3')
     expect(xhrTrackingRequests.list).to.have.any.keys(trackerName);
     const xhrRequest = xhrTrackingRequests.list[trackerName].shift();
     expect(xhrRequest, `Track "${trackerName}" not called`).to.not.be.undefined;
@@ -80,10 +73,12 @@ given('I monitor API {string} requests', (endpoint) => {
       xhrTrackingRequests.list[xhr.request.body.eventName].push(xhr);
     }
   };
-  cy.route({
-    method: endpoints[endpoint].method, 
-    url: endpoints[endpoint].url,
-    onRequest: onRequest,
-  }).as(endpoint);
+  
+  cy.getEndpointParams(endpoint).then ( params =>
+    cy.route({
+      ...params,
+      onRequest: onRequest,
+    }).as(endpoint)
+  );
 });
 
