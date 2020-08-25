@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDataPageLink } from 'Shared/helpers/url';
 import { closePanel } from 'Shared/store/reducers/panel/actions';
 import { modalShowLogin } from 'Shared/store/actions/modal';
+import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
   ProposalStepWrapperStyle,
   ProposalBackButtonStyle,
@@ -23,20 +24,25 @@ import {
   ProposalAuthSubtitleStyle,
   ProposalAuthDisclaimerStyle,
   ProposalAuthSeparatorStyle,
-  ProposalAuthLogintyle,
-  ProposalAuthCanceltyle,
+  ProposalAuthLoginStyle,
+  ProposalAuthCancelStyle,
 } from './style';
 
 type Props = {
   handleStepBack: () => void,
   handleCancel: () => void,
+  handleProposeAPICall: () => void,
 };
 
 export const ProposalAthentication = ({
   handleStepBack,
   handleCancel,
+  handleProposeAPICall,
 }: Props) => {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state: StateRoot) =>
+    selectAuthentication(state)
+  );
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
@@ -48,6 +54,12 @@ export const ProposalAthentication = ({
   useEffect(() => {
     trackDisplayAuthenticationForm();
   }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      handleProposeAPICall();
+    }
+  }, [isLoggedIn, handleProposeAPICall]);
 
   return (
     <ProposalStepWrapperStyle>
@@ -76,14 +88,14 @@ export const ProposalAthentication = ({
             </Link>
           </ProposalAuthDisclaimerStyle>
           <ProposalAuthSeparatorStyle />
-          <ProposalAuthLogintyle onClick={() => dispatch(modalShowLogin())}>
+          <ProposalAuthLoginStyle onClick={() => dispatch(modalShowLogin())}>
             {i18n.t('proposal_submit.authentication.button_login')}
-          </ProposalAuthLogintyle>
+          </ProposalAuthLoginStyle>
         </ProposalAuthWrapperStyle>
       </ColumnElementStyle>
-      <ProposalAuthCanceltyle onClick={handleCancel}>
+      <ProposalAuthCancelStyle onClick={handleCancel}>
         {i18n.t('proposal_submit.form.button_cancel')}
-      </ProposalAuthCanceltyle>
+      </ProposalAuthCancelStyle>
     </ProposalStepWrapperStyle>
   );
 };

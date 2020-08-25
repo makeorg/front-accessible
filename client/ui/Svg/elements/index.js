@@ -66,3 +66,4 @@ export { SvgLegalConsent } from './LegalConsent';
 export { SvgLogoBlack } from './LogoBlack';
 export { SvgLogo } from './Logo';
 export { SvgMailPlain } from './MailPlain';
+export { SvgCheckedLightBulb } from './CheckedLightBulb';

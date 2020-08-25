@@ -7,7 +7,6 @@ import {
   SvgAngleArrowTop,
   SvgArrowLeft,
   SvgArrowRight,
-  SvgArrowLeft,
   SvgArrowTop,
   SvgArrowBottom,
   SvgPlayButton,
@@ -67,7 +66,8 @@ import {
   SvgLegalConsent,
   SvgLogoBlack,
   SvgLogo,
-  SvgMailPlain
+  SvgMailPlain,
+  SvgCheckedLightBulb
 } from './index.js';
 
 const SvgStyle = { padding: '5px', width: '26px'}
@@ -133,6 +133,7 @@ class SvgElementsExample extends React.Component {
         <span style={SvgStyle}><SvgLogoBlack /></span>
         <span style={SvgStyle}><SvgLogo /></span>
         <span style={SvgStyle}><SvgMailPlain /></span>
+        <span style={SvgStyle}><SvgCheckedLightBulb /></span>
       </>
     );
   }

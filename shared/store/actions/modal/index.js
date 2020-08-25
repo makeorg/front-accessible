@@ -35,3 +35,7 @@ export const showSessionExpirationModal = () => (dispatch: Function) => {
 export const closeSessionExpirationModal = () => (dispatch: Function) => {
   dispatch({ type: actionTypes.MODAL_CLOSE_SESSION_EXPIRATION });
 };
+
+export const modalShowProposalSuccess = () => (dispatch: Function) => {
+  dispatch({ type: actionTypes.MODAL_SHOW_PROPOSAL_SUCCESS });
+};

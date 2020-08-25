@@ -59,6 +59,7 @@ export const CLICK_PROPOSAL_SUBMIT: string = 'click-proposal-submit';
 export const CLICK_BACK_PROPOSALS: string = 'click-back-proposals';
 export const DISPLAY_PROPOSAL_SUBMIT_VALIDATION: string =
   'display-proposal-submit-validation';
+export const CLICK_KEEP_VOTING: string = 'click-keep-voting ';
 
 /* Moderation Text */
 // @todo remove DISPLAY_MODERATION_TEXT with Deprecated/ProposalSubmit

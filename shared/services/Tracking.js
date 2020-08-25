@@ -180,6 +180,10 @@ export const trackDisplayProposalSubmitValidation = () => {
   );
 };
 
+export const trackClickKeepVoting = () => {
+  TrackingService.sendAllTrackers(trackingConstants.CLICK_KEEP_VOTING);
+};
+
 export const trackDisplayForgotPasswordForm = () => {
   TrackingService.sendAllTrackers(
     trackingConstants.DISPLAY_FORGOTPASSWORD_FORM

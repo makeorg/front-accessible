@@ -161,6 +161,9 @@ export const CloseButtonStyle = styled(UnstyledButtonStyle)`
   fill: ${MakeThemeColors.Red};
   z-index: 1;
   font-size: 16px;
+  .tofill {
+    fill: ${TextColors.AltMediumgrey};
+  }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: ${intToPx(DefaultPadding.Desktop)};
     right: ${intToPx(DefaultPadding.Desktop)};

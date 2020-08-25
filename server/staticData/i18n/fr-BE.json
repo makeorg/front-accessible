@@ -325,6 +325,11 @@
       "title": "Pour valider ma proprosition",
       "subtitle": "Je m'inscris avec",
       "button_login": "J’ai déjà un compte, je me connecte"
+    },
+    "success": {
+      "title": "Merci {{name}} !",
+      "description": "Votre proposition est maintenant en cours de modération par nos équipes.",
+      "button": "Continuer à voter"
     }
   },
   "vote": {

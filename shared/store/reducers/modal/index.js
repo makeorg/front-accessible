@@ -8,12 +8,14 @@ import {
   MODAL_SHOW_SESSION_EXPIRATION,
   MODAL_CLOSE_SESSION_EXPIRATION,
   MODAL_SHOW_DEPARTMENT_FORM,
+  MODAL_SHOW_PROPOSAL_SUCCESS,
 } from 'Shared/store/actionTypes';
 import {
   MODAL_LOGIN,
   MODAL_REGISTER,
   MODAL_FORGOT_PASSWORD,
   MODAL_DEPARTMENT,
+  MODAL_PROPOSAL_SUCCESS,
 } from 'Shared/constants/modal';
 import { initialState } from 'Shared/store/initialState';
 import { type StateModal } from 'Shared/store/types';
@@ -43,6 +45,12 @@ export function modal(state: StateModal = initialState.modal, action: Object) {
         ...state,
         isOpen: true,
         contentType: MODAL_DEPARTMENT,
+      };
+    case MODAL_SHOW_PROPOSAL_SUCCESS:
+      return {
+        ...state,
+        isOpen: true,
+        contentType: MODAL_PROPOSAL_SUCCESS,
       };
     case MODAL_CLOSE:
       return {

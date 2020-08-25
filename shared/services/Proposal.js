@@ -4,7 +4,8 @@ import { getBaitText } from 'Shared/constants/proposal';
 import { type ProposalType, type ProposalsType } from 'Shared/types/proposal';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 
-const propose = async (
+// @todo remove with DepreactedProposalSubmit
+const deprecatedPropose = async (
   content: string,
   questionId: string,
   success: () => void,
@@ -18,6 +19,14 @@ const propose = async (
       defaultUnexpectedError(apiServiceError);
       unexpectedError();
     });
+};
+
+const propose = async (content: string, questionId: string): Promise<void> => {
+  try {
+    await ProposalApiService.propose(content.trim(), questionId);
+  } catch (apiServiceError) {
+    defaultUnexpectedError(apiServiceError);
+  }
 };
 
 const getProposal = async (proposalId: string): Promise<?ProposalType> => {
@@ -83,6 +92,8 @@ const searchProposals = async (
 };
 
 export const ProposalService = {
+  // @todo remove with DepreactedProposalSubmit
+  deprecatedPropose,
   propose,
   getProposal,
   getPopularProposals,

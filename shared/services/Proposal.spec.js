@@ -8,17 +8,31 @@ jest.mock('Shared/services/Question');
 jest.mock('Shared/services/Logger');
 
 describe('Proposal Service', () => {
-  describe('propose function', () => {
-    it('add bait text and call ProposalApiService', async () => {
-      jest.spyOn(ProposalApiService, 'propose');
-      ProposalApiService.propose.mockResolvedValue({});
-      await ProposalService.propose('foo', 'fooQuestionId');
+  afterEach(() => {
+    ProposalApiService.propose.mockRestore();
+  });
 
-      expect(ProposalApiService.propose).toHaveBeenNthCalledWith(
-        1,
-        'proposal_submit.form.baitfoo',
-        'fooQuestionId'
-      );
-    });
+  it('deprecatedPropose add bait text and call ProposalApiService', async () => {
+    jest.spyOn(ProposalApiService, 'propose');
+    ProposalApiService.propose.mockResolvedValue({});
+    await ProposalService.deprecatedPropose('foo', 'fooQuestionId');
+
+    expect(ProposalApiService.propose).toHaveBeenNthCalledWith(
+      1,
+      'proposal_submit.form.baitfoo',
+      'fooQuestionId'
+    );
+  });
+
+  it('propose call ProposalApiService', async () => {
+    jest.spyOn(ProposalApiService, 'propose');
+    ProposalApiService.propose.mockResolvedValue({});
+    await ProposalService.propose('foo', 'fooQuestionId');
+
+    expect(ProposalApiService.propose).toHaveBeenNthCalledWith(
+      1,
+      'foo',
+      'fooQuestionId'
+    );
   });
 });

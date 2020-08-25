@@ -244,6 +244,10 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   font-size: 16px;
 }
 
+.c0 .tofill {
+  fill: rgb(102,102,102);
+}
+
 @media (min-width:767px) {
   .c0 {
     top: 30px;
