@@ -42,6 +42,7 @@ export const MobileSearchInput = () => {
         type="button"
         onClick={toggleMobileExpansion}
         disabled={isExpanded}
+        data-cy-button="mobile-search"
       >
         <SvgSearch aria-hidden />
       </SearchFormTriggerStyle>
@@ -55,6 +56,7 @@ export const MobileSearchInput = () => {
           type="button"
           onClick={toggleMobileExpansion}
           disabled={!isExpanded}
+          data-cy-button="mobile-header-search-cancel"
         >
           {i18n.t('search.form.cancel')}
         </SearchFormCancelTriggerStyle>

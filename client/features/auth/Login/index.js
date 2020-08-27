@@ -36,7 +36,10 @@ export const Login = () => {
   };
 
   return (
-    <AuthenticationWrapperStyle aria-labelledby="login_title">
+    <AuthenticationWrapperStyle
+      aria-labelledby="login_title"
+      data-cy-container="authentication"
+    >
       <AuthenticationTitleStyle id="login_title">
         {i18n.t('login.title')}
       </AuthenticationTitleStyle>

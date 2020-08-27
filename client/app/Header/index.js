@@ -14,6 +14,9 @@ import { DesktopSearchInput } from 'Client/features/search/Form/Desktop';
 import { MobileMenu } from 'Client/features/navigation/Menu/Mobile';
 import { DesktopMenu } from 'Client/features/navigation/Menu/Desktop';
 import { MAIN_HEADER } from 'Shared/constants/ids';
+import { getHomeLink } from 'Shared/helpers/url';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import {
   HeaderStyle,
   HeaderInnerStyle,
@@ -29,16 +32,27 @@ import {
  */
 export const Header = () => {
   const isDesktop = useDesktop();
+  const { country, language } = useSelector(
+    (state: StateRoot) => state.appConfig
+  );
 
   return (
-    <HeaderStyle id={MAIN_HEADER} className={PANEL_ARIA_NEGATIVE_TAB_CLASS}>
+    <HeaderStyle
+      id={MAIN_HEADER}
+      className={PANEL_ARIA_NEGATIVE_TAB_CLASS}
+      data-cy-container="header"
+    >
       <HeaderInnerStyle>
         {!isDesktop && <MobileMenu />}
         <HeaderFlexLeftStyle
           className={`${NAVIGATION_ELEMENT_ARIA_CLASS} ${SEARCH_ELEMENT_ARIA_CLASS}`}
         >
           <h1>
-            <HeaderLogoLinkStyle to="/" onClick={trackClickMakeLogo}>
+            <HeaderLogoLinkStyle
+              to={getHomeLink(country, language)}
+              onClick={trackClickMakeLogo}
+              data-cy-link="home"
+            >
               <HeaderLogoStyle aria-label={i18n.t('header.logo_alt')} />
             </HeaderLogoLinkStyle>
           </h1>

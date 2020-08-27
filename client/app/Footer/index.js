@@ -46,6 +46,7 @@ export const Footer = () => {
     <FooterStyle
       id={MAIN_FOOTER}
       className={`${NAVIGATION_ARIA_NEGATIVE_TAB_CLASS} ${PANEL_ARIA_NEGATIVE_TAB_CLASS}`}
+      data-cy-container="footer"
     >
       <FooterNavStyle aria-label={i18n.t('common.footer_nav')}>
         <UnstyledListStyle>

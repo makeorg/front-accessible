@@ -50,6 +50,7 @@ export const HeaderAuthentication = () => {
       className={SEARCH_ELEMENT_ARIA_CLASS}
       as={UnstyledButtonStyle}
       onClick={() => dispatch(modalShowLogin())}
+      data-cy-button="login"
     >
       {!isDesktop ? (
         <SvgUser aria-label={i18n.t('common.connexion_label')} />
