@@ -1,5 +1,4 @@
 // @flow
-
 export { SvgEmptyAvatar } from './EmptyAvatar';
 export { SvgAngleArrowRight } from './AngleArrowRight';
 export { SvgAngleArrowLeft } from './AngleArrowLeft';
@@ -67,3 +66,4 @@ export { SvgLogoBlack } from './LogoBlack';
 export { SvgLogo } from './Logo';
 export { SvgMailPlain } from './MailPlain';
 export { SvgCheckedLightBulb } from './CheckedLightBulb';
+export { SvgPreviousArrowLeft } from './PreviousArrowLeft';
