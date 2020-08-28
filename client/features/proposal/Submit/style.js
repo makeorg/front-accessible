@@ -28,12 +28,20 @@ import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const PanelTriggerStyle = styled(RedButtonStyle)`
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 5;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px;
+  right: 0px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    position: absolute;
+    bottom: 145px;
+    width: auto;
+    border-radius: 17.5px;
+    z-index: 5;
+  }
 `;
 
-export const PanelTriggerIconStyle = styled(SvgPencil)`
+export const TriggerIconStyle = styled(SvgPencil)`
   width: 14px;
   height: 14px;
   margin-right: 7px;
