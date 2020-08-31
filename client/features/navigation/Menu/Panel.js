@@ -56,11 +56,13 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
     <MenuPanelStyle
       aria-hidden={!isExpanded && true}
       className={isExpanded && 'expanded'}
+      data-cy-container="mobile-header-menu"
     >
       <MenuCloseTriggerStyle
         aria-label={i18n.t('header.close_menu')}
         onClick={toggleExpansion}
         disabled={!isExpanded}
+        data-cy-button="mobile-header-close-menu"
       >
         <SvgClose aria-hidden />
       </MenuCloseTriggerStyle>

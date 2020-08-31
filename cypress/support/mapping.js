@@ -9,11 +9,25 @@ const sequenceButtons = {
   "skip sign up": 'skip-sign-up',
   "previous card": 'previous-card',
   "proposal submit": "proposal-submit",
-  "cookie accept": "cookie-accept"
+}
+
+const headerButtons = {
+  "mobile header menu": "mobile-header-menu",
+  "mobile search": "mobile-search",
+  "close mobile menu": "mobile-header-close-menu",
+  "mobile search cancel": "mobile-header-search-cancel",
+  "search submit": "search-submit",
+  "search clear": "search-clear",
+}
+
+const notificationButtons = {
+  "cookie accept": "cookie-accept",
 }
 
 const buttonIdentifiers = {
   ...sequenceButtons,
+  ...headerButtons,
+  ...notificationButtons,
 }
 
 export const getIdentifierButtonByName = (buttonName) => {

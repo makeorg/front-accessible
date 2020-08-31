@@ -14,11 +14,19 @@ given('monitor api requests', () => {
     if (!executed) {
       executed = true;
       const endpoints = Object.keys(asserts.list);
-      endpoints.forEach((endpoint) => {
+      const executeAsserts = (endpoint) => {
         while (asserts.list[endpoint].length) {
           asserts.list[endpoint].shift()();
         }
-      });
+      }
+      endpoints.forEach((endpoint) => {
+        if (!xhrRequests.list[endpoint]) {
+          executeAsserts(endpoint);
+          return;
+        }
+        cy.waitForAll(endpoint);
+        executeAsserts(endpoint);
+      })
     }
   });
 })

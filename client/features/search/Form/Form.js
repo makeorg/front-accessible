@@ -97,6 +97,7 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
           maxLength={140}
           onChange={handleChange}
           onFocus={handleFocus}
+          data-cy-field="search"
         />
       </SearchInputWrapperStyle>
       {hasSubmit ? (
@@ -104,11 +105,16 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
           aria-label={i18n.t('search.form.flush')}
           type="button"
           onClick={handleFlush}
+          data-cy-button="search-clear"
         >
           <SvgDisconnect aria-hidden />
         </SearchButtonStyle>
       ) : (
-        <SearchButtonStyle type="submit" disabled={!canSubmit}>
+        <SearchButtonStyle
+          type="submit"
+          disabled={!canSubmit}
+          data-cy-button="search-submit"
+        >
           <SvgSearch aria-label={i18n.t('search.form.submit')} />
         </SearchButtonStyle>
       )}

@@ -5,15 +5,12 @@ const voteLabel = {
 };
 
 import { getIdentifierButtonByName } from '../mapping';
-
-const waitCardTransition = () => {};
-const waitVoteTransition = () => cy.wait(500);
-const waitQualificationTransition = () => cy.wait(500);
 const sequencePage = '/FR-fr/consultation/:questionSlug/selection';
 
 const getCurrentCard = () => {
-  return cy.get('[data-cy-container=sequence]')
+ return cy.waitUntil(() => cy.get('[data-cy-container=sequence]')
     .then(el => {
+
       return cy.document()
         .then((doc) => {
           const rectSequence = el.get(0).getBoundingClientRect();
@@ -25,21 +22,22 @@ const getCurrentCard = () => {
         })
       ;
     })
-  ;
+  );
 };
 
 
 given('I am/go on/to the sequence page of the question {string}', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
+  cy.monitorApiCall('getStartSequence');
   cy.visit(page);
-  cy.wait(500);
+  cy.wait('@getStartSequence', {timeout: 8000});
 });
-
 
 given('I am/go on/to the sequence page of the question {string} with intro card disabled', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
+  cy.monitorApiCall('getStartSequence');
   cy.visit(`${page}?introCard=false`);
-  cy.wait(500);
+  cy.wait('@getStartSequence', {timeout: 8000});
 });
 
 when ('I click on {string} of the sequence', (buttonName) => {
@@ -47,7 +45,6 @@ when ('I click on {string} of the sequence', (buttonName) => {
   cy.get(`[data-cy-button=${button}]`)
     .first()
     .then(el => el.get(0).click());
-  waitCardTransition();
 })
 
 when ('I click on {string} of the current card', buttonName => {
@@ -55,43 +52,59 @@ when ('I click on {string} of the current card', buttonName => {
   getCurrentCard()
     .find(`[data-cy-button=${button}]`)
     .then(el => el.get(0).click());
-  waitCardTransition();
 })
 
 when('I vote {string} on proposal {string}', (voteType, proposalNumber) => {
+  cy.monitorApiCall('postVote');
   cy.get(`#${voteLabel[voteType]}-${proposalNumber}`)
     .then(el => el.get(0).click());
+  cy.wait('@postVote');
 });
 
 when('I vote {string} on the first proposal of sequence', (voteType) => {
+  cy.monitorApiCall('postVote');
   cy.get(`[data-cy-card-type=PROPOSAL_CARD] [data-cy-button=vote][data-cy-vote-key=${voteType}]`)
     .first()
     .then(el => el.get(0).click());
-  waitVoteTransition();
+  cy.wait('@postVote');
 });
 
 when('I vote {string} on the current card', (voteType) => {
+  cy.monitorApiCall('postVote');
   getCurrentCard()
     .find(`[data-cy-button=vote][data-cy-vote-key=${voteType}]`)
     .first()
     .then(el => el.get(0).click());
-  waitVoteTransition();
+  cy.wait('@postVote');
 });
 
-when('I unqualify/qualify {string} on the current card', (qualificationType) => {
+when('I qualify {string} on the current card', (qualificationType) => {
+  cy.monitorApiCall('postQualify');
   getCurrentCard()
     .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .then(el => el.get(0).click());
-  waitQualificationTransition();
+  cy.wait('@postQualify')
+  
 });
 
+when('I unqualify {string} on the current card', (qualificationType) => {
+  cy.monitorApiCall('postUnqualify');
+  getCurrentCard()
+    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+    .first()
+    .then(el => el.get(0).click());
+  cy.wait('@postUnqualify');
+});
+
+
 when('I unvote on the current card', () => {
+  cy.monitorApiCall('postUnvote');
   getCurrentCard()
     .find(`[data-cy-button=vote]`)
     .first()
     .then(el => el.get(0).click());
-  waitVoteTransition();
+  cy.wait('@postUnvote');
 });
 
 then ('I see {string} button on card {string}', (buttonName, cardNumber) => {
@@ -122,7 +135,7 @@ when ('I go to card {string}', (cardNumber) => {
       .find('[data-cy-button=next-proposal], [data-cy-button=push-proposal-next], [data-cy-button=skip-sign-up], [data-cy-button=start-sequence]')
       .first()
       .then(el => el.get(0).click());
-    waitCardTransition();
+    
     const expectedCardNumber = (Number(previewCard)+1).toString();
     cy.waitUntil(() => getCurrentCard().then(currentCard => 
         currentCard.get(0).dataset.cyCardNumber === expectedCardNumber
@@ -136,11 +149,9 @@ when ('I go to card {string}', (cardNumber) => {
 });
 
 then('card {string} is visible', (cardNumber) => {
-  cy.waitUntil(() =>
-    getCurrentCard().then(currentCard => 
-      currentCard.get(0).dataset.cyCardNumber === cardNumber
-    )
-  );
+  cy.waitUntil(() => getCurrentCard().then(currentCard => 
+    currentCard.get(0).dataset.cyCardNumber === cardNumber
+  ));
 });
 
 then('card {string} is a proposal card', (cardNumber) => {

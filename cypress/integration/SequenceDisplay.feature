@@ -4,7 +4,7 @@ Feature: Sequence display
     Given monitor api requests
   Scenario: Track display on sequence
     Given I monitor API "postTracking" requests
-    When I go to "sequence" page of the question "question-0-slug"
+    When I go to the sequence page of the question "question-0-slug"
     Then event "display-sequence" should be tracked by Make with parameters values:
       | name                | value                                                               |
       | eventType           | trackCustom                                                         |
@@ -26,7 +26,6 @@ Feature: Sequence display
       | country             | FR                                                                  |
       | language            | fr                                                                  |
     And event "click-start-sequence" should not be tracked by Make
-
- Scenario: Closed question redirect sequence to about page
+  Scenario: Closed question redirect sequence to about page
     Given I go to "sequence" page of the question "question-10-slug"
     Then I see the "about" page

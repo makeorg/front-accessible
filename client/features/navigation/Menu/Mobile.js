@@ -43,6 +43,7 @@ export const MobileMenu = () => {
         aria-label={i18n.t('header.open_menu')}
         onClick={toggleExpansion}
         disabled={isExpanded}
+        data-cy-button="mobile-header-menu"
       >
         <MenuBarStyle className="first" />
         <MenuBarStyle className="second" />

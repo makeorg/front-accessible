@@ -30,6 +30,7 @@ import {
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_CONSULTATION_STEP,
+  ROUTE_COUNTRY_LANG,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -406,6 +407,19 @@ export const getNotFoundPageLink = (country: string, language: string) => {
   });
 };
 
+/**
+ * Get the home page link
+ *
+ * @param  {string} country
+ * @param  {string} language
+ * @return {string}
+ */
+export const getHomeLink = (country: string, language: string) => {
+  return generatePath(ROUTE_COUNTRY_LANG, {
+    country: country || DEFAULT_COUNTRY,
+    language: language || DEFAULT_LANGUAGE,
+  });
+};
 /**
  * Get the Not found page link
  *

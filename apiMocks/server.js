@@ -17,9 +17,7 @@ server.use('/proposals', proposalsRouter);
 server.use('/tags', tagsRouter);
 server.use('/organisations', organisationsRouter);
 server.use('/views', viewsRouter);
-server.use('/tracking/front', (req, res) => {
-  res.sendStatus(204);
-});
+server.use('/tracking/front', (req, res) => res.sendStatus(204));
 server.use(
   jsonServer.rewriter({
     '/:resource\\?:params': '/:resource/data?:params',

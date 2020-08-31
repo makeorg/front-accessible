@@ -76,6 +76,7 @@ questionsRouter.get('/:questionId/start-sequence', (req, res) => {
   } else {
     proposals = proposalsOfQuestion.slice(0, 12);
   }
+
   return res.send({
     id: 'sequence-id',
     proposals,
