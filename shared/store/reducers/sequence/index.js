@@ -9,15 +9,21 @@ export function sequence(
   action: Object
 ) {
   switch (action.type) {
-    case actionTypes.SEQUENCE_START:
-      if (!state.votedProposalIds[action.payload.questionSlug]) {
-        return state;
-      }
+    case actionTypes.SEQUENCE_UPDATE_CARD_STATE: {
+      const { cards } = state;
+      cards[action.payload.index] = {
+        ...cards[action.payload.index],
+        state: action.payload.newCardState,
+      };
       return {
         ...state,
-        votedProposalIds: {
-          ...state.votedProposalIds,
-        },
+        cards,
+      };
+    }
+    case actionTypes.SEQUENCE_LOAD_CARDS:
+      return {
+        ...state,
+        cards: action.payload.cards,
       };
     case actionTypes.SEQUENCE_RESET_VOTED_PROPOSALS:
       return {
@@ -79,7 +85,7 @@ export function sequence(
     case actionTypes.SEQUENCE_SET_INDEX:
       return {
         ...state,
-        currentIndex: action.payload.index,
+        currentIndex: action.payload.index || 0,
       };
     case actionTypes.SEQUENCE_INCREMENT_INDEX:
       return {

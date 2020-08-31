@@ -53,7 +53,10 @@ export const Header = () => {
               onClick={trackClickMakeLogo}
               data-cy-link="home"
             >
-              <HeaderLogoStyle aria-label={i18n.t('header.logo_alt')} />
+              <HeaderLogoStyle
+                aria-label={i18n.t('header.logo_alt')}
+                alt={i18n.t('header.logo_alt')}
+              />
             </HeaderLogoLinkStyle>
           </h1>
           {isDesktop && <DesktopMenu />}

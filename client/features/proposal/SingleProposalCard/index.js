@@ -52,8 +52,7 @@ export const SingleProposalCard = ({ proposal }: Props) => {
           </SequenceProposalStyle>
           {isConsultationOpened ? (
             <Vote
-              proposalId={proposal.id}
-              questionSlug={proposal.question.slug}
+              proposal={proposal}
               votes={proposal.votes}
               proposalKey={proposal.proposalKey}
             />

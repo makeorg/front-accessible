@@ -190,7 +190,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      {country === 'FR' && <Redirect path="/" to="FR-fr" />}
+      {country === 'FR' && <Redirect exact path="/" to="FR-fr" />}
       {country !== 'FR' && <Redirect exact path="/" to={ROUTE_SOON} />}
 
       <Route component={NotFoundPage} />

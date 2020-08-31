@@ -31,7 +31,11 @@ const VoteButtonItem = ({
   animateVote = false,
   disableClick = false,
 }: ButtonProps) => {
-  const handleAPICall = !animateVote && !displayPending && handleVote;
+  const handleAPICall = () => {
+    if (!animateVote && !displayPending) {
+      handleVote();
+    }
+  };
 
   return (
     <VoteButtonStyle

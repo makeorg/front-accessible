@@ -64,8 +64,7 @@ export const ProposalCardWithQuestion = ({
           <ProposalStyle to={proposalLink}>{proposal.content}</ProposalStyle>
           {canVote ? (
             <Vote
-              proposalId={proposal.id}
-              questionSlug={proposal.question.slug}
+              proposal={proposal}
               votes={proposal.votes}
               proposalKey={proposal.proposalKey}
               index={position}

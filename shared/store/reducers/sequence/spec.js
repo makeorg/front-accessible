@@ -11,6 +11,7 @@ describe('Sequence reducer', () => {
       currentIndex: 0,
       votedProposalIds: {},
       proposals: [],
+      cards: [],
     };
 
     expect(sequence(undefined, {})).toEqual(expectedState);
@@ -24,6 +25,21 @@ describe('Sequence reducer', () => {
 
     const expectedState = {
       isSequenceCollapsed: true,
+    };
+
+    expect(sequence(previousState, action)).toEqual(expectedState);
+  });
+
+  it('Load Sequence cards reducer', () => {
+    const action = {
+      type: actionTypes.SEQUENCE_LOAD_CARDS,
+      payload: { cards: [{ type: 'card' }] },
+    };
+    const previousState = {
+      cards: [],
+    };
+    const expectedState = {
+      cards: [{ type: 'card' }],
     };
 
     expect(sequence(previousState, action)).toEqual(expectedState);

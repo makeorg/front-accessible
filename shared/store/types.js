@@ -8,6 +8,7 @@ import {
 import { type ProposalType } from 'Shared/types/proposal';
 import { type TagType } from 'Shared/types/tag';
 import { type PersonalityType } from 'Shared/types/user';
+import { type SequenceCardType } from 'Shared/types/card';
 
 // Config State
 export type StateConfig = $ReadOnly<{
@@ -34,6 +35,7 @@ export type StateSequence = $ReadOnly<{
   currentIndex: number,
   votedProposalIds: { [string]: string[] },
   proposals: ProposalType[],
+  cards: SequenceCardType[],
 }>;
 
 // Notification State

@@ -1,10 +1,9 @@
 // @flow
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
-import { sequenceStart } from 'Shared/store/actions/sequence';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
@@ -18,25 +17,28 @@ import {
   PreviousButton,
 } from 'Client/features/sequence/ProgressSection/style';
 import { Sequence } from 'Client/features/sequence/index';
+import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
 import { SequencePageContentStyle } from './style';
 
 const SequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const dispatch = useDispatch();
-  const { currentIndex } = useSelector(state => state.sequence);
-  const isPushProposal = currentIndex === 7;
-  const [isClosed, closeSequence] = useState(false);
 
-  const handleOpenSequence = () => {
-    closeSequence(false);
-  };
+  const isPushProposal = useSelector(
+    (state: StateRoot) =>
+      !!(
+        state.sequence.cards &&
+        state.sequence.cards.length &&
+        state.sequence.cards[state.sequence.currentIndex].type ===
+          CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL
+      )
+  );
 
   useEffect(() => {
     trackDisplaySequence();
-    dispatch(sequenceStart(question.slug));
-  }, [dispatch, question.slug]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!question) {
     return (
@@ -57,11 +59,7 @@ const SequencePage = () => {
       />
       {question.question}
       <SequencePageContentStyle>
-        <Sequence
-          question={question}
-          isClosed={isClosed}
-          handleOpenSequence={handleOpenSequence}
-        />
+        <Sequence question={question} />
         <SpaceBetweenRowStyle>
           <>
             <PreviousButtonWrapperStyle>

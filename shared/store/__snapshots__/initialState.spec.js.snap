@@ -31,6 +31,7 @@ Object {
   },
   "questions": Object {},
   "sequence": Object {
+    "cards": Array [],
     "currentIndex": 0,
     "firstProposal": undefined,
     "isSequenceCollapsed": false,

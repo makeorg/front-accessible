@@ -1,7 +1,11 @@
 // @flow
 import React, { useContext, useEffect, useState } from 'react';
 import { i18n } from 'Shared/i18n';
-import { trackVote, trackUnvote } from 'Shared/services/Tracking';
+import {
+  trackVote,
+  trackFirstVote,
+  trackUnvote,
+} from 'Shared/services/Tracking';
 import { type VoteType } from 'Shared/types/vote';
 import {
   getVoteKey,
@@ -12,7 +16,17 @@ import {
 import { VoteService } from 'Shared/services/Vote';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { voteStaticParamsKeys } from 'Shared/constants/vote';
-import { TopComponentContext } from 'Client/context/TopComponentContext';
+import {
+  TopComponentContext,
+  TopComponentContextValue,
+} from 'Client/context/TopComponentContext';
+import { type ProposalType } from 'Shared/types/proposal';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  vote as actionVote,
+  unvote as actionUnvote,
+} from 'Shared/store/actions/sequence';
+import { type StateRoot } from 'Shared/store/types';
 import { Qualification } from '../qualification';
 import { VoteResult } from './Result';
 import {
@@ -24,36 +38,23 @@ import { VoteButton } from './Button/Vote';
 
 type Props = {
   /** Proposal's Id */
-  proposalId: string,
+  proposal: ProposalType,
   /** Question Slug */
-  questionSlug: string,
-  /** Array with votes received from Api */
   votes: VoteType[],
   /** String containing the hash generate api side for security purpose */
   proposalKey: string,
   /** Index of the card */
   index: number,
   /** Method called when Vote */
-  onVote?: (
-    proposalId: string,
-    questionSlug: string,
-    voteKey: string,
-    index: number
-  ) => void,
+  onVote?: () => void,
   /** Method called when Unvote */
-  onUnvote?: (
-    proposalId: string,
-    questionSlug: string,
-    voteKey: string,
-    index: number
-  ) => void,
+  onUnvote?: () => void,
   /** Specific design for new sequence */
   isSequence?: boolean,
 };
 
 export const Vote = ({
-  proposalId,
-  questionSlug,
+  proposal,
   votes,
   proposalKey,
   index = 0,
@@ -61,15 +62,23 @@ export const Vote = ({
   onUnvote = () => {},
   isSequence,
 }: Props) => {
+  const dispatch = useDispatch();
+  const { id: proposalId } = proposal;
   const contextType = useContext(TopComponentContext);
-  const [currentVotes, setVotes] = useState(votes);
+  const [currentVotes, setCurrentVotes] = useState(votes);
   const [userVote, setUserVote] = useState(
-    currentVotes.find(vote => vote.hasVoted === true)
+    currentVotes && currentVotes.find(vote => vote.hasVoted === true)
   );
   const [votedKey, setVotedKey] = useState(userVote ? userVote.voteKey : '');
   const [pending, setPending] = useState(false);
   const [animateVoteKey, setAnimatedVoteKey] = useState('');
   const [pendingVoteKey, setPendingVoteKey] = useState('');
+  const { votedProposalIds } = useSelector(
+    (state: StateRoot) => state.sequence
+  );
+  const isFirstSequenceVote =
+    contextType === TopComponentContextValue.getSequenceProposal() &&
+    (votedProposalIds[proposal.question.slug] || []).length === 0;
 
   let timeout;
   const wait = async (ms: number) => {
@@ -101,8 +110,10 @@ export const Vote = ({
       return;
     }
     setVotedKey('');
-    setVotes(updateAndGetVotes(currentVotes, unvote));
-    await onUnvote(proposalId, questionSlug, voteKey, index);
+    const newVotes = updateAndGetVotes(currentVotes, unvote);
+    setCurrentVotes(newVotes);
+    dispatch(actionUnvote(proposal, newVotes, contextType));
+    await onUnvote();
     await trackUnvote(proposalId, voteKey, index, contextType);
     stopPending();
   };
@@ -122,15 +133,23 @@ export const Vote = ({
       return;
     }
     setVotedKey(vote.voteKey);
-    setVotes(updateAndGetVotes(currentVotes, vote));
-    await onVote(proposalId, questionSlug, voteKey, index);
+    const updatedVotes = updateAndGetVotes(currentVotes, vote);
+    setCurrentVotes(updatedVotes);
+    dispatch(actionVote(proposal, updatedVotes, contextType));
+    await onVote();
     await trackVote(proposalId, voteKey, index, contextType);
+    if (isFirstSequenceVote) {
+      trackFirstVote(proposalId, voteKey, index);
+    }
     stopPending();
   };
 
   useEffect(() => {
-    setUserVote(currentVotes.find(vote => vote.hasVoted === true));
-  }, [currentVotes]);
+    const stateUserVote = votes && votes.find(vote => vote.hasVoted === true);
+    setCurrentVotes(votes);
+    setUserVote(stateUserVote);
+    setVotedKey(stateUserVote ? stateUserVote.voteKey : '');
+  }, [votes]);
 
   useEffect(() => {
     return () => {

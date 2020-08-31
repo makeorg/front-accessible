@@ -9,7 +9,7 @@ import * as actions from './index';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const store = mockStore();
+let store = mockStore();
 
 describe('Sequence Actions', () => {
   beforeEach(() => {
@@ -40,14 +40,35 @@ describe('Sequence Actions', () => {
   it('Creates SEQUENCE_PROPOSAL_VOTE when calling action', () => {
     const proposalId = 'foo';
     const questionSlug = 'question-slug';
+    store = mockStore({
+      sequence: {
+        cards: [{ index: 0, state: { votes: [] } }],
+        currentIndex: 0,
+      },
+    });
     const expectedActions = [
       {
         type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
         payload: { proposalId, questionSlug },
       },
+      {
+        payload: {
+          index: 0,
+          newCardState: {
+            votes: [],
+          },
+        },
+        type: 'SEQUENCE_UPDATE_CARD_STATE',
+      },
     ];
 
-    store.dispatch(actions.voteProposal(proposalId, questionSlug));
+    store.dispatch(
+      actions.vote(
+        { id: proposalId, question: { slug: questionSlug } },
+        [],
+        'sequence-proposal-card'
+      )
+    );
     expect(store.getActions()).toEqual(expectedActions);
   });
 
@@ -59,50 +80,44 @@ describe('Sequence Actions', () => {
         type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
         payload: { proposalId, questionSlug },
       },
-    ];
-
-    store.dispatch(actions.unvoteProposal(proposalId, questionSlug));
-    expect(store.getActions()).toEqual(expectedActions);
-  });
-
-  it('Track sequence vote when first vote', () => {
-    const proposalId = 'foo';
-    const voteKey = 'bar';
-    const index = 0;
-    const questionId = 'baz';
-    const questionSlug = 'baz-slug';
-    const newStore = mockStore({
-      sequence: { votedProposalIds: {}, questionId },
-    });
-
-    const expectedActions = [
       {
-        type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-        payload: { proposalId, questionSlug },
+        payload: {
+          index: 0,
+          newCardState: {
+            votes: [],
+          },
+        },
+        type: 'SEQUENCE_UPDATE_CARD_STATE',
       },
     ];
+    store = mockStore({
+      sequence: {
+        cards: [{ index: 0, state: { votes: [] } }],
+        currentIndex: 0,
+      },
+    });
 
-    newStore.dispatch(
-      actions.sequenceVote(proposalId, questionSlug, voteKey, index)
+    store.dispatch(
+      actions.unvote(
+        { id: proposalId, question: { slug: questionSlug } },
+        [],
+        'sequence-proposal-card'
+      )
     );
-
-    expect(Tracking.trackFirstVote).toHaveBeenNthCalledWith(
-      1,
-      proposalId,
-      voteKey,
-      index
-    );
-    expect(newStore.getActions()).toEqual(expectedActions);
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   it('Track sequence vote when second vote', () => {
     const proposalId = 'foo';
-    const voteKey = 'bar';
-    const index = 0;
     const questionId = 'baz';
     const questionSlug = 'baz-slug';
     const newStore = mockStore({
-      sequence: { votedProposalIds: { [questionSlug]: ['fooId'] }, questionId },
+      sequence: {
+        votedProposalIds: { [questionSlug]: ['fooId'] },
+        questionId,
+        cards: [{ index: 0, state: { votes: [] } }],
+        currentIndex: 0,
+      },
     });
 
     const expectedActions = [
@@ -110,10 +125,23 @@ describe('Sequence Actions', () => {
         type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
         payload: { proposalId, questionSlug },
       },
+      {
+        payload: {
+          index: 0,
+          newCardState: {
+            votes: [],
+          },
+        },
+        type: 'SEQUENCE_UPDATE_CARD_STATE',
+      },
     ];
 
     newStore.dispatch(
-      actions.sequenceVote(proposalId, questionSlug, voteKey, index)
+      actions.vote(
+        { id: proposalId, question: { slug: questionSlug } },
+        [],
+        'sequence-proposal-card'
+      )
     );
 
     expect(Tracking.trackFirstVote).not.toHaveBeenCalled();

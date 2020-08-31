@@ -9,7 +9,6 @@ import {
   CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
   CARD_TYPE_EXTRASLIDE_FINAL_CARD,
 } from 'Shared/constants/card';
-import { getPosition, getScale, getZIndex } from 'Shared/helpers/sequence';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
 import { useSelector } from 'react-redux';
@@ -31,56 +30,33 @@ import { ProposalCard } from './Proposal';
 type CardProps = {
   /** Attribute of the card */
   card: any,
-  /** Index of the card */
-  index: number,
-  /** Is Card is shown to the user */
-  isCardVisible: boolean,
-  /** cards count */
-  cardsCount: number,
 };
 
-export const CardType = ({
-  card,
-  index,
-  isCardVisible,
-  cardsCount,
-}: CardProps) => {
+export const Card = ({ card }: CardProps) => {
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
-      return (
-        <ProposalCard
-          proposal={card.configuration}
-          index={index}
-          cardsCount={cardsCount}
-        />
-      );
+      return <ProposalCard proposalCard={card} />;
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return (
-        <DeprecatedIntroCard
-          configuration={card.configuration}
-          isCardVisible={isCardVisible}
-        />
+        <DeprecatedIntroCard configuration={card.configuration} isCardVisible />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP:
       return (
         <DeprecatedSignUpCard
           configuration={card.configuration}
-          isCardVisible={isCardVisible}
+          isCardVisible
         />
       );
     case CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL:
       return (
         <DeprecatedPushProposalCard
           configuration={card.configuration}
-          isCardVisible={isCardVisible}
+          isCardVisible
         />
       );
     case CARD_TYPE_EXTRASLIDE_FINAL_CARD:
       return (
-        <DeprecatedFinalCard
-          configuration={card.configuration}
-          isCardVisible={isCardVisible}
-        />
+        <DeprecatedFinalCard configuration={card.configuration} isCardVisible />
       );
     default:
       return null;
@@ -90,32 +66,21 @@ export const CardType = ({
 type Props = {
   /** Attribute of the card */
   card: SequenceCardType,
-  /** Index of the card */
-  index: number,
-  /** Total of cards */
-  cardsCount: number,
 };
 
-export const SequenceCards = ({ card, index, cardsCount }: Props) => {
-  const currentIndex = useSelector(
-    (state: StateRoot) => state.sequence.currentIndex
-  );
+export const SequenceCard = ({ card }: Props) => {
+  const cards = useSelector((state: StateRoot) => state.sequence.cards);
   const isIntroCard = card.type === CARD_TYPE_EXTRASLIDE_INTRO;
-  const position = getPosition(index, currentIndex);
-  const scale = getScale(index, currentIndex);
-  const zindex = getZIndex(index, currentIndex);
-  const isCardCollapsed = index < currentIndex;
-  const isCardVisible = index === currentIndex;
-  const activeGaugeIndex = index + card.offset;
-  const maxGaugeIndex = cardsCount + card.offset;
+  const activeGaugeIndex = card.index + 1;
+  const maxGaugeIndex = cards.length;
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSequenceProposal();
+
   return (
     <>
       <ScreenReaderItemStyle
-        as="dt"
-        aria-hidden={!isCardVisible}
+        as="h2"
         id={`card-${activeGaugeIndex}-title`}
-        data-cy-card-title-number={index + card.offset}
+        data-cy-card-title-number={card.index}
       >
         {isIntroCard
           ? i18n.t('intro_card.purpose')
@@ -126,23 +91,12 @@ export const SequenceCards = ({ card, index, cardsCount }: Props) => {
       </ScreenReaderItemStyle>
       <TopComponentContext.Provider value={topComponentContext}>
         <SequenceProposalCardStyle
-          position={position}
-          scaling={scale}
-          zindex={zindex}
-          isCardCollapsed={isCardCollapsed}
-          isCardVisible={isCardVisible}
-          aria-hidden={!isCardVisible}
           as={isIntroCard && SequenceProposalCardCenteredStyle}
-          id={`card-${index + card.offset}`}
+          id={`card-${card.index}`}
           data-cy-card-type={card.type}
-          data-cy-card-number={index}
+          data-cy-card-number={card.index}
         >
-          <CardType
-            card={card}
-            index={index}
-            isCardVisible={isCardVisible}
-            cardsCount={cardsCount}
-          />
+          <Card card={card} />
         </SequenceProposalCardStyle>
       </TopComponentContext.Provider>
     </>

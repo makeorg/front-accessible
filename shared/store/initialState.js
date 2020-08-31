@@ -23,6 +23,7 @@ export const initialState: StateRoot = {
     currentIndex: 0,
     votedProposalIds: {},
     proposals: [],
+    cards: [],
   },
   questions: {},
   currentQuestion: '',

@@ -17,6 +17,7 @@ import {
   unloadSequenceProposals,
   resetSequenceIndex,
   setSequenceIndex,
+  loadSequenceCards,
 } from 'Shared/store/actions/sequence';
 import { i18n } from 'Shared/i18n';
 import { SvgArrowTop } from 'Client/ui/Svg/elements';
@@ -76,8 +77,10 @@ export const DeprecatedSequence = ({
             question.sequenceConfig,
             isLoggedIn,
             hasProposed,
-            question.canPropose
+            question.canPropose,
+            false
           );
+          dispatch(loadSequenceCards(buildedCards));
 
           const firstUnvotedProposal:
             | typeof undefined

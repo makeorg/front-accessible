@@ -73,11 +73,6 @@ export const SequenceCollapseButtonStyle = styled(SmallRedButtonStyle)`
 export const SequenceWrapperStyle = styled.div`
   display: flex;
   flex: 1 1 auto;
-`;
-
-export const SequenceListStyle = styled.dl`
-  display: flex;
-  flex: 1 1 auto;
   position: relative;
   width: 100%;
   margin-top: 35px;
@@ -241,7 +236,7 @@ export const SequencePlaceholderButtonStyle = styled(SequencePlaceholderStyle)`
   }
 `;
 
-export const SequenceProposalCardStyle = styled.dd`
+export const SequenceProposalCardStyle = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -259,7 +254,6 @@ export const SequenceProposalCardStyle = styled.dd`
       ? `0 2px 3px 0 ${ShadowColors.BlackZeroTwoOpacity}`
       : ''};
   border-radius: 8px;
-  ${props => (props.isCardCollapsed ? 'visibility: hidden' : '')};
   button,
   a,
   form {

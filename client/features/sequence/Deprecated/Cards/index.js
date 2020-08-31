@@ -53,7 +53,10 @@ export const DeprecatedCardType = ({
   switch (card.type) {
     case CARD_TYPE_PROPOSAL:
       return (
-        <DeprecatedProposalCard proposal={card.configuration} index={index} />
+        <DeprecatedProposalCard
+          configuration={card.configuration}
+          index={index}
+        />
       );
     case CARD_TYPE_EXTRASLIDE_INTRO:
       return (
