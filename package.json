@@ -161,7 +161,7 @@
 		"test-with-coverage-codacy": "npm run test-with-coverage && cat ./coverage/lcov.info | codacy-coverage --token=$CODACY_TOKEN",
 		"flow": "flow",
 		"test:cypress": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 cypress:run",
-		"cypress:run": "cypress run -b chrome",
+		"cypress:run": "cypress run -b chrome --headless",
 		"cypress:open": "cypress open",
 		"lighthouse:run": "env NODE_ENV=test start-server-and-test server:dev http://localhost:9009 test:lighthouse:all",
 		"test:lighthouse:all": "yarn test:lighthouse:home && yarn test:lighthouse:sequence && yarn test:lighthouse:consultation && yarn test:lighthouse:proposal",
