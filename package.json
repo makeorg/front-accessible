@@ -140,7 +140,7 @@
 		"build": "webpack -p --progress --colors --config ./webpack/prod.config.js",
 		"start:dev": "webpack-dev-server --progress --colors --config ./webpack/dev.config.js --hot",
 		"server:dev": "yarn server:dev:api-mock:start & yarn server:dev:server:start",
-		"server:preprod": "env NODE_ENV=development PORT=443 API_URL=https://local.makeorg.tech/api PROXY_TARGET_API_URL=https://api.preprod.makeorg.tech FRONT_URL=https://local.makeorg.tech node bin/start",
+		"server:preprod": "env NODE_ENV=development PORT=443 API_URL=https://local.makeorg.tech/api-local PROXY_TARGET_API_URL=https://api.preprod.makeorg.tech FRONT_URL=https://local.makeorg.tech node bin/start",
 		"server": "env PORT=9009 pm2-runtime start ecosystem.config.js",
 		"server:dev:server:start": "env PORT=9009 NODE_ENV=development node bin/start",
 		"server:dev:api-mock:start": "node ./apiMocks/server.js",		

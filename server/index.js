@@ -25,7 +25,7 @@ const app = express();
 const { hostname } = new URL(frontUrl);
 const apiProxy = createProxyMiddleware({
   target: proxyTargetApiUrl,
-  pathRewrite: { '^/api': '' },
+  pathRewrite: { '^/api-local': '' },
   changeOrigin: true,
   cookieDomainRewrite: {
     '*': hostname,
@@ -34,7 +34,7 @@ const apiProxy = createProxyMiddleware({
   secure: false,
 });
 
-app.use('/api', apiProxy);
+app.use('/api-local', apiProxy);
 app.use(nonceUuidMiddleware);
 app.use(compression());
 app.use(bodyParser.json());
