@@ -28,7 +28,7 @@ export const PresentationTile = ({ question }: Props) => {
       )
     : [];
 
-  const descriptionImageHeight = isDesktop ? 165 : null;
+  const descriptionImageHeight = isDesktop ? 204 : null;
   const descriptionImagewidth = isDesktop ? null : screenWidth;
 
   return (
