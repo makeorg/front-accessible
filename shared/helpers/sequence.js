@@ -53,13 +53,14 @@ export const findIndexOfFirstUnvotedCard = (
   currentIndex: number
 ): number => {
   if (!firstUnvotedProposal) {
-    return cards.length - 1;
+    return cards.length ? cards.length - 1 : 0;
   }
 
   const indexOfFirstUnvotedCard = cards.findIndex(
     card =>
       card.type === CARD_TYPE_PROPOSAL &&
-      card.configuration.id ===
+      card.configuration.proposal &&
+      card.configuration.proposal.id ===
         (firstUnvotedProposal && firstUnvotedProposal.id)
   );
 
@@ -82,7 +83,8 @@ export const buildCards = (
   extraSlidesConfig: QuestionExtraSlidesConfigType,
   isLoggedIn: boolean,
   hasProposed: boolean,
-  canPropose: boolean
+  canPropose: boolean,
+  disableIntroCard: boolean
 ): SequenceCardType[] => {
   const withPushProposalCard: boolean =
     extraSlidesConfig.pushProposalCard &&
@@ -90,7 +92,9 @@ export const buildCards = (
     canPropose &&
     !hasProposed;
   const withIntroCard: boolean =
-    extraSlidesConfig.introCard && extraSlidesConfig.introCard.enabled;
+    extraSlidesConfig.introCard &&
+    extraSlidesConfig.introCard.enabled &&
+    !disableIntroCard;
   const withSignupCard: boolean =
     extraSlidesConfig.signUpCard &&
     extraSlidesConfig.signUpCard.enabled &&
@@ -102,8 +106,10 @@ export const buildCards = (
 
   const cards: SequenceCardType[] = proposals.map(proposal => ({
     type: CARD_TYPE_PROPOSAL,
-    configuration: proposal,
+    configuration: { proposal },
     offset: cardOffset,
+    state: { votes: proposal.votes },
+    index: 0,
   }));
 
   if (withPushProposalCard) {
@@ -111,6 +117,7 @@ export const buildCards = (
       type: CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL,
       configuration: extraSlidesConfig.pushProposalCard,
       offset: cardOffset,
+      index: 0,
     });
   }
 
@@ -119,6 +126,7 @@ export const buildCards = (
       type: CARD_TYPE_EXTRASLIDE_INTRO,
       configuration: extraSlidesConfig.introCard,
       offset: cardOffset,
+      index: 0,
     });
   }
 
@@ -127,6 +135,7 @@ export const buildCards = (
       type: CARD_TYPE_EXTRASLIDE_PUSH_SIGNUP,
       configuration: extraSlidesConfig.signUpCard,
       offset: cardOffset,
+      index: 0,
     });
   }
 
@@ -135,8 +144,14 @@ export const buildCards = (
       type: CARD_TYPE_EXTRASLIDE_FINAL_CARD,
       configuration: extraSlidesConfig.finalCard,
       offset: cardOffset,
+      index: 0,
     });
   }
 
-  return cards;
+  const cardsIndexed = cards.map((card, index) => ({
+    ...card,
+    index,
+  }));
+
+  return cardsIndexed;
 };

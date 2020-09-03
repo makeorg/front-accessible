@@ -60,11 +60,10 @@ export const PopularProposalCard = ({
         </ProposalStyle>
         {canVote ? (
           <Vote
-            proposalId={proposal.id}
+            proposal={proposal}
             votes={proposal.votes}
             proposalKey={proposal.proposalKey}
             index={position}
-            questionSlug={proposal.slug}
           />
         ) : (
           <DetailledVoteResults

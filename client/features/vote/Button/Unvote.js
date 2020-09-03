@@ -28,7 +28,11 @@ const UnvoteButtonItem = ({
   handleUnvote = () => {},
   disableClick = false,
 }: ButtonProps) => {
-  const handleAPICall = !displayPending && handleUnvote;
+  const handleAPICall = () => {
+    if (!displayPending) {
+      handleUnvote();
+    }
+  };
 
   return (
     <VoteButtonStyle

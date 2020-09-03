@@ -1,6 +1,7 @@
 // @flow
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionType } from 'Shared/types/question';
+import { type VoteType } from 'Shared/types/vote';
 
 export type PartnerItemType = {
   name: string,
@@ -40,6 +41,22 @@ export type FinalCardConfigType = {|
   id?: string,
 |};
 
+export type ProposalCardConfigType = {
+  proposal: ProposalType,
+};
+
+export type ProposalCardStateType = {
+  votes: VoteType[],
+};
+
+export type ProposalCardType = {|
+  type: string,
+  configuration: ProposalCardConfigType,
+  offset: number,
+  state?: ProposalCardStateType,
+  index: number,
+|};
+
 export type SequenceCardType = {|
   type: string,
   configuration:
@@ -47,8 +64,10 @@ export type SequenceCardType = {|
     | PushProposalCardConfigType
     | SignUpCardConfigType
     | FinalCardConfigType
-    | ProposalType,
+    | ProposalCardConfigType,
   offset: number,
+  state?: ProposalCardStateType,
+  index: number,
 |};
 
 export type ProposalListCardType = {|

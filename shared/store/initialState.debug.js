@@ -17,6 +17,7 @@ export const initialStateDebug = {
   },
   sequence: {
     votedProposalIds: {},
+    cards: [],
   },
   currentQuestion: '',
 };

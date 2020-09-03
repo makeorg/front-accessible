@@ -9,7 +9,13 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { Image } from 'Client/ui/Image';
 
 export const AvatarStyle = styled.span`
-  margin-right: 10px;
+  position: ${props => (props.isSequence ? 'relative' : 'static')};
+  top: ${props => (props.isSequence ? '-6px' : '')};
+  border: ${props =>
+    props.isSequence ? `3px solid ${BasicColors.PureWhite}` : ''};
+  border-radius: ${props => (props.isSequence ? '50%' : '')};
+  margin-right: ${props => (props.isSequence ? '0px' : '10px')};
+  margin-bottom: ${props => (props.isSequence ? '15px' : '')};
   display: inline-flex;
 `;
 

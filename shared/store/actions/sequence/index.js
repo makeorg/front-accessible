@@ -5,15 +5,26 @@ import { type Dispatch } from 'redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionType } from 'Shared/types/question';
-import { trackFirstVote } from 'Shared/services/Tracking';
 import { SequenceService } from 'Shared/services/Sequence';
+import { type SequenceCardType } from 'Shared/types/card';
+import { type QualificationType } from 'Shared/types/qualification';
+import { TopComponentContextValue } from 'Client/context/TopComponentContext';
+import { type VoteType } from 'Shared/types/vote';
 
 export const sequenceCollapse = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_COLLAPSE });
 
-export const sequenceStart = (questionSlug: string) => ({
-  type: actionTypes.SEQUENCE_START,
-  payload: { questionSlug },
+export const loadSequenceCards = (cards: SequenceCardType[]) => ({
+  type: actionTypes.SEQUENCE_LOAD_CARDS,
+  payload: { cards },
+});
+
+export const updateSequenceCardState = (
+  index: number,
+  newCardState: Object
+) => ({
+  type: actionTypes.SEQUENCE_UPDATE_CARD_STATE,
+  payload: { index, newCardState },
 });
 
 export const resetSequenceVotedProposals = (questionSlug: string) => ({
@@ -29,6 +40,7 @@ export const loadSequenceProposals = (proposals: ProposalType[]) => ({
 export const unloadSequenceProposals = () => (dispatch: Dispatch) =>
   dispatch({ type: actionTypes.SEQUENCE_UNLOAD_PROPOSALS });
 
+// toDo: deprecated remove when deprecated sequence removed
 export const fetchSequenceProposals = (
   questionId: string,
   includedProposalIds?: string[] = []
@@ -58,16 +70,6 @@ export const setSequenceIndex = (index: number) => ({
   payload: { index },
 });
 
-export const voteProposal = (proposalId: string, questionSlug: string) => ({
-  type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
-  payload: { proposalId, questionSlug },
-});
-
-export const unvoteProposal = (proposalId: string, questionSlug: string) => ({
-  type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
-  payload: { proposalId, questionSlug },
-});
-
 export const loadQuestion = (question: QuestionType) => ({
   type: actionTypes.QUESTION_LOAD,
   payload: { question },
@@ -77,24 +79,127 @@ export const unloadCurrentQuestion = () => ({
   type: actionTypes.QUESTION_UNLOAD,
 });
 
-export const sequenceVote = (
-  proposalId: string,
-  questionSlug: string,
-  voteKey: string,
-  index: number
+export const unvote = (
+  proposal: ProposalType,
+  newVotes: VoteType[],
+  context: string
 ) => (dispatch: Dispatch, getState: () => StateRoot) => {
-  const { votedProposalIds } = getState().sequence;
-  const proposalIds = votedProposalIds[questionSlug] || [];
-  const isFirstVote = proposalIds.length === 0;
-  dispatch(voteProposal(proposalId, questionSlug));
-
-  if (isFirstVote) {
-    trackFirstVote(proposalId, voteKey, index);
+  if (context !== TopComponentContextValue.getSequenceProposal()) {
+    return;
   }
+  const { cards, currentIndex } = getState().sequence;
+
+  dispatch({
+    type: actionTypes.SEQUENCE_PROPOSAL_UNVOTE,
+    payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
+  });
+
+  const proposalSequenceCard = cards[currentIndex];
+
+  dispatch(
+    updateSequenceCardState(currentIndex, {
+      ...proposalSequenceCard.state,
+      votes: newVotes,
+    })
+  );
 };
 
-export const sequenceUnvote = (proposalId: string, questionSlug: string) => (
-  dispatch: any => void
+export const vote = (
+  proposal: ProposalType,
+  newVotes: VoteType[],
+  context: string
+) => (dispatch: Dispatch, getState: () => StateRoot) => {
+  if (context !== TopComponentContextValue.getSequenceProposal()) {
+    return;
+  }
+  const { cards, currentIndex } = getState().sequence;
+
+  dispatch({
+    type: actionTypes.SEQUENCE_PROPOSAL_VOTE,
+    payload: { proposalId: proposal.id, questionSlug: proposal.question.slug },
+  });
+
+  const proposalSequenceCard = cards[currentIndex];
+  dispatch(
+    updateSequenceCardState(proposalSequenceCard.index, {
+      ...proposalSequenceCard.state,
+      votes: newVotes,
+    })
+  );
+};
+
+const getVotesUpdatedWithQualifification = (
+  votes: VoteType[],
+  votedKey: string,
+  qualification: QualificationType
 ) => {
-  dispatch(unvoteProposal(proposalId, questionSlug));
+  const qualificationMatch = qualificationItem =>
+    qualificationItem.qualificationKey === qualification.qualificationKey;
+
+  const getUpdatedVote = voteItem => ({
+    ...voteItem,
+    qualifications: voteItem.qualifications.map(qualificationItem =>
+      qualificationMatch(qualificationItem) ? qualification : qualificationItem
+    ),
+  });
+
+  const newVotes = votes.map(voteItem =>
+    voteItem.voteKey === votedKey && voteItem.hasVoted === true
+      ? getUpdatedVote(voteItem)
+      : voteItem
+  );
+
+  return newVotes;
+};
+
+export const qualify = (
+  proposalId: string,
+  votedKey: string,
+  qualification: QualificationType,
+  context: string
+) => (dispatch: Dispatch, getState: () => StateRoot) => {
+  if (context !== TopComponentContextValue.getSequenceProposal()) {
+    return;
+  }
+  const { cards, currentIndex } = getState().sequence;
+  const proposalSequenceCard = cards[currentIndex];
+  const { votes } = proposalSequenceCard.state || { votes: [] };
+  const newVotes = getVotesUpdatedWithQualifification(
+    votes,
+    votedKey,
+    qualification
+  );
+
+  dispatch(
+    updateSequenceCardState(proposalSequenceCard.index, {
+      ...proposalSequenceCard.state,
+      votes: newVotes,
+    })
+  );
+};
+
+export const unqualify = (
+  proposalId: string,
+  votedKey: string,
+  qualification: QualificationType,
+  context: string
+) => (dispatch: Dispatch, getState: () => StateRoot) => {
+  if (context !== TopComponentContextValue.getSequenceProposal()) {
+    return;
+  }
+  const { cards, currentIndex } = getState().sequence;
+  const proposalSequenceCard = cards[currentIndex];
+  const { votes } = proposalSequenceCard.state || { votes: [] };
+  const newVotes = getVotesUpdatedWithQualifification(
+    votes,
+    votedKey,
+    qualification
+  );
+
+  dispatch(
+    updateSequenceCardState(proposalSequenceCard.index, {
+      ...proposalSequenceCard.state,
+      votes: newVotes,
+    })
+  );
 };

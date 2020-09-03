@@ -255,6 +255,7 @@
   "proposal_card": {
     "previous": "Proposition précédente",
     "next": "Proposition suivante",
+    "validate": "Valider",
     "content": "Contenu de la proposition : ",
     "number": "Carte numéro {{current}} sur {{total}}",
     "posted_label": "Postée dans ",

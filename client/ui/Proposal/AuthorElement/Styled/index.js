@@ -4,6 +4,7 @@ import {
   BasicColors,
   StatusColors,
   BackgroundColors,
+  ShadowColors,
 } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -23,15 +24,24 @@ export const AuthorDescriptionStyle = styled.div`
 `;
 
 export const AuthorInfosStyle = styled(ParagraphStyle)`
-  display: inline-flex;
+  display: ${props => (props.isSequence ? 'flex' : 'inline-flex')};
+  flex-direction: ${props => (props.isSequence ? 'column' : 'row')};
+  height: ${props => (props.isSequence ? '30%' : '')};
   align-items: center;
-  font-size: 12px;
+  font-size: ${props => (props.isSequence ? '14px' : '12px')};
   line-height: normal;
-  color: ${TextColors.MediumGrey};
+  color: ${props =>
+    props.isSequence
+      ? `${ShadowColors.BlackZeroFiveOpacity}`
+      : `${TextColors.MediumGrey}`};
   font-style: normal;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
   }
+`;
+
+export const InfosWrapperStyle = styled.span`
+  display: 'inline-flex';
 `;
 
 export const ProposalStatusStyle = styled.span`

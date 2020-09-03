@@ -56,8 +56,7 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
           </ProposalStyle>
           {canVote ? (
             <Vote
-              proposalId={proposal.id}
-              questionSlug={proposal.question.slug}
+              proposal={proposal}
               votes={proposal.votes}
               proposalKey={proposal.proposalKey}
               index={position}

@@ -1,17 +1,14 @@
 // @flow
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { type ProposalType } from 'Shared/types/proposal';
+import { useDispatch, useSelector } from 'react-redux';
 import { trackClickNextCard } from 'Shared/services/Tracking';
-import {
-  sequenceVote,
-  sequenceUnvote,
-  incrementSequenceIndex,
-} from 'Shared/store/actions/sequence';
+import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
 import { Vote } from 'Client/features/vote';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
+import { type ProposalCardConfigType } from 'Shared/types/card';
+import { type StateRoot } from 'Shared/store/types';
 import {
   SequenceProposalStyle,
   SequenceContentSpecialWrapperStyle,
@@ -21,7 +18,7 @@ import {
 
 type Props = {
   /** Object with all proposal's properties */
-  proposal: ProposalType,
+  configuration: ProposalCardConfigType,
   /** Index of the card */
   index: number,
 };
@@ -29,24 +26,24 @@ type Props = {
 /**
  * Handles Proposal Card Business Logic
  */
-export const DeprecatedProposalCard = ({ proposal, index }: Props) => {
+export const DeprecatedProposalCard = ({ configuration, index }: Props) => {
   const dispatch = useDispatch();
-  const proposalIsVoted = proposal.votes.some(vote => vote.hasVoted === true);
+  const { proposal } = configuration;
+  const userVotes = useSelector((state: StateRoot) =>
+    state.sequence.cards[index].state
+      ? state.sequence.cards[index].state.votes
+      : []
+  );
+  const proposalIsVoted = userVotes.some(vote => vote.hasVoted === true);
   const [isVoted, setIsVoted] = useState(proposalIsVoted);
   const goToNextCard = () => {
     dispatch(incrementSequenceIndex());
     trackClickNextCard();
   };
-  const handleVoteOnSequence = (
-    proposalId: string,
-    questionSlug: string,
-    voteKey: string
-  ) => {
-    dispatch(sequenceVote(proposalId, questionSlug, voteKey, index));
+  const handleVoteOnSequence = () => {
     setIsVoted(true);
   };
-  const handleUnvoteOnSequence = (proposalId: string, questionSlug: string) => {
-    dispatch(sequenceUnvote(proposalId, questionSlug));
+  const handleUnvoteOnSequence = () => {
     setIsVoted(false);
   };
 
@@ -59,9 +56,8 @@ export const DeprecatedProposalCard = ({ proposal, index }: Props) => {
       </ScreenReaderItemStyle>
       <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
       <Vote
-        proposalId={proposal.id}
-        questionSlug={proposal.question.slug}
-        votes={proposal.votes}
+        proposal={proposal}
+        votes={userVotes}
         proposalKey={proposal.proposalKey}
         index={index}
         onVote={handleVoteOnSequence}

@@ -8,6 +8,12 @@ import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import { i18n } from 'Shared/i18n';
 import { TopComponentContext } from 'Client/context/TopComponentContext';
 import { QualifyButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { useDispatch } from 'react-redux';
+import {
+  qualify as actionQualify,
+  unqualify as actionUnqualify,
+} from 'Shared/store/actions/sequence';
+import { useEffect } from 'react';
 import { CounterStyle } from './style';
 
 type Props = {
@@ -36,14 +42,20 @@ export const QualificationButton = ({
   index,
   disableClick = false,
 }: Props) => {
-  const { hasQualified, qualificationKey, count } = qualification;
+  const dispatch = useDispatch();
+  const [userQualification, setUserQualification] = useState(qualification);
+  const { hasQualified, qualificationKey, count } = userQualification;
   const buttonLabel = i18n.t(`qualification.${qualificationKey}`);
   const [isQualified, setIsQualified] = useState<boolean>(hasQualified);
   const [pendingQualification, setPendingQualification] = useState<boolean>(
     false
   );
+  useEffect(() => {
+    setUserQualification(qualification);
+    setIsQualified(qualification.hasQualified);
+  }, [qualification]);
 
-  const handleQualify = async (cardContext: string) => {
+  const handleQualify = async (context: string) => {
     const qualificationResult: ?QualificationType = await QualificationService.qualify(
       proposalId,
       proposalKey,
@@ -53,12 +65,14 @@ export const QualificationButton = ({
 
     if (qualificationResult) {
       setIsQualified(true);
-
-      trackQualify(proposalId, qualificationKey, votedKey, index, cardContext);
+      dispatch(
+        actionQualify(proposalId, votedKey, qualificationResult, context)
+      );
+      trackQualify(proposalId, qualificationKey, votedKey, index, context);
     }
   };
 
-  const handleUnqualify = async (cardContext: string) => {
+  const handleUnqualify = async (context: string) => {
     const qualificationResult: ?QualificationType = await QualificationService.unqualify(
       proposalId,
       proposalKey,
@@ -68,37 +82,33 @@ export const QualificationButton = ({
 
     if (qualificationResult) {
       setIsQualified(false);
-
-      trackUnqualify(
-        proposalId,
-        qualificationKey,
-        votedKey,
-        index,
-        cardContext
+      dispatch(
+        actionUnqualify(proposalId, votedKey, qualificationResult, context)
       );
+      trackUnqualify(proposalId, qualificationKey, votedKey, index, context);
     }
   };
 
-  const handleQualification = async (cardContext: string) => {
+  const handleQualification = async (context: string) => {
     if (pendingQualification) {
       return;
     }
     setPendingQualification(true);
     if (isQualified) {
-      await handleUnqualify(cardContext);
+      await handleUnqualify(context);
     } else {
-      await handleQualify(cardContext);
+      await handleQualify(context);
     }
     setPendingQualification(false);
   };
 
   return (
     <TopComponentContext.Consumer>
-      {cardContext => (
+      {context => (
         <QualifyButtonStyle
           className={isQualified && 'qualified'}
           color={voteStaticParams[votedKey].color}
-          onClick={() => handleQualification(cardContext)}
+          onClick={() => handleQualification(context)}
           aria-label={
             pendingQualification ? i18n.t('common.loading') : buttonLabel
           }

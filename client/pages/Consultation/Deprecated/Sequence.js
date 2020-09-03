@@ -7,7 +7,6 @@ import {
   trackDisplaySequence,
   trackClickConsultation,
 } from 'Shared/services/Tracking';
-import { sequenceStart } from 'Shared/store/actions/sequence';
 import { SequenceSkipLinks } from 'Client/app/SkipLinks/Sequence';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
@@ -41,8 +40,7 @@ const DeprecatedSequencePage = () => {
 
   useEffect(() => {
     trackDisplaySequence();
-    dispatch(sequenceStart(question.slug));
-  }, []);
+  }, [question.slug]);
 
   const handleCloseSequence = () => {
     closeSequence(true);

@@ -6,7 +6,7 @@ Snapshot Diff:
 + Second value
 
   <span
-    className="sc-1nws3fm-0 jzAAqf"
+    className="sc-1nws3fm-0 hrBApi"
   >
     <SvgEmptyAvatar
       aria-hidden={true}
@@ -20,6 +20,7 @@ Snapshot Diff:
 
 exports[`Avatar snapshot by default 1`] = `
 .c0 {
+  position: static;
   margin-right: 10px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
