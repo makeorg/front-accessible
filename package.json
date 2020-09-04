@@ -30,7 +30,7 @@
 		"express-prom-bundle": "~5.0.2",
 		"glider-js": "^1.7.1",
 		"global": "~4.3.2",
-		"helmet-csp": "~2.7.1",
+		"helmet-csp": "~2.9.1",
 		"history": "~4.7.2",
 		"i18next": "~17.0.3",
 		"memory-cache": "~0.2.0",
