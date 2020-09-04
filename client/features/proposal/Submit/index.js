@@ -3,8 +3,8 @@ import React from 'react';
 import { i18n } from 'Shared/i18n';
 import { useDispatch } from 'react-redux';
 import { setPanelContent } from 'Shared/store/reducers/panel/actions';
-import { PanelTriggerStyle, PanelTriggerIconStyle } from './style';
 import { ProposalJourney } from './Journey';
+import { PanelTriggerStyle, TriggerIconStyle } from './style';
 
 export const ProposalSubmit = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const ProposalSubmit = () => {
       <PanelTriggerStyle
         onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
       >
-        <PanelTriggerIconStyle aria-hidden />
+        <TriggerIconStyle aria-hidden />
         {i18n.t('proposal_submit.form.panel_trigger')}
       </PanelTriggerStyle>
     </>

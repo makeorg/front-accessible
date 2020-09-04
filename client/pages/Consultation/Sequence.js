@@ -10,29 +10,17 @@ import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { ProgressBar } from 'Client/features/sequence/ProgressSection/ProgressBar';
-import { ProposalSubmit } from 'Client/features/proposal/Submit';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import {
   PreviousButtonWrapperStyle,
   PreviousButton,
 } from 'Client/features/sequence/ProgressSection/style';
 import { Sequence } from 'Client/features/sequence/index';
-import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
 import { SequencePageContentStyle } from './style';
 
 const SequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
-  );
-
-  const isPushProposal = useSelector(
-    (state: StateRoot) =>
-      !!(
-        state.sequence.cards &&
-        state.sequence.cards.length &&
-        state.sequence.cards[state.sequence.currentIndex].type ===
-          CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL
-      )
   );
 
   useEffect(() => {
@@ -71,7 +59,6 @@ const SequencePage = () => {
           </>
         </SpaceBetweenRowStyle>
       </SequencePageContentStyle>
-      {!isPushProposal && <ProposalSubmit />}
     </>
   );
 };

@@ -7,7 +7,7 @@ import { SvgExternalLink } from 'Client/ui/Svg/elements';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const FooterStyle = styled.footer`
-  padding: 0 20px 20px;
+  padding: 0 20px 55px;
 `;
 
 export const FooterNavStyle = styled.nav`

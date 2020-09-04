@@ -19,6 +19,9 @@ import {
 } from 'Shared/store/actions/sequence';
 import { SequenceService } from 'Shared/services/Sequence';
 import { useLocation } from 'react-router-dom';
+import { ProposalSubmit } from 'Client/features/proposal/Submit';
+import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
+
 import { SequenceCard } from './Cards';
 import {
   SequencePlaceholderCardStyle,
@@ -55,6 +58,15 @@ export const Sequence = ({ question }: Props) => {
   const { search } = useLocation();
   const disableIntroCard =
     new URLSearchParams(search.toLowerCase()).get('introcard') === 'false';
+  const isPushProposal = useSelector(
+    (state: StateRoot) =>
+      !!(
+        state.sequence.cards &&
+        state.sequence.cards.length &&
+        state.sequence.cards[state.sequence.currentIndex].type ===
+          CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL
+      )
+  );
 
   useEffect(() => {
     const votedProposalIdsOfQuestion = votedProposalIds[question.slug] || [];
@@ -126,6 +138,7 @@ export const Sequence = ({ question }: Props) => {
     <SequenceStyle>
       <SequenceWrapperStyle id="sequence" data-cy-container="sequence">
         <SequenceCard card={currentCard} />
+        {!isPushProposal && <ProposalSubmit />}
       </SequenceWrapperStyle>
     </SequenceStyle>
   );
