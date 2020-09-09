@@ -3,17 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { trackClickNextCard } from 'Shared/services/Tracking';
 import { Vote } from 'Client/features/vote';
-import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement/index';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
 import { type ProposalCardType } from 'Shared/types/card';
 import { type StateRoot } from 'Shared/store/types';
-import {
-  SequenceProposalStyle,
-  SequenceContentSpecialWrapperStyle,
-  SequenceNextButtonStyle,
-} from '../style';
+import { CARD_TYPE_PROPOSAL } from 'Shared/constants/card';
+import { SequenceProposalAuthor } from '../Proposal/Author';
+import { SequenceProposalStyle, SequenceNextCardButtonStyle } from './style';
 
 type Props = {
   /** Proposal card */
@@ -28,28 +25,29 @@ export const ProposalCard = ({ proposalCard }: Props) => {
 
   const [proposal, setProposal] = useState(proposalCard.configuration.proposal);
   const [index, setIndex] = useState(proposalCard.index);
-
-  const cardsLength = useSelector(
-    (state: StateRoot) => state.sequence.cards.length
-  );
+  const allCards = useSelector((state: StateRoot) => state.sequence.cards);
   const votes = useSelector((state: StateRoot) =>
     state.sequence.cards[index].state
       ? state.sequence.cards[index].state.votes
       : []
   );
+  const proposalCards = allCards.filter(
+    card => card.type === CARD_TYPE_PROPOSAL
+  );
+  const lastProposal = proposalCards.pop();
 
   const [isVoted, setIsVoted] = useState(
     votes.some(vote => vote.hasVoted === true)
   );
-  const [isLastCard, setIsLastCard] = useState(
-    proposalCard.index === cardsLength - 1
+  const [isLastProposalCard, setIsLastProposalCard] = useState(
+    proposalCard.index === lastProposal.index
   );
 
   useEffect(() => {
     setProposal(proposalCard.configuration.proposal);
     setIndex(proposalCard.index);
-    setIsLastCard(proposalCard.index === cardsLength - 1);
-  }, [proposalCard, cardsLength]);
+    setIsLastProposalCard(proposalCard.index === lastProposal.index);
+  }, [proposalCard, lastProposal.index]);
 
   useEffect(() => {
     setIsVoted(votes.some(vote => vote.hasVoted === true));
@@ -61,8 +59,8 @@ export const ProposalCard = ({ proposalCard }: Props) => {
   };
 
   return (
-    <SequenceContentSpecialWrapperStyle>
-      <ProposalAuthorElement proposal={proposal} withAvatar isSequence />
+    <>
+      <SequenceProposalAuthor proposal={proposal} />
       <ScreenReaderItemStyle>
         {i18n.t('proposal_card.content')}
       </ScreenReaderItemStyle>
@@ -78,17 +76,17 @@ export const ProposalCard = ({ proposalCard }: Props) => {
       />
       {isVoted && (
         <>
-          <SequenceNextButtonStyle
+          <SequenceNextCardButtonStyle
             onClick={goToNextCard}
             id={`next-button-${proposal.id}`}
             data-cy-button="next-proposal"
           >
-            {isLastCard
+            {isLastProposalCard
               ? i18n.t('proposal_card.validate')
               : i18n.t('proposal_card.next')}
-          </SequenceNextButtonStyle>
+          </SequenceNextCardButtonStyle>
         </>
       )}
-    </SequenceContentSpecialWrapperStyle>
+    </>
   );
 };

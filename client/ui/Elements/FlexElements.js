@@ -31,6 +31,9 @@ export const MiddleRowStyle = styled(CenterRowStyle)`
 
 export const SpaceBetweenRowStyle = styled(FlexElementStyle)`
   justify-content: space-between;
+  &.fullwidth {
+    width: 100%;
+  }
 `;
 
 /* Column Elements */

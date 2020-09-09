@@ -31,13 +31,15 @@ export const PanelTriggerStyle = styled(RedButtonStyle)`
   bottom: 0;
   width: 100%;
   border-radius: 0px;
-  right: 0px;
+  left: 0;
+  z-index: 5;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    position: absolute;
-    bottom: 145px;
+    position: sticky;
     width: auto;
+    align-self: flex-end;
     border-radius: 17.5px;
-    z-index: 5;
+    bottom: 20px;
+    margin: 40px 0;
   }
 `;
 

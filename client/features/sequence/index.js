@@ -22,16 +22,20 @@ import { useLocation } from 'react-router-dom';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
 import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
 
+import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
+import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
+import {
+  PreviousButtonWrapperStyle,
+  PreviousButton,
+} from 'Client/features/sequence/ProgressSection/style';
+import { getConsultationLink } from 'Shared/helpers/url';
+import { i18n } from 'Shared/i18n';
+import { ProgressBar } from './ProgressSection/ProgressBar';
 import { SequenceCard } from './Cards';
 import {
-  SequencePlaceholderCardStyle,
-  SequencePlaceholderWrapperStyle,
-  SequencePlaceholderTitleSTyle,
-  SequencePlaceholderSeparatorStyle,
-  SequencePlaceholderDescriptionStyle,
-  SequencePlaceholderButtonStyle,
-  SequenceStyle,
-  SequenceWrapperStyle,
+  SequenceContainerStyle,
+  ConsultationPageLinkStyle,
+  SequenceContentStyle,
 } from './style';
 
 export type Props = {
@@ -118,28 +122,39 @@ export const Sequence = ({ question }: Props) => {
 
   if (!currentCard) {
     return (
-      <SequenceStyle>
-        <SequenceWrapperStyle id="sequence" data-cy-container="sequence">
-          <SequencePlaceholderCardStyle as="div" scaling="1" zindex="1">
-            <SequencePlaceholderWrapperStyle>
-              <SequencePlaceholderTitleSTyle />
-              <SequencePlaceholderSeparatorStyle />
-              <SequencePlaceholderDescriptionStyle />
-              <SequencePlaceholderDescriptionStyle />
-              <SequencePlaceholderButtonStyle />
-            </SequencePlaceholderWrapperStyle>
-          </SequencePlaceholderCardStyle>
-        </SequenceWrapperStyle>
-      </SequenceStyle>
+      <SequenceContainerStyle>
+        <Spinner />
+      </SequenceContainerStyle>
     );
   }
 
   return (
-    <SequenceStyle>
-      <SequenceWrapperStyle id="sequence" data-cy-container="sequence">
+    <SequenceContainerStyle>
+      <SequenceContentStyle>
+        {question.question}
         <SequenceCard card={currentCard} />
-        {!isPushProposal && <ProposalSubmit />}
-      </SequenceWrapperStyle>
-    </SequenceStyle>
+        <SpaceBetweenRowStyle className="fullwidth">
+          <>
+            <PreviousButtonWrapperStyle>
+              <PreviousButton />
+            </PreviousButtonWrapperStyle>
+            {/* @todo: add dynamic progress display for number gauge */}
+            1/15
+            <ProgressBar />
+          </>
+        </SpaceBetweenRowStyle>
+      </SequenceContentStyle>
+      <ConsultationPageLinkStyle
+        className={isPushProposal && 'static'}
+        to={getConsultationLink(
+          question.country,
+          question.language,
+          question.slug
+        )}
+      >
+        {i18n.t('sequence.more')}
+      </ConsultationPageLinkStyle>
+      {!isPushProposal && <ProposalSubmit />}
+    </SequenceContainerStyle>
   );
 };
