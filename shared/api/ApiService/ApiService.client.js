@@ -1,9 +1,13 @@
 /* @flow */
+import axiosRetry from 'axios-retry';
+import axios from 'axios';
 import { IApiServiceStrategy } from './index';
 import { ApiServiceShared } from './ApiService.shared';
 import { getLocationContext } from './getLocationContext';
 
 export class ApiServiceClient implements IApiServiceStrategy {
+  _instance = null;
+
   _language: string = '';
 
   _country: string = '';
@@ -12,11 +16,11 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   _source: string = '';
 
-  _instance = null;
-
   _referrer: string = '';
 
   _customData: string = '';
+
+  _isLogged: boolean = false;
 
   constructor() {
     if (!this._instance) {
@@ -53,6 +57,14 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   get questionId() {
     return this._questionId;
+  }
+
+  set isLogged(isLogged: boolean) {
+    this._isLogged = isLogged;
+  }
+
+  get isLogged() {
+    return this._isLogged;
   }
 
   set source(source: string) {
@@ -95,7 +107,28 @@ export class ApiServiceClient implements IApiServiceStrategy {
     };
     const headers = { ...defaultHeaders, ...(options.headers || {}) };
 
-    return ApiServiceShared.callApi(url, { ...options, headers });
+    axiosRetry(axios, {
+      retries: 5,
+      retryDelay: retryCount => retryCount * 100,
+      retryCondition: error => {
+        return (
+          axiosRetry.isNetworkOrIdempotentRequestError(error) ||
+          (error.response && error.response.status === 401 && this._isLogged)
+        );
+      },
+    });
+
+    try {
+      return ApiServiceShared.callApi(url, {
+        ...options,
+        headers,
+      });
+    } catch (apiServiceError) {
+      if (apiServiceError.status === 401) {
+        this._isLogged = false;
+      }
+      throw apiServiceError;
+    }
   }
 }
 

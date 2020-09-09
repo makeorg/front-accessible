@@ -5,7 +5,6 @@ import { type StateRoot } from '../types';
  * Questions data selector
  * @param {*} state
  */
-
 export const selectQuestionData = (state: StateRoot, questionSlug: ?string) => {
   if (!questionSlug) {
     return null;

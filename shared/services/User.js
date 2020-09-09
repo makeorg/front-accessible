@@ -22,6 +22,7 @@ import { getErrorMessages } from 'Shared/helpers/form';
 import { PROPOSALS_LISTING_LIMIT } from 'Shared/constants/proposal';
 import { type ErrorObjectType } from 'Shared/types/api';
 import { TYPE_ORGANISATION, TYPE_PERSONALITY } from 'Shared/constants/user';
+import { apiClient } from 'Shared/api/ApiService/ApiService.client';
 import { defaultUnexpectedError } from './DefaultErrorHandler';
 import { OrganisationService } from './Organisation';
 import { PersonalityService } from './Personality';
@@ -200,9 +201,14 @@ const myFavourites = async (
 
 const logout = async (success?: () => void = () => {}): Promise<void> => {
   try {
+    apiClient.isLogged = false; // @see ApiServiceClient
     await UserApiService.logout();
     success();
   } catch (apiServiceError) {
+    if (apiServiceError.status === 401) {
+      success();
+      return;
+    }
     defaultUnexpectedError(apiServiceError);
   }
 };
@@ -249,10 +255,12 @@ const current = async (
 ): Promise<UserType | null> => {
   try {
     const response = await UserApiService.current();
+    apiClient.isLogged = true; // @see ApiServiceClient
 
     return response.data;
   } catch (apiServiceError) {
     if (apiServiceError.status === 401) {
+      apiClient.isLogged = false; // @see ApiServiceClient
       unauthorized();
 
       return null;

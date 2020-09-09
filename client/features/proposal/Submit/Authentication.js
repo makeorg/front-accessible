@@ -59,7 +59,8 @@ export const ProposalAthentication = ({
     if (isLoggedIn) {
       handleProposeAPICall();
     }
-  }, [isLoggedIn, handleProposeAPICall]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
 
   return (
     <ProposalStepWrapperStyle>
