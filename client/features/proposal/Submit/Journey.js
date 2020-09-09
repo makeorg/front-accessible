@@ -16,16 +16,20 @@ import { modalShowProposalSuccess } from 'Shared/store/actions/modal';
 import { ProposalForm } from './Form';
 import { ProposalAthentication } from './Authentication';
 
-const AUTHENTICATION_STEP = 'authentication';
+const steps = {
+  AUTHENTICATION_STEP: 'authentication',
+  FORM: 'form',
+};
 
 export const ProposalJourney = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
-  const currentQuestion: string = useSelector(state => state.currentQuestion);
-  const questionState = useSelector(state => state.questions[currentQuestion]);
-  const { question } = questionState;
+
+  const { question } = useSelector(
+    state => state.questions[state.currentQuestion]
+  );
   const [proposalContent, setProposalContent] = useState('');
   const [proposalStep, setProposalStep] = useState('form');
   const [waiting, setWaiting] = useState(false);
@@ -51,10 +55,13 @@ export const ProposalJourney = () => {
   };
 
   const handleStepBack = () => {
-    setProposalStep('form');
+    setProposalStep(steps.FORM);
   };
 
   const handleProposeAPICall = async () => {
+    if (waiting) {
+      return;
+    }
     setWaiting(true);
     await ProposalService.propose(proposalContent, question.questionId);
     setWaiting(false);
@@ -64,7 +71,15 @@ export const ProposalJourney = () => {
     trackDisplayProposalSubmitValidation();
   };
 
-  if (proposalStep === AUTHENTICATION_STEP) {
+  const handleSubmitForm = () => {
+    if (isLoggedIn) {
+      handleProposeAPICall();
+      return;
+    }
+    setProposalStep(steps.AUTHENTICATION_STEP);
+  };
+
+  if (proposalStep === steps.AUTHENTICATION_STEP) {
     return (
       <ProposalAthentication
         handleStepBack={handleStepBack}
@@ -80,11 +95,7 @@ export const ProposalJourney = () => {
       handleValueChange={handleValueChange}
       handleFieldFocus={handleFieldFocus}
       handleCancel={handleCancel}
-      handleSubmit={
-        isLoggedIn
-          ? handleProposeAPICall
-          : () => setProposalStep(AUTHENTICATION_STEP)
-      }
+      handleSubmit={handleSubmitForm}
       waitingApiCallback={waiting}
     />
   );

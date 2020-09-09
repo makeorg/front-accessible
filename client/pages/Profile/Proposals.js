@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { i18n } from 'Shared/i18n';
 import { UserService } from 'Shared/services/User';
 import { type UserType } from 'Shared/types/user';
-import { type ProposalType } from 'Shared/types/proposal';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { ProfileProposalsPlaceholder } from 'Client/pages/Profile/Placeholders/Proposals';
 import { ProfileProposalCard } from 'Client/features/proposal/ProfileProposalCard';
@@ -23,24 +22,15 @@ type Props = {
 };
 
 const ProfileProposalsPage = ({ user }: Props) => {
-  const [proposals, setProposals] = useState<ProposalType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasMore, setHasMore] = useState<boolean>(false);
-  const [seed, setSeed] = useState(undefined);
-  const [page, setPage] = useState<number>(0);
+  const [proposalList, setProposalList] = useState<Object>({
+    proposals: [],
+    hasMore: false,
+    seed: undefined,
+    page: 0,
+  });
 
-  const initProposal = async () => {
-    setIsLoading(true);
-    const result = await UserService.myProposals(user.userId);
-    if (result) {
-      const { results, total, seed: apiSeed } = result;
-      setProposals(results);
-      setHasMore(results.length < total);
-      setSeed(apiSeed);
-      setPage(1);
-    }
-    setIsLoading(false);
-  };
+  const { proposals, hasMore, seed, page } = proposalList;
 
   const loadProposals = async () => {
     setIsLoading(true);
@@ -48,10 +38,12 @@ const ProfileProposalsPage = ({ user }: Props) => {
     if (result) {
       const { results, total, seed: apiSeed } = result;
       const newProposalList = [...proposals, ...results];
-      setProposals(newProposalList);
-      setHasMore(newProposalList.length < total);
-      setSeed(apiSeed);
-      setPage(page + 1);
+      setProposalList({
+        proposals: newProposalList,
+        hasMore: newProposalList.length < total,
+        seed: apiSeed,
+        page: page + 1,
+      });
     }
     setIsLoading(false);
   };
@@ -62,8 +54,11 @@ const ProfileProposalsPage = ({ user }: Props) => {
   };
 
   useEffect(() => {
-    initProposal();
-  }, [initProposal, user]);
+    if (user) {
+      loadProposals();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const proposalsLength = proposals.length;
   const renderPlaceholder = !proposalsLength && !isLoading;

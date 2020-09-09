@@ -43,13 +43,17 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   };
 
   useEffect(() => {
-    dispatch(updateCurrentQuestion(questionSlug));
-  }, [currentQuestion]);
+    if (currentQuestionSlug !== questionSlug) {
+      dispatch(updateCurrentQuestion(questionSlug));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentQuestionSlug, questionSlug]);
 
   useEffect(() => {
     if (!currentQuestion) {
       updateQuestion();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionSlug]);
 
   if (!currentQuestion || questionSlug !== currentQuestionSlug) {
