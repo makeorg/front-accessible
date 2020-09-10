@@ -153,12 +153,9 @@ export const Register = () => {
         <SmallSeparatorWithMarginStyle />
         <FourthLevelTitleStyle as="h3">
           {i18n.t('register.social_connect')}
-          &nbsp;
-          <FacebookAuthentication link />
-          &nbsp;
+          <FacebookAuthentication />
           {i18n.t('register.or')}
-          &nbsp;
-          <GoogleAuthentication link />
+          <GoogleAuthentication />
         </FourthLevelTitleStyle>
         <SeparatorWrapperStyle>
           <SeparatorStyle />

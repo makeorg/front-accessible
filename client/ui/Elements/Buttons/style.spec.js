@@ -16,9 +16,6 @@ import {
   VoteButtonStyle,
   ProposalIconStyle,
   EmailIconStyle,
-  FacebookIconStyle,
-  FacebookPlainIconStyle,
-  GoogleIconStyle,
   ClappingIconStyle,
   SignOutIconStyle,
   PencilIconStyle,
@@ -138,27 +135,6 @@ describe('ButtonElements/Styled', () => {
   describe('EmailIconStyle', () => {
     it('snapshot by default', () => {
       const component = renderer.create(<EmailIconStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('FacebookIconStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<FacebookIconStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('FacebookPlainIconStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<FacebookPlainIconStyle />).toJSON();
-      expect(component).toMatchSnapshot();
-    });
-  });
-
-  describe('GoogleIconStyle', () => {
-    it('snapshot by default', () => {
-      const component = renderer.create(<GoogleIconStyle />).toJSON();
       expect(component).toMatchSnapshot();
     });
   });

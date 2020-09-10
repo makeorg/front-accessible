@@ -10,6 +10,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { ThemeProvider } from 'styled-components';
 import { pxToPercent } from 'Shared/helpers/styled';
+import { trackClickPreviousCard } from 'Shared/services/Tracking';
 import {
   ProgressPreviousButtonStyle,
   ProgressIconStyle,
@@ -33,7 +34,10 @@ export const SequenceProgress = () => {
     <ThemeProvider theme={question.theme}>
       <SpaceBetweenRowStyle className="fullwidth">
         <ProgressPreviousButtonStyle
-          onClick={() => dispatch(decrementSequenceIndex())}
+          onClick={() => {
+            dispatch(decrementSequenceIndex());
+            trackClickPreviousCard();
+          }}
           disabled={currentIndex === 0}
           aria-label={i18n.t('sequence_progress.previous')}
         >

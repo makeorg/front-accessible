@@ -5,19 +5,14 @@ import { type StateRoot } from 'Shared/store/types';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { loginSocial } from 'Shared/store/actions/authentication';
 import { FACEBOOK_PROVIDER_ENUM } from 'Shared/api/UserApiService';
-import { FacebookPlainIconStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgFacebookLogoF } from 'Client/ui/Svg/elements';
-import { FacebookLinkStyle, FacebookButtonStyle } from './style';
-
-type Props = {
-  link?: boolean,
-};
+import { FacebookButtonStyle } from './style';
 
 /**
  * Handles Facebook authentication
  */
 
-export const FacebookAuthentication = ({ link }: Props) => {
+export const FacebookAuthentication = () => {
   // setting facebook browser to true or false
   const [isFacebookBrowser, setFacebookBrowser] = useState(false);
   const { language } = useSelector((state: StateRoot) => state.appConfig);
@@ -34,7 +29,7 @@ export const FacebookAuthentication = ({ link }: Props) => {
     if (ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1) {
       setFacebookBrowser(true);
     }
-  });
+  }, []);
 
   if (!isFacebookBrowser) {
     return (
@@ -45,18 +40,11 @@ export const FacebookAuthentication = ({ link }: Props) => {
         callback={handleFacebookLoginCallback}
         language={language}
         disableMobileRedirect
-        render={renderProps =>
-          link ? (
-            <FacebookLinkStyle onClick={renderProps.onClick}>
-              <FacebookPlainIconStyle aria-hidden />
-              Facebook
-            </FacebookLinkStyle>
-          ) : (
-            <FacebookButtonStyle onClick={renderProps.onClick}>
-              <SvgFacebookLogoF aria-label="Facebook" />
-            </FacebookButtonStyle>
-          )
-        }
+        render={renderProps => (
+          <FacebookButtonStyle onClick={renderProps.onClick}>
+            <SvgFacebookLogoF aria-label="Facebook" />
+          </FacebookButtonStyle>
+        )}
       />
     );
   }
