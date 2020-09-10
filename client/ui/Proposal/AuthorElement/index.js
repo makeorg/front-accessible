@@ -21,6 +21,8 @@ import {
   formatAuthorName,
   formatOrganisationName,
 } from 'Shared/helpers/stringFormatter';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import {
   AuthorDescriptionStyle,
   AuthorInfosStyle,
@@ -57,7 +59,9 @@ export const ProposalAuthorElement = ({
   formattedProposalStatus,
   isSequence,
 }: Props) => {
-  const { author, language, country } = proposal;
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const { author, question } = proposal;
+  const { language } = question;
   const isOrganisation = author.userType === TYPE_ORGANISATION;
   const isPersonality = author.userType === TYPE_PERSONALITY;
   const isBasicUser = author.userType === TYPE_USER;

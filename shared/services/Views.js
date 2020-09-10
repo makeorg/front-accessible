@@ -10,7 +10,21 @@ const getHome = async (
   try {
     const viewsResponse = await ViewsApiService.getHome(country, language);
 
-    return viewsResponse.data;
+    // toDo: hack multi-countries
+    const { data } = viewsResponse;
+    const result = {
+      ...data,
+      currentQuestions: data.currentQuestions.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+      featuredQuestions: data.featuredQuestions.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+    };
+
+    return result;
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 

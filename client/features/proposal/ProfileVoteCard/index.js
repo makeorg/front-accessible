@@ -24,6 +24,8 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { CardStyle } from 'Client/ui/Cards';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 import { VoteIconStyle } from 'Client/ui/Elements/Buttons/style';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import {
   ProfileVoteCardStyle,
   ProfileVoteWrapperStyle,
@@ -51,6 +53,7 @@ export const ProfileVoteCard = ({
   position,
   size,
 }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   return (
     <ProfileVoteWrapperStyle aria-posinset={position} aria-setsize={size}>
       <ProfileVoteTitleStyle>
@@ -87,8 +90,8 @@ export const ProfileVoteCard = ({
             <ProposalStyle
               id={`proposal_content_${position}`}
               to={getProposalLink(
-                proposal.country,
-                proposal.language,
+                country,
+                proposal.question.language,
                 proposal.question.slug,
                 proposal.id,
                 proposal.slug

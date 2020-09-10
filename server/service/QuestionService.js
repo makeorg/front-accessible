@@ -29,9 +29,24 @@ const getQuestion = async (
         'x-make-language': language,
       }
     );
-    cache.put(CACHE_KEY, questionDetailResponse.data, 300000);
 
-    return questionDetailResponse.data;
+    // @toDo: hack countries
+    const { data } = questionDetailResponse;
+    const dataWithCountry = {
+      ...data,
+      country: data.countries[0],
+      operation: {
+        ...data.operation,
+        questions: data.operation.questions.map(question => ({
+          ...question,
+          country: question.countries[0],
+        })),
+      },
+    };
+
+    cache.put(CACHE_KEY, dataWithCountry, 300000);
+
+    return dataWithCountry;
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();

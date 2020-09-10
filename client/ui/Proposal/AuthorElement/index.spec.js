@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import snapshotDiff from 'snapshot-diff';
 import { proposalTypeFixture } from 'Shared/types/__fixtures__/proposal.fixture';
 import { ProposalAuthorElement } from 'Client/ui/Proposal/AuthorElement';
+import * as redux from 'react-redux';
 
 jest.mock('Client/ui/Elements/AccessibilityElements', () => ({
   ScreenReaderItemStyle: 'ScreenReaderItemStyle',
@@ -29,6 +30,8 @@ jest.mock('Client/ui/Proposal/AuthorElement/Styled', () => ({
   CertifiedIconStyle: 'CertifiedIconStyle',
   InfosWrapperStyle: 'InfosWrapperStyle',
 }));
+
+jest.spyOn(redux, 'useSelector').mockReturnValue({ country: 'FR' });
 
 describe('ProposalAuthorElement', () => {
   it('must match the diff snapshot between default vs custom avatar', () => {

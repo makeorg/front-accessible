@@ -82,8 +82,23 @@ const searchProposals = async (
       ideaIds,
       order
     );
+    const { data } = response;
 
-    return response.data;
+    // @toDo: hack multi-countries
+    const { results } = data;
+
+    const updateCountry = proposal => ({
+      ...proposal,
+      question: {
+        ...proposal.question,
+        country: proposal.question.countries[0],
+      },
+    });
+
+    return {
+      ...data,
+      results: results.map(proposal => updateCountry(proposal)),
+    };
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 

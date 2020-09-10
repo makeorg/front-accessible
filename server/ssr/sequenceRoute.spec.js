@@ -25,6 +25,8 @@ const fooQuestion = {
   questionId: '1234',
   aboutUrl: 'http://localhost/goo',
   sequenceConfig: {},
+  countries: ['FR'],
+  operation: { questions: [] },
 };
 const questionSlug = 'bar';
 
@@ -52,7 +54,7 @@ describe('Sequence page route', () => {
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {
-            question: fooQuestion,
+            question: { ...fooQuestion, country: 'FR' },
           },
         },
         currentQuestion: 'bar',
