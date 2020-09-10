@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
@@ -38,6 +38,7 @@ import {
 type Props = {
   proposalContent: string,
   handleValueChange: (event: SyntheticEvent<HTMLTextAreaElement>) => void,
+  setProposalContent: string => void,
   handleFieldFocus: () => void,
   handleCancel: () => void,
   handleSubmit: () => void,
@@ -46,12 +47,14 @@ type Props = {
 
 export const ProposalForm = ({
   proposalContent,
+  setProposalContent,
   handleValueChange,
   handleFieldFocus,
   handleCancel,
   handleSubmit,
   waitingApiCallback,
 }: Props) => {
+  const inputRef: ?ProposalTextareaStyle = useRef();
   const question: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
@@ -64,6 +67,17 @@ export const ProposalForm = ({
     : proposalContent.length;
   const disableSubmitButton =
     !proposalHasValidLength(proposalContent.length) || waitingApiCallback;
+
+  const secureFieldValue = event => {
+    handleValueChange(event);
+    if (
+      inputRef &&
+      inputRef.current &&
+      inputRef.current.selectionStart < baitText.length
+    ) {
+      setProposalContent(baitText);
+    }
+  };
 
   useEffect(() => {
     trackDisplayProposalField();
@@ -87,11 +101,12 @@ export const ProposalForm = ({
             {i18n.t('proposal_submit.form.field')}
           </ScreenReaderItemStyle>
           <ProposalTextareaStyle
+            ref={inputRef}
             name="proposal"
             id="proposal"
             data-cy-field="proposal"
             value={proposalContent}
-            onChange={handleValueChange}
+            onChange={secureFieldValue}
             onFocus={handleFieldFocus}
             autoCapitalize="none"
             autoComplete="off"

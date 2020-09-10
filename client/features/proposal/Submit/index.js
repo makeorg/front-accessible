@@ -10,13 +10,11 @@ export const ProposalSubmit = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
-      <PanelTriggerStyle
-        onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
-      >
-        <TriggerIconStyle aria-hidden />
-        {i18n.t('proposal_submit.form.panel_trigger')}
-      </PanelTriggerStyle>
-    </>
+    <PanelTriggerStyle
+      onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
+    >
+      <TriggerIconStyle aria-hidden />
+      {i18n.t('proposal_submit.form.panel_trigger')}
+    </PanelTriggerStyle>
   );
 };

@@ -21,7 +21,6 @@ import {
   MiddleColumnStyle,
   MiddleColumnToRowStyle,
   CenterColumnStyle,
-  MiddleRowStyle,
 } from 'Client/ui/Elements/FlexElements';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
@@ -382,25 +381,6 @@ export const SequenceCardSeparatorStyle = styled(SmallSeparatorStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin: 15px 0 25px;
   }
-`;
-
-export const SequenceSharingInnerStyle = styled(CenterColumnStyle)`
-  width: 100%;
-  border-bottom: 2px solid ${BackgroundColors.ExtraLightGrey};
-  padding: 0 0 10px 0;
-  margin-bottom: 10px;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    width: 50%;
-    border-bottom: none;
-    border-right: 2px solid ${BackgroundColors.ExtraLightGrey};
-    padding: 50px 25px 50px 0;
-    margin-bottom: 0;
-  }
-`;
-
-export const SequenceSharingWrapperStyle = styled(MiddleRowStyle)`
-  width: 100%;
-  margin-top: 10px;
 `;
 
 export const SequenceMoreWrapperStyle = styled(CenterColumnStyle)`

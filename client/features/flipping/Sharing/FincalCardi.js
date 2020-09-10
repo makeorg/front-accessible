@@ -1,12 +1,12 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
 import { i18n } from 'Shared/i18n';
+import { SequenceFinalParagraphStyle } from 'Client/features/sequence/Cards/style';
 import {
-  SequenceIntroParagraphStyle,
   SequenceSharingInnerStyle,
   SequenceSharingWrapperStyle,
-} from 'Client/features/sequence/Deprecated/style';
+} from './style';
 
 type Props = {
   text?: string,
@@ -17,9 +17,9 @@ export const Sharing = ({
 }: Props) => (
   <SequenceSharingInnerStyle>
     {text.split('\n').map(paragraph => (
-      <SequenceIntroParagraphStyle key={paragraph}>
+      <SequenceFinalParagraphStyle key={paragraph}>
         {paragraph}
-      </SequenceIntroParagraphStyle>
+      </SequenceFinalParagraphStyle>
     ))}
     <SequenceSharingWrapperStyle>
       <SharingProposal />

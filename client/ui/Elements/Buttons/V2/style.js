@@ -12,7 +12,7 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledButtonStyle } from '../style';
 
 export const BasicButtonStyle = `
-  display: flex
+  display: flex;
   justify-content: center;
   align-items: baseline;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
@@ -20,13 +20,8 @@ export const BasicButtonStyle = `
   border-radius: 17.5px;
   border: none;
   font-size: 16px;
-  padding: 12px 25px 7px 25px;
+  padding: 10px 25px 7px 25px;
   text-decoration: none;
-  &:hover,
-  &:focus {
-    color: ${BasicColors.PureWhite};
-    text-decoration: none;
-  }
 `;
 
 const RedStyle = `
@@ -35,13 +30,23 @@ const RedStyle = `
   .tofill {
     fill: ${BasicColors.PureWhite};
   }
+  &:hover,
+  &:focus {
+    color: ${BasicColors.PureWhite};
+    text-decoration: none;
+  }
 `;
 
 const GreyStyle = `
   color: ${TextColors.AltMediumgrey};
   background-color: ${BackgroundColors.ExtraLightGrey};
   .tofill {
-    fill: ${TextColors.AltMediumgrey};
+    fill: ${MakeThemeColors.Red};
+  }
+  &:hover,
+  &:focus {
+    color: ${BasicColors.AltMediumgrey};
+    text-decoration: none;
   }
 `;
 
@@ -49,15 +54,20 @@ export const RedButtonStyle = styled.button`
   ${BasicButtonStyle};
   ${RedStyle};
   &:disabled {
-    ${GreyStyle}
+    ${GreyStyle};
   }
+`;
+
+export const GreyButtonStyle = styled.button`
+  ${BasicButtonStyle};
+  ${GreyStyle};
 `;
 
 export const LinkAsRedButtonStyle = styled(Link)`
   ${BasicButtonStyle};
   ${RedStyle};
   &:disabled {
-    ${GreyStyle}
+    ${GreyStyle};
   }
 `;
 
@@ -92,6 +102,9 @@ export const GreyNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
 export const RedNoBackgroundButtonStyle = styled(UnstyledButtonStyle)`
   ${ButtonNoBackgroundStyle};
   ${RedNoBackgroundStyle};
-  &.underline {
-  }
+`;
+
+export const GreyLinkStyle = styled(Link)`
+  ${ButtonNoBackgroundStyle};
+  ${GreyNoBackgroundStyle};
 `;

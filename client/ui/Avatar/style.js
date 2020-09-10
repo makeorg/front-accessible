@@ -9,13 +9,14 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { Image } from 'Client/ui/Image';
 
 export const AvatarStyle = styled.span`
-  position: ${props => (props.isSequence ? 'relative' : 'static')};
+  position: ${props => (props.isSequence ? 'absolute' : 'static')};
   top: ${props => (props.isSequence ? '-6px' : '')};
+  left: ${props => (props.isSequence ? '50%' : '')};
   border: ${props =>
     props.isSequence ? `3px solid ${BasicColors.PureWhite}` : ''};
   border-radius: ${props => (props.isSequence ? '50%' : '')};
-  margin-right: ${props => (props.isSequence ? '0px' : '10px')};
-  margin-bottom: ${props => (props.isSequence ? '15px' : '')};
+  margin-right: ${props => (props.isSequence ? '' : '10px')};
+  transform: ${props => (props.isSequence ? 'translateX(-50%)' : '')};
   display: inline-flex;
 `;
 

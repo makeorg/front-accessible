@@ -112,6 +112,7 @@ export const Vote = ({
     setVotedKey('');
     const newVotes = updateAndGetVotes(currentVotes, unvote);
     setCurrentVotes(newVotes);
+    setUserVote(null);
     dispatch(actionUnvote(proposal, newVotes, contextType));
     await onUnvote();
     await trackUnvote(proposalId, voteKey, index, contextType);
@@ -135,6 +136,7 @@ export const Vote = ({
     setVotedKey(vote.voteKey);
     const updatedVotes = updateAndGetVotes(currentVotes, vote);
     setCurrentVotes(updatedVotes);
+    setUserVote(updatedVotes.find(newVote => newVote.hasVoted === true));
     dispatch(actionVote(proposal, updatedVotes, contextType));
     await onVote();
     await trackVote(proposalId, voteKey, index, contextType);

@@ -8,12 +8,15 @@ import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const FooterStyle = styled.footer`
   padding: 0 20px 55px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    padding-bottom: 20px;
+  }
 `;
 
 export const FooterNavStyle = styled.nav`
   width: 100%;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 20px;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   border-top: 1px solid ${BorderColors.LightGrey};
 `;

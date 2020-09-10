@@ -281,21 +281,22 @@
   },
   "final_card": {
     "title": "Merci de votre participation !",
-    "sharing_text": "Vous souhaitez aller plus loin sur cette consultation ?\nInvitez vos proches et/ou votre communauté à participer.",
+    "sharing_text": "Invitez vos proches à participer.",
     "more": {
-      "title": "Découvrez toutes les propositions sur cette consultation.",
+      "title": "Découvrez toutes les propositions.",
       "button": "En savoir +"
     },
     "extra_question": {
       "title": "Merci d'avoir donné votre avis sur cette consultation !",
-      "discover": "Découvrez toutes les propositions",
+      "discover": "Découvrez toutes les propositions.",
       "more": "Votez et proposez sur une autre consultation"
     }
   },
   "sign_up_card": {
-    "title": "Recevez les résultats de la consultation et soyez informé(e) des actions à venir",
+    "title": "Recevez les résultats de la consultation",
     "authentication-text": "Je m'identifie avec",
-    "next-cta": "Non merci, je ne souhaite pas être informé(e) des résultats"
+    "authentication-link": "J’ai déjà un compte, je me connecte.",
+    "next-cta": "Non merci"
   },
   "push_proposal_card": {
     "title": "Et vous, avez vous une solution à proposer sur ce sujet ?",
@@ -384,7 +385,8 @@
   },
   "sequence": {
     "return": "Revenir aux propositions",
-    "title": "Votez sur les propostions de la consultation : "
+    "title": "Votez sur les propostions de la consultation : ",
+    "more": "En savoir plus sur la consultation"
   },
   "authentication": {
     "title": "Inscrivez-vous pour valider votre proposition",

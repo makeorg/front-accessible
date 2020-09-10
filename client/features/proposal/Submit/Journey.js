@@ -92,6 +92,7 @@ export const ProposalJourney = () => {
   return (
     <ProposalForm
       proposalContent={proposalContent}
+      setProposalContent={setProposalContent}
       handleValueChange={handleValueChange}
       handleFieldFocus={handleFieldFocus}
       handleCancel={handleCancel}

@@ -11,7 +11,10 @@ import {
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDataPageLink } from 'Shared/helpers/url';
-import { closePanel } from 'Shared/store/reducers/panel/actions';
+import {
+  closePanel,
+  removePanelContent,
+} from 'Shared/store/reducers/panel/actions';
 import { modalShowLogin } from 'Shared/store/actions/modal';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
@@ -48,6 +51,7 @@ export const ProposalAthentication = ({
   );
   const handleModerationLink = () => {
     dispatch(closePanel());
+    dispatch(removePanelContent());
     trackClickPersonnalDataLink();
   };
 
