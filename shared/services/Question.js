@@ -26,7 +26,16 @@ const getQuestions = async (
       limit,
       skip
     );
-    return response.data;
+    const { data } = response;
+
+    // @toDo: hack countries
+    return {
+      ...data,
+      results: data.results.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+    };
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 
@@ -41,7 +50,20 @@ const getDetail = async (
   try {
     const response = await QuestionApiService.getDetail(questionSlugOrId);
 
-    return response.data;
+    const { data } = response;
+
+    // @toDo: hack countries
+    return {
+      ...data,
+      country: data.countries[0],
+      operation: {
+        ...data.operation,
+        questions: data.operation.questions.map(question => ({
+          ...question,
+          country: question.countries[0],
+        })),
+      },
+    };
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();
@@ -67,7 +89,16 @@ const searchQuestions = async (
       content
     );
 
-    return response.data;
+    const { data } = response;
+
+    // @toDo: hack countries
+    return {
+      ...data,
+      results: data.results.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+    };
   } catch (apiServiceError) {
     defaultUnexpectedError(apiServiceError);
 

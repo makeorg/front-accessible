@@ -187,6 +187,8 @@ const generateProposals = (question, author, count) => {
       },
       startDate: question.startDate,
       endDate: question.endDate,
+      countries: ['FR'],
+      language: 'fr',
     },
     author: {
       ...defaultQuestion.author,

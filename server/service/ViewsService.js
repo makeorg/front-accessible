@@ -25,9 +25,25 @@ const getHome = async (
       'x-make-country': country,
       'x-make-language': language,
     });
-    cache.put(CACHE_KEY, viewsResponse.data, 300000);
 
-    return viewsResponse.data;
+    // toDo: hack multi-countries
+    const { data } = viewsResponse;
+
+    const dataWithCountry = {
+      ...data,
+      currentQuestions: data.currentQuestions.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+      featuredQuestions: data.featuredQuestions.map(question => ({
+        ...question,
+        country: question.countries[0],
+      })),
+    };
+
+    cache.put(CACHE_KEY, dataWithCountry, 300000);
+
+    return dataWithCountry;
   } catch (apiServiceError) {
     if (apiServiceError.status === 404) {
       notFound();

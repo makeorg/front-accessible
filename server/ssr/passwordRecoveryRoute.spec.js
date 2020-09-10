@@ -12,7 +12,12 @@ jest.mock('Shared/api/UserApiService');
 jest.mock('Shared/api/QuestionApiService');
 
 const initialState = createInitialState();
-const fooQuestion = { id: 'foo', slug: 'bar' };
+const fooQuestion = {
+  id: 'foo',
+  slug: 'bar',
+  countries: ['FR'],
+  operation: { questions: [] },
+};
 const queryParams = { question: fooQuestion.id };
 const requestParams = {
   resetToken: 'bar',
@@ -46,7 +51,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -92,7 +97,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -133,7 +138,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,

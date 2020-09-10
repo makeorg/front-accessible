@@ -38,17 +38,19 @@ describe('Views Service', () => {
     it('return content from Api and put it in cache', async () => {
       jest.spyOn(cache, 'put');
 
-      ViewsApiService.getHome.mockReturnValueOnce({ data: homepageFixture });
+      ViewsApiService.getHome.mockReturnValueOnce({
+        data: homepageFixture.home,
+      });
 
       const result = await ViewsService.getHome(country, language);
 
       expect(cache.put).toHaveBeenCalledWith(
         'HOMEPAGE',
-        homepageFixture,
+        homepageFixture.home,
         300000
       );
 
-      expect(result).toBe(homepageFixture);
+      expect(result).toMatchObject(homepageFixture.home);
     });
 
     it('throw error when fetching content from Api and log it', async () => {

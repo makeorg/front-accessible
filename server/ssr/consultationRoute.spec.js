@@ -26,6 +26,8 @@ const fooQuestion = {
   aboutUrl: 'http://localhost/goo',
   displayResults: false,
   sequenceConfig: {},
+  countries: ['FR'],
+  operation: { questions: [] },
 };
 const questionSlug = 'bar';
 
@@ -54,7 +56,7 @@ describe('Consultation page route', () => {
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {
-            question: fooQuestion,
+            question: { ...fooQuestion, country: fooQuestion.countries[0] },
           },
         },
         currentQuestion: 'bar',

@@ -13,6 +13,8 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { Vote } from 'Client/features/vote';
 import { DetailledVoteResults } from 'Client/ui/Proposal/DetailledVoteResults';
 import { getProposalLink } from 'Shared/helpers/url';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import {
   PopularProposalWrapperStyle,
   PopularProposalHeader,
@@ -33,6 +35,7 @@ export const PopularProposalCard = ({
   position = 0,
   size = 0,
 }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const canVote = isInProgress(proposal.question);
   return (
     <PopularProposalWrapperStyle aria-posinset={position} aria-setsize={size}>
@@ -49,8 +52,8 @@ export const PopularProposalCard = ({
         <ProposalStyle
           id={`proposal_content_${position}`}
           to={getProposalLink(
-            proposal.country,
-            proposal.language,
+            country,
+            proposal.question.language,
             proposal.slug,
             proposal.id,
             proposal.slug

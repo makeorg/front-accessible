@@ -34,17 +34,33 @@ describe('Question Service', () => {
     it('return content from Api and put it in cache', async () => {
       jest.spyOn(cache, 'put');
 
-      QuestionApiService.getDetail.mockReturnValueOnce({ data: 'QuestionFoo' });
+      QuestionApiService.getDetail.mockReturnValueOnce({
+        data: {
+          questionId: 'QuestionFoo',
+          countries: ['FR'],
+          operation: { questions: [] },
+        },
+      });
 
       const result = await QuestionService.getQuestion('foo');
 
       expect(cache.put).toHaveBeenCalledWith(
         'QUESTION_foo',
-        'QuestionFoo',
+        {
+          questionId: 'QuestionFoo',
+          countries: ['FR'],
+          country: 'FR',
+          operation: { questions: [] },
+        },
         300000
       );
 
-      expect(result).toBe('QuestionFoo');
+      expect(result).toMatchObject({
+        countries: ['FR'],
+        country: 'FR',
+        operation: { questions: [] },
+        questionId: 'QuestionFoo',
+      });
     });
 
     it('throw error when fetching content from Api and log it', async () => {

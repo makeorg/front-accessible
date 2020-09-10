@@ -134,7 +134,9 @@ describe('Proposal Helper', () => {
     });
     it('return results from api response', async () => {
       ProposalApiService.searchProposals.mockResolvedValue({
-        data: { results: ['foo'] },
+        data: {
+          results: [{ proposalId: 'foo', question: { countries: ['FR'] } }],
+        },
       });
       const repsonse = await ProposalHelper.searchTaggedProposals(
         'FR',
@@ -142,7 +144,11 @@ describe('Proposal Helper', () => {
         '12345',
         ['foo', 'bar']
       );
-      expect(repsonse).toEqual({ results: ['foo'] });
+      expect(repsonse).toEqual({
+        results: [
+          { proposalId: 'foo', question: { countries: ['FR'], country: 'FR' } },
+        ],
+      });
     });
 
     it('return an empty Array and call Logger when api fail', async () => {

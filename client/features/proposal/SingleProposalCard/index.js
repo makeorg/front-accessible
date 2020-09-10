@@ -19,6 +19,7 @@ import {
   type TopComponentContextValueType,
   TopComponentContextValue,
 } from 'Client/context/TopComponentContext';
+import { useSelector } from 'react-redux';
 import {
   InnerProposalStyle,
   ProposalFooterStyle,
@@ -37,6 +38,7 @@ type Props = {
 export const SingleProposalCard = ({ proposal }: Props) => {
   const isConsultationOpened = isInProgress(proposal.question);
   const topComponentContext: TopComponentContextValueType = TopComponentContextValue.getSingleProposal();
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   return (
     <TopComponentContext.Provider value={topComponentContext}>
@@ -70,8 +72,8 @@ export const SingleProposalCard = ({ proposal }: Props) => {
               dangerouslySetInnerHTML={{
                 __html: i18n.t('proposal_page.footer_text', {
                   operation_name: `<a href="${getConsultationLink(
-                    proposal.country,
-                    proposal.language,
+                    country,
+                    proposal.question.language,
                     proposal.question.slug
                   )}">${proposal.question.wording.title}</a>`,
                 }),
@@ -83,8 +85,8 @@ export const SingleProposalCard = ({ proposal }: Props) => {
                 <ButtonStyle
                   as={Link}
                   to={getSequenceLink(
-                    proposal.country,
-                    proposal.language,
+                    country,
+                    proposal.question.language,
                     proposal.question.slug
                   )}
                 >
@@ -94,8 +96,8 @@ export const SingleProposalCard = ({ proposal }: Props) => {
               <ButtonStyle
                 as={Link}
                 to={getConsultationLink(
-                  proposal.country,
-                  proposal.language,
+                  country,
+                  proposal.question.language,
                   proposal.question.slug
                 )}
               >

@@ -9,6 +9,8 @@ import { AuthorWrapperStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { ProposalStyle } from 'Client/ui/Elements/ProposalCardElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { i18n } from 'Shared/i18n';
+import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { ProfileProposalCardStyle } from './Styled';
 
 type Props = {
@@ -23,6 +25,7 @@ type Props = {
 export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
   const formattedProposalStatus = proposal.status.toLowerCase();
   const isProposalAccepted = formattedProposalStatus === 'accepted';
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   return (
     <ProfileProposalCardStyle
@@ -45,8 +48,8 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
         to={
           isProposalAccepted
             ? getProposalLink(
-                proposal.country,
-                proposal.language,
+                country,
+                proposal.question.language,
                 proposal.question.slug,
                 proposal.id,
                 proposal.slug
@@ -63,8 +66,8 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
       <ProposalFooterWithQuestionElement
         question={proposal.question}
         consultationLink={getConsultationLink(
-          proposal.country,
-          proposal.language,
+          country,
+          proposal.question.language,
           proposal.question.slug
         )}
       />

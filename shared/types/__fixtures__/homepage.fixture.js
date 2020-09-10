@@ -16,6 +16,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/0865fee3-e88a-450e-9bf6-2c228689be9c.jpg',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-16T22:00:00Z',
       endDate: '2020-07-30T22:00:00Z',
@@ -51,6 +52,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/environnement/0865fee3-e88a-450e-9bf6-2c228689be9c.jpg',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-16T22:00:00Z',
       endDate: '2020-07-30T22:00:00Z',
@@ -85,6 +87,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/region-bretagne/df9e0bb6-018d-4609-8bf6-f47550808ff3.jpg',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-10-12T22:00:00Z',
       endDate: '2020-07-18T22:00:00Z',
@@ -118,6 +121,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/culture/4b1a8c7e-7cfb-40f3-96fa-ac7e6290a264.JPG',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2018-06-27T00:00:00Z',
       endDate: '2020-07-14T00:00:00Z',
@@ -148,6 +152,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/chance-aux-jeunes/4784f632-33a0-4c9e-82c3-fb8b73b2db8d.png',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2018-08-29T18:00:00Z',
       endDate: '2020-07-05T14:00:00Z',
@@ -176,6 +181,7 @@ export const homepageTypeFixture = {
       consultationImage: null,
       descriptionImage: null,
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-04-06T00:00:00Z',
       endDate: '2020-06-26T00:00:00Z',
@@ -206,6 +212,7 @@ export const homepageTypeFixture = {
       descriptionImage:
         'https://assets.preprod.makeorg.tech/assets/content/operations/aines/cc73df1a-efd6-472c-a192-bf458fb618dc.jpg',
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-01-23T00:00:00Z',
       endDate: '2020-06-11T00:00:00Z',
@@ -237,6 +244,7 @@ export const homepageTypeFixture = {
       consultationImage: null,
       descriptionImage: null,
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2018-03-08T00:00:00Z',
       endDate: '2020-06-08T23:00:00Z',
@@ -265,6 +273,7 @@ export const homepageTypeFixture = {
       consultationImage: null,
       descriptionImage: null,
       country: 'FR',
+      countries: ['FR'],
       language: 'fr',
       startDate: '2019-05-15T00:00:00Z',
       endDate: '2019-05-31T00:00:00Z',

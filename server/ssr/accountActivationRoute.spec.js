@@ -30,6 +30,8 @@ const expectedHeaders = {
 const fooQuestion = {
   id: 'foo',
   slug: 'bar',
+  countries: ['FR'],
+  operation: { questions: [] },
 };
 
 describe('Account activation route', () => {
@@ -44,7 +46,7 @@ describe('Account activation route', () => {
       ...initialState,
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -86,7 +88,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,
@@ -121,7 +123,7 @@ describe('Account activation route', () => {
       },
       questions: {
         [fooQuestion.slug]: {
-          question: fooQuestion,
+          question: { ...fooQuestion, country: fooQuestion.countries[0] },
         },
       },
       currentQuestion: fooQuestion.slug,
