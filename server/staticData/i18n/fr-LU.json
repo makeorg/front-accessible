@@ -302,6 +302,10 @@
     "title": "Et vous, avez vous une solution à proposer sur ce sujet ?",
     "next-cta": "Pas encore, je continue à voter"
   },
+  "sequence_progress": {
+    "previous": "Aller à l'élement précédent",
+    "counter": "Élément {{current}} sur {{total}}"
+  },
   "proposal_submit": {
     "deprecated": {
       "bait": "Il faut ",
