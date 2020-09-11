@@ -6,15 +6,15 @@ import {
   trackDisplayFinalCard,
   trackClickLearnMore,
 } from 'Shared/services/Tracking';
-import { Sharing } from 'Client/features/flipping/Sharing/FincalCardi';
+import { Sharing } from 'Client/features/flipping/Sharing/FinalCards';
 import { i18n } from 'Shared/i18n';
 import { resetSequenceVotedProposals } from 'Shared/store/actions/sequence';
-import { MiddleColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
+import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { LinkAsRedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import {
   SequenceAltTitleStyle,
   SequenceFinalMoreWrapperStyle,
-  SequenceFinalParagraphStyle,
+  SequenceParagraphStyle,
 } from './style';
 
 type Props = {
@@ -33,17 +33,19 @@ export const FinalCard = ({ configuration }: Props) => {
 
   return (
     <>
-      <SequenceAltTitleStyle data-cy-container="final-card-title">
-        {configuration.title ? configuration.title : i18n.t('final_card.title')}
-      </SequenceAltTitleStyle>
-      <MiddleColumnToRowStyle data-cy-container="final-card-share">
+      <CenterColumnStyle data-cy-container="final-card-share">
+        <SequenceAltTitleStyle data-cy-container="final-card-title">
+          {configuration.title
+            ? configuration.title
+            : i18n.t('final_card.title')}
+        </SequenceAltTitleStyle>
         <Sharing text={configuration.share} />
         <SequenceFinalMoreWrapperStyle data-cy-container="final-card-learn-more">
-          <SequenceFinalParagraphStyle>
+          <SequenceParagraphStyle as="p">
             {configuration.learnMoreTitle
               ? configuration.learnMoreTitle
               : i18n.t('final_card.more.title')}
-          </SequenceFinalParagraphStyle>
+          </SequenceParagraphStyle>
           <LinkAsRedButtonStyle
             as="a"
             href={configuration.linkUrl}
@@ -54,7 +56,7 @@ export const FinalCard = ({ configuration }: Props) => {
               : i18n.t('final_card.more.button')}
           </LinkAsRedButtonStyle>
         </SequenceFinalMoreWrapperStyle>
-      </MiddleColumnToRowStyle>
+      </CenterColumnStyle>
     </>
   );
 };

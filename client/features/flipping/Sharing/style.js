@@ -7,6 +7,7 @@ import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
+// @to do : to remove when deprecated sequence doesn't exist anymore
 export const SequenceSharingInnerStyle = styled(CenterColumnStyle)`
   width: 100%;
   border-bottom: 2px solid ${BackgroundColors.ExtraLightGrey};
@@ -23,4 +24,18 @@ export const SequenceSharingInnerStyle = styled(CenterColumnStyle)`
 
 export const SequenceSharingWrapperStyle = styled(MiddleRowStyle)`
   width: 100%;
+`;
+
+// @todo: to keep for new sequence
+export const SequenceShareInnerStyle = styled(CenterColumnStyle)`
+  width: 100%;
+  padding: 0 0 30px 0;
+`;
+
+export const SequenceShareSeparatorStyle = styled.hr`
+  width: 80px;
+  height: 2px;
+  border-style: none;
+  background-color: ${BackgroundColors.MediumGrey};
+  margin-bottom: 30px;
 `;

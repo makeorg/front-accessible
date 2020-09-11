@@ -2,7 +2,7 @@
 import React from 'react';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
 import { i18n } from 'Shared/i18n';
-import { SequenceFinalParagraphStyle } from 'Client/features/sequence/Cards/style';
+import { SequenceFinalParagraphStyle } from 'Client/features/sequence/Deprecated/style';
 import {
   SequenceSharingInnerStyle,
   SequenceSharingWrapperStyle,

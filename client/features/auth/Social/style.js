@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { SvgMailPlain } from 'Client/ui/Svg/elements';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
+import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const AuthenticationButtonWrapperStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
@@ -37,6 +38,10 @@ export const FacebookButtonStyle = styled(SocialButtonStyle)`
 export const GoogleButtonStyle = styled(SocialButtonStyle)`
   background-color: ${BasicColors.PureWhite};
   border: 1px solid ${BackgroundColors.MediumGrey};
+`;
+
+export const EmailButtonStyle = styled(RedButtonStyle)`
+  margin: 0 10px;
 `;
 
 export const AuthenticationEmailIconStyle = styled(SvgMailPlain)`

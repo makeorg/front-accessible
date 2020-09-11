@@ -27,6 +27,7 @@ import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { SvgArrowLeft } from 'Client/ui/Svg/elements';
 import { Image } from 'Client/ui/Image';
+import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const SequenceStyle = styled.section`
   display: flex;
@@ -406,4 +407,13 @@ export const SequencePartnerAvatarStyle = styled(Image)`
 
 export const SequencePartnerListStyle = styled(UnstyledListStyle)`
   display: flex;
+`;
+
+export const SequenceFinalParagraphStyle = styled(ParagraphStyle)`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    margin-bottom: 20px;
+  }
 `;
