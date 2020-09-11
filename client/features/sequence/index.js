@@ -12,7 +12,6 @@ import { searchFirstUnvotedProposal } from 'Shared/helpers/proposal';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import {
-  unloadSequenceProposals,
   resetSequenceIndex,
   setSequenceIndex,
   loadSequenceCards,
@@ -77,12 +76,7 @@ export const Sequence = ({ question }: Props) => {
       setSequenceProposals(proposals || []);
       dispatch(resetSequenceIndex());
     });
-
-    return () => {
-      dispatch(unloadSequenceProposals());
-      dispatch(resetSequenceIndex());
-    };
-  }, [question, firstProposal]);
+  }, [question, firstProposal, isLoggedIn]);
 
   useEffect(() => {
     if (!cards.length) {
@@ -105,7 +99,7 @@ export const Sequence = ({ question }: Props) => {
     );
 
     dispatch(loadSequenceCards(buildedCards));
-  }, [firstProposal, isLoggedIn, hasProposed, sequenceProposals]);
+  }, [firstProposal, hasProposed, sequenceProposals]);
 
   useEffect(() => {
     const indexOfFirstUnvotedCard: number = findIndexOfFirstUnvotedCard(
