@@ -2,9 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import {
   SvgThumbsUp,
   SvgEnvelope,
-  SvgFacebookLogoF,
   SvgPencil,
-  SvgGoogleLogoG,
   SvgClapping,
   SvgSignOut,
   SvgAngleArrowLeft,
@@ -362,18 +360,6 @@ export const ProposalIconStyle = styled(SvgPencil)`
 `;
 
 export const EmailIconStyle = styled(SvgEnvelope)`
-  ${ButtonIconStyle}
-`;
-
-export const FacebookIconStyle = styled(SvgFacebookLogoF)`
-  ${ButtonIconStyle}
-`;
-
-export const FacebookPlainIconStyle = styled(SvgFacebookLogoF)`
-  ${ButtonIconStyle}
-`;
-
-export const GoogleIconStyle = styled(SvgGoogleLogoG)`
   ${ButtonIconStyle}
 `;
 

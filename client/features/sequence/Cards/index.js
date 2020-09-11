@@ -59,6 +59,7 @@ export const SequenceCard = ({ card }: Props) => {
           id={`card-${card.index}`}
           data-cy-card-type={card.type}
           data-cy-card-number={card.index}
+          aria-live="polite"
         >
           <Card card={card} />
         </SequenceCardStyle>

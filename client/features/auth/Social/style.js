@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-import {
-  IconColors,
-  BasicColors,
-  BackgroundColors,
-} from 'Client/app/assets/vars/Colors';
+import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { SvgMailPlain } from 'Client/ui/Svg/elements';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 
@@ -13,12 +9,12 @@ export const AuthenticationButtonWrapperStyle = styled(SpaceBetweenRowStyle)`
   align-self: center;
   margin: 20px 0;
   &.small-wrapper {
-    max-width: 100px;
+    max-width: 120px;
   }
 `;
 
 export const SocialButtonStyle = styled.button`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 38px;
@@ -26,6 +22,7 @@ export const SocialButtonStyle = styled.button`
   min-width: 38px;
   min-height: 38px;
   padding: 0;
+  margin: 0 10px;
   border-radius: 50%;
 `;
 
@@ -46,31 +43,4 @@ export const AuthenticationEmailIconStyle = styled(SvgMailPlain)`
   width: 14px;
   height: 14px;
   margin-right: 7px;
-`;
-
-export const AuthenticationLinkStyle = styled.button`
-  font-size: 16px;
-  border: none;
-  padding: 0;
-  margin: 0 5px;
-  background: none;
-  text-transform: uppercase;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-`;
-
-export const FacebookLinkStyle = styled(AuthenticationLinkStyle)`
-  color: ${IconColors.Facebook};
-  border-bottom-color: ${IconColors.Facebook};
-  svg {
-    fill: ${IconColors.Facebook};
-  }
-`;
-
-export const GoogleLinkStyle = styled(AuthenticationLinkStyle)`
-  color: ${IconColors.Google};
-  border-bottom-color: ${IconColors.Google};
-  svg {
-    fill: ${IconColors.Google};
-  }
 `;
