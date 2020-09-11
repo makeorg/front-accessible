@@ -13,6 +13,7 @@ import {
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { ProposalService } from 'Shared/services/Proposal';
 import { modalShowProposalSuccess } from 'Shared/store/actions/modal';
+import { proposeSuccess } from 'Shared/store/actions/proposal';
 import { ProposalForm } from './Form';
 import { ProposalAthentication } from './Authentication';
 
@@ -68,6 +69,7 @@ export const ProposalJourney = () => {
     dispatch(removePanelContent());
     dispatch(closePanel());
     dispatch(modalShowProposalSuccess());
+    dispatch(proposeSuccess());
     trackDisplayProposalSubmitValidation();
   };
 
