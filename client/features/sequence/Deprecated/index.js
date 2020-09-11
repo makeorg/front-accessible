@@ -105,7 +105,7 @@ export const DeprecatedSequence = ({
       };
       setCardsFromProposals();
     }
-  }, [question, firstProposal, isLoggedIn, hasProposed, sequenceProposals]);
+  }, [question, hasProposed, sequenceProposals]);
 
   useEffect(() => {
     const proposalIds = votedProposalIds[question.slug] || [];
@@ -126,7 +126,7 @@ export const DeprecatedSequence = ({
       dispatch(unloadSequenceProposals());
       dispatch(resetSequenceIndex());
     };
-  }, []);
+  }, [firstProposal, isLoggedIn]);
 
   if (!isSequenceLoaded) {
     return (
