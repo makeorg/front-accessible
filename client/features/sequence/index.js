@@ -49,11 +49,11 @@ export const Sequence = ({ question }: Props) => {
       currentIndex: state.sequence.currentIndex || 0,
     })
   );
-
   const { hasProposed } = useSelector(state => state.proposal);
   const { isLoggedIn } = useSelector(state => selectAuthentication(state));
   const [sequenceProposals, setSequenceProposals] = useState([]);
   const [currentCard, setCurrentCard] = useState(null);
+  const [isLoading, setLoading] = useState(true);
   const { search } = useLocation();
   const disableIntroCard =
     new URLSearchParams(search.toLowerCase()).get('introcard') === 'false';
@@ -76,6 +76,7 @@ export const Sequence = ({ question }: Props) => {
       setSequenceProposals(proposals || []);
       dispatch(resetSequenceIndex());
     });
+    setLoading(false);
   }, [question, firstProposal, isLoggedIn]);
 
   useEffect(() => {
@@ -110,7 +111,7 @@ export const Sequence = ({ question }: Props) => {
     dispatch(setSequenceIndex(indexOfFirstUnvotedCard));
   }, [cards]);
 
-  if (!currentCard) {
+  if (!currentCard || isLoading) {
     return (
       <SequenceContainerStyle>
         <Spinner />
