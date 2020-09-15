@@ -21,6 +21,7 @@ export const ProgressIconStyle = styled(SvgPreviousArrowLeft)`
 `;
 
 export const ProgressCounterStyle = styled.span`
+  align-self: center;
   flex: 0;
   color: ${TextColors.BlackWithOpacity};
   font-size: 14px;

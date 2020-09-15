@@ -12,7 +12,7 @@ import {
 } from 'Shared/services/Tracking';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { CONSULTATION_SHARE_DISABLE } from 'Shared/constants/featureFlipping';
-import { Sharing } from 'Client/features/flipping/Sharing/FincalCardi';
+import { Sharing } from 'Client/features/flipping/Sharing/DeprecatedFinalCard';
 import { i18n } from 'Shared/i18n';
 import { resetSequenceVotedProposals } from 'Shared/store/actions/sequence';
 import {

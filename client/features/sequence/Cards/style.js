@@ -3,10 +3,13 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { ShadowColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import {
+  ShadowColors,
+  BasicColors,
+  TextColors,
+} from 'Client/app/assets/vars/Colors';
 import { GreyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const SequenceCardStyle = styled.section`
   position: relative;
@@ -55,6 +58,8 @@ export const SequenceMainTitleStyle = styled(SequenceTitleStyle)`
 export const SequenceAltTitleStyle = styled(SequenceTitleStyle)`
   font-size: 14px;
   margin-bottom: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.12px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
     margin-bottom: 30px;
@@ -81,9 +86,12 @@ export const SequenceProposalStyle = styled.blockquote`
   font-size: 14px;
   font-family: ${MakeFonts.CircularStandardBook};
   text-align: center;
+  line-height: 1.64;
   letter-spacing: 0.11px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 0.12px;
   }
 `;
 
@@ -92,6 +100,7 @@ export const SequenceNextCardButtonStyle = styled(RedButtonStyle)`
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 50%);
+  white-space: nowrap;
 `;
 
 export const SequencePushProposalButtonStyle = styled(RedButtonStyle)`
@@ -117,13 +126,14 @@ export const SequenceSignUpNextButtonStyle = styled(GreyButtonStyle)`
 
 export const SequenceFinalMoreWrapperStyle = styled(CenterColumnStyle)`
   flex: 1;
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    padding-left: 25px;
-  }
 `;
 
-export const SequenceFinalParagraphStyle = styled(ParagraphStyle)`
+export const SequenceParagraphStyle = styled(CenterColumnStyle)`
   width: 100%;
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: 0.12px;
   text-align: center;
   margin-bottom: 20px;
+  color: ${TextColors.DarkGrey};
 `;

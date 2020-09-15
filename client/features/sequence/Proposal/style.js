@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
@@ -8,10 +8,9 @@ export const SequenceAuthorInfosStyle = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 14px;
-  color: ${ShadowColors.BlackZeroFiveOpacity};
-  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 16px;
-  }
+  line-height: 1.57;
+  letter-spacing: 0.12px;
+  color: ${TextColors.DarkGrey};
 `;
 
 export const SequenceInfosWrapperStyle = styled.span`
