@@ -75,8 +75,8 @@ export const Sequence = ({ question }: Props) => {
     ]).then(proposals => {
       setSequenceProposals(proposals || []);
       dispatch(resetSequenceIndex());
+      setLoading(false);
     });
-    setLoading(false);
   }, [question, firstProposal, isLoggedIn]);
 
   useEffect(() => {

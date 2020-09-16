@@ -9,6 +9,10 @@
 		{
 			"name": "Olivier Donze",
 			"email": "od@make.org"
+		},
+		{
+			"name": "Aurélie Tudare",
+			"email": "aurelie.tudare@make.org"
 		}
 	],
 	"main": "index.js",
