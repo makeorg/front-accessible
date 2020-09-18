@@ -39,6 +39,9 @@ Object {
     "questionSlug": undefined,
     "votedProposalIds": Object {},
   },
+  "session": Object {
+    "sessionId": "",
+  },
   "user": Object {
     "authentication": Object {
       "errors": Array [],

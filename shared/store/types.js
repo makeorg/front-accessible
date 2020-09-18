@@ -125,6 +125,9 @@ export type StatePanel = $ReadOnly<{
   isExpanded: boolean,
   panelContent: any,
 }>;
+export type StateSession = $ReadOnly<{
+  sessionId: string,
+}>;
 
 // All state
 export type StateRoot = {
@@ -139,4 +142,5 @@ export type StateRoot = {
   modal: StateModal,
   partners: StatePartners,
   panel: StatePanel,
+  session: StateSession,
 };

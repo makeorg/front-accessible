@@ -575,3 +575,8 @@ export const trackDisplayLegalConsent = () => {
 };
 /* eslint-disable import/no-default-export */
 export default TrackingService;
+
+// session
+export const trackDisplaySessionExpired = () => {
+  TrackingService.sendAllTrackers(trackingConstants.DISPLAY_SESSION_EXPIRED);
+};

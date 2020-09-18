@@ -55,6 +55,9 @@ export const initialState: StateRoot = {
     isExpanded: false,
     panelContent: undefined,
   },
+  session: {
+    sessionId: '',
+  },
 };
 
 export const createInitialState = (): StateRoot =>

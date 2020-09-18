@@ -89,6 +89,7 @@ const initialState = {
       },
     },
   },
+  session: { sessionId: '' },
 };
 
 /* eslint-disable import/no-default-export */

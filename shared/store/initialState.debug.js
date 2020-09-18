@@ -20,4 +20,5 @@ export const initialStateDebug = {
     cards: [],
   },
   currentQuestion: '',
+  session: { sessionId: '' },
 };
