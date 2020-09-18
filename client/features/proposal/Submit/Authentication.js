@@ -43,7 +43,7 @@ export const ProposalAthentication = ({
   handleProposeAPICall,
 }: Props) => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state: StateRoot) =>
+  const { isLoggedIn, user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
   const { country, language } = useSelector(
@@ -60,11 +60,11 @@ export const ProposalAthentication = ({
   }, []);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && user && user.profile) {
       handleProposeAPICall();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoggedIn]);
+  }, [isLoggedIn, user]);
 
   return (
     <ProposalStepWrapperStyle>
