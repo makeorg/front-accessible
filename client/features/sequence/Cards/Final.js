@@ -28,7 +28,7 @@ export const FinalCard = ({ configuration }: Props) => {
 
   useEffect(() => {
     trackDisplayFinalCard();
-    dispach(resetSequenceVotedProposals(currentQuestion));
+    return () => dispach(resetSequenceVotedProposals(currentQuestion));
   }, []);
 
   return (

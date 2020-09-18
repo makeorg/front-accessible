@@ -12,12 +12,9 @@ import {
   ForwardIconStyle,
 } from 'Client/ui/Elements/Buttons/style';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { modalShowLogin } from 'Shared/store/actions/modal';
-import {
-  incrementSequenceIndex,
-  resetSequenceVotedProposals,
-} from 'Shared/store/actions/sequence';
+import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
 import { AuthenticationRegisterButtons } from 'Client/features/auth/Register/Buttons';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { SequenceAltTitleStyle, SequenceSignUpNextButtonStyle } from './style';
@@ -32,11 +29,9 @@ type Props = {
  */
 export const SignUpCard = ({ configuration }: Props) => {
   const dispatch = useDispatch();
-  const currentQuestion: string = useSelector(state => state.currentQuestion);
 
   useEffect(() => {
     trackDisplaySignUpCard();
-    dispatch(resetSequenceVotedProposals(currentQuestion));
   }, []);
 
   return (
