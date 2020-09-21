@@ -9,6 +9,8 @@ import { CloseButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SvgClose } from 'Client/ui/Svg/elements';
 import { ThirdLevelTitleCircularStyle } from 'Client/ui/Elements/TitleElements';
 import SessionExpiredPicture from 'Client/app/assets/images/session-expired.png';
+import { useEffect } from 'react';
+import { trackDisplaySessionExpired } from 'Shared/services/Tracking';
 import {
   ExpirationSessionModalContentStyle,
   ReloadButtonStyle,
@@ -23,6 +25,12 @@ export const ExpirationSessionModal = () => {
   const showExpirationSession: string = useSelector(
     (state: StateRoot) => state.modal.showExpirationSession
   );
+
+  useEffect(() => {
+    if (showExpirationSession) {
+      trackDisplaySessionExpired();
+    }
+  }, [showExpirationSession]);
 
   const handleClose = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();

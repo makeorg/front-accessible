@@ -110,7 +110,7 @@ export const COMPONENT_PARAM_CURRENT_OPERATIONS = 'current-operations';
 export const COMPONENT_PARAM_FAVOURITES = 'favourites';
 export const COMPONENT_PARAM_DETAIL_IDEAS = 'detail-ideas';
 
-//* * home and Browse */
+/** home and Browse */
 export const DISPLAY_HOMEPAGE: string = 'display-page-home';
 export const DISPLAY_BROWSE_CONSULTATIONS = 'display-browse-consultations';
 export const DISPLAY_BROWSE_RESULTS = 'display-browse-results';
@@ -124,3 +124,6 @@ export const CLICK_BROWSE_PARTICIPATE = 'click-button-participate';
 export const CLICK_PAGINATION = 'click-page';
 export const CLICK_RESULTS = 'click-button-results';
 export const CLICK_SUBSCRIBE = 'click-button-susbscribe';
+
+/** Session */
+export const DISPLAY_SESSION_EXPIRED = 'display-sesssion-expired';

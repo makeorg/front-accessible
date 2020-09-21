@@ -10,6 +10,7 @@ describe('ApiServiceClient', () => {
   let apiClient: ApiServiceClient;
   beforeEach(() => {
     jest.spyOn(ApiServiceShared, 'callApi');
+    ApiServiceShared.callApi.mockResolvedValue({});
     getLocationContext.mockImplementation(() => 'unknown_location /');
     apiClient = new ApiServiceClient();
   });

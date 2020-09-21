@@ -22,6 +22,8 @@ export class ApiServiceClient implements IApiServiceStrategy {
 
   _isLogged: boolean = false;
 
+  _headersListeners: Array<(headers: any) => void> = [];
+
   constructor() {
     if (!this._instance) {
       this._instance = this;
@@ -91,6 +93,14 @@ export class ApiServiceClient implements IApiServiceStrategy {
     return this._customData;
   }
 
+  set headersListener(listeners: Array<(headers: Array<any>) => void>) {
+    this._headersListeners = listeners;
+  }
+
+  addHeadersListener(listener: (headers: any) => void) {
+    this._headersListeners.push(listener);
+  }
+
   callApi(url: string, options: Object = {}): Promise<any> {
     const defaultHeaders = {
       'x-make-country': this._country,
@@ -119,10 +129,16 @@ export class ApiServiceClient implements IApiServiceStrategy {
     });
 
     try {
-      return ApiServiceShared.callApi(url, {
+      const response = ApiServiceShared.callApi(url, {
         ...options,
         headers,
       });
+
+      response.then(res =>
+        this._headersListeners.map(listener => listener(res.headers))
+      );
+
+      return response;
     } catch (apiServiceError) {
       if (apiServiceError.status === 401) {
         this._isLogged = false;

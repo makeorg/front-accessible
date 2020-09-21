@@ -106,6 +106,7 @@ const initApp = async state => {
         ...authenticationStateData,
       },
     },
+    session: { sessionId: '' },
     customData: customDataHelper.getAll(), // custom_data already saved in session_storage
   });
 
