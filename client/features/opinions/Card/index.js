@@ -13,6 +13,7 @@ import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements'
 import { scrollToTop } from 'Shared/helpers/styled';
 import { getTopIdeaDetailsLink, getTopIdeasLink } from 'Shared/helpers/url';
 import { ProposalFooterWithQuestionElement } from 'Client/ui/Proposal/FooterElement/ProposalWithQuestion';
+import { useSelector } from 'react-redux';
 import { Commitment } from '../Commitment';
 
 type Props = {
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const { question, topIdea } = opinion;
   const hasAvatars = topIdea.avatars && topIdea.avatars.length > 0;
 
@@ -43,7 +45,7 @@ export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
         <TopIdeaContentStyle
           id={`idea_content_${position}`}
           to={getTopIdeaDetailsLink(
-            question.country,
+            country,
             question.language,
             question.slug,
             topIdea.id
@@ -61,7 +63,7 @@ export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
       <ProposalFooterWithQuestionElement
         question={question}
         consultationLink={getTopIdeasLink(
-          question.country,
+          country,
           question.language,
           question.slug
         )}
