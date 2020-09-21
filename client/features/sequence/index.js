@@ -77,7 +77,7 @@ export const Sequence = ({ question }: Props) => {
       dispatch(resetSequenceIndex());
       setLoading(false);
     });
-  }, [question, firstProposal, isLoggedIn]);
+  }, [question, firstProposal, isLoggedIn, hasProposed]);
 
   useEffect(() => {
     if (!cards.length) {
