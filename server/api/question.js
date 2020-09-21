@@ -8,7 +8,9 @@ const path = require('path');
 const cache = require('memory-cache');
 const { SERVER_DIR } = require('../paths');
 
-export const ALLOWED_URL = env.isDev ? 'http://localhost:3000' : FRONT_URL;
+export const ALLOWED_URL = env.isDev
+  ? 'https://local.makeorg.tech:3000'
+  : FRONT_URL;
 
 export function questionResults(req, res) {
   res.setHeader('Access-Control-Allow-Origin', ALLOWED_URL);
