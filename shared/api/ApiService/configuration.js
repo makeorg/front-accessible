@@ -24,4 +24,6 @@ export const BROWSER_API_URL =
 
 export const API_URL =
   BROWSER_API_URL || process.env.API_URL || 'http://localhost:9000';
-export const NODE_API_BASE = env.isDev() ? 'http://localhost:9009' : '';
+export const NODE_API_BASE = env.isDev()
+  ? 'https://local.makeorg.tech:9009'
+  : '';

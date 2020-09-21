@@ -31,6 +31,8 @@ module.exports = merge(baseConfig, {
     hot: true,
     host: process.env.HOST || '0.0.0.0',
     historyApiFallback: true,
+    disableHostCheck: true,
+    https: true,
   },
   devtool: 'inline-source-map',
 });

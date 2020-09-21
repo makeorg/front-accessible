@@ -5,7 +5,7 @@
 
 #### Start application with auto-reload
 *   yarn start:dev
-*   visit `http://localhost:3000`
+*   visit `https://local.makeorg.tech:3000`
 
 #### Start server with api mock server
 To be independant of the preproduction api you can launch the server and mock api server:
