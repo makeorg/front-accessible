@@ -34,7 +34,7 @@ export type FinalCardConfigType = {|
   enabled: boolean,
   withSharing: boolean,
   title?: string,
-  share?: string,
+  share: string,
   learnMoreTitle?: string,
   learnMoreTextButton?: string,
   linkUrl?: string,

@@ -1,17 +1,14 @@
 // @flow
 import React from 'react';
 import { Sharing as SharingProposal } from 'Client/features/sharing';
-import { i18n } from 'Shared/i18n';
 import { SequenceParagraphStyle } from 'Client/features/sequence/Cards/style';
 import { SequenceShareInnerStyle, SequenceShareSeparatorStyle } from './style';
 
 type Props = {
-  text?: string,
+  text: string,
 };
 
-export const Sharing = ({
-  text = i18n.t('final_card.sharing_text'),
-}: Props) => (
+export const Sharing = ({ text }: Props) => (
   <>
     <SequenceShareInnerStyle>
       {text.split('\n').map(paragraph => (

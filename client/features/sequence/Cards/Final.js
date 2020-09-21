@@ -29,7 +29,12 @@ export const FinalCard = ({ configuration }: Props) => {
   useEffect(() => {
     trackDisplayFinalCard();
     return () => dispach(resetSequenceVotedProposals(currentQuestion));
-  }, []);
+  }, [currentQuestion, dispach]);
+
+  const sharingText =
+    configuration.share === ''
+      ? i18n.t('final_card.sharing_text')
+      : configuration.share;
 
   return (
     <>
@@ -39,7 +44,7 @@ export const FinalCard = ({ configuration }: Props) => {
             ? configuration.title
             : i18n.t('final_card.title')}
         </SequenceAltTitleStyle>
-        <Sharing text={configuration.share} />
+        <Sharing text={sharingText} />
         <SequenceFinalMoreWrapperStyle data-cy-container="final-card-learn-more">
           <SequenceParagraphStyle as="p">
             {configuration.learnMoreTitle
