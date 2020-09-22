@@ -21,23 +21,23 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(255,255,255);
-  background-color: rgb(222,26,66);
+  color: rgba(255,255,255,1);
+  background-color: rgba(222,26,66,1);
 }
 
 .c0 svg,
 .c0 .tofill {
-  fill: rgb(255,255,255);
+  fill: rgba(255,255,255,1);
 }
 
 .c0:disabled {
-  color: rgb(74,74,74);
-  background-color: rgb(229,229,229);
+  color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.05);
 }
 
 .c0:disabled svg,
 .c0:disabled .tofill {
-  fill: rgb(74,74,74);
+  fill: rgba(0,0,0,0.15);
 }
 
 @media (min-width:767px) {
@@ -239,13 +239,13 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   position: absolute;
   top: 20px;
   right: 20px;
-  fill: rgb(222,26,66);
+  fill: rgba(222,26,66,1);
   z-index: 1;
   font-size: 16px;
 }
 
 .c0 .tofill {
-  fill: rgb(102,102,102);
+  fill: rgba(0,0,0,0.65);
 }
 
 @media (min-width:767px) {
@@ -356,17 +356,17 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(74,74,74);
-  background-color: rgb(229,229,229);
+  color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.05);
 }
 
 .c0 svg {
-  fill: rgb(222,26,66);
+  fill: rgba(222,26,66,1);
 }
 
 .c0:hover,
 .c0:focus {
-  color: rgb(74,74,74);
+  color: rgba(0,0,0,0.65);
 }
 
 @media (min-width:767px) {
@@ -680,11 +680,11 @@ exports[`ButtonElements/Styled QualifyButtonStyle snapshot by default 1`] = `
   border-style: solid;
   padding: 0 10px;
   border-radius: 36px;
-  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255,1);
 }
 
 .c0.qualified {
-  color: rgb(255,255,255);
+  color: rgba(255,255,255,1);
 }
 
 @media (min-width:360px) {
@@ -727,12 +727,12 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(255,255,255);
-  background-color: rgb(222,26,66);
+  color: rgba(255,255,255,1);
+  background-color: rgba(222,26,66,1);
 }
 
 .c0 svg {
-  fill: rgb(255,255,255);
+  fill: rgba(255,255,255,1);
 }
 
 @media (min-width:767px) {
@@ -771,7 +771,7 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
   border: none;
   background-color: transparent;
   display: inline-block;
-  color: rgb(222,26,66);
+  color: rgba(222,26,66,1);
   -webkit-text-decoration: underline;
   text-decoration: underline;
   margin: 0 5px;
@@ -883,18 +883,18 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(74,74,74);
-  background-color: rgb(229,229,229);
+  color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.05);
   padding: 5px 15px 2.5px;
 }
 
 .c0 svg {
-  fill: rgb(222,26,66);
+  fill: rgba(222,26,66,1);
 }
 
 .c0:hover,
 .c0:focus {
-  color: rgb(74,74,74);
+  color: rgba(0,0,0,0.65);
 }
 
 @media (min-width:767px) {
@@ -942,13 +942,13 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(255,255,255);
-  background-color: rgb(222,26,66);
+  color: rgba(255,255,255,1);
+  background-color: rgba(222,26,66,1);
   padding: 5px 15px 2.5px;
 }
 
 .c0 svg {
-  fill: rgb(255,255,255);
+  fill: rgba(255,255,255,1);
 }
 
 @media (min-width:767px) {
@@ -1151,7 +1151,7 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
   border-radius: 50%;
   overflow: hidden;
   padding: 0;
-  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255,1);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -1168,19 +1168,19 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
 }
 
 .c0.agree {
-  color: rgb(80,122,31);
-  border-color: rgb(80,122,31);
+  color: rgba(80,122,31,1);
+  border-color: rgba(80,122,31,1);
 }
 
 .c0.disagree {
-  color: rgb(190,24,44);
-  border-color: rgb(190,24,44);
+  color: rgba(190,24,44,1);
+  border-color: rgba(190,24,44,1);
 }
 
 .c0.neutral,
 .c0.other {
-  color: rgb(117,117,117);
-  border-color: rgb(117,117,117);
+  color: rgba(117,117,117,1);
+  border-color: rgba(117,117,117,1);
 }
 
 .c0.animated {
@@ -1198,37 +1198,37 @@ exports[`ButtonElements/Styled VoteButtonStyle snapshot by default 1`] = `
 }
 
 .c0.agree.voted {
-  background-color: rgb(80,122,31);
+  background-color: rgba(80,122,31,1);
 }
 
 .c0.disagree.voted {
-  background-color: rgb(190,24,44);
+  background-color: rgba(190,24,44,1);
 }
 
 .c0.neutral.voted,
 .c0.other.voted {
-  background-color: rgb(117,117,117);
+  background-color: rgba(117,117,117,1);
 }
 
 .c0.agree .tofill {
-  fill: rgb(80,122,31);
+  fill: rgba(80,122,31,1);
 }
 
 .c0.disagree .tofill {
-  fill: rgb(190,24,44);
+  fill: rgba(190,24,44,1);
 }
 
 .c0.neutral .tofill,
 .c0.other .tofill {
-  fill: rgb(117,117,117);
+  fill: rgba(117,117,117,1);
 }
 
 .c0.voted {
-  color: rgb(255,255,255);
+  color: rgba(255,255,255,1);
 }
 
 .c0.voted .tofill {
-  fill: rgb(255,255,255);
+  fill: rgba(255,255,255,1);
 }
 
 .c0.voted:hover,
@@ -1344,12 +1344,12 @@ exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgb(0,0,0);
-  background-color: rgb(255,255,255);
+  color: rgba(0,0,0,1);
+  background-color: rgba(255,255,255,1);
 }
 
 .c0 svg {
-  fill: rgb(0,0,0);
+  fill: rgba(0,0,0,1);
 }
 
 @media (min-width:767px) {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TextColors, BorderColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import {
   PlayfairParagraphStyle,
   ParagraphStyle,
@@ -19,12 +19,12 @@ export const MainResultsHeaderContentStyle = styled.div`
   justify-content: space-between;
   width: 100%;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${BorderColors.LightGrey};
+  border-bottom: 1px solid ${color.greyLighter};
   margin-bottom: 20px;
 `;
 
 export const MainResultsTitleWrapperStyle = styled(ParagraphStyle)`
-  color: ${TextColors.DarkGrey};
+  color: ${color.greyDark};
 `;
 
 export const MainResultsTitleStyle = styled(PlayfairParagraphStyle)`

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
-import { ShadowColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from '../assets/vars/Breakpoints';
 
@@ -44,7 +45,7 @@ export const PanelInnerStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: calc(100% - 65px);
   z-index: 15;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white}
   transition: 0.5s ease-in bottom;
   &.expanded {
     bottom: 0;

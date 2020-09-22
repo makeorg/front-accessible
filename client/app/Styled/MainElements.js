@@ -2,11 +2,7 @@
 
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import {
-  BackgroundColors,
-  BasicColors,
-  BorderColors,
-} from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
@@ -30,9 +26,9 @@ export const ContainerWithPadding = `
 export const AppWrapperStyle = styled(ColumnElementStyle)`
   position: relative;
   min-height: 100vh;
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${color.greyLighter};
   &.white {
-    background-color: ${BasicColors.PureWhite};
+    background-color: ${color.white};
   }
 `;
 
@@ -69,8 +65,8 @@ export const PageContainerStyle = styled(CenterColumnStyle)`
   width: 100%;
   flex: 1 1 auto;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  background-color: ${BasicColors.PureWhite};
-  border: 1px solid ${BorderColors.LightGrey};
+  background-color: ${color.white};
+  border: 1px solid ${color.greyLighter};
   padding: ${intToPx(DefaultPadding.Mobile)};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};

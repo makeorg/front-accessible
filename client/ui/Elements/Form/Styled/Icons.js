@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 
 export const InputIconStyle = styled.span`
   display: flex;
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   font-size: 18px;
   margin-right: 5px;
   svg {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
   }
 `;
 
@@ -21,5 +21,5 @@ export const TextAreaIconStyle = styled(InputIconStyle)`
 `;
 
 export const HidePasswordIconStyle = styled(UnstyledButtonStyle)`
-  color: ${TextColors.MediumGrey};
+  color: ${color.grey};
 `;

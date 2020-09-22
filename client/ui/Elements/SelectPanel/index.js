@@ -48,7 +48,7 @@ export const SelectPanel = ({
         setIsOpened(false);
       }
     },
-    [isOpened]
+    []
   );
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export const SelectPanel = ({
       // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   const togglePanel = event => {
     event.nativeEvent.stopPropagation();

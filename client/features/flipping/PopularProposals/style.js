@@ -1,13 +1,8 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
-import {
-  BackgroundColors,
-  BasicColors,
-  TextColors,
-  ShadowColors,
-  BorderColors,
-} from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   TileWithTitleStyle,
   TileTitleStyle,
@@ -18,7 +13,7 @@ import { Elements } from 'Client/app/assets/vars/Elements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const PopularProposalsSliderWrapperStyle = styled.div`
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${color.greyLighter};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 20px 0;
   &.glider-contain {
@@ -36,11 +31,11 @@ export const PopularProposalsSliderTitleStyle = styled(TileTitleStyle)`
 `;
 
 export const PopularProposalsSliderSeparatorStyle = styled(TileSeparatorStyle)`
-  background-color: ${BorderColors.LightGrey};
+  background-color: ${color.greyLighter};
 `;
 
 export const PopularProposalsWrapperStyle = styled(TileWithTitleStyle)`
-  background-color: ${BackgroundColors.ExtraLightGrey};
+  background-color: ${color.greyLighter};
 `;
 
 export const PopularProposalsSliderListWrapperStyle = styled.div`
@@ -81,8 +76,8 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  color: ${BasicColors.PureWhite};
-  background-color: ${BasicColors.PureBlack};
+  color: ${color.white};
+  background-color: ${color.black};
   position: absolute;
   top: 50%;
   z-index: 10;
@@ -93,14 +88,14 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
     right: 0;
   }
   svg {
-    fill: ${BasicColors.PureWhite};
+    fill: ${color.white};
   }
   &:hover,
   &:focus {
-    color: ${TextColors.MediumGrey};
-    background-color: ${BackgroundColors.ExtraLightGrey};
+    color: ${color.greyDark};
+    background-color: ${color.greyLighter};
     svg {
-      fill: ${TextColors.MediumGrey};
+      fill: ${color.greyDark};
     }
   }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {

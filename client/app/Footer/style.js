@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
-import { BasicColors, BorderColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { SvgExternalLink } from 'Client/ui/Svg/elements';
@@ -18,7 +18,7 @@ export const FooterNavStyle = styled.nav`
   margin: 0 auto;
   padding-top: 20px;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  border-top: 1px solid ${BorderColors.LightGrey};
+  border-top: 1px solid ${color.greyLighter};
 `;
 
 export const FooterItemStyle = styled.li`
@@ -46,7 +46,7 @@ export const FooterLinkIconStyle = styled(SvgExternalLink)`
   height: 12px;
   margin-left: 5px;
   .tofill {
-    fill: ${BasicColors.PureBlack};
+    fill: ${color.black};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 14px;

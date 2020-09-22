@@ -1,5 +1,6 @@
 // @flow
 import { createGlobalStyle } from 'styled-components';
+import { color } from 'athena-design-tokens';
 import {
   NAVIGATION_ARIA_CLASS,
   NAVIGATION_ELEMENT_ARIA_CLASS,
@@ -9,7 +10,6 @@ import {
   FADE_IN_ANIMATION,
 } from 'Shared/constants/a11y';
 import { MakeFonts } from '../vars/Fonts';
-import { BasicColors } from '../vars/Colors';
 
 export const DefaultStylesheet = createGlobalStyle`
   html,
@@ -25,7 +25,7 @@ export const DefaultStylesheet = createGlobalStyle`
 
   body {
     font-family: ${MakeFonts.CircularStandardBook};
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
     &.locked {
       overflow-y: hidden;
     }
@@ -49,14 +49,14 @@ export const DefaultStylesheet = createGlobalStyle`
 
   a {
     font-family: ${MakeFonts.CircularStandardBook};
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
     text-decoration: underline;
   }
 
   input,
   a:hover,
   a:focus {
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
   }
 
   img {
@@ -66,7 +66,7 @@ export const DefaultStylesheet = createGlobalStyle`
 
   label {
     font-family: ${MakeFonts.CircularStandardBold};
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
   }
 
   a,

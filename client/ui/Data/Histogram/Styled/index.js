@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
@@ -37,7 +37,7 @@ export const HistogramLegendColorsStyle = styled.span`
   height: 12.5px;
   margin-left: 10px;
   background-color: ${props =>
-    props.background ? BackgroundColors.MediumGrey : props.theme.color};
+    props.background ? color.grey : props.theme.color};
   ${props =>
     props.background
       ? `background: repeating-linear-gradient(
@@ -51,7 +51,7 @@ export const HistogramListStyle = styled(UnstyledListStyle)`
   height: 200px;
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid ${BasicColors.PureBlack};
+  border-bottom: 1px solid ${color.black};
   padding: 20px ${props => props.itemGap}% 0;
 `;
 

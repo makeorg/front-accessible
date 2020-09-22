@@ -1,6 +1,6 @@
 // @flow
+import { color } from 'athena-design-tokens';
 import { i18n } from 'Shared/i18n';
-import { VoteColors } from 'Client/app/assets/vars/Colors';
 
 export const OPINION_AGREE_KEY: string = 'agree';
 export const OPINION_DISAGREE_KEY: string = 'disagree';
@@ -15,19 +15,19 @@ export const OPINION_TOBEPRECISED_KEY: string = 'toBePrecised';
 export const opinionsVoteStaticParams: Object = {
   [OPINION_AGREE_KEY]: {
     label: i18n.t('personality.opinions.vote.agree'),
-    color: VoteColors.Agree,
+    color: color.agree,
     transform: 'none',
     qualifications: [OPINION_PRIORITY_KEY, OPINION_DOABLE_KEY],
   },
   [OPINION_DISAGREE_KEY]: {
     label: i18n.t('personality.opinions.vote.disagree'),
-    color: VoteColors.Disagree,
+    color: color.disagree,
     transform: 'rotate(180deg) scaleX(-1)',
     qualifications: [OPINION_NOWAY_KEY, OPINION_NONPRIORITY_KEY],
   },
   [OPINION_OTHER_KEY]: {
     label: i18n.t('personality.opinions.vote.other'),
-    color: VoteColors.Neutral,
+    color: color.neutral,
     transform: 'rotate(-90deg)',
     qualifications: [OPINION_EXISTS_KEY, OPINION_TOBEPRECISED_KEY],
   },

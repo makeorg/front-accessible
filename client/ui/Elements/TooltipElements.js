@@ -1,13 +1,13 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { pxToRem } from 'Shared/helpers/styled';
-import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 
 export const TooltipStyle = styled.div`
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
-  background-color: ${BackgroundColors.DarkGrey};
-  color: ${BasicColors.PureWhite};
+  background-color: ${color.greyDark};
+  color: ${color.white};
   font-size: ${pxToRem('12px')};
   text-align: center;
   > :after {
@@ -45,7 +45,7 @@ export const TopTooltipStyle = styled(VerticalTooptipStyle)`
   bottom: calc(100% + ${pxToRem('10px')});
   > :after {
     top: 100%;
-    border-top: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
+    border-top: ${pxToRem('5px')} solid ${color.greyDark};
   }
 `;
 
@@ -53,7 +53,7 @@ export const BottomTooltipStyle = styled(VerticalTooptipStyle)`
   top: calc(100% + ${pxToRem('10px')});
   > :after {
     bottom: 100%;
-    border-bottom: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
+    border-bottom: ${pxToRem('5px')} solid ${color.greyDark};
   }
 `;
 
@@ -61,7 +61,7 @@ export const LeftTooltipStyle = styled(HorizontalTooltipStyle)`
   right: calc(100% + ${pxToRem('10px')});
   > :after {
     left: 100%;
-    border-left: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
+    border-left: ${pxToRem('5px')} solid ${color.greyDark};
   }
 `;
 
@@ -69,6 +69,6 @@ export const RightTooltipStyle = styled(HorizontalTooltipStyle)`
   left: calc(100% + ${pxToRem('10px')});
   > :after {
     right: 100%;
-    border-right: ${pxToRem('5px')} solid ${BackgroundColors.DarkGrey};
+    border-right: ${pxToRem('5px')} solid ${color.greyDark};
   }
 `;

@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import {
-  MakeThemeColors,
-  BackgroundColors,
-  BasicColors,
-  ShadowColors,
-  TextColors,
-} from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { intToPx, pxToPercent } from 'Shared/helpers/styled';
 import {
   Breakpoints,
@@ -33,13 +28,13 @@ const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
 export const ProfileWrapperStyle = styled.div`
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${color.greyLighter};
 `;
 
 export const ProfileHeaderStyle = styled.header`
   height: 100px;
   width: 100%;
-  background-color: ${MakeThemeColors.Blue};
+  background-color: ${color.brandPrimary};
   margin-top: -5px;
 `;
 
@@ -91,7 +86,7 @@ export const ProfilePageSidebarWrapperStyle = styled.div`
 
 export const ProfilePageSidebarStyle = styled(ContentElementStyle)`
   align-items: center;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   padding: 0 20px 20px;
   margin-bottom: 20px;
@@ -114,7 +109,7 @@ export const ProfileContentHeaderStyle = styled.header`
 export const ProfileTitleSeparatorStyle = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${BackgroundColors.MediumGrey};
+  background-color: ${color.grey};
   margin: 5px auto ${intToPx(DefaultPadding.Mobile)};
 `;
 
@@ -124,7 +119,7 @@ export const ProfileTabIconStyle = styled(SvgLike)`
   align-self: center;
   margin-left: 5px;
   .tofill {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 18px;
@@ -181,7 +176,7 @@ export const ProfileTitleStyle = styled.p`
 export const ProfileContentStyle = styled(ParagraphStyle)`
   margin-bottom: 10px;
   svg {
-    fill: ${TextColors.MediumGrey};
+    fill: ${color.darkGrey};
   }
   &:last-child {
     margin-bottom: 0;
@@ -255,9 +250,9 @@ export const ProfileCollapseSeparatorStyle = styled(SeparatorStyle)`
 export const ProfileCollapseButtonStyle = styled(UnstyledButtonStyle)`
   position: relative;
   z-index: 1;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${MakeThemeColors.Red};
+  color: ${color.brandSecondary};
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 10px;

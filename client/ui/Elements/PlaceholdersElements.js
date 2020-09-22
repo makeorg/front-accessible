@@ -1,23 +1,19 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import {
-  MakeThemeColors,
-  BasicColors,
-  ShadowColors,
-  VoteColors,
-} from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { ParagraphStyle } from './ParagraphElements';
 
 export const SvgLikeStyle = {
   width: '72px',
   height: '72px',
   margin: '15px 0 5px',
-  fill: `${MakeThemeColors.Red}`,
+  fill: `${color.brandSecondary}`,
 };
 
 export const LightBulbStyle = {
@@ -36,7 +32,7 @@ export const ThumbsUpStyle = {
 
 export const ThumbsUpWrapperStyle = styled.span`
   .tofill {
-    fill: ${VoteColors.Agree};
+    fill: ${color.agree};
   }
 `;
 
@@ -53,7 +49,7 @@ export const PlaceholderParagraphStyle = styled(ParagraphStyle)`
 export const FavouritesCardStyle = styled.aside`
   width: 100%;
   padding: 20px;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-top: 30px;
 `;

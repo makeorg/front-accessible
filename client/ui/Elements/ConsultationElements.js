@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ConsultationLabelStyle = styled.p`
-  background-color: ${BasicColors.PureBlack};
+  background-color: ${color.black};
   padding: 3px 10px 1px;
   font-size: 12px;
   line-height: 16px;
-  color: ${BasicColors.PureWhite};
+  color: ${color.white};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   text-transform: uppercase;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
