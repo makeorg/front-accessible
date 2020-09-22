@@ -8,18 +8,35 @@ import {
   removeAriaHiddenAndNegativeTab,
   removeAriaHiddenByClass,
 } from 'Shared/helpers/a11y';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   PANEL_ARIA_NEGATIVE_TAB_CLASS,
   PANEL_ARIA_CLASS,
 } from 'Shared/constants/a11y';
-import { PanelWrapperStyle, PanelOverlayStyle, PanelInnerStyle } from './style';
+import {
+  closePanel,
+  removePanelContent,
+} from 'Shared/store/reducers/panel/actions';
+import { i18n } from 'Shared/i18n';
+import {
+  PanelWrapperStyle,
+  PanelOverlayStyle,
+  PanelInnerStyle,
+  PanelCloseButtonStyle,
+  PanelCloseIconStyle,
+} from './style';
 
 export const Panel = () => {
   const panelRef = useRef();
+  const dispatch = useDispatch();
   const { isExpanded, panelContent } = useSelector(
     (state: StateRoot) => state.panel
   );
+
+  const handleCloseAndRemove = () => {
+    dispatch(closePanel());
+    dispatch(removePanelContent());
+  };
 
   useEffect(() => {
     if (!panelRef.current) {
@@ -46,7 +63,18 @@ export const Panel = () => {
 
   return (
     <PanelWrapperStyle ref={panelRef} aria-hidden="true">
-      <PanelOverlayStyle className={isExpanded && 'expanded'} />
+      <PanelOverlayStyle
+        onClick={handleCloseAndRemove}
+        className={isExpanded && 'expanded'}
+        aria-label={i18n.t('common.close_panel')}
+      />
+      <PanelCloseButtonStyle
+        onClick={handleCloseAndRemove}
+        className={isExpanded && 'expanded'}
+        aria-label={i18n.t('common.close_panel')}
+      >
+        <PanelCloseIconStyle aria-hidden />
+      </PanelCloseButtonStyle>
       <PanelInnerStyle className={isExpanded && 'expanded'}>
         {panelContent}
       </PanelInnerStyle>
