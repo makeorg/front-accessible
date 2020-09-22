@@ -23,8 +23,7 @@ import {
   ProposalBackIconWrapperStyle,
   ProposalBackIconStyle,
   ProposalAuthWrapperStyle,
-  ProposalStepTitleStyle,
-  ProposalAuthSubtitleStyle,
+  ProposalAltStepTitleStyle,
   ProposalAuthDisclaimerStyle,
   ProposalAuthSeparatorStyle,
   ProposalAuthLoginStyle,
@@ -76,12 +75,12 @@ export const ProposalAthentication = ({
           {i18n.t('proposal_submit.authentication.button_back')}
         </ProposalBackButtonStyle>
         <ProposalAuthWrapperStyle>
-          <ProposalStepTitleStyle className="center">
+          <ProposalAltStepTitleStyle className="center">
             {i18n.t('proposal_submit.authentication.title')}
-          </ProposalStepTitleStyle>
-          <ProposalAuthSubtitleStyle>
+          </ProposalAltStepTitleStyle>
+          <ProposalAuthDisclaimerStyle className="with-margin-top">
             {i18n.t('proposal_submit.authentication.subtitle')}
-          </ProposalAuthSubtitleStyle>
+          </ProposalAuthDisclaimerStyle>
           <AuthenticationRegisterButtons />
           <ProposalAuthDisclaimerStyle>
             {i18n.t('authentication.commitment')}

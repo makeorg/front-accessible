@@ -13,6 +13,7 @@ import {
   CenterColumnStyle,
   SpaceBetweenRowStyle,
 } from 'Client/ui/Elements/FlexElements';
+import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 
 export const SequenceCardStyle = styled.section`
   position: relative;
@@ -50,11 +51,11 @@ const SequenceTitleStyle = styled.div`
 `;
 
 export const SequenceMainTitleStyle = styled(SequenceTitleStyle)`
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 0.12px;
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    font-size: 24px;
-    margin-bottom: 40px;
+    font-size: 20px;
   }
 `;
 
@@ -91,10 +92,13 @@ export const SequenceProposalStyle = styled.blockquote`
   text-align: center;
   line-height: 1.64;
   letter-spacing: 0.11px;
+  min-height: 82px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 20px;
     line-height: 1.5;
     letter-spacing: 0.12px;
+    min-height: 60px;
+    max-width: 770px;
   }
 `;
 
@@ -107,7 +111,6 @@ export const SequenceNextCardButtonStyle = styled(RedButtonStyle)`
 `;
 
 export const SequencePushProposalButtonStyle = styled(RedButtonStyle)`
-  width: 100%;
   margin: 0 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: auto;
@@ -213,4 +216,9 @@ export const SequencePlaceholderVoteWrapperStyle = styled(SpaceBetweenRowStyle)`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 190px;
   }
+`;
+
+export const SequenceSeparatorStyle = styled(SeparatorStyle)`
+  max-width: 80px;
+  margin: 10px auto 20px;
 `;

@@ -16,8 +16,8 @@ export const SequenceAuthorInfosStyle = styled.div`
 export const SequenceInfosWrapperStyle = styled.span`
   display: inline-flex;
   align-items: center;
-  margin: 45px auto 5px;
+  margin: 50px auto 5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
-    margin: 70px auto 20px;
+    margin: 75px auto 20px;
   }
 `;
