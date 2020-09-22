@@ -23,6 +23,7 @@ import {
   trackDisplayProposalField,
   trackClickProposalSubmit,
   trackClickModerationLink,
+  trackDisplayModerationText,
 } from 'Shared/services/Tracking';
 import { LoadingDots } from 'Client/ui/Elements/Loading/Dots';
 import {
@@ -81,6 +82,8 @@ export const ProposalForm = ({
 
   useEffect(() => {
     trackDisplayProposalField();
+    // @Todo Used to monitor Beta Sequence. Remove with Depreacted Sequence
+    trackDisplayModerationText();
   }, []);
 
   return (

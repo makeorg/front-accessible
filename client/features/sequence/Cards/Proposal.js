@@ -1,7 +1,10 @@
 // @flow
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { trackClickNextCard } from 'Shared/services/Tracking';
+import {
+  trackClickNextOnLastProposal,
+  trackClickNextCard,
+} from 'Shared/services/Tracking';
 import { Vote } from 'Client/features/vote';
 import { i18n } from 'Shared/i18n';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
@@ -55,7 +58,10 @@ export const ProposalCard = ({ proposalCard }: Props) => {
 
   const goToNextCard = () => {
     dispatch(incrementSequenceIndex());
-    trackClickNextCard();
+    if (isLastProposalCard) {
+      return trackClickNextOnLastProposal();
+    }
+    return trackClickNextCard();
   };
 
   return (

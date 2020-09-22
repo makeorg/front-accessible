@@ -30,6 +30,8 @@ export const CLICK_PROPOSAL_UNQUALIFY: string = 'click-proposal-unqualify';
 export const CLICK_SEQUENCE_NEXT_CARD: string = 'click-sequence-next-card';
 export const CLICK_SEQUENCE_PREVIOUS_CARD: string =
   'click-sequence-previous-card';
+export const CLICK_SEQUENCE_LAST_PROPOSAL: string =
+  'click-sequence-last-proposal';
 export const SKIP_SIGNUP_CARD: string = 'skip-sign-up-card';
 export const CLICK_PROPOSAL_PUSH_CARD_IGNORE: string =
   'click-proposal-push-card-ignore';
