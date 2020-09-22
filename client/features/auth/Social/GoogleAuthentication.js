@@ -16,12 +16,13 @@ export const GoogleAuthentication = () => {
 
   /** Google login method callback */
   const handleGoogleLoginCallback = response => {
-    dispatch(loginSocial(GOOGLE_PROVIDER_ENUM, response.tokenId));
+    dispatch(loginSocial(GOOGLE_PROVIDER_ENUM, response.accessToken));
   };
 
   return (
     <GoogleLogin
       clientId={GOOGLE_LOGIN_ID}
+      scope="https://www.googleapis.com/auth/user.birthday.read"
       buttonText="Google"
       onSuccess={handleGoogleLoginCallback}
       onFailure={handleGoogleLoginCallback}

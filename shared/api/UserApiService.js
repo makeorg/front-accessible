@@ -26,7 +26,7 @@ export const PATH_USER_PROPOSALS = '/user/:userId/proposals';
 export const PATH_USER_FAVOURITES = '/user/:userId/votes';
 
 export const FACEBOOK_PROVIDER_ENUM = 'facebook';
-export const GOOGLE_PROVIDER_ENUM = 'google';
+export const GOOGLE_PROVIDER_ENUM = 'google_people';
 
 export class UserApiService {
   /**
