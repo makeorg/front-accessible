@@ -32,7 +32,7 @@ export const FinalCard = ({ configuration }: Props) => {
   }, [currentQuestion, dispach]);
 
   const sharingText =
-    configuration.share === ''
+    configuration.share === '' || !configuration.share
       ? i18n.t('final_card.sharing_text')
       : configuration.share;
 
