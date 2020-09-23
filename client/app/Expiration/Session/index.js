@@ -43,7 +43,13 @@ const SessionExpirationHandler = ({ children, cookies }: Props) => {
   };
 
   apiClient.addHeadersListener(headers => {
-    if (headers['x-session-id'] === sessionId) {
+    // @toDo: use route url instead of header x-route-name
+    if (
+      headers['x-session-id'] === sessionId ||
+      !['voteproposal', 'qualificationproposal'].includes(
+        headers['x-route-name']
+      )
+    ) {
       return;
     }
     dispatch(updateSessionId(headers['x-session-id']));
