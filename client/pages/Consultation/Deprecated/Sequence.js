@@ -1,6 +1,7 @@
 // @flow
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
 import {
@@ -16,7 +17,6 @@ import { DeprecatedProposalSubmit } from 'Client/features/proposal/Deprecated/Pr
 import { DeprecatedSequence } from 'Client/features/sequence/Deprecated';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { showVoteOnlyBanner } from 'Shared/store/actions/notification';
-import { ThemeProvider } from 'styled-components';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import {
   SequencePageContentStyle,

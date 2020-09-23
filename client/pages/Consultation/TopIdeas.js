@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
+import { redirectToNotFoundPage } from 'Shared/helpers/url';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
@@ -17,7 +18,7 @@ import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
 import { MetaTags } from 'Client/app/MetaTags';
 import { ConsultationSidebar } from 'Client/features/consultation/Sidebar';
 import { TopIdeasSkipLinks } from 'Client/app/SkipLinks/TopIdeas';
-import { redirectToNotFoundPage } from 'Shared/helpers/url';
+
 import { MobileDescriptionImage } from 'Client/features/consultation/MobileDescriptionImage';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ThemeProvider } from 'styled-components';
@@ -43,7 +44,6 @@ const TopIdeasPage = () => {
     MUNICIPAL_PERSONALITY_HEADER,
     question.activeFeatures
   );
-
   const initTopIdeas = async () => {
     const results = await TopIdeaService.getTopIdeas(question.questionId, () =>
       redirectToNotFoundPage(question.country, question.language)

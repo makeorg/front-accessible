@@ -1,6 +1,10 @@
 Feature: Browse page
   I want to check the browse page behaviour
 
+  Scenario: Browse consultations page has canonical url
+  Given I go to "browse consultations"
+  Then I see the canonical url "https://make.org/FR-fr/browse/consultations/page/1" of the page 
+
   Scenario: Track display browse consultations page
       Given I monitor API "postTracking" requests
       When I go to "browse consultations"
@@ -31,6 +35,10 @@ Feature: Browse page
         | questionSlug        | question-0-slug                                                      |
         | referrer            | http://localhost:9009/beta/FR-fr/home                                |
         | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/consultation|
+
+  Scenario: Browse results page has canonical url
+  Given I go to "browse results"
+  Then I see the canonical url "https://make.org/FR-fr/browse/results/page/1" of the page 
 
   Scenario: Track display browse results page
       Given I monitor API "postTracking" requests

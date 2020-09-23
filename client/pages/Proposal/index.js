@@ -26,7 +26,6 @@ const ProposalPage = (props: Props) => {
   const { proposalId } = match.params;
   const [proposal, setProposal] = useState<?ProposalType>(undefined);
   const [question, setQuestion] = useState<?QuestionType>(undefined);
-
   useEffect(() => {
     ProposalService.getProposal(proposalId).then(response => {
       setProposal(response || undefined);

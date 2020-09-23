@@ -79,6 +79,16 @@ then('I see the {string} page with {string} as query params', (targetPage, query
   cy.url().should('include', `${pages[targetPage]}?${queryParams}`);
 });
 
+// I see canonical url
+then('I see the canonical url {string} of the page', (CanonicalUrl) =>{
+
+  cy.get(`[data-cy=canonical_url]`)
+  .first()
+  .should('exist')
+  .and('have.attr', 'href')
+  .should('eq', CanonicalUrl)
+})
+
 // I see container
 then ('I see {string} container', containerName => {
   cy.get(`[data-cy-container=${containerName}]`)

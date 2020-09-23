@@ -10,6 +10,10 @@ Feature: The Home Page
     Given I go to "france homepage"
     Then I see "Agir avec Make.org - Make.org" in the title
 
+    Scenario: Homepage has canonical url
+      Given I go to "france homepage"
+      Then I see the canonical url "https://make.org/FR-fr" of the page 
+
   Scenario: Homepage has hero section
     Given I go to "france homepage"
     Then I see "Ensemble, nous avons le pouvoir d'améliorer la société" in "hero-title" container
@@ -52,3 +56,4 @@ Feature: The Home Page
       | question-id   |                                             |
       | referrer      | http://localhost:9009/__/                   |
       | custom-data   |                                             |
+

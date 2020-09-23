@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { ModernNormalizeStylesheet } from 'Client/app/assets/css-in-js/ModernNormalize';
 import { FontFacesStylesheet } from 'Client/app/assets/css-in-js/FontFaces';
 import { DefaultStylesheet } from 'Client/app/assets/css-in-js/DefaultStyle';
@@ -21,37 +20,41 @@ import { SessionExpiration } from './Expiration/Session';
 import { ErrorBoundary, ServiceErrorHandler } from './Error';
 import { MainSkipLinks } from './SkipLinks/Main';
 import { Panel } from './Panel';
+import { CanonicalUrl } from './CanonicalUrl';
 /**
  * Handles App Business Logic
  */
-export const AppContainer = () => (
-  <SecureExpiration>
-    <SessionExpiration>
-      <ServiceErrorHandler>
-        <ErrorBoundary>
-          {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
-          <AppWrapperStyle id="page_wrapper">
-            <ModernNormalizeStylesheet />
-            <FontFacesStylesheet />
-            <DefaultStylesheet />
-            <UIThemeStylesheet />
-            <CookieBanner />
-            <MainSkipLinks />
-            <Header />
-            <AppMainContentStyle
-              id={MAIN_CONTENT}
-              data-cy-container="main"
-              className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
-            >
-              <Notification />
-              <Routes />
-            </AppMainContentStyle>
-            <Modal />
-            <Footer />
-          </AppWrapperStyle>
-          <Panel />
-        </ErrorBoundary>
-      </ServiceErrorHandler>
-    </SessionExpiration>
-  </SecureExpiration>
-);
+export const AppContainer = () => {
+  return (
+    <SecureExpiration>
+      <SessionExpiration>
+        <ServiceErrorHandler>
+          <ErrorBoundary>
+            {/** page_wrapper id is used to set page background color in usePageBackgroundColor hook */}
+            <AppWrapperStyle id="page_wrapper">
+              <CanonicalUrl />
+              <ModernNormalizeStylesheet />
+              <FontFacesStylesheet />
+              <DefaultStylesheet />
+              <UIThemeStylesheet />
+              <CookieBanner />
+              <MainSkipLinks />
+              <Header />
+              <AppMainContentStyle
+                id={MAIN_CONTENT}
+                data-cy-container="main"
+                className={`${NAVIGATION_ARIA_CLASS} ${PANEL_ARIA_CLASS}`}
+              >
+                <Notification />
+                <Routes />
+              </AppMainContentStyle>
+              <Modal />
+              <Footer />
+            </AppWrapperStyle>
+            <Panel />
+          </ErrorBoundary>
+        </ServiceErrorHandler>
+      </SessionExpiration>
+    </SecureExpiration>
+  );
+};

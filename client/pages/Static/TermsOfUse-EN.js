@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { type StateRoot } from 'Shared/store/types';
 import { RedLinkHTMLElementStyle } from 'Client/ui/Elements/LinkElements';
 import { getDataPageLink } from 'Shared/helpers/url';
-import { type StateRoot } from 'Shared/store/types';
 import {
   StaticPageWrapperStyle,
   StaticSecondLevelTitleStyle,
