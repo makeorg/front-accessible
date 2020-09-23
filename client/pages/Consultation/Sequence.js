@@ -5,11 +5,10 @@ import { type QuestionType } from 'Shared/types/question';
 import { useSelector } from 'react-redux';
 import { selectCurrentQuestion } from 'Shared/store/selectors/questions.selector';
 import { trackDisplaySequence } from 'Shared/services/Tracking';
-import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MetaTags } from 'Client/app/MetaTags';
 import { i18n } from 'Shared/i18n';
 import { Sequence } from 'Client/features/sequence/index';
+import { SequencePlaceholder } from 'Client/features/sequence/Placeholder';
 
 const SequencePage = () => {
   const question: QuestionType = useSelector((state: StateRoot) =>
@@ -22,11 +21,7 @@ const SequencePage = () => {
   }, []);
 
   if (!question) {
-    return (
-      <MiddlePageWrapperStyle aria-busy>
-        <Spinner />
-      </MiddlePageWrapperStyle>
-    );
+    return <SequencePlaceholder />;
   }
 
   return (
