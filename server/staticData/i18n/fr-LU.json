@@ -214,7 +214,8 @@
     "vote_count_plural": "{{count}} votes",
     "breadcrumbs": "fil d'ariane",
     "million": "million",
-    "million_plural": "millions"
+    "million_plural": "millions",
+    "close_panel": "Fermer le panneau déroulant"
   },
   "header": {
     "logo_alt": "Aller à l'accueil du site Make.org",
