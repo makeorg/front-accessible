@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -6,7 +6,10 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { color } from 'athena-design-tokens';
 import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { GreyButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
+import {
+  CenterColumnStyle,
+  SpaceBetweenRowStyle,
+} from 'Client/ui/Elements/FlexElements';
 
 export const SequenceCardStyle = styled.section`
   position: relative;
@@ -133,4 +136,78 @@ export const SequenceParagraphStyle = styled(CenterColumnStyle)`
   text-align: center;
   margin-bottom: 20px;
   color: ${color.greyDark};
+`;
+
+const SequenceFadeInAnimation = keyframes`
+  0% { background-color: ${color.greyLighter}; }
+  75% { background-color: ${color.grey}; }
+  100% { background-color: ${color.greyLighter}; }
+`;
+
+export const SequencePlaceholderLineStyle = styled.div`
+  display: flex;
+  height: 20px;
+  width: 100%;
+  animation: ${SequenceFadeInAnimation} 1.5s infinite;
+  &.large {
+    max-width: 225px;
+  }
+  &.medium {
+    max-width: 155px;
+  }
+  &.small {
+    max-width: 75px;
+  }
+  &.name {
+    margin: 60px auto 20px;
+  }
+  &.proposal {
+    margin-bottom: 7px;
+  }
+  &.title {
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+  &.button {
+    max-width: 50px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    &.large,
+    &.title {
+      max-width: 790px;
+    }
+    &.medium {
+      max-width: 375px;
+    }
+  }
+`;
+
+export const SequencePlaceholderRoundStyle = styled.div`
+  display: flex;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  animation: ${SequenceFadeInAnimation} 1.5s infinite;
+  &.avatar {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid ${color.white};
+  }
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    height: 56px;
+    width: 56px;
+  }
+`;
+
+export const SequencePlaceholderVoteWrapperStyle = styled(SpaceBetweenRowStyle)`
+  margin-top: 30px;
+  width: 100%;
+  max-width: 175px;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    max-width: 190px;
+  }
 `;

@@ -81,17 +81,15 @@ export const ProposalCard = ({ proposalCard }: Props) => {
         isSequence
       />
       {isVoted && (
-        <>
-          <SequenceNextCardButtonStyle
-            onClick={goToNextCard}
-            id={`next-button-${proposal.id}`}
-            data-cy-button="next-proposal"
-          >
-            {isLastProposalCard
-              ? i18n.t('proposal_card.validate')
-              : i18n.t('proposal_card.next')}
-          </SequenceNextCardButtonStyle>
-        </>
+        <SequenceNextCardButtonStyle
+          onClick={goToNextCard}
+          id={`next-button-${proposal.id}`}
+          data-cy-button="next-proposal"
+        >
+          {isLastProposalCard
+            ? i18n.t('proposal_card.validate')
+            : i18n.t('proposal_card.next')}
+        </SequenceNextCardButtonStyle>
       )}
     </>
   );

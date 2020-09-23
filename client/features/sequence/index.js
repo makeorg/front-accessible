@@ -20,8 +20,6 @@ import { SequenceService } from 'Shared/services/Sequence';
 import { useLocation } from 'react-router-dom';
 import { ProposalSubmit } from 'Client/features/proposal/Submit';
 import { CARD_TYPE_EXTRASLIDE_PUSH_PROPOSAL } from 'Shared/constants/card';
-
-import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { i18n } from 'Shared/i18n';
 import { SequenceCard } from './Cards';
@@ -32,6 +30,7 @@ import {
   SequenceTitleStyle,
 } from './style';
 import { SequenceProgress } from './Progress';
+import { SequencePlaceholder } from './Placeholder';
 
 export type Props = {
   /** Object with Dynamic properties used to configure the Sequence (questionId, country, ...) */
@@ -112,11 +111,7 @@ export const Sequence = ({ question }: Props) => {
   }, [cards]);
 
   if (!currentCard || isLoading) {
-    return (
-      <SequenceContainerStyle>
-        <Spinner />
-      </SequenceContainerStyle>
-    );
+    return <SequencePlaceholder />;
   }
 
   return (
