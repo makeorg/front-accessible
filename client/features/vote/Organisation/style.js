@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { BackgroundColors, TextColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const OrganisationsVoteWrapperStyle = styled(ParagraphStyle)`
-  border-left: 2px solid ${BackgroundColors.ExtraLightGrey};
-  color: ${TextColors.MediumGrey};
+  border-left: 2px solid ${color.greyLighter};
+  color: ${color.greyDark};
   padding: 0 8px;
 `;

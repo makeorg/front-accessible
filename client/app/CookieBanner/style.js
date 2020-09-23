@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
@@ -17,8 +17,8 @@ import { SvgInfos } from 'Client/ui/Svg/elements';
 
 export const CookieWrapperStyle = styled.section`
   width: 100%;
-  background-color: ${BackgroundColors.Notifications};
-  color: ${BasicColors.PureWhite};
+  background-color: ${color.infos};
+  color: ${color.white};
   padding: ${intToPx(DefaultPadding.Mobile)} 35px
     ${intToPx(DefaultPadding.Mobile)} ${intToPx(DefaultPadding.Mobile)};
 `;
@@ -43,24 +43,24 @@ export const CookieIconStyle = styled(SvgInfos)`
 `;
 
 export const CookieParagraphStyle = styled(ParagraphStyle)`
-  color: ${BasicColors.PureWhite};
+  color: ${color.white};
   flex: 1 1 auto;
   a,
   a:hover,
   a:focus {
     font-family: ${MakeFonts.CircularStandardBold};
-    color: ${BasicColors.PureWhite};
+    color: ${color.white};
   }
 `;
 
 export const CookieButtonStyle = styled(BasicButtonStyle)`
   display: inline-flex;
   margin-top: 15px;
-  background-color: ${BasicColors.PureWhite};
-  color: ${BasicColors.PureBlack};
+  background-color: ${color.white};
+  color: ${color.black};
   padding: 5px 25px 2.5px;
   svg {
-    fill: ${BasicColors.PureBlack};
+    fill: ${color.black};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 10px 30px 7.5px;

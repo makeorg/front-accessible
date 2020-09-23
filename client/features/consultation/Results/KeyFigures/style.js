@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { BackgroundColors, TextColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -17,8 +17,8 @@ export const KeyFiguresListItemStyle = styled.li`
   padding-left: 15px;
   font-size: 12px;
   line-height: 18px;
-  color: ${TextColors.MediumGrey};
-  border-left: 1px solid ${BackgroundColors.ExtraLightGrey};
+  color: ${color.greyDark};
+  border-left: 1px solid ${color.greyLighter};
   &:first-child {
     padding-left: 0;
     border-left: none;

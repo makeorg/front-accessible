@@ -27,13 +27,13 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   font-size: 12px;
   line-height: 22px;
   font-family: 'Circular Standard Bold',Arial,sans-serif;
-  color: rgb(80,122,31);
+  color: rgba(80,122,31,1);
 }
 
 .c4 {
   font-size: 12px;
   line-height: 22px;
-  color: rgb(74,74,74);
+  color: rgba(0,0,0,0.65);
 }
 
 .c1 {
@@ -108,7 +108,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c3"
-        color="rgb(80,122,31)"
+        color="rgba(80,122,31,1)"
       >
         qualification.likeIt
       </span>
@@ -129,7 +129,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c3"
-        color="rgb(80,122,31)"
+        color="rgba(80,122,31,1)"
       >
         qualification.doable
       </span>
@@ -150,7 +150,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
     >
       <span
         className="c3"
-        color="rgb(80,122,31)"
+        color="rgba(80,122,31,1)"
       >
         qualification.platitudeAgree
       </span>

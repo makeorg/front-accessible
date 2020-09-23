@@ -1,11 +1,7 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
-import {
-  TextColors,
-  BorderColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { FlexElementStyle } from '../../FlexElements';
 
@@ -17,7 +13,7 @@ export const CheckboxWrapper = styled(FlexElementStyle)`
 
 export const CheckboxLabelStyle = styled.label`
   display: inline-flex;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 12px;
   line-height: 16px;
@@ -33,11 +29,11 @@ export const FakeCheckboxInputStyle = styled.div`
   width: 14px;
   height: 14px;
   min-width: 14px;
-  border: 1px solid ${BorderColors.MediumGrey};
+  border: 1px solid ${color.grey};
   margin: 2px 8px 0 0;
   z-index: 0;
   svg {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
     position: absolute;
     bottom: 5%;
     left: 25%;

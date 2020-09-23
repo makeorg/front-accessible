@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 
 export const AvatarRowsStyle = styled.div`
@@ -12,7 +12,7 @@ export const AvatarRowsStyle = styled.div`
 export const AvatarStyle = styled.div`
   margin-left: -20px;
   img {
-    border: 2px solid ${BasicColors.PureWhite};
+    border: 2px solid ${color.white};
   }
   &:nth-child(1) {
     margin-left: 0;

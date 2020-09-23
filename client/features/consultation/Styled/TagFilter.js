@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import {
   Breakpoints,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
-import { BorderColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { SvgThumbsUp } from 'Client/ui/Svg/elements';
 
 export const TagSectionTitle = styled(FourthLevelTitleStyle)`
@@ -21,7 +21,7 @@ export const TagIconStyle = styled(SvgThumbsUp)`
   display: inline-flex;
   margin-right: 7.5px;
   .tofill {
-    fill: ${BasicColors.PureBlack};
+    fill: ${color.black};
   }
 `;
 
@@ -46,7 +46,7 @@ export const ResetStyle = styled.span`
 
 export const SeparatorStyle = styled.div`
   padding: 0;
-  color: ${BorderColors.LightGrey};
+  color: ${color.greyLighter};
 
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: 0 15px;

@@ -3,11 +3,8 @@ import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import {
-  ShadowColors,
-  BasicColors,
-  TextColors,
-} from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import { GreyButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   CenterColumnStyle,
@@ -23,7 +20,7 @@ export const SequenceCardStyle = styled.section`
   flex: 1;
   width: 100%;
   padding: 0 20px;
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   border-radius: 8px;
   box-shadow: 0 2px 3px 0 ${ShadowColors.BlackZeroTwoOpacity};
   margin: 20px auto 40px;
@@ -145,13 +142,13 @@ export const SequenceParagraphStyle = styled(CenterColumnStyle)`
   letter-spacing: 0.12px;
   text-align: center;
   margin-bottom: 20px;
-  color: ${TextColors.DarkGrey};
+  color: ${color.greyDark};
 `;
 
 const SequenceFadeInAnimation = keyframes`
-  0% { background-color: ${ShadowColors.BlackZeroOneOpacity}; }
-  75% { background-color: ${ShadowColors.BlackZeroTwoOpacity}; }
-  100% { background-color: ${ShadowColors.BlackZeroOneOpacity}; }
+  0% { background-color: ${color.greyLighter}; }
+  75% { background-color: ${color.grey}; }
+  100% { background-color: ${color.greyLighter}; }
 `;
 
 export const SequencePlaceholderLineStyle = styled.div`
@@ -205,7 +202,7 @@ export const SequencePlaceholderRoundStyle = styled.div`
     top: -6px;
     left: 50%;
     transform: translateX(-50%);
-    border: 3px solid ${BasicColors.PureWhite};
+    border: 3px solid ${color.white};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     height: 56px;

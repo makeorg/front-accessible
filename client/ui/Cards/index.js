@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
+import { ShadowColors } from 'Client/app/assets/vars/Colors';
 import {
   Breakpoints,
   Layouts,
@@ -16,7 +17,7 @@ export const CardStyle = styled.article`
   flex: 1 1 auto;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding: ${intToPx(DefaultPadding.Mobile)};
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     border-radius: ${intToPx(Elements.BorderRadius)};

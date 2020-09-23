@@ -1,7 +1,7 @@
 // @flow
+import { color } from 'athena-design-tokens';
 import { type PieChartDataType } from 'Shared/types/question';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
 
 const offsetCanvasValue = (canvasValue: number, offset: number) => {
   const value = offset > 0 ? canvasValue / offset : 0;
@@ -101,7 +101,7 @@ export const setPercentAsLabel = (
     ? `10px ${MakeFonts.CircularStandardBold}`
     : `15px ${MakeFonts.CircularStandardBold}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
-  ctx.fillStyle = BasicColors.PureBlack;
+  ctx.fillStyle = color.black;
   ctx.fillText(
     hidePercentLabel ? item.label : `${item.percent}%`,
     itemDeltaX,
@@ -124,7 +124,7 @@ export const setMainLabel = (
     ? `8px ${MakeFonts.CircularStandardBook}`
     : `11px ${MakeFonts.CircularStandardBook}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
-  ctx.fillStyle = BasicColors.PureBlack;
+  ctx.fillStyle = color.black;
   ctx.fillText(hidePercentLabel ? '' : item.label, itemDeltaX, labelDeltaY);
 };
 
@@ -142,6 +142,6 @@ export const setSubLabel = (
     ? `8px ${MakeFonts.CircularStandardBook}`
     : `11px ${MakeFonts.CircularStandardBook}`;
   ctx.textAlign = isTextAlignAdjusted || 'center';
-  ctx.fillStyle = BasicColors.PureBlack;
+  ctx.fillStyle = color.black;
   ctx.fillText(item.sublabel, itemDeltaX, sublabelDeltaY);
 };

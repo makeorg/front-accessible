@@ -1,7 +1,7 @@
 import React from 'react';
+import { color } from 'athena-design-tokens';
 import { SvgLike, SvgThumbsUp } from 'Client/ui/Svg/elements';
 import { i18n } from 'Shared/i18n';
-import { VoteColors } from 'Client/app/assets/vars/Colors';
 import { VoteContainerStyle } from 'Client/features/vote/style';
 import {
   VoteResultContainerStyle,
@@ -46,7 +46,7 @@ export const ProfileFavouritesPlaceholder = () => {
           <VoteResultContainerStyle>
             <VoteButtonStyle
               className="agree voted"
-              color={VoteColors.Agree}
+              color={color.agree}
               disabled
             >
               <SvgThumbsUp aria-hidden />
@@ -57,7 +57,7 @@ export const ProfileFavouritesPlaceholder = () => {
                   content={<ResultTooltip votePercent={100} voteKey="agree" />}
                   direction="bottom"
                 >
-                  <VoteResultBarStyle color={VoteColors.Agree} percent={100} />
+                  <VoteResultBarStyle color={color.agree} percent={100} />
                 </Tooltip>
               </VoteResultItemStyle>
               <VoteResultItemStyle>
@@ -65,7 +65,7 @@ export const ProfileFavouritesPlaceholder = () => {
                   content={<ResultTooltip votePercent={0} voteKey="disagree" />}
                   direction="bottom"
                 >
-                  <VoteResultBarStyle color={VoteColors.Disagree} percent={0} />
+                  <VoteResultBarStyle color={color.disagree} percent={0} />
                 </Tooltip>
               </VoteResultItemStyle>
               <VoteResultItemStyle>
@@ -73,7 +73,7 @@ export const ProfileFavouritesPlaceholder = () => {
                   content={<ResultTooltip votePercent={0} voteKey="neutral" />}
                   direction="bottom"
                 >
-                  <VoteResultBarStyle color={VoteColors.Neutral} percent={0} />
+                  <VoteResultBarStyle color={color.neutral} percent={0} />
                 </Tooltip>
               </VoteResultItemStyle>
             </VoteResultGraphStyle>
@@ -84,17 +84,17 @@ export const ProfileFavouritesPlaceholder = () => {
           <SpaceBetweenColumnStyle>
             <QualifyButtonStyle
               className="qualified"
-              color={VoteColors.Agree}
+              color={color.agree}
               disabled
             >
               <span>{i18n.t('qualification.likeIt')}</span>
               <CounterStyle>+1</CounterStyle>
             </QualifyButtonStyle>
-            <QualifyButtonStyle color={VoteColors.Agree} disabled>
+            <QualifyButtonStyle color={color.agree} disabled>
               <span>{i18n.t('qualification.doable')}</span>
               <CounterStyle>+1</CounterStyle>
             </QualifyButtonStyle>
-            <QualifyButtonStyle color={VoteColors.Agree} disabled>
+            <QualifyButtonStyle color={color.agree} disabled>
               <span>{i18n.t('qualification.platitudeAgree')}</span>
               <CounterStyle>+1</CounterStyle>
             </QualifyButtonStyle>

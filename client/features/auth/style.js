@@ -5,8 +5,8 @@ import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { FormCenterAlignStyle } from 'Client/ui/Elements/Form/Styled/Content';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
+import { color } from 'athena-design-tokens';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/V2/style';
-import { TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -65,13 +65,13 @@ export const LegalButtonGroupStyle = styled(SpaceBetweenRowStyle)`
 
 export const LegalCancelStyle = styled(UnstyledButtonStyle)`
   font-size: 16px;
-  color: ${TextColors.AltMediumgrey};
+  color: ${color.greyDark};
   text-decoration: underline;
 `;
 
 export const LegalSubmitStyle = styled(RedButtonStyle)`
   &:disabled {
-    color: ${TextColors.MediumGrey};
-    background-color: ${BackgroundColors.ExtraLightGrey};
+    color: ${color.greyDark};
+    background-color: ${color.greyLighter};
   }
 `;

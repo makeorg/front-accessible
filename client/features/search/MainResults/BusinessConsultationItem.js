@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
+import { color } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
-import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { isInProgress } from 'Shared/helpers/date';
 import { getConsultationLink } from 'Shared/helpers/url';
 import { trackClickHomepageConsultations } from 'Shared/services/Tracking';
@@ -27,7 +27,7 @@ type Props = {
 const businessConsultation = (question, country, language) => (
   <BusinessConsultationsItemStyle
     key={question.slug}
-    backgroundColor={BasicColors.PureWhite}
+    backgroundColor={color.white}
   >
     <BusinessConsultationsItemLinkStyle
       to={
