@@ -55,6 +55,7 @@ import TrackingService, {
   trackDisplayProposalField,
   trackClickBackProposals,
   trackClickKeepVoting,
+  trackClickNextOnLastProposal,
 } from './Tracking';
 import { FacebookTracking } from './Trackers/FacebookTracking';
 import { TwitterTracking } from './Trackers/TwitterTracking';
@@ -525,6 +526,19 @@ describe('Tracking Service', () => {
     const eventName = trackingConstants.CLICK_SEQUENCE_NEXT_CARD;
 
     trackClickNextCard();
+    expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
+    expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
+      1,
+      eventName,
+      eventParameters
+    );
+    expect(TwitterTracking.track).toHaveBeenNthCalledWith(1, eventName);
+  });
+
+  it('track Click Last Proposal Card', () => {
+    const eventName = trackingConstants.CLICK_SEQUENCE_LAST_PROPOSAL;
+
+    trackClickNextOnLastProposal();
     expect(TrackingService.track).toHaveBeenNthCalledWith(1, eventName, {});
     expect(FacebookTracking.trackCustom).toHaveBeenNthCalledWith(
       1,

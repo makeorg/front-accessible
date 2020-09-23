@@ -247,6 +247,12 @@ export const trackClickNextCard = () => {
   TrackingService.sendAllTrackers(trackingConstants.CLICK_SEQUENCE_NEXT_CARD);
 };
 
+export const trackClickNextOnLastProposal = () => {
+  TrackingService.sendAllTrackers(
+    trackingConstants.CLICK_SEQUENCE_LAST_PROPOSAL
+  );
+};
+
 export const trackClickProposalPushCardIgnore = () => {
   TrackingService.sendAllTrackers(
     trackingConstants.CLICK_PROPOSAL_PUSH_CARD_IGNORE
