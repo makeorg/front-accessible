@@ -86,7 +86,7 @@ const selectImageToLoad = (ratio, src1x, src2x, src3x) => {
   return src1x;
 };
 
-const getSrcValues = (useImageFlow, url, width, height) => {
+export const getSrcValues = (useImageFlow, url, width, height) => {
   if (!useImageFlow) {
     return {
       src1x: url,
@@ -95,10 +95,11 @@ const getSrcValues = (useImageFlow, url, width, height) => {
   }
 
   const srcs = getImageFlowSrcs(url, width, height);
+  const sep = srcs.src1x.includes('?') ? '&' : '?';
 
   return {
     ...srcs,
-    placeHolder: `${srcs.src1x}&zoom=0.1`,
+    placeHolder: `${srcs.src1x}${sep}zoom=0.1`,
   };
 };
 
