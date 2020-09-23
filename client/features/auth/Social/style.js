@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
-import { SocialNetworksColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { SvgMailPlain } from 'Client/ui/Svg/elements';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
@@ -29,16 +28,16 @@ export const SocialButtonStyle = styled.button`
 `;
 
 export const FacebookButtonStyle = styled(SocialButtonStyle)`
-  background-color: ${SocialNetworksColors.Facebook};
-  border: 1px solid ${SocialNetworksColors.Facebook};
+  background-color: rgb(0, 123, 237);
+  border: 1px solid rgb(0, 123, 237);
   .tofill {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
 `;
 
 export const GoogleButtonStyle = styled(SocialButtonStyle)`
-  background-color: ${color.white};
-  border: 1px solid ${color.grey};
+  background-color: ${BasicColors.PureWhite};
+  border: 1px solid ${BackgroundColors.MediumGrey};
 `;
 
 export const EmailButtonStyle = styled(RedButtonStyle)`

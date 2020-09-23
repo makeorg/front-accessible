@@ -1,6 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from 'athena-design-tokens';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  BackgroundColors,
+  ShadowColors,
+} from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { SpaceBetweenColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -23,7 +26,7 @@ export const MenuBarStyle = styled.div`
   width: 16px;
   height: 3px;
   border-radius: 1.5px;
-  background-color: ${color.black};
+  background-color: ${BasicColors.PureBlack};
   &.first {
     width: 21px;
   }
@@ -40,7 +43,7 @@ export const MenuPanelStyle = styled.div`
   z-index: 10;
   width: 100vw;
   height: 100vh;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.TaintedWhite};
   box-shadow: 0px 0px 20px ${ShadowColors.BlackZeroEightOpacity};
   transition: 0.5s ease-in left;
   &.expanded {
@@ -58,7 +61,7 @@ export const MenuCloseTriggerStyle = styled(UnstyledButtonStyle)`
   right: 30px;
   z-index: 11;
   &.tofill {
-    fill: ${color.black};
+    fill: ${BasicColors.PureBlack};
   }
 `;
 
@@ -76,7 +79,7 @@ export const MenuItemStyle = styled.li`
   line-height: 67px;
   width: 100%;
   &.white {
-    background-color: ${color.white};
+    background-color: ${BasicColors.PureWhite};
   }
   &.extra-margin-top {
     margin-top: 15px;

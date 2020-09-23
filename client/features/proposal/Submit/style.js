@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import {
   RedButtonStyle,
   GreyNoBackgroundButtonStyle,
@@ -18,6 +17,11 @@ import {
 } from 'Client/ui/Elements/FlexElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import TextareaAutosize from 'react-autosize-textarea/lib';
+import {
+  BackgroundColors,
+  TextColors,
+  BorderColors,
+} from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
@@ -90,7 +94,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
   border: none;
   resize: none;
   max-height: 141px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.TaintedWhite};
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 20px;
   }
@@ -102,7 +106,7 @@ export const ProposalCharCountStyle = styled.span`
   right: 20px;
   font-size: 12px;
   line-height: 1.5;
-  color: ${color.greyDark};
+  color: ${TextColors.BlackWithOpacity};
 `;
 
 export const ProposalExternalLinkStyle = styled.a`
@@ -136,7 +140,7 @@ export const ProposalBackIconWrapperStyle = styled.span`
   display: inline-flex;
   padding: 3px 15px;
   border-radius: 17.5px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.TaintedWhite};
   margin-right: 15px;
 `;
 
@@ -155,7 +159,7 @@ export const ProposalAuthWrapperStyle = styled(ColumnElementStyle)`
 export const ProposalAuthSubtitleStyle = styled.p`
   font-size: 15px;
   line-height: 1.5;
-  color: ${color.greyDark};
+  color: ${TextColors.AltMediumgrey};
   text-align: center;
   margin-top: 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
@@ -166,7 +170,7 @@ export const ProposalAuthSubtitleStyle = styled.p`
 export const ProposalAuthDisclaimerStyle = styled.p`
   font-size: 14px;
   line-height: 1.5;
-  color: ${color.greyDark};
+  color: ${TextColors.BlackWithOpacity};
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
@@ -176,7 +180,7 @@ export const ProposalAuthDisclaimerStyle = styled.p`
 export const ProposalAuthSeparatorStyle = styled.hr`
   width: 100%;
   max-width: 80px;
-  border: 1px solid ${color.greyLighter};
+  border: 1px solid ${BorderColors.LightGrey};
   margin: 25px auto;
 `;
 

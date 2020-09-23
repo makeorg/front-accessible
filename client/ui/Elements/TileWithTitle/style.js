@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { FourthLevelTitleStyle } from '../TitleElements';
 
 export const TileWithTitleStyle = styled.div`
-  background-color: ${props => props.backgroundColor || color.white};
+  background-color: ${props => props.backgroundColor || BasicColors.PureWhite};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 20px;
   padding: 20px;
@@ -31,7 +30,7 @@ export const TileTitleStyle = styled(FourthLevelTitleStyle)`
   display: flex;
   align-items: center;
   .tofill {
-    fill: ${color.black};
+    fill: ${BasicColors.PureBlack};
   }
 `;
 

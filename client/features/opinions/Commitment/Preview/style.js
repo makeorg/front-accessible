@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -39,7 +39,7 @@ export const CommitmentPreviewOpinionsIconWrapperStyle = styled.div`
 
 export const CommitmentPreviewOpinionsParagraphStyle = styled(ParagraphStyle)`
   font-family: ${MakeFonts.CircularStandardBold};
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   span {
     color: ${props => props.color};
   }
@@ -47,8 +47,8 @@ export const CommitmentPreviewOpinionsParagraphStyle = styled(ParagraphStyle)`
 
 export const CommitmentPreviewBoxStyle = styled(ParagraphStyle)`
   width: 100%;
-  background-color: ${color.greyLighter};
-  color: ${color.black};
+  background-color: ${BackgroundColors.TaintedWhite};
+  color: ${BasicColors.PureBlack};
   padding: 20px;
   border-radius: ${intToPx(Elements.BorderRadius)};
   margin-bottom: 15px;
@@ -59,15 +59,15 @@ export const CommitmentPreviewBoxStyle = styled(ParagraphStyle)`
 
 export const CommitmentPreviewDislaimerStyle = styled.div`
   width: 100%;
-  background-color: ${color.infos};
-  color: ${color.white};
+  background-color: ${BackgroundColors.Notifications};
+  color: ${BasicColors.PureWhite};
   padding: 20px;
   border-radius: ${intToPx(Elements.BorderRadius)};
   margin-top: 15px;
 `;
 
 export const CommitmentPreviewParagraphStyle = styled(ParagraphStyle)`
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
 `;
 
 export const CommitmentPreviewButtonsWrapperStyle = styled(FlexElementStyle)`
@@ -92,6 +92,6 @@ export const CommitmentPreviewCancelStyle = styled(UnstyledButtonStyle)`
 `;
 
 export const CommitmentPreviewConfirmStyle = styled(BasicButtonStyle)`
-  background-color: ${color.white};
-  color: ${color.black};
+  background-color: ${BasicColors.PureWhite};
+  color: ${BasicColors.PureBlack};
 `;

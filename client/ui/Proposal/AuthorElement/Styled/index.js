@@ -1,6 +1,11 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
-import { TextColors } from 'Client/app/assets/vars/Colors';
+import {
+  TextColors,
+  BasicColors,
+  StatusColors,
+  BackgroundColors,
+  ShadowColors,
+} from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -9,7 +14,7 @@ import { SvgCheckedSymbol } from 'Client/ui/Svg/elements';
 export const AuthorWrapperStyle = styled.div`
   width: 100%;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${color.greyLighter};
+  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const AuthorDescriptionStyle = styled.div`
@@ -25,7 +30,10 @@ export const AuthorInfosStyle = styled(ParagraphStyle)`
   align-items: center;
   font-size: ${props => (props.isSequence ? '14px' : '12px')};
   line-height: normal;
-  color: ${color.darkGrey};
+  color: ${props =>
+    props.isSequence
+      ? `${ShadowColors.BlackZeroFiveOpacity}`
+      : `${TextColors.MediumGrey}`};
   font-style: normal;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
@@ -38,17 +46,17 @@ export const InfosWrapperStyle = styled.span`
 
 export const ProposalStatusStyle = styled.span`
   font-size: 12px;
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
   padding: 5px 10px;
   &.status-accepted {
-    background-color: ${color.success};
+    background-color: ${StatusColors.Accepted};
   }
   &.status-refused {
-    background-color: ${color.error};
+    background-color: ${StatusColors.Refused};
   }
   &.status-postponed,
   &.status-pending {
-    background-color: ${color.greyLighter};
+    background-color: ${BackgroundColors.ExtraLightGrey};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

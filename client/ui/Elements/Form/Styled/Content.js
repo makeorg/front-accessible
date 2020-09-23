@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import {
+  TextColors,
+  BackgroundColors,
+  BorderColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from '../../ParagraphElements';
 
@@ -28,7 +33,7 @@ export const FormRequirementsStyle = styled.p`
   font-size: 12px;
   line-height: 1.5;
   margin: 2.5px 0 15px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
 `;
 
 export const FakeFieldStyle = styled.div`
@@ -37,10 +42,11 @@ export const FakeFieldStyle = styled.div`
   width: 100%;
   padding: 0 15px;
   border-radius: 30px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.LightGrey};
   border-width: 1px;
   border-style: solid;
-  border-color: ${props => (props.hasError ? color.error : color.grey)};
+  border-color: ${props =>
+    props.hasError ? BorderColors.ErrorRed : BorderColors.LightGrey};
   margin-bottom: 15px;
   &:last-child {
     margin-bottom: 0;
@@ -95,13 +101,13 @@ export const ExtraAltParagraphStyle = styled(InlineParagraphStyle)`
 export const ConditionParagraphStyle = styled(InlineParagraphStyle)`
   margin-bottom: 15px;
   a {
-    color: ${color.brandSecondary};
+    color: ${MakeThemeColors.Red};
   }
 `;
 
 export const FloatingLabelStyle = styled.label`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   font-size: 14px;
   line-height: 38px;
   font-weight: normal;

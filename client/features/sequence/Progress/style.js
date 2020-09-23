@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { SvgPreviousArrowLeft } from 'Client/ui/Svg/elements';
-import { color } from 'athena-design-tokens';
+import {
+  BasicColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
@@ -8,9 +12,9 @@ import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 export const ProgressPreviousButtonStyle = styled(UnstyledButtonStyle)`
   flex: 0;
   padding: 5px 15px;
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   &:disabled {
-    background-color: ${color.grey};
+    background-color: ${BackgroundColors.MediumGrey};
   }
   border-radius: 17.5px;
 `;
@@ -22,7 +26,7 @@ export const ProgressIconStyle = styled(SvgPreviousArrowLeft)`
 export const ProgressCounterStyle = styled.span`
   align-self: center;
   flex: 0;
-  color: ${color.greyDark};
+  color: ${TextColors.BlackWithOpacity};
   font-size: 14px;
   padding: 0 5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -35,8 +39,8 @@ export const ProgressBarWrapperStyle = styled.div`
   flex: 1;
   border-radius: 12.5px;
   overflow: hidden;
-  background-color: ${color.white};
-  border: 1px solid ${color.greyLighter};
+  background-color: ${BasicColors.PureWhite};
+  border: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const ProgressBarStyle = styled.div`

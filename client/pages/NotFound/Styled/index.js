@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   Breakpoints,
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
+import {
+  BackgroundColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { SecondLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 
@@ -23,7 +26,7 @@ export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
   padding: ${intToPx(DefaultPadding.Mobile)};
   max-width: ${intToPx(Layouts.ContainerWidth)};
   max-height: 550px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.NotFoundPage};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     padding: ${intToPx(DefaultPadding.Desktop)};
   }
@@ -31,7 +34,7 @@ export const NotFoundPageInnerStyle = styled(MiddleColumnStyle)`
 
 export const NotFoundIntroStyle = styled.p`
   font-size: 15px;
-  color: ${color.brandSecondary};
+  color: ${MakeThemeColors.Red};
   font-style: italic;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 24px;

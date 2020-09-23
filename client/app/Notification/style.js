@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
   DefaultPadding,
 } from 'Client/app/assets/vars/Breakpoints';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  ShadowColors,
+  BackgroundColors,
+  VoteColors,
+} from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   CloseButtonStyle,
@@ -24,7 +28,7 @@ export const NotificationWrapperStyle = styled.aside`
   width: 100%;
   padding: ${intToPx(DefaultPadding.Mobile)};
   box-shadow: 0 2px 4px 0 ${ShadowColors.BlackZeroFiveOpacity};
-  background-color: ${color.infos};
+  background-color: ${BackgroundColors.Notifications};
   box-shadow: 0 -2px 4px 0 ${ShadowColors.BlackZeroOneOpacity};
   margin-top: -5px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -38,7 +42,7 @@ export const NotificationContentStyle = styled(ParagraphStyle)`
   width: 100%;
   max-width: ${intToPx(Layouts.ContainerWidth)};
   padding-right: ${intToPx(DefaultPadding.Mobile)};
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     align-items: center;
   }
@@ -46,7 +50,7 @@ export const NotificationContentStyle = styled(ParagraphStyle)`
 
 export const NotificationCloseButtonStyle = styled(CloseButtonStyle)`
   .tofill {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     top: 15px;
@@ -64,7 +68,7 @@ export const SvgIconStyle = {
 };
 
 export const SvgCheckStyle = {
-  fill: color.agree,
+  fill: VoteColors.Agree,
   minWidth: '22px',
   marginRight: '10px',
 };

@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import {
+  BasicColors,
+  MakeThemeColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
@@ -20,27 +25,27 @@ export const BasicButtonStyle = `
 `;
 
 const RedStyle = `
-  color: ${color.white};
-  background-color: ${color.brandSecondary};
+  color: ${BasicColors.PureWhite};
+  background-color: ${MakeThemeColors.Red};
   .tofill {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
   &:hover,
   &:focus {
-    color: ${color.white};
+    color: ${BasicColors.PureWhite};
     text-decoration: none;
   }
 `;
 
 const GreyStyle = `
-  color: ${color.greyDark};
-  background-color: ${color.greyLighter};
+  color: ${TextColors.AltMediumgrey};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
   &:hover,
   &:focus {
-    color: ${color.greyDark};
+    color: ${BasicColors.AltMediumgrey};
     text-decoration: none;
   }
 `;
@@ -76,16 +81,16 @@ const ButtonNoBackgroundStyle = `
 `;
 
 const GreyNoBackgroundStyle = `
-  color: ${color.greyDark};
+  color: ${TextColors.AltMediumgrey};
   .tofill {
-    fill: ${color.greyDark};
+    fill: ${TextColors.AltMediumgrey};
   }
 `;
 
 const RedNoBackgroundStyle = `
-  color: ${color.brandSecondary};
+  color: ${MakeThemeColors.Red};
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
 `;
 

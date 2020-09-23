@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BackgroundColors,
+  ShadowColors,
+  BasicColors,
+} from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
@@ -8,7 +11,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const ResultsSliderStyle = styled.div`
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.TaintedWhite};
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
 `;
@@ -25,9 +28,9 @@ export const ResultsSliderArrowsStyle = styled(UnstyledButtonStyle)`
   font-size: 15px;
   transform: translateY(-50%);
   z-index: 2;
-  background-color: ${color.black};
+  background-color: ${BasicColors.PureBlack};
   svg {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
   &.glider-prev {
     left: 0;

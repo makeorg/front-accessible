@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { SpaceBetweenRowStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { SocialNetworksColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  SocialNetworksColors,
+} from 'Client/app/assets/vars/Colors';
 
 export const FollowUsStyle = styled(SpaceBetweenRowStyle)`
   width: 100%;
@@ -24,15 +26,15 @@ export const FollowUsButtonStyle = styled(UnstyledButtonStyle)`
   width: 40px;
   height: 40px;
   font-size: 18px;
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
   border-radius: 50%;
   align-items: center;
   &:hover,
   &:focus {
-    color: ${color.white};
+    color: ${BasicColors.PureWhite};
   }
   svg {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
 `;
 

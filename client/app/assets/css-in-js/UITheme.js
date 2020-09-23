@@ -1,17 +1,16 @@
 /* @flow */
 
 import { createGlobalStyle } from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
-import { ShadowColors } from '../vars/Colors';
+import { MakeThemeColors, ShadowColors, BasicColors } from '../vars/Colors';
 import { Layouts, DefaultPadding, Breakpoints } from '../vars/Breakpoints';
 
 export const UIThemeStylesheet = createGlobalStyle`
   .red-link {
-    color: ${color.brandSecondary};
+    color: ${MakeThemeColors.Red};
     &:hover,
     &:focus {
-      color: ${color.brandSecondary};
+      color: ${MakeThemeColors.Red};
     }
   }
 
@@ -41,7 +40,7 @@ export const UIThemeStylesheet = createGlobalStyle`
     max-width: ${intToPx(Layouts.ContainerWidth)};
     max-height: 100%;
     padding: ${intToPx(DefaultPadding.Mobile)};
-    background-color: ${color.white};
+    background-color: ${BasicColors.PureWhite};
     box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
     overflow-y: auto;
     border-radius: 8px;

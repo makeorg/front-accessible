@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BackgroundColors,
+  ShadowColors,
+  VoteColors,
+} from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -24,7 +27,7 @@ export const ProposalsListItemStyle = styled.li`
   flex: 1;
   align-content: space-between;
   padding: 20px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.TaintedWhite};
   border-radius: ${intToPx(Elements.BorderRadius)};
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
   margin-bottom: 10px;
@@ -39,7 +42,7 @@ export const ProposalsListItemStyle = styled.li`
 export const ProposalAuthorStyle = styled(ParagraphStyle)`
   width: 100%;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${color.greyDark};
+  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const ResultsPositionStyle = styled(ParagraphStyle)`
@@ -51,11 +54,11 @@ const ResultsItemStyle = styled.span`
 `;
 
 export const ResultsLikeItStyle = styled(ResultsItemStyle)`
-  color: ${color.agree};
+  color: ${VoteColors.Agree};
 `;
 
 export const ResultsNoWayStyle = styled(ResultsItemStyle)`
-  color: ${color.disagree};
+  color: ${VoteColors.Disagree};
 `;
 
 export const ResultsProposalIconStyle = styled(SvgLightning)`

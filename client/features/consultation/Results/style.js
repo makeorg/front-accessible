@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { VoteColors } from 'Client/app/assets/vars/Colors';
 import { SvgLightning, SvgThumbsUp } from 'Client/ui/Svg/elements';
 
 export const ResultsIconsStyle = {
@@ -21,6 +21,6 @@ export const ResultsThumbIconStyle = styled(SvgThumbsUp)`
   margin-right: 5px;
   transform: rotate(180deg) scaleX(-1);
   .tofill {
-    fill: ${color.disagree};
+    fill: ${VoteColors.Disagree};
   }
 `;

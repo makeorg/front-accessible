@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   MiddleColumnStyle,
   ColumnElementStyle,
 } from 'Client/ui/Elements/FlexElements';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
@@ -36,7 +36,7 @@ export const HomepageSectionStyle = styled(ColumnElementStyle)`
 export const HomepageSectionTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 30px;
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   margin-bottom: 40px;
   text-transform: none;
   &.with-container {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const BasicInputStyle = styled.input`
@@ -8,7 +8,7 @@ export const BasicInputStyle = styled.input`
   background-color: transparent;
   width: 100%;
   font-family: ${MakeFonts.CircularStandardBold};
-  color: ${color.greyDark};
+  color: ${TextColors.DarkGrey};
   font-size: 16px;
   line-height: 38px;
   padding: 0 5px;

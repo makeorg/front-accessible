@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
-import { color } from 'athena-design-tokens';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
@@ -22,7 +22,7 @@ export const QualificationLabelStyle = styled.span`
 export const QualificationContentStyle = styled.span`
   font-size: 12px;
   line-height: 22px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }

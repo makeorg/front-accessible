@@ -19,7 +19,7 @@ exports[`CardStyle snapshot by default 1`] = `
   flex: 1 1 auto;
   max-width: 1140px;
   padding: 20px;
-  background-color: rgba(255,255,255,1);
+  background-color: rgb(255,255,255);
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
 }
 

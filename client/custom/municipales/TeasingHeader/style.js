@@ -1,11 +1,16 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { intToPx, pxToRem } from 'Shared/helpers/styled';
+import {
+  BasicColors,
+  TextColors,
+  MakeThemeColors,
+  BorderColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
 
 export const TeasingHeaderContainerStyle = styled.div`
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   padding: 18px;
 `;
 
@@ -27,7 +32,7 @@ export const TeasingHeaderCenterStyle = styled.div`
   padding: 20px;
 
   &:nth-child(2) {
-    border-top: 1px solid ${color.greyLighter};
+    border-top: 1px solid ${BorderColors.LightGrey};
   }
 
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -38,7 +43,7 @@ export const TeasingHeaderCenterStyle = styled.div`
     &:nth-child(2) {
       flex: 1;
       border-top: 0;
-      border-left: 1px solid ${color.greyLighter};
+      border-left: 1px solid ${BorderColors.LightGrey};
     }
   }
 `;
@@ -47,15 +52,15 @@ export const TeasingHeaderTextStyle = styled.p`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   font-size: 18px;
   text-transform: uppercase;
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   line-height: ${pxToRem('21px')};
 `;
 
 export const TeasingHeaderSubTextStyle = styled.p`
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   margin-top: 5px;
   a {
     font-family: ${MakeFonts.CircularStandardBold};
-    color: ${color.brandSecondary};
+    color: ${MakeThemeColors.Red};
   }
 `;

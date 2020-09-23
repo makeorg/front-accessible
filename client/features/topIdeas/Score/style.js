@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const ScoringContentStyle = styled.div`
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.LightGrey};
   padding: 20px;
   margin: 0 0 20px 0;
   width: 100%;

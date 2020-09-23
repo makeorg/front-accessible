@@ -2,7 +2,7 @@
 
 import styled, { keyframes } from 'styled-components';
 import { pxToRem } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MiddleColumnStyle } from 'Client/ui/Elements/FlexElements';
 
 export const SpinnerContainerStyle = styled(MiddleColumnStyle)`
@@ -34,10 +34,11 @@ export const SpinnerFirstRingStyle = styled.div`
   width: ${pxToRem('51px')};
   height: ${pxToRem('51px')};
   margin: ${pxToRem('6px')};
-  border: ${pxToRem('6px')} solid ${color.grey};
+  border: ${pxToRem('6px')} solid ${BackgroundColors.MediumGrey};
   border-radius: 50%;
   animation: ${Spinning} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: ${color.grey} transparent transparent transparent;
+  border-color: ${BackgroundColors.MediumGrey} transparent transparent
+    transparent;
 `;
 
 export const SpinnerSecondRingStyle = styled(SpinnerFirstRingStyle)`

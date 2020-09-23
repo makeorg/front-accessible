@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import {
@@ -7,6 +6,7 @@ import {
   SvgHouse,
   SvgBigArrowRight,
 } from 'Client/ui/Svg/elements';
+import { MakeThemeColors, BasicColors } from '../assets/vars/Colors';
 import { MakeFonts } from '../assets/vars/Fonts';
 import { Breakpoints } from '../assets/vars/Breakpoints';
 
@@ -31,13 +31,13 @@ export const BrowseBannerBreadcrumbListStyle = styled.li`
 
 export const BrowseBreadcrumbsLinkStyle = styled(Link)`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   text-decoration: underline;
   font-size: 12px;
   line-height: 20px;
   &:hover,
   &:focus {
-    color: ${color.black};
+    color: ${BasicColors.PureBlack};
   }
 `;
 
@@ -65,7 +65,7 @@ export const BreadcrumbsListStyleDeprecated = styled.ol`
 export const BreadcrumbsListItemStyleDeprecated = styled.li`
   display: inline-flex;
   &.selected > a {
-    color: ${color.black};
+    color: ${BasicColors.PureBlack};
     border-bottom: none;
     cursor: default;
   }
@@ -73,15 +73,15 @@ export const BreadcrumbsListItemStyleDeprecated = styled.li`
 
 export const BreadcrumbsLinkStyleDeprecated = styled(Link)`
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  color: ${color.brandSecondary};
+  color: ${MakeThemeColors.Red};
   text-decoration: none;
   text-transform: uppercase;
   font-size: 16px;
   line-height: 1.25;
-  border-bottom: 2px solid ${color.brandSecondary};
+  border-bottom: 2px solid ${MakeThemeColors.Red};
   &:hover,
   &:focus {
-    color: ${color.brandSecondary};
+    color: ${MakeThemeColors.Red};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;

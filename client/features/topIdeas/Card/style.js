@@ -1,7 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { PopularProposalHeader } from 'Client/features/proposal/PopularProposalCard/style';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
+import {
+  MakeThemeColors,
+  TextColors,
+  VoteColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -23,7 +28,7 @@ export const TopIdeaCardHeaderStyle = styled(PopularProposalHeader)`
   justify-content: space-between;
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBold};
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   margin: -20px -20px 20px -20px;
 `;
 
@@ -31,7 +36,7 @@ export const TopIdeaLinkStyle = styled(RedLinkRouterStyle)`
   display: flex;
   align-items: center;
   svg {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
 `;
 
@@ -74,7 +79,7 @@ export const TopIdeaCardContentStyle = styled.div`
 export const PositionStyle = styled.div`
   display: flex;
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
 `;
 
@@ -89,7 +94,7 @@ export const TopIdeaCollapseWrapperStyle = styled.div`
   flex-direction: column;
   padding-top: 20px;
   margin-top: 10px;
-  border-top: 1px solid ${color.greyLighter};
+  border-top: 1px solid ${BackgroundColors.TaintedWhite};
 `;
 
 export const TopIdeaCollapseContentStyle = styled.div`
@@ -109,7 +114,7 @@ export const TopIdeaCollapseTriggerStyle = styled(UnstyledButtonStyle)`
   order: 1;
   font-size: 12px;
   line-height: 18px;
-  color: ${color.greyDark};
+  color: ${TextColors.AltMediumgrey};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 21px;
@@ -119,7 +124,7 @@ export const TopIdeaCollapseTriggerStyle = styled(UnstyledButtonStyle)`
     line-height: 24px;
   }
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
 `;
 
@@ -147,13 +152,13 @@ export const SvgIdeaStyle = styled(SvgIdea)`
 export const SvgLikeStyle = styled(SvgLike)`
   width: 25px;
   height: 25px;
-  fill: ${color.brandSecondary};
+  fill: ${MakeThemeColors.Red};
 `;
 
 export const SvgThumbsUpStyle = styled(SvgThumbsUp)`
   width: 25px;
   height: 25px;
   .tofill {
-    fill: ${color.agree};
+    fill: ${VoteColors.Agree};
   }
 `;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { color } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import {
   FlexElementStyle,
@@ -10,6 +9,11 @@ import {
 import { SvgBlackArrowDown } from 'Client/ui/Svg/elements/BlackArrowDown';
 import { SvgWhiteArrowDown } from 'Client/ui/Svg/elements/WhiteArrowDown';
 import { Breakpoints, Layouts } from 'Client/app/assets/vars/Breakpoints';
+import {
+  BasicColors,
+  TextColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   LinkAsRedButtonStyle,
@@ -19,7 +23,7 @@ import { Image } from 'Client/ui/Image';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const HeroWrapperStyle = styled(FlexElementStyle)`
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.LightGrey};
 `;
 
 export const HeroContentStyle = styled(FlexElementStyle)`
@@ -52,7 +56,7 @@ export const ColumnToRowToColumnStyle = styled(ColumnToRowElementStyle)`
 export const HeroTitleStyle = styled.h2`
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 36px;
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   margin-bottom: 30px;
   text-transform: none;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -68,7 +72,7 @@ export const HeroDescriptionStyle = styled.p`
   font-size: 14px;
   line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.greyDark};
+  color: ${TextColors.BlackWithOpacity};
   margin-bottom: 40px;
   margin-top: 30px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
@@ -93,11 +97,11 @@ export const HeroTransparentButtonStyle = styled(Link)`
   display: inline-flex;
   align-self: flex-start;
   ${BasicButtonStyle};
-  border: solid 1px ${color.black};
+  border: solid 1px ${BasicColors.PureBlack};
   background-color: transparent;
   &:hover,
   &:focus {
-    color: ${color.black};
+    color: ${BasicColors.PureBlack};
     text-decoration: none;
   }
 `;

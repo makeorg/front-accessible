@@ -4,7 +4,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
 import 'jest-styled-components';
-import '@testing-library/jest-dom';
+import 'jest-dom/extend-expect';
 import { ApiService } from 'Shared/api/ApiService';
 import { ApiServiceMock } from 'Shared/api/ApiService/ApiService.mock';
 
@@ -20,8 +20,8 @@ global.React = React;
 
 ApiService.strategy = new ApiServiceMock();
 
-jest.mock('Shared/services/Trackers/FacebookTracking');
-jest.mock('Shared/services/Trackers/TwitterTracking');
+jest.mock('Shared/services/Trackers/FacebookTracking')
+jest.mock('Shared/services/Trackers/TwitterTracking')
 jest.mock('Shared/constants/config');
 
 window.matchMedia = jest.fn().mockImplementation(query => {

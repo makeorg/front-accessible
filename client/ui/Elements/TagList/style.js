@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import {
+  BasicColors,
+  BackgroundColors,
+  MakeThemeColors,
+  TextColors,
+} from 'Client/app/assets/vars/Colors';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
@@ -9,7 +14,7 @@ import { UnstyledButtonStyle } from '../Buttons/style';
 export const TaglistWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 100%;
   }
@@ -35,9 +40,10 @@ export const TagButtonElementStyle = styled(UnstyledButtonStyle)`
   margin-bottom: 7px;
   border-radius: 3px;
   padding: 7px 15px;
-  color: ${props => (props.isSelected ? color.white : color.black)};
+  color: ${props =>
+    props.isSelected ? BasicColors.PureWhite : BasicColors.PureBlack};
   background-color: ${props =>
-    props.isSelected ? color.brandSecondary : color.white};
+    props.isSelected ? MakeThemeColors.Red : BasicColors.PureWhite};
 `;
 
 export const TagLabelStyle = styled.span`
@@ -49,35 +55,36 @@ export const TagLabelStyle = styled.span`
 export const TagIconStyle = styled(SvgClose)`
   width: 10px;
   .tofill {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
 `;
 
 export const ProposalCountStyle = styled.span`
   margin-left: 5px;
   font-size: 14px;
-  color: ${props => (props.isSelected ? color.white : color.greyDark)};
+  color: ${props =>
+    props.isSelected ? BasicColors.PureWhite : TextColors.MediumGrey};
 `;
 
 export const TagListHeaderStyle = styled.div`
   display: flex;
   order: 1;
   justify-content: space-between;
-  background-color: ${color.greyDark};
-  color: ${color.white};
+  background-color: ${TextColors.MediumGrey};
+  color: ${BasicColors.PureWhite};
   padding: 11px 15px 8px 15px;
   font-size: 12px;
 `;
 
 export const TagElementUnderlinedStyle = styled(UnstyledButtonStyle)`
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
   text-decoration: underline;
 `;
 
 export const TagListFooterStyle = styled.div`
   padding: 33px 10%;
-  background-color: ${color.white};
-  color: ${color.black};
+  background-color: ${BasicColors.PureWhite};
+  color: ${BasicColors.PureBlack};
   text-align: center;
   width: 100%;
   order: 3;

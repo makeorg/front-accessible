@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { DefaultPadding } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BasicColors,
+  MakeThemeColors,
+  ShadowColors,
+} from 'Client/app/assets/vars/Colors';
 
 export const SharingWrapperStyle = styled.aside`
   display: flex;
@@ -38,18 +41,18 @@ export const ExpandSharingStyle = styled(SharingTriggerStyle)`
   z-index: 3;
   right: ${intToPx(DefaultPadding.Desktop)};
   bottom: ${intToPx(DefaultPadding.Desktop)};
-  color: ${color.white};
-  background-color: ${color.brandSecondary};
+  color: ${BasicColors.PureWhite};
+  background-color: ${MakeThemeColors.Red};
   svg {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
 `;
 
 export const CloseSharingStyle = styled(SharingTriggerStyle)`
   margin-top: ${intToPx(DefaultPadding.Desktop)};
-  color: ${color.black};
-  background-color: ${color.white};
+  color: ${BasicColors.PureBlack};
+  background-color: ${BasicColors.PureWhite};
   svg {
-    fill: ${color.black};
+    fill: ${BasicColors.PureBlack};
   }
 `;

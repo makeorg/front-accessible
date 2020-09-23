@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { SeparatorStyle } from 'Client/ui/Elements/Separators';
 import { FourthLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
 import { RedLinkRouterStyle } from 'Client/ui/Elements/LinkElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const CandidateWrapperStyle = styled.div`
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   padding: 15px 0;
 `;
 

@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from 'athena-design-tokens';
 import {
   Breakpoints,
   Layouts,
@@ -11,7 +10,12 @@ import {
   SmallRedButtonStyle,
   SmallGreyButtonStyle,
 } from 'Client/ui/Elements/Buttons/style';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import {
+  BackgroundColors,
+  TextColors,
+  BasicColors,
+  ShadowColors,
+} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
   MiddleColumnStyle,
@@ -46,17 +50,17 @@ export const SequenceStyle = styled.section`
 export const SequenceCollapseArrowStyle = styled(UnstyledButtonStyle)`
   max-width: 85px;
   margin-top: 10px;
-  background-color: ${color.greyLighter};
+  background-color: ${BackgroundColors.ExtraLightGrey};
   border-radius: 50%;
   align-self: center;
   justify-content: center;
   align-items: center;
-  color: ${color.white};
+  color: ${BasicColors.PureWhite};
   padding: 20px;
   z-index: 0;
   font-size: 35px;
   svg {
-    fill: ${color.white};
+    fill: ${BasicColors.PureWhite};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     max-width: 110px;
@@ -109,7 +113,7 @@ export const CardHeaderPreviousButtonStyle = styled(UnstyledButtonStyle)`
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBold};
   font-size: 12px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;
   }
@@ -122,7 +126,7 @@ export const CardHeaderPreviousIconStyle = styled(SvgArrowLeft)`
   margin-right: 5px;
   width: 15px;
   .tofill {
-    fill: ${color.greyDark};
+    fill: ${BackgroundColors.ExtraLightGrey};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 30px;
@@ -215,7 +219,7 @@ export const SequenceFinalLinkStyle = styled(SequenceIntroButtonStyle)`
   text-decoration: none;
   &:hover,
   &:focus {
-    color: ${color.white};
+    color: ${BasicColors.PureWhite};
   }
 `;
 
@@ -233,7 +237,7 @@ const SequenceFadeInAnimation = keyframes`
 export const SequencePlaceholderStyle = styled.div`
   display: block;
   width: 100%;
-  background-color: ${color.black};
+  background-color: ${BasicColors.PureBlack};
   border-radius: 20px;
   opacity: 0.1;
   animation: ${SequenceFadeInAnimation} 1s infinite;
@@ -297,7 +301,7 @@ export const SequenceProposalCardStyle = styled.dd`
   z-index: ${props => props.zindex || 0};
   transform: scaleX(${props => props.scaling || 0})
     translateY(-${props => props.position || 0}px);
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   transition: all 0.75s ease-in;
   box-shadow: 0 0 2px 0 ${ShadowColors.BlackZeroThreeOpacity};
   ${props => (props.isCardCollapsed ? 'transform: translateY(125%);' : '')};
@@ -365,7 +369,7 @@ export const SequenceIntroParagraphStyle = styled.p`
   width: 100%;
   font-size: 12px;
   line-height: 18px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   text-align: center;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
@@ -390,7 +394,7 @@ export const SequenceMoreWrapperStyle = styled(CenterColumnStyle)`
 
 export const SequencePartnerFooterStyle = styled(MiddleColumnToRowStyle)`
   font-size: 12px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   margin: 15px auto 0;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 14px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import {
@@ -27,7 +27,7 @@ export const FooterContentStyle = styled(MiddleColumnToRowStyle)`
 export const DescriptionStyle = styled(ParagraphStyle)`
   width: 100%;
   max-width: 650px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   > span,
   > a {
     font-family: ${MakeFonts.CircularStandardBold};
@@ -77,7 +77,7 @@ export const SharingWrapperStyle = styled(MiddleColumnToRowStyle)`
 
 export const SharingTitleStyle = styled.h2`
   font-size: 13px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   margin: 0 0 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;

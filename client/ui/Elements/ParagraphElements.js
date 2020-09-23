@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
-import { color } from 'athena-design-tokens';
+import { TextColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const ParagraphStyle = styled.p`
   font-size: 12px;
   line-height: 18px;
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
     line-height: 21px;

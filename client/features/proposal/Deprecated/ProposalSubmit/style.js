@@ -1,7 +1,12 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { pxToRem, intToPx } from 'Shared/helpers/styled';
 import TextareaAutosize from 'react-autosize-textarea';
+import {
+  BasicColors,
+  BorderColors,
+  TextColors,
+  MakeThemeColors,
+} from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import {
   MiddleRowStyle,
@@ -34,7 +39,7 @@ export const DescriptionWrapperStyle = styled.div`
   a,
   a:hover,
   a:focus {
-    color: ${color.brandSecondary};
+    color: ${MakeThemeColors.Red};
   }
 `;
 
@@ -44,9 +49,9 @@ export const DeprecatedProposalSubmitFormStyle = styled.form`
   align-items: center;
   width: 100%;
   padding: 0 8px;
-  border: 1px solid ${color.grey};
+  border: 1px solid ${BorderColors.LightGrey};
   border-radius: 26px;
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   ${props =>
     props.isOpen
       ? `
@@ -94,7 +99,7 @@ export const ProposalTextareaStyle = styled(TextareaAutosize)`
 
 export const ProposalCharLimitStyle = styled(MiddleRowStyle)`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   font-size: 12px;
   line-height: 30px;
   padding: 0 2.5px;

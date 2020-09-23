@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { TextColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SvgPreviousArrow, SvgNextArrow } from 'Client/ui/Svg/elements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -15,7 +15,7 @@ export const PaginationTextStyle = styled.span`
   align-self: center;
   font-size: 14px;
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.greyDark};
+  color: ${TextColors.MediumGrey};
   padding: 0px 30px;
 `;
 
@@ -24,10 +24,10 @@ export const PaginationButtonStyle = styled.button`
   border: none;
   padding: 0px;
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
   &:disabled .tofill {
-    fill: ${color.greyDark};
+    fill: ${TextColors.AltMediumgrey};
   }
 `;
 

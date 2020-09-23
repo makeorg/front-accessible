@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { BasicColors, MakeThemeColors } from 'Client/app/assets/vars/Colors';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 import { SvgAngleArrowRight } from 'Client/ui/Svg/elements';
@@ -13,10 +13,10 @@ export const FeaturedLinkStyle = styled.a`
   display: flex;
   align-items: center;
   font-size: 12px;
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
   text-decoration: none;
   background-color: transparent;
-  border: 1px solid ${color.black};
+  border: 1px solid ${BasicColors.PureBlack};
   padding: 10px 15px;
   border-radius: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -29,7 +29,7 @@ export const FeaturedLinkIconStyle = styled(SvgAngleArrowRight)`
   height: 12px;
   margin-left: 15px;
   .tofill {
-    fill: ${color.brandSecondary};
+    fill: ${MakeThemeColors.Red};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 14px;

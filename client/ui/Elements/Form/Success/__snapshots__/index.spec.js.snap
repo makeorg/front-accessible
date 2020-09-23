@@ -22,7 +22,7 @@ exports[`FormSuccessMessage must match the snapshot 1`] = `
     style={
       Object {
         "display": "inline-flex",
-        "fill": "rgba(80,122,31,1)",
+        "fill": "rgb(98, 169, 20)",
         "fontSize": "16px",
         "marginRight": "5px",
       }

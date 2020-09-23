@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { ProposalCardStyle } from 'Client/ui/Elements/ProposalCardElements';
+import { BackgroundColors, BasicColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
@@ -16,15 +16,15 @@ export const PopularProposalWrapperStyle = styled(ProposalCardStyle)`
 
 export const PopularProposalHeader = styled.div`
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${color.black};
-  background-color: ${color.greyLighter};
+  color: ${BasicColors.PureBlack};
+  background-color: ${BackgroundColors.TaintedWhite};
   margin: -20px -20px 10px -20px;
   padding: 11px 20px;
 `;
 
 export const PopularProposalTagStyle = styled.div`
   padding-top: 15px;
-  border-top: 1px solid ${color.greyLighter};
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
   font-family: ${MakeFonts.CircularStandardBold};
   &::first-letter {
     text-transform: uppercase;

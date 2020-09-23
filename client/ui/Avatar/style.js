@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import {
+  BorderColors,
+  BasicColors,
+  BackgroundColors,
+} from 'Client/app/assets/vars/Colors';
 import { intToPx } from 'Shared/helpers/styled';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { Image } from 'Client/ui/Image';
@@ -8,7 +12,8 @@ export const AvatarStyle = styled.span`
   position: ${props => (props.isSequence ? 'absolute' : 'static')};
   top: ${props => (props.isSequence ? '-6px' : '')};
   left: ${props => (props.isSequence ? '50%' : '')};
-  border: ${props => (props.isSequence ? `3px solid ${color.white}` : '')};
+  border: ${props =>
+    props.isSequence ? `3px solid ${BasicColors.PureWhite}` : ''};
   border-radius: ${props => (props.isSequence ? '50%' : '')};
   margin-right: ${props => (props.isSequence ? '' : '10px')};
   transform: ${props => (props.isSequence ? 'translateX(-50%)' : '')};
@@ -22,8 +27,8 @@ export const AvatarImageStyle = styled(Image)`
   height: ${props => intToPx(props.avatarSize)};
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid ${color.greyLighter};
-  background-color: ${color.white};
+  border: 1px solid ${BorderColors.MediumGrey};
+  background-color: ${BasicColors.PureWhite};
 `;
 
 export const PartnerAvatarStyle = styled.span`
@@ -33,8 +38,8 @@ export const PartnerAvatarStyle = styled.span`
   img {
     border-radius: ${intToPx(Elements.BorderRadius)};
     overflow: hidden;
-    border: 1px solid ${color.grey};
-    background-color: ${color.white};
+    border: 1px solid ${BackgroundColors.MediumGrey};
+    background-color: ${BasicColors.PureWhite};
   }
 `;
 
@@ -46,7 +51,7 @@ export const AvatarWithDotsStyle = styled.div`
   width: ${props => intToPx(props.avatarSize)};
   height: ${props => intToPx(props.avatarSize)};
   border-radius: 50%;
-  border: 2px solid ${color.white};
+  border: 2px solid ${BasicColors.PureWhite};
   overflow: hidden;
   background-color: rgb(127, 127, 127);
   box-sizing: content-box;
@@ -56,7 +61,7 @@ export const DotsStyle = styled.span`
   border-radius: 50%;
   width: 3px;
   height: 3px;
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   margin-left: 2px;
   &:nth-child(1) {
     margin-left: 0;

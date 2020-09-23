@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { FormColors } from 'Client/app/assets/vars/Colors';
 
 export const FormSuccessMessageStyle = styled.p`
   display: flex;
@@ -13,5 +13,5 @@ export const FormSuccessSvgStyle = {
   display: 'inline-flex',
   fontSize: '16px',
   marginRight: '5px',
-  fill: color.success,
+  fill: FormColors.Success,
 };

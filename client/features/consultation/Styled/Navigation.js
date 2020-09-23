@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { BasicColors } from 'Client/app/assets/vars/Colors';
 import { Link } from 'react-router-dom';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
@@ -22,7 +22,7 @@ export const ConsultationNavItemStyle = styled.li`
   align-items: center;
   flex: 1;
   padding: 15px;
-  background-color: ${color.white};
+  background-color: ${BasicColors.PureWhite};
   border-top: ${props =>
     props.isSelected
       ? `4px solid ${props.theme.color};`
@@ -36,5 +36,5 @@ export const ConsultationNavLinkStyle = styled(Link)`
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
-  color: ${color.black};
+  color: ${BasicColors.PureBlack};
 `;

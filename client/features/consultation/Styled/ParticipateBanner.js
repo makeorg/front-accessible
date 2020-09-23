@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { ShadowColors } from 'Client/app/assets/vars/Colors';
+import { BasicColors, ShadowColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { ThirdLevelTitleStyle } from 'Client/ui/Elements/TitleElements';
@@ -11,7 +10,9 @@ import { ColumnToRowElementStyle } from 'Client/ui/Elements/FlexElements';
 
 export const ParticipateWrapperStyle = styled.div`
   background-color: ${props =>
-    props.theme.secondaryColor ? props.theme.secondaryColor : color.white};
+    props.theme.secondaryColor
+      ? props.theme.secondaryColor
+      : BasicColors.PureWhite};
   text-decoration: none;
   padding: 20px 40px;
   box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
@@ -46,7 +47,7 @@ export const ParticipateIntroductionStyle = styled(ThirdLevelTitleStyle)`
   color: ${props =>
     props.theme.secondaryFontColor
       ? props.theme.secondaryFontColor
-      : color.black};
+      : BasicColors.PureBlack};
   text-transform: none;
   text-align: center;
   width: 100%;
@@ -78,7 +79,7 @@ export const ParticipateSeparatorStyle = styled.div`
     background-color: ${props =>
       props.theme.secondaryFontColor
         ? props.theme.secondaryFontColor
-        : color.black};
+        : BasicColors.PureBlack};
     opacity: 0.3;
     margin: 0 20px;
   }

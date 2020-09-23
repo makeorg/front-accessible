@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -9,13 +9,13 @@ export const ProposalFooterStyle = styled.div`
   display: inline-block;
   margin-top: 15px;
   padding-top: 15px;
-  border-top: 1px solid ${color.greyLighter};
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const ProposalFooterTagListStyle = styled(UnstyledListStyle)`
   margin-top: 15px;
   padding-top: 15px;
-  border-top: 1px solid ${color.greyLighter};
+  border-top: 1px solid ${BackgroundColors.ExtraLightGrey};
 `;
 
 export const ProposalFooterTagListItemStyle = styled(ParagraphStyle)`

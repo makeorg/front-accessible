@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'athena-design-tokens';
+import { BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { SpaceBetweenColumnToRowStyle } from 'Client/ui/Elements/FlexElements';
 import { intToPx } from 'Shared/helpers/styled';
@@ -9,7 +9,7 @@ export const ResultsDownloadItemStyle = styled(SpaceBetweenColumnToRowStyle)`
   width: 100%;
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid ${color.greyLighter};
+  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
   &:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
