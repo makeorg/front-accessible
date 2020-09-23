@@ -79,6 +79,14 @@ export const ProposalStepTitleStyle = styled.h2`
   }
 `;
 
+export const ProposalAltStepTitleStyle = styled(ProposalStepTitleStyle)`
+  font-size: 14px;
+  letter-spacing: 0.12px;
+  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
+    font-size: 18px;
+  }
+`;
+
 /** Form */
 export const ProposalFieldWrapperStyle = styled.div`
   position: relative;
@@ -156,22 +164,14 @@ export const ProposalAuthWrapperStyle = styled(ColumnElementStyle)`
   }
 `;
 
-export const ProposalAuthSubtitleStyle = styled.p`
-  font-size: 15px;
-  line-height: 1.5;
-  color: ${TextColors.AltMediumgrey};
-  text-align: center;
-  margin-top: 20px;
-  @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    font-size: 20px;
-  }
-`;
-
 export const ProposalAuthDisclaimerStyle = styled.p`
   font-size: 14px;
   line-height: 1.5;
   color: ${TextColors.BlackWithOpacity};
   text-align: center;
+  &.with-margin-top {
+    margin-top: 20px;
+  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     font-size: 16px;
   }
@@ -197,7 +197,7 @@ export const ProposalSuccessWrapperStyle = styled(CenterColumnStyle)`
 `;
 
 export const ProposalSuccessIconStyle = styled(SvgCheckedLightBulb)`
-  margin: 40px auto 30px;
+  margin: 10px auto 30px;
 `;
 
 export const ProposalSuccessTitleStyle = styled.h2`

@@ -16,7 +16,9 @@ export const ProgressPreviousButtonStyle = styled(UnstyledButtonStyle)`
   &:disabled {
     background-color: ${BackgroundColors.MediumGrey};
   }
-  border-radius: 17.5px;
+  &:disabled .tofill {
+    fill: ${BackgroundColors.LightGrey};
+  }
 `;
 
 export const ProgressIconStyle = styled(SvgPreviousArrowLeft)`

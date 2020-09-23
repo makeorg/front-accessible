@@ -17,7 +17,11 @@ import { modalShowLogin } from 'Shared/store/actions/modal';
 import { incrementSequenceIndex } from 'Shared/store/actions/sequence';
 import { AuthenticationRegisterButtons } from 'Client/features/auth/Register/Buttons';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
-import { SequenceAltTitleStyle, SequenceSignUpNextButtonStyle } from './style';
+import {
+  SequenceAltTitleStyle,
+  SequenceSignUpNextButtonStyle,
+  SequenceSeparatorStyle,
+} from './style';
 
 type Props = {
   /** Object with Static properties used to configure the Sign Up Card */
@@ -46,6 +50,7 @@ export const SignUpCard = ({ configuration }: Props) => {
       </ParagraphStyle>
       <CenterColumnStyle>
         <AuthenticationRegisterButtons />
+        <SequenceSeparatorStyle />
         <RedLinkButtonStyle onClick={() => dispatch(modalShowLogin())}>
           {i18n.t('sign_up_card.authentication-link')}
         </RedLinkButtonStyle>
