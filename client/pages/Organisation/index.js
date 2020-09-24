@@ -24,7 +24,6 @@ import {
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import {
-  ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarWrapperStyle,
@@ -113,7 +112,7 @@ const OrganisationPage = (props: Props) => {
   }
 
   return (
-    <ProfileWrapperStyle>
+    <>
       <OrganisationProfileSkipLinks />
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
@@ -209,7 +208,7 @@ const OrganisationPage = (props: Props) => {
           </Switch>
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
-    </ProfileWrapperStyle>
+    </>
   );
 };
 

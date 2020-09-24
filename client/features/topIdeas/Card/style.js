@@ -23,7 +23,7 @@ export const TopIdeaCardHeaderStyle = styled(PopularProposalHeader)`
   justify-content: space-between;
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBold};
-  background-color: ${color.greyLighter};
+  background-color: ${color.grey};
   margin: -20px -20px 20px -20px;
 `;
 

@@ -77,7 +77,7 @@ export const PanelInnerStyle = styled(MiddleColumnStyle)`
   width: 100%;
   height: calc(100% - 65px);
   z-index: 15;
-  background-color: ${color.white}
+  background-color: ${color.white};
   transition: 0.5s ease-in bottom;
   &.expanded {
     bottom: 0;

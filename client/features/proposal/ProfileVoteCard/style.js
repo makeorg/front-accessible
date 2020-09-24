@@ -27,7 +27,7 @@ export const ProfileVoteTitleStyle = styled.div`
   background-color: ${color.white};
   padding: ${intToPx(DefaultPadding.Mobile)};
   width: 100%;
-  box-shadow: 0 1px 1px 0 ${ShadowColors.BlackZeroFiveOpacity};
+  box-shadow: 0 1px 1px 0 ${color.greyLighter};
 `;
 
 export const ProfileHasVotedStyle = styled.div`

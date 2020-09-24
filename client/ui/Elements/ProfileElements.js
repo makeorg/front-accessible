@@ -27,10 +27,6 @@ import { SvgLink, SvgLike } from '../Svg/elements';
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
 
-export const ProfileWrapperStyle = styled.div`
-  background-color: ${color.greyLighter};
-`;
-
 export const ProfileHeaderStyle = styled.header`
   height: 100px;
   width: 100%;

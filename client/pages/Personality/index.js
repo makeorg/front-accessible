@@ -8,7 +8,6 @@ import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import {
-  ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarWrapperStyle,
@@ -69,7 +68,7 @@ const PersonalityPage = ({ match }: Props) => {
   }
 
   return (
-    <ProfileWrapperStyle>
+    <>
       <OrganisationProfileSkipLinks />
       <MetaTags
         title={i18n.t('meta.organisation.positions.title', {
@@ -156,7 +155,7 @@ const PersonalityPage = ({ match }: Props) => {
           <Opinions personality={personality} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
-    </ProfileWrapperStyle>
+    </>
   );
 };
 

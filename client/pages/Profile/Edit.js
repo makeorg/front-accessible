@@ -16,7 +16,6 @@ import { ROUTE_PROFILE_EDIT, getRouteProfile } from 'Shared/routes';
 import { type StateRoot } from 'Shared/store/types';
 import { i18n } from 'Shared/i18n';
 import {
-  ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
@@ -46,7 +45,7 @@ const ProfileEditPage = ({ match }: Props) => {
   );
 
   return (
-    <ProfileWrapperStyle>
+    <>
       <MetaTags title={i18n.t('meta.profile.edit.title')} />
       <ProfileHeaderStyle aria-hidden />
       <ProfilePageContentWrapperStyle>
@@ -75,7 +74,7 @@ const ProfileEditPage = ({ match }: Props) => {
           <DeleteAccount user={user} />
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
-    </ProfileWrapperStyle>
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ import { UnstyledButtonStyle } from '../Buttons/style';
 import { UnstyledListStyle } from '../ListElements';
 
 export const SortedListStyle = styled(UnstyledListStyle)`
-  background-color: ${color.greyLighter};
+  background-color: ${color.white};
   padding: 15px;
   overflow: auto;
   width: 100%;
@@ -43,8 +43,8 @@ export const SortedButtonStyle = styled(UnstyledButtonStyle)`
   justify-content: start;
   align-items: center;
   margin-bottom: 7px;
-  color: ${color.greyDark};
-  background-color: ${color.white};
+  color: ${color.black};
+  background-color: ${color.greyLighter};
   border-radius: 3px;
   padding: 7px 15px;
   font-size: 12px;

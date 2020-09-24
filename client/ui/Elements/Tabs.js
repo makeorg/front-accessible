@@ -53,8 +53,7 @@ const TabStyle = styled.li`
   min-width: 150px;
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  background-color: ${props =>
-    props.isSelected ? 'rgb(247,247,247)' : 'rgb(216,216,216)'};
+  background-color: ${color.white};
   border-top: ${props =>
     props.isSelected ? `4px solid ${color.black}` : `1px solid ${color.black}`};
   border-bottom: ${props =>
@@ -79,7 +78,7 @@ const TabStyle = styled.li`
     padding: ${props => (props.isSelected ? '7px 5px' : '5px')};
     text-decoration: none;
     text-align: center;
-    color: ${color.black};
+    color: ${props => (props.isSelected ? color.black : color.greyDark)};
     text-transform: uppercase;
     &.inline {
       display: inline;

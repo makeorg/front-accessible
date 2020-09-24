@@ -36,7 +36,7 @@ type Props = {
   handleProposeAPICall: () => void,
 };
 
-export const ProposalAthentication = ({
+export const ProposalAuthentication = ({
   handleStepBack,
   handleCancel,
   handleProposeAPICall,

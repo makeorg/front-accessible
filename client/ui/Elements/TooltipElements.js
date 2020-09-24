@@ -6,7 +6,7 @@ export const TooltipStyle = styled.div`
   position: absolute;
   padding: ${pxToRem('5px')} ${pxToRem('10px')};
   z-index: ${props => props.zIndex};
-  background-color: ${color.greyDark};
+  background-color: ${color.infos};
   color: ${color.white};
   font-size: ${pxToRem('12px')};
   text-align: center;

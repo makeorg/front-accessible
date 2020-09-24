@@ -10,6 +10,7 @@ export const ProgressPreviousButtonStyle = styled(UnstyledButtonStyle)`
   padding: 5px 15px;
   border-radius: 17.5px;
   background-color: ${color.white};
+  border-radius: 17.5px;
   &:disabled .tofill {
     fill: ${color.grey};
   }

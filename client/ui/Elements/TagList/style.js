@@ -9,7 +9,7 @@ import { UnstyledButtonStyle } from '../Buttons/style';
 export const TaglistWrapperStyle = styled.div`
   display: flex;
   flex-flow: column;
-  background-color: ${color.greyLighter};
+  background-color: ${color.white};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 100%;
   }
@@ -37,7 +37,7 @@ export const TagButtonElementStyle = styled(UnstyledButtonStyle)`
   padding: 7px 15px;
   color: ${props => (props.isSelected ? color.white : color.black)};
   background-color: ${props =>
-    props.isSelected ? color.brandSecondary : color.white};
+    props.isSelected ? color.brandSecondary : color.greyLighter};
 `;
 
 export const TagLabelStyle = styled.span`
@@ -63,7 +63,7 @@ export const TagListHeaderStyle = styled.div`
   display: flex;
   order: 1;
   justify-content: space-between;
-  background-color: ${color.greyDark};
+  background-color: ${color.infos};
   color: ${color.white};
   padding: 11px 15px 8px 15px;
   font-size: 12px;
