@@ -120,9 +120,13 @@ export const SequencePushProposalButtonStyle = styled(RedButtonStyle)`
 
 export const SequencePushProposalNextButtonStyle = styled(GreyButtonStyle)`
   width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: auto;
     margin: 0 10px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 `;
 
