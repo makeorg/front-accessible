@@ -11,7 +11,6 @@ import { EditProfileLink } from 'Client/features/profile/UserInformations/Naviga
 import { selectAuthentication } from 'Shared/store/selectors/user.selector';
 import { TabNavStyle, TabListStyle, TabStyle } from 'Client/ui/Elements/Tabs';
 import {
-  ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
@@ -58,7 +57,7 @@ const ProfilePage = ({ match }: Props) => {
   );
 
   return (
-    <ProfileWrapperStyle>
+    <>
       <UserProfileSkipLinks />
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
@@ -86,7 +85,7 @@ const ProfilePage = ({ match }: Props) => {
           )}
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
-    </ProfileWrapperStyle>
+    </>
   );
 };
 

@@ -15,7 +15,7 @@ import { ProposalService } from 'Shared/services/Proposal';
 import { modalShowProposalSuccess } from 'Shared/store/actions/modal';
 import { proposeSuccess } from 'Shared/store/actions/proposal';
 import { ProposalForm } from './Form';
-import { ProposalAthentication } from './Authentication';
+import { ProposalAuthentication } from './Authentication';
 
 const steps = {
   AUTHENTICATION_STEP: 'authentication',
@@ -83,7 +83,7 @@ export const ProposalJourney = () => {
 
   if (proposalStep === steps.AUTHENTICATION_STEP) {
     return (
-      <ProposalAthentication
+      <ProposalAuthentication
         handleStepBack={handleStepBack}
         handleCancel={handleCancel}
         handleProposeAPICall={handleProposeAPICall}

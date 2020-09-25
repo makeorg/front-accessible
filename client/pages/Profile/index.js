@@ -26,7 +26,6 @@ import {
   getRouteProfileOpinions,
 } from 'Shared/routes';
 import {
-  ProfileWrapperStyle,
   ProfileHeaderStyle,
   ProfilePageContentWrapperStyle,
   ProfilePageSidebarStyle,
@@ -78,7 +77,7 @@ const ProfilePage = ({ match, location }: Props) => {
   );
 
   return (
-    <ProfileWrapperStyle>
+    <>
       <UserProfileSkipLinks />
       <MetaTags />
       <ProfileHeaderStyle aria-hidden />
@@ -133,7 +132,7 @@ const ProfilePage = ({ match, location }: Props) => {
           </Switch>
         </ProfilePageContentStyle>
       </ProfilePageContentWrapperStyle>
-    </ProfileWrapperStyle>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { getBarHeight, intToPx } from 'Shared/helpers/styled';
 import { CenterColumnStyle } from 'Client/ui/Elements/FlexElements';
 import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
-import { TextColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 
 export const VoteResultStyle = styled.form`
@@ -50,7 +50,7 @@ export const VoteResultBarStyle = styled.button`
 
 export const VoteResultTotalLabelStyle = styled.p`
   font-size: 12px;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   text-align: center;
   margin-top: 5px;
 `;

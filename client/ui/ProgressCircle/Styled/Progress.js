@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -28,12 +28,12 @@ export const ProgressSvgStyle = styled.svg`
 `;
 
 export const ProgressBackgroundStyle = styled.circle`
-  fill: ${BasicColors.PureWhite};
+  fill: ${color.white};
 `;
 
 export const ProgressRingStyle = styled.circle`
   fill: transparent;
-  stroke: ${BackgroundColors.ExtraLightGrey};
+  stroke: ${color.greyLighter};
   stroke-width: 3px;
 `;
 
@@ -55,7 +55,7 @@ export const ProgressCounterStyle = styled(ParagraphStyle)`
 
 export const ProgressActiveCardStyle = styled.span`
   font-size: 12px;
-  color: ${BasicColors.PureBlack};
+  color: ${color.black};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
   }

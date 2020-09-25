@@ -6,7 +6,7 @@ import {
   DefaultPadding,
   Breakpoints,
 } from 'Client/app/assets/vars/Breakpoints';
-import { BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 
 export const ActionsFourthLevelTitleStyle = styled(FourthLevelTitleStyle)`
   text-transform: none;
@@ -28,6 +28,6 @@ export const SupportWrapperStyle = styled.section`
 export const SupportSeparatorStyle = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${BackgroundColors.MediumGrey};
+  background-color: ${color.grey};
   margin: 7px 0 ${intToPx(DefaultPadding.Mobile)};
 `;

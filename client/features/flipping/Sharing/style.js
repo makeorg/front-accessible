@@ -3,20 +3,20 @@ import {
   CenterColumnStyle,
   MiddleRowStyle,
 } from 'Client/ui/Elements/FlexElements';
-import { BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
 
 // @to do : to remove when deprecated sequence doesn't exist anymore
 export const SequenceSharingInnerStyle = styled(CenterColumnStyle)`
   width: 100%;
-  border-bottom: 2px solid ${BackgroundColors.ExtraLightGrey};
+  border-bottom: 2px solid ${color.greyLighter};
   padding: 0 0 10px 0;
   margin-bottom: 10px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 50%;
     border-bottom: none;
-    border-right: 2px solid ${BackgroundColors.ExtraLightGrey};
+    border-right: 2px solid ${color.greyLighter};
     padding: 50px 25px 50px 0;
     margin-bottom: 0;
   }
@@ -36,6 +36,6 @@ export const SequenceShareSeparatorStyle = styled.hr`
   width: 80px;
   height: 2px;
   border-style: none;
-  background-color: ${BackgroundColors.MediumGrey};
+  background-color: ${color.grey};
   margin-bottom: 30px;
 `;

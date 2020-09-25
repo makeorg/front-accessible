@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { intToPx } from 'Shared/helpers/styled';
 import {
   DefaultPadding,
@@ -10,11 +11,6 @@ import {
   ThirdLevelTitleStyle,
   FourthLevelTitleStyle,
 } from 'Client/ui/Elements/TitleElements';
-import {
-  TextColors,
-  BasicColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { SmallSeparatorStyle } from 'Client/ui/Elements/Separators';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
@@ -54,7 +50,7 @@ export const StaticTitleExtra = styled.span`
   text-transform: none;
   font-size: 12px;
   line-height: 2;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
   }
@@ -67,7 +63,7 @@ export const StaticParagraphStyle = styled.p`
   margin: 0 0 15px;
   font-size: 12px;
   line-height: 2;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
   }
@@ -191,7 +187,7 @@ export const StaticSquareListItemStyle = styled.li`
   list-style-type: square;
   font-size: 12px;
   line-height: 2;
-  color: ${TextColors.MediumGrey};
+  color: ${color.greyDark};
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 14px;
   }
@@ -229,7 +225,7 @@ export const NoCookiesSeparatorStyle = styled(SmallSeparatorStyle)`
 `;
 
 export const NoCookiesParagraphStyle = styled(ParagraphStyle)`
-  color: ${BasicColors.PureBlack};
+  color: ${color.black};
   margin-bottom: 15px;
   &.column {
     display: flex;
@@ -248,7 +244,7 @@ export const NoCookiesAltParagraphStyle = styled.p`
   a,
   a:hover,
   a:focus {
-    color: ${MakeThemeColors.Red};
+    color: ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.LargeMobile)}) {
     font-size: 12px;

@@ -5,8 +5,8 @@ Array [
   .c1 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
-  background-color: rgb(51,51,51);
-  color: rgb(255,255,255);
+  background-color: rgba(51,67,91,1);
+  color: rgba(255,255,255,1);
   font-size: 0.75rem;
   text-align: center;
 }
@@ -23,8 +23,8 @@ Array [
 .c0 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
-  background-color: rgb(51,51,51);
-  color: rgb(255,255,255);
+  background-color: rgba(51,67,91,1);
+  color: rgba(255,255,255,1);
   font-size: 0.75rem;
   text-align: center;
   -webkit-transform: translate(-50%,0);
@@ -54,7 +54,7 @@ Array [
 
 .c0 >:after {
   top: 100%;
-  border-top: 0.3125rem solid rgb(51,51,51);
+  border-top: 0.3125rem solid rgba(0,0,0,0.65);
 }
 
 <div

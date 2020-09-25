@@ -1,10 +1,6 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import { CardStyle } from 'Client/ui/Cards';
-import {
-  TextColors,
-  BasicColors,
-  MakeThemeColors,
-} from 'Client/app/assets/vars/Colors';
 
 export const ProfileProposalCardStyle = styled(CardStyle)`
   margin: 15px 0;
@@ -21,14 +17,14 @@ export const ProfileProposalCardStyle = styled(CardStyle)`
   &.proposal-postponed,
   &.proposal-pending {
     * {
-      color: ${TextColors.MediumGrey};
+      color: ${color.greyDark};
     }
     a {
-      color ${MakeThemeColors.Red};
+      color ${color.brandSecondary};
     }
     header,
     .status-refused {
-      color: ${BasicColors.PureWhite};
+      color: ${color.white};
     }
   }
 `;

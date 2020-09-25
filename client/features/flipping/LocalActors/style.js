@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import { TextColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
+import { color } from 'athena-design-tokens';
 import { RedButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
 export const LocalActorItemStyle = styled.li`
   display: flex;
   align-items: center;
-  color: ${TextColors.DarkGrey};
+  color: ${color.greyDark};
   font-size: 12px;
   padding: 20px 0;
-  border-bottom: 1px solid ${BackgroundColors.ExtraLightGrey};
+  border-bottom: 1px solid ${color.greyLighter};
 
   &:nth-child(1) {
     padding-top: 4px;

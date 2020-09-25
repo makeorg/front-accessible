@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import {
   SvgClock,
   SvgPeople,
@@ -6,13 +7,6 @@ import {
   SvgFist,
 } from 'Client/ui/Svg/elements';
 import { Link } from 'react-router-dom';
-import {
-  TextColors,
-  BasicColors,
-  MakeThemeColors,
-  BackgroundColors,
-  ShadowColors,
-} from 'Client/app/assets/vars/Colors';
 import { intToPx, getFullWidthDividedByItems } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
@@ -26,7 +20,7 @@ import { UnstyledButtonStyle } from 'Client/ui/Elements/Buttons/style';
 import { ContainerWithPadding } from 'Client/app/Styled/MainElements';
 
 export const BrowseHeaderStyle = styled.header`
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${color.greyLighter};
 `;
 
 export const BrowseHeaderInnerStyle = styled.header`
@@ -68,17 +62,17 @@ export const BrowseNavLinkStyle = styled(Link)`
   line-height: 1.25;
   text-decoration: none;
   padding-bottom: 8px;
-  color: ${TextColors.BlackWithOpacity};
+  color: ${color.greyDark};
   border-bottom: 2px solid transparent;
   &:hover,
   &:focus {
-    color: ${BasicColors.PureBlack};
+    color: ${color.black};
   }
   &.selected,
   &.selected:hover,
   &.selected:focus {
-    color: ${MakeThemeColors.Red};
-    border-bottom: 2px solid ${MakeThemeColors.Red};
+    color: ${color.brandSecondary};
+    border-bottom: 2px solid ${color.brandSecondary};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 16px;
@@ -88,7 +82,7 @@ export const BrowseNavLinkStyle = styled(Link)`
 `;
 
 export const ConsultationsTitleWrapperStyle = styled(ColumnElementStyle)`
-  background-color: ${BasicColors.PureWhite};
+  background-color: ${color.white};
   ${ContainerWithPadding};
   margin-top: 60px;
   margin-bottom: 40px;
@@ -98,15 +92,15 @@ export const ConsultationsSubtitleStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBook};
   font-size: 14px;
   width: 100%;
-  color: ${ShadowColors.BlackZeroSixOpacity};
+  color: ${color.greyDark};
 `;
 
-const linkStyle = color => `
-  color: ${color};
+const linkStyle = linkColor => `
+  color: ${linkColor};
   font-size: 16px;
   &:hover,
   &:focus {
-    color: ${color};
+    color: ${linkColor};
   }
 `;
 
@@ -147,7 +141,7 @@ export const ConsultationElementPictureStyle = styled(Image)`
 export const ConsultationElementSubtitleStyle = styled.span`
   font-size: 15px;
   text-transform: uppercase;
-  color: ${TextColors.BlackWithOpacity};
+  color: ${color.greyDark};
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
   margin-bottom: 5px;
 `;
@@ -155,7 +149,7 @@ export const ConsultationElementSubtitleStyle = styled.span`
 export const ConsultationElementTitleStyle = styled.h3`
   text-transform: none;
   font-size: 18px;
-  color: ${BasicColors.PureBlack};
+  color: ${color.black};
   font-family: ${MakeFonts.CircularStandardBold};
   line-height: 1.44;
   margin-bottom: 20px;
@@ -196,7 +190,7 @@ export const ConsultationActionIconStyle = styled(SvgFist)`
   min-height: 13px;
   margin-right: 21px;
   .tofill {
-    fill: ${MakeThemeColors.Red};
+    fill: ${color.brandSecondary};
   }
 `;
 
@@ -204,7 +198,7 @@ export const ConsultationElementParagraphStyle = styled.p`
   font-size: 14px;
   line-height: 22px;
   font-family: ${MakeFonts.CircularStandardBook};
-  color: ${TextColors.BlackWithOpacity};
+  color: ${color.greyDark};
   margin-bottom: 20px;
 `;
 
@@ -212,7 +206,7 @@ export const ConsultationItemStyle = styled.span`
   display: block;
   margin-bottom: 5px;
   &.red {
-    color: ${MakeThemeColors.Red};
+    color: ${color.brandSecondary};
   }
   &:last-child {
     margin: 20px 0 0;
@@ -223,7 +217,7 @@ export const ConsultationItemStyle = styled.span`
 `;
 
 export const ConsultationRedLinkElementStyle = styled(Link)`
-  ${linkStyle(MakeThemeColors.Red)};
+  ${linkStyle(color.brandSecondary)};
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
 `;
@@ -235,7 +229,7 @@ export const NoConsultationWrapperStyle = styled(ColumnElementStyle)`
 `;
 
 export const NoConsultationImageStyle = styled(MiddleColumnStyle)`
-  background-color: ${BackgroundColors.LightGrey};
+  background-color: ${color.greyLighter};
   min-height: 174px;
   margin-bottom: 20px;
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
@@ -246,7 +240,7 @@ export const NoConsultationImageStyle = styled(MiddleColumnStyle)`
 
 export const NoConsultationButtonStyle = styled(UnstyledButtonStyle)`
   align-self: flex-start;
-  ${linkStyle(MakeThemeColors.Red)};
+  ${linkStyle(color.brandSecondary)};
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
 `;

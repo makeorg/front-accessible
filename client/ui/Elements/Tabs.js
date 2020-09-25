@@ -1,11 +1,11 @@
 import styled from 'styled-components';
+import { color } from 'athena-design-tokens';
 import {
   Layouts,
   DefaultPadding,
   Breakpoints,
 } from 'Client/app/assets/vars/Breakpoints';
 import { intToPx } from 'Shared/helpers/styled';
-import { BasicColors, BackgroundColors } from 'Client/app/assets/vars/Colors';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 
 export const TabNavStyle = styled.nav`
@@ -23,7 +23,7 @@ export const TabNavStyle = styled.nav`
     display: block;
     width: 100%;
     height: 1px;
-    background-color: ${BasicColors.PureBlack};
+    background-color: ${color.black};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     margin-bottom: ${intToPx(DefaultPadding.Desktop)};
@@ -53,18 +53,15 @@ const TabStyle = styled.li`
   min-width: 150px;
   text-transform: uppercase;
   font-family: ${MakeFonts.TradeGothicBoldCondensed};
-  background-color: ${props =>
-    props.isSelected ? BackgroundColors.LightGrey : 'rgb(216,216,216)'};
+  background-color: ${color.white};
   border-top: ${props =>
-    props.isSelected
-      ? `4px solid ${BasicColors.PureBlack}`
-      : `1px solid ${BasicColors.PureBlack}`};
+    props.isSelected ? `4px solid ${color.black}` : `1px solid ${color.black}`};
   border-bottom: ${props =>
     props.isSelected
-      ? `1px solid ${BackgroundColors.LightGrey}`
-      : `1px solid ${BasicColors.PureBlack}`};
-  border-left: 1px solid ${BasicColors.PureBlack};
-  border-right: 1px solid ${BasicColors.PureBlack};
+      ? `1px solid ${color.greyLighter}`
+      : `1px solid ${color.black}`};
+  border-left: 1px solid ${color.black};
+  border-right: 1px solid ${color.black};
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     flex-flow: row;
   }
@@ -81,7 +78,7 @@ const TabStyle = styled.li`
     padding: ${props => (props.isSelected ? '7px 5px' : '5px')};
     text-decoration: none;
     text-align: center;
-    color: ${BasicColors.PureBlack};
+    color: ${props => (props.isSelected ? color.black : color.greyDark)};
     text-transform: uppercase;
     &.inline {
       display: inline;
