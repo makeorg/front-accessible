@@ -4,6 +4,7 @@ import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Link } from 'react-router-dom';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { SvgExternalLinkPlain } from 'Client/ui/Svg/elements';
 import { UnstyledButtonStyle } from '../style';
 
 export const BasicButtonStyle = `
@@ -64,6 +65,12 @@ export const LinkAsRedButtonStyle = styled(Link)`
   &:disabled {
     ${GreyStyle};
   }
+`;
+
+export const ExternalLinkIconStyle = styled(SvgExternalLinkPlain)`
+  width: 14px;
+  height: 14px;
+  margin-left: 7px;
 `;
 
 const ButtonNoBackgroundStyle = `

@@ -894,7 +894,10 @@
       "see_all": "Voir toute l'actualité"
     },
     "partnership": {
-      "subtitle": "Devenir partenaire"
+      "title": "Collaborez avec Make.org",
+      "subtitle": "Devenir partenaire",
+      "description": "Nous travaillons avec des entreprises, associations, institutions pour faire avancer nos projets. <br/>Nous accompagnons également ces organisations pour leur permettre de lancer leurs propres consultations.",
+      "button": "Voir nos offres"
     }
   },
   "search": {

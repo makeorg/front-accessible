@@ -12,7 +12,7 @@ export const addSearchDesktopHidden = (animationTiming?: number = 250) => {
   const menuItemsArray = Array.from(menuItemsCollection);
   const searchForm = document.querySelector(`#search`);
 
-  if (!menuItemsCollection || menuItemsArray.length === 0) {
+  if (!menuItemsCollection || menuItemsArray.length === 0 || !searchForm) {
     return undefined;
   }
 
@@ -35,7 +35,7 @@ export const removeSearchDesktopHidden = (animationTiming?: number = 250) => {
   const menuItemsArray = Array.from(menuItemsCollection);
   const searchForm = document.querySelector(`#search`);
 
-  if (!menuItemsCollection || menuItemsArray.length === 0) {
+  if (!menuItemsCollection || menuItemsArray.length === 0 || !searchForm) {
     return undefined;
   }
 

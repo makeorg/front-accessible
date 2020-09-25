@@ -14,7 +14,7 @@ import {
 import { i18n } from 'Shared/i18n';
 import { ABOUT_MAKE_LINK } from 'Shared/constants/url';
 import { HomepagePageInnerStyle } from 'Client/pages/Home/style';
-import { FeaturedIconStyle } from './style';
+import { ExternalLinkIconStyle } from 'Client/ui/Elements/Buttons/V2/style';
 import { CurrentQuestionsButtonStyle } from '../../CurrentQuestions/style';
 
 type Props = {
@@ -64,7 +64,9 @@ export const FeaturedPosts = ({ posts }: Props) => {
           data-cy-link="see-blog"
         >
           {i18n.t('homepage.posts.see_all')}
-          <FeaturedIconStyle aria-label={i18n.t('common.open_new_window')} />
+          <ExternalLinkIconStyle
+            aria-label={i18n.t('common.open_new_window')}
+          />
         </CurrentQuestionsButtonStyle>
       </HomepagePageInnerStyle>
     </>

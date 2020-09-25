@@ -35,6 +35,7 @@ export const PartnerAvatarStyle = styled.span`
     overflow: hidden;
     border: 1px solid ${color.grey};
     background-color: ${color.white};
+    margin: 0 auto;
   }
 `;
 
