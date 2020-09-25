@@ -21,7 +21,7 @@ Feature: The footer
   
   Scenario: Footer is complete
     Given I go to "homepage"
-    Then I see an external link "Espace presse" to "https://about.make.org/les-medias-en-parlent" in "footer" container
+    Then I see an external link "Revue de presse" to "https://about.make.org/les-medias-en-parlent" in "footer" container
     And I see an external link "Fonds de dotation Make.org" to "https://foundation.make.org" in "footer" container
     And I see a link "Contact" to "/FR-fr/contact" in "footer" container
     And I see a link "Mentions légales" to "/FR-fr/mentions-legales" in "footer" container
