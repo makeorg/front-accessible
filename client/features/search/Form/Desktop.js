@@ -20,7 +20,7 @@ export const DesktopSearchInput = () => {
 
   return (
     <>
-      <SearchForm isExpanded={isExpanded} handleFocus={expandDesktop} />
+      <SearchForm handleFocus={expandDesktop} />
       {isExpanded && (
         <SearchFormCancelTriggerStyle
           className="close-trigger"

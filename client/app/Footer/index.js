@@ -9,7 +9,7 @@ import {
   JOBS_LINK,
   NEWS_LINK,
   DOTATION_FUNDS_LINK,
-  PRESS_DETAILS,
+  PRESS_DETAILS_LINK,
 } from 'Shared/constants/url';
 import {
   getLegalPageLink,
@@ -90,7 +90,7 @@ export const Footer = () => {
                 <FooterItemLinkStyle
                   as="a"
                   target="_blank"
-                  href={PRESS_DETAILS}
+                  href={PRESS_DETAILS_LINK}
                 >
                   {i18n.t('main-footer.press_details')}
                   <FooterLinkIconStyle

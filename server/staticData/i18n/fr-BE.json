@@ -892,6 +892,9 @@
     "posts": {
       "link_text": "Lire l'article",
       "see_all": "Voir toute l'actualité"
+    },
+    "partnership": {
+      "subtitle": "Devenir partenaire"
     }
   },
   "search": {
