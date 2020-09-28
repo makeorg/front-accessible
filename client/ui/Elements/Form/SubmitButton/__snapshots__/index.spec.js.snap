@@ -54,7 +54,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0"
   disabled={false}
   form="foo"
   type="submit"

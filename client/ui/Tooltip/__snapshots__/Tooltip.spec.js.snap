@@ -59,7 +59,7 @@ Array [
 
 <div
     aria-hidden={true}
-    className="sc-12iuwgm-1 c0 sc-12iuwgm-0 c1"
+    className="c0 sc-12iuwgm-0 c1"
     role="tooltip"
   />,
   <div

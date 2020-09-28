@@ -54,7 +54,7 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0"
 />
 `;
 
@@ -256,7 +256,7 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-1 c0"
+  className="1 c0"
 />
 `;
 
@@ -383,7 +383,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0"
 />
 `;
 
@@ -749,7 +749,7 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0"
 />
 `;
 
@@ -778,7 +778,7 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-1 c0"
+  className="0 c0"
 />
 `;
 
@@ -917,7 +917,7 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-5 c0"
+  className="c0"
 />
 `;
 
@@ -971,7 +971,7 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-4 c0"
+  className="c0"
 />
 `;
 
@@ -1366,6 +1366,6 @@ exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0"
 />
 `;
