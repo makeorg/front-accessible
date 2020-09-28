@@ -196,7 +196,6 @@ then('progress gauge is not visible', () => {
   getCurrentCard()
       .find('[data-cy-container=progress]')
       .should('not.exist')
-      .and('not.visible')
 });
 
 then('I see {string} in the current card', (text) => {
