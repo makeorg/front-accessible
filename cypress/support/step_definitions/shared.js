@@ -58,7 +58,8 @@ When('I click on {string} link', link => {
 When('I click on {string} button', buttonName => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .wait(1000) // @toDo try to remove this after removing deprecated sequence
-    .click()
+     // @todo: change this line to not force click on hidden elements
+     .click({force:true}) 
 });
 
 
