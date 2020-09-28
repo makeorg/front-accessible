@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const createHtmlWebpackPlugin = require('./plugins/htmlWebpackPlugin.config.js');
 const baseConfig = require('./base.config.js');

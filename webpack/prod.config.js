@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
