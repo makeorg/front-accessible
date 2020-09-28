@@ -23,9 +23,7 @@ const verifyUser = async (
     if ([400, 404].includes(apiServiceError.status)) {
       failure();
       logWarning(
-        `Error in verifyUser for userId ->${userId}, verificationToken -> ${verificationToken} : ${
-          apiServiceError.message
-        }`
+        `Error in verifyUser for userId ->${userId}, verificationToken -> ${verificationToken} : ${apiServiceError.message}`
       );
       return;
     }
@@ -54,9 +52,7 @@ const resetPasswordTokenCheck = async (
     if ([400, 404].includes(apiServiceError.status)) {
       failure();
       logWarning(
-        `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${
-          apiServiceError.message
-        }`
+        `Error in resetPasswordTokenCheck for userId -> ${userId} : status -> ${apiServiceError.message}`
       );
       return;
     }

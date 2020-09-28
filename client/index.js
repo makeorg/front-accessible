@@ -54,9 +54,7 @@ if (env.isNone() || env.isDev()) {
   initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 
-const tradLanguage = `${initialState.appConfig.language}-${
-  initialState.appConfig.country
-}`;
+const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
 
 i18n.init({
   interpolation: {

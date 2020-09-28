@@ -54,9 +54,7 @@ const getQuestion = async (
     }
     logError(
       apiServiceError.clone(
-        `error in server/service/QuestionService/getQuestion: ${
-          apiServiceError.message
-        }`
+        `error in server/service/QuestionService/getQuestion: ${apiServiceError.message}`
       )
     );
 

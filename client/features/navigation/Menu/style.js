@@ -133,10 +133,10 @@ export const DesktopMenuItemStyle = styled.li`
     border-left: 1px solid ${ShadowColors.BlackZeroOneOpacity};
     border-right: 1px solid ${ShadowColors.BlackZeroOneOpacity};
   }
-  &.${ADD_SEARCH_DESKTOP_ANIMATION}{
+  &.${ADD_SEARCH_DESKTOP_ANIMATION} {
     animation-name: ${fadeOut};
   }
-  &.${REMOVE_SEARCH_DESKTOP_ANIMATION}{
+  &.${REMOVE_SEARCH_DESKTOP_ANIMATION} {
     animation-name: ${fadeIn};
   }
   &.${SEARCH_DESKTOP_EXPANDED}[aria-hidden='true'] {

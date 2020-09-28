@@ -55,9 +55,7 @@ export const VoteResultElement = ({
       <SpaceBetweenColumnStyle>
         {resultVote.qualifications.map(qualification => (
           <QualificationButton
-            key={`vote_result_${proposalId}_qualifcation_${
-              qualification.qualificationKey
-            }`}
+            key={`vote_result_${proposalId}_qualifcation_${qualification.qualificationKey}`}
             qualification={qualification}
             votedKey={votedKey}
             proposalId={proposalId}
