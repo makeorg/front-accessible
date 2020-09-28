@@ -90,14 +90,6 @@ export const PopularProposalsArrowsStyle = styled(UnstyledButtonStyle)`
   svg {
     fill: ${color.white};
   }
-  &:hover,
-  &:focus {
-    color: ${color.greyDark};
-    background-color: ${color.greyLighter};
-    svg {
-      fill: ${color.greyDark};
-    }
-  }
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
     &.glider-prev {
       transform: translateX(-50%);

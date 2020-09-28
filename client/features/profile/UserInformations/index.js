@@ -6,7 +6,6 @@ import { type UserType } from 'Shared/types/user';
 import { i18n } from 'Shared/i18n';
 import { getAgeFromDateOfBirth } from 'Shared/helpers/date';
 import { Avatar } from 'Client/ui/Avatar';
-import { SvgMapMarker } from 'Client/ui/Svg/elements';
 import { SignOutIconStyle } from 'Client/ui/Elements/Buttons/style';
 import {
   ProfileAvatarStyle,
@@ -19,6 +18,7 @@ import {
   ProfileAlignLeftContentStyle,
   ProfileWebsiteLinkStyle,
   ProfileLinkIconStyle,
+  ProfileMapIconStyle,
 } from 'Client/ui/Elements/ProfileElements';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { useMobile } from 'Client/hooks/useMedia';
@@ -118,7 +118,7 @@ export const UserInformations = ({ user, navigationBar }: Props) => {
               <ScreenReaderItemStyle>
                 {i18n.t('profile.common.labels.postal_code')}
               </ScreenReaderItemStyle>
-              <SvgMapMarker style={{ marginRight: '3px' }} />
+              <ProfileMapIconStyle aria-hidden />
               {postalCode}
             </ProfileContentStyle>
           )}

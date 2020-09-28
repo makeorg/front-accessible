@@ -22,7 +22,7 @@ import {
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { Elements } from 'Client/app/assets/vars/Elements';
 import { RedLinkHTMLElementStyle } from './LinkElements';
-import { SvgLink, SvgLike } from '../Svg/elements';
+import { SvgLink, SvgLike, SvgMapMarker } from '../Svg/elements';
 
 const DesktopOffset = intToPx(TabsOffsetDesktop);
 const DesktopMarginWithOffset = DefaultPadding.Desktop - TabsOffsetDesktop;
@@ -252,4 +252,8 @@ export const ProfileCollapseButtonStyle = styled(UnstyledButtonStyle)`
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 10px;
+`;
+
+export const ProfileMapIconStyle = styled(SvgMapMarker)`
+  margin-right: 7.5px;
 `;
