@@ -9,10 +9,6 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -104,7 +100,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
   </ScreenReaderItemStyle>
   <QualificationDataListStyle>
     <li
-      className="c2"
+      className="c0 c2"
     >
       <span
         className="c3"
@@ -125,7 +121,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c2"
+      className="c0 c2"
     >
       <span
         className="c3"
@@ -146,7 +142,7 @@ exports[`DetailledResultItem must match the snapshot with default Props 1`] = `
       </ScreenReaderItemStyle>
     </li>
     <li
-      className="c2"
+      className="c0 c2"
     >
       <span
         className="c3"
