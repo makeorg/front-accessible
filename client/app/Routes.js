@@ -47,55 +47,51 @@ import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
 import { usePageBackgoundColor } from 'Client/hooks/usePageBackgroundColor';
 
-const BrowsePage = loadable(() => import('Client/pages/Browse/index.js'));
+const BrowsePage = loadable(() => import('../pages/Browse/index.js'));
 const ConsultationPage = loadable(() =>
-  import('Client/pages/Consultation/Consultation.js')
+  import('../pages/Consultation/Consultation.js')
 );
-const ActionsPage = loadable(() =>
-  import('Client/pages/Consultation/Actions.js')
-);
+const ActionsPage = loadable(() => import('../pages/Consultation/Actions.js'));
 export const ResultsPage = loadable(() =>
-  import('Client/pages/Consultation/Results.js')
+  import('../pages/Consultation/Results.js')
 );
 const TopIdeasPage = loadable(() =>
-  import('Client/pages/Consultation/TopIdeas.js')
+  import('../pages/Consultation/TopIdeas.js')
 );
 const TopIdeaDetailsPage = loadable(() =>
-  import('Client/pages/Consultation/TopIdeaDetails.js')
+  import('../pages/Consultation/TopIdeaDetails.js')
 );
 const SequencePage = loadable(() =>
-  import('Client/pages/Consultation/Sequence.js')
+  import('../pages/Consultation/Sequence.js')
 );
 const DeprecatedSequencePage = loadable(() =>
-  import('Client/pages/Consultation/Deprecated/Sequence.js')
+  import('../pages/Consultation/Deprecated/Sequence.js')
 );
 const PasswordRecoveryPage = loadable(() =>
-  import('Client/pages/PasswordRecovery')
+  import('../pages/PasswordRecovery')
 );
-const NotFoundPage = loadable(() => import('Client/pages/NotFound'));
-const HomePage = loadable(() => import('Client/pages/Home'));
-const ProposalPage = loadable(() => import('Client/pages/Proposal'));
+const NotFoundPage = loadable(() => import('../pages/NotFound'));
+const HomePage = loadable(() => import('../pages/Home'));
+const ProposalPage = loadable(() => import('../pages/Proposal'));
 const AccountActivationPage = loadable(() =>
-  import('Client/pages/AccountActivation')
+  import('../pages/AccountActivation')
 );
-const ProfileEditPage = loadable(() => import('Client/pages/Profile/Edit'));
+const ProfileEditPage = loadable(() => import('../pages/Profile/Edit'));
 
-const ProfilePage = loadable(() => import('Client/pages/Profile'));
+const ProfilePage = loadable(() => import('../pages/Profile'));
 
-const ProfileOpinionsPage = loadable(() =>
-  import('Client/pages/Profile/Opinions')
-);
+const ProfileOpinionsPage = loadable(() => import('../pages/Profile/Opinions'));
 
-const OrganisationPage = loadable(() => import('Client/pages/Organisation'));
+const OrganisationPage = loadable(() => import('../pages/Organisation'));
 
-const PersonalityPage = loadable(() => import('Client/pages/Personality'));
+const PersonalityPage = loadable(() => import('../pages/Personality'));
 
-const SearchPage = loadable(() => import('Client/pages/Search'));
+const SearchPage = loadable(() => import('../pages/Search'));
 
-const LegalPage = loadable(() => import('Client/pages/Static/Legal'));
-const TermsOfUse = loadable(() => import('Client/pages/Static/TermsOfUse'));
-const Data = loadable(() => import('Client/pages/Static/Data'));
-const Contact = loadable(() => import('Client/pages/Static/Contact'));
+const LegalPage = loadable(() => import('../pages/Static/Legal'));
+const TermsOfUse = loadable(() => import('../pages/Static/TermsOfUse'));
+const Data = loadable(() => import('../pages/Static/Data'));
+const Contact = loadable(() => import('../pages/Static/Contact'));
 
 export const Routes = () => {
   const location = useLocation();
