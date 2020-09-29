@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { intToPx } from 'Shared/helpers/styled';
 import { Breakpoints } from 'Client/app/assets/vars/Breakpoints';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
+import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 
 export const PartnershipSectionStyle = styled(ColumnElementStyle)`
   width: 100%;
@@ -51,4 +52,8 @@ export const PartnershipParagraphStyle = styled.p`
   font-family: ${MakeFonts.CircularStandardBook};
   color: ${color.white};
   margin-bottom: 30px;
+`;
+
+export const PartnershipRedButton = styled(LinkAsRedButton)`
+  font-size: 16px;
 `;

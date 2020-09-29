@@ -10,7 +10,6 @@ import { PROPOSALS_FEED_ALGORITHMS } from 'Shared/api/ProposalApiService';
 import { TagTooltip } from 'Client/ui/Elements/TagTooltip';
 import { ColumnElementStyle } from 'Client/ui/Elements/FlexElements';
 import { TAGS_LIST, SORT_LIST, TAGS_SECTION } from 'Shared/constants/ids';
-import { TagIconStyle } from 'Client/ui/Elements/TagList/style';
 import {
   TagSectionTitle,
   FiltersContainerStyle,
@@ -49,7 +48,6 @@ export const SortAndFilter = ({
   return (
     <>
       <TagSectionTitle as="h3" id={TAGS_SECTION}>
-        <TagIconStyle aria-hidden />
         {i18n.t('common.vote_on_proposals')}
       </TagSectionTitle>
       <ColumnElementStyle>
