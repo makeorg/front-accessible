@@ -26,7 +26,6 @@ const ConsultationPage = () => {
   );
   const isMobile = useMobile();
   const dispatch = useDispatch();
-
   const questionIsGreatCause = isGreatCause(question.operationKind);
   // @todo remove or refactor when Municipales is over
   const isTeasingHeader: boolean = checkIsFeatureActivated(

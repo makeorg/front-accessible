@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect, useState } from 'react';
+import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
 import { useParams, useLocation } from 'react-router-dom';
 import { type StateRoot } from 'Shared/store/types';
 import { type QuestionType } from 'Shared/types/question';
@@ -14,7 +15,7 @@ import {
   type BreadcrumbsPagesType,
   Breadcrumbs,
 } from 'Client/app/Breadcrumbs/DeprecatedBreadcrumbs';
-import { getTopIdeasLink, redirectToNotFoundPage } from 'Shared/helpers/url';
+
 import { MUNICIPAL_PERSONALITY_HEADER } from 'Shared/constants/featureFlipping';
 import { CandidateEngagement } from 'Client/custom/municipales/CandidateEngagement';
 import { checkIsFeatureActivated } from 'Client/helper/featureFlipping';
