@@ -17,6 +17,7 @@ import {
   WHOAREWE_EN_LINK,
   JOBS_LINK,
   NEWS_LINK,
+  PARTNERSHIP_LINK,
 } from 'Shared/constants/url';
 import {
   MenuPanelStyle,
@@ -106,6 +107,20 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
                 />
               </MenuExternalLinkStyle>
             </MenuItemStyle>
+            {isFR && (
+              <MenuItemStyle className="extra-margin-top">
+                <MenuExternalLinkStyle
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href={PARTNERSHIP_LINK}
+                >
+                  {i18n.t('homepage.partnership.subtitle')}
+                  <MenuNewWindowIconStyle
+                    aria-label={i18n.t('common.open_new_window')}
+                  />
+                </MenuExternalLinkStyle>
+              </MenuItemStyle>
+            )}
             <MenuItemStyle>
               <MenuExternalLinkStyle
                 target="_blank"

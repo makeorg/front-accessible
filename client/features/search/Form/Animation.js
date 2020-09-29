@@ -6,52 +6,52 @@ import {
 } from 'Shared/constants/a11y';
 
 export const addSearchDesktopHidden = (animationTiming?: number = 250) => {
-  const elementsCollection = document.querySelectorAll(
+  const menuItemsCollection = document.querySelectorAll(
     `.${SEARCH_DESKTOP_EXPANDED}`
   );
-  const elementsArray = Array.from(elementsCollection);
+  const menuItemsArray = Array.from(menuItemsCollection);
+  const searchForm = document.querySelector(`#search`);
 
-  if (!elementsCollection || elementsArray.length === 0) {
+  if (!menuItemsCollection || menuItemsArray.length === 0 || !searchForm) {
     return undefined;
   }
 
-  const elementWithAttribute: any = elementsArray.map(element => {
-    element.classList.add(ADD_SEARCH_DESKTOP_ANIMATION);
-    const timer = setTimeout(
-      () => element.setAttribute('aria-hidden', 'true'),
-      animationTiming
-    );
+  const menuItemsWithAttribute: any = menuItemsArray.map(menuItems => {
+    menuItems.classList.add(ADD_SEARCH_DESKTOP_ANIMATION);
+    const timer = setTimeout(() => {
+      menuItems.setAttribute('aria-hidden', 'true');
+      searchForm.classList.add('expanded');
+    }, animationTiming);
     return () => clearTimeout(timer);
   });
 
-  return elementWithAttribute;
+  return menuItemsWithAttribute;
 };
 
 export const removeSearchDesktopHidden = (animationTiming?: number = 250) => {
-  const elementsCollection = document.querySelectorAll(
+  const menuItemsCollection = document.querySelectorAll(
     `.${SEARCH_DESKTOP_EXPANDED}`
   );
-  const elementsArray = Array.from(elementsCollection);
+  const menuItemsArray = Array.from(menuItemsCollection);
+  const searchForm = document.querySelector(`#search`);
 
-  if (!elementsCollection || elementsArray.length === 0) {
+  if (!menuItemsCollection || menuItemsArray.length === 0 || !searchForm) {
     return undefined;
   }
 
-  const elementWithoutAttribute: any = elementsArray.map(element => {
-    const firstTimer = setTimeout(() => {
-      element.classList.remove(ADD_SEARCH_DESKTOP_ANIMATION);
-      element.classList.add(REMOVE_SEARCH_DESKTOP_ANIMATION);
-      element.removeAttribute('aria-hidden');
-    }, animationTiming);
-    const secondTimer = setTimeout(
-      () => element.classList.remove(REMOVE_SEARCH_DESKTOP_ANIMATION),
-      animationTiming * 2
-    );
+  const menuItemsWithoutAttribute: any = menuItemsArray.map(menuItems => {
+    searchForm.classList.remove('expanded');
+    menuItems.classList.remove(ADD_SEARCH_DESKTOP_ANIMATION);
+    menuItems.classList.add(REMOVE_SEARCH_DESKTOP_ANIMATION);
+    const firstTimer = setTimeout(() => {}, animationTiming);
+    const secondTimer = setTimeout(() => {
+      menuItems.removeAttribute('aria-hidden');
+    }, animationTiming * 2);
     return () => {
       clearTimeout(firstTimer);
       clearTimeout(secondTimer);
     };
   });
 
-  return elementWithoutAttribute;
+  return menuItemsWithoutAttribute;
 };
