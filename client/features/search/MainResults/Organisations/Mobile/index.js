@@ -60,7 +60,6 @@ export const MainResultsOrganisationsMobile = ({ organisations }: Props) => {
                   as={Link}
                   to={getOrganisationProfileLink(
                     organisation.country,
-                    organisation.language,
                     organisation.slug
                   )}
                 >

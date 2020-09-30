@@ -44,12 +44,7 @@ export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
         </ScreenReaderItemStyle>
         <TopIdeaContentStyle
           id={`idea_content_${position}`}
-          to={getTopIdeaDetailsLink(
-            country,
-            question.language,
-            question.slug,
-            topIdea.id
-          )}
+          to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
           onClick={scrollToTop}
         >
           {topIdea.name}
@@ -62,11 +57,7 @@ export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
       </TopIdeaCardContentStyle>
       <ProposalFooterWithQuestionElement
         question={question}
-        consultationLink={getTopIdeasLink(
-          country,
-          question.language,
-          question.slug
-        )}
+        consultationLink={getTopIdeasLink(country, question.slug)}
       />
     </TopIdeaCardStyle>
   );

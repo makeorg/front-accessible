@@ -56,7 +56,10 @@ describe('Consultation page route', () => {
       expect(reactRender).toHaveBeenCalledWith(request, response, {
         questions: {
           bar: {
-            question: { ...fooQuestion, country: fooQuestion.countries[0] },
+            question: {
+              ...fooQuestion,
+              country: fooQuestion.countries[0],
+            },
           },
         },
         currentQuestion: 'bar',

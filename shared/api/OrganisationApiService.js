@@ -19,16 +19,11 @@ export class OrganisationApiService {
     });
   }
 
-  static search(
-    country: string,
-    language: string,
-    query: string
-  ): Promise<any> {
+  static search(country: string, query: string): Promise<any> {
     return ApiService.callApi(ORGANISATIONS_PATH, {
       method: 'GET',
       params: {
         country,
-        language,
         organisationName: query,
       },
     });

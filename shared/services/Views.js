@@ -10,7 +10,6 @@ const getHome = async (
   try {
     const viewsResponse = await ViewsApiService.getHome(country, language);
 
-    // toDo: hack multi-countries
     const { data } = viewsResponse;
     const result = {
       ...data,
@@ -35,7 +34,6 @@ const getHome = async (
 const searchViews = async (
   content: string,
   country: string,
-  language: string,
   proposalLimit?: number = 4,
   questionLimit?: number = 4,
   organisationLimit?: number = 4
@@ -44,7 +42,6 @@ const searchViews = async (
     const searchResponse = await ViewsApiService.searchViews(
       content,
       country,
-      language,
       proposalLimit,
       questionLimit,
       organisationLimit

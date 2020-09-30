@@ -24,7 +24,9 @@ export const QuestionWrapper = ({ children, withRedirect }: Props) => {
   const currentQuestion: QuestionType = useSelector((state: StateRoot) =>
     selectCurrentQuestion(state)
   );
-  const currentQuestionSlug = useSelector(state => state.currentQuestion);
+  const currentQuestionSlug = useSelector(
+    (state: StateRoot) => state.currentQuestion
+  );
   const { questionSlug } = params;
   const [alternativeContent, setAlternativeContent] = useState(
     <MiddlePageWrapperStyle>

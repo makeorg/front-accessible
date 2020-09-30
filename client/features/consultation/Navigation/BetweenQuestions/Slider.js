@@ -64,12 +64,10 @@ export const SliderNavigationBetweenQuestions = ({ question }: Props) => {
                     siblingQuestion.displayResults
                       ? getResultsLink(
                           siblingQuestion.country,
-                          siblingQuestion.language,
                           siblingQuestion.questionSlug
                         )
                       : getConsultationLink(
                           siblingQuestion.country,
-                          siblingQuestion.language,
                           siblingQuestion.questionSlug
                         )
                   }

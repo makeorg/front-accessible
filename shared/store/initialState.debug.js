@@ -3,7 +3,7 @@ export const initialStateDebug = {
     source: 'core',
     language: 'fr',
     country: 'FR',
-    translations: require('../../server/staticData/i18n/fr-FR.json'),
+    translations: require('../../server/staticData/i18n/fr.json'),
   },
   user: {
     authentication: {

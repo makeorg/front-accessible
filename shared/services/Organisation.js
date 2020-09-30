@@ -15,15 +15,10 @@ import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const searchOrganisations = async (
   country: string,
-  language: string,
   content: string
 ): Promise<?OrganisationsType> => {
   try {
-    const response = await OrganisationApiService.search(
-      country,
-      language,
-      content
-    );
+    const response = await OrganisationApiService.search(country, content);
 
     return response.data;
   } catch (apiServiceError) {

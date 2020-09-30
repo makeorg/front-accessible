@@ -2,11 +2,7 @@
 import 'url-search-params-polyfill';
 import { generatePath } from 'react-router';
 import queryString from 'query-string';
-import {
-  FRONT_URL,
-  DEFAULT_COUNTRY,
-  DEFAULT_LANGUAGE,
-} from 'Shared/constants/config';
+import { FRONT_URL, DEFAULT_COUNTRY } from 'Shared/constants/config';
 import {
   ROUTE_CONSULTATION,
   ROUTE_ACTION,
@@ -30,7 +26,7 @@ import {
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_CONSULTATION_STEP,
-  ROUTE_COUNTRY_LANG,
+  ROUTE_COUNTRY,
 } from 'Shared/routes';
 
 export const getParamsQuery = (searchParams: string) => {
@@ -61,20 +57,17 @@ export const buildInternalConsultationLink = (
 /**
  * Get the sequence link
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
 export const getSequenceLink = (
   country: string,
-  language: string,
   questionSlug: string,
   params?: Object = {}
 ) => {
   return generatePath(ROUTE_SEQUENCE, {
     country,
-    language,
     questionSlug,
   }).concat(
     params && Object.keys(params).length > 0
@@ -87,19 +80,16 @@ export const getSequenceLink = (
  * Get the browse consultations link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {number} pageId
  *
  * @return {string}
  */
 export const getBrowseConsultationsLink = (
   country: string,
-  language: string,
   pageId?: number = 1
 ) => {
   return generatePath(ROUTE_BROWSE_CONSULTATIONS, {
     country: country || DEFAULT_COUNTRY,
-    language: language || DEFAULT_LANGUAGE,
     pageId,
   });
 };
@@ -108,19 +98,13 @@ export const getBrowseConsultationsLink = (
  * Get the browse results link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {number} pageId
  *
  * @return {string}
  */
-export const getBrowseResultsLink = (
-  country: string,
-  language: string,
-  pageId?: number = 1
-) => {
+export const getBrowseResultsLink = (country: string, pageId?: number = 1) => {
   return generatePath(ROUTE_BROWSE_RESULTS, {
     country: country || DEFAULT_COUNTRY,
-    language: language || DEFAULT_LANGUAGE,
     pageId,
   });
 };
@@ -129,19 +113,13 @@ export const getBrowseResultsLink = (
  * Get the consultation link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
-export const getConsultationLink = (
-  country: string,
-  language: string,
-  questionSlug: string
-) => {
+export const getConsultationLink = (country: string, questionSlug: string) => {
   return generatePath(ROUTE_CONSULTATION, {
     country,
-    language,
     questionSlug,
   });
 };
@@ -150,19 +128,13 @@ export const getConsultationLink = (
  * Get the action link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
-export const getActionLink = (
-  country: string,
-  language: string,
-  questionSlug: string
-) => {
+export const getActionLink = (country: string, questionSlug: string) => {
   return generatePath(ROUTE_ACTION, {
     country,
-    language,
     questionSlug,
   });
 };
@@ -171,19 +143,13 @@ export const getActionLink = (
  * Get the results link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
-export const getResultsLink = (
-  country: string,
-  language: string,
-  questionSlug: string
-) => {
+export const getResultsLink = (country: string, questionSlug: string) => {
   return generatePath(ROUTE_RESULTS, {
     country,
-    language,
     questionSlug,
   });
 };
@@ -192,19 +158,13 @@ export const getResultsLink = (
  * Get the top ideas by questions link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
-export const getTopIdeasLink = (
-  country: string,
-  language: string,
-  questionSlug: string
-) => {
+export const getTopIdeasLink = (country: string, questionSlug: string) => {
   return generatePath(ROUTE_TOP_IDEAS, {
     country,
-    language,
     questionSlug,
   });
 };
@@ -213,20 +173,17 @@ export const getTopIdeasLink = (
  * Get the top idea details link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  *
  * @return {string}
  */
 export const getTopIdeaDetailsLink = (
   country: string,
-  language: string,
   questionSlug: string,
   topIdeaId: string
 ) => {
   return generatePath(ROUTE_TOP_IDEA_DETAILS, {
     country,
-    language,
     questionSlug,
     topIdeaId,
   });
@@ -236,7 +193,6 @@ export const getTopIdeaDetailsLink = (
  * Get the consultation link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  * @param  {string} consultationStep
  *
@@ -244,13 +200,11 @@ export const getTopIdeaDetailsLink = (
  */
 export const getDynamicConsultationLink = (
   country: string,
-  language: string,
   questionSlug: string,
   consultationStep: string
 ) => {
   return generatePath(ROUTE_CONSULTATION_STEP, {
     country,
-    language,
     questionSlug,
     consultationStep,
   });
@@ -260,7 +214,6 @@ export const getDynamicConsultationLink = (
  * Get the proposal link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} questionSlug
  * @param  {string} proposalId
  * @param  {string} proposalSlug
@@ -269,14 +222,12 @@ export const getDynamicConsultationLink = (
  */
 export const getProposalLink = (
   country: string,
-  language: string,
   questionSlug: string,
   proposalId: string,
   proposalSlug: string
 ) => {
   return generatePath(ROUTE_PROPOSAL, {
     country,
-    language,
     questionSlug,
     proposalId,
     proposalSlug,
@@ -287,18 +238,15 @@ export const getProposalLink = (
  * Get the organisation profile link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} organisationSlug
  * @return {string}
  */
 export const getOrganisationProfileLink = (
   country: string,
-  language: string,
   organisationSlug: string
 ) => {
   return generatePath(ROUTE_ORGANISATION_PROFILE, {
     country,
-    language,
     organisationSlug,
   });
 };
@@ -307,18 +255,12 @@ export const getOrganisationProfileLink = (
  * Get the personality profile link
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} userId
  * @return {string}
  */
-export const getPersonalityProfileLink = (
-  country: string,
-  language: string,
-  userId: string
-) => {
+export const getPersonalityProfileLink = (country: string, userId: string) => {
   return generatePath(ROUTE_PERSONALITY_PROFILE, {
     country,
-    language,
     userId,
   });
 };
@@ -327,17 +269,15 @@ export const getPersonalityProfileLink = (
  * Get the contact page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
-export const getContactPageLink = (country: string, language: string) => {
+export const getContactPageLink = (country: string) => {
   return generatePath(
-    language === 'fr' || !language
+    country === 'FR' || !country
       ? ROUTE_STATIC_CONTACT
       : ROUTE_STATIC_CONTACT_EN,
     {
       country: country || DEFAULT_COUNTRY,
-      language: language || DEFAULT_LANGUAGE,
     }
   );
 };
@@ -346,15 +286,13 @@ export const getContactPageLink = (country: string, language: string) => {
  * Get the data page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
-export const getDataPageLink = (country: string, language: string) => {
+export const getDataPageLink = (country: string) => {
   return generatePath(
-    language === 'fr' || !language ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
+    country === 'FR' || !country ? ROUTE_STATIC_DATA : ROUTE_STATIC_DATA_EN,
     {
       country: country || DEFAULT_COUNTRY,
-      language: language || DEFAULT_LANGUAGE,
     }
   );
 };
@@ -363,15 +301,13 @@ export const getDataPageLink = (country: string, language: string) => {
  * Get the GTU page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
-export const getGTUPageLink = (country: string, language: string) => {
+export const getGTUPageLink = (country: string) => {
   return generatePath(
-    language === 'fr' || !language ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
+    country === 'FR' || !country ? ROUTE_STATIC_GTU : ROUTE_STATIC_GTU_EN,
     {
       country: country || DEFAULT_COUNTRY,
-      language: language || DEFAULT_LANGUAGE,
     }
   );
 };
@@ -380,58 +316,38 @@ export const getGTUPageLink = (country: string, language: string) => {
  * Get the GTU page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
-export const getLegalPageLink = (country: string, language: string) => {
+export const getLegalPageLink = (country: string) => {
   return generatePath(
-    language === 'fr' || !language ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
+    country === 'FR' || !country ? ROUTE_STATIC_LEGAL : ROUTE_STATIC_LEGAL_EN,
     {
       country: country || DEFAULT_COUNTRY,
-      language: language || DEFAULT_LANGUAGE,
     }
   );
-};
-
-/**
- * Get the Not found page link
- *
- * @param  {string} country
- * @param  {string} language
- * @return {string}
- */
-export const getNotFoundPageLink = (country: string, language: string) => {
-  return generatePath(ROUTE_STATIC_NOTFOUND, {
-    country: country || DEFAULT_COUNTRY,
-    language: language || DEFAULT_LANGUAGE,
-  });
 };
 
 /**
  * Get the home page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
-export const getHomeLink = (country: string, language: string) => {
-  return generatePath(ROUTE_COUNTRY_LANG, {
+export const getHomeLink = (country: string) => {
+  return generatePath(ROUTE_COUNTRY, {
     country: country || DEFAULT_COUNTRY,
-    language: language || DEFAULT_LANGUAGE,
   });
 };
 /**
  * Get the Not found page link
  *
  * @param  {string} country
- * @param  {string} language
  * @return {string}
  */
 
-export const redirectToNotFoundPage = (country: string, language: string) => {
+export const redirectToNotFoundPage = (country: string) => {
   window.location = generatePath(ROUTE_STATIC_NOTFOUND, {
     country: country || DEFAULT_COUNTRY,
-    language: language || DEFAULT_LANGUAGE,
   });
 };
 

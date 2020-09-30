@@ -8,7 +8,7 @@ import { i18n } from 'Shared/i18n';
 import { getOrganisationProfileLink } from 'Shared/helpers/url';
 import { Image } from 'Client/ui/Image';
 
-const linkProps = (partner, country, language) => {
+const linkProps = (partner, country) => {
   const defaultProps = {
     as: 'span',
     href: undefined,
@@ -31,11 +31,7 @@ const linkProps = (partner, country, language) => {
     return {
       ...defaultProps,
       as: Link,
-      to: getOrganisationProfileLink(
-        country,
-        language,
-        partner.organisation.slug
-      ),
+      to: getOrganisationProfileLink(country, partner.organisation.slug),
     };
   }
 
@@ -63,10 +59,9 @@ type Props = {
 };
 
 export const PartnerAvatar = ({ partner }: Props) => {
-  const language: string = useSelector(state => state.appConfig.language);
   const country: string = useSelector(state => state.appConfig.country);
 
-  const { as, to, href, target, rel } = linkProps(partner, country, language);
+  const { as, to, href, target, rel } = linkProps(partner, country);
 
   return (
     <PartnerAvatarStyle as={as} to={to} href={href} target={target} rel={rel}>

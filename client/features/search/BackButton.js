@@ -17,13 +17,11 @@ type Props = {
   history: RouterHistory,
 };
 export const SearchBackButton = ({ term, history }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   const handleReturn = () => {
     trackClickSearchReturn();
-    history.push(getRouteSearch(country, language, term));
+    history.push(getRouteSearch(country, term));
   };
 
   return (

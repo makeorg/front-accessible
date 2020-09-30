@@ -49,12 +49,12 @@ const ProfilePage = ({ match, location }: Props) => {
   const { user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
-  const { country, language } = match.params;
+  const { country } = match.params;
   const isPersonality = user && user.userType === TYPE_PERSONALITY;
 
-  const profileProposalsLink = getRouteProfileProposals(country, language);
-  const profileFavouritesLink = getRouteProfileFavourites(country, language);
-  const profileOpinions = getRouteProfileOpinions(country, language);
+  const profileProposalsLink = getRouteProfileProposals(country);
+  const profileFavouritesLink = getRouteProfileFavourites(country);
+  const profileOpinions = getRouteProfileOpinions(country);
   const isProfileProposalsActive = getIsProfileProposals(location.pathname);
   const isProfileFavouritesActive = getIsProfileFavourites(location.pathname);
 
@@ -66,9 +66,7 @@ const ProfilePage = ({ match, location }: Props) => {
     return <Redirect to={profileOpinions} />;
   }
 
-  const NavigationBar = (
-    <EditProfileLink link={getRouteProfileEdit(country, language)} />
-  );
+  const NavigationBar = <EditProfileLink link={getRouteProfileEdit(country)} />;
 
   return (
     <>

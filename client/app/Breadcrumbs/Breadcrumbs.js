@@ -25,16 +25,14 @@ type Props = {
 };
 
 export const Breadcrumbs = ({ parentPages, currentPage }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   return (
     <nav aria-label={i18n.t('common.breadcrumbs')}>
       <BrowseBreadcrumbWrapperStyle as="ol">
         <BrowseBannerBreadcrumbListStyle>
           <BrowseHomeIconStyle aria-hidden />
-          <BrowseBreadcrumbsLinkStyle to={getHomeLink(country, language)}>
+          <BrowseBreadcrumbsLinkStyle to={getHomeLink(country)}>
             {i18n.t('homepage.title')}
           </BrowseBreadcrumbsLinkStyle>
           <BrowseArrowIconStyle aria-hidden />

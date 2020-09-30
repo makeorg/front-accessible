@@ -36,7 +36,6 @@ type Props = {
 export const LocalActors = ({ questionId, slug }: Props) => {
   const dispatch = useDispatch();
   const country = useSelector((state: StateRoot) => state.appConfig.country);
-  const language = useSelector((state: StateRoot) => state.appConfig.language);
   const actors = useSelector((state: StateRoot) =>
     selectQuestionPartners(state, slug)
   );
@@ -86,11 +85,7 @@ export const LocalActors = ({ questionId, slug }: Props) => {
               <div>
                 <div>
                   <RedLinkRouterStyle
-                    to={getOrganisationProfileLink(
-                      country,
-                      language,
-                      actor.slug
-                    )}
+                    to={getOrganisationProfileLink(country, actor.slug)}
                     onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
                   >
                     {formatOrganisationName(actor.organisationName)}

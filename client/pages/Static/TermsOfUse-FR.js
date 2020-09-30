@@ -21,9 +21,7 @@ import {
 } from './style';
 
 export const TermsOfUseFR = () => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
@@ -132,7 +130,7 @@ export const TermsOfUseFR = () => {
             L’utilisation du Service implique également l’acceptation entière et
             sans réserve de la Politique d’utilisation des données de Make.org
             qui fait partie intégrante des présentes CGUS et est disponible
-            <RedLinkHTMLElementStyle href={getDataPageLink(country, language)}>
+            <RedLinkHTMLElementStyle href={getDataPageLink(country)}>
               ici.
             </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>

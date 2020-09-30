@@ -5,7 +5,7 @@ import { i18n } from 'Shared/i18n';
 import { type ProposalType } from 'Shared/types/proposal';
 import { type QuestionType } from 'Shared/types/question';
 import { MetaTags } from 'Client/app/MetaTags';
-import { type match as TypeMatch } from 'react-router';
+import { useParams } from 'react-router';
 import { MiddlePageWrapperStyle } from 'Client/app/Styled/MainElements';
 import { Spinner } from 'Client/ui/Elements/Loading/Spinner';
 import { ProposalSkipLinks } from 'Client/app/SkipLinks/Proposal';
@@ -17,20 +17,15 @@ import { isInProgress } from 'Shared/helpers/date';
 import { QuestionService } from 'Shared/services/Question';
 import { ProposalService } from 'Shared/services/Proposal';
 
-type Props = {
-  match: TypeMatch,
-};
-
-const ProposalPage = (props: Props) => {
-  const { match } = props;
-  const { proposalId } = match.params;
+const ProposalPage = () => {
+  const { proposalId } = useParams();
   const [proposal, setProposal] = useState<?ProposalType>(undefined);
   const [question, setQuestion] = useState<?QuestionType>(undefined);
   useEffect(() => {
     ProposalService.getProposal(proposalId).then(response => {
       setProposal(response || undefined);
     });
-  }, []);
+  }, [proposalId]);
 
   useEffect(() => {
     if (proposal) {
@@ -38,6 +33,7 @@ const ProposalPage = (props: Props) => {
         setQuestion(response || question);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [proposal]);
 
   if (!question) {

@@ -166,7 +166,7 @@ Bad:
 ```js static
 const response = httpMocks.createResponse();
 jest.spyOn(response, 'redirect');
-expect(response.redirect).toBeCalledWith('/FR-fr');
+expect(response.redirect).toBeCalledWith('/FR');
 ```
 
 #### Mocks

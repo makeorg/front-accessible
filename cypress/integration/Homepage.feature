@@ -11,7 +11,7 @@ Feature: The Home Page
 
   Scenario: Homepage has canonical url
     Given I go to "france homepage"
-    Then I see the canonical url "https://make.org/FR-fr" of the page 
+    Then I see the canonical url "https://make.org/FR" of the page 
 
   Scenario: Homepage has hero section
     Given I go to "france homepage"
@@ -29,7 +29,7 @@ Feature: The Home Page
     Given I go to "france homepage"
     Then I see "Grandes causes Make.org" in "featured_questions_subtitle" container
     And I see "Make.org passe à l’action sur les grands sujets de société" in "featured_questions_title" container
-    And I see a link "operationTitle_5" to "/FR-fr/consultation/question-5-slug/consultation" in "featured_questions_navigation" container
+    And I see a link "operationTitle_5" to "/FR/consultation/question-5-slug/consultation" in "featured_questions_navigation" container
 
   Scenario: Homepage has partnership section
     Given I go to "france homepage"
@@ -51,7 +51,7 @@ Feature: The Home Page
       | questionId          |                                                                       |
       | questionSlug        |                                                                       |
       | referrer            | http://localhost:9009/__/                                             |
-      | url                 | http://localhost:9009/FR-fr                                           |
+      | url                 | http://localhost:9009/FR                                           |
     And some make data header should be sent to "postTracking":
       | name                | value                                                                 |
       | app-name            | main-front                                                            |
@@ -77,7 +77,7 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR-fr                                         |
+        | url                 | http://localhost:9009/FR                                         |
 
   Scenario: Track discover great causes button in hero section
     Given I go to "france homepage"
@@ -93,7 +93,7 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR-fr                                         |
+        | url                 | http://localhost:9009/FR                                         |
 
   Scenario: Track click browse consultations in browse section
     Given I go to "france homepage"
@@ -109,7 +109,7 @@ Feature: The Home Page
         | questionId          |                                                                      |
         | questionSlug        |                                                                      |
         | referrer            | http://localhost:9009/__/                                            |
-        | url                 | http://localhost:9009/FR-fr                                          |
+        | url                 | http://localhost:9009/FR                                          |
 
 
   Scenario: Track see blog button click on homepage
@@ -126,4 +126,4 @@ Feature: The Home Page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/FR-fr                                         | 
+        | url                 | http://localhost:9009/FR                                         | 

@@ -24,9 +24,7 @@ import {
 
 export const BrowseConsultationsHeader = () => {
   const location = useLocation();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const consultationsPage = isBrowseConsultationsPage(location.pathname);
 
   const currentPage: BreadcrumbsPagesType = {
@@ -45,7 +43,7 @@ export const BrowseConsultationsHeader = () => {
           <UnstyledListStyle>
             <BrowseNavItemStyle>
               <BrowseNavLinkStyle
-                to={getBrowseConsultationsLink(country, language)}
+                to={getBrowseConsultationsLink(country)}
                 className={consultationsPage && 'selected'}
               >
                 {i18n.t('browse.nav_consultations')}
@@ -53,7 +51,7 @@ export const BrowseConsultationsHeader = () => {
             </BrowseNavItemStyle>
             <BrowseNavItemStyle>
               <BrowseNavLinkStyle
-                to={getBrowseResultsLink(country, language)}
+                to={getBrowseResultsLink(country)}
                 className={!consultationsPage && 'selected'}
               >
                 {i18n.t('browse.nav_results')}

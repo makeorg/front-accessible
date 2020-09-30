@@ -22,9 +22,7 @@ import {
 const acceptCookieName: string = 'make-cookie';
 
 export const CookieBanner = () => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const [cookies, setCookies] = useCookies([acceptCookieName]);
   const [hasAccepted, setAccepted] = useState<boolean>(
     cookies[acceptCookieName] !== undefined
@@ -55,12 +53,10 @@ export const CookieBanner = () => {
             dangerouslySetInnerHTML={{
               __html: i18n.t('cookie_alert.text', {
                 gtu_link: `<a href="${getGTUPageLink(
-                  country,
-                  language
+                  country
                 )}" data-cy-link="gtu">$t(cookie_alert.gtu)</a>`,
                 policy_link: `<a href="${getDataPageLink(
-                  country,
-                  language
+                  country
                 )}" data-cy-link="policy">$t(cookie_alert.policy)</a>`,
               }),
             }}

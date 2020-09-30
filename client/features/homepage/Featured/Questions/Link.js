@@ -17,11 +17,7 @@ export const FeaturedLink = ({ question }: Props) => {
     return (
       <FeaturedLinkStyle
         as={Link}
-        to={getConsultationLink(
-          question.country,
-          question.language,
-          question.questionSlug
-        )}
+        to={getConsultationLink(question.country, question.questionSlug)}
         onClick={scrollToTop}
       >
         {question.operationTitle}

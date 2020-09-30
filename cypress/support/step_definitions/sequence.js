@@ -5,7 +5,7 @@ const voteLabel = {
 };
 
 import { getIdentifierButtonByName } from '../mapping';
-const sequencePage = '/FR-fr/consultation/:questionSlug/selection';
+const sequencePage = '/FR/consultation/:questionSlug/selection';
 
 const getCurrentCard = () => {
  return cy.waitUntil(() => cy.get('[data-cy-container=sequence]')

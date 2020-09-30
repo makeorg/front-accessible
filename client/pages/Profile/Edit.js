@@ -40,9 +40,7 @@ const ProfileEditPage = ({ match }: Props) => {
     return <Redirect to="/" />;
   }
 
-  const NavigationBar = (
-    <GoToProfileLink link={getRouteProfile(country, language)} />
-  );
+  const NavigationBar = <GoToProfileLink link={getRouteProfile(country)} />;
 
   return (
     <>

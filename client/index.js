@@ -54,16 +54,14 @@ if (env.isNone() || env.isDev()) {
   initialState = require('Shared/store/initialState.debug').initialStateDebug;
 }
 
-const tradLanguage = `${initialState.appConfig.language}-${initialState.appConfig.country}`;
-
 i18n.init({
   interpolation: {
     escapeValue: false,
   },
   debug: env.isDev(),
-  lng: tradLanguage,
+  lng: initialState.appConfig.language,
   resources: {
-    [tradLanguage]: {
+    [initialState.appConfig.language]: {
       [TRANSLATION_NAMESPACE]: initialState.appConfig.translations,
     },
   },
@@ -166,18 +164,12 @@ const initApp = async state => {
                   <ErrorBoundary>
                     <Switch>
                       <Route
-                        path={getRouteNoCookies(
-                          state.appConfig.country,
-                          state.appConfig.language
-                        )}
+                        path={getRouteNoCookies(state.appConfig.country)}
                         component={NoCookies}
                       />
                       <Redirect
                         from="/"
-                        to={getRouteNoCookies(
-                          state.appConfig.country,
-                          state.appConfig.language
-                        )}
+                        to={getRouteNoCookies(state.appConfig.country)}
                       />
                     </Switch>
                   </ErrorBoundary>

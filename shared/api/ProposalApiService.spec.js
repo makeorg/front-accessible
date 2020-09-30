@@ -58,13 +58,12 @@ describe('ProposalApiService', () => {
       });
     });
     it('must filter by questionId', async () => {
-      await ProposalApiService.searchProposals('FR', 'fr', '12345');
+      await ProposalApiService.searchProposals('FR', '12345');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',
         params: {
           country: 'FR',
-          language: 'fr',
           questionId: '12345',
           content: undefined,
           limit: 20,
@@ -76,13 +75,12 @@ describe('ProposalApiService', () => {
       });
     });
     it('must filter by questionId && tagIds', async () => {
-      await ProposalApiService.searchProposals('FR', 'fr', '12345', 'foo, bar');
+      await ProposalApiService.searchProposals('FR', '12345', 'foo, bar');
       expect(ApiService.callApi).toHaveBeenNthCalledWith(1, PATH_PROPOSALS, {
         headers: {},
         method: 'GET',
         params: {
           country: 'FR',
-          language: 'fr',
           questionId: '12345',
           content: undefined,
           limit: 20,
@@ -96,7 +94,6 @@ describe('ProposalApiService', () => {
     it('must filter by content', async () => {
       await ProposalApiService.searchProposals(
         'FR',
-        'fr',
         undefined,
         undefined,
         undefined,
@@ -110,7 +107,6 @@ describe('ProposalApiService', () => {
         method: 'GET',
         params: {
           country: 'FR',
-          language: 'fr',
           questionId: undefined,
           content: 'foo',
           limit: 20,

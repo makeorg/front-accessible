@@ -11,11 +11,10 @@ import { OrganisationsVoteWrapperStyle } from './style';
 type Props = {
   organisations: OrganisationSoftType[],
   country: string,
-  language: string,
 };
 
 export const OrganisationsVote = (props: Props) => {
-  const { organisations, country, language } = props;
+  const { organisations, country } = props;
 
   if (!organisations.length) {
     return null;
@@ -32,7 +31,6 @@ export const OrganisationsVote = (props: Props) => {
           <RedLinkRouterStyle
             to={getOrganisationProfileLink(
               country,
-              language,
               organisation.organisationSlug
             )}
             onClick={trackClickProposalProfile}

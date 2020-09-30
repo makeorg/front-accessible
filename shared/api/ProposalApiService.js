@@ -104,7 +104,6 @@ export class ProposalApiService {
 
   static searchProposals(
     country: string,
-    language: string,
     questionId?: string,
     tagsIds?: string,
     seed?: ?number,
@@ -124,7 +123,6 @@ export class ProposalApiService {
       skip,
       tagsIds,
       country,
-      language,
       ideaIds,
       order,
     };

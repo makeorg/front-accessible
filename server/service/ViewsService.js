@@ -10,6 +10,7 @@ const clearCache = () => {
 
 const getHome = async (
   country: string,
+  // @todo remove it when ready on API side
   language: string,
   notFound: () => void = () => {},
   unexpectedError: () => void = () => {}
@@ -21,12 +22,16 @@ const getHome = async (
   }
 
   try {
-    const viewsResponse = await ViewsApiService.getHome(country, language, {
-      'x-make-country': country,
-      'x-make-language': language,
-    });
+    const viewsResponse = await ViewsApiService.getHome(
+      country,
+      // @todo remove it when ready on API side
+      language,
+      {
+        'x-make-country': country,
+        'x-make-language': language,
+      }
+    );
 
-    // toDo: hack multi-countries
     const { data } = viewsResponse;
 
     const dataWithCountry = {

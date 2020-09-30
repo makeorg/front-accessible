@@ -21,9 +21,7 @@ import {
 } from './style';
 
 export const TermsOfUseEN = () => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   return (
     <StaticPageWrapperStyle>
       <StaticSecondLevelTitleStyle>
@@ -128,7 +126,7 @@ export const TermsOfUseEN = () => {
             {
               'The use of the Service also implies the full and unreserved acceptance of Make.org’s Data usage policy, which is an integral part of these GTS and which is available '
             }
-            <RedLinkHTMLElementStyle href={getDataPageLink(country, language)}>
+            <RedLinkHTMLElementStyle href={getDataPageLink(country)}>
               here.
             </RedLinkHTMLElementStyle>
           </StaticParagraphStyle>

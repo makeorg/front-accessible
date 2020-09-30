@@ -1,7 +1,6 @@
 import {
   getRouteProfile,
   getRouteProfileEdit,
-  formatCountryLanguage,
   ROUTE_CONSULTATION,
   matchRoute,
   ROUTE_SEQUENCE,
@@ -9,7 +8,6 @@ import {
   getRouteOrganisationVotes,
   getRouteProfileProposals,
   getRouteProfileFavourites,
-  getRouteProfileFollowing,
   getRouteProfileOpinions,
   getRouteNoCookies,
   getRouteSearch,
@@ -18,96 +16,76 @@ import {
   getRouteSearchConsultations,
 } from './routes';
 
-describe('Shared routes', () => {
-  it('formatCountryLanguage', () => {
-    expect(formatCountryLanguage('FR', 'fr')).toBe('FR-fr');
+describe('match Routes', () => {
+  it('match route consultation', () => {
+    expect(
+      matchRoute('/FR/consultation/1234/consultation', ROUTE_CONSULTATION)
+    ).toBe(true);
   });
 
-  describe('match Routes', () => {
-    it('match route consultation', () => {
-      expect(
-        matchRoute('/FR-fr/consultation/1234/consultation', ROUTE_CONSULTATION)
-      ).toBe(true);
-    });
+  it('do not match route consultation', () => {
+    expect(
+      matchRoute('/FR/consultation/1234/consultation', ROUTE_SEQUENCE)
+    ).toBe(false);
+  });
+});
 
-    it('do not match route consultation', () => {
-      expect(
-        matchRoute('/FR-fr/consultation/1234/consultation', ROUTE_SEQUENCE)
-      ).toBe(false);
-    });
+describe('build Routes', () => {
+  it('getRouteOrganisationProposals', () => {
+    expect(getRouteOrganisationProposals('FR', 'fooOrg')).toBe(
+      '/FR/profile/organisation/fooOrg/proposals'
+    );
   });
 
-  describe('build Routes', () => {
-    it('getRouteOrganisationProposals', () => {
-      expect(getRouteOrganisationProposals('FR', 'fr', 'fooOrg')).toBe(
-        '/FR-fr/profile/organisation/fooOrg/proposals'
-      );
-    });
+  it('getRouteOrganisationVotes', () => {
+    expect(getRouteOrganisationVotes('FR', 'fooOrg')).toBe(
+      '/FR/profile/organisation/fooOrg/votes'
+    );
+  });
 
-    it('getRouteOrganisationVotes', () => {
-      expect(getRouteOrganisationVotes('FR', 'fr', 'fooOrg')).toBe(
-        '/FR-fr/profile/organisation/fooOrg/votes'
-      );
-    });
+  it('getRouteProfile', () => {
+    expect(getRouteProfile('FR')).toBe('/FR/profile');
+  });
 
-    it('getRouteProfile', () => {
-      expect(getRouteProfile('FR', 'fr')).toBe('/FR-fr/profile');
-    });
+  it('getRouteProfileEdit', () => {
+    expect(getRouteProfileEdit('FR')).toBe('/FR/profile/edit');
+  });
 
-    it('getRouteProfileEdit', () => {
-      expect(getRouteProfileEdit('FR', 'fr')).toBe('/FR-fr/profile/edit');
-    });
+  it('getRouteProfileProposals', () => {
+    expect(getRouteProfileProposals('FR')).toBe('/FR/profile/proposals');
+  });
 
-    it('getRouteProfileProposals', () => {
-      expect(getRouteProfileProposals('FR', 'fr')).toBe(
-        '/FR-fr/profile/proposals'
-      );
-    });
+  it('getRouteProfileFavourites', () => {
+    expect(getRouteProfileFavourites('FR')).toBe('/FR/profile/favourites');
+  });
 
-    it('getRouteProfileFavourites', () => {
-      expect(getRouteProfileFavourites('FR', 'fr')).toBe(
-        '/FR-fr/profile/favourites'
-      );
-    });
+  it('getRouteProfileOpinions', () => {
+    expect(getRouteProfileOpinions('FR')).toBe('/FR/profile/opinions');
+  });
 
-    it('getRouteProfileFollowing', () => {
-      expect(getRouteProfileFollowing('FR', 'fr')).toBe(
-        '/FR-fr/profile/following'
-      );
-    });
+  it('getRouteNoCookies', () => {
+    expect(getRouteNoCookies('FR')).toBe('/FR/no-cookies');
+  });
 
-    it('getRouteProfileOpinions', () => {
-      expect(getRouteProfileOpinions('FR', 'fr')).toBe(
-        '/FR-fr/profile/opinions'
-      );
-    });
+  it('getRouteSearch', () => {
+    expect(getRouteSearch('FR', 'fooQuery')).toBe('/FR/search?query=fooQuery');
+  });
 
-    it('getRouteNoCookies', () => {
-      expect(getRouteNoCookies('FR', 'fr')).toBe('/FR-fr/no-cookies');
-    });
+  it('getRouteSearchProposals', () => {
+    expect(getRouteSearchProposals('FR', 'fooQuery')).toBe(
+      '/FR/search/proposals?query=fooQuery'
+    );
+  });
 
-    it('getRouteSearch', () => {
-      expect(getRouteSearch('FR', 'fr', 'fooQuery')).toBe(
-        '/FR-fr/search?query=fooQuery'
-      );
-    });
+  it('getRouteSearchConsultations', () => {
+    expect(getRouteSearchConsultations('FR', 'fooQuery')).toBe(
+      '/FR/search/consultations?query=fooQuery'
+    );
+  });
 
-    it('getRouteSearchProposals', () => {
-      expect(getRouteSearchProposals('FR', 'fr', 'fooQuery')).toBe(
-        '/FR-fr/search/proposals?query=fooQuery'
-      );
-    });
-
-    it('getRouteSearchConsultations', () => {
-      expect(getRouteSearchConsultations('FR', 'fr', 'fooQuery')).toBe(
-        '/FR-fr/search/consultations?query=fooQuery'
-      );
-    });
-
-    it('getRouteSearchOrganisations', () => {
-      expect(getRouteSearchOrganisations('FR', 'fr', 'fooQuery')).toBe(
-        '/FR-fr/search/organisations?query=fooQuery'
-      );
-    });
+  it('getRouteSearchOrganisations', () => {
+    expect(getRouteSearchOrganisations('FR', 'fooQuery')).toBe(
+      '/FR/search/organisations?query=fooQuery'
+    );
   });
 });

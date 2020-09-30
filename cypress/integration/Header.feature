@@ -36,8 +36,8 @@ Feature: The header
     When I click on "mobile-header-menu" button
     Then I see "mobile-header-menu" container
     And  I see "Parcourir les consultations"
-    And I see a link "Les consultations en cours" to "/FR-fr/browse/consultations/page/1" in "mobile-header-menu" container
-    And I see a link "Les résultats des consultations" to "/FR-fr/browse/results/page/1" in "mobile-header-menu" container
+    And I see a link "Les consultations en cours" to "/FR/browse/consultations/page/1" in "mobile-header-menu" container
+    And I see a link "Les résultats des consultations" to "/FR/browse/results/page/1" in "mobile-header-menu" container
     And I see an external link "Notre approche" to "https://about.make.org/qui-sommes-nous" in "mobile-header-menu" container
     And I see an external link "Notre actualité" to "https://about.make.org" in "mobile-header-menu" container
     And I see an external link "Jobs" to "https://about.make.org/jobs" in "mobile-header-menu" container

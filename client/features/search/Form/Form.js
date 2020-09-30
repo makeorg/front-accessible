@@ -28,9 +28,7 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
   const params = new URLSearchParams(location.search);
   const term = params.get('query');
   const history = useHistory();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const [searchTerm, setSearchTerm] = useState<string>(term || '');
   const [canSubmit, setCanSubmit] = useState<boolean>(false);
   const [hasSubmit, setHasSubmit] = useState<boolean>(!!term);
@@ -55,13 +53,13 @@ export const SearchForm = ({ isExpanded, handleFocus }: Props) => {
     event.preventDefault();
     trackClickSubmitSearch();
     setHasSubmit(true);
-    history.push(getRouteSearch(country, language, searchTerm));
+    history.push(getRouteSearch(country, searchTerm));
   };
 
   const handleFlush = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
     flushSearchValue();
-    history.push(getRouteSearch(country, language, ''));
+    history.push(getRouteSearch(country, ''));
   };
 
   useEffect(() => {

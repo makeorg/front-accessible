@@ -29,9 +29,7 @@ export const MainResultsProposals = ({
   proposals,
   count,
 }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isMobile = useMobile();
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -47,13 +45,7 @@ export const MainResultsProposals = ({
 
   const loadMoreProposals = async () => {
     setIsLoading(true);
-    const result = await searchProposals(
-      country,
-      language,
-      searchTerm,
-      page,
-      4
-    );
+    const result = await searchProposals(country, searchTerm, page, 4);
     if (result) {
       const { results } = result;
       const newProposalList = [...proposalsResult, ...results];

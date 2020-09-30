@@ -24,7 +24,7 @@ describe('Question Service', () => {
 
       cache.get.mockReturnValueOnce('fooCache');
 
-      const result = await QuestionService.getQuestion('foo');
+      const result = await QuestionService.getQuestion('foo', 'FR');
 
       expect(cache.get).toHaveBeenCalledWith('QUESTION_foo');
 
@@ -42,7 +42,7 @@ describe('Question Service', () => {
         },
       });
 
-      const result = await QuestionService.getQuestion('foo');
+      const result = await QuestionService.getQuestion('foo', 'FR');
 
       expect(cache.put).toHaveBeenCalledWith(
         'QUESTION_foo',

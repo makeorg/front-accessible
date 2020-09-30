@@ -14,7 +14,7 @@ Feature: Sequence display
       | questionId          | question-0-id                                                       |
       | questionSlug        | question-0-slug                                                     |
       | referrer            | http://localhost:9009/__/                                           |
-      | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+      | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection  |
     And event "display-intro-card" should be tracked by Make with parameters values:
       | name                | value                                                               |
       | eventType           | trackCustom                                                         |

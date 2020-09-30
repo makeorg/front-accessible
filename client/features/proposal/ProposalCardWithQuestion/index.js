@@ -43,7 +43,6 @@ export const ProposalCardWithQuestion = ({
   const { country } = useSelector((state: StateRoot) => state.appConfig);
   const proposalLink = getProposalLink(
     country,
-    proposal.question.language,
     proposal.question.slug,
     proposal.id,
     proposal.slug
@@ -83,17 +82,12 @@ export const ProposalCardWithQuestion = ({
           <OrganisationsVote
             organisations={proposal.organisations}
             country={country}
-            language={proposal.question.country}
           />
         )}
       </ProposalInnerStyle>
       <ProposalFooterWithQuestionElement
         question={proposal.question}
-        consultationLink={getConsultationLink(
-          country,
-          proposal.question.language,
-          proposal.question.slug
-        )}
+        consultationLink={getConsultationLink(country, proposal.question.slug)}
       />
     </ProposalCardStyle>
   );

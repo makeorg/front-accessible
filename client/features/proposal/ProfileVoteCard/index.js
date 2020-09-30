@@ -67,7 +67,6 @@ export const ProfileVoteCard = ({
           <RedLinkRouterStyle
             to={getOrganisationProfileLink(
               organisation.country,
-              organisation.language,
               organisation.slug
             )}
           >
@@ -91,7 +90,6 @@ export const ProfileVoteCard = ({
               id={`proposal_content_${position}`}
               to={getProposalLink(
                 country,
-                proposal.question.language,
                 proposal.question.slug,
                 proposal.id,
                 proposal.slug

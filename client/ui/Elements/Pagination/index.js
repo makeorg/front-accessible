@@ -22,24 +22,20 @@ export const Pagination = ({ itemsPerPage, itemsTotal }: Props) => {
   const history = useHistory();
   const params = useParams();
   const match = useRouteMatch();
-  const { country, language, pageId } = params;
+  const { country, pageId } = params;
   const intPageId = parseInt(pageId, 10);
   const pagesTotal = Math.ceil(itemsTotal / itemsPerPage);
 
   const incrementPagination = () => {
     trackClickPageNumber(intPageId);
     scrollToTop();
-    return history.push(
-      getPaginatedRoute(match.path, country, language, intPageId + 1)
-    );
+    return history.push(getPaginatedRoute(match.path, country, intPageId + 1));
   };
 
   const decrementPagination = () => {
     trackClickPageNumber(intPageId);
     scrollToTop();
-    return history.push(
-      getPaginatedRoute(match.path, country, language, intPageId - 1)
-    );
+    return history.push(getPaginatedRoute(match.path, country, intPageId - 1));
   };
 
   return (

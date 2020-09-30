@@ -1,26 +1,27 @@
 import { matchPath, generatePath } from 'react-router';
 
+export const ROUTE_COUNTRY = '/:country(\\w{2})';
 export const ROUTE_COUNTRY_LANG = '/:country(\\w{2})-:language(\\w{2})';
-export const ROUTE_COUNTRY_LANG_FR = '/:country(\\w{2})-fr';
-export const ROUTE_BETA_SEQUENCE = `/beta${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/selection`;
+export const ROUTE_COUNTRY_FR = '/FR';
+export const ROUTE_BETA_SEQUENCE = `/beta${ROUTE_COUNTRY}/consultation/:questionSlug/selection`;
 
-export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/browse/consultations/page/:pageId`;
-export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY_LANG}/browse/results/page/:pageId`;
-export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/consultation`;
-export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/:consultationStep`;
-export const ROUTE_SEARCH = `${ROUTE_COUNTRY_LANG}/search`;
-export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY_LANG}/search/proposals`;
-export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY_LANG}/search/organisations`;
-export const ROUTE_SEARCH_CONSULTATIONS = `${ROUTE_COUNTRY_LANG}/search/consultations`;
-export const ROUTE_ACTION = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/actions`;
-export const ROUTE_RESULTS = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/results`;
-export const ROUTE_TOP_IDEAS = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/top-ideas`;
-export const ROUTE_TOP_IDEA_DETAILS = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/top-ideas/:topIdeaId`;
-export const ROUTE_SEQUENCE = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/selection`;
-export const ROUTE_PROPOSAL = `${ROUTE_COUNTRY_LANG}/consultation/:questionSlug/proposal/:proposalId/:proposalSlug`;
-export const ROUTE_ACCOUNT_ACTIVATION = `${ROUTE_COUNTRY_LANG}/account-activation/:userId/:verificationToken`;
-export const ROUTE_PASSWORD_RECOVERY = `${ROUTE_COUNTRY_LANG}/password-recovery/:userId/:resetToken`;
-export const ROUTE_PROFILE = `${ROUTE_COUNTRY_LANG}/profile`;
+export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY}/browse/consultations/page/:pageId`;
+export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageId`;
+export const ROUTE_CONSULTATION = `${ROUTE_COUNTRY}/consultation/:questionSlug/consultation`;
+export const ROUTE_CONSULTATION_STEP = `${ROUTE_COUNTRY}/consultation/:questionSlug/:consultationStep`;
+export const ROUTE_SEARCH = `${ROUTE_COUNTRY}/search`;
+export const ROUTE_SEARCH_PROPOSALS = `${ROUTE_COUNTRY}/search/proposals`;
+export const ROUTE_SEARCH_ORGANISATIONS = `${ROUTE_COUNTRY}/search/organisations`;
+export const ROUTE_SEARCH_CONSULTATIONS = `${ROUTE_COUNTRY}/search/consultations`;
+export const ROUTE_ACTION = `${ROUTE_COUNTRY}/consultation/:questionSlug/actions`;
+export const ROUTE_RESULTS = `${ROUTE_COUNTRY}/consultation/:questionSlug/results`;
+export const ROUTE_TOP_IDEAS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas`;
+export const ROUTE_TOP_IDEA_DETAILS = `${ROUTE_COUNTRY}/consultation/:questionSlug/top-ideas/:topIdeaId`;
+export const ROUTE_SEQUENCE = `${ROUTE_COUNTRY}/consultation/:questionSlug/selection`;
+export const ROUTE_PROPOSAL = `${ROUTE_COUNTRY}/consultation/:questionSlug/proposal/:proposalId/:proposalSlug`;
+export const ROUTE_ACCOUNT_ACTIVATION = `${ROUTE_COUNTRY}/account-activation/:userId/:verificationToken`;
+export const ROUTE_PASSWORD_RECOVERY = `${ROUTE_COUNTRY}/password-recovery/:userId/:resetToken`;
+export const ROUTE_PROFILE = `${ROUTE_COUNTRY}/profile`;
 export const ROUTE_PROFILE_EDIT = `${ROUTE_PROFILE}/edit`;
 export const ROUTE_PROFILE_PROPOSALS = `${ROUTE_PROFILE}/proposals`;
 export const ROUTE_PROFILE_FAVOURITES = `${ROUTE_PROFILE}/favourites`;
@@ -30,20 +31,20 @@ export const ROUTE_PERSONALITY_PROFILE = `${ROUTE_PROFILE}/personality/:userId`;
 export const ROUTE_ORGANISATION_PROFILE = `${ROUTE_PROFILE}/organisation/:organisationSlug`;
 export const ROUTE_ORGANISATION_PROPOSALS = `${ROUTE_ORGANISATION_PROFILE}/proposals`;
 export const ROUTE_ORGANISATION_VOTES = `${ROUTE_ORGANISATION_PROFILE}/votes`;
-export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY_LANG}/not-found`;
+export const ROUTE_STATIC_NOTFOUND = `${ROUTE_COUNTRY}/not-found`;
 export const ROUTE_SOON = '/soon';
-export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_LANG_FR}/no-cookies`;
+export const ROUTE_STATIC_NOCOOKIES = `${ROUTE_COUNTRY_FR}/no-cookies`;
 
-export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY_LANG}/mentions-legales`;
-export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY_LANG}/conditions-dutilisation`;
-export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY_LANG}/politique-donnees`;
-export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY_LANG}/contact`;
+export const ROUTE_STATIC_LEGAL = `${ROUTE_COUNTRY}/mentions-legales`;
+export const ROUTE_STATIC_GTU = `${ROUTE_COUNTRY}/conditions-dutilisation`;
+export const ROUTE_STATIC_DATA = `${ROUTE_COUNTRY}/politique-donnees`;
+export const ROUTE_STATIC_CONTACT = `${ROUTE_COUNTRY}/contact`;
 
 // routes for en language
-export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY_LANG}/legal-mentions`;
-export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY_LANG}/terms-of-use`;
-export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY_LANG}/data-terms`;
-export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY_LANG}/contact`;
+export const ROUTE_STATIC_LEGAL_EN = `${ROUTE_COUNTRY}/legal-mentions`;
+export const ROUTE_STATIC_GTU_EN = `${ROUTE_COUNTRY}/terms-of-use`;
+export const ROUTE_STATIC_DATA_EN = `${ROUTE_COUNTRY}/data-terms`;
+export const ROUTE_STATIC_CONTACT_EN = `${ROUTE_COUNTRY}/contact`;
 
 // preview
 export const BASE_PREVIEW_PATH: string = '/preview';
@@ -69,111 +70,80 @@ export const matchRoute = (
   });
 };
 
-export const formatCountryLanguage = (country: string, language: string) =>
-  `${country}-${language}`;
-
 export const getRouteOrganisationProposals = (
   country: string,
-  language: string,
   organisationSlug: string
 ) =>
   generatePath(ROUTE_ORGANISATION_PROPOSALS, {
     country,
-    language,
     organisationSlug,
   });
 export const getRouteOrganisationVotes = (
   country: string,
-  language: string,
   organisationSlug: string
 ) =>
   generatePath(ROUTE_ORGANISATION_VOTES, {
     country,
-    language,
     organisationSlug,
   });
-export const getRouteProfile = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE, { country, language });
-export const getRouteProfileEdit = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE_EDIT, { country, language });
-export const getRouteProfileProposals = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE_PROPOSALS, { country, language });
-export const getRouteProfileFavourites = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE_FAVOURITES, { country, language });
-export const getRouteProfileFollowing = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE_FOLLOWING, { country, language });
-export const getRouteProfileOpinions = (country: string, language: string) =>
-  generatePath(ROUTE_PROFILE_OPINIONS, { country, language });
-export const getRouteNoCookies = (country: string, language: string) =>
-  generatePath(ROUTE_STATIC_NOCOOKIES, { country, language });
+export const getRouteProfile = (country: string) =>
+  generatePath(ROUTE_PROFILE, { country });
+export const getRouteProfileEdit = (country: string) =>
+  generatePath(ROUTE_PROFILE_EDIT, { country });
+export const getRouteProfileProposals = (country: string) =>
+  generatePath(ROUTE_PROFILE_PROPOSALS, { country });
+export const getRouteProfileFavourites = (country: string) =>
+  generatePath(ROUTE_PROFILE_FAVOURITES, { country });
+export const getRouteProfileOpinions = (country: string) =>
+  generatePath(ROUTE_PROFILE_OPINIONS, { country });
+export const getRouteNoCookies = (country: string) =>
+  generatePath(ROUTE_STATIC_NOCOOKIES, { country });
 
 /**
  * Get the search main results route
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} query
  * @return {string}
  */
-export const getRouteSearch = (
-  country: string,
-  language: string,
-  query: string
-) => `${generatePath(ROUTE_SEARCH, { country, language })}?query=${query}`;
+export const getRouteSearch = (country: string, query: string) =>
+  `${generatePath(ROUTE_SEARCH, { country })}?query=${query}`;
 
 /**
  * Get the search proposals results route
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} query
  * @return {string}
  */
-export const getRouteSearchProposals = (
-  country: string,
-  language: string,
-  query: string
-) =>
+export const getRouteSearchProposals = (country: string, query: string) =>
   `${generatePath(ROUTE_SEARCH_PROPOSALS, {
     country,
-    language,
   })}?query=${query}`;
 
 /**
  * Get the search proposals results route
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} query
  * @return {string}
  */
-export const getRouteSearchConsultations = (
-  country: string,
-  language: string,
-  query: string
-) =>
+export const getRouteSearchConsultations = (country: string, query: string) =>
   `${generatePath(ROUTE_SEARCH_CONSULTATIONS, {
     country,
-    language,
   })}?query=${query}`;
 
 /**
  * Get the search organisations results route
  *
  * @param  {string} country
- * @param  {string} language
  * @param  {string} query
  * @return {string}
  */
 
-export const getRouteSearchOrganisations = (
-  country: string,
-  language: string,
-  query: string
-) =>
+export const getRouteSearchOrganisations = (country: string, query: string) =>
   `${generatePath(ROUTE_SEARCH_ORGANISATIONS, {
     country,
-    language,
   })}?query=${query}`;
 
 /**
@@ -181,16 +151,14 @@ export const getRouteSearchOrganisations = (
  *
  * @param  {string} path
  * @param  {string} country
- * @param  {string} language
  * @param  {string} query
  * @return {string}
  */
 export const getPaginatedRoute = (
   path: string,
   country: string,
-  language: string,
   pageId: number
-) => generatePath(path, { country, language, pageId });
+) => generatePath(path, { country, pageId });
 
 export const isConsultationPage = (
   pathname: string,
@@ -308,12 +276,4 @@ export const isHomepage = (
 export const isHomepageWithLocale = (
   pathname: string,
   includingPreview: ?boolean = true
-) =>
-  matchRoute(
-    pathname,
-    ROUTE_COUNTRY_LANG,
-    true,
-    false,
-    false,
-    includingPreview
-  );
+) => matchRoute(pathname, ROUTE_COUNTRY, true, false, false, includingPreview);

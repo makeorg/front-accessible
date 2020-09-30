@@ -32,9 +32,7 @@ import {
  */
 export const Header = () => {
   const isDesktop = useDesktop();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   return (
     <HeaderStyle
@@ -49,7 +47,7 @@ export const Header = () => {
         >
           <h1>
             <HeaderLogoLinkStyle
-              to={getHomeLink(country, language)}
+              to={getHomeLink(country)}
               onClick={trackClickMakeLogo}
               data-cy-link="home"
             >
