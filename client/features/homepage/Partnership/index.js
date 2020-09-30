@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { ExternalLinkIconStyle } from 'Client/ui/Elements/Buttons/V2/style';
-import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { PARTNERSHIP_LINK } from 'Shared/constants/url';
 import { i18n } from 'Shared/i18n';
 import {
@@ -10,6 +9,7 @@ import {
   PartnershipSectionStyle,
   PartnershipSubtitleStyle,
   PartnershipTitleStyle,
+  PartnershipRedButton,
 } from './style';
 
 export const PartnershipBanner = () => (
@@ -35,7 +35,7 @@ export const PartnershipBanner = () => (
         }}
         data-cy-container="partnership_description"
       />
-      <LinkAsRedButton
+      <PartnershipRedButton
         as="a"
         href={PARTNERSHIP_LINK}
         target="_blank"
@@ -43,7 +43,7 @@ export const PartnershipBanner = () => (
       >
         {i18n.t('homepage.partnership.button')}
         <ExternalLinkIconStyle aria-label={i18n.t('common.open_new_window')} />
-      </LinkAsRedButton>
+      </PartnershipRedButton>
     </PartnershipInnerStyle>
   </PartnershipSectionStyle>
 );
