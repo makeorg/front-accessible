@@ -121,9 +121,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
           dangerouslySetInnerHTML={{
             __html: comment.qualification
               ? i18n.t(
-                  `personality.opinions.preview.${comment.vote}_${
-                    comment.qualification
-                  }`
+                  `personality.opinions.preview.${comment.vote}_${comment.qualification}`
                 )
               : i18n.t(`personality.opinions.preview.${comment.vote}`),
           }}

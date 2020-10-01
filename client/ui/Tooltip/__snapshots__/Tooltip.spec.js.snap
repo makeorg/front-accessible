@@ -2,36 +2,13 @@
 
 exports[`TooltipWithTrigger must match the snapshot with default Props 1`] = `
 Array [
-  .c1 {
+  .c0 {
   position: absolute;
   padding: 0.3125rem 0.625rem;
   background-color: rgba(51,67,91,1);
   color: rgba(255,255,255,1);
   font-size: 0.75rem;
   text-align: center;
-}
-
-.c1 >:after {
-  content: '';
-  position: absolute;
-}
-
-.c1[aria-hidden='true'] {
-  display: none;
-}
-
-.c0 {
-  position: absolute;
-  padding: 0.3125rem 0.625rem;
-  background-color: rgba(51,67,91,1);
-  color: rgba(255,255,255,1);
-  font-size: 0.75rem;
-  text-align: center;
-  -webkit-transform: translate(-50%,0);
-  -ms-transform: translate(-50%,0);
-  transform: translate(-50%,0);
-  left: 50%;
-  bottom: calc(100% + 0.625rem);
 }
 
 .c0 >:after {
@@ -43,7 +20,14 @@ Array [
   display: none;
 }
 
-.c0 >:after {
+.c1 {
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+  transform: translate(-50%,0);
+  left: 50%;
+}
+
+.c1 >:after {
   right: 50%;
   border-left: 0.3125rem solid transparent;
   border-right: 0.3125rem solid transparent;
@@ -52,14 +36,18 @@ Array [
   transform: translate(50%,0);
 }
 
-.c0 >:after {
+.c2 {
+  bottom: calc(100% + 0.625rem);
+}
+
+.c2 >:after {
   top: 100%;
   border-top: 0.3125rem solid rgba(0,0,0,0.65);
 }
 
 <div
     aria-hidden={true}
-    className="sc-12iuwgm-1 c0 sc-12iuwgm-0 c1"
+    className="c0 c1 c2 sc-12iuwgm-0 c0"
     role="tooltip"
   />,
   <div

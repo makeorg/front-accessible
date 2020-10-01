@@ -25,6 +25,9 @@ Array [
   padding: 0;
   border: none;
   background-color: transparent;
+}
+
+.c1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -36,7 +39,7 @@ Array [
 }
 
 <button
-    className="sc-11o2adg-1 c0"
+    className="c0 c1"
     onClick={[Function]}
   >
     profile.password_update.actual_password.trigger

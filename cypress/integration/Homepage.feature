@@ -1,7 +1,6 @@
 Feature: The Home Page
   I want to vist the Make.org home page
-  Background: 
-    Given monitor api requests
+
   Scenario: Redirect to france Homepage
     Given I go to "homepage"
     Then I should be redirect to "france homepage"

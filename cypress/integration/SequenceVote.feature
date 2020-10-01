@@ -1,7 +1,5 @@
 Feature: Vote on sequence
   I want to track votes 
-  Background: 
-    Given monitor api requests
   Scenario: Display vote buttons
     Given I am on the sequence page of the question "question-0-slug"
     When I click on "intro card start button" of the current card

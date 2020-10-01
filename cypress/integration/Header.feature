@@ -1,7 +1,5 @@
 Feature: The header
   I want to check header component
-  Background: 
-    Given monitor api requests
 
   Scenario: Header is present in all pages
     Given I go to "homepage"

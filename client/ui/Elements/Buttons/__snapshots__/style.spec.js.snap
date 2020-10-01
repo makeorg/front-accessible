@@ -21,22 +21,25 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
+}
+
+.c1 {
   color: rgba(255,255,255,1);
   background-color: rgba(222,26,66,1);
 }
 
-.c0 svg,
-.c0 .tofill {
+.c1 svg,
+.c1 .tofill {
   fill: rgba(255,255,255,1);
 }
 
-.c0:disabled {
+.c1:disabled {
   color: rgba(0,0,0,0.65);
   background-color: rgba(0,0,0,0.15);
 }
 
-.c0:disabled svg,
-.c0:disabled .tofill {
+.c1:disabled svg,
+.c1:disabled .tofill {
   fill: rgba(0,0,0,0.65);
 }
 
@@ -54,7 +57,7 @@ exports[`ButtonElements/Styled ActiveButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0 c1"
 />
 `;
 
@@ -236,6 +239,9 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   padding: 0;
   border: none;
   background-color: transparent;
+}
+
+.c1 {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -244,19 +250,19 @@ exports[`ButtonElements/Styled CloseButtonStyle snapshot by default 1`] = `
   font-size: 16px;
 }
 
-.c0 .tofill {
+.c1 .tofill {
   fill: rgba(0,0,0,0.65);
 }
 
 @media (min-width:767px) {
-  .c0 {
+  .c1 {
     top: 30px;
     right: 30px;
   }
 }
 
 <button
-  className="sc-11o2adg-1 c0"
+  className="c0 c1"
 />
 `;
 
@@ -356,16 +362,19 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
+}
+
+.c1 {
   color: rgba(0,0,0,0.65);
   background-color: rgba(0,0,0,0.15);
 }
 
-.c0 svg {
+.c1 svg {
   fill: rgba(222,26,66,1);
 }
 
-.c0:hover,
-.c0:focus {
+.c1:hover,
+.c1:focus {
   color: rgba(0,0,0,0.65);
 }
 
@@ -383,7 +392,7 @@ exports[`ButtonElements/Styled GreyButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0 c1"
 />
 `;
 
@@ -727,11 +736,14 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
+}
+
+.c1 {
   color: rgba(255,255,255,1);
   background-color: rgba(222,26,66,1);
 }
 
-.c0 svg {
+.c1 svg {
   fill: rgba(255,255,255,1);
 }
 
@@ -749,7 +761,7 @@ exports[`ButtonElements/Styled RedButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0 c1"
 />
 `;
 
@@ -770,6 +782,9 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
   padding: 0;
   border: none;
   background-color: transparent;
+}
+
+.c1 {
   display: inline-block;
   color: rgba(222,26,66,1);
   -webkit-text-decoration: underline;
@@ -778,7 +793,7 @@ exports[`ButtonElements/Styled RedLinkButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-1 c0"
+  className="c0 c1"
 />
 `;
 
@@ -883,18 +898,24 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgba(0,0,0,0.65);
-  background-color: rgba(0,0,0,0.15);
-  padding: 5px 15px 2.5px;
 }
 
-.c0 svg {
+.c1 {
+  color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.15);
+}
+
+.c1 svg {
   fill: rgba(222,26,66,1);
 }
 
-.c0:hover,
-.c0:focus {
+.c1:hover,
+.c1:focus {
   color: rgba(0,0,0,0.65);
+}
+
+.c2 {
+  padding: 5px 15px 2.5px;
 }
 
 @media (min-width:767px) {
@@ -911,13 +932,13 @@ exports[`ButtonElements/Styled SmallGreyButtonStyle snapshot by default 1`] = `
 }
 
 @media (min-width:767px) {
-  .c0 {
+  .c2 {
     padding: 10px 20px;
   }
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-5 c0"
+  className="c0 c1 c2"
 />
 `;
 
@@ -942,13 +963,19 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
-  color: rgba(255,255,255,1);
-  background-color: rgba(222,26,66,1);
-  padding: 5px 15px 2.5px;
 }
 
-.c0 svg {
+.c1 {
+  color: rgba(255,255,255,1);
+  background-color: rgba(222,26,66,1);
+}
+
+.c1 svg {
   fill: rgba(255,255,255,1);
+}
+
+.c2 {
+  padding: 5px 15px 2.5px;
 }
 
 @media (min-width:767px) {
@@ -965,13 +992,13 @@ exports[`ButtonElements/Styled SmallRedButtonStyle snapshot by default 1`] = `
 }
 
 @media (min-width:767px) {
-  .c0 {
+  .c2 {
     padding: 10px 20px;
   }
 }
 
 <button
-  className="sc-11o2adg-2 sc-11o2adg-4 c0"
+  className="c0 c1 c2"
 />
 `;
 
@@ -1344,11 +1371,14 @@ exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
+}
+
+.c1 {
   color: rgba(0,0,0,1);
   background-color: rgba(255,255,255,1);
 }
 
-.c0 svg {
+.c1 svg {
   fill: rgba(0,0,0,1);
 }
 
@@ -1366,6 +1396,6 @@ exports[`ButtonElements/Styled WhiteButtonStyle snapshot by default 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0 c1"
 />
 `;

@@ -21,22 +21,25 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
   border-radius: 20px;
   text-transform: uppercase;
   padding: 12px 25px 8px;
+}
+
+.c1 {
   color: rgba(255,255,255,1);
   background-color: rgba(222,26,66,1);
 }
 
-.c0 svg,
-.c0 .tofill {
+.c1 svg,
+.c1 .tofill {
   fill: rgba(255,255,255,1);
 }
 
-.c0:disabled {
+.c1:disabled {
   color: rgba(0,0,0,0.65);
   background-color: rgba(0,0,0,0.15);
 }
 
-.c0:disabled svg,
-.c0:disabled .tofill {
+.c1:disabled svg,
+.c1:disabled .tofill {
   fill: rgba(0,0,0,0.65);
 }
 
@@ -54,7 +57,7 @@ exports[`SubmitButton must match the snapshot with default Props 1`] = `
 }
 
 <button
-  className="sc-11o2adg-2 c0"
+  className="c0 c1"
   disabled={false}
   form="foo"
   type="submit"
@@ -71,7 +74,7 @@ Snapshot Diff:
 
 @@ -1,8 +1,8 @@
   <button
-    className="sc-11o2adg-2 sc-11o2adg-8 ldAzZf"
+    className="sc-11o2adg-2 sc-11o2adg-8 biLEEK dWzwOH"
 -   disabled={false}
 +   disabled={true}
     form="foo"

@@ -1,7 +1,5 @@
 Feature: The footer
   I want to check footer component
-  Background: 
-    Given monitor api requests
 
   Scenario: Footer is present in all pages
     Given I go to "homepage"

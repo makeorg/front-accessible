@@ -22,7 +22,7 @@ Snapshot Diff:
         <tbody>
           <tr>
             <th
-@@ -26,41 +32,170 @@
+@@ -26,19 +32,25 @@
               Ile-de-France
             </th>
             <td>
@@ -48,15 +48,15 @@ Snapshot Diff:
           <tr>
             <th
               scope="row"
-            >
+@@ -46,21 +58,144 @@
               Nouvelle-Aquitaine
             </th>
             <td>
               10%
-+           </td>
+            </td>
 +           <td>
 +             9%
-            </td>
++           </td>
           </tr>
           <tr>
             <th
@@ -193,30 +193,32 @@ Snapshot Diff:
     </ScreenReaderItemStyle>
     <HistogramLegendStyle
       aria-hidden={true}
-@@ -70,10 +205,16 @@
+@@ -69,10 +204,16 @@
+        Répartition des participants
       </h5>
       <HistogramLegendLabelStyle>
         participants
         <HistogramLegendColorsStyle />
-      </HistogramLegendLabelStyle>
++     </HistogramLegendLabelStyle>
 +     <HistogramLegendLabelStyle>
 +       population générale
 +       <HistogramLegendColorsStyle
 +         background="population générale"
 +       />
-+     </HistogramLegendLabelStyle>
+      </HistogramLegendLabelStyle>
     </HistogramLegendStyle>
     <HistogramListStyle
       aria-hidden={true}
       itemGap={0}
-    >
-@@ -85,14 +226,23 @@
+@@ -84,15 +225,24 @@
+        <HistogramLabelStyle>
           Ile-de-France
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={1600}
+-           barHeight={100}
 -           barWidth={100}
++           barHeight={1600}
 +           barWidth={50}
           >
             <HistogramPercentStyle>
@@ -235,13 +237,15 @@ Snapshot Diff:
         </HistogramBarContainerStyle>
       </HistogramListItemStyle>
       <HistogramListItemStyle
-@@ -103,14 +253,23 @@
+@@ -102,15 +252,24 @@
+        <HistogramLabelStyle>
           Auvergne-Rhone-Alpes
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={1300}
+-           barHeight={81}
 -           barWidth={100}
++           barHeight={1300}
 +           barWidth={50}
           >
             <HistogramPercentStyle>
@@ -260,19 +264,21 @@ Snapshot Diff:
         </HistogramBarContainerStyle>
       </HistogramListItemStyle>
       <HistogramListItemStyle
-@@ -121,16 +280,25 @@
+@@ -120,15 +279,24 @@
+        <HistogramLabelStyle>
           Nouvelle-Aquitaine
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={1000}
+-           barHeight={63}
 -           barWidth={100}
++           barHeight={1000}
 +           barWidth={50}
           >
             <HistogramPercentStyle>
               10%
-            </HistogramPercentStyle>
-          </HistogramBarStyle>
++           </HistogramPercentStyle>
++         </HistogramBarStyle>
 +         <HistogramBarStyle
 +           background={9}
 +           barHeight={900}
@@ -280,20 +286,20 @@ Snapshot Diff:
 +         >
 +           <HistogramPercentStyle>
 +             9%
-+           </HistogramPercentStyle>
-+         </HistogramBarStyle>
+            </HistogramPercentStyle>
+          </HistogramBarStyle>
         </HistogramBarContainerStyle>
       </HistogramListItemStyle>
       <HistogramListItemStyle
-        itemGap={0}
-        itemWidth={0}
-@@ -139,14 +307,266 @@
+@@ -138,15 +306,267 @@
+        <HistogramLabelStyle>
           Occitanie
         </HistogramLabelStyle>
         <HistogramBarContainerStyle>
           <HistogramBarStyle
-            barHeight={1000}
+-           barHeight={63}
 -           barWidth={100}
++           barHeight={1000}
 +           barWidth={50}
           >
             <HistogramPercentStyle>

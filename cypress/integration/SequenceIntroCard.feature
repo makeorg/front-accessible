@@ -1,7 +1,6 @@
 Feature: Intro card on sequence
   I want to disable intro card on sequence
-  Background:
-    Given monitor api requests
+  
   Scenario: display intro card
     Given I am on the sequence page of the question "question-0-slug"
     Then I see "Des milliers de citoyens proposent des solutions." in "intro-card-title" container

@@ -48,12 +48,8 @@ import { trackDisplayPublicProfile } from 'Shared/services/Tracking';
 import { CertifiedIconStyle } from 'Client/ui/Proposal/AuthorElement/Styled';
 import { formatOrganisationName } from 'Shared/helpers/stringFormatter';
 
-const OrganisationProposalsPage = loadable(() =>
-  import('Client/pages/Organisation/Proposals')
-);
-const OrganisationVotesPage = loadable(() =>
-  import('Client/pages/Organisation/Votes')
-);
+const OrganisationProposalsPage = loadable(() => import('./Proposals'));
+const OrganisationVotesPage = loadable(() => import('./Votes'));
 
 type Props = {
   match: TypeMatch,

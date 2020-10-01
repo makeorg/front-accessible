@@ -18,12 +18,12 @@ Feature: Browse page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/beta/FR-fr/browse/consultations/page/1        |
+        | url                 | http://localhost:9009/FR-fr/browse/consultations/page/1             |
 
   Scenario: Track click participate on item in browse consultations
-      Given I go to "browse consultations"
       Given I monitor API "postTracking" requests
-      When I click on "item-link-question-0-id" link
+      When I go to "browse consultations"
+      And I click on "item-link-question-0-id" link
       Then event "click-button-participate" should be tracked by Make with parameters values:
         | name                | value                                                                |
         | eventType           | trackCustom                                                          |
@@ -31,10 +31,10 @@ Feature: Browse page
         | language            | fr                                                                   |
         | source              | core                                                                 |
         | location            | browse-consultations-page                                            |
-        | questionId          | question-0-id                                                        |
-        | questionSlug        | question-0-slug                                                      |
-        | referrer            | http://localhost:9009/beta/FR-fr/home                                |
-        | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/consultation|
+        | questionId          |                                                                      |
+        | questionSlug        |                                                                      |
+        | referrer            | http://localhost:9009/__/                                            |
+        | url                 | http://localhost:9009/FR-fr/browse/consultations/page/1              |
 
   Scenario: Browse results page has canonical url
   Given I go to "browse results"
@@ -53,12 +53,12 @@ Feature: Browse page
         | questionId          |                                                                     |
         | questionSlug        |                                                                     |
         | referrer            | http://localhost:9009/__/                                           |
-        | url                 | http://localhost:9009/beta/FR-fr/browse/results/page/1              |
+        | url                 | http://localhost:9009/FR-fr/browse/results/page/1                   |
 
   Scenario: Track click results on item in results consultations
-      Given I go to "browse results"
       Given I monitor API "postTracking" requests
-      When I click on "item-link-question-0-id" link
+      When I go to "browse results"
+      And I click on "item-link-question-0-id" link
       Then event "click-button-results" should be tracked by Make with parameters values:
         | name                | value                                                                |
         | eventType           | trackCustom                                                          |
@@ -66,15 +66,15 @@ Feature: Browse page
         | language            | fr                                                                   |
         | source              | core                                                                 |
         | location            | browse-results-page                                                  |
-        | questionId          | question-0-id                                                        |
-        | questionSlug        | question-0-slug                                                      |
-        | referrer            | http://localhost:9009/beta/FR-fr/home                                |
+        | questionId          |                                                                      |
+        | questionSlug        |                                                                      |
+        | referrer            | http://localhost:9009/__/                                            |
         | url                 | http://localhost:9009/FR-fr/browse/results/page/1                    |
 
   Scenario: Track click pagination increment in results consultations
-      Given I go to "browse results"
       Given I monitor API "postTracking" requests
-      Then I see a button "pagination-next" in "pagination" container
+      When I go to "browse results"
+      And I see a button "pagination-next" in "pagination" container
       When I click on "pagination-next" button
       Then event "click-page" should be tracked by Make with parameters values:
         | name                | value                                                                |
@@ -85,14 +85,14 @@ Feature: Browse page
         | location            | browse-results-page                                                  |
         | questionId          |                                                                      |
         | questionSlug        |                                                                      | 
-        | referrer            | http://localhost:9009/FR-fr/browse/results/page/1                                  |
-        | url                 | http://localhost:9009/FR-fr/browse/results/page/2                    |
-        |page-number          | 1                                                                    |
+        | referrer            | http://localhost:9009/__/                                            |
+        | url                 | http://localhost:9009/FR-fr/browse/results/page/1                    |
+        | page-number         | 1                                                                    |
 
   Scenario: Track click pagination decrement in results consultations
-      Given I go to "browse results second page"
       Given I monitor API "postTracking" requests
-      Then I see a button "pagination-previous" in "pagination" container
+      Then I go to "browse results second page"
+      And I see a button "pagination-previous" in "pagination" container
       When I click on "pagination-previous" button
       Then event "click-page" should be tracked by Make with parameters values:
         | name                | value                                                                |
@@ -103,6 +103,6 @@ Feature: Browse page
         | location            | browse-results-page                                                  |
         | questionId          |                                                                      |
         | questionSlug        |                                                                      | 
-        | referrer            | http://localhost:9009/FR-fr/browse/results/page/2                                  |
-        | url                 | http://localhost:9009/FR-fr/browse/results/page/1                    |
-        |page-number          | 2                                                                    |
+        | referrer            | http://localhost:9009/__/                                            |
+        | url                 | http://localhost:9009/FR-fr/browse/results/page/2                    |
+        | page-number         | 2                                                                    |

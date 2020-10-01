@@ -212,9 +212,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
   const { country, language } = useSelector(
     (state: StateRoot) => state.appConfig
   );
-  const personalityFullName = `${personality.firstName} ${
-    personality.lastName
-  }`;
+  const personalityFullName = `${personality.firstName} ${personality.lastName}`;
   return (
     <CenterRowStyle as={isMobile && MiddleColumnStyle}>
       <Link

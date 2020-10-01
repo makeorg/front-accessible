@@ -51,9 +51,7 @@ const getHome = async (
     }
     logError(
       apiServiceError.clone(
-        `error in server/service/ViewsService/getHome: ${
-          apiServiceError.message
-        }`
+        `error in server/service/ViewsService/getHome: ${apiServiceError.message}`
       )
     );
 

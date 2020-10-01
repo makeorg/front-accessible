@@ -13,3 +13,4 @@
 /client/ui/Svg/svgr
 /reports
 .jscpd/
+package-lock.json

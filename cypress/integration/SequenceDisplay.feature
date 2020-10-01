@@ -1,7 +1,6 @@
 Feature: Sequence display
   I want to track display sequence 
-  Background: 
-    Given monitor api requests
+  
   Scenario: Track display on sequence
     Given I monitor API "postTracking" requests
     When I go to the sequence page of the question "question-0-slug"

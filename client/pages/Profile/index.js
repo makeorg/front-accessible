@@ -36,15 +36,9 @@ import {
 import { UserProfileSkipLinks } from 'Client/app/SkipLinks/Profile';
 import { TYPE_PERSONALITY } from 'Shared/constants/user';
 
-const ProfileProposalsPage = loadable(() =>
-  import('Client/pages/Profile/Proposals')
-);
-const ProfileFavouritesPage = loadable(() =>
-  import('Client/pages/Profile/Favourites')
-);
-const ProfileFollowingPage = loadable(() =>
-  import('Client/pages/Profile/Following')
-);
+const ProfileProposalsPage = loadable(() => import('./Proposals'));
+const ProfileFavouritesPage = loadable(() => import('./Favourites'));
+const ProfileFollowingPage = loadable(() => import('./Following'));
 
 type Props = {
   match: TypeMatch,

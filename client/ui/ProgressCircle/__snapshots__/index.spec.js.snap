@@ -11,15 +11,15 @@ Array [
   clip: rect(1px,1px,1px,1px);
 }
 
-@media (min-width:767px) {
-
-}
-
 @media (min-width:360px) {
 
 }
 
 @media (min-width:969px) {
+
+}
+
+@media (min-width:767px) {
 
 }
 
@@ -37,7 +37,13 @@ Array [
   >
     proposal_card.number
   </progress>,
-  .c0 {
+  .c5 {
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0,0,0,0.65);
+}
+
+.c0 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -81,10 +87,7 @@ Array [
   stroke-dashoffset: 25;
 }
 
-.c5 {
-  font-size: 12px;
-  line-height: 18px;
-  color: rgba(0,0,0,0.65);
+.c6 {
   position: relative;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -93,16 +96,9 @@ Array [
   font-family: 'Circular Standard Book',Arial,sans-serif;
 }
 
-.c6 {
+.c7 {
   font-size: 12px;
   color: rgba(0,0,0,1);
-}
-
-@media (min-width:767px) {
-  .c0 {
-    width: 82px;
-    height: 82px;
-  }
 }
 
 @media (min-width:360px) {
@@ -120,7 +116,14 @@ Array [
 }
 
 @media (min-width:767px) {
-  .c6 {
+  .c0 {
+    width: 82px;
+    height: 82px;
+  }
+}
+
+@media (min-width:767px) {
+  .c7 {
     font-size: 18px;
   }
 }
@@ -156,10 +159,10 @@ Array [
       />
     </svg>
     <p
-      className="sc-1nc0118-0 c5"
+      className="c5 c6"
     >
       <span
-        className="c6"
+        className="c7"
       >
         3
       </span>
