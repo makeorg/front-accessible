@@ -18,6 +18,8 @@ stages:
 
 lint:
   stage: check
+  except: 
+    - production
   image: node:12.16-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
@@ -27,6 +29,8 @@ lint:
 
 flow-static:
   stage: check
+  except: 
+    - production
   image: node:12.16-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
@@ -49,6 +53,8 @@ test:
 
 jscpd:
   stage: check
+  except: 
+    - production
   image: node:12.16-alpine
   before_script:
     - export YARN_VERSION="1.22.4"
@@ -63,6 +69,9 @@ jscpd:
   
 e2e-test:
   stage: e2e
+  needs: []
+  except: 
+    - production
   image: cypress/base:12.16.1
   script:
     - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
@@ -81,6 +90,8 @@ e2e-test:
 
 lighthouse:
   stage: check
+  except: 
+    - production
   image: markhobson/node-chrome:latest
   script:
     - npm install -g n
