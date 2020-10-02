@@ -58,7 +58,7 @@ export const SequenceCard = ({ card }: Props) => {
           className={!isProposalCard && 'center'}
           id={`card-${card.index}`}
           data-cy-card-type={card.type}
-          data-cy-card-number={card.index}
+          data-cy-card-number={card.index + 1}
           aria-live="polite"
         >
           <Card card={card} />

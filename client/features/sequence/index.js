@@ -115,7 +115,7 @@ export const Sequence = ({ question }: Props) => {
   }
 
   return (
-    <SequenceContainerStyle>
+    <SequenceContainerStyle data-cy-container="sequence">
       <SequenceContentStyle>
         <SequenceTitleStyle>{question.question}</SequenceTitleStyle>
         <SequenceCard card={currentCard} />

@@ -4,7 +4,7 @@ import { getIdentifierButtonByName } from '../mapping';
 export const pages = {
   'homepage': '/',
   'france homepage': '/FR',
-  'sequence': '/FR/consultation/:questionSlug/selection',
+  'sequence': '/beta/FR/consultation/:questionSlug/selection',
   'general terms of use': '/FR/conditions-dutilisation',
   'data policy': '/FR/politique-donnees',
   'about': 'https://about.make.org',
@@ -138,7 +138,6 @@ then('The link {string} to {string} in {string} container exists', (linkLabel, h
 then('I don\'t see the link {string}', (label) => {
   cy.get('body')
     .contains('a', label)
-    .scrollIntoView()
     .should('not.visible');
 });
 
@@ -149,6 +148,7 @@ then('I see (a )(the ){string} button', (buttonName) => {
     .should('exist')
     .and('be.visible');
 });
+
 then('I don\'t see (a )(the ){string} button', (buttonName) => {
   cy.get(`button[data-cy-button=${getIdentifierButtonByName(buttonName)}]`)
     .should('not.be.visible');
@@ -211,7 +211,15 @@ then('I see {string}', (text) => {
 then('I type {string} in field {string}', (text, fieldName) => {
   cy.get(`[data-cy-field=${fieldName}]`)
     .first()
-    .type(text, {delay: 300, release: false});
+    .type(text, {delay: 10, release: false});
+});
+
+then('I see {string} in field {string}', (text, fieldName) => {
+  cy.get(`[data-cy-field=${fieldName}]`)
+    .first()
+    .contains(new RegExp(text))
+    .should('exist')
+    .and('be.visible');
 });
 
 then ('The field {string} should have value {string}', (fieldName, value) => {

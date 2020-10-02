@@ -73,7 +73,7 @@ const generateOpenedHomepageQuestions = count => {
     questionSlug: `question-${number}-slug`,
     startDate,
     endDate,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     shortTitle: `shortTitle-${number}`,
     operationTitle: `operation-${number}`,
   }));
@@ -89,7 +89,7 @@ const generateFinishedHomepageQuestions = count => {
     questionSlug: `question-${number}-slug`,
     startDate,
     endDate,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     shortTitle: `shortTitle-${number}`,
     operationTitle: `operation-${number}`,
     resultsLink: generateResultsLink(number),
@@ -106,7 +106,7 @@ const generateUpcomingHomepageQuestions = count => {
     questionSlug: `question-${number}-slug`,
     startDate,
     endDate,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     shortTitle: `shortTitle-${number}`,
     operationTitle: `operation-${number}`,
   }));
@@ -122,11 +122,11 @@ const generateOpenedQuestions = count => {
     slug: `question-${number}-slug`,
     startDate,
     endDate,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     wording: {
       ...defaultQuestion.wording,
       title: `question-${number} ${defaultQuestion.wording.title}`,
-      question: `question-${number} ${defaultQuestion.wording.question} ?`,
+      question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
   }));
@@ -142,11 +142,11 @@ const generateClosedQuestions = count => {
     slug: `question-${number}-slug`,
     startDate,
     endDate,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     wording: {
       ...defaultQuestion.wording,
       title: `question-${number} ${defaultQuestion.wording.title}`,
-      question: `question-${number} ${defaultQuestion.wording.question} ?`,
+      question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
   }));
@@ -162,11 +162,11 @@ const generateQuestionsWithResults = count => {
     startDate,
     endDate: mixPastAndFutureDates(number),
     displayResults: true,
-    question: `question-${number} ${defaultQuestion.question} ?`,
+    question: `question-${number} ${defaultQuestion.question}`,
     wording: {
       ...defaultQuestion.wording,
       title: `question-${number} ${defaultQuestion.wording.title}`,
-      question: `question-${number} ${defaultQuestion.wording.question} ?`,
+      question: `question-${number} ${defaultQuestion.wording.question}`,
       description: `question-${number} ${defaultQuestion.wording.description}`,
     },
   }));

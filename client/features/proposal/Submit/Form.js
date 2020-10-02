@@ -87,7 +87,7 @@ export const ProposalForm = ({
   }, []);
 
   return (
-    <ProposalStepWrapperStyle>
+    <ProposalStepWrapperStyle data-cy-container={PROPOSAL_SUBMIT_FORMNAME}>
       <form
         id={PROPOSAL_SUBMIT_FORMNAME}
         name={PROPOSAL_SUBMIT_FORMNAME}
@@ -118,7 +118,7 @@ export const ProposalForm = ({
             spellCheck
             maxLength={MAX_PROPOSAL_LENGTH}
           />
-          <ProposalCharCountStyle aria-hidden>
+          <ProposalCharCountStyle aria-hidden data-cy-container="char-count">
             {`${charCounting} / ${MAX_PROPOSAL_LENGTH}`}
           </ProposalCharCountStyle>
           <ScreenReaderItemStyle aria-live="polite">
@@ -129,7 +129,11 @@ export const ProposalForm = ({
           </ScreenReaderItemStyle>
         </ProposalFieldWrapperStyle>
         <SpaceBetweenRowStyle>
-          <GreyNoBackgroundButtonStyle type="button" onClick={handleCancel}>
+          <GreyNoBackgroundButtonStyle
+            type="button"
+            onClick={handleCancel}
+            data-cy-button="proposal-form-cancel"
+          >
             {i18n.t('proposal_submit.form.button_cancel')}
           </GreyNoBackgroundButtonStyle>
           <RedButtonStyle
@@ -137,6 +141,7 @@ export const ProposalForm = ({
             form={PROPOSAL_SUBMIT_FORMNAME}
             onClick={trackClickProposalSubmit}
             disabled={disableSubmitButton}
+            data-cy-button="proposal-submit"
           >
             {waitingApiCallback ? (
               <LoadingDots />

@@ -12,6 +12,7 @@ export const ProposalSubmit = () => {
   return (
     <PanelTriggerStyle
       onClick={() => dispatch(setPanelContent(<ProposalJourney />))}
+      data-cy-button="proposal-panel"
     >
       <TriggerIconStyle aria-hidden />
       {i18n.t('proposal_submit.form.panel_trigger')}

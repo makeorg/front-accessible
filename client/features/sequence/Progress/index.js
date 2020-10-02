@@ -32,7 +32,7 @@ export const SequenceProgress = () => {
 
   return (
     <ThemeProvider theme={question.theme}>
-      <SpaceBetweenRowStyle className="fullwidth">
+      <SpaceBetweenRowStyle className="fullwidth" data-cy-container="progress">
         <ProgressPreviousButtonStyle
           onClick={() => {
             dispatch(decrementSequenceIndex());
@@ -40,6 +40,7 @@ export const SequenceProgress = () => {
           }}
           disabled={currentIndex === 0}
           aria-label={i18n.t('sequence_progress.previous')}
+          data-cy-button="progress-previous"
         >
           <ProgressIconStyle aria-hidden />
         </ProgressPreviousButtonStyle>
