@@ -57,6 +57,7 @@ export const PopularProposalCard = ({
             proposal.id,
             proposal.slug
           )}
+          lang={proposal.question.language}
         >
           {proposal.content}
         </ProposalStyle>

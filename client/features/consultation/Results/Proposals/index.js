@@ -20,9 +20,14 @@ import {
 type Props = {
   proposals: TypeControversialsProposals[] | RejectedProposalsType[],
   isRejected?: boolean,
+  question: QuestionType,
 };
 
-export const ProposalsResults = ({ proposals, isRejected }: Props) => {
+export const ProposalsResults = ({
+  proposals,
+  question,
+  isRejected,
+}: Props) => {
   return (
     <ProposalsListStyle>
       {proposals.map(proposal => (
@@ -33,10 +38,10 @@ export const ProposalsResults = ({ proposals, isRejected }: Props) => {
             </ScreenReaderItemStyle>
             {formatAuthorName(proposal.author)}
           </ProposalAuthorStyle>
-          <ProposalStyle as="p">
-            <ScreenReaderItemStyle>
-              {i18n.t('proposal_card.content')}
-            </ScreenReaderItemStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('proposal_card.content')}
+          </ScreenReaderItemStyle>
+          <ProposalStyle as="p" lang={question.language}>
             {proposal.content}
           </ProposalStyle>
           {isRejected ? (

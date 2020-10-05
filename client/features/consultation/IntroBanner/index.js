@@ -33,7 +33,7 @@ export const IntroBanner = ({ question }: Props) => {
           />
         </h2>
       ) : (
-        <GreatCauseIntroBannerTitleStyle>
+        <GreatCauseIntroBannerTitleStyle lang={question.language}>
           {question.wording.question}
         </GreatCauseIntroBannerTitleStyle>
       )}
@@ -41,7 +41,7 @@ export const IntroBanner = ({ question }: Props) => {
   ) : (
     <IntroWrapperStyle as="header" id="intro">
       <DefaultBannerMainContainer>
-        <DefaultBannerTitleStyle>
+        <DefaultBannerTitleStyle lang={question.language}>
           {question.wording.question}
         </DefaultBannerTitleStyle>
         <DefaultBannerTimeStyle>

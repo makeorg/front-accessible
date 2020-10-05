@@ -89,6 +89,7 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
                 aria-current={
                   siblingQuestion.questionId === question.questionId
                 }
+                lang={siblingQuestion.language}
               >
                 {siblingQuestion.shortTitle
                   ? siblingQuestion.shortTitle

@@ -94,6 +94,7 @@ export const ProfileVoteCard = ({
                 proposal.id,
                 proposal.slug
               )}
+              lang={proposal.question.language}
             >
               {proposal.content}
             </ProposalStyle>

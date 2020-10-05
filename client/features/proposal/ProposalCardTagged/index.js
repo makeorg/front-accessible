@@ -54,7 +54,11 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
           <ScreenReaderItemStyle>
             {i18n.t('proposal_card.content')}
           </ScreenReaderItemStyle>
-          <ProposalStyle id={`proposal_content_${position}`} to={proposalLink}>
+          <ProposalStyle
+            id={`proposal_content_${position}`}
+            to={proposalLink}
+            lang={proposal.question.language}
+          >
             {proposal.content}
           </ProposalStyle>
           {canVote ? (

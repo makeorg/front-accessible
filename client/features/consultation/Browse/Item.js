@@ -87,7 +87,7 @@ export const ConsultationItem = ({ question, resultsContext }: Props) => {
           {i18n.t('browse.initiative')}
         </ConsultationElementSubtitleStyle>
       )}
-      <ConsultationElementTitleStyle>
+      <ConsultationElementTitleStyle lang={question.language}>
         {question.question}
       </ConsultationElementTitleStyle>
       <ConsultationElementParagraphStyle>

@@ -70,7 +70,9 @@ export const ProposalCard = ({ proposalCard }: Props) => {
       <ScreenReaderItemStyle>
         {i18n.t('proposal_card.content')}
       </ScreenReaderItemStyle>
-      <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
+      <SequenceProposalStyle lang={proposal.question.language}>
+        {proposal.content}
+      </SequenceProposalStyle>
       <Vote
         proposal={proposal}
         votes={votes}

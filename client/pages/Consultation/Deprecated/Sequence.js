@@ -90,7 +90,7 @@ const DeprecatedSequencePage = () => {
         />
       </SequencePageContentStyle>
       <SequenceFooterStyle aria-labelledby="footer_title">
-        <SequenceFooterTitleStyle id="footer_title">
+        <SequenceFooterTitleStyle id="footer_title" lang={question.language}>
           {question.question}
         </SequenceFooterTitleStyle>
         <SequenceFooterLinkStyle
