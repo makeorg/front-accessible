@@ -18,6 +18,9 @@
     },
     {
       "path": "apiMocks"
+    },
+    {
+      "path": "i18n"
     }
   ],
   "settings": {
