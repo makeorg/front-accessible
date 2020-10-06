@@ -3,42 +3,76 @@ import { color } from 'athena-design-tokens';
 import { Link } from 'react-router-dom';
 import { MakeFonts } from 'Client/app/assets/vars/Fonts';
 import { intToPx } from 'Shared/helpers/styled';
-import { SvgExternalLink } from 'Client/ui/Svg/elements';
+import {
+  SvgExternalLink,
+  SvgMailPlain,
+  SvgWorldMap,
+} from 'Client/ui/Svg/elements';
 import { Layouts, Breakpoints } from 'Client/app/assets/vars/Breakpoints';
+import { UnstyledListStyle } from 'Client/ui/Elements/ListElements';
 
 export const FooterStyle = styled.footer`
-  padding: 0 20px 55px;
+  background-color: ${color.white};
+  padding: 0 20px 20px;
   @media (min-width: ${intToPx(Breakpoints.Desktop)}) {
-    padding-bottom: 20px;
+    padding: 0 20px;
   }
 `;
 
 export const FooterNavStyle = styled.nav`
   width: 100%;
   margin: 0 auto;
-  padding-top: 20px;
   max-width: ${intToPx(Layouts.ContainerWidth)};
-  border-top: 1px solid ${color.greyLighter};
+`;
+
+export const FooterWrapperFirstListStyle = styled(UnstyledListStyle)`
+  padding: 20px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 27px 0 20px;
+  }
+`;
+
+export const FooterWrapperSecondListStyle = styled(UnstyledListStyle)`
+  padding: 20px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    padding: 20px 0 27px;
+  }
 `;
 
 export const FooterItemStyle = styled.li`
   display: inline-flex;
+  &.no-bullet {
+    margin-right: 30px;
+  }
   &:after {
     content: '.';
     margin: 0 5px;
   }
-  &:last-child :after {
+  &:last-child :after,
+  &.no-bullet :after {
     display: none;
   }
+  color: ${color.greyDark};
 `;
 
 export const FooterItemLinkStyle = styled(Link)`
   display: inline-flex;
   align-items: center;
   font-family: ${MakeFonts.CircularStandardBook};
-  text-decoration: underline;
+  text-decoration: none;
   font-size: 14px;
   line-height: 24px;
+  color: ${color.greyDark};
+`;
+
+export const FooterItemAltLinkStyle = styled(FooterItemLinkStyle)`
+  color: ${color.black};
+  &.underline {
+    text-decoration: underline;
+  }
+  .tofill {
+    fill: ${color.black};
+  }
 `;
 
 export const FooterLinkIconStyle = styled(SvgExternalLink)`
@@ -46,10 +80,33 @@ export const FooterLinkIconStyle = styled(SvgExternalLink)`
   height: 12px;
   margin-left: 5px;
   .tofill {
-    fill: ${color.black};
+    fill: ${color.greyDark};
   }
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     width: 14px;
     height: 14px;
   }
+`;
+
+export const FooterSeparatorStyle = styled.hr`
+  margin: 0px;
+  border-top: 1px solid ${color.greyLighter};
+`;
+
+export const FooterWrapperThirdListStyle = styled(UnstyledListStyle)`
+  display: flex;
+  justify-content: flex-start;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+`;
+
+export const FooterCountryIconStyle = styled(SvgWorldMap)`
+  margin-right: 10px;
+`;
+
+export const FooterContactIconStyle = styled(SvgMailPlain)`
+  margin-right: 10px;
 `;

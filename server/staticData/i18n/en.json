@@ -421,7 +421,8 @@
     "dotation_funds": "Endowment fund",
     "contact": "@@main-footer.contact|fr:Contact",
     "moderation_charter": "@@main-footer.moderation_charter|fr:Charte de modération",
-    "press_details": "@@main-footer.press_details|fr:Revue de presse"
+    "press_details": "@@main-footer.press_details|fr:Revue de presse",
+    "country": "Change country"
   },
   "pannel": {},
   "cookie_alert": {

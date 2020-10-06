@@ -67,3 +67,4 @@ export { SvgLogo } from './Logo';
 export { SvgMailPlain } from './MailPlain';
 export { SvgCheckedLightBulb } from './CheckedLightBulb';
 export { SvgPreviousArrowLeft } from './PreviousArrowLeft';
+export { SvgWorldMap } from './WorldMap';
