@@ -131,7 +131,6 @@ export const DesktopMenuItemStyle = styled.li`
   animation-iteration-count: 1;
   &.with-border {
     border-left: 1px solid ${ShadowColors.BlackZeroOneOpacity};
-    border-right: 1px solid ${ShadowColors.BlackZeroOneOpacity};
   }
   &.${ADD_SEARCH_DESKTOP_ANIMATION} {
     animation-name: ${fadeOut};

@@ -62,7 +62,9 @@ export const DesktopMenu = () => {
           </DesktopMenuExternalLinkStyle>
         </DesktopMenuItemStyle>
         {isFR && (
-          <DesktopMenuItemStyle className={SEARCH_DESKTOP_EXPANDED}>
+          <DesktopMenuItemStyle
+            className={`${SEARCH_DESKTOP_EXPANDED} with-border`}
+          >
             <DesktopMenuExternalLinkStyle
               target="_blank"
               rel="noreferrer noopener"

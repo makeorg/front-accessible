@@ -106,43 +106,45 @@ export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
               </MenuExternalLinkStyle>
             </MenuItemStyle>
             {isFR && (
-              <MenuItemStyle className="extra-margin-top">
-                <MenuExternalLinkStyle
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href={PARTNERSHIP_LINK}
-                >
-                  {i18n.t('homepage.partnership.subtitle')}
-                  <MenuNewWindowIconStyle
-                    aria-label={i18n.t('common.open_new_window')}
-                  />
-                </MenuExternalLinkStyle>
-              </MenuItemStyle>
+              <>
+                <MenuItemStyle className="extra-margin-top">
+                  <MenuExternalLinkStyle
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    href={PARTNERSHIP_LINK}
+                  >
+                    {i18n.t('homepage.partnership.subtitle')}
+                    <MenuNewWindowIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
+                  </MenuExternalLinkStyle>
+                </MenuItemStyle>
+                <MenuItemStyle>
+                  <MenuExternalLinkStyle
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    href={NEWS_LINK}
+                  >
+                    {i18n.t('main-footer.news')}
+                    <MenuNewWindowIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
+                  </MenuExternalLinkStyle>
+                </MenuItemStyle>
+                <MenuItemStyle>
+                  <MenuExternalLinkStyle
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    href={JOBS_LINK}
+                  >
+                    {i18n.t('main-footer.jobs')}
+                    <MenuNewWindowIconStyle
+                      aria-label={i18n.t('common.open_new_window')}
+                    />
+                  </MenuExternalLinkStyle>
+                </MenuItemStyle>
+              </>
             )}
-            <MenuItemStyle>
-              <MenuExternalLinkStyle
-                target="_blank"
-                rel="noreferrer noopener"
-                href={NEWS_LINK}
-              >
-                {i18n.t('main-footer.news')}
-                <MenuNewWindowIconStyle
-                  aria-label={i18n.t('common.open_new_window')}
-                />
-              </MenuExternalLinkStyle>
-            </MenuItemStyle>
-            <MenuItemStyle>
-              <MenuExternalLinkStyle
-                target="_blank"
-                rel="noreferrer noopener"
-                href={JOBS_LINK}
-              >
-                {i18n.t('main-footer.jobs')}
-                <MenuNewWindowIconStyle
-                  aria-label={i18n.t('common.open_new_window')}
-                />
-              </MenuExternalLinkStyle>
-            </MenuItemStyle>
           </UnstyledListStyle>
         </MenuNavStyle>
         <SvgLogoBlack aria-hidden />
