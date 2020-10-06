@@ -28,21 +28,9 @@ type Props = {
   question: QuestionType,
 };
 export const NavigationWithTabs = ({ question }: Props) => {
-  const consultationLink = getConsultationLink(
-    question.country,
-    question.language,
-    question.slug
-  );
-  const actionsLink = getActionLink(
-    question.country,
-    question.language,
-    question.slug
-  );
-  const resultsLink = getResultsLink(
-    question.country,
-    question.language,
-    question.slug
-  );
+  const consultationLink = getConsultationLink(question.country, question.slug);
+  const actionsLink = getActionLink(question.country, question.slug);
+  const resultsLink = getResultsLink(question.country, question.slug);
 
   const location = useLocation();
 

@@ -30,9 +30,7 @@ type Props = {
 };
 
 export const MainResultsOrganisations = ({ organisations }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isMobile = useMobile();
 
   if (isMobile) {
@@ -45,11 +43,7 @@ export const MainResultsOrganisations = ({ organisations }: Props) => {
           <SearchOrganisationsListItemStyle key={organisation.organisationId}>
             <SearchOrganisationItemStyle
               as={Link}
-              to={getOrganisationProfileLink(
-                country,
-                language,
-                organisation.slug
-              )}
+              to={getOrganisationProfileLink(country, organisation.slug)}
             >
               <ProfileAvatarLayoutStyle>
                 <SearchOrganisationAvatarStyle>

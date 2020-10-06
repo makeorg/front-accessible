@@ -45,9 +45,7 @@ type Props = {
 };
 
 export const SearchOrganisations = ({ history, location }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +57,6 @@ export const SearchOrganisations = ({ history, location }: Props) => {
     setIsLoading(true);
     const organisationsResponse: ?OrganisationsType = await OrganisationService.searchOrganisations(
       country,
-      language,
       term
     );
 
@@ -106,11 +103,7 @@ export const SearchOrganisations = ({ history, location }: Props) => {
                 <SearchOrganisationItemStyle
                   className="mobile-radius"
                   as={Link}
-                  to={getOrganisationProfileLink(
-                    country,
-                    language,
-                    organisation.slug
-                  )}
+                  to={getOrganisationProfileLink(country, organisation.slug)}
                 >
                   <ProfileAvatarLayoutStyle>
                     <ProfileAvatarStyle avatarSize={80}>

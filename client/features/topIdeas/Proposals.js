@@ -40,7 +40,6 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
   const initProposals = async () => {
     const result = await searchProposals(
       question.country,
-      question.language,
       undefined,
       page,
       undefined,
@@ -65,7 +64,6 @@ export const TopIdeaDetailsProposals = ({ topIdea, question }: Props) => {
     setIsPendingForMore(true);
     const result = await searchProposals(
       question.country,
-      question.language,
       undefined,
       page,
       undefined,

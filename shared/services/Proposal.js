@@ -57,7 +57,6 @@ const getPopularProposals = async (
 
 const searchProposals = async (
   country: string,
-  language: string,
   questionId?: string,
   tagsIds?: string,
   seed?: ?number,
@@ -71,7 +70,6 @@ const searchProposals = async (
   try {
     const response = await ProposalApiService.searchProposals(
       country,
-      language,
       questionId,
       tagsIds,
       seed,

@@ -36,9 +36,7 @@ type Props = {
 const PROPOSALS_LIMIT = 10;
 
 export const SearchResultsProposals = ({ location, history }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +50,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
   const isDesktop = useDesktop();
 
   const initProposal = async () => {
-    const result = await searchProposals(country, language, term, page);
+    const result = await searchProposals(country, term, page);
     if (result) {
       const { results, total } = result;
       setProposalsResult(results);
@@ -64,13 +62,7 @@ export const SearchResultsProposals = ({ location, history }: Props) => {
 
   const loadMoreProposals = async () => {
     setIsLoading(true);
-    const result = await searchProposals(
-      country,
-      language,
-      term,
-      page,
-      PROPOSALS_LIMIT
-    );
+    const result = await searchProposals(country, term, page, PROPOSALS_LIMIT);
     if (result) {
       const { results } = result;
       const newProposalList = [...proposalsResult, ...results];

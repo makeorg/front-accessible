@@ -53,7 +53,6 @@ export const PopularProposalCard = ({
           id={`proposal_content_${position}`}
           to={getProposalLink(
             country,
-            proposal.question.language,
             proposal.slug,
             proposal.id,
             proposal.slug

@@ -21,7 +21,7 @@ Feature: Intro card on sequence
       | questionId          | question-0-id                                                       |
       | questionSlug        | question-0-slug                                                     |
       | referrer            | http://localhost:9009/__/                                           |
-      | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+      | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection  |
     And card "1" is visible
     And card "1" is a proposal card
     And progress gauge is "1" on "15"
@@ -39,9 +39,9 @@ Feature: Intro card on sequence
     | name                | value                                                                               |
     | eventType           | trackCustom                                                                         |
     | card-position       | 0                                                                                   |
-    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection?introCard=false  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection?introCard=false  |
     And event "click-proposal-vote" should be tracked by Make with parameters values:
     | name                | value                                                                               |
     | eventType           | trackCustom                                                                         |
     | card-position       | 0                                                                                   |
-    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection?introCard=false  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection?introCard=false  |

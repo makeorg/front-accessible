@@ -46,7 +46,7 @@ const TopIdeasPage = () => {
   );
   const initTopIdeas = async () => {
     const results = await TopIdeaService.getTopIdeas(question.questionId, () =>
-      redirectToNotFoundPage(question.country, question.language)
+      redirectToNotFoundPage(question.country)
     );
     setTopIdeas(results || topIdeas);
   };

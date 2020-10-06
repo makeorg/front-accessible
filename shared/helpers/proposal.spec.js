@@ -95,10 +95,9 @@ describe('Proposal Helper', () => {
   describe('Search Proposals', () => {
     it('transform tagIds to string', async () => {
       jest.spyOn(ProposalService, 'searchProposals');
-      ProposalHelper.searchTaggedProposals('FR', 'fr', '12345', ['foo', 'bar']);
+      ProposalHelper.searchTaggedProposals('FR', '12345', ['foo', 'bar']);
       expect(ProposalService.searchProposals).toHaveBeenCalledWith(
         'FR',
-        'fr',
         '12345',
         'foo,bar',
         undefined,
@@ -114,7 +113,6 @@ describe('Proposal Helper', () => {
 
       ProposalHelper.searchTaggedProposals(
         'FR',
-        'fr',
         '12345',
         ['foo', 'bar'],
         999,
@@ -122,7 +120,6 @@ describe('Proposal Helper', () => {
       );
       expect(ProposalService.searchProposals).toHaveBeenCalledWith(
         'FR',
-        'fr',
         '12345',
         'foo,bar',
         999,
@@ -140,7 +137,6 @@ describe('Proposal Helper', () => {
       });
       const repsonse = await ProposalHelper.searchTaggedProposals(
         'FR',
-        'fr',
         '12345',
         ['foo', 'bar']
       );
@@ -158,7 +154,6 @@ describe('Proposal Helper', () => {
 
       const repsonse = await ProposalHelper.searchTaggedProposals(
         'FR',
-        'fr',
         '12345',
         ['foo', 'bar']
       );

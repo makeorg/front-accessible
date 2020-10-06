@@ -11,6 +11,7 @@ import { defaultUnexpectedError } from './DefaultErrorHandler';
 
 const getQuestions = async (
   country: string,
+  // @todo remove it when ready on API side
   language: string,
   status: ?string = undefined,
   sortAlgorithm: ?string = undefined,
@@ -20,6 +21,7 @@ const getQuestions = async (
   try {
     const response = await QuestionApiService.getQuestions(
       country,
+      // @todo remove it when ready on API side
       language,
       status,
       sortAlgorithm,

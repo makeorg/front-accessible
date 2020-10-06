@@ -32,11 +32,7 @@ const DeprecatedSequencePage = () => {
   );
   const [isClosed, closeSequence] = useState(false);
   const dispatch = useDispatch();
-  const consultationLink = getConsultationLink(
-    question.country,
-    question.language,
-    question.slug
-  );
+  const consultationLink = getConsultationLink(question.country, question.slug);
 
   useEffect(() => {
     trackDisplaySequence();

@@ -30,9 +30,7 @@ import {
 export const DeprecatedProposalSubmitAuthentication = () => {
   const authetificationRef = useRef(null);
   const dispatch = useDispatch();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   useEffect(() => {
     trackDisplayAuthenticationForm();
@@ -60,7 +58,7 @@ export const DeprecatedProposalSubmitAuthentication = () => {
       <CenterParagraphStyle>
         {i18n.t('authentication.commitment')}
         <a
-          href={getDataPageLink(country, language)}
+          href={getDataPageLink(country)}
           rel="noopener noreferrer"
           onClick={() => trackClickPersonnalDataLink()}
         >

@@ -209,14 +209,12 @@ const handleClickProfile = () => {
 
 export const CandidateItem = ({ personality }: CandidateProps) => {
   const isMobile = useMobile();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const personalityFullName = `${personality.firstName} ${personality.lastName}`;
   return (
     <CenterRowStyle as={isMobile && MiddleColumnStyle}>
       <Link
-        to={getPersonalityProfileLink(country, language, personality.userId)}
+        to={getPersonalityProfileLink(country, personality.userId)}
         onClick={handleClickProfile}
       >
         <Avatar
@@ -230,11 +228,7 @@ export const CandidateItem = ({ personality }: CandidateProps) => {
       <CandidateInformationsStyle>
         <MiddleRowStyle>
           <CandidateLinkStyle
-            to={getPersonalityProfileLink(
-              country,
-              language,
-              personality.userId
-            )}
+            to={getPersonalityProfileLink(country, personality.userId)}
             onClick={handleClickProfile}
           >
             {personalityFullName}

@@ -34,7 +34,6 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
 
   const proposalLink = getProposalLink(
     country,
-    proposal.question.language,
     proposal.question.slug,
     proposal.id,
     proposal.slug
@@ -77,7 +76,6 @@ export const ProposalCardTagged = ({ proposal, position, size }: Props) => {
           <OrganisationsVote
             organisations={proposal.organisations}
             country={country}
-            language={proposal.question.language}
           />
         )}
       </ProposalInnerStyle>

@@ -31,7 +31,7 @@ const ProfilePage = ({ match }: Props) => {
   const { user } = useSelector((state: StateRoot) =>
     selectAuthentication(state)
   );
-  const { country, language } = match.params;
+  const { country } = match.params;
   const [personality, setPersonality] = useState(null);
   const [loadPersonality, setLoadPersonality] = useState(true);
 
@@ -52,9 +52,7 @@ const ProfilePage = ({ match }: Props) => {
     return <Redirect to="/" />;
   }
 
-  const NavigationBar = (
-    <EditProfileLink link={getRouteProfileEdit(country, language)} />
-  );
+  const NavigationBar = <EditProfileLink link={getRouteProfileEdit(country)} />;
 
   return (
     <>

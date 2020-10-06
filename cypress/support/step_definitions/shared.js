@@ -3,17 +3,17 @@ import { getIdentifierButtonByName } from '../mapping';
 // pages list
 export const pages = {
   'homepage': '/',
-  'france homepage': '/FR-fr',
-  'sequence': '/FR-fr/consultation/:questionSlug/selection',
-  'general terms of use': '/FR-fr/conditions-dutilisation',
-  'data policy': '/FR-fr/politique-donnees',
+  'france homepage': '/FR',
+  'sequence': '/FR/consultation/:questionSlug/selection',
+  'general terms of use': '/FR/conditions-dutilisation',
+  'data policy': '/FR/politique-donnees',
   'about': 'https://about.make.org',
-  'results': '/FR-fr/consultation/:questionSlug/results',
-  'browse consultations' : '/FR-fr/browse/consultations/page/1',
-  'browse results' : '/FR-fr/browse/results/page/1',
-  'browse results second page' : '/FR-fr/browse/results/page/2',
-  'top idea': '/FR-fr/consultation/:questionSlug/top-ideas',
-  "search": '/FR-fr/search'
+  'results': '/FR/consultation/:questionSlug/results',
+  'browse consultations' : '/FR/browse/consultations/page/1',
+  'browse results' : '/FR/browse/results/page/1',
+  'browse results second page' : '/FR/browse/results/page/2',
+  'top idea': '/FR/consultation/:questionSlug/top-ideas',
+  "search": '/FR/search'
 };
 
 export const container = {

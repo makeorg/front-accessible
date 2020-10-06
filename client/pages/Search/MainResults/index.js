@@ -34,9 +34,7 @@ export type Props = {
 };
 
 export const SearchMainResults = ({ location }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const params = new URLSearchParams(location.search);
   const term = params.get('query') || '';
 
@@ -59,11 +57,7 @@ export const SearchMainResults = ({ location }: Props) => {
 
   useEffect(() => {
     async function fetchData() {
-      const searchResult = await ViewsService.searchViews(
-        term,
-        country,
-        language
-      );
+      const searchResult = await ViewsService.searchViews(term, country);
       setData(searchResult || data);
       setIsLoading(false);
     }
@@ -116,7 +110,7 @@ export const SearchMainResults = ({ location }: Props) => {
                       count: proposalsCount,
                     })}
                     count={proposalsCount}
-                    link={getRouteSearchProposals(country, language, term)}
+                    link={getRouteSearchProposals(country, term)}
                   />
 
                   <MainResultsProposals
@@ -134,7 +128,7 @@ export const SearchMainResults = ({ location }: Props) => {
                       count: organisationsCount,
                     })}
                     count={organisationsCount}
-                    link={getRouteSearchOrganisations(country, language, term)}
+                    link={getRouteSearchOrganisations(country, term)}
                   />
                   <MainResultsOrganisations
                     organisations={data.organisations.results}
@@ -149,7 +143,7 @@ export const SearchMainResults = ({ location }: Props) => {
                       count: questionsCount,
                     })}
                     count={questionsCount}
-                    link={getRouteSearchConsultations(country, language, term)}
+                    link={getRouteSearchConsultations(country, term)}
                   />
                   <BusinessConsultationsList
                     questions={data.questions.results}

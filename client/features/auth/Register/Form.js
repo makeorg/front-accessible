@@ -47,9 +47,7 @@ export const RegisterForm = ({
   handleSubmit,
   disableSubmit,
 }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   const emailError = getFieldError('email', errors);
   const passwordError = getFieldError('password', errors);
@@ -128,8 +126,7 @@ export const RegisterForm = ({
         dangerouslySetInnerHTML={{
           __html: i18n.t('register.gtu_text', {
             gtu_link: `<a href="${getGTUPageLink(
-              country,
-              language
+              country
             )}">$t(register.gtu)</a>`,
             interpolation: { escapeValue: false },
           }),

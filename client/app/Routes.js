@@ -23,7 +23,7 @@ import {
   ROUTE_ORGANISATION_PROFILE,
   ROUTE_ORGANISATION_PROPOSALS,
   ROUTE_ORGANISATION_VOTES,
-  ROUTE_COUNTRY_LANG,
+  ROUTE_COUNTRY,
   ROUTE_STATIC_LEGAL,
   ROUTE_STATIC_GTU,
   ROUTE_STATIC_DATA,
@@ -42,6 +42,7 @@ import {
   ROUTE_BROWSE_CONSULTATIONS,
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
+  ROUTE_COUNTRY_FR,
 } from 'Shared/routes';
 import { TwitterUniversalTag } from 'Shared/services/Trackers/TwitterTracking';
 import { QuestionWrapper } from 'Client/pages/Consultation/QuestionWrapper';
@@ -171,7 +172,7 @@ export const Routes = () => {
         to={ROUTE_ORGANISATION_PROPOSALS}
       />
       <Redirect path={ROUTE_PROFILE} to={ROUTE_PROFILE_PROPOSALS} />
-      <Route exact path={ROUTE_COUNTRY_LANG} component={HomePage} />
+      <Route exact path={ROUTE_COUNTRY} component={HomePage} />
 
       <Route path={ROUTE_STATIC_LEGAL} component={LegalPage} />
       <Route path={ROUTE_STATIC_GTU} component={TermsOfUse} />
@@ -186,7 +187,7 @@ export const Routes = () => {
       <Route path={ROUTE_STATIC_CONTACT_EN} component={Contact} />
 
       <Route path={ROUTE_STATIC_NOTFOUND} component={NotFoundPage} />
-      {country === 'FR' && <Redirect exact path="/" to="FR-fr" />}
+      {country === 'FR' && <Redirect exact path="/" to={ROUTE_COUNTRY_FR} />}
       {country !== 'FR' && <Redirect exact path="/" to={ROUTE_SOON} />}
 
       <Route component={NotFoundPage} />

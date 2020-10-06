@@ -27,17 +27,15 @@ type Props = {
 };
 
 export const CurrentQuestions = ({ questions }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const numberOfQuestions = questions.length;
   const hasQuestions = numberOfQuestions > 0;
 
-  let buttonLink = getBrowseResultsLink(country, language);
+  let buttonLink = getBrowseResultsLink(country);
   let buttonText = i18n.t('browse.see_closed_consultations');
 
   if (hasQuestions) {
-    buttonLink = getBrowseConsultationsLink(country, language);
+    buttonLink = getBrowseConsultationsLink(country);
     buttonText = i18n.t('browse.browse');
   }
 

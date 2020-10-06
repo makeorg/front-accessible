@@ -32,7 +32,6 @@ type Props = {
 
 export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
   const country = useSelector((state: StateRoot) => state.appConfig.country);
-  const language = useSelector((state: StateRoot) => state.appConfig.language);
   const [proposalCards, setProposalCards] = useState([]);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [pendingForMore, setPendingForMore] = useState<boolean>(false);
@@ -50,7 +49,6 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     setIsLoading(true);
     const result = await searchTaggedProposals(
       country,
-      language,
       question.questionId,
       tags,
       undefined,
@@ -74,7 +72,6 @@ export const InfiniteProposals = ({ question, tags, sortTypeKey }: Props) => {
     setPendingForMore(true);
     const result = await searchTaggedProposals(
       country,
-      language,
       question.questionId,
       tags,
       seed,

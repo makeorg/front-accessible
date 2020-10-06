@@ -35,7 +35,7 @@ export const HeaderAuthentication = () => {
     return (
       <ProfileLinkStyle
         className={SEARCH_ELEMENT_ARIA_CLASS}
-        to={getRouteProfile(user.country, user.language)}
+        to={getRouteProfile(user.country)}
         onClick={trackClickProfile}
         aria-label={i18n.t('common.header_authentication_nav')}
       >

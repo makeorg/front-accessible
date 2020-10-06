@@ -55,7 +55,7 @@ const TopIdeaDetailsPage = () => {
   const parentPages: BreadcrumbsPagesType = [
     {
       name: i18n.t('idea_card.title'),
-      link: getTopIdeasLink(question.country, question.language, question.slug),
+      link: getTopIdeasLink(question.country, question.slug),
     },
   ];
   const currentPage = {
@@ -67,7 +67,7 @@ const TopIdeaDetailsPage = () => {
     const result = await TopIdeaService.getTopIdea(
       question.questionId,
       topIdeaId,
-      () => redirectToNotFoundPage(question.country, question.language)
+      () => redirectToNotFoundPage(question.country)
     );
     if (result) {
       const { questionTopIdea } = result;

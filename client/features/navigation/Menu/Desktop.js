@@ -26,10 +26,8 @@ import {
 } from './style';
 
 export const DesktopMenu = () => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
-  const browseConsultationsLink = getBrowseConsultationsLink(country, language);
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const browseConsultationsLink = getBrowseConsultationsLink(country);
   const isFR = country === 'FR';
 
   useEffect(() => {

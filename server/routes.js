@@ -1,5 +1,5 @@
 import {
-  ROUTE_COUNTRY_LANG,
+  ROUTE_COUNTRY,
   ROUTE_SEQUENCE,
   ROUTE_ACCOUNT_ACTIVATION,
   ROUTE_PROPOSAL,
@@ -34,13 +34,9 @@ import {
   ROUTE_BROWSE_RESULTS,
   BASE_PREVIEW_PATH,
   ROUTE_BETA_SEQUENCE,
+  ROUTE_COUNTRY_LANG,
 } from 'Shared/routes';
-import { DEFAULT_COUNTRY, DEFAULT_LANGUAGE } from 'Shared/constants/config';
-import {
-  countryLanguageMiddleware,
-  redirectToCountry,
-  configureCountryLanguage,
-} from './middleware/countryLanguage';
+import { countryLanguageMiddleware } from './middleware/countryLanguage';
 import { metricsMiddleware } from './middleware/metrics';
 import { questionResults } from './api/question';
 import { loggerApi } from './api/logger';
@@ -53,6 +49,10 @@ import { sequenceRoute } from './ssr/sequenceRoute';
 import { proposalRoute } from './ssr/proposalRoute';
 import { passwordRecoveryRoute } from './ssr/passwordRecoveryRoute';
 import { homepageRoute } from './ssr/homepageRoute';
+import {
+  redirectToCountry,
+  redirectCountryLanguageUrl,
+} from './middleware/redirect';
 
 const express = require('express');
 const serveStatic = require('serve-static');
@@ -133,7 +133,8 @@ export const initRoutes = app => {
   app.get('/', redirectToCountry);
   app.get('/robots.txt', technicalPages.renderRobot);
   app.get('/version', technicalPages.renderVersion);
-  app.get(ROUTE_COUNTRY_LANG, frontMiddlewares, homepageRoute);
+  app.get(`${ROUTE_COUNTRY_LANG}/*`, redirectCountryLanguageUrl);
+  app.get(ROUTE_COUNTRY, frontMiddlewares, homepageRoute);
 
   app.get(ROUTE_BROWSE_CONSULTATIONS, frontMiddlewares, defaultRoute);
   app.get(ROUTE_BROWSE_RESULTS, frontMiddlewares, defaultRoute);
@@ -175,9 +176,9 @@ export const initRoutes = app => {
   app.get(ROUTE_STATIC_DATA_EN, frontMiddlewares, defaultRoute);
   app.get(ROUTE_STATIC_GTU_EN, frontMiddlewares, defaultRoute);
 
-  app.get('*', (req, res) => {
+  app.get('*', (req, res, next) => {
     res.status(404);
-    configureCountryLanguage(req, DEFAULT_COUNTRY, DEFAULT_LANGUAGE);
+    countryLanguageMiddleware(req, res, next);
 
     return defaultRoute(req, res);
   });

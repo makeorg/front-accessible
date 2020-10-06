@@ -37,11 +37,9 @@ type Props = {
 };
 export const MenuPanel = ({ isExpanded, toggleExpansion }: Props) => {
   const location = useLocation();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
-  const browseConsultationsLink = getBrowseConsultationsLink(country, language);
-  const browseResultsLink = getBrowseResultsLink(country, language);
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
+  const browseConsultationsLink = getBrowseConsultationsLink(country);
+  const browseResultsLink = getBrowseResultsLink(country);
   const onBrowseConsultationsPage = isBrowseConsultationsPage(
     location.pathname
   );

@@ -60,7 +60,6 @@ export const TopIdeaCard = ({
           <TopIdeaLinkStyle
             to={getTopIdeaDetailsLink(
               question.country,
-              question.language,
               question.slug,
               topIdea.id
             )}
@@ -87,7 +86,6 @@ export const TopIdeaCard = ({
           id={`idea_content_${position}`}
           to={getTopIdeaDetailsLink(
             question.country,
-            question.language,
             question.slug,
             topIdea.id
           )}
@@ -103,7 +101,6 @@ export const TopIdeaCard = ({
             <RedLinkRouterStyle
               to={getTopIdeaDetailsLink(
                 question.country,
-                question.language,
                 question.slug,
                 topIdea.id
               )}

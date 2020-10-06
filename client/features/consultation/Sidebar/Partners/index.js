@@ -24,11 +24,7 @@ type Props = {
 export const Partners = (props: Props) => {
   const { question } = props;
 
-  const sequenceLink = getSequenceLink(
-    question.country,
-    question.language,
-    question.slug
-  );
+  const sequenceLink = getSequenceLink(question.country, question.slug);
 
   const partners: PartnerType[] = question.partners
     ? question.partners.filter(

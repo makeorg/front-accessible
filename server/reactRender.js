@@ -72,8 +72,6 @@ export const reactRender = (req, res, routeState = {}) => {
 
   const { secureExpired, ...queryParams } = req.query;
 
-  const tradLanguage = `${language}-${country}`;
-
   const state = {
     ...createInitialState(),
     ...routeState,
@@ -81,7 +79,7 @@ export const reactRender = (req, res, routeState = {}) => {
       source: 'core',
       language,
       country,
-      translations: i18n.getResourceBundle(tradLanguage, TRANSLATION_NAMESPACE),
+      translations: i18n.getResourceBundle(language, TRANSLATION_NAMESPACE),
       queryParams,
     },
   };

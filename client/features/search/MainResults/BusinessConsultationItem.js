@@ -24,7 +24,7 @@ type Props = {
   questions: QuestionType[],
 };
 
-const businessConsultation = (question, country, language) => (
+const businessConsultation = (question, country) => (
   <BusinessConsultationsItemStyle
     key={question.slug}
     backgroundColor={color.white}
@@ -32,7 +32,7 @@ const businessConsultation = (question, country, language) => (
     <BusinessConsultationsItemLinkStyle
       to={
         isInProgress(question)
-          ? getConsultationLink(country, language, question.slug)
+          ? getConsultationLink(country, question.slug)
           : undefined
       }
       as={isInProgress(question) ? Link : 'a'}
@@ -59,15 +59,11 @@ const businessConsultation = (question, country, language) => (
   </BusinessConsultationsItemStyle>
 );
 export const BusinessConsultationsList = ({ questions }: Props) => {
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
 
   return (
     <SearchResultsConsultationListStyle>
-      {questions.map(question =>
-        businessConsultation(question, country, language)
-      )}
+      {questions.map(question => businessConsultation(question, country))}
     </SearchResultsConsultationListStyle>
   );
 };

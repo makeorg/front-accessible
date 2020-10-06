@@ -88,7 +88,7 @@ Feature: Vote on sequence
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection  |
     And event "click-proposal-vote" should be tracked by Make with parameters values:
     | name                | value                                                               |
     | eventType           | trackCustom                                                         |
@@ -101,7 +101,7 @@ Feature: Vote on sequence
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection  |
     When I click on "next proposal" of the current card
     Then card "2" is visible
     And I vote "neutral" on the current card
@@ -117,4 +117,4 @@ Feature: Vote on sequence
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/FR-fr/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection  |

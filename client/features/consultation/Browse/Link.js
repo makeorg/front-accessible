@@ -21,8 +21,8 @@ type Props = {
   label: string,
 };
 export const ConsultationLink = ({ question, label }: Props) => {
-  const { country, language, questionSlug, resultsLink, aboutUrl } = question;
-  const consultationPath = getConsultationLink(country, language, questionSlug);
+  const { country, questionSlug, resultsLink, aboutUrl } = question;
+  const consultationPath = getConsultationLink(country, questionSlug);
 
   const openedConsultation = isInProgress(question);
   const closedConsultationWithoutResults = !openedConsultation && !resultsLink;
@@ -76,7 +76,6 @@ export const ConsultationLink = ({ question, label }: Props) => {
         internalResultLink
           ? getDynamicConsultationLink(
               country,
-              language,
               questionSlug,
               // $FlowFixMe : flow cannot understrand desctructuring internalResultLink
               resultsLink.value

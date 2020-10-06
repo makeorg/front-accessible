@@ -20,11 +20,7 @@ type Props = {
 
 export const ParticipateBanner = ({ question }: Props) => {
   const isMobile = useMobile();
-  const sequenceLink = getSequenceLink(
-    question.country,
-    question.language,
-    question.slug
-  );
+  const sequenceLink = getSequenceLink(question.country, question.slug);
 
   return (
     <ParticipateWrapperStyle aria-labelledby="participate_aside_title">

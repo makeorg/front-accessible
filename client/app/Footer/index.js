@@ -37,9 +37,7 @@ import {
  */
 export const Footer = () => {
   const isDesktop = useDesktop();
-  const { country, language } = useSelector(
-    (state: StateRoot) => state.appConfig
-  );
+  const { country } = useSelector((state: StateRoot) => state.appConfig);
   const isFR = country === 'FR';
 
   return (
@@ -115,7 +113,7 @@ export const Footer = () => {
           <FooterItemStyle>
             <FooterItemLinkStyle
               onClick={scrollToTop}
-              to={getContactPageLink(country, language)}
+              to={getContactPageLink(country)}
             >
               {i18n.t('main-footer.contact')}
             </FooterItemLinkStyle>
@@ -123,7 +121,7 @@ export const Footer = () => {
           <FooterItemStyle>
             <FooterItemLinkStyle
               onClick={scrollToTop}
-              to={getLegalPageLink(country, language)}
+              to={getLegalPageLink(country)}
             >
               {i18n.t('main-footer.legal')}
             </FooterItemLinkStyle>
@@ -131,7 +129,7 @@ export const Footer = () => {
           <FooterItemStyle>
             <FooterItemLinkStyle
               onClick={scrollToTop}
-              to={getGTUPageLink(country, language)}
+              to={getGTUPageLink(country)}
             >
               {i18n.t('main-footer.terms')}
             </FooterItemLinkStyle>
@@ -139,7 +137,7 @@ export const Footer = () => {
           <FooterItemStyle>
             <FooterItemLinkStyle
               onClick={scrollToTop}
-              to={getDataPageLink(country, language)}
+              to={getDataPageLink(country)}
             >
               {i18n.t('main-footer.data')}
             </FooterItemLinkStyle>

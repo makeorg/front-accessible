@@ -1,5 +1,6 @@
 // @flow
 import React, { useEffect } from 'react';
+import { type StateRoot } from 'Shared/store/types';
 import { useMobile } from 'Client/hooks/useMedia';
 import { ScreenReaderItemStyle } from 'Client/ui/Elements/AccessibilityElements';
 import { getConsultationLink, getResultsLink } from 'Shared/helpers/url';
@@ -24,7 +25,7 @@ type Props = {
 export const NavigationBetweenQuestions = ({ question }: Props) => {
   const isMobile = useMobile();
   const dispatch = useDispatch();
-  const questions = useSelector(state => state.questions);
+  const questions = useSelector((state: StateRoot) => state.questions);
   const hasSiblingQuestions = question.operation.questions.length > 0;
   const isNavigationBetweenQuestionActive: boolean = checkIsFeatureActivated(
     OPERATION_MULTI_QUESTIONS_NAVIGATION,
@@ -78,12 +79,10 @@ export const NavigationBetweenQuestions = ({ question }: Props) => {
                   siblingQuestion.displayResults
                     ? getResultsLink(
                         siblingQuestion.country,
-                        siblingQuestion.language,
                         siblingQuestion.questionSlug
                       )
                     : getConsultationLink(
                         siblingQuestion.country,
-                        siblingQuestion.language,
                         siblingQuestion.questionSlug
                       )
                 }

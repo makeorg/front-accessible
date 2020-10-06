@@ -73,7 +73,6 @@ export const SingleProposalCard = ({ proposal }: Props) => {
                 __html: i18n.t('proposal_page.footer_text', {
                   operation_name: `<a href="${getConsultationLink(
                     country,
-                    proposal.question.language,
                     proposal.question.slug
                   )}">${proposal.question.wording.title}</a>`,
                 }),
@@ -84,22 +83,14 @@ export const SingleProposalCard = ({ proposal }: Props) => {
               {isConsultationOpened && (
                 <ButtonStyle
                   as={Link}
-                  to={getSequenceLink(
-                    country,
-                    proposal.question.language,
-                    proposal.question.slug
-                  )}
+                  to={getSequenceLink(country, proposal.question.slug)}
                 >
                   {i18n.t('proposal_page.button_1')}
                 </ButtonStyle>
               )}
               <ButtonStyle
                 as={Link}
-                to={getConsultationLink(
-                  country,
-                  proposal.question.language,
-                  proposal.question.slug
-                )}
+                to={getConsultationLink(country, proposal.question.slug)}
               >
                 {i18n.t('proposal_page.button_2')}
               </ButtonStyle>

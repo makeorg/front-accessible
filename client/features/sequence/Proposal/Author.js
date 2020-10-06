@@ -40,8 +40,7 @@ const ProposalAuthorAge = ({ age }) => {
 
 export const SequenceProposalAuthor = ({ proposal }: Props) => {
   const { country } = useSelector((state: StateRoot) => state.appConfig);
-  const { author, question } = proposal;
-  const { language } = question;
+  const { author } = proposal;
   const isOrganisation = author.userType === TYPE_ORGANISATION;
   const isPersonality = author.userType === TYPE_PERSONALITY;
   const isBasicUser = author.userType === TYPE_USER;
@@ -64,7 +63,6 @@ export const SequenceProposalAuthor = ({ proposal }: Props) => {
                 onClick={() => trackClickPublicProfile(TYPE_ORGANISATION)}
                 to={getOrganisationProfileLink(
                   country,
-                  language,
                   author.organisationSlug
                 )}
               >
@@ -77,11 +75,7 @@ export const SequenceProposalAuthor = ({ proposal }: Props) => {
             <>
               <RedLinkRouterStyle
                 onClick={() => trackClickPublicProfile(TYPE_PERSONALITY)}
-                to={getPersonalityProfileLink(
-                  country,
-                  language,
-                  proposal.userId
-                )}
+                to={getPersonalityProfileLink(country, proposal.userId)}
               >
                 {formatAuthorName(author.firstName)}
               </RedLinkRouterStyle>

@@ -21,7 +21,7 @@ Feature: The footer
     Given I go to "homepage"
     Then I see an external link "Revue de presse" to "https://about.make.org/les-medias-en-parlent" in "footer" container
     And I see an external link "Fonds de dotation Make.org" to "https://foundation.make.org" in "footer" container
-    And I see a link "Contact" to "/FR-fr/contact" in "footer" container
-    And I see a link "Mentions légales" to "/FR-fr/mentions-legales" in "footer" container
-    And I see a link "Conditions d'utilisation" to "/FR-fr/conditions-dutilisation" in "footer" container
-    And I see a link "Politique de données" to "/FR-fr/politique-donnees" in "footer" container
+    And I see a link "Contact" to "/FR/contact" in "footer" container
+    And I see a link "Mentions légales" to "/FR/mentions-legales" in "footer" container
+    And I see a link "Conditions d'utilisation" to "/FR/conditions-dutilisation" in "footer" container
+    And I see a link "Politique de données" to "/FR/politique-donnees" in "footer" container

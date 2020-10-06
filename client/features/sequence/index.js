@@ -123,11 +123,7 @@ export const Sequence = ({ question }: Props) => {
       </SequenceContentStyle>
       <ConsultationPageLinkStyle
         className={isPushProposal && 'static'}
-        to={getConsultationLink(
-          question.country,
-          question.language,
-          question.slug
-        )}
+        to={getConsultationLink(question.country, question.slug)}
       >
         {i18n.t('sequence.more')}
       </ConsultationPageLinkStyle>

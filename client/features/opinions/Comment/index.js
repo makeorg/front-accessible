@@ -54,11 +54,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
     <ProposalCardStyle>
       <FlexElementStyle>
         <Link
-          to={getPersonalityProfileLink(
-            question.country,
-            question.language,
-            personalityId
-          )}
+          to={getPersonalityProfileLink(question.country, personalityId)}
           onClick={handleClickProfile}
         >
           <Avatar
@@ -73,11 +69,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
           <ColumnElementStyle>
             <OpinionCommentAuthorStyle>
               <CandidateLinkStyle
-                to={getPersonalityProfileLink(
-                  question.country,
-                  question.language,
-                  personalityId
-                )}
+                to={getPersonalityProfileLink(question.country, personalityId)}
                 onClick={handleClickProfile}
               >
                 {displayName}
@@ -89,11 +81,7 @@ export const OpinionComment = ({ question, comment }: Props) => {
         ) : (
           <MiddleRowStyle>
             <CandidateLinkStyle
-              to={getPersonalityProfileLink(
-                question.country,
-                question.language,
-                personalityId
-              )}
+              to={getPersonalityProfileLink(question.country, personalityId)}
               onClick={handleClickProfile}
             >
               {displayName}

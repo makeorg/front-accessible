@@ -30,7 +30,6 @@ const getQuestion = async (
       }
     );
 
-    // @toDo: hack countries
     const { data } = questionDetailResponse;
     const dataWithCountry = {
       ...data,

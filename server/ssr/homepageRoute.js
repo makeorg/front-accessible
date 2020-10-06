@@ -12,6 +12,7 @@ export const homepageRoute = async (req: Request, res: Response) => {
   const { country, language } = req.params;
   const homepageData: ?HomeViewType = await ViewsService.getHome(
     country,
+    // @todo remove it when ready on API side
     language
   );
 

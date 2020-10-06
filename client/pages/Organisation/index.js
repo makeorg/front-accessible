@@ -61,15 +61,13 @@ const OrganisationPage = (props: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const isMobile = useMobile();
   const { match, location } = props;
-  const { country, language, organisationSlug } = match.params;
+  const { country, organisationSlug } = match.params;
   const organisationProposalsLink = getRouteOrganisationProposals(
     country,
-    language,
     organisationSlug
   );
   const organisationFavouritesLink = getRouteOrganisationVotes(
     country,
-    language,
     organisationSlug
   );
 

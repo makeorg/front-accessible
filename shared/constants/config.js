@@ -18,5 +18,5 @@ export const APP_NAME = 'main-front';
 export const GOOGLE_LOGIN_ID =
   '810331964280-qtdupbrjusihad3b5da51i5p66qpmhmr.apps.googleusercontent.com';
 
-export const DEFAULT_LANGUAGE = 'fr';
+export const DEFAULT_LANGUAGE = 'en';
 export const DEFAULT_COUNTRY = 'FR';

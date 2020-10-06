@@ -43,7 +43,7 @@
       "title":"Merci pour votre participation ! ",
       "share":"Vous souhaitez aller plus loin pour agir ?\nInvitez vos proches et/ou votre communauté à participer",
       "learnMoreTitle":"","learnMoreTextButton":null,
-      "linkUrl":"https://make.org/FR-fr/consultation/egalite-femmes-hommes/CONSULTATION"
+      "linkUrl":"https://make.org/FR/consultation/egalite-femmes-hommes/CONSULTATION"
     }
   },
   "aboutUrl":"https://about.make.org",
@@ -51,7 +51,7 @@
     {
       "name":"Le Gouvernement",
       "logo":"https://uploads-ssl.webflow.com/59833d390a24e50001b873d8/5ddfac50a73badd0515a187b_gouvernement.svg",
-      "link":"https://make.org/FR-fr/profile/le-gouvernement/proposals",
+      "link":"https://make.org/FR/profile/le-gouvernement/proposals",
       "organisation": {
         "organisationId":"20a746c4-0f91-4dce-afad-106feb647a05",
         "slug":"le-gouvernement"

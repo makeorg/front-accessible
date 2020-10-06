@@ -45,7 +45,6 @@ export const searchFirstUnvotedProposal = (proposals: ProposalType[]) =>
 
 export const searchProposals = async (
   country: string,
-  language: string,
   content?: string,
   page: number = 0,
   limit?: number = PROPOSALS_LISTING_LIMIT,
@@ -59,7 +58,6 @@ export const searchProposals = async (
 
   const result = await ProposalService.searchProposals(
     country,
-    language,
     questionId,
     tagsIds,
     seed,
@@ -75,7 +73,6 @@ export const searchProposals = async (
 
 export const searchTaggedProposals = async (
   country: string,
-  language: string,
   questionId: string,
   TagIdsArray: string[] = [],
   seed: ?number = undefined,
@@ -89,7 +86,6 @@ export const searchTaggedProposals = async (
 
   const response = await ProposalService.searchProposals(
     country,
-    language,
     questionId,
     tagsIds,
     seed,
