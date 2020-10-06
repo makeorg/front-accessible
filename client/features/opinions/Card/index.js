@@ -46,6 +46,7 @@ export const OpinionCard = ({ userId, opinion, position = 0 }: Props) => {
           id={`idea_content_${position}`}
           to={getTopIdeaDetailsLink(country, question.slug, topIdea.id)}
           onClick={scrollToTop}
+          lang={question.language}
         >
           {topIdea.name}
         </TopIdeaContentStyle>

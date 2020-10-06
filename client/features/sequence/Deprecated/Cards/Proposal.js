@@ -54,7 +54,9 @@ export const DeprecatedProposalCard = ({ configuration, index }: Props) => {
       <ScreenReaderItemStyle>
         {i18n.t('proposal_card.content')}
       </ScreenReaderItemStyle>
-      <SequenceProposalStyle>{proposal.content}</SequenceProposalStyle>
+      <SequenceProposalStyle lang={proposal.question.language}>
+        {proposal.content}
+      </SequenceProposalStyle>
       <Vote
         proposal={proposal}
         votes={userVotes}

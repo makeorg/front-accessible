@@ -56,6 +56,7 @@ export const ProfileProposalCard = ({ proposal, position, size }: Props) => {
             : undefined
         }
         as={isProposalAccepted ? undefined : 'p'}
+        lang={proposal.question.language}
       >
         {proposal.content}
       </ProposalStyle>

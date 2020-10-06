@@ -22,6 +22,8 @@ type Props = {
   withTileStyle?: boolean,
   /** Optional boolean to avoid margin */
   noMargin?: boolean,
+  /** Optonal language to handle lang attribute */
+  language?: string,
 };
 
 export const Collapse = ({
@@ -30,6 +32,7 @@ export const Collapse = ({
   open = false,
   withTileStyle = false,
   noMargin = false,
+  language,
 }: Props) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(!open);
 
@@ -52,6 +55,7 @@ export const Collapse = ({
             ? i18n.t('common.expand_collapse', { name: title })
             : i18n.t('common.shrink_collapse', { name: title })
         }
+        lang={language}
       >
         {title}
         <CollapseIconStyle aria-hidden iscollapsed={isCollapsed}>

@@ -19,7 +19,11 @@ export const ProposalFooterWithQuestionElement = ({
     <PostedInLabelStyle as="span">
       {i18n.t('proposal_card.posted_label')}
     </PostedInLabelStyle>
-    <RedLinkRouterStyle to={consultationLink} onClick={scrollToTop}>
+    <RedLinkRouterStyle
+      to={consultationLink}
+      onClick={scrollToTop}
+      lang={question.language}
+    >
       {question.wording.question}
     </RedLinkRouterStyle>
   </ProposalFooterStyle>

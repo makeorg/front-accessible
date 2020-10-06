@@ -46,10 +46,10 @@ export const SingleProposalCard = ({ proposal }: Props) => {
         <InnerProposalStyle>
           <ProposalAuthorElement proposal={proposal} />
           <SequenceCardSeparatorStyle />
-          <SequenceProposalStyle>
-            <ScreenReaderItemStyle>
-              {i18n.t('proposal_card.content')}
-            </ScreenReaderItemStyle>
+          <ScreenReaderItemStyle>
+            {i18n.t('proposal_card.content')}
+          </ScreenReaderItemStyle>
+          <SequenceProposalStyle lang={proposal.question.language}>
             {proposal.content}
           </SequenceProposalStyle>
           {isConsultationOpened ? (
@@ -71,7 +71,9 @@ export const SingleProposalCard = ({ proposal }: Props) => {
             <DescriptionStyle
               dangerouslySetInnerHTML={{
                 __html: i18n.t('proposal_page.footer_text', {
-                  operation_name: `<a href="${getConsultationLink(
+                  operation_name: `<a 
+                  lang=${proposal.question.language}
+                  href="${getConsultationLink(
                     country,
                     proposal.question.slug
                   )}">${proposal.question.wording.title}</a>`,

@@ -705,7 +705,7 @@
       "see_proposals": "Voir les propositions"
     },
     "results": {
-      "title": "Résultats de la consultation {{question}}",
+      "title": "Résultats de la consultation <span lang=\"{{lang}}\">{{question}}<span>",
       "context": "Le contexte",
       "methodology": {
         "title": "La méthodologie",

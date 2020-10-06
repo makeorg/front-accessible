@@ -65,11 +65,15 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
       <GliderStylesheet />
       {displaySidebar && <ConsultationSidebar question={question} />}
       <ConsultationPageContentStyle id="main" data-cy-container="main">
-        <HiddenItemStyle as="h2">
-          {i18n.t('consultation.results.title', {
-            question: question.wording.question,
-          })}
-        </HiddenItemStyle>
+        <HiddenItemStyle
+          as="h2"
+          dangerouslySetInnerHTML={{
+            __html: i18n.t('consultation.results.title', {
+              question: question.wording.question,
+              lang: question.language,
+            }),
+          }}
+        />
         <TileWithTitle
           title={i18n.t('consultation.results.context')}
           icon={<SvgInfos aria-hidden style={ResultsIconsStyle} />}
@@ -97,7 +101,7 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           icon={<SvgLightBulb aria-hidden style={ResultsIconsStyle} />}
           id={RESULTS_TOP_IDEAS}
         >
-          <TopIdeas topIdeas={questionResults.top_ideas} />
+          <TopIdeas topIdeas={questionResults.top_ideas} question={question} />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.cartography.title')}
@@ -114,14 +118,21 @@ export const ResultsContent = ({ questionResults, question }: Props) => {
           icon={<ResultsLightningIconStyle aria-hidden />}
           id={RESULTS_CONTROVERSIALS}
         >
-          <ProposalsResults proposals={questionResults.controversials} />
+          <ProposalsResults
+            proposals={questionResults.controversials}
+            question={question}
+          />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.proposals.rejected')}
           icon={<ResultsThumbIconStyle aria-hidden />}
           id={RESULTS_REJECTED}
         >
-          <ProposalsResults proposals={questionResults.rejected} isRejected />
+          <ProposalsResults
+            proposals={questionResults.rejected}
+            question={question}
+            isRejected
+          />
         </TileWithTitle>
         <TileWithTitle
           title={i18n.t('consultation.results.participation.title')}

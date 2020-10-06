@@ -63,7 +63,9 @@ export const ProposalCardWithQuestion = ({
           <ScreenReaderItemStyle>
             {i18n.t('proposal_card.content')}
           </ScreenReaderItemStyle>
-          <ProposalStyle to={proposalLink}>{proposal.content}</ProposalStyle>
+          <ProposalStyle to={proposalLink} lang={proposal.question.language}>
+            {proposal.content}
+          </ProposalStyle>
           {canVote ? (
             <Vote
               proposal={proposal}

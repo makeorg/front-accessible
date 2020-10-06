@@ -90,6 +90,7 @@ export const TopIdeaCard = ({
             topIdea.id
           )}
           onClick={scrollToTop}
+          lang={question.language}
         >
           {topIdea.name}
         </TopIdeaContentStyle>
@@ -105,6 +106,7 @@ export const TopIdeaCard = ({
                 topIdea.id
               )}
               onClick={scrollToTop}
+              lang={question.language}
             >
               {i18n.t('idea_card.position', {
                 count: topIdea.commentsCount,

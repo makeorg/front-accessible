@@ -22,9 +22,10 @@ type Props = {
     first_theme: ThemeItemType,
     second_theme: ThemeItemType,
   },
+  question: QuestionType,
 };
 
-export const TopIdeas = ({ topIdeas }: Props) => {
+export const TopIdeas = ({ topIdeas, question }: Props) => {
   const voteAttributes = voteStaticParams[VOTE_AGREE_KEY];
 
   return (
@@ -41,11 +42,12 @@ export const TopIdeas = ({ topIdeas }: Props) => {
           })}
           open={index === 0}
           noMargin
+          language={question.language}
         >
           <UnstyledListStyle>
             {topIdea.ideas.map(idea => (
               <ThemeListItemStyle key={idea.idea}>
-                <ThemeItemProposalStyle as="p">
+                <ThemeItemProposalStyle as="p" lang={question.language}>
                   {idea.idea}
                 </ThemeItemProposalStyle>
                 <ThemeResultsWrapperStyle>
