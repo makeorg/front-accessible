@@ -6,8 +6,18 @@ import { ApiService } from './ApiService';
 const HOMEPAGE_PATH = '/views/home-page/:country/:language';
 const SEARCH_VIEWS_PATH =
   '/views/search?content=:content&proposalLimit=:proposalLimit&questionLimit=:questionLimit&organisationLimit=:organisationLimit&country=:country';
+const COUNTRIES_PATH = '/views/countries';
 
 export class ViewsApiService {
+  static getCountries = async (
+    headers?: ApiServiceHeadersType = {}
+  ): Promise<any> => {
+    return ApiService.callApi(COUNTRIES_PATH, {
+      method: 'GET',
+      headers,
+    });
+  };
+
   static getHome = async (
     country: string,
     // @todo remove it when ready on API side
