@@ -15,6 +15,7 @@ import { FeaturedNews } from 'Client/features/homepage/Featured';
 import { Hero } from 'Client/features/homepage/Hero';
 import { HomepageSkipLinks } from 'Client/app/SkipLinks/Homepage';
 import { PartnershipBanner } from 'Client/features/homepage/Partnership';
+import { InternationalPlaceholder } from 'Client/features/homepage/International';
 import { HomepageWrapperStyle } from './style';
 
 export const HomePage = () => {
@@ -24,6 +25,11 @@ export const HomePage = () => {
     (state: StateRoot) => state.appConfig
   );
   const { homepage } = useSelector((state: StateRoot) => state.views);
+  const hasActiveQuestions =
+    homepage &&
+    homepage.currentQuestions &&
+    homepage.currentQuestions.length > 0;
+  const isFR = country === 'FR';
 
   const initHomepage = async () => {
     setIsLoading(true);
@@ -59,13 +65,19 @@ export const HomePage = () => {
           <Hero />
           <HomepageWrapperStyle>
             <HighlightsBanner highlights={homepage.highlights} />
-            <CurrentQuestions questions={homepage.currentQuestions} />
-            <FeaturedNews
-              questions={homepage.featuredQuestions}
-              posts={homepage.posts}
-            />
+            {!isFR && !hasActiveQuestions ? (
+              <InternationalPlaceholder />
+            ) : (
+              <CurrentQuestions questions={homepage.currentQuestions} />
+            )}
+            {isFR && (
+              <FeaturedNews
+                questions={homepage.featuredQuestions}
+                posts={homepage.posts}
+              />
+            )}
           </HomepageWrapperStyle>
-          <PartnershipBanner />
+          {isFR && <PartnershipBanner />}
         </>
       )}
     </>

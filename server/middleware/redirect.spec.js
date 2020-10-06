@@ -3,27 +3,27 @@ import { redirectCountryLanguageUrl, redirectToCountry } from './redirect';
 
 describe('Redirect middelware', () => {
   describe('redirectToCountry function', () => {
-    it('redirect to /soon if xForcedCountry is not France', () => {
+    it('redirect to /countryISOCode if xForcedCountry is not France', () => {
       const request = httpMocks.createRequest({
-        headers: { 'x-forced-country': 'IT', 'x-detected-country': 'FR' },
+        headers: { 'x-forced-country': 'IT' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
 
       redirectToCountry(request, response);
 
-      expect(response.redirect).toHaveBeenCalledWith('/soon');
+      expect(response.redirect).toHaveBeenCalledWith('/IT');
     });
-    it('redirect to /soon if xDetectedCountry is not France', () => {
+    it('redirect to /countryISOCode if xDetectedCountry is not France', () => {
       const request = httpMocks.createRequest({
-        headers: { 'x-forced-country': 'FR', 'x-detected-country': 'GB' },
+        headers: { 'x-detected-country': 'GB' },
       });
       const response = httpMocks.createResponse();
       jest.spyOn(response, 'redirect');
 
       redirectToCountry(request, response);
 
-      expect(response.redirect).toHaveBeenCalledWith('/soon');
+      expect(response.redirect).toHaveBeenCalledWith('/GB');
     });
 
     it('redirect to /FR if xForcedCountry is France', () => {

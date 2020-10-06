@@ -6,14 +6,6 @@ export const redirectToCountry = (req: Request, res: Response) => {
   const xDetectedCountry = req.headers['x-detected-country'];
   const xForcedCountry = req.headers['x-forced-country'];
 
-  // Remove when intternational homepage is ready
-  if (
-    (xForcedCountry && xForcedCountry !== 'FR') ||
-    (xDetectedCountry && xDetectedCountry !== 'FR')
-  ) {
-    return res.redirect('/soon');
-  }
-
   if (xForcedCountry) {
     return res.redirect(`/${xForcedCountry}`);
   }

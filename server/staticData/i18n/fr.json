@@ -873,15 +873,12 @@
     "highlights":{
       "title": "Make.org en quelques chiffres",
       "participants":{
-        "figure": "5 millions",
         "subtitle": "de participant(e)s"
       },
       "proposals":{
-        "figure":"50 000",
         "subtitle": "propositions déposées"
       },
       "partners":{
-        "figure": "300",
         "subtitle": "associations & entreprises engagées"
       }
     },
