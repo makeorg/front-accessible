@@ -67,11 +67,13 @@ export const Panel = () => {
         onClick={handleCloseAndRemove}
         className={isExpanded && 'expanded'}
         aria-label={i18n.t('common.close_panel')}
+        data-cy-button="close-panel-overlay"
       />
       <PanelCloseButtonStyle
         onClick={handleCloseAndRemove}
         className={isExpanded && 'expanded'}
         aria-label={i18n.t('common.close_panel')}
+        data-cy-button="close-panel"
       >
         <PanelCloseIconStyle aria-hidden />
       </PanelCloseButtonStyle>

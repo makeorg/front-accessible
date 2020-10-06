@@ -1,14 +1,17 @@
 
 
 const sequenceButtons = {
-  "intro card start button": 'start-sequence',
+  "intro card start": 'start-sequence',
   "next proposal": 'next-proposal',
   "back to proposals": 'back-to-proposals',
   "back to proposals arrow": "back-to-proposals-arrow",
   "push proposal next": 'push-proposal-next',
   "skip sign up": 'skip-sign-up',
-  "previous card": 'previous-card',
+  "previous card": 'progress-previous',
   "proposal submit": "proposal-submit",
+  "open propose panel": "proposal-panel",
+  "close panel": "close-panel",
+  "cancel proposal form": "proposal-form-cancel"
 }
 
 const headerButtons = {

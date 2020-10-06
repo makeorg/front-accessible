@@ -1,30 +1,12 @@
+import { getIdentifierButtonByName } from '../mapping';
+
+const deprecatedSequencePage = '/FR/consultation/:questionSlug/selection';
+const sequencePage = '/beta/FR/consultation/:questionSlug/selection';
 const voteLabel = {
   "D'accord": "agree",
   "Pas d'accord": "disagree",
   "Neutre": "neutral"
 };
-
-import { getIdentifierButtonByName } from '../mapping';
-const sequencePage = '/FR/consultation/:questionSlug/selection';
-
-const getCurrentCard = () => {
- return cy.waitUntil(() => cy.get('[data-cy-container=sequence]')
-    .then(el => {
-
-      return cy.document()
-        .then((doc) => {
-          const rectSequence = el.get(0).getBoundingClientRect();
-          const x = rectSequence.x+(rectSequence.width/2);
-          const y = rectSequence.y+(rectSequence.height/2);
-          const visibleElement = doc.elementFromPoint(x, y).closest("[data-cy-card-type]");
-
-          return visibleElement;
-        })
-      ;
-    })
-  );
-};
-
 
 given('I am/go on/to the sequence page of the question {string}', questionSlug => {
   const page = sequencePage.replace(':questionSlug', questionSlug);
@@ -40,6 +22,7 @@ given('I am/go on/to the sequence page of the question {string} with intro card 
   cy.wait('@getStartSequence', {timeout: 8000});
 });
 
+
 when ('I click on {string} of the sequence', (buttonName) => {
   const button = getIdentifierButtonByName(buttonName);
   cy.get(`[data-cy-button=${button}]`)
@@ -49,8 +32,8 @@ when ('I click on {string} of the sequence', (buttonName) => {
 
 when ('I click on {string} of the current card', buttonName => {
   const button = getIdentifierButtonByName(buttonName);
-  getCurrentCard()
-    .find(`[data-cy-button=${button}]`)
+  cy.get(`[data-cy-button=${button}]`)
+    .first()
     .then(el => el.get(0).click());
 })
 
@@ -71,8 +54,7 @@ when('I vote {string} on the first proposal of sequence', (voteType) => {
 
 when('I vote {string} on the current card', (voteType) => {
   cy.monitorApiCall('postVote');
-  getCurrentCard()
-    .find(`[data-cy-button=vote][data-cy-vote-key=${voteType}]`)
+  cy.get(`[data-cy-button=vote][data-cy-vote-key=${voteType}]`)
     .first()
     .then(el => el.get(0).click());
   cy.wait('@postVote');
@@ -80,8 +62,7 @@ when('I vote {string} on the current card', (voteType) => {
 
 when('I qualify {string} on the current card', (qualificationType) => {
   cy.monitorApiCall('postQualify');
-  getCurrentCard()
-    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+  cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .then(el => el.get(0).click());
   cy.wait('@postQualify')
@@ -90,8 +71,7 @@ when('I qualify {string} on the current card', (qualificationType) => {
 
 when('I unqualify {string} on the current card', (qualificationType) => {
   cy.monitorApiCall('postUnqualify');
-  getCurrentCard()
-    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+  cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .then(el => el.get(0).click());
   cy.wait('@postUnqualify');
@@ -100,8 +80,7 @@ when('I unqualify {string} on the current card', (qualificationType) => {
 
 when('I unvote on the current card', () => {
   cy.monitorApiCall('postUnvote');
-  getCurrentCard()
-    .find(`[data-cy-button=vote]`)
+  cy.get(`[data-cy-button=vote]`)
     .first()
     .then(el => el.get(0).click());
   cy.wait('@postUnvote');
@@ -122,7 +101,7 @@ then ('I don\'t see {string} button on card {string}', (buttonName, cardNumber) 
 when ('I go to card {string}', (cardNumber) => {
   let previewCard = 0;
   const nextWhileCardTargetNotDisplayed = () => {
-    const currentCard = getCurrentCard();
+    const currentCard = cy.get('[data-cy-card-number]');
     currentCard
       .then(card => {
         card
@@ -137,9 +116,7 @@ when ('I go to card {string}', (cardNumber) => {
       .then(el => el.get(0).click());
     
     const expectedCardNumber = (Number(previewCard)+1).toString();
-    cy.waitUntil(() => getCurrentCard().then(currentCard => 
-        currentCard.get(0).dataset.cyCardNumber === expectedCardNumber
-    ));
+    cy.waitUntil(() => cy.get(`[data-cy-card-number=${expectedCardNumber}]`).should('be.visible'));
     previewCard = expectedCardNumber;
     if (expectedCardNumber != cardNumber) {
       nextWhileCardTargetNotDisplayed();
@@ -149,9 +126,8 @@ when ('I go to card {string}', (cardNumber) => {
 });
 
 then('card {string} is visible', (cardNumber) => {
-  cy.waitUntil(() => getCurrentCard().then(currentCard => 
-    currentCard.get(0).dataset.cyCardNumber === cardNumber
-  ));
+  cy.get(`[data-cy-card-number=${cardNumber}]`)
+    .should('be.visible')
 });
 
 then('card {string} is a proposal card', (cardNumber) => {
@@ -180,39 +156,27 @@ then('card {string} is a signup card', (cardNumber) => {
 });
 
 then('progress gauge is {string} on {string}', (current, total) => {
-  getCurrentCard()
-    .find('[data-cy-container=progress]')
-    .contains(`${current}/${total}`);
-  getCurrentCard()
-    .find('[data-cy-element=progress-a11y]')
-    .should('have.attr', 'value', current)
-    .should('have.attr', 'max', total)
-    .should('have.attr', 'aria-valuenow', current)
-    .should('have.attr', 'aria-valuemax', total)
-    .contains(`Carte numéro ${current} sur ${total}`);
-});
-
-then('progress gauge is not visible', () => {
-  getCurrentCard()
-      .find('[data-cy-container=progress]')
-      .should('not.exist')
+  cy.get('[data-cy-container=progress]')
+  .contains(`${current}/${total}`)
+  cy.get('[data-cy-container=progress]')
+    .contains(`Élément ${current} sur ${total}`);
 });
 
 then('I see {string} in the current card', (text) => {
-  getCurrentCard()
+  cy.get('[data-cy-card-number]')
     .should('contain', text);
 });
 
 then ('I see signup buttons in the current card', () => {
-  getCurrentCard()
+  cy.get('[data-cy-card-number]')
     .find('[data-cy-container=signup-auth-buttons] button:nth-child(1) svg')
     .invoke('attr', 'aria-label')
     .should('contain', 'Google');
-  getCurrentCard()
+  cy.get('[data-cy-card-number]')
     .find('[data-cy-container=signup-auth-buttons] button:nth-child(2) svg')
     .invoke('attr', 'aria-label')
     .should('contain', 'Facebook');
-  getCurrentCard()
+  cy.get('[data-cy-card-number]')
     .find('[data-cy-container=signup-auth-buttons] button:nth-child(3)')
     .should('contain', 'Email');
 });
@@ -230,31 +194,26 @@ then('I see vote buttons on card {string}', (cardNumber) => {
 });
 
 then('I see vote buttons on the current card', () => {
-  getCurrentCard()
-    .find(`[data-cy-button=vote][data-cy-vote-key=agree]`)
+  cy.get(`[data-cy-button=vote][data-cy-vote-key=agree]`)
     .should('have.length', 1)
     .and('be.visible');
-  getCurrentCard()
-    .find(`[data-cy-button=vote][data-cy-vote-key=disagree]`)
+  cy.get(`[data-cy-button=vote][data-cy-vote-key=disagree]`)
     .should('have.length', 1)
     .and('be.visible');
-  getCurrentCard()
-    .find(`[data-cy-button=vote][data-cy-vote-key=neutral]`)
+  cy.get(`[data-cy-button=vote][data-cy-vote-key=neutral]`)
     .should('have.length', 1)
     .and('be.visible');
 });
 
 then ('I see {string} voted proposal on the current card', (voteType) => {
-  getCurrentCard()
-  .find(`[data-cy-button=vote][data-cy-vote-key=${voteType}] svg`)
+  cy.get(`[data-cy-button=vote][data-cy-vote-key=${voteType}] svg`)
   .should('have.length', 1)
   .and('be.visible')
   .and('have.class', 'voted')
 });
 
 then('I see {string} qualified proposal on the current card', (qualificationType) => {
-  getCurrentCard()
-  .find(`[data-cy-button=qualification][data-cy-qualification-key=likeIt]`)
+cy.get(`[data-cy-button=qualification][data-cy-qualification-key=likeIt]`)
   .should('have.length', 1)
   .and('be.visible')
   .and('have.class', 'qualified')
@@ -294,21 +253,18 @@ then('I see neutral qualifications buttons on card {string}', (cardNumber) => {
 });
 
 then('I don\'t see qualification buttons on the current card', () => {
-  getCurrentCard()
-    .find('[data-cy-qualification-key]')
+  cy.get('[data-cy-qualification-key]')
     .should('have.length', 0);
 });
 
 then('{string} qualification button is highlight on the current card', (qualificationType) => {
-  getCurrentCard()
-    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+  cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .should('have.css', 'background-color', 'rgb(80, 122, 31)');
 });
 
 then('{string} qualification button is not highlight on the current card', (qualificationType) => {
-  getCurrentCard()
-    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+  cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .should('have.not.css', 'background-color', 'rgb(80, 122, 31)');
 });
@@ -319,24 +275,7 @@ then('total votes are equal to {string}', (voteCount) => {
 });
 
 then('total {string} qualifications are equal to {string} on the current card',(qualificationType, total) => {
-  getCurrentCard()
-    .find(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
+  cy.get(`[data-cy-button=qualification][data-cy-qualification-key=${qualificationType}]`)
     .first()
     .contains(total);
-});
-
-then('I don\'t see the propose note section', () => {
-  cy.get('[data-cy-container=proposal_submit]')
-    .first()
-    .then( el => {
-      expect(el[0].offsetHeight).to.be.lessThan(60);
-    });
-});
-
-then('I see the propose note section', () => {
-  cy.get('[data-cy-container=proposal_submit]')
-    .first()
-    .then( el => {
-      expect(el[0].offsetHeight).to.be.greaterThan(100);
-    });
 });
