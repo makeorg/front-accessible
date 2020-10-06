@@ -8,7 +8,10 @@ import {
   MiddleColumnToRowStyle,
   FlexElementStyle,
 } from 'Client/ui/Elements/FlexElements';
-import { SeparatorStyle } from 'Client/ui/Elements/Separators';
+import {
+  SeparatorStyle,
+  SmallSeparatorStyle,
+} from 'Client/ui/Elements/Separators';
 import { LinkAsRedButton } from 'Client/ui/Elements/LinkElements';
 import { ParagraphStyle } from 'Client/ui/Elements/ParagraphElements';
 
@@ -82,5 +85,23 @@ export const SharingTitleStyle = styled.h2`
   @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
     font-size: 18px;
     margin: 0 20px;
+  }
+`;
+
+export const ProposalCardContentStyle = styled.blockquote`
+  max-width: 100%;
+  font-size: 12px;
+  line-height: normal;
+  font-family: ${MakeFonts.CircularStandardBold};
+  text-align: center;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    font-size: 22px;
+  }
+`;
+
+export const ProposalCardSeparatorStyle = styled(SmallSeparatorStyle)`
+  margin: 10px 0;
+  @media (min-width: ${intToPx(Breakpoints.Tablet)}) {
+    margin: 15px 0 25px;
   }
 `;

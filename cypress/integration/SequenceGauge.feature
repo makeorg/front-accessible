@@ -20,11 +20,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "3" is visible
     And card "3" is a proposal card
     And progress gauge is "3" on "16"
@@ -37,11 +37,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                      |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "4" is visible
     And card "4" is a proposal card
     And progress gauge is "4" on "16"
@@ -54,11 +54,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                      |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "5" is visible
     And card "5" is a proposal card
     And progress gauge is "5" on "16"
@@ -71,11 +71,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "6" is visible
     And card "6" is a proposal card
     And progress gauge is "6" on "16"
@@ -88,12 +88,12 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
     | source              | core                                                                |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "7" is visible
     And card "7" is a proposal card
     And progress gauge is "7" on "16"
@@ -106,12 +106,12 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
     | source              | core                                                                |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "8" is visible
     And card "8" is a push proposal card
     And progress gauge is "8" on "16"
@@ -122,12 +122,12 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
     | source              | core                                                                |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "9" is visible
     And card "9" is a proposal card
     And progress gauge is "9" on "16"
@@ -140,12 +140,12 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
     | source              | core                                                                |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "10" is visible
     And card "10" is a proposal card
     And progress gauge is "10" on "16"
@@ -158,11 +158,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "11" is visible
     And card "11" is a proposal card
     And progress gauge is "11" on "16"
@@ -175,11 +175,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "12" is visible
     And card "12" is a proposal card
     And progress gauge is "12" on "16"
@@ -192,11 +192,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "13" is visible
     And card "13" is a proposal card
     And progress gauge is "13" on "16"
@@ -210,11 +210,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "14" is visible
     And card "14" is a proposal card
     And progress gauge is "14" on "16"
@@ -227,11 +227,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "15" is visible
     And card "15" is a signup card
     And progress gauge is "15" on "16"
@@ -241,11 +241,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "16" is visible
     And card "16" is a final card
     And progress gauge is "16" on "16"
@@ -255,11 +255,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "15" is visible
     When I click on "previous card" of the current card
     Then event "click-sequence-previous-card" should be tracked by Make with parameters values:
@@ -267,11 +267,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "14" is visible
     When I click on "previous card" of the current card
     Then event "click-sequence-previous-card" should be tracked by Make with parameters values:
@@ -279,11 +279,11 @@ Feature: Gauge and card position on sequence
     | eventType           | trackCustom                                                         |
     | country             | FR                                                                  |
     | language            | fr                                                                  |
-    | location            | sequence-beta                                                       |
+    | location            | sequence                                                            |
     | questionId          | question-0-id                                                       |
     | questionSlug        | question-0-slug                                                     |
     | referrer            | http://localhost:9009/__/                                           |
-    | url                 | http://localhost:9009/beta/FR/consultation/question-0-slug/selection  |
+    | url                 | http://localhost:9009/FR/consultation/question-0-slug/selection     |
     And card "13" is visible
     And I see "agree" voted proposal on the current card
     And I see "likeIt" qualified proposal on the current card

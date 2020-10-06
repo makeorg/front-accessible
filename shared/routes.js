@@ -3,7 +3,6 @@ import { matchPath, generatePath } from 'react-router';
 export const ROUTE_COUNTRY = '/:country(\\w{2})';
 export const ROUTE_COUNTRY_LANG = '/:country(\\w{2})-:language(\\w{2})';
 export const ROUTE_COUNTRY_FR = '/FR';
-export const ROUTE_BETA_SEQUENCE = `/beta${ROUTE_COUNTRY}/consultation/:questionSlug/selection`;
 
 export const ROUTE_BROWSE_CONSULTATIONS = `${ROUTE_COUNTRY}/browse/consultations/page/:pageId`;
 export const ROUTE_BROWSE_RESULTS = `${ROUTE_COUNTRY}/browse/results/page/:pageId`;

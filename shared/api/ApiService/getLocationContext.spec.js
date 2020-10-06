@@ -46,13 +46,6 @@ describe('getLocationContext', () => {
       expectedTracking: `page-top-ideas`,
     },
     {
-      name: 'ROUTE_BETA_SEQUENCE',
-      path: '/beta/FR/consultation/foo/selection',
-      params: { questionId: 'question-id' },
-      expected: 'sequence-beta question-id',
-      expectedTracking: 'sequence-beta',
-    },
-    {
       name: 'ROUTE_SEQUENCE',
       path: '/FR/consultation/foo/selection',
       params: { questionId: 'question-id' },
